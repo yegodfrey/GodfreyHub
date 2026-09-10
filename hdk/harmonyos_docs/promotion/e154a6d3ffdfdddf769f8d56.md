@@ -1,0 +1,94 @@
+---
+name: document/cn/promotion/marketing-api-0000001174557681
+title: 概述
+uri: https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-0000001174557681
+---
+
+# 概述
+
+Marketing API是鲸鸿动能广告提供的对外开放接口，帮助您完成广告投放、报表分析、创意制作等操作，提升营销效率。同时，Marketing API提供统一的鉴权、开发、管理等服务，在功能、性能、安全、技术支持等多个方向提供良好的开发体验。  
+![](https://media:101784103147050335)  
+广告主客户端调用单个广告账户的频次：所有接口调用总数为每分钟最多600次；每天最多360,000次。
+
+认证安全：调用接口时，请对服务器的CA证书进行认证，确保服务器身份正确。
+
+Marketing API分类如下：  
+
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|-----------------------------------------------------|
+|服务|接口名称|接口路径|
+|账户 <br />|账号信息查询|/ads/v1/account/no_review/query|
+|账户 <br />|账户日消耗结算明细|/ads/v1/finance/consume/query|
+|账户 <br />|账户充值记录查询|/ads/v1/finance/recharge/query|
+|账户 <br />|账户余额查询|/ads/v1/finance/balance/query|
+|账户 <br />|账户关联列表|/ads/v1/account/profile/query|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|创建计划|/ads/v1/promotion/campaign/create|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|查询计划|/ads/v1/promotion/campaign/query|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|编辑计划|/ads/v1/promotion/campaign/update|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|创建任务|/ads/v1/promotion/adgroup/create|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|查询任务|/ads/v1/promotion/adgroup/query|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|编辑任务|/ads/v1/promotion/adgroup/update|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|批量编辑任务状态|/ads/v1/promotion/adgroup/status/update|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|创建创意|/ads/v1/promotion/creative/create|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|查询创意|/ads/v1/promotion/creative/query|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|编辑创意|/ads/v1/promotion/creative/update|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|批量编辑创意状态|/ads/v1/promotion/creative_status/update|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|创建推广产品|/ads/v1/promotion/product/create|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|查询推广产品|/ads/v1/promotion/product/query|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|编辑推广产品|/ads/v1/promotion/product/update|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|查询应用详情|/ads/v1/promotion/app_detail/query|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|查询版位|/ads/v1/tools/position/query|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|查询版位元素|/ads/v1/tools/position_detail/query|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|查询版位底价|/ads/v1/tools/position_price/query|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|查询商品组|/ads/v1/promotion/item_group/query|
+|广告投放 说明： 仅支持[展示应用广告](https://developer.huawei.com/consumer/cn/doc/promotion/displayad-0000001052424318)、[展示网页广告](https://developer.huawei.com/consumer/cn/doc/promotion/searchad-0000001052064355)、[商品广告](https://developer.huawei.com/consumer/cn/doc/promotion/sp-ad-0000001601823656)使用。|编辑商品组|/ads/v1/promotion/item_group/update|
+|商品广告-DPA|查询商品库|/ads/v1/tools/dpa/store/query|
+|商品广告-DPA|查询商品库筛选条件取值|/ads/v1/tools/dpa/store/dimensions/query|
+|商品广告-DPA|全量导入商品通知|/ads/v1/tools/dpa/product/import_notify|
+|商品广告-DPA|创建商品库|/ads/v1/tools/dpa/store/create|
+|商品广告-DPA|更新商品库|/ads/v1/tools/dpa/store/update|
+|商品广告-DPA|删除商品库|/ads/v1/tools/dpa/store/delete|
+|商品广告-DPA|查询商品库入库失败记录|/ads/v1/tools/dpa/product/failure_record/query|
+|商品广告-DPA|查询商品库动态模板|/ads/v1/tools/dpa/product/templates/query|
+|商品广告-DPA|批量添加商品|/ads/v1/tools/dpa/product/create|
+|商品广告-DPA|查询符合条件的商品数量|/ads/v1/tools/dpa/store/dimension_values/query|
+|商品广告-DPA|批量更新商品价格|/ads/v1/tools/dpa/product/update|
+|商品广告-DPA|批量下架商品|/ads/v1/tools/dpa/product/offline|
+|商品广告-DPA|查询DPA任务销售国家列表|/ads/v1/tools/dpa/store/sale_country/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|创建素材|/ads/v1/tools/creative_asset/create|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|查询素材|/ads/v1/tools/creative_asset/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|编辑素材|/ads/v1/tools/creative_asset/update|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|删除素材|/ads/v1/tools/creative_asset/delete|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|获取文件上传凭证|/ads/v1/tools/file/token/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|创建定向包|/ads/v1/tools/targeting_package/create|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|查询定向包|/ads/v1/tools/targeting_package/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|修改定向包|/ads/v1/tools/targeting_package/update|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|删除定向包|/ads/v1/tools/targeting_package/delete|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|绑定定向包|/ads/v1/tools/targeting_package/bind|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|查询定向字典|/ads/v1/tools/dictionary/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|查询定向包详情|/ads/v1/tools/targeting_package_detail/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|查询维纳斯落地页列表|/ads/v1/promotion/venus_list/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|查询转化跟踪目标|/ads/v1/tools/effect_tracking/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|新建转化跟踪目标|/ads/v1/tools/effect_tracking/create|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|编辑转化跟踪目标|/ads/v1/tools/effect_tracking/update|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|删除转化跟踪目标|/ads/v1/tools/effect_tracking/delete|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|查询分析工具提供商|/ads/v1/tools/analysis_tool_provider/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|新建分析工具关联关系|/ads/v1/tools/analysis_association/create|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|查询分析工具关联关系|/ads/v1/tools/analysis_association/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|删除分析工具关联关系|/ads/v1/tools/analysis_association/delete|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|查询关联关系分析密钥|/ads/v1/tools/analysis_association/secret_key/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|添加关键词包|/ads/v1/tools/keyword_group/create|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|编辑关键词包|/ads/v1/tools/keyword_group/update|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|查询关键词包|/ads/v1/tools/keyword_group/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|删除关键词包|/ads/v1/tools/keyword_group/delete|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|关键词包绑定计划/任务|/ads/v1/tools/keyword_group/bind|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|查询关键词|/ads/v1/promotion/keywords/query|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|关键词出价修改|/ads/v1/promotion/keywords/price/update|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|关键词状态修改|/ads/v1/promotion/keywords/status/update|
+|工具包 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|否定词绑定计划和任务|/ads/v1/promotion/keywords/bind|
+|数据报表 <br /> <br /> <br /> <br /> <br />|广告主数据|/openapi/v2/reports/advertiser/query|
+|数据报表 <br /> <br /> <br /> <br /> <br />|计划数据|/openapi/v2/reports/campaign/query|
+|数据报表 <br /> <br /> <br /> <br /> <br />|任务数据|/openapi/v2/reports/adgroup/query|
+|数据报表 <br /> <br /> <br /> <br /> <br />|创意数据|/openapi/v2/reports/creative/query|
+|数据报表 <br /> <br /> <br /> <br /> <br />|国家/地区数据|/openapi/v2/reports/country/query|
+|数据报表 <br /> <br /> <br /> <br /> <br />|查询创意关联信息|openapi/v2/promotion/creative/basic_information/query|
+

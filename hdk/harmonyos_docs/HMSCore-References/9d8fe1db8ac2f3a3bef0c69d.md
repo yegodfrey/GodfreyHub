@@ -1,0 +1,104 @@
+---
+name: document/cn/HMSCore-References/api-pay-propose-sign-apply-unsign-0000001943240262
+title: 申请解约
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-pay-propose-sign-apply-unsign-0000001943240262
+---
+
+# 申请解约
+
+#### 功能介绍
+
+此接口提供给商户解约已经签约的订单。  
+
+#### 接口原型
+
+|承载协议|HTTPS POST|
+|接口方向|开发者服务器-\> 华为支付服务器|
+|接口URL|https://petalpay-developer.cloud.huawei.com.cn/api/v2/contract/unsign|
+|数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
+|-----|-----------------------------------------------------------------------|
+
+#### 请求参数
+
+* Request Header  
+
+  |参数|是否必选|参数类型|描述|
+  |:-----------|:---|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------|
+  |Content-Type|是|String|取值为：application/json; charset=UTF-8|
+  |PayMercAuth|是|String|取值为：[PayMercAuth](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-data-model-0000001538219104#section11744172016145)的JSON串|
+
+<!-- -->
+
+* Request Body  
+
+  |参数|是否必选|类型|说明|
+  |:---------------|:---|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  |contractId|否|String|委托代扣协议ID。与mercContractCode参数必选其一。|
+  |mercContractCode|否|String|商户签约协议号。与contractId参数必选其一。|
+  |mercNo|是|String|商户号。|
+  |callbackUrl|否|String|回调通知地址，通知URL必须为外网环境可直接访问的URL，要求为https地址。具体要求参考[通知回调接口说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-notification-description-0000001538374180#section2091445712409)。最大长度为512。|
+
+<!-- -->
+
+* 请求示例
+
+  ```
+  POST /api/v2/contract/unsign HTTP/1.1
+  Content-Type: application/json;charset=UTF-8
+  PayMercAuth: {"callerId":"10132120***","traceId":"202305151442062977847","time":1684132926969,"authId":"120291744647139***","headerSign":"BpOBa8o+gJnKG+vHVI7u8gz7SWuCR/ZWHvhcY5a+l1C65Jl/4EECjXDdooYZoBXgpRlnzgVBpEKTD1gpsSCSVZ6********************b6pgnmvF9U0l+aB+3g6K6zupArc+uKcerMWabqWmFvqLiDf9pZ1gxUJXqQphUyWjNwVPg+F9y1thlxyQofs9mgp5nbPofs3nQjQLEt5n3xmB+Atrr1RLaptl6S96jUl1iCvu0ZeMGltInUI+4mbfOMvDM1HkawuMmqcKq1INRFUomVuKDV8iPqNJ+Y8b4XDpSi3FHgjozsWH+uLoTSIg=","bodySign":"lHjrX3dv44zyfu+PO1G+oa9tJi2EVUOIKSzE9VHKazmLtg6APjtxoz8OTvo+B5qP0JglSpRuXnVlp0NyZGoT2cVIMC00hQsK6m********************HcHYcNuyk9y3iJP6S/RAycme+ibB4qcg1Oj2KbyUUY0Fkj3zXm98TkuZ8dl65RQeBVksrKTgqn/XUqAzZpcQppxLE/2gXJHBuereHiEatA8QTjLPsSPKfM="}
+  Accept: application/json
+  {
+    "mercContractCode": "2024020316555432***",
+    "mercNo": "czl00120240705***"
+  }
+  ```
+
+#### 响应参数
+
+* Response Header  
+
+  |参数|是否必选|参数类型|描述|
+  |:-----------|:---|:-----|:----------------------------------|
+  |Content-Type|是|String|取值为：application/json; charset=UTF-8|
+
+<!-- -->
+
+* Response Body  
+
+  |参数|是否必选|参数类型|描述|
+  |:---------------|:---|:-----|:-----------------------|
+  |resultCode|是|String|结果码，"000000"表示成功，其他表示失败。|
+  |resultDesc|是|String|结果描述。|
+  |subCode|否|String|业务错误码。|
+  |subDesc|否|String|业务错误描述信息。|
+  |sign|是|String|签名值。用于开发者对响应报文进行防篡改验证。|
+  |mercNo|否|String|解约商户号。|
+  |mercContractCode|否|String|商户签约协议号。|
+  |planId|否|String|模板编号。|
+
+<!-- -->
+
+* 响应示例
+
+  ```
+  HTTP/1.1 200 OK
+  Content-Type: application/json; charset=UTF-8
+  {
+    "mercContractCode": "2024020316555432***",
+    "resultCode": "000000",
+    "sign": "MEUCIQCFNGKlqpBiHHyYEBocWz4cMZi3********************H26U5TNQjEn6h433eRZI9A07c9NiF91jeGRXNUtc0=",
+    "planId": "1***",
+    "resultDesc": "success",
+    "mercNo": "czl00120240705***"
+  }
+  ```
+
+#### 错误码
+
+(resultCode非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-error-code-description-0000001589053741#section1187515498410))  
+
+|resultCode|resultDesc|subCode|subDesc|
+|:---------|:---------|:----------------|:--------|
+|400000|业务处理失败|CUST_NOT_EXIST|用户不存在或已销户|
+|400000|业务处理失败|INVALID_ARGUMENTS|参数不合法|
+

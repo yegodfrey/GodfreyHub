@@ -1,0 +1,11 @@
+---
+name: document/cn/games-guides/pgd-introduction-0000002500789460
+title: 产品介绍
+uri: https://developer.huawei.com/consumer/cn/doc/games-guides/pgd-introduction-0000002500789460
+---
+
+# 产品介绍
+
+* [PGD概述](https://developer.huawei.com/consumer/cn/doc/games-guides/pgd-overview-0000002500629618)  
+* [产品优势](https://developer.huawei.com/consumer/cn/doc/games-guides/pgd-advantages-0000002532549537)  
+* [典型应用场景](https://developer.huawei.com/consumer/cn/doc/games-guides/pgd-scenarios-0000002532469507)  

@@ -1,0 +1,33 @@
+---
+name: document/cn/connectivity-References/in-app-calling-hwcallabilitycallback-0000001051008667
+title: HwCallAbilityCallBack
+uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/in-app-calling-hwcallabilitycallback-0000001051008667
+---
+
+# HwCallAbilityCallBack
+
+|Interface Info|
+|:-----------------------------------------------------------------------------------------|
+|public interface HwCallAbilityCallBack 音视频通话能力查询回调接口，由开发者实现并传入，作用是返回支持的音视频通话能力，以便开发者进一步操作。|
+
+#### Public Method Summary
+
+|Qualifier and Type|Method Name and Description|
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------|
+|void|[callAbilityResult](#ZH-CN_TOPIC_0000001051063785__section2139102625219)(String phoneNumberSha256, int retCode) 接收音视频通话能力查询结果。|
+
+#### Public Methods
+
+#### callAbilityResult
+
+|Method|
+|:----------------------------------------------------------------------------------|
+|public void callAbilityResult(String phoneNumberSha256, int retCode) 接收音视频通话能力查询结果。|
+
+Parameters  
+
+|Name|Description|
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|String phoneNumberSha256|查询结果的电话号码对应的SHA256字段。|
+|int retCode|返回值。 * 0：当前号码支持畅连音频和视频通话。 * 1：当前号码只支持畅连音频通话，不支持视频通话。 * 3000：网络错误，查询失败。 * 3001：当前应用不在前台。 * 3002：该号码对应的查询能力（畅连通话/号码隐藏）不支持。 * 3003：查询接口入参错误。 * 3004：畅连通话未开启。|
+

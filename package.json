@@ -1,0 +1,44 @@
+{
+  "name": "godfreyhub-mcp",
+  "version": "0.4.0",
+  "description": "Self-contained HarmonyOS super MCP server: multi-project git sync (pull/push), emulator lifecycle + window naming, same-name-instance build & deploy, native ArkTS/C++ static checks (headless DevEco language servers), LSP navigation, device UI automation, HiLog capture, offline docs FTS5 search, vision-model UI verification and deep-linkage tools (UI->source, crash stack->source, merged repair list). Zero child MCP proxies.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "godfreyhub-mcp": "dist/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@node-rs/jieba": "^2.0.2",
+    "better-sqlite3": "^13.0.3",
+    "json5": "^2.2.3",
+    "pngjs": "^7.0.0",
+    "proper-lockfile": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^20.14.0",
+    "@types/pngjs": "^6.0.5",
+    "@types/proper-lockfile": "^4.1.4",
+    "typescript": "^5.5.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "setup": "node scripts/setup.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "hdk:index": "python hdk/hdk.py index",
+    "hdk:reindex": "python hdk/hdk.py index --full",
+    "hdk:crawl": "python hdk/hdk.py incremental",
+    "hdk:crawl:cj": "python hdk/hdk.py incremental-cj",
+    "hdk:stats": "python hdk/hdk.py stats"
+  },
+  "allowScripts": {
+    "better-sqlite3@13.0.3": true
+  }
+}

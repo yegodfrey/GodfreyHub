@@ -1,0 +1,11 @@
+---
+name: document/cn/promotion/manager-faq-0000001172322851
+title: FAQ
+uri: https://developer.huawei.com/consumer/cn/doc/promotion/manager-faq-0000001172322851
+---
+
+# FAQ
+
+Q1:一个在开发者联盟已完成[实名认证](https://developer.huawei.com/consumer/cn/doc/start/itrna-0000001076878172)，但未在鲸鸿动能广告平台注册账号，是否可以用来注册经理账户？
+
+A：可以，仅接受企业开发者。  

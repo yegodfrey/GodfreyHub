@@ -1,0 +1,54 @@
+# ===== 可重建的检索索引（约 857MB，且可经 `hdk.py index` 重建，不入库）=====
+.mcp_cache/
+*.fts5.db
+*.fts5.db-wal
+*.fts5.db-shm
+
+# ===== Python 缓存 =====
+__pycache__/
+*.pyc
+*.pyo
+
+# ===== 本地虚拟环境（不入库，经 requirements.txt 重建）=====
+.venv/
+
+# ===== 运行锁 / 日志 =====
+*.lock
+*.log
+
+# ===== 编辑器 / OS 杂项 =====
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ===== 内部记忆 / 工具数据（非项目产物）=====
+.workbuddy/
+
+# ===== Workspace（临时工作区，仅 README 与桶占位入库）=====
+Workspace/*
+!Workspace/README.md
+!Workspace/ui-dumps/
+!Workspace/ui-dumps/.gitkeep
+!Workspace/test-runs/
+!Workspace/test-runs/.gitkeep
+!Workspace/tmp/
+!Workspace/tmp/.gitkeep
+!Workspace/releases/
+!Workspace/releases/.gitkeep
+!Workspace/diagnostics/
+!Workspace/diagnostics/.gitkeep
+!Workspace/fixtures/
+!Workspace/fixtures/.gitkeep
+Workspace/ui-dumps/*
+Workspace/test-runs/*
+Workspace/tmp/*
+Workspace/releases/*
+Workspace/diagnostics/*
+Workspace/fixtures/*
+!Workspace/ui-dumps/.gitkeep
+!Workspace/test-runs/.gitkeep
+!Workspace/tmp/.gitkeep
+!Workspace/releases/.gitkeep
+!Workspace/diagnostics/.gitkeep
+!Workspace/fixtures/.gitkeep

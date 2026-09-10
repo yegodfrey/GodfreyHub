@@ -1,0 +1,29 @@
+---
+name: document/cn/HMSCore-Guides/isv-merc-manage-introduction-0000001642686309
+title: 业务简介
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/isv-merc-manage-introduction-0000001642686309
+---
+
+# 业务简介
+
+华为支付系统为服务商提供管理特约商户的API接口，便于服务商系统与华为支付做系统级的对接管理，如：商户入网、商户冻结及解冻等。
+
+注：服务商，可登录[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)，在页面上进行特约商户等操作。如需使用该套API接口与华为支付进行商户管理的交互，请提前联系华为支付侧人员进行沟通确认。  
+
+#### 商户进件状态流转
+
+![](https://media:201774590620939293 "点击放大")
+
+商户进件状态流程如上图所示，具体状态说明如下：  
+
+|进件状态|状态枚举|说明|
+|:------|:--------------------------------------|:------------------------------------|
+|待提交入网材料|APPLY_STATUS_TO_BE_SUBMIT|商户创建入网邀请链接后，返回入网邀请链接，等待提交入网材料。|
+|审核中|APPLY_STATUS_AUDITING|商户提交子商户进件材料成功后，等待资料审核，审核通过则进入激活管理员流程。|
+|待激活|APPLY_STATUS_OPERATOR_TO_BE_ACTIVIED|等待商户完成管理员激活操作。|
+|待认证|APPLY_STATUS_BANK_ACCOUNT_TO_BE_CERTIED|等待商户完成小额认证打开操作。|
+|待签署|APPLY_STATUS_AGREEMENT_TO_BE_SIGNED|等待商户完成相关协议签署状态。|
+|开户中|APPLY_STATUS_TO_BE_SIGNED|等待花瓣支付为商户完成开户。|
+|入网驳回|APPLY_STATUS_REJECTED|商户提交进件资料成功后，资料审核不通过被驳回或最终入网开户失败。|
+|入网完成|APPLY_STATUS_FINISHED|商户进件成功。|
+

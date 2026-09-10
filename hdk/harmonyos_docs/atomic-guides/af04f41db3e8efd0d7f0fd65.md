@@ -1,0 +1,31 @@
+---
+name: document/cn/atomic-guides/instant-service-formkit-create
+title: 创建服务卡片（FormKit）
+uri: https://developer.huawei.com/consumer/cn/doc/atomic-guides/instant-service-formkit-create
+---
+
+# 创建服务卡片（FormKit）
+
+1. 在服务直达主界面，选择"服务卡片（FormKit）"页签，点击"新建"。
+
+   ![](https://media:801788423677326223 "点击放大")
+
+<!-- -->
+
+2. 在"新增子服务"页录入服务卡片（FormKit）的相关信息，如图所示。 ![](https://media:801788423677389224 "点击放大")
+
+   ![](https://media:801788423677429225 "点击放大")  
+   ![](https://media:801788423677585226)  
+   * FormKit卡的主标题（title）在整个元服务内必须唯一。
+3. 录入信息后点击"保存"，服务卡片的状态将变为草稿，可再次编辑；点击"提交"，服务卡片的状态将变为待审核。 ![](https://media:801788423677666227 "点击放大")
+
+   ![](https://media:801788423677744228 "点击放大")
+   * FormKit卡状态说明：  
+
+     |FormKit卡状态|说明|
+     |:---------|:---------------------------------------------|
+     |草稿|开发者点击"保存"或"保存草稿"后，FormKit卡状态变更为"草稿"。|
+     |审核驳回|开发者提交FormKit卡信息后，若平台审核不通过，FormKit卡状态变更为"审核驳回"。|
+     |待审核|开发者提交FormKit卡信息后，若平台尚未完成审核，FormKit卡状态变更为"待审核"。|
+     |已上架|开发者提交FormKit卡信息后，若平台通过审核，FormKit卡状态变更为"已上架"。|
+

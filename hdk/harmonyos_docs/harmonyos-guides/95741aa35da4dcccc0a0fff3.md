@@ -1,0 +1,14 @@
+---
+name: document/cn/harmonyos-guides/store-iap
+title: 数字商品服务
+uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-iap
+---
+
+# 数字商品服务
+
+* [概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-iap-introduction)  
+* [接入流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-iap-preparations)  
+* [启用数字商品服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-iap-enabling)  
+* [配置数字商品](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-iap-config-product)  
+* [应用内分发数字商品](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-iap-distribute)  
+* [测试数字商品服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-iap-sandbox)  

@@ -1,0 +1,23 @@
+---
+name: cangjie-guides/cj-insight-introduction-concept
+title: 整体界面布局及概念
+uri: https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-insight-introduction-concept
+nodePath: 优化应用性能 / 调优工具简介 / 整体界面布局及概念
+---
+
+# 整体界面布局及概念
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/nbu7X28hRfeazOu_lZO-3A/zh-cn_image_0000002731538953.png?HW-CC-KV=V1&HW-CC-Date=20260903T111623Z&HW-CC-Expire=86400&HW-CC-Sign=CFCC43E90404B4F986CC36FB6B04B30EFA62D78DAFD266741627477119A24DF7)
+
+Profiler工具的界面分为两大区域：**①[会话区](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-insight-introduction-session)**、**②[数据区](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-insight-introduction-data)**。
+
+  * 会话区：负责调优会话的管理。会话区提供了性能实时监控工具Realtime Monitor来帮助开发者首先明确问题场景，完成问题的发现和初步定界。开发者可以在会话区选择待调优的设备、应用及当前应用进程，当前已创建的调优分析任务将在下方以列表的形式展示。
+
+一个会话是一个独立完整的性能数据单位，由开发者通过一次录制获取。同一个会话中的各种数据经过工具的处理可以互相关联；而不同会话间的数据，由于来自不同时间段的录制，不会具备关联关系。实时监控本质上也是一种会话，是由实时监控这个场景模板创造而成的。录制会话时需要注意，确保场景复现完整后再结束该次会话的录制。
+
+同时，会话区也提供CPU等一系列场景化分析任务类型，帮助开发者有针对性地采集并展示更多更详细的数据，这些数据将会还原对应场景下的应用运行状况。
+
+  * 数据区：负责性能数据的可视化呈现。该区域包含工具控制栏、时间轴、泳道区域、详情区域，通过不同泳道展示，直观展示调优详情。
+
+
+

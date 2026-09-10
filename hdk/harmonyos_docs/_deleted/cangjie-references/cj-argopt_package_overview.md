@@ -1,0 +1,77 @@
+---
+name: cangjie-references/cj-argopt_package_overview
+title: std.argopt
+uri: https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_overview
+nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.argopt
+---
+
+# std.argopt
+
+#### 功能介绍
+
+argopt 包提供从命令行参数字符串解析出参数名和参数值的相关能力。
+
+命令行参数是在命令行中传递给程序的参数，它们用于指定程序的配置或行为。例如，一个命令行程序可能有一个参数来指定它要处理的文件的名称，或者一个参数来指定使用的数据库。这些参数通常会被解析并传递给程序的代码，以便程序可以根据这些参数正确地执行其功能。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/cmt6J0lyRiiWsNQwUQZpYA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260903T111655Z&HW-CC-Expire=86400&HW-CC-Sign=7565675DB7CFFF53B195080CD0EA2F0A2397946328277C6C22B7B7F1374E6929)
+
+命令行参数：通常以是否有 - 前缀分为选项和非选项。
+
+  * 选项：以 - 为前缀。
+    * 短选项：以单个 - 为前缀且仅含单个字符的选项。
+    * 长选项：以 -- 为前缀的选项，一般包含多个字符。
+    * 短前缀长选项：以单个 - 为前缀但包含多个字符的选项。
+    * 短选项组合：以 - 为前缀，将多个短选项以任意顺序组合的选项。
+  * 非选项：不以 - 为前缀。
+
+
+
+单独的 "--" 后面出现的所有参数也会被视作非选项，如 "-f -- a -b --cde"中，"a"、 "-b"、 "--cde" 都是非选项。
+
+#### API 列表
+
+#### [h2]函数
+
+函数名 | 功能  
+---|---  
+[parseArguments](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_function#func-parseargumentsarraystring-arrayargumentspec) | 根据给定的输入和规格，解析出对应的参数。  
+  
+#### [h2]类
+
+类名 | 功能  
+---|---  
+[ArgOpt (deprecated)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_classes#class-argopt-deprecated) | ArgOpt 用于解析命令行参数，并提供了获取解析结果的功能。  
+  
+#### [h2]枚举
+
+枚举名 | 功能  
+---|---  
+[ArgumentMode](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_enums#enum-argumentmode) | 参数模式。  
+[ArgumentSpec](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_enums#enum-argumentspec) | 参数规格。  
+  
+#### [h2]结构体
+
+结构体名 | 功能  
+---|---  
+[ParsedArguments](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_struct#struct-parsedarguments) | 参数解析结果。  
+  
+#### [h2]异常类
+
+异常类名 | 功能  
+---|---  
+[ArgumentParseException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_exception#class-argumentparseexception) | 解析出错时抛出此异常。  
+  
+  * **[函数](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_function)**  
+
+  * **[类](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_classes)**  
+
+  * **[枚举](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_enums)**  
+
+  * **[结构体](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_struct)**  
+
+  * **[异常类](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt_package_exception)**  
+
+  * **[示例教程](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-argopt-samples)**  
+
+
+

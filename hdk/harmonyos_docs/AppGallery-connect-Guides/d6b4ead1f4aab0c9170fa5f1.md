@@ -1,0 +1,44 @@
+---
+name: document/cn/AppGallery-connect-Guides/clouddb-trigger-call-func-0000001563580997
+title: 云数据库调用函数
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/clouddb-trigger-call-func-0000001563580997
+---
+
+# 云数据库调用函数
+
+#### 前提条件
+
+函数已[创建云数据库触发器](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/serverless-create-and-config-func-0000001713008121#section16171518142918)。  
+
+#### 调用示例
+
+调用函数时，入口方法的入参event对象中包含了云数据库触发器传递的信息，具体event对象的字段要求请参见[event对象说明](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudfunction-trigger-event-0000001620581529#section207831182811)。  
+示例：
+
+```
+"Node.js"
+module.exports.myHandler = async function(event, context, callback, logger) {
+
+    if (event.body) { 
+        var _body = JSON.parse(event.body); 
+    } 
+```
+
+```
+"Java"
+public TriggerResponse handleRequest(JSONObject request, Context context) { ... }
+```
+
+```
+"Python"
+def myHandler(event: dict, context: Context):
+
+    context.logger.log(LogLevel.INFO, "Test info log")
+	
+	try:
+    startTime = int(time.time())
+
+    # print input parameters and environment variables
+    context.logger.log(LogLevel.INFO, "request： " + json.dumps(event))
+```
+

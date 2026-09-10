@@ -1,0 +1,110 @@
+---
+name: document/cn/AppGallery-connect-Guides/integrate-sdk-web-0000001353295997
+title: 集成SDK
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/integrate-sdk-web-0000001353295997
+---
+
+# 集成SDK
+
+#### 集成AGC JavaScript SDK
+
+1. 如果您还没有package.json文件，可在JavaScript项目的根目录中运行以下命令进行创建。
+
+   ```
+   npm init
+   ```
+
+   请按实际情况填写项目的配置信息。
+2. 执行以下命令，安装AGC JavaScript SDK到您的项目中，并将依赖添加到您项目中的package.json文件中。
+
+   ```
+   npm install --save @hw-agconnect/function@1.5.1
+   ```
+
+3. 在您的项目中导入AGC组件。
+
+   ```
+   import agconnect from "@hw-agconnect/api";
+   import "@hw-agconnect/function";
+   import "@hw-agconnect/instance";
+   ```
+
+4. 在您的应用初始化阶段调用AGC的初始化方法。  
+   应用配置信息请参见[获取SDK配置信息](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/web-obtain-files-0000001512897966)。
+
+   ```
+   var agConnectConfig = {
+       //应用配置信息
+   };
+   //初始化agc
+   agconnect.instance().configInstance(agConnectConfig);
+   ```
+
+#### （可选）将密钥信息传递给AGC
+
+#### 通过配置文件参数传递密钥
+
+AGC SDK提供了接口对参数进行配置，如果您在下载配置文件时选择了"不包含密钥"，则配置信息中将不包含client_id、client_secret和api_key参数。您可以参考如下方式，在应用启动调用agc的初始化方法完成后将参数设置给AGC SDK。
+
+```
+agconnect.instance().setApiKey("xxx")
+agconnect.instance().setClientSecret("xxx")
+agconnect.instance().setClientId("xxx")
+```
+
+#### 通过Token传递密钥
+
+如果您认为client_id和client_secret放在json文件里不安全，我们建议您将client_id和client_secret放在自己的服务端。先调用https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token接口去换取Token，然后在初始化AGC SDK时通过[setCustomCredentialsProvider](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-web-agcinstance-0000001159665969#section1269002312125)将Token传给AGC去使用。
+
+Token接口请求示例：
+
+```
+POST /agc/apigw/oauth2/v1/token
+Host: connect-drcn.dbankcloud.cn
+Content-Type: application/json
+{
+   "grant_type":"client_credentials",
+   "client_id":"agc应用页面提供的client_id",
+   "client_secret":"agc应用页面提供的client_secret",
+   "useJwt":1,
+}
+```
+
+Token接口响应示例：
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+{
+    "access_token": "eyJhbGciOiJIUzU****************",
+    "expires_in": 0
+}
+```
+
+setCustomCredentialsProvider接口调用示例：
+
+```
+//初始化agc sdk
+agconnect.instance().configInstance(agConnectConfig);
+
+// 定义一个class，用于向agc提供token信息
+class ClientTokenProvider {
+  // 定义getToken方法，支持bool类型入参forceRefresh，用于token过期时刷新
+  getToken(forceRefresh) {
+    if (forceRefresh) {
+      // 重新调用/agc/apigw/oauth2/v1/token接口
+      return {
+        expiration: new_expires_in, // token的有效期
+        tokenString: new_access_token // 新的access_token
+      }
+    }
+    return {
+      expiration: expires_in,
+      tokenString: access_token
+    }
+  }
+
+  agconnect.instance().setCustomCredentialsProvider(new ClientTokenProvider()); //传入Provider对象
+}
+```
+

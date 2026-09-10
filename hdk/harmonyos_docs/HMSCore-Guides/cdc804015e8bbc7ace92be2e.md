@@ -1,0 +1,38 @@
+---
+name: document/cn/HMSCore-Guides/yoga-0000001269258053
+title: 瑜伽
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/yoga-0000001269258053
+---
+
+# 瑜伽
+
+瑜伽相关运动记录类型如下：  
+
+|活动类型常量|描述|数据来源|
+|:----------------------|:-|:----|
+|HiHealthActivities.YOGA|瑜伽|手表、手环|
+
+#### 专业运动特征统计数据
+
+暂无  
+
+#### 关联的采样统计数据类型说明
+
+作为ActivityRecord概要数据的一部分，统一使用运动记录权限，无需每种关联的采样统计数据类型使用单独OAuth权限。  
+
+|采样统计数据类型|描述|可选/必选|备注|
+|:---------------------------------------------------|:-----|:----|:-----------------|
+|com.huawei.continuous.calories.burnt.total|卡路里统计|M|-|
+|com.huawei.continuous.exercise_heart_rate.statistics|运动心率统计|O|用户佩戴华为手表/手环时会包含该数据|
+
+#### 关联的原子采样数据说明
+
+关联的原子采样数据权限请参考[OAuth权限说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/activity-type-constants-0000001135051290#section27171294263)。  
+
+|原子采样数据类型|描述|可选/必选|备注|
+|:-------------------------------------------|:-----|:----|:-----------------|
+|com.huawei.instantaneous.exercise_heart_rate|运动心率详情|O|用户佩戴华为手表/手环时会包含该数据|
+
+#### 场景示例
+
+暂无  

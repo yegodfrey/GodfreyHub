@@ -1,0 +1,90 @@
+---
+name: document/cn/huaweihealth-Guides/query-quick-replies-0000002384728992
+title: 查询短信快捷回复信息
+uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/query-quick-replies-0000002384728992
+---
+
+# 查询短信快捷回复信息
+
+穿戴设备支持短信快捷回复功能，行业App可以通过本接口查询穿戴设备上配置的短信快捷回复信息。
+
+1. 调用[IndustryWear](https://developer.huawei.com/consumer/cn/doc/health-References/industrywear-0000001434945524)中的[getDeviceManageClient](https://developer.huawei.com/consumer/cn/doc/health-References/industrywear-0000001434945524#ZH-CN_TOPIC_0000002678163945__getDeviceManageClient-android_content_Context-)方法，获取[DeviceManageClient](https://developer.huawei.com/consumer/cn/doc/health-References/devicemanageclient-0000001485104693)对象。
+2. 参见[获取设备列表](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/get-device-list-0000002372216449)章节，获取已配对的穿戴设备列表，并从设备列表中选定需要操作的设备，获取设备Id。
+3. 构造用于查询短信快捷回复的JSON格式参数。
+
+   <br />
+
+   ```
+   {
+     "item": "quickReplies"
+   }
+   ```
+
+   <br />
+
+4. 调用[query](https://developer.huawei.com/consumer/cn/doc/health-References/devicemanageclient-0000001485104693#ZH-CN_TOPIC_0000002648084250__query-java_lang_String-java_lang_String-com_huawei_health_industry_client_callback_ServiceCallback-)方法查询短信快捷回复信息。
+
+   <br />
+
+   ```
+   // 获取DeviceManageClient对象
+   DeviceManageClient manageClient = IndustryWear.getDeviceManageClient(this);
+
+   // 参考获取设备列表获取设备列表后选择需要操作的设备，获取设备Id
+   String deviceId = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
+   // 构造用于查询短信快捷回复信息的JSON格式的入参数据
+   JSONObject jsonObject = new JSONObject();
+   try {
+       jsonObject.put("item", "quickReplies");
+   } catch (JSONException e) {
+       e.printStackTrace();
+   }
+
+   // 调用query方法查询短信快捷回复信息
+   manageClient.query(deviceId, jsonObject.toString(), new ServiceCallback() {
+       @Override
+       public void onResult(int statusCode, String result) {
+           // 处理查询结果
+       }
+   });
+   ```
+
+   |返回值|取值|含义|
+   |:---------|:----------|:---------------------------------------------------------------------------------------------------------------------|
+   |statusCode|0、1、2、3、6、7|接口调用结果返回码，参见[返回码](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/errorcode-0000002372870401)中的通用返回码。|
+   |result|-|接口调用成功时返回短信快捷回复信息，失败时返回错误信息。|
+   [表1 ServiceCallback返回值]
+
+   <br />
+
+5. 接口调用后返回的信息在ServiceCallback的onResult方法中处理，查询成功时返回result数据中包含短信快捷回复信息。
+
+   <br />
+
+   ```
+   result样例
+   {
+     "quickReplies": [
+       {
+         "index": 0,
+         "reply": "yes"
+       },
+       ...
+       {
+         "index": 5,
+         "reply": "ok"
+       }
+     ]
+   }
+   ```
+
+   |返回值|取值|含义|
+   |:-----------|:--|:--------|
+   |quickReplies|-|短信快捷回复键值。|
+   |index|整数|回复的消息索引。|
+   |reply|字符串|回复的消息内容。|
+   [表2 result返回值]
+
+   <br />
+

@@ -1,0 +1,276 @@
+---
+name: cangjie-references/cj-universal-attribute-componentid
+title: 组件标识
+uri: https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-componentid
+nodePath: 应用框架 / ArkUI（方舟UI框架） / 仓颉组件 / 通用属性 / 组件标识
+---
+
+# 组件标识
+
+id为组件的唯一标识，在整个应用内唯一。本模块提供组件标识相关接口，可以获取指定id组件的属性，也提供向指定id组件发送事件的功能。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/mi9s1kvSRBOu03UQY1uYkQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260903T111635Z&HW-CC-Expire=86400&HW-CC-Sign=B2BB9C95725818A33997E6959ECF2FC7DD42FEB9465672DB93B3B797E9D0A9B4)
+
+若同一个组件设置了多个id或者key，最后设置的生效。
+
+#### 导入模块
+    
+    
+    import kit.ArkUI.*
+
+#### func id(?String)
+    
+    
+    func id(value: ?String): T
+
+**功能：** 组件的唯一标识，唯一性由使用者保证。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 22
+
+**参数：**
+
+参数名 | 类型 | 必填 | 默认值 | 说明  
+---|---|---|---|---  
+value | ?String | 是 | - | 组件的唯一标识，唯一性由使用者保证。  初始值：""。  
+  
+**返回值：**
+
+类型 | 说明  
+---|---  
+T | 返回调用此接口的组件实例本身。  
+  
+#### func key(?String)
+    
+    
+    func key(value: ?String): T
+
+**功能：** 组件的唯一标识，唯一性由使用者保证。
+
+此接口仅用于对应用的测试。与id同时使用时，后赋值的属性会覆盖先赋值的属性，建议仅设置id。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 22
+
+**参数：**
+
+参数名 | 类型 | 必填 | 默认值 | 说明  
+---|---|---|---|---  
+value | ?String | 是 | - | 组件的唯一标识，唯一性由使用者保证。  初始值：""。  
+  
+**返回值：**
+
+类型 | 说明  
+---|---  
+T | 返回调用此接口的组件实例本身。  
+  
+#### 基于组件标识的拓展能力
+
+#### [h2]func getInspectorByKey(String)
+    
+    
+    public func getInspectorByKey(id: String): String
+
+**功能：** 获取指定id的组件的所有属性，不包括子组件信息。此接口仅用于对应用的测试。由于耗时长，不建议使用。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/S7njt9XqTyCAglVZ54Rhjg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260903T111635Z&HW-CC-Expire=86400&HW-CC-Sign=F980BB59D1AD001695CBC8C279140C7E81022DF64BDFD77FAB618E32AE2B8B59)
+
+该接口必须在主线程（UI线程）中调用，以确保获取完整正确的属性信息。由于接口返回的是JSON格式的字符串，需要通过JSON解析才能获取对应的属性值，而在子线程中调用时，部分组件的属性在JSON中缺失或者错误，会导致无法获取正确的属性。
+
+受影响的组件及属性：
+
+  * Select组件的space、arrowPosition、value、fontColor、font属性。
+  * Tabs组件的barHeight属性。
+
+
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 22
+
+**参数：**
+
+名称 | 类型 | 必填 | 默认值 | 说明  
+---|---|---|---|---  
+id | String | 是 | - | 要获取属性的组件id。  
+  
+**返回值：**
+
+类型 | 说明  
+---|---  
+String | 组件属性列表的JSON字符串。 **说明：** 字符串信息包含组件的tag、id、位置信息(相对于窗口左上角的坐标)以及用于测试检查的组件所包含的相关属性信息。  
+  
+#### [h2]func getInspectorTree()
+    
+    
+    public func getInspectorTree(): String
+
+**功能：** 获取组件树及组件属性。此接口仅用于对应用的测试。由于耗时长，不建议使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 22
+
+**返回值：**
+
+类型 | 说明  
+---|---  
+String | 组件树及组件属性列表的JSON对象。  
+  
+#### [h2]func sendEventByKey(String, IntNative, String)
+    
+    
+    public func sendEventByKey(id: String, action: IntNative, params: String): Bool
+
+**功能：** 给指定id的组件发送事件。此接口仅用于对应用的测试。由于耗时长，不建议使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 22
+
+**参数：**
+
+名称 | 类型 | 必填 | 默认值 | 说明  
+---|---|---|---|---  
+id | String | 是 | - | 要触发事件的组件的id。  
+action | IntNative | 是 | - | 要触发的事件类型，目前支持取值： \- 点击事件Click: 10。 \- 长按事件LongClick: 11。  
+params | String | 是 | - | 事件参数，无参数传空字符串 ""。  
+  
+**返回值：**
+
+类型 | 说明  
+---|---  
+Bool | 找不到指定id的组件时返回false，其余情况返回true。  
+  
+#### [h2]func sendTouchEvent(TouchObject)
+    
+    
+    public func sendTouchEvent(event: TouchObject): Bool
+
+**功能：** 发送触摸事件。此接口仅用于对应用的测试。由于耗时长，不建议使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 22
+
+**参数：**
+
+名称 | 类型 | 必填 | 默认值 | 说明  
+---|---|---|---|---  
+event | [TouchObject](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#class-touchobject) | 是 | - | 触发触摸事件的位置，event参数见[TouchEvent](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#class-touchevent)中TouchObject的介绍。  
+  
+**返回值：**
+
+类型 | 说明  
+---|---  
+Bool | 事件发送失败时返回false，其余情况返回true。  
+  
+#### [h2]func sendKeyEvent(KeyEvent)
+    
+    
+    public func sendKeyEvent(event: KeyEvent): Bool
+
+**功能：** 发送按键事件。此接口仅用于对应用的测试。由于耗时长，不建议使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 22
+
+**参数：**
+
+名称 | 类型 | 必填 | 默认值 | 说明  
+---|---|---|---|---  
+event | [KeyEvent](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#class-keyevent) | 是 | - | 按键事件，event参数见[KeyEvent](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#class-keyevent)介绍。  
+  
+**返回值：**
+
+类型 | 说明  
+---|---  
+Bool | 事件发送失败时返回false，其余情况返回true。  
+  
+#### [h2]func sendMouseEvent(MouseEvent)
+    
+    
+    public func sendMouseEvent(event: MouseEvent): Bool
+
+**功能：** 发送鼠标事件。此接口仅用于对应用的测试。由于耗时长，不建议使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 22
+
+**参数：**
+
+名称 | 类型 | 必填 | 默认值 | 说明  
+---|---|---|---|---  
+event | [MouseEvent](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#class-mouseevent) | 是 | - | 鼠标事件，event参数见[MouseEvent](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#class-mouseevent)介绍。  
+  
+**返回值：**
+
+类型 | 说明  
+---|---  
+Bool | 事件发送失败时返回false，其余情况返回true。  
+  
+#### 示例代码
+
+该示例演示如何正确调用getInspectorByKey接口获取Select组件的属性信息。
+    
+    
+    package ohos_app_cangjie_entry
+    
+    import kit.ArkUI.*
+    import ohos.arkui.state_macro_manage.*
+    import ohos.hilog.*
+    
+    @Entry
+    @Component
+    class EntryView {
+        @State
+        var selectedIndex: Int32 = 0
+        @State
+        var selectOptions: Array<SelectOption> = [
+            SelectOption(value: "选项1"),
+            SelectOption(value: "选项2"),
+            SelectOption(value: "选项3")
+        ]
+    
+        func build() {
+            Column(space: 20) {
+                Select(this.selectOptions)
+                    .id("mySelect")
+                    .selected(this.selectedIndex)
+                    .value("请选择")
+                    .fontColor(0xFF000000)
+                    .space(8.vp)
+                    .onSelect({
+                        index: Int32, value: String => this.selectedIndex = index
+                    })
+    
+                Button("在主线程中获取组件属性").onClick(
+                    {
+                        evt =>
+                            // 在主线程中调用getInspectorByKey，可以获取完整的属性信息
+                            let inspectorInfo = getInspectorByKey("mySelect")
+                            Hilog.info(0x0000, "Inspector", "Select组件属性: ${inspectorInfo}")
+                    }
+                )
+    
+                Button("在子线程中获取组件属性").onClick({
+                    evt =>
+                    // 在子线程中执行
+                    spawn {
+                        // 使用launch将getInspectorByKey调用转发到主线程
+                        launch {
+                            // 在主线程中调用，可以获取完整的属性信息
+                            let inspectorInfo = getInspectorByKey("mySelect")
+                            Hilog.info(0x0000, "Inspector", "Select组件属性: ${inspectorInfo}")
+                        }
+                    }
+                })
+            }
+                .width(100.percent)
+                .padding(20)
+        }
+    }

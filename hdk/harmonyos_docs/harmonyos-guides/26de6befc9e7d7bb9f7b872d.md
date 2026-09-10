@@ -1,0 +1,12 @@
+---
+name: document/cn/harmonyos-guides/hardware-compatibility
+title: 硬件兼容性
+uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hardware-compatibility
+---
+
+# 硬件兼容性
+
+* [硬件兼容性简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hw-guide)  
+* [HarmonyOS ABI](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ohos-abi)  
+* [CPU特性](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cpu-features)  
+* [使用Neon指令扩展](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/neon-guide)  

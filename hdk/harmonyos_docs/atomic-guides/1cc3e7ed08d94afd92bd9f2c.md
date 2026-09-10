@@ -1,0 +1,9 @@
+---
+name: document/cn/atomic-guides/atomic-data-persistence-by-preferences
+title: 通过用户首选项实现数据持久化
+uri: https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-data-persistence-by-preferences
+---
+
+# 通过用户首选项实现数据持久化
+
+元服务用户首选项的开发方式与传统应用用户首选项的开发方式相同，详见[通过用户首选项实现数据持久化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences)。  

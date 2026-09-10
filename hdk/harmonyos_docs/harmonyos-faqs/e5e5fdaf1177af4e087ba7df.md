@@ -1,0 +1,73 @@
+---
+name: document/cn/harmonyos-faqs/faqs-arkui-817
+title: 如何扩大Image组件的点击区域
+uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-817
+---
+
+# 如何扩大Image组件的点击区域
+
+#### 问题现象
+
+在Image图片较难触发点击事件的情况下，如何扩大Image组件的点击区域？  
+
+#### 效果预览
+
+![](https://media:101782454332647587 "点击放大")  
+
+#### 解决方案
+
+* 方案一：使用[responseRegion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-touch-target#responseregion)，responseRegion的width和height可以扩大组件点击区域面积，面积为width和height围成的矩形面积，也支持设置数值，设置为100%时的响应区域是组件原有的区域。  
+  示例代码如下：
+
+  ```
+  @Entry
+  @Component
+  struct Index1 {
+    build() {
+      Column() {
+        Image($r('app.media.startIcon'))
+          .width(20)
+          .height(20)
+          .onClick(() => {
+            this.getUIContext().getPromptAction().showToast({
+              message: '已触发'
+            });
+          })
+          .responseRegion({ width: 200, height: 200 });
+      }
+      .width('100%')
+      .height('100%')
+      .backgroundColor(0xDCDCDC)
+      .padding({ top: 5 });
+    }
+  }
+  ```
+
+* 方案二：给对应组件外层添加容器包裹，使用Padding或Margin扩大实际点击区域。
+
+  ```
+  @Entry
+  @Component
+  struct Index2 {
+    build() {
+      Column() {
+        Row() {
+          Image($r('app.media.startIcon'))
+            .width(20)
+            .height(20)
+            .margin({ bottom: 200 }); // 通过设置内边距扩大实际点击区域
+        }
+        .onClick(() => {
+          this.getUIContext().getPromptAction().showToast({
+            message: '已触发'
+          });
+        });
+      }
+      .width('100%')
+      .height('100%')
+      .backgroundColor(0xDCDCDC)
+      .padding({ top: 5 });
+    }
+  }
+  ```
+

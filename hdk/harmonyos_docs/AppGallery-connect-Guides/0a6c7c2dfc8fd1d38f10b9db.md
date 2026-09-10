@@ -1,0 +1,41 @@
+---
+name: document/cn/AppGallery-connect-Guides/agc-storage-initialize-bucket-web-0000001333920769
+title: 初始化存储实例
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-storage-initialize-bucket-web-0000001333920769
+---
+
+# 初始化存储实例
+
+#### 前提条件
+
+* 您已[开通云存储服务](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudstorage-enable-service-0000001275330014)。
+* 您已[集成云存储SDK](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudstorage-sdk-web-0000001054927608)。  
+
+#### 操作步骤
+
+如果您使用一个默认存储实例，在使用云存储服务前，需调用[agconnect.cloudStorage](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/overview-0000001054856767)初始化一个默认存储实例的[StorageManagement](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storagemanagement-0000001055096686)对象。
+
+```
+const storageManagement = agconnect.cloudStorage();
+```
+
+如果您要指定访问更多数据处理位置的存储实例，需调用[agconnect.cloudStorage(instance: AGCInstance, bucket: string)](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/overview-0000001054856767)方法使用指定的AGCInstance实例来初始化目标数据处理位置的[StorageManagement](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storagemanagement-0000001055096686)对象。如下所示，以指定中国区为例：
+
+```
+let agConnectConfig = {
+//应用配置信息
+
+}
+
+// CN
+let tagCN = 'cn';
+let insCN = agconnect.instance(tagCN);
+// 初始化AGCInstance
+insCN.configInstance(agConnectConfig);
+insCN.setOption({routePolicy: 1})
+// 匿名登录
+agconnect.auth(tagCN).signInAnonymously()
+// 初始化云存储实例
+const storageManagement = agconnect.cloudStorage(insCN, 'bucketForCN');
+```
+

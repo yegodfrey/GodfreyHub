@@ -1,0 +1,236 @@
+---
+name: document/cn/HMSCore-Guides/meta-manage-0000001050985177
+title: 事件管理
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/meta-manage-0000001050985177
+---
+
+# 事件管理
+
+#### 功能概述
+
+通过事件管理可对自定义事件以及预置事件进行管理，具体包括新建、编辑、打开或关闭事件开关、设置转化事件以及配置转化事件回传，通过丰富的不同类型事件，满足用户多样的个性化分析需求。同时还可将事件按照不同条件进行分组，分组完成后可在事件分析中按照分组查看事件分析。  
+
+#### 典型应用场景
+
+* 新建自定义事件或预置事件。
+* 修改自定义事件或预置事件参数。
+* 批量注册事件。
+* 对事件进行分组管理。
+* 配置转化事件回传。  
+
+#### 功能详述
+
+#### 案例
+
+某游戏类App想要查看游戏内付费商品消耗的渠道占比情况。并且针对与付费相关的事件进行专项分析。
+
+需求：预置事件"支付完成"中包含渠道与付费相关参数，新建该事件可查看详细数据。  
+
+#### 操作指导
+
+1. 登录[AppGallery Connect网站](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"我的项目"图标。
+2. 选择需要查看分析数据的应用。
+3. 选择"华为分析 \> 管理 \> 事件管理"进入页面。
+4. 新建相关事件。详情请参见[新建预置事件或自定义事件](#section5729142611116)。
+5. 添加或修改事件参数。详情请参见[添加或修改事件参数](#section1373122610113)。
+6. 批量注册事件。详情请参见[批量注册事件](#section3736122681120)。
+7. 新建事件分组。详情请参见[新建事件分组](#section1154565572419)。
+8. 转移事件至分组。详情请参见[添加事件到分组](#section1091418873010)。
+9. 配置转化事件回传。详情请参见[配置转化事件回传](#section8522242135117)。  
+
+#### 新建预置事件或自定义事件
+
+"华为分析 \> 管理 \> 事件管理"首页展示项目下所有已注册事件的详情，预置事件或自定义事件需要通过新建的方式手动注册到系统。
+
+新建预置事件或自定义事件操作步骤如下：
+
+1. 选择"华为分析 \> 管理 \> 事件管理"进入事件管理页面。
+2. 点击"新建"，打开"新建事件"页面。
+   * 新建预置事件 新建事件页面左侧"添加事件"下方展示未注册的预置事件列表。可按如下步骤新建预置事件：
+
+     1. 在"添加事件"下方的输入框中输入事件ID或名称搜索事件（支持模糊搜索）。
+     2. 在左侧的预置事件列表中选择待添加的事件。 选择事件后，右侧的"已选事件"下方展示该事件，并默认选择该事件下所有参数。
+
+     3. （可选）点击右侧该事件所在行，弹出参数列表，此时对展开的参数可进行去勾选操作。
+     4. 点击右侧的"保存"，完成新建预置事件。
+
+     ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.38205381150821445480798441364649:50001231000000:2800:2E6BAF9FF16E2DA7790F1DDB691569FCC03130B130E76D65D32E17CA2592F2EF.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")  
+     ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.80036429159670817842290212854384:50001231000000:2800:F5C2FEF0F58FEF68F08C7EFA90FB9995F1D304D3D4B41C31D32098C7BD20A3A5.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
+     如果事件中参数$Revenue或$Amount与$CurrName同时存在，则$Revenue或$Amount必须与$CurrName同时使用。注册事件参数时，当勾选/去勾选$Revenue或$Amount时，默认勾选/去勾选$CurrName。
+   * 新建自定义事件
+     1. 点击新建事件页面右侧的"自定义事件"按钮，弹出自定义事件对话框。
+     2. 手动输入事件ID、事件名称和事件说明。 ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.87556177932484375352777090050827:50001231000000:2800:EEC6D9845F461BFA63F987C54DA4E96F5339D1FA2AC6BADD1610C95478FAE699.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")
+
+        参数填写说明：  
+
+        |参数|填写说明|
+        |:---|:-------------------------------------------|
+        |事件ID|长度不超过256，事件ID只能由数字、字母、下划线组成，且不能以数字开头。|
+        |事件名称|长度不超过256，事件名称请勿包含特殊字符\<\>"'\[\]$%+\\/\*;=\^,|
+        |事件说明|长度不超过1000，事件说明请勿包含特殊字符\<\>"'\[\]$%+\\/\*;=\^|
+
+        注册事件及参数需注意如下约束条件：
+        * 注册事件数：一个项目下注册事件数不超过500个，不包含系统自动采集事件。
+        * 注册参数个数：一个事件的注册参数不超过25个，项目下总的注册事件参数不超过500个，不包含系统自动采集事件的参数。
+     3. 点击"保存"。
+
+        保存自定义事件后，"已选事件"下方展示该事件。
+
+        ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.28730911350025037934442772758449:50001231000000:2800:D53735974BD21FEE860CF351622CCC08148248D9DE4CC865C7993E56750BEFBA.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")
+     4. 点击该事件所在行，弹出参数列表，点击"添加参数"，对自定义事件进行添加参数。
+5. 点击右侧的"保存"，完成新建自定义事件。  
+
+#### 添加或修改事件参数
+
+1. 进入事件管理页面。
+
+   页面提供对事件进行编辑、转移、打开或关闭事件开关、标记为转化事件等操作。
+2. 点击"标记为转化事件"，可通过"转化分析"查看营销任务对该事件的贡献率，详情请参见[转化分析](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/attribution-analysis-push-0000001123198421)。
+
+   点击"事件开关"启用或停止分析某个事件，停止某个事件后，系统不会再对此事件进行分析，人群洞察、漏斗分析等分析报告中也不再统计该事件。
+
+   "隐藏关闭事件"默认为打开，打开后不再显示关闭的事件。
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.75552036391001553632662441231446:50001231000000:2800:6DE8A419FB83723D0CCCF25428A4F2FE523B28D5C57E947446CF6A3547AE1792.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")  
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.38204026392844291281745352651508:50001231000000:2800:2367BECAEF955992175BD6CB370F60F37D18F8A052DE86E52F700B9A12A056E1.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
+   每个事件最多定义25个参数，一个项目各个事件定义的所有参数总数不超过500个。
+3. 点击"编辑"，打开"事件编辑"页面。
+
+   [新建预置事件或自定义事件](#section5729142611116)后，事件管理首页展示已注册的事件。通过"编辑"，可以对已注册事件添加参数或编辑已有参数信息。添加或编辑参数信息后，可以查看事件参数分析报告，详情请参见[查看事件分布分析](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/user-behavior-0000001050745157#ZH-CN_TOPIC_0000001055304503__li9700172115538)。
+   * 添加参数信息 以添加预置事件参数为例：
+
+     在"事件编辑"页面左侧的参数列表中选择待添加的参数，也可以勾选底部的"全选"按钮，选择该事件下的所有参数。添加的参数信息可以用于查看参数分析报告。
+
+     ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.86768623705589250120241572994761:50001231000000:2800:B5D42757052FFBEC29E855EF53FD2E7173DC63BFB2525454D0CD2606C391F37F.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")
+   * 编辑参数信息  
+     以编辑自定义事件为例：
+     * 点击"事件名称"、"说明"栏，可修改该事件名称及描述。
+     * 添加参数栏展示已经添加的参数，找到需要修改的事件参数信息，在"参数名称"栏修改事件参数名称，该字段值会作为分析报告中的图表标题，建议填写可读性强的文字描述。
+     * 在"类型"栏选择参数的字段类型，分别为字符串和数字。如果该字段的类型为数字，可在"衡量单位"栏设置该字段的计量单位。
+
+     ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.28849193695795042613787853173177:50001231000000:2800:69794FD41AFF307E1A8F3131537E2D52392696A24D4F06B723C894F2825208CB.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
+     * 如果添加的参数显示搜索无此参数，可以直接点击添加按钮添加参数。
+     * 预置事件的事件名称和说明不可编辑。
+
+     ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.27682482401183602705199062656312:50001231000000:2800:729BC4578F3C06BE837B130DE289F461D444461D8FF38A6AA5759EB74ADCC399.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")
+
+     参数填写说明：  
+
+     |参数|填写说明|
+     |:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+     |事件名称|长度不超过256，事件名称请勿包含特殊字符\<\>"'\[\]$%+\\/\*;=\^,|
+     |说明|长度不超过1000，说明请勿包含特殊字符\<\>"'\[\]$%+\\/\*;=\^|
+     |参数ID|长度不超过256，参数ID只能由数字、字母、下划线组成，且不能以数字开头。|
+     |参数名称|长度不超过256，参数名称请勿包含特殊字符\<\>"'\[\]$%+\\/\*;=\^,|
+     |参数类型|选择字符串或数字。 参数类型选择字符串型时，在查看事件分布分析报告时，可在查看维度分析中选择对应参数后进行分析；参数类型选择数字时，则在事件分布分析下方以卡片形式展示分析报告。详情请参见[查看事件分布分析](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/user-behavior-0000001050745157#ZH-CN_TOPIC_0000001055304503__li9700172115538)。|
+     |参数衡量单位|选择衡量单位。|
+
+4. 点击"保存"即可修改成功。  
+
+#### 批量注册事件
+
+1. 进入事件管理页面。
+2. 点击右上角"批量注册事件"，进入批量管理页面。
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.77323061912911014294156563822687:50001231000000:2800:74C4F13BDC04B180E6967E221D7082C3CEB71D3AFC37B623C455CA04002918ED.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")
+3. 点击"下载模板"，下载事件填写模板。  
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.36886888631703330663444644612587:50001231000000:2800:964E14CAB2D9685483840AFDEFEEA49B046A51178D21ADB33D0A43FA25E8E5DA.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
+   模板填写说明：
+   * 文件不能为空
+   * 文件格式为xls、xlsx
+   * 文件大小不超过1M
+   * 文件总行数不超过500行
+   * 文件中事件ID、参数ID只能由数字、字母、下划线组成，且不能以数字开头
+   * 文件中事件名称、事件描述、参数名称均不能包含换行及特殊字符\<\>"'\[\]$%+\\/\*;=\^,
+   * 一个帐号一分钟内只能批量上传一次
+
+   $EVENT_DEFINE的下面为事件配置，逗号分隔的顺序为：事件ID、事件名称、事件描述。一行为一条事件配置。
+
+   例：  
+
+   |事件ID|事件名称|事件描述|
+   |:--------------|:----|:------------------------------------------------------------------------------------------------|
+   |ADDPRODUCT2CART|加入购物车|用户添加商品到购物车时，上报此事件。此事件可以与VIEWPRODUCT、STARTCHECKOUT组合使用，构建商品购买的漏斗分析；也可用于分析用户对您的哪些商品感兴趣，进而对这些用户进行营销。|
+
+   $PARAM_DEFINE的下面为事件参数配置，逗号分隔的顺序为：事件ID、参数ID、参数名称、参数类型、参数单位。一行为一条事件参数配置。其中参数类型、参数单位需参考下表填写。
+
+   参数类型的枚举如下表：  
+
+   |类型|枚举|
+   |:-|:-|
+   |字符|0|
+   |数字|1|
+
+   参数单位的枚举如下表：  
+
+   |类型|枚举|
+   |:-----|:----------|
+   |您配置的货币|CURRENCY|
+   |年|YEAR|
+   |月|MONTH|
+   |日|DAY|
+   |小时|HOUR|
+   |分钟|MINUTE|
+   |秒|SECOND|
+   |毫秒|MILLISECOND|
+   |米|METER|
+   |千米|KILOMETER|
+   |英里|MILE|
+
+   例：  
+
+   |事件ID|参数ID|参数名称|参数类型|参数单位|
+   |:--------------|:----------|:---|:---|:------------------|
+   |ADDPRODUCT2CART|PRICE|购买价格|1|CURRENCY|
+   |ADDPRODUCT2CART|PRODUCTNAME|商品名称|0|说明： 如果不需要单位，留空不填即可。|
+
+4. 填写完毕后点击"选择文件"，上传事件。
+
+   如果导入格式错误，会提示详细错误信息，按提示修改后重新上传即可。
+5. 点击"确定"，完成事件的批量注册。  
+
+#### 新建事件分组
+
+1. 点击"管理"，进入管理事件分组页面。
+
+   点击"添加分组"，输入事件组名称与事件组描述，点击保存即可。
+
+   或者当已存在事件分组时，点击事件组选择框，点击"新增分组"直接输入事件组名称以及事件描述，点击保存即可创建事件分组。
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.35325487996245903728392817187420:50001231000000:2800:BF8FAE3DCCE622E5B91441E5D4630867D7ACDE6F83F53BDAB12962DADD6C9FBF.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")
+2. 置顶事件分组。
+
+   进入事件分组管理页面，点击"置顶"即可置顶事件分组。  
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.10769424890679323783334775431016:50001231000000:2800:E64E88E395179CE0CB0B7E2DDA1223AA66A7B66A4E0222CBD3BF3A34EE114B51.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
+   当事件分组中只有一个分组时，默认置顶该事件分组。
+
+置顶当前事件分组后，该事件分组里所有事件会在事件分析列表里优先呈现。  
+
+#### 添加事件到分组
+
+1. 添加单个事件到事件分组。
+
+   选择需要转移的事件名称前的选择框，点击"转移"，在分组选择栏选择目标事件分组，点击"确认"即可。
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115250.17528360997671820575326550058067:50001231000000:2800:C575804DF7130B8A71C0B61E97F10ED7D8B2212AAFCB57ECC4990BB887525CCB.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)
+2. 添加多个事件到事件。
+
+选择需要转移的事件名称前的选择框，点击"批量转移"，在分组选择栏选择目标事件分组，点击"确认"即可完成事件批量分组。  
+
+#### 配置转化事件回传
+
+* 配置转化事件回传至鲸鸿动能广告。详情请参见[鲸鸿动能广告归因（中国大陆）](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/huawei-ads-china-0000001382424454)。
+* 转化事件回传至华为应用市场付费推广平台。详情请参见[应用市场付费推广归因（中国大陆）](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/conversion-events-for-appgallery-paid-0000001213284386)。  
+
+#### 规格说明
+
+|说明|
+|:----------------------------------------------------------|
+|对事件所做的修改对系统中所有报告均生效，如为某个事件新增了一个自定义事件参数，那么在其他报告中均可以使用该新增的参数。|
+|对事件名称、描述的修改，立即生效；新增、删除事件或事件参数，次日生效。|
+
+#### FAQ
+
+#### 新建自定义事件添加参数时，为什么找不到需要添加的参数？
+
+打点完成并触发后，参数栏才会出现相应参数可供选择添加。

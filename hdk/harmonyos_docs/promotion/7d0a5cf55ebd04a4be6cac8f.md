@@ -1,0 +1,302 @@
+---
+name: document/cn/promotion/ads_api080-0000001680286641
+title: 通过RTA实验ID查询
+uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_api080-0000001680286641
+---
+
+# 通过RTA实验ID查询
+
+【简介】广告主通过RTA实验ID查询报表。  
+![](https://media:101784100609178810)  
+该接口默认回传采样数据，如果您需要看全量数据，请联系接口运营。
+
+请求地址
+
+https://ads.cloud.huawei.com/openapi/v2/reports/rta/experiment/query
+
+请求方法
+
+POST
+
+请求参数  
+
+|参数名称|类型|是否必选|描述| |
+|:------------|:------|:---|:-|:-|
+|advertiser_id|long|否|广告主ID，当登录授权的华为账号为如下场景时此字段必填： 1）授权账号关联的是经理账户； 2）授权账号关联的是服务商账户； 3）授权账号关联了多个子客账户。||
+|filtering|Struct1|是|筛选条件||
+|page|integer|否|搜索页码 默认值1||
+|page_size|integer|否|每页展示的数据条数 默认值20 取值范围 1\~10000。||
+|start_date|string|是|起始时间。||
+|end_date|string|是|结束时间。||
+
+<br />
+
+filtering(Struct1)参数：  
+
+|参数名称|类型|是否必选|描述|
+|:-------------|:---------|:---|:-----------------------------------------------------------------------------------------------------------------------|
+|campaign_ids|string\[\]|否|推广计划ID|
+|campaign_name|string|否|计划名称|
+|adgroup_ids|string\[\]|否|任务ID|
+|adgroup_name|string|否|任务名称|
+|creative_ids|string\[\]|否|创意ID|
+|placement_name|string|否|版位名称|
+|pricings|string\[\]|否|出价方式 详见[付费方式](https://developer.huawei.com/consumer/cn/doc/promotion/ads_meijuzhi-0000001510863205#section1898795494716)|
+|rta_exp_id|string\[\]|是|实验id|
+
+<br />
+
+请求示例
+
+POST openapi/v2/reports/rta/experiment/query HTTP/1.1
+
+Accept:application/json
+
+Content-Type:application/json
+
+Authorization:Bearer CgB6e3x9ERGComr9dENxZX22iBk+mLuf1yGtQVPUjPJUMrstfKlqpdXk+kfHU9J8ZJ/soYIZHZzT446GeSYumluQuhsK7jvz4kz1Bkms4CLI/rE=
+
+<br />
+
+```
+{
+    "advertiser_id": "381061631473395584",
+    "filtering": {
+        "adgroup_ids": [
+            "46033594"
+        ],
+        "rta_exp_id": [
+            " ceshishiyanid102"
+        ],
+        "pricings": [
+            "CPM"
+        ],
+        "campaign_ids": [
+            "30027621"
+        ],
+        "campaign_name": "",
+        "adgroup_name": "wsw",
+        "creative_ids": ["70033302"],
+        "placement_name": "wsw"
+    },
+    "page": 1,
+    "page_size": 10000,
+    "start_date": "2023-08-10",
+    "end_date": "2023-08-10",
+    "is_abroad": true
+}
+```
+
+<br />
+
+响应字段  
+
+|-------|-------|--------|
+|参数名称|类型|描述|
+|code|string|返回码|
+|message|string|返回描述|
+|data|Struct1|指定对象统计数据|
+
+<br />
+
+data(Struct1)参数  
+
+|---------|-----------|------|
+|参数名称|类型|描述|
+|page_info|Struct2|分页配置信息|
+|list|Struct3\[\]|统计数据列表|
+
+<br />
+
+page_info(Struct2)参数  
+
+|------------|-------|---------|
+|参数名称|类型|描述|
+|page|integer|搜索页码|
+|page_size|integer|一页显示的数据条数|
+|total_number|integer|总条数|
+|total_page|integer|总页数|
+
+<br />
+
+list(Struct3)参数  
+
+|------------------------------------|-------|----------------------------------|
+|参数名称|类型|描述|
+|advertiser_id|string|广告主ID|
+|creative_id|string|创意ID|
+|creative_name|string|创意名称|
+|adgroup_id|string|任务ID|
+|adgroup_name|string|任务名称|
+|campaign_id|string|计划ID|
+|campaign_name|string|计划名称|
+|package_name|string|应用包名|
+|stat_datetime|string|数据起始时间格式：YYYYMMDDHH请求中的时间粒度，决定时间精度|
+|show_count|integer|曝光量-展示指标|
+|click_count|integer|点击量-展示指标|
+|cpc|float|点击均价-展示指标|
+|thousand_show_cost|float|千人展示均价-展示指标|
+|cost|float|花费-展示指标，单位元|
+|download_count|integer|下载量|
+|download_cost|float|下载成本|
+|install_count|integer|安装量|
+|install_cost|float|安装成本|
+|active_count|integer|激活量|
+|active_cost|float|激活成本|
+|register_count|integer|注册量|
+|register_cost|float|注册成本|
+|retain_count|integer|次留量|
+|retain_cost|float|次留成本|
+|pay_count|integer|付费量|
+|pay_cost|float|付费成本|
+|browse_count|integer|浏览量|
+|browse_cost|float|浏览成本|
+|collection_count|integer|收藏量|
+|collection_cost|float|收藏成本|
+|add_cart_count|integer|加入购物车量|
+|add_cart_cost|float|加入购物车成本|
+|pre_order_count|integer|下单量|
+|pre_order_cost|float|下单成本|
+|form_submit_count|integer|表单提交量|
+|form_submit_cost|float|表单提交成本|
+|effective_consult_count|integer|有效咨询量|
+|effective_consult_cost|float|有效咨询成本|
+|effective_customer_acquisition_count|integer|有效获客量|
+|effective_customer_acquisition_cost|float|有效获客成本|
+|app_custom_count|integer|应用自定义转化量|
+|app_custom_cost|float|应用自定义转化成本|
+|web_custom_count|integer|网页自定义转化量|
+|web_custom_cost|float|网页自定义转化成本|
+|play_count|integer|视频播放次数|
+|play_over_count|integer|视频播放完成次数|
+|effective_book_count|integer|有效预定量|
+|effective_book_cost|float|有效预定成本|
+|book_amount|integer|预定数量|
+|paid_amount|float|下单金额|
+|activate_hms_count|integer|激活(HMS)量|
+|activate_hms_cost|float|激活(HMS)成本|
+|retain_hms_count|integer|次留(HMS)量|
+|retain_hms_cost|float|次留(HMS)成本|
+|vote_count|integer|投票|
+|vote_cost|float|投票成本|
+|update_count|integer|更新|
+|update_cost|float|更新成本|
+|tutorial_completion_count|integer|游戏完成新手教程|
+|tutorial_completion_cost|float|游戏完成新手教程成本|
+|travel_booking_count|integer|旅行预订|
+|travel_booking_cost|float|旅行预订成本|
+|three_day_retain_count|integer|3日留存|
+|three_day_retain_cost|float|3日留存成本|
+|subscribe_count|integer|订阅|
+|subscribe_cost|float|订阅成本|
+|start_trial_count|integer|开始试用|
+|start_trial_cost|float|开始试用成本|
+|spent_credits_count|integer|花掉积分|
+|spent_credits_cost|float|花掉积分成本|
+|share_count|integer|分享|
+|share_cost|float|分享成本|
+|seven_day_retain_count|integer|7日留存|
+|seven_day_retain_cost|float|7日留存成本|
+|search_count|integer|搜索|
+|search_cost|float|搜索成本|
+|reservation_count|integer|预约服务|
+|reservation_cost|float|预约服务成本|
+|redirect_count|integer|页面跳转|
+|redirect_cost|float|页面跳转成本|
+|read_count|integer|阅读|
+|read_cost|float|阅读成本|
+|re_engage_count|integer|用户唤醒|
+|re_engage_cost|float|用户唤醒成本|
+|rate_count|integer|评级|
+|rate_cost|float|评级成本|
+|purchase_membercard_count|integer|购买会员|
+|purchase_membercard_cost|float|购买会员成本|
+|precredit_count|integer|预授信数|
+|precredit_cost|float|预授信数成本|
+|potential_customer_phone_count|integer|潜在客户线索-电话|
+|potential_customer_phone_cost|float|潜在客户线索-电话成本|
+|potential_customer_online_count|integer|潜在客户线索-咨询|
+|potential_customer_online_cost|float|潜在客户线索-咨询成本|
+|potential_customer_form_count|integer|潜在客户线索-表单|
+|potential_customer_form_cost|float|潜在客户线索-表单成本|
+|phone_dialing_count|integer|电话直拨|
+|phone_dialing_cost|float|电话直拨成本|
+|order_signing_count|integer|订单签收|
+|order_signing_cost|float|订单签收成本|
+|opened_frompushnotification_count|integer|从推送通知打开|
+|opened_frompushnotification_cost|float|从推送通知打开成本|
+|navigate_count|integer|门店导航|
+|navigate_cost|float|门店导航成本|
+|lottery_count|integer|抽奖|
+|lottery_cost|float|抽奖成本|
+|login_count|integer|登录|
+|login_cost|float|登录成本|
+|loan_completion_count|integer|完件数|
+|loan_completion_cost|float|完件数成本|
+|like_count|integer|点赞|
+|like_cost|float|点赞成本|
+|level_achieved_count|integer|达到级别|
+|level_achieved_cost|float|达到级别成本|
+|leads_lottery_count|integer|抽奖线索|
+|leads_lottery_cost|float|抽奖线索成本|
+|landingpage_click_count|integer|落地页内按钮点击|
+|landingpage_click_cost|float|落地页内按钮点击成本|
+|invite_count|integer|邀请|
+|invite_cost|float|邀请成本|
+|initiated_checkout_count|integer|发起结账|
+|initiated_checkout_cost|float|发起结账成本|
+|game_package_redemption_count|integer|礼包兑换|
+|game_package_redemption_cost|float|礼包兑换成本|
+|game_package_claiming_count|integer|礼包领取|
+|game_package_claiming_cost|float|礼包领取成本|
+|forward_count|integer|转发|
+|forward_cost|float|转发成本|
+|follow_scan_count|integer|扫码关注|
+|follow_scan_cost|float|扫码关注成本|
+|follow_count|integer|关注|
+|follow_cost|float|关注成本|
+|first_purchase_membercard_count|integer|首次购买会员|
+|first_purchase_membercard_cost|float|首次购买会员成本|
+|effective_leadsform_count|integer|有效线索-表单|
+|effective_leadsform_cost|float|有效线索-表单成本|
+|effective_leads_phone_count|integer|有效线索-电话|
+|effective_leads_phone_cost|float|有效线索-电话成本|
+|effective_leads_online_count|integer|有效线索-咨询|
+|effective_leads_online_cost|float|有效线索-咨询成本|
+|deliver_count|integer|订单发货|
+|deliver_cost|float|订单发货成本|
+|custom_count|integer|自定义|
+|custom_cost|float|自定义成本|
+|credit_count|integer|授信数|
+|credit_cost|float|授信数成本|
+|create_role_count|integer|游戏内创建角色|
+|create_role_cost|float|游戏内创建角色成本|
+|coupon_count|integer|卡券领取|
+|coupon_cost|float|卡券领取成本|
+|content_view_count|integer|内容视图|
+|content_view_cost|float|内容视图成本|
+|consult_online_count|integer|网页咨询|
+|consult_online_cost|float|网页咨询成本|
+|comment_count|integer|评论|
+|comment_cost|float|评论成本|
+|authorize_count|integer|游戏授权|
+|authorize_cost|float|游戏授权成本|
+|add_to_wishlist_count|integer|添加到心愿清单|
+|add_to_wishlist_cost|float|添加到心愿清单成本|
+|add_quick_app_count|integer|快应用添加|
+|add_quick_app_cost|float|快应用添加成本|
+|add_payment_info_count|integer|添加付款信息|
+|add_payment_info_cost|float|添加付款信息成本|
+|achievement_unlocked_count|integer|解锁成就|
+|achievement_unlocked_cost|float|解锁成就成本|
+
+<br />
+
+应答示例
+
+HTTPS/1.1 200 OK
+
+```
+{"data": {"page_info": {"total_number": 1,"total_num": 1,"total_page": 1,"page": 1,"page_size": 10000},"list": [{"comment_count": 3,"totalNumber": 1,"achievement_unlocked_cost": "0.01","coupon_count": 3,"effective_leads_online_count": 3,"click_count": 3,"consult_online_cost": "0.01","seven_day_retain_count": 3,"consult_online_count": 3,"game_package_claiming_cost": "0.01","active_cost": "0.01","effective_leads_phone_count": 3,"activate_hms_cost": "0.01","follow_count": 3,"first_purchase_membercard_cost": "0.01","paid_amount": "99.740736","vote_cost": "0.01","update_cost": "0.01","potential_customer_online_count": 3,"forward_cost": "0.01","three_day_retain_count": 3,"pay_count": 3,"travel_booking_cost": "0.01","potential_customer_form_count": 3,"add_to_wishlist_count": 3,"custom_count": 3,"level_achieved_count": 3,"form_submit_count": 3,"effective_book_cost": "0.01","navigate_count": 3,"form_submit_cost": "0.01","landingpage_click_cost": "0.01","lottery_count": 3,"potential_customer_phone_count": 3,"install_count": 3,"precredit_cost": "0.01","app_custom_count": 6,"activate_hms_count": 3,"retain_hms_cost": "0.01","content_view_count": 3,"follow_scan_cost": "0.01","campaign_id": "30027621","stat_datetime": "2023-08-10","read_count": 3,"effective_book_count": 3,"add_cart_count": 3,"like_count": 3,"pay_cost": "0.01","browse_cost": "0.01","register_count": 3,"effective_leads_online_cost": "0.01","re_engage_cost": "0.01","credit_cost": "0.01","install_cost": "0.01","collection_count": 3,"follow_cost": "0.01","adgroup_name": "wsw的ocpc版位多规格-20220217-竞价","subscribe_cost": "0.01","first_purchase_membercard_count": 3,"game_package_redemption_cost": "0.01","comment_cost": "0.01","achievement_unlocked_count": 3,"potential_customer_phone_cost": "0.01","advertiser_id": "381061631473395584","game_package_redemption_count": 3,"loan_completion_cost": "0.01","authorize_count": 3,"re_engage_count": 3,"reservation_cost": "0.01","effective_leadsform_cost": "0.0","active_count": 3,"level_achieved_cost": "0.01","register_cost": "0.01","invite_count": 3,"credit_count": 3,"download_cost": "0.01","rta_exp_id": " ceshishiyanid102","creative_name": "wsw的ocpc版位多规格-开屏视频-720*1280-创意 1","purchase_membercard_count": 3,"initiated_checkout_cost": "0.01","forward_count": 3,"purchase_membercard_cost": "0.01","search_count": 3,"reservation_count": 3,"creative_id": "70033302","retain_hms_count": 3,"potential_customer_online_cost": "0.01","phone_dialing_count": 3,"authorize_cost": "0.01","add_payment_info_count": 3,"invite_cost": "0.01","add_cart_cost": "0.01","rate_cost": "0.01","landingpage_click_count": 3,"login_cost": "0.01","travel_booking_count": 3,"content_view_cost": "0.01","book_amount": 39,"effective_customer_acquisition_cost": "0.01","subscribe_count": 3,"play_over_count": 3,"like_cost": "0.01","adgroup_id": "46033594","coupon_cost": "0.01","add_payment_info_cost": "0.01","web_custom_count": 3,"leads_lottery_count": 3,"precredit_count": 3,"share_cost": "0.01","read_cost": "0.01","create_role_cost": "0.01","login_count": 3,"add_quick_app_cost": "0.01","pre_order_count": 6,"pre_order_cost": "0.01","browse_count": 3,"vote_count": 3,"opened_frompushnotification_cost": "0.01","order_signing_count": 3,"seven_day_retain_cost": "0.01","update_count": 3,"redirect_count": 3,"download_count": 3,"retain_cost": "0.01","add_quick_app_count": 3,"loan_completion_count": 3,"show_count": 3,"tutorial_completion_count": 3,"start_trial_count": 3,"phone_dialing_cost": "0.01","potential_customer_form_cost": "0.01","cpc": "0.01","deliver_cost": "0.01","create_role_count": 3,"lottery_cost": "0.01","effective_consult_cost": "0.01","play_count": 3,"opened_frompushnotification_count": 3,"game_package_claiming_count": 3,"rate_count": 3,"order_signing_cost": "0.01","redirect_cost": "0.01","effective_leads_phone_cost": "0.01","retain_count": 3,"app_custom_cost": "0.01","navigate_cost": "0.01","search_cost": "0.01","follow_scan_count": 3,"leads_lottery_cost": "0.01","spent_credits_count": 3,"initiated_checkout_count": 3,"effective_leadsform_count": 9,"custom_cost": "0.01","effective_consult_count": 3,"collection_cost": "0.01","spent_credits_cost": "0.01","cost": "0.03603","add_to_wishlist_cost": "0.01","web_custom_cost": "0.01","start_trial_cost": "0.01","three_day_retain_cost": "0.01","share_count": 3,"thousand_show_cost": "10.0","tutorial_completion_cost": "0.01","effective_customer_acquisition_count": 3,"deliver_count": 3}]}}
+```
+

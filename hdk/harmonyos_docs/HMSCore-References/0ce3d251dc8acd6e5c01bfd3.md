@@ -1,0 +1,223 @@
+---
+name: document/cn/HMSCore-References/cameraupdatefactory-0000001050151725
+title: CameraUpdateFactory
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdatefactory-0000001050151725
+---
+
+# CameraUpdateFactory
+
+|Class Info|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public final class CameraUpdateFactory CameraUpdateFactory类包含了各种用于创建[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象的方法，[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象用于更改地图相机属性，通过[HuaweiMap](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/huaweimap-0000001050151757)对象调用[animateCamera(CameraUpdate update)](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/huaweimap-0000001050151757#section13382161444614)或者[moveCamera](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/huaweimap-0000001050151757#section168451531308)([CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) update)等可以移动地图相机。 例如，要改变地图层级，可以使用以下代码： ``` HuaweiMap hMap = ...; // 放大地图缩放级别，在当前地图显示的级别基础上加1 hMap.animateCamera(CameraUpdateFactory.zoomIn()); // 缩小地图缩放级别，在当前地图显示的级别基础上减1 hMap.animateCamera(CameraUpdateFactory.zoomOut()); ```|
+
+#### Public Method Summary
+
+|Qualifier and Type|Method Name and Description|
+|:-------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)|[newCameraPosition](#section148091116191319)([CameraPosition](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraposition-0000001050152443) cameraPosition) 设置相机状态。|
+|static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)|[newLatLng](#section1385216498553)([LatLng](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlng-0000001050150800) latLng) 将相机中心点移动到指定的经纬度。|
+|static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)|[newLatLngBounds](#section1027264718117)([LatLngBounds](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlngbounds-0000001050150808) bounds, int width, int height, int padding) 设置相机中心区域，包括屏幕中心区域宽度、高度、地图区域与中心区域边框之间的间距。|
+|static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)|[newLatLngBounds](#section1897811111973)([LatLngBounds](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlngbounds-0000001050150808) bounds, int padding) 设置相机中心区域显示的地图经纬度范围，以及地图区域与中心区域边框之间的间距。|
+|static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)|[newLatLngZoom](#section1624513513199)([LatLng](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlng-0000001050150800) latLng, float zoom) 设置相机视角的中心点及缩放级别。|
+|static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)|[scrollBy](#section109571558151910)(float xPixel, float yPixel) 按照屏幕像素点移动地图相机中心。|
+|static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)|[zoomBy](#section191645461201)(float amount) 根据指定的缩放级别增量来移动地图相机。|
+|static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)|[zoomBy](#section2088862622117)(float amount, Point focus) 根据地图缩放中心点对应的屏幕坐标和缩放级别增量来移动地图相机。|
+|static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)|[zoomIn](#section127351130142220)() 放大地图相机的缩放级别，在当前地图相机显示的级别基础上加1。|
+|static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)|[zoomOut](#section18752216152316)() 减小相机的缩放级别，在当前地图显示的级别基础上减1。|
+|static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)|[zoomTo](#section195657584238)(float zoom) 将地图的缩放级别设置到指定大小。|
+
+#### Public Methods
+
+#### newCameraPosition
+
+|Method|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) newCameraPosition([CameraPosition](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraposition-0000001050152443) cameraPosition) 您调用此API可以设置相机状态，根据[CameraPosition](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraposition-0000001050152443)的经纬度、缩放级别、方向和倾斜度产生变化。|
+
+Parameters  
+
+|Name|Description|
+|:-------------|:----------|
+|cameraPosition|指定的相机状态信息。|
+
+Returns  
+
+|Type|Description|
+|:-----------|:------------------------------------------------------------------------------------------------------------------------|
+|CameraUpdate|[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象，用于更新相机状态。|
+
+#### newLatLng
+
+|Method|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) newLatLng([LatLng](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlng-0000001050150800) latLng) 您调用此API可以将相机中心点移动到指定的经纬度。|
+
+Parameters  
+
+|Name|Description|
+|:-----|:----------|
+|latLng|指定的经纬度。|
+
+Returns  
+
+|Type|Description|
+|:-----------|:------------------------------------------------------------------------------------------------------------------------|
+|CameraUpdate|[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象，用于更新相机状态。|
+
+#### newLatLngBounds(LatLngBounds bounds, int width, int height, int padding)
+
+|Method|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) newLatLngBounds([LatLngBounds](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlngbounds-0000001050150808) bounds, int width, int height, int padding) 您调用此API可以设置相机中心区域，包括屏幕中心区域宽度、高度、地图区域与中心区域边框之间的间距。|
+
+Parameters  
+
+|Name|Description|
+|:------|:------------------|
+|bounds|需要展示的经纬度范围。|
+|width|边框宽度，单位：像素。|
+|height|边框高度，单位：像素。|
+|padding|地图区域与边框之间的间距，单位：像素。|
+
+Returns  
+
+|Type|Description|
+|:-----------|:------------------------------------------------------------------------------------------------------------------------|
+|CameraUpdate|[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象，用于更新相机状态。|
+
+#### newLatLngBounds(LatLngBounds bounds, int padding)
+
+|Method|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) newLatLngBounds([LatLngBounds](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlngbounds-0000001050150808) bounds, int padding) 您调用此API可以设置相机中心区域显示的地图经纬度范围，以及地图区域与中心区域边框之间的间距。|
+
+Parameters  
+
+|Name|Description|
+|:------|:------------------|
+|bounds|需要展示的经纬度范围。|
+|padding|地图区域与边框之间的间距，单位：像素。|
+
+Returns  
+
+|Type|Description|
+|:-----------|:------------------------------------------------------------------------------------------------------------------------|
+|CameraUpdate|[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象，用于更新相机状态。|
+
+#### newLatLngZoom
+
+|Method|
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) newLatLngZoom([LatLng](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlng-0000001050150800) latLng, float zoom) 您调用此API可以设置相机视角的中心点及缩放级别。|
+
+Parameters  
+
+|Name|Description|
+|:-----|:-----------------------------------------------------------|
+|latLng|相机视角中心的经纬度。|
+|zoom|指定地图相机缩放级别，取值范围：\[3, 20\]。 说明： 精简模式下地图相机缩放级别取值范围为：\[3, 18\]。|
+
+Returns  
+
+|Type|Description|
+|:-----------|:------------------------------------------------------------------------------------------------------------------------|
+|CameraUpdate|[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象，用于更新相机状态。|
+
+#### scrollBy
+
+|Method|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) scrollBy(float xPixel, float yPixel) 您调用此API可以按照屏幕像素点移动地图相机中心。|
+
+Parameters  
+
+|Name|Description|
+|:-----|:----------------------------------|
+|xPixel|水平移动的像素值，正值代表可视区域向右移动，负值代表可视区域向左移动。|
+|yPixel|垂直移动的像素值，正值代表可视区域向上移动，负值代表可视区域向下移动。|
+
+Returns  
+
+|Type|Description|
+|:-----------|:------------------------------------------------------------------------------------------------------------------------|
+|CameraUpdate|[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象，用于更新相机状态。|
+
+#### zoomBy(float amount)
+
+|Method|
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) zoomBy(float amount) 您调用此API可以根据指定的缩放级别增量来移动地图相机。|
+
+Parameters  
+
+|Name|Description|
+|:-----|:----------------------------------------------|
+|amount|地图相机缩放级别的增量。当amount为正值时与地球表面距离变近，为负值时与地球表面距离变远。|
+
+Returns  
+
+|Type|Description|
+|:-----------|:------------------------------------------------------------------------------------------------------------------------|
+|CameraUpdate|[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象，用于更新相机状态。|
+
+#### zoomBy(float amount, Point focus)
+
+|Method|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) zoomBy(float amount, Point focus) 您调用此API可以根据地图缩放中心点对应的屏幕坐标和缩放级别增量来移动地图相机。|
+
+Parameters  
+
+|Name|Description|
+|:-----|:--------------------------------------------|
+|amount|指定的缩放级别增量。当amount为正值时与地球表面距离变近，为负值时与地球表面距离变远。|
+|focus|地图缩放中心点对应的屏幕坐标。focus是放大缩小的中心点。|
+
+Returns  
+
+|Type|Description|
+|:-----------|:------------------------------------------------------------------------------------------------------------------------|
+|CameraUpdate|[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象，用于更新相机状态。|
+
+#### zoomIn
+
+|Method|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) zoomIn() 您调用此API可以放大地图相机的缩放级别，在当前地图相机显示的级别基础上加1。|
+
+Returns  
+
+|Type|Description|
+|:-----------|:------------------------------------------------------------------------------------------------------------------------|
+|CameraUpdate|[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象，用于更新相机状态。|
+
+#### zoomOut
+
+|Method|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) zoomOut() 您调用此API可以减小相机的缩放级别，在当前地图显示的级别基础上减1。|
+
+Returns  
+
+|Type|Description|
+|:-----------|:------------------------------------------------------------------------------------------------------------------------|
+|CameraUpdate|[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象，用于更新相机状态。|
+
+#### zoomTo
+
+|Method|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static [CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717) zoomTo(float zoom) 您调用此API可以将地图的缩放级别设置到指定大小。|
+
+Parameters  
+
+|Name|Description|
+|:---|:-----------------------------------------------------------|
+|zoom|指定地图相机缩放级别，取值范围：\[3, 20\]。 说明： 精简模式下地图相机缩放级别取值范围为：\[3, 18\]。|
+
+Returns  
+
+|Type|Description|
+|:-----------|:------------------------------------------------------------------------------------------------------------------------|
+|CameraUpdate|[CameraUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/cameraupdate-0000001050151717)对象，用于更新相机状态。|
+

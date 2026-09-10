@@ -1,0 +1,352 @@
+---
+name: cangjie-references/cj-errorcode-bundle
+title: 包管理子系统通用错误码
+uri: https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-bundle
+nodePath: 应用框架 / Ability Kit（程序框架服务） / 错误码 / 包管理子系统通用错误码
+---
+
+# 包管理子系统通用错误码
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/_LQQ6nvhS5aKFPrxYuDXfQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260903T111628Z&HW-CC-Expire=86400&HW-CC-Sign=8A80103ACFEE0F82A4E615A2F3F34EB1CFB5DE81A5DF98BFADE95FDC7E0E63DC)
+
+以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-universal)。
+
+#### 17700001 指定的bundleName不存在
+
+**错误信息**
+
+The specified bundle name is not found.
+
+**错误描述**
+
+指定的bundleName不存在。
+
+**可能原因**
+
+  1. 输入的bundleName有误。
+  2. 系统中对应的应用没有安装。
+
+
+
+**处理步骤**
+
+  1. 检查bundleName拼写是否正确。
+  2. 可以使用[查询应用信息命令（dump）](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-bm-tool#查询应用信息命令dump)查看应用是否安装。查看输出的打印信息，应用未安装时，该命令执行会报错。 
+         
+         # 需要将com.xxx.demo替换为实际查询的bundleName
+         hdc shell bm dump -n com.xxx.demo
+
+
+
+
+#### 17700002 指定的moduleName不存在
+
+**错误信息**
+
+The specified module name is not found.
+
+**错误描述**
+
+指定的moduleName不存在。
+
+**可能原因**
+
+  1. 输入的moduleName有误。
+  2. 系统中对应的应用没有安装该模块。
+
+
+
+**处理步骤**
+
+  1. 检查moduleName拼写是否正确。
+  2. 可以使用[查询应用信息命令（dump）](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-bm-tool#查询应用信息命令dump)查看对应的模块是否安装。查看输出的打印信息中hapModuleNames字段对应的列表是否存在该moduleName，不存在则说明应用未安装该模块。 
+         
+         # 需要将com.xxx.demo替换为实际查询的bundleName
+         hdc shell bm dump -n com.xxx.demo
+
+
+
+
+#### 17700003 指定的abilityName不存在
+
+**错误信息**
+
+The specified ability name is not found.
+
+**错误描述**
+
+指定的abilityName不存在。
+
+**可能原因**
+
+  1. 输入的abilityName有误。
+  2. 系统中对应的应用不存在该abilityName对应的ability。
+  3. 调用[bundleManager.getProfileByAbility](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-bundle_manager#static-func-getprofilebyabilitystring-string-string)等通过abilityName、moduleName组合查询的接口时，对应的应用没有安装moduleName对应的模块，对应模块下的ability也不存在。
+
+
+
+**处理步骤**
+
+  1. 检查abilityName拼写是否正确。
+  2. 可以使用[查询应用信息命令（dump）](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-bm-tool#查询应用信息命令dump)查看对应的应用是否存在这个abilityName。查看输出的打印信息中hapModuleInfos字段对应的abilityInfos下是否包含name等于该abilityName，不包含则说明该abilityName不存在。
+  3. 可以使用[查询应用信息命令（dump）](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-bm-tool#查询应用信息命令dump)查看输出的打印信息中hapModuleNames字段对应的列表是否存在对应的moduleName，不存在则说明应用未安装该模块，对应模块下的ability也不存在。 
+         
+         # 需要将com.xxx.demo替换为实际查询的bundleName
+         hdc shell bm dump -n com.xxx.demo
+
+
+
+
+#### 17700004 指定的用户不存在
+
+**错误信息**
+
+The specified user ID is not found.
+
+**错误描述**
+
+调用与用户相关接口时，传入的用户不存在。
+
+**可能原因**
+
+  1. 输入的用户名有误。
+  2. 系统中没有该用户。
+
+
+
+**处理步骤**
+
+  1. 检查用户名拼写是否正确。
+  2. 确认系统中存在该用户。
+
+
+
+#### 17700024 没有相应的配置文件
+
+**错误信息**
+
+Failed to get the profile because the specified profile is not found in the HAP.
+
+**错误描述**
+
+调用查询profile文件的相关接口时，没有相应的配置文件。
+
+**可能原因**
+
+  1. 输入的metadata name在配置文件中不存在。
+  2. 配置文件的内容不是json格式。<
+
+
+
+**处理步骤**
+
+  1. 确认要查询的ability或者extensionAbility中的metadata name是否存在。
+  2. 确认指定查询的profile文件的内容是否为json格式。
+
+
+
+#### 17700025 输入的type无效
+
+**错误信息**
+
+The specified type is invalid.
+
+**错误描述**
+
+调用defaultAppManager模块的相关接口时，输入的type无效。
+
+**可能原因**
+
+  1. 输入的type拼写有误。
+  2. 输入的type不存在。
+
+
+
+**处理步骤**
+
+  1. 确认输入的type是否拼写正确。
+  2. 确认输入的type是否存在。
+
+
+
+#### 17700026 指定应用被禁用
+
+**错误信息**
+
+The specified bundle is disabled.
+
+**错误描述**
+
+当调用查询应用的相关信息接口时，指定应用被禁用。
+
+**可能原因**
+
+设备上对应的应用已经被禁用，无法查询。
+
+**处理步骤**
+
+确认设备上对应的应用是否被禁用。
+
+#### 17700029 指定的ability被禁用
+
+**错误信息**
+
+The specified ability is disabled.
+
+**错误描述**
+
+当调用查询ability相关信息的接口时，指定的ability被禁用。
+
+**可能原因**
+
+指定的ability被禁用。
+
+**处理步骤**
+
+确认指定的ability是否被禁用，可以使用[bm工具](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-bm-tool)查询对应的应用信息。
+
+#### 17700032 指定的应用不包含overlay特征的module
+
+**错误信息**
+
+The specified bundle does not contain any overlay module.
+
+**错误描述**
+
+查询指定应用中overlay特征module的overlayModuleInfo时，指定的应用不包含overlay特征module。
+
+**可能原因**
+
+指定的应用不包含overlay特征module。
+
+**处理步骤**
+
+检查指定的应用是否不包含overlay特征module。
+
+#### 17700033 指定的module不是overlay特征的module
+
+**错误信息**
+
+The specified module is not an overlay module.
+
+**错误描述**
+
+查询指定的overlay特征module的overlayModuleInfo时，指定的module不是overlay特征module。
+
+**可能原因**
+
+指定的module不是overlay特征的module。
+
+**处理步骤**
+
+检查指定的module是否不为overlay特征的module。
+
+#### 17700034 指定的module是overlay特征的module
+
+**错误信息**
+
+The specified module is an overlay module.
+
+**错误描述**
+
+查询指定的目标module所关联的overlayModuleInfo时，指定的module是overlay特征module。
+
+**可能原因**
+
+指定的module是overlay特征的module。
+
+**处理步骤**
+
+检查指定的module是否为overlay特征的module。
+
+#### 17700055 指定的link无效
+
+**错误信息**
+
+The specified link is invalid.
+
+**错误描述**
+
+调用bundleManager模块中的[canOpenLink](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-bundle_manager#static-func-canopenlinkstring)接口时，指定的link无效。
+
+**可能原因**
+
+输入的link格式有误。
+
+**处理步骤**
+
+检查link格式是否正确。
+
+#### 17700056 指定link的scheme未在querySchemes字段下配置
+
+**错误信息**
+
+The scheme of the specified link is not in the querySchemes.
+
+**错误描述**
+
+调用bundleManager模块中的[canOpenLink](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-bundle_manager#static-func-canopenlinkstring)接口时，指定link的scheme未在querySchemes字段下配置。
+
+**可能原因**
+
+未在querySchemes字段下配置指定link的scheme。
+
+**处理步骤**
+
+检查是否在querySchemes字段下配置了相应的URL scheme。
+
+#### 17700070 指定的快捷方式id不合法
+
+**错误信息**
+
+The specified shortcut id is illegal.
+
+**错误描述**
+
+快捷方式id是不合法的。
+
+**可能原因**
+
+已经存在相同包名、分身索引、用户id和快捷方式id的快捷方式信息；传参对应的快捷方式id不存在，或快捷方式id为空字符串。
+
+**处理步骤**
+
+  1. 检查包名或者快捷方式id是否正确。
+
+
+
+#### 17700201 abc文件校验失败
+
+**错误信息**
+
+Failed to verify the abc file.
+
+**错误描述**
+
+.abc文件路径校验失败。
+
+**可能原因**
+
+.abc文件不可信。
+
+**处理步骤**
+
+请传递可信.abc文件路径。
+
+#### 17700202 abc文件删除失败
+
+**错误信息**
+
+Failed to delete the abc file.
+
+**错误描述**
+
+.abc文件删除失败。
+
+**可能原因**
+
+.abc文件不存在。
+
+**处理步骤**
+
+请传递有效的.abc文件的路径。

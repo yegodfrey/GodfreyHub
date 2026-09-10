@@ -1,0 +1,71 @@
+---
+name: document/cn/FASP-by-Template-develop-References/recordal-delete-websites-0000002521363659
+title: 备案订单删除元服务
+uri: https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/recordal-delete-websites-0000002521363659
+---
+
+# 备案订单删除元服务
+
+#### 功能介绍
+
+此接口用于给备案的订单删除元服务信息。  
+
+#### 接口原型
+
+|承载协议|HTTPS DELETE|
+|接口方向|服务商服务器 -\> 华为服务器|
+|接口URL|https://connect-api.cloud.huawei.com/api/icp-manage/v1/order/website|
+|数据格式|请求：Content-Type: application/json 响应：Content-Type: application/json|
+|-----|--------------------------------------------------------------------|
+
+#### 请求参数
+
+<br />
+
+#### Header
+
+|参数|必选(M)/可选(O)|类型|说明|
+|:------------|:----------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|client_id|M|String|API客户端ID。 创建第三方平台成功后系统自动分配的客户端ID，可在第三方管理平台"开发配置 \> 开发资料设置"页面中获取，详情请参见[获取平台访问凭据](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/obtain-development-infor-0000002523235520#section3986829135420)。|
+|Authorization|M|String|认证信息。 格式为"Authorization: Bearer ${access_token}"。 其中，${access_token}为[获取平台级Token](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/get-token-0000001569170877)中获取的access_token。|
+|appId|M|String(32)|应用ID。 元服务则为元服务的应用ID。 应用ID可以调用[获取指定授权账号详情](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/get-authorization-info-0000001501417588)接口从authorizerAppId字段获取。|
+
+#### Body
+
+|参数名称|必选(M)/可选(O)|类型|参数说明|
+|:--------|:----------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|orderId|M|Integer(64)|订单ID。 此入参值可以在调用[备案订单创建](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/recordal-subject-website-0000002489243844)、或[查询备案订单列表](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/recordal-order-infos-0000002521243661)接口时，从orderId字段中获取。|
+|websiteId|M|Integer(64)|元服务信息的记录ID。 此入参值可以在调用[备案订单增加元服务](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/recordal-add-websites-0000002489083860)接口时，从websiteId字段中获取。|
+
+#### 请求示例
+
+```
+DELETE /api/icp-manage/v1/order/website HTTP/1.1
+Host: connect-api.cloud.huawei.com
+client_id: 41******68
+appId: 10*****57
+Content-Type: application/json
+Authorization: Bearer *******
+{
+  "orderId": 122025112000**25,
+  "websiteId": 112025112000**28
+}
+```
+
+#### 响应参数
+
+|参数名称|必选(M)/可选(O)|类型|参数说明|
+|:---|:----------|:----------------------------------------------------------------------------------------------------------------------------|:-------------|
+|ret|M|[BaseRet](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/recordal-baseret-0000002521363669)|包含返回码及描述信息的结果。|
+
+#### 响应示例
+
+```
+{
+  "ret": {
+    "code": 0,
+    "msg": "success"
+  }
+}
+```
+

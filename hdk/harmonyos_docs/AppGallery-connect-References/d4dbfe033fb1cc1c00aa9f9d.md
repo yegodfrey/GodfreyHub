@@ -1,0 +1,37 @@
+---
+name: document/cn/AppGallery-connect-References/ffperframedataflagbits-vulkan-0000001838093929
+title: FFPerFrameDataFlagBits
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/ffperframedataflagbits-vulkan-0000001838093929
+---
+
+# FFPerFrameDataFlagBits
+
+每帧数据类型位掩码。  
+Enum Info
+
+```
+typedef enum FFPerFrameDataFlagBits {
+    FF_PER_FRAME_DATA_SCENE_COLOR_BIT = 0x00000001,
+    FF_PER_FRAME_DATA_DEPTH_BIT = 0x00000002,
+    FF_PER_FRAME_DATA_STENCIL_BIT = 0x00000004,
+    FF_PER_FRAME_DATA_VIEW_PROJ_BIT = 0x0000008,
+    FF_PER_FRAME_DATA_INV_VIEW_PROJ_BIT = 0x00000010,
+    FF_PER_FRAME_DATA_EXTENDED_CAMERA_INFO_BIT = 0x00000020,
+    FF_PER_FRAME_DATA_OBJECT_MATRICES_BIT = 0x00000040,
+} FFPerFrameDataFlagBits;
+```
+
+Enum Value Summary  
+
+|Enum Value|Description|Supported by ProvidePerFrameData|Supported by GrabPerFrameData|
+|:-----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:----------------------------|
+|FF_PER_FRAME_DATA_SCENE_COLOR_BIT|帧数据中的场景颜色。|是|是|
+|FF_PER_FRAME_DATA_DEPTH_BIT|帧数据中的深度。|是|是|
+|FF_PER_FRAME_DATA_STENCIL_BIT|帧数据中的模板。|是|是|
+|FF_PER_FRAME_DATA_VIEW_PROJ_BIT|帧数据中的视图投影矩阵。|是|否|
+|FF_PER_FRAME_DATA_INV_VIEW_PROJ_BIT|帧数据中的反视图投影矩阵。|是|否|
+|FF_PER_FRAME_DATA_EXTENDED_CAMERA_INFO_BIT|帧数据中的摄像机扩展信息，具体请参见[FFPerFrameExtendedCameraInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/ffperframeextendedcamerainfo-vulkan-0000001838253861)。|是|否|
+|FF_PER_FRAME_DATA_OBJECT_MATRICES_BIT|帧数据中的物体相机投影矩阵，具体请参见[FFPerFrameObjectMatrices](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/ffperframeobjectmatrices-vulkan-0000001791334736)。|是|否|
+|FF_PER_FRAME_DATA_FINAL_COLOR_BIT|最终颜色。|是|是|
+|FF_PER_FRAME_DATA_FINAL_MASK_BIT|最终蒙版。|是|是|
+

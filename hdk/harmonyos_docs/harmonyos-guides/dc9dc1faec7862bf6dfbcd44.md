@@ -1,0 +1,12 @@
+---
+name: document/cn/harmonyos-guides/intents-event-rec
+title: 事件推荐方案
+uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-event-rec
+---
+
+# 事件推荐方案
+
+* [概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-event-rec-introduction)  
+* [场景体验](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-event-rec-scene-experience)  
+* [接入方案](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-event-rec-access-programme)  
+* [开发者测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-event-rec-dp-self-validation)  

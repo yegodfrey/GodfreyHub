@@ -1,0 +1,99 @@
+---
+name: document/cn/content/livewallpaper-upload-0000001055068451
+title: 动态壁纸&视频铃声
+uri: https://developer.huawei.com/consumer/cn/doc/content/livewallpaper-upload-0000001055068451
+---
+
+# 动态壁纸\&视频铃声
+
+#### 1. 动态壁纸\&视频铃声上传
+
+第一次上传动态壁纸，请按以下操作：
+
+1. 点击"作品上传"，左侧导航栏选择动态壁纸，完善作品信息后点击下一步创建作品。
+
+   <br />
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.26127273971413577538528232832472:50001231000000:2800:3486E3F1EB6A28CDFAA954353B51A2FA3BFD7E504B11B3CF7F302CA96BA7267F.png "点击放大")
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.97965915960034683596859909171225:50001231000000:2800:A937C880F12C4F49F91B45FCA7829902161325D4AE76129CCAA8E8C166AD6079.png "点击放大")
+
+   <br />
+
+2. 上传动态壁纸文件和预览视频。
+
+   <br />
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.88534858570505894911019444946252:50001231000000:2800:762526D213901DB56FA791490BC202ACCEBA71DA50BD99B6B00F0A6603A605CB.png "点击放大")  
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.91754940136376911683964385138205:50001231000000:2800:61923FF16306359B325BBEDA9A9FDC624B9B8796826F51FF6CBFD6FD5F5E1358.png)  
+   1. 上传平板、折叠屏动态壁纸为可选选项，如要上传平板、折叠屏动态壁纸，需同时上传手机动态壁纸。
+   2. 如已上传平板、折叠屏动态壁纸文件，则需要上传平板、折叠屏动态壁纸的预览文件。
+
+   <br />
+
+3. 上传版权文件。完善付费设置、分发国家及区域信息。
+
+   <br />
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.62003969700258983882070738107808:50001231000000:2800:B2A652CBF592B6B0237C329D2D16992282851CA749AF0F747CA5C657C0F7F41C.png "点击放大")
+
+   <br />
+
+4. 设置动态壁纸标签。
+
+   <br />
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.76591446787982590154331567812908:50001231000000:2800:06E23AEABEACB5F6C88D7F818CBC3F0E829385436056BED575FA7BEDCAFA06A4.png "点击放大")
+
+   <br />
+
+5. 提交审核，作品列表页对应作品状态显示为"审核中"，表示上传成功。
+
+   <br />
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.38845371395390026178644083688947:50001231000000:2800:0335200FD7995AAEDBCC36F566AA3D0655375DC18BCCEFE6B7E1E6173EB25FA7.png "点击放大")
+
+   <br />
+
+#### 2. 动态壁纸\&视频铃声升级
+
+1. 在"我的作品"列表找到需要升级的动态壁纸，点击"升级"。
+
+   <br />
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.56489969481415861799301565778237:50001231000000:2800:D225BDDE1C1CD2F6C37BD8A239AC4C483117690D90D210E2198C219CE109014C.png "点击放大")
+
+   <br />
+
+2. 更新动态壁纸包和预览视频文件。
+
+   <br />
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.93803722671148178945583543662543:50001231000000:2800:3BFCFD8C177392DFE279D42D6134B123ECE6D3C6EC4761908C71FD08064E1EAD.png "点击放大")
+
+   <br />
+
+3. 更新版权证明文件。
+
+   <br />
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.55784317990729131018361866602134:50001231000000:2800:0D76CE2CCD2733A9064AA264EA09143393915B2C71B41B5C9276A29D28BCA4AB.png "点击放大")
+
+   <br />
+
+4. 勾选更新类型并填写更新备注。
+
+   <br />
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.88436852670917385939115832769346:50001231000000:2800:644ABF827F5319655DEC54F20890C406AAEAEE5E085F1F241AA8236A6F2DCBEB.png "点击放大")
+
+   <br />
+
+5. 提交审核，作品列表页对应作品的状态显示为"升级中"，表示上传成功。
+
+   <br />
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250620110725.58544445539321127034818251132861:50001231000000:2800:ED6F09E6D9A8EA6599D7F07B94B6EF28368F706E1736571E3051E5A7A7FC093D.png "点击放大")
+
+   <br />
+

@@ -1,0 +1,32 @@
+---
+name: document/cn/AppGallery-connect-References/agconnectappmessagingonerrorlistener-android-0000001059041588
+title: AGConnectAppMessagingOnErrorListener
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessagingonerrorlistener-android-0000001059041588
+---
+
+# AGConnectAppMessagingOnErrorListener
+
+|Interface Info|
+|:-----------------------------------------------------------------|
+|public interface AGConnectAppMessagingOnErrorListener 消息图片加载异常监听器。|
+
+#### Method Summary
+
+|Qualifier and Type|Method Name and Description|
+|:-----------------|:------------------------------------------------------------------------------------|
+|void|[onMessageError](#section17981202717405)(@NonNull AppMessage appMessage) 消息图片加载异常时回调。|
+
+#### Method
+
+#### onMessageError
+
+|Method|
+|:-------------------------------------------------------------------------|
+|public void onMessageError(@NonNull AppMessage appMessage) 消息图片加载异常时回调该方法。|
+
+Parameters  
+
+|Name|Description|
+|:---------|:--------------------------------------------------------------------------------------------------------------------------------------|
+|appMessage|包含需展示消息的[AppMessage](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/appmessage-android-0000001059201578)实例。|
+

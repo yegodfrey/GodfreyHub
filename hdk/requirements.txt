@@ -1,0 +1,5 @@
+mcp==2.0.0
+jieba==0.42.1
+beautifulsoup4==4.15.0
+markdownify==1.2.3
+html2text==2025.4.15

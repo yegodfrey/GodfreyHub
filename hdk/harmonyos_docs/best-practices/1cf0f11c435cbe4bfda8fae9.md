@@ -1,0 +1,9 @@
+---
+name: document/cn/best-practices/bpta-special-text-recognition
+title: 特殊文本识别跳转
+uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-special-text-recognition
+---
+
+# 特殊文本识别跳转
+
+为提升开发者使用体验，原最佳实践《特殊文本识别跳转》内容已迁移至[指南\>应用框架\>Ability Kit（程序框架服务）\>应用间跳转\>应用间跳转典型场景\>特殊文本识别跳转](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/special-text-recognition-redirection)路径下，原最佳实践中的文章计划于7月24日下架，为避免链接失效，建议及时更新书签。  

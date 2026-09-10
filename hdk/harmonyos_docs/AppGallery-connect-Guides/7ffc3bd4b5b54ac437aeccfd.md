@@ -1,0 +1,23 @@
+---
+name: document/cn/AppGallery-connect-Guides/agc-remoteconfig-quickgame-setvalue-0000001281691972
+title: 设置应用内默认值
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-remoteconfig-quickgame-setvalue-0000001281691972
+---
+
+# 设置应用内默认值
+
+您可以在远程配置对象中设置应用的默认值，以便您的应用在连接到远程配置服务之前按照预期运行。如果云端未设置参数值，则可以使用默认值。当前支持Map对象方式传入默认值，传入后立即生效。
+
+```
+let defaultConfigMap = new Map();
+defaultConfigMap.set("test1", "test1");
+defaultConfigMap.set("test2", true);
+defaultConfigMap.set("test3", 123);
+defaultConfigMap.set("test4", 123.456);
+defaultConfigMap.set("test5", "test-test");
+agconnect.remoteConfig().applyDefault(defaultConfigMap);
+```
+
+#### 更多信息
+
+您可以在AppGallery Connect[设置新的云端配置项](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-remoteconfig-quickgame-cloudconfig-0000001133802921)，并根据业务逻辑配置不同的值，然后在应用中所需位置[获取云端配置项](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-remoteconfig-quickgame-obtainconfig-0000001133741185)，从而灵活更新应用中的信息。  

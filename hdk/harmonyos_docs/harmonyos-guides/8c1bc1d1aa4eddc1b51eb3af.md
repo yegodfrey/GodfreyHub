@@ -1,0 +1,20 @@
+---
+name: document/cn/harmonyos-guides/cannkit-runtimeattrs
+title: RuntimeAttrs
+uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-runtimeattrs
+---
+
+# RuntimeAttrs
+
+* [构造函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-constructor)  
+* [GetAttrPointer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getattrpointer)  
+* [GetInt](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getint)  
+* [GetListInt](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getlistint)  
+* [GetListListInt](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getlistlistint)  
+* [GetStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getstr)  
+* [GetTensor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-gettensor)  
+* [GetFloat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getfloat)  
+* [GetBool](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getbool)  
+* [GetListFloat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getlistfloat)  
+* [GetListListFloat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getlistlistfloat)  
+* [GetAttrNum](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getattrnum)  

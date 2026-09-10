@@ -1,0 +1,179 @@
+---
+name: document/cn/promotion/ads_api49new-0000001119507192
+title: 查询版位元素
+uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_api49new-0000001119507192
+---
+
+# 查询版位元素
+
+【简介】通过此接口可以查询多规格版位元素 。
+
+<br />
+
+新版查询版位元素接口差异点：
+
+* 此接口替代openapi/v2/tools/position/detail/query接口
+
+<br />
+
+请求地址
+
+https://ads.cloud.huawei.com/openapi/v2_1/tools/position/detail/query
+
+请求方法
+
+GET
+
+请求参数  
+
+|----------------|------|----|----------------------------------------------------------------------------------------------------|
+|参数名称|类型|是否必选|描述|
+|advertiser_id|long|否|广告主ID，当登录授权的华为账号为如下场景时此字段必填： 1）授权账号关联的是经理账户； 2）授权账号关联的是服务商账户； 3）授权账号关联了多个子客账户。|
+|creative_size_id|long|是|版位ID|
+|product_type|string|否|推广产品 详见[【推广产品类型】](https://developer.huawei.com/consumer/cn/doc/promotion/ads_api73-0000001058884698)|
+
+<br />
+
+请求示例
+
+GET openapi/v2_1/tools/position/detail/query?creative_size_id=1 HTTP/1.1
+
+Accept:application/json
+
+Content-Type:application/json
+
+Authorization:Bearer CgB6e3x9ERGComr9dENxZX22iBk+mLuf1yGtQVPUjPJUMrstfKlqpdXk+kfHU9J8ZJ/soYIZHZzT446GeSYumluQuhsK7jvz4kz1Bkms4CLI/rE=
+
+响应字段  
+
+|-------|-------|------|
+|参数名称|类型|描述|
+|code|string|返回码|
+|message|string|返回描述|
+|data|Struct1|版位元素列表|
+
+<br />
+
+Struct1定义  
+
+|------------------------------|-----------|------|
+|参数名称|类型|描述|
+|creative_size_id|long|版位ID|
+|placement_size_elementinfolist|Struct2\[\]|规格元素列表|
+
+<br />
+
+Struct2定义  
+
+|--------------------------|-----------|------|
+|参数名称|类型|描述|
+|placement_size_id|string|规格ID|
+|creative_size_sub_type|string|创意子形式|
+|creative_element_info_list|Struct3\[\]|版位元素列表|
+
+<br />
+
+Struct3定义  
+
+|-----------------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------|
+|参数名称|类型|描述|
+|creative_size_element_id|long|版位元素id|
+|creative_size_element_name|string|详见[【版位元素类型】](https://developer.huawei.com/consumer/cn/doc/promotion/ads_api72-0000001058086561#section137522975415) 其他为无效的类型，请丢弃|
+|creative_size_element_title|string|版位元素名称|
+|creative_size_element_caption|string|版位元素描述|
+|min_length|integer|最小输入长度 title、description、corporate_name、landing_page_url 使用|
+|max_length|integer|文案、摘要、品牌名称，都是指中文长度，英文长度算0.5。其他元素指元素的内容.length() title、description、corporate_name、landing_page_url使用|
+|pattern|string|输入校验规则，正则 title、description、corporate_name、landing_page_url使用|
+|width|integer|图片宽，精确匹配 image、icon、video使用|
+|height|integer|图片高，精确匹配 image、icon、video使用|
+|file_size_kb_limit|integer|文件大小上限，单位KB。静态图片和视频受到限制 image、icon、video使用|
+|gif_size_kb_limit|integer|Gif文件大小上限，单位KB。GIF图片受到限制 image使用|
+|file_format|string|文件类型，取值为JPG、PNG、JPEG、GIF、MP4，多值使用斜杠分割，如：JPG/PNG/JPEG/GIF/MP4 image 、icon、video使用|
+|min_width|integer|视频最小宽度，单位px video使用|
+|min_height|integer|视频最小高度，单位px video使用|
+|duration|Struct4\[\]|视频时长|
+|min_occurs|integer|最小出现次数，为0表示元素为可选 title、description、corporate_name、landing_page_url 、impression_tracking_url、click_tracking_url、image 、icon、video使用|
+|max_occurs|integer|最大出现次数 title、description、corporate_name、landing_page_url 、impression_tracking_url、click_tracking_url、image 、icon、video使用|
+
+<br />
+
+Struct4定义  
+
+|----|-------|-------------------|
+|参数名称|类型|描述|
+|min|integer|视频最短时长，单位ms video使用|
+|max|integer|视频最大时长，单位ms video使用|
+
+<br />
+
+应答示例
+
+HTTPS/1.1 200 OK
+
+```
+{
+"code": "200",
+"data": {
+"creative_size_id": 1,
+"creative_element_info_list": [{
+"min_length": 1,
+"min_occurs": 0,
+"pattern": "https://g.cn.miaozhen.com;https://g0.cn.miaozhen.com;https://e.cn.miaozhen.com;https://e0.cn.miaozhen.com;https://i.gridsumdissector.com/v;https://c.gridsumdissector.com/r;https://i.gridsumdissector.com/v;https://c.gridsumdissector.com/r;https://v.admaster.com.cn;https://c.admaster.com.cn;https://clickc.admaster.com.cn;https://ad.doubleclick.net/ddm/trackimp;https://ad.doubleclick.net/ddm/trackclk;https://ef-dongfeng.tanx.com;https://mo.open.taobao.com",
+"creative_size_element_id": 10000000,
+"creative_size_element_title": "点击监测地址",
+"creative_size_element_caption": "请填写点击监测地址",
+"creative_size_element_name": "click_tracking_url",
+"max_occurs": 1,
+"max_length": 2048
+},
+{
+"min_length": 1,
+"min_occurs": 0,
+"creative_size_element_id": 10000001,
+"creative_size_element_title": "应用直达地址",
+"creative_size_element_caption": "请填写应用直达地址",
+"creative_size_element_name": "deeplink_url",
+"max_occurs": 1,
+"max_length": 2048
+},
+{
+"min_length": 1,
+"min_occurs": 0,
+"pattern": "https://g.cn.miaozhen.com;https://g0.cn.miaozhen.com;https://e.cn.miaozhen.com;https://e0.cn.miaozhen.com;https://i.gridsumdissector.com/v;https://c.gridsumdissector.com/r;https://i.gridsumdissector.com/v;https://c.gridsumdissector.com/r;https://v.admaster.com.cn;https://c.admaster.com.cn;https://clickc.admaster.com.cn;https://ad.doubleclick.net/ddm/trackimp;https://ad.doubleclick.net/ddm/trackclk;https://ef-dongfeng.tanx.com;https://mo.open.taobao.com",
+"creative_size_element_id": 10000002,
+"creative_size_element_title": "曝光监测地址",
+"creative_size_element_caption": "请填写曝光监测地址",
+"creative_size_element_name": "impression_tracking_url",
+"max_occurs": 1,
+"max_length": 2048
+},
+{
+"min_length": 1,
+"min_occurs": 0,
+"pattern": "^(http([\\d\\D])*).+$",
+"creative_size_element_id": 10000003,
+"creative_size_element_title": "落地页地址",
+"creative_size_element_caption": "请填写落地页地址",
+"creative_size_element_name": "landing_page_url",
+"max_occurs": 1,
+"max_length": 2048
+},
+{
+"file_size_kb_limit": 150,
+"min_occurs": 1,
+"creative_size_element_id": 10000044,
+"min_duration": 0,
+"creative_size_element_title": "图片",
+"max_duration": 15000,
+"creative_size_element_caption": "请上传图片",
+"width": 1080,
+"creative_size_element_name": "image",
+"file_format": "JPG/JPEG/PNG",
+"max_occurs": 1,
+"height": 1620
+}
+]
+}
+}
+```
+

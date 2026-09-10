@@ -1,0 +1,37 @@
+---
+name: document/cn/atomic-faqs/faqs-product-27
+title: 元服务打包大小限制
+uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-product-27
+---
+
+# 元服务打包大小限制
+
+#### 问题现象
+
+元服务在打包中出现如下错误：
+
+```
+Ohos BundleTool [Error]: module phone and it's dependencies size is 5.24MB, which is overlarge than 2MB.
+```
+
+说明元服务单包大小超过了2MB限制，需要进行优化调整。  
+
+#### 背景知识
+
+HarmonyOS应用程序包支持多模块开发，生成的应用程序包可以包含多个HAP或HSP。元服务为了实现快速启动效果，对HAP和HSP文件大小做了限制：元服务内任意类型的单个包大小不超过2MB，同一设备类型下所有包大小总和不得超过10MB，参见：[分包的规则和约束](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-subcontract#分包的规则和约束)。  
+
+#### 问题定位
+
+根据日志报错显示module phone及其依赖大小超过了2MB，可以在DevEco Studio中直接打开元服务app文件，查看HAP和HSP包的整体大小及不同类型的文件大小占比：
+
+![](https://media:201787623097642454 "点击放大")  
+
+#### 分析结论
+
+元服务单个包文件（加上其依赖的所有共享包），大小超过2MB限制导致DevEco Studio打包失败。  
+
+#### 修改建议
+
+* 按照产品定制层Products(HAP)，业务模块层Features(HSP)，公共能力层Commons(HAR/HSP)对元服务进行分层设计，通过模块拆分和代码复用的方式减少单包的大小，详细参考：元服务[分包](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-subcontract)。
+* Entry主包不强制依赖拆分出来的HSP包，页面跳转使用Navigation[跨模块页面路由](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-inter-module-page-routing)。
+* 若因业务需要总包大小超过10MB，可提供申请权限名称、元服务名称及AppId信息，并说明申请原因，向平台申请将总包大小放宽至20MB。  

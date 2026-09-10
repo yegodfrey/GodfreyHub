@@ -1,0 +1,524 @@
+---
+name: document/cn/HMSCore-Guides/guide-webpage-0000001050042334
+title: 网页集成“添加到华为钱包”按钮领取卡券
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/guide-webpage-0000001050042334
+---
+
+# 网页集成"添加到华为钱包"按钮领取卡券
+
+#### 概述
+
+每张卡券的内容分为两个部分，商户固定信息（模板）及用户特有信息（实例）。  
+![](https://media:101782807011305610)  
+模板：用户共有的字段信息，所有用户将共同享有模板信息字段，如logo、merchantName等。
+
+用户特有信息（实例）：用户特有的字段信息，如cardNumber。如果实例和模板中有相同字段则实例信息将覆盖模板信息内容。
+
+推送模板和实例可参考[codelab](https://developer.huawei.com/consumer/cn/codelab/HMSWalletKit/index.html#0)和[服务端示例代码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/java-sample-code-0000001050157448)。
+
+商户将卡券模板数据通过REST API接口推送到华为服务器，并在网页展示"添加到华为钱包"按钮，当用户点击时将卡券实例的数据封装成JWE通过Wallet Kit服务与用户的华为帐号绑定。用户可以在任意手机上登录该华为帐号，并打开华为钱包App查看所绑定的卡券。用户删除卡券时，所有领取过此卡券的设备上都会同步删除。
+
+用户点击"添加到华为钱包"按钮后，会发送包含用户特有信息的JWE实例到华为服务器。华为服务器收到后，关联模板，生成实际的卡券并与华为帐号关联，用户可以在华为钱包中查看此卡券。
+
+![](https://media:101782807011407611 "点击放大")
+
+具体步骤如下：
+
+1. 定义包含商户信息的模板信息，并通过REST API推送到华为服务器。
+2. 在网页上集成"添加到华为钱包"按钮。
+3. 用户点击按钮时，开发者服务器生成卡券对应的实例信息，以JWE形式作为参数发送到华为服务器。
+4. JWE数据过长时通过瘦JWE方式作为参数发送到华为服务器。  
+
+#### 定义模板信息
+
+抽取卡券信息中通用的商户信息作为模板。  
+![](https://media:101782807011522612)  
+[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)可以在服务器API中查看具体定义。
+
+```
+HwWalletObject hwWalletObject = new HwWalletObject();
+hwWalletObject.setOrganizationName("xxxx");
+// 模板标识，唯一值
+hwWalletObject.setPassStyleIdentifier("Loyalty001"); 
+// 注册时的服务号
+hwWalletObject.setPassTypeIdentifier("hwpass.loyalty.merchant");  
+
+Fields fields = new Fields();
+fields.setCountryCode("CN");
+
+// 地理围栏信息
+List<Location> locationList = new ArrayList<>();
+Location location = new Location();
+location.setLongitude("113.0679603815");
+location.setLatitude("25.6592051284");
+locationList.add(location);
+fields.setLocationList(locationList);
+
+List<ValueObject> commonFields = new ArrayList<>();
+ValueObject cardImage = new ValueObject();
+cardImage.setKey("backgroundImage");
+// 商户会员卡卡面图片URI
+cardImage.setValue("https://www.xxx.com/.../cardImage.png"); 
+commonFields.add(cardImage);
+// 商户LOGO URI
+ValueObject logo = new ValueObject();
+logo.setKey("logo");
+logo.setValue("https://www.xxx.com/.../logo.png"); 
+commonFields.add(logo);
+
+// 商户名称，含多语言样例，例如此处设置字符串id为merchantNameI18N，用于在Localized中获取对应语言取值进行展示
+ValueObject merchantName = new ValueObject();
+merchantName.setKey("merchantName");
+merchantName.setValue("Some merchant name");
+merchantName.setLocalizedValue("merchantNameI18N");
+commonFields.add(merchantName);
+
+// 卡片名称
+ValueObject name = new ValueObject();
+name.setKey("name");
+name.setValue("Loyalty Card");
+commonFields.add(name);
+fields.setCommonFields(commonFields);
+// 附近门店地址URI
+List<ValueObject> appendFields = new ArrayList<>();
+ValueObject nearbyLocations = new ValueObject();
+nearbyLocations.setKey("nearbyLocations");
+nearbyLocations.setValue("https://www.xxx.com/.../nearbyLocation.html"); 
+nearbyLocations.setLabel("Nearby Locations");
+appendFields.add(nearbyLocations);
+// 商户主页URI
+ValueObject website = new ValueObject();
+website.setKey("website");
+website.setValue("https://www.xxx.com/.../merchantMainPage.html"); 
+website.setLabel("Website");
+appendFields.add(website);
+// 商户热线
+ValueObject hotline = new ValueObject();
+hotline.setKey("hotline");
+hotline.setValue("400820XXXX"); 
+hotline.setLabel("Hotline");
+appendFields.add(hotline);
+fields.setAppendFields(appendFields);
+// 推广图片
+List<ValueObject> imageList = new ArrayList<>();
+ValueObject imagePic = new ValueObject();
+imagePic.setValue("https://www.xxx.com/.../banner.png"); 
+imageList.add(imagePic);
+fields.setImageList(imageList);
+
+List<Localized> localizedList = new ArrayList<>();
+// 商户中文名称，例如中文语言时，通过上面指定的字符串Id merchantNameI18N匹配到此Value用于展示
+Localized merchantNameChinese = new Localized();
+merchantNameChinese.setKey("merchantNameI18N");
+merchantNameChinese.setLanguage("zh-CN");
+merchantNameChinese.setValue("Merchant name in Chinese");
+localizedList.add(merchantNameChinese);
+
+// 商户英文名称，例如英文语言时，通过上面指定的字符串Id merchantNameI18N匹配到此Value用于展示
+Localized merchantNameEnglish = new Localized();
+merchantNameEnglish.setKey("merchantNameI18N");
+merchantNameEnglish.setLanguage("en-GB");
+merchantNameEnglish.setValue("Merchant name in English");
+localizedList.add(merchantNameEnglish);
+fields.setLocalized(localizedList);
+hwWalletObject.setFields(fields);
+```
+
+<br />
+
+通过如下POST接口推送到华为服务器：  
+![](https://media:101782807011719613)  
+推送模板接口请参见[创建活动门票模板](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/create-model-0000001050158460)（请根据场景选择对应卡券的创建模板接口）。
+
+```
+POST
+https://{walletkit_server_url}/hmspass/v1/loyalty/model
+```
+
+请求地址中的{walletkit_server_url}变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据， 参考钱包服务器地址列表。  
+
+|地区|域名|
+|:---|:------------------------------------------|
+|中国大陆|wallet-passentrust-drcn.cloud.huawei.com.cn|
+|亚洲|wallet-passentrust-dra.cloud.huawei.asia|
+|欧洲|wallet-passentrust-dre.cloud.huawei.eu|
+|拉丁美洲|wallet-passentrust-dra.cloud.huawei.lat|
+|俄罗斯|wallet-passentrust-drru.cloud.huawei.ru|
+
+推送HwWalletObject代码如下，[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)可以在API参考中查看具体定义：
+
+```
+// Read an loyalty model from a JSON file.LoyaltyModel.json is a JSON file with parameters in HwWalletObject format.
+JSONObject model = JSONObject.parseObject(ConfigUtil.readFile("LoyaltyModel.json"));
+
+// Validate parameters.
+HwWalletObjectUtil.validateModel(model);
+
+// Post the new event loyalty model to HMS wallet server.
+String urlSegment = "loyalty/model";
+ServerApiService serverApiService = new ServerApiServiceImpl();
+JSONObject responseModel = serverApiService.postToWalletServer(urlSegment, JSONObject.toJSONString(model));
+```
+
+#### 集成"添加到华为钱包"按钮
+
+在网页中增加如下脚本，展示"添加到华为钱包"按钮。
+
+```
+<script src="savetohuaweipay.min.js"></script>
+```
+
+JS文件下载：[savetohuaweipay.zip](https://media:101782807012569623)。  
+![](https://media:101782807011898614)  
+JS文件中的添加卡券地址为中国大陆区域地址，如果需要上传其他站点请根据[配置](#section17124158175913)修改JS文件。
+
+加入如下标记，用于传入JWE内容，在用户点击按钮时作为参数。
+
+```
+<hw-savetohuaweipay jwt="{jwe_content}" theme="light"></hw-savetohuaweipay>
+```
+
+#### 生成JWE并发送到华为服务器
+
+#### 定义用户特有信息的实例并生成JWE数据
+
+用户点击"添加到华为钱包"按钮时，生成包含用户特有信息的实例。
+
+[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)可以在API参考中查看具体定义。  
+![](https://media:101782807011924615)  
+生成用户特有信息的实例前请先将模板推送至华为服务器，并在用户特有信息的实例中传入模板唯一标识PassStyleIdentifier。
+
+```
+HwWalletObject hwWalletObject = new HwWalletObject();
+// 实例唯一标识，在模板下唯一，不会在华为钱包展示
+hwWalletObject.setSerialNumber("854687156"); 
+// 模板标识，唯一
+hwWalletObject.setPassStyleIdentifier("Loyalty001"); 
+
+//实例唯一标识，在模板下唯一，如果未在fields.commonFields[key= cardNumber]定义则钱包详情页将取OrganizationPassId作为卡号
+hwWalletObject.setOrganizationPassId("1231"); 
+// 注册时的服务号
+hwWalletObject.setPassTypeIdentifier("hwpass.loyalty.merchant");  
+
+Fields fields = new Fields();
+// 状态，有效期内的卡券才能推送到华为服务器
+Status status = new Status();
+status.setState("active");
+status.setEffectTime("2019-11-11T00:00:00.000Z");
+status.setExpireTime("2029-11-10T23:59:59.999Z");
+fields.setStatus(status);
+
+// 关联优惠券，填入关联优惠券的模板和实例标识
+List<LinkedPassId> relatedPassIds = new ArrayList<>();
+LinkedPassId linkedCoupon = new LinkedPassId();
+linkedCoupon.setTypeId("Coupon template id");
+linkedCoupon.setId("Coupon instance id");
+relatedPassIds.add(linkedCoupon);
+fields.setRelatedPassIds(relatedPassIds);
+
+// 条形码/二维码
+BarCode barCode = new BarCode();
+barCode.setText("Refresh every ten minutes");
+// setType的值为codabar或qrCode
+barCode.setType("codabar");
+barCode.setValue("829383819844342342");
+fields.setBarCode(barCode);
+
+List<ValueObject> commonFields = new ArrayList<>();
+// 会员名称，含多语言样例
+ValueObject memberName = new ValueObject();
+memberName.setKey("memberName");
+memberName.setValue("Member name");
+memberName.setLocalizedValue("memberName18N");
+commonFields.add(memberName);
+
+ValueObject balance = new ValueObject();
+balance.setKey("balance");
+balance.setValue("$19");
+balance.setLabel("Balance");
+commonFields.add(balance);
+
+// 卡号
+ValueObject cardNumber = new ValueObject();
+cardNumber.setKey("cardNumber");
+cardNumber.setLabel("cardNumber");
+cardNumber.setValue("4527809736");
+commonFields.add(cardNumber);
+fields.setCommonFields(commonFields);
+
+List<ValueObject> appendFields = new ArrayList<>();
+// 会员积分
+ValueObject points = new ValueObject();
+points.setKey("points");
+points.setLabel("Points");
+points.setValue("1299");
+appendFields.add(points);
+
+// 等级
+ValueObject level = new ValueObject();
+rewardsLevel.setKey("level");
+level.setValue("Gloden");
+level.setLabel("Level");
+appendFields.add(level);
+fields.setAppendFields(appendFields);
+
+List<Localized> localizedList = new ArrayList<>();
+// 会员中文名称
+Localized memberNameChinese = new Localized();
+memberNameChinese.setKey("memberName18N");
+memberNameChinese.setLanguage("zh-CN");
+memberNameChinese.setValue("Member name in Chinese");
+localizedList.add(memberNameChinese);
+
+// 会员英文名称
+Localized memberNameEnglish = new Localized();
+memberNameEnglish.setKey("memberName18N");
+memberNameEnglish.setLanguage("en-GB");
+memberNameEnglish.setValue("Member name in English");
+localizedList.add(memberNameEnglish);
+fields.setLocalized(localizedList);
+hwWalletObject.setFields(fields);
+```
+
+采用JWE格式生成数据，总共分为5段。
+
+* 第一段为Head部分。
+* 第二段为采用RSA加密的sessionKey数据，华为服务器已经开放了RSA公钥。
+* 第三段为长度12位的IV部分。
+* 第四段为加密并压缩后的HwWalletObject字符串，采用第二段的sessionKey作为对称秘钥和第三段的IV作为加密向量，以AES-GCM方式对HwWalletObject字符串进行加密并压缩。
+* 第五段为签名部分，将前面4部分使用JWE的私钥（开发者联盟申请得到）进行签名，生成签名字符串。每一段均为Base64编码。
+
+![](https://media:101782807011951616)  
+sessionKey和IV部分建议每次动态变换。
+
+以下代码中引用但未实现的类（"ConfigUtil"，"JweUtil"）均可以在[服务器示例代码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/java-sample-code-0000001050157448)中查看具体定义。
+
+```
+// 在华为AppGallery Connect网站上注册的应用ID.
+String appId = ConfigUtil.instants().getValue("gw.appid");
+// 生成一个新的实例并将其绑定到用户，示例代码中使用直接读取json文件的形式来设置Instance,商户接入时建议使用定义HwWalletObject形式来生成JWE数据.
+//HwWalletObject可以在API参考中查看具体定义。
+JSONObject newInstance = JSONObject.parseObject(ConfigUtil
+            .readFile("Replace with the instance JSON file to be created. For example: EventTicketInstance.json"));
+newInstance.put("iss", appId);
+String payload = newInstance.toJSONString();
+
+
+// 您在AGC上申请服务时生成了一对密钥。在此使用该私钥.
+String jweSignPrivateKey = ConfigUtil.instants().getValue("servicePrivateKey");
+
+// 生成JWE.
+String jwe = JweUtil.generateJwe(jweSignPrivateKey, payload);
+System.out.println("JWE String: " + jwe + "\n");
+```
+
+![](https://media:101782807011979617)  
+JWE数据需要经过URLEncoder.encode(jweStrByInstanceIds, StandardCharsets.UTF_8.toString())编码。  
+
+#### 发送到华为服务器
+
+携带JWE的链接长度需控制在2000以内。HTTPS链接样例如下：
+
+```
+https://{walletkit_website_url}/walletkit/consumer/pass/save?content={content}
+```
+
+![](https://media:101782807012159618)  
+* 最终的访问链接请不要带"{}"，即content=xxxx即可。
+* 如果添卡时需要跳过钱包端侧添加预览页面，可以在链接后添加\&preview=0跳过预览，无参或传参非0时仍展示钱包端侧预览页面，例如：https://{walletkit_website_url}/walletkit/consumer/pass/save?content={content}\&preview=0
+* 请求地址中的{walletkit_website_url}变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据，列表如下：  
+
+|站点|域名|
+|:------------------------------|:-------------------------------|
+|China|walletpass-drcn.cloud.huawei.com|
+|Russia|walletpass-drru.cloud.huawei.com|
+|Asia, Africa, and Latin America|walletpass-dra.cloud.huawei.com|
+|Europe|walletpass-dre.cloud.huawei.com|
+
+#### 生成瘦JWE并发送到华为服务器
+
+#### 定义用户特有信息的实例并生成JWE数据
+
+由于部分浏览器的限制，网页链接中使用的JWE一般不能超过2000个字符。如果卡券实例的内容构成的JWE超过了此限制则可以选择"瘦"JWE方式，这种情况下商户需要通过REST API在用户绑卡前提前将卡券实例数据推送到华为服务器，"添加到华为钱包"按钮或链接中所包含的JWE数据仅需要包含卡券实例的Id字段。  
+![](https://media:101782807012204619)  
+* 如选择使用瘦JWE方式添加卡券则可忽略"生成JWE并发送到华为服务器"步骤。
+* 支持JWE链接的方式同时也支持瘦JWE方式。
+* 瘦JWE每次请求支持最多20个Instance Id。
+
+推送用户特有信息的实例至华为服务器。  
+![](https://media:101782807012324620)  
+[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)可以在API参考中查看具体定义。
+
+```
+HwWalletObject hwWalletObject = new HwWalletObject(); 
+// 实例唯一标识，在模板下唯一，不会在华为钱包展示
+hwWalletObject.setSerialNumber("854687156"); 
+// 模板标识，唯一
+hwWalletObject.setPassStyleIdentifier("Loyalty001"); 
+
+//实例唯一标识，在模板下唯一，如果未在fields.commonFields[key= cardNumber]定义则钱包详情页将取OrganizationPassId作为卡号
+hwWalletObject.setOrganizationPassId("1231"); 
+// 注册时的服务号
+hwWalletObject.setPassTypeIdentifier("hwpass.loyalty.merchant");  
+ 
+Fields fields = new Fields(); 
+// 状态，失效的不能添加 
+Status status = new Status(); 
+status.setState("active"); 
+status.setEffectTime("2019-11-11T00:00:00.000Z");
+status.setExpireTime("2029-11-10T23:59:59.999Z");
+fields.setStatus(status); 
+ 
+// 关联优惠券，填入关联优惠券的模板和实例标识 
+List<LinkedPassId> relatedPassIds = new ArrayList<>(); 
+LinkedPassId linkedCoupon = new LinkedPassId();
+linkedCoupon.setTypeId("Coupon template id"); 
+linkedCoupon.setId("Coupon instance id");
+relatedPassIds.add(linkedCoupon); 
+fields.setRelatedPassIds(relatedPassIds); 
+ 
+// 条形码/二维码 
+BarCode barCode = new BarCode(); 
+barCode.setText("Refresh every ten minutes");
+// setType的值为codabar或qrCode
+barCode.setType("codabar"); 
+barCode.setValue("829383819844342342");
+fields.setBarCode(barCode); 
+ 
+List<ValueObject> commonFields = new ArrayList<>(); 
+// 会员名称，含多语言样例 
+ValueObject memberName = new ValueObject();
+memberName.setKey("memberName"); 
+memberName.setValue("Member name");
+memberName.setLocalizedValue("memberName18N");
+commonFields.add(memberName); 
+ 
+ValueObject balance = new ValueObject(); 
+balance.setKey("balance"); 
+balance.setValue("$19"); 
+balance.setLabel("Balance"); 
+commonFields.add(balance);
+
+// 卡号 
+ValueObject cardNumber = new ValueObject();
+cardNumber.setKey("cardNumber"); 
+cardNumber.setLabel("cardNumber");
+cardNumber.setValue("4527809736");
+commonFields.add(cardNumber); 
+fields.setCommonFields(commonFields); 
+ 
+List<ValueObject> appendFields = new ArrayList<>(); 
+// 会员积分 
+ValueObject points = new ValueObject(); 
+points.setKey("points"); 
+points.setLabel("Points"); 
+points.setValue("1299"); 
+appendFields.add(points);  
+ 
+// 等级 
+ValueObject level = new ValueObject(); 
+rewardsLevel.setKey("level"); 
+level.setValue("Gloden"); 
+level.setLabel("Level"); 
+appendFields.add(level); 
+fields.setAppendFields(appendFields); 
+ 
+List<Localized> localizedList = new ArrayList<>(); 
+// 会员中文名称 
+Localized memberNameChinese = new Localized();
+memberNameChinese.setKey("memberName18N");
+memberNameChinese.setLanguage("zh-CN");
+memberNameChinese.setValue("Member name in Chinese"); 
+localizedList.add(memberNameChinese); 
+ 
+// 会员英文名称 
+Localized memberNameEnglish = new Localized();
+memberNameEnglish.setKey("memberName18N");
+memberNameEnglish.setLanguage("en-GB");
+memberNameEnglish.setValue("Member name in English"); 
+localizedList.add(memberNameEnglish); 
+fields.setLocalized(localizedList); 
+hwWalletObject.setFields(fields);
+```
+
+通过如下POST接口推送到华为服务器。
+
+```
+POST 
+https://{walletkit_server_url}/hmspass/v1/loyalty/instance
+```
+
+![](https://media:101782807012360621)  
+请求地址中的{walletkit_server_url}变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据，参考钱包服务器地址列表。  
+
+|地区|域名|
+|:---|:------------------------------------------|
+|中国大陆|wallet-passentrust-drcn.cloud.huawei.com.cn|
+|亚洲|wallet-passentrust-dra.cloud.huawei.asia|
+|欧洲|wallet-passentrust-dre.cloud.huawei.eu|
+|拉丁美洲|wallet-passentrust-dra.cloud.huawei.lat|
+|俄罗斯|wallet-passentrust-drru.cloud.huawei.ru|
+
+推送hwWalletObject代码如下：
+
+```
+// Read an loyalty model from a JSON file.LoyaltyInstance.json is a JSON file with parameters in HwWalletObject format.
+JSONObject model = JSONObject.parseObject(ConfigUtil.readFile("LoyaltyInstance.json"));
+
+// Validate parameters.
+HwWalletObjectUtil.validateModel(model);
+
+// Post the new event loyalty model to HMS wallet server.
+String urlSegment = "loyalty/instance";
+ServerApiService serverApiService = new ServerApiServiceImpl();
+JSONObject responseModel = serverApiService.postToWalletServer(urlSegment, JSONObject.toJSONString(model));
+```
+
+采用JWE格式生成数据，总共分为5段，sessionKey和IV部分建议每次动态变换。
+
+* 第一段为Head部分。
+* 第二段为采用RSA加密的sessionKey数据，华为服务器已经开放了RSA公钥。
+* 第三段为长度12位的IV部分。
+* 第四段为加密并压缩后的HwWalletObject字符串，采用第二段的sessionKey作为对称秘钥和第三段的IV作为加密向量，以AES-GCM方式对HwWalletObject字符串进行加密并压缩。
+* 第五段为签名部分，将前面4部分使用JWE的私钥（开发者联盟申请得到）进行签名，生成签名字符串。每一段均为Base64编码。
+
+```
+// 在华为AppGallery Connect网站上注册的应用ID。
+String appId = ConfigUtil.instants().getValue("gw.appid");
+// 为用户绑定已存在的pass实例。构造需要绑定的实例ID列表。
+String instanceIdListStr =
+            "{\"instanceIds\": [\"Replace with the instance ID to be bond. For example: EventTicketPass10001\"]}";
+JSONObject instanceIdList = JSONObject.parseObject(instanceIdListStr);
+instanceIdList.put("iss", appId);
+String payload = instanceIdList.toJSONString();
+
+// 您在AGC上申请服务时生成了一对密钥。 在此使用该私钥。
+String jweSignPrivateKey = ConfigUtil.instants().getValue("servicePrivateKey");
+
+// 生成JWE。
+ String jwe = JweUtil.generateJwe(jweSignPrivateKey, payload);
+ System.out.println("JWE String: " + jwe + "\n");
+```
+
+JWE数据需要经过URLEncoder.encode(jweStrByInstanceIds, StandardCharsets.UTF_8.toString())编码。  
+
+#### 发送到华为服务器
+
+携带JWE的链接长度需控制在2000以内。HTTPS链接样例如下：
+
+```
+https://{walletkit_website_url}/walletkit/consumer/pass/save?content={content}
+```
+
+![](https://media:101782807012521622)  
+* 最终的访问链接请不要带"{}"，即content=xxxx即可。
+* 如果添卡时需要跳过钱包端侧添加预览页面，可以在链接后添加\&preview=0跳过预览，无参或传参非0时仍展示钱包端侧预览页面，例如：https://{walletkit_website_url}/walletkit/consumer/pass/save?content={content}\&preview=0
+* 请求地址中的{walletkit_website_url}变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据，列表如下：  
+
+|站点|域名|
+|:------------------------------|:-------------------------------|
+|China|walletpass-drcn.cloud.huawei.com|
+|Russia|walletpass-drru.cloud.huawei.com|
+|Asia, Africa, and Latin America|walletpass-dra.cloud.huawei.com|
+|Europe|walletpass-dre.cloud.huawei.com|
+

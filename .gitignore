@@ -1,0 +1,19 @@
+node_modules/
+dist/
+*.log
+
+# 本机工程注册表: hub_scan 生成, 含本机绝对路径/项目 bundle/设备名, 不入库
+config/local.config.json
+
+# 本地证据与工具状态
+Workspace/*
+!Workspace/README.md
+__pycache__/
+*.pyc
+.workbuddy/
+.codex/
+
+# HDK: 语料与脚本随仓库分发, 二进制索引与虚拟环境本地重建
+hdk/.mcp_cache/
+hdk/.venv/
+hdk/**/__pycache__/

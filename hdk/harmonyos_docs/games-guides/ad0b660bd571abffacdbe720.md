@@ -1,0 +1,13 @@
+---
+name: document/cn/games-guides/ailod-network-0000002510076901
+title: 确保AILOD端云连通
+uri: https://developer.huawei.com/consumer/cn/doc/games-guides/ailod-network-0000002510076901
+---
+
+# 确保AILOD端云连通
+
+AILOD为端云协同工作，因此在使用期间需要保持网络畅通。
+
+1. 在顶部菜单栏选择"AILOD \> Settings"，点击"Test Connection"，测试是否可以连接Huawei AILOD cloud platform。 ![](https://media:401781143642043652)
+
+2. 若连接失败请前往[FAQ](https://developer.huawei.com/consumer/cn/doc/games-guides/ailod-faq-0000002509054397#section1871719355282)查看解决方案。  

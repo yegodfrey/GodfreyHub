@@ -1,0 +1,41 @@
+---
+name: document/cn/AppGallery-connect-References/event-childentitychangedevent-0000002443742616
+title: ChildEntityChangedEvent
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/event-childentitychangedevent-0000002443742616
+---
+
+# ChildEntityChangedEvent
+
+|Class/Struct Info|
+|:---------------------------------------------------------------------------------|
+|public readonly struct ChildEntityChangedEvent : IEvent 子实体变化事件结构体，当实体的子实体发生变化时触发。|
+
+#### Property Summary
+
+|Name|Type|Description|
+|:----------|:--------------------|:----------|
+|ChangeType|ChildEntityChangeType|变化类型。|
+|EntityId|int|父实体ID。|
+|ChildId|int|子实体ID。|
+|ChildIndex|int|子实体索引。|
+|EcsWorld|IECSWorld|EcsWorld引用。|
+|Entity|IEntity|只读属性。父实体引用。|
+|ChildEntity|IEntity|只读属性。子实体引用。|
+
+Sample Code
+
+```
+// 定义子实体变更事件处理器，可访问事件字段和属性
+Action<EntityDestroyedEvent> entityDestroyed = (evt) =>
+{
+    var changeType = evt.ChangeType;
+    var id = evt.EntityId;
+    var childId = evt.ChildId;
+    var childIndex = evt.ChildIndex;
+    var changeTags = evt.Tags;
+    var world = evt.EcsWorld;
+    var entity = evt.Entity;
+    var childEntity = evt.ChildEntity;
+};
+```
+

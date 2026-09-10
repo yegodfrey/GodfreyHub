@@ -1,0 +1,9 @@
+---
+name: document/cn/promotion/account-coupon-0000001486025722
+title: 查看代金券
+uri: https://developer.huawei.com/consumer/cn/doc/promotion/account-coupon-0000001486025722
+---
+
+# 查看代金券
+
+已领取但未使用的代金券，可以在优惠券页面[查看对应的优惠信息](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-query-coupon-0000001154273152#section28841110669)。  
