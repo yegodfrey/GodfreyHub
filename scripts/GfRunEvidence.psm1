@@ -1,5 +1,19 @@
 Set-StrictMode -Version Latest
 
+function Get-GfSharedFileHash([string]$file) {
+    # 并行设备 lane 会对同一棵源码树同时哈希，另一条 lane 构建刚写出的文件
+    # （如 cangjie 类型 .d.ts）会瞬时持有共享冲突；Stop 语境下一次冲突就让
+    # worker 无 run summary 退出。短重试吸收瞬时占用，持续冲突仍然上抛。
+    for ($attempt = 1; ; $attempt++) {
+        try {
+            return (Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash
+        } catch [System.IO.IOException] {
+            if ($attempt -ge 5) { throw }
+            Start-Sleep -Milliseconds (150 * $attempt)
+        }
+    }
+}
+
 function Get-GfSourceIdentity([string]$RepoRoot) {
     $paths = @(& git -C $RepoRoot -c core.quotepath=false ls-files --cached --others --exclude-standard)
     if ($LASTEXITCODE -ne 0) { throw 'Cannot enumerate source inputs.' }
@@ -8,7 +22,7 @@ function Get-GfSourceIdentity([string]$RepoRoot) {
         if ($relative -match '(^|/)(Workspace|build|oh_modules|node_modules|\.test|\.hvigor|dist)/') { continue }
         $file = Join-Path $RepoRoot $relative
         $hash = if (Test-Path -LiteralPath $file -PathType Leaf) {
-            (Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash
+            Get-GfSharedFileHash $file
         } else { 'deleted' }
         $lines.Add("$relative|$hash")
     }
