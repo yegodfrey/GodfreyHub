@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-本地文档知识库 MCP 服务（HarmonyOS + 仓颉语言）
+本地文档知识库 MCP 服务（HarmonyOS + 仓颉语言）——兼容备用入口。
+
+【定位说明】GodfreyHub MCP 服务器(src/index.ts)经 src/core/hdk.ts 用
+better-sqlite3 只读直查同一份 FTS5 索引, 是主力检索路径; 本模块是给
+外部/调试客户端用的独立 stdio 入口, 检索逻辑与其平行的第二份实现,
+已出现漂移(如无分页)。改动检索语义时以 Node 端为准, 本模块只保证
+"能跑、兼容"; 新能力默认不加到这里。
 
 把本目录下 harmonyos_docs/（HarmonyOS 文档约 2.6 万篇，含 cangjie-* 分类的
 鸿蒙仓颉开发文档）与 cangjie_docs/（仓颉语言官方文档）下的本地
@@ -19,7 +25,7 @@ Markdown 语料暴露为 MCP 工具，对标华为云官方的 harmonyos_develop
   - searchDocuments / getDocumentsById       : 与官方 MCP 同名的兼容接口
 
 运行方式（stdio，供 MCP 客户端拉起）：
-  python mcp_server.py
+  python mcp_server.py            # 与 `python hdk.py serve` 完全等价(run_server 同一封装)
 仅构建索引（不启动服务）：
   python mcp_server.py build
 
@@ -468,23 +474,32 @@ def _load_document(doc_id):
 # ---------------------------------------------------------------------------
 # 入口
 # ---------------------------------------------------------------------------
+def run_server():
+    """统一的服务入口: 空闲回收线程 + 退出留痕 + ensure_all + stdio 主循环。
+
+    `hdk.py serve` 与 `python mcp_server.py` 必须走同一函数——过去回收线程和
+    atexit 留痕只在直跑时启动, 两个入口行为不一致(README 声称"对外行为一致")。
+    """
+    ensure_all()
+    log.info("starting hdk MCP server (stdio)")
+    # 退出留痕：区分"客户端关管道(atexit)"与"被强杀(无留痕)"，对照客户端
+    # "Upstream client closed" 时间点即可定位回收方（见模块 docstring）。
+    import atexit
+    atexit.register(lambda: log.warning("hdk MCP server exiting (atexit)"))
+    _touch()  # 初始化为当前时间，避免启动即触发回收
+    threading.Thread(target=_idle_reaper, daemon=True).start()
+    try:
+        mcp.run()
+    except KeyboardInterrupt:
+        log.warning("hdk MCP server interrupted (SIGINT)")
+    except BaseException as exc:
+        log.error("hdk MCP server crashed: %r", exc)
+        raise
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         build_all()
         print(f"index ready for roots: {list(ROOTS)}")
     else:
-        ensure_all()
-        log.info("starting hdk MCP server (stdio)")
-        # 退出留痕：区分"客户端关管道(atexit)"与"被强杀(无留痕)"，对照客户端
-        # "Upstream client closed" 时间点即可定位回收方（见模块 docstring）。
-        import atexit
-        atexit.register(lambda: log.warning("hdk MCP server exiting (atexit)"))
-        _touch()  # 初始化为当前时间，避免启动即触发回收
-        threading.Thread(target=_idle_reaper, daemon=True).start()
-        try:
-            mcp.run()
-        except KeyboardInterrupt:
-            log.warning("hdk MCP server interrupted (SIGINT)")
-        except BaseException as exc:
-            log.error("hdk MCP server crashed: %r", exc)
-            raise
+        run_server()

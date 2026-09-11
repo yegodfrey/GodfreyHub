@@ -41,11 +41,10 @@ function stringResourceMap(harmonyRoot: string): Map<string, string> {
     let entries: fs.Dirent[] = [];
     try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { return; }
     for (const e of entries) {
-      const p = path.join(dir, e.name);
-      if (e.isDirectory()) { walk(p, depth - 1); continue; }
+      if (e.isDirectory()) { if (!SRC_SKIP.has(e.name)) walk(path.join(dir, e.name), depth - 1); continue; }
       if (e.name !== "string.json") continue;
       try {
-        const parsed = JSON.parse(fs.readFileSync(p, "utf8").replace(/^\uFEFF/, ""));
+        const parsed = JSON.parse(fs.readFileSync(path.join(dir, e.name), "utf8").replace(/^\uFEFF/, ""));
         const arr = Array.isArray(parsed) ? parsed : parsed?.string; // 官方格式 {"string":[...]}
         if (!Array.isArray(arr)) continue;
         for (const item of arr) {
@@ -245,27 +244,33 @@ export interface HubCheckOpts {
 }
 
 async function changedArktsFiles(entry: ProjectEntry): Promise<string[]> {
+  // core.quotepath=off: 含中文/空格路径默认被转义成带引号的八进制串, .ets 过滤会失效。
   const [diff, untracked] = await Promise.all([
-    run("git", ["diff", "--name-only", "HEAD"], { cwd: entry.repoRoot, timeoutMs: 30000 }),
-    run("git", ["ls-files", "--others", "--exclude-standard"], { cwd: entry.repoRoot, timeoutMs: 30000 }),
+    run("git", ["-c", "core.quotepath=off", "diff", "--name-only", "HEAD"], { cwd: entry.repoRoot, timeoutMs: 30000 }),
+    run("git", ["-c", "core.quotepath=off", "ls-files", "--others", "--exclude-standard"], { cwd: entry.repoRoot, timeoutMs: 30000 }),
   ]);
   const rel = new Set<string>();
   for (const out of [diff.out, untracked.out]) {
     for (const l of out.replace(/\r/g, "").split("\n")) {
-      const t = l.trim();
-      if (t && /\.ets$/.test(t)) rel.add(t);
+      const t = l.trim().replace(/^"|"$/g, "");
+      if (t && !t.startsWith("/") && /\.ets$/.test(t)) rel.add(t);
     }
   }
   return [...rel].map((r) => path.join(entry.repoRoot, r)).filter((f) => fs.existsSync(f));
 }
 
 // 解析 hvigor/ArkTS 编译错误行: File: <path>:<line>:<col>
-function parseBuildLogErrors(logFile: string): Array<{ file: string; line: number; col: number; message: string }> {
+// 路径组必须放行 Windows 盘符前缀(D:/ 或 D:\), 否则绝对路径日志永远解析不到,
+// hub_check 的构建错误合并静默失效。
+export function parseBuildLogErrors(logFile: string): Array<{ file: string; line: number; col: number; message: string }> {
   if (!fs.existsSync(logFile)) return [];
   const lines = fs.readFileSync(logFile, "utf8").replace(/\r/g, "").split("\n");
   const out = new Map<string, { file: string; line: number; col: number; message: string }>();
+  // 路径组必须放行 Windows 盘符前缀(D:/ 或 D:\), 否则绝对路径日志永远解析不到,
+  // hub_check 的构建错误合并静默失效。闭引号 ["']? 允许带引号路径("path.ets":12:7)。
+  const fileRe = /File:\s*["']?((?:[A-Za-z]:[\\/])?[^:"'\n]+?\.(?:ets|ts))["']?:(\d+):(\d+)/;
   for (const l of lines.slice(-500)) {
-    const m = l.match(/File:\s*["']?([^:"'\n]+?\.(?:ets|ts)):(\d+):(\d+)/);
+    const m = l.match(fileRe);
     if (!m) continue;
     const key = normSlashes(m[1]).toLowerCase() + ":" + m[2] + ":" + m[3];
     if (!out.has(key)) out.set(key, { file: m[1], line: +m[2], col: +m[3], message: l.trim().slice(0, 300) });

@@ -313,16 +313,22 @@ def discover_links(html, page_path=""):
 # --------------------------------------------------------------------------- #
 # 主流程
 # --------------------------------------------------------------------------- #
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--limit", type=int, default=0, help="限制抓取文档数（冒烟测试）")
-    args = ap.parse_args()
-
+def run(limit=0):
+    """带锁运行一轮抓取(函数化入口, 供 hdk.py 传参调用, 不经 argv)。"""
     acquire_lock()
     try:
-        _run(args.limit)
+        _run(limit)
     finally:
         release_lock()
+
+
+def main(argv=None):
+    # argv=None 时解析命令行; 编排方(hdk.py)直接调 run() 传参,
+    # 避免"模块各自 parse sys.argv"这种隐式全局耦合(已在 hdk.py crawl 入口咬过人)。
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--limit", type=int, default=0, help="限制抓取文档数（冒烟测试）")
+    args = ap.parse_args(argv)
+    run(args.limit)
 
 
 def _run(limit=0):
@@ -330,7 +336,10 @@ def _run(limit=0):
     s = load_state()
     disc = set(s["discovered"])
     fetched = set(s["fetched"])
-    failed = set()
+    # 失败三态: fetched/failed 从状态恢复; 本轮的网络抖动进 transient(不持久化,
+    # 下轮照常重试), 只有确定性失败(404/空响应/解析失败)才进 failed 持久化。
+    failed = set(s.get("failed", []))
+    transient = set()
 
     # 种子：入口页；首跑再从其侧边栏为每个顶级章节补一个种子，确保覆盖全部章节。
     seeds = {SIDEBAR_SEED}
@@ -365,8 +374,10 @@ def _run(limit=0):
         try:
             html = fetch_text(uri)
         except Exception as e:
+            # 网络异常是瞬时的: 记 transient 不持久化, 下轮/下次运行照常重试;
+            # 与确定性失败(404/解析失败)混同拉黑会让语料静默漏文档。
             with lock:
-                failed.add(path)
+                transient.add(path)
             print(f"[fetch-err] {path}: {e}", flush=True)
             return
         if not html:
@@ -379,6 +390,7 @@ def _run(limit=0):
             if title is not None and body is not None:
                 write_doc(path, title, body, uri)
                 fetched.add(path)
+                failed.discard(path)  # 曾被判死链的页面恢复后移出持久 failed
             else:
                 failed.add(path)
             for p in new_links:
@@ -411,7 +423,7 @@ def _run(limit=0):
                 print("[cap reached]", flush=True)
                 break
             pending = [p for p in disc if p not in fetched and p not in failed
-                       and p not in in_flight]
+                       and p not in transient and p not in in_flight]
         if limit and len(fetched) >= limit:
             print(f"[limit reached] fetched={len(fetched)}", flush=True)
             break

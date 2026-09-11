@@ -60,16 +60,28 @@ function normalizedLineLimit(lines: number | undefined): number {
   return Math.min(Math.floor(lines), 10_000);
 }
 
+// 关键字过滤: 正则匹配是同步操作, 病态模式(嵌套量词)在最大 8MB 日志上会灾难性回溯,
+// 阻塞整个 MCP 事件循环。限制模式长度 + 失败/非法时降级为子串匹配(语义仍是"包含")。
+const MAX_KEYWORD_PATTERN_LENGTH = 200;
+
 function filterHilogOutput(output: string, opts: HilogOpts): string {
   let lines = output.replace(/\r/g, "").split("\n").filter(Boolean);
   if (opts.keyword) {
-    try {
-      const re = new RegExp(opts.keyword, "i");
-      lines = lines.filter((line) => re.test(line));
-    } catch {
-      const keyword = opts.keyword.toLowerCase();
-      lines = lines.filter((line) => line.toLowerCase().includes(keyword));
+    const keyword = opts.keyword;
+    let matched: string[] | null = null;
+    if (keyword.length <= MAX_KEYWORD_PATTERN_LENGTH) {
+      try {
+        const re = new RegExp(keyword, "i");
+        matched = lines.filter((line) => re.test(line));
+      } catch {
+        matched = null; // 非法正则: 降级为子串
+      }
     }
+    if (!matched) {
+      const lower = keyword.toLowerCase();
+      matched = lines.filter((line) => line.toLowerCase().includes(lower));
+    }
+    lines = matched;
   }
   return lines.slice(-normalizedLineLimit(opts.lines)).join("\n");
 }
@@ -183,15 +195,34 @@ export async function collectAppHilog(
   return { target, bundleName, pid, restarted, lineCount, logFile, log };
 }
 
+// faultlog 文件名形如 cppcrash-<进程名>-<时间戳>, jscrash-...; 内容首部含模块信息。
+// bundleName 过滤: 对最近 10 个候选各读 40 行嗅探, 文件名或内容命中才全文读取(最多 3 个)。
 export async function collectFaultlog(opts: { target?: string; bundleName?: string } = {}): Promise<string> {
   const target = opts.target ?? (await onlineAllTargets())[0];
   if (!target) throw new Error("没有在线设备");
-  const listOut = await shell(target, "ls -t /data/log/faultlog/temp/ 2>/dev/null | head -5");
+  const bundle = opts.bundleName?.trim();
+  const dir = "/data/log/faultlog/temp/";
+  const listOut = await shell(target, `ls -t ${shellQuote(dir)} 2>/dev/null | head -10`);
   const files = listOut.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
   if (files.length === 0) return "(无 faultlog)";
+
+  let candidates = files;
+  if (bundle) {
+    const lowerBundle = bundle.toLowerCase();
+    candidates = [];
+    for (const f of files) {
+      const nameHit = f.toLowerCase().includes(lowerBundle);
+      const head = nameHit ? "" : await shell(target, `head -40 ${shellQuote(dir + f)}`, 30000).catch(() => "");
+      if (nameHit || head.includes(bundle)) candidates.push(f);
+    }
+    if (candidates.length === 0) {
+      return "(无 " + bundle + " 的 faultlog, 最近 10 个崩溃均属于其他进程)";
+    }
+  }
+
   const parts: string[] = [];
-  for (const f of files.slice(0, 3)) {
-    const content = await shell(target, `head -100 ${shellQuote("/data/log/faultlog/temp/" + f)}`, 30000);
+  for (const f of candidates.slice(0, 3)) {
+    const content = await shell(target, `head -100 ${shellQuote(dir + f)}`, 30000);
     parts.push("===== " + f + " =====\n" + content);
   }
   return parts.join("\n\n");

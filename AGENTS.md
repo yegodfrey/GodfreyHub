@@ -3,9 +3,9 @@
 ## Active application
 
 - 自包含的 HarmonyOS 超级 MCP 服务器（Node.js，TypeScript）。仓库根目录即生产工程。
-- `src/`：TypeScript 源码（`index.ts` + `core/` 模块 + `cli/` 子进程入口），构建产出 `dist/index.js`。
+- `src/`：TypeScript 源码（`index.ts` 引导 + `tools/` 按域工具注册表（zod schema + 类型化 handler）+ `core/` 核心模块 + `lsp/` 语言服务包（帧协议/会话状态机/诊断/导航/clangd）+ `cli/` 子进程入口），构建产出 `dist/index.js`。
 - `hdk/`：离线 HarmonyOS + Cangjie 文档语料（`harmonyos_docs/` + `cangjie_docs/` + 爬虫/索引器 `hdk.py`），FTS 二进制索引 `hdk/.mcp_cache/` 不入 git。
-- `scripts/`：设备执行、构建互斥、证据解析、声明式规则引擎与探测/冒烟脚本；`tests/`：Node 回归测试（`*.test.mjs`）。
+- `scripts/`：设备执行、构建互斥、证据解析、声明式规则引擎与探测/冒烟脚本（`GfDeviceRunner.ps1` 为薄入口，实体按职责拆分在 `scripts/runner/`，调用方 dot-source 契约不变）；`tests/`：Node 回归测试（`*.test.mjs`）。
 - 能力覆盖：多项目 git 一键同步、同名实例构建部署、模拟器生命周期与窗口命名、ArkTS/C++ 静态检查（headless DevEco）、LSP 导航、设备 UI 自动化、HiLog/崩溃采集、离线文档检索、视觉校验与跨域深度联动。零子 MCP 代理。
 
 ## Responsibility boundary

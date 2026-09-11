@@ -14,6 +14,10 @@ param(
     [int]$WaitSec = 0
 )
 
+# Node 端按 UTF-8 解码子进程输出: PS 5.1 管道默认走控制台 OEM 代码页(zh-CN 为 GBK),
+# 不显式切 UTF-8 则所有中文消息在 MCP 返回的 out 字段里必然乱码。
+[Console]::OutputEncoding = [Text.Encoding]::UTF8
+
 Add-Type -TypeDefinition @"
 using System;
 using System.Runtime.InteropServices;
@@ -73,6 +77,8 @@ function Get-RunningEmulatorInfo {
 
 function Rename-Infos {
     param($Infos)
+    # 日志行走 Write-Host(不进管道), 返回值只保留计数:
+    # 过去日志行与返回值混在同一个输出流, 调用方的 "$changed" 实际是"日志行+数字"数组。
     $changed = 0
     foreach ($info in $Infos) {
         if (-not $info.InstanceName) { continue }
@@ -80,12 +86,12 @@ function Rename-Infos {
             $old = Get-WindowTitle -Hwnd $h
             if ($old -eq $info.InstanceName) { continue }
             if ([EmuWinApi]::SetWindowText($h, $info.InstanceName)) {
-                Write-Output "[$($info.InstanceName)] [$old] -> [$($info.InstanceName)] (PID $($info.Pid))"
+                Write-Host "[$($info.InstanceName)] [$old] -> [$($info.InstanceName)] (PID $($info.Pid))"
                 $changed++
             }
         }
     }
-    return $changed
+    return [int]$changed
 }
 
 switch ($Mode) {
@@ -116,7 +122,12 @@ switch ($Mode) {
                 Write-Output "[$Name] 窗口已命名并保持。"
                 break
             }
-            if ((Get-Date) -gt $deadline) { Write-Output "等待超时(${WaitSec}s), 未见 [$Name] 可见窗口。"; break }
+            if ((Get-Date) -gt $deadline) {
+                # 等待超时 = 任务失败: 必须以非零退出, 否则调用方(以 exit code 判定
+                # 的 Node 端)会把"窗口始终未出现/未改名"当成成功。
+                Write-Output "等待超时(${WaitSec}s), 未见 [$Name] 可见窗口。"
+                exit 1
+            }
             Start-Sleep -Seconds 3
         }
     }

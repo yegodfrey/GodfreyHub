@@ -10,7 +10,8 @@ function quoteBatchArgument(value: string): string {
 }
 
 export function terminateProcessTree(child: ReturnType<typeof spawn>): void {
-  if (child.pid === undefined || child.exitCode !== null) return;
+  // exitCode 与 signalCode 互斥: 被信号终止的进程 exitCode 为 null, 只查一个会漏判已死。
+  if (child.pid === undefined || child.exitCode !== null || child.signalCode !== null) return;
   if (process.platform === "win32") {
     const killer = spawn("taskkill", ["/pid", String(child.pid), "/t", "/f"], {
       stdio: "ignore",
@@ -21,11 +22,23 @@ export function terminateProcessTree(child: ReturnType<typeof spawn>): void {
   }
   try { process.kill(-child.pid, "SIGTERM"); } catch { try { child.kill("SIGTERM"); } catch { /* already exited */ } }
   const force = setTimeout(() => {
-    if (child.exitCode === null) {
+    if (child.exitCode === null && child.signalCode === null) {
       try { process.kill(-child.pid!, "SIGKILL"); } catch { try { child.kill("SIGKILL"); } catch { /* already exited */ } }
     }
   }, 2000);
   force.unref();
+}
+
+/**
+ * 命令失败即抛: 所有"必须成功"的便捷封装(hdc shell/文件推送/布局拉取)统一走这里,
+ * 消灭"丢弃退出码把失败当成功"的整类问题。错误消息带可读输出尾部, 不再只给退出码。
+ * cancelled/timedOut 单独点名——对调用方这是"设备/工具不可用"而不是"命令报错"。
+ */
+export function requireOk(label: string, r: RunResult, tailLines = 40): RunResult {
+  if (r.cancelled) throw new Error(`[${label}] 已取消`);
+  if (r.timedOut) throw new Error(`[${label}] 超时:\n${tail(r.out, tailLines)}`);
+  if (r.code !== 0) throw new Error(`[${label}] 失败(exit ${r.code}):\n${tail(r.out, tailLines)}`);
+  return r;
 }
 
 // 统一子进程执行: 合并 stdout/stderr 供错误分析, 可选超时, 可选外部取消(MCP 请求级 AbortSignal)
@@ -47,6 +60,19 @@ export function run(cmd: string, args: string[], opts: { cwd?: string; timeoutMs
       ? Math.floor(opts.maxOutputBytes!)
       : DEFAULT_MAX_OUTPUT_BYTES;
     const isWindowsBatch = process.platform === "win32" && /\.(?:bat|cmd)$/i.test(cmd);
+    // cmd /c 会把双引号内的 %VAR% 展开成环境变量值: 参数里的 % 会被静默改写,
+    // 无法安全转义(/c 语境没有可靠转义)。当前所有调用方都绕开了 .bat 包装层
+    // (ohpm 直接走 DevEco 随包 node + pm-cli.js), 这里保留批处理路由作为兜底,
+    // 但对含 % 的参数显式拒绝(fail-loud), 绝不让 cmd 静默改写调用方参数。
+    if (isWindowsBatch && args.some((a) => a.includes("%"))) {
+      resolve({
+        code: 1,
+        out: `[spawn-error] 批处理参数不允许包含 % (cmd /c 语境会被环境变量展开): ${cmd} ${args.join(" ")}`,
+        timedOut: false,
+        truncated: false,
+      });
+      return;
+    }
     const spawnCommand = isWindowsBatch ? (process.env.ComSpec || "cmd.exe") : cmd;
     const batchCommandLine = isWindowsBatch
       ? '""' + cmd.replace(/"/g, '""') + '"' +
@@ -61,15 +87,18 @@ export function run(cmd: string, args: string[], opts: { cwd?: string; timeoutMs
       windowsVerbatimArguments: isWindowsBatch,
       detached: process.platform !== "win32",
     });
-    let output: Uint8Array = new Uint8Array();
+    // 分块累积, 关闭时一次性拼接: 逐 chunk Buffer.concat 整个累积缓冲是 O(n²) 拷贝,
+    // hvigor/hilog 这类高频输出进程会显著拖慢事件循环。只有超限时才做一次压缩。
+    let chunks: Buffer[] = [];
+    let bufferedLength = 0;
     let truncated = false;
     let timedOut = false;
     let cancelled = false;
     let timer: ReturnType<typeof setTimeout> | null = null;
-    // 外部取消(MCP 请求级 signal): 客户端取消/断连时终止整个子进程树。
-    // 与内部超时互斥语义一致——谁先到谁先杀; 取消后仍等 close 收敛再 resolve。
     const onAbort = () => {
       cancelled = true;
+      // spawn 是异步的: 若 abort 先于 'spawn' 事件到达, pid 尚未产生, 直接杀会空转。
+      // 置位 cancelled 后在 spawn 事件里补杀, 两个时序都不会漏。
       terminateProcessTree(child);
     };
     if (opts.signal) {
@@ -78,18 +107,8 @@ export function run(cmd: string, args: string[], opts: { cwd?: string; timeoutMs
     }
     const feed = (data: Buffer | string) => {
       const chunk = Buffer.isBuffer(data) ? data : Buffer.from(data, "utf8");
-      if (chunk.length >= maxOutputBytes) {
-        output = chunk.subarray(chunk.length - maxOutputBytes);
-        truncated = true;
-        return;
-      }
-      const nextLength = output.length + chunk.length;
-      if (nextLength > maxOutputBytes) {
-        output = Buffer.concat([output.subarray(nextLength - maxOutputBytes), chunk]);
-        truncated = true;
-      } else {
-        output = Buffer.concat([output, chunk]);
-      }
+      chunks.push(chunk);
+      bufferedLength += chunk.length;
     };
     child.stdout.on("data", feed);
     child.stderr.on("data", feed);
@@ -99,15 +118,43 @@ export function run(cmd: string, args: string[], opts: { cwd?: string; timeoutMs
         terminateProcessTree(child);
       }, opts.timeoutMs);
     }
-    child.on("error", (e) => feed("\n[spawn-error] " + e.message));
+    child.on("error", (e) => {
+      // spawn 失败(ENOENT/EACCES)时 close 仍会随后触发并 resolve; 把原因并进输出,
+      // 避免只看到裸退出码无从排查。
+      feed("\n[spawn-error] " + e.message);
+    });
+    child.once("spawn", () => {
+      // spawn 事件 = 进程已真正创建: 此刻 pid 有效, 补杀在 run() 入口就已 abort 的请求。
+      if (cancelled) terminateProcessTree(child);
+    });
     child.on("close", (code) => {
       if (timer) clearTimeout(timer);
       if (opts.signal) opts.signal.removeEventListener("abort", onAbort);
+      let output: Buffer;
+      if (bufferedLength > maxOutputBytes) {
+        // 保留尾部 maxOutputBytes 字节: 从最后一块往前回溯, 长度增量跟踪, 单次拼接。
+        const kept: Buffer[] = [];
+        let keptLength = 0;
+        for (let i = chunks.length - 1; i >= 0 && keptLength < maxOutputBytes; i--) {
+          const c = chunks[i];
+          if (keptLength + c.length > maxOutputBytes) {
+            kept.unshift(c.subarray(c.length - (maxOutputBytes - keptLength)));
+            keptLength = maxOutputBytes;
+          } else {
+            kept.unshift(c);
+            keptLength += c.length;
+          }
+        }
+        output = Buffer.concat(kept);
+        truncated = true;
+      } else {
+        output = Buffer.concat(chunks);
+      }
       const prefix = truncated ? "[output truncated; showing last " + maxOutputBytes + " bytes]\n" : "";
       const suffix = timedOut ? "\n[timeout after " + opts.timeoutMs + "ms]" : (cancelled ? "\n[cancelled]" : "");
       resolve({
         code: timedOut || cancelled ? 124 : (code ?? 1),
-        out: prefix + Buffer.from(output).toString("utf8") + suffix,
+        out: prefix + output.toString("utf8") + suffix,
         timedOut,
         truncated,
         ...(cancelled ? { cancelled: true } : {}),

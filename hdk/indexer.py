@@ -293,7 +293,7 @@ def build_index(rootname):
     tmp = dp + ".tmp"
     if os.path.exists(tmp):
         os.remove(tmp)
-    conn = sqlite3.connect(tmp, check_same_thread=False)
+    conn = sqlite3.connect(tmp, check_same_thread=False, timeout=30)
     _create_schema(conn)
     cur = conn.cursor()
 
@@ -429,7 +429,7 @@ def _tmp_matches(rootname):
     if not os.path.exists(tmp):
         return False
     try:
-        c = sqlite3.connect(tmp, check_same_thread=False)
+        c = sqlite3.connect(tmp, check_same_thread=False, timeout=30)
         try:
             return (_meta_value(c, "tokenizer") == SCHEMA_TOKENIZER
                     and _meta_value(c, "dict_hash") == _dict_signature())
@@ -446,7 +446,7 @@ def _mark_rebuild_failed(dp, reason):
     (签名已变说明词典又改过, 应重新构建); tokenizer 失败直接跳过。
     """
     try:
-        c = sqlite3.connect(dp, check_same_thread=False)
+        c = sqlite3.connect(dp, check_same_thread=False, timeout=30)
         try:
             c.execute("INSERT OR REPLACE INTO meta(key,value) VALUES('rebuild_failed',?)", (reason,))
             c.execute("INSERT OR REPLACE INTO meta(key,value) VALUES('rebuild_failed_sig',?)",
@@ -475,7 +475,7 @@ def ensure_index(rootname, force=False):
         if not os.path.exists(dp):
             build_index(rootname)
             return
-        conn = sqlite3.connect(dp, check_same_thread=False)
+        conn = sqlite3.connect(dp, check_same_thread=False, timeout=30)
         try:
             # 旧库/版本不匹配：FTS tokenizer 在建表时烧死，无法行级迁移，
             # 只能全量重建（一次性的自动迁移，重建后与新建库一致）。
@@ -501,7 +501,7 @@ def ensure_index(rootname, force=False):
                             return  # 新库已就位(含最新词典与全部文档)，无需 apply_delta
                         except OSError:
                             log.warning("[%s] pending index replace still blocked", rootname)
-                        conn = sqlite3.connect(dp, check_same_thread=False)
+                        conn = sqlite3.connect(dp, check_same_thread=False, timeout=30)
                     reason = None
             if reason:
                 conn.close()
@@ -522,26 +522,45 @@ def ensure_index(rootname, force=False):
             conn.close()
 
 
+def _conn_alive(conn):
+    """连接存活探活: close_conns() 回收后, 其他线程的 _LOCAL 缓存里残留的是已关闭
+    连接, 直接返回会导致该线程所有检索永久失败(ProgrammingError: closed)。"""
+    try:
+        conn.execute("SELECT 1")
+        return True
+    except sqlite3.Error:
+        return False
+
+
 def get_conn(rootname):
     """返回当前线程的读连接（每线程一个；check_same_thread=False 避免跨线程报错）。
 
     首次访问时构建/更新索引并打开连接，同线程复用。各线程持有独立连接，
     从根本上消除 'SQLite objects created in a thread can only be used in that
     same thread' 以及多线程并发操作同一连接导致的错误。
+    缓存命中前必须探活: 空闲回收线程 close_conns() 无法触及其他线程的
+    _LOCAL 缓存, 已关闭连接若不剔除会永久占位(缓存键恒存在, 永远不重建)。
     """
     cache = getattr(_LOCAL, "conns", None)
     if cache is None:
         cache = {}
         _LOCAL.conns = cache
-    if rootname in cache:
-        with _LOCK:
-            ensure_index(rootname)   # 轻量增量检查（无变更时仅 stat 对比）
-        return cache[rootname]
+    cached = cache.get(rootname)
+    if cached is not None:
+        if _conn_alive(cached):
+            with _LOCK:
+                ensure_index(rootname)   # 轻量增量检查（无变更时仅 stat 对比）
+            return cached
+        # 已被回收线程关闭: 从线程缓存剔除, 走下方重建
+        cache.pop(rootname, None)
     with _LOCK:
         ensure_index(rootname)
-        c = sqlite3.connect(db_path(rootname), check_same_thread=False)
+        c = sqlite3.connect(db_path(rootname), check_same_thread=False, timeout=30)
         # 1.3GB FTS 索引页缓存上限 8MB：防查询把索引整本读进内存导致峰值膨胀
         c.execute("PRAGMA cache_size = -8192")
+        # busy_timeout: Python 端重建/增量写库期间, 本读连接等锁而不是立刻抛
+        # SQLITE_BUSY(索引更新是秒级行级 delta, 等待远优于把错误抛给检索方)。
+        c.execute("PRAGMA busy_timeout = 30000")
         cache[rootname] = c
         _ALL_CONNS.append(c)
     return cache[rootname]

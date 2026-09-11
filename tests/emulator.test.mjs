@@ -23,7 +23,7 @@ test("emulator exposes only the official boot modes", () => {
 });
 
 test("emulator defaults to a multi-instance-safe 3 GB guest with validated overrides", () => {
-  const index = fs.readFileSync(new URL("../src/index.ts", import.meta.url), "utf8");
+  const tools = fs.readFileSync(new URL("../src/tools/emulator.ts", import.meta.url), "utf8");
   const source = fs.readFileSync(new URL("../src/core/emulator.ts", import.meta.url), "utf8");
 
   assert.equal(emulator.DEFAULT_EMULATOR_MEMORY_GB, 3);
@@ -34,7 +34,7 @@ test("emulator defaults to a multi-instance-safe 3 GB guest with validated overr
   assert.equal(emulator.isValidEmulatorMemory(3.5), false);
   assert.match(source, /opts\.memory \?\? DEFAULT_EMULATOR_MEMORY_GB/);
   assert.match(source, /args\.push\("-memory", String\(memory\)\)/);
-  assert.match(index, /内存 GB, 默认 3；适合双模拟器并行测试/);
+  assert.match(tools, /内存 GB, 默认 3；适合双模拟器并行测试/);
 });
 
 test("emulator crash diagnosis distinguishes GPU bridge failure and host memory pressure", () => {
@@ -97,12 +97,12 @@ test("emulator startup reports an exact launched process exit without waiting fo
 });
 
 test("emu_start exposes data-preserving cold boot recovery", () => {
-  const index = fs.readFileSync(new URL("../src/index.ts", import.meta.url), "utf8");
+  const tools = fs.readFileSync(new URL("../src/tools/emulator.ts", import.meta.url), "utf8");
   const source = fs.readFileSync(new URL("../src/core/emulator.ts", import.meta.url), "utf8");
 
-  assert.match(index,
-    /bootMode:\s*\{[^}]*enum:\s*\["coldboot",\s*"snapshot",\s*"reset"\]/);
-  assert.match(index, /startInstance\(inst,[\s\S]*?str\(args\.bootMode\) \|\| undefined\)/);
+  assert.match(tools,
+    /bootMode: z\.enum\(\["coldboot", "snapshot", "reset"\]\)/);
+  assert.match(tools, /startInstance\(args\.name, args\.port, ctx\.signal, args\.bootMode\)/);
   assert.match(source,
     /args\.push\("-bootmode", bootMode\)[\s\S]*?args\.push\("-hdcPort", String\(port\)\)/,
     "boot mode must stay adjacent to the instance name before transport options");
@@ -133,16 +133,16 @@ test("online device classification keeps wireless/serial real devices visible ne
 });
 
 test("device-facing selectors default to every online target so a lone real device is usable", () => {
-  const index = fs.readFileSync(new URL("../src/index.ts", import.meta.url), "utf8");
+  const hubTools = fs.readFileSync(new URL("../src/tools/hub.ts", import.meta.url), "utf8");
   const emulatorSource = fs.readFileSync(new URL("../src/core/emulator.ts", import.meta.url), "utf8");
   const uitest = fs.readFileSync(new URL("../src/core/uitest.ts", import.meta.url), "utf8");
   const hilog = fs.readFileSync(new URL("../src/core/hilog.ts", import.meta.url), "utf8");
   const verify = fs.readFileSync(new URL("../src/core/verify.ts", import.meta.url), "utf8");
 
   // hub_status/emu_list must report the classified breakdown, not the emulator-only list.
-  assert.match(index, /onlineDevicesClassified\(\)/);
-  assert.match(index, /realDevices: online\.realDevices/);
-  assert.doesNotMatch(index, /listInstanceDetails\(\), onlineTargets\(\)/);
+  assert.match(hubTools, /onlineDevicesClassified\(\)/);
+  assert.match(hubTools, /realDevices: online\.realDevices/);
+  assert.doesNotMatch(hubTools, /listInstanceDetails\(\), onlineTargets\(\)/);
   // enableUiTest must enable testmode on a real device when no emulator is online.
   assert.match(emulatorSource, /const targets = await onlineAllTargets\(\);/);
   // UI automation, HiLog and visual verify must default to every online target.

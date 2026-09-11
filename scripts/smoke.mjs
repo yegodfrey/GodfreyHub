@@ -107,8 +107,16 @@ try {
     console.log("lsp_symbols(document) ok, symbols =", Array.isArray(dsParsed) ? dsParsed.length : "?", ds.isError ? "ERROR" : "");
 
     const ets = await rpc("tools/call", { name: "dev_check_ets_files", arguments: { files: [etsFile], timeoutMs: 30000 } });
-    const etsParsed = JSON.parse(ets.content?.[0]?.text ?? "{}");
-    console.log("dev_check_ets_files ok, totalErrors =", etsParsed.totalErrors);
+    const etsText = ets.content?.[0]?.text ?? "";
+    if (ets.isError) {
+      // 工程未被 DevEco 预热(缺 project-config.json)时, dev_check 如实报错而非伪造
+      // 空诊断。冒烟环境不强制预热: 记警告并跳过, 不掩盖其余检查。
+      console.warn("dev_check_ets_files SKIPPED:", etsText.slice(0, 160));
+    } else {
+      const etsParsed = JSON.parse(etsText);
+      console.log("dev_check_ets_files ok, totalErrors =", etsParsed.totalErrors,
+        etsParsed.pending ? "(pending=" + etsParsed.pending.length + ")" : "");
+    }
 
     const rawPath = path.relative(project.harmonyRoot, etsFile).replace(/\\/g, "/");
     const crash = await rpc("tools/call", { name: "hilog_locate_crash", arguments: {

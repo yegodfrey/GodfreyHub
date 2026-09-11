@@ -192,6 +192,11 @@ def purge_stale_variants(dry_run=False):
     if dry_run or not purged:
         return purged
     import incremental, crawl          # 函数内导入避免循环依赖
+    # 清理记录必须先行落盘: 若先软删后写记录, 中间崩溃会让已删旧版不在
+    # catalog_purged.json 里, names() 不过滤, 下一轮 crawl 又把它们当漏抓抓回
+    # ——正是本护栏要阻止的 抓<->删 反复横跳。记录先行 + 重跑幂等。
+    hdk_io.atomic_write_json(PURGED, purged,
+                             ensure_ascii=False, separators=(",", ":"))
     crawl.acquire_lock()
     try:
         s = incremental.load_inc_state()
@@ -207,8 +212,6 @@ def purge_stale_variants(dry_run=False):
                                      {d["name"] for d in s["deleted"]})
     finally:
         crawl.release_lock()
-    hdk_io.atomic_write_json(PURGED, purged,
-                             ensure_ascii=False, separators=(",", ":"))
     print("[purge] 已软删除 %d 篇旧版变体 -> %s" % (len(purged), PURGED),
           flush=True)
     return purged

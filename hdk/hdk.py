@@ -29,6 +29,7 @@ mcp_server.py、generate_index.py）保留为可复用模块，由本入口统�
                        （cj-docs.gitcode.com 静态站，crawl_cj.py）。
 """
 import argparse
+import json
 import os
 import sys
 import time
@@ -57,34 +58,35 @@ TARGETS = list(TARGET_ROOTS)
 # crawl
 # --------------------------------------------------------------------------- #
 def _count_state(which):
-    if which == "harmonyos":
-        p = os.path.join(HERE, "crawl_state.json")
-        if not os.path.exists(p):
-            return None
-        s = __import__("json").load(open(p, encoding="utf-8"))
+    """读取对应爬虫状态文件的 fetched 计数; 状态文件不存在返回 None(首轮)。"""
+    statefiles = {
+        "harmonyos": "crawl_state.json",
+        "harmonyos-cangjie": "cangjie_crawl_state.json",
+        "cangjie": "crawl_cj_state.json",
+    }
+    p = os.path.join(HERE, statefiles.get(which, ""))
+    if not p or not os.path.exists(p):
+        return None
+    try:
+        with open(p, encoding="utf-8") as f:
+            s = json.load(f)
         return len(s.get("fetched", []))
-    if which == "harmonyos-cangjie":
-        p = os.path.join(HERE, "cangjie_crawl_state.json")
-        if not os.path.exists(p):
-            return None
-        s = __import__("json").load(open(p, encoding="utf-8"))
-        return len(s.get("fetched", []))
-    if which == "cangjie":
-        p = os.path.join(HERE, "crawl_cj_state.json")
-        if not os.path.exists(p):
-            return None
-        s = __import__("json").load(open(p, encoding="utf-8"))
-        return len(s.get("fetched", []))
-    return None
+    except (OSError, ValueError):
+        return None
 
 
 def _one_round(target, limit):
-    """执行一轮爬取，返回 (本轮前 fetched, 本轮后 fetched)。"""
+    """执行一轮爬取，返回 (本轮前 fetched, 本轮后 fetched)。
+
+    各爬虫经函数化入口传参(不经 argv): 过去 crawl 分支直接调 crawl_cj.main(),
+    它内部 parse sys.argv 拿到的是 hdk.py 的参数, `crawl --target cangjie`
+    必然崩——这是 argv 全局耦合第二次咬人, 已在所有模块改为显式传参。
+    """
     before = _count_state(target) or 0
     if target == "harmonyos":
-        crawl.main()          # 自带运行锁、断点续爬、停滞退出
+        crawl.run()           # 自带运行锁、断点续爬、停滞退出
     else:
-        crawl_cj.main()
+        crawl_cj.run(limit=limit)
     after = _count_state(target)
     return before, (after if after is not None else before)
 
@@ -132,32 +134,16 @@ def cmd_crawl(args):
 # incremental
 # --------------------------------------------------------------------------- #
 def cmd_incremental(args):
-    # incremental.main() 自行解析 sys.argv，先替换掉再调用
-    argv = ["incremental"]
-    if args.no_recheck:
-        argv.append("--no-recheck")
-    if args.skip_delete:
-        argv.append("--skip-delete")
-    if args.limit:
-        argv += ["--limit", str(args.limit)]
-    sys.argv = argv
-    incremental.main()
+    incremental.run(no_recheck=args.no_recheck, skip_delete=args.skip_delete,
+                    limit=args.limit)
     if not args.no_index:
         print("[hdk] 更新索引 root=harmonyos ...", flush=True)
         indexer.ensure_index("harmonyos", force=True)
 
 
 def cmd_incremental_cj(args):
-    # incremental_cj.main() 自行解析 sys.argv，先替换掉再调用
-    argv = ["incremental-cj"]
-    if args.no_recheck:
-        argv.append("--no-recheck")
-    if args.skip_delete:
-        argv.append("--skip-delete")
-    if args.limit:
-        argv += ["--limit", str(args.limit)]
-    sys.argv = argv
-    incremental_cj.main()
+    incremental_cj.run(no_recheck=args.no_recheck, skip_delete=args.skip_delete,
+                       limit=args.limit)
     if not args.no_index:
         print("[hdk] 更新索引 root=cangjie ...", flush=True)
         indexer.ensure_index("cangjie", force=True)
@@ -198,10 +184,10 @@ def cmd_index(args):
 
 def cmd_serve(args):
     import mcp_server
-    mcp_server.ensure_all()
-    # stdout 是 MCP 协议通道，启动日志只能走 stderr（复用 mcp_server 已配置好的 logger）
-    mcp_server.log.info("starting hdk MCP server (stdio)")
-    mcp_server.mcp.run()
+    # run_server() 统一封装: 空闲连接回收线程 + atexit 留痕 + ensure_all。
+    # 过去这些只在 `python mcp_server.py` 直跑时生效, `hdk.py serve` 缺失,
+    # 两个入口常驻内存差一个数量级、排障推断失效。
+    mcp_server.run_server()
 
 
 def cmd_stats(args):
@@ -245,7 +231,7 @@ def cmd_stats(args):
                             ("cangjie", "crawl_cj_state.json")]:
         p = os.path.join(HERE, statefile)
         if os.path.exists(p):
-            s = __import__("json").load(open(p, encoding="utf-8"))
+            s = json.load(open(p, encoding="utf-8"))
             if isinstance(s, dict):
                 keys = {k: (len(v) if isinstance(v, (list, dict)) else v)
                         for k, v in s.items()}
@@ -279,14 +265,16 @@ def cmd_state(args):
                 continue
             p = os.path.join(root, fn)
             try:
-                head = open(p, encoding="utf-8").read(400)
+                with open(p, encoding="utf-8") as fh:
+                    head = fh.read(400)
             except Exception:
                 continue
             for line in head.splitlines():
                 if line.startswith("name:"):
                     disk.add(line[5:].strip())
                     break
-    old = __import__("json").load(open(STATE, encoding="utf-8"))
+    with open(STATE, encoding="utf-8") as f:
+        old = json.load(f)
     old_disc = set(old.get("discovered", []))
     old_fet = set(old.get("fetched", []))
     disc_norm = set()
@@ -302,10 +290,10 @@ def cmd_state(args):
     print(f"discovered     : {len(disc_norm)}", flush=True)
     print(f"failed (phantom): {len(failed)}", flush=True)
     with open(STATE, "w", encoding="utf-8") as f:
-        __import__("json").dump({"discovered": sorted(disc_norm),
-                                 "fetched": sorted(fetched),
-                                 "failed": sorted(failed)},
-                                f, ensure_ascii=False, indent=2)
+        json.dump({"discovered": sorted(disc_norm),
+                   "fetched": sorted(fetched),
+                   "failed": sorted(failed)},
+                  f, ensure_ascii=False, indent=2)
     print(f"wrote {STATE}", flush=True)
 
 

@@ -2,7 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { toolchain } from "./paths.js";
-import { run, sleep } from "./proc.js";
+import { run, requireOk, sleep } from "./proc.js";
 import { onlineTargets, onlineAllTargets } from "./emulator.js";
 export { onlineTargets, onlineAllTargets };
 
@@ -10,6 +10,10 @@ export { onlineTargets, onlineAllTargets };
 //   dumpLayout  -> 设备生成 JSON 布局树, recv 回本地解析
 //   uiInput     -> click / inputText / swipe / keyEvent
 //   snapshot_display -> 截屏
+//
+// 错误契约: hdc 便捷封装绝不吞退出码。宿主侧失败(设备离线/超时/取消)由 requireOk
+// 统一抛错; 设备侧失败(uitest 输出 [Fail] 标记)同样抛错——verify 视觉校验循环依赖
+// "失败即异常"才能把该步判为 failed, 任何"失败当成功"都会让校验基于错误观察继续。
 
 function hdcArgs(target: string | undefined, shellCmd: string): string[] {
   return target ? ["-t", target, "shell", shellCmd] : ["shell", shellCmd];
@@ -27,14 +31,36 @@ export function resolveLocalOutputPath(value: string): string {
     : path.resolve(candidate);
 }
 
+/**
+ * 解析操作目标: 显式指定优先; 未指定时唯一在线设备自动选中, 多台在线则拒绝——
+ * UI 自动化打错设备比报错严重得多(误点击/误输入到无关设备)。与 uninstallApp
+ * 的多设备显式 target 契约一致。
+ */
+export async function resolveTarget(explicit: string | undefined): Promise<string> {
+  if (explicit) return explicit;
+  const targets = await onlineAllTargets();
+  if (targets.length === 0) throw new Error("没有在线设备");
+  if (targets.length > 1) {
+    throw new Error("多台设备在线(" + targets.join(", ") + "), 必须显式指定 target");
+  }
+  return targets[0];
+}
+
+/** 历史兼容别名: 第一台在线设备(仅限调用方已确认"任意设备皆可"的场景)。 */
 export async function firstTarget(): Promise<string | undefined> {
   const list = await onlineAllTargets();
   return list[0];
 }
 
+// uitest/hdc 的设备侧失败标记: 输出含 [Fail] 即命令未生效, 与宿主侧退出码互补。
+function assertNoDeviceFailure(out: string): void {
+  if (/\[Fail\]/i.test(out)) throw new Error("设备侧命令失败: " + out.trim().slice(0, 300));
+}
+
 export async function shell(target: string | undefined, cmd: string, timeoutMs = 30000): Promise<string> {
   const tc = toolchain();
-  const r = await run(tc.hdc, hdcArgs(target, cmd), { timeoutMs });
+  const r = requireOk(cmd.split(/\s+/)[0] + " shell", await run(tc.hdc, hdcArgs(target, cmd), { timeoutMs }));
+  assertNoDeviceFailure(r.out);
   return r.out.trim();
 }
 
@@ -66,8 +92,7 @@ export function analyzeUiLayout(raw: any): UiLayoutState {
 }
 
 export async function dumpUiTree(opts: { target?: string; mode?: "simple" | "full"; saveTo?: string } = {}): Promise<{ file?: string; summary: string; nodes: number; locked: boolean; width: number; height: number }> {
-  const target = opts.target ?? await firstTarget();
-  if (!target) throw new Error("没有在线设备");
+  const target = await resolveTarget(opts.target);
   const out = await shell(target, "uitest dumpLayout", 60000);
   // 输出形如: "The layout has been dumped to /data/local/tmp/layout_<hash>.json" 或 dump 路径
   const m = out.match(/(\/[\w\/.-]*layout[\w\/.-]*\.json)/i) ?? out.match(/(\/[\w\/.-]+\.json)/i);
@@ -78,8 +103,10 @@ export async function dumpUiTree(opts: { target?: string; mode?: "simple" | "ful
   );
   fs.mkdirSync(path.dirname(local), { recursive: true });
   const tc = toolchain();
-  const recv = await run(tc.hdc, ["-t", target, "file", "recv", remote, local], { timeoutMs: 30000 });
+  const recv = requireOk("hdc file recv", await run(tc.hdc, ["-t", target, "file", "recv", remote, local], { timeoutMs: 30000 }));
   if (!fs.existsSync(local)) throw new Error("接收布局文件失败: " + recv.out);
+  // 设备端临时布局文件用后即删: 每次 dump 上百 KB, 累积会占满 /data/local/tmp。
+  await shell(target, "rm -f " + shellQuote(remote)).catch(() => { /* 清理失败不影响结果 */ });
   const raw = JSON.parse(fs.readFileSync(local, "utf8"));
   const count = (n: any): number => Array.isArray(n?.children) ? 1 + n.children.reduce((a: number, c: any) => a + count(c), 0) : 1;
   const attrs = (n: any): string => {
@@ -101,19 +128,19 @@ export async function dumpUiTree(opts: { target?: string; mode?: "simple" | "ful
 // ---------------------------------------------------------------- UI 操作
 
 export async function uiClick(x: number, y: number, target?: string): Promise<string> {
-  return shell(target ?? await firstTarget(), `uitest uiInput click ${x} ${y}`);
+  return shell(await resolveTarget(target), `uitest uiInput click ${x} ${y}`);
 }
 
 export async function uiInputText(x: number, y: number, text: string, target?: string): Promise<string> {
-  return shell(target ?? await firstTarget(), `uitest uiInput inputText ${x} ${y} ${shellQuote(text)}`);
+  return shell(await resolveTarget(target), `uitest uiInput inputText ${x} ${y} ${shellQuote(text)}`);
 }
 
 export async function uiSwipe(x1: number, y1: number, x2: number, y2: number, speed = 1000, target?: string): Promise<string> {
-  return shell(target ?? await firstTarget(), `uitest uiInput swipe ${x1} ${y1} ${x2} ${y2} ${speed}`);
+  return shell(await resolveTarget(target), `uitest uiInput swipe ${x1} ${y1} ${x2} ${y2} ${speed}`);
 }
 
 export async function uiKey(keyCode: number, target?: string): Promise<string> {
-  return shell(target ?? await firstTarget(), `uitest uiInput keyEvent ${keyCode}`);
+  return shell(await resolveTarget(target), `uitest uiInput keyEvent ${keyCode}`);
 }
 
 export interface DeviceUnlockResult {
@@ -155,15 +182,14 @@ export async function ensureDeviceUnlocked(target: string, deps: DeviceUnlockDep
 // ---------------------------------------------------------------- 截屏
 
 export async function screenshot(savePath: string, target?: string): Promise<string> {
-  const t = target ?? await firstTarget();
-  if (!t) throw new Error("没有在线设备");
+  const t = await resolveTarget(target);
   const local = resolveLocalOutputPath(savePath);
   const remote = "/data/local/tmp/gh_shot_" + Date.now() + ".jpeg";
   await shell(t, `snapshot_display -f ${remote}`, 30000);
   const tc = toolchain();
   fs.mkdirSync(path.dirname(local), { recursive: true });
-  const recv = await run(tc.hdc, ["-t", t, "file", "recv", remote, local], { timeoutMs: 30000 });
-  await shell(t, `rm -f ${remote}`);
+  const recv = requireOk("hdc file recv", await run(tc.hdc, ["-t", t, "file", "recv", remote, local], { timeoutMs: 30000 }));
+  await shell(t, `rm -f ${remote}`).catch(() => { /* 清理失败不影响结果 */ });
   if (!fs.existsSync(local)) throw new Error("截屏接收失败: " + recv.out);
   return local;
 }
@@ -171,11 +197,11 @@ export async function screenshot(savePath: string, target?: string): Promise<str
 // ---------------------------------------------------------------- 应用启停
 
 export async function startAbility(bundle: string, ability: string, target?: string): Promise<string> {
-  return shell(target ?? await firstTarget(), `aa start -b ${shellQuote(bundle)} -a ${shellQuote(ability)}`, 60000);
+  return shell(await resolveTarget(target), `aa start -b ${shellQuote(bundle)} -a ${shellQuote(ability)}`, 60000);
 }
 
 export async function stopAbility(bundle: string, target?: string): Promise<string> {
-  return shell(target ?? await firstTarget(), `aa force-stop ${shellQuote(bundle)}`, 30000);
+  return shell(await resolveTarget(target), `aa force-stop ${shellQuote(bundle)}`, 30000);
 }
 
 export function buildUninstallArgs(bundle: string, target?: string, keepData = false): string[] {
@@ -191,14 +217,8 @@ export async function uninstallApp(
   keepData = false,
 ): Promise<{ ok: boolean; target: string; out: string }> {
   if (!bundle.trim()) throw new Error("bundle 不能为空");
-  let selected = target;
-  if (!selected) {
-    const targets = await onlineAllTargets();
-    if (targets.length === 0) throw new Error("没有在线设备");
-    if (targets.length > 1) throw new Error("多台设备在线，app_uninstall 必须显式指定 target");
-    selected = targets[0];
-  }
+  const selected = await resolveTarget(target);
   const tc = toolchain();
-  const result = await run(tc.hdc, buildUninstallArgs(bundle.trim(), selected, keepData), { timeoutMs: 120000 });
-  return { ok: result.code === 0, target: selected, out: result.out.trim() };
+  const result = requireOk("hdc uninstall", await run(tc.hdc, buildUninstallArgs(bundle.trim(), selected, keepData), { timeoutMs: 120000 }));
+  return { ok: true, target: selected, out: result.out.trim() };
 }

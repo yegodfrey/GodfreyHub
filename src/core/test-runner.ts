@@ -8,6 +8,8 @@ import { buildAndDeploy, createDevEcoBuildEnv, type BuildOpts, type BuildResult 
 import { resolveTarget } from "./emulator.js";
 import { ensureDeviceUnlocked, shellQuote, type DeviceUnlockResult } from "./uitest.js";
 import { loadConfig, type ProjectEntry } from "./registry.js";
+import { KeyedMutex } from "./sync.js";
+import lockfile from "proper-lockfile";
 
 export type HarmonyTestMode = "local" | "instrument";
 
@@ -210,19 +212,25 @@ function persistDirectInstrumentReport(module: TestModule, output: string): stri
   return report;
 }
 
+// 通过门禁: run>0 且 Failure/Error 全零且 Pass>0 才算通过。
+// Pass 必须显式大于零: "Tests run: 5 ... Pass: 0, Ignore: 5"(整批被 Ignore)不是一次
+// 通过的运行——按 0 Failure 放行会让"类过滤器写错导致零用例"伪装成绿。
 function hasPassingInstrumentSummary(output: string): boolean {
   const summaries = [...output.matchAll(
     /Tests run:\s*(\d+)\s*,\s*Failure:\s*(\d+)\s*,\s*Error:\s*(\d+)\s*,\s*Pass:\s*(\d+)\s*,\s*Ignore:\s*(\d+)/gi,
   )];
   if (summaries.length === 0) return false;
   const summary = summaries[summaries.length - 1];
-  return Number(summary[1]) > 0 && Number(summary[2]) === 0 && Number(summary[3]) === 0;
+  return Number(summary[1]) > 0 && Number(summary[2]) === 0 && Number(summary[3]) === 0
+    && Number(summary[4]) > 0;
 }
 
+// 全量目标 token(含无线 IP:port 与真机序列号): 恢复阶段需要对无线目标 tconn 回连,
+// 只认 127.0.0.1 会让重启默认 server 后的无线真机静默掉线。
 function connectedTargets(output: string): string[] {
   return output.split(/\r?\n/)
     .map((line) => line.trim().split(/\s+/)[0])
-    .filter((target) => /^127\.0\.0\.1:\d+$/.test(target));
+    .filter((target) => /^[A-Za-z0-9][A-Za-z0-9._:-]*$/.test(target));
 }
 
 export function hdcServerPortCandidates(seed = process.pid + Math.floor(Date.now() / 1000)): number[] {
@@ -231,7 +239,43 @@ export function hdcServerPortCandidates(seed = process.pid + Math.floor(Date.now
   return Array.from({ length: 8 }, (_, index) => 18710 + ((start + index) % poolSize));
 }
 
-export async function withIsolatedHdcTarget<T>(
+// ---------- 共享 hdc server 的隔离互斥 ----------
+// withIsolatedHdcTarget 会 kill 掉**所有 agent 共享的默认 hdc server**, 换到隔离端口跑,
+// 再恢复。这期间其他 agent 的任何 hdc 命令(部署/日志/emu 轮询)都会失败; 两个并发隔离
+// 会话还会互相踩 kill/tconn 序列, 产生不可预测的 server 归属。因此整个 kill->隔离->
+// 恢复窗口必须互斥: 进程内用 KeyedMutex; 跨进程(多开 IDE 各起一个 MCP server)用
+// proper-lockfile(持锁续期, 崩溃后 60s 可接管, 抢锁总窗约 4 分钟后显式失败)。
+const hdcServerMutex = new KeyedMutex();
+const HDC_SERVER_LOCK = path.join(os.tmpdir(), "godfreyhub", "locks", "hdc-server.lock");
+
+async function withHdcServerExclusive<T>(fn: () => Promise<T>): Promise<T> {
+  return hdcServerMutex.run("hdc-server", async () => {
+    const lockDir = path.dirname(HDC_SERVER_LOCK);
+    fs.mkdirSync(lockDir, { recursive: true });
+    const release = await lockfile.lock(HDC_SERVER_LOCK, {
+      update: 30_000,    // 每 30s 续期(ms): 活的持有者不会被误判为陈锁
+      stale: 60_000,     // 持有者崩溃(不再续期)后 60s, 其他进程可安全接管
+      realpath: false,
+      retries: { retries: 24, factor: 1.5, minTimeout: 1_000, maxTimeout: 10_000 },
+    });
+    try {
+      return await fn();
+    } finally {
+      await release();
+    }
+  });
+}
+
+export function withIsolatedHdcTarget<T>(
+  hdc: string,
+  target: string,
+  operation: (env: Record<string, string>) => Promise<T>,
+  deps: { runCommand?: typeof run; serverPort?: number; serverPorts?: number[]; retryDelayMs?: number; signal?: AbortSignal } = {},
+): Promise<T> {
+  return withHdcServerExclusive(() => withIsolatedHdcTargetExclusive(hdc, target, operation, deps));
+}
+
+async function withIsolatedHdcTargetExclusive<T>(
   hdc: string,
   target: string,
   operation: (env: Record<string, string>) => Promise<T>,
@@ -289,6 +333,9 @@ export async function withIsolatedHdcTarget<T>(
     if (defaultStopped) {
       await runCommand(hdc, ["start"], { timeoutMs: 30000, signal });
       for (const previousTarget of previousTargets) {
+        // 只有带 ":端口" 形态的目标需要 tconn 回连(无线/回环); USB 序列号由重启的
+        // server 自动重枚举, 对其 tconn 只会报错。
+        if (!previousTarget.includes(":")) continue;
         await runCommand(hdc, ["tconn", previousTarget], { timeoutMs: 30000, signal });
       }
     }
@@ -369,11 +416,16 @@ function emptyArtifacts(modules: string[]): TestArtifacts {
   return { modules, reports: {}, collectedModules: [], missingModules: modules };
 }
 
+// 每次运行唯一的日志名: 固定文件名是"最后写者胜", 同项目并发运行会互相覆盖证据。
+function runLogSuffix(): string {
+  return new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 14) + "_" + process.pid;
+}
+
 function writeTestLog(entry: ProjectEntry, mode: HarmonyTestMode, output: string): string {
   const logDir = path.join(os.tmpdir(), "godfreyhub", "logs");
   fs.mkdirSync(logDir, { recursive: true });
   const safeName = entry.name.replace(/[^A-Za-z0-9_.-]+/g, "_");
-  const file = path.join(logDir, "test_" + safeName + "_" + mode + ".log");
+  const file = path.join(logDir, "test_" + safeName + "_" + mode + "_" + runLogSuffix() + ".log");
   fs.writeFileSync(file, output, "utf8");
   return file;
 }
@@ -383,7 +435,7 @@ function writeDeviceTestLog(entry: ProjectEntry, tag: string, output: string): s
   fs.mkdirSync(logDir, { recursive: true });
   const safeName = entry.name.replace(/[^A-Za-z0-9_.-]+/g, "_");
   const safeTag = tag.replace(/[^A-Za-z0-9_.-]+/g, "_");
-  const file = path.join(logDir, "test_" + safeName + "_instrument_" + safeTag + "_hilog.log");
+  const file = path.join(logDir, "test_" + safeName + "_instrument_" + safeTag + "_hilog_" + runLogSuffix() + ".log");
   fs.writeFileSync(file, output, "utf8");
   return file;
 }
@@ -415,7 +467,14 @@ function failedTestReports(artifacts: TestArtifacts): FailedTestReport[] {
   const failed: FailedTestReport[] = [];
   for (const [module, report] of Object.entries(artifacts.reports)) {
     if (!report.testResultFile) continue;
-    const content = fs.readFileSync(report.testResultFile, "utf8");
+    let content: string;
+    try {
+      content = fs.readFileSync(report.testResultFile, "utf8");
+    } catch {
+      // 报告在 collect 与 parse 之间被清理/占用: 视为无数据。整体通过性仍由
+      // 退出码 + hasPassingInstrumentSummary 把关, 这里不虚构失败也不放行失败。
+      continue;
+    }
     const summaries = [...content.matchAll(/Tests run:\s*(\d+)\s*,\s*Failure:\s*(\d+)\s*,\s*Error:\s*(\d+)/gi)];
     let failures = 0;
     let errors = 0;
@@ -432,7 +491,20 @@ function failedTestReports(artifacts: TestArtifacts): FailedTestReport[] {
   return failed;
 }
 
-export async function runHarmonyTests(
+// 同项目的测试运行串行化: 直接写盘的产物(test_result.txt 固定路径是收集契约)与
+// notBeforeMs 新鲜度过滤都按"单运行"假设设计, 并发运行同一项目会互相践踏证据。
+// 异项目仍并行。跨进程的构建互斥由 hvigor 层的设备租约/GfBuildMutex 负责。
+const testRunMutex = new KeyedMutex();
+
+export function runHarmonyTests(
+  entry: ProjectEntry,
+  opts: HarmonyTestOpts,
+  deps: TestRunnerDeps = {},
+): Promise<HarmonyTestResult> {
+  return testRunMutex.run("test:" + entry.name, () => runHarmonyTestsExclusive(entry, opts, deps));
+}
+
+async function runHarmonyTestsExclusive(
   entry: ProjectEntry,
   opts: HarmonyTestOpts,
   deps: TestRunnerDeps = {},

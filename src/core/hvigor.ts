@@ -4,10 +4,12 @@ import os from "node:os";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { lock } from "proper-lockfile";
-import { run, sleep, tail } from "./proc.js";
+import { run, sleep, tail, type RunResult } from "./proc.js";
+import { abortableSleep, AbortedError } from "./sync.js";
 import { toolchain } from "./paths.js";
-import { resolveTarget, isEmulatorTarget, isValidHdcPort, MIN_HDC_PORT, MAX_HDC_PORT } from "./emulator.js";
+import { resolveTarget, isEmulatorTarget, isValidHdcPort, bundleListedInstalled, MIN_HDC_PORT, MAX_HDC_PORT } from "./emulator.js";
 import { loadConfig, type ProjectEntry, type TestFramework } from "./registry.js";
+import JSON5 from "json5";
 
 // 构建+部署(移植自各项目 build.ps1, 契约保持一致):
 //   ohpm install(全局锁串行) -> 可选 clean -> assembleHap(--no-daemon)
@@ -82,11 +84,19 @@ export async function withDeviceLease<T>(serial: string, signal: AbortSignal | u
   let stderr = "";
   let ready = false;
   let closed = false;
+  let cancelled = false;
   let resolveClosed: (() => void) | undefined;
   const closedPromise = new Promise<void>((resolve) => { resolveClosed = resolve; });
-  const abort = () => { if (!closed) child.kill(); };
+  const abort = () => {
+    cancelled = true;
+    if (!closed) child.kill();
+  };
   if (signal?.aborted) abort();
   signal?.addEventListener("abort", abort, { once: true });
+  child.on("error", () => {
+    // spawn 失败(ENOENT 等): 'close' 随后触发并走标准失败路径, 这里只保证事件有监听,
+    // 不让它升级成进程级 uncaughtException。
+  });
   try {
     await new Promise<void>((resolve, reject) => {
       child.stdout.on("data", (chunk: Buffer) => {
@@ -111,9 +121,15 @@ export async function withDeviceLease<T>(serial: string, signal: AbortSignal | u
   } finally {
     signal?.removeEventListener("abort", abort);
     if (!closed) {
-      child.stdin.end(DEVICE_LEASE_RELEASE + "\n");
-      await Promise.race([closedPromise, sleep(5000)]);
-      if (!closed) child.kill();
+      if (cancelled) {
+        child.kill();
+      } else {
+        try {
+          if (!child.stdin.destroyed) child.stdin.end(DEVICE_LEASE_RELEASE + "\n");
+        } catch { /* 已销毁的流: 直接 kill */ }
+        await Promise.race([closedPromise, sleep(5000)]);
+        if (!closed) child.kill();
+      }
     }
   }
 }
@@ -123,9 +139,10 @@ function readLocalProperty(file: string, key: string): string | null {
   const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const match = fs.readFileSync(file, "utf8").match(new RegExp("^\\s*" + escapedKey + "\\s*=\\s*(.*?)\\s*$", "m"));
   if (!match?.[1]) return null;
-  // local.properties follows Java property escaping. The recorded family paths
-  // currently use forward slashes, while this also accepts escaped ':'/'\\'.
-  return match[1].replace(/\\(.)/g, "$1");
+  // Java properties 转义必须保守展开: 只解已知转义(\\\\, \\:, \\=), 其余反斜杠按字面
+  // 保留。无条件 `\\(.) -> $1` 会把用户手写的 Windows 路径 `C:\\sdk\\cj` 毁成
+  // `C:sdkcj`, 随后 cjpm.exe 探测失败**静默**回退旧 PATH 环境, 报出与根因无关的 DLL 错。
+  return match[1].replace(/\\\\|\\:|\\=/g, (e) => e.slice(1));
 }
 
 export function createCangjieBuildEnv(
@@ -186,15 +203,51 @@ export function ohpmInstallInvocation(tool: { ohpm: string | null; node: string 
   return { command: tool.ohpm, args: ["install"] };
 }
 
-async function withLock(lockPath: string, body: () => Promise<number>): Promise<number> {
+function isLockBusyError(e: unknown): boolean {
+  const code = (e as NodeJS.ErrnoException)?.code;
+  return code === "ELOCKED" || code === "ESTALE";
+}
+
+// 项目构建锁: 长等待必须感知取消——客户端已放弃的请求继续排队 15 分钟再启动一次
+// hvigor, 既浪费也违背调用方意图。每轮抢锁前检查 signal, 等待用 abortableSleep。
+async function withLock(lockPath: string, signal: AbortSignal | undefined, body: () => Promise<number>): Promise<number> {
   fs.mkdirSync(path.dirname(lockPath), { recursive: true });
   fs.closeSync(fs.openSync(lockPath, "a"));
-  const release = await lock(lockPath, { retries: { retries: 450, factor: 1, minTimeout: 2000, maxTimeout: 2000 } });
+  const maxWaitMs = 15 * 60_000;
+  const intervalMs = 2_000;
+  const deadline = Date.now() + maxWaitMs;
+  const acquire = async (): Promise<() => Promise<void>> => {
+    while (true) {
+      if (signal?.aborted) throw new AbortedError("构建在等待项目锁期间被取消");
+      try {
+        return await lock(lockPath, { retries: 0, realpath: false });
+      } catch (e) {
+        if (!isLockBusyError(e) || Date.now() >= deadline) throw e;
+        await abortableSleep(intervalMs, signal);
+      }
+    }
+  };
+  const release = await acquire();
   try {
     return await body();
   } finally {
     try { await release(); } catch { /* 已释放 */ }
   }
+}
+
+// 解析模块 srcPath(相对 harmonyRoot): 测试 HAP 产物目录按模块目录拼接, 模块名与
+// 目录名不一致的项目(如 features/shell)过去会"未找到 ohosTest 产物目录"。
+function moduleSrcPath(harmonyRoot: string, moduleName: string): string {
+  const file = path.join(harmonyRoot, "build-profile.json5");
+  try {
+    const profile = JSON5.parse(fs.readFileSync(file, "utf8").replace(/^\uFEFF/, ""));
+    const mod = (Array.isArray(profile?.modules) ? profile.modules : [])
+      .find((m: any) => m?.name === moduleName);
+    if (mod && typeof mod.srcPath === "string" && mod.srcPath.trim()) {
+      return path.normalize(mod.srcPath.trim().replace(/^\.\//, ""));
+    }
+  } catch { /* 解析失败退回模块名 */ }
+  return moduleName;
 }
 
 // 定位 HAP 产物: 优先当前 product 构建目录, 同目录下 signed 优先(与 Select-Hap 一致)
@@ -337,18 +390,32 @@ export async function ensureHdcTargetOnline(
   };
 }
 
-export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts): Promise<BuildResult> {
+export interface BuildAndDeployDeps {
+  runCommand?: typeof run;
+  resolveDevice?: typeof resolveTarget;
+}
+
+export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts, deps: BuildAndDeployDeps = {}): Promise<BuildResult> {
   const tc = toolchain();
+  const runCommand = deps.runCommand ?? run;
+  const resolveDevice = deps.resolveDevice ?? resolveTarget;
   const buildEnv = createDevEcoBuildEnv(tc.deveco, entry.harmonyRoot);
   const product = opts.product ?? "debug";
   const buildMode = opts.buildMode ?? "debug";
-  const logLines: string[] = [];
   const logFile = path.join(WORK_DIR, "logs", "build_" + entry.name + ".log");
+  // 日志 = 内存全量缓冲 + 每次全量落盘: 过去"步骤 0 锁外 append + 锁内 truncate"会让
+  // 目标解析/签名策略日志被抹掉, 且并发构建交错 append。全量快照写幂等且并发可读。
+  const logLines: string[] = [];
+  const localTimestamp = () => {
+    const n = new Date();
+    const two = (v: number) => String(v).padStart(2, "0");
+    return n.getFullYear() + "-" + two(n.getMonth() + 1) + "-" + two(n.getDate()) +
+      " " + two(n.getHours()) + ":" + two(n.getMinutes()) + ":" + two(n.getSeconds());
+  };
   const log = (m: string) => {
-    const line = "[" + new Date().toISOString().replace("T", " ").slice(0, 19) + "] " + m;
-    logLines.push(line);
+    logLines.push("[" + localTimestamp() + "] " + m);
     fs.mkdirSync(path.dirname(logFile), { recursive: true });
-    fs.appendFileSync(logFile, line + "\n", "utf8");
+    fs.writeFileSync(logFile, logLines.join("\n") + "\n", "utf8");
   };
 
   if (!tc.hvigorwJs) return { code: 1, log: "未找到 hvigorw.js, 请确认 DevEco Studio 已安装或设置 DEVECO_PATH" };
@@ -376,7 +443,7 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts): Prom
 
   // 步骤 0: 构建前解析部署目标(noDeploy 跳过), 决定签名/产物策略
   if (!opts.noDeploy) {
-    deployTarget = await resolveTarget({
+    deployTarget = await resolveDevice({
       portArg: opts.port, device: opts.device, bundle: entry.bundle, instance: entry.instance || entry.name,
       cfgPort: entry.port, deviceInstances: loadConfig().deviceInstances, log, signal: opts.signal,
     });
@@ -398,16 +465,14 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts): Prom
     }
   }
 
-  const code = await withLock(path.join(WORK_DIR, ".locks", "build_" + entry.name + ".lock"), async () => {
-    fs.mkdirSync(path.dirname(logFile), { recursive: true });
-    fs.writeFileSync(logFile, "", "utf8");
+  const code = await withLock(path.join(WORK_DIR, ".locks", "build_" + entry.name + ".lock"), opts.signal, async () => {
     log("========== 构建 " + entry.name + " (product=" + product + " buildMode=" + buildMode + ") ==========");
 
     // 1. ohpm install(全局锁串行)
     const ohpmInstall = ohpmInstallInvocation(tc);
     if (!opts.noOhpm && ohpmInstall) {
-      const ohpmCode = await withLock(path.join(WORK_DIR, ".locks", "ohpm.lock"), async () => {
-        const r = await run(ohpmInstall.command, ohpmInstall.args, {
+      const ohpmCode = await withLock(path.join(WORK_DIR, ".locks", "ohpm.lock"), opts.signal, async () => {
+        const r = await runCommand(ohpmInstall.command, ohpmInstall.args, {
           cwd: entry.harmonyRoot, timeoutMs: 15 * 60_000, env: buildEnv, signal: opts.signal,
         });
         log("> ohpm install (exit=" + r.code + ")");
@@ -435,22 +500,27 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts): Prom
 
     // 2. 可选 clean(工程级, 覆盖仓颉依赖模块)
     if (opts.clean) {
-      const r = await run(tc.node, cleanArgs, {
+      const r = await runCommand(tc.node, cleanArgs, {
         cwd: entry.harmonyRoot, timeoutMs: 10 * 60_000, env: buildEnv, signal: opts.signal,
       });
       log("> hvigor clean[project] (exit=" + r.code + ")");
+      // Windows 上输出目录被占用(杀软/索引服务/残留进程)是 clean 最常见的失败,
+      // 静默继续会让 assembleHap 报出更晦涩的增量产物错误——升级为显式警告。
+      if (r.code !== 0) {
+        log("警告: clean 失败, 可能残留增量产物; 后续构建错误请先排查目录占用:\n" + tail(r.out, 10));
+      }
     }
 
     // 3. 构建; 按目标策略处理签名失败:
     //    模拟器: SignHap 失败不阻塞(保留 unsigned 中间产物, forceUnsigned 取用)
     //    真机:   SignHap 失败即报错(真机装不上 unsigned)
-    let r = await run(tc.node, hvigorArgs("assembleHap"), {
+    let r = await runCommand(tc.node, hvigorArgs("assembleHap"), {
       cwd: entry.harmonyRoot, timeoutMs: 30 * 60_000, env: buildEnv, signal: opts.signal,
     });
     log("> hvigor assembleHap (exit=" + r.code + ")");
     if (r.code !== 0 && isRetryableHvigorInfrastructureFailure(r.out)) {
       log("警告: Hvigor/Node 在 CompileCangjie 期间发生内部 options 崩溃; 保留干净任务图并重试一次");
-      r = await run(tc.node, hvigorArgs("assembleHap"), {
+      r = await runCommand(tc.node, hvigorArgs("assembleHap"), {
         cwd: entry.harmonyRoot, timeoutMs: 30 * 60_000, env: buildEnv, signal: opts.signal,
       });
       log("> hvigor assembleHap[tool-retry 1/1] (exit=" + r.code + ")");
@@ -481,8 +551,14 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts): Prom
       log("错误: 真机部署需要 signed HAP, 但产物为 unsigned: " + hap + "; 请确认 debug 签名已配置并构建成功");
       return 1;
     }
-    if ((forceUnsigned || unsignedFallback) && fs.statSync(hap).mtimeMs < buildStart) {
-      log("警告: 选中的 unsigned 产物早于本次构建开始, 可能为旧产物");
+    // 新鲜度校验对 signed 一视同仁: 增量构建可能"unsigned 刚生成、signed 还是上一轮
+    // UP-TO-DATE 旧产物", 真机会装到过期 HAP 且无任何提示。
+    if (fs.statSync(hap).mtimeMs < buildStart) {
+      if (requireSigned) {
+        log("警告: 选中的 signed 产物早于本次构建开始, 可能为上一轮旧产物; 若与源码不符请 clean 后重试");
+      } else if (forceUnsigned || unsignedFallback) {
+        log("警告: 选中的 unsigned 产物早于本次构建开始, 可能为旧产物");
+      }
     }
     log("构建产物: " + hap);
     hapPath = hap;
@@ -508,18 +584,18 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts): Prom
           "assembleHap", "--no-daemon",
         ];
         log("构建 " + t.framework + " ohosTest HAP (" + t.module + "@" + testProduct + ") ...");
-        let tr = await run(tc.node, testArgs, {
+        let tr = await runCommand(tc.node, testArgs, {
           cwd: entry.harmonyRoot, timeoutMs: 30 * 60_000, env: buildEnv, signal: opts.signal,
         });
         log("> hvigor assembleHap[" + t.module + "@ohosTest] (exit=" + tr.code + ")");
         if (tr.code !== 0 && isRetryableHvigorInfrastructureFailure(tr.out)) {
           log("警告: ohosTest 构建遇到瞬态 Hvigor 基础设施故障; 保留干净任务图并重试一次");
-          tr = await run(tc.node, testArgs, {
+          tr = await runCommand(tc.node, testArgs, {
             cwd: entry.harmonyRoot, timeoutMs: 30 * 60_000, env: buildEnv, signal: opts.signal,
           });
           log("> hvigor assembleHap[" + t.module + "@ohosTest][tool-retry 1/1] (exit=" + tr.code + ")");
         }
-        const outDir = path.join(entry.harmonyRoot, t.module, "build", testProduct, "outputs", "ohosTest");
+        const outDir = path.join(entry.harmonyRoot, moduleSrcPath(entry.harmonyRoot, t.module), "build", testProduct, "outputs", "ohosTest");
         if (tr.code !== 0) {
           // SignHap 失败: 模拟器保留 unsigned 产物; 真机部署必须 signed, 失败即终止
           const unsignedHap = path.join(outDir, t.module + "-ohosTest-unsigned.hap");
@@ -560,7 +636,7 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts): Prom
     }
     if (refreshedTarget.reconnected) log("部署前已重新连接目标: " + hdcTarget);
     const installHap = async (artifact: string) => {
-      let result = await run(
+      let result = await runCommand(
         tc.hdc,
         ["-t", hdcTarget, "install", "-r", artifact],
         { timeoutMs: 120000, signal: opts.signal },
@@ -570,8 +646,8 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts): Prom
         const ready = await ensureHdcTargetOnline(tc.hdc, hdcTarget, run, opts.signal);
         if (ready.online) {
           log("设备安装服务发生瞬态故障; 保持精确目标并重试一次");
-          await sleep(3000);
-          result = await run(
+          await abortableSleep(3000, opts.signal);
+          result = await runCommand(
             tc.hdc,
             ["-t", hdcTarget, "install", "-r", artifact],
             { timeoutMs: 120000, signal: opts.signal },
@@ -580,10 +656,11 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts): Prom
       }
       return result;
     };
-    // 防污染校验: 目标装有其他在册项目应用则警告(确认目标确实是同名实例/预期真机)
+    // 防污染校验: 目标装有其他在册项目应用则警告(确认目标确实是同名实例/预期真机)。
+    // 用整串精确匹配: 子串包含会把 com.example.app 误报成装有 com.example.app2。
     if ((opts.otherBundles ?? []).length > 0) {
-      const apps = await run(tc.hdc, ["-t", hdcTarget, "shell", "bm", "dump", "-a"], { timeoutMs: 60000, signal: opts.signal });
-      const conflict = (opts.otherBundles!).filter((b) => apps.out.includes(b));
+      const apps = await runCommand(tc.hdc, ["-t", hdcTarget, "shell", "bm", "dump", "-a"], { timeoutMs: 60000, signal: opts.signal });
+      const conflict = (opts.otherBundles!).filter((b) => bundleListedInstalled(apps.out, b));
       if (conflict.length > 0) {
         log("警告: 目标 " + hdcTarget + " 已装有其他项目应用 (" + conflict.join(", ") + "), 请确认该目标正确");
       }
@@ -625,7 +702,7 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts): Prom
     if ((testHaps ?? []).length > 0) log("全部测试 HAP 安装成功");
     if (!opts.skipStart) {
       log("启动 " + entry.bundle + "/" + entry.ability + " ...");
-      const st = await run(tc.hdc, ["-t", hdcTarget, "shell", "aa", "start", "-b", entry.bundle, "-a", entry.ability], { timeoutMs: 60000, signal: opts.signal });
+      const st = await runCommand(tc.hdc, ["-t", hdcTarget, "shell", "aa", "start", "-b", entry.bundle, "-a", entry.ability], { timeoutMs: 60000, signal: opts.signal });
       if (!isHdcCommandSuccessful(st.code, st.out)) { log("启动失败 (exit=" + st.code + ")"); return 2; }
       log("启动成功");
     }

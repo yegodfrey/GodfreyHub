@@ -2,6 +2,13 @@
 # -*- coding: utf-8 -*-
 """鸿蒙仓颉开发文档采集器（浏览器 MCP 版，分片回传）。
 
+【运行前提(本机专用工具, 非干净环境可直接运行)】
+  - 依赖 httpx2: 不在 hdk/requirements.txt 中, 仅存在于作者本机环境;
+  - 依赖本机私有配置 ~/.qwenworkcn/mcp-adaptor.config 与 builtin_browser MCP 适配器;
+  - 需浏览器已登录华为开发者账号。
+缺失任一前提时 import 即失败。它由 hdk.py 的 crawl --target harmonyos-cangjie 与
+incremental-cangjie 子命令调度, 与通用模块平级 purely 出于历史原因。
+
 背景：仓颉开发文档需登录，鉴权 token 在 HttpOnly cookie，纯 Python 取不到，只能在已登录
 浏览器页面里 fetch(credentials:"include")。本机没有 QQ 浏览器 skill，改用 builtin_browser
 的 javascript_tool，经 QwenWork 本地 MCP 适配器代理调用；payload 只回传到本进程内存，

@@ -166,7 +166,17 @@ def confirm_gone(path):
 # --------------------------------------------------------------------------- #
 # 主流程
 # --------------------------------------------------------------------------- #
-def main():
+def run(no_recheck=False, skip_delete=False, limit=0):
+    """带锁运行一轮增量(函数化入口, 供 hdk.py 传参调用, 不经 argv)。"""
+    crawl_cj.acquire_lock()
+    try:
+        _main(no_recheck, skip_delete, limit)
+    finally:
+        crawl_cj.release_lock()
+
+
+def main(argv=None):
+    # argv=None 时解析命令行; 编排方(hdk.py)直接调 run() 传参。
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-recheck", action="store_true",
                     help="只抓取新发现的文档，不做修改/删除检测")
@@ -174,16 +184,11 @@ def main():
                     help="报告会删除的文档，但不真正移动文件")
     ap.add_argument("--limit", type=int, default=0,
                     help="限制处理文档数（冒烟测试）")
-    args = ap.parse_args()
-
-    crawl_cj.acquire_lock()
-    try:
-        _main(args)
-    finally:
-        crawl_cj.release_lock()
+    args = ap.parse_args(argv)
+    run(no_recheck=args.no_recheck, skip_delete=args.skip_delete, limit=args.limit)
 
 
-def _main(args):
+def _main(no_recheck, skip_delete, limit):
     os.makedirs(OUT, exist_ok=True)
     os.makedirs(DELETED_DIR, exist_ok=True)
 
@@ -247,7 +252,7 @@ def _main(args):
 
     # 重查队列（已抓文档，检测修改/删除）+ 动态 pending（新发现/未抓文档）。
     # 重查已抓文档时会解析页面链接，官方新增页面只要被引用即可当轮被发现抓取。
-    recheck_list = sorted(fetched) if not args.no_recheck else []
+    recheck_list = sorted(fetched) if not no_recheck else []
     failed_set = set(s.get("failed", []))
     ri = 0
     processed = 0
@@ -289,7 +294,7 @@ def _main(args):
                 if pending:
                     path = pending[0]
             if path is not None:
-                if args.limit and processed >= args.limit:
+                if limit and processed >= limit:
                     with lock:
                         inflight_n = len(in_flight)
                     if inflight_n == 0 and q.qsize() == 0:
@@ -320,14 +325,14 @@ def _main(args):
     q.join()
 
     # 二次确认 + 软删除
-    if not args.no_recheck:
+    if not no_recheck:
         for p in sorted(delete_candidates):
             if confirm_gone(p):
-                if not args.skip_delete:
+                if not skip_delete:
                     soft_delete(p, s, fetched, hashes)
                     disc.discard(p)   # 已确认下线的文档移出发现集，避免下轮重复尝试
                 stats["deleted"] += 1
-                tag = "（已移到 _deleted）" if not args.skip_delete else "（--skip-delete 未删除）"
+                tag = "（已移到 _deleted）" if not skip_delete else "（--skip-delete 未删除）"
                 print(f"[DELETE] {p} {tag}", flush=True)
             else:
                 print(f"[keep] {p} 二次确认仍存在，保留", flush=True)

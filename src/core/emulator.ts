@@ -5,6 +5,7 @@ import { randomUUID } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { run, runDetached, sleep, tail } from "./proc.js";
 import { toolchain } from "./paths.js";
+import { KeyedMutex } from "./sync.js";
 
 export const MIN_HDC_PORT = 10000;
 export const MAX_HDC_PORT = 16555;
@@ -12,6 +13,12 @@ const MIN_AUTO_ASSIGNED_HDC_PORT = 5555;
 export const DEFAULT_EMULATOR_MEMORY_GB = 3;
 export const MIN_EMULATOR_MEMORY_GB = 2;
 export const MAX_EMULATOR_MEMORY_GB = 32;
+
+// 启停等待节奏统一收敛: 上线等待/停止确认/目标探测共用这些常量, 消灭散落的魔法数字。
+const BOOT_WAIT_TIMEOUT_MS = 240_000;   // 官方冷启动实测上限(含镜像首次解压)
+const BOOT_POLL_INTERVAL_MS = 3_000;
+const STOP_CONFIRM_TIMEOUT_MS = 60_000;
+const STOP_CONFIRM_INTERVAL_MS = 2_000;
 
 export function isValidHdcPort(port: number): boolean {
   return Number.isInteger(port) && port >= MIN_HDC_PORT && port <= MAX_HDC_PORT;
@@ -36,6 +43,11 @@ export function classifyEmulatorCrashLogs(emulatorLog: string, qemuLog: string,
   }
   return findings;
 }
+
+// 模拟器实例是单宿主资源: 同一实例的启动/停止/删除/建后启动必须互斥, 否则两个并发
+// emu_start 的 check-then-act 会双双判定"未运行"并各自拉起 Emulator.exe(第二个撞实例
+// 锁失败或留下僵尸进程)。KeyedMutex 保证同实例串行、异实例并行。
+const instanceMutex = new KeyedMutex();
 
 export interface InstanceInfo { name: string; running: boolean; port: number | null; }
 
@@ -168,12 +180,32 @@ export async function launchEmulatorProcess(executable: string, args: string[]):
 
 // ---------- 实例枚举 ----------
 
+// -details 是权威来源(含 isRunning/hw.hdc.port); 但 CLI 可能先打 banner 再输出 JSON,
+// 直接 JSON.parse 会整体失败并把在册实例误判为"不存在"。截取首个 '[' 到最后一个 ']' 再解析。
+function parseJsonArrayPrefix(output: string): any[] | null {
+  const start = output.indexOf("[");
+  const end = output.lastIndexOf("]");
+  if (start < 0 || end <= start) return null;
+  try {
+    const parsed = JSON.parse(output.slice(start, end + 1));
+    return Array.isArray(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
 export async function listInstanceNames(): Promise<string[]> {
+  const details = await listInstanceDetails();
+  if (details.length > 0) return details.map((d) => d.name).filter(Boolean);
+  // -details 不可用时退回 -list 文本: 过滤已知 banner 行与明显非实例名行(含空白的
+  // 说明行/版本行), 实例名本身可以含空格(设备名实例如 "Mate 80 Pro"), 不能按 token 校验。
   const emu = toolchain().emulator;
   if (!emu) return [];
   const r = await run(emu, ["-list"], { timeoutMs: 30000 });
   if (r.code !== 0) return [];
-  return r.out.split(/\r?\n/).map((s) => s.trim()).filter((s) => s && !s.startsWith("These are common"));
+  return r.out.split(/\r?\n/).map((s) => s.trim())
+    .filter((s) => s && !s.startsWith("These are common"))
+    .filter((s) => !/^Emulator\b|version|usage|option/i.test(s) || /^["']/.test(s));
 }
 
 export async function listInstanceDetails(): Promise<InstanceInfo[]> {
@@ -181,19 +213,22 @@ export async function listInstanceDetails(): Promise<InstanceInfo[]> {
   if (!emu) return [];
   const r = await run(emu, ["-list", "-details"], { timeoutMs: 30000 });
   if (r.code !== 0) return [];
-  try {
-    const arr = JSON.parse(r.out) as any[];
-    return arr.map((e) => {
-      const p = String(e["hw.hdc.port"] ?? "");
-      return {
-        name: String(e.name ?? ""),
-        running: String(e.isRunning) === "true",
-        port: /^\d+$/.test(p) ? Number(p) : null,
-      };
-    });
-  } catch {
-    return [];
-  }
+  const arr = parseJsonArrayPrefix(r.out);
+  if (!arr) return [];
+  return arr.map((e) => {
+    const p = String(e["hw.hdc.port"] ?? "");
+    return {
+      name: String(e.name ?? ""),
+      running: String(e.isRunning) === "true",
+      port: /^\d+$/.test(p) ? Number(p) : null,
+    };
+  });
+}
+
+/** 按实例名归属 HDC 端口(-details 权威)。返回 undefined = 未运行或端口未知。 */
+async function attributedInstancePort(name: string): Promise<string | undefined> {
+  const info = (await listInstanceDetails()).find((i) => i.name === name);
+  return info?.running && info.port ? "127.0.0.1:" + info.port : undefined;
 }
 
 // ---------- 在线设备 ----------
@@ -261,21 +296,30 @@ export async function waitInstanceStart(
   before: string[],
   expectedTarget: string | undefined,
   crashBaselineMs: number,
-  timeoutMs = 240000,
+  timeoutMs = BOOT_WAIT_TIMEOUT_MS,
   signal?: AbortSignal,
   listOnline: () => Promise<string[]> = onlineTargets,
   findCrash: (instanceName: string) => { path: string; mtimeMs: number } | undefined = latestEmulatorCrashReport,
-  pollIntervalMs = 3000,
+  pollIntervalMs = BOOT_POLL_INTERVAL_MS,
   launchedPid?: number,
   isAlive: (pid: number) => boolean = isEmulatorProcessAlive,
+  lookupInstancePort?: () => Promise<string | undefined>,
 ): Promise<EmulatorStartWaitResult> {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     if (signal?.aborted) return { target: "" };
     const now = await listOnline();
-    const target = expectedTarget
-      ? (now.includes(expectedTarget) ? expectedTarget : "")
-      : (now.find((candidate) => !before.includes(candidate)) ?? "");
+    // 端口归属优先: 未显式给端口时, "任意新增目标"会把别的 agent 并发启动的实例
+    // 认领成本次结果, 部署因此打到错误设备。-details 按实例名归属的端口是权威来源;
+    // 仅当归属查询不可用(-details 解析失败/非 Windows)时才退回新增目标启发式。
+    let target = "";
+    if (expectedTarget) {
+      target = now.includes(expectedTarget) ? expectedTarget : "";
+    } else {
+      const attributed = await lookupInstancePort?.();
+      if (attributed && now.includes(attributed)) target = attributed;
+      if (!target) target = now.find((candidate) => !before.includes(candidate)) ?? "";
+    }
     if (target) return { target };
     if (launchedPid && !isAlive(launchedPid)) {
       return { target: "", launchFailure: "Emulator.exe 进程已退出 (PID " + launchedPid + ")" };
@@ -306,24 +350,24 @@ async function runningInstanceTarget(name: string): Promise<string> {
   return matches.length === 1 ? matches[0] : "";
 }
 
-export async function waitOnline(target: string, timeoutMs = 240000, signal?: AbortSignal): Promise<boolean> {
+export async function waitOnline(target: string, timeoutMs = BOOT_WAIT_TIMEOUT_MS, signal?: AbortSignal): Promise<boolean> {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     if (signal?.aborted) return false; // MCP 请求取消: 中止等待
     if ((await onlineAllTargets()).includes(target)) return true;
-    await sleep(3000);
+    await sleep(BOOT_POLL_INTERVAL_MS);
   }
   return false;
 }
 
-export async function waitNewDevice(before: string[], timeoutMs = 240000, signal?: AbortSignal): Promise<string> {
+export async function waitNewDevice(before: string[], timeoutMs = BOOT_WAIT_TIMEOUT_MS, signal?: AbortSignal): Promise<string> {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     if (signal?.aborted) return ""; // MCP 请求取消: 中止等待
     const now = await onlineTargets();
     const fresh = now.filter((t) => !before.includes(t));
     if (fresh.length > 0) return fresh[0];
-    await sleep(3000);
+    await sleep(BOOT_POLL_INTERVAL_MS);
   }
   return "";
 }
@@ -336,7 +380,7 @@ export async function launchAndWaitForNewTarget(
 ): Promise<string> {
   const before = await listOnline();
   await launch();
-  return waitForNew(before, 240000, signal);
+  return waitForNew(before, BOOT_WAIT_TIMEOUT_MS, signal);
 }
 
 // ---------- 镜像与实例创建/删除 ----------
@@ -350,14 +394,13 @@ export async function listImages(downloadedOnly = true): Promise<ImageInfo[]> {
   if (downloadedOnly) args.push("-downloaded", "true");
   const r = await run(emu, args, { timeoutMs: 60000 });
   if (r.code !== 0) return [];
-  try {
-    const arr = JSON.parse(r.out) as any[];
-    return arr.map((e) => ({
-      osVersion: String(e.osVersion ?? ""),
-      deviceType: String(e.deviceType ?? ""),
-      releaseType: e.releaseType ? String(e.releaseType) : undefined,
-    }));
-  } catch { return []; }
+  const arr = parseJsonArrayPrefix(r.out);
+  if (!arr) return [];
+  return arr.map((e) => ({
+    osVersion: String(e.osVersion ?? ""),
+    deviceType: String(e.deviceType ?? ""),
+    releaseType: e.releaseType ? String(e.releaseType) : undefined,
+  }));
 }
 
 export interface CreateOpts {
@@ -373,7 +416,7 @@ export interface CreateOpts {
 
 export interface CreateResult { ok: boolean; created: boolean; deviceType?: string; osVersion?: string; target?: string; out: string; }
 
-export async function createInstance(opts: CreateOpts): Promise<CreateResult> {
+async function createInstanceCore(opts: CreateOpts): Promise<CreateResult> {
   const emu = toolchain().emulator;
   if (!emu) throw new Error("未找到 Emulator.exe (DevEco Studio 未安装或路径未配置)");
   const memory = opts.memory ?? DEFAULT_EMULATOR_MEMORY_GB;
@@ -410,20 +453,36 @@ export async function createInstance(opts: CreateOpts): Promise<CreateResult> {
     return { ok: false, created: false, deviceType, osVersion, out: tail(r.out, 15) + hint };
   }
   let target: string | undefined;
+  let startFailure: string | undefined;
   if (opts.start) {
-    target = await startInstance(opts.name, undefined, opts.signal) || undefined;
-    if (!target) return { ok: false, created: true, deviceType, osVersion, out: tail(r.out, 10) + "\n实例已创建但启动等待超时(可稍后 emu_start)" };
+    // 启动失败不得掩盖"实例已创建"的事实: 调用方重试整个 emu_create 会命中"已存在",
+    // 丢失崩溃/超时的结构化诊断。捕获并如实上报 created=true + 失败原因。
+    try {
+      target = await startInstanceCore(opts.name, undefined, opts.signal) || undefined;
+      if (!target) startFailure = "实例已创建但启动等待超时(可稍后 emu_start)";
+    } catch (e) {
+      startFailure = "实例已创建但启动失败: " + (e instanceof Error ? e.message : String(e));
+    }
+  }
+  if (startFailure) {
+    return { ok: false, created: true, deviceType, osVersion, target, out: tail(r.out, 10) + "\n" + startFailure };
   }
   return { ok: true, created: true, deviceType, osVersion, target, out: tail(r.out, 10) };
 }
 
+export function createInstance(opts: CreateOpts): Promise<CreateResult> {
+  return instanceMutex.run("emu:" + opts.name, () => createInstanceCore(opts));
+}
+
 export async function deleteInstance(name: string, force = true): Promise<{ ok: boolean; out: string }> {
-  const emu = toolchain().emulator;
-  if (!emu) throw new Error("未找到 Emulator.exe");
-  const args = ["-delete", name];
-  if (force) args.push("-force");
-  const r = await run(emu, args, { timeoutMs: 120000 });
-  return { ok: r.code === 0, out: tail(r.out, 10) };
+  return instanceMutex.run("emu:" + name, async () => {
+    const emu = toolchain().emulator;
+    if (!emu) throw new Error("未找到 Emulator.exe");
+    const args = ["-delete", name];
+    if (force) args.push("-force");
+    const r = await run(emu, args, { timeoutMs: 120000 });
+    return { ok: r.code === 0, out: tail(r.out, 10) };
+  });
 }
 
 // ---------- 启停 ----------
@@ -434,7 +493,7 @@ export function isValidEmulatorBootMode(value: string): value is EmulatorBootMod
   return value === "coldboot" || value === "snapshot" || value === "reset";
 }
 
-export async function startInstance(name: string, port?: number, signal?: AbortSignal,
+async function startInstanceCore(name: string, port?: number, signal?: AbortSignal,
   bootMode?: string): Promise<string> {
   const tc = toolchain();
   if (!tc.emulator) throw new Error("未找到 Emulator.exe (DevEco Studio 未安装或路径未配置)");
@@ -467,12 +526,14 @@ export async function startInstance(name: string, port?: number, signal?: AbortS
     before,
     port ? "127.0.0.1:" + port : undefined,
     crashBaselineMs,
-    240000,
+    BOOT_WAIT_TIMEOUT_MS,
     signal,
     onlineTargets,
     latestEmulatorCrashReport,
-    3000,
+    BOOT_POLL_INTERVAL_MS,
     launch.pid,
+    isEmulatorProcessAlive,
+    () => attributedInstancePort(name),
   );
   if (startResult.launchFailure) {
     throw new Error("模拟器 '" + name + "' 启动失败：" + startResult.launchFailure +
@@ -491,7 +552,12 @@ export async function startInstance(name: string, port?: number, signal?: AbortS
   return target;
 }
 
-export async function stopInstance(name: string): Promise<{ ok: boolean; out: string }> {
+export function startInstance(name: string, port?: number, signal?: AbortSignal,
+  bootMode?: string): Promise<string> {
+  return instanceMutex.run("emu:" + name, () => startInstanceCore(name, port, signal, bootMode));
+}
+
+async function stopInstanceCore(name: string): Promise<{ ok: boolean; out: string }> {
   const tc = toolchain();
   if (!tc.emulator) return { ok: false, out: "未找到 Emulator.exe (DevEco Studio 未安装或路径未配置)" };
   // 官方 -stop 只停指定实例且完整退出 VM 子进程; Stop-Process/taskkill 单杀主进程
@@ -500,13 +566,17 @@ export async function stopInstance(name: string): Promise<{ ok: boolean; out: st
   if (r.code !== 0) return { ok: false, out: tail(r.out, 10) };
   // -stop 异步生效: 等实例真正退出(isRunning=false)再返回,
   // 否则紧接着的 -start 会与未释放的实例锁冲突(实测起不来)
-  const deadline = Date.now() + 60000;
+  const deadline = Date.now() + STOP_CONFIRM_TIMEOUT_MS;
   while (Date.now() < deadline) {
     const inst = (await listInstanceDetails()).find((d) => d.name === name);
     if (!inst || !inst.running) return { ok: true, out: tail(r.out, 10) };
-    await sleep(2000);
+    await sleep(STOP_CONFIRM_INTERVAL_MS);
   }
   return { ok: true, out: tail(r.out, 10) + "\n警告: 60s 内实例仍显示运行中, 随后的 -start 可能冲突" };
+}
+
+export function stopInstance(name: string): Promise<{ ok: boolean; out: string }> {
+  return instanceMutex.run("emu:" + name, () => stopInstanceCore(name));
 }
 
 export interface UiTestEnableResult {
@@ -524,8 +594,16 @@ export interface UiTestEnableResult {
 export async function enableUiTest(target?: string): Promise<UiTestEnableResult> {
   const tc = toolchain();
   const targets = await onlineAllTargets();
-  const t = target ?? targets[0];
-  if (!t) return { ok: false, alreadyEnabled: false, verified: false, out: "无在线设备" };
+  // 多台在线且未显式指定时拒绝: testmode 是设备级持久设置, 打错设备比报错严重。
+  const t = target ?? (targets.length === 1 ? targets[0] : undefined);
+  if (!t) {
+    return {
+      ok: false, alreadyEnabled: false, verified: false,
+      out: targets.length === 0
+        ? "无在线设备"
+        : "多台设备在线(" + targets.join(", ") + "), 必须显式指定 target",
+    };
+  }
   const readParam = async (): Promise<string> => {
     const r = await run(tc.hdc, ["-t", t, "shell", "param get persist.ace.testmode.enabled"], { timeoutMs: 30000 });
     return r.out.trim();
@@ -574,6 +652,19 @@ export interface ResolveOpts {
   signal?: AbortSignal; // MCP 请求级取消: 中止自动启动实例的上线等待
 }
 
+// bm dump -a 的输出随版本在 JSON 数组与逐行清单之间变化: 统一经"整串精确匹配"判定,
+// 子串包含会把 com.example.app 误判成装有 com.example.app2(防乱装校验因此失效)。
+export function bundleListedInstalled(output: string, bundle: string): boolean {
+  const parsed = parseJsonArrayPrefix(output);
+  if (parsed) {
+    return parsed.some((e) => String(e) === bundle || e?.name === bundle);
+  }
+  // 提取所有 bundle 形态 token(引号内或行级), 精确相等比较。
+  const tokens = new Set<string>();
+  for (const m of output.matchAll(/["']?([A-Za-z0-9][A-Za-z0-9._]*)["']?/g)) tokens.add(m[1]);
+  return tokens.has(bundle);
+}
+
 // 设备名实例解析: 在线优先(配置顺序), 否则启动第一个已存在的设备名实例并等上线。
 // 绝不自动创建——设备实例是刻意置备的实验室资产。返回空串=无法解析(原因已写入日志)。
 async function resolveDeviceInstanceTarget(o: ResolveOpts): Promise<string> {
@@ -606,12 +697,14 @@ async function resolveDeviceInstanceTarget(o: ResolveOpts): Promise<string> {
     before,
     undefined,
     crashBaselineMs,
-    240000,
+    BOOT_WAIT_TIMEOUT_MS,
     o.signal,
     onlineTargets,
     latestEmulatorCrashReport,
-    3000,
+    BOOT_POLL_INTERVAL_MS,
     launch.pid,
+    isEmulatorProcessAlive,
+    () => attributedInstancePort(startName),
   );
   if (startResult.launchFailure) {
     o.log("错误: 设备实例 '" + startName + "' 启动失败: " + startResult.launchFailure);
@@ -671,7 +764,7 @@ export async function resolveTarget(o: ResolveOpts): Promise<string> {
       const hits: string[] = [];
       for (const t of await onlineAllTargets()) {
         const r = await run(tc.hdc, ["-t", t, "shell", "bm", "dump", "-a"], { timeoutMs: 60000 });
-        if (r.out.includes(o.bundle)) hits.push(t);
+        if (bundleListedInstalled(r.out, o.bundle)) hits.push(t);
       }
       if (hits.length === 1) { o.log("反推成功: " + hits[0]); return hits[0]; }
       if (hits.length > 1) {
@@ -688,7 +781,7 @@ export async function resolveTarget(o: ResolveOpts): Promise<string> {
       const installed: string[] = [];
       for (const t of realDevices) {
         const r = await run(tc.hdc, ["-t", t, "shell", "bm", "dump", "-a"], { timeoutMs: 60000 });
-        if (r.out.includes(o.bundle)) installed.push(t);
+        if (bundleListedInstalled(r.out, o.bundle)) installed.push(t);
       }
       if (installed.length === 1) { o.log("真机已装本应用, 部署到 " + installed[0]); return installed[0]; }
       if (installed.length > 1) {

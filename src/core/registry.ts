@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import JSON5 from "json5";
 import { run } from "./proc.js";
+import lockfile from "proper-lockfile";
 
 // ohosTest 测试包构建目标(项目级配置, 支持混合项目 ArkTS+Cangjie 的设备侧测试):
 //   module    测试模块名(@ohosTest 构建目标, 如 entry / cangjie_test)
@@ -74,9 +75,11 @@ function emptyConfig(): HubConfig {
 }
 
 // 短 TTL 配置缓存: 高频 handler(lsp_*/dev_* 每次取当前项目)重复读盘纯属浪费。
-// 正确性优先——TTL 只有 2s, 且 saveConfig 立即失效; 缓存按解析后的配置文件路径为键，
+// 正确性优先——TTL 只有 2s, 且本进程写后立即失效; 缓存按解析后的配置文件路径为键，
 // 切换配置目录(如测试临时目录)不会命中上一路径的旧条目。cache 存在即代表该路径
 // "已成功加载"(缺失或解析成功)，是 saveConfig 落盘许可的唯一凭据。
+// 注意: 跨进程的写入(另一个 MCP 实例)最多 2s 后可见; 需要强一致的读改写一律走
+// updateConfig, 它在锁内全量重读, 与该缓存无关。
 const CONFIG_CACHE_TTL_MS = 2000;
 let configCache: { file: string; at: number; cfg: HubConfig } | null = null;
 
@@ -130,16 +133,73 @@ export function loadConfig(): HubConfig {
   return cfg;
 }
 
-export function saveConfig(cfg: HubConfig): void {
+// ---------- 并发正确的写路径 ----------
+// 注册表是跨 agent 会话(同进程并发请求)与跨进程(多开 IDE 各起一个 MCP server)的共享
+// 可变状态, 裸 load->mutate->save 会互相覆盖(尤其 scanRoot 这类跨多个 await 的读改写:
+// 基线在 await 间隙过期, save 时把别人刚写入的项目/lastProject 抹掉)。三层防护:
+//   1) 进程内: writeChain 把全部 updateConfig 串行化;
+//   2) 跨进程: proper-lockfile 对配置文件加锁(带陈锁超时, 持锁进程崩溃后可自动接管);
+//   3) 单次写: tmp 文件 + rename 原子替换, 崩溃不会留下半个 JSON(.bak 另存上一版)。
+// updateConfig 闭包内拿到的是锁内全量重读的新鲜配置; 闭包内不得再调 loadConfig/
+// saveConfig/updateConfig(会读到未提交状态或死锁), 变更一律直接改闭包入参。
+let writeChain: Promise<unknown> = Promise.resolve();
+
+const LOCK_OPTIONS = {
+  // 陈锁: 持锁进程被强杀后 15s 可被其他进程接管。
+  stale: 15000,
+  // 抢锁总窗 ~10s: 覆盖正常的短写, 更长占用(如另一进程扫描大目录)则显式失败而不是无限等。
+  retries: { retries: 8, factor: 1.6, minTimeout: 100, maxTimeout: 1500 },
+  // Windows 上 mkdtemp 的 8.3 短路径/符号链接会让 realpath 校验误报 mismatch。
+  realpath: false,
+} as const;
+
+/** 单次原子写: .bak 备份上一版 -> tmp 落盘 -> rename 原子替换。仅供本模块与 saveConfig 使用。 */
+function writeConfigFile(cfg: HubConfig): void {
   const { dir, file } = configPaths();
-  if (!configCache || configCache.file !== file) {
-    throw new Error(`GodfreyHub 配置未成功加载 (${file}), 拒绝落盘覆盖(避免以空/半基线清空在册项目)。请先 loadConfig 确认可读。`);
-  }
   fs.mkdirSync(dir, { recursive: true });
   // 写前把上一版原子备份为单份 .bak(覆盖式): 只有磁盘已有文件才备份, 首写无可备份内容。
   if (fs.existsSync(file)) fs.copyFileSync(file, file + ".bak");
-  fs.writeFileSync(file, JSON.stringify(cfg, null, 2) + "\n", "utf8");
+  const tmp = path.join(dir, ".local.config." + process.pid + ".tmp");
+  fs.writeFileSync(tmp, JSON.stringify(cfg, null, 2) + "\n", "utf8");
+  try {
+    fs.renameSync(tmp, file);
+  } catch (e) {
+    try { fs.rmSync(tmp, { force: true }); } catch { /* 尽力清理 */ }
+    throw e;
+  }
+}
+
+export function saveConfig(cfg: HubConfig): void {
+  const { file } = configPaths();
+  if (!configCache || configCache.file !== file) {
+    throw new Error(`GodfreyHub 配置未成功加载 (${file}), 拒绝落盘覆盖(避免以空/半基线清空在册项目)。请先 loadConfig 确认可读。`);
+  }
+  writeConfigFile(cfg);
   configCache = { file, at: Date.now(), cfg };
+}
+
+/**
+ * 串行化的读改写入口: 跨进程锁内全量重读 -> mutator 原地修改 -> 原子落盘。
+ * mutator 返回值透传给调用方; mutator 抛错则本次不落盘(其余排队方不受影响)。
+ * 这是所有"读-改-写注册表"场景(hub_scan/hub_set_project/实例登记)的唯一正确入口。
+ */
+export async function updateConfig<T>(mutator: (cfg: HubConfig) => T | Promise<T>): Promise<T> {
+  const task = writeChain.then(async () => {
+    const { dir, file } = configPaths();
+    fs.mkdirSync(dir, { recursive: true });
+    const release = await lockfile.lock(file, LOCK_OPTIONS);
+    try {
+      const cfg = readConfig(file);
+      const result = await mutator(cfg);
+      writeConfigFile(cfg);
+      configCache = { file, at: Date.now(), cfg };
+      return result;
+    } finally {
+      await release();
+    }
+  });
+  writeChain = task.then(() => undefined, () => undefined);
+  return task;
 }
 
 function readJson5(file: string): any | null {
@@ -181,10 +241,13 @@ export async function inspectProject(
   return { name, repoRoot, harmonyRoot, bundle, ability, module, modulePath, target, instance: name };
 }
 
-// 扫描 root 下 depth 层内的 HarmonyOS 工程; 重名(不同路径)自动加后缀
-export async function scanRoot(root: string, cfg: HubConfig): Promise<ProjectEntry[]> {
+// 发现阶段(读盘 + git, 可能耗时)在锁外执行; 只把"合并 + 落盘"放进 updateConfig 临界区,
+// 不让跨进程锁横跨整个扫描。
+async function discoverProjects(resolvedRoot: string, overrides: ScanOverride[]): Promise<ProjectEntry[]> {
   const found: ProjectEntry[] = [];
-  const resolvedRoot = path.resolve(root);
+  const isProjectRoot = (dir: string) =>
+    fs.existsSync(path.join(dir, "build-profile.json5")) &&
+    fs.existsSync(path.join(dir, "AppScope", "app.json5"));
   const walk = async (dir: string, depth: number): Promise<void> => {
     if (depth < 0) return;
     let entries: fs.Dirent[] = [];
@@ -192,9 +255,8 @@ export async function scanRoot(root: string, cfg: HubConfig): Promise<ProjectEnt
     for (const e of entries) {
       if (!e.isDirectory() || SKIP_DIRS.has(e.name)) continue;
       const child = path.join(dir, e.name);
-      if (fs.existsSync(path.join(child, "build-profile.json5")) &&
-          fs.existsSync(path.join(child, "AppScope", "app.json5"))) {
-        const entry = await inspectProject(child, cfg.scanOverrides ?? []);
+      if (isProjectRoot(child)) {
+        const entry = await inspectProject(child, overrides);
         if (entry) found.push(entry);
       } else {
         await walk(child, depth - 1);
@@ -203,16 +265,31 @@ export async function scanRoot(root: string, cfg: HubConfig): Promise<ProjectEnt
   };
   // 扫描根本身也可能就是一个工程根（如某调用方的宿主 gallery 工程），
   // 不能只扫描它的子目录。
-  if (fs.existsSync(path.join(resolvedRoot, "build-profile.json5")) &&
-      fs.existsSync(path.join(resolvedRoot, "AppScope", "app.json5"))) {
-    const rootEntry = await inspectProject(resolvedRoot, cfg.scanOverrides ?? []);
+  if (isProjectRoot(resolvedRoot)) {
+    const rootEntry = await inspectProject(resolvedRoot, overrides);
     if (rootEntry) found.push(rootEntry);
   }
   await walk(resolvedRoot, 3);
+  return found;
+}
 
+function samePath(a: string, b: string): boolean {
+  const norm = (p: string) => path.normalize(p);
+  return process.platform === "win32"
+    ? norm(a).toLowerCase() === norm(b).toLowerCase()
+    : norm(a) === norm(b);
+}
+
+// 合并发现结果: 同一工程(harmonyRoot 相同, 或旧根已从磁盘消失=整体迁移)原地刷新并保留
+// 实例/端口/测试目标等本机覆盖; 不同工程撞名则加后缀, 绝不静默覆盖在册项目。
+function mergeDiscovered(cfg: HubConfig, found: ProjectEntry[], resolvedRoot: string): void {
   for (const e of found) {
     const existing = cfg.projects[e.name];
-    if (existing) {
+    const isSameProject = existing && (
+      samePath(existing.harmonyRoot, e.harmonyRoot) ||
+      !fs.existsSync(existing.harmonyRoot) // 旧根已不存在: 视为工程迁移(改名/换盘/换仓库位置)
+    );
+    if (existing && isSameProject) {
       // 目录重排后直接刷新工程/Git 路径，同时保留实例、端口和测试目标等本机覆盖。
       cfg.projects[e.name] = {
         ...e,
@@ -225,11 +302,22 @@ export async function scanRoot(root: string, cfg: HubConfig): Promise<ProjectEnt
     }
     let name = e.name;
     let i = 2;
-    while (cfg.projects[name] && cfg.projects[name].repoRoot !== e.repoRoot) { name = e.name + "-" + i; i++; }
+    while (cfg.projects[name]) { name = e.name + "-" + i; i++; }
     cfg.projects[name] = { ...e, name };
   }
   if (!cfg.scanRoots.includes(resolvedRoot)) cfg.scanRoots.push(resolvedRoot);
-  saveConfig(cfg);
+}
+
+/**
+ * 扫描 root 下(3 层深度)的 HarmonyOS 工程并注册。发现耗时(git rev-parse)在锁外,
+ * 注册表合并/落盘在 updateConfig 临界区内: 并发扫描同一目录只会串行合并, 不丢更新。
+ * 返回本次发现的工程(不含早已在册的)。
+ */
+export async function scanRoot(root: string, cfg?: HubConfig): Promise<ProjectEntry[]> {
+  const resolvedRoot = path.resolve(root);
+  const overrides = (cfg ?? loadConfig()).scanOverrides ?? [];
+  const found = await discoverProjects(resolvedRoot, overrides);
+  await updateConfig((fresh) => mergeDiscovered(fresh, found, resolvedRoot));
   return found;
 }
 

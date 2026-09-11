@@ -156,7 +156,21 @@ def soft_delete(name, s, fetched, hashes):
     dst = os.path.join(dst_dir, fname)
     if os.path.exists(dst):           # 避免同名覆盖，追加时间戳
         dst = dst + "." + str(int(time.time()))
-    os.rename(src, dst)
+    # Windows 上文件被杀软/索引服务/读进程占用的瞬间 rename 会抛 OSError:
+    # 带退避重试; 仍失败则保留原文件并跳过本项(与"判删需二次确认"的保守取向一致),
+    # 不让单文件占用毁掉整轮增量(过去这里未捕获, 叠加锁遗留问题会让定时任务静默停摆)。
+    last_err = None
+    for attempt in range(4):
+        try:
+            os.rename(src, dst)
+            break
+        except OSError as e:
+            last_err = e
+            time.sleep(0.5 * (attempt + 1))
+    else:
+        print(f"[delete-err] {name}: 文件被占用, 保留原文件稍后重试: {last_err}",
+              flush=True)
+        return
     s["deleted"].append({
         "name": name,
         "file": os.path.relpath(dst, OUT).replace("\\", "/"),
@@ -198,8 +212,21 @@ def confirm_gone(name, get_mcp):
 # --------------------------------------------------------------------------- #
 # 主流程
 # --------------------------------------------------------------------------- #
-def main():
+def run(no_recheck=False, skip_delete=False, limit=0):
+    """带锁运行一轮增量(函数化入口, 供 hdk.py 传参调用, 不经 argv)。
+
+    锁必须 try/finally 释放: 过去 release 在函数末尾, 任何未捕获异常都会留下
+    crawl.lock, 之后 40 分钟内所有定时增量静默 no-op。
+    """
     crawl.acquire_lock()  # 与 crawl.py 共用同一把锁，避免同时写 crawl_state.json
+    try:
+        _run(no_recheck=no_recheck, skip_delete=skip_delete, limit=limit)
+    finally:
+        crawl.release_lock()
+
+
+def main(argv=None):
+    # argv=None 时解析命令行; 编排方(hdk.py)直接调 run() 传参。
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-recheck", action="store_true",
                     help="只抓取新发现的文档，不做修改/删除检测")
@@ -207,8 +234,11 @@ def main():
                     help="报告会删除的文档，但不真正移动文件")
     ap.add_argument("--limit", type=int, default=0,
                     help="限制处理文档数（冒烟测试）")
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
+    run(no_recheck=args.no_recheck, skip_delete=args.skip_delete, limit=args.limit)
 
+
+def _run(no_recheck, skip_delete, limit):
     os.makedirs(OUT, exist_ok=True)
     os.makedirs(DELETED_DIR, exist_ok=True)
 
@@ -331,18 +361,17 @@ def main():
                     print(f"[batch-err] {e}", flush=True)
                 time.sleep(2 * (attempt + 1))
 
-    # 先一轮搜索发现新文档
+    # 先一轮搜索发现新文档(收尾还有一轮兜底; 过去开头背靠背跑两遍全量 QUERIES,
+    # 第二遍几乎不可能发现新文档, 纯粹把发现耗时与 API 压力翻倍)
     maybe_search()
-    if not args.no_recheck:
-        maybe_search()
 
     # 构造工作列表：先重查已抓取（检测修改/删除），再抓取新发现
-    if args.no_recheck:
+    if no_recheck:
         work = [p for p in disc if p not in fetched]
     else:
         work = list(fetched) + [p for p in disc if p not in fetched]
-    if args.limit > 0:
-        work = work[:args.limit]
+    if limit > 0:
+        work = work[:limit]
     seen, work2 = set(), []
     for x in work:
         if x not in seen:
@@ -412,10 +441,10 @@ def main():
     maybe_search()
 
     # 二次确认 + 软删除
-    if not args.no_recheck:
+    if not no_recheck:
         for n in sorted(delete_candidates):
             if confirm_gone(n, get_mcp):
-                if not args.skip_delete:
+                if not skip_delete:
                     soft_delete(n, s, fetched, hashes)
                 stats["deleted"] += 1
                 tag = "（已移到 _deleted）" if not args.skip_delete else "（--skip-delete 未删除）"
@@ -436,7 +465,6 @@ def main():
           f"unchanged={stats['unchanged']} deleted={stats['deleted']} "
           f"failed={len(failed)} disc={len(disc)} fetched={len(fetched)}",
           flush=True)
-    crawl.release_lock()
 
 
 if __name__ == "__main__":

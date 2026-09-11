@@ -323,6 +323,18 @@ def doc_relpath(name):
     return cat, h + ".md"
 
 
+def _frontmatter_value(value):
+    """frontmatter 值清洗: 去掉换行等不可打印字符。
+
+    frontmatter 是 `key: value` 行式格式, 值混入换行会截断记录, 导致磁盘文件的
+    disk_hash(按解析出的 title+正文计算)与 API 的 doc_hash 永远对不上——该文档
+    每轮增量都被误判为 updated 无限重写。标题/URI 是远端外部输入, 写入前必须清洗。
+    """
+    if value is None:
+        return ""
+    return "".join(ch for ch in str(value) if ch.isprintable()).strip()
+
+
 def write_doc(item):
     name = item.get("name")
     if not name:
@@ -332,9 +344,9 @@ def write_doc(item):
     os.makedirs(d, exist_ok=True)
     text = (
         "---\n"
-        f"name: {name}\n"
-        f"title: {item.get('title','')}\n"
-        f"uri: {item.get('uri','')}\n"
+        f"name: {_frontmatter_value(name)}\n"
+        f"title: {_frontmatter_value(item.get('title',''))}\n"
+        f"uri: {_frontmatter_value(item.get('uri',''))}\n"
         "---\n\n"
         + (item.get("content", "") or "(empty)\n")
     )
@@ -347,6 +359,10 @@ def main():
         _run()
     finally:
         release_lock()
+
+
+# 函数化入口: 与 crawl_cj.run 同款命名, 供 hdk.py 统一调度(本模块不解析 argv, 两者等价)。
+run = main
 
 
 def _run():
@@ -428,9 +444,15 @@ def _run():
                                 {"GetDocumentsByIdRequest": {"names": batch}})
                 text = r["result"]["content"][0]["text"]
                 data = json.loads(text)
+                # 响应结构守卫: 限流/降级时服务端可能返回 200 + 错误 JSON(无 resultList)。
+                # 不校验就把"响应异常"当成"整批死链"永久拉黑, 语料会静默出现空洞。
+                # 结构异常走重试路径, 4 次后按 transient 处理(下一轮再试, 不持久化)。
+                if not isinstance(data, dict) or not isinstance(data.get("resultList"), list):
+                    raise RuntimeError("API 响应缺少 resultList(可能被限流/降级): "
+                                       + text[:200])
                 returned = set()
                 with lock:
-                    for it in data.get("resultList", []):
+                    for it in data["resultList"]:
                         name = it.get("name")
                         if not name:
                             continue
@@ -450,8 +472,9 @@ def _run():
                             p = to_parent(mm.group(0))
                             if p and p not in disc and p not in purged                                     and len(disc) < MAX_DISCOVERED:
                                 disc.add(p)
-                    # 本批中 API 未返回的 name：文档不存在 / 已删除 / 别名，
+                    # 本批中 API 明确返回且不含的 name：文档不存在 / 已删除 / 别名，
                     # 永久不可抓取，记入 failed 以免反复重试、污染 fetched 计数。
+                    # (仅当响应结构合法时才做此判定, 见上方守卫。)
                     for nm in batch:
                         if nm not in returned:
                             failed.add(nm)

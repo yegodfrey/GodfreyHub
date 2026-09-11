@@ -6,7 +6,8 @@ import type { ChildProcess } from "node:child_process";
 import readline from "node:readline";
 import { toolchain } from "./paths.js";
 import { run, terminateProcessTree, tail } from "./proc.js";
-import { shell, shellQuote, resolveLocalOutputPath, firstTarget } from "./uitest.js";
+import { shell, shellQuote, resolveLocalOutputPath, resolveTarget } from "./uitest.js";
+import { AbortedError } from "./sync.js";
 
 // 宿主侧视觉检查点抓取原语(领域无关):
 //   设备端 instrument class 调用 gfCaptureVisualCheckpoint 后, 向 HiLog 写入
@@ -162,6 +163,7 @@ export interface VisualCaptureOptions {
   count?: number;          // 抓到 N 个 marker 后停止; 省略=等到 timeoutMs
   timeoutMs?: number;      // 总等待上限, 默认 120000
   verifyAnchors?: boolean; // 默认 true
+  signal?: AbortSignal;    // MCP 请求级取消
 }
 
 export interface VisualCaptureDeps {
@@ -180,6 +182,7 @@ export async function captureVisualGolden(opts: VisualCaptureOptions = {},
   const count = opts.count !== undefined ? Math.max(1, Math.floor(opts.count)) : Infinity;
   const timeoutMs = opts.timeoutMs !== undefined ? Math.max(1000, Math.floor(opts.timeoutMs)) : 120_000;
   const verifyAnchors = opts.verifyAnchors !== false;
+  const signal = opts.signal;
 
   const shellCommand = deps.shellCommand ?? shell;
   const runCommand = deps.runCommand ?? run;
@@ -188,8 +191,7 @@ export async function captureVisualGolden(opts: VisualCaptureOptions = {},
     return hdcLineStream(cmd, undefined, args);
   });
 
-  const target = opts.target ?? await firstTarget();
-  if (!target) throw new Error("没有在线设备");
+  const target = await resolveTarget(opts.target);
 
   // uitest CLI 不自建父目录, 暂存目录必须先就位
   await shellCommand(target, "mkdir -p " + shellQuote(stagingDir), 30000);
@@ -201,6 +203,7 @@ export async function captureVisualGolden(opts: VisualCaptureOptions = {},
   let failure: Error | null = null;
   let finished = false;
   let inFlight = 0;
+  let queued = 0;           // 已入队未开始捕获的 marker 数
   let streamEnded = false;
 
   const finish = (): void => {
@@ -255,7 +258,7 @@ export async function captureVisualGolden(opts: VisualCaptureOptions = {},
     }, timeoutMs);
 
     const settle = (): void => {
-      if (captures.length >= count || (streamEnded && inFlight === 0)) finish();
+      if (captures.length + queued >= count || (streamEnded && inFlight === 0 && queued === 0)) finish();
       if (!finished) return;
       if (failure) {
         if (captures.length === 0) reject(failure);
@@ -269,8 +272,17 @@ export async function captureVisualGolden(opts: VisualCaptureOptions = {},
       resolve({ target, marker, stagingDir, outDir, captures, timedOut: false });
     };
 
+    // 捕获队列串行化: class 期间并发第二个 uitest 客户端会产生截屏/布局错配(文件头
+    // 的自述约束)。两条 marker 快速到达时, 后一条入队等待前一条完整落地。
+    let captureChain: Promise<void> = Promise.resolve();
     stream.onLine((line) => {
       if (finished) return;
+      if (signal?.aborted) {
+        failure = failure ?? new AbortedError();
+        finish();
+        settle();
+        return;
+      }
       let payload: VisualMarkerPayload | null;
       try {
         payload = parseVisualMarkerLine(line, marker);
@@ -280,8 +292,13 @@ export async function captureVisualGolden(opts: VisualCaptureOptions = {},
         settle();
         return;
       }
-      if (!payload || captures.length >= count) return;
-      captureOne(payload)
+      if (!payload || captures.length + queued >= count) return;
+      queued += 1;
+      captureChain = captureChain
+        .then(() => {
+          queued -= 1;
+          return captureOne(payload!);
+        })
         .catch((error) => { failure = error instanceof Error ? error : new Error(String(error)); })
         .finally(() => settle());
     });

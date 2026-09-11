@@ -111,7 +111,12 @@ function resolveRoot(): string | null {
 
 interface RootDb { root: string; harmonyos: string; cangjie: string; }
 
-const conns = new Map<string, Database.Database>();
+// 连接缓存带"代次"(db 文件 mtime+size): Python 端全量重建是 rename 换文件, 长驻进程
+// 持有的旧句柄在 POSIX 上永远读旧 inode、Windows 上 rename 失败留旧库——两端殊途同归:
+// 重建后本进程仍供旧索引且永不报错。每次查询前 stat 一次(纳秒级), 代次变化即换新连接。
+interface RootConn { db: Database.Database; mtimeMs: number; size: number; }
+
+const conns = new Map<string, RootConn>();
 
 /** 词典签名: 与 Python indexer._dict_signature() 逐字节一致(文件名 + 内容 sha256)。 */
 function currentDictHash(): string {
@@ -160,19 +165,38 @@ function tryActivatePendingIndex(name: "harmonyos" | "cangjie", dbDir: string): 
   } catch { /* 被占用: 保持旧库, 下次 openRoot 再试 */ }
 }
 
+function dbFileGeneration(dbPath: string): { mtimeMs: number; size: number } | null {
+  try {
+    const st = fs.statSync(dbPath);
+    return { mtimeMs: st.mtimeMs, size: st.size };
+  } catch {
+    return null;
+  }
+}
+
 function openRoot(name: "harmonyos" | "cangjie", dbDir: string): Database.Database | null {
+  const dbPath = path.join(dbDir, name + "_docs.fts5.db");
   const cached = conns.get(name);
-  if (cached) return cached;
+  if (cached) {
+    const now = dbFileGeneration(dbPath);
+    if (now && now.mtimeMs === cached.mtimeMs && now.size === cached.size) return cached.db;
+    // 索引文件已被重建端替换: 丢弃旧句柄, 走下方重新打开。
+    try { cached.db.close(); } catch { /* 已关闭 */ }
+    conns.delete(name);
+  }
   // 打开前激活待生效索引(词典变更迁移), 否则本进程打开后句柄占用无法替换
   tryActivatePendingIndex(name, dbDir);
-  const dbPath = path.join(dbDir, name + "_docs.fts5.db");
   if (!fs.existsSync(dbPath)) return null;
-  const db = new Database(dbPath, { readonly: true, timeout: 5000 });
-  let tokenizer: string | null = null;
+  const generation = dbFileGeneration(dbPath);
+  // timeout 15s: Python 端增量写库(行级 delta, 秒级)期间等锁, 而不是把 SQLITE_BUSY
+  // 直接抛给检索方; 与 Python 端 busy_timeout=30s 配套。
+  const db = new Database(dbPath, { readonly: true, timeout: 15000 });
+  let meta: Map<string, string>;
   try {
-    const row = db.prepare("SELECT value FROM meta WHERE key='tokenizer'").get() as { value?: string } | undefined;
-    tokenizer = row?.value ?? null;
-  } catch { /* 旧索引无 meta/tokenizer */ }
+    const rows = db.prepare("SELECT key, value FROM meta").all() as { key: string; value: string }[];
+    meta = new Map(rows.map((r) => [r.key, r.value]));
+  } catch { /* 旧索引无 meta 表 */ meta = new Map(); }
+  const tokenizer = meta.get("tokenizer") ?? null;
   if (tokenizer !== INDEX_SCHEMA_TOKENIZER) {
     db.close();
     throw new Error(
@@ -180,9 +204,37 @@ function openRoot(name: "harmonyos" | "cangjie", dbDir: string): Database.Databa
       `需要 ${INDEX_SCHEMA_TOKENIZER}；运行 npm run hdk:index 重建索引`,
     );
   }
+  // 词典签名校验: 分词词典与索引不一致时, 查询词元可能不在索引词元集合内, AND MATCH
+  // 会静默零结果——这是最阴险的漂移(无任何报错)。
+  //   有签名且不匹配 -> 硬错误(必须重建);
+  //   无签名(老索引) -> 无法判定, stderr 警告后放行(兼容未签名的存量索引)。
+  const dictHash = meta.get("dict_hash") ?? null;
+  const currentHash = currentDictHash();
+  if (dictHash === null) {
+    console.error(`[godfreyhub] HDK ${name} 索引无 dict_hash 签名(老索引), 无法校验词典一致性; 建议运行 npm run hdk:index`);
+  } else if (dictHash !== currentHash) {
+    db.close();
+    throw new Error(
+      `HDK 词典签名不匹配: ${name} 索引 dict_hash=${dictHash.slice(0, 12)}…, ` +
+      `当前词典=${currentHash.slice(0, 12)}…; 查询词可能搜不到已索引内容。` +
+      `运行 npm run hdk:index 按当前词典重建索引`,
+    );
+  }
   db.pragma("cache_size = -8192"); // 与 Python 侧一致: 防大索引整本进内存
-  conns.set(name, db);
+  if (generation) conns.set(name, { db, mtimeMs: generation.mtimeMs, size: generation.size });
   return db;
+}
+
+/** 把底层 SQLite 错误翻译成可操作的指引, 而不是裸 SQLITE_BUSY/READONLY 代码。 */
+function friendlyFtsError(name: string, e: unknown): Error {
+  const msg = String((e as Error)?.message ?? e);
+  if (/database is locked|sqlite_busy/i.test(msg)) {
+    return new Error(`HDK 索引正被写入(${name}, Python 端重建/增量中), 请稍后重试: ${msg}`);
+  }
+  if (/readonly|recovery|hot journal|disk i\/o error/i.test(msg)) {
+    return new Error(`HDK 索引(${name})需要恢复(写入端可能异常中断), 请运行 npm run hdk:index 修复: ${msg}`);
+  }
+  return new Error(`FTS 查询失败(${name}): ${msg}`);
 }
 
 export function hdkStatus(): { ok: boolean; roots: string[]; docs: number; error?: string } {
@@ -333,7 +385,7 @@ export function searchDocuments(query: string, limit = 10, category = ""): HdkDo
           `ORDER BY rank LIMIT ?`
         ).all(expr, ...catParams, cap) as Row[];
       } catch (e: any) {
-        throw new Error("FTS 查询失败(" + name + "): " + e.message);
+        throw friendlyFtsError(name, e);
       }
       for (const r of rows) {
         const key = name + "\0" + r.relpath;
@@ -438,7 +490,10 @@ export function getDocument(docId: string, offset = 0, maxChars = 20_000): strin
         const fp = resolveDocFile(row.relpath, root);
         if (fp) return renderDoc(fp, row.relpath, offset, maxChars);
       }
-    } catch { /* 旧库无 docnames */ }
+    } catch (e) {
+      // 旧库无 docnames 表时静默走 relpath 回退; 其余(BUSY/损坏)给可操作错误。
+      if (!/no such table/i.test(String((e as Error)?.message ?? e))) throw friendlyFtsError(name, e);
+    }
   }
   // 2) 直接当作 relpath
   const fp = resolveDocFile(docId, root);
@@ -476,8 +531,8 @@ export function listCategories(): Array<{ category: string; count: number }> {
 }
 
 export function closeHdk(): void {
-  for (const db of conns.values()) {
-    try { db.close(); } catch { /* 已关闭 */ }
+  for (const conn of conns.values()) {
+    try { conn.db.close(); } catch { /* 已关闭 */ }
   }
   conns.clear();
 }

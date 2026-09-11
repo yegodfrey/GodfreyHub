@@ -4,6 +4,31 @@
 
 当前版本重点面向长驻 Agent 使用：LSP 按 UTF-8 字节解析协议帧并响应语言服务器反向请求；空诊断按文件版本缓存；所有子进程有进程树超时和有界输出；Windows 构建直接用 DevEco 随包 Node 启动 ohpm CLI，避免批处理包装层占锁；设备 shell 参数统一安全引用；离线文档分页返回，避免单篇超长文档挤占模型上下文。
 
+## 并发模型（多 Agent 互斥）
+
+单进程 stdio 服务并发服务多个 Agent 会话，共享资源全部经 `src/core/sync.ts` 的
+KeyedMutex（进程内）与 proper-lockfile（跨进程）串行化，消除 check-then-act 丢更新：
+
+- **项目注册表** `config/local.config.json`：读改写统一走 `registry.updateConfig`（跨进程文件锁 + 锁内全量重读 + tmp/rename 原子落盘），`hub_scan`/`hub_set_project` 并发不丢数据；
+- **默认 hdc server**：Instrument Test 的隔离会话（kill→隔离端口→恢复）全窗口互斥，进程内 mutex + 跨进程文件锁（持锁续期，崩溃 60s 后可接管）；无线真机恢复时按 `IP:port` tconn 回连；
+- **每台模拟器实例**：启动/停止/创建/删除按实例名互斥；启动目标按 `-list -details` 端口归属，不再把他方并发启动的实例认领为本方结果；
+- **同项目测试/构建**：同项目 `hub_test` 串行（产物路径是收集契约），构建锁可随请求取消；
+- **PowerShell 互斥体用 `Global\` 命名空间**：跨登录会话（服务/SSH/多 RDP）同样互锁，与 Node 侧文件锁覆盖面一致；
+- **请求级取消**：AbortSignal 贯穿 LSP 请求/就绪轮询、构建锁排队、ohpm/hvigor 子进程树、视觉校验循环、模拟器启动等待。
+
+## 错误契约
+
+- **失败不当成功**：hdc 便捷封装统一经 `proc.requireOk` 检查宿主退出码与设备侧 `[Fail]` 标记；`verify` 视觉校验循环依赖该语义，失败的点击必须计为 failed；
+- **git 一键同步**：`pull --rebase` 失败自动 `rebase --abort` 恢复仓库，`hub_push` 冲突时拒绝 push（不把仓库留在 mid-rebase、不把冲突态发布出去）；
+- **不伪造空诊断**：ArkTS 与 clangd 诊断统一 pending 语义（超时未确认 ≠ 零错误）；clangd URI 按本地路径归一化匹配；
+- **LSP 会话状态机**（spawning→initializing→ready→dying）：project-config 校验先于 spawn（不留僵尸会话）、初始化失败写 stderr 并即时重建、空闲会话由定时器主动回收；ace-server 日志目录按天创建并清理 7 天前残留；
+- **工具参数 zod 校验**：客户端传错类型得到 `[tool] 参数校验失败: field: message`，而不是 NaN/undefined 静默传播；破坏性 UI 操作（点击/输入/卸载）在多台设备在线时要求显式 target；
+- **hdk 检索自愈**：打开索引校验词典签名（dict_hash 漂移硬错误并给出重建指引）、按文件代次（mtime+size）自动换新重建后的索引、SQLITE_BUSY/READONLY 转可操作错误。
+
+## 已知债务
+
+- `scripts/GfDeviceRunner.ps1` 现为薄入口(参数契约、StrictMode/脚本状态、类定义、按序加载分块)，实体按职责拆分在 `scripts/runner/`：`PrepareCache.ps1`(内环复用缓存)、`DeviceInventory.ps1`(设备清单与契约)、`PreparationVisual.ps1`(预备事务与视觉/失败证据采集)、`SuiteCangjieMonkey.ps1` 与 `SuiteInstrument.ps1`(套件执行器)。调用方 dot-source 入口的契约不变(函数与类仍定义在调用方作用域)，分块为纯机械切片并经编码门禁/自测验证。
+
 ## 前置条件
 
 - Node.js >= 18

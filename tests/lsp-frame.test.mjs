@@ -127,9 +127,12 @@ function makeSession(child) {
   return {
     conn: new FrameConnection(child, "test"),
     documents: new Map(),
+    openedPaths: new Set(),
     diagnostics: new lsp.DiagnosticCache(),
     ready: true,
+    dying: false,
     openChain: Promise.resolve(),
+    lastUsed: Date.now(),
   };
 }
 
