@@ -3,8 +3,8 @@
 """
 本地文档知识库 MCP 服务（HarmonyOS + 仓颉语言）
 
-把 D:/Harmony/tools/GodfreyMCP/hdk/harmonyos_docs（HarmonyOS 文档约 2.6 万篇，含 cangjie-* 分类的
-鸿蒙仓颉开发文档）与 D:/Harmony/tools/GodfreyMCP/hdk/cangjie_docs（仓颉语言官方文档）下的本地
+把本目录下 harmonyos_docs/（HarmonyOS 文档约 2.6 万篇，含 cangjie-* 分类的
+鸿蒙仓颉开发文档）与 cangjie_docs/（仓颉语言官方文档）下的本地
 Markdown 语料暴露为 MCP 工具，对标华为云官方的 harmonyos_developer_knowledge MCP
 （searchDocuments / getDocumentsById），但完全离线、基于本地语料，不依赖外网。
 两个语料各自独立建索引（.mcp_cache/<root>_docs.fts5.db），互不拖累。

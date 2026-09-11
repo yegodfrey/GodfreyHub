@@ -33,42 +33,25 @@ npm run hdk:index              # 重建 FTS 词元索引（新 clone 必须；�
 npm test                       # 回归验证
 ```
 
-随后：在 MCP 客户端注册 `D:/Project/GodfreyHub/dist/index.js`（见下节）→ 首次调用 `hub_status`
-确认工具链健康。项目注册表直接版本化在 `D:/Project/GodfreyHub/config/local.config.json`。
-
-## 升级
-
-```bash
-git pull && npm install && npm run build
-```
-
-索引无需手动处理：文档变更走 docmap 行级增量；分词方案/词典版本变更（`indexer.SCHEMA_TOKENIZER` 递增）时 `ensure_index` 自动全量重建一次。改动涉及分词管线后建议 `npm test`（`hdk-segment.test.mjs` 锁定索引端/查询端切词逐字一致）。
-
 ## 注册（MCP 客户端）
+
+入口是构建产物 `dist/index.js`；`<安装路径>` 替换为你自己的 clone 位置（本仓库不假定任何绝对路径）。
 
 ```json
 {
   "mcpServers": {
     "godfreyhub": {
       "command": "node",
-      "args": ["D:/Project/GodfreyHub/dist/index.js"],
+      "args": ["<安装路径>/dist/index.js"],
+      "env": { "DEVECO_PATH": "<DevEco Studio 安装路径>" },
       "disabled": false
     }
   }
 }
 ```
 
-本机 WorkBuddy 的完整启动配置已直接版本化在
-`D:/Project/GodfreyHub/config/workbuddy.mcp.json`；外部客户端配置必须与它保持一致。
-
-也可在包目录 `npm i -g .` 后用 `godfreyhub-mcp` 作为 command。
-
-Codex CLI 可直接注册：
-
-```powershell
-codex mcp add godfreyhub --env "DEVECO_PATH=C:\Program Files\Huawei\DevEco Studio" -- `
-  "C:\Program Files\nodejs\node.exe" "D:\Project\GodfreyHub\dist\index.js"
-```
+也可在包目录 `npm i -g .` 后用 `godfreyhub-mcp` 作为 command。首次调用 `hub_status` 确认工具链健康；
+`hub_scan` 生成的本机工程注册表落在 `config/local.config.json`（不入 git）。
 
 ## 工具总览
 
@@ -139,7 +122,7 @@ npm run hdk:crawl:cj   # 仓颉文档增量抓取
 npm run hdk:stats      # 语料统计
 ```
 
-语料根解析优先级：`GODFREYHUB_HDK_ROOT` 环境变量 > 包内 `hdk/` > `D:/Project/GodfreyHub/config/local.config.json` 的 `hdkRoot`（外部语料回退）。
+语料根解析优先级：`GODFREYHUB_HDK_ROOT` 环境变量 > 包内 `hdk/` > 包内 `config/local.config.json` 的 `hdkRoot`（外部语料回退）。
 
 ## 设备名实例约定（强制）
 
@@ -154,7 +137,7 @@ npm run hdk:stats      # 语料统计
 
 ## 按需裁剪工具（disabledTools）
 
-默认 37 个工具全部加载。`D:/Project/GodfreyHub/config/local.config.json` 里加 `disabledTools` 数组可裁掉用不到的分组（支持 `*` 通配，命中即从工具清单移除）：
+默认 37 个工具全部加载。包内 `config/local.config.json` 里加 `disabledTools` 数组可裁掉用不到的分组（支持 `*` 通配，命中即从工具清单移除）：
 
 ```json
 { "disabledTools": ["hdk_*", "verify", "hub_test"] }

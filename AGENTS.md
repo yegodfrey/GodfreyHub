@@ -47,6 +47,14 @@ npm run hdk:index      # 离线文档索引（新克隆后首次运行）
 
 注意：`dist/` 是构建产物，不入 git（.gitignore 覆盖）；`hdk/.mcp_cache/` 是本地 FTS 索引，不入 git；`config/local.config.json` 是 `hub_scan` 生成的本机工程注册表（含本机绝对路径与设备名），不入 git。
 
+## HDK 离线文档子系统
+
+- 爬取/增量/索引/服务统一经 `hdk.py` 调度，不长期绕过它直接运行各模块；检索入口是 MCP 的 `hdk_*` 工具（Node 原生直查 FTS5 索引，`mcp_server.py` 仅为外部客户端备用的独立 stdio 入口）。
+- 语料 `hdk/harmonyos_docs/`、`hdk/cangjie_docs/` 与 `hdk/*state.json` 是长期资产，**必须提交**；`hdk/.mcp_cache/*.fts5.db`、`__pycache__/`、`*.lock`、`*.log` 忽略不入库。
+- 索引端（Python indexer）与查询端（Node `@node-rs/jieba`、`mcp_server.py`）共用 `hdk/dict/dict.txt`：改词典/分词规则须两端同步并跑 `tests/hdk-segment.test.mjs` 一致性回归；分词方案变更递增 `indexer.SCHEMA_TOKENIZER` 触发自动全量重建。
+- 新增爬虫或改依赖须同步 `hdk/requirements.txt`；网络请求带超时与退避，保持运行锁语义，鸿蒙仓颉抓取只能串行。
+- 深层不变量与版本控制边界见 `hdk/Docs/ENGINEERING_SYSTEM.md`；文档只记录当前事实与长期约束，不追加按日期流水。
+
 ## Workspace management
 
 - `src/`（源码）、`hdk/`（语料与索引器）、`scripts/`（辅助脚本）、`tests/`（测试）为版本化内容。

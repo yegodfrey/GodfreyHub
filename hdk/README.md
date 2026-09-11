@@ -7,7 +7,7 @@ FTS5 全文索引，对外以 **MCP 服务** 提供检索能力。全部离线�
 
 | 目录 | 内容 | 来源 |
 |---|---|---|
-| `harmonyos_docs/` | HarmonyOS 文档（约 2.6 万篇），含 `cangjie-*` 子目录的**鸿蒙仓颉开发文档**（guides/references/practices/faqs/releases） | 华为云 HarmonyOS Developer Knowledge MCP（免登录） + QQ 浏览器登录态（仓颉开发文档需登录） |
+| `harmonyos_docs/` | HarmonyOS 文档（约 2.6 万篇），含 `cangjie-*` 子目录的**鸿蒙仓颉开发文档**（guides/references/practices/faqs/releases） | 华为云 HarmonyOS Developer Knowledge MCP（免登录） + builtin_browser MCP 已登录会话（仓颉开发文档需登录） |
 | `cangjie_docs/` | 仓颉**语言**官方文档（dev-guide / libs / tools / release-notes） | `cj-docs.gitcode.com` 静态站 |
 
 ## 统一入口 `hdk.py`
@@ -17,7 +17,7 @@ FTS5 全文索引，对外以 **MCP 服务** 提供检索能力。全部离线�
 ```bash
 # 爬取（默认多轮驱动直到无新增；完成后自动增量更新索引）
 python hdk.py crawl --target harmonyos          # HarmonyOS 文档（免登录）
-python hdk.py crawl --target harmonyos-cangjie  # 鸿蒙仓颉开发文档（需 QQ 浏览器登录态）
+python hdk.py crawl --target harmonyos-cangjie  # 鸿蒙仓颉开发文档（需 builtin_browser MCP 已登录会话）
 python hdk.py crawl --target cangjie            # 仓颉语言文档
 python hdk.py crawl --target all                # 三者都跑
 
@@ -41,8 +41,8 @@ python hdk.py catalog purge-stale [--dry-run]  # 同词干新旧两版并存时�
 python hdk.py state rebuild    # 以磁盘为准重建 crawl_state.json
 ```
 
-> 注：`harmonyos-cangjie` 依赖已登录的 QQ 浏览器承载会话（HttpOnly cookie 纯
-> Python 读不到），且同一时刻只能串行抓取。
+> 注：`harmonyos-cangjie` 经 `cj_mcp.py` 依赖 builtin_browser MCP 承载的已登录华为开发者
+> 会话（HttpOnly cookie 纯 Python 读不到），且同一时刻只能串行抓取。
 
 ## 发现机制：目录清单为准，搜索兜底
 
@@ -83,7 +83,8 @@ python hdk.py state rebuild    # 以磁盘为准重建 crawl_state.json
 
 ## MCP 服务 `mcp_server.py`
 
-已在 `~/.workbuddy/mcp.json` 注册为 `HDK`（stdio，由 WorkBuddy 自带 Python 拉起 `mcp_server.py`）。项目本地 `.venv`（`D:\Project\GodfreyHub\hdk\.venv`，由 `requirements.txt` 重建）是开发与命令行运行环境，不参与 MCP 注册。提供工具：
+独立的 stdio MCP 服务，供外部 MCP 客户端直接拉起（GodfreyHub 主 MCP 已原生提供
+`hdk_*` 检索工具，无需重复注册）。提供工具：
 
 - `search_documents(query, limit, category)` — 全文检索，返回高亮摘要
 - `get_document(doc_id)` — 按 id 取完整 Markdown 正文
@@ -95,21 +96,23 @@ python hdk.py state rebuild    # 以磁盘为准重建 crawl_state.json
 ## 运行环境与 MCP 入口约定
 
 ```bash
-python -m venv .venv                              # 首次：建项目本地虚拟环境
-.venv\Scripts\python.exe -m pip install -r requirements.txt
-.venv\Scripts\python.exe mcp_server.py           # 对外 MCP 入口（stdio）
+python -m pip install -r requirements.txt   # 安装依赖（mcp / jieba / 爬虫专用包）
+python mcp_server.py                        # 独立 MCP 入口（stdio）
 ```
 
-- **对外入口**：`mcp_server.py`（stdio）。`hdk.py serve` 是其等价包装（复用同一个 `mcp` server 对象与 logger），二者对外行为一致；外部客户端统一连 `mcp_server.py`。
-- **运行环境**：开发与命令行使用项目本地 `.venv`（`D:\Project\GodfreyHub\hdk\.venv`，由 `requirements.txt` 重建）；当前 WorkBuddy 的 MCP 注册（`~/.workbuddy/mcp.json` 中 `HDK` 条目）使用其自带 Python（`~/.workbuddy/binaries/python/envs/default`）拉起 `mcp_server.py`，两者均需安装 `requirements.txt` 中的依赖。
-- **日志通道**：服务日志经 `logging` 写到 **stderr**（`mcp_server.py` 启动即 `basicConfig(stream=sys.stderr)`）；**stdout 专用于 MCP 协议帧**，禁止向 stdout `print` 任何内容（`hdk.py serve` 的启动日志同样走 stderr，无独立日志文件）。
-
-WorkBuddy 已注册 `HDK`（服务名见 `~/.workbuddy/mcp.json`），使用 MCP Python SDK 2.0.0 和本地 stdio 服务。
+- **主消费路径**：GodfreyHub MCP 服务原生提供 `hdk_search_documents` / `hdk_get_document`
+  等工具，Node 查询端（`@node-rs/jieba`）与 Python 索引端共用同一份 `dict/dict.txt` 与
+  同一 FTS5 索引，直接随 GodfreyHub 使用，无需另行注册本服务的 `HDK`。
+- **独立入口**：`mcp_server.py`（stdio）供外部 MCP 客户端直接拉起；`hdk.py serve` 是其
+  等价包装（复用同一个 `mcp` server 对象与 logger），二者对外行为一致。
+- **运行环境**：直接使用系统 Python（`python -m pip install -r requirements.txt`），不依赖
+  任何固定虚拟环境路径。
+- **日志通道**：服务日志经 `logging` 写到 **stderr**（`mcp_server.py` 启动即
+  `basicConfig(stream=sys.stderr)`）；**stdout 专用于 MCP 协议帧**，禁止向 stdout `print`
+  任何内容（`hdk.py serve` 的启动日志同样走 stderr，无独立日志文件）。
 
 ## 规则入口
 
-- [Agent 规则](AGENTS.md)
-- [项目文档索引](Docs/README.md)
+- [仓库 Agent 规则](../AGENTS.md)（含「HDK 离线文档子系统」一节）
 - [工程体系](Docs/ENGINEERING_SYSTEM.md)（含版本控制边界与本地产物出口）
 - [质量体系](Docs/QUALITY_SYSTEM.md)
-- [贡献规则](CONTRIBUTING.md)

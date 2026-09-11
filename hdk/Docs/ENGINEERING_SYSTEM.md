@@ -36,7 +36,7 @@ hdk.py               统一 CLI：crawl / incremental / incremental-cj / increme
 ## 数据流
 
 ```text
-外部文档源（华为云 MCP / cj-docs 静态站 / QQ 浏览器鉴权）
+外部文档源（华为云 MCP / cj-docs 静态站 / builtin_browser MCP 鉴权）
         │  crawl*.py / incremental*.py
         ▼
 harmonyos_docs/  cangjie_docs/   （Markdown + frontmatter：name/title/uri/category）
@@ -59,7 +59,7 @@ mcp_server.py  →  MCP 客户端（HDK MCP 工具）
 ## 依赖
 
 - `requirements.txt` 固定全部运行依赖：`mcp==2.0.0`（MCP 服务与 SDK）、`jieba==0.42.1`（分词，索引端与查询端共用 `dict/dict.txt` 词典）、`beautifulsoup4` + `markdownify`（`crawl_cj.py`）、`html2text`（`crawl_cangjie.py`）。
-- 项目本地运行环境为 `.venv/`（`D:\Project\GodfreyHub\hdk\.venv`，由 `requirements.txt` 重建，Git 忽略）；外部 MCP 客户端以该 `.venv` 的 Python 拉起 `mcp_server.py`，不依赖任何外部虚拟环境。
+- 运行环境直接使用系统 Python（`python -m pip install -r requirements.txt`），不依赖任何固定虚拟环境路径；外部 MCP 客户端可用任意装好依赖的 Python 拉起 `mcp_server.py`。
 - 鸿蒙仓颉开发文档由 `cj_mcp.py` 经 `builtin_browser` MCP（本机运行的 QwenWork MCP 适配器 + 已登录华为开发者账号的浏览器标签）鉴权抓取，不再是 pip 依赖，也不再依赖 QQ 浏览器 / `qqbrowser-skill.exe`。`hdk_io.py` 仅用标准库，无新依赖。
 - 新增爬虫或改依赖时须同步更新 `requirements.txt`。
 
@@ -107,7 +107,7 @@ mcp_server.py  →  MCP 客户端（HDK MCP 工具）
 
 ## 本地产物出口
 
-临时工作产物（截图、测试输出、诊断、一次性脚本）进入 `D:/Harmony/Workspace/` 固定桶，桶名与生命周期遵循根家族目录规范；除根 `Workspace/README.md` 外全部被 Git 忽略。语料、索引等长期产物仍落在 `harmonyos_docs/`、`cangjie_docs/` 与 `.mcp_cache/`，不进 Workspace。任务收尾时确认新增文件归类正确（语料/状态应 committed，索引应 ignored）、生成物未进入根目录或 `Docs/`。
+临时工作产物（截图、测试输出、诊断、一次性脚本）落点由调用方指定，不入版本库；本仓库不假定任何外部 Workspace 布局，也不维护第二个 Workspace。语料、索引等长期产物仍落在 `harmonyos_docs/`、`cangjie_docs/` 与 `.mcp_cache/`。任务收尾时确认新增文件归类正确（语料/状态应 committed，索引应 ignored）、生成物未进入根目录或 `Docs/`。
 
 ## 何时更新本文
 

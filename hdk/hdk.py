@@ -19,13 +19,13 @@ mcp_server.py、generate_index.py）保留为可复用模块，由本入口统�
   python hdk.py state rebuild
 
 语料说明：
-  - harmonyos        : D:/Harmony/tools/GodfreyMCP/hdk/harmonyos_docs，HarmonyOS 文档
+  - harmonyos        : 本目录下 harmonyos_docs/，HarmonyOS 文档
                        （含 cangjie-* 分类的鸿蒙仓颉开发文档），来源为华为云
                        HarmonyOS Developer Knowledge MCP（crawl.py）。
   - harmonyos-cangjie: 同上语料中的 cangjie-* 部分，官方接口需登录（HttpOnly cookie），
                        经 builtin_browser MCP（cj_mcp.py）在已登录页面内鉴权抓取；crawl 补新、
                        incremental-cangjie 补新+回查已改+判删。
-  - cangjie          : D:/Harmony/tools/GodfreyMCP/hdk/cangjie_docs，仓颉语言官方文档
+  - cangjie          : 本目录下 cangjie_docs/，仓颉语言官方文档
                        （cj-docs.gitcode.com 静态站，crawl_cj.py）。
 """
 import argparse

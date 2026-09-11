@@ -5,9 +5,9 @@
 这是 mcp_server.py 与 hdk.py 共用的唯一索引实现（替代旧 rebuild_fts.py 的
 重复实现）。两个语料各自独立建索引（.mcp_cache/<root>_docs.fts5.db）：
 
-  - harmonyos : D:/Harmony/tools/GodfreyMCP/hdk/harmonyos_docs（HarmonyOS 文档，含 cangjie-*
+  - harmonyos : 本目录下 harmonyos_docs/（HarmonyOS 文档，含 cangjie-*
                 分类的鸿蒙仓颉开发文档），relpath 不带前缀（兼容旧索引）
-  - cangjie   : D:/Harmony/tools/GodfreyMCP/hdk/cangjie_docs（仓颉语言官方文档），relpath
+  - cangjie   : 本目录下 cangjie_docs/（仓颉语言官方文档），relpath
                 统一加 "cangjie/" 前缀，避免与鸿蒙分类/文件重名
 
 分词方案（schema tokenizer=3）：
