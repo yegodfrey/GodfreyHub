@@ -50,7 +50,7 @@ function Resolve-DevEcoStudioRoot {
             return $studioRoot
         }
     }
-    throw 'GodfreyMCP hub_family_test: DevEco Studio Node/hvigor runtime was not found.'
+    throw 'GodfreyHub hub_family_test: DevEco Studio Node/hvigor runtime was not found.'
 }
 
 function Resolve-HvigorInvocation {

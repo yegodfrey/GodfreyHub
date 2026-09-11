@@ -22,7 +22,7 @@ Next
 Set shell = CreateObject("WScript.Shell")
 ' The hidden wrapper owns Emulator.exe and keeps its exact-PID window title
 ' corrected throughout boot. Dispatch it asynchronously so HDC waiting can run
-' concurrently in GodfreyMCP.
+' concurrently in GodfreyHub.
 launchCode = shell.Run(command, 0, False)
 If launchCode <> 0 Then
   WScript.Echo "WScript emulator launch failed: " & CStr(launchCode)

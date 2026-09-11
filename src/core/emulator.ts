@@ -142,7 +142,7 @@ export async function launchEmulatorProcess(executable: string, args: string[]):
   const instanceName = startIndex >= 0 ? args[startIndex + 1] : "";
   if (!instanceName) throw new Error("Windows 模拟器启动缺少实例名");
   const launcher = path.join(pkgRoot(), "scripts", "win_launch_emulator.vbs");
-  const statusPath = path.join(os.tmpdir(), "godfreymcp-emulator-launch-" + randomUUID() + ".json");
+  const statusPath = path.join(os.tmpdir(), "godfreyhub-emulator-launch-" + randomUUID() + ".json");
   // The native process wrapper owns both Emulator.exe creation and exact-PID
   // window naming. The VBS dispatcher returns immediately, then a status-file
   // handshake proves that Emulator.exe itself was created and returns its PID.

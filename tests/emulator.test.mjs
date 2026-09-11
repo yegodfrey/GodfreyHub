@@ -215,8 +215,8 @@ test("Windows emulator startup escapes the MCP process lifetime", () => {
   const source = fs.readFileSync(new URL("../src/core/emulator.ts", import.meta.url), "utf8");
   const launcher = fileURLToPath(new URL("../scripts/win_launch_emulator.vbs", import.meta.url));
   const processLauncher = fileURLToPath(new URL("../scripts/win_launch_emulator.ps1", import.meta.url));
-  assert.equal(fs.existsSync(launcher), true, "the WScript launcher must be packaged with GodfreyMCP");
-  assert.equal(fs.existsSync(processLauncher), true, "the no-console process launcher must be packaged with GodfreyMCP");
+  assert.equal(fs.existsSync(launcher), true, "the WScript launcher must be packaged with GodfreyHub");
+  assert.equal(fs.existsSync(processLauncher), true, "the no-console process launcher must be packaged with GodfreyHub");
   assert.match(source, /launchEmulatorProcess/);
   assert.doesNotMatch(source, /runDetached\(tc\.emulator/,
     "Node detached children can still be killed when the one-shot MCP process exits on Windows");

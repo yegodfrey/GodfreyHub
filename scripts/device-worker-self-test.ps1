@@ -8,7 +8,7 @@
 $ErrorActionPreference = 'Stop'
 
 if ($PSVersionTable.PSVersion.Major -lt 6) {
-    throw 'GodfreyMCP device-worker self-test must run under PowerShell 7 (pwsh).'
+    throw 'GodfreyHub device-worker self-test must run under PowerShell 7 (pwsh).'
 }
 
 $failures = [Collections.Generic.List[string]]::new()
@@ -28,6 +28,6 @@ Assert ($set.Contains('Stargaze::business-journey')) 'plan pair key format chang
 
 if ($failures.Count -gt 0) {
     foreach ($f in $failures) { Write-Host "FAIL: $f" }
-    throw "GodfreyMCP device-worker self-test failed ($($failures.Count) issue(s))."
+    throw "GodfreyHub device-worker self-test failed ($($failures.Count) issue(s))."
 }
-Write-Host 'GodfreyMCP device-worker self-test PASS (plan array parsing + PS7 guard).'
+Write-Host 'GodfreyHub device-worker self-test PASS (plan array parsing + PS7 guard).'
