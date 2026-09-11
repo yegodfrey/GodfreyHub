@@ -18,6 +18,15 @@ export interface TestTarget {
   isCangjie?: boolean;
 }
 
+// 扫描覆盖: 某些工程根的“可运行入口模块/注册名”无法从目录结构推断(如 Monorepo
+// 的 gallery 宿主工程), 这属于调用方仓库的产品知识。本仓不硬编码任何产品清单——
+// 调用方在自己的 local.config.json 里声明 scanOverrides, 扫描时按 bundleName 匹配。
+export interface ScanOverride {
+  bundle: string;        // 匹配 AppScope/app.json5 的 bundleName
+  entryModule?: string;  // 注册/入口模块名(缺省 "entry", 再退到首个模块)
+  projectName?: string;  // 注册名(缺省 harmonyRoot 的 basename)
+}
+
 // 项目注册表: 自动扫描 HarmonyOS 工程(标志: build-profile.json5 + AppScope/app.json5),
 // 元数据(bundle/ability)从工程配置解析。实例约定=设备名实例(deviceInstances, 如
 // "Mate 80 Pro"/"Pura X View"); 项目 entry.instance 仅作历史兼容(只有已在线才被选中),
@@ -43,6 +52,7 @@ export interface HubConfig {
   hdkRoot?: string;
   disabledTools?: string[]; // 按需裁剪工具(支持 hdk_* 通配), 默认全开
   deviceInstances?: string[]; // 设备名实例(UI 设备池, 如 ["Mate 80 Pro", "Pura X View"])
+  scanOverrides?: ScanOverride[]; // 调用方产品知识: 按bundle的入口模块/注册名覆盖
 }
 
 // 配置目录在调用时解析(与 DEVECO_PATH/GODFREYHUB_HDK_ROOT 同款 env seam)：默认取包自身的
@@ -88,6 +98,7 @@ function normalizeConfig(cfg: HubConfig): HubConfig {
     hdkRoot: cfg.hdkRoot,
     disabledTools: cfg.disabledTools,
     deviceInstances: cfg.deviceInstances,
+    scanOverrides: cfg.scanOverrides,
   };
 }
 
@@ -138,16 +149,21 @@ function readJson5(file: string): any | null {
 
 const SKIP_DIRS = new Set(["node_modules", "oh_modules", ".git", ".hvigor", "build", "dist", "target", ".idea", ".ciserver", "templates"]);
 
-// 解析单个 harmony 工程根 -> 注册条目(解析失败的字段给保守默认值)
-export async function inspectProject(harmonyRoot: string): Promise<ProjectEntry | null> {
+// 解析单个 harmony 工程根 -> 注册条目(解析失败的字段给保守默认值)。
+// overrides 按调用方配置匹配 bundleName, 提供“入口模块/注册名”的产品知识。
+export async function inspectProject(
+  harmonyRoot: string,
+  overrides: ScanOverride[] = [],
+): Promise<ProjectEntry | null> {
   if (!fs.existsSync(path.join(harmonyRoot, "build-profile.json5"))) return null;
   const appJson = readJson5(path.join(harmonyRoot, "AppScope", "app.json5"));
   const bundle: string = appJson?.app?.bundleName ?? appJson?.bundleName ?? "";
+  const override = overrides.find((o) => o.bundle === bundle);
   const bp = readJson5(path.join(harmonyRoot, "build-profile.json5"));
   const modules = bp?.modules ?? [];
-  const entryMod = bundle === "com.godfrey.gfkit"
-    ? modules.find((m: any) => m?.name === "gallery") ?? modules[0]
-    : modules.find((m: any) => m?.name === "entry") ?? modules[0];
+  const entryMod = modules.find((m: any) => m?.name === (override?.entryModule ?? "entry"))
+    ?? modules.find((m: any) => m?.name === "entry")
+    ?? modules[0];
   const module = String(entryMod?.name ?? "entry");
   const modulePath = path.normalize(String(entryMod?.srcPath ?? module).replace(/^\.\//, ""));
   const target = String(entryMod?.targets?.[0]?.name ?? "default");
@@ -159,7 +175,8 @@ export async function inspectProject(harmonyRoot: string): Promise<ProjectEntry 
   const repoRoot = path.normalize(gitRes.code === 0 ? gitRes.out.trim().split(/\r?\n/)[0] : path.dirname(harmonyRoot));
   // Monorepo 中所有 App 共享同一个 Git 根；项目身份必须来自 Harmony 工程目录，
   // 不能再使用 repoRoot basename，否则五个应用都会被注册为 Harmony。
-  const name = bundle === "com.godfrey.gfkit" ? "GFKitGallery" : path.basename(harmonyRoot);
+  // 调用方可用 scanOverrides.projectName 为结构不可推断的工程根命名。
+  const name = override?.projectName ?? path.basename(harmonyRoot);
   if (!name || !bundle) return null;
   return { name, repoRoot, harmonyRoot, bundle, ability, module, modulePath, target, instance: name };
 }
@@ -177,17 +194,18 @@ export async function scanRoot(root: string, cfg: HubConfig): Promise<ProjectEnt
       const child = path.join(dir, e.name);
       if (fs.existsSync(path.join(child, "build-profile.json5")) &&
           fs.existsSync(path.join(child, "AppScope", "app.json5"))) {
-        const entry = await inspectProject(child);
+        const entry = await inspectProject(child, cfg.scanOverrides ?? []);
         if (entry) found.push(entry);
       } else {
         await walk(child, depth - 1);
       }
     }
   };
-  // D:\Harmony 本身就是 GFKit Gallery 工程根，不能只扫描它的子目录。
+  // 扫描根本身也可能就是一个工程根（如某调用方的宿主 gallery 工程），
+  // 不能只扫描它的子目录。
   if (fs.existsSync(path.join(resolvedRoot, "build-profile.json5")) &&
       fs.existsSync(path.join(resolvedRoot, "AppScope", "app.json5"))) {
-    const rootEntry = await inspectProject(resolvedRoot);
+    const rootEntry = await inspectProject(resolvedRoot, cfg.scanOverrides ?? []);
     if (rootEntry) found.push(rootEntry);
   }
   await walk(resolvedRoot, 3);

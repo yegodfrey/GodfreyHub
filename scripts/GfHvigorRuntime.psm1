@@ -1,4 +1,4 @@
-# GfHvigorRuntime - pinned Node/hvigor/SDK resolution plus profile-aware daemon
+﻿# GfHvigorRuntime - pinned Node/hvigor/SDK resolution plus profile-aware daemon
 # and per-app user-home policy, shared by test.ps1 and its behavioral self-tests.
 #
 # Determinism: the Node, Hvigor and SDK binaries are pinned to one DevEco Studio
@@ -32,6 +32,10 @@ function Resolve-DevEcoStudioRoot {
     $homeCandidates.Add('D:\Program Files\Huawei\DevEco Studio')
     $homeCandidates.Add('C:\Program Files\Huawei\DevEco Studio')
     foreach ($studioRoot in $homeCandidates) {
+        # Join-Path errors on a missing drive qualifier (fatal under EAP=Stop);
+        # probe the drive before treating a recorded install as a candidate.
+        $driveRoot = if ($studioRoot.Length -ge 3 -and $studioRoot[1] -eq ':') { $studioRoot.Substring(0, 3) } else { $null }
+        if ($driveRoot -and -not (Test-Path -LiteralPath $driveRoot)) { continue }
         $node = Join-Path $studioRoot 'tools\node\node.exe'
         $hvigor = Join-Path $studioRoot 'tools\hvigor\bin\hvigorw.js'
         $sdkRoot = Join-Path $studioRoot 'sdk'

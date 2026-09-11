@@ -1,5 +1,10 @@
-# GodfreyMCP-owned HDC selection and bounded retry policy.
+﻿# GodfreyHub-owned HDC selection and bounded retry policy.
 Set-StrictMode -Version Latest
+
+# Connect-key/target ids are alphanumeric with . _ : - (same grammar the TS
+# side enforces in src/core/emulator.ts); anything else — notably "[Fail]" —
+# is diagnostic output, never a target.
+$script:GfHdcTargetTokenPattern = '^[A-Za-z0-9][A-Za-z0-9._:-]*$'
 
 function Get-ConnectedHdcTargets {
     [CmdletBinding()]
@@ -14,15 +19,22 @@ function Get-ConnectedHdcTargets {
 
     for ($attempt = 1; $attempt -le $Attempts; $attempt++) {
         $lines = @(& $Hdc list targets -v 2>&1)
-        $targets = @(
-            $lines |
-                Where-Object { $_ -match "\bConnected\b" } |
-                ForEach-Object { ($_ -split "\s+")[0].Trim() } |
-                Where-Object { $_ } |
-                Select-Object -Unique
-        )
-        if ($targets.Count -gt 0) {
-            return $targets
+        $hdcExit = $LASTEXITCODE
+        $outputText = ($lines -join "`n")
+        # Transport-failure output (exit code or classifier hit) must never be
+        # mined for targets: retry instead, so "[Fail] ... connected" cannot
+        # masquerade as an online device and short-circuit the bounded retry.
+        if ($hdcExit -eq 0 -and -not (Test-HdcTransportFailure -OutputText $outputText)) {
+            $targets = @(
+                $lines |
+                    Where-Object { $_ -match "\bConnected\b" } |
+                    ForEach-Object { ($_ -split "\s+")[0].Trim() } |
+                    Where-Object { $_ -and ($_ -match $script:GfHdcTargetTokenPattern) } |
+                    Select-Object -Unique
+            )
+            if ($targets.Count -gt 0) {
+                return $targets
+            }
         }
         if ($attempt -lt $Attempts) {
             Start-Sleep -Milliseconds ($InitialDelayMs * $attempt)

@@ -1,4 +1,4 @@
-# device-worker plan / PowerShell-version regression self-test.
+﻿# device-worker plan / PowerShell-version regression self-test.
 #
 # Guards the root cause of the "no suites match the requested filters" device-worker failure:
 # Windows PowerShell 5.1's ConvertFrom-Json enumerates a top-level JSON array as a single
@@ -22,11 +22,9 @@ foreach ($p in $pairs) { [void]$set.Add("$([string]$p.app)::$([string]$p.suite)"
 Assert ($set.Count -eq 3) "device-worker plan mis-parsed: got $($set.Count) unique pairs, expected 3 (PS 5.1 ConvertFrom-Json array-collapse regression)."
 Assert ($set.Contains('Stargaze::business-journey')) 'plan pair key format changed (expected App::suite).'
 
-# (2) Harness guards: test.ps1 must reject Windows PowerShell 5.1 and never fall back to powershell.exe.
-$testScript = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $PSScriptRoot 'test.ps1')
-Assert ($testScript -match 'requires PowerShell 7') 'test.ps1 is missing the PowerShell 7 version guard.'
-Assert ($testScript -match 'PSVersion\.Major -lt 6') 'test.ps1 must gate on PSVersion.Major < 6.'
-Assert ($testScript -notmatch "Resolve-CommandPath\s+'powershell\.exe'") 'Resolve-PowerShellPath must not fall back to Windows PowerShell 5.1.'
+# (2) The family orchestrator (GFSoftware family/runner/test.ps1) carries the
+# PS7-guard and no-powershell.exe-fallback text contracts; they are pinned in
+# that repo's family/tests/device-runner.test.mjs since the GodfreyHub split.
 
 if ($failures.Count -gt 0) {
     foreach ($f in $failures) { Write-Host "FAIL: $f" }

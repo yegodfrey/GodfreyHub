@@ -1,4 +1,4 @@
-Set-StrictMode -Version Latest
+﻿Set-StrictMode -Version Latest
 
 # 互斥体名可经 env 覆盖: 调用方需要与其它实例隔离串行域时自行命名, 默认值不绑定任何仓库。
 $script:GfBuildMutexName = if ($env:GODFREYHUB_BUILD_MUTEX_NAME) {

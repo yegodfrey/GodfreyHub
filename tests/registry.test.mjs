@@ -48,13 +48,30 @@ test("project discovery preserves non-entry module path and target", async () =>
   assert.equal(entry.ability, "ShellAbility");
 });
 
-test("GFKit monorepo root resolves to the runnable Gallery module", async () => {
-  const entry = await registry.inspectProject(gfkitRoot);
+// 产品知识（哪个 bundle 用哪个入口模块/注册名）属于调用方配置（scanOverrides），
+// 通用扫描器不得硬编码任何产品清单：无覆盖时走通用回退，有覆盖时按 bundle 生效。
+test("scan override declaratively pins the runnable module and project name", async () => {
+  const withoutOverride = await registry.inspectProject(gfkitRoot);
+  assert.equal(withoutOverride.name, "GFKit",
+    "without an override the name falls back to the harmony root basename");
+  assert.equal(withoutOverride.module, "gfkit",
+    "without an override the module falls back to 'entry' then the first module");
+
+  const override = {
+    bundle: "com.godfrey.gfkit",
+    entryModule: "gallery",
+    projectName: "GFKitGallery",
+  };
+  const entry = await registry.inspectProject(gfkitRoot, [override]);
 
   assert.equal(entry.name, "GFKitGallery");
   assert.equal(entry.module, "gallery");
   assert.equal(entry.modulePath, "gallery");
   assert.equal(entry.ability, "EntryAbility");
+
+  const unaffected = await registry.inspectProject(harmony, [override]);
+  assert.equal(unaffected.name, "harmony",
+    "an override for one bundle must not leak into other projects");
 });
 
 // BLK-17 regression: config loading must separate three states and never let a bogus
