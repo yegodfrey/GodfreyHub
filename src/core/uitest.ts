@@ -27,7 +27,7 @@ export function resolveLocalOutputPath(value: string): string {
     : path.resolve(candidate);
 }
 
-async function firstTarget(): Promise<string | undefined> {
+export async function firstTarget(): Promise<string | undefined> {
   const list = await onlineAllTargets();
   return list[0];
 }

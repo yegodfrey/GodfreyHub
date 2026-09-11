@@ -9,7 +9,7 @@ function quoteBatchArgument(value: string): string {
   return /^[A-Za-z0-9_./:=+-]+$/.test(value) ? value : '"' + value.replace(/"/g, '""') + '"';
 }
 
-function terminateProcessTree(child: ReturnType<typeof spawn>): void {
+export function terminateProcessTree(child: ReturnType<typeof spawn>): void {
   if (child.pid === undefined || child.exitCode !== null) return;
   if (process.platform === "win32") {
     const killer = spawn("taskkill", ["/pid", String(child.pid), "/t", "/f"], {

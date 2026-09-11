@@ -1616,15 +1616,20 @@ function Invoke-GfInstrumentSuite {
     } elseif ($result.Failed -gt 0) {
         $result.Status = 'failed'
         $result.Detail = "pass=$($result.Passed) fail=$($result.Failed) skip=$($result.Skipped)"
-    } elseif ($blockedCapabilities.Count -gt 0) {
-        $result.Status = 'blocked'
-        $result.Detail = "capability unavailable: $(Get-GfBlockedCapabilityDetail $blockedCapabilities)"
     } elseif ($result.Passed -gt 0) {
         $result.Status = 'passed'
         $result.Detail = "pass=$($result.Passed) fail=0 skip=$($result.Skipped)"
     } else {
         $result.Status = 'failed'
         $result.Detail = 'no test cases executed (check log)'
+    }
+
+    # 能力缺口只如实标注在结果里：不改 Status，也不动框架的权威计数（用例被框架算作
+    # 通过就是它的事实）。是否据此判定本次运行不完整，由调用方按设备池覆盖与清单
+    # 声明的豁免决定。
+    if (@($blockedCapabilities).Count -gt 0) {
+        $result.Detail = "$($result.Detail) [capability not exercised: " +
+            "$(Get-GfBlockedCapabilityDetail $blockedCapabilities)]"
     }
 
     $mark = if ($result.Status -eq 'passed') { 'PASS' } elseif ($result.Status -eq 'blocked') { 'BLOCKED' } else { 'FAIL' }
@@ -1813,12 +1818,13 @@ function Invoke-GfInstrumentCampaign {
             $child.Status = 'failed'
             $child.Failed = [Math]::Max(1, $child.Failed)
             $child.Detail = $failures -join '; '
-        } elseif (@($childBlocked).Count -gt 0) {
-            $child.Status = 'blocked'
-            $child.Detail = "capability unavailable: $(Get-GfBlockedCapabilityDetail $childBlocked)"
         } else {
             $child.Status = 'passed'
             $child.Detail = "pass=$($child.Passed) fail=0 skip=$($child.Skipped) (shared App campaign)"
+        }
+        if (@($childBlocked).Count -gt 0) {
+            $child.Detail = "$($child.Detail) [capability not exercised: " +
+                "$(Get-GfBlockedCapabilityDetail $childBlocked)]"
         }
         $results.Add($child)
         $suiteIndex++
