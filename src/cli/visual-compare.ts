@@ -14,6 +14,13 @@ try {
     actualPath: value("--actual")!,
     layoutPath: value("--layout", false),
     outputDir: value("--output")!,
+    // 结构性差分(可选): spec 声明 structuralEquivalentTo 时由编排方提供基线 spec、
+    // 基线布局树与设备密度, 语义见 src/core/structural-diff.ts。
+    structuralBaselineSpecPath: value("--baseline-spec", false),
+    structuralBaselineLayoutPath: value("--baseline-layout", false),
+    structuralDensityPixels: value("--density", false)
+      ? Number(value("--density", false))
+      : undefined,
   });
   process.stdout.write(JSON.stringify(result) + "\n");
   if (result.status !== "passed") process.exitCode = 2;

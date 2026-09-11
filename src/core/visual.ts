@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { PNG } from "pngjs";
+import { diffStructuralLayout, declaredSpecAnchors, parseStructuralEquivalence } from "./structural-diff.js";
 
 interface Bounds { left: number; top: number; right: number; bottom: number }
 interface Pixel { r: number; g: number; b: number; a: number }
@@ -308,6 +309,10 @@ export function compareVisualSpec(opts: {
   actualPath: string;
   layoutPath?: string;
   outputDir: string;
+  /** 结构性差分: 变体 spec 声明 structuralEquivalentTo 时由调用方提供基线 spec 与布局树。 */
+  structuralBaselineSpecPath?: string;
+  structuralBaselineLayoutPath?: string;
+  structuralDensityPixels?: number;
 }): VisualCompareResult {
   const specPath = path.resolve(opts.specPath);
   const actualPath = path.resolve(opts.actualPath);
@@ -367,6 +372,51 @@ export function compareVisualSpec(opts: {
     if (message) issues.push({ id: String(rule.id ?? "layout-separation"), message });
   }
   if (checks === 0) throw new Error("visual spec contains no executable checks");
+
+  // 结构性差分: spec 声明 structuralEquivalentTo 时, 与基线检查点的布局树在
+  // "两个 spec 声明的锚点并集"上对比锚点存在性/相对顺序(及可选几何不变)。
+  // 基线 spec 与布局由调用方提供; 声明了等价却拿不到基线产物是编排错误,
+  // 显式失败而非静默跳过。
+  const structural = parseStructuralEquivalence(spec);
+  if (structural) {
+    if (!opts.structuralBaselineLayoutPath || !opts.structuralBaselineSpecPath) {
+      issues.push({ id: "structural-baseline-missing",
+        message: `spec 声明 structuralEquivalentTo('${structural.baselineName}') 但本次运行未提供基线 spec/布局树; ` +
+          "基线检查点必须先于变体检查点执行" });
+      checks++;
+    } else if (!opts.layoutPath) {
+      issues.push({ id: "structural-config",
+        message: "structuralEquivalentTo 需要变体检查点自身的布局树(--layout)" });
+      checks++;
+    } else if (structural.geometryInvariant === true &&
+        !(opts.structuralDensityPixels !== undefined && opts.structuralDensityPixels > 0)) {
+      issues.push({ id: "structural-config",
+        message: "structuralEquivalentTo.geometryInvariant 需要调用方提供 densityPixels(px per vp)" });
+      checks++;
+    } else {
+      const baselineSpec = readJson(path.resolve(opts.structuralBaselineSpecPath));
+      const declaredAnchors = [
+        ...new Set([...declaredSpecAnchors(baselineSpec), ...declaredSpecAnchors(spec)]),
+      ];
+      if (declaredAnchors.length === 0) {
+        issues.push({ id: "structural-config",
+          message: "结构性差分需要至少一个被契约声明的锚点(基线/变体 spec 的 match 引用)" });
+        checks++;
+      } else {
+        const baselineLayout = readJson(path.resolve(opts.structuralBaselineLayoutPath));
+        const variantLayout = readJson(path.resolve(opts.layoutPath));
+        const diff = diffStructuralLayout(baselineLayout, variantLayout, {
+          ...structural,
+          declaredAnchors,
+          densityPixels: opts.structuralDensityPixels,
+        });
+        checks += 1 + diff.comparedAnchors;
+        for (const issue of diff.issues) {
+          issues.push({ id: issue.id, message: issue.message });
+        }
+      }
+    }
+  }
 
   fs.mkdirSync(outputDir, { recursive: true });
   const reportJson = path.join(outputDir, "visual-report.json");

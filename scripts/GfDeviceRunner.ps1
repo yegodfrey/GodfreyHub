@@ -18,6 +18,9 @@ $ErrorActionPreference = 'Stop'
 # 每台设备本次 run 的视觉采集登记（marker 名 → 采集结果），供 campaign 结束后的
 # 视觉比较消费；StrictMode 要求先初始化。
 $script:GfVisualCapturesBySerial = @{}
+# 失败证据登记（serial → 证据条目数组）；无证据捕获的 run（如 'none' instrument）
+# 不进入懒初始化分支，StrictMode 下延迟创建会在读取处抛「变量不存在」。
+$script:GfEvidenceBySerial = @{}
 
 . (Join-Path $PSScriptRoot 'GfBuildMutex.ps1')
 
@@ -63,6 +66,7 @@ class GfDeviceRunResult {
     [object[]]$ClosureEvidence = @()
     [object[]]$BlockedCapabilityEvidence = @()
     [object[]]$VisualEvidence = @()
+    [object[]]$FailureEvidence = @()
     [object[]]$ClassResults = @()
     [string[]]$ExecutedClasses = @()
     [string[]]$ReusedClasses = @()
@@ -892,13 +896,87 @@ function Invoke-GfVisualMarkerSweep {
     }
 }
 
+# 失败证据包 sweep：设备端断言引擎（gfAssertUiAnchor/gfAuditUiCheckpoint/
+# gfClickAndAssertUiTransition/gfExecuteContractEntry 等）在真实失败路径上发出
+# [GFTEST_EVIDENCE] marker 并保持界面静止一个捕获窗口；本函数在窗口内用官方
+# uitest CLI 采集 png + layout.json(-a)，recv 到 evidence/<serial>/<name>/ 并按
+# marker 锚点清单校验界面未漂移。语义/几何/交互层的失败由此获得与视觉层同级的
+# 证据——失败归因从"读日志猜"变成"看图定案"。
+function Invoke-GfEvidenceMarkerSweep {
+    param(
+        [string]$Hdc,
+        [string]$Serial,
+        [string]$ArtifactDir,
+        [hashtable]$Captures,
+        [Collections.Generic.List[string]]$Sink
+    )
+    $markerPrefix = '[GFTEST_EVIDENCE] '
+    $lines = @()
+    try { $lines = @(& $Hdc -t $Serial shell hilog -x -T JSAPP 2>$null) } catch { }
+    foreach ($line in $lines) {
+        $text = [string]$line
+        $idx = $text.IndexOf($markerPrefix)
+        if ($idx -lt 0) { continue }
+        $parsed = $null
+        try { $parsed = $text.Substring($idx + $markerPrefix.Length).Trim() | ConvertFrom-Json } catch { continue }
+        if ($null -eq $parsed) { continue }
+        $name = [string]$parsed.name
+        if ([string]::IsNullOrWhiteSpace($name) -or $Captures.Contains($name)) { continue }
+        $remotePng = "/data/local/tmp/gfevidence/$name.png"
+        $remoteJson = "/data/local/tmp/gfevidence/$name.json"
+        $evidenceDir = Join-Path (Join-Path $ArtifactDir "evidence\$($Serial -replace '[^A-Za-z0-9_.-]', '_')") $name
+        [IO.Directory]::CreateDirectory($evidenceDir) | Out-Null
+        $capture = [pscustomobject][ordered]@{
+            name = $name; source = [string]$parsed.source; app = [string]$parsed.app
+            detail = [string]$parsed.detail
+            anchors = @($parsed.anchors | ForEach-Object { [string]$_ })
+            capturedAt = [string]$parsed.capturedAt
+            status = 'captured'; drift = ''; error = ''
+            png = (Join-Path $evidenceDir 'failure.png'); layout = (Join-Path $evidenceDir 'layout.json')
+            failureJson = (Join-Path $evidenceDir 'failure.json')
+        }
+        try {
+            Invoke-GfHdcChecked $Hdc $Serial @('shell', 'rm', '-f', $remotePng, $remoteJson) `
+                "stale evidence staging for $name" | Out-Null
+            Invoke-GfHdcChecked $Hdc $Serial @('shell', 'uitest', 'screenCap', '-p', $remotePng) `
+                "uitest screenCap for evidence $name" | Out-Null
+            Invoke-GfHdcChecked $Hdc $Serial @('shell', 'uitest', 'dumpLayout', '-p', $remoteJson, '-a') `
+                "uitest dumpLayout for evidence $name" | Out-Null
+            Invoke-GfHdcChecked $Hdc $Serial @('file', 'recv', $remotePng, $capture.png) `
+                "evidence screen receive for $name" | Out-Null
+            Invoke-GfHdcChecked $Hdc $Serial @('file', 'recv', $remoteJson, $capture.layout) `
+                "evidence layout receive for $name" | Out-Null
+            # 失败时刻与采集时刻之间界面不得漂移：锚点清单必须都能在布局树里对上。
+            # 布局树缺席锚点本身也可能正是失败原因（锚点不存在/不在场），此时记录
+            # drift 事实但不算采集失败——"布局树里没有它"就是最重要的证据。
+            $layoutText = [IO.File]::ReadAllText($capture.layout)
+            $missingAnchors = [Collections.Generic.List[string]]::new()
+            foreach ($anchor in $capture.anchors) {
+                if ($layoutText -notmatch ('"id"\s*:\s*"' + [regex]::Escape($anchor) + '"')) {
+                    $missingAnchors.Add($anchor)
+                }
+            }
+            if ($missingAnchors.Count -gt 0) {
+                $capture.drift = "anchors absent from captured layout: $($missingAnchors -join ', ')"
+            }
+            $capture | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $capture.failureJson -Encoding UTF8
+        } catch {
+            $capture.error = $_.Exception.Message
+            $capture.status = 'infrastructure'
+        }
+        $Captures[$name] = $capture
+        $Sink.Add("===== failure evidence $name (source=$($capture.source); status=$($capture.status); drift=$($capture.drift); error=$($capture.error)) =====")
+    }
+}
+
 function Invoke-GfVisualCheckpoint {
     param(
         [string]$Hdc,
         [string]$Serial,
         [string]$PlatformRoot,
         [string]$ArtifactDir,
-        [object]$Check
+        [object]$Check,
+        [double]$DensityPixels = 0
     )
     $name = [string]$Check.name
     if ($name -notmatch '^[a-z0-9][a-z0-9-]{1,79}$') {
@@ -936,8 +1014,52 @@ function Invoke-GfVisualCheckpoint {
     $layoutPath = [string]$capture.layout
     $reportDir = Join-Path $checkpointDir 'report'
 
-    $providerOutput = @(& $node $provider --spec $specPath --actual $screenshotPath `
-        --layout $layoutPath --output $reportDir 2>&1 | ForEach-Object { [string]$_ })
+    # 结构性差分：变体 spec 声明 structuralEquivalentTo 时，从同一设备同一 campaign
+    # 里已完成的基线检查点取 spec 与布局树传给比较器。基线未先执行/未捕获是编排
+    # 错误——显式失败，绝不静默退化为"只跑变体自身检查"。
+    $providerArguments = @('--spec', $specPath, '--actual', $screenshotPath,
+        '--layout', $layoutPath, '--output', $reportDir)
+    $specText = [IO.File]::ReadAllText($specPath)
+    try { $specJson = $specText | ConvertFrom-Json } catch { $specJson = $null }
+    if ($null -ne $specJson -and
+        ($specJson.PSObject.Properties.Name -contains 'structuralEquivalentTo')) {
+        $baselineName = [string]$specJson.structuralEquivalentTo.spec
+        if ([string]::IsNullOrWhiteSpace($baselineName)) {
+            throw "GfDeviceRunner: visual checkpoint '$name' declares structuralEquivalentTo without a baseline spec name."
+        }
+        $baselineCapture = $null
+        if ($null -ne $captures -and $captures.Contains($baselineName)) {
+            $baselineCapture = $captures[$baselineName]
+        }
+        $baselineLayoutPath = $null
+        if ($null -ne $baselineCapture) { $baselineLayoutPath = [string]$baselineCapture.layout }
+        if ([string]::IsNullOrWhiteSpace($baselineLayoutPath) -or
+            -not (Test-Path -LiteralPath $baselineLayoutPath -PathType Leaf)) {
+            # 单套件路径(campaign 之外)里基线属于兄弟套件的产物目录: 从运行根
+            # (ArtifactDir 的父目录)按 设备/检查点名 兜底检索本次运行的基线布局。
+            $serialToken = ($Serial -replace '[^A-Za-z0-9_.-]', '_')
+            $baselineLayoutPath = @(Get-ChildItem -Path (Join-Path (Split-Path -Parent $ArtifactDir) '*') `
+                -Recurse -Filter 'layout.json' -ErrorAction SilentlyContinue |
+                Where-Object { $_.FullName -match ('[\\/]' + [regex]::Escape($baselineName) + '[\\/]layout\.json$') -and
+                    $_.FullName -match ('[\\/]' + [regex]::Escape($serialToken) + '[\\/]') } |
+                Select-Object -First 1 -ExpandProperty FullName)
+        }
+        if ([string]::IsNullOrWhiteSpace($baselineLayoutPath) -or
+            -not (Test-Path -LiteralPath $baselineLayoutPath -PathType Leaf)) {
+            throw "GfDeviceRunner: visual checkpoint '$name' declares structuralEquivalentTo '$baselineName', but that baseline checkpoint has no captured layout on device '$Serial'. Baseline classes must run before variant classes in the same run."
+        }
+        # 基线 spec 与变体 spec 同目录(visual-spec.schema/validator 保证同 App 注册)。
+        $baselineSpecPath = Join-Path (Split-Path -Parent $specPath) "$baselineName.json"
+        if (-not (Test-Path -LiteralPath $baselineSpecPath -PathType Leaf)) {
+            throw "GfDeviceRunner: visual checkpoint '$name' structural baseline spec is missing: $baselineSpecPath"
+        }
+        $providerArguments += @('--baseline-spec', $baselineSpecPath, '--baseline-layout', $baselineLayoutPath)
+        if ($DensityPixels -gt 0) {
+            $providerArguments += @('--density', "$DensityPixels")
+        }
+    }
+
+    $providerOutput = @(& $node $provider @providerArguments 2>&1 | ForEach-Object { [string]$_ })
     $providerExit = $LASTEXITCODE
     $jsonLine = @($providerOutput | Where-Object { $_.TrimStart().StartsWith('{') }) | Select-Object -Last 1
     if ([string]::IsNullOrWhiteSpace([string]$jsonLine)) {
@@ -1135,6 +1257,153 @@ function Invoke-GfCangjieDeviceSuite {
 }
 
 <#
+  L7 探索套件：ui-monkey 随机游走 + 页面不变量（seed 可复现，journal 可重放）。
+  复用 instrument 的 clean build/deploy 事务（同 app+serial 的 campaign 缓存直接命中，
+  不重复构建安装），在已安装制品上执行探索；命中违例按公理结晶为 L1–L4 永久契约后，
+  经 GF_MONKEY_REPLAY_JOURNAL 指向 journal.jsonl 原样重放复验。
+  返回 GfDeviceRunResult。
+#>
+function Invoke-GfMonkeySuite {
+    param(
+        [string]$SuiteKey,
+        [string]$AppName,
+        [object]$Suite,
+        [string]$BundleName,
+        [string]$AppRoot,
+        [string]$PlatformRoot,
+        [string]$ArtifactDir,
+        [object[]]$Devices
+    )
+
+    $result = [GfDeviceRunResult]::new()
+    $result.SuiteKey = $SuiteKey
+    $req = Get-GfDeviceRequirement $Suite
+    $matching = @($Devices | Where-Object { Test-GfDeviceMatches $_ $req })
+    if ($matching.Count -eq 0) {
+        $result.Status = 'blocked'
+        $result.Detail = "no matching device for monkey exploration (arch=$($req.Arch), testmode=$($req.TestMode), profile=$($req.Profile)); connected=$($Devices.Count)"
+        Write-Warning "  BLOCKED   $SuiteKey - $($result.Detail)"
+        return $result
+    }
+
+    $device = $matching[0]
+    $result.DeviceSerial = $device.Serial
+    $result.Arch = $device.Arch
+    $result.TestMode = $device.TestMode
+    $result.IsEmulator = $device.IsEmulator
+    $result.DeviceClass = $device.DeviceClass
+    $result.DeviceProfile = $device.ProfileName
+    $result.LandscapeSupported = $device.LandscapeSupported
+
+    $node = [string]$env:GF_GODFREYHUB_NODE
+    $hubRoot = [string]$env:GODFREYHUB_ROOT
+    $monkeyScript = if (-not [string]::IsNullOrWhiteSpace($hubRoot)) {
+        Join-Path $hubRoot 'scripts/ui-monkey.mjs'
+    } else { '' }
+    if ([string]::IsNullOrWhiteSpace($node) -or -not (Test-Path -LiteralPath $node -PathType Leaf) -or
+        [string]::IsNullOrWhiteSpace($monkeyScript) -or -not (Test-Path -LiteralPath $monkeyScript -PathType Leaf)) {
+        throw "GfDeviceRunner: monkey execution requires the GodfreyHub ui-monkey provider; use hub_family_test (missing: $monkeyScript)."
+    }
+    # 页面注册表即契约：身份锚点/必在场锚点/免疫清单的数据真源，缺失即刻失败，
+    # 不允许"没有注册表就整晚瞎点"。
+    $pagesRegistry = Join-Path $PlatformRoot "family/quality/monkey/$AppName-pages.json"
+    if (-not (Test-Path -LiteralPath $pagesRegistry -PathType Leaf)) {
+        throw "GfDeviceRunner: monkey suite requires the app pages registry: $pagesRegistry"
+    }
+
+    [IO.Directory]::CreateDirectory($ArtifactDir) | Out-Null
+    $serialToken = ($device.Serial -replace '[^A-Za-z0-9_.-]', '_')
+    $result.LogPath = Join-Path $ArtifactDir "exploration-monkey-$serialToken.log"
+    $monkeyOut = Join-Path $ArtifactDir 'monkey'
+    Write-Host "  RUN       $SuiteKey on device=$($device.Serial) via GodfreyHub ui-monkey"
+
+    $hdc = Get-HdcPath
+    $screenGuardEnabled = $false
+    $previousErrorPreference = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        try {
+            Enable-GfDeviceScreenKeepOn $hdc $device.Serial
+            $screenGuardEnabled = $true
+        } catch { }
+
+        # 与 instrument 同一构建/安装事务：campaign 缓存命中时不重建不重装，
+        # monkey 在与契约证据完全相同的制品位上探索。
+        $prepareOutput = @(Invoke-GfInstrumentPreparation $AppName $device.Serial 'ArkTS')
+
+        $monkeyArguments = @($monkeyScript,
+            '--bundle', $BundleName,
+            '--pages', $pagesRegistry,
+            '--target', $device.Serial,
+            '--out', $monkeyOut)
+        foreach ($declared in @($Suite.executor.arguments | ForEach-Object { [string]$_ })) {
+            $monkeyArguments += $declared
+        }
+        # 修复复验通道：GF_MONKEY_REPLAY_JOURNAL 指向某次命中的 journal.jsonl 时，
+        # 按记录动作原样重放——探索发现修复后的复现证据。
+        if (-not [string]::IsNullOrWhiteSpace([string]$env:GF_MONKEY_REPLAY_JOURNAL)) {
+            $monkeyArguments += @('--replay', [string]$env:GF_MONKEY_REPLAY_JOURNAL)
+        }
+        if (-not [string]::IsNullOrWhiteSpace([string]$env:GF_MONKEY_SEED)) {
+            $monkeyArguments += @('--seed', [string]$env:GF_MONKEY_SEED)
+        }
+
+        $runOutput = @(& $node @monkeyArguments 2>&1 | ForEach-Object { [string]$_ })
+        $exitCode = $LASTEXITCODE
+        @($prepareOutput + $runOutput) | Set-Content -LiteralPath $result.LogPath -Encoding UTF8
+        # 汇总行在当前作用域重新 -match：Where-Object 脚本块内的 $Matches 不会外溢。
+        $summaryLine = @($runOutput | Where-Object { $_ -like 'ui-monkey:*' }) |
+            Select-Object -Last 1
+        $hasSummary = ($null -ne $summaryLine -and
+            [string]$summaryLine -match '^ui-monkey:\s*seed=(?<seed>\S+)\s+steps=(?<steps>\d+)\s+violations=(?<violations>\d+)')
+        if ($exitCode -eq 0) {
+            if (-not $hasSummary) {
+                # 与 instrument 同一口径：没有权威汇总行就没有证据，不得凭退出码 0 造数。
+                throw 'ui-monkey exited 0 without an authoritative "ui-monkey: seed=... steps=... violations=..." summary.'
+            }
+            $result.Status = 'passed'
+            $result.Passed = [int]$Matches[2]
+            $result.Detail = ("monkey exploration clean: seed=$($Matches[1]), steps=$($Matches[2]), " +
+                "violations=0; journal under $monkeyOut")
+        } elseif ($exitCode -eq 1) {
+            # 探索命中不是噪音：按公理二，每个命中必须结晶为一条 L1–L4 永久契约，
+            # 或在 triage 中显式处置；修复后用 GF_MONKEY_REPLAY_JOURNAL 重放复验。
+            $result.Status = 'failed'
+            $result.Failed = 1
+            $seedText = if ($hasSummary) { $Matches[1] } else { [string]$env:GF_MONKEY_SEED }
+            $result.Detail = ("monkey invariant violation (seed=$seedText): evidence under $monkeyOut " +
+                '(violations.json + 当帧截图/布局树); 结晶为 L1–L4 spec 后用 ' +
+                'GF_MONKEY_REPLAY_JOURNAL=<journal.jsonl> 重放复验.')
+        } else {
+            throw "ui-monkey runner exited $exitCode (infrastructure failure)."
+        }
+    } catch {
+        $_ | Out-String | Add-Content -LiteralPath $result.LogPath -Encoding UTF8 -ErrorAction SilentlyContinue
+        $result.Status = 'failed'
+        $result.Failed = $result.Failed + 1
+        $result.Detail = $_.Exception.Message
+    } finally {
+        $ErrorActionPreference = $previousErrorPreference
+        if ($screenGuardEnabled) {
+            $cleanupPrimaryError = $null
+            if ([string]$result.Status -eq 'failed') {
+                $cleanupPrimaryError = [InvalidOperationException]::new($result.Detail)
+            }
+            try {
+                Restore-GfDeviceScreenKeepOnPreservingFailure $hdc $device.Serial $cleanupPrimaryError
+            } catch {
+                if ([string]$result.Status -ne 'failed') {
+                    $result.Status = 'failed'
+                    $result.Failed = $result.Failed + 1
+                    $result.Detail = "screen guard restore failed: $($_.Exception.Message)"
+                }
+            }
+        }
+    }
+    return $result
+}
+
+<#
   在匹配设备上执行 instrument 测试并回收结果。
   返回 GfDeviceRunResult。
 #>
@@ -1260,6 +1529,11 @@ function Invoke-GfInstrumentSuite {
                 'rm -rf /data/local/tmp/gfvisual && mkdir -p /data/local/tmp/gfvisual') `
                 'visual staging directory reset' | Out-Null
         }
+        # 失败证据暂存域：与视觉采集同一 SELinux 约束，独立目录避免与视觉 sweep
+        # 互相清理。任何断言层（不止视觉）的失败都可能在本次 campaign 内发射证据。
+        Invoke-GfHdcChecked $hdc $device.Serial @('shell',
+            'rm -rf /data/local/tmp/gfevidence && mkdir -p /data/local/tmp/gfevidence') `
+            'failure-evidence staging directory reset' | Out-Null
 
         $visualClasses = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
         foreach ($visualCheck in $visualChecks) { [void]$visualClasses.Add([string]$visualCheck.afterClass) }
@@ -1289,6 +1563,9 @@ function Invoke-GfInstrumentSuite {
             # the production App is brought to the foreground without force-stop,
             # preserving its process and navigation state across suite boundaries.
             $classFilter = @($runClasses) -join ','
+            # -b/-m 与下面的 aa start 同等待遇走 POSIX 单引号转义: 这两个值来自外部配置
+            # (家族 harness/应用清单), 裸插值含单引号即破坏命令、可注入设备 shell。
+            # classFilter 有白名单校验, bundle/module 也必须同等约束。
             $aaShell = 'killall -9 uitest 2>/dev/null || true; ' +
                 'for i in 1 2 3 4 5; do pidof uitest >/dev/null || break; sleep 1; done; ' +
                 'pidof uitest >/dev/null && exit 70 || true; ' +
@@ -1300,7 +1577,8 @@ function Invoke-GfInstrumentSuite {
                 'uitest start-daemon default 2>/dev/null & daemon_pid=$!; ' +
                 'for i in 1 2 3 4 5; do pidof uitest >/dev/null && break; sleep 1; done; ' +
                 'pidof uitest >/dev/null || exit 71; aa test' +
-                " -b '$BundleName' -m '$ModuleName'" +
+                ' -b ' + (ConvertTo-GfShellLiteral $BundleName) +
+                ' -m ' + (ConvertTo-GfShellLiteral $ModuleName) +
                 " -s unittest /ets/testrunner/OpenHarmonyTestRunner" +
                 " -s page '@ohos/hypium' -s class '$classFilter' -s timeout 120000" +
                 " -s gfVisualLandscape $(if ($device.LandscapeSupported) { 'true' } else { 'false' })"
@@ -1315,16 +1593,34 @@ function Invoke-GfInstrumentSuite {
                     -ArgumentList @('-t', $device.Serial, 'shell', $aaShell) `
                     -PassThru -NoNewWindow -RedirectStandardOutput $scopeLogPath -RedirectStandardError $scopeErrPath
             } catch { $scopeProc = $null }
+            # campaign 总截止: 设备掉线/USB 卡死会让 aa test 永不退出, 过去轮询无限
+            # 自旋且一直持有设备租约, 其他等锁方要熬满互斥体超时(6 小时)。
+            # 预算 = 类数 × 单类上限(-s timeout 120000)+ 启动/部署余量, 上限 4 小时。
+            $campaignTimedOut = $false
+            $campaignDeadline = (Get-Date).AddSeconds(
+                [Math]::Min(14400, 600 + 180 * [Math]::Max(1, $runClasses.Count)))
             $visualCaptures = @{}
+            $evidenceCaptures = @{}
             if ($null -ne $scopeProc) {
                 while (-not $scopeProc.HasExited) {
+                    if ((Get-Date) -gt $campaignDeadline) {
+                        $campaignTimedOut = $true
+                        # 整树终止(hdc + 设备端 shell); Kill(bool) 在 PS5.1/.NET Framework
+                        # 不存在, taskkill 是两代 PowerShell 都可靠的整树终止手段。
+                        & taskkill.exe /PID $scopeProc.Id /T /F 2>$null | Out-Null
+                        break
+                    }
                     Start-Sleep -Milliseconds 400
                     Invoke-GfVisualMarkerSweep -Hdc $hdc -Serial $device.Serial -ArtifactDir $ArtifactDir `
                         -Captures $visualCaptures -Sink $testOutput
+                    Invoke-GfEvidenceMarkerSweep -Hdc $hdc -Serial $device.Serial -ArtifactDir $ArtifactDir `
+                        -Captures $evidenceCaptures -Sink $testOutput
                 }
                 $scopeProc.WaitForExit()
                 Invoke-GfVisualMarkerSweep -Hdc $hdc -Serial $device.Serial -ArtifactDir $ArtifactDir `
                     -Captures $visualCaptures -Sink $testOutput
+                Invoke-GfEvidenceMarkerSweep -Hdc $hdc -Serial $device.Serial -ArtifactDir $ArtifactDir `
+                    -Captures $evidenceCaptures -Sink $testOutput
                 $scopeOutput = @(Get-Content -LiteralPath $scopeLogPath -ErrorAction SilentlyContinue |
                     ForEach-Object { [string]$_ })
                 $scopeExit = $scopeProc.ExitCode
@@ -1335,9 +1631,21 @@ function Invoke-GfInstrumentSuite {
             }
             if ($null -eq $script:GfVisualCapturesBySerial) { $script:GfVisualCapturesBySerial = @{} }
             $script:GfVisualCapturesBySerial[$device.Serial] = $visualCaptures
+            if ($evidenceCaptures.Count -gt 0) {
+                if ($null -eq $script:GfEvidenceBySerial) { $script:GfEvidenceBySerial = @{} }
+                $existingEvidence = @()
+                if ($script:GfEvidenceBySerial.Contains($device.Serial)) {
+                    $existingEvidence = @($script:GfEvidenceBySerial[$device.Serial])
+                }
+                $script:GfEvidenceBySerial[$device.Serial] = @($existingEvidence + @($evidenceCaptures.Values))
+            }
             $scopeText = $scopeOutput -join "`n"
             $testOutput.Add("===== class campaign $classFilter (hdc exit=$scopeExit) =====")
             foreach ($line in $scopeOutput) { $testOutput.Add([string]$line) }
+            if ($campaignTimedOut) {
+                # 超时即失败: 记入 scopeFailures 使本次不通过、复用证据不落盘。
+                $scopeFailures.Add("${classFilter}: campaign exceeded total time budget and was killed")
+            }
             $result.ClassResults = @(Get-GfInstrumentClassResults -OutputText $scopeText `
                 -TestClasses @($runClasses))
 
@@ -1368,8 +1676,16 @@ function Invoke-GfInstrumentSuite {
                 } elseif ($ignore -gt 0) {
                     $scopeFailures.Add("${classFilter}: Ignore=$ignore exceeds the zero-ignore contract")
                 }
-                if ($scopeExit -eq 0 -and $scopeFailures.Count -eq 0) {
-                    foreach ($testClass in $runClasses) { [void]$campaign.PassedClasses.Add($testClass) }
+                if ($scopeExit -eq 0 -and $scopeFailures.Count -eq 0 -and -not $campaignTimedOut) {
+                    # 只持久化"有 terminal passed 证据"的类: 零用例类(filter 拼错/为空)
+                    # 若搭车持久化, 后续 -ReuseBuild 永久静默跳过它——证据被污染一次,
+                    # 之后每轮都假绿。
+                    foreach ($testClass in $runClasses) {
+                        $classEvidence = @($result.ClassResults | Where-Object { [string]$_.name -eq $testClass })
+                        if ($classEvidence.Count -gt 0 -and [string]$classEvidence[0].status -eq 'passed') {
+                            [void]$campaign.PassedClasses.Add($testClass)
+                        }
+                    }
                     # Persist the proven setup classes against the exact deployed
                     # artifacts so the next opt-in run can skip the shared prefix.
                     Update-GfPrepareCachePassedClasses -PlatformRoot $PlatformRoot -AppName $AppName `
@@ -1386,6 +1702,10 @@ function Invoke-GfInstrumentSuite {
 
         $visualMatrixSources = @()
         $deviceClassesValue = if ([string]::IsNullOrWhiteSpace($result.DeviceClass)) { 'phone' } else { $result.DeviceClass }
+        # 设备密度(px per vp)取自 uiDevicePool 的 profile 声明, 供结构性差分把 px 容差换算成 vp。
+        $visualDensity = 0
+        $visualPoolEntry = @($UiDevicePool | Where-Object { [string]$_.profile -eq [string]$device.ProfileName })
+        if ($visualPoolEntry.Count -eq 1) { $visualDensity = [double]$visualPoolEntry[0].densityPixels }
         foreach ($visualCheck in $visualChecks) {
             $checkOrientation = if ($visualCheck.PSObject.Properties.Name -contains 'orientation') {
                 [string]$visualCheck.orientation
@@ -1402,7 +1722,8 @@ function Invoke-GfInstrumentSuite {
             }
             try {
                 $visualEvidence = Invoke-GfVisualCheckpoint -Hdc $hdc -Serial $device.Serial `
-                    -PlatformRoot $PlatformRoot -ArtifactDir $ArtifactDir -Check $visualCheck
+                    -PlatformRoot $PlatformRoot -ArtifactDir $ArtifactDir -Check $visualCheck `
+                    -DensityPixels $visualDensity
                 $result.VisualEvidence = @($result.VisualEvidence) + @($visualEvidence)
                 $testOutput.Add("===== visual $([string]$visualCheck.name) (status=$([string]$visualEvidence.status)) =====")
                 $testOutput.Add(($visualEvidence | ConvertTo-Json -Compress -Depth 20))
@@ -1433,6 +1754,12 @@ function Invoke-GfInstrumentSuite {
             } catch {
                 $scopeFailures.Add("${testClass}: visual checkpoint '$([string]$visualCheck.name)' infrastructure failure: $($_.Exception.Message)")
             }
+        }
+
+        # 失败证据包随套件结果出账：每个条目自带 png/layout/failure.json 路径与
+        # 来源/摘要，报告层不重新解析设备日志即可链接到"当时那一帧"。
+        if ($null -ne $script:GfEvidenceBySerial -and $script:GfEvidenceBySerial.Contains($device.Serial)) {
+            $result.FailureEvidence = @($script:GfEvidenceBySerial[$device.Serial])
         }
 
         # 必需锚点审计是编排方注入的能力：本 runner 只负责在设备现场执行，规则文件与
@@ -1702,7 +2029,9 @@ function Invoke-GfInstrumentCampaign {
         [string]$_.status -ne 'passed' -or [int]$_.exitCode -ne 0
     } | ForEach-Object { [string]$_.name })
     $hasAttributedFailure = $failedClassNames.Count -gt 0 -or $failedVisualNames.Count -gt 0
-    $performanceFailure = [string]$aggregate.Detail -match '(?i)performance|budget|presentedFrames|frame'
+    # 词边界匹配: "frame" 是 "framework"/"workflow" 的子串, 任何失败 Detail 里出现
+    # "framework died"都会被误判为性能失败, 进而把无关错误追加到所有 performance 层套件。
+    $performanceFailure = [string]$aggregate.Detail -match '(?i)\bperformance\b|\bbudget\b|\bpresentedFrames\b|\bframe\b'
     $results = [Collections.Generic.List[GfDeviceRunResult]]::new()
     $suiteIndex = 0
     foreach ($suite in @($Suites)) {
@@ -1721,11 +2050,28 @@ function Invoke-GfInstrumentCampaign {
         $child.PerformanceMetrics = $aggregate.PerformanceMetrics
         $child.StabilityMetrics = $aggregate.StabilityMetrics
         $child.ClosureEvidence = @($aggregate.ClosureEvidence)
+        $child.FailureEvidence = @($aggregate.FailureEvidence)
         $requestedClasses = @($suite.executor.testClasses | ForEach-Object { [string]$_ })
         $child.ExecutedClasses = @($requestedClasses)
-        $child.ClassResults = @($aggregate.ClassResults | Where-Object {
+        # 暖缓存复用的类不产生 ClassResults(本次未执行, 无 OHOS_REPORT 行), 但它们在
+        # 上次同一制品位已 terminal passed。必须合成 terminal passed 条目, 否则下方
+        # "no terminal class result"校验会把上一次全绿的整体打红——聚合层报 pass、
+        # 子结果报 failed 的自相矛盾分裂(纯 semantic-contract 套件全军覆没)。
+        $reusedPassed = @($aggregate.ReusedClasses | ForEach-Object { [string]$_ })
+        $childClassResults = [Collections.Generic.List[object]]::new()
+        $childClassResults.AddRange(@($aggregate.ClassResults | Where-Object {
             $requestedClasses -contains [string]$_.name
-        })
+        }))
+        foreach ($testClass in $requestedClasses) {
+            $alreadyListed = @($childClassResults | Where-Object { [string]$_.name -eq $testClass })
+            if ($alreadyListed.Count -eq 0 -and $reusedPassed -contains $testClass) {
+                $childClassResults.Add([pscustomobject][ordered]@{
+                    name = $testClass; passed = 0; failed = 0; ignored = 0
+                    status = 'passed'; reused = $true
+                })
+            }
+        }
+        $child.ClassResults = @($childClassResults)
         $expectedVisualNames = @(Get-GfCollectionProperty -InputObject $suite.executor -Name 'visualChecks' |
             ForEach-Object { [string]$_.name })
         $child.VisualEvidence = @($aggregate.VisualEvidence | Where-Object {
@@ -1819,8 +2165,10 @@ function Invoke-GfInstrumentCampaign {
             $child.Failed = [Math]::Max(1, $child.Failed)
             $child.Detail = $failures -join '; '
         } else {
+            $reusedInSuite = @($requestedClasses | Where-Object { $reusedPassed -contains $_ }).Count
+            $reusedNote = if ($reusedInSuite -gt 0) { " reused=$reusedInSuite" } else { '' }
             $child.Status = 'passed'
-            $child.Detail = "pass=$($child.Passed) fail=0 skip=$($child.Skipped) (shared App campaign)"
+            $child.Detail = "pass=$($child.Passed) fail=0 skip=$($child.Skipped)$reusedNote (shared App campaign)"
         }
         if (@($childBlocked).Count -gt 0) {
             $child.Detail = "$($child.Detail) [capability not exercised: " +
