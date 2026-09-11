@@ -1331,6 +1331,30 @@ function Invoke-GfMonkeySuite {
         # monkey 在与契约证据完全相同的制品位上探索。
         $prepareOutput = @(Invoke-GfInstrumentPreparation $AppName $device.Serial 'ArkTS')
 
+        # preparation 只保证构建/安装, 不保证应用在前台运行; monkey 的 pidof/
+        # 前台不变量要求进程活着。未运行则有界拉起(ability 与 instrument 同默认
+        # EntryAbility), 仍起不来按失败出账而不是空跑第一步就违例。
+        $launchProbe = (& $hdc -t $device.Serial shell "pidof '$BundleName'" 2>$null | Out-String).Trim()
+        if ($launchProbe -notmatch '\d') {
+            $monkeyLaunchLog = [Collections.Generic.List[string]]::new()
+            $monkeyLaunchLog.Add("===== monkey launch: aa start $BundleName =====")
+            try {
+                Invoke-GfHdcChecked $hdc $device.Serial @('shell', 'aa', 'start', '-b', $BundleName,
+                    '-a', 'EntryAbility') "monkey app launch" | Out-Null
+                $launchDeadline = [datetime]::UtcNow.AddSeconds(20)
+                do {
+                    Start-Sleep -Milliseconds 800
+                    $launchProbe = (& $hdc -t $device.Serial shell "pidof '$BundleName'" 2>$null | Out-String).Trim()
+                } while ($launchProbe -notmatch '\d' -and [datetime]::UtcNow -lt $launchDeadline)
+            } catch {
+                $monkeyLaunchLog.Add("monkey launch warning: $($_.Exception.Message)")
+            }
+            foreach ($launchLine in $monkeyLaunchLog) { $prepareOutput += $launchLine }
+            if ($launchProbe -notmatch '\d') {
+                throw "GfDeviceRunner: monkey exploration requires a running app; '$BundleName' did not come up after aa start (pidof empty)."
+            }
+        }
+
         $monkeyArguments = @($monkeyScript,
             '--bundle', $BundleName,
             '--pages', $pagesRegistry,

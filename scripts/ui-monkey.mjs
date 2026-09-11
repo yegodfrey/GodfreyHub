@@ -147,14 +147,26 @@ class Device {
   }
 
   dumpLayout(outFile) {
-    const out = this.shell("uitest dumpLayout", 60000);
-    const match = out.match(/(\/[\w/.-]*layout[\w/.-]*\.json)/i) ?? out.match(/(\/[\w/.-]+\.json)/i);
-    if (!match) throw new Error("dumpLayout 未返回文件路径: " + out.trim());
-    execFileSync(this.hdc, this.target ? ["-t", this.target, "file", "recv", match[1], outFile]
-      : ["file", "recv", match[1], outFile], { encoding: "utf8", timeout: 30000, windowsHide: true });
-    const raw = JSON.parse(fs.readFileSync(outFile, "utf8"));
-    this.shell(`rm -f '${match[1]}'`, 15000);
-    return raw;
+    // -a = 默认属性 + extraAttrs 超集(官方 arkxtest 文档); nav selected 是否
+    // 随属性集输出无法离线确认, 取超集并配合 main 里的启动探测, 缺失即硬失败。
+    let lastError = null;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        const out = this.shell("uitest dumpLayout -a", 60000);
+        const match = out.match(/(\/[\w/.-]*layout[\w/.-]*\.json)/i) ?? out.match(/(\/[\w/.-]+\.json)/i);
+        if (!match) throw new Error("dumpLayout 未返回文件路径: " + out.trim());
+        execFileSync(this.hdc, this.target ? ["-t", this.target, "file", "recv", match[1], outFile]
+          : ["file", "recv", match[1], outFile], { encoding: "utf8", timeout: 30000, windowsHide: true });
+        const raw = JSON.parse(fs.readFileSync(outFile, "utf8"));
+        this.shell(`rm -f '${match[1]}'`, 15000);
+        return raw;
+      } catch (error) {
+        lastError = error;
+        // 动画/窗口切换期间的瞬时失败不值得终结整个探索: 有界重试后再判违例。
+        Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 400 * attempt);
+      }
+    }
+    throw lastError;
   }
 
   screenshot(outFile) {
@@ -191,12 +203,18 @@ function isTruthyFlag(value) {
   return value === true || value === "true" || value === 1 || value === "1";
 }
 
-// 收集可点节点(带语义 id 优先)、全部语义 id 及其 selected 状态; bounds 以首现为准。
+// 收集可点节点(带语义 id 优先)、全部语义 id 及其 selected 状态、根 bundleName;
+// bounds 以首现为准。
 export function analyzeLayout(raw) {
   const clickables = [];
   const ids = new Set();
   const selectedById = new Map();
   const viewport = parseBounds(raw?.[0]?.attributes?.bounds ?? raw?.attributes?.bounds) ?? null;
+  // 官方 FAQ: dumpLayout 根节点 attributes 携带 abilityName/bundleName/PagePath,
+  // 可作为"前台是否仍是被测应用"的证据; 拿不到(旧镜像/格式差异)时该不变量退化跳过。
+  const roots = Array.isArray(raw) ? raw : [raw];
+  const foregroundBundle = typeof roots[0]?.attributes?.bundleName === "string"
+    ? roots[0].attributes.bundleName.trim() : "";
   const visit = (node) => {
     if (!node || typeof node !== "object") return;
     const attrs = node.attributes ?? {};
@@ -223,8 +241,8 @@ export function analyzeLayout(raw) {
     }
     if (Array.isArray(node.children)) for (const child of node.children) visit(child);
   };
-  for (const root of (Array.isArray(raw) ? raw : [raw])) visit(root);
-  return { clickables, ids, selectedById, viewport };
+  for (const root of roots) visit(root);
+  return { clickables, ids, selectedById, foregroundBundle, viewport };
 }
 
 // ---------------------------------------------------------------- 主流程
@@ -295,6 +313,11 @@ export function main(argv) {
     if (!device.processAlive(args.bundle)) {
       return `进程已退出(崩/退/被杀): pidof '${args.bundle}' 为空`;
     }
+    // 前台身份(官方 FAQ: 根节点 attributes.bundleName): 走出被测应用(误触跳转/
+    // 崩溃回桌面)不算"正常探索"; 根节点拿不到 bundleName 时该检查按不可用跳过。
+    if (layout.foregroundBundle && layout.foregroundBundle !== args.bundle) {
+      return `前台不是被测应用: 布局树根 bundleName='${layout.foregroundBundle}', 期望 '${args.bundle}'`;
+    }
     const page = classifyPage(layout);
     pageCache = page;
     if (!page) {
@@ -328,6 +351,7 @@ export function main(argv) {
 
   const totalSteps = replaySteps ? replaySteps.length : args.steps;
   let layoutFile = path.join(outDir, "layout.json");
+  let selectedCapabilityChecked = false;
   for (let step = 1; step <= totalSteps; step++) {
     let layout;
     try {
@@ -335,6 +359,22 @@ export function main(argv) {
     } catch (error) {
       recordViolation(step, `dumpLayout 失败: ${error.message}`, layoutFile);
       break;
+    }
+
+    // selected 能力探测(仅首步): 注册表声明了 nav selected 身份, 但本镜像的
+    // dumpLayout 从不输出 selected=true 属性时, tab 页永远无法分类——与其每晚
+    // "无法分类"假违例, 不如启动即硬失败并给出可操作出路。首屏是应用主页面,
+    // 导航 tab 必然处于选中态, 单屏探测足以定性。
+    if (!selectedCapabilityChecked) {
+      selectedCapabilityChecked = true;
+      const needsSelected = registry.pages.some((page) => page.identitySelectedAnchor !== undefined);
+      const sawSelectedTrue = [...layout.selectedById.values()].includes(true);
+      if (needsSelected && !sawSelectedTrue) {
+        process.stderr.write(
+          "ui-monkey: 注册表声明了 identitySelectedAnchor, 但本镜像 dumpLayout 首屏未输出任何 selected=true 属性\n" +
+          "  (确认已用 dumpLayout -a; 若镜像不导出 selected, 改用 identityAnchor 内容身份)。\n");
+        return 2;
+      }
     }
 
     const violation = assertInvariants(step, layout, layoutFile);
