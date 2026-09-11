@@ -22,7 +22,6 @@
 // Exit codes: 0 clean, 1 violations found, 2 usage/environment error.
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -57,30 +56,24 @@ export function inspectPsFile(absPath) {
 }
 
 export function parsePowerShellFiles(repoRoot, files) {
-  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'gf-ps-gate-'));
-  const listFile = path.join(tmpDir, 'files.txt');
-  try {
-    fs.writeFileSync(listFile, files.join('\n'), 'utf8');
-    const result = spawnSync('pwsh', ['-NoProfile', '-Command', `
+  // 清单经 stdin 管道进入 pwsh（$input）。不落临时清单文件，也不把路径作为 -Command
+  // 的尾随参数传递：多行命令下 PowerShell 会按 ShellExecute 执行那个文档路径（拉起
+  // .txt 的关联程序），且文件被外部进程占用后临时目录删不掉。
+  const result = spawnSync('pwsh', ['-NoProfile', '-Command', `
       $ErrorActionPreference = 'Stop'
       $failures = @()
-      Get-Content -LiteralPath $env:GF_PS_GATE_LIST | ForEach-Object {
+      $input | ForEach-Object {
         if (-not $_) { return }
         $tokens = $null; $parseErrors = $null
         $null = [System.Management.Automation.Language.Parser]::ParseFile($_, [ref]$tokens, [ref]$parseErrors)
         foreach ($parseError in $parseErrors) { $failures += "$_ : $($parseError.Message)" }
       }
       if ($failures.Count -gt 0) { [Console]::Error.WriteLine($failures -join "\n"); exit 1 }
-    `, listFile], { cwd: repoRoot, encoding: 'utf8',
-      env: { ...process.env, GF_PS_GATE_LIST: listFile } });
-    if (result.status !== 0) {
-      return [result.stderr.trim() || `pwsh parse gate exited ${result.status}`];
-    }
-    return [];
-  } finally {
-    // Windows: a just-exited pwsh (or the indexer) can hold the dir briefly.
-    fs.rmSync(path.dirname(listFile), { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+    `], { cwd: repoRoot, encoding: 'utf8', input: files.join('\n') });
+  if (result.status !== 0) {
+    return [result.stderr.trim() || `pwsh parse gate exited ${result.status}`];
   }
+  return [];
 }
 
 export function gateFiles({ repoRoot, files, requireDirs = [], minFiles = 1 }) {

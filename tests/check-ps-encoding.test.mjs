@@ -37,7 +37,7 @@ test('byte gate rejects literal newline residue and BOM-less non-ASCII', () => {
 });
 
 test('parse gate reports PowerShell syntax errors and coverage guards fire', () => {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'gf-ps-gate-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'gf-ps-enc-fixture-'));
   try {
     fs.mkdirSync(path.join(root, 'harness'));
     fs.writeFileSync(path.join(root, 'Broken.ps1'),
@@ -79,4 +79,23 @@ test('this repository passes its own integrity gate', () => {
   assert.ok(files.length >= 10, 'the Hub PowerShell inventory should be covered');
   const { violations } = gateFiles({ repoRoot, files, requireDirs: ['scripts'], minFiles: 10 });
   assert.deepEqual(violations, [], violations.join('\n'));
+});
+
+test('parse gate carries the inventory over stdin and leaves no temp artifact', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'gf-ps-enc-fixture-'));
+  const before = new Set(fs.readdirSync(os.tmpdir()));
+  try {
+    fs.writeFileSync(path.join(root, 'Clean.ps1'), 'Write-Output ok\n', 'utf8');
+    const { violations } = gateFiles({
+      repoRoot: root, files: [path.join(root, 'Clean.ps1')], requireDirs: [], minFiles: 1,
+    });
+    assert.deepEqual(violations, [], violations.join('\n'));
+  } finally {
+    // 清单必须经 stdin 进入 pwsh：一旦回退成"落盘 files.txt + 作为 -Command 尾随参数
+    // 传递"，PowerShell 会按文档关联打开它（记事本被拉起），临时目录还会被占用删不掉。
+    const leaked = fs.readdirSync(os.tmpdir()).filter((name) =>
+      !before.has(name) && name.startsWith('gf-ps-') && !name.startsWith('gf-ps-enc-fixture-'));
+    fs.rmSync(root, { recursive: true, force: true });
+    assert.deepEqual(leaked, [], `parse gate must not create temp artifacts: ${leaked.join(', ')}`);
+  }
 });
