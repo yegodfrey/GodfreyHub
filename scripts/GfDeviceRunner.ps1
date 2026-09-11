@@ -61,6 +61,7 @@ class GfDeviceRunResult {
     [object]$PerformanceMetrics
     [object]$StabilityMetrics
     [object[]]$ClosureEvidence = @()
+    [object[]]$BlockedCapabilityEvidence = @()
     [object[]]$VisualEvidence = @()
     [object[]]$ClassResults = @()
     [string[]]$ExecutedClasses = @()
@@ -458,6 +459,37 @@ function Get-GfInstrumentClassResults([string]$OutputText, [string[]]$TestClasse
         elseif ([int]$_.passed -gt 0) { $_.status = 'passed' }
         [pscustomobject]$_
     })
+}
+
+# 设备侧能力缺失标记（[GF_TEST_BLOCKED] capability=... reason=...）按 OHOS_REPORT_STATUS
+# 的 class 边界归属到发出它的测试类；class 为空表示落在任何类边界之外。编排器据此把
+# 该用例记 blocked，"本设备跑不了"不得退化成静默通过。
+function Get-GfBlockedCapabilityEvidence([string]$OutputText) {
+    $entries = [Collections.Generic.List[object]]::new()
+    $currentClass = ''
+    foreach ($line in @($OutputText -split '\r?\n')) {
+        $classMatch = [regex]::Match($line, '^OHOS_REPORT_STATUS:\s*class=(?<class>[A-Za-z_][A-Za-z0-9_.-]*)\s*$')
+        if ($classMatch.Success) {
+            $currentClass = $classMatch.Groups['class'].Value
+            continue
+        }
+        $blockedMatch = [regex]::Match($line,
+            '\[GF_TEST_BLOCKED\]\s+capability=(?<capability>[A-Za-z0-9._-]+)(?:\s+reason=(?<reason>[^\s]+))?')
+        if (-not $blockedMatch.Success) { continue }
+        $entries.Add([pscustomobject]@{
+            class = $currentClass
+            capability = $blockedMatch.Groups['capability'].Value
+            reason = $blockedMatch.Groups['reason'].Value
+        })
+    }
+    return @($entries | Sort-Object class, capability, reason -Unique)
+}
+
+function Get-GfBlockedCapabilityDetail([object[]]$Entries) {
+    return @($Entries | ForEach-Object {
+        if ([string]::IsNullOrWhiteSpace([string]$_.reason)) { [string]$_.capability }
+        else { "$($_.capability) ($($_.reason))" }
+    }) -join ', '
 }
 
 function Get-GfHdcTargetSerials([string]$Hdc) {
@@ -882,7 +914,7 @@ function Invoke-GfVisualCheckpoint {
     $provider = [string]$env:GF_GODFREYHUB_VISUAL_COMPARE
     if ([string]::IsNullOrWhiteSpace($node) -or -not (Test-Path -LiteralPath $node -PathType Leaf) -or
         [string]::IsNullOrWhiteSpace($provider) -or -not (Test-Path -LiteralPath $provider -PathType Leaf)) {
-        throw 'GfDeviceRunner: visual execution requires the GodfreyMCP visual compare provider; use hub_family_test.'
+        throw 'GfDeviceRunner: visual execution requires the GodfreyHub visual compare provider; use hub_family_test.'
     }
 
     # 采集已在捕获窗口内由 Invoke-GfVisualMarkerSweep 完成；此处只消费产物。
@@ -1081,20 +1113,18 @@ function Invoke-GfCangjieDeviceSuite {
         if ($exitCode -ne 0) {
             throw "Cangjie runner exited with $exitCode."
         }
-        $result.Status = 'passed'
-        # Derived counts: parse the runner's authoritative summary line instead of
-        # trusting registry magic numbers. The runner itself already fails when any
-        # declared class fails to execute or zero cases ran.
+        # 计数派生自运行器自己的权威汇总行，不信注册表里的魔数；该脚本在任一声明类
+        # 未执行或零用例时本身就会失败。
         $summaryLine = @($runOutput | Where-Object { $_ -match '^PASS:\s*(\d+)\s*suites?,\s*(\d+)\s+tests?' }) |
             Select-Object -Last 1
-        if ($null -ne $summaryLine -and $summaryLine -match '^PASS:\s*(\d+)\s*suites?,\s*(\d+)\s+tests?') {
-            $result.Passed = [int]$Matches[2]
-            $result.Detail = ("Cangjie clean build/deploy and device contracts passed " +
-                "(suites=$($Matches[1]), tests=$($Matches[2])).")
-        } else {
-            $result.Passed = 1
-            $result.Detail = 'Cangjie clean build/deploy and device contracts passed.'
+        if ($null -eq $summaryLine -or $summaryLine -notmatch '^PASS:\s*(\d+)\s*suites?,\s*(\d+)\s+tests?') {
+            # 与 Instrument 路径同一口径：没有权威汇总就没有证据，不得凭退出码 0 造数。
+            throw 'Cangjie runner exited 0 without an authoritative "PASS: N suites, M tests" summary.'
         }
+        $result.Status = 'passed'
+        $result.Passed = [int]$Matches[2]
+        $result.Detail = ("Cangjie clean build/deploy and device contracts passed " +
+            "(suites=$($Matches[1]), tests=$($Matches[2])).")
     } catch {
         $_ | Out-String | Add-Content -LiteralPath $result.LogPath -Encoding UTF8
         $result.Status = 'failed'
@@ -1560,6 +1590,11 @@ function Invoke-GfInstrumentSuite {
     }
     $result.ClosureEvidence = @($closureEntries)
 
+    # 能力缺失标记：本设备无法执行的能力（如 portrait-only 上的横屏旋转）必须显式
+    # 记 blocked，不能因为"用例自己跳过了"就算通过。
+    $blockedCapabilities = @(Get-GfBlockedCapabilityEvidence $outputText)
+    $result.BlockedCapabilityEvidence = @($blockedCapabilities)
+
     # aa test 的退出码、Tests run 汇总与 Failure/Error 是 instrument 的权威结果。
     # 测试 Ability 正常结束也会产生 HandleAppDied；不得把进程生命周期收尾误报为崩溃。
     if ($markerError) {
@@ -1581,6 +1616,9 @@ function Invoke-GfInstrumentSuite {
     } elseif ($result.Failed -gt 0) {
         $result.Status = 'failed'
         $result.Detail = "pass=$($result.Passed) fail=$($result.Failed) skip=$($result.Skipped)"
+    } elseif ($blockedCapabilities.Count -gt 0) {
+        $result.Status = 'blocked'
+        $result.Detail = "capability unavailable: $(Get-GfBlockedCapabilityDetail $blockedCapabilities)"
     } elseif ($result.Passed -gt 0) {
         $result.Status = 'passed'
         $result.Detail = "pass=$($result.Passed) fail=0 skip=$($result.Skipped)"
@@ -1765,10 +1803,19 @@ function Invoke-GfInstrumentCampaign {
         $child.Passed = $passedCount
         $child.Failed = $failedCount
         $child.Skipped = $ignoredCount
+        # 归属到本套件的类；类边界之外的标记无法定责，campaign 内每个套件都如实上报。
+        $childBlocked = @($aggregate.BlockedCapabilityEvidence | Where-Object {
+            [string]::IsNullOrWhiteSpace([string]$_.class) -or
+                ($requestedClasses -contains [string]$_.class)
+        })
+        $child.BlockedCapabilityEvidence = @($childBlocked)
         if ($failures.Count -gt 0) {
             $child.Status = 'failed'
             $child.Failed = [Math]::Max(1, $child.Failed)
             $child.Detail = $failures -join '; '
+        } elseif (@($childBlocked).Count -gt 0) {
+            $child.Status = 'blocked'
+            $child.Detail = "capability unavailable: $(Get-GfBlockedCapabilityDetail $childBlocked)"
         } else {
             $child.Status = 'passed'
             $child.Detail = "pass=$($child.Passed) fail=0 skip=$($child.Skipped) (shared App campaign)"

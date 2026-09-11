@@ -152,6 +152,30 @@ Assert-GfSelfTest ($classProbe.Count -eq 3 -and
     [string]$classProbe[2].status -eq 'unknown') `
     'batched Instrument output must retain terminal results for each logical class.'
 
+# [GF_TEST_BLOCKED] 能力标记必须按类归属并去重；落在任何类块之外的标记以空类返回，
+# 由 campaign 如实上报给每个套件，绝不允许"能力没跑"静默算通过。
+$blockedProbeText = @'
+[GF_TEST_BLOCKED] capability=early-boot reason=no-class-yet
+OHOS_REPORT_STATUS: class=AlphaContract
+OHOS_REPORT_STATUS_CODE: 0
+Info: some unrelated log line
+[GF_TEST_BLOCKED] capability=landscape-rotation reason=portrait-only-device-class
+[GF_TEST_BLOCKED] capability=landscape-rotation reason=portrait-only-device-class
+OHOS_REPORT_STATUS: class=BetaContract
+OHOS_REPORT_STATUS_CODE: 0
+'@
+$blockedProbe = @(Get-GfBlockedCapabilityEvidence -OutputText $blockedProbeText)
+Assert-GfSelfTest (@($blockedProbe).Count -eq 2 -and
+    [string]$blockedProbe[0].class -eq '' -and
+    [string]$blockedProbe[0].capability -eq 'early-boot' -and
+    [string]$blockedProbe[1].class -eq 'AlphaContract' -and
+    [string]$blockedProbe[1].capability -eq 'landscape-rotation' -and
+    [string]$blockedProbe[1].reason -eq 'portrait-only-device-class') `
+    'blocked capability markers must be attributed to their emitting class and deduplicated.'
+Assert-GfSelfTest ((Get-GfBlockedCapabilityDetail $blockedProbe) -eq
+    'early-boot (no-class-yet), landscape-rotation (portrait-only-device-class)') `
+    'blocked capability detail must name the capability and its reason.'
+
 $targetLines = @(
     '[D][2026-08-31 05:00:00.000][abcd][client.cpp:1] diagnostic',
     '127.0.0.1:5555',
