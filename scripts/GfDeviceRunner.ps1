@@ -1052,18 +1052,30 @@ function Invoke-GfCangjieDeviceSuite {
     $result.LandscapeSupported = $device.LandscapeSupported
     [IO.Directory]::CreateDirectory($ArtifactDir) | Out-Null
     $result.LogPath = Join-Path $ArtifactDir 'godfrey-cangjie-device.log'
-    $script = Join-Path $PSScriptRoot 'quiz/cangjie-device.ps1'
+    # The Cangjie device runner is app-owned (apps/<App>/scripts/cangjie-device.ps1);
+    # the family declares the pass anchors in its suite executor, the Hub only
+    # launches and relays them.
+    $script = Join-Path $AppRoot 'scripts/cangjie-device.ps1'
     if (-not (Test-Path -LiteralPath $script -PathType Leaf)) {
-        throw "GodfreyMCP Cangjie device runner is missing: $script"
+        throw "App-owned Cangjie device runner is missing: $script"
+    }
+    $executor = $Suite.executor
+    foreach ($anchor in @('expectedSuites', 'expectedTests')) {
+        if (-not ($executor.PSObject.Properties.Name -contains $anchor) -or
+            [int]$executor.$anchor -le 0) {
+            throw "GfDeviceRunner: suite '$SuiteKey' executor must declare a positive $anchor in family-tests.json (pass anchors are family-owned)."
+        }
     }
 
-    Write-Host "  RUN       $SuiteKey on device=$($device.Serial) via GodfreyMCP Cangjie runner"
+    Write-Host "  RUN       $SuiteKey on device=$($device.Serial) via app-owned Cangjie runner"
     try {
         $prepareOutput = @(Invoke-GfInstrumentPreparation $AppName $device.Serial 'Cangjie')
         $powerShell = (Get-Process -Id $PID).Path
         $runOutput = @(& $powerShell -NoProfile -ExecutionPolicy Bypass -File $script `
             -RepoRoot $PlatformRoot -AppRoot $AppRoot -Target $device.Serial `
-            -ArtifactDir $ArtifactDir 2>&1 | ForEach-Object { [string]$_ })
+            -ArtifactDir $ArtifactDir `
+            -ExpectedSuites ([int]$executor.expectedSuites) -ExpectedTests ([int]$executor.expectedTests) `
+            2>&1 | ForEach-Object { [string]$_ })
         $exitCode = $LASTEXITCODE
         @($prepareOutput + $runOutput) | Set-Content -LiteralPath $result.LogPath -Encoding UTF8
         if ($exitCode -ne 0) {
@@ -1077,11 +1089,11 @@ function Invoke-GfCangjieDeviceSuite {
             Select-Object -Last 1
         if ($null -ne $summaryLine -and $summaryLine -match '^PASS:\s*(\d+)\s*suites?,\s*(\d+)\s+tests?') {
             $result.Passed = [int]$Matches[2]
-            $result.Detail = ("GodfreyMCP clean build/deploy and Cangjie device contracts passed " +
+            $result.Detail = ("Cangjie clean build/deploy and device contracts passed " +
                 "(suites=$($Matches[1]), tests=$($Matches[2])).")
         } else {
             $result.Passed = 1
-            $result.Detail = 'GodfreyMCP clean build/deploy and Cangjie device contracts passed.'
+            $result.Detail = 'Cangjie clean build/deploy and device contracts passed.'
         }
     } catch {
         $_ | Out-String | Add-Content -LiteralPath $result.LogPath -Encoding UTF8
