@@ -1,4 +1,4 @@
-Set-StrictMode -Version Latest
+﻿Set-StrictMode -Version Latest
 
 function Get-GfSharedFileHash([string]$file) {
     # 并行设备 lane 会对同一棵源码树同时哈希，另一条 lane 构建刚写出的文件
