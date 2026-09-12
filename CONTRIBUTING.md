@@ -17,6 +17,9 @@
 - `npm run build`：TypeScript 编译通过。
 - `npm test`：回归测试全绿。
 - `npm run smoke`：冒烟验证通过（涉及真实设备的能力按需验证）。
+- `npm run hooks:install`：把本仓跟踪的 `scripts/git-hooks/pre-push` 装进 `.git/hooks`，让 `npm test` 在推送侧强制执行；
+  新克隆后运行一次即可（家族门禁每次也会自愈安装）。钩子模板是本仓自己的策略资产，改动只改模板并重跑安装器，
+  不直接编辑 `.git/hooks`。
 - 提交前检查 `git status --short --ignored`，确认 `dist/`、`node_modules/`、`.mcp_cache/` 未进入暂存。
 
 ## 变更标准

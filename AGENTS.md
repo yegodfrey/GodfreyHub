@@ -40,8 +40,12 @@ npm install            # 安装依赖（better-sqlite3 原生编译，须本机�
 npm run build          # tsc -> dist/
 npm test               # 构建 + node --test tests/*.test.mjs
 npm run smoke          # 冒烟验证 scripts/smoke.mjs
+npm run hooks:install  # 安装本仓 pre-push 推送自守护（跑 npm test）
 npm run hdk:index      # 离线文档索引（新克隆后首次运行）
 ```
+
+本仓的钩子策略在 `scripts/git-hooks/`（本仓是自身安装机制的调用方），`npm run hooks:install` 或家族门禁每次自愈安装；
+安装器把 `-RepoRoot` 解析为绝对路径再替换进模板，因为 git 执行钩子的工作目录随调用方式变化。
 
 测试必须 hermetic：断言引擎行为用临时目录合成树，不得读取任何外部仓库的真实数据文件。
 

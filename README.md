@@ -56,6 +56,7 @@ python -m pip install -r hdk/requirements.txt
 npm run build                  # tsc -> dist/
 npm run hdk:index              # 重建 FTS 词元索引（新 clone 必须；日常增量更新同一条命令）
 npm test                       # 回归验证
+npm run hooks:install          # 新克隆后安装本仓 pre-push 推送自守护
 ```
 
 ## 注册（MCP 客户端）
@@ -175,6 +176,7 @@ npm install
 npm run build     # tsc -> dist/
 npm test          # 单元/回归测试（构建后运行）
 npm run smoke     # stdio 握手 + tools/list + hub_status 端到端验证
+npm run hooks:install  # 安装本仓跟踪的 scripts/git-hooks/pre-push（推送前强制 npm test）
 ```
 
 ## 双机同步

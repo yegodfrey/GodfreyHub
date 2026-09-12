@@ -1,0 +1,21 @@
+#!/bin/sh
+# Installed by GodfreyHub scripts/install-git-hooks.ps1 -TemplateDir <repo>/scripts/git-hooks.
+# Edit this tracked template, then re-run the installer; never edit
+# .git/hooks/pre-push directly - a fresh clone restores it from here.
+#
+# GodfreyHub owns its own gate: this repository is the execution toolchain the
+# Harmony family consumes, so a red commit must not be able to leave the machine.
+# The check is the repo's documented one (build + node --test over tests/*.test.mjs),
+# which also runs the PowerShell source-integrity gate (BOM/parse/residue) that has
+# already caught committed regressions here.
+cat >/dev/null 2>&1 || true
+cd "__GF_REPO_ROOT__" || {
+    echo "GodfreyHub pre-push gate: repository root not reachable: __GF_REPO_ROOT__" >&2
+    exit 1
+}
+echo 'GodfreyHub pre-push gate: npm test (tsc build + node --test)...'
+if ! npm test; then
+    echo 'GodfreyHub pre-push gate FAILED; push rejected.' >&2
+    exit 1
+fi
+echo 'GodfreyHub pre-push gate PASS.'

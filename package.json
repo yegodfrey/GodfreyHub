@@ -33,6 +33,7 @@
     "setup": "node scripts/setup.mjs",
     "test": "npm run build && node --test tests/*.test.mjs",
     "smoke": "node scripts/smoke.mjs",
+    "hooks:install": "pwsh -NoProfile -File scripts/install-git-hooks.ps1 -RepoRoot . -TemplateDir scripts/git-hooks",
     "hdk:index": "python hdk/hdk.py index",
     "hdk:reindex": "python hdk/hdk.py index --full",
     "hdk:crawl": "python hdk/hdk.py incremental",

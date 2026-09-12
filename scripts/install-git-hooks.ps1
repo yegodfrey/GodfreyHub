@@ -5,6 +5,11 @@
 # into <RepoRoot>/.git/hooks. Installation is content-compared, so re-running is a
 # no-op unless the template or the repo location changed. Hook policy belongs to the
 # calling repository; this script only owns the install mechanism.
+#
+# -RepoRoot is resolved to an absolute path before substitution: git invokes hooks
+# from a working directory that depends on how it was called (`git -C <dir> push`
+# is not the repo root), so a relative location would install a working hook that
+# breaks the moment anyone pushes from elsewhere.
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $true)][string]$RepoRoot,
@@ -18,6 +23,16 @@ $gitDir = Join-Path $RepoRoot '.git'
 if (-not (Test-Path -LiteralPath $gitDir -PathType Container)) {
     throw "install-git-hooks: not a git worktree: $RepoRoot"
 }
+# Substitute an absolute location into the templates (see the header note).
+$resolvedRepoRoot = Resolve-Path -LiteralPath $RepoRoot -ErrorAction SilentlyContinue |
+    Select-Object -First 1
+if ($null -eq $resolvedRepoRoot) {
+    throw "install-git-hooks: -RepoRoot disappeared during installation: $RepoRoot"
+}
+$RepoRoot = $resolvedRepoRoot.Path
+$resolvedTemplateDir = Resolve-Path -LiteralPath $TemplateDir -ErrorAction SilentlyContinue |
+    Select-Object -First 1
+if ($null -ne $resolvedTemplateDir) { $TemplateDir = $resolvedTemplateDir.Path }
 # core.hooksPath redirects hook lookup away from .git/hooks; installing there
 # would silently dead-end. Leave the configuration untouched and say so.
 $configuredHooksPath = & git -C $RepoRoot config core.hooksPath
