@@ -1023,6 +1023,20 @@ function Invoke-GfHypiumSuite {
         $result.Detail = 'Hypium quality suite did not emit measured stability metrics'
     }
 
+    # 设备拓扑类能力缺失：journey 出账 [GF_TEST_BLOCKED] 时按 blocked 归档，
+    # 不归咎应用、也不伪装通过——与 instrument 路径的 blocked-capability 同一口径。
+    $labCapabilityBlocked = [regex]::Match($outputText,
+        '\[GF_TEST_BLOCKED\]\s+capability=(?<capability>[A-Za-z0-9._-]+)(?:\s+reason=(?<reason>[^\r\n]+))?')
+    if ($labCapabilityBlocked.Success) {
+        $capability = $labCapabilityBlocked.Groups['capability'].Value
+        $reason = $labCapabilityBlocked.Groups['reason'].Value.Trim()
+        $result.Status = 'blocked'
+        $result.Failed = 0
+        $result.Detail = "capability not exercised: $capability$(if ($reason) { " ($reason)" })"
+        Write-Host "  BLOCKED   $($result.SuiteKey) - $($result.Detail)"
+        return $result
+    }
+
     $crash = $outputText -match 'appDied|ApplicationCrash|FATAL EXCEPTION|signal\s+\d+'
     if ($result.Detail -match '^invalid ') {
         $result.Status = 'failed'

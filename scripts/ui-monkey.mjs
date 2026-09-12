@@ -323,8 +323,13 @@ export function main(argv) {
     if (!page) {
       unknownSteps += 1;
       if (unknownSteps > args.maxUnknownSteps) {
+        const registered = registry.pages
+          .map((p) => p.identityAnchor !== undefined
+            ? `${p.id}#${p.identityAnchor}`
+            : `${p.id}#selected:${p.identitySelectedAnchor}`)
+          .join(", ");
         return `连续 ${unknownSteps} 步无法按身份锚点分类页面(白屏/未注册页面/系统页): ` +
-          `已注册身份锚点: ${registry.pages.map((p) => p.identityAnchor).join(", ")}`;
+          `已注册身份锚点: ${registered}`;
       }
       return null;
     }
@@ -363,15 +368,23 @@ export function main(argv) {
 
     // selected 能力探测(仅首步): 注册表声明了 nav selected 身份, 但本镜像的
     // dumpLayout 从不输出 selected=true 属性时, tab 页永远无法分类——与其每晚
-    // "无法分类"假违例, 不如启动即硬失败并给出可操作出路。首屏是应用主页面,
-    // 导航 tab 必然处于选中态, 单屏探测足以定性。
+    // "无法分类"假违例, 不如启动即硬失败并给出可操作出路。首屏未必稳定: 首启
+    // 浮层收起的过渡帧或应用冷启动首帧都可能尚未渲染导航选中态, 因此允许一次
+    // 有界重探, 仍无 selected=true 才定性为镜像能力缺失。
     if (!selectedCapabilityChecked) {
       selectedCapabilityChecked = true;
       const needsSelected = registry.pages.some((page) => page.identitySelectedAnchor !== undefined);
-      const sawSelectedTrue = [...layout.selectedById.values()].includes(true);
+      let sawSelectedTrue = [...layout.selectedById.values()].includes(true);
+      if (needsSelected && !sawSelectedTrue) {
+        Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, Math.max(args.settleMs, 1500));
+        try {
+          const retried = analyzeLayout(device.dumpLayout(layoutFile));
+          sawSelectedTrue = [...retried.selectedById.values()].includes(true);
+        } catch { /* 重探失败按无 selected 定性 */ }
+      }
       if (needsSelected && !sawSelectedTrue) {
         process.stderr.write(
-          "ui-monkey: 注册表声明了 identitySelectedAnchor, 但本镜像 dumpLayout 首屏未输出任何 selected=true 属性\n" +
+          "ui-monkey: 注册表声明了 identitySelectedAnchor, 但本镜像 dumpLayout 首屏(含一次重探)未输出任何 selected=true 属性\n" +
           "  (确认已用 dumpLayout -a; 若镜像不导出 selected, 改用 identityAnchor 内容身份)。\n");
         return 2;
       }
