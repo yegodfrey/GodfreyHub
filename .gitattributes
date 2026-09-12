@@ -1,0 +1,3 @@
+# POSIX sh 拒绝 CRLF，钩子模板必须在任何平台的检出处都是 LF
+# （install-git-hooks.ps1 写入前也会归一，这里保证直接查看/执行模板时同样可用）。
+scripts/git-hooks/* text eol=lf
