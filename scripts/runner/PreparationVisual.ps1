@@ -479,12 +479,11 @@ function Merge-GfMatrixDimensions {
 
 function Get-GfDeviceRequirement([object]$Suite) {
     $req = [GfDeviceRequirement]::new()
-    # 从 suite.device 读取显式要求
-    if ($Suite.PSObject.Properties.Name -contains 'device') {
-        $d = $Suite.device
-        if ($d.PSObject.Properties.Name -contains 'profile') { $req.Profile = [string]$d.profile }
-        if ($d.PSObject.Properties.Name -contains 'arch') { $req.Arch = [string]$d.arch }
-        if ($d.PSObject.Properties.Name -contains 'testmode') { $req.TestMode = [bool]$d.testmode }
+    # 能力即属性（支柱 2）：设备路由只求解 suite.capabilities，旧 device 块已删除。
+    if ($Suite.PSObject.Properties.Name -contains 'capabilities') {
+        $caps = $Suite.capabilities
+            if ($caps.PSObject.Properties.Name -contains 'testmode') { $req.TestMode = [bool]$caps.testmode }
+        if ($caps.PSObject.Properties.Name -contains 'profile') { $req.Profile = [string]$caps.profile }
     }
     # lane 默认路由：semantic-contract / visual-contract 需要 testmode 设备
     if ($Suite.lane -in @('semantic-contract', 'visual-contract')) { $req.TestMode = $true }

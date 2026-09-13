@@ -209,7 +209,7 @@ $poolFoldable.ProfileName = 'pura-x-view'; $poolFoldable.LandscapeSupported = $f
 $poolPhoneReq = [GfDeviceRequirement]::new(); $poolPhoneReq.Profile = 'mate-80-pro'; $poolPhoneReq.TestMode = $true
 $poolFoldableReq = Get-GfDeviceRequirement ([pscustomobject]@{
     id = 'universe-journey'; lane = 'semantic-contract'; layers = @('device')
-    device = [pscustomobject]@{ profile = 'pura-x-view'; testmode = $true }
+    capabilities = [pscustomobject]@{ profile = 'pura-x-view'; testmode = $true }
 })
 $unpinnedReq = [GfDeviceRequirement]::new(); $unpinnedReq.TestMode = $true
 Assert-GfSelfTest ((Test-GfDeviceMatches $poolPhone $poolPhoneReq) -and
@@ -368,7 +368,7 @@ try {
             id = "instrument-$($case.name)"
             lane = if ($case.expected -gt 0) { 'visual-contract' } else { 'semantic-contract' }
             layers = @('device', 'accessibility')
-            device = [pscustomobject]@{ testmode = $true }
+            capabilities = [pscustomobject]@{ testmode = $true }
             executor = [pscustomobject]$executor
         }
         $classNames = if ($case.expected -gt 0) {
@@ -401,14 +401,14 @@ try {
 
     $batchSuiteA = [pscustomobject]@{
         id = 'logical-a'; lane = 'semantic-contract'; layers = @('device')
-        device = [pscustomobject]@{ testmode = $true }
+        capabilities = [pscustomobject]@{ testmode = $true }
         executor = [pscustomobject]@{
             kind = 'godfreyhub'; mode = 'instrument'; testClasses = @('BatchAlphaContract')
         }
     }
     $batchSuiteB = [pscustomobject]@{
         id = 'logical-b'; lane = 'visual-contract'; layers = @('device', 'accessibility')
-        device = [pscustomobject]@{ testmode = $true }
+        capabilities = [pscustomobject]@{ testmode = $true }
         executor = [pscustomobject]@{
             kind = 'godfreyhub'; mode = 'instrument'; testClasses = @('BatchBetaContract')
             visualChecks = @([pscustomobject]@{
@@ -437,7 +437,7 @@ try {
 
     $partialSuiteA = [pscustomobject]@{
         id = 'partial-pass'; lane = 'visual-contract'; layers = @('device', 'accessibility')
-        device = [pscustomobject]@{ testmode = $true }
+        capabilities = [pscustomobject]@{ testmode = $true }
         executor = [pscustomobject]@{
             kind = 'godfreyhub'; mode = 'instrument'; testClasses = @('PartialAlphaContract')
             visualChecks = @([pscustomobject]@{
@@ -447,7 +447,7 @@ try {
     }
     $partialSuiteB = [pscustomobject]@{
         id = 'partial-fail'; lane = 'semantic-contract'; layers = @('device')
-        device = [pscustomobject]@{ testmode = $true }
+        capabilities = [pscustomobject]@{ testmode = $true }
         executor = [pscustomobject]@{
             kind = 'godfreyhub'; mode = 'instrument'; testClasses = @('PartialBetaContract')
         }
@@ -474,14 +474,14 @@ try {
         id = 'instrument-preparation-failure'
         lane = 'semantic-contract'
         layers = @('device', 'accessibility')
-        device = [pscustomobject]@{ testmode = $true }
+        capabilities = [pscustomobject]@{ testmode = $true }
         executor = $failureExecutor
     }
     $secondFailureSuite = [pscustomobject]@{
         id = 'instrument-preparation-failure-second'
         lane = 'semantic-contract'
         layers = @('device', 'accessibility')
-        device = [pscustomobject]@{ testmode = $true }
+        capabilities = [pscustomobject]@{ testmode = $true }
         executor = [pscustomobject]@{
             kind = 'godfreyhub'; mode = 'instrument'; testClasses = @('RunnerSecondFailureContract')
         }

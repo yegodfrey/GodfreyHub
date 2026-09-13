@@ -181,8 +181,18 @@ function Get-GfDeviceList {
         # Re-probing an already enabled target may briefly expose more than one
         # uitest PID while the old daemon exits. One or more numeric PIDs all
         # prove that the target can host the session.
+        # Some images textually accept `param set` while ignoring it, so the param/daemon
+        # probe alone can be fooled. Prove the real uitest stack with one dumpLayout:
+        # only a working Driver produces the output file. Device prerequisite failures
+        # discovered here keep the suite blocked instead of poisoning evidence with failed.
+        $dumpProbe = '/data/local/tmp/gf-testmode-probe.json'
+        & $hdc -t $serial shell "uitest dumpLayout -p $dumpProbe" 2>$null | Out-Null
+        Start-Sleep -Milliseconds 600
+        $dumpCheck = (& $hdc -t $serial shell "ls $dumpProbe 2>/dev/null" 2>$null | Out-String).Trim()
+        & $hdc -t $serial shell "rm -f $dumpProbe" 2>$null | Out-Null
         $dev.TestMode = ($probeRaw -match 'Set parameter persist\.ace\.testmode\.enabled 1 success' -and
-            $probeRaw -match '(?m)^\d+(?:\s+\d+)*\s*$')
+            $probeRaw -match '(?m)^\d+(?:\s+\d+)*\s*$' -and
+            $dumpCheck -match 'gf-testmode-probe\.json')
         # 模拟器判定
         $hwRaw = (& $hdc -t $serial shell param get const.product.hardwareversion 2>$null | Out-String).Trim()
         $deviceTypeRaw = (& $hdc -t $serial shell param get const.product.devicetype 2>$null | Out-String).Trim()

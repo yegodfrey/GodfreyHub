@@ -528,6 +528,14 @@ function Invoke-GfInstrumentSuite {
         $result.Status = 'blocked'
         $result.Detail = $systemUiPrerequisiteDetail
         $result.Failed = 0
+} elseif ($outputText -match 'Driver is unavailable|17000002') {
+    # Device prerequisite (testmode/UITest daemon) is not effective: the Driver is
+    # unavailable, so every class-level "failed" after it is untrustworthy. Record
+    # blocked per the family rule (device prerequisite missing) - never let environment
+    # noise masquerade as assertion failures and pollute the release zero-failure gate.
+    $result.Status = 'blocked'
+    $result.Detail = "device testmode prerequisite not effective: UITest Driver unavailable (17000002)"
+    $result.Failed = 0
     } elseif ($scopeFailures.Count -gt 0) {
         $result.Status = 'failed'
         $result.Detail = $scopeFailures -join '; '
@@ -597,7 +605,8 @@ function Invoke-GfInstrumentCampaign {
         id = 'instrument-campaign'
         lane = 'semantic-contract'
         layers = @($layers)
-        device = $firstSuite.device
+        # 能力即属性：campaign 的设备要求取成员套件中第一个声明 capabilities 的。
+        capabilities = ($capSuite = @($Suites | Where-Object { $_.PSObject.Properties.Name -contains "capabilities" }) | Select-Object -First 1).capabilities
         executor = [pscustomobject]@{
             kind = 'godfreyhub'
             mode = 'instrument'
