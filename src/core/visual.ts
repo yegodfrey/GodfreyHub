@@ -239,6 +239,87 @@ function roundedOutlineCheck(image: PNG, layout: any, rule: any): string | null 
     : `only ${rounded}/${requiredCorners} corners have a clear tip and a visible rounded outline arc`;
 }
 
+function linearizedLuma(pixel: Pixel): number {
+  const channel = (value: number): number => {
+    const c = value / 255;
+    return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+  };
+  return 0.2126 * channel(pixel.r) + 0.7152 * channel(pixel.g) + 0.0722 * channel(pixel.b);
+}
+
+function sampledLumas(image: PNG, left: number, top: number, right: number, bottom: number,
+  cap: number): number[] {
+  const width = Math.max(1, right - left);
+  const height = Math.max(1, bottom - top);
+  const step = Math.max(1, Math.floor(Math.sqrt((width * height) / cap)));
+  const lumas: number[] = [];
+  for (let y = top; y <= bottom; y += step) {
+    for (let x = left; x <= right; x += step) {
+      lumas.push(linearizedLuma(pixelAt(image, x, y)));
+    }
+  }
+  return lumas;
+}
+
+function percentileLuma(sorted: number[], fraction: number): number {
+  const index = Math.max(0, Math.min(sorted.length - 1, Math.round(sorted.length * fraction)));
+  return sorted[index];
+}
+
+/**
+ * C05 文字对比度探针：在锚点 bounds 内按亮度分位取文本/背景两极，
+ * 以 WCAG 相对亮度比断言最低对比度（正文 4.5:1，大字 3:1）。
+ */
+function contrastProbeCheck(image: PNG, layout: any, rule: any): string | null {
+  const match = rule?.match ?? {};
+  const node = findLayoutNode(layout, String(match.id ?? ""), match.exact !== false);
+  if (!node) return "semantic node is missing or not unique: " + String(match.id ?? "");
+  const bounds = parseBounds(node?.attributes?.bounds ?? node?.bounds);
+  if (!bounds) return "semantic node has invalid bounds: " + String(match.id ?? "");
+  const width = bounds.right - bounds.left;
+  const height = bounds.bottom - bounds.top;
+  if (width < 4 || height < 4) return "semantic node is too small for a contrast check";
+  const inset = Math.max(1, Math.min(width, height) * Number(rule.sampleInsetRatio ?? 0.06));
+  const lumas = sampledLumas(image,
+    Math.floor(bounds.left + inset), Math.floor(bounds.top + inset),
+    Math.ceil(bounds.right - inset), Math.ceil(bounds.bottom - inset), 4000);
+  if (lumas.length < 16) return "contrast probe sampled too few pixels";
+  lumas.sort((a, b) => a - b);
+  const dark = percentileLuma(lumas, 0.05);
+  const light = percentileLuma(lumas, 0.95);
+  const ratio = (light + 0.05) / (dark + 0.05);
+  const minRatio = Number(rule.minRatio ?? 4.5);
+  return ratio >= minRatio ? null
+    : `contrast ${ratio.toFixed(2)}:1 is below the required ${minRatio}:1 (p95 luma ${light.toFixed(3)}, p05 luma ${dark.toFixed(3)})`;
+}
+
+/**
+ * C09 暗色非空渲染探针：暗色变体必须真的是暗色、有渲染内容、且没有大面积纯白异常块。
+ */
+function darkRenderProbeCheck(image: PNG, rule: any): string | null {
+  const maxDarkMedianLuma = Number(rule.maxDarkMedianLuma ?? 0.2);
+  const minContentFraction = Number(rule.minContentFraction ?? 0.005);
+  const maxPureWhiteFraction = Number(rule.maxPureWhiteFraction ?? 0.02);
+  const pureWhiteLuma = Number(rule.pureWhiteLuma ?? 0.92);
+  const contentLumaDelta = Number(rule.contentLumaDelta ?? 0.06);
+  const lumas = sampledLumas(image, 0, 0, image.width - 1, image.height - 1, 20000);
+  if (lumas.length < 64) return "dark-render probe sampled too few pixels";
+  const sorted = [...lumas].sort((a, b) => a - b);
+  const median = percentileLuma(sorted, 0.5);
+  if (median > maxDarkMedianLuma) {
+    return `median luma ${median.toFixed(3)} exceeds the dark threshold ${maxDarkMedianLuma}`;
+  }
+  const content = lumas.filter((luma) => Math.abs(luma - median) > contentLumaDelta).length / lumas.length;
+  if (content < minContentFraction) {
+    return `only ${(content * 100).toFixed(2)}% of pixels carry content; the dark render looks empty`;
+  }
+  const pureWhite = lumas.filter((luma) => luma > pureWhiteLuma).length / lumas.length;
+  if (pureWhite > maxPureWhiteFraction) {
+    return `${(pureWhite * 100).toFixed(2)}% of pixels are near-white (limit ${maxPureWhiteFraction * 100}%); check the dark variant`;
+  }
+  return null;
+}
+
 function colorDominanceCheck(image: PNG, layout: any, rule: any): string | null {
   const match = rule?.match ?? {};
   const node = findLayoutNode(layout, String(match.id ?? ""), match.exact !== false);
@@ -338,10 +419,13 @@ export function compareVisualSpec(opts: {
   const roundedRules = Array.isArray(spec.roundedRectangles) ? spec.roundedRectangles : [];
   const roundedOutlineRules = Array.isArray(spec.roundedOutlines) ? spec.roundedOutlines : [];
   const colorProbeRules = Array.isArray(spec.colorProbes) ? spec.colorProbes : [];
+  const contrastProbeRules = Array.isArray(spec.contrastProbes) ? spec.contrastProbes : [];
+  const darkRenderRules = Array.isArray(spec.darkRenderProbes) ? spec.darkRenderProbes : [];
   const containmentRules = Array.isArray(spec.layoutContainments) ? spec.layoutContainments : [];
   const separationRules = Array.isArray(spec.layoutSeparations) ? spec.layoutSeparations : [];
   const needsLayout = roundedRules.length > 0 || roundedOutlineRules.length > 0 ||
-    colorProbeRules.length > 0 || containmentRules.length > 0 || separationRules.length > 0;
+    colorProbeRules.length > 0 || contrastProbeRules.length > 0 ||
+    containmentRules.length > 0 || separationRules.length > 0;
   if (needsLayout && !opts.layoutPath) {
     throw new Error("rendered shape, color, and layout checks require layoutPath");
   }
@@ -360,6 +444,16 @@ export function compareVisualSpec(opts: {
     checks++;
     const message = colorDominanceCheck(actual, layout, rule);
     if (message) issues.push({ id: String(rule.id ?? "color-probe"), message });
+  }
+  for (const rule of contrastProbeRules) {
+    checks++;
+    const message = contrastProbeCheck(actual, layout, rule);
+    if (message) issues.push({ id: String(rule.id ?? "contrast-probe"), message });
+  }
+  for (const rule of darkRenderRules) {
+    checks++;
+    const message = darkRenderProbeCheck(actual, rule);
+    if (message) issues.push({ id: String(rule.id ?? "dark-render-probe"), message });
   }
   for (const rule of containmentRules) {
     checks++;

@@ -235,3 +235,109 @@ test("layout separation rejects title and search bounds that overlap", () => {
   assert.equal(overlapping.status, "failed");
   assert.match(overlapping.issues[0].message, /overlap/);
 });
+
+// ── C05 contrastProbes：正样本(高对比文字)过，负样本(低对比文字)红 ──────────────
+function writeContrastPng(file, lowContrast) {
+  const image = new PNG({ width: 80, height: 50 });
+  for (let y = 0; y < image.height; y++) {
+    for (let x = 0; x < image.width; x++) {
+      const i = (y * image.width + x) * 4;
+      const insideBox = x >= 10 && x < 70 && y >= 10 && y < 40;
+      const textPixel = insideBox && y >= 22 && y < 28 && x >= 16 && x < 64;
+      // 背景 240 灰；文字为深灰(高对比)或中灰(低对比)。
+      const value = textPixel ? (lowContrast ? 200 : 20) : 240;
+      image.data[i] = value;
+      image.data[i + 1] = value;
+      image.data[i + 2] = value;
+      image.data[i + 3] = 255;
+    }
+  }
+  fs.writeFileSync(file, PNG.sync.write(image));
+}
+
+test("contrast probes pass high-contrast text and reject low-contrast text", () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-visual-contrast-"));
+  const layout = path.join(root, "layout.json");
+  const spec = path.join(root, "spec.json");
+  fs.writeFileSync(layout, JSON.stringify({
+    attributes: { id: "root", bounds: "[0,0][80,50]" },
+    children: [{ attributes: { id: "home.title", bounds: "[10,10][70,40]" }, children: [] }],
+  }));
+  fs.writeFileSync(spec, JSON.stringify({
+    schemaVersion: 1,
+    contrastProbes: [{
+      id: "title-contrast", match: { id: "home.title", exact: true },
+      minRatio: 4.5,
+    }],
+  }));
+  const good = path.join(root, "good.png");
+  const bad = path.join(root, "bad.png");
+  writeContrastPng(good, false);
+  writeContrastPng(bad, true);
+  const passing = compareVisualSpec({
+    specPath: spec, actualPath: good, layoutPath: layout,
+    outputDir: path.join(root, "good-report"),
+  });
+  assert.equal(passing.status, "passed", JSON.stringify(passing.issues));
+  const failing = compareVisualSpec({
+    specPath: spec, actualPath: bad, layoutPath: layout,
+    outputDir: path.join(root, "bad-report"),
+  });
+  assert.equal(failing.status, "failed");
+  assert.match(failing.issues[0].message, /contrast .* is below the required/);
+});
+
+// ── C09 darkRenderProbes：暗色非空过，纯黑洞(无内容)与大面积纯白都红 ────────────
+function writeDarkPng(file, variant) {
+  const image = new PNG({ width: 80, height: 50 });
+  for (let y = 0; y < image.height; y++) {
+    for (let x = 0; x < image.width; x++) {
+      const i = (y * image.width + x) * 4;
+      // 背景近黑；variant=empty 全黑无内容，variant=white 大面积纯白。
+      let value = 8;
+      if (variant === "content" && x >= 30 && x < 50 && y >= 20 && y < 30) value = 120;
+      if (variant === "white") value = 255;
+      image.data[i] = value;
+      image.data[i + 1] = value;
+      image.data[i + 2] = value;
+      image.data[i + 3] = 255;
+    }
+  }
+  fs.writeFileSync(file, PNG.sync.write(image));
+}
+
+test("dark render probes accept dark content and reject void or white-flash renders", () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-visual-dark-"));
+  const spec = path.join(root, "spec.json");
+  fs.writeFileSync(spec, JSON.stringify({
+    schemaVersion: 1,
+    darkRenderProbes: [{ id: "dark-non-empty" }],
+  }));
+  const run = (name, variant) => compareVisualSpec({
+    specPath: spec, actualPath: path.join(root, `${name}.png`),
+    outputDir: path.join(root, `${name}-report`),
+  });
+  fs.writeFileSync(path.join(root, "content.png"), (() => {
+    const image = new PNG({ width: 80, height: 50 });
+    writeDarkPng(path.join(root, "content.png"), "content");
+    return fs.readFileSync(path.join(root, "content.png"));
+  })());
+  const content = run("content");
+  assert.equal(content.status, "passed", JSON.stringify(content.issues));
+
+  fs.writeFileSync(path.join(root, "void.png"), (() => {
+    writeDarkPng(path.join(root, "void.png"), "empty");
+    return fs.readFileSync(path.join(root, "void.png"));
+  })());
+  const voided = run("void");
+  assert.equal(voided.status, "failed");
+  assert.match(voided.issues[0].message, /looks empty/);
+
+  fs.writeFileSync(path.join(root, "white.png"), (() => {
+    writeDarkPng(path.join(root, "white.png"), "white");
+    return fs.readFileSync(path.join(root, "white.png"));
+  })());
+  const white = run("white");
+  assert.equal(white.status, "failed");
+  assert.match(white.issues[0].message, /median luma|near-white/);
+});

@@ -101,7 +101,7 @@ export function declaredSpecAnchors(spec: unknown): string[] {
     const value = record[key];
     if (Array.isArray(value)) for (const item of value) fn(item);
   };
-  for (const key of ["roundedRectangles", "roundedOutlines", "colorProbes", "layoutContainments"]) {
+  for (const key of ["roundedRectangles", "roundedOutlines", "colorProbes", "contrastProbes", "layoutContainments"]) {
     collectArray(key, (rule) => collectMatch((rule as Record<string, unknown> | undefined)?.match));
   }
   collectArray("layoutSeparations", (rule) => {
