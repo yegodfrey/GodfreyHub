@@ -419,6 +419,12 @@ function ConvertTo-GfVisualMatrixDimensions {
             '^wide-viewport$'      { $dimension = 'windowClasses'; $value = 'expanded' }
             '^fresh-(home|today)$' { $dimension = 'dataStates';    $value = 'empty' }
             '^seeded-'             { $dimension = 'dataStates';    $value = 'typical' }
+            '^fs085-'              { $dimension = 'fontScale';     $value = '0.85' }
+            '^fs100-'              { $dimension = 'fontScale';     $value = '1.0' }
+            '^fs130-'              { $dimension = 'fontScale';     $value = '1.3' }
+            '^fs175-'              { $dimension = 'fontScale';     $value = '1.75' }
+            '^fs200-'              { $dimension = 'fontScale';     $value = '2.0' }
+            '^fs320-'              { $dimension = 'fontScale';     $value = '3.2' }
         }
         if ($dimension) {
             if (-not $dims.ContainsKey($dimension)) {
@@ -447,7 +453,7 @@ function ConvertTo-GfVisualMatrixDimensions {
 function Merge-GfMatrixDimensions {
     param([object[]]$Sources)
     $dimensions = @('deviceClasses', 'windowClasses',
-        'themes', 'locales', 'networks', 'dataStates')
+        'themes', 'locales', 'networks', 'dataStates', 'fontScale')
     $all = [ordered]@{}
     foreach ($dimension in $dimensions) {
         $all[$dimension] = [Collections.Generic.List[string]]::new()
