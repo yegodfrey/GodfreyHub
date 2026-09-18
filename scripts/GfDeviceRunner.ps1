@@ -65,6 +65,9 @@ class GfDeviceRunResult {
     [object]$StabilityMetrics
     [object[]]$ClosureEvidence = @()
     [object[]]$BlockedCapabilityEvidence = @()
+    # 渲染侧探针在本设备上量出的溢出锚点（GF_TEXT_OVERFLOW）。必须显式声明成类型成员：
+    # PowerShell 类拒绝给实例赋未声明属性，SuiteInstrument 里那一行赋值只在跑到时才炸。
+    [string[]]$TextTruncationAnchors = @()
     [object[]]$VisualEvidence = @()
     [object[]]$FailureEvidence = @()
     [object[]]$ClassResults = @()
