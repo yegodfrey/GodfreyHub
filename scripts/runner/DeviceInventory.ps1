@@ -125,6 +125,20 @@ function Get-GfBlockedCapabilityDetail([object[]]$Entries) {
     }) -join ', '
 }
 
+# 渲染侧文本探针的溢出报警（gfkit GfText 在 App 进程里量到"这一行放不下"）：
+# GF_TEXT_OVERFLOW:<anchor>:<text>。截断既不改变 bounds 也不进 AX 文本（实测 5855 个文本节点
+# text!==originalText 命中 0），除这条标记外没有任何车道看得见它，所以它必须能单独把一次
+# 运行判成失败——与 GF_UI_CLOSURE / [GF_TEST_BLOCKED] 同一族设备标记词汇。
+function Get-GfTextTruncationAnchors([string]$OutputText) {
+    $anchors = [Collections.Generic.List[string]]::new()
+    foreach ($line in @([string]$OutputText -split '\r?\n')) {
+        $match = [regex]::Match($line,
+            'GF_TEXT_OVERFLOW:(?<anchor>[A-Za-z0-9][A-Za-z0-9._:-]{0,127}):')
+        if ($match.Success) { $anchors.Add($match.Groups['anchor'].Value) }
+    }
+    return @($anchors | Sort-Object -Unique)
+}
+
 function Get-GfHdcTargetSerials([string]$Hdc) {
     for ($attempt = 1; $attempt -le 3; $attempt++) {
         $raw = @(& $Hdc list targets 2>&1)

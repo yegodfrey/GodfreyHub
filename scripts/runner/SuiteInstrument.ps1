@@ -514,6 +514,15 @@ function Invoke-GfInstrumentSuite {
     $blockedCapabilities = @(Get-GfBlockedCapabilityEvidence $outputText)
     $result.BlockedCapabilityEvidence = @($blockedCapabilities)
 
+    # 渲染侧探针报警：一次运行哪怕用例全绿，只要屏幕上量出"这一行放不下"就是不成立的交付。
+    # 它必须在 Hub 执行器这一层也判得动——否则从 hub_test 直跑的车道会把截断读成通过。
+    $truncationAnchors = @(Get-GfTextTruncationAnchors $outputText)
+    $result.TextTruncationAnchors = @($truncationAnchors)
+    $truncationSuffix = ''
+    if ($truncationAnchors.Count -gt 0) {
+        $truncationSuffix = " [text truncated per rendering-side probe: $($truncationAnchors -join ', ')]"
+    }
+
     # aa test 的退出码、Tests run 汇总与 Failure/Error 是 instrument 的权威结果。
     # 测试 Ability 正常结束也会产生 HandleAppDied；不得把进程生命周期收尾误报为崩溃。
     if ($markerError) {
@@ -526,7 +535,7 @@ function Invoke-GfInstrumentSuite {
         # interaction contract unobservable. Keep this as an actionable device prerequisite;
         # never blame the app or silently accept system onboarding on the user's behalf.
         $result.Status = 'blocked'
-        $result.Detail = $systemUiPrerequisiteDetail
+        $result.Detail = "$systemUiPrerequisiteDetail$truncationSuffix"
         $result.Failed = 0
 } elseif ($outputText -match 'Driver is unavailable|17000002') {
     # Device prerequisite (testmode/UITest daemon) is not effective: the Driver is
@@ -534,8 +543,13 @@ function Invoke-GfInstrumentSuite {
     # blocked per the family rule (device prerequisite missing) - never let environment
     # noise masquerade as assertion failures and pollute the release zero-failure gate.
     $result.Status = 'blocked'
-    $result.Detail = "device testmode prerequisite not effective: UITest Driver unavailable (17000002)"
+    $result.Detail = "device testmode prerequisite not effective: UITest Driver unavailable (17000002)$truncationSuffix"
     $result.Failed = 0
+    } elseif ($truncationAnchors.Count -gt 0) {
+        # 环境没有被阻塞、标记却是设备真测出来的：这就是产品缺陷，优先级排在用例计数之前。
+        $result.Status = 'failed'
+        $result.Detail = "text truncated per rendering-side probe: $($truncationAnchors -join ', ')"
+        $result.Failed = [Math]::Max($result.Failed, 1)
     } elseif ($scopeFailures.Count -gt 0) {
         $result.Status = 'failed'
         $result.Detail = $scopeFailures -join '; '
