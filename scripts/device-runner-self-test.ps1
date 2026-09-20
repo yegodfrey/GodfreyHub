@@ -434,6 +434,83 @@ try {
         'logical suite evidence must identify the single campaign preparation owner and reuse.'
     Assert-GfSelfTest (@($batchResults[1].VisualEvidence).Count -eq 1) `
         'batched visual evidence must be attributed to its logical suite.'
+    # The batch suites above declare no timeoutSec, so the campaign must have taken the
+    # legacy per-class allowance AND said so in the retained log: §E-3 option A keeps the
+    # old formula as the fallback but forbids it from being silent.
+    $batchBudgetLog = Get-Content -Raw -LiteralPath $batchResults[0].LogPath
+    Assert-GfSelfTest ($batchBudgetLog -match 'BUDGET FALLBACK[^\r\n]*logical-a, logical-b') `
+        'a campaign whose suites declare nothing must name the suites that fell back to per-class pricing.'
+    # 2 classes in the run + 600s start margin: exactly what the pre-§E-3 formula granted.
+    Assert-GfSelfTest ($batchBudgetLog -match 'granted=960s') `
+        'the no-declaration fallback must still grant the old class-count number (positive control).'
+
+    # ---- campaign budget: the handed-in declarations ARE the budget (§E-3 option A) ----
+    function Get-GfLegacyBudgetForTest([int]$ClassCount) {
+        return [Math]::Min(14400, 600 + 180 * [Math]::Max(1, $ClassCount))
+    }
+    $declaredBudgetSuites = @(
+        [pscustomobject]@{ id = 'declared-a'; timeoutSec = 2000
+            executor = [pscustomobject]@{ testClasses = @('BudgetAlphaContract') } },
+        [pscustomobject]@{ id = 'declared-b'; timeoutSec = 3000
+            executor = [pscustomobject]@{ testClasses = @('BudgetBetaContract', 'BudgetGammaContract') } }
+    )
+    $declaredBudget = Get-GfInstrumentCampaignBudget -Suites $declaredBudgetSuites -RunClassCount 3
+    Assert-GfSelfTest ($declaredBudget.BudgetSec -eq 5600 -and $declaredBudget.DeclaredSec -eq 5000 -and
+        $declaredBudget.FallbackSec -eq 0) `
+        "a declared run must be granted 600 + the declared sum, got $($declaredBudget.BudgetSec)"
+    Assert-GfSelfTest ($declaredBudget.BudgetSec -gt (Get-GfLegacyBudgetForTest 3)) `
+        'positive control: a declared sum above the class-count allowance must buy the larger deadline.'
+    Assert-GfSelfTest (@($declaredBudget.FallbackSuiteKeys).Count -eq 0) `
+        'a fully declared run must not report any fallback suite.'
+    $silentSuites = @($declaredBudgetSuites | ForEach-Object {
+        [pscustomobject]@{ id = $_.id; executor = $_.executor }
+    })
+    $legacyBudget = Get-GfInstrumentCampaignBudget -Suites $silentSuites -RunClassCount 3
+    Assert-GfSelfTest ($legacyBudget.BudgetSec -eq (Get-GfLegacyBudgetForTest 3)) `
+        "positive control: the same run without any declaration must still get the old number, got $($legacyBudget.BudgetSec)."
+    Assert-GfSelfTest ((@($legacyBudget.FallbackSuiteKeys) -join ',') -eq 'declared-a,declared-b') `
+        'the fallback must name every suite it priced by class count.'
+    $mixedBudget = Get-GfInstrumentCampaignBudget -Suites @($declaredBudgetSuites[0], $silentSuites[1]) -RunClassCount 3
+    Assert-GfSelfTest ($mixedBudget.DeclaredSec -eq 2000 -and $mixedBudget.FallbackSec -eq 360 -and
+        $mixedBudget.BudgetSec -eq 2960) `
+        "a half-declared run must pay declared + 180/class for the silent suite(s), got $($mixedBudget.BudgetSec)"
+    Assert-GfSelfTest ((@($mixedBudget.FallbackSuiteKeys) -join ',') -eq 'declared-b') `
+        'the mixed run must name only the suite that fell back.'
+    $overclaimBudget = Get-GfInstrumentCampaignBudget -Suites @(
+        [pscustomobject]@{ id = 'huge'; timeoutSec = 20000; executor = [pscustomobject]@{ testClasses = @('X') } }
+    ) -RunClassCount 1
+    Assert-GfSelfTest ($overclaimBudget.BudgetSec -eq 14400 -and $overclaimBudget.CapApplied) `
+        'an over-claiming declaration is capped, and the cap must be reported as applied.'
+    $emptyRunBudget = Get-GfInstrumentCampaignBudget -Suites @() -RunClassCount 4
+    Assert-GfSelfTest ($emptyRunBudget.BudgetSec -eq 1320) `
+        'a run handed no suites at all must degrade to the old class-count formula.'
+
+    # Behavioral half: a real campaign run must grant from the member declarations and log it.
+    $budgetSuiteA = [pscustomobject]@{
+        id = 'budget-declared-a'; lane = 'semantic-contract'; layers = @('device')
+        timeoutSec = 2000
+        capabilities = [pscustomobject]@{ testmode = $true }
+        executor = [pscustomobject]@{
+            kind = 'godfreyhub'; mode = 'instrument'; testClasses = @('BudgetDeclaredAlpha')
+        }
+    }
+    $budgetSuiteB = [pscustomobject]@{
+        id = 'budget-declared-b'; lane = 'semantic-contract'; layers = @('device')
+        timeoutSec = 3000
+        capabilities = [pscustomobject]@{ testmode = $true }
+        executor = [pscustomobject]@{
+            kind = 'godfreyhub'; mode = 'instrument'; testClasses = @('BudgetDeclaredBeta')
+        }
+    }
+    $budgetCampaignResults = @(Invoke-GfInstrumentCampaign -AppName 'BudgetSelfTest' `
+        -Suites @($budgetSuiteA, $budgetSuiteB) -BundleName 'com.example.budget' `
+        -AppRoot $tempRoot -PlatformRoot $tempRoot -ArtifactRoot $tempRoot -Devices @($device))
+    $budgetCampaignLog = Get-Content -Raw -LiteralPath $budgetCampaignResults[0].LogPath
+    # 2 declared classes cost 960s under the old formula; the declarations buy 5600s instead.
+    Assert-GfSelfTest ($budgetCampaignLog -match 'granted=5600s.*declared 5000s') `
+        'a physical campaign must grant the declaration-driven deadline it was handed, not the class-count one.'
+    Assert-GfSelfTest ($budgetCampaignLog -notmatch 'BUDGET FALLBACK') `
+        'a fully declared campaign must not report a fallback.'
 
     $partialSuiteA = [pscustomobject]@{
         id = 'partial-pass'; lane = 'visual-contract'; layers = @('device', 'accessibility')

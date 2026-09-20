@@ -1,4 +1,80 @@
 ﻿# GfDeviceRunner 分块 5/5: ArkTS instrument 套件/campaign 与 Hypium 业务旅程执行器。
+
+function Get-GfInstrumentCampaignBudget {
+    <#
+      campaign 总截止的预算来源（Docs/OPEN_ITEMS_LEDGER.md §E-3 裁决 A：声明即预算）。
+      旧实现只看类数 min(14400, 600 + 180 × 类数)，于是注册表里逐家写的 timeoutSec
+      在执行面上什么都不买——§E-3 记的正是这条背离（六家声明之和普遍是被授予预算的
+      1.1~7.4 倍，"调了但不生效"）。裁决 A 把预算改为由**递进来的声明**决定：
+
+          granted = min(CAP, BASE + Σ timeoutSec(带声明的套件) + 180 × 未声明套件的类数)
+
+      一条声明都没带时退回旧公式（逐项相等，含"整场实际跑了多少类"这个口径），这是
+      本函数的正对照契约；部分套件带声明时，未声明的那些仍按旧的 180s/类计价，但
+      哪些套件走了兜底必须被点名（FallbackSuiteKeys）——静默兜底就是下一个 §E-3。
+      声明之和撞上 CAP 时 CapApplied 为真：多写的秒数确实不生效。家族侧
+      family/validate-family-tests.ps1 拒绝这种清单，但它的判据不是"声明 ≤ 实获"——
+      实获额现在由声明派生，"声明 ≤ min(CAP, BASE + Σ 声明)" 对任何非负声明恒真，是
+      条空判据（写它就是在造下一个 §E-3 的假牙）。可强制的两条是：一场 App 的声明之和
+      减去 BASE 必须留在 CAP 之内（超出部分被 min() 砍掉，即"调了但不生效"），且没有
+      任何套件能声明超过其测量需求的秒数。
+      三个常量与 Docs/OPEN_ITEMS_LEDGER.md §E-3 同口径；GFSoftware 侧的等额判据在
+      family/validate-family-tests.ps1，两者由 family/tests/campaign-budget.test.mjs
+      逐字对账，任一侧改了常数不通知另一侧就红。
+    #>
+    [CmdletBinding()]
+    param(
+        [object[]]$Suites = @(),
+        [int]$RunClassCount = 0
+    )
+
+    $capSec = 14400
+    $baseSec = 600
+    $fallbackPerClassSec = 180
+
+    $declaredSec = 0
+    $fallbackKeys = [Collections.Generic.List[string]]::new()
+    $fallbackClassCount = 0
+    foreach ($suite in @($Suites)) {
+        if ($null -eq $suite) { continue }
+        $declaredValues = @(Get-GfCollectionProperty -InputObject $suite -Name 'timeoutSec')
+        $declared = 0
+        if ($declaredValues.Count -gt 0) { $declared = [int]$declaredValues[0] }
+        if ($declared -gt 0) {
+            $declaredSec += $declared
+            continue
+        }
+        $idValues = @(Get-GfCollectionProperty -InputObject $suite -Name 'id')
+        $fallbackKeys.Add($(if ($idValues.Count -gt 0) { [string]$idValues[0] } else { '(unnamed suite)' }))
+        $executor = @(Get-GfCollectionProperty -InputObject $suite -Name 'executor') | Select-Object -First 1
+        # 未声明的套件按它自己带来的类数收旧价：兜底不是免费的，它正是 §E-3 里
+        # "声明与真约束系统性背离"的那半边。
+        $fallbackClassCount += [Math]::Max(1, @(Get-GfCollectionProperty -InputObject $executor -Name 'testClasses').Count)
+    }
+
+    $chargedFallbackClasses = 0
+    if ($declaredSec -eq 0) {
+        if (@($Suites).Count -eq 0) { $fallbackKeys.Add('(no suites handed to the run)') }
+        $chargedFallbackClasses = [Math]::Max(1, $(if ($RunClassCount -gt 0) { $RunClassCount } else { $fallbackClassCount }))
+    } elseif ($fallbackKeys.Count -gt 0) {
+        $chargedFallbackClasses = $fallbackClassCount
+    }
+
+    $fallbackSec = $fallbackPerClassSec * $chargedFallbackClasses
+    $uncappedSec = $baseSec + $declaredSec + $fallbackSec
+    [pscustomobject]@{
+        CapSec            = $capSec
+        BaseSec           = $baseSec
+        PerClassFallbackSec = $fallbackPerClassSec
+        DeclaredSec       = $declaredSec
+        FallbackSec       = $fallbackSec
+        FallbackSuiteKeys = @($fallbackKeys)
+        UncappedSec       = $uncappedSec
+        CapApplied        = $uncappedSec -gt $capSec
+        BudgetSec         = [Math]::Min($capSec, $uncappedSec)
+    }
+}
+
 function Invoke-GfInstrumentSuite {
     param(
         [string]$SuiteKey,
@@ -18,7 +94,10 @@ function Invoke-GfInstrumentSuite {
         [object[]]$UiDevicePool = @(),
         [switch]$ColdStart,
         [string]$AnchorRulePath = '',
-        [string]$UiAuditScript = ''
+        [string]$UiAuditScript = '',
+        # 聚合 campaign 把它的成员套件原样递进来：campaign 只有一条合成套件
+        # （'instrument-campaign'），它自己没有 timeoutSec，预算必须由成员声明之和决定。
+        [object[]]$FundingSuites = @()
     )
 
     $suiteWatch = [Diagnostics.Stopwatch]::StartNew()
@@ -187,10 +266,31 @@ function Invoke-GfInstrumentSuite {
             } catch { $scopeProc = $null }
             # campaign 总截止: 设备掉线/USB 卡死会让 aa test 永不退出, 过去轮询无限
             # 自旋且一直持有设备租约, 其他等锁方要熬满互斥体超时(6 小时)。
-            # 预算 = 类数 × 单类上限(-s timeout 120000)+ 启动/部署余量, 上限 4 小时。
+            # 预算 = 递进来的 timeoutSec 声明之和（§E-3 裁决 A：声明即预算）；没带声明的
+            # 套件才退回旧的 类数 × 单类上限(-s timeout 120000)+ 启动/部署余量，上限 4 小时。
             $campaignTimedOut = $false
-            $campaignDeadline = (Get-Date).AddSeconds(
-                [Math]::Min(14400, 600 + 180 * [Math]::Max(1, $runClasses.Count)))
+            $budgetSuites = @($FundingSuites)
+            if ($budgetSuites.Count -eq 0) { $budgetSuites = @($Suite) }
+            $campaignBudget = Get-GfInstrumentCampaignBudget -Suites $budgetSuites `
+                -RunClassCount $runClasses.Count
+            $budgetLine = "campaign budget: granted=$($campaignBudget.BudgetSec)s of cap $($campaignBudget.CapSec)s " +
+                "(base $($campaignBudget.BaseSec)s + declared $($campaignBudget.DeclaredSec)s " +
+                "+ per-class fallback $($campaignBudget.FallbackSec)s)"
+            Write-Host "  BUDGET    $SuiteKey - $budgetLine"
+            $testOutput.Add("===== $budgetLine =====")
+            if (@($campaignBudget.FallbackSuiteKeys).Count -gt 0) {
+                # 兜底必须吵：静默按类数计价就是 §E-3 的复发形态。
+                $fallbackDetail = @($campaignBudget.FallbackSuiteKeys) -join ', '
+                Write-Warning "  BUDGET FALLBACK $SuiteKey - suite(s) declare no timeoutSec, charged $($campaignBudget.PerClassFallbackSec)s/class instead: $fallbackDetail"
+                $testOutput.Add("===== BUDGET FALLBACK (declared budget not used): $fallbackDetail " +
+                    "charged $($campaignBudget.PerClassFallbackSec)s x classes = $($campaignBudget.FallbackSec)s =====")
+            }
+            if ($campaignBudget.CapApplied) {
+                # 声明之和超出上限：多出来的秒数确实不生效（"调了但不生效"），点名它。
+                Write-Warning "  BUDGET CAP $SuiteKey - declared budget needs $($campaignBudget.UncappedSec)s but the ceiling is $($campaignBudget.CapSec)s; $($campaignBudget.UncappedSec - $campaignBudget.CapSec)s of declarations are NOT granted"
+                $testOutput.Add("===== BUDGET CAP APPLIED: needs $($campaignBudget.UncappedSec)s, granted $($campaignBudget.BudgetSec)s =====")
+            }
+            $campaignDeadline = (Get-Date).AddSeconds($campaignBudget.BudgetSec)
             $visualCaptures = @{}
             $evidenceCaptures = @{}
             if ($null -ne $scopeProc) {
@@ -636,7 +736,8 @@ function Invoke-GfInstrumentCampaign {
         -Suite $campaignSuite -BundleName $BundleName -TestClasses @($classNames) `
         -AppRoot $AppRoot -PlatformRoot $PlatformRoot -ArtifactDir $campaignArtifactDir -Devices $Devices `
         -DeviceProfile $DeviceProfile -CandidateId $CandidateId -UiDevicePool $UiDevicePool `
-        -AnchorRulePath $AnchorRulePath -UiAuditScript $UiAuditScript -ColdStart:$campaignCold
+        -AnchorRulePath $AnchorRulePath -UiAuditScript $UiAuditScript -ColdStart:$campaignCold `
+        -FundingSuites @($Suites)
 
     $failedClassNames = @($aggregate.ClassResults | Where-Object { [string]$_.status -eq 'failed' } |
         ForEach-Object { [string]$_.name })
