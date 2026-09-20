@@ -720,6 +720,120 @@ try {
 
     $script:GfFakeBundleInstalled = $true
     $Global:GfReusePrepare = $false
+
+    # ---- uitest daemon mid-lease recovery (exactly one restart per capture) ----
+    # 实测场景：应用内 uitest daemon 在长租约中途死掉后，此后每个检查点的
+    # screenCap/dumpLayout 都立刻 [Fail]，一场 campaign 只剩"零捕获尸体"。
+    # 这里只用合成输入验证恢复通道：一次重启、只重试失败的那一步、
+    # 第二次失败必须终止（绝不成环），且结果三态可被家族侧读到。
+    $script:GfDaemonRecoveryCommands = [Collections.Generic.List[string]]::new()
+    $script:GfDaemonRecoveryMarkerName = ''
+    $script:GfDaemonRecoveryScreenCapFailures = 0
+    $script:GfDaemonRecoveryDumpFailures = 0
+    function Invoke-GfDaemonRecoveryHilog {
+        param([Parameter(ValueFromRemainingArguments = $true)][object[]]$Arguments)
+        Write-Output ('[GFVISUAL_CHECKPOINT] {"name":"' + $script:GfDaemonRecoveryMarkerName +
+            '","anchors":["anchor-a"]}')
+    }
+    function Invoke-GfDaemonRecoveryHdcChecked {
+        param([Parameter(ValueFromRemainingArguments = $true)][object[]]$Arguments)
+        $joined = ($Arguments | ForEach-Object { [string]$_ }) -join ' '
+        $script:GfDaemonRecoveryCommands.Add($joined)
+        $global:LASTEXITCODE = 0
+        if ($joined -cmatch 'uitest start-daemon') { return @('uitest daemon started') }
+        if ($joined -cmatch 'uitest screenCap') {
+            $ordinal = @($script:GfDaemonRecoveryCommands | Where-Object { $_ -cmatch 'uitest screenCap' }).Count
+            if ($ordinal -le $script:GfDaemonRecoveryScreenCapFailures) {
+                throw 'GfDeviceRunner: hdc uitest screenCap failed on synthetic-lane: [Fail]'
+            }
+            return @('screenCap success')
+        }
+        if ($joined -cmatch 'uitest dumpLayout') {
+            $ordinal = @($script:GfDaemonRecoveryCommands | Where-Object { $_ -cmatch 'uitest dumpLayout' }).Count
+            if ($ordinal -le $script:GfDaemonRecoveryDumpFailures) {
+                throw 'GfDeviceRunner: hdc uitest dumpLayout failed on synthetic-lane: [Fail]'
+            }
+            return @('dumpLayout success')
+        }
+        if ($joined -match 'file recv') {
+            if ($joined -match 'file recv (\S+) (\S+)') {
+                $target = $Matches[2]
+                [IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($target)) | Out-Null
+                if ($target -match '\.json$') {
+                    [IO.File]::WriteAllText($target, '{"elements":[{"id":"anchor-a"}]}')
+                } else {
+                    [IO.File]::WriteAllText($target, 'synthetic-png-bytes')
+                }
+            }
+            return @('FileTransferFinish')
+        }
+        return @()
+    }
+    function Invoke-GfDaemonRecoveryCase {
+        param([string]$CaseName, [int]$ScreenCapFailures, [int]$DumpFailures)
+        $script:GfDaemonRecoveryCommands = [Collections.Generic.List[string]]::new()
+        $script:GfDaemonRecoveryMarkerName = $CaseName
+        $script:GfDaemonRecoveryScreenCapFailures = $ScreenCapFailures
+        $script:GfDaemonRecoveryDumpFailures = $DumpFailures
+        $captures = @{}
+        $sink = [Collections.Generic.List[string]]::new()
+        Invoke-GfVisualMarkerSweep -Hdc 'Invoke-GfDaemonRecoveryHilog' -Serial $device.Serial `
+            -ArtifactDir (Join-Path $tempRoot "daemon-recovery-$CaseName") -Captures $captures -Sink $sink
+        return [pscustomobject]@{
+            Capture = $captures[$CaseName]
+            Sink = ($sink -join "`n")
+            Restarts = @($script:GfDaemonRecoveryCommands | Where-Object { $_ -cmatch 'uitest start-daemon' }).Count
+            ScreenCaps = @($script:GfDaemonRecoveryCommands | Where-Object { $_ -cmatch 'uitest screenCap' }).Count
+            Dumps = @($script:GfDaemonRecoveryCommands | Where-Object { $_ -cmatch 'uitest dumpLayout' }).Count
+        }
+    }
+    $gfHdcCheckedOriginal = (Get-Item -LiteralPath function:\Invoke-GfHdcChecked).ScriptBlock
+    try {
+        Set-Item -LiteralPath function:\Invoke-GfHdcChecked `
+            -Value (Get-Item -LiteralPath function:\Invoke-GfDaemonRecoveryHdcChecked).ScriptBlock
+
+        # 0) Control: a healthy lane must not restart the daemon nor capture twice.
+        $healthy = Invoke-GfDaemonRecoveryCase -CaseName 'daemon-alpha' -ScreenCapFailures 0 -DumpFailures 0
+        Assert-GfSelfTest ($healthy.Restarts -eq 0 -and $healthy.ScreenCaps -eq 1 -and $healthy.Dumps -eq 1) `
+            'a first-try capture must not restart the uitest daemon or re-run any capture step.'
+        Assert-GfSelfTest ([string]$healthy.Capture.status -eq 'captured' -and
+            [string]$healthy.Capture.daemonRestart -eq '') `
+            'a healthy capture must stay captured with an empty daemonRestart marker.'
+
+        # 1) First screenCap fails: one restart, the retry is used, the frame lands.
+        $repaired = Invoke-GfDaemonRecoveryCase -CaseName 'daemon-beta' -ScreenCapFailures 1 -DumpFailures 0
+        Assert-GfSelfTest ($repaired.Restarts -eq 1 -and $repaired.ScreenCaps -eq 2) `
+            'a failed screenCap must be followed by exactly one uitest start-daemon and one retry.'
+        Assert-GfSelfTest ($repaired.Dumps -eq 1 -and [string]$repaired.Capture.status -eq 'captured' -and
+            [string]$repaired.Capture.error -eq '') `
+            ('a recovered capture must bank a real frame instead of a corpse, got ' +
+            "$($repaired.Capture.status)/$($repaired.Capture.error)")
+        Assert-GfSelfTest ([string]$repaired.Capture.daemonRestart -eq 'repaired' -and
+            $repaired.Sink -match 'daemonRestart=repaired') `
+            'a repaired capture must be distinguishable from a first-try capture in the log.'
+        Assert-GfSelfTest ((Test-Path -LiteralPath $repaired.Capture.png -PathType Leaf) -and
+            (Test-Path -LiteralPath $repaired.Capture.layout -PathType Leaf)) `
+            'a repaired capture must deliver both the screenshot and the layout tree.'
+
+        # 2) Only the failing step retries: a good screenCap is never re-captured for dumpLayout.
+        $dumpOnly = Invoke-GfDaemonRecoveryCase -CaseName 'daemon-gamma' -ScreenCapFailures 0 -DumpFailures 1
+        Assert-GfSelfTest ($dumpOnly.ScreenCaps -eq 1 -and $dumpOnly.Dumps -eq 2 -and
+            $dumpOnly.Restarts -eq 1) `
+            'a dumpLayout failure must retry only dumpLayout; a good frame must not be re-captured.'
+
+        # 3) Second failure must stop: the lease is never burned by an unbounded retry loop.
+        $dead = Invoke-GfDaemonRecoveryCase -CaseName 'daemon-delta' -ScreenCapFailures 2 -DumpFailures 0
+        Assert-GfSelfTest ($dead.Restarts -eq 1 -and $dead.ScreenCaps -eq 2) `
+            'a capture gets exactly one daemon restart and one retry, never a third attempt.'
+        Assert-GfSelfTest ([string]$dead.Capture.status -eq 'infrastructure' -and
+            [string]$dead.Capture.daemonRestart -eq 'failed' -and
+            [string]$dead.Capture.error -match 'uitest daemon restart') `
+            'a lane that survives the single restart must be recorded as a confirmed dead lane.'
+        Assert-GfSelfTest ($dead.Sink -match 'daemonRestart=failed') `
+            'the exhausted-restart outcome must be observable in the same log line.'
+    } finally {
+        Set-Item -LiteralPath function:\Invoke-GfHdcChecked -Value $gfHdcCheckedOriginal
+    }
 } finally {
     if ((Test-Path -LiteralPath $tempRoot) -and
         $tempRoot.StartsWith($tempBase, [StringComparison]::OrdinalIgnoreCase)) {
@@ -727,4 +841,4 @@ try {
     }
 }
 
-Write-Output 'GfDeviceRunner SelfTest: PASS (inventory pruning + system prerequisites + collection shapes + Instrument visual and infrastructure isolation + prepare-cache reuse gating).'
+Write-Output 'GfDeviceRunner SelfTest: PASS (inventory pruning + system prerequisites + collection shapes + Instrument visual and infrastructure isolation + prepare-cache reuse gating + single uitest daemon restart recovery).'

@@ -128,6 +128,51 @@ function Invoke-GfHdcChecked([string]$Hdc, [string]$Serial, [string[]]$Arguments
     return $output
 }
 
+# 捕获窗口里的 `uitest screenCap` / `uitest dumpLayout` 走的是应用内 uitest daemon；
+# 它会在长租约中途死掉，此后每一步都立刻 [Fail]：实测一场 56 检查点的 campaign 里，
+# 一个真红就能把其余全部检查点落成"零捕获尸体"（归因修复 29c2ace 只是不让尸体撤销
+# 真收据，并不 repair 现场）。文档化的恢复手段是重新拉起 daemon，因此这里在记录
+# $capture.error 之前给它**一次**机会：$Capture.daemonRestart 是每次捕获的闸门，
+# 非空即表示那一次已经用掉 —— 绝不成环，因为无界重试会掩盖死车道并烧掉整场租约。
+# 三态就是家族侧要的事实：''=首试即成、'repaired'=重启后拿到的捕获、
+# 'failed'=重启并用尽后仍然失败（=确认死车道，与尸体同级但已被证明不是"没试")。
+# 只重试失败的那一步：dumpLayout 挂掉时不重拍已成功的 screenCap，避免覆盖好帧。
+function Invoke-GfUitestCaptureStep {
+    param(
+        [string]$Hdc,
+        [string]$Serial,
+        [string[]]$Arguments,
+        [string]$Phase,
+        [pscustomobject]$Capture
+    )
+    try {
+        Invoke-GfHdcChecked $Hdc $Serial $Arguments $Phase | Out-Null
+        return
+    } catch {
+        $firstError = $_.Exception.Message
+        if ([string]$Capture.daemonRestart -ne '') {
+            $Capture.daemonRestart = 'failed'
+            throw [InvalidOperationException]::new(
+                "GfDeviceRunner: hdc $Phase failed on ${Serial} after this capture's single " +
+                "uitest daemon restart was already spent: $firstError")
+        }
+        try {
+            # 与 SuiteInstrument.ps1 / visual-campaign-driver.ps1 的 aa 前置同形状：daemon
+            # 常驻，必须后台化并吞掉 stdout，否则 hdc shell 阻塞到超时。
+            Invoke-GfHdcChecked $Hdc $Serial @('shell', 'uitest start-daemon default 2>/dev/null &') `
+                'uitest start-daemon recovery' | Out-Null
+            Invoke-GfHdcChecked $Hdc $Serial $Arguments "$Phase (retry after uitest daemon restart)" | Out-Null
+            $Capture.daemonRestart = 'repaired'
+            return
+        } catch {
+            $Capture.daemonRestart = 'failed'
+            throw [InvalidOperationException]::new(
+                "GfDeviceRunner: hdc $Phase failed on ${Serial} and the single documented uitest " +
+                "daemon restart did not recover it: $firstError || retry: $($_.Exception.Message)")
+        }
+    }
+}
+
 function Get-GfBundleUserIdsFromMetadata([string]$Text) {
     $jsonStart = $Text.IndexOf('{')
     if ($jsonStart -lt 0) { return }
@@ -184,16 +229,18 @@ function Invoke-GfVisualMarkerSweep {
         $checkpointDir = Get-GfVisualCheckpointDir -ArtifactDir $ArtifactDir -Serial $Serial -Name $name
         [IO.Directory]::CreateDirectory($checkpointDir) | Out-Null
         $capture = [pscustomobject]@{
-            name = $name; status = 'captured'; drift = ''; error = ''
+            name = $name; status = 'captured'; drift = ''; error = ''; daemonRestart = ''
             png = (Join-Path $checkpointDir 'actual.png'); layout = (Join-Path $checkpointDir 'layout.json')
         }
         try {
             Invoke-GfHdcChecked $Hdc $Serial @('shell', 'rm', '-f', $remotePng, $remoteJson) `
                 "stale visual staging for $name" | Out-Null
-            Invoke-GfHdcChecked $Hdc $Serial @('shell', 'uitest', 'screenCap', '-p', $remotePng) `
-                "uitest screenCap for $name" | Out-Null
-            Invoke-GfHdcChecked $Hdc $Serial @('shell', 'uitest', 'dumpLayout', '-p', $remoteJson, '-a') `
-                "uitest dumpLayout for $name" | Out-Null
+            Invoke-GfUitestCaptureStep -Hdc $Hdc -Serial $Serial -Capture $capture `
+                -Arguments @('shell', 'uitest', 'screenCap', '-p', $remotePng) `
+                -Phase "uitest screenCap for $name"
+            Invoke-GfUitestCaptureStep -Hdc $Hdc -Serial $Serial -Capture $capture `
+                -Arguments @('shell', 'uitest', 'dumpLayout', '-p', $remoteJson, '-a') `
+                -Phase "uitest dumpLayout for $name"
             Invoke-GfHdcChecked $Hdc $Serial @('file', 'recv', $remotePng, $capture.png) `
                 "screen receive for $name" | Out-Null
             Invoke-GfHdcChecked $Hdc $Serial @('file', 'recv', $remoteJson, $capture.layout) `
@@ -209,7 +256,8 @@ function Invoke-GfVisualMarkerSweep {
             $capture.status = 'infrastructure'
         }
         $Captures[$name] = $capture
-        $Sink.Add("===== visual capture $name (status=$($capture.status); drift=$($capture.drift); error=$($capture.error)) =====")
+        $Sink.Add("===== visual capture $name (status=$($capture.status); drift=$($capture.drift); " +
+            "daemonRestart=$($capture.daemonRestart); error=$($capture.error)) =====")
     }
 }
 
@@ -248,17 +296,21 @@ function Invoke-GfEvidenceMarkerSweep {
             detail = [string]$parsed.detail
             anchors = @($parsed.anchors | ForEach-Object { [string]$_ })
             capturedAt = [string]$parsed.capturedAt
-            status = 'captured'; drift = ''; error = ''
+            status = 'captured'; drift = ''; error = ''; daemonRestart = ''
             png = (Join-Path $evidenceDir 'failure.png'); layout = (Join-Path $evidenceDir 'layout.json')
             failureJson = (Join-Path $evidenceDir 'failure.json')
         }
         try {
             Invoke-GfHdcChecked $Hdc $Serial @('shell', 'rm', '-f', $remotePng, $remoteJson) `
                 "stale evidence staging for $name" | Out-Null
-            Invoke-GfHdcChecked $Hdc $Serial @('shell', 'uitest', 'screenCap', '-p', $remotePng) `
-                "uitest screenCap for evidence $name" | Out-Null
-            Invoke-GfHdcChecked $Hdc $Serial @('shell', 'uitest', 'dumpLayout', '-p', $remoteJson, '-a') `
-                "uitest dumpLayout for evidence $name" | Out-Null
+            # 失败证据与视觉检查点共用同一个应用内 uitest daemon，因此共用同一条
+            # 一次性恢复通道：真红的现场不能因为 daemon 先死而退化成零证据。
+            Invoke-GfUitestCaptureStep -Hdc $Hdc -Serial $Serial -Capture $capture `
+                -Arguments @('shell', 'uitest', 'screenCap', '-p', $remotePng) `
+                -Phase "uitest screenCap for evidence $name"
+            Invoke-GfUitestCaptureStep -Hdc $Hdc -Serial $Serial -Capture $capture `
+                -Arguments @('shell', 'uitest', 'dumpLayout', '-p', $remoteJson, '-a') `
+                -Phase "uitest dumpLayout for evidence $name"
             Invoke-GfHdcChecked $Hdc $Serial @('file', 'recv', $remotePng, $capture.png) `
                 "evidence screen receive for $name" | Out-Null
             Invoke-GfHdcChecked $Hdc $Serial @('file', 'recv', $remoteJson, $capture.layout) `
@@ -282,7 +334,8 @@ function Invoke-GfEvidenceMarkerSweep {
             $capture.status = 'infrastructure'
         }
         $Captures[$name] = $capture
-        $Sink.Add("===== failure evidence $name (source=$($capture.source); status=$($capture.status); drift=$($capture.drift); error=$($capture.error)) =====")
+        $Sink.Add("===== failure evidence $name (source=$($capture.source); status=$($capture.status); " +
+            "drift=$($capture.drift); daemonRestart=$($capture.daemonRestart); error=$($capture.error)) =====")
     }
 }
 
