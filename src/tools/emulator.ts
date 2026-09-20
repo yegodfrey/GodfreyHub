@@ -2,7 +2,7 @@ import { z } from "zod";
 import { defineTool, type ToolDefinition } from "./types.js";
 import {
   listInstanceDetails, onlineDevicesClassified, startInstance, stopInstance,
-  listImages, createInstance, deleteInstance, enableUiTest,
+  listImages, createInstance, deleteInstance, enableUiTest, BOOT_WAIT_TIMEOUT_MS,
 } from "../core/emulator.js";
 
 // emu_*: 模拟器生命周期(7 个工具)。启停/创建/删除的并发互斥在 core 层实施。
@@ -30,7 +30,7 @@ export const emulatorTools: ToolDefinition[] = [
     },
     handler: async (args, ctx) => {
       const target = await startInstance(args.name, args.port, ctx.signal, args.bootMode);
-      if (!target) throw new Error("实例 '" + args.name + "' 启动后等待 hdc 上线超时(240s)");
+      if (!target) throw new Error("实例 '" + args.name + "' 启动后等待 hdc 上线超时(" + Math.round(BOOT_WAIT_TIMEOUT_MS / 1000) + "s)");
       return { instance: args.name, target };
     },
   }),

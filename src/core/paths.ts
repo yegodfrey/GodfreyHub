@@ -25,6 +25,16 @@ export interface Toolchain {
 }
 
 let cached: Toolchain | null = null;
+let cachedAt = 0;
+// 会话中升级/新装 DevEco 后不应报旧路径直到重启: 缓存带 TTL(对齐 findDevecoCli 的
+// 永久缓存不同——工具链路径可能被安装程序改写, 一分钟级 TTL 足够廉价且自愈),
+// 需要立即生效时可调 invalidateToolchain()。
+const TOOLCHAIN_CACHE_TTL_MS = 60_000;
+
+export function invalidateToolchain(): void {
+  cached = null;
+  cachedAt = 0;
+}
 
 export function resolveOhpmExecutable(deveco: string | null, isWin = process.platform === "win32"): string | null {
   if (!deveco) return null;
@@ -47,7 +57,7 @@ export function resolveClangdExecutable(deveco: string | null, isWin = process.p
 }
 
 export function toolchain(): Toolchain {
-  if (cached) return cached;
+  if (cached && Date.now() - cachedAt < TOOLCHAIN_CACHE_TTL_MS) return cached;
   const isWin = process.platform === "win32";
   const roots = [
     process.env.DEVECO_PATH,
@@ -82,5 +92,6 @@ export function toolchain(): Toolchain {
   const clangd = resolveClangdExecutable(deveco, isWin);
 
   cached = { deveco, node: nodeExe, hvigorwJs, ohpm, hdc, emulator, clangd };
+  cachedAt = Date.now();
   return cached;
 }

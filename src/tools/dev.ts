@@ -52,7 +52,8 @@ export const devTools: ToolDefinition[] = [
         }
       } catch (e) {
         if (ctx.signal?.aborted) throw e;
-        throw new Error("官方 CLI 检查失败: " + String(e).slice(0, 160) + "(安装: npm i -g @deveco/deveco-cli, 或设 GODFREYHUB_DEVECOCLI_PATH)");
+        // 指引放前面, 错误细节截断在后: 细节再长也不会把修复指引截在半句
+        throw new Error("官方 CLI 检查失败(安装: npm i -g @deveco/deveco-cli, 或设 GODFREYHUB_DEVECOCLI_PATH): " + String(e).slice(0, 300));
       }
       throw new Error("devecocli 不可用(安装: npm i -g @deveco/deveco-cli, 或设 GODFREYHUB_DEVECOCLI_PATH)");
     },
@@ -128,11 +129,11 @@ export const devTools: ToolDefinition[] = [
       path: z.string().describe("待检查文件或目录"),
       project: z.string().optional().describe("工程名, 省略=当前项目(决定 cwd 与工程根)"),
     },
-    handler: async (args) => {
+    handler: async (args, ctx) => {
       const entry = resolveProject(args.project || undefined);
       if ("error" in entry) throw new Error(entry.error);
       const cwd = entry.entry.harmonyRoot;
-      const r = runDevecoCli(["check", "lint", path.resolve(args.path)], { cwd, timeoutMs: 180000 });
+      const r = await runDevecoCli(["check", "lint", path.resolve(args.path)], { cwd, timeoutMs: 180000, signal: ctx.signal });
       const out = (r.stdout + NL + r.stderr).replace(reAnsi, "").trim();
       const summary = out.split(NL).find((l) => l.includes("Summary:")) ?? "";
       return { summary, report: out.slice(0, 8000) };
@@ -149,14 +150,14 @@ export const devTools: ToolDefinition[] = [
       modules: z.boolean().optional().describe("按模块扫描"),
       project: z.string().optional().describe("工程名, 省略=当前项目"),
     },
-    handler: async (args) => {
+    handler: async (args, ctx) => {
       const entry = resolveProject(args.project || undefined);
       if ("error" in entry) throw new Error(entry.error);
       const cwd = entry.entry.harmonyRoot;
       const cliArgs = ["check", "compat", "--source-version", args.sourceVersion, "--target-version", args.targetVersion];
       if (args.modules) cliArgs.push("--modules");
       if (args.files?.length) cliArgs.push(...args.files.map((f) => path.resolve(f)));
-      const r = runDevecoCli(cliArgs, { cwd, timeoutMs: 300000 });
+      const r = await runDevecoCli(cliArgs, { cwd, timeoutMs: 300000, signal: ctx.signal });
       const out = (r.stdout + NL + r.stderr).replace(reAnsi, "").trim();
       return { status: r.status, report: out.slice(0, 12000) };
     },
@@ -168,10 +169,10 @@ export const devTools: ToolDefinition[] = [
     inputSchema: {
       project: z.string().optional().describe("工程名, 省略=当前项目"),
     },
-    handler: async (args) => {
+    handler: async (args, ctx) => {
       const entry = resolveProject(args.project || undefined);
       if ("error" in entry) throw new Error(entry.error);
-      const r = runDevecoCli(["check", "compat", "versions"], { cwd: entry.entry.harmonyRoot, timeoutMs: 60000 });
+      const r = await runDevecoCli(["check", "compat", "versions"], { cwd: entry.entry.harmonyRoot, timeoutMs: 60000, signal: ctx.signal });
       const out = (r.stdout + NL + r.stderr).replace(reAnsi, "").trim();
       return { versions: out.split(NL).filter(Boolean) };
     },
@@ -186,14 +187,14 @@ export const devTools: ToolDefinition[] = [
       product: z.string().optional().describe("product 名, 默认 default"),
       project: z.string().optional().describe("工程名, 省略=当前项目"),
     },
-    handler: async (args) => {
+    handler: async (args, ctx) => {
       const entry = resolveProject(args.project || undefined);
       if ("error" in entry) throw new Error(entry.error);
       const cliArgs = ["signature", "generate"];
       if (args.force) cliArgs.push("--force");
       if (args.teamId) cliArgs.push("--team-id", args.teamId);
       if (args.product) cliArgs.push("--product", args.product);
-      const r = runDevecoCli(cliArgs, { cwd: entry.entry.harmonyRoot, timeoutMs: 120000 });
+      const r = await runDevecoCli(cliArgs, { cwd: entry.entry.harmonyRoot, timeoutMs: 120000, signal: ctx.signal });
       const out = (r.stdout + NL + r.stderr).replace(reAnsi, "").trim();
       return { status: r.status, report: out.slice(0, 6000) };
     },

@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 
 import * as hvigor from "../dist/core/hvigor.js";
 import * as paths from "../dist/core/paths.js";
+import { pwshSkip } from "./env-guard.mjs";
 
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfreyhub-hvigor-test-"));
@@ -46,7 +47,7 @@ test("test HAP selection keeps emulator production and test signatures compatibl
 });
 
 test("hub deployment and injected Instrument preparation share one same-device lease", {
-  skip: process.platform !== "win32",
+  skip: process.platform !== "win32" ? "skip: 非 Windows 平台" : pwshSkip(),
   timeout: 60_000,
 }, async () => {
   const serial = `lease-probe-${process.pid}-${Date.now()}`;

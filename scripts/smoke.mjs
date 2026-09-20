@@ -140,7 +140,7 @@ try {
     console.log("project-aware checks skipped: no registered project with an .ets file");
   }
 
-  const required = ["hub_status", "hub_scan", "hub_set_project", "hub_pull", "hub_push", "hub_build", "hub_test", "emu_list", "emu_start", "emu_stop", "emu_create", "emu_delete", "emu_images", "emu_enable_uitest", "dev_check_ets_files", "dev_check_cpp_files", "lsp_hover", "lsp_definition", "lsp_references", "lsp_symbols", "ui_tree", "ui_click", "ui_input_text", "ui_swipe", "ui_key", "ui_screenshot", "app_control", "hilog_app", "hilog_query", "hilog_fault", "hdk_search_documents", "hdk_get_document", "verify", "ui_locate_code", "hilog_locate_crash", "hub_check"];
+  const required = ["hub_status", "hub_scan", "hub_set_project", "hub_pull", "hub_push", "hub_build", "hub_test", "emu_list", "emu_start", "emu_stop", "emu_create", "emu_delete", "emu_images", "emu_enable_uitest", "dev_check_ets_files", "dev_check_cpp_files", "lsp_symbols", "dev_check_style", "dev_check_compat", "dev_compat_versions", "dev_signature_generate", "dev_check_refs", "dev_check_native", "ui_tree", "ui_click", "ui_input_text", "ui_swipe", "ui_key", "ui_screenshot", "app_control", "hilog_app", "hilog_query", "hilog_fault", "hdk_search_documents", "hdk_get_document", "verify", "ui_locate_code", "hilog_locate_crash", "hub_check", "ide_get_open_files", "ide_open_in_editor"];
   const missing = required.filter((n) => !names.includes(n));
   if (missing.length) { console.error("MISSING TOOLS:", missing.join(", ")); child.kill(); process.exit(1); }
   console.log("\nSMOKE PASS");

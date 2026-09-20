@@ -5,6 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { pwshSkip } from './env-guard.mjs';
 
 // 渲染侧溢出报警在设备执行器里的入账路径。这里之所以要**真的 dot-source 一次**而不是只
 // 断言源码文本：PowerShell 类不给实例赋未声明属性，$result.TextTruncationAnchors = ...
@@ -33,17 +34,23 @@ fs.writeFileSync(scriptPath, [
   '} | ConvertTo-Json -Compress',
 ].join('\r\n'), 'utf8');
 
-const run = spawnSync('pwsh', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptPath],
-  { encoding: 'utf8' });
-assert.equal(run.status, 0, `dot-source 设备执行器失败: ${run.stderr}`);
-const probe = JSON.parse(run.stdout.trim());
+// 环境守卫: 本机无 pwsh 时整文件 skip(spawnSync 对缺失可执行文件只回填 error, 不会在
+// 此处抛错, 但 status 为 null 会让下面的断言整文件爆红)
+const pwshGuard = pwshSkip();
+let probe = null;
+if (!pwshGuard) {
+  const run = spawnSync('pwsh', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptPath],
+    { encoding: 'utf8' });
+  assert.equal(run.status, 0, `dot-source 设备执行器失败: ${run.stderr}`);
+  probe = JSON.parse(run.stdout.trim());
+}
 
-test('GfDeviceRunResult 声明了溢出成员，且赋值真的能跑', () => {
+test('GfDeviceRunResult 声明了溢出成员，且赋值真的能跑', { skip: pwshGuard }, () => {
   assert.equal(probe.declared, true, '类里没有 TextTruncationAnchors 成员：SuiteInstrument 的赋值会在运行时炸');
   assert.deepEqual([...probe.stored].sort(), ['clash.home.traffic', 'quiz.library.batch.count']);
 });
 
-test('溢出标记解析：正向、度量标记与多行去重各自如实', () => {
+test('溢出标记解析：正向、度量标记与多行去重各自如实', { skip: pwshGuard }, () => {
   assert.deepEqual(probe.empty, [], 'null 输入不得凭空产出锚点');
   assert.deepEqual(probe.measured, [], 'GF_TEXT_MEASURED 是正向证据，不是报警');
   assert.deepEqual(probe.overflow, ['quiz.a']);
@@ -52,7 +59,7 @@ test('溢出标记解析：正向、度量标记与多行去重各自如实', ()
 
 const instrumentSource = fs.readFileSync(instrument, 'utf8');
 
-test('判据确实被执行器消费，且优先级排在环境阻塞之后、用例计数之前', () => {
+test('判据确实被执行器消费，且优先级排在环境阻塞之后、用例计数之前', { skip: pwshGuard }, () => {
   // 这一段只能做静态顺序核对：整条判定链在 Invoke-…Instrument 内部，没有设备就进不去。
   // 但它守的正是最容易静默失效的东西——分支先后次序。截断排到 "passed" 之后就是永不触发。
   assert.ok(instrumentSource.includes('Get-GfTextTruncationAnchors $outputText'),

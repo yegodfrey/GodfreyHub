@@ -21,7 +21,7 @@ KeyedMutex（进程内）与 proper-lockfile（跨进程）串行化，消除 ch
 - **失败不当成功**：hdc 便捷封装统一经 `proc.requireOk` 检查宿主退出码与设备侧 `[Fail]` 标记；`verify` 视觉校验循环依赖该语义，失败的点击必须计为 failed；
 - **git 一键同步**：`pull --rebase` 失败自动 `rebase --abort` 恢复仓库，`hub_push` 冲突时拒绝 push（不把仓库留在 mid-rebase、不把冲突态发布出去）；
 - **不伪造空诊断**：ArkTS 与 clangd 诊断统一 pending 语义（超时未确认 ≠ 零错误）；clangd URI 按本地路径归一化匹配；
-- **LSP 会话状态机**（spawning→initializing→ready→dying）：project-config 校验先于 spawn（不留僵尸会话）、初始化失败写 stderr 并即时重建、空闲会话由定时器主动回收；ace-server 日志目录按天创建并清理 7 天前残留；
+- **语言服务会话管理**：C/C++ 诊断走 DevEco 内置 clangd 会话（spawning→initializing→ready→dying 状态机：project-config 校验先于 spawn 不留僵尸会话、初始化失败写 stderr 并即时重建、空闲会话定时器主动回收、日志目录按天清理）；ArkTS 诊断走官方 devecocli 异步子进程（事件循环不冻结，AbortSignal 取消即时生效）；
 - **工具参数 zod 校验**：客户端传错类型得到 `[tool] 参数校验失败: field: message`，而不是 NaN/undefined 静默传播；破坏性 UI 操作（点击/输入/卸载）在多台设备在线时要求显式 target；
 - **hdk 检索自愈**：打开索引校验词典签名（dict_hash 漂移硬错误并给出重建指引）、按文件代次（mtime+size）自动换新重建后的索引、SQLITE_BUSY/READONLY 转可操作错误。
 
@@ -87,9 +87,9 @@ npm run hooks:install          # 新克隆后安装本仓 pre-push 推送自守�
 | `hub_status` | 工具链路径 / 在册项目 / 在线设备 / 子服务健康度（含全部在册项目详情） |
 | `hub_scan` | 扫描目录（3 层）自动发现 HarmonyOS 工程并注册（解析 bundle/ability/module/srcPath/target，实例名默认=项目名） |
 | `hub_set_project` | 切换当前项目上下文（同步给 codegenie 子服务） |
-| `hub_pull` | `git pull --rebase --autostash`（不覆盖本地未提交改动） |
-| `hub_push` | `add -u`（仅已跟踪修改）-> commit -> pull --rebase -> push；存在未跟踪文件时中止（防 .env/密钥/临时产物误提交），需提交新文件先 `git add` 显式纳入 |
-| `hub_build` | ohpm install -> 按注册的 module/target 执行 hvigor assembleHap -> 签名失败退 unsigned -> 设备实例目标解析（设备名实例在线优先，未运行按设备名启动**已存在**实例；项目同名实例仅在线时兼容选中；一律不自动创建，无法解析时报错并指引 `emu_create` 置备） -> 防污染校验 -> 安装/启动 |
+| `hub_pull` | `git pull --rebase --autostash`（不覆盖本地未提交改动；rebase 冲突自动 abort 恢复原状并返回失败） |
+| `hub_push` | `add -u`（仅已跟踪修改）-> commit -> pull --rebase --autostash -> push；存在未跟踪文件时中止（防 .env/密钥/临时产物误提交），需提交新文件先 `git add` 显式纳入；rebase 冲突自动 abort 并拒绝 push |
+| `hub_build` | ohpm install -> 按注册的 module/target 执行 hvigor assembleHap -> 目标解析（模拟器目标用 unsigned 产物，真机目标必须 signed 且仅限 debug 产品）-> 防污染校验 -> 安装/启动；设备名实例在线优先，未运行按设备名启动**已存在**实例（一律不自动创建，无法解析时报错并指引 `emu_create` 置备） |
 | `hub_test` | 运行 Local Test / Instrument Test，自动解析模块、同名模拟器目标、覆盖率/ASan 报告；Instrument 可用 `deviceLogTag` / `deviceLogDomain` 临时扩展并清空 app HiLog 缓冲区，结束时保存完整过滤日志 |
 
 `scripts/GfDeviceRunner.ps1` 在检测到多个合格设备时会为每个设备创建隔离执行 lane：同一设备上的套件串行，
@@ -102,7 +102,7 @@ npm run hooks:install          # 新克隆后安装本仓 pre-push 推送自守�
 | 工具 | 作用 |
 |---|---|
 | `emu_list` | 实例列表（运行状态/hdc 端口）+ 在线设备 |
-| `emu_create` | **创建实例**（`Emulator -create`）：name=项目名走同名实例约定；deviceType/osVersion 省略自动选已下载镜像（优先 phone）；默认 3 GB 内存以支持双模拟器并行，可选 screenProfile/storage/memory/start |
+| `emu_create` | **创建实例**（`Emulator -create`）：name=设备名（实例按设备名置备，如 `Mate 80 Pro`/`Pura X View`；项目同名实例契约已删除，仅在线时兼容选中）；deviceType/osVersion 省略自动选已下载镜像（优先 phone）；默认 3 GB 内存以支持双模拟器并行，可选 screenProfile/storage/memory/start |
 | `emu_delete` | 删除实例（force 跳过交互） |
 | `emu_images` | 列本机模拟器镜像（默认只列已下载，create 前先看） |
 | `emu_start` | 直接封装官方 `Emulator.exe` 启动实例并等待上线；默认保留官方热启动，可显式 coldboot 恢复；启动器握手返回精确 PID，窗口持续改名为实例名并监控进程存活；静默退出或新崩溃包会立即返回 PID/GPU/内存诊断 |
@@ -112,11 +112,18 @@ npm run hooks:install          # 新克隆后安装本仓 pre-push 推送自守�
 ### dev_* / lsp_* 静态检查与语义导航（原生，DevEco 同源引擎）
 | 工具 | 作用 |
 |---|---|
-| `dev_check_ets_files` | ArkTS 静态检查（DevEco 内置 ace-server 无头诊断） |
+| `dev_check_ets_files` | ArkTS 静态检查（首选官方 DevEco CLI `check arkts`，真实类型/语法诊断；需 devecocli 在 PATH，可用 `GODFREYHUB_DEVECOCLI_PATH` 指定） |
 | `dev_check_cpp_files` | C/C++ 静态检查（DevEco 内置 clangd，需 compile_commands.json） |
-| `lsp_hover` | 悬停信息（类型/文档），调用处附带签名帮助（归一化为 Markdown） |
-| `lsp_definition` / `lsp_references` | 跳转定义 / 查找引用 |
-| `lsp_symbols` | 符号查找：query=全工程名称搜索（离线）；filePath=文件符号表 |
+| `lsp_symbols` | 符号查找：query=全工程名称搜索（IDE 开着用语义索引并标注 source:ide-index，否则离线正则）；filePath=文件符号表 |
+| `dev_check_style` | codelinter 规范检查（TS/ArkTS 风格/安全/性能规则集，与类型检查互补）。需 devecocli |
+| `dev_check_compat` | SDK 目标版本兼容扫描（API 弃用/删除/行为变更）。版本名先用 `dev_compat_versions` 列出。需 devecocli |
+| `dev_compat_versions` | 列出 compat 扫描可用的 SDK 版本名。需 devecocli |
+| `dev_signature_generate` | 自动生成应用签名材料并写入工程配置（build-profile 的 signingConfigs），默认不覆盖已有材料 |
+| `dev_check_refs` | 资源引用模块严格视图检查（IDE 同款规则）：跨模块 `$r('app.*')` 引用报错。纯文件分析 |
+| `dev_check_native` | 原生声明符号校验：d.ts 声明的 native 函数必须能在工程 .so 符表中找到。纯文件分析 |
+
+> 语义导航自 ace-server stdio 通路退役后只剩 `lsp_symbols`（定义/引用/hover 已随该通路一并移除）。
+> 本表由 `node scripts/dump-tools.mjs` 从注册表导出核对，工具清单以注册表为准。
 
 ### ui_* / hilog_* / verify 设备侧（原生）
 | 工具 | 作用 |
@@ -134,6 +141,12 @@ npm run hooks:install          # 新克隆后安装本仓 pre-push 推送自守�
 | `ui_locate_code` | UI→源码：按文案/id/坐标定位控件，反查 ArkTS 声明位置、所属 struct 与最近事件处理函数；文案自动经字符串资源反查 `$r('app.string.x')` |
 | `hilog_locate_crash` | 崩溃→源码：解析 faultlog/原始堆栈的 `.ets` 帧（官方 `at fn (模块/路径.ets:行:列)` 格式），映射本地源码行并还原所在 struct/函数与源码语句 |
 | `hub_check` | 一键修复清单：对 git 变更 `.ets` 跑 LSP 诊断 + 合并最近构建日志错误（去重） |
+
+### ide_* DevEco IDE 桥接（原生）
+| 工具 | 作用 |
+|---|---|
+| `ide_get_open_files` | 列出 DevEco IDE 当前打开的编辑器文件（工程相对路径）。需 IDE 运行且 MCP 服务器已启用 |
+| `ide_open_in_editor` | 把指定文件在 DevEco IDE 编辑器里打开呈现给用户。需 IDE 运行且 MCP 服务器已启用 |
 
 ### hdk_* 离线文档（完整语料随包分发）
 `hdk_search_documents` / `hdk_get_document`：HarmonyOS（27077 篇）+ 仓颉（374 篇）文档全文检索，直查 FTS5 词元索引。查询先做全词元 AND，不足时允许缺一个词元；标题和摘要保持 Markdown 原文可读格式。搜索 `limit` 强制限制在 1–100；正文默认每次最多返回 20000 字符，结果中的 `nextOffset` 可用于继续读取（单次可设 1000–50000）。
@@ -163,7 +176,7 @@ npm run hdk:stats      # 语料统计
 
 ## 按需裁剪工具（disabledTools）
 
-默认 37 个工具全部加载。包内 `config/local.config.json` 里加 `disabledTools` 数组可裁掉用不到的分组（支持 `*` 通配，命中即从工具清单移除）：
+默认 41 个工具全部加载。包内 `config/local.config.json` 里加 `disabledTools` 数组可裁掉用不到的分组（支持 `*` 通配，命中即从工具清单移除）：
 
 ```json
 { "disabledTools": ["hdk_*", "verify", "hub_test"] }
@@ -173,11 +186,15 @@ npm run hdk:stats      # 语料统计
 
 ```
 npm install
-npm run build     # tsc -> dist/
+npm run build     # 版本同步(build-stamp --sync-version) -> tsc -> dist/ + build-stamp
 npm test          # 单元/回归测试（构建后运行）
 npm run smoke     # stdio 握手 + tools/list + hub_status 端到端验证
 npm run hooks:install  # 安装本仓跟踪的 scripts/git-hooks/pre-push（推送前强制 npm test）
 ```
+
+跑测试的前置（缺了不红，相关用例自动 skip）：PowerShell 7（`pwsh`，PowerShell
+self-test/租约/parse-gate 用例）与系统 Python + `jieba`（hdk 跨引擎分词一致性用例）。
+Git Bash 下若 `npm`/`node` 不在 PATH，先用 `export PATH="$PATH:/c/Program Files/nodejs"`。
 
 ## 双机同步
 

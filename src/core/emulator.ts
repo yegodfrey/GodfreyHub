@@ -15,7 +15,7 @@ export const MIN_EMULATOR_MEMORY_GB = 2;
 export const MAX_EMULATOR_MEMORY_GB = 32;
 
 // 启停等待节奏统一收敛: 上线等待/停止确认/目标探测共用这些常量, 消灭散落的魔法数字。
-const BOOT_WAIT_TIMEOUT_MS = 240_000;   // 官方冷启动实测上限(含镜像首次解压)
+export const BOOT_WAIT_TIMEOUT_MS = 240_000;   // 官方冷启动实测上限(含镜像首次解压)
 const BOOT_POLL_INTERVAL_MS = 3_000;
 const STOP_CONFIRM_TIMEOUT_MS = 60_000;
 const STOP_CONFIRM_INTERVAL_MS = 2_000;

@@ -5,6 +5,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { pwshSkip } from './env-guard.mjs';
 
 const installer = fileURLToPath(new URL('../scripts/install-git-hooks.ps1', import.meta.url));
 
@@ -29,7 +30,7 @@ function writeTemplate(root, name, body) {
 
 const TEMPLATE = '#!/bin/sh\ncd "__GF_REPO_ROOT__" || exit 1\nnpm test\n';
 
-test('installer resolves a relative -RepoRoot into an absolute hook path', () => {
+test('installer resolves a relative -RepoRoot into an absolute hook path', { skip: pwshSkip() }, () => {
   const parent = fs.mkdtempSync(path.join(os.tmpdir(), 'gf-hooks-'));
   try {
     const repo = initRepo(path.join(parent, 'repo'));
@@ -57,7 +58,7 @@ test('installer resolves a relative -RepoRoot into an absolute hook path', () =>
   }
 });
 
-test('installer refuses to dead-end when core.hooksPath redirects hooks', () => {
+test('installer refuses to dead-end when core.hooksPath redirects hooks', { skip: pwshSkip() }, () => {
   const parent = fs.mkdtempSync(path.join(os.tmpdir(), 'gf-hooks-path-'));
   try {
     const repo = initRepo(path.join(parent, 'repo'));
@@ -76,7 +77,7 @@ test('installer refuses to dead-end when core.hooksPath redirects hooks', () => 
   }
 });
 
-test('installer rejects a repository without a git directory', () => {
+test('installer rejects a repository without a git directory', { skip: pwshSkip() }, () => {
   const parent = fs.mkdtempSync(path.join(os.tmpdir(), 'gf-hooks-nogit-'));
   try {
     const templates = writeTemplate(parent, 'pre-push', TEMPLATE);

@@ -1,7 +1,4 @@
 import http from "node:http";
-import fs from "node:fs";
-import path from "node:path";
-import os from "node:os";
 
 // DevEco Studio 26 内置 MCP 服务器(IDE 进程内, JetBrains 系): 设置→工具→MCP服务器
 // 启用后监听 127.0.0.1:<port>(默认 64342), streamable HTTP, 会话经 mcp-session-id 头。
@@ -122,4 +119,3 @@ export async function ideMcpCall(name: string, args: Record<string, unknown>, ti
 export function ideMcpResultText(result: IdeMcpCallResult): string {
   return (result.content || []).map((c) => (typeof c?.text === "string" ? c.text : "")).join("\n");
 }
-void path; void os; void fs;

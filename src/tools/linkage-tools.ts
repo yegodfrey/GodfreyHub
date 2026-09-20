@@ -68,13 +68,14 @@ export const linkageTools: ToolDefinition[] = [
       files: z.array(z.string()).optional().describe("待检查 .ets 绝对路径, 省略=git 变更文件"),
       timeoutMs: z.number().optional().describe("诊断等待超时, 默认 120000"),
     },
-    handler: async (args) => {
+    handler: async (args, ctx) => {
       const r = resolveProject(args.project || undefined);
       if ("error" in r) throw new Error(r.error);
       return hubCheck({
         entry: r.entry,
         files: args.files && args.files.length > 0 ? args.files : undefined,
         timeoutMs: args.timeoutMs,
+        signal: ctx.signal,
       });
     },
   }),

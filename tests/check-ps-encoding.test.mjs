@@ -6,6 +6,7 @@ import { spawnSync } from 'node:child_process';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { inspectPsFile, collectRepoPowerShell, gateFiles } from '../scripts/check-ps-encoding.mjs';
+import { pwshSkip } from './env-guard.mjs';
 
 const checker = fileURLToPath(new URL('../scripts/check-ps-encoding.mjs', import.meta.url));
 
@@ -36,7 +37,7 @@ test('byte gate rejects literal newline residue and BOM-less non-ASCII', () => {
   }
 });
 
-test('parse gate reports PowerShell syntax errors and coverage guards fire', () => {
+test('parse gate reports PowerShell syntax errors and coverage guards fire', { skip: pwshSkip() }, () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'gf-ps-enc-fixture-'));
   try {
     fs.mkdirSync(path.join(root, 'harness'));
@@ -73,7 +74,7 @@ test('parse gate reports PowerShell syntax errors and coverage guards fire', () 
   }
 });
 
-test('this repository passes its own integrity gate', () => {
+test('this repository passes its own integrity gate', { skip: pwshSkip() }, () => {
   const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
   const files = collectRepoPowerShell(repoRoot);
   assert.ok(files.length >= 10, 'the Hub PowerShell inventory should be covered');
@@ -81,7 +82,7 @@ test('this repository passes its own integrity gate', () => {
   assert.deepEqual(violations, [], violations.join('\n'));
 });
 
-test('parse gate carries the inventory over stdin and leaves no temp artifact', () => {
+test('parse gate carries the inventory over stdin and leaves no temp artifact', { skip: pwshSkip() }, () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'gf-ps-enc-fixture-'));
   const before = new Set(fs.readdirSync(os.tmpdir()));
   try {

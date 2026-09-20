@@ -2,6 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
+import { fileURLToPath } from "node:url";
 import { screenshot, uiClick, uiInputText, uiSwipe, uiKey, startAbility, stopAbility, onlineAllTargets } from "./uitest.js";
 import { abortableSleep, throwIfAborted, AbortedError } from "./sync.js";
 
@@ -228,8 +229,16 @@ export function recordLog(id: string): string {
 export function saveScreenshots(id: string, dirname: string): string[] {
   const src = path.join(workDirRoot, id);
   if (!fs.existsSync(src)) throw new Error("未找到校验任务: " + id);
-  fs.mkdirSync(dirname, { recursive: true });
+  // 输出目录白名单: 只允许 tmp/工作区/包目录内——本地开发工具可接受任意路径,
+  // 但这条链路将来若开放给多 Agent 共享, 任意写盘(含覆盖 id_ 前缀文件)必须先收口。
+  const dest = path.resolve(dirname);
+  const moduleRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
+  const allowedRoots = [os.tmpdir(), process.cwd(), moduleRoot].map((p) => path.resolve(p).toLowerCase());
+  if (!allowedRoots.some((root) => dest.toLowerCase().startsWith(root + path.sep) || dest.toLowerCase() === root)) {
+    throw new Error("screenshots 保存目录必须位于系统临时目录、当前工作区或 GodfreyHub 包目录内: " + dest);
+  }
+  fs.mkdirSync(dest, { recursive: true });
   const files = fs.readdirSync(src).filter((f) => f.endsWith(".jpeg"));
-  for (const f of files) fs.copyFileSync(path.join(src, f), path.join(dirname, id + "_" + f));
-  return files.map((f) => path.join(dirname, id + "_" + f));
+  for (const f of files) fs.copyFileSync(path.join(src, f), path.join(dest, id + "_" + f));
+  return files.map((f) => path.join(dest, id + "_" + f));
 }

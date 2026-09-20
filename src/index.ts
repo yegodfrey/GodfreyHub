@@ -10,6 +10,7 @@ import { z } from "zod";
 import type { ZodObject, ZodRawShape } from "zod";
 import { closeHdk } from "./core/hdk.js";
 import { loadConfig } from "./core/registry.js";
+import { VERSION } from "./version.js";
 import type { ToolDefinition } from "./tools/types.js";
 import { hubTools } from "./tools/hub.js";
 import { emulatorTools } from "./tools/emulator.js";
@@ -21,7 +22,7 @@ import { ideTools } from "./tools/ide-tools.js";
 
 // GodfreyHub — 自包含 HarmonyOS 超级 MCP(全原生, 零子服务代理)
 //   hub_*  项目/git 一键同步/构建+同名实例部署   emu_* 模拟器生命周期+窗口命名
-//   dev_*  ArkTS/C++ 静态检查(DevEco 语言服务无头)  lsp_* 语义导航(hover/定义/引用/符号)
+//   dev_*  ArkTS/C++ 静态检查(DevEco 语言服务无头)  lsp_* 语义导航(符号查找, IDE 索引并入)
 //   ui_*   设备 UI 自动化(hdc uitest)             hilog_* 日志/崩溃采集
 //   hdk_*  离线文档库 FTS5 检索(直查本地索引)      verify 视觉模型 UI 自动化校验
 //   ide_*  DevEco 26 内置 MCP 桥接(IDE 打开文件/打开的编辑器; 符号搜索并入 lsp_symbols)
@@ -49,7 +50,7 @@ for (const tool of ALL_TOOLS) {
 }
 
 const server = new Server(
-  { name: "godfreyhub-mcp", version: "0.4.0" },
+  { name: "godfreyhub-mcp", version: VERSION },
   { capabilities: { tools: {} } },
 );
 

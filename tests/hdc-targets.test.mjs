@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import test from 'node:test';
+import { pwshSkip } from './env-guard.mjs';
 
 // Behavior-level regression chain for the shared HDC target helper: the
 // PowerShell self-test drives the real helper with fake hdc executables
@@ -9,7 +10,7 @@ import test from 'node:test';
 // the "[Fail] ... connected" cross-case). Keeping it inside `npm test` makes
 // the helper's contract executable evidence, not prose.
 test('hdc-targets helper passes its behavioral self-test', {
-  skip: process.platform !== 'win32',
+  skip: process.platform !== 'win32' ? 'skip: 非 Windows 平台' : pwshSkip(),
 }, () => {
   const script = fileURLToPath(new URL('../scripts/hdc-targets-self-test.ps1', import.meta.url));
   const result = spawnSync('pwsh', ['-NoProfile', '-File', script], {

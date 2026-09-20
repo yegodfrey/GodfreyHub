@@ -87,10 +87,12 @@ export function run(cmd: string, args: string[], opts: { cwd?: string; timeoutMs
       windowsVerbatimArguments: isWindowsBatch,
       detached: process.platform !== "win32",
     });
-    // 分块累积, 关闭时一次性拼接: 逐 chunk Buffer.concat 整个累积缓冲是 O(n²) 拷贝,
-    // hvigor/hilog 这类高频输出进程会显著拖慢事件循环。只有超限时才做一次压缩。
+    // 分块累积 + 运行期滚动丢弃头部: 超限即丢最旧字节(保留尾部窗口), 内存恒有界
+    // (≤ maxOutputBytes + 单 chunk)。hilog/hvigor 这类高频输出进程到达上限后不再
+    // 无界吃内存; 只在超限批次做一次指针移动, 稳态零拷贝。close 时一次性拼接。
     let chunks: Buffer[] = [];
     let bufferedLength = 0;
+    let headDrop = 0;   // chunks[0] 头部已逻辑丢弃的字节数
     let truncated = false;
     let timedOut = false;
     let cancelled = false;
@@ -109,6 +111,24 @@ export function run(cmd: string, args: string[], opts: { cwd?: string; timeoutMs
       const chunk = Buffer.isBuffer(data) ? data : Buffer.from(data, "utf8");
       chunks.push(chunk);
       bufferedLength += chunk.length;
+      if (bufferedLength > maxOutputBytes) {
+        truncated = true;
+        let excess = bufferedLength - maxOutputBytes;
+        while (excess > 0 && chunks.length > 0) {
+          const head = chunks[0];
+          const releasable = head.length - headDrop;
+          if (releasable <= excess) {
+            excess -= releasable;
+            bufferedLength -= releasable;
+            chunks.shift();
+            headDrop = 0;
+          } else {
+            headDrop += excess;
+            bufferedLength -= excess;
+            excess = 0;
+          }
+        }
+      }
     };
     child.stdout.on("data", feed);
     child.stderr.on("data", feed);
@@ -130,26 +150,10 @@ export function run(cmd: string, args: string[], opts: { cwd?: string; timeoutMs
     child.on("close", (code) => {
       if (timer) clearTimeout(timer);
       if (opts.signal) opts.signal.removeEventListener("abort", onAbort);
-      let output: Buffer;
-      if (bufferedLength > maxOutputBytes) {
-        // 保留尾部 maxOutputBytes 字节: 从最后一块往前回溯, 长度增量跟踪, 单次拼接。
-        const kept: Buffer[] = [];
-        let keptLength = 0;
-        for (let i = chunks.length - 1; i >= 0 && keptLength < maxOutputBytes; i--) {
-          const c = chunks[i];
-          if (keptLength + c.length > maxOutputBytes) {
-            kept.unshift(c.subarray(c.length - (maxOutputBytes - keptLength)));
-            keptLength = maxOutputBytes;
-          } else {
-            kept.unshift(c);
-            keptLength += c.length;
-          }
-        }
-        output = Buffer.concat(kept);
-        truncated = true;
-      } else {
-        output = Buffer.concat(chunks);
-      }
+      // 头部已在运行期滚动丢弃, 这里只需剥掉首块的 headDrop 偏移再拼接
+      const output = headDrop > 0 && chunks.length > 0
+        ? Buffer.concat([chunks[0].subarray(headDrop), ...chunks.slice(1)])
+        : Buffer.concat(chunks);
       const prefix = truncated ? "[output truncated; showing last " + maxOutputBytes + " bytes]\n" : "";
       const suffix = timedOut ? "\n[timeout after " + opts.timeoutMs + "ms]" : (cancelled ? "\n[cancelled]" : "");
       resolve({

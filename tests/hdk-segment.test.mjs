@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { Jieba } from "@node-rs/jieba";
 
 import { segmentQuery } from "../dist/core/hdk.js";
+import { pythonJiebaSkip } from "./env-guard.mjs";
 
 // 跨引擎分词一致性回归测试: Node 查询端(@node-rs/jieba) 与 Python 索引端
 // (jieba) 加载同一份 hdk/dict/dict.txt + stopwords.txt, HMM=False。
@@ -79,7 +80,7 @@ test("shared dict files exist and are non-trivial", () => {
   assert.ok(size < 2_000_000, "词典异常偏大(应为语料贴合自建): " + size);
 });
 
-test("node query segmentation matches python query segmentation verbatim", () => {
+test("node query segmentation matches python query segmentation verbatim", { skip: pythonJiebaSkip() }, () => {
   const py = pythonSegment(SAMPLES, false).map((s) => s.split(" ").filter(Boolean));
   for (let i = 0; i < SAMPLES.length; i++) {
     const node = segmentQuery(SAMPLES[i]);
@@ -87,7 +88,7 @@ test("node query segmentation matches python query segmentation verbatim", () =>
   }
 });
 
-test("index-side tokens are a superset of query tokens (AND match never misses)", () => {
+test("index-side tokens are a superset of query tokens (AND match never misses)", { skip: pythonJiebaSkip() }, () => {
   const pyIndex = pythonSegment(SAMPLES, true).map((s) => new Set(s.split(" ").filter(Boolean)));
   for (let i = 0; i < SAMPLES.length; i++) {
     for (const tok of segmentQuery(SAMPLES[i])) {
@@ -96,7 +97,7 @@ test("index-side tokens are a superset of query tokens (AND match never misses)"
   }
 });
 
-test("camel-split tokens are produced identically by both engines", () => {
+test("camel-split tokens are produced identically by both engines", { skip: pythonJiebaSkip() }, () => {
   const samples = ["getStringSync", "EntryAbility", "API12", "setWindowLayoutFullScreen", "get_string_sync"];
   const py = pythonSegment(samples, true);
   for (let i = 0; i < samples.length; i++) {
@@ -113,7 +114,7 @@ test("common HarmonyOS troubleshooting terms stay whole", () => {
   }
 });
 
-test("search-mode subwords match python verbatim", () => {
+test("search-mode subwords match python verbatim", { skip: pythonJiebaSkip() }, () => {
   // 子词兜底(subtokenMatchExpression)依赖 Node cutForSearch 与 Python 索引端
   // cut_for_search 逐字一致, 否则兜底子词不在索引词元集合内, 检索静默失效。
   const py = pythonSubwords(SAMPLES);

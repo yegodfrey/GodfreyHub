@@ -242,6 +242,7 @@ export interface HubCheckOpts {
   entry: ProjectEntry;
   files?: string[];      // 省略=git 变更(HEAD diff + 未跟踪)中的 .ets
   timeoutMs?: number;
+  signal?: AbortSignal;  // 请求级取消贯穿 CLI 批次执行
 }
 
 async function changedArktsFiles(entry: ProjectEntry): Promise<string[]> {
@@ -287,7 +288,7 @@ export async function hubCheck(opts: HubCheckOpts) {
   // 官方 CLI 批量诊断(真实类型/语法); CLI 不可用时文件全部计入 pending,
   // 绝不静默吞掉——冷/慢场景的 totalErrors=0 必须与真干净可区分。
   const pending: string[] = [];
-  const cli = await devEcoCliCheckArkts(files, opts.entry.harmonyRoot, opts.timeoutMs ?? 120000);
+  const cli = await devEcoCliCheckArkts(files, opts.entry.harmonyRoot, opts.timeoutMs ?? 120000, opts.signal);
   if (!cli.available) pending.push(...files);
   for (const f of files) {
     const item = cli.items[path.resolve(f).split(path.sep).join("/").toLowerCase()];

@@ -17,12 +17,14 @@
 // 退出码: 0 = 已写入; 2 = 用法/基建错误。
 
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { contentHash } from './content-identity.mjs';
 
 export const BUILD_STAMP_RELATIVE = 'dist/build-stamp.json';
+export const VERSION_FILE_RELATIVE = 'src/version.ts';
 export const BUILD_STAMP_SCHEMA_VERSION = 1;
 // 构建戳的输入 = tsc 的编译输入。tsconfig 换了（target/module/outDir/include）就等于换了
 // 一套产物，必须让戳变；package.json 不参与（依赖版本变化由 lockfile 与安装步骤负责，
@@ -84,11 +86,67 @@ export function writeBuildStamp(root) {
   return { document, target };
 }
 
+// ---------------------------------------------------------------------------
+// 版本同步: package.json 是唯一事实源, 消三处漂移(package.json / src/version.ts /
+// kimi.plugin.json 曾各写各的: 0.4.0 vs 0.1.0)。插件 mcpServers 同时收敛到 bootstrap
+// launcher(按环境探测 GodfreyHub 位置), .mcp.json 改为从插件清单生成, 不再手写双份。
+// ---------------------------------------------------------------------------
+
+function findPluginDir(root) {
+  const candidates = [
+    process.env.GODFREYHUB_PLUGIN_DIR,
+    path.join(os.homedir(), 'AppData', 'Roaming', 'kimi-desktop', 'daimon-share', 'daimon',
+      'runtime', 'kimi-code', 'home', 'plugins', 'managed', 'godfreyhub'),
+    path.join(root, '..', 'godfreyhub-plugin'),
+  ].filter(Boolean);
+  return candidates.find((dir) => fs.existsSync(path.join(dir, 'kimi.plugin.json'))) ?? null;
+}
+
+export function syncVersion(root) {
+  const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+  const version = pkg.version;
+
+  // 1) src/version.ts —— 服务器握手版本(tsc 编译进 dist)
+  const versionFile = path.join(root, VERSION_FILE_RELATIVE);
+  const versionSource =
+    '// 版本唯一事实源是 package.json; 本文件由 scripts/build-stamp.mjs --sync-version 生成,\n' +
+    '// 服务器握手版本与 Kimi 插件清单(kimi.plugin.json)都由同一脚本同步——勿手改。\n' +
+    `export const VERSION = "${version}";\n`;
+  let wroteVersion = false;
+  if (!fs.existsSync(versionFile) || fs.readFileSync(versionFile, 'utf8') !== versionSource) {
+    fs.writeFileSync(versionFile, versionSource, 'utf8');
+    wroteVersion = true;
+  }
+
+  // 2) Kimi 插件清单(若本机找得到): 版本 + mcpServers 启动项
+  let pluginFile = null;
+  const pluginDir = findPluginDir(root);
+  if (pluginDir) {
+    pluginFile = path.join(pluginDir, 'kimi.plugin.json');
+    const doc = JSON.parse(fs.readFileSync(pluginFile, 'utf8'));
+    doc.version = version;
+    // launch.mjs 随插件分发, 按环境探测 GodfreyHub 位置; 清单不再硬编码仓库绝对路径,
+    // 也不要 DEVECO_PATH(paths.ts 本来就有自动探测, env 只应作覆盖)。
+    doc.mcpServers = {
+      godfreyhub: {
+        command: 'node',
+        args: [path.join(pluginDir, 'launch.mjs')],
+      },
+    };
+    fs.writeFileSync(pluginFile, JSON.stringify(doc, null, 2) + '\n', 'utf8');
+    // 3) .mcp.json 不再是手写双份拷贝: 由插件清单的 mcpServers 生成, 双份漂移根除
+    fs.writeFileSync(path.join(pluginDir, '.mcp.json'),
+      JSON.stringify({ mcpServers: doc.mcpServers }, null, 2) + '\n', 'utf8');
+  }
+  return { version, wroteVersion, pluginFile };
+}
+
 function parseArgs(argv) {
-  const args = { root: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..') };
+  const args = { root: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), syncVersion: false };
   for (let index = 0; index < argv.length; index++) {
     switch (argv[index]) {
       case '--root': args.root = path.resolve(argv[index + 1]); index++; break;
+      case '--sync-version': args.syncVersion = true; break;
       default: throw new Error(`build-stamp: unknown argument '${argv[index]}'`);
     }
   }
@@ -100,6 +158,13 @@ const invokedDirectly = process.argv[1] !== undefined &&
 if (invokedDirectly) {
   try {
     const args = parseArgs(process.argv.slice(2));
+    if (args.syncVersion) {
+      const synced = syncVersion(args.root);
+      process.stdout.write(`build-stamp: version synced -> ${synced.version}` +
+        (synced.wroteVersion ? ` (${VERSION_FILE_RELATIVE} updated)` : '') +
+        (synced.pluginFile ? ` + ${path.relative(args.root, synced.pluginFile).replace(/\\/g, '/')}` : ' (plugin manifest not found, skipped)') +
+        '\n');
+    }
     const { document, target } = writeBuildStamp(args.root);
     process.stdout.write(`build-stamp: ${document.fileCount} source inputs, ` +
       `sourceHash=${document.sourceHash} -> ${path.relative(args.root, target).replace(/\\/g, '/')}\n`);

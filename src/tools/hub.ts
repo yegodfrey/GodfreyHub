@@ -12,7 +12,7 @@ import { listInstanceDetails, onlineDevicesClassified } from "../core/emulator.j
 import { hdkStatus } from "../core/hdk.js";
 import { verifyEnv } from "../core/verify.js";
 
-// hub_*: 项目注册/git 同步/构建部署/测试(8 个工具)
+// hub_*: 项目注册/git 同步/构建部署/测试(7 个工具)
 
 export const hubTools: ToolDefinition[] = [
   defineTool({
