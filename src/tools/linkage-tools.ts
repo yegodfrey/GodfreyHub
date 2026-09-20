@@ -62,11 +62,11 @@ export const linkageTools: ToolDefinition[] = [
 
   defineTool({
     name: "hub_check",
-    description: "一键修复清单: 对 .ets 文件跑 DevEco 同源 LSP 诊断, 合并最近一次构建日志的编译错误(去重), 输出修复清单。文件集默认=git 变更(HEAD diff+未跟踪)。",
+    description: "一键修复清单: 对 .ets 文件跑 DevEco 同源 LSP 诊断, 合并最近一次构建日志的编译错误(去重), 输出修复清单。文件集默认=git 变更(HEAD diff+未跟踪)。未在超时前确认的文件列入 pending 字段(不计入 totalErrors, 与真干净可区分)。",
     inputSchema: {
       project: z.string().optional().describe("项目名, 省略=当前项目"),
       files: z.array(z.string()).optional().describe("待检查 .ets 绝对路径, 省略=git 变更文件"),
-      timeoutMs: z.number().optional().describe("诊断等待超时, 默认 30000"),
+      timeoutMs: z.number().optional().describe("诊断等待超时, 默认 120000"),
     },
     handler: async (args) => {
       const r = resolveProject(args.project || undefined);

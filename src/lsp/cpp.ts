@@ -3,9 +3,9 @@ import path from "node:path";
 import { pathToFileURL, fileURLToPath } from "node:url";
 import { toolchain } from "../core/paths.js";
 import { spawnFrameProcess } from "./frame.js";
-import { findProjectRoot } from "./arkts-session.js";
+import { findProjectRoot, ARKTS_INIT_READY_TIMEOUT_MS } from "./project-config.js";
 import { ArktsLspError } from "./project-config.js";
-import type { LspDiagnosticsResult } from "./diagnostics.js";
+import type { LspDiagnosticsResult } from "./project-config.js";
 
 // C/C++ 静态检查: DevEco 内置 clangd, 自动发现 hvigor 生成的共享/模块级
 // compile_commands.json。
@@ -109,7 +109,7 @@ export async function cppDiagnostics(files: string[], opts: { projectRoot?: stri
   );
   // 诊断按归一化本地路径为键: 与 clangd 回显 URI 的写法差异(盘符大小写等)解耦。
   const diagnostics = new Map<string, any[]>();
-  const timeoutMs = opts.timeoutMs ?? 120000;
+  const timeoutMs = opts.timeoutMs ?? ARKTS_INIT_READY_TIMEOUT_MS;
   conn.onNotification("textDocument/publishDiagnostics", (params: any) => {
     if (typeof params?.uri === "string") {
       diagnostics.set(normalizedUriKey(params.uri), Array.isArray(params.diagnostics) ? params.diagnostics : []);

@@ -9,7 +9,6 @@ import {
 import { z } from "zod";
 import type { ZodObject, ZodRawShape } from "zod";
 import { closeHdk } from "./core/hdk.js";
-import { disposeArktsSessions } from "./core/lsp.js";
 import { loadConfig } from "./core/registry.js";
 import type { ToolDefinition } from "./tools/types.js";
 import { hubTools } from "./tools/hub.js";
@@ -18,12 +17,14 @@ import { devTools } from "./tools/dev.js";
 import { deviceUiTools } from "./tools/device-ui.js";
 import { docsTools } from "./tools/docs.js";
 import { linkageTools } from "./tools/linkage-tools.js";
+import { ideTools } from "./tools/ide-tools.js";
 
 // GodfreyHub — 自包含 HarmonyOS 超级 MCP(全原生, 零子服务代理)
 //   hub_*  项目/git 一键同步/构建+同名实例部署   emu_* 模拟器生命周期+窗口命名
 //   dev_*  ArkTS/C++ 静态检查(DevEco 语言服务无头)  lsp_* 语义导航(hover/定义/引用/符号)
 //   ui_*   设备 UI 自动化(hdc uitest)             hilog_* 日志/崩溃采集
 //   hdk_*  离线文档库 FTS5 检索(直查本地索引)      verify 视觉模型 UI 自动化校验
+//   ide_*  DevEco 26 内置 MCP 桥接(IDE 打开文件/打开的编辑器; 符号搜索并入 lsp_symbols)
 //   深度联动: ui_locate_code(UI→源码) hilog_locate_crash(崩溃→源码) hub_check(诊断+构建错误合并)
 //
 // 工具注册表按域拆分在 src/tools/, 每个工具 = zod schema + 类型化 handler。
@@ -37,6 +38,7 @@ const ALL_TOOLS: ToolDefinition[] = [
   ...deviceUiTools,
   ...docsTools,
   ...linkageTools,
+  ...ideTools,
 ];
 
 // 名称唯一性在启动时强制: 注册表拆成多文件后, 拼写冲突必须在进程启动瞬间暴露。
@@ -113,7 +115,6 @@ process.on("unhandledRejection", (e) => console.error("[godfreyhub] unhandled:",
 // Statement, 之后再退出即干净关闭(客户端可正常重启连接而非 failed 卡死)。
 process.on("exit", () => {
   try { closeHdk(); } catch { /* 已关闭 */ }
-  disposeArktsSessions();
 });
 
 async function main() {

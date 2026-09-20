@@ -81,12 +81,15 @@ export class FrameConnection {
       } else if (msg.method) {
         const nh = this.notificationHandlers.get(msg.method);
         if (nh) nh(msg.params);
+        else if (process.env.GODFREYHUB_LSP_TRACE) process.stderr.write("[godfreyhub] unhandled-note " + msg.method + "\n");
       }
     }
   }
 
   private answerServerRequest(msg: RpcMsg): void {
     // 未知服务端请求一律回 null: 至少不让服务端挂在等待上。语义化应答按需扩展。
+    // 服务端请求很稀有且 historically 携带过校验结果, 必须留痕。
+    process.stderr.write("[godfreyhub] srv-req " + msg.method + "\n");
     const result = msg.method === "workspace/configuration"
       ? (Array.isArray(msg.params?.items) ? msg.params.items.map(() => null) : [])
       : null;

@@ -4,7 +4,8 @@ import path from "node:path";
 import { run } from "./proc.js";
 import { dumpUiTree } from "./uitest.js";
 import { collectFaultlog } from "./hilog.js";
-import { lspDiagnosticsMany, documentSymbolsOffline } from "./lsp.js";
+import { documentSymbolsOffline } from "./lsp.js";
+import { devEcoCliCheckArkts } from "./devecocli.js";
 import type { ProjectEntry } from "./registry.js";
 
 // 深度联动(跨域串联, 原生能力的 1+1>2):
@@ -283,12 +284,15 @@ export async function hubCheck(opts: HubCheckOpts) {
     .filter((f) => /\.ets$/.test(f) && fs.existsSync(f));
 
   const diagnostics: Array<{ file: string; line: number | null; severity: number; message: string; code: string | null }> = [];
-  // 批量并行诊断；pending 文件（未在超时前确认）视为"未检查"，不并入结果。
-  const results = await lspDiagnosticsMany(files, { projectRoot: opts.entry.harmonyRoot, timeoutMs: opts.timeoutMs });
+  // 官方 CLI 批量诊断(真实类型/语法); CLI 不可用时文件全部计入 pending,
+  // 绝不静默吞掉——冷/慢场景的 totalErrors=0 必须与真干净可区分。
+  const pending: string[] = [];
+  const cli = await devEcoCliCheckArkts(files, opts.entry.harmonyRoot, opts.timeoutMs ?? 120000);
+  if (!cli.available) pending.push(...files);
   for (const f of files) {
-    const r = results[f];
-    if (!r || r.pending) continue;
-    for (const d of r.diagnostics) {
+    const item = cli.items[path.resolve(f).split(path.sep).join("/").toLowerCase()];
+    if (!item) { pending.push(f); continue; }
+    for (const d of item.diagnostics) {
       diagnostics.push({
         file: f,
         line: (d?.range?.start?.line ?? 0) + 1,
@@ -305,6 +309,7 @@ export async function hubCheck(opts: HubCheckOpts) {
     project: opts.entry.name,
     files,
     diagnostics,
+    pending,
     buildErrors,
     totalErrors: diagnostics.filter((d) => d.severity === 1).length + buildErrors.length,
     note: files.length === 0 ? "无变更 .ets 文件(可显式传 files)" : undefined,

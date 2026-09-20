@@ -38,7 +38,7 @@ export const hubTools: ToolDefinition[] = [
           arktsLsp: (() => {
             if (!tc.deveco) return "不可用: 未找到 DevEco";
             return cfgPath && fs.existsSync(cfgPath)
-              ? "正常 (DevEco ace-server 无头, project-config 就绪)"
+              ? "正常 (project-config 就绪, ArkTS 检查走官方 devecocli)"
               : "待预热: 缺 " + (cfgPath ?? "project-config.json") + " (DevEco 打开或 hub_build 一次)";
           })(),
           clangd: tc.clangd ? "正常 (" + tc.clangd + ")" : "不可用: 未找到 DevEco clangd",
