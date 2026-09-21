@@ -15,7 +15,8 @@ try {
     layoutPath: value("--layout", false),
     outputDir: value("--output")!,
     // 结构性差分(可选): spec 声明 structuralEquivalentTo 时由编排方提供基线 spec、
-    // 基线布局树与设备密度, 语义见 src/core/structural-diff.ts。
+    // 基线布局树与设备密度, 语义见 src/core/structural-diff.ts。--density 只是 px→vp 的
+    // 换算输入, 不是判等键; 等价类判等键 (vp 视口带, 字级档, HAP 摘要) 在 GFSoftware。
     structuralBaselineSpecPath: value("--baseline-spec", false),
     structuralBaselineLayoutPath: value("--baseline-layout", false),
     structuralDensityPixels: value("--density", false)

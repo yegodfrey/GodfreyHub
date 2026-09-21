@@ -24,7 +24,10 @@ export interface StructuralDiffOptions {
   ignoreAnchors?: string[];
   geometryInvariant?: boolean;
   geometryToleranceVp?: number;
-  densityPixels?: number;    // 几何不变断言必须提供(px per vp); 缺失时几何断言报配置错误
+  densityPixels?: number;    // 几何不变断言必须提供(px per vp); 缺失时几何断言报配置错误。
+  // 注意: 这是 px→vp 换算输入, 不是判等键 —— 收据/构建的等价类判等键是
+  // (vp 视口带, 字级档, HAP 摘要), 定义在 GFSoftware family/visual-equivalence.mjs;
+  // 同一等价类内 density 差异合法, 只作记录字段。
   baselineName?: string;     // 仅用于 issue 文案
   variantName?: string;
 }
