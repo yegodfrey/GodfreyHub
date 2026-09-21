@@ -546,7 +546,7 @@ T 为 泛型参数，用于在对象中查找对应类型的值。
     
     public func colored(color: Color, text: String): PrettyPrinter
 
-功能：对给打印器增加的字符串指定颜色。
+功能：对给打印器增加的字符串指定颜色��
 
 参数：
 

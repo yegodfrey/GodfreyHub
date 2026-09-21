@@ -22,7 +22,7 @@ nodePath: 系统 / 安全 / Universal Keystore Kit（密钥管理服务） / 密
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/OWHEOfXKTc-3NOtA-rbFUA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090128Z&HW-CC-Expire=86400&HW-CC-Sign=9C76854E8F244F3706A5438E013114647EF3E913092598A2B46CE6FC0A30F716)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/OWHEOfXKTc-3NOtA-rbFUA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111034Z&HW-CC-Expire=86400&HW-CC-Sign=4F5709176085A4AC34576CCE3528FD3447070A6402D3E6033F009334E49FC15F)
 
 轻量级设备只支持明文导入，不支持加密导入。
 
@@ -34,7 +34,7 @@ nodePath: 系统 / 安全 / Universal Keystore Kit（密钥管理服务） / 密
 
 下图为加密导入密钥开发时序图。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/W2oFnLodQ164UDIiekNfMg/zh-cn_image_0000002743077803.png?HW-CC-KV=V1&HW-CC-Date=20260908T090128Z&HW-CC-Expire=86400&HW-CC-Sign=924AC2D1AE563E0072E4EE0A5D005556FD61A7FC11A700ED2C2A5C125ED4F7AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/W2oFnLodQ164UDIiekNfMg/zh-cn_image_0000002743077803.png?HW-CC-KV=V1&HW-CC-Date=20260921T111034Z&HW-CC-Expire=86400&HW-CC-Sign=41E039B36D3A4ECA81060AB225BA202AE115739F2D4D73B05CD3858D6034B374)
 
 根据开发流程，在导入加密密钥过程中，需要依次调用HUKS的能力包括：
 
@@ -48,7 +48,7 @@ nodePath: 系统 / 安全 / Universal Keystore Kit（密钥管理服务） / 密
 
 导出密钥接口返回的[公钥明文材料是按照**X.509** 格式封装](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-huks-concepts#公钥材料格式)，导入加密密钥接口中的密钥材料需满足**Length Data-Data**的格式封装，形如：[(Lengthpart1Datapart1)……(LengthpartnDatapartn)]。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/lkVdsBitQrez1bPz-qjtaw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090128Z&HW-CC-Expire=86400&HW-CC-Sign=703538ECDB9C7728C619EA72250AEEFFC466EC64EC9F00262F6745783DB4A23C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/lkVdsBitQrez1bPz-qjtaw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111034Z&HW-CC-Expire=86400&HW-CC-Sign=8A28D2DF2DA7A43F290FF23A2F23DC90E0AE31D9E924A2257F1E87FEA9515484)
 
 加密导入密钥时，协商算法支持ECDH和X25519，协商后的Shared_Key使用AES-GCM算法加密Caller_Kek。对应算法套件定义见[HuksUnwrapSuite](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-security_huks#class-huksunwrapsuite)。
 
@@ -79,9 +79,9 @@ To_Import_Key密文To_Import_Key_enc | LTo_Import_Key_enc字节
   
 #### 支持的算法
 
-以下为密钥导入支持的规格说明。
+以下为密钥导入支持的规格���明。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/uUNMj2IxSTmcmCtwBb1JAQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090128Z&HW-CC-Expire=86400&HW-CC-Sign=6E84CA28ABEB9BA9744D24E414CB1FFFD96BDCC8B36174E6E99E98E629CCFA86)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/uUNMj2IxSTmcmCtwBb1JAQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111034Z&HW-CC-Expire=86400&HW-CC-Sign=5FC7EA44D8094711A45CE7460EDDB3FBB40B00FF1D5AD27B35843E8ABD036ADC)
 
 导入RSA密钥时，公钥必须大于或者等于65537。
 

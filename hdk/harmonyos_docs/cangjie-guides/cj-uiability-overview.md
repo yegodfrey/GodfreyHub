@@ -20,9 +20,9 @@ UIAbility的设计理念：
 
 
 
-UIAbility划分原则与建议：
+UIAbility划分原则��建议：
 
-UIAbility组件是系统调度的基本单元，为应用提供绘制界面的窗口。一个应用可以包含一个或多个UIAbility组件。例如，在支付应用中，可以将入口功能和收付款功能分别配置为独立的UIAbility。
+UIAbility组���是系统调度的基本单元，为应用提供绘制界面的窗口。一个应用可以包含一个或多个UIAbility组件。例如，在支付应用中，可以将入口功能和收付款功能分别配置为独立的UIAbility。
 
 每一个UIAbility组件实例都会在最近任务列表中显示一个对应的任务。
 
@@ -37,7 +37,7 @@ UIAbility组件是系统调度的基本单元，为应用提供绘制界面的�
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/Z_OK391uSFacIHw2Oyp-Vw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=F5C79DD2C32B5FFB00F7D107F983FDDA3ADB83E8C76AEB4DE2C30B382F15E66C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/Z_OK391uSFacIHw2Oyp-Vw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111024Z&HW-CC-Expire=86400&HW-CC-Sign=FD752D499804EFD2853C210849FD777603E5E35110069F4B875861E234D4D787)
 
 任务视图用于快速查看和管理当前设备上运行的所有任务或应用。
 

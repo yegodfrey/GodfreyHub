@@ -1019,7 +1019,7 @@ key | String | 是 | - | 构造参数的名称。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-**起始版本：** 22
+**起始��本：** 22
 
 #### [h2]var keySource
     
@@ -2227,7 +2227,7 @@ effectType | ?SharedTransitionEffectType | 否 | None |  **命名参数。** 动
 
 **类型：** ?Curve
 
-**���写能力：** 可读写
+**读写能力：** 可读写
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -4149,9 +4149,9 @@ value | Bool | 是 | - | 弹窗是否可见。
 
 **功能：** 自定义设置popup弹窗显示和退出的动画效果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/MIpiSTteREq77_LIGteYzQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085238Z&HW-CC-Expire=86400&HW-CC-Sign=FC5D7ED66941A77BF92640E89D68C86363487DE69ACB97F2E9CB13A40EDC8E80)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/MIpiSTteREq77_LIGteYzQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111053Z&HW-CC-Expire=86400&HW-CC-Sign=DF669F5AD9C39FF5C26929CB972301C37E668E2CB01387635F9C25C356926504)
 
-  * 如果不设置，则使用默认的显��/退出动效。
+  * 如果不设置，则使用默认的显示/退出动效。
   * 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。
   * 退出动效中按back键，不会打断退出动效，退出动效继续执行，back键不被响应。
 
@@ -4172,7 +4172,7 @@ value | Bool | 是 | - | 弹窗是否可见。
 
 **功能：** 设置拦截退出事件且执行回调函数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/bhLJRLphQLWLaP1pnbieYA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085238Z&HW-CC-Expire=86400&HW-CC-Sign=7578A3CAEF58143409E314DAC82E750D0C5B17FD778B4C7DB02F51CF60B85240)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/bhLJRLphQLWLaP1pnbieYA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111053Z&HW-CC-Expire=86400&HW-CC-Sign=CC6CA117568DECA36D4E1E7AA0FFCC856FEB8BE1D0CC831C8D2E783391F08BD6)
 
 在onWillDismiss回调中，不能再做onWillDismiss拦截。
 
@@ -4362,7 +4362,7 @@ action | () -> Unit | 是 | - | **命名参数。** 点击菜单项的事件回�
 
 **功能：** 提示气泡内容的构造器。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/I1uwz9hPS0aePFi8QmeApQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085238Z&HW-CC-Expire=86400&HW-CC-Sign=5763255C0A563003D0936849EA5207002A53AF257E9A4F93820E4CD8940FA885)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/I1uwz9hPS0aePFi8QmeApQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111053Z&HW-CC-Expire=86400&HW-CC-Sign=6654C8BEB4FB6BD5AC56361094DD96F306D3EB94F9954A394129E777DD1B828C)
 
 popup为通用属性，自定义popup中不支持再次弹出popup。对builder下的第一层容器组件不支持使用position属性，如果使用将导致气泡不显示。builder中若使用自定义组件，自定义组件的aboutToAppear和aboutToDisappear生命周期与popup弹窗的显隐无关，不能使用其生命周期判断popup弹窗的显隐。
 
@@ -4681,7 +4681,7 @@ popup为通用属性，自定义popup中不支持再次弹出popup。对builder�
 
 **功能：** 设置拦截退出事件且执行回调函数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Ju_qKGbyQWSIdzPbvVgmYg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085238Z&HW-CC-Expire=86400&HW-CC-Sign=2E387C8C6E238E8E582999479E9C1D78202BEF94BA4296FA33B0818BFA1F41A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Ju_qKGbyQWSIdzPbvVgmYg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111053Z&HW-CC-Expire=86400&HW-CC-Sign=9AB13513182690A4210B4075A86326C36952F7EAF0C0B378CFABA3F28AEB4938)
 
 在onWillDismiss回调中，不能再做onWillDismiss拦截。
 
@@ -5279,7 +5279,7 @@ onWillDisappear | ?() -> Unit | 否 | Option.None | **命名参数。** 全模�
 
 **参数：**
 
-参数名 | 类型 | 必填 | 默认值 | 说明  
+参数名 | 类��� | 必填 | 默认值 | 说明  
 ---|---|---|---|---  
 x | ?Length | 否 | None | **命名参数。** 触摸点相对于组件左上角的x轴坐标。初始值为0.vp。  
 y | ?Length | 否 | None | **命名参数。** 触摸点相对于组件左上角的y轴坐标。初始值为0.vp。  
@@ -5453,7 +5453,7 @@ height | ?Length | 否 | None | **命名参数。** 触摸热区的高度。初�
 
 **读写能力：** 可读写
 
-**系��能力：** SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **起始版本：** 22
 
@@ -11624,7 +11624,7 @@ Bool | 如果两个枚举不相等则返回true，否则返回false。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-**起始版本：** 22
+**��始版本：** 22
 
 #### [h2]Overline
     
@@ -11768,7 +11768,7 @@ other | TextAlign | 是 | - | 要比较的另一个TextAlign枚举。
   
 **返回值：**
 
-类�� | 说明  
+类型 | 说明  
 ---|---  
 Bool | 如果两个枚举相等则返回true，否则返回false。  
   

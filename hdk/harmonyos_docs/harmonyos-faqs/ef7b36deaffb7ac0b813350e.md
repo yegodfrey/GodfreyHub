@@ -12,7 +12,7 @@ CanvasRenderingContext2D对象中的drawImage方法是否可以绘制GIF动画�
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/K3IVCHbmS-qKwP0u1ARGEA/zh-cn_image_0000002628599106.png?HW-CC-KV=V1&HW-CC-Date=20260917T085939Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A0993ED9F876C6D2172F86450B9ADE63513D22451EF96167CCE682F6D0A206F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/UK6_xrxkRbmZG3La4Q2VqQ/zh-cn_image_0000002628599106.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=C89683FB8FFEC594057E4DCFF760316A9580C91DFF4D6B27053CFD1E80B1160E "点击放大")
 
 ## 背景知识
 
@@ -95,5 +95,5 @@ struct Picture {
 }
 ```
 
-如果想将GIF动画保存至沙箱中，可以通过getPixelMap截取每一帧的像素，对像素进行转码png格式图片，获取图片的PixelMap，再通过packToFileFromPixelmapSequence将多个PixelMap编码成GIF文件。可参考[多张图片合成GIF动图](https://developer.huawei.com/consumer/cn/doc/architecture-guides/gif_generator-0000002330170016)。
+如果想将GIF动画保存至沙箱中，可以通过getPixelMap截取每一帧的像素，对像素进行转码png格式图片，获取图片的PixelMap，再通过packToFileFromPixelmapSequence将多个PixelMap编码成GIF文件。
 

@@ -12,7 +12,7 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/jmyBqYI0QTWLuGfEVWb8OA/zh-cn_image_0000002687847534.png?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=8E96CB56741D412F49E57B7096E28C2E85ABE0F3D8F0907B5C97D6D9296BE359 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/jmyBqYI0QTWLuGfEVWb8OA/zh-cn_image_0000002687847534.png?HW-CC-KV=V1&HW-CC-Date=20260921T084430Z&HW-CC-Expire=31536000000&HW-CC-Sign=FB03B025D7AAF5AED6DEEDD54871E0949DFFA659F6AD3C5FB91325DDEC02FC21 "点击放大")
 
 从日志可以看出应用进入后台后，应用还在后台运行中。通过托盘退出后，应用也退出了。
 

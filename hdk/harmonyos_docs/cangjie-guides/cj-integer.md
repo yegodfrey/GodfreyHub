@@ -52,7 +52,7 @@ i16 | Int16 | u16 | UInt16
 i32 | Int32 | u32 | UInt32  
 i64 | Int64 | u64 | UInt64  
   
-加入了后缀的整数字面量可以通过以下方式使用：
+加入了后缀的整数��面量可以通过以下方式使���：
     
     
     var x = 100i8 // x is 100 with type Int8
@@ -79,7 +79,7 @@ b'x' 表示类型为 UInt8 大小是 120 的字面值。另外还可以通过 b'
 
 整数类型之间、整数类型和浮点类型之间可以互相转换，整数类型可以转换为字符类型，具体的类型转换语法及规则请参见数值类型之间的转换。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/sNDt368-TfeMHIqFy8bCtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090111Z&HW-CC-Expire=86400&HW-CC-Sign=8B4D251ED06854408C14C0671D0CC46E39C156B7C204D1FD6A14C2780787E370)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/sNDt368-TfeMHIqFy8bCtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111021Z&HW-CC-Expire=86400&HW-CC-Sign=23E4B05A10FF46A75C3B034BDC2D6DD802CDBB6273AB13DEEF5965AABF6A3D28)
 
 本章所提及的某个类型支持的操作，均是指在没有[操作符重载](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-operator_overloading)的前提下。
 
@@ -126,7 +126,7 @@ b'x' 表示类型为 UInt8 大小是 120 的字面值。另外还可以通过 b'
     The type of r5 is 'Float64', and r5 = 1.000000
     The type of r6 is 'Float32', and r6 = 1.123457
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/VR06ViXGRxmPhHCu3fVdbQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090111Z&HW-CC-Expire=86400&HW-CC-Sign=1D42A08BDF40EB38D134F9CCE07D0D1CEB4B58490024B79B1BB6AC89A402B59D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/VR06ViXGRxmPhHCu3fVdbQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111021Z&HW-CC-Expire=86400&HW-CC-Sign=474F19C713B209E675DCA7AFC1704096182BEBF017360ECFC7B8CB487DE76B63)
 
 类型转换时可能发生溢出，若溢出可提前被编译器检测出来，则编译器会直接给出报错，否则根据默认的溢出策略将抛出异常。
 

@@ -18,7 +18,7 @@ nodePath: 应用框架 / ArkUI（方舟UI框架） / 仓颉组件 / 导航与切
 
 不支持自定义组件作为子组件，仅可包含子组件[TabContent](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-navigation-switching-tabcontent)，以及渲染控制类型[if/else](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-rendering-control-ifelse)和[ForEach](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-state-rendering-foreach)，并且if/else和ForEach下也仅支持TabContent，不支持自定义组件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/TMZ55HcxRRS-EgGWXwJPrA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090148Z&HW-CC-Expire=86400&HW-CC-Sign=41B4B63523364BB72BAF287B2CED59D0383C81D34DF712F573E4AB359CE32B85)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/TMZ55HcxRRS-EgGWXwJPrA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111049Z&HW-CC-Expire=86400&HW-CC-Sign=37B0E8697510964734F81AA7DE6D416CA1AF790A158E34E39D7FC10594E91655)
 
   * Tabs子组件的visibility属性设置为None，或者visibility属性设置为Hidden时，对应子组件不显示，但依然会在视窗内占位。
   * Tabs设置[height](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-size#func-heightoptionlength)为[LengthMetrics.AUTO](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#static-let-auto)时，可根据子组件高度自适应高度大小。设置[width](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-size#func-widthoptionlength)为[LengthMetrics.AUTO](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#static-let-auto)时，可根据子组件宽度自适应宽度大小。
@@ -109,7 +109,7 @@ value | ?[Length](https://developer.huawei.com/consumer/cn/doc/cangjie-reference
 
 参数名 | 类型 | 必填 | 默认值 | 说明  
 ---|---|---|---|---  
-value | ?[BarMode](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#enum-barmode) | 是 | - | 页签栏布局模式。初始值：BarMode.Fixed。  
+value | ?[BarMode](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#enum-barmode) | 是 | - | 页签栏布局模式。初��值：BarMode.Fixed。  
   
 #### [h2]func barWidth(?Length)
     
@@ -340,7 +340,7 @@ value | ?Int32 | 是 | - | 要切换到的页签索引。初始值：0。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/tTxWszZ8THKQG6LvNn1uHQ/zh-cn_image_0000002713398946.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090148Z&HW-CC-Expire=86400&HW-CC-Sign=C072156E2404E3B6942383AC374213101E0EFA98C8D5C412E13FE138D67B9F31)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/tTxWszZ8THKQG6LvNn1uHQ/zh-cn_image_0000002713398946.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111049Z&HW-CC-Expire=86400&HW-CC-Sign=1338FF21BB19385EECBFDDE422784A20BBCBB9162AC114F7A628686D6AB75DA9)
 
 #### [h2]示例2（页面懒加载和释放）
 
@@ -447,7 +447,7 @@ value | ?Int32 | 是 | - | 要切换到的页签索引。初始值：0。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/_BnEDWvbSTyLK5fJ8lA28A/zh-cn_image_0000002743077877.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090148Z&HW-CC-Expire=86400&HW-CC-Sign=EE9492F2AE8D6C94334205C2D6C7DB7ADB753F6F88E029EB258149952DA19FA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/_BnEDWvbSTyLK5fJ8lA28A/zh-cn_image_0000002743077877.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111049Z&HW-CC-Expire=86400&HW-CC-Sign=E35C8722F012394DB22DF3F34D93A348FC9D4555AA76242815D9CA7D9A505FBF)
 
 #### [h2]示例3（设置TabBar的布局模式）
 
@@ -529,4 +529,4 @@ value | ?Int32 | 是 | - | 要切换到的页签索引。初始值：0。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/OgA8o5HDRLmpVNU8ZIMS4w/zh-cn_image_0000002713558916.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090148Z&HW-CC-Expire=86400&HW-CC-Sign=1F739E59A238FED90CC0F516C28D669978F9F90F773BE4A9386FE226AE20FA16)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/OgA8o5HDRLmpVNU8ZIMS4w/zh-cn_image_0000002713558916.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111049Z&HW-CC-Expire=86400&HW-CC-Sign=445C481DE5CFAAFCCC7975186DC85C86A4F5C79FA083BF4297CA534FFACCBB3B)

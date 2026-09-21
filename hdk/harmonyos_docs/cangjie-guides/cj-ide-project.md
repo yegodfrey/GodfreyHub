@@ -17,7 +17,7 @@ nodePath: 开发环境搭建 / 工程创建
 
   * **[创建一个新的工程](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-project-create-new-project)**  
 
-  * **[生成单层图标](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-ide-apply-generated-icon)**  
+  * **[生成��层图标](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-ide-apply-generated-icon)**  
 
   * **[模块管理](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-module-management)**  
 

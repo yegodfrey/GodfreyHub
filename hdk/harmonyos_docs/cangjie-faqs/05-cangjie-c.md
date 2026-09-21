@@ -15,19 +15,19 @@ nodePath: FAQ / 跨语言互操作 / 仓颉项目中如何调用C库函数
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/gCmeZPITRyChIqvtVT_J1A/zh-cn_image_0000002659354128.png?HW-CC-KV=V1&HW-CC-Date=20260921T085440Z&HW-CC-Expire=86400&HW-CC-Sign=ECBE2E21AD18A2BCDFFA14AFA5F2A4B6D1E165B9A4BA0BFC4795B78E83EF02C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/gCmeZPITRyChIqvtVT_J1A/zh-cn_image_0000002659354128.png?HW-CC-KV=V1&HW-CC-Date=20260921T111121Z&HW-CC-Expire=86400&HW-CC-Sign=16755A0DD03FA64D88C6AF566B0F9018FAC99A4E7025E407AED37FFEBA2D4AEF)
 
   * 引入cpp模块，DevEco Studio支持引入C++模块，此处借用该编译构建环境
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/hl4Zfb7dQHu2lC6ulkstoQ/zh-cn_image_0000002689473657.png?HW-CC-KV=V1&HW-CC-Date=20260921T085440Z&HW-CC-Expire=86400&HW-CC-Sign=FDC6ADA9D7CFBFF8E74AFD9CCB02A2F284907DED4853C88A5EE51D43DE11BAB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/hl4Zfb7dQHu2lC6ulkstoQ/zh-cn_image_0000002689473657.png?HW-CC-KV=V1&HW-CC-Date=20260921T111121Z&HW-CC-Expire=86400&HW-CC-Sign=530BDAD6274B4F6A461261CD63CF041A28EC7AB013D8FF0308EE194FBEF5EDEF)
 
   * 工程目录将变为如下图所示：
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/2kaBoYsNQgOdnaMfYE1JvQ/zh-cn_image_0000002689593465.png?HW-CC-KV=V1&HW-CC-Date=20260921T085440Z&HW-CC-Expire=86400&HW-CC-Sign=4B5476D23F3058E08D5088333BF8623393D79798078EE040F19E655D691622EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/2kaBoYsNQgOdnaMfYE1JvQ/zh-cn_image_0000002689593465.png?HW-CC-KV=V1&HW-CC-Date=20260921T111121Z&HW-CC-Expire=86400&HW-CC-Sign=2469EEBB08C16C11033E16B53D4B2BC5EBE402F3C6CCA055FE054F48B7507E84)
     
     
     ├── entry
@@ -112,7 +112,7 @@ cjpm.toml是仓颉模块配置文件用于配置一些基础信息、依赖项�
 
 #### [h2]oh-package.json5
 
-oh-package.json5用于存放依赖库的信息，包括所依赖的三方库和共享包。详情请参见[oh-package.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5)，在增加C++模块后，oh-package.json5会在dependencies选项下自动生成libentry.so依赖路径，以帮助工程引入C++库。
+oh-package.json5用于存放依赖库的信息，包括所依赖的三方库和共享包。详情请参��[oh-package.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5)，在增加C++模块后，oh-package.json5会在dependencies选项下自动生成libentry.so依赖路径，以帮助工程引入C++库。
     
     
     {
@@ -196,13 +196,13 @@ oh-package.json5用于存放依赖库的信息，包括所依赖的三方库和�
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/mCzGH-_xTXqpL-5yTPC7Lg/zh-cn_image_0000002659514064.png?HW-CC-KV=V1&HW-CC-Date=20260921T085440Z&HW-CC-Expire=86400&HW-CC-Sign=9873216FEE10A8FFB40AB5B0297F56C57039F8B340D7FEAB2928AA41D0ACB626)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/mCzGH-_xTXqpL-5yTPC7Lg/zh-cn_image_0000002659514064.png?HW-CC-KV=V1&HW-CC-Date=20260921T111121Z&HW-CC-Expire=86400&HW-CC-Sign=BA90B55EA316C66883802E6038B7671F79E8902494911DB42C5353C6547261EC)
 
   * entry ——> build ——> intermediates ——> libs目录下会生成arm64-v8a和x86_64目录，可以找到libHello.so文件
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/cI9UGctnQTWQ0cMTvWpCxw/zh-cn_image_0000002659354130.png?HW-CC-KV=V1&HW-CC-Date=20260921T085440Z&HW-CC-Expire=86400&HW-CC-Sign=EACFB5084E8F559280673BFB6C5D88CD6C7A1A4753A643FDA97AC1A98EE26A42)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/cI9UGctnQTWQ0cMTvWpCxw/zh-cn_image_0000002659354130.png?HW-CC-KV=V1&HW-CC-Date=20260921T111121Z&HW-CC-Expire=86400&HW-CC-Sign=34B66D5D005DC609B4BDCBF15D2BB264794F17D34EFD82E509774864DE96C631)
 
 #### 仓颉依赖C库配置
 
@@ -210,7 +210,7 @@ oh-package.json5用于存放依赖库的信息，包括所依赖的三方库和�
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/oVPHK91FSy2FdkC4IpoBNg/zh-cn_image_0000002689473659.png?HW-CC-KV=V1&HW-CC-Date=20260921T085440Z&HW-CC-Expire=86400&HW-CC-Sign=70C91E91649ACA5CBB750C807AADB164811BD9C2CC875186DBE604407DD599D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/oVPHK91FSy2FdkC4IpoBNg/zh-cn_image_0000002689473659.png?HW-CC-KV=V1&HW-CC-Date=20260921T111121Z&HW-CC-Expire=86400&HW-CC-Sign=1AFD544C5D2FF92ECD615BAC7D7871BA26DA93C91F6FD52592B7229974ABAB73)
 
   * 在cjpm.toml文件下配置依赖项
 
@@ -276,7 +276,7 @@ oh-package.json5用于存放依赖库的信息，包括所依赖的三方库和�
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/17Ab1iBFQdKUHDIhU5ujdA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085440Z&HW-CC-Expire=86400&HW-CC-Sign=C976C3D69FF4A2907F6D65924682DC54BA3815CE1C9FA2AD4D6ED0F60E95697E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/17Ab1iBFQdKUHDIhU5ujdA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111121Z&HW-CC-Expire=86400&HW-CC-Sign=AFA8FCA27972A3A480BA5EE2A441E1A0F48AC0971A90B11F34093BBAEFC5447D)
 
   1. 仓颉只需要声明需要调用的C接口，即可通过动态库调用C接口。仓颉声明的接口名称、参数类型、返回值类型与C接口要一一对应，并且需要被foreign修饰，以提示编译器，该接口来自C库。调用C接口时，需要声明unsafe，以提醒开发者，对于内存安全进行管控。
   2. 更多仓颉与C互操作用法，详情请参见[仓颉-C互操作](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-cangjie-c)章节。

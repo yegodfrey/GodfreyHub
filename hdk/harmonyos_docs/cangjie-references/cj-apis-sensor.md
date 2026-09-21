@@ -1981,7 +1981,7 @@ other | IntervalOption | 是 | - | 传入的IntervalOption。
 
 类型 | 说明  
 ---|---  
-Bool | 如果相等，则返回true；否则，返回false。  
+Bool | 如��相等，则返回true；否则，返回false。  
   
 #### [h2]func toString()
     

@@ -11,7 +11,7 @@ Image为图片组件，常用于在应用中显示图片。支持png、jpg、jpe
 
 说明：
 
-  * 使用快捷组合键对Image组件复制时���Image组件必须处于[获焦状态](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-focus#func-focusontouchbool)。Image组件默认不获焦，需将[focusable](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-window#var-focusable)属性设置为true，即可使用TAB键将焦点切换到组件上，再将[focusOnTouch](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-focus#func-focusontouchbool)属性设置为true，即可实现点击获焦。
+  * 使用快捷组合键对Image组件复制时，Image组件必须处于[获焦状态](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-focus#func-focusontouchbool)。Image组件默认不获焦，需将[focusable](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-window#var-focusable)属性设置为true，即可使用TAB键将焦点切换到组件上，再将[focusOnTouch](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-focus#func-focusontouchbool)属性设置为true，即可实现点击获焦。
   * 图片格式支持SVG图源，SVG标签文档请参考[SVG标签说明](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-image#svg标签说明)。
   * 动图的播放依赖于Image节点的可见性变化，其默认行为是不播放的。当节点可见时，通过回调启动动画，当节点不可见时，停止动画。可见性状态的判断是通过[onVisibleAreaChange](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-event-visibleareachange#func-onvisibleareachangearrayfloat64-bool-float64---unit)事件触发的，当可见阈值ratios大于0时，表明Image处于可见状态。
 
@@ -44,7 +44,7 @@ Image为图片组件，常用于在应用中显示图片。支持png、jpg、jpe
 
 **功能：** 通过图片数据源获取图片，用于后续渲染展示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/D8-rM3T-Q8qtBBEW_CiKrg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=DA2D90B54768CE0B4D02F29DDA2385D2D14732E4B9EF0A7CE3E30F90A6F7DBC5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/D8-rM3T-Q8qtBBEW_CiKrg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=D273A686C00E4B43DF068AF0CFD3A8B30ED3B7A7BF7E03CBFB7814B728CF5AB7)
 
   * Image组件加载图片失败或图片尺寸为0时，图片组件大小自动为0，不跟随父组件的布局约束。
   * Image组件默认按照居中裁剪，例如组件宽高设置相同，原图长宽不等，此时按照中间区域进行裁剪。
@@ -69,7 +69,7 @@ src | ?[ResourceStr](https://developer.huawei.com/consumer/cn/doc/cangjie-refere
 
 **功能：** 通过图片数据源获取图片，用于后续渲染展示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/XuiNe11tSyCmtM-PODyccQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=63882AB4703DB624416B80407597526872001E7DB2DE57A2BF4A34506DD4D40C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/XuiNe11tSyCmtM-PODyccQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=AEB197950CD7201969EDAEE8AEDBE1ACDD6AA52426B435A7D9BF2267A1697D27)
 
   * Image组件加载图片失败或图片尺寸为0时，图片组件大小自动为0，不跟随父组件的布局约束。
   * Image组件默认按照居中裁剪，例如组件宽高设置相同，原图长宽不等，此时按照中间区域进行裁剪。
@@ -91,7 +91,7 @@ src | ?[PixelMap](https://developer.huawei.com/consumer/cn/doc/cangjie-reference
 
 通用属性：全部支持。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/yt-O8k9dSwGhNEMjOaiMjw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=40CE50B9E23ADEC939292DC70862734A207FEFB68E4922BD7089EE88A1D09509)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/yt-O8k9dSwGhNEMjOaiMjw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=E01C6803B7E2A8F36B1417AAD7BAF0F3DCDB7481E29021080E194716426F93E4)
 
 Image组件不支持设置通用属性[foregroundColor](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-foregroundcolor#func-foregroundcolorresourcecolor)，可以通过Image组件的fillColor属性设置填充颜色。
 
@@ -123,7 +123,7 @@ src | ?[ResourceStr](https://developer.huawei.com/consumer/cn/doc/cangjie-refere
 
 **功能：** 设置图片解码过程中是否对图源自动缩放。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/RQzmzBRMTjinVnhHWeBKgA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=00DC2CCF6A9F5C31BB76ACFB03C73D4FF612EAA3E29C6177E02E83CFA629D836)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/RQzmzBRMTjinVnhHWeBKgA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=884A3A3F4531A3E145FAE3E61E6F5921A47DBCE2291E879518E12DDF9EA714AB)
 
 该操作会根据显示区域的尺寸决定用于绘制的图源尺寸，有利于减少内存占用。
 
@@ -144,7 +144,7 @@ value | ?Bool | 是 | - |  图片解码过程中是否对图源自动缩放。�
 
 **功能：** 设置替换svg图片的填充颜色。仅对svg图源生效。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/0eeXRtGLS7iy6v3kXApNGg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=27D654697A5DD6223161980674C6A25E568CA891F8627A4C5B3FA2E5C7BFB220)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/0eeXRtGLS7iy6v3kXApNGg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=28443535D684DF26D1D4031DE470BCAA14D9A40C479DA35F5F5C9C52BE8857D4)
 
 如需对png图片进行修改颜色，可以使用colorFilter。
 
@@ -182,7 +182,7 @@ value | ?Bool | 是 | - |  是否跟随图源尺寸。 初始值：false。
 
 **功能：** 设置图片的插值效果，即缓解图片在缩放时的锯齿问题。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/HAWP4jFSRe-1k2GeFWDUDQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=183489AEBFFD6F2150FE6ABB8D1086F910648A9A280A3A149640579381D1BCA4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/HAWP4jFSRe-1k2GeFWDUDQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=AED34961F9E5268CCB0F2CBEBABB8A6D99E55CA6309487C0E402B4326720C5CC)
 
   * 减轻低清晰度图片在放大显示的时候出现的锯齿问题，仅针对图片放大插值。
   * svg类型图源不支持该属性。
@@ -240,7 +240,7 @@ value | ?[ImageFit](https://developer.huawei.com/consumer/cn/doc/cangjie-referen
 
 **功能：** 设置图片的重复样式。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/v1oWA257R46D5vOk8FXd0Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=4CBE4AE7533F628ECBCB0FB30355BD886F1E1FF6713F48D3C47C5346D3F25B26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/v1oWA257R46D5vOk8FXd0Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=8CA651F6FCA626FDACC0929E6EC178A5FAE399B3C0B2BA78913690986065300E)
 
   * 从中心点向两边重复，剩余空间不足放下一张图片时会截断。
   * svg类型图源不支持该属性。
@@ -264,7 +264,7 @@ value | ?[ImageRepeat](https://developer.huawei.com/consumer/cn/doc/cangjie-refe
 
 **功能：** 设置图片的渲染模式。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/fwEzubJmTY2BxLwduWw8qA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=3E009EFB593FB1B0F2418D422075605707542C94FC2A5DEB4F2ADD148142B556)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/fwEzubJmTY2BxLwduWw8qA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=A7DBBF12B7A46698A6AB84B358D49AC2945E0D332D5A4C059E4CAC52D52FDFDA)
 
   * svg类型图源不支持该属性。
   * 设置 ColorFilter 时，该属性设置不生效。
@@ -306,7 +306,7 @@ height | ?[Length](https://developer.huawei.com/consumer/cn/doc/cangjie-referenc
 
 **功能：** 设置是否同步加载图片。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/8Whxqwv7S5eF2-5kEv1i8w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=6CD0A14024B536670C847F3BB23B6189960CEFF93324C2590DD8217819793489)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/8Whxqwv7S5eF2-5kEv1i8w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=ABE7359B002D3EBF1DBAC499A574AD0259E108CB1FBCA077416D068B670D62F8)
 
 建议加载尺寸较小的本地图片时将syncLoad设为true，因为耗时较短，在主线程上执行即可。
 
@@ -523,7 +523,7 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
 
 **功能：** 图片实际绘制的高度，单位为px。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/VnVegCZWQpe5oUPKZ1rUIA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=FF5FB77F61B84D2A90741EE45E7197A6E89B6CC2BBFC21A8F40C4E5702EE3E26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/VnVegCZWQpe5oUPKZ1rUIA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=A593924DF3ED5FD9EDA1D440ECFD43B30B422F225CC43FD90B5E04204658FBFC)
 
 仅在loadingStatus返回1时有效。
 
@@ -542,7 +542,7 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
 
 **功能：** 实际绘制内容相对于组件自身的x轴偏移，单位为px。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/xl6IsBdsSOeueV-BV9ShqA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=B61E5231AC06A0E9EF568278DF4F96C2AE6A6BC2BBBC032B37070D26DD378EBA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/xl6IsBdsSOeueV-BV9ShqA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=2ED821B759F5DCC044AAB41587BBB2FFA08A52C76ECD385CD200D3903E379A4A)
 
 仅在loadingStatus返回1时有效。
 
@@ -561,7 +561,7 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
 
 **功能：** 实际绘制内容相对于组件自身的y轴偏移，单位为px。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/j36sh-1XSjGxX3IgLuWCyQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=DAA707E89E0491AD741C4EB84A5536D9587901DA99F3C74110898C2723A223EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/j36sh-1XSjGxX3IgLuWCyQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=740DF052F566585615BF09951265CF72D9BE43346F6265F171D261242E509442)
 
 仅在loadingStatus返回1时有效。
 
@@ -580,7 +580,7 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
 
 **功能：** 图片实际绘制的宽度，单位为px。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/CxfXI6SPTBWZ8Dk3J_Dp5g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=241B053706BE7C4B9774F0320ABC2CC753BABDC07EBC66FCC7614E7BAE7508BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/CxfXI6SPTBWZ8Dk3J_Dp5g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=25F34D6DD29651B77535396A43C874EBFBF3D03F4C715C391978FFD8C9502C00)
 
 仅在loadingStatus返回1时有效。
 
@@ -709,7 +709,7 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/V6qwzAGlRjSeAWGw8Rav1A/zh-cn_image_0000002743077891.gif?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=753A5C76689A047424FDE99F60B2FD8762A1FF7B7ABC2CB991E11984BB76DAE4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/V6qwzAGlRjSeAWGw8Rav1A/zh-cn_image_0000002743077891.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=0DD91DD702F6ADA5D03E84154AFA7E3C20C476C9545C7CDF611A16B5C408BEC6)
 
 #### [h2]示例2（为图片添加事件）
 
@@ -755,7 +755,7 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/MlfHK543Qu6LKOS8q9vTCA/zh-cn_image_0000002713558930.gif?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=91356203CBDCB52D859EDF747D2138B095F90F12AEEBCFB7EFE4992E87103AA7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/MlfHK543Qu6LKOS8q9vTCA/zh-cn_image_0000002713558930.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=E72DC02A477444D3A4420F575FAF29B5E525E08A6343526B1D42651311F7F13F)
 
 #### [h2]示例3（为图像设置填充效果）
 
@@ -835,7 +835,7 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/6polAbHZT0C6PU7BMagwyw/zh-cn_image_0000002743197843.gif?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=5F0237A2396073B138BB027C6FFF55C2933047AE089F15BC2E8E25D098A85E4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/6polAbHZT0C6PU7BMagwyw/zh-cn_image_0000002743197843.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=68874CC79BF4EC4EAD183A46A8BC9F798659AFD39E0709E1726C3737C8B41E42)
 
 #### [h2]示例4（切换显示不同类型图片）
 
@@ -875,7 +875,7 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/WYQbUoE2QiKwvMV6ZgZY6w/zh-cn_image_0000002713398962.gif?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=F1812F456EE6B8CA67553B27F9EE65DB53EC8411D612B30D74AF6C5CD623C355)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/WYQbUoE2QiKwvMV6ZgZY6w/zh-cn_image_0000002713398962.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=100C3888AFDC6CF160048EAA6E5DE8F7B70EE6A1948ED2A6F3770D056C34546C)
 
 #### [h2]示例5（通过sourceSize设置图片解码尺寸）
 
@@ -913,7 +913,7 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/-hoIFQMoS-SxkwtOFpXf_A/zh-cn_image_0000002743077893.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=B116383D953AE412547C3999E4DAC5963BD95D20B2BF2D0E8BAF0E155999C9FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/-hoIFQMoS-SxkwtOFpXf_A/zh-cn_image_0000002743077893.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=5A564D5D396E75A78CC7D9858A1AAA523D88DA3E8496357422DF423BE97B2EC7)
 
 #### [h2]示例6（通过renderMode设置图片的渲染模式）
 
@@ -946,7 +946,7 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/3-f4c_xVTfOgcTbcXkAsIQ/zh-cn_image_0000002713558932.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=CE69DB76BBE393287CA41EA4D656D4620A1262F104B526C27608881AAF0C9584)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/3-f4c_xVTfOgcTbcXkAsIQ/zh-cn_image_0000002713558932.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=3F46BDFFF1BA5EB2A79C3A1A4DDA05C21324728F7FBC2FF6DFB32E7D0561479A)
 
 #### [h2]示例7（通过objectRepeat设置图片的重复样式）
 
@@ -980,7 +980,7 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/HvtR_WX6Tf6FzWwX6h00dw/zh-cn_image_0000002743197845.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=205B3C46AFB9F65980DBBDB586CB1C862AE439DE29347B6753808D82CB371704)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/HvtR_WX6Tf6FzWwX6h00dw/zh-cn_image_0000002743197845.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=1410D17BB0637208901D73E9E8BE82948F6636926415CECD7A6F18C6B08CBE6D)
 
 #### [h2]示例8（设置SVG图片的填充颜色）
 
@@ -1034,4 +1034,4 @@ value | ?Array<Float32> | 是 | - |  4x5的滤镜矩阵。 初始值：[]
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/bTYynNlXQMG_52V2IoEy_Q/zh-cn_image_0000002713398964.png?HW-CC-KV=V1&HW-CC-Date=20260921T085227Z&HW-CC-Expire=86400&HW-CC-Sign=31E21323246FF965E4C96341FCDA2FB4BB0FCD3E23EBC596317C6F8DC6ABA982)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/bTYynNlXQMG_52V2IoEy_Q/zh-cn_image_0000002713398964.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=9672632F210A6E10E7490796F3A792C4926D004269BB93F4FF6C4CD40FBE5CDE)

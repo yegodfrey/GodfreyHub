@@ -553,7 +553,7 @@ name | String | 是 | - | 数据库表名。
 
 **功能：** 配置谓词条件，表示字段field的值必须在给定的value集合内。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/K5s-NWl-T66pbIJ6sSsdmw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085205Z&HW-CC-Expire=86400&HW-CC-Sign=53079BB09A1E86CC9DA1A27F7A799E17FD41D67132A38563ED858464E520499E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/K5s-NWl-T66pbIJ6sSsdmw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111045Z&HW-CC-Expire=86400&HW-CC-Sign=5A23D0396E0B06EF0A52E1E4BE39B8017C950E04C8ACE1492ADD1BB6DEEF81E0)
 
 value集合不能为空。如果传入空集，此条件将失效，导致操作针对所有数据（如全量查询、更新或删除）。请在调用前判断value是否为空集，避免误操作。
 
@@ -3112,7 +3112,7 @@ Array<UInt8> | 以字节数组的形式返回指定列的值。
 
 参数名 | 类型 | 必填 | 默认值 | 说明  
 ---|---|---|---|---  
-columnName | String | 是 | - | 表示结果集中指定列的名称。  
+columnName | String | 是 | - | 表示结��集中指定列的名称。  
   
 **返回值：**
 
@@ -3523,7 +3523,7 @@ String | 以字符串形式返回指定列的值。
 
 **功能：** 指定相对当前结果集指针位置的偏移量，以移动结果集的指针位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/5acZ3as8SiizdDL8UvkVwA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085205Z&HW-CC-Expire=86400&HW-CC-Sign=410D17336B909464A2D5A324D0F14FB8AA9D3F8326C35E968FC99AA567429F87)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/5acZ3as8SiizdDL8UvkVwA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111045Z&HW-CC-Expire=86400&HW-CC-Sign=FF5D66FB4314C9CF38BB2DB377B7DDE828BAE8B7268648BAEB8FEE48A74DF52B)
 
 此接口在失败时不会返回false，而是抛出异常。请确保调用时针对错误码提示进行适当的处理。
 
@@ -3597,7 +3597,7 @@ Bool | 如果成功移动结果集，则为true。
 
 **功能：** 转到结果集的第一行。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/iboJxexXSmaZ82CAEAIhYA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085205Z&HW-CC-Expire=86400&HW-CC-Sign=75EE609208508B2741C3D4998B115ED2F51888507F5C2B02181EF06E1FAA115D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/iboJxexXSmaZ82CAEAIhYA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111045Z&HW-CC-Expire=86400&HW-CC-Sign=AFCC583849C6444966D92D6FA5A259CA6541BA37DBB60C1FDBA003C88710ECED)
 
 此接口在失败时不会返回false，而是抛出异常。请确保调用时针对错误码提示进行适当的处理。
 
@@ -3665,7 +3665,7 @@ Bool | 如果成功移动结果集，则为true。
 
 **功能：** 转到结果集的最后一行。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/HT2JD5INSIe5wqdpfuN8HA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085205Z&HW-CC-Expire=86400&HW-CC-Sign=D6CBAF55813C28A52C586265983D20DE6C5FD7627546E591B07B007CCF4FD0E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/HT2JD5INSIe5wqdpfuN8HA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111045Z&HW-CC-Expire=86400&HW-CC-Sign=39190A1D8CEAAC5CE1F0B085B436815A21619006FB4E30EAF2E9102CCB30E7BE)
 
 此接口在失败时不会返回false，而是抛出异常。请确保调用时针对错误码提示进行适当的处理。
 
@@ -3733,7 +3733,7 @@ Bool | 如果成功移动结果集，则为true。
 
 **功能：** 转到结果集的下一行。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/rIDoRyiqTf629l4tMzHXjw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085205Z&HW-CC-Expire=86400&HW-CC-Sign=B8612371B94BBAA9F2A860878DFE1DAACA944415EA11E05D5ECBAA01D07846D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/rIDoRyiqTf629l4tMzHXjw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111045Z&HW-CC-Expire=86400&HW-CC-Sign=0D6459CF7576A13D1EC95AC6B64093FCCF10C63338EC1025272EB71B984BA02C)
 
 此接口在失败时不会返回false，而是抛出异常。请确保调用时针对错误码提示进行适当的处理。
 
@@ -3801,7 +3801,7 @@ Bool | 如果成功移动结果集，则为true。
 
 **功能：** 转到结果集的上一行。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/nm0rixGPTHOFZaHQ4q3PWw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085205Z&HW-CC-Expire=86400&HW-CC-Sign=F033DBC571B0981996FF96FF6EC957825BDB14F8C56D76991032413A787ECC67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/nm0rixGPTHOFZaHQ4q3PWw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111045Z&HW-CC-Expire=86400&HW-CC-Sign=27D8E5445284520B7DC8464077BA5EEF3CE55A2CF2905EDFD984CC50E18F4683)
 
 此接口在失败时不会返回false，而是抛出异常。请确保调用时针对错误码提示进行适当的处理。
 
@@ -3869,7 +3869,7 @@ Bool | 如果成功移动结果集，则为true。
 
 **功能：** 转到结果集的指定行。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/SA04bMgNRh-VuHJwWwxpkA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085205Z&HW-CC-Expire=86400&HW-CC-Sign=03F087A43DC4F6DCF8B504B7ED1B73E2E30DFDCEE171B125A963182E0259F9F5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/SA04bMgNRh-VuHJwWwxpkA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111045Z&HW-CC-Expire=86400&HW-CC-Sign=56E352B35EA0AB05315E347797B06516EAAAF11CBBA175D07E5A99D07C60F992)
 
 此接口在失败时不会返回false，而是抛出异常。请确保调用时针对错误码提示进行适当的处理。
 

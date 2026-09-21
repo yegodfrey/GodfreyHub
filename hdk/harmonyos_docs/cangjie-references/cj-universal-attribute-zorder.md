@@ -35,7 +35,7 @@ value | ?Int32 | 是 | - | 同一容器中兄弟组件显示层级关系。zInde
 
 类型 | 说明  
 ---|---  
-T | 返回调用此接口的组件实例本身。  
+T | 返回调用此���口的组件实例本身。  
   
 #### 示例代码
 
@@ -79,4 +79,4 @@ T | 返回调用此接口的组件实例本身。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/0ohW725dQ7GFYc56etmg9w/zh-cn_image_0000002713558886.png?HW-CC-KV=V1&HW-CC-Date=20260908T090145Z&HW-CC-Expire=86400&HW-CC-Sign=E6F35999EF7050F62B580A87408B75664D6543EAE23E0290D651A4347D2DF10D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/0ohW725dQ7GFYc56etmg9w/zh-cn_image_0000002713558886.png?HW-CC-KV=V1&HW-CC-Date=20260921T111048Z&HW-CC-Expire=86400&HW-CC-Sign=EAAB50CD5CD58279CE193B563AB24F1B9463000C22E59F7E5DB367625FBEE6AC)

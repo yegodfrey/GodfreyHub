@@ -14,7 +14,7 @@ ArkTS 应用的开发语言包括 ArkTS、typescript、javascript，ArkTS 互操
     
     import ohos.ark_interop.*
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/DpMegwozQeCTUhngKmjL4w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085355Z&HW-CC-Expire=86400&HW-CC-Sign=EEEAD2E231ED5F26E093AFD2171E37F80C0CA026579D583C02C5E11BD1B5E6C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/DpMegwozQeCTUhngKmjL4w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111109Z&HW-CC-Expire=86400&HW-CC-Sign=A890D232687556A206B94E5073D2F0BF7B65DD88BC2593817295A2DE5636EE3A)
 
 当前暂不支持Kit化的导入方式，预计在下个版本支持。
 
@@ -2990,7 +2990,7 @@ input | JSValue | 是 | - | ArkTS 统一类型。
 
 类型 | 说明  
 ---|---  
-JSArrayEx<T> | 声明式互操作宏类型 JSArrayEx。  
+JSArrayEx<T> | 声明式互操作宏��型 JSArrayEx。  
   
 **异常：**
 
@@ -7930,7 +7930,7 @@ JSValue | ArkTS统一类型。
 
 **起始版本：** 22
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/w078EOW_SwOLrpvdupBWSQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085355Z&HW-CC-Expire=86400&HW-CC-Sign=52C7480AA28E3A03A0CC9BF8598C337CCEBD9DE9FFE3DB710926F31E6FC9DC35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/w078EOW_SwOLrpvdupBWSQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111109Z&HW-CC-Expire=86400&HW-CC-Sign=F10825F531F2CA3FCDC26200552A8386CE59F5498A55AA97A29EC44D9FD0ECA5)
 
 仓颉应用中只能在主线程上使用 JSRuntime() 创建 ArkTS 运行时。
 
@@ -8064,7 +8064,7 @@ String | 仓颉字符串。
   
 **异常：**
 
-  * [BusinessException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-api-business_exception#class-businessexception)：对应错误码如下表，详见[互操作错误码](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-ark_interop)
+  * [BusinessException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-api-business_exception#class-businessexception)：对应错误码如下表，详见[互���作错误码](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-ark_interop)
 
 
 

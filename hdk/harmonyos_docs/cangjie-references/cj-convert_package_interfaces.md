@@ -364,7 +364,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.convert 
     
     extend Int64 <: Formattable
 
-功能：为 [Int64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int64) 扩展 [Formattable](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-convert_package_interfaces#interface-formattable) 接口，以实现将 [Int64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int64) 实例转换为格式化字符串。
+功能：为 [Int64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int64) 扩展 [Formattable](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-convert_package_interfaces#interface-formattable) ���口，以实现将 [Int64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int64) 实例转换为格式化字符串。
 
 父类型：
 
@@ -956,7 +956,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.convert 
 
 功能：此扩展主要用于实现将 [Float16](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float16) 类型字面量的字符串转换为 [Float16](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float16) 值的相关操作函数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/FqbZvWNMSHmFEu-iJ7dYwA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083351Z&HW-CC-Expire=86400&HW-CC-Sign=31D6A7423422C309E074542082E347DA5CA923D921EDD7FDB8DF1C84C06D2D96)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/FqbZvWNMSHmFEu-iJ7dYwA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=C421C2528A90A93FF604BD4628EC5038D8CCAF614440DE750574251E4D1A0980)
 
 目前不支持二进制和八进制的浮点数转换。
 
@@ -1051,7 +1051,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.convert 
 
 功能：此扩展主要用于实现将 [Float32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float32) 类型字面量的字符串转换为 [Float32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float32) 值的相关操作函数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/Pdf_gk_6Srq0MOpAnVIfhg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083351Z&HW-CC-Expire=86400&HW-CC-Sign=8BBE64F9CDC6FB8A95D925A67DCA955F4D1F27498DF65E5140DCE28C2DDC251D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/Pdf_gk_6Srq0MOpAnVIfhg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=E2982C3E7F0920117F25931A1F73EDC63AD2D67B49210AC658E89525DDBEE736)
 
 目前不支持二进制和八进制的浮点数转换。
 
@@ -1146,7 +1146,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.convert 
 
 功能：此扩展主要用于实现将 [Float64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float64) 类型字面量的字符串转换为 [Float64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float64) 值的相关操作函数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/xaKVRPExTGusjVLsEuw5Mw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083351Z&HW-CC-Expire=86400&HW-CC-Sign=5E694E37B1ABBE88D45C2B0E7162DFAB55FE7E0B29F4BBD6ACC546FDC5D9C2B6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/xaKVRPExTGusjVLsEuw5Mw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=89385879E636200F3DEBF2392BF6B2C52688D39832B35C39D9B48EA30F13EF00)
 
 目前不支持二进制和八进制的浮点数转换。
 
@@ -2797,7 +2797,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.convert 
     
     extend UInt32 <: RadixConvertible<UInt32>
 
-功能：此扩展主要用于实现将 [UInt32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#uint32) 类型��面量的字符串转换为 [UInt32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#uint32) 值的相关操作函数。
+功能：此扩展主要用于实现将 [UInt32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#uint32) 类型字面量的字符串转换为 [UInt32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#uint32) 值的相关操作函数。
 
 父类型：
 

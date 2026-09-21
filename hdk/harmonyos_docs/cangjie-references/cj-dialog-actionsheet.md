@@ -509,7 +509,7 @@ dy | ?[Length](https://developer.huawei.com/consumer/cn/doc/cangjie-references/c
     
     public var autoCancel: ?Bool
 
-**功能：** 点击遮障���时，是否关闭弹窗。
+**功能：** 点击遮障层时，是否关闭弹窗。
 
 **类型：** ?Bool
 
@@ -629,7 +629,7 @@ dy | ?[Length](https://developer.huawei.com/consumer/cn/doc/cangjie-references/c
     
     public var onWillDismiss: ?Callback<DismissDialogAction, Unit>
 
-**功能：** 交互式关闭回调函数。
+**功能：** 交互���关闭回调函数。
 
 **类型：** ?[Callback](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#type-callbackt-v)<DismissDialogAction, Unit>
 

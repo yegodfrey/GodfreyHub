@@ -109,7 +109,7 @@ CFunc 在仓颉代码中被调用时，需要处在 unsafe 上下文中。
         unsafe { f() } // core dumped when running, because the pointer is nullptr.
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/8Bl3HheAS1mFk7QLoYLtVA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090114Z&HW-CC-Expire=86400&HW-CC-Sign=03D4DDEFA0C5679884BDCC50D46A1528A3FCEC81EF5AEF20E167754A3713A019)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/8Bl3HheAS1mFk7QLoYLtVA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111024Z&HW-CC-Expire=86400&HW-CC-Sign=F5429A7B95112EBF07B1A3BC1B32F198BC6DD8188CFEE74F6502D50FD416960B)
 
 将一个指针强制类型转换为 CFunc 并进行函数调用是危险行为，需要用户保证指针指向的是一个切实可用的函数地址，否则将发生运行时错误。
 
@@ -168,7 +168,7 @@ inout 修饰的变量，可以是定义在顶层作用域中的变量、局部�
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/h8Iqo0peQmmrssopyTd4_w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090114Z&HW-CC-Expire=86400&HW-CC-Sign=0989EF69640440279273926E16B24FD7DB58657DA07EA89FF3462862D360D2ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/h8Iqo0peQmmrssopyTd4_w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111024Z&HW-CC-Expire=86400&HW-CC-Sign=DC556EC3A82D657C49DA60A1B6A3660F4777588FFCFA381AF796DE910364A213)
 
 使用宏扩展特性时，在宏的定义中，暂时不能使用 inout 参数特性。
 
@@ -290,7 +290,7 @@ inout 修饰的变量，可以是定义在顶层作用域中的变量、局部�
 
 #### 类型映射
 
-#### [h2]基础类型
+#### [h2]基���类型
 
 仓颉与 C 语言支持基本数据类型的映射，总体原则是：
 
@@ -319,7 +319,7 @@ UIntNative | size_t | platform dependent
 Float32 | float | 4  
 Float64 | double | 8  
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/uh6CxGPWQDKvMxM9SESrmg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090114Z&HW-CC-Expire=86400&HW-CC-Sign=3D314EA431CB5F360BD2028148C4038E2014B1BC7620C775068B5A156346932B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/uh6CxGPWQDKvMxM9SESrmg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111024Z&HW-CC-Expire=86400&HW-CC-Sign=55150767388FBA627CFE06945B7F57702BEC3036E66C832E0BA245319F0EFA7B)
 
 int 类型、long 类型等由于其在不同平台上的不确定性，需要程序员自行指定对应仓颉编程语言类型。在 C 互操作场景中，与 C 语言类似，Unit 类型仅可作为 CFunc 中的返回类型和 CPointer 的泛型参数。
 
@@ -438,7 +438,7 @@ CPointer 的使用示例如下：
         var ptr = CPointer<Int8>(rand)
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/KrjfCeh5QNSYPz7ka3-qtg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090114Z&HW-CC-Expire=86400&HW-CC-Sign=5AC812BDA69E120759EBBE715D602B50A9149199A35AACF0314B42D94BFFD21C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/KrjfCeh5QNSYPz7ka3-qtg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111024Z&HW-CC-Expire=86400&HW-CC-Sign=A8358EE5283E6B7B89BCD6E814CB0F5CEBD43BACF52209548DFEF433900ADCF7)
 
 将一个 CFunc 强制类型转换为指针通常是安全的，但是不应该对转换后的指针执行任何的 read，write 操作，可能会导致运行时错误。
 
@@ -493,7 +493,7 @@ VArray 不允许作为 CFunc 的返回值类型。
         var b = VArray<Int32, $0>(repeat: 0)
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/f-sv3V2pQv-3-iaCnftd_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090114Z&HW-CC-Expire=86400&HW-CC-Sign=DBEBD175795D4D9382D28E46CEEAB11482BE53C15609BD0A6D57C4841AB49C5B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/f-sv3V2pQv-3-iaCnftd_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111024Z&HW-CC-Expire=86400&HW-CC-Sign=EC55CFF4D703FA5768185D81AC66B7EE0AB23FAC9F3611890A102C56BBB97005)
 
 C 语言中允许结构体的最后一个字段为未指明长度的数组类型，该数组被称为柔性数组（flexible array），仓颉不支持包含柔性数组的结构体的映射。
 
@@ -634,7 +634,7 @@ CFunc 类型的变量可以从 C 侧传递过来，也可以在仓颉侧构造�
 
 @C 修饰的函数，表明它的函数签名是满足 C 的调用规则的，定义还是写在仓颉这边。foreign 修饰的函数定义是在 C 侧的。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/R5AYYw1PT_a9YW7uihluFw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090114Z&HW-CC-Expire=86400&HW-CC-Sign=AA8B512F008787D4676839267F70F76D27195344E6453D51FFA1FC3424074B22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/R5AYYw1PT_a9YW7uihluFw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111024Z&HW-CC-Expire=86400&HW-CC-Sign=2FD551742D638005CCD2DB831627261F57A8507DF09DFB481FAFDC3AE2E97F4E)
 
 foreign 修饰的函数与 @C 修饰的函数，这两种 CFunc 的命名不建议使用 CJ_（不区分大小写）作为前缀，否则可能与标准库及运行时等编译器内部符号出现冲突，导致未定义行为。
 

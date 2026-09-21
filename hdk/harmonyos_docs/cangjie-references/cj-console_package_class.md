@@ -14,7 +14,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.console(
 
 功能：此类提供标准输入、标准输出和标准错误流的获取接口。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/d34kCP7PS7-MlAEio6Ldlw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=F6428EF99200C1E598D472DAB152DB64172D3B62D8A57B4A97204FD0045444DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/d34kCP7PS7-MlAEio6Ldlw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=1EBAC6E227196082E7FC0B794D0579E07DF54F1A59870FF0F08AEBF5A649B5C6)
 
 未来版本即将废弃，使用 [env](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-env_package_overview#函数) 包中相应函数替代。
 
@@ -110,7 +110,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.console(
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/MLIac2YiTfSs8smXM3eFBg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=2D2E348B64ECFFE7F66130E5FD83339800BA8CFC0781863DB780232679FC06A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/MLIac2YiTfSs8smXM3eFBg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=238078B2E3ED4896CD1638F9DCF6ECA93EAB430196DBEF8E93B3425B613B247C)
 
 未来版本即将废弃，使用 [ConsoleReader](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-env_package_classes#class-consolereader) 替代。
 
@@ -166,7 +166,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.console(
 
 功能：从标准输入中读取并放入 arr 中。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/a4URPuhEQKmu5usbC1SL7g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=6765B0F9181509551DAD1001AA5338B8E74785A3213F869195532AA4CF836AE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/a4URPuhEQKmu5usbC1SL7g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=8493A1F019A98A78E565FDE8AE0E6410666B52D5567270DB0215C59EB8373572)
 
 该函数存在风险，可能读取出来的结果恰好把 UTF-8 code point 从中截断，如果发生截断，将导致该 [Array](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-arrayt)<[Byte](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_types#type-byte)> 转换成字符串的结果不正确或抛出异常。
 
@@ -191,7 +191,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.console(
         // 获取标准输入流
         let stdin = Console.stdIn
     
-        // 创建一个字节数组用于读取数据
+        // 创建一个字节��组用于读取数据
         let buffer: Array<Byte> = [0, 0, 0, 0, 0]
     
         // 从标准输入读取数据到数组中
@@ -260,7 +260,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.console(
 
 读取成功返回 ?[String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string)，无输入或到达 EOF 时返回 None。该接口不会抛出异常，即使输入不符合 UTF-8 编码的字符串，也会构造出一个 [String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string) 并返回，其行为等同于 [String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string).[fromUtf8Uncheck](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#static-func-fromutf8uncheckedarrayuint8)([Array](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-arrayt)<[Byte](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_types#type-byte)>)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/2jh4NEOxRnmnEYx1c6yrwQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=15E3B7BC2D05BA10CBB2DAD695A63DDA8C055292FE10B7E5F8C65981B025A6DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/2jh4NEOxRnmnEYx1c6yrwQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=01CC45BD1C2A0418D76873E513951F683096F036AB039765AE452CB954665262)
 
 由于该函数使用终端规范模式（行缓冲），输入内容后需按回车或 Ctrl+D 才能被读取。若需按键即时响应（如游戏、TUI 应用），当前暂不支持。
 
@@ -386,7 +386,7 @@ ch包含在结果中，如果读取到文件结束符 EOF，将返回读取到�
 
 该类型无法构造实例，只能通过 [Console.stdOut](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-console_package_class#static-prop-stdout) 获取标准输出实例或者 [Console.stdErr](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-console_package_class#static-prop-stderr) 获取标准错误的实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/--2Ki5vMSR6WNwek2eYWqA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=382691D3B3A12F045CD3DD3C9FA35A95BA617EA46B93A8045F16C8553C8458BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/--2Ki5vMSR6WNwek2eYWqA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=B63C0FA1A0E7AB0FEEF487052A36BC52D2BB5ED4321761342553AB212C831D1D)
 
 未来版本即将废弃，使用 [ConsoleWriter](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-env_package_classes#class-consolewriter) 替代。
 

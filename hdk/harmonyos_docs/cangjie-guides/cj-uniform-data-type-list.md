@@ -99,7 +99,7 @@ general.psid | general.audio | .sid, .psid | audio/prs.sid | SID音频类型。
 general.ulaw-audio | general.audio | .au, .ulw, .snd | audio/basic, audio/au, audio/snd | μLaw音频类型。  
 general.xmf | general.audio | .xmf | audio/midi | 可扩展音乐文件类型。  
 general.ac3-audio | general.audio | .ac3 | audio/ac3 | 音频编解码器3文件格式。  
-general.archive | general.object | - | - | 所有文件和目录存档文件的基类型。  
+general.archive | general.object | - | - | 所有文件和目��存档文件的基类型。  
 general.tar-archive | general.archive | .tar | application/x-tar, application/tar | TAR压缩文件类型。  
 general.zip-archive | general.archive | .zip | application/zip | Zip压缩文件类型。  
 general.disk-image | general.archive | - | - | 所有可作为卷装载项的文件类型的基类型。  

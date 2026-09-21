@@ -631,7 +631,7 @@ value | KVValueType | 是 | - | 值对象。
 
 **功能：** 表示指定节点对应的数据类型，取值为KVValueType对应的枚举值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/TQsg9Z9xSCKuCX7HKpWdrw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090141Z&HW-CC-Expire=86400&HW-CC-Sign=E11E9411A08EF181F32139F90617D2707EC5C1716BCC9995DF49F61CB62A2015)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/TQsg9Z9xSCKuCX7HKpWdrw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111045Z&HW-CC-Expire=86400&HW-CC-Sign=DF661E370D7A8DFC7DE2AFD1B2C2E1BAF40C10FAFB091472E9B821D33CE3DDFA)
 
 当前版本不支持BYTE_ARRAY，使用此类型会导致getKVStore失败。
 
@@ -945,7 +945,7 @@ KVStoreResultSet实例不会实时刷新。使用结果集后，如果数据库�
 
 在调用KVStoreResultSet的方法前，需要先通过getKVStore构建一个SingleKVStore或者DeviceKVStore实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/mfubecO4Rbion47DMmYARw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090141Z&HW-CC-Expire=86400&HW-CC-Sign=9EC3A3BD7C6D55BD7B5655BFAED76FEF5B514A3342CFA82243A1B783B846D8B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/mfubecO4Rbion47DMmYARw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111045Z&HW-CC-Expire=86400&HW-CC-Sign=39519C0DFBA6C21EEDC87CC1F6D51FABCEBC809D8CA1C7F64958B1F4242A1DFD)
 
 KVStoreResultSet的游标起始位置为-1。
 
@@ -1236,7 +1236,7 @@ COMPATIBLE：选择为COMPATIBLE模式时，数据库在检查Value格式时较�
 
 **功能：** 表示数据库模式，可以在创建或打开数据库时创建Schema对象并将它们放入KVOptions中。
 
-**系统能力：** SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+**系��能力：** SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
 
 **起始版本：** 22
 
@@ -1907,7 +1907,7 @@ defaultAllowedDelayMs | UInt32 | 是 | - | 表示数据库同步允许的默认�
 
 **功能：** 数据库的安全级别枚举。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/1Kn15FuvQ0KZuoI1VVWCHQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090141Z&HW-CC-Expire=86400&HW-CC-Sign=9AC37A42C77A852A8C4811287F1BA3A86EAC3DE6ECA92B7E340516912C58616D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/1Kn15FuvQ0KZuoI1VVWCHQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111045Z&HW-CC-Expire=86400&HW-CC-Sign=ED14E103B58B31D7DE169BADA2359FC6E908BB764EA98A72285F634C88EBEFE4)
 
 在单设备使用场景下，KV数据库支持修改securityLevel参数进行安全等级升级。升级操作需要注意以下几点：
 

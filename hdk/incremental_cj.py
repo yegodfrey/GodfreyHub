@@ -182,7 +182,6 @@ def main(argv=None):
 
 def _main(no_recheck, skip_delete, limit):
     os.makedirs(OUT, exist_ok=True)
-    os.makedirs(DELETED_DIR, exist_ok=True)
 
     s = load_state()
     seed_from_crawl(s)

@@ -117,7 +117,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math.num
 
 功能：通过大端的 [Byte](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_types#type-byte) 数组以补码形式构建一个 [BigInt](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-bigint) 结构体。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/JuKesIQ2SHyW83NzP3qllA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=F1A33E837EF18355EE81FCC6E1E07CEC477889F124C628C73114B5E4D7C8E956)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/JuKesIQ2SHyW83NzP3qllA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=605C44B9A41555A237D179762FD484054849F8502FBA101F8BD0E66A1B9E31A8)
 
 数据存储方法有以下两种：
 
@@ -510,7 +510,7 @@ IntegerString : (SignString)? ValueString
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/Z0H0p2PhTD2K16ufdhmJjg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=1C3E002937629A28E99B9D47C0C82580C96386F4CCB6B0922A19D53A811137A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/Z0H0p2PhTD2K16ufdhmJjg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=AD42495D291038B27C51E87CEDECC38A5BBF8112F91573C479B7D6531FF07269)
 
 未来版本即将废弃，使用 parse(String, Int64) 替代。
 
@@ -907,7 +907,7 @@ IntegerString : (SignString)? ValueString
     
     public func hashCode(): Int64
 
-功能：计算并返回��� [BigInt](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-bigint) 的哈希值。
+功能：计算并返回此 [BigInt](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-bigint) 的哈希值。
 
 返回值：
 
@@ -938,7 +938,7 @@ IntegerString : (SignString)? ValueString
 
 功能：判断一个数是不是素数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/acHR4mNsRyaNJs2nIdTsRA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=FC90C8A086F7BCAE16AA3D7D4BA6B2F0DEA477BE04F4A37E93C2F4745CD4FA12)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/acHR4mNsRyaNJs2nIdTsRA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=D01EFB73CE8DBF503DBA34BB03115C3888129178B08AAEAB27116289BB7AAF74)
 
 该函数使用了 Miller-Rabin 测试算法，此算法的准确率会随着 certainty 参数的增加而增加。如果该数是素数，那么 Miller-Rabin 测试必定返回 true；如果该数是合数（期待返回 false），那么会有低于 1/4certainty 概率返回 true。素数只对大于等于 2 的正整数有意义，即负数，0，1 都不是素数。
 
@@ -977,7 +977,7 @@ IntegerString : (SignString)? ValueString
 
 功能：判断为 1 的最低位的 bit 的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/kYLRz7rsR2a-spFxli2Kkg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=057068C3B6FC62A9122099C104735AA770D532D29AECC26A381870D5C2C5294D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/kYLRz7rsR2a-spFxli2Kkg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=23BDCFF0C9090A988CCA6EC6AA7FFA11B6FD1F51F0087E9FBC86C5B781F6E4AC)
 
 未来版本即将废弃，使用 [trailingZeros(BigInt)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_funcs#func-trailingzerosbigint) 替代。
 
@@ -1102,7 +1102,7 @@ IntegerString : (SignString)? ValueString
 
 与另一个 [BigInt](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-bigint) 相除，返回结果。此除法运算的行为与运算符重载函数区别于，如果被除数为负数，此函数的结果向着远离 0 的方向取整，保证余数大于等于 0。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/s8wRYn6_Qo-wCBc9IRS_Dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=605DEE351804909261142D63CCA40DBB9697687EF123D0FE934187BD59F91F65)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/s8wRYn6_Qo-wCBc9IRS_Dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=69CF2CEE64DDDEAAA691780C9634D8B0962297C3F69A9E3C3D0DBB28CD0BF515)
 
 未来版本即将废弃。
 
@@ -1150,7 +1150,7 @@ IntegerString : (SignString)? ValueString
 
 与另一个 [BigInt](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-bigint) 相除，返回商和余数。此除法运算的行为与 divAndMod 函数区别于，如果被除数为负数，此函数的结果向着远离 0 的方向取整，保证余数总是大于等于 0。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/6hVpUNqBT5ehXqZF_7Wekw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=35DB15C76F3775E93A2B9E88117BE16B2B28B0A8316861F96D75D72F6FC0094B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/6hVpUNqBT5ehXqZF_7Wekw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=F9B42A324980566CAC29548CC9CD51C423EC60C701824ABE92D9DFD57F922726)
 
 未来版本即将废弃。
 
@@ -1200,7 +1200,7 @@ IntegerString : (SignString)? ValueString
 
 与另一个 [BigInt](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-bigint) 相除，返回余数。余数的结果总是大于等于 0。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/8rgKzFhSRFybM8pYy_kHRQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=96337619357916C97070E6D86FB44A928E3360CF17738AF68776528C5893DD78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/8rgKzFhSRFybM8pYy_kHRQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=4397079463A9C5B40596202E95FD3BB52CE6BDDA213B22776D83E2A568489E6C)
 
 未来版本即将废弃。
 
@@ -2472,7 +2472,7 @@ IntegerString : (SignString)? ValueString
 
 功能：[BigInt](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-bigint) 除法。
 
-除法运算的行为与基础类型保��一致，即结果向靠近 0 的方向取整。
+除法运算的行为与基础类型保持一致，即结果向靠近 0 的方向取整。
 
 参数：
 
@@ -3241,7 +3241,7 @@ IntegerString : SignString? ValueString
 
 功能：通过 16 位有符号浮点数构建 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象。默认采用精度值为 0，即无限精度进行构建。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/ZcbOivaYTH-ldMc29OzPLw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=4D4A37532150F84D69303F1069F0648047C238171B4A30C856D5653C829860B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/ZcbOivaYTH-ldMc29OzPLw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=56C2711944F4CBDB81DD8E99ED7C9C45B9CF919DE4195866AB213B9F95E13BA9)
 
 由于部分十进制小数无法通过二进制浮点数精确表示，此构造函数以精确值构建 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象，传入浮点数值可能与最终构建 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象字符串打印值不一致。
 
@@ -3280,7 +3280,7 @@ IntegerString : SignString? ValueString
 
 功能：通过 32 位有符号浮点数构建 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象。默认采用精度值为 0，即无限精度进行构建。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/BxYT_YpGQ1yp_Hwx5k5vkg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=8BDB9C9BEDEB38FBEAD591952FB4BE502A6E464FBA4165C9C129FD7FF9349159)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/BxYT_YpGQ1yp_Hwx5k5vkg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=032BBAE3BA62D38504876A68D45D4CEC98836C86483380A97F4C9D32644F7A8E)
 
 由于部分十进制小数无法通过二进制浮点数精确表示，此构造函数以精确值构建 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象，传入浮点数值可能与最终构建 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象字符串打印值不一致。
 
@@ -3319,7 +3319,7 @@ IntegerString : SignString? ValueString
 
 功能：通过 64 位有符号浮点数构建 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象。默认采用精度值为 0，即无限精度进行构建。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/rykB9213TMm1YfuM5GIf_w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=CCAACDBEB9122497312A45D1A2FA7DC944780C3A605FFE4FF99D169D0A357B6A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/rykB9213TMm1YfuM5GIf_w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=C82CEA930AC0519216A41A231AE81A7941829E4E773CB97F90465AAB56C978E4)
 
 由于部分十进制小数无法通过二进制浮点数精确表示，此构造函数以精确值构建 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象，传入浮点数值可能与最终构建 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象字符串打印值不一致。
 
@@ -3522,7 +3522,7 @@ IntegerString : SignString? ValueString
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/6vW6OdIjSPq0iCPQtu2IHQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=4C6C96E4B536C1A259B1EFE58557168D52EBE3CC2EEBF3474A1FB47B82B00B4D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/6vW6OdIjSPq0iCPQtu2IHQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=1BCBE5A2C119B822A110E931136F6ED91397B329C1B0632BEEE91B927B09FA82)
 
 未来版本即将废弃，使用 parse(String) 替代。
 
@@ -3787,7 +3787,7 @@ IntegerString : SignString? ValueString
 
 功能：除法取商和余数运算，除以入参 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象，返回整数商值和余数值。结果保留实际精度值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/18fFuhUuTJSreMgXVZgnAA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=C26DB6CA36F96DE8236344F8F2810B1B8AD17771F73F863C4829A09BD63DFE89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/18fFuhUuTJSreMgXVZgnAA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=6ED64B52676BC7F53BFFA623011356EA1F0EDDC39E23F4554E26AA4F9D53FC25)
 
 未来版本即将废弃，使用 divAndMod(Decimal) 替代。
 
@@ -4922,7 +4922,7 @@ IntegerString : SignString? ValueString
 
 功能：乘方运算，乘方运算符重载，获取当前对象为底数，入参 [Int64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int64) 为指数的乘方运算结果，其中指数为入参 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象的整数部分。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/CxbWpBuUTaCdY0TPe43U7w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=C1D806DF24BCA7B8021DB2B9BF8F164DFF0BD457CB6E4A5D2388779D6861F273)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/CxbWpBuUTaCdY0TPe43U7w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=64EDB94B5FB7ECA061EB9AE24987D241837E7B649BC36F2FE66F45FBAB98C825)
 
 指数为负值且结果为无限小数场景时，默认采用 IEEE 754-2019 decimal128 对结果进行舍入。
 
@@ -5259,7 +5259,7 @@ IntegerString : SignString? ValueString
 
 功能：除法运算，除法运算符重载，除以入参 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 对象，返回结果值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/xvMmwCVUR823ATkVx7Ijow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085314Z&HW-CC-Expire=86400&HW-CC-Sign=09B3F7F845E599C47A8CD3A6B11B3FCF9740612382B68734D4506DFDB6ACD60F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/xvMmwCVUR823ATkVx7Ijow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=330CD3D1D0C0C0BA154878D8BD20D8B84EEDF0238E6749835FF1EE4C0406EA40)
 
 结果为无限小数场景时，默认采用 IEEE 754-2019 decimal128 对结果进行舍入。
 
@@ -5385,7 +5385,7 @@ IntegerString : SignString? ValueString
     
     public static func parse(value: String): Decimal
 
-功能：通过规定格式字符串构建 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 结构体。默认采用精度值为 0，即无限精度进行构建。字符串需满足如下格式，即开头可选的符号（正号或负号），接 ValueString 字符串，再接可选的 ExponentString 字符串：
+功能：通过规定格式字符串构�� [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 结构体。默认采用精度值为 0，即无限精度进行构建。字符串需满足如下格式，即开头可选的符号（正号或负号），接 ValueString 字符串，再接可选的 ExponentString 字符串：
 
 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 字符串: SignString? ValueString ExponentString?
 

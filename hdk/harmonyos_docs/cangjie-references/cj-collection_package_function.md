@@ -1010,7 +1010,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
     
     public func inspect<T>(action: (T) -> Unit): (Iterable<T>) -> Iterator<T>
 
-功能：迭代器每次调用 next() 对当前元素执行额外操作（不会消耗迭代器中���素）。
+功能：迭代器每次调用 next() 对当前元素执行额外操作（不会消耗迭代器中元素）。
 
 参数：
 
@@ -1454,7 +1454,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：从迭代器中跳过指定数量的元素，并返回处理后的新迭代器。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/ssCZ71f-QaKl8ZsC_6ZJAQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085256Z&HW-CC-Expire=86400&HW-CC-Sign=ECB3973CA4437E85E508B5607D20A6A46D53A5519DB1C0AB57550AD71D9BB27E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/ssCZ71f-QaKl8ZsC_6ZJAQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111058Z&HW-CC-Expire=86400&HW-CC-Sign=819976CFCF2F87924A56677A53EEAAA514393816D82B960568C0FC0565E58AF1)
 
   * 若入参 count < 0，直接抛出异常。
   * 若 count = 0，不跳过任何元素，直接返回原迭代器。

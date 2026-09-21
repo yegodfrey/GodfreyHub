@@ -22,7 +22,7 @@ unittest.testmacro 为单元测试框架提供了用户所需的宏。
 [Assert](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_testmacro_package_macros#assert-宏) | 声明 Assert 断言，测试函数内部使用，断言失败停止用例。  
 [AssertThrows](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_testmacro_package_macros#assertthrows-宏) | 声明[预期异常的断言](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_basics#预期异常的断言)，测试函数内部使用，断言失败停止用例。  
 [BeforeAll](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_testmacro_package_macros#beforeall-宏) | 声明测试类中的函数为[测试生命周期](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_basics#测试生命周期)函数。被该宏修饰的函数在所有测试用例之前运行一次。  
-[BeforeEach](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_testmacro_package_macros#beforeeach-宏) | 声明测试类中的函数为[测试生命周期](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_basics#测试生命周期)函数。被该宏修饰的函数在每个测试用例之前运行一次。  
+[BeforeEach](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_testmacro_package_macros#beforeeach-宏) | 声明测试类中的函数为[测试生命周期](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_basics#测试生命周期)函数。被该宏修饰的函数在每个测试用例之前运行一次��  
 [Bench](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_testmacro_package_macros#bench-宏) | 宏用于标记要执行多次的函数并计算该函数的预期执行时间。  
 [Configure](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_testmacro_package_macros#configure-宏) | 为测试类或测试函数提供配置参数。它可以放置在测试类或测试函数上。  
 [CustomAssertion](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-unittest_testmacro_package_macros#customassertion-宏) | @CustomAssertion 将函数指定为用户自定义断言。  

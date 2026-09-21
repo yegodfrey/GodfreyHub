@@ -33,7 +33,7 @@ API示例代码使用说明：
 
 **功能：** 创建ImagePacker实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/zj0UbSlNRPGmWK7o8_s0dQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=2FA270E3D27F48D16DDB325A9AE221887401BF5151780310CE2B742CC97FB792)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/zj0UbSlNRPGmWK7o8_s0dQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=EEE67B6BF5884F98F2AB8C7D4EB3FA79EE4638CACC47C6023147A5E31D5E1F06)
 
 由于图片占用内存较大，所以当ImagePacker实例使用完成后，应主动调用release方法及时释放内存。释放时应确保后续不再使用该实例。
 
@@ -69,7 +69,7 @@ ImagePacker | 返回ImagePacker实例。
 
 **功能：** 通过图片大小、图片格式、容量创建ImageReceiver实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/kTwvypXYToyfrY9x30kwtA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=A4B122DBFE7F563B4FF4B427A3A382309B738553F21FCCF7431CE16CBCE881A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/kTwvypXYToyfrY9x30kwtA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=18B13DD60117E73FA92F7ECEF799732AC820C01E4E72589317A528C8F416061C)
 
   * ImageReceiver做为图片的接收方、消费者，它的参数属性实际上不会对接收到的图片产生影响。图片属性的配置应在发送方、生产者进行，如相机预览流[createPreviewOutput](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-multimedia-camera#func-createpreviewoutputprofile-string)。
 
@@ -131,7 +131,7 @@ ImageReceiver | 如果操作成功，则返回ImageReceiver实例。
 
 **功能：** 通过传入的uri创建ImageSource实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/GXqnJ_AST4m1hVxERsOnqw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=8F9DBE63B948D63B795ACFEE6BA6633ED6646D68444001E337253DBAF73E423C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/GXqnJ_AST4m1hVxERsOnqw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=E74E3A8ED543D53E345AD36F3DBCF3CC687B594068295A9806ACE03134110588)
 
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用release方法及时释放内存。释放时应确保后续不再使用该实例。
 
@@ -185,7 +185,7 @@ ImageSource | 返回ImageSource类实例。
 
 **功能：** 通过传入的uri创建ImageSource实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/-zoMeZ3lQVOwiFp_PgNwmA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=D51684AFE459F63128AF18384A3DD05068D36442031E33156EF7CE7A25444932)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/-zoMeZ3lQVOwiFp_PgNwmA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=F7A51F0D511E6B23C688A1805EE564B266C123F1611F6BA3A1014F0450A72771)
 
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用release方法及时释放内存。释放时应确保后续不再使用该实例。
 
@@ -240,7 +240,7 @@ ImageSource | 返回ImageSource类实例。
 
 **功能：** 通过传入文件描述符来创建ImageSource实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/n2x4UDrWQzaaXF0LIvQ_8g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=52F3BCA8A43A12B408C3B52351A17DD002B5FCFF80F55FA27965B090BDC6BCC5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/n2x4UDrWQzaaXF0LIvQ_8g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=22A7AF7D56C442F0205B462E83BD51E9ACDA0B8511009D92A1691BAD4FB953EE)
 
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用release方法及时释放内存。释放时应确保后续不再使用该实例。
 
@@ -293,7 +293,7 @@ ImageSource | 返回ImageSource类实例。
 
 **功能：** 通过传入文件描述符来创建ImageSource实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/J86guKfLTbKkGm9pB3l2iw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=DAEC9DDA49A0B22A18984F85EFCDC29D44B26E9804F5D87A35CEF7BC6C1C9E1C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/J86guKfLTbKkGm9pB3l2iw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=41A21B9E6C79A07673A9BBF692643A8CA4391878D6DC415AC5ECF3AB6493D07D)
 
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用release方法及时释放内存。释放时应确保后续不再使用该实例。
 
@@ -348,7 +348,7 @@ ImageSource | 返回ImageSource类实例。
 
 **功能：** 通过缓冲区创建ImageSource实例。buf数据应该是未解码的数据，不要传入类似于RBGA，YUV的像素buffer数据，如果想通过像素buffer数据创建pixelMap，可以调用createPixelMap这一类接口。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/plCNQuesRcKAwu8K-40M8g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=A9F2C20C8D98DB56183417B3F2E0837693513A4A44A4B480464AAABA6B05D6C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/plCNQuesRcKAwu8K-40M8g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=B121FDE4F96F8EAEC8C2F3F57978EE7F23030EBFB93CCF6E27520F339B84D92F)
 
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用release方法及时释放内存。释放时应确保后续不再使用该实例。
 
@@ -402,7 +402,7 @@ ImageSource | 返回ImageSource类实例。
 
 **功能：** 通过缓冲区创建ImageSource实例。buf数据应该是未解码的数据，不要传入类似于RBGA，YUV的像素buffer数据，如果想通过像素buffer数据创建pixelMap，可以调用createPixelMap这一类接口。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/g9ePTi8KTgOPdcYLgrP6vQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=6BFAC3F3F42F96CBE1C2C8E4F0B88844F2C184A041DC437336AF938A075DC205)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/g9ePTi8KTgOPdcYLgrP6vQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=BF2A6ED34917171C5E04B86B67922E86D9F9A4BC294FBA13F0072002AFB8F7FB)
 
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用release方法及时释放内存。释放时应确保后续不再使用该实例。
 
@@ -458,7 +458,7 @@ ImageSource | 返回ImageSource类实例。
 
 **功能：** 通过图像资源文件的RawFileDescriptor创建ImageSource实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/GI62UXI5Qj65DHED2EwaIA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=4C62F488421B8901B18A18D707CFE68DEDB8A4059CCACB4BDD53C4E820CD2394)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/GI62UXI5Qj65DHED2EwaIA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=591B171EA201C8586471AB77988BEF33EAC59AB1F0C41270E3C9BB87A9271D2D)
 
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用release方法及时释放内存。释放时应确保后续不再使用该实例。
 
@@ -515,7 +515,7 @@ ImageSource | 返回ImageSource类实例。
 
 **功能：** 通过属性创建PixelMap，默认采用Bgra8888格式处理数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/HDfjQV0oRDW0THA0KNTlSg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=267DC50549892D23434F6344D24FFD039C36C2155AC103AD52B8D1951A3B6A8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/HDfjQV0oRDW0THA0KNTlSg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=2ABE138DFEB29CDCC9817E5E8E7E299A62BB253550D3C0462482BD3CC92FFC71)
 
 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用release方法及时释放内存。释放时应确保后续不再使用该对象。
 
@@ -883,7 +883,7 @@ desiredDynamicRange | DecodingDynamicRange | 否 | Sdr |  **命名参数。** �
 
 **功能：** Image类，用于获取图像内容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/MgNnKIFqRaKp2nhE-HG-Wg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=C77507591D6C6AF4FB76FBEA34A49BBE7666529D684ACCAFB2D37289B06773BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/MgNnKIFqRaKp2nhE-HG-Wg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=B06864895FE609DF7E2E8EB3FED4FCA06DC8AFB23DA20F480433832E285DD42D)
 
   * 调用readNextImage和readLatestImage接口时会返回Image实例。
 
@@ -1035,7 +1035,7 @@ Component | 返回组件缓冲区。
 
 **功能：** 释放当前图像。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/bWQP8W7HTz-9rg4aUGWNmA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=417FEA393EC9DC3F9D16F91704F475ECE389AB53345AB0B48A25E252B64707C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/bWQP8W7HTz-9rg4aUGWNmA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=6876F8FAB27BC6B7E4DFA96DAC707152D022B56AF08A4A723560F22F93361386)
 
   * 在接收另一个图像前必须先释放对应资源。
 
@@ -1201,7 +1201,7 @@ Component | 返回组件缓冲区。
 
 **功能：** ImagePacker类，用于图片压缩和编码。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/rzPj34xDQa-AvgKb0fSQ2A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=2BC2B337310FBBE3F2240108882AF49227DABA8E148CEA2BA5F221CB9E362B63)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/rzPj34xDQa-AvgKb0fSQ2A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=6171A31666F950288AE2C452130BB696462147C0F6E3AA9C7BFC572E62E29F64)
 
   * 在调用ImagePacker的方法前，需要先通过createImagePacker构建一个ImagePacker实例。
 
@@ -1317,7 +1317,7 @@ Array<UInt8> | 返回压缩或编码后的数据。
 
 **功能：** 图片压缩或重新编码。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/Iy6FHTWZSSeOfHT0p0X5IQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=BD4AE1471C514A71EEFB8879EC062FD721145EF9E6E95C923D522CE7DF85B74C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/Iy6FHTWZSSeOfHT0p0X5IQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=BD49A138CF1655A1EBF6A14525E88C7C715E68821C1763BD7FE77D0F7867A676)
 
 接口如果返回62980115错误码，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
 
@@ -1515,7 +1515,7 @@ options | PackingOption | 是 | - | 设置编码参数。
 
 **功能：** 释放图片打包实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/gTzMPZsyRqKSsmaWhxGRtg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=D4ECD742DC2E93271AD6218A7B8F0DE7EC5BCEC8BDF3D1FB102CCD99E2B4DC63)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/gTzMPZsyRqKSsmaWhxGRtg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=5E292744048789D9D378777D05AEDA8A26EA5E7A3603BF7281D4BE50C273D432)
 
 由于图片占用内存较大，所以当ImagePacker实例使用完成后，应主动调用该方法，及时释放内存。释放时应确保后续不再使用该实例。
 
@@ -1609,7 +1609,7 @@ defaultValue | String | 否 | "" | **命名参数。** 默认属性值。默认�
 
 **功能：** 图像接收类，用于获取组件surface id，接收最新的图片和读取下一张图片，以及释放ImageReceiver实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/-kX2tcsPSBuVO1yaGw5kkw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=C2808B9ACC3A9699BDFF7FC22BA320A4BAADE5EB24B66708D8324C145ED1233B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/-kX2tcsPSBuVO1yaGw5kkw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=317CF840C5E7615A5379CCD47E7509ED8FB81EEB9AD2AB1EAF85AA75E7726006)
 
   * ImageReceiver作为图片的接收方、消费者，它的参数属性实际上不会对接收到的图片产生影响。图片属性的配置应在发送方、生产者进行，如相机预览流[createPreviewOutput](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-multimedia-camera#func-createpreviewoutputprofile-string)。
 
@@ -1754,7 +1754,7 @@ String | 返回surface id。
 
 **功能：** 释放ImageReceiver实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/s85SI9jUTBOI0k6k73BBsQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=A7F12060AEACCA2390FDC782BB60B06B22DD7585408C25CDE6C0C4E049E9AD05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/s85SI9jUTBOI0k6k73BBsQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=C7D40B2384B83D296C71B18AD0F7F1CB1E055EA5D09274E5720C087E73C1A774)
 
 由于图片占用内存较大，所以当ImageReceiver实例使用完成后，应主动调用该方法，及时释放内存。释放时应确保后续不再使用该实例。
 
@@ -1786,7 +1786,7 @@ String | 返回surface id。
 
 **功能：** 从ImageReceiver读取最新的图片。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/f4Ki5sc5StW49s4qvB-_IA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=807B456A7241FEF62344A4146F8D00F67C0729B71ECC56A2B1E84BCDC13CC2B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/f4Ki5sc5StW49s4qvB-_IA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=3DC4830201DEF33A9E6B18BC6E521FA7F6A867AC8E763BBBF3C0B68D3D0A919F)
 
   * 此接口需要在on回调触发后调用，才能正常的接收到数据。且此接口返回的Image对象使用完毕后需要调用release方法释放，释放后才可以继续接收新的数据。
 
@@ -1837,7 +1837,7 @@ Image | 返回最新图片。
 
 **功能：** 从ImageReceiver读取下一张图片。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/_argZA_yQIyl06wsXekmVA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=5BDFEC8F1A1DDC40203949268C48C2744326727F73E9956BF5DC4B380C758259)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/_argZA_yQIyl06wsXekmVA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=1696377AF024C183E0850D27F99A8FC143F834A014367704B14BCE958387F7F6)
 
   * 此接口需要在on回调触发后调用，才能正常的接收到数据。且此接口返回的Image对象使用完毕后需要调用release方法释放，释放后才可以继续接收新的数据。
 
@@ -1974,7 +1974,7 @@ eventType | ReceiveType | 是 | - | 注册事件的类型，固定为ImageArriva
 
 **功能：** ImageSource类，用于获取图片相关信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/l1lVa8eqRLuDfHOD92hyCQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=EF5B55E7A1C356E4EEA5F3874A321163A1FD367BECA5FCBCE3919D846537E231)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/l1lVa8eqRLuDfHOD92hyCQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=32C3BA29093A0265D793703B605890B96F83A6C280CB2880B0ADBE42CE21B1D3)
 
   * 在调用ImageSource的方法前，需要先通过createImageSource构建一个ImageSource实例。
 
@@ -2023,7 +2023,7 @@ eventType | ReceiveType | 是 | - | 注册事件的类型，固定为ImageArriva
 
 **功能：** 通过图片解码参数创建PixelMap对象。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/ZNZq8gHfRre6NUIyks7Vuw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=A9804C7A6303077C4246F9C0A4AB9E80E1B0F04631901E0648B77A8B39B48F38)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/ZNZq8gHfRre6NUIyks7Vuw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=0DAB97ED937972466137AA38FA1151359E60AA17F41A026EED07EF2F614DFE9B)
 
 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用release方法，及时释放内存。释放时应确保后续不再使用该对象。
 
@@ -2089,7 +2089,7 @@ PixelMap | 返回PixelMap。
 
 **功能：** 通过图片解码参数创建PixelMap数组。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/3lTwQa5oQ4qpX3qTENxroQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=4FF2F02939481FCD6C2F6898CFD28B4F80E1446DF2A8F8CE72EA4D24114DA15C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/3lTwQa5oQ4qpX3qTENxroQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=C367EF622B5746BADFCC36689609BC80BCE4BDDF79743EC6882F8C785E96498A)
 
   * 针对动图如Gif、Webp，此接口返回每帧图片数据；针对静态图，此接口返回唯一的一帧图片数据。
 
@@ -2098,7 +2098,7 @@ PixelMap | 返回PixelMap。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/FMLbGENmQlScptxIZywlQQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=299828ACD7929FAC9C5E4F760D4BED36DA8169140868D9FB4EBB99102EB5468A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/FMLbGENmQlScptxIZywlQQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=9D68F41F64CF13B2FF163E96DE2436F3447EDB3064A087AEB81521F0A41F084C)
 
   * 此接口会一次性解码全部帧，当帧数过多或单帧图像过大时，会占用较大内存，造成系统内存紧张，此种情况推荐使用Image组件显示动图，Image组件采用逐帧解码，占用内存比此接口少。
 
@@ -2288,7 +2288,7 @@ UInt32 | 返回图像帧数。
     
     public func getImageInfo(index!: UInt32 = 0): ImageInfo
 
-**功能：** 获取��定序号的图片信息。
+**功能：** 获取指定序号的图片信息。
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -2410,7 +2410,7 @@ String | 返回图片属性值，如获取失败则返回属性默认值。
 
 该接口仅支持JPEG、PNG、HEIF和WEBP（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/kwzDN9wDQGeypEhK76DQGA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=13F10A0585B983020C2DED6D85504367D15BBDEB3EBFFB1F2BC16AEB23182B32)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/kwzDN9wDQGeypEhK76DQGA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=35E823C9C16727AEC5E06A6E95879217CBBC3D67901BF2A40329EFC01B21B48B)
 
   * 调用modifyImageProperty修改属性会改变属性字节长度，使用buffer创建的ImageSource调用modifyImageProperty会导致buffer内容覆盖，目前buffer创建的ImageSource不支持调用此接口，请改用fd或path创建的ImageSource。
 
@@ -2472,7 +2472,7 @@ value | String | 是 | - | 属性值。
 
 **功能：** 释放ImageSource实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/kVo4QNsRScW57_tPHC5EnQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=E9B7677B704F3618F3204564039F56743EA2A3217F8E5BDDDEDB22DEEBCEA66C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/kVo4QNsRScW57_tPHC5EnQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=B01189A16CA060F3C59408907D265A114062DEC9DD29671C18F9C9D1D4A2F3A3)
 
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用该方法，及时释放内存。释放时应确保后续不再使用该实例。
 
@@ -2760,7 +2760,7 @@ scaleMode | ScaleMode | 否 | ScaleMode.FitTargetSize | **命名参数。** 缩�
 
 当前只支持"image/jpeg"、"image/webp"、"image/png"和"image/heic(或者image/heif)"、"image/sdr_astc_4x4"、"image/sdr_sut_superfast_4x4"（不同硬件设备支持情况不同）、"image/hdr_astc_4x4"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/PPtty2w9RqiQqt37l41IOA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=974ABD814A1D7AE1F1EA668B710B90FEDF48708B25ACDCE97AB8EFFE1DFF7AEF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/PPtty2w9RqiQqt37l41IOA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=75F19E072476E114DB0099C23012853F148932B9BA0ABB66B4ED69730A1CA4EB)
 
 因为jpeg不支持透明通道，若使用带透明通道的数据编码jpeg格式，透明色将变为黑色。
 
@@ -3213,7 +3213,7 @@ Int32 | 图像像素的密度，单位为ppi。
   
 **异常：**
 
-  * [BusinessException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-api-business_exception#class-businessexception)：对应错误码如下表，详见[Image错误码](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-image)。
+  * [BusinessException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-api-business_exception#class-businessexception)：对应错误码如下表，详��[Image错误码](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-image)。
 
 错误码ID | 错误信息  
 ---|---  
@@ -3495,7 +3495,7 @@ dst | Array<UInt8> | 是 | - | 缓冲区，函数执行结束后获取的图像�
 
 释放时应确保后续不再使用该对象。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/ZncU7WoMT26i79HVqWr-4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=D36B76D3BBC8F79CC09153E958109BD18C6E925A5FDCC21928197B084AF887A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/ZncU7WoMT26i79HVqWr-4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=ED6106E3903C6A8791B9803D2CB366968A705158613C562F871A81A6FCA9CE7B)
 
 释放指的是Cangjie对象释放与之关联的native对象的管理权。仅当所有管理该native对象的ArkTS对象都被释放时，native对象占用的内存才会被回收。
 
@@ -3540,7 +3540,7 @@ dst | Array<UInt8> | 是 | - | 缓冲区，函数执行结束后获取的图像�
 
 **功能：** 根据输入的角度对图片进行旋转。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/njH5BakBS52aAG5hgVD80w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=55BA63D204EA21AF5378B1B7BBA797A689BF210E3AA90E919EE4045456E80E34)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/njH5BakBS52aAG5hgVD80w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=06E86C4E784D6FCC7E258B009915518B52A1E00D758B2CD233E5A253B70FE21A)
 
   1. 图片旋转的角度取值范围：0-360。超出取值范围时，根据圆周360度自动矫正。例如，-100度与260度效果相同。
   2. 如果图片旋转的角度不是90的整数倍，旋转后图片的尺寸会发生改变。
@@ -3595,7 +3595,7 @@ angle | Float32 | 是 | - | 图片旋转的角度。
 
 **功能：** 根据输入的宽高的缩放倍数对图片进行缩放。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/xs7FhXUURh2LYxPVX6ndYw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083531Z&HW-CC-Expire=86400&HW-CC-Sign=2C20CB62B01793F5CBC390F649D7DF36C4AFD8A52E50650B7394DB3DD0FBC1CC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/xs7FhXUURh2LYxPVX6ndYw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=0A93F600CB1E0389EC93E52EACD7454D7A8CEDDFD876BF2170BAF4D37C68C7F1)
 
   1. 建议宽高的缩放倍数取非负数，否则会产生翻转效果。
   2. 宽高的缩放倍数 = 缩放后的图片宽高 / 缩放前的图片宽高。

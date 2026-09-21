@@ -67,7 +67,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：返回此 [ArrayBlockingQueue](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-arrayblockingqueuee) 的元素个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/84Pb7zNXQjOak4W52GQpSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=9E226C5AB170CCFA3683FA494F6A4EB55123809700169F7855AF1D2CA218452C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/84Pb7zNXQjOak4W52GQpSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=471FE63E7AD8BB1CABBDAE5E97EF05B958957577B2AC84A24915D76C66BDD607)
 
 此方法不保证并发场景下的原子性，建议在环境中没有其他线程并发地修改 [ArrayBlockingQueue](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-arrayblockingqueuee) 时调用。
 
@@ -154,7 +154,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：构造一个带有传入容量大小，并带有传入迭代器的 [ArrayBlockingQueue](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-arrayblockingqueuee)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/pyvUWe8GS_SXohhNPKeIjA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=B2D480E6A713B7137E47BE787576A45C72CF2D48C790B454E6B1867A9D0CB828)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/pyvUWe8GS_SXohhNPKeIjA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=B983A22ED467E3C3D858845649057281942AB356D54889F00F97ACCCF360E92D)
 
 未来版本即将废弃，同等功能替代写法为：创建空队列，再将 elements 中元素依次添加到队列中。
 
@@ -291,7 +291,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：阻塞的出队操作，获得队首元素并删除。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/2PXI4DK7R--VLTFXId1Mpg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=E2FD5D59118E2E9489C56E4E350B75E6C28BE9DF6E83A90766F9F010194E5850)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/2PXI4DK7R--VLTFXId1Mpg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=0F854B5880C9634CDCA76E375F0784F6D240CFC58DBF32E9F213431BB061AC30)
 
 未来版本即将废弃，使用 remove() 替代。
 
@@ -330,7 +330,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：阻塞的出队操作，获得队首元素并删除，如果队列为空，将等待指定的时间。如果 timeout 为负，则会立即执行出队操作并且返回操作结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/AvnIDuABS0CgfhJdFDqTlg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=A6E4234F5651485C0FE9D42C0AE2F5FFEEA0F7C39F006D21E1B1C8915E472574)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/AvnIDuABS0CgfhJdFDqTlg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=E546BCFD014B5BDB8B23883D4A783DBE94F8B97E1AD7B2E223071812C238850F)
 
 未来版本即将废弃，使用 remove(Duration) 替代。
 
@@ -378,7 +378,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：阻塞的入队操作，将元素添加到队列尾部。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/ttpG63dUQFC0mfSragC63w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=AF22782F0DB5BEC8E1C3CAC1E2349DFFC6530BAE45E10682A215D96490370DDD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/ttpG63dUQFC0mfSragC63w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=693DAEA0C3ED095FAE6F422447EFB1C5801531101E14421A2E134BDAF5D90EFD)
 
 未来版本即将废弃，使用 add(E) 替代。
 
@@ -418,7 +418,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：阻塞的入队操作，将元素添加到队列尾部，如果队列满了，将等待指定的时间。如果 timeout 为负，则会立即执行入队操作并且返回操作结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/pcGFnekZSzyeEIV0VWOhgg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=00F81EC4AB814CF52000C45B1DD0E76E7C4BBB816AE0EA93B0DB4092FBA98B6A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/pcGFnekZSzyeEIV0VWOhgg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=C72235B2DB2E8CDFF6240B2D8D7F8ED9D3B31B5BEB0D763DB502E3C78210E799)
 
 未来版本即将废弃，使用 add(E, Duration) 替代。
 
@@ -477,7 +477,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 该函数是非阻塞的。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/93HGp9ikQLaha2vjan-aYw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=2ED926FFE1BDC40DD804CBD5E5C9BEBBCA5AF1BC6D0378EB0B25587535FED935)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/93HGp9ikQLaha2vjan-aYw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=E09BE1F636749EA00E38B6EE1DF63563A97244E879188A32A0809D9A3AA18B25)
 
 未来版本即将废弃，使用 peek() 替代。
 
@@ -672,7 +672,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：非阻塞的出队操作，获得队首元素并删除。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/UclmwxumRRGNZyatAY-KiA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=0F0DECEEEF1B15F583637460F8395FC3B1BA83F76C5961FD0D71667F9B99E567)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/UclmwxumRRGNZyatAY-KiA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=B402792DC81A64DE7FFA09BF3EEC0098FBD837A5142AAB754C3F292E6806489F)
 
 未来版本即将废弃，使用 tryRemove() 替代。
 
@@ -716,7 +716,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：非阻塞的入队操作，将元素添加到队列尾部。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/MF_hQ_3pSXm_70aZ5E8q4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=12EDE03A461A416E98FC39EEF7D9F6594893F1F507E7DC6CAFC7C28502DE780A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/MF_hQ_3pSXm_70aZ5E8q4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=AEEA8A52958C215841B17BB3E53F3D92CEBA506B1F44F4FA13FDDC237AA50343)
 
 未来版本即将废弃，使用 tryAdd(E) 替代。
 
@@ -808,7 +808,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 构造函数中的参数 concurrencyLevel 表示“并发度”，即：最多允许多少个线程并发修改 [ConcurrentHashMap](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-concurrenthashmapk-v-where-k--hashable--equatablek)。查询键值对的操作是非阻塞的，不受所指定的并发度 concurrencyLevel 的限制。参数 concurrencyLevel 默认等于 16。它只影响 [ConcurrentHashMap](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-concurrenthashmapk-v-where-k--hashable--equatablek) 在并发场景下的性能，不影响功能。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/nuk7KgA2RJSVf_UhRQlTlg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=3402CEB4734D1FA5EA216805855A43098C597071D2AC80D7464129E425FAC2E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/nuk7KgA2RJSVf_UhRQlTlg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=78380740A3504ED843161B5558CD057EF7C5FFEFD3654F7201718FBA94468089)
 
 如果用户传入的 concurrencyLevel 小于 16，则并发度会被设置为 16。
 
@@ -830,7 +830,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：返回键值的个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/zUbgpUTeS8ONp-WgDnmlWg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=6C87A755FD2A14DA76B62237139F37ACB1CB2090B80B7D4F98E6D6877D07657B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/zUbgpUTeS8ONp-WgDnmlWg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=2CFFB5830BFC29F1A4193133D6860D7FE743CAA417AFD45A6043F2A43994BC41)
 
 此方法不保证并发场景下的原子性，建议在环境中没有其他线程并发地修改 ConcurrentHashMap 时调用。
 
@@ -1212,7 +1212,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
         f.get()
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/WtdIV_W0TJeh1dNxbZvB0g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=55A0700E5BFF328251AEA4A2DCB3AD167CBA64093388C954DA9F3B0EF725EDC6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/WtdIV_W0TJeh1dNxbZvB0g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=A53CA112D0BE67326744858D17F30F4A24EB39951678931A6FC4325294177268)
 
   * 该操作具有原子性。
 
@@ -1329,7 +1329,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：判断 ConcurrentHashMap 是否为空。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/ZS_G2AoiQT2tM18sz_7hUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=B8600F5E86B75B45463C5B2508506D22587578C51F95216BCEA2F4B747BED430)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/ZS_G2AoiQT2tM18sz_7hUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=499C7BD796F2918BF9933A21DA1FADEEC422206992EBDB7374EFFE8F7E37C88C)
 
 此方法不保证并发场景下的原子性，建议在环境中没有其他线程并发地修改 ConcurrentHashMap 时调用。
 
@@ -1409,7 +1409,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：将指定的值 value 与此 ConcurrentHashMap中指定的键 key 关联。如果 ConcurrentHashMap 中已经包含键 key 的关联，则旧值将被替换；如果 ConcurrentHashMap 中不包含键 key 的关联，则添加键 key 与值 value 的关联。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/HcSEKWk7Q8yqpBVna4uNlw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=38232FBDD6D9C9CC23075A9A540886DE15DCB8F9709F04F87A562DAA8BBF4961)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/HcSEKWk7Q8yqpBVna4uNlw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=36A0CF8AD45E5E7E303F2DA8971CC09420843AF14FB90A36346BE9012E2EF8F3)
 
 未来版本即将废弃，使用 add(K, V) 替代。
 
@@ -1461,7 +1461,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：当此 ConcurrentHashMap中不存在键 key 时，在 ConcurrentHashMap 中添加指定的值 value 与指定的键 key 的关联。如果 ConcurrentHashMap 已经包含键 key，则不执行赋值操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/VvVSZTZvThGJrBNWJr24Wg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=DD13D2257CCA6CCEFBB7519D983ECD665628ADBAC5243A5FEE8D0162EED469F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/VvVSZTZvThGJrBNWJr24Wg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=8544EDB3A08C5B00461BCE25658348EDFE06AAD17DCA1E0C098705F52F375A82)
 
 未来版本即将废弃，使用 addIfAbsent(K, V) 替代。
 
@@ -1563,7 +1563,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：如果此映射中存在键 key 且 key 所映射的值 v 满足条件 predicate，则从此映射中删除 key 的映射。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/OvYu6LvPQEy_DEXFJumFWw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=1A80C6F9AF956355BE81C179E6DE8B52BFFB846A069326747BD80999BCB38F5B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/OvYu6LvPQEy_DEXFJumFWw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=36FF94FBBC88C6D97D519FE8A2F9BFB21902D58F89D8E8A71CAE4913740BB360)
 
 未来版本即将废弃，使用 entryView(K, (MapEntryView<K, V>) -> Unit) 替代。
 
@@ -1631,7 +1631,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：如果 ConcurrentHashMap 中存在键 key（假设其关联的值为 v），且 v 满足条件 predicate，则将 ConcurrentHashMap 中键 key 关联的值替换为 eval(v) 的计算结果；如果 ConcurrentHashMap 中不存在键 key，或者存在键 key 但关联的值不满足 predicate，则不对 ConcurrentHashMap 做任何修改。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/KA-UAqMaTFysHFpdI_pgdg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=CF48A6A41B67B8E89C8853EE6D411A456625EEC72EDD0007234CCAB01317D041)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/KA-UAqMaTFysHFpdI_pgdg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=FC00AB9C42A91A1AD16AC4C1F743023153DBEE823ABBC2CB319CA56109D7A58C)
 
 未来版本即将废弃，使用 entryView(K, (MapEntryView<K, V>) -> Unit) 替代。
 
@@ -1700,7 +1700,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：如果 ConcurrentHashMap 中存在键 key（假设其关联的值为 v），则将 ConcurrentHashMap 中键 key 关联的值替换为 eval(v) 的计算结果；如果 ConcurrentHashMap中不存在键 key，则不对 ConcurrentHashMap 做任何修改。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/GA3Gw4u7RmSG3NhGpxul5g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=52E6F408E668D22CC6330CD960F156CCDD37A2DA14616C53B824DAB672C38CB1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/GA3Gw4u7RmSG3NhGpxul5g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=BDD97CB6FEDF1B18517A5FAED08F3B6592CDD5625A721C6BBE5D37A4276EB2AD)
 
 未来版本即将废弃，使用 entryView(K, (MapEntryView<K, V>) -> Unit) 替代。
 
@@ -1910,7 +1910,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：此类主要实现 [ConcurrentHashMap](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-concurrenthashmapk-v-where-k--hashable--equatablek) 的迭代器功能。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/U17d1nMCReq7ERWLB25QDQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=92093C13B29C308EF8F4AD9A0B643F5C6FC9F81C4C4CCF955C4850935FBBEF61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/U17d1nMCReq7ERWLB25QDQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=F08DD9D6B3E30A00F6B13283A1AB5E8E5F18A25F88FFEBBB926A9FD943F9DA0A)
 
 这里定义的 [ConcurrentHashMap](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-concurrenthashmapk-v-where-k--hashable--equatablek) 迭代器：
 
@@ -2036,7 +2036,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：获取此 [ConcurrentLinkedQueue](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-concurrentlinkedqueuee) 的元素个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/R6jOZ4hNTbCHnY-x9bVjdw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=1A5940C06D322CA99D34BE99C93F5ACB5978384FDFC62EBA264FAB3488B8A951)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/R6jOZ4hNTbCHnY-x9bVjdw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=99F6562DE43803F4E7673979C94CA8DDFC78139AFDF5EF88A086651D7BF60D44)
 
 此方法不保证并发场景下的原子性，建议在环境中没有其他线程并发地修改 [ConcurrentLinkedQueue](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-concurrentlinkedqueuee) 时调用。
 
@@ -2117,7 +2117,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：根据 [Collection](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-collectiont)<E> 实例构造一个 [ConcurrentLinkedQueue](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-concurrentlinkedqueuee) 实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/-5IAwx3_SaKg9RZ3CEECsg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=960317BAB0751FCEDB77424D07050ADF7648402996D90652112202C7A136527C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/-5IAwx3_SaKg9RZ3CEECsg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=A13F95F8F96837D366E2992656694CD563A18F729954A7610F5EA0049921236D)
 
 未来版本即将废弃，如需实现等效功能，可先创建空队列，再依次将 [Collection](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-collectiont) 中元素添加到队列中。
 
@@ -2167,7 +2167,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：非阻塞的入队操作，将元素添加到队列尾部。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/jnQSUEbdSteppgRqkPwdmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=46730B23356295971978C8E4FE7605A5A6CB32BD52CA5ACC534DB622985FFB9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/jnQSUEbdSteppgRqkPwdmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=5427F79C65052CCB24A83A15FEE3B82FC115CA2CF5EA97F595DC0C715ACBB4C0)
 
 该函数不会返回 false。
 
@@ -2231,7 +2231,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：获取并删除队首元素。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/6SHlwKHMS9W8slRtuC-5Qw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=54F43C9F35B084E7587E4B0842C34CD62A55C9C2C17CC96BBE9DD5EF33F6D32B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/6SHlwKHMS9W8slRtuC-5Qw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=DB2C09F37C1B9FE1FD51F5CF0F5E676DCAB45BA5F09A660F8F669B69542AFEE2)
 
 未来版本即将废弃，使用 remove() 替代。
 
@@ -2282,7 +2282,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：非阻塞的入队操作，将元素添加到队列尾部。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/4wHK1D-RRNCqlozGqYjNng/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=49E7F410103824F51FFEB31A9054F7F09F2EA54362F863384AF727BEB391ED69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/4wHK1D-RRNCqlozGqYjNng/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=97C02FDF457FE91ADE78D6330594CF6AA844CABDE2495FC291838FC6D6C8A37B)
 
   * 该函数不会返回 false。
   * 未来版本即将废弃，使用 add(E) 替代。
@@ -2343,7 +2343,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：获取队首元素，不会删除该元素。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/lb9HpgJWRJ29uSwb88T_gA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=FC88B8C163A0D82439476FB0929B7FF5ED899795CC212DCB46B7B2EEDD47C21D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/lb9HpgJWRJ29uSwb88T_gA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=1C148EFDC824480DF1BAAD3D37974252011B10F8D77848800BF882ADDDFB9DDE)
 
 未来版本即将废弃，使用 peek() 替代。
 
@@ -2434,7 +2434,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：获取当前队列的迭代器，用于遍历当前队列。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/3YUvCToaRhGqg0MfUkVOXQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=EF47E247594E670B81E1BDA357C4055E88C0B515EDA66ECD02CDA6567C1A64D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/3YUvCToaRhGqg0MfUkVOXQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=CA4A7660056D05030B3BA7CE9991937D14B8E233944EDCAC3CDBC4178D96EA04)
 
 遍历操作不会删除队列中的元素。
 
@@ -2603,7 +2603,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：将当前队列中所有元素按顺序存入数组，先入队的元素在数组下标较小的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/N9oLLCvoRHaMqPBqL2v6Fw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=0025040D4957F03735D529A64863DB0D89A3CA4ED85A2AF6755D017521E63ADF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/N9oLLCvoRHaMqPBqL2v6Fw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=074B32CF72B064B334EA6E0FC71F7272409528786909CA242643FCE3D01333B2)
 
 该操作不会删除队列中的元素。
 
@@ -2697,7 +2697,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：返回此 [LinkedBlockingQueue](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-linkedblockingqueuee) 的元素个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/StcmqnNFTeisnPTEIxMFkw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=003B477FE1F786292FBF76733EEC4554742FB507FF4DFAEB05691034AC018880)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/StcmqnNFTeisnPTEIxMFkw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=C16FA503692D351B0274941267DB8BB81D82B8581DF4CBC0704A8101313930E6)
 
 此方法不保证并发场景下的原子性，建议在环境中没有其他线程并发地修改 [LinkedBlockingQueue](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-linkedblockingqueuee) 时调用。
 
@@ -2805,7 +2805,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：构造一个带有传入容量大小，并带有传入数组元素的 [LinkedBlockingQueue](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-linkedblockingqueuee)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/Ks3HFIYjT0in1C1DiqjIeQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=627FC767854352F7FA1547A3596EF90BB42812C36B8A4A926461604627FAC1F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/Ks3HFIYjT0in1C1DiqjIeQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=A0E473EA8473BF2F55829089653A05797163E5C08FAB0C6BECFB6D52A5902BEA)
 
 未来版本即将废弃，如需实现等效功能，可先创建空队列，再依次将数组中的元素添加到队列中。
 
@@ -2855,7 +2855,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：构造一个带有传入容量大小，并带有传入迭代器的 [LinkedBlockingQueue](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_concurrent_class#class-linkedblockingqueuee)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/Lo0z3V11S9WbxMcDmrB5lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=40F1DB2027A0D370CB4814458FD4EAF19644F4249FA3161895AAE9F9AE55CB1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/Lo0z3V11S9WbxMcDmrB5lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=E6A6BAB332351EE5E4F990DAEB8B20AD51E03A0B95EA9C9377F7BA4DD3B34EB5)
 
 未来版本即将废弃，如需实现等效功能，可先创建空队列，再依次将 [Collection](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-collectiont) 中的元素添加到队列中。
 
@@ -2992,7 +2992,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：阻塞的出队操作，获得队首元素并删除。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/Nx4dHe26QCW2moAoD-3mRQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=49FC037A047739A419FB656CB7EBBD7862C2CCC8622FBA6C8FB272C7D849CF83)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/Nx4dHe26QCW2moAoD-3mRQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=50603E8DBB7F02A65920AA623550CD152312CF53EE5E9C0A52D112BF7D1F6822)
 
 未来版本即将废弃，使用 remove() 替代。
 
@@ -3031,7 +3031,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：阻塞的出队操作，获得队首元素并删除。如果队列为空，将等待指定的时间。如果 timeout 为负，则会立即执行出队操作并且返回操作结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/5ZFcFixOQYynBvutAnZDkw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=AE93F49417CCA52883966E8E287C706A8C19146F9E651E834A49360151EEBC72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/5ZFcFixOQYynBvutAnZDkw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=B57956F2B0B3A0B2309AC8B04B8EBADEC92ECC49839E593344284EDD71CF2378)
 
 未来版本即将废弃，使用 remove(Duration) 替代。
 
@@ -3079,7 +3079,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：阻塞的入队操作，将元素添加到队列尾部。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/TnhAcbsRQ164m13jdDXSIA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=A886EC697A5C4D5476A109AF8023E88949471EA49E03D7D21F7F916560F9D46D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/TnhAcbsRQ164m13jdDXSIA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=E0F0B0CA3297E44CEC9A24CCD5ABDFDC7CE9953B2CE09511778E01867D95459C)
 
 未来版本即将废弃，使用 add(E) 替代。
 
@@ -3119,7 +3119,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：阻塞的入队操作，将元素添加到队列尾部，如果队列满了，将等待指定的时间。如果 timeout 为负，则会立即执行入队操作并且返回操作结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/tD7XRcAHSOi1RROfZf4FXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=4379F01FC24B6245ADA350863236FFACE7A741D0D7C44210714385E8D3C2FB7D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/tD7XRcAHSOi1RROfZf4FXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=CB15D9B3E13A9E8F8DC3DAC4404D2EFA646BBFF43D1826C2A7690B8F57941E8B)
 
 未来版本即将废弃，使用 add(E, Duration) 替代。
 
@@ -3162,7 +3162,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
         println("入队结果: ${result2}")
     }
 
-运行��果：
+运行结果：
     
     
     入队结果: false
@@ -3176,7 +3176,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：获取队首元素。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/TpJukFOJQCaVezYUoqk5Iw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=01A0EA5CE68679262B5294999EBEA202517C15DBE6C947E5BA77D71B5E3B5104)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/TpJukFOJQCaVezYUoqk5Iw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=C13F651BFD3612C12A655510544ECCCA44F912AB14FAB0D51A797B903F5B1127)
 
   * 该函数是非阻塞的。
   * 未来版本即将废弃，使用 peek() 替代。
@@ -3221,7 +3221,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：获取队首元素。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/Juj6UQWfTAmJCX59h608sQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=621C99F2AFE1E22ECBF65EDCE8EF63EAAD43E76FE54FC4EB97D8E7DB061977A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/Juj6UQWfTAmJCX59h608sQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=E733F5AADCE615F24A833F6868BC49EFF20F91747D11759E0B05BA21F8582A2A)
 
 该函数是非阻塞的。
 
@@ -3374,7 +3374,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：非阻塞的出队操作，获得队首元素并删除。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/BidJnwmGQISBX2nplVWClw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=9401ABEFD2F08E633E08C2CF4C1215E4F0A86A9478DED6AD219B14BA1087FB59)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/BidJnwmGQISBX2nplVWClw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=6E231E5FC076758BB9B9975E86C784511223606513BBDD882CC167E1B2886636)
 
 未来版本即将废弃，使用 tryRemove() 替代。
 
@@ -3425,7 +3425,7 @@ concurrencyLevel 并非越大越好，更大的 concurrencyLevel 会导致更大
 
 功能：非阻塞的入队操作，将元素添加到队列尾部。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/PUc2b8iRQaqhB0vNEeemsQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085301Z&HW-CC-Expire=86400&HW-CC-Sign=5AE0BB6CF772F535CD9370CA4F994A59E56AD497F77DF56D6FF20572923DECA7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/PUc2b8iRQaqhB0vNEeemsQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111059Z&HW-CC-Expire=86400&HW-CC-Sign=F83186BA1E7BB86B8599F39E44C4F0D4253ADA15F9B2B3011F48840161D8B978)
 
 未来版本即将废弃，使用 tryAdd(E) 替代。
 

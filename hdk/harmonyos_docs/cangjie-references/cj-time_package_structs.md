@@ -209,7 +209,7 @@ Android | clock_gettime | CLOCK_REALTIME
     
     
     DateTime 实例: 2024-05-22T00:00:00Z
-    当前年的第几天: 143
+    当���年的第几天: 143
 
 #### [h2]prop hour
     
@@ -363,7 +363,7 @@ Android | clock_gettime | CLOCK_REALTIME
 
 功能：获取 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 实例以数字形式表示的月份。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/3Pmielp8TCe9LSizsllQQQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090212Z&HW-CC-Expire=86400&HW-CC-Sign=7D5891AAAAB844F81ABF24D514BA97D9348E8E646493F64A4C894EB50C740986)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/3Pmielp8TCe9LSizsllQQQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111106Z&HW-CC-Expire=86400&HW-CC-Sign=82D57B4567B5FD4038FFA465E2DB668E2BA51635CB59CB0CC5CC0ADB6181A9B5)
 
 未来版本即将废弃。
 
@@ -1273,7 +1273,7 @@ Android | clock_gettime | CLOCK_REALTIME
 
 功能：根据 format 指定的时间格式，从字符串 str 中解析得到时间，解析成功时返回 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/xNkpNGrgTF6xtBEOlWlP4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090212Z&HW-CC-Expire=86400&HW-CC-Sign=CF9D0FBE62E9D0CB898AA689F00F1B1270A684F21EC42107705878EC026BEB8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/xNkpNGrgTF6xtBEOlWlP4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111106Z&HW-CC-Expire=86400&HW-CC-Sign=EAA576F8592347C41E00B77CDB09D128F75EE8A8F840D59962DDB9FFEE400AAF)
 
 未来版本即将废弃，使用 parse(String, String) 替代。
 
@@ -1624,7 +1624,7 @@ Android | clock_gettime | CLOCK_REALTIME
 
 功能：获取 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 实例 n 月之后的时间，返回新的 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/73QawpWOSvW-wx3Azc4SpA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090212Z&HW-CC-Expire=86400&HW-CC-Sign=F15161040C645AF31B2632B91CF1A07EBF1754FE218A4ED50B8B984BA4B62213)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/73QawpWOSvW-wx3Azc4SpA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111106Z&HW-CC-Expire=86400&HW-CC-Sign=000BEBD188167FF8D5D18881C412FA9E15A687BCF882F8E7A57C56920F0510D0)
 
 由于月的间隔不固定，若设 dt 表示 “2020 年 3 月 31 日”，dt.addMonths(1) 不会返回非法日期“2020 年 4 月 31 日”。为了尽量返回有效的日期，会偏移到当月最后一天，返回“2020 年 4 月 30 日”。
 
@@ -1870,7 +1870,7 @@ Android | clock_gettime | CLOCK_REALTIME
 
 功能：获取 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 实例 n 年之后的时间，返回新的 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/jL5VT9zqS5SL8Eo1z2WISg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090212Z&HW-CC-Expire=86400&HW-CC-Sign=3D8A95622EA363B91D2091D41B0530797C1D78852E7C5D385CE82E536F135893)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/jL5VT9zqS5SL8Eo1z2WISg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111106Z&HW-CC-Expire=86400&HW-CC-Sign=3B3915EBEC43515AF02460DAF48215966F493611AA963F22A1984B5092CD00A7)
 
 由于年的间隔不固定，若设 dt 表示 “2020 年 2 月 29 日”，dt.addYears(1) 不会返回非法日期“2021 年 2 月 29 日”。为了尽量返回有效的日期，会偏移到当月最后一天，返回 “2021 年 2 月 28 日”。
 
@@ -2338,7 +2338,7 @@ Android | clock_gettime | CLOCK_REALTIME
 
 功能：返回一个表示 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 实例的字符串，其格式由参数 format 指定。格式说明详见[时间字符串格式](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_overview#时间字符串格式)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/cW5fhmFcTnmb_Fih-2x38Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090212Z&HW-CC-Expire=86400&HW-CC-Sign=20FCAC551C1F5666CF78C118A32C6CC67B27F9E1C6D11B97567E14BC724DFBD5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/cW5fhmFcTnmb_Fih-2x38Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111106Z&HW-CC-Expire=86400&HW-CC-Sign=20FCBF2F24F771C44DE91B82F64B100F57EEF83314E2DD86607C29E59214D43B)
 
 未来版本即将废弃。
 

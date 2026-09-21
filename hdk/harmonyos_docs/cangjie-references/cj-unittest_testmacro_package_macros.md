@@ -405,7 +405,7 @@ value 可以是常量或在标有 @Configure 的声明范围内有效的任何�
         @Assert[checkA](value)
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/bAyX3CEWQ-SO5ayO0pY_Lg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085339Z&HW-CC-Expire=86400&HW-CC-Sign=63C18AB9BB3C57233361F2CB358268BD64BA7BB120E26F22933272E5421C853E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/bAyX3CEWQ-SO5ayO0pY_Lg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111108Z&HW-CC-Expire=86400&HW-CC-Sign=EB4AA45117E5C889E352343F5E10B0D89A56D55614F032C9D4624853FE6B0C35)
 
 自定义 @Expect 将总是返回 Unit ，不论 @CustomAssertion 修饰的函数返回值为什么类型。
 
@@ -1044,7 +1044,7 @@ expr 的类型应为 std.time.[Duration](https://developer.huawei.com/consumer/c
   * 必须与 @Test， @TestCase 或 @Bench 宏共同使用。
   * 一个声明只能有一个 @Types 宏修饰。
   * 该声明必须是具有与 @Types 宏中列出的相同类型参数的泛型类或函数。
-  * 类型列表中列出的类型不能相互依赖，例如 @Types[A in <Int64, String>, B in <List<A>>] 将无法正��编译。但是，在为该类内的测试函数提供类型时，可以使用为测试类提供的类型。例如：
+  * 类型列表中列出的类型不能相互依赖，例如 @Types[A in <Int64, String>, B in <List<A>>] 将无法正确编译。但是，在为该类内的测试函数提供类型时，可以使用为测试类提供的类型。例如：
 
 
     

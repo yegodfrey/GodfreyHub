@@ -624,7 +624,7 @@ launchParam | [LaunchParam](https://developer.huawei.com/consumer/cn/doc/cangjie
 
 **功能：** 当UIAbility被销毁时，系统触发该回调。开发者可以在该生命周期中执行资源清理、数据保存等相关操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/8-RKfjtPTkCGyvquq6ynaA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085019Z&HW-CC-Expire=86400&HW-CC-Sign=C05ED03F24D3133FFCC431FEC630293688AF135988D64614C4E1B86A35122D97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/8-RKfjtPTkCGyvquq6ynaA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111044Z&HW-CC-Expire=86400&HW-CC-Sign=FEFC71C1B60FD197D23CEBD12CD189BC29060339C01E1AF9145D0D6F64C2A849)
 
 该回调仅在UIAbility正常退出时触发，当UIAbility异常退出（例如低内存终止进程）时，该回调将不被触发。
 
@@ -666,7 +666,7 @@ launchParam | [LaunchParam](https://developer.huawei.com/consumer/cn/doc/cangjie
     
     public open func onNewWant(want: Want, launchParam: LaunchParam): Unit
 
-**功能：** 当已经启动的UIAbility实例再次被拉起时，���统会触发该回调。
+**功能：** 当已经启动的UIAbility实例再次被拉起时，系统会触发该回调。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.AbilityCore
 
@@ -1085,7 +1085,7 @@ callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/cangjie-
 
 **功能：** 销毁UIAbility自身。仅支持在主线程调用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/S08p_ySbRbO_tsfLdHT3pQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085019Z&HW-CC-Expire=86400&HW-CC-Sign=74AB27C3308F7F17B1B14693B4458604ACF17533C3ABEAA1BF894A687503964A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/S08p_ySbRbO_tsfLdHT3pQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111044Z&HW-CC-Expire=86400&HW-CC-Sign=247BB8865D22C1004EAEDC3A2373346D86890C0D823529E9DA0973CDDB70023F)
 
 调用该接口后，任务中心的任务默认不会被清理。如需清理，请进行配置。
 
@@ -1127,7 +1127,7 @@ callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/cangjie-
 
 仅当UIAbility通过startAbilityForResult接口拉起时，调用terminateSelfWithResult接口销毁UIAbility，才会返回结果给调用方。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/jGb3BRT7SWKZWcdJW7xFIg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085019Z&HW-CC-Expire=86400&HW-CC-Sign=137C59E6A02B19A1E743B5B948623D93D2E0D7C716D90EDF84BD7DF0220B8C96)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/jGb3BRT7SWKZWcdJW7xFIg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111044Z&HW-CC-Expire=86400&HW-CC-Sign=503A9F745C8A102B93CA005499447560BDAC05C352FB3EA3338CE53D922D8A39)
 
 调用该接口后，任务中心的任务默认不会被清理。如需清理，请进行配置。
 

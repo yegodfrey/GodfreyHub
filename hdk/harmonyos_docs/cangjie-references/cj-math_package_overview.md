@@ -187,7 +187,7 @@ math 包提供常见的数学运算，常数定义，浮点数处理等功能。
 [trailingZeros(UInt64)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_package_funcs#func-trailingzerosuint64) | 求 64 位无符号整数的二进制表达中的从最低位算起，连续位为 0 的个数。如果最低位不是 0，则返回 0。  
 [trailingZeros(UInt8)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_package_funcs#func-trailingzerosuint8) | 求 8 位无符号整数的二进制表达中的从最低位算起，连续位为 0 的个数。如果最低位不是 0，则返回 0。  
 [trunc(Float16)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_package_funcs#func-truncfloat16) | 求浮点数的截断取整值。  
-[trunc(Float32)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_package_funcs#func-truncfloat32) | 求浮点数的截断取整���。  
+[trunc(Float32)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_package_funcs#func-truncfloat32) | 求浮点数的截断取整值。  
 [trunc(Float64)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_package_funcs#func-truncfloat64) | 求浮点数的截断取整值。  
   
 #### [h2]接口

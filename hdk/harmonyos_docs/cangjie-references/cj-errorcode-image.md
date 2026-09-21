@@ -7,7 +7,7 @@ nodePath: 媒体 / Image Kit（图片处理服务） / 错误码 / Image错误�
 
 # Image错误码
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/K3TDq_tHTqqvb5SZyWBqCA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090224Z&HW-CC-Expire=86400&HW-CC-Sign=A2763A94421510C4C29D7AB0927C9B2170CD8035D80E544B397E9348E6797AF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/K3TDq_tHTqqvb5SZyWBqCA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=13C1467ACC51DDDBE01D866D91912B4C0DEBC8ED0AFC23F61FDFB18621D15CEA)
 
 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-universal)。
 
@@ -361,7 +361,7 @@ Unknown error.
 
 #### 7700101 图片源存在问题
 
-**错误信息**
+**��误信息**
 
 Bad source.
 

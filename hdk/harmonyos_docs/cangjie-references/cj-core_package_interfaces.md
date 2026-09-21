@@ -103,7 +103,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.core / �
     
     
     main() {
-        // 测试 isAsciiGraphic() ��法
+        // 测试 isAsciiGraphic() 方法
         let byte1: Byte = 0x21 // '!'，属于 ASCII 图形字符
         let byte2: Byte = 0x7E // '~'，属于 ASCII 图形字符
         let byte3: Byte = 0x20 // ' '，空格，不属于 ASCII 图形字符
@@ -862,7 +862,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.core / �
 
 [CType](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-ctype) 接口是一个语言内置的空接口，它是 [CType](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-ctype) 约束的具体实现，所有 C 互操作支持的类型都隐式地实现了该接口，因此所有 C 互操作支持的类型都可以作为 [CType](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-ctype) 类型的子类型使用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/1Qd6mnEJQm60FxwRo06YlA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085246Z&HW-CC-Expire=86400&HW-CC-Sign=E566BF93B9EB39944755903C8CD35ED50B22557B6B030342F14FF55A62FF72E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/1Qd6mnEJQm60FxwRo06YlA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111055Z&HW-CC-Expire=86400&HW-CC-Sign=3BD53B7B304E0301DCDF4EC0A5933E5FFC53D8C8689D43EB92CD2574A09C40E8)
 
   * [CType](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-ctype) 接口是仓颉中的一个接口类型，它本身不满足 [CType](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-ctype) 约束。
   * [CType](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-ctype) 接口不允许被用户继承、扩展。

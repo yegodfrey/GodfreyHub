@@ -84,7 +84,7 @@ public | Y | Y | Y | Y
         public let v1: C = C() // Error, public declaration v1 cannot use internal type C.
         public let v2 = C() // Error, public declaration v2 cannot use internal type C.
 
-  * 泛型类型的类型实参
+  * 泛型类型的类型实���
         
         // a.cj
         package a
@@ -154,7 +154,7 @@ public | Y | Y | Y | Y
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/sQ6pVSx7S5mKsKDc3ZsoHg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090113Z&HW-CC-Expire=86400&HW-CC-Sign=AECD74E9FFBFD4B62707F98354DBC55E51E1D2DF7C175193F5ACB09D476F65C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/sQ6pVSx7S5mKsKDc3ZsoHg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111022Z&HW-CC-Expire=86400&HW-CC-Sign=6D5019D35DC811EA96614514112D57C4764D648018A74ECB7193153702907F9A)
 
 同一个包内，private 修饰的同名自定义类型（如 struct、class、enum 和 interface 等），在某些场景下不支持，不支持场景由编译器进行报错。
 

@@ -64,7 +64,7 @@ API示例代码使用说明：
 
 **系统能力：** SystemCapability.Global.ResourceManager
 
-**起始版本���** 22
+**起始版本：** 22
 
 #### [h2]var offset
     

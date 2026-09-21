@@ -62,7 +62,7 @@ indicatorBuilder | ?[CustomBuilder](https://developer.huawei.com/consumer/cn/doc
 
 参数名 | 类型 | 必填 | 默认值 | 说明  
 ---|---|---|---|---  
-value | ?Bool | 是 | - |  多选框是否被选中。初始值：false。 值为true时，多选框被选中。值为false时，多选框不被选中。  
+value | ?Bool | 是 | - |  多选框是否被���中。初始值：false。 值为true时，多选框被选中。值为false时，多选框不被选中。  
   
 #### [h2]func selectedColor(?ResourceColor)
     
@@ -171,7 +171,7 @@ callback | ?OnCheckboxChangeCallback | 是 | - |  当选中状态发生变化时
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/37SAfqIaTPi0K_g0kppQow/zh-cn_image_0000002713398950.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090148Z&HW-CC-Expire=86400&HW-CC-Sign=EDDF7714E0A1559AC16F7C0A195FAB6BB56DCE0D1036D162B4A6872CFA47A7CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/37SAfqIaTPi0K_g0kppQow/zh-cn_image_0000002713398950.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111049Z&HW-CC-Expire=86400&HW-CC-Sign=37858232F577871091F06E5C95A7FDBAA751C655CDD951AC790B7CD47E893B48)
 
 #### [h2]示例二（自定义多选框样式）
 
@@ -210,7 +210,7 @@ callback | ?OnCheckboxChangeCallback | 是 | - |  当选中状态发生变化时
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/4Xm6cVEURkaF0KUOKawBDA/zh-cn_image_0000002743077881.png?HW-CC-KV=V1&HW-CC-Date=20260908T090148Z&HW-CC-Expire=86400&HW-CC-Sign=D081D5B3E245E42AFF935540D356A7A94FAA8C6966271A3480BCCEEAE40A72FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/4Xm6cVEURkaF0KUOKawBDA/zh-cn_image_0000002743077881.png?HW-CC-KV=V1&HW-CC-Date=20260921T111049Z&HW-CC-Expire=86400&HW-CC-Sign=A9ECFE64F334C77B7985A59710826BCE425A24F350BAAEF16AFCA3111E4299A1)
 
 #### [h2]示例三（设置文本多选框样式）
 
@@ -253,4 +253,4 @@ callback | ?OnCheckboxChangeCallback | 是 | - |  当选中状态发生变化时
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/YrwujsvDSsaLHeeO4KkIVQ/zh-cn_image_0000002713558920.png?HW-CC-KV=V1&HW-CC-Date=20260908T090148Z&HW-CC-Expire=86400&HW-CC-Sign=B8999896FB682B0A8E7732E41FEEC257358BE54306916531AC4B6B8E700CE477)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/YrwujsvDSsaLHeeO4KkIVQ/zh-cn_image_0000002713558920.png?HW-CC-KV=V1&HW-CC-Date=20260921T111049Z&HW-CC-Expire=86400&HW-CC-Sign=BB0CAF067263633A9BE7ED952207961A6CB1C59597C789B6F7BBEA2E989A2CA7)

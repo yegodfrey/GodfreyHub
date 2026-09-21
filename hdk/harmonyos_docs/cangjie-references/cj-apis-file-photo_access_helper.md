@@ -2526,7 +2526,7 @@ callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 调用接口拉起保存确认弹窗。用户同意保存后，返回已创建并授予保存权限的uri列表，该列表永久生效，应用可使用该uri写入图片/视频。如果用户拒绝保存，将返回空列表。弹框需要显示应用名称，无法直接获取应用名称，依赖于配置项的label和icon，因此调用此接口时请确保module.json5文件中的abilities标签中配置了label和icon项。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/ga3IDtPmT2yHdqtGrL8zaA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083533Z&HW-CC-Expire=86400&HW-CC-Sign=85121C69686BA7B831A859CD3F7A02958D1B8B2EE1B83A12F709C7D975AA5874)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/ga3IDtPmT2yHdqtGrL8zaA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111117Z&HW-CC-Expire=86400&HW-CC-Sign=1B0E5714C2095B61D51421DDBA362AF3D89D87448E5AE4354DBFD85CD000139D)
 
 当传入uri为沙箱路径时，可正常保存图片/视频，但无界面预览。
 
@@ -2623,7 +2623,7 @@ callback | ?[Callback1Argument](https://developer.huawei.com/consumer/cn/doc/can
   
 **异常：**
 
-  * [BusinessException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-api-business_exception#class-businessexception)：对应错误码如下表���详见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-filemanagement)。
+  * [BusinessException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-api-business_exception#class-businessexception)：对应错误码如下表，详见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-filemanagement)。
 
 错误码ID | 错误信息  
 ---|---  

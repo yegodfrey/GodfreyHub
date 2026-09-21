@@ -7,7 +7,7 @@ nodePath: 系统 / 基础功能 / Basic Services Kit（基础服务） / 错误�
 
 # 账号管理错误码
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/KkzxVnFbSg-3VpvN7TW_wg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090221Z&HW-CC-Expire=86400&HW-CC-Sign=B05125335DF81E63B73FE34D46942934683888D570DE7D401F275EEE27468998)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/KkzxVnFbSg-3VpvN7TW_wg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111115Z&HW-CC-Expire=86400&HW-CC-Sign=A81A07F692BD4F6E14B47CDE5D76C4A3E8246445198E05FB557728CE67EB30BF)
 
 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-universal)。
 
@@ -106,7 +106,7 @@ The account does not exist.
 
 请检查账号是否存在。
 
-#### 12300004 账号已存在
+#### 12300004 账号已��在
 
 **错误信息**
 

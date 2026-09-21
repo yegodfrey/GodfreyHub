@@ -1186,7 +1186,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.ast / �
 
 功能：构造一个默认的 [Block](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-block) 对象。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/BSAsEYOfTA2JCqbXnuEfhg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=5C33191E9C05197FE15800AC39E0F7C8CFE5DD1E9CB7528F675514006289ABB0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/BSAsEYOfTA2JCqbXnuEfhg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=FF8E1224707D8396602B922AF9165E39DA490E0E9B02D3A09877F89228A11A66)
 
 [Block](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-block) 节点无法脱离表达式或声明节点单独存在，因此不提供其他的构造函数。
 
@@ -2293,7 +2293,7 @@ someCommand: Effect
 
 一个 [Constructor](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-constructor) 节点：enum TimeUnit { Year | Month([Float32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float32), [Float32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float32))} 中的 Year 和 Month([Float32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float32), [Float32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float32))。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/xo4B54NkT3e4CWB-rnvmmQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=6452545AD3C715606017505279E3BC5B3EB30A832A7C3FF6BE0C9FF9128453AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/xo4B54NkT3e4CWB-rnvmmQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=567283CE3A5745D1FE7AA075D8FFD42B84309386ED58652D912BC58081AD8210)
 
 [Constructor](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-constructor) 可以没有参数，也可以有一组不同类型的参数。
 
@@ -2475,7 +2475,7 @@ someCommand: Effect
 
 功能：所有声明节点的父类，继承自 [Node](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-node) 节点，提供了所有声明节点的通用接口。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/DL3H-hlXR1quUOakeX0IOQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=202E2B5781B7614D8C932B2ECD27C1A52E921299A46772775F0509F3F2E9B0FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/DL3H-hlXR1quUOakeX0IOQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=752E09EEE912FEE4D06F7D8D13C26316B9DAB416C9890FE4845C3D763E7328F8)
 
 类定义、接口定义、函数定义、变量定义、枚举定义、结构体定义、扩展定义、类型别名定义、宏定义等都属于 [Decl](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-decl) 节点。
 
@@ -4239,7 +4239,7 @@ Enum 的定义使用 enum 关键字，定义依次为：可缺省的修饰符、
 
 功能：表示一个 feature id。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/irwdtVDHTMG0h5tr7dtJCw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=9CF0D75F93056B935641BEA578C681C2CF1039E2C1EDC0DF36212DBA639894BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/irwdtVDHTMG0h5tr7dtJCw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=A835ADB97B326B9A3ADCC5C91E3B86E89F7D73A8F4339E99FE56E65E14D14ED0)
 
 Feature 声明必须以 features，其次是 feature id 列表，Feature 声明必须出现在源文件的包名声明之前。
 
@@ -4395,7 +4395,7 @@ feature id 由标识符组成，标识符之间用点号分隔。feature id 不�
 
 功能：feature directive 节点对象。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/ZpqLgPzATw6wwDoxrzwn6A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=EB1B2AA24C6184B2572BE8986AEE9B0D84BE467411E66FD9A4CE021AC3C18507)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/ZpqLgPzATw6wwDoxrzwn6A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=C082BB3A3677F3729DA8679096C68B2848B4264DDA1523A44E13C9DD26F96B19)
 
 Features 声明必须以关键字 features 开头，后跟 features set，并且必须出现在源文件的包头之前。
 
@@ -4599,7 +4599,7 @@ Features 声明必须以关键字 features 开头，后跟 features set，并且
 
 功能：一组 features 名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/fnFPIry1Q6WuOeLIPO4Y9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=D997590DC6411E89205472B0E37DBC055D1DA66F86E84B9B8B8CBAB29B7C427F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/fnFPIry1Q6WuOeLIPO4Y9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=CE2CBCE3F465D12596ECA01383E0D84EDFF4928782DF4314351C542A2BAFAC2A)
 
 featuresSet 必须开被 {} 包裹。featuresSet 包含一组 [featureId](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-featureid)。
 
@@ -6001,7 +6001,7 @@ featuresSet 必须开被 {} 包裹。featuresSet 包含一组 [featureId](https:
 
 一个 [GenericConstraint](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-genericconstraint) 节点：interface Enumerable<U> where U <: Bounded {} 中的 where U <: Bounded。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/Ac1AuU9DT_WtPXGn1vmJBQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=1801BBC44E2B4BCD38814A695C8D44E7C1C93A8D313F3EB17A2473A280662E35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/Ac1AuU9DT_WtPXGn1vmJBQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=D957F2C1DCCCAAE8FD5FC4F2DF5D36B8B94F69650F183330382664D7A5E66256)
 
 通过 where 之后的 <: 运算符来声明，由一个下界与一个上界来组成。其中 <: 左边称为约束的下界，下界只能为类型变元。<: 右边称为约束上界，约束上界可以为类型。
 
@@ -6207,7 +6207,7 @@ featuresSet 必须开被 {} 包裹。featuresSet 包含一组 [featureId](https:
 
 一个 [GenericParam](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-genericparam) 节点：<T1, T2, T3>。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/5XFNKzgkShePSAGnPDXDjg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=5F11939FBC0D644318156AC93426FAAAD55D5DC3E1448F736675F8B6BF0B39A4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/5XFNKzgkShePSAGnPDXDjg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=09C95CB69966998C20633BFA098612DDB97954EF8EE6E47961E8BD88FB1BBD3C)
 
 类型形参用 <> 括起并用 "," 分隔多个类型形参名称。
 
@@ -7081,7 +7081,7 @@ handle (e: Command<Unit>) { ... }
 
 一个 [ImportList](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-importlist) 节点: import moduleName.packageName.foo as bar。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/rO0Xrh2rQmCWxLTuDtwnaA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=1B91CDBFE670D599E5844EE3FE07D77E1F4AFF369CDA577A78BB010582A41270)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/rO0Xrh2rQmCWxLTuDtwnaA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=F6DFFD1460853E615F2DB24F94C1C8FFFDAF46D4744CC4EBCCDBAC8290C86F00)
 
 导入节点以可选的访问性修饰符（public/protected/internal/private）加关键字 import 开头。以 import pkga.pkgb.item 为例，pkga.pkgb 为导入的顶级定义或声明所在的包的名字，item 为导入的顶级定义或声明。
 
@@ -7162,7 +7162,7 @@ handle (e: Command<Unit>) { ... }
 
 功能：构造一个 [ImportList](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-importlist) 对象。
 
-���数：
+参数：
 
   * inputs: [Tokens](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-tokens) \- 将要构造 [ImportList](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-importlist) 类型的词法单元集合 ([Tokens](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-tokens)) 序列。
 
@@ -10242,7 +10242,7 @@ handle (e: Command<Unit>) { ... }
 
 一个 [MatchCase](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-matchcase) 节点：case failScore where score > 0 => 0。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/SaQYuNa1Sd6P55bOOpDKmA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=1AF8CE536EBCA4FB51D01B1C551940CA89D21F4C5DF2A9A34A88F7AF8B9B9512)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/SaQYuNa1Sd6P55bOOpDKmA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=8758733CB6B01AD9EC636FBEA22344E783330D967E4C35B02AB857A9CE234F7C)
 
   * [MatchCase](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-matchcase) 以关键字 case 开头，后跟 [Expr](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-expr) 或者一个或多个由 | 分隔的相同种类的 pattern，一个可选的 patternguard，一个 => 和一系列声明或表达式。
   * 该节点与 [MatchExpr](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-matchexpr) 存在强绑定关系。
@@ -11510,7 +11510,7 @@ handle (e: Command<Unit>) { ... }
 
 一个 [PackageHeader](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-packageheader) 节点: package define 或者 macro package define。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/Fa4ovM1NR4SEvLtRgeH0BQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=7D6D428A846F3264F49214310E7E278A1F66F72C10AE19D49869D758937D21D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/Fa4ovM1NR4SEvLtRgeH0BQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=338F67D7F64EF749B009EF2CB9852E4FFF7F35183AD38A32F0162A0604FC5218)
 
 包声明以关键字 package 或 macro package 开头，后面紧跟包名，且包声明必须在源文件的首行。
 
@@ -12351,7 +12351,7 @@ handle (e: Command<Unit>) { ... }
 
 功能：从提供的词法单元构造一个 [PerformExpr](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-performexpr) 对象。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/riVIQRTXSrazPqHEiRY_-w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=2DBB5AE258117109E57D73A44D5D2BC2FBF4A5129E42453E432D834DD1B5000F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/riVIQRTXSrazPqHEiRY_-w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=0D7B102CAFCE8CA4573CAD13243004DDEC108A1ED80F7CB3663154ECC27E8A68)
 
 编译时需要添加 --experimental 和 --enable-eh 编译选项以支持 Effect Handlers 特性。
 
@@ -13221,7 +13221,7 @@ handle (e: Command<Unit>) { ... }
 
 一个仓颉源码文件节点主要包括包定义节点，包导入节点和 TopLevel 作用域内的所有声明节点。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/e_Z7C1rmSSSiHMblryg-Ug/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=C81FF60508896665C0C6B469C21C08502C773FDC43F222AF5516620BC74E43F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/e_Z7C1rmSSSiHMblryg-Ug/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=CF1E88C228BFCE72EC565906892282F1134201190E04953460FD0FA327F4D134)
 
 任何一个仓颉源码文件都可以被解析为一个 [Program](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-program) 类型。
 
@@ -14391,7 +14391,7 @@ handle (e: Command<Unit>) { ... }
     
     public func traverse(v: Visitor): Unit
 
-功能：遍历当前语法树节点及其子节点。���要提前终止子节点遍历，可重写 visit 函数并调用 breakTraverse 函数。请参见[自定义访问函数遍历 AST 对象示例](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-traverse)。
+功能：遍历当前语法树节点及其子节点。若要提前终止子节点遍历，可重写 visit 函数并调用 breakTraverse 函数。请参见[自定义访问函数遍历 AST 对象示例](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-traverse)。
 
 参数：
 
@@ -14965,7 +14965,7 @@ resume r with 42。
 
 功能：从词法单元流构造一个 [ResumeExpr](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-resumeexpr) 对象。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/l2DkzAjnSR-Sqs20Q1uWZA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=10E136E28DA7843094332127DEA7D4ED268B8992A49F78642412BBC0C89857A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/l2DkzAjnSR-Sqs20Q1uWZA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=4AA255724C344582DCF5FA64D5868C9BC11CB60C8DAAF201D4D0902AA8108D50)
 
 编译时需要添加 --experimental 和 --enable-eh 编译选项以支持 Effect Handlers 特性。
 
@@ -15780,7 +15780,7 @@ Struct 的定义使用 struct 关键字，定义依次为：可缺省的修饰�
     
     public init(inputs: Tokens)
 
-功能：构造一个 [SubscriptExpr](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-subscriptexpr) 对��。
+功能：构造一个 [SubscriptExpr](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-subscriptexpr) 对象。
 
 参数：
 
@@ -18318,7 +18318,7 @@ try 表达式包括三个部分：try 块，catch 块和 finally 块。
 
 一个 [TypeAliasDecl](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-typealiasdecl) 节点： type Point2D = Float64。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/ZinwUeIbSpi63Gyol4xB3Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=6CCB8CAFFBF11752AA0B55C70DF99FFE6C94D75C0B255FE29DF24228AA790D6B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/ZinwUeIbSpi63Gyol4xB3Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=AE0F979195F620190EF871B08DEA4D7D4BB0F4D683DD9836F9C5044292BCB425)
 
 该节点中 type 作为关键字，紧跟任意的合法标识符，其后的 type 是任意的 top-level 可见的类型，标识符和 type 之间使用 = 进行连接。
 
@@ -18745,7 +18745,7 @@ try 表达式包括三个部分：try 块，catch 块和 finally 块。
     
     import std.ast.*
     
-    // 在���类中调用
+    // 在子类中调用
     extend FuncType {
         public func myDump() {
             dump(1)
@@ -19210,7 +19210,7 @@ try 表达式包括三个部分：try 块，catch 块和 finally 块。
 
 一个 [VarDecl](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-ast_package_classes#class-vardecl) 节点: var a: String，var b: Int64 = 1。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/Dc9JabByRyeggG_rh45dfQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=56C50E10822C4BE13FCA157FE096D958195FC3C4B8BD9CE86D223BAD8BF309DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/Dc9JabByRyeggG_rh45dfQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=DB657575647C89688963625BCD6379CEBF1FED13E6853D3C9E5F7BC1FB0638F9)
 
 变量的定义主要包括如下几个部分：修饰符、关键字、patternsMaybeIrrefutable、变量类型和变量初始值。
 
@@ -20528,7 +20528,7 @@ try 表达式包括三个部分：try 块，catch 块和 finally 块。
 
 功能：一个抽象类，其内部默认定义了访问不同类型 AST 节点访问（visit）函数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/01kenHH4Qiuj4zTJ8FcvJw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=D6811A9B39ACE4E17EF6F5BAF1EF1EEFA42C8878A5FCD8B9856F5315E53D7919)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/01kenHH4Qiuj4zTJ8FcvJw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=A4D5E4BAEC31CF9DE944AC9E24A6D53A2DF774FA20C76376F74D3C572F505F4F)
 
   * visit 函数搭配 traverse 一起使用，可实现对节点的访问和修改, 所有 visit 函数都有默认为空的实现，可以按需实现需要的 visit 方法。
   * 该类需要被继承使用，并允许子类重新定义访问函数。
@@ -20591,7 +20591,7 @@ try 表达式包括三个部分：try 块，catch 块和 finally 块。
 
 功能：用于判断是否需要停止遍历。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/BOuOrlyJRyyKxgZ6YPtVLQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085252Z&HW-CC-Expire=86400&HW-CC-Sign=3F1FDC535B5F660E2D7B17D4191942E0E2ACE7122E097CF7DFE85459E9BEE2DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/BOuOrlyJRyyKxgZ6YPtVLQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111057Z&HW-CC-Expire=86400&HW-CC-Sign=A32346DFCF7D0080B74AC382752E7C7C4C85D79BEE3B047E75CAB61E4710692C)
 
 该函数会在判断需要停止遍历后将用于判断的标记位重置，因此若在先调用 breakTraverse() 的情况下调用该函数，可能导致上一次 breakTraverse() 失效，影响遍历的停止。
 

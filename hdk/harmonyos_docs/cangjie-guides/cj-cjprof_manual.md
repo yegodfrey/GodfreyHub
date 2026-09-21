@@ -36,7 +36,7 @@ cjprof（Cangjie Profile） 是仓颉语言的性能分析工具，支持以下�
       record    Run a command and record its profile data into data file
       report    Read profile data file (created by cjprof record) and display the profile
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/-nCWpJBUQhyfGIdZTwF-bA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090139Z&HW-CC-Expire=86400&HW-CC-Sign=C799AAF7D02E9873674852819ED2A679BD76E0A58D8692BD14C8E51152BFD091)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/-nCWpJBUQhyfGIdZTwF-bA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111043Z&HW-CC-Expire=86400&HW-CC-Sign=847E15BC72D212B070DA343BBC24D19FC6D2DDC252BCCCA676A9272C60A03250)
 
 由于 cjprof record 依赖系统的 perf 权限，因此使用需要满足以下两个条件之一：
 
@@ -181,7 +181,7 @@ cjprof（Cangjie Profile） 是仓颉语言的性能分析工具，支持以下�
     # 将正在运行的应用程序（进程号为 12345）当前时刻的堆内存导出到当前路径下名为 heap.data 的文件中。
     cjprof heap -d 12345 -o heap.data
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/uWcmwlgWSOqcZt21M83zTg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090139Z&HW-CC-Expire=86400&HW-CC-Sign=C15A5FCEA08A12D496D861B260B2F0E315006811ADAF85FDE2012345FDCC511E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/uWcmwlgWSOqcZt21M83zTg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111043Z&HW-CC-Expire=86400&HW-CC-Sign=89E46F06BAB70E455A63E2F5B54660F1690ED86FA88975EFAF908B49675A54AD)
 
 导出堆内存时会向进程发送 SIG_USR1 信号，在不确定目标进程是否为仓颉应用程序时，需要谨慎操作，否则可能会给目标进程误发送信号导致非预期错误。
 
@@ -195,7 +195,7 @@ cjprof（Cangjie Profile） 是仓颉语言的性能分析工具，支持以下�
     # 解析并分析当前目录下名为 heap.data 的堆内存数据文件，启动 HTTP 报告服务并指定端口为 9090，通过浏览器访问 http://localhost:9090 查看可视化分析报告。
     cjprof heap -i heap.data --dump-report=9090
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/1JtKkQmVQCO8eBzMORu7CA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090139Z&HW-CC-Expire=86400&HW-CC-Sign=C9B3253B0E21CB514E24574A1A82523339CFEFD5B61394DC29BEC32496D8B57D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/1JtKkQmVQCO8eBzMORu7CA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111043Z&HW-CC-Expire=86400&HW-CC-Sign=2D703E7E2EA9EB47457AFE1989305CAB3BA1675A5FA7264BFDA6E33F41BF50FC)
 
 如果设置了代理可能会导致网页无法访问。需要先去掉代理再通过浏览器访问。
 
@@ -649,7 +649,7 @@ InstanceNode 表示一个 Instance 节点的信息，包含以下字段：
 InstanceDiffNode 继承 InstanceNode，表示一个差异 Instance 节点的信息，新增以下字段：
 
   * uint32_t addedCount：基准内存快照新增对象数量
-  * uint32_t removedCount：基准内存快照减少对象数量
+  * uint32_t removedCount：基准内存快��减少对象数量
   * int64_t countDelta：新增对象数量与减少对象数量的差值
   * uint32_t addedSize：基准内存快照新增对象的浅堆大小
   * uint32_t removedSize：基准内存快照减少对象的浅堆大小

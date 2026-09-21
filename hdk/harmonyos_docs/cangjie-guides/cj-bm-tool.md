@@ -9,7 +9,7 @@ nodePath: 系统 / 调测调优 / 调试命令 / bm工具
 
 Bundle Manager（包管理工具，简称bm）是实现应用安装、卸载、更新、查询等功能的工具，bm为开发者提供基本的应用安装包的调试能力。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/jhDMuXSpQKOu6yHwcICQ8w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=4EAE25CC54E034CB808562CBB90728B08AE1F0A6DBAA8EF39B7F0A5275570ED9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/jhDMuXSpQKOu6yHwcICQ8w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=D5BC4793DFEAE90905D51A852D803C9FAE9718755126E58E943343BB4BE93842)
 
 当前仓颉仅支持开发HAR和HAP包，不支持HSP包，因此本工具中关于HSP包相关的功能，在仓颉程序中不可用。
 
@@ -177,7 +177,7 @@ dump-target-overlay | 打印目标应用的所有关联overlay应用的overlayMo
     
     bm quickfix [-h] [-a -f filePath [-t targetPath] [-d]] [-q -b bundleName] [-r -b bundleName]
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/tOqBGGmDSuCEr9tZta4OEA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=6995A7A5DEE3146D5CEF72D05B300562D062613C92D3916F09670D1205BDCF9B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/tOqBGGmDSuCEr9tZta4OEA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=37B1941729ECBE71FAC4C58D783EE95AE974B75244801620E3C7405A1FDDC877)
 
 hqf文件制作方式可参考[HQF打包指令](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-packing-tool#hqf打包指令)。
 
@@ -640,7 +640,7 @@ error: fail to verify pkcs7 file.
 
 error: install parse profile prop check error.
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/o90GR5TnRQmEi_P6NUdOLw/zh-cn_image_0000002713398886.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=7768B02FB5CF277CD8698DA86B7DA99FECF5F548960BF788CACB3045E263B850)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/o90GR5TnRQmEi_P6NUdOLw/zh-cn_image_0000002713398886.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=860CB6B7EDC0F198306DA4601C2148F35A333ABED4BCFCAC5BE4861F395A1CC5)
 
 **错误描述：**
 
@@ -664,7 +664,7 @@ error: install parse profile prop check error.
 
 error: dependent module does not exist.
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/hgt4WL2bRVyES-maDIABDQ/zh-cn_image_0000002743077817.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=4671C06F3AA91682640A25052B105306A1DBC4FC812947A7981228FFF45A3BB3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/hgt4WL2bRVyES-maDIABDQ/zh-cn_image_0000002743077817.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=A5AE09441DB6A1B4B3C82799692E42FA41EFADE4A6B96BB3CE4AFFF8E51F7186)
 
 **错误描述：**
 
@@ -678,15 +678,15 @@ error: dependent module does not exist.
 
   1. 先安装依赖的动态共享包（SharedLibrary）模块，再在应用运行配置页勾选Keep Application Data，点击OK保存配置，再运行/调试。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/jSJPF9vsSoK9KM0jQ-rMLw/zh-cn_image_0000002713558856.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=52380EF2AF7DDE5C76C89EA051ECE81C78A865400285DB930D8DFD4E5D561029)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/jSJPF9vsSoK9KM0jQ-rMLw/zh-cn_image_0000002713558856.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=CEA826DD54749DA338519A65765360E55CF2320EA704376BBFD97E55FD5D6F60)
 
   2. 在运行配置页，选择Deploy Multi Hap标签页，勾选Deploy Multi Hap Packages，选择依赖的模块，点击OK保存配置，再进行运行/调试。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/wjpiKgc-S_mMNz2_heOn_g/zh-cn_image_0000002743197769.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=A7CCE276F29155509093C6B5D12D821ACC3DA7C7AD680FEE7FB18ED8FD038A26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/wjpiKgc-S_mMNz2_heOn_g/zh-cn_image_0000002743197769.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=36AB57510D4B8AC613DB001AF409AF68243453A4B5F7F328B3D482BA83F04FDD)
 
   3. 单击Run > Edit Configurations，在General中，勾选Auto Dependencies。点击OK保存配置，再运行/调试。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/1-F1QupZSWCUkIFQ24axSQ/zh-cn_image_0000002713398888.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=C0920C035F360512436707938D38C492358F51CAB65625C720147794EF0395A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/1-F1QupZSWCUkIFQ24axSQ/zh-cn_image_0000002713398888.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=5FA6A8A2D4C1995B68F912032E2F9820906FC751DBFBFA3F144DE7B3E90C6053)
 
 
 
@@ -697,7 +697,7 @@ error: dependent module does not exist.
 
 error: install parse profile missing prop.
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/bfSrioZAT0ya_haKa5u1uw/zh-cn_image_0000002743077819.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=F076DFB243E952C3546C04C826DF7420A48A6680709976FFACF3CCF729514588)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/bfSrioZAT0ya_haKa5u1uw/zh-cn_image_0000002743077819.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=FAE7F7C90C951C6D9F5CB0BE6655C2BD538896FDFA9A98662C50E50C6923B6CC)
 
 **错误描述：**
 
@@ -730,7 +730,7 @@ error: install parse profile missing prop.
 
 error: install releaseType target not same.
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/ov9circ_RgiRj7rjOwYBPA/zh-cn_image_0000002713558858.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=4E64017C721C0C162616FFA5CF5A21BC85ED2174B29A16B33FB286725FD3FAA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/ov9circ_RgiRj7rjOwYBPA/zh-cn_image_0000002713558858.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=2D1B02CD5104549C2DC430B8479795508E417DE3B494BB0C3AB5117D756B8FE4)
 
 **错误描述：**
 
@@ -743,7 +743,7 @@ error: install releaseType target not same.
 
 
 
-**处理��骤：**
+**处理步骤：**
 
   * 场景一：请先卸载设备上已安装的HAP，再安装新的HAP。
   * 场景二：使用相同版本的SDK对HAP重新打包，保证多HAP的releaseType值一致。
@@ -837,7 +837,7 @@ error: install file path invalid.
 
 error: signature verification failed due to not trusted app source.
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/Lj-e7fmtQJG34o2Oqz9y9g/zh-cn_image_0000002743197771.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=B8E191C43730485B4FE2057D1EC66BA6EF7C3516604239B8C1A4FE64404365AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/Lj-e7fmtQJG34o2Oqz9y9g/zh-cn_image_0000002743197771.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=CBFABEA308AEB47D4C0759AD3E316140825AC798BC1F82214DCB13F14E359130)
 
 **错误描述：**
 
@@ -906,7 +906,7 @@ error: install failed due to insufficient disk memory.
 
 error: install failed due to grant request permissions failed.
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/xq6Qt8E2S3-PeE_6fyvaIw/zh-cn_image_0000002713398890.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=3E0F89633019F0FB0844518BC3547F65A8690FD05B75BC44F61F345DFA8D50C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/xq6Qt8E2S3-PeE_6fyvaIw/zh-cn_image_0000002713398890.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=57A095BF52CB14F1FF426977CFCA58E376618BF646427F684B1252891B03BDBA)
 
 **错误描述：**
 
@@ -950,7 +950,7 @@ error: install failed due to update hap token failed.
 
 error: install failed due to older sdk version in the device.
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/KtRi1G0OSF2g69-Y1rUsMA/zh-cn_image_0000002743077821.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=B1643EA1CD45D059D6326F6873E7AE6094144F46F0FF2BCE0DFCA6C79F54B78A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/KtRi1G0OSF2g69-Y1rUsMA/zh-cn_image_0000002743077821.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=C21B2AF30FBAA2501EF7B91EEF53CB589FB9818B073FA2002E5EDC5F553AFF3E)
 
 **错误描述：**
 
@@ -997,7 +997,7 @@ error: moduleName is not unique.
 
 error: install sign info inconsistent.
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/O3WIg3eQTbqYss_p75vKrQ/zh-cn_image_0000002713558860.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=68EDC590CAEBB5DAB8A4B72D7F61E16F291EC414D376C232100231B4A095060A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/O3WIg3eQTbqYss_p75vKrQ/zh-cn_image_0000002713558860.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=ACB88B6CDA2016E92BC99ED072C9E6114A89C9813011994D5D5E9630B3C71EAD)
 
 **错误描述：**
 
@@ -1024,7 +1024,7 @@ error: install sign info inconsistent.
 
 error: verify signature failed.
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/_eXi8hKDTmCl3xbRyMQghw/zh-cn_image_0000002743197773.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=DBEA6235E0ADF79CD39E2985DF366E275DFCF5A6B03D7B82E9679662C7ABF6D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/_eXi8hKDTmCl3xbRyMQghw/zh-cn_image_0000002743197773.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=0949C9A196641A202503C0F681D4986E30DC7D709DF4720B06192F854D8C8259)
 
 **错误描述：**
 
@@ -1050,7 +1050,7 @@ error: verify signature failed.
 
 error: install permission denied.
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/YMzb_NGDTS2k_xQX8WahLA/zh-cn_image_0000002713398892.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=D441121867DD43EEB6B84C4C917EEF74E162E9AF1DBF14E3CD888F0882ED7EF9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/YMzb_NGDTS2k_xQX8WahLA/zh-cn_image_0000002713398892.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=EED77B172BCC47884722EF6DF60C316B956D65CF654C385BDEDEB03BCBAA07F8)
 
 **错误描述：**
 
@@ -1951,11 +1951,11 @@ error: installd set selinux label failed.
 
   1. 确认签名文件p7b中apl字段是否有误。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/RxzFZ7_lRiWO-gjC2eaGvQ/zh-cn_image_0000002743077823.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=28D923EF1FF4ADBE4CB82E48695373F49C9451E5E7247745B5270845E1DE1A82)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/RxzFZ7_lRiWO-gjC2eaGvQ/zh-cn_image_0000002743077823.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=4E4990C3273F0E002F8508C2041929A6C607CDE9E57679633E84AED880F7C972)
 
   2. 若apl字段有误，修改UnsgnedReleasedProfileTemplate.json文件中apl字段，并重新签名。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/fzH6prViSgmve9LAGw_EDA/zh-cn_image_0000002713558862.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=7B1AA5606FECAE907D37C2932C0E178036B1C12E85C25458A3A6276C9A2F5BF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/fzH6prViSgmve9LAGw_EDA/zh-cn_image_0000002713558862.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=5E3967FA4BAD7827DB64D229089EAAA051B45402AD14ED88ED505EDE45969A08)
 
 
 
@@ -2251,7 +2251,7 @@ error: install parse native so failed.
 
 设备支持的Abi类型与C++工程中配置的Abi类型不匹配。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/F1fx44QvTny_Yx2ETJWFiA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=CC546652727A0EA910203EC7D9F127AD50C2B645E45552AF3E118C8ED7F61F76)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/F1fx44QvTny_Yx2ETJWFiA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=0BB3851C9495762A1A0C6A2026089EA7D80D9EFDA5549F9B33AB79EAFC84332E)
 
 如果工程有依赖HSP或者HAR模块，请确保所有包含C++代码的模块配置的Abi类型包含设备支持的Abi类型。
 
@@ -2277,7 +2277,7 @@ error: install parse native so failed.
            cd /system/
            ls
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/-wKdYd87QLW6y2Jeqh0D3A/zh-cn_image_0000002743197775.png?HW-CC-KV=V1&HW-CC-Date=20260921T084957Z&HW-CC-Expire=86400&HW-CC-Sign=0936EA109BF669AA4318A41C15C7A3C7E245F569841E598A69474B85BB92B3B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/-wKdYd87QLW6y2Jeqh0D3A/zh-cn_image_0000002743197775.png?HW-CC-KV=V1&HW-CC-Date=20260921T111037Z&HW-CC-Expire=86400&HW-CC-Sign=C01775AA8A505B9C88A2B2D380E3B3BECF14AD83FAE40C6D20E38D568681FFD8)
 
 若存在lib64文件夹：则“abiFilters”参数中需要包含arm64-v8a类型。若不存在lib64文件夹：则“abiFilters”参数中需要至少包含armeabi/armeabi-v7a中的一个类型。
 

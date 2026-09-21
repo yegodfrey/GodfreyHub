@@ -402,7 +402,7 @@ TaskInfo | 返回任务详细信息的TaskInfo对象。
     
     public var action: Action
 
-**功能：** 任务操作选项。
+**功能：** 任务操���选项。
 
 UPLOAD表示上传任务。
 
@@ -1905,7 +1905,7 @@ Download表示下载任务。
 
 **功能：** 创建任务的Unix时间戳（毫秒），由当前设备的系统生成。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/raurJYuDSSOUgU0KCjST0A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090221Z&HW-CC-Expire=86400&HW-CC-Sign=65C264E87FAB130406381D232D634F6B000F7272C1BD7F371D3E3D8B8D81431D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/raurJYuDSSOUgU0KCjST0A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111112Z&HW-CC-Expire=86400&HW-CC-Sign=64A75A7DF5FAC68E94FE15CD96D19E9958581BB6A67E1DB0F54464CE0345ED04)
 
 使用request.agent.search进行查询时，该值需处于[after,before]区间内才可正常查询到任务id，before和after信息详见Filter。
 

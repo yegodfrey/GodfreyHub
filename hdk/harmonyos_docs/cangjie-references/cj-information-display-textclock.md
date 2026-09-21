@@ -146,7 +146,7 @@ value | ?[FontWeight](https://developer.huawei.com/consumer/cn/doc/cangjie-refer
 
 **参数：**
 
-参数名 | 类型 | 必填 | 默认值 | 说明  
+参数名 | 类型 | 必填 | 默���值 | 说明  
 ---|---|---|---|---  
 value | ?[ResourceStr](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#interface-resourcestr) | 是 | - | 时间格式字符串。初始值：""。  
   
@@ -650,7 +650,7 @@ formatMatcher | ?String | 否 | None | **命名参数。** 格式匹配算法。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/xYp8TZmNTvqXm4Pvlu_nqw/zh-cn_image_0000002713398972.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090150Z&HW-CC-Expire=86400&HW-CC-Sign=732DF27F420156C474E8B6090CA72AF6F85CAAFB970975539AE9ADB2574AE8C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/xYp8TZmNTvqXm4Pvlu_nqw/zh-cn_image_0000002713398972.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111051Z&HW-CC-Expire=86400&HW-CC-Sign=81E46DF9B701F73FC205460E3B5F1C8F53B734A42B65BA8510CBADB9A0C9C3E5)
 
 #### [h2]示例2（支持启停的文本样式时钟）
 
@@ -699,4 +699,4 @@ formatMatcher | ?String | 否 | None | **命名参数。** 格式匹配算法。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/yFlmmPzRQqOMLPFDqi9SEw/zh-cn_image_0000002743077903.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090150Z&HW-CC-Expire=86400&HW-CC-Sign=37356B1DF5A71D3FFE8A3B0D32949A10E3511BE9688A87DC2964D937E05F9354)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/yFlmmPzRQqOMLPFDqi9SEw/zh-cn_image_0000002743077903.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111051Z&HW-CC-Expire=86400&HW-CC-Sign=2EF23A212B34560862C51683CF1DA880F792FCAAEF6F27E33E4960922B4CE9A7)

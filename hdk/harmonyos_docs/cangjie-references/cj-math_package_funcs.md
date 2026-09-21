@@ -621,7 +621,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
     
     public func asin(x: Float32): Float32
 
-功能：计算单精度浮点数的反正弦函数值。
+功能：计算单精度浮点数的反正弦���数值。
 
 参数：
 
@@ -1862,7 +1862,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求 16 位整型的二进制表达中 1 的个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/_rrG2P4rR32BADqPqel1tQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=DEABF52E62ACBB91C9CE81886440BBED4077BCA7E4FCBB88C14C432A19DBA7BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/_rrG2P4rR32BADqPqel1tQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=07C61A6D0EF3EFCB693BFC19CA9FDD8A6D772983C9C7420CBB9D85D041F0333B)
 
 未来版本即将废弃，使用 countOnes(Int16) 替代。
 
@@ -1901,7 +1901,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求 32 位整型的二进制表达中 1 的个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/oxbB-FVORN2fjXbltim45A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=F4A8282A6C5E33565230FF35607635C4D67A13A5959319CC0CCACC20E732FD9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/oxbB-FVORN2fjXbltim45A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=2E60A43CEB62277DB68AC112EC12CD2EEC683BF702C7D5D5BBB5AF17E84714EB)
 
 未来版本即将废弃，使用 countOnes(Int32) 替代。
 
@@ -1940,7 +1940,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求 64 位整型的二进制表达中 1 的个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/szdHhWwQQSmOkh3s2PJ12A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=AEE18BABCA2F19925F2C818D415533A3D1BB39902F87AED033A9404513985371)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/szdHhWwQQSmOkh3s2PJ12A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=0A505A1659C131002619238B7D10D2C32D2CFFB574244BCCF6746760290FE650)
 
 未来版本即将废弃，使用 countOnes(Int64) 替代。
 
@@ -1979,7 +1979,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求 8 位整型的二进制表达中 1 的个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/zbNonFgCTi2-zyVCAbjecg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=32DA2F9C90BB4642B65BDE4C574117228C27782B1D10D1DC45264AC52B5C591B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/zbNonFgCTi2-zyVCAbjecg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=883B30DB6BB040E0A233AD96064B2132392E33437AF543899898C0E0FB2DCEF4)
 
 未来版本即将废弃，使用 countOnes(Int8) 替代。
 
@@ -2018,7 +2018,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求 16 位无符号整型的二进制表达中的 1 的位的个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/Xd3T4SFpT1iXAuL71FZy4Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=57086C82A3A14A4E8A297FCDE069B5C1E1F851BAB8CDD17123A70BF4EB1F3086)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/Xd3T4SFpT1iXAuL71FZy4Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=694F1439E1C33DEE29AA4D74E3E6C52556BE140BB578C2D5E1822D932B83E76F)
 
 未来版本即将废弃，使用 countOnes(UInt16) 替代。
 
@@ -2057,7 +2057,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求 32 位无符号整型的二进制表达中的 1 的位的个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/ercuHDS1TJ693LCe_U9Iug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=523B5C45DE2CE99C079EDA2BEA2A7E96312145D98D632F77E5784773BF4E1BF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/ercuHDS1TJ693LCe_U9Iug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=F797EA643B460377D3963A30923CEE5FC7ECB3D096AF818004DEE511A03FFECD)
 
 未来版本即将废弃，使用 countOnes(UInt32) 替代。
 
@@ -2096,7 +2096,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求 64 位无符号整型的二进制表达中的 1 的位的个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/tDbxtu-_Qz-jWVK2E4vdCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=45485DEA60E138B7FE344FD1122E52411555F07A11B88EF756A2F9F9FC780E72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/tDbxtu-_Qz-jWVK2E4vdCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=4CE52091F925D71CA1771F02FF68DFB2D41FC556E65D51091192A7BD5EAAD679)
 
 未来版本即将废弃，使用 countOnes(UInt64) 替代。
 
@@ -2135,7 +2135,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求 8 位无符号整型的二进制表达中的 1 的位的个数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/vuKh_QsTRr-WisdE_QrtwQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=36EDEE9977AEF472CB3A00E7F95B1F173EBD73AAA46488AE733E0F51EE6E92B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/vuKh_QsTRr-WisdE_QrtwQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=5DA0EBEA61424662526BB1E562BB9A7400425FBF853B75CF028437C70DF11C82)
 
 未来版本即将废弃，使用 countOnes(UInt8) 替代。
 
@@ -2452,7 +2452,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
     
     public func erf(x: Float16): Float16
 
-功能：求半精度浮点数的误差值。相关定义是：![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/Ha2yp9NTSomBPnqxN8c9Eg/zh-cn_formulaimage_0000002714316702.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=4BF73AD2DE9E6F654CA35FA085DAC7C14B9853CBF1CE544950F5F6CD95FB9DC2)。
+功能：求半精度浮点数的误差值。相关定义是：![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/Ha2yp9NTSomBPnqxN8c9Eg/zh-cn_formulaimage_0000002714316702.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=83BEAA0BB5AE4302DE22DEE967D2DE4C5453989A5CA8EC3779C8DA6BD00D343F)。
 
 参数：
 
@@ -2487,7 +2487,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
     
     public func erf(x: Float32): Float32
 
-功能：求单精度浮点数的误差值。相关定义是：![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/I_AH0L6STnq0lyS9ED2qwQ/zh-cn_formulaimage_0000002714157082.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=70CFE419E910CE492F577ACDBD01915ECBDD2D9219983A6FE08D6A55149131E8)。
+功能：求单精度浮点数的误差值。相关定义是：![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/I_AH0L6STnq0lyS9ED2qwQ/zh-cn_formulaimage_0000002714157082.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=3EAB54F84C31742D2C3438C8786F81CBF84FC81362A566F51E023E70EDA5C590)。
 
 参数：
 
@@ -2522,7 +2522,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
     
     public func erf(x: Float64): Float64
 
-功能：求双精度浮点数的误差值。相关定义是：![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/wKLyvkTkTIqR4Z83P1t4lg/zh-cn_formulaimage_0000002714317200.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=16E94F6371F487939B39FB91346596C868008633001BA3738CC7735267F1D068)。
+功能：求双精度浮点数的误差值。相关定义是：![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/wKLyvkTkTIqR4Z83P1t4lg/zh-cn_formulaimage_0000002714317200.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=54151374C461FD58FD57C511A00B4A358546E9D8C8ADBD3A9D9BC937CFB547A2)。
 
 参数：
 
@@ -3006,7 +3006,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求浮点数的伽马函数值，该函数是阶乘概念在实数上的推广，其求值公式为：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/IyBMq0_USPGXlXILt9f7ow/zh-cn_formulaimage_0000002714157256.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=93D10B4A2343550D31BA52F16803C2BEC124E070EED367B684F1387DA62FBEA0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/IyBMq0_USPGXlXILt9f7ow/zh-cn_formulaimage_0000002714157256.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=5B5946CE238EC29BF008C6B9B43F897156CE0929FEFAF1B7F165F21ADB0948A0)
 
 参数：
 
@@ -4057,7 +4057,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求以 e 为底 x 的对数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/5lxhWLbGSXefhTOp8RYJ6A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=A05AD6F7217D507130B0F437C291112A7B5DE7668AC1A1D0CDA6DD0A52A47F69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/5lxhWLbGSXefhTOp8RYJ6A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=9C9E58FE0CBE4BE1BE69364CCBEF45F0AA80D6318CE5DDC2BFC2892199A9C36D)
 
 返回值存在如下特殊场景：
 
@@ -4113,7 +4113,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求以 e 为底 x 的对数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/KH9bgK9MRcu-18QZeuktew/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=C47D6B4BF4E5370B84042D508D3ACF8421EBFA62004370AB2277E7017BA9A33E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/KH9bgK9MRcu-18QZeuktew/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=7F190F07729A6A4D05D6A469A88CF2747F33923939EDA13D1C91C244B7943825)
 
 返回值存在如下特殊场景：
 
@@ -4158,7 +4158,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求以 e 为底 x 的对数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/tG9xTbQPTQe7DMGk19RKDg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=4B6F879973CEE40B2377400DB76A974335468052FA5B59296220EF0AC9E7FA0A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/tG9xTbQPTQe7DMGk19RKDg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=420C6EF7B197833516EE9C60103924092310AC3A69194DBA08B6C63370DD0F05)
 
 返回值存在如下特殊场景：
 
@@ -4203,7 +4203,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求以 10 为底 x 的对数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/5hGUZrFtS-mD72Eu6l9v0g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=A0D72F7102A08F92B8A67E28BD9606DDA65297ABCF3BEBB7A8C0F1E5CF8FB377)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/5hGUZrFtS-mD72Eu6l9v0g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=65D966C8D770314A19CEB65C269CB7D4B8EBA560922ADF53475D981AECA82BB9)
 
 返回值存在如下特殊场景：
 
@@ -4248,7 +4248,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求以 10 为底 x 的对数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/7klwB9nGRS254R9SoHiYFg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=D57914948A467826A62ADDC6FFBB5174C1A53F22C8A90BCBCC994479A0DEF3AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/7klwB9nGRS254R9SoHiYFg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=4E7253A26827EC416CFA09D4988C253EFFED08C1F1B76E07A926EFC3C68A46B1)
 
 返回值存在如下特殊场景：
 
@@ -4293,7 +4293,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求以 10 为底 x 的对数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/_jovzKYDSm-1za8GiHOF7Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=1805644223D4891381D7790B3ACE71BF867BB899BB0E073E958CE88E94D0CBF5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/_jovzKYDSm-1za8GiHOF7Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=76456E15BB01992E98AB9814C3623EA746A55D465B0AC0223EB8FB72EEB81418)
 
 返回值存在如下特殊场景：
 
@@ -4338,7 +4338,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求以 2 为底 x 的对数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/pHzA5X1jRZSwashcv32aPA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=8B266A87E476CEE19ACCAC1E3DA69D42AC308AB581D1CBEB32E060B347DEE1CE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/pHzA5X1jRZSwashcv32aPA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=84E016A6FA4769EC81C11CB9C7C85375D2ED7E05749ACEED6EA6C4D18FCC90E6)
 
 返回值存在如下特殊场景：
 
@@ -4383,7 +4383,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求以 2 为底 x 的对数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/2aNYyQFzQ-asEjiQZHIiQA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=F59A2E9485443822A224648756AAF3B4656A212FDF313709EFB5DB25990545E3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/2aNYyQFzQ-asEjiQZHIiQA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=5592286748C61ACC02C7E364B9A6096E0247DF99BB2C9ECA1A071E8DD7019537)
 
 返回值存在如下特殊场景：
 
@@ -4428,7 +4428,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.math / �
 
 功能：求以 2 为底 x 的对数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/jkFsPc5iTiiOQBscaX7qZQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090205Z&HW-CC-Expire=86400&HW-CC-Sign=3FD9CAED7D034BD821FBD48AA8B64E20E3D01F1E03FEA1F8E63A802C649D6E09)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/jkFsPc5iTiiOQBscaX7qZQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111102Z&HW-CC-Expire=86400&HW-CC-Sign=0C71462341F98A6A561B5F7D6A68E44DFFCCC520666522E802AD783388C0F477)
 
 返回值存在如下特殊场景：
 

@@ -100,7 +100,7 @@ assetAccessGroups |  配置应用的Group ID，它和Developer ID一起组成群
 name | 标识环境变量的变量名称。取值为长度不超过4096字节的字符串。 | 字符串 | 该标签可缺省，缺省值为空。  
 value | 标识环境变量的值。取值为长度不超过4096字节的字符串。 | 字符串 | 该标签可缺省，缺省值为空。  
   
-appEnvironments标签示例：
+appEnvironments标签示例��
     
     
     {

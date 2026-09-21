@@ -7,13 +7,13 @@ nodePath: 系统 / 调测调优 / Test Kit（应用测试服务） / 错误码 /
 
 # uitest错误码
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/ywVS4dKqS0SGQd3aXaCYog/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083528Z&HW-CC-Expire=86400&HW-CC-Sign=77D4FE829E21C76FBE36E2F282D843AAE926FF94E663EF8C88644E2A47535238)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/ywVS4dKqS0SGQd3aXaCYog/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111116Z&HW-CC-Expire=86400&HW-CC-Sign=DC73B19304463D887FE85B27C39B082B2C1B7DE871F2188D3E2256A75EF6E6AB)
 
 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-universal)。
 
 #### 17000001 初始化失败
 
-**���误信息**
+**错误信息**
 
 Initialization failed.
 

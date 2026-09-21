@@ -23,7 +23,7 @@ nodePath: 应用框架 / ArkUI（方舟UI框架） / UI开发（仓颉声明式�
 
 **图1** 常见页面结构图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/A_TWpCwSQ8eBsrrIbOmmIw/zh-cn_image_0000002713398678.png?HW-CC-KV=V1&HW-CC-Date=20260908T090118Z&HW-CC-Expire=86400&HW-CC-Sign=9817A79CE7662E90489FDF9045ABCE9B9920BBF31B5925C2E46EA728D02C93C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/A_TWpCwSQ8eBsrrIbOmmIw/zh-cn_image_0000002713398678.png?HW-CC-KV=V1&HW-CC-Date=20260921T111027Z&HW-CC-Expire=86400&HW-CC-Sign=A6559C43671A95EEBFAFD77A10453DF6CA91C8115E1FEA8399D89EDFE12A0000)
 
 为实现上述效果，开发者需要在页面中声明对应的元素。其中，Page表示页面的根节点，Column/Row等元素为系统组件。针对不同的页面结构，ArkUI提供了不同的布局组件来帮助开发者实现对应布局的效果，例如Row用于实现线性布局。
 
@@ -33,7 +33,7 @@ nodePath: 应用框架 / ArkUI（方舟UI框架） / UI开发（仓颉声明式�
 
 **图2** 布局元素组成图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/hrVoCbJ_Rs6La5M6zFWI-A/zh-cn_image_0000002743077609.png?HW-CC-KV=V1&HW-CC-Date=20260908T090118Z&HW-CC-Expire=86400&HW-CC-Sign=0C1446B9BE2C8AD5C8CCC1D26ABE2BF02F65571490B34D802F68DB207618184B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/hrVoCbJ_Rs6La5M6zFWI-A/zh-cn_image_0000002743077609.png?HW-CC-KV=V1&HW-CC-Date=20260921T111027Z&HW-CC-Expire=86400&HW-CC-Sign=A586FC6C2785914DBC437FC73B056B0E5B833D6F9EF32E48A1600A1B65BF0B87)
 
   * 组件区域（蓝色方块）：组件区域表示组件的大小，[width](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-size#func-widthoptionlength)、[height](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-size#func-heightoptionlength)属性用于设置组件区域的大小。
   * 组件内容区（黄色方块）：组件内容区大小为组件区域大小减去组件的[border](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-border)值，组件内容区大小会作为组件内容（或者子组件）进行大小测算时的布局测算限制。
@@ -54,7 +54,7 @@ nodePath: 应用框架 / ArkUI（方舟UI框架） / UI开发（仓颉声明式�
 [相对布局](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-layout-development-relative-layout)（RelativeContainer） | 相对布局是在二维空间中的布局方式，不需要遵循线性布局的规则，布局方式更为自由。通过在子组件上设置锚点规则（AlignRules）使子组件能够将自己在横轴、纵轴中的位置与容器或容器内其他子组件的位置对齐。设置的锚点规则可以天然支持子元素压缩、拉伸、堆叠或形成多行效果。在页面元素分布复杂或通过线性布局会使容器嵌套层数过深时推荐使用。  
 [栅格布局](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-layout-development-grid-layout)（GridRow、GridCol） | 栅格是多设备场景下通用的辅助定位工具，可将空间分割为有规律的栅格。栅格不同于网格布局固定的空间划分，可以实现不同设备下不同的布局，空间划分更随心所欲，从而显著降低适配不同屏幕尺寸的设计及开发成本，使得整体设计和开发流程更有秩序和节奏感，同时也保证多设备上应用显示的协调性和一致性，提升用户体验。推荐内容相同但布局不同时使用。  
 [列表](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-layout-development-create-list)（List） | 使用列表可以高效地显示结构化、可滚动的信息。在ArkUI中，列表具有垂直和水平布局能力和自适应交叉轴方向上排列个数的布局能力，超出屏幕时可以滚动。列表适合用于呈现同类数据类型或数据类型集，例如图片和文本。  
-[网格](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-layout-development-create-grid)（Grid） | 网格布局具有较强的页面均分能力、子元素占比控制能力。网格布局可以控制元素所占的网格数量、设置子元素横跨几行或者几列，当网格容器尺寸发生变化时，所有子元素以及间距等比例调整。推荐在需要按照固定比例或者均匀分配空间的布局场景下使用，例如计算器、相册、日历等。  
+[网格](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-layout-development-create-grid)（Grid） | 网格布局具有较强的页面均分能力、子元素占比控制能力。网格布局可以控制元素所占的网格数量、设���子元素横跨几行或者几列，当网格容器尺寸发生变化时，所有子元素以及间距等比例调整。推荐在需要按照固定比例或者均匀分配空间的布局场景下使用，例如计算器、相册、日历等。  
 [轮播](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-layout-development-create-looping)（Swiper） | 轮播组件通常用于实现广告轮播、图片预览等。  
 [选项卡](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-layout-development-tabs)（Tabs） | 选项卡可以在一个页面内快速实现视图内容的切换，一方面提升查找信息的效率，另一方面精简用户单次获取到的信息量。  
   

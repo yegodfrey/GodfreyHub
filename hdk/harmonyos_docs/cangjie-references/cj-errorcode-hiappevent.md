@@ -7,7 +7,7 @@ nodePath: 系统 / 调测调优 / Performance Analysis Kit（性能分析服务�
 
 # 应用事件打点错误码
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/isGn8GM9TqSUOYnlt47cRQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090222Z&HW-CC-Expire=86400&HW-CC-Sign=98F0BA8499ACE9F57DB276AAFCEDBE83AF16FBE20F654EA1021476CD81152192)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/isGn8GM9TqSUOYnlt47cRQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111116Z&HW-CC-Expire=86400&HW-CC-Sign=438E525DD788325434EA46E59D1F3049AF186BA7EF7EDACA74D52C38CD013936)
 
 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-universal)。
 
@@ -134,7 +134,7 @@ Invalid string length of the event parameter.
 
 传入合法字符串长度的事件参数值。
 
-#### 11101005 非法的事件参数名称
+#### 11101005 非法的事件���数名称
 
 **错误信息**
 

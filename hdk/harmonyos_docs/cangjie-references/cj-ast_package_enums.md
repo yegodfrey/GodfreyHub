@@ -1009,7 +1009,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.ast / �
     
     MUL_ASSIGN
 
-功能：构造一个表示 *= 的枚举实例。
+功能：构造一个表示 *= 的枚��实例。
 
 #### [h2]MULTILINE_RAW_STRING
     
@@ -1191,7 +1191,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.ast / �
     
     REDEF
 
-功能：构��一个表示 redef 的枚举实例。
+功能：构造一个表示 redef 的枚举实例。
 
 #### [h2]RESUME
     

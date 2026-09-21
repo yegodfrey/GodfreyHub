@@ -154,7 +154,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.time / �
 
 功能：DateTimeFormat 实例的字符串格式。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/t1QKrPBfRbqTlPs7V8QuoA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090212Z&HW-CC-Expire=86400&HW-CC-Sign=954799E6C6EF66AFF83380D919DE0C825F1DE3055D4252F5DD45F8DB63915E36)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/t1QKrPBfRbqTlPs7V8QuoA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111106Z&HW-CC-Expire=86400&HW-CC-Sign=D2763355EAC88A43E2F5811C74EA4251F8C3D2C5E68E0965879541BEE3783B0B)
 
 未来版本即将废弃。
 
@@ -194,7 +194,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.time / �
 
 字符串的具体格式见[时间字符串格式](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_overview#时间字符串格式)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/mKFL6UuFQPeFt-Bv75dr7w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090212Z&HW-CC-Expire=86400&HW-CC-Sign=FDDA9A8C0CFA2332E83D6F3710111724B45DCBAFB9BC048A980FA4806855C126)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/mKFL6UuFQPeFt-Bv75dr7w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111106Z&HW-CC-Expire=86400&HW-CC-Sign=4AA9BA57CEDDFE7A7C8FA91CF96C36B12BF3716A11FCD8733897D01BB6890234)
 
 未来版本即将废弃。
 
@@ -363,7 +363,7 @@ Local 从系统环境变量 TZ 中获取时区 ID，并根据该时区 ID 从系
 参数：
 
   * id: [String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string) \- 时区 ID。使用“/”作为分隔符，例如“Asia/Shanghai”，各操作系统使用相同规范。
-  * offset: [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration) \- 相对 UTC 时区的偏移量，精度为秒，向东为正、向西为负。取值范围为 (-25 * [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration).hour, 26 * [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration).hour)。
+  * offset: [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration) \- 相对 UTC 时区的偏移量，精度为秒，向东为正、向西为负。取值��围为 (-25 * [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration).hour, 26 * [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration).hour)。
 
 
 
@@ -398,7 +398,7 @@ Local 从系统环境变量 TZ 中获取时区 ID，并根据该时区 ID 从系
 
 功能：从系统中加载参数 id 指定的时区。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/qS-cOdS8TRC8I5KlXCBbZg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090212Z&HW-CC-Expire=86400&HW-CC-Sign=96042234652AB95C1F28A21B9E4DA2002032F971E1B4C3FBD1D0DEA5BDBB4E75)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/qS-cOdS8TRC8I5KlXCBbZg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111106Z&HW-CC-Expire=86400&HW-CC-Sign=1C1E1F461E2CAEB5885A87D7A77DB32A58500809B452FD282082D46A426A9B76)
 
   * 在 Linux、macOS、OpenHarmony、HarmonyOS、iOS、Android 系统中，若存在环境变量 CJ_TZPATH，则使用环境变量指定的路径加载时区文件（若存在多个通过分隔符 “:” 分开的环境变量值，则按照分隔路径的先后顺序依次查找时区文件，并加载第一个找到的时区文件），否则从系统时区文件目录（例如：Linux 和 macOS 为 "/usr/share/zoneinfo"）加载时区。
   * 在 Windows 系统中，用户需下载[时区文件](https://www.iana.org/time-zones)并编译，设置环境变量 CJ_TZPATH 指向 zoneinfo 目录（若存在多个通过分隔符 “;” 分开的环境变量值，则按照分隔路径的先后顺序依次查找时区文件，并加载第一个找到的时区文件），否则会导致异常。

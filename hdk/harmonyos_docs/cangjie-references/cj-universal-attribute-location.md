@@ -93,7 +93,7 @@ T | 返回通用方法接口类型。
 
 **功能：** 设置组件的对齐规则。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/X6m2GikoTIqsjP6CAdKS4Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090144Z&HW-CC-Expire=86400&HW-CC-Sign=0FB9FDC43467F8506DD55B7397C89118922CA494F1BCF07895EA5CC46F3D0E41)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/X6m2GikoTIqsjP6CAdKS4Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111047Z&HW-CC-Expire=86400&HW-CC-Sign=B5109B8D9A8C31FAAE7D3714C3437F34D6C10B790E81A2ACDF781895A0A497FB)
 
 仅当父容器为RelativeContainer时生效。
 
@@ -222,7 +222,7 @@ T | 返回通用方法接口类型。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/9yRghCaXSAm2D88igYM0tw/zh-cn_image_0000002713398914.png?HW-CC-KV=V1&HW-CC-Date=20260908T090144Z&HW-CC-Expire=86400&HW-CC-Sign=59DE856BD4A1E639784E608E3130F80BCBD39B9BD331341D6C94F706D125714C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/9yRghCaXSAm2D88igYM0tw/zh-cn_image_0000002713398914.png?HW-CC-KV=V1&HW-CC-Date=20260921T111047Z&HW-CC-Expire=86400&HW-CC-Sign=3EEF60EA4BEDE748C2F75AEB39ACA99F88F6D3660A6DBE1FB053B86EE16CFD96)
 
 #### [h2]示例2（位置偏移）
 
@@ -274,7 +274,7 @@ T | 返回通用方法接口类型。
                         .height(100)
                         .border(width: 1.vp, style: BorderStyle.Dashed)
     
-                    // 相对于起点偏移，其中x为最终定位点距离起点水平方向间距，x>0往左，反之向右。
+                    // 相���于起点偏移，其中x为最终定位点距离起点水平方向间距，x>0往左，反之向右。
                     // y为最终定位点距离起点垂直方向间距，y>0向上，反之向下
                     Text("markAnchor")
                         .fontSize(12)
@@ -340,4 +340,4 @@ T | 返回通用方法接口类型。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/WhwebGwrSFuQMVjZ7WrbNA/zh-cn_image_0000002743077845.png?HW-CC-KV=V1&HW-CC-Date=20260908T090144Z&HW-CC-Expire=86400&HW-CC-Sign=41EE2E9E45FEAF0D418EC45880B03D79A4D6ED43FE99BE822BF8739538FB9204)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/WhwebGwrSFuQMVjZ7WrbNA/zh-cn_image_0000002743077845.png?HW-CC-KV=V1&HW-CC-Date=20260921T111047Z&HW-CC-Expire=86400&HW-CC-Sign=3CF693B2F9DC9531FDF3DF007C6888DA5127A41AD9BBC5D7F26627332BC3A107)

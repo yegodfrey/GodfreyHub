@@ -71,7 +71,7 @@ nodePath: 实践 / 跨C语言调用复杂参数传递
 
 **实现效果：**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/DRgIDp0qSYO1xgOzDkXrdw/zh-cn_image_0000002669560883.png?HW-CC-KV=V1&HW-CC-Date=20260921T085428Z&HW-CC-Expire=86400&HW-CC-Sign=6B124A4430BF2D044E37DF9A7E2AE362998834FCC4011B286F8D556450EC49DA) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/9F9-ib76SlaTzOUkEZhnjA/zh-cn_image_0000002639680934.png?HW-CC-KV=V1&HW-CC-Date=20260921T085428Z&HW-CC-Expire=86400&HW-CC-Sign=1E2AF4F29148AF6C978C1892C5F71CD56BFAA26BCAD654E0522543137582E4E2)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/DRgIDp0qSYO1xgOzDkXrdw/zh-cn_image_0000002669560883.png?HW-CC-KV=V1&HW-CC-Date=20260921T111119Z&HW-CC-Expire=86400&HW-CC-Sign=DD0F7B983FFF00C2C8BE6058DAA3F122A6F994A3D53DFD0F3CFA796817AA6E0C) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/9F9-ib76SlaTzOUkEZhnjA/zh-cn_image_0000002639680934.png?HW-CC-KV=V1&HW-CC-Date=20260921T111119Z&HW-CC-Expire=86400&HW-CC-Sign=59CC81E6482D9D22449FB02C3EC56777F012B732ACAD0010953CAB20BFAD5D31)  
 ---|---  
   
 #### [h2]Pointer类型数据交互
@@ -152,7 +152,7 @@ nodePath: 实践 / 跨C语言调用复杂参数传递
 
 **实现效果：**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/vjWkQNQaSV6D5XHvmd8TEw/zh-cn_image_0000002639520990.png?HW-CC-KV=V1&HW-CC-Date=20260921T085428Z&HW-CC-Expire=86400&HW-CC-Sign=DBF3487ACBF3BC7DB6A0F56CD7CBBC2E5D16AE025D0A2EAE1A1277A041B35309) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/RwEdS7rsTqSSTz1_b650FA/zh-cn_image_0000002669680997.png?HW-CC-KV=V1&HW-CC-Date=20260921T085428Z&HW-CC-Expire=86400&HW-CC-Sign=65BA1BAF1A3692DC9514DA0BEEDD1DA27E385205F5B4EA39BA0D171D91A80A9A)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/vjWkQNQaSV6D5XHvmd8TEw/zh-cn_image_0000002639520990.png?HW-CC-KV=V1&HW-CC-Date=20260921T111119Z&HW-CC-Expire=86400&HW-CC-Sign=2D04F3456CF9AEBFA5C7E65226C9027D108826D180D273BDC59B98C11F8B56C5) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/RwEdS7rsTqSSTz1_b650FA/zh-cn_image_0000002669680997.png?HW-CC-KV=V1&HW-CC-Date=20260921T111119Z&HW-CC-Expire=86400&HW-CC-Sign=3DD896CF8BFD97E96A8134158EA8A24EB7A4944C421015959D470650742E9316)  
 ---|---  
   
 #### [h2]Array类型数据交互
@@ -181,7 +181,7 @@ Array类型的数据在仓颉侧对应VArray<Type, $Num>。只能从仓颉侧传
 
 **实现效果：**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/0b_ebg1DTd2EFeGx7tKw4w/zh-cn_image_0000002669560885.png?HW-CC-KV=V1&HW-CC-Date=20260921T085428Z&HW-CC-Expire=86400&HW-CC-Sign=579007F585C6D940E38A395E23AE510991DD9FD22CCCBA641D375D7984C11494)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/0b_ebg1DTd2EFeGx7tKw4w/zh-cn_image_0000002669560885.png?HW-CC-KV=V1&HW-CC-Date=20260921T111119Z&HW-CC-Expire=86400&HW-CC-Sign=AA117826AD5EFB98ED6765032C90B3B6DB795A7CFCEC216A9AE63FB0CD055F72)
 
 #### [h2]Function类型数据交互
 
@@ -221,9 +221,9 @@ Function类型的数据在仓颉侧对应 CFunc<Type>。 仓颉侧CFunc指可以
 
 **实现效果：**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/626fAbdiQ_aE7Zcb6cxIHg/zh-cn_image_0000002639680936.png?HW-CC-KV=V1&HW-CC-Date=20260921T085428Z&HW-CC-Expire=86400&HW-CC-Sign=AC5471DDFCEA2284E3C0FFEBD59138DAC8F3F5125308AEF231FC0EDC2C456F9D) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/iOlXj-PqRH-F921KYybxqg/zh-cn_image_0000002639520992.png?HW-CC-KV=V1&HW-CC-Date=20260921T085428Z&HW-CC-Expire=86400&HW-CC-Sign=B1D27B701AC34B5126252601F4CE8FB4A38DD0DD952A05FB35D3C30E3CDC483A)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/626fAbdiQ_aE7Zcb6cxIHg/zh-cn_image_0000002639680936.png?HW-CC-KV=V1&HW-CC-Date=20260921T111119Z&HW-CC-Expire=86400&HW-CC-Sign=3DD0BF6E864076F5C5532E20AC05ABA87C57536A64FDC53366F448FF4B6E41E8) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/iOlXj-PqRH-F921KYybxqg/zh-cn_image_0000002639520992.png?HW-CC-KV=V1&HW-CC-Date=20260921T111119Z&HW-CC-Expire=86400&HW-CC-Sign=D850DC6D9A316DD3DA24CD88372D0AA6910654A8B30FF5D8EC38EA81BD4190B5)  
 ---|---  
   
 #### 示例代码
 
-[跨C语言调用复杂参数传递示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183054.66970644386081601971103323083626:20260922165428:2800:AB69A723A947354C569CE5A99726AE8BFCCBD58D194EAEE1E7CE3F7D34730022.zip?needInitFileName=true)
+[跨C语言调用复杂参数传递示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183054.66970644386081601971103323083626:20260922191119:2800:81DD54AE4B534156AD5B7C8D1A477F93F2D520A181BAF6FECC7AB4D70B766013.zip?needInitFileName=true)

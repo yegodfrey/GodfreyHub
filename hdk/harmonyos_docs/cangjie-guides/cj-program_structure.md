@@ -11,7 +11,7 @@ nodePath: 基础入门 / 学习仓颉语言 / 基本概念 / 程序结构
 
 在仓颉程序的顶层作用域中，可以定义一系列的变量、函数和自定义类型（如 struct、class、enum 和 interface 等），其中的变量和函数分别被称为**全局变量** 和**全局函数** 。如果要将仓颉程序编译为可执行文件，需要在顶层作用域中定义一个 main 函数作为**程序入口** ，它可以有 Array<String> 类型的参数，也可以没有参数，它的返回值类型可以是整数类型或 Unit 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/ZLkPfZEdSNeUNKDO4kZ4Vg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090110Z&HW-CC-Expire=86400&HW-CC-Sign=63FFF7001490840FC4492A4B57FAB71A05602FC475A66853EA164A8B0F129682)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/ZLkPfZEdSNeUNKDO4kZ4Vg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111021Z&HW-CC-Expire=86400&HW-CC-Sign=9A1F8561211F116C279A8A1107E9AD21BDA01BBDBF8A17A24B43536907C4BAF3)
 
 定义 main 函数时，不需要写 func 修饰符。此外，如果需要获取程序启动时的命令行参数，可以声明和使用 Array<String> 类型参数。
 
@@ -37,7 +37,7 @@ nodePath: 基础入门 / 学习仓颉语言 / 基本概念 / 程序结构
 
 在非顶层作用域中不能定义上述自定义类型，但可以定义变量和函数，称之为**局部变量** 和**局部函数** 。特别地，对于定义在自定义类型中的变量和函数，称之为**成员变量** 和**成员函数** 。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/Y-Y0Qc2pR5SN7OxMeJ8J9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090110Z&HW-CC-Expire=86400&HW-CC-Sign=B61D6869A16C2122EDD8B485EC0AD7F8AC9599795B91BA900D7E9314D5EB57D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/Y-Y0Qc2pR5SN7OxMeJ8J9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111021Z&HW-CC-Expire=86400&HW-CC-Sign=E79B9D514871693FBB5D552166C60DB4A33A051F0761EAA856AEA87B65E97020)
 
 enum 和 interface 中仅支持定义成员函数，不支持定义成员变量。
 
@@ -138,7 +138,7 @@ enum 和 interface 中仅支持定义成员函数，不支持定义成员变量�
     
     a - b = 0
 
-在定义局部变量时，可以不进行初始化，但一定要在变量被引用前赋予初值，例如：
+在定义局部变量时，可以不进���初始化，但一定要在变量被引用前赋予初值，例如：
     
     
     main() {
@@ -332,7 +332,7 @@ const 变量初始化后该类型实例的所有成员都是 const 的（深度 
 
 在仓颉编程语言中，用一对大括号“{}”包围一段仓颉代码，即构造了一个新的作用域，其中可以继续使用大括号“{}”包围仓颉代码，由此产生了嵌套作用域，这些作用域均服从上述规则。特别的，在一个仓颉源文件中，不被任何大括号“{}”包围的代码，它们所属的作用域被称为“顶层作用域”，即当前文件中“最外层”的作用域，按上述规则，其作用域级别最低。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/AEtT7nCjSTeNcNIARhuG_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090110Z&HW-CC-Expire=86400&HW-CC-Sign=405EABD773A5322B3F7777B375D473ADF049CA0C8D53C826912FA15777AF16B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/AEtT7nCjSTeNcNIARhuG_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111021Z&HW-CC-Expire=86400&HW-CC-Sign=0C2F5E0492EB7BD878E0430B3AE56B49B882DE28B4A4364616B7E604BB90B867)
 
 仓颉不允许使用单独的大括号“{}”，大括号必须依赖 if、match、函数体、类体、结构体等其他语法结构存在。
 

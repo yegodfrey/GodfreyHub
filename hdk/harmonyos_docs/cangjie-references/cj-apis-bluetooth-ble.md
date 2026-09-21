@@ -280,7 +280,7 @@ callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cang
     import kit.ConnectivityKit.*
     import kit.PerformanceAnalysisKit.Hilog
     
-    // 此处代码可添加在依赖项定义中
+    // 此处代码可添加在依赖项定��中
     class BLEDeviceFindCallback <: Callback1Argument<Array<ScanResult>> {
         public func invoke(err: ?BusinessException, devices: Array<ScanResult>): Unit {
             for (device in devices) {
@@ -1399,7 +1399,7 @@ permissions | GattPermissions | 否 | GattPermissions() | **命名参数。** �
     
     public var deviceId: String
 
-**功能：** client��蓝牙设备地址。例如："XX:XX:XX:XX:XX:XX"。
+**功能：** client端蓝牙设备地址。例如："XX:XX:XX:XX:XX:XX"。
 
 **类型：** String
 
@@ -3669,7 +3669,7 @@ notifyCharacteristic | NotifyCharacteristic | 是 | - | 通知给client的特征
 
 **参数：**
 
-参数名 | 类型 | 必填 | 默认值 | 说明  
+参数名 | 类型 | 必��� | 默认值 | 说明  
 ---|---|---|---|---  
 eventType | BluetoothBleGattServerCallbackType | 是 | - | 回调事件。  
 callback | ?[CallbackObject](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-api-callback_invoke#class-callbackobject) | 否 | None | **命名参数。** 表示取消订阅BLE事件。不填该参数则取消订阅该type对应的所有回调。  
@@ -4456,7 +4456,7 @@ manufactureValue | Array<Byte> | 是 | - | 制造商特定的数据。
         )
     }
 
-**功能：** 描述server端特征值发生变化时，server端发送特征值通知的参数结构。
+**功能：** 描述server端特征值发生变化时，server端发送特���值通知的参数结构。
 
 **系统能力：** SystemCapability.Communication.Bluetooth.Core
 
@@ -5672,7 +5672,7 @@ String | 枚举的说明。
     
     DescriptorWrite
 
-**功能：** 表示描述符写请求事件���型。
+**功能：** 表示描述符写请求事件类型。
 
 **系统能力：** SystemCapability.Communication.Bluetooth.Core
 

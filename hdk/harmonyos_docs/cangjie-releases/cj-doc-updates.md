@@ -19,7 +19,7 @@ nodePath: 版本说明 / 文档变更说明
 
   * Snapshot模板基本操作：新增[线程视图](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-insight-snapshot-basic-operations#线程视图)和[离线导入内存快照](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-insight-snapshot-basic-operations#离线导入内存快照)小节。
   * 代码实时检查：新增[快速修复](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-code-check-real-time#快速修复)小节，包含如何在IDE中快速“删除未使用的import语句”、“自动导入未定义符号”、“删除未使用符号定义”、“生成未实现抽象方法”。
-  * [代码重构](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-code-refactoring)：新增“提取方法、提取接口、引入字段、引入���参、内联方法、内联变量”小节。
+  * [代码重构](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-code-refactoring)：新增“提取方法、提取接口、引入字段、引入入参、内联方法、内联变量”小节。
   * 优化应用性能：新增“[加载丢帧：ArkWeb分析](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-insight-arkweb)”、“[ArkUI分析](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-insight-arkui)”、“[PGO性能优化](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-build-profile-guided-optimization)”章节。
   * [使用ASan检测内存错误](https://developerlf.hwcloudtest.cn/consumer/cn/doc/cangjie-guides/cj-debug-fault-asan-detect)**：** 修改使能ASan的方式。
   * 代码阅读：新增“[自定义代码折叠](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-code-editor-basics#自定义代码折叠)”小节。

@@ -46,7 +46,7 @@ controller | ?TextAreaController | 否 | None | **命名参数。** TextArea组�
 
 通用事件：全部支持。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/rwbzEHCmTbGgfb6tnExS5w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090149Z&HW-CC-Expire=86400&HW-CC-Sign=41D5EBE1C3B1C7BC53177B3A333B62602A1BA44747229D02AEC78000A066EFD6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/rwbzEHCmTbGgfb6tnExS5w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=8ACB4620975C76B9546CC36E6EF37605F20163947617053A71E508920C802C91)
 
 单行输入框可设置.[width](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-size#func-widthoptionlength)([LengthMetrics.AUTO](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#static-let-auto))使组件宽度自适应文本宽度，自适应时组件宽度受[constraintSize](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-layoutconstraints#func-constraintsizelength-length-length-length)属性以及父容器传递的最大最小宽度限制。
 
@@ -196,7 +196,7 @@ error | ?(String) -> Unit | 否 | None | **命名参数。** 输入错误时的�
 
 **功能：** 设置文本的最大长度。
 
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+**系���能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **起始版本：** 22
 
@@ -487,4 +487,4 @@ value | ?Int32 | 是 | - | 从字符串开始到光标位置的长度。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/a1CA3iVMRP-GP1uVh3fLvA/zh-cn_image_0000002743077887.png?HW-CC-KV=V1&HW-CC-Date=20260908T090149Z&HW-CC-Expire=86400&HW-CC-Sign=619044598F7E7E49674838F998F4263BE68F866C3C4CBDCB645B93B1D579F1AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/a1CA3iVMRP-GP1uVh3fLvA/zh-cn_image_0000002743077887.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=F47A1B1062312AB0C29D7BDEC5F2D3723B10671B4172E8D6909805FC72494712)

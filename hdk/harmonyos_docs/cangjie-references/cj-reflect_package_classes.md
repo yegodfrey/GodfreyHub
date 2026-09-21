@@ -14,7 +14,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：描述 class 类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/LG1w8k_MRYiR73nTJ7QHPw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=7B16DA037F9A4A3A319999CD0C81A5EFDCA6ACDC7109E536303070967DF008C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/LG1w8k_MRYiR73nTJ7QHPw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=8FB40722F6FBF41402D97559AC4FDB98F73CE82F1F9B5DA9E303952747D0117B)
 
 不支持平台：macOS、iOS。
 
@@ -31,7 +31,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 对应的 class 的所有 public 构造函数信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/HasoD6j1RzewenIsQQmDWA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5A2BFBC980F61622CE67019151C4F3BC948F3475D8EF53B7E240A60A8C475E71)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/HasoD6j1RzewenIsQQmDWA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BEB99992DFEB05BF3E1A6CB2244DB95295150C16216A08BC00D61F983408E07F)
 
   * 不支持平台：macOS、iOS。
   * 如果该 class 类型无任何 public 构造函数，则返回空集合。
@@ -79,7 +79,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 对应的 class 的所有 public 实例成员变量信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/ApagOfkuQ6-ir1MFPHXApw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=1FFD5CDBBEB21CD3BB17B49FC8F5FC8F19783477AF568A95797C8EBD86E9E289)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/ApagOfkuQ6-ir1MFPHXApw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=43F38C3A65349C7A60D232AA2E4273A17C27D6F738EA33D50CDBF80640F82BE2)
 
   * 不支持平台：macOS、iOS。
   * 如果该 class 类型无任何 public 实例成员变量，则返回空集合。
@@ -128,7 +128,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：如果该 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 对应的 class 类型拥有 sealed 语义，则获取该 class 类型所在包内的所有子类的类型信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/XYKbc9pLR_2ZLji-KqTrCA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=15C4D6C75EC341D73220A6F1B106A71790E8C2405EBB3D7078EFCAD76099F354)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/XYKbc9pLR_2ZLji-KqTrCA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=364947AE47AB5406543217FEA70FD8CF911BCAE8BE46D386499485E8E77BB560)
 
   * 不支持平台：macOS、iOS。
   * 如果该 class 类型不拥有 sealed 语义，则返回空集合。
@@ -177,7 +177,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 对应的 class 的所有 public 静态成员变量信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/j37aToS_Sqe2S6s2MXq4vA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=F0022FFB7C0451E7CD070DB64F5101778704FEAD7977C843866F9333198A686F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/j37aToS_Sqe2S6s2MXq4vA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=9DFCA113E85552D224BD27335FA72EF32005D4C213A7E5D8AB08629CAA04ED3E)
 
   * 不支持平台：macOS、iOS。
   * 如果该 class 类型无任何 public 静态成员变量，则返回空集合。
@@ -231,7 +231,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 class 类型信息所对应的 class 类型的直接父类。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/4DFQZjibT3SPz4WT-GU1Ww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=68C2C01935BE4D66544068E73802ACB7BF7DAABC577276D6A2BF9987CFD0490F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/4DFQZjibT3SPz4WT-GU1Ww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=8372960EA58F73E5A5E562C955CA53210D60BC137B14EA37BBD603584E0EE260)
 
   * 不支持平台：macOS、iOS。
   * 理论上只有 class [Object](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_classes#class-object) 没有直接父类。
@@ -292,7 +292,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取给定限定名称所对应类型的 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/5LGumR48T_-yuvsOn6Gatg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=6027C0FF47BEA30CCB4FBC6F113058F719D5DBA27677BB1B61C5DCCCF6FE783D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/5LGumR48T_-yuvsOn6Gatg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=9C4AD6C6AFEF1E31E4457FD3DB02805AB20B9754F874B903DEBDD56B8FCE206F)
 
 不支持平台：macOS、iOS。
 
@@ -342,7 +342,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 运行时类型是指在程序运行时，通过动态绑定确定的类型，运行时类型与实例对象相绑定。在继承等场景下运行时类型和静态类型可能不一致。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/lHZDhV2zRUaUWBnAC3SBTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5404749E6F34C575D69AD745ACDE8E543599716024C372F682448CEA27C6386E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/lHZDhV2zRUaUWBnAC3SBTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=A852714A583ED9A2E0F524D63A04CF7EACE5F78D370F6F7A6833D17169A35F93)
 
 不支持平台：macOS、iOS。
 
@@ -393,7 +393,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取给定的 class 类型的实例的运行时类型所对应的 class 类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/8eOlo8vUT3m6rMKkMcNRNw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E6BBA56B45276FC8893882AF56E6DBFAF501641B38EB68AB67852E15627E5153)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/8eOlo8vUT3m6rMKkMcNRNw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=37D9EA67F304AC072112571C174B66E560C3B49466905AE7C06BE926F02F20F2)
 
 不支持平台：macOS、iOS。
 
@@ -443,7 +443,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取给定类型 T 对应的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/0mai4a8tSPy2Jlw94mBW8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=9B8B68C092E0BE32D99C81A38F8B19C49E2EAAD631A66460B19FB62C73BF4CAD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/0mai4a8tSPy2Jlw94mBW8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C3F1F3B7D0EAA25E46406D0405CC9D3A339932443B059CF548EB468B0EF825E0)
 
 不支持平台：macOS、iOS。
 
@@ -485,7 +485,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：在该 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 对应的 class 类型中根据实参列表搜索匹配的构造函数并调用，传入实参列表，返回调用结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/2xEL2L8tSJm8El9YMIIqUw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=20DCEC8EB658C538FD7781C6FD8F58E90B36426F29FCCA0E1831C9F6C793429A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/2xEL2L8tSJm8El9YMIIqUw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=25F9C425529CE93BEFFD94D009522BEFC28192A774CB35964254361E67AEE858)
 
 不支持平台：macOS、iOS。
 
@@ -548,7 +548,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：尝试在该 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 对应的 class 类型中获取与给定形参类型信息列表匹配的 public 构造函数的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/Y8hjGGarRJys7scawY__9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=274B648B3D715763E1EE357FB707A6C9CA339D67F87F2E2FDF2F08D2AA48B511)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/Y8hjGGarRJys7scawY__9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=248B513D99B64000F897AD4AC72366FFE528BC3E140DD8ED36A71A417BBF07F9)
 
 不支持平台：macOS、iOS。
 
@@ -620,7 +620,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：给定变量名称，尝试获取该 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 所对应的 class 类型中匹配的实例成员变量的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/8eRvRYbUQ_y5fgN5M9RsQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E823328E7E2716DAEBA617838EBB8F7FC9E08E9644BE1686CF13AEB301983F7D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/8eRvRYbUQ_y5fgN5M9RsQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C3B9B8ED45EBD0472524317D836CC2CB5AC929221D5064D0FD459CD86A82790D)
 
 不支持平台：macOS、iOS。
 
@@ -678,7 +678,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：给定变量名称，尝试获取该 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 所对应的 class 类型中匹配的静态成员变量的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/ZUKS4dHbQ2OyuCBpgC1bJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=01D775AC7DFECF64C31703E76C303AC186A7285E512DA4DDC4EC0C9C4C3638B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/ZUKS4dHbQ2OyuCBpgC1bJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=94EA14DC7D11B367305D8DDCB5B5851BB364F78A7215693AEDB43D5251541C90)
 
 不支持平台：macOS、iOS。
 
@@ -733,7 +733,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 对应的 class 类型是否是抽象类。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/NRAQk33UTouVNb3mgMXlTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2EAB50734A8AB289AE5D1F9353B0C0704DCAAC894E8F7D59BCADA271F98CBCB0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/NRAQk33UTouVNb3mgMXlTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B20AB1CF9C09F036D67FFBC12F079276A658D4BB57962342DB6C0149AA735CF7)
 
 不支持平台：macOS、iOS。
 
@@ -785,7 +785,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 对应的 class 类型是否拥有 open 语义。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/apTYmvB1Q--hm3EfMBNU1w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=3466732D35BDE5C1E0D1900442B8A9223EE608AE4CD0354CD92F2359E9E8DD36)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/apTYmvB1Q--hm3EfMBNU1w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EB3ADE645B6A444ACF710F09A3CBF70774AD7AE257649435650571F7BE8DB0CB)
 
   * 不支持平台：macOS、iOS。
   * 并不是只有被 open 修饰符所修饰的 class 类型定义才拥有 open 语义，如: abstract class 无论是否被 open 修饰符修饰都会拥有 open 语义。
@@ -838,7 +838,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 对应的 class 类型是否拥有 sealed 语义。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/y_0LqIsrS9yzXg6v1bQApQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=09FBEADD01D747175901BFA15264DD50BA816D5BBC19254ED30D98C62E21DC5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/y_0LqIsrS9yzXg6v1bQApQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B3D0AFCFAA180D84AFFAA6D5FC9E2DF4E710D6CDDD2CB6775ACA586B4E6CEFE6)
 
 不支持平台：macOS、iOS。
 
@@ -888,7 +888,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：描述构造函数信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/w6AN1FwmTq2Ntt5rtVxj6Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=02D5CDE341B2070C68246FC11E11EF27263DF8E524E688705ADD7DE3541A32EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/w6AN1FwmTq2Ntt5rtVxj6Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=25E422F1A98B5E896C86CD2DC85A2CBCA1091FAAD1446268726BDBB2B46AE7DC)
 
 不支持平台：macOS、iOS。
 
@@ -907,7 +907,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取所有作用于该 [ConstructorInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-constructorinfo) 对应的构造函数的自定义注解，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/dYoh_OzZTSCmQmpB4yStCQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=FD6D7A7516850609D1795F08D71CE152F70E90240B0351EAF731261D7B63F8E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/dYoh_OzZTSCmQmpB4yStCQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=4A15626D885906BFCE74ABE208BF87185DF54198F8D912B519F9AA7E19F34BFC)
 
   * 不支持平台：macOS、iOS。
   * 如果无任何注解作用于该构造函数信息所对应的构造函数，则返回空集合。
@@ -976,7 +976,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [ConstructorInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-constructorinfo) 所对应的构造函数的参数类型列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/HiUq6SO9S3-B3mwuzKqfqg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=BD3833D4E2190C3B4CCFAC6C0E359BDA18D30DA0701D37C5C3FF552CA433EE0D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/HiUq6SO9S3-B3mwuzKqfqg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=2EA13338C251202A456FA49E8B029EAAB1C919DB36BAC26C6F931094527E00E2)
 
   * 不支持平台：macOS、iOS。
   * 不保证参数顺序，可根据 ParameterInfo的 index 属性确定参数实际位置。
@@ -1035,7 +1035,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：调用该 [ConstructorInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-constructorinfo) 对应的构造函数，传入实参列表，并返回调用结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/WWC2yt1gR_mt5cLvhP9FSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=7DC93DF029772DFBF4E2A271BF24B933BF92F312F6BCD656053994F9ED3B8C21)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/WWC2yt1gR_mt5cLvhP9FSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=632AE5A752CB9DE6395532C8F8ACF02C4D98AC918C527EF65D9AD6CA5F99852D)
 
 不支持平台：macOS、iOS。
 
@@ -1130,7 +1130,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取所有指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/9BlMRh6TQGaigRipTBXK8A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=A0F16CE36D972862D84305EB6EF1D86D6C225C449075E7651900B110F90B126A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/9BlMRh6TQGaigRipTBXK8A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=FE8FFFA50B02B9593430224F61A487E8C4BED3E9697FAE979A55E1931FA7FF59)
 
 不支持平台：macOS、iOS。
 
@@ -1209,7 +1209,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：尝试获取指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/XeUknkTJTG6xO0AUXOksmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=6CA65AA9E3911F028128594872F9FD149A46C1B5005B1313C40FEEDF2D2F0838)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/XeUknkTJTG6xO0AUXOksmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=A8E62E5D9DB9918A73FCDA0D40B5C0C50BFCDD785D1201FE3CBDB341AD22AF9D)
 
 不支持平台：macOS、iOS。
 
@@ -1283,7 +1283,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取作用于该构造函数的所有自定义注解。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/sy6s9MUORJWRO-McatxcvA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=CA669D11D2F5BB34D4090B6CADBF51D4CC6EAE36FB29196DAC4CE77AC8FEAF19)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/sy6s9MUORJWRO-McatxcvA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=98CE790A84A84B17DC1FE8C00DE700CC79F6A51D4BC91166804B0B3A31984D80)
 
 不支持平台：macOS、iOS。
 
@@ -1368,7 +1368,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该构造器信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/ZYQqScfMRi-nAzqdAcXnYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=80F477DB139A76FC1ED4E06726632421F94F4BC10A0A57AF15E30E09F4DDB37A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/ZYQqScfMRi-nAzqdAcXnYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=14E8C2F03AC7068124F0517B56A853A701C01DDC6C477C1E4AA81BD9042F140E)
 
 不支持平台：macOS、iOS。
 
@@ -1423,7 +1423,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取字符串形式的该构造函数信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/lwhgatt8SQegMYJiEpCrow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=BF818D33039BDA7A68DF2998A3D94A0CA29C65C34333FD08C6B570C1C20AC9DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/lwhgatt8SQegMYJiEpCrow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=301740E16F1554F972A3E00E957F415F4B8EB146998F7B0DCE73DABE9756D19B)
 
 不支持平台：macOS、iOS。
 
@@ -1478,7 +1478,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该构造器信息与给定的另一个构造器信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/pSq4HzsOSsm7wh6MUXfsiw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=C4979140C26C99F79571A9ADD38A8A8E7ECEEFF4965EAF40A41D267F18112A0C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/pSq4HzsOSsm7wh6MUXfsiw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EC9C20A8192F5DE78DEEA6DA153F3BC9A83C3BC6A8DB75384C6E6E9E5130861D)
 
 不支持平台：macOS、iOS。
 
@@ -1549,7 +1549,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该构造器信息与给定的另一个构造器信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/wVJoWmW_QhK6L3YOAzaCtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=FDCA30C830EDAE30CB5B07A0D21C5EDCF2CEF97CAD83D3971D50B622AEFE63F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/wVJoWmW_QhK6L3YOAzaCtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EF4E5274BF7BD206DD75BA93BDCFB95D86BC5A59F6BBFDCBED41ED272023DF72)
 
 不支持平台：macOS、iOS。
 
@@ -1620,7 +1620,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：Enum 类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/n33OR_iSSq2rv1QkaHYxIg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=8523FCC8379977AA5802C338058FDDC42805BDC86B6C5814411E639E2979CB89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/n33OR_iSSq2rv1QkaHYxIg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=DE14BC608C8FF798C92DC043B69BA3F1C632165C79FE97BCB886196E8FE922CF)
 
 不支持平台：macOS、iOS。
 
@@ -1637,7 +1637,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 EnumTypeInfo 对应的所有枚举构造器信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/yBIGJgG1T9u8zI1HilmUCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=C6106A3FF4E1B54DE099034B81437EA18F51B720E2A33EFC376DCD374DE395FF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/yBIGJgG1T9u8zI1HilmUCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B1B369967A891BB77C0DF5353D363EB11ADE112B1629FF4937AD8969EFC36E9E)
 
 不支持平台：macOS、iOS。
 
@@ -1674,7 +1674,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取给定限定名称所对应类型的 EnumTypeInfo。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/62_8hB_FS-eYoo1y8kbiHQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=D76046A83D2EB5624141803EA1622043B06DA3F16D7954B36FA64FEC3F478E63)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/62_8hB_FS-eYoo1y8kbiHQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BA809AD08E061EF56C5AD5939E008266751CEBE08191D7C21DD4FDB05FF80F70)
 
 不支持平台：macOS、iOS。
 
@@ -1726,7 +1726,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取给定实例所属枚举类型的 EnumTypeInfo。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/iX8B0iNhRTayAR4vuy_IEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=AA2623F9C2BC91F04968381BAD2850EFAF8E8C568212AAA625675EEF2BC09451)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/iX8B0iNhRTayAR4vuy_IEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=41DE2ADFAA16CF36FED0BC7B94002BBE5B28C46A4FECDD848FF5FEE11FDD153A)
 
 不支持平台：macOS、iOS。
 
@@ -1777,7 +1777,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取给定类型 T 所属枚举类型的 EnumTypeInfo。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/SKn4xh2dQEK3PpuTuHZZtw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=9266986BBFC27F7663FD5D245E7093D4ABB92ED5E5693B7CD1CFEEA73AEABA5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/SKn4xh2dQEK3PpuTuHZZtw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=9CC2A20DB059FFE82348F9E09F5FE673B63E429E941509E76FE8F47AF6A8DA0B)
 
 不支持平台：macOS、iOS。
 
@@ -1822,7 +1822,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：根据构造器签名和实参列表构造该枚举的实例并返回。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/qMkzuls8Sl2NOI6BkKHZzw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=ACCEDE09588C2129550F09A81E4E56D9E654C995167CF82B5B82E089D2A9F7A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/qMkzuls8Sl2NOI6BkKHZzw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=0384F2B1C829B947688C23647F76951811D757BAC54044D6CFD015537729FD07)
 
 不支持平台：macOS、iOS。
 
@@ -1879,7 +1879,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：拆解给定枚举实例，返回其构造器信息和关联值列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/G_ymGL-7RWmPVn_iE8vs0Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=6D3427560D4A00931D44A501160DB08C7637C37540C9D3EC71E261E9BC27C48C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/G_ymGL-7RWmPVn_iE8vs0Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=FE8BAE2CCBBB46A44DA527E9DB6F23C99D8D95B3AA66CA121C66797058AA5143)
 
 不支持平台：macOS、iOS。
 
@@ -1936,7 +1936,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：按构造器名与参数个数查询构造器信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/ViduXrQhS-KKOY2YbI7xLA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5DFA4B1BC4DFC7AD8A5517A574A9D295B127B0DB284A01D1132E0C3E2A2C4AC3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/ViduXrQhS-KKOY2YbI7xLA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=21F3489B56D5D528541CDB3AD50E2794C4BD6D7E09149D16D8A4C57EE99AC22F)
 
 不支持平台：macOS、iOS。
 
@@ -1994,7 +1994,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：描述函数类型（函数值/闭包）的类型信息，可用于获取参数与返回值的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/w4dtU0J0TIKxrWPCd7YEJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=6746504EAC45695D115690A763EBE4C86E08D441284B6F53EACBC2163FD44BDC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/w4dtU0J0TIKxrWPCd7YEJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BD744D6BDD051EEAB628275ABB2C1AD536147B64A5B031A16BB0AE00445A530D)
 
 不支持平台：macOS、iOS。
 
@@ -2011,7 +2011,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该函数类型的参数类型列表，按声明顺序返回。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/Q7vQq_yCROekZbVLjXJSjQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=C68CD476E4D7B467443ED9DCDE69DBBA6169A54636DD7018077A8CEE4E0F32A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/Q7vQq_yCROekZbVLjXJSjQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=07F689C2457ABFDEFE57DF9FBDB925ED5AF40CBB3F908889FF8872409598F35D)
 
 不支持平台：macOS、iOS。
 
@@ -2047,7 +2047,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该函数类型的返回值类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/W3iSXxqnQRK6hgHb-Mc9fw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2B58A79765B50D41009FE4C6AE15110D1CD2C3306DF0F8A4CF8569C1C1004ED6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/W3iSXxqnQRK6hgHb-Mc9fw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=575EBC55476E0374688E65B8D8A226E51E313087BA84D247725353F943FC8CEC)
 
 不支持平台：macOS、iOS。
 
@@ -2081,7 +2081,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 运行时类型是指在程序运行时，通过动态绑定确定的类型，运行时类型与实例对象相绑定。在继承等场景下运行时类型和静态类型可能不一致。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/bgMVnKxPQtCGADpNqR8e-Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=66C1B8CBD626B49D3D0CE8BD3D01EA47A28ECE68D1D85FC047F2A725D9BE755F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/bgMVnKxPQtCGADpNqR8e-Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=25F1A602D0318CFD439210E9934DBD14C76490F22FB1FCE538385C759E6AB859)
 
 不支持平台：macOS、iOS。
 
@@ -2135,7 +2135,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取给定类型 T 对应的 FunctionTypeInfo。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/QNiWe__-Qp6Xam9Ezf6nbA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=1294B900730D2CDF50524BB7E33DF3A90F9B35589EF3A64795AC30AA576D012C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/QNiWe__-Qp6Xam9Ezf6nbA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=CB904ACD79EF20C80BD44934D7DA57617BB5A6927C8487505D9F15FEB510420F)
 
 不支持平台：macOS、iOS。
 
@@ -2180,7 +2180,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：按函数参数顺序传入实参列表，对函数进行调用并返回调用结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/f869B8rERHiHnKaShydfBQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=8BD1028746689C08077D4D9F70CDCCD1FD2FC15C69D8705D3E1A9AA83AC214EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/f869B8rERHiHnKaShydfBQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=E9A61E838FB4790F932BAEDF21D55068950B48C59B5CBE97D566D6507AA92622)
 
 不支持平台：macOS、iOS。
 
@@ -2235,7 +2235,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：描述泛型类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/ipBAjFLVSPqXh2Wd-1NZmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E6DA2B17A8EF183F74856BAC7B18BFABCF7DF14BA7C917AC7E00ADF7747D0453)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/ipBAjFLVSPqXh2Wd-1NZmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BA3E9358BF5ECA15BB586CE2FE3BAA15BCF600CE6E1BC9B59F8B0838339F7963)
 
 不支持平台：macOS、iOS。
 
@@ -2253,7 +2253,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该泛型类型信息与给定的另一个泛型类型信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/aCuB6mPiTfiIXjaMyxWofg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=3E3CBC33D56E04E5737F402548152E997695A813D0A9EC3C43382A8C9FFF11EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/aCuB6mPiTfiIXjaMyxWofg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=6CF24CDAD02185EE1FF9F420BDB90F27E6F6530DBCB572AB92307BC85E65B740)
 
 不支持平台：macOS、iOS。
 
@@ -2310,7 +2310,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：描述全局函数信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/vKvWixAjRoWBagas_D-5FA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=46717ABB0955A8E68E55F2B956F901FCBD507959817FB4209E1451C991E26D39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/vKvWixAjRoWBagas_D-5FA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=5DB206825496D396B6F574646907E1BB3E300A31A91BCC6E0901BB4CF5D4D78F)
 
 不支持平台：macOS、iOS。
 
@@ -2329,7 +2329,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取所有[GlobalFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalfunctioninfo) 对应的全局函数的自定义注解，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/B1wkHo5TRCq-2ffusHn2Dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=8E517659F9E263B5C3715040C7082558AED52A73EBB7D47B332B12736E553006)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/B1wkHo5TRCq-2ffusHn2Dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=4C0801B688C81ED1A7A7071CE6426854575104F4B8E0AC21D6C7EF937642E280)
 
   * 不支持平台：macOS、iOS。
   * 如果无任何注解作用于该全局函数信息所对应全局函数，则返回空集合。
@@ -2389,7 +2389,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [GlobalFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalfunctioninfo) 对应的全局函数的泛型参数信息列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/8VmQZfQyTdqm3zFu3kChBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=F22DC23E65EA75BDB0C2B334B1BB8C1DE2CFD36C60B09D77232F1B396D1B3C81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/8VmQZfQyTdqm3zFu3kChBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=3C918FF80D80B8C472E206F9AB8096F396D9420DA303EE2C177E7DF525EAFEC6)
 
 不支持平台：macOS、iOS。
 
@@ -2445,7 +2445,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [GlobalFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalfunctioninfo) 对应的全局函数的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/hM5KsMQHTBmszL4nqTBr3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=7813A8A7159C9F4C18CD0B272BA847B5C85A2665EBA3DF36060965043629E1B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/hM5KsMQHTBmszL4nqTBr3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=128960739AECAA8C04C38FB0BCDAC1D4C134B1B27CC75991048B3377FBB10065)
 
   * 不支持平台：macOS、iOS。
   * 构成重载的所有全局函数将拥有相同的名称。
@@ -2492,7 +2492,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [GlobalFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalfunctioninfo) 对应的全局函数的参数信息列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/pl55wHGXQVO_yFPbG6UoSA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E9000F94B9FF9322AC475E701153DF170560F87B8A5B0A14F7E26A88F92CBF01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/pl55wHGXQVO_yFPbG6UoSA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=8183319C3882026F42226393854E7276439E728AB53CA1374D04B6417A9487E4)
 
   * 不支持平台：macOS、iOS。
   * 不保证参数顺序，可根据 ParameterInfo的 index 属性确定参数实际位置。
@@ -2546,7 +2546,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [GlobalFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalfunctioninfo) 对应的全局函数的返回类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/u03wqgWBQpiNeBdAgldivg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5864F300AB3286F2D1B6811F518C3B153CCC903860D413C84693D27DD987FD60)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/u03wqgWBQpiNeBdAgldivg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=A40C9EEF26C236B0E984787D9026045F4ABCDEC5F806CF0EB3FBCC7FA5703B56)
 
 不支持平台：macOS、iOS。
 
@@ -2590,7 +2590,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：调用该 [GlobalFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalfunctioninfo) 对应的全局函数，传入实参列表，返回调用结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/Jvz7zaw_TR6P6SSslNs4Jg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=FF64AE7B048D7727DA282A964656BE107D2321ED0EDB0D26C653BBA74F5126E0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/Jvz7zaw_TR6P6SSslNs4Jg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=7A16F644C573018121FD42A47B4E019C2F09007B549884EF7ABA7A086DFC93C5)
 
   * 不支持平台：macOS、iOS。
   * 实参列表的类型确保和函数入参类型完全一致，否则会导致参数检查失败。
@@ -2662,7 +2662,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：调用该 [GlobalFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalfunctioninfo) 对应的全局泛型函数，传入泛型参数类型列表和实参列表，返回调用结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/XrtN2oCkSqWBUbuK2HaZaw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=AF4EB93DB3DF0D591CA7B583B24A83324E3FAC1B85EEF333BD0BE010C9E56DAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/XrtN2oCkSqWBUbuK2HaZaw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=7FA24E962F2D71C5BA3E377745985FAF3F45BA0F38AFDBA91955166F072489D1)
 
   * 不支持平台：macOS、iOS。
   * 实参列表的类型确保和函数入参类型完全一致，否则会导致参数检查失败。
@@ -2740,7 +2740,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取所有指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/L07RgBikSJ-VtWj-82vYlg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=F5B5C20C806E14AA16EAB69BDE8741271919FE77629147EC3DBEC049CC483692)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/L07RgBikSJ-VtWj-82vYlg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EB9038EE1F887A4956915F3F116DE16429763B23CC2C7D191D15619995A69466)
 
 不支持平台：macOS、iOS。
 
@@ -2793,7 +2793,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：尝试获取指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/akRfFLEKSFGlbDFFPmUGWA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=D1161D96B304FA45CA3F50A18A401C5E968DD555247CB8D1154765E98220E1C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/akRfFLEKSFGlbDFFPmUGWA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BDB10C02FE6732ECB5B6F1E432BAE9584362A65BBA2F7FA4A15717DFBC9899DD)
 
 不支持平台：macOS、iOS。
 
@@ -2852,7 +2852,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取作用于该全局函数的所有自定义注解。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/mYcMTrFOThOntn-qYLniHw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=D91B5FE20736DEC161E8BD936D6D71A9BF7D092878058F5B892D5AC31F500C8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/mYcMTrFOThOntn-qYLniHw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=DBC8DE95BBB2D072AC43D889292AD3F02605C803E8F828D1396216588A5DF4A9)
 
 不支持平台：macOS、iOS。
 
@@ -2905,7 +2905,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该全局函数信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/chQfG3jYTLW7n0NFwd1G9Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=194AA3FA81E372636E34719E75291FCC425CDEFC946EEBAE44414EA44D87EBD2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/chQfG3jYTLW7n0NFwd1G9Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C5CE56C3CD612129F1A207F7C4D68F6411B1FD15DAE9878C422026AE0A016BD1)
 
 不支持平台：macOS、iOS。
 
@@ -2952,7 +2952,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取字符串形式的该全局函数信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/_cp_YecTT66_3S_6Tv2kDQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=9BC0B29A54629B4C38672911A2454CF21E38D653A07718E848AE3AFEA76A20AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/_cp_YecTT66_3S_6Tv2kDQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=771F5CF19C30B8FA385F26B6609944FDA9B24C453EE9DCA1C99F94379A854C31)
 
 不支持平台：macOS、iOS。
 
@@ -2999,7 +2999,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该全局函数信息与给定的另一个全局函数信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/3P6ZCXznT26dbEjvj0daUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=3FE7E91FE05942ABE60AF0DD4E6F0E0613509DF6DA764034E312E09989652A88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/3P6ZCXznT26dbEjvj0daUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=F35314E20C6FDD91AC664943BE1477C4022FA612B152C18D67353200D9607449)
 
 不支持平台：macOS、iOS。
 
@@ -3063,7 +3063,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该全局函数信息与给定的另一个全局函数信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/cjY-zQ2oQNuA3ACtyJTRpg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=D38AC00C119A08F330F62E3641335E8B5C1B871D2B3F390CDEFC420E2AA62362)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/cjY-zQ2oQNuA3ACtyJTRpg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=8CADCD985661B954E18E7B33D16310306834EE3F8D0B2BBAB05CF27D6EDB83C8)
 
 不支持平台：macOS、iOS。
 
@@ -3127,7 +3127,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：描述全局变量信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/T5hDzQ1QRZe8yP4WhbIOWQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=BB2C7E890A735F28480BB49DC2C913F60954935F2B2E0C5EA2717A8B6CB23513)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/T5hDzQ1QRZe8yP4WhbIOWQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BFF837465660E0A3EC5B2320417FC528CD16911D01DB4A7C294679565190CE71)
 
 不支持平台：macOS、iOS。
 
@@ -3146,7 +3146,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取所有作用于该 [GlobalVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalvariableinfo) 对应的全局变量的自定义注解，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/6AgOl1G5Tpe2TH_rfeEpKA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=330758A7355C2247C6ED7DE7703216F3EF0A2A7500233A966F750C91A1977E7A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/6AgOl1G5Tpe2TH_rfeEpKA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B2F51324AAEACD3A0820D5434CB03923CC5B7804BDD2B9DAF55789D8067F2DE5)
 
   * 不支持平台：macOS、iOS。
   * 如果无任何注解作用于该全局变量信息所对应的全局变量，则返回空集合。
@@ -3202,7 +3202,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [GlobalVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalvariableinfo) 对应的全局变量的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/evzEr8q1TW6w6HdeKsc0Xg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2A19B0B446C3A58906DF01622C19305BD599FA4AE87F7F4EE960708E8D9550C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/evzEr8q1TW6w6HdeKsc0Xg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=D8FA49D05753C1703862B97836CD70A713073BBBE0BF391705955C6D320E9FC9)
 
 不支持平台：macOS、iOS。
 
@@ -3248,7 +3248,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [GlobalVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalvariableinfo) 对应的全局变量的声明类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/2q3xtl-iTnW2ZYujEoMKmQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=BDDA96E6DA241DFF6BFCE9FD2D87C8CCD25FD04BFB8A9CC4426C3090DCA55D22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/2q3xtl-iTnW2ZYujEoMKmQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=4C7D003596B6B62A3B642AC40E6988452613EB947CB2BC45DA47AAA4566D59F2)
 
 不支持平台：macOS、iOS。
 
@@ -3294,7 +3294,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取所有指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/FrjuTEN7SuGjZXfAsgdC3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=B1589EFF438FA72504AB0685D01C7E151EB791A70B6B18DB0E1CE0A31136E436)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/FrjuTEN7SuGjZXfAsgdC3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=3FFF7F9BA8A7EB0357BEF72FD2873B90FE8BFEFC46FBA7B23E4F676806FA740A)
 
 不支持平台：macOS、iOS。
 
@@ -3350,7 +3350,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：尝试获取指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/Y3UrolirTeCdu9PeeausbQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=4928786D20E15E18076209D85C7BB931933FC2AB4AB3684144361EC5B86916B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/Y3UrolirTeCdu9PeeausbQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=859907026BE137A6A349C0AD4B737AEDC52BFAD49581525115D38E5063C8B231)
 
 不支持平台：macOS、iOS。
 
@@ -3412,7 +3412,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取作用于该对象的所有自定义注解。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/kI40ATDAScKZdz0oU3aa3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=66EF66CCA454748AC36D8335C80AB454D37125BD3D4F12A18CCEB3E422E86854)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/kI40ATDAScKZdz0oU3aa3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=81C3CACFC2402ADE5B737E106AE98DE171A4F8CCA383C8254C203901A875C1AE)
 
 不支持平台：macOS、iOS。
 
@@ -3468,7 +3468,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [GlobalVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalvariableinfo) 对应的全局变量的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/E4LSm-qSSfqrkwdGWTy-qg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=6D21018F19159FB3E6E4CE84F4D7DAC77C7F672117AE08C87326C14B5C26390B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/E4LSm-qSSfqrkwdGWTy-qg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=564188854F51CC20441E6568733DB493943B3C560EB90BC3F8B4AE4C7BD960AC)
 
 不支持平台：macOS、iOS。
 
@@ -3521,7 +3521,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该全局变量信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/9bj1gOYHS-6c6ChERedKfA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=ED43259C441BC746007A08661C4114CCD5806E780DF8137717310506B09D8B9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/9bj1gOYHS-6c6ChERedKfA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=3013A8CA8C2620511EB73ACB34BECAF44563B346F102C988A10BA9C4139EA063)
 
 不支持平台：macOS、iOS。
 
@@ -3571,7 +3571,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该 [GlobalVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalvariableinfo) 对应的全局变量是否可修改。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/xXFP_U5BQOeTfxoZcdnZqw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2FE83273247C96EF201CA2B7ACA396CAC84937FC426004F068A0592D6A6D5F4A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/xXFP_U5BQOeTfxoZcdnZqw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=1F0256FA26C00AF99A8E276F8EBA8BE0479A7034099769FC67540361800739CF)
 
   * 不支持平台：macOS、iOS。
   * 如果实例成员变量被 var 修饰符所修饰，则该全局变量可被修改。
@@ -3632,7 +3632,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：设置该 [GlobalVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-globalvariableinfo) 对应的全局变量的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/65Wr8VhcQduYldCRx_U96g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=717DB5F5A73D3BF4E72C56C0D2AA7AA34138A93FFEE10644FFCC79EBA3664DCF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/65Wr8VhcQduYldCRx_U96g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=1C45DADA854CFAE957B7F6D05C0C357BF008ED3DB2EFA6891A207D95DA397384)
 
 不支持平台：macOS、iOS。
 
@@ -3697,7 +3697,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取字符串形式的该全局变量信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/rKmP1RCMSiy9JhnzTgp8sQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5799E03226880F8F2D26903B224F6398BAD5005F7F549D6A8ED1D11459DA1DA5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/rKmP1RCMSiy9JhnzTgp8sQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=D66A5861424CAA12D3267FE51645BD2B3521067AF12EF7E6B9698CE0F3C22BDB)
 
 不支持平台：macOS、iOS。
 
@@ -3747,7 +3747,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该全局变量信息与给定的另一个全局变量信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/VFkUMELqRXWG5XDjYH5o0g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=4343E37EE8A1591AF8318BADAAF5E49A93F4FC2CDB4D928E9440467E10B9A31F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/VFkUMELqRXWG5XDjYH5o0g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=76AF9248B13CBA232CBA8DD80F004EC8FA0FC691D26F3523F861468BB2AEBA35)
 
 不支持平台：macOS、iOS。
 
@@ -3811,7 +3811,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该全局变量信息与给定的另一个全局变量信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/uxpRUFE9Sly7y95U5DRSTA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=97890D22F0505B18CD9F5C8A247F2CCB8E448E688FCCFB1DEB68F16B45281EB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/uxpRUFE9Sly7y95U5DRSTA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=7AAD42DB3FA820AD673ED1DA6121E997A297A216ABF04D267368D76D60AF7D2C)
 
 不支持平台：macOS、iOS。
 
@@ -3875,7 +3875,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：描述实例成员函数信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/9BHHYKhSRNixBGxYCxdjSA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E561372F5CFB8B67A417DB6ACA79C425874E554E31BAEF6C8FBEFDFC404CFF1A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/9BHHYKhSRNixBGxYCxdjSA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=AD293206217D59E91AE447CBE9AD5DB17D733C2251F99D13104CE7B66AAD3416)
 
 不支持平台：macOS、iOS。
 
@@ -3894,7 +3894,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取所有作用于该 [InstanceFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancefunctioninfo) 对应的实例成员函数的自定义注解，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/l3cjQsroQuCIYarSsG9uzA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=956F7677D1490DF9D01B180ECACA30E34FDE29EF668697819E56EFBA64B77EEC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/l3cjQsroQuCIYarSsG9uzA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B1E27285F8725FF91BB10E3B45C3A0887C61FB61063C6F9012EFC2C02160FC0B)
 
   * 不支持平台：macOS、iOS。
   * 如果无任何注解作用于该实例成员函数信息所对应的实例成员函数，则返回空集合。
@@ -3949,7 +3949,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [InstanceFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancefunctioninfo) 对应的实例成员函数的泛型参数信息列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/aH2qYaXOTEiRQI5CehPpSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=B14139DB7AE5A952D02DFA43C05F9C8F21A4DFE3F25898CFAF5D20F6A62B958F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/aH2qYaXOTEiRQI5CehPpSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B0FE2951A39A53FF3F3066CAE7066615DC53A07473801925E22773DDE41EAE95)
 
 不支持平台：macOS、iOS。
 
@@ -4017,7 +4017,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [InstanceFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancefunctioninfo) 对应的实例成员函数所拥有的所有修饰符的信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/1u_pi3F_Qam3KaOTXQabww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=AAD4FF3DE71F433E35E80239244AA3AE2F81313E406A28F18AA99515FEB18DDC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/1u_pi3F_Qam3KaOTXQabww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=197AB30F54379C3151A8878AC57D9639A09EC0E12CC33A83AEC8FFB5477DCFDF)
 
   * 不支持平台：macOS、iOS。
   * 如果该实例成员函数无任何修饰符，则返回空集合。
@@ -4067,7 +4067,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [InstanceFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancefunctioninfo) 对应的实例成员函数的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/QI4vchGZRTulmx699OwTFw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=0477E0E4D0BD5EE52ECF7E49025FB44F59176B56B61B6DAC655167FA041A7741)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/QI4vchGZRTulmx699OwTFw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=81D99F7E25911570077CC6C032D087348E91481A2C58C48B705B2670536E648C)
 
   * 不支持平台：macOS、iOS。
   * 构成重载的所有实例成员函数将拥有相同的名称。
@@ -4116,11 +4116,11 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [InstanceFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancefunctioninfo) 对应的实例成员函数的参数信息列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/iVO5E7C7S5-fwnk2vyeXeA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=067858784D9A6AA257590B77B333E40442389D613F3818B6288997B5356A78FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/iVO5E7C7S5-fwnk2vyeXeA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EBD73B69E3D1DAE793E3907BDBBD0E775E87686E4A9C3B1F42796D27F5074547)
 
 不支持平台：macOS、iOS。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/l6V8lWjGQxGHckSfIq3kCg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=AE8E4D2C052B19F79E1FB0D3F531087485491272867CBFAA9F226F3AFA6AF9E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/l6V8lWjGQxGHckSfIq3kCg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=6143E092842AA860F95FCEB47BAAEB3460EB23D700E70290D92A92037029E916)
 
 不保证参数顺序，可根据 ParameterInfo的 index 属性确定参数实际位置。
 
@@ -4180,7 +4180,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该 [InstanceFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancefunctioninfo) 对应的实例成员函数的返回值类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/b92EQ0fFT1-3G1tT9H7mSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=292CD27EDBD37C89D92BA93F0F70942186F6C2E411040FE3C59D0B360AF6487C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/b92EQ0fFT1-3G1tT9H7mSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=14821DAB7EF7BCCF55DE36780AF84118F6123E65811747F3C8089523F25508A0)
 
 不支持平台：macOS、iOS。
 
@@ -4233,7 +4233,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：调用该 [InstanceFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancefunctioninfo) 对应实例成员函数，指定实例并传入实参列表，返回调用结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/pSKRXvHzSbGO_7tKYUm6zQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=41EABBD71A5C4033AE93529248BA77C8A371A7F62733B0DFF5EAE31F50F1BD02)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/pSKRXvHzSbGO_7tKYUm6zQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=901B4B8EB08C54C07926E20B3F28C18A13C4EBE515C88A308A671252580C2702)
 
   * 不支持平台：macOS、iOS。
   * 实参列表的类型确保和函数入参类型完全一致。
@@ -4324,7 +4324,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：调用该 [InstanceFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancefunctioninfo) 对应泛型成员函数，指定实例并传入泛型参数的类型列表和参数列表，返回调用结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/ikliww69TAScggzVNgK6-w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5A30188E5A15DCFABC70D0D4391DA4D6A8751C5BA8640E1A3008AA5E2FC81614)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/ikliww69TAScggzVNgK6-w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BE5A73C076E6168B4CB6A494C417FAEE5F3BAE25F8AF6D8B3AD78B8E465677B8)
 
   * 不支持平台：macOS、iOS。
   * 泛型参数列表的类型确保和函数入参类型完全一致。
@@ -4420,7 +4420,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取所有指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/u1dgUHG8Rv2nqyY5OFrfZQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=EACEE1B0B34E6B02F6EDD0E4CCE910811171FB9DE311794885D0FDEEC23006AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/u1dgUHG8Rv2nqyY5OFrfZQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B3D1BA64EF4C5BA8736C7CE324B2081FBB6C2D60982739FAAEA6FC67036AC032)
 
 不支持平台：macOS、iOS。
 
@@ -4486,7 +4486,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：尝试获取指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/co1iBJLMRG-GhkTl5mwXRQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=B67BBCF90D768982D4E7D58134C0D7E63DEC3CBBB48CE140EA345227C6258816)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/co1iBJLMRG-GhkTl5mwXRQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=1CAEC481FAF202D897D8718740A4CE486D37A1166977A89EC307FA34F2F9C3AA)
 
 不支持平台：macOS、iOS。
 
@@ -4559,7 +4559,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取作用于该对象的所有自定义注解。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/jqn3GRRTSSOKBq5B6k0KmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=40E8E63FC7448892D4A0FD5F61008F7DADEC0E4D9AA12200965B54A2D337E3E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/jqn3GRRTSSOKBq5B6k0KmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B1BAC23B73B1AFFC6500590087FB9D18336119B4F5C117C88DA3A14EDBEA3B0E)
 
 不支持平台：macOS、iOS。
 
@@ -4620,7 +4620,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：获取该实例成员函数信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/pPZUBbUoTuOJm-8yA6P2Vw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=F42D48BF7C3F360B671397348D66105C0202A0455AF7C6EF715AD5337464A640)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/pPZUBbUoTuOJm-8yA6P2Vw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=8B57304EAB1648AA16061FBF38468890E3C3865D868D52ED640A2F1ABC9E3C83)
 
 不支持平台：macOS、iOS。
 
@@ -4669,7 +4669,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断 [InstanceFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancefunctioninfo) 所对应的实例成员函数是否拥有 abstract 语义。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/cdIfhrb5Q1K8DJnk0sow7Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=46CC1AEDA78576EE20812AD1BB52160A08B5F6EC96C10A0F3D9CADE3D6234D4A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/cdIfhrb5Q1K8DJnk0sow7Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=0BF913D8B73FDB72E984787C33DFB408C2BA533F03BE6964266E4DBD2AC231E2)
 
 不支持平台：macOS、iOS。
 
@@ -4725,7 +4725,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 功能：判断该 [InstanceFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancefunctioninfo) 对应的实例成员函数是否拥有 open 语义。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/gM0HJC5pQM2iz30GD1HC0w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=AAB934EDB2E2C651A02F3F94F2B0F337452690B0E910E8CE9265138903D0E14F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/gM0HJC5pQM2iz30GD1HC0w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BBB0F42282C146198FBA33CAEE1CE424AE568231A27AA890D8EA4AA44FBA998E)
 
 不支持平台：macOS、iOS。
 
@@ -4735,7 +4735,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.reflect 
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/n96h-w9PT1qYHbS-ICN-NA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=8AED86154E078598350B0C52CF2EBFA8B8A210D68FAFA3209095201F0BD366BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/n96h-w9PT1qYHbS-ICN-NA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=63A04AAFDABB593182D17B49F963156070600EDCAB3EAEDA0B35B8EFA41A7B44)
 
 interface 类型中的实例成员函数默认均拥有 open 语义。
 
@@ -4787,7 +4787,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取字符串形式的该实例成员函数信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/__AmJJzUQYWE7TuoOpf1cg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=6E6A62CC060C7DFCF5215FA6EE1C9FE40AD8F9EB5CDD5B9C757AFCF58D0FF476)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/__AmJJzUQYWE7TuoOpf1cg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=446486EAAC2A61F00F7E71770F6838D0A1EBA36EA9D578E4EA6AC016B4722DD0)
 
 不支持平台：macOS、iOS。
 
@@ -4842,7 +4842,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该实例成员函数信息与给定的另一个实例成员函数信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/keBkIjQ8QsmUVGHZxXdRbg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=6A699DD6FB41CD74A38D897638C3871B0D982EEC73B98C98B16FCC5BD1C6A204)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/keBkIjQ8QsmUVGHZxXdRbg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=3446AF1E0D87F5668832F719DDCF1BB314C7712D952EDF053B58AC08FB764C3F)
 
 不支持平台：macOS、iOS。
 
@@ -4911,7 +4911,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该实例成员函数信息与给定的另一个实例成员函数信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/PXVJ9ixKQUK9x_HdscL18A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=8CE566517452F76CA4D1A602215CB66878685653A505A608C6E22C9E270C1D5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/PXVJ9ixKQUK9x_HdscL18A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=DCD02315BDACBEA8FA5A21DD91E8802B110357E70C19889C0324E417DA1701C3)
 
 不支持平台：macOS、iOS。
 
@@ -4980,7 +4980,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：描述实例成员属性信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/Gt5afb0gQs6uq-DPdq0TlQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=57982D0702C76F3A20D9776FAFC6DBDA20266B8E74C10CDCAC8F60D186BA4EC5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/Gt5afb0gQs6uq-DPdq0TlQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=CEEFCBF5B01A43C2F069E09C9D14E2193D48ED77B20DDCBB6676C77B498E92C8)
 
 不支持平台：macOS、iOS。
 
@@ -4999,7 +4999,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有作用于该 [InstancePropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancepropertyinfo) 对应的实例成员属性的自定义注解，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/KaV3dQU3Swudau82-94Fmw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=DD8F3011C5B23C8118E91C1BCC79442A7EA12A4314E1AFDFD9F045D8E25ED3D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/KaV3dQU3Swudau82-94Fmw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=66DEE40F2D28DFEC98ABA6F43E79D5C3487D79A9295977110F2FD1884FEB5D01)
 
   * 不支持平台：macOS、iOS。
   * 如果无任何注解作用于该实例成员属性信息所对应的实例成员属性，则返回空集合。
@@ -5054,7 +5054,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [InstancePropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancepropertyinfo) 对应的实例成员属性所拥有的所有修饰符的信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/-9iwSboTTqG2vrF-JdDQQQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=46A772C9BD003881731765C7E8D441FFECBE700DDAA96372C15AB6561C5DF560)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/-9iwSboTTqG2vrF-JdDQQQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=3887F2656AA79CCBB67D7921EBA55AA4006DFECEC7F379FA7CB80CAAB4D10311)
 
   * 不支持平台：macOS、iOS。
   * 如果该实例成员属性无任何修饰符，则返回空集合。
@@ -5104,7 +5104,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [InstancePropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancepropertyinfo) 对应的实例成员属性的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/vtFUspIzRo-8y3Nnn1UStw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=7852CB5D01F64F58E03E4D5AEB15D7CEF6FC382919DEBF2484E1AA69AE87FBD1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/vtFUspIzRo-8y3Nnn1UStw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=8BD5431AB65BB26CE695246DB5D85C19E3208934E1E12629ACAFB4B51AF35A28)
 
 不支持平台：macOS、iOS。
 
@@ -5149,7 +5149,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [InstancePropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancepropertyinfo) 对应的实例成员属性的声明类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/rDRQqoGLQgeMDFG7O3h2eQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=DC936E7F0EB221F5A01856689B3A2FB425CE662D2199BFCDE2972C25172EB5FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/rDRQqoGLQgeMDFG7O3h2eQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=9A4CA85863D9223188479D8D148EB2348D63696217377B5E9A648ACFF13448D8)
 
 不支持平台：macOS、iOS。
 
@@ -5194,7 +5194,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/2YpQkMd1Q4ia6MjIkShOcA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=926E959F1D9A0E45F9A0D238DDA0F92101F60D4C06F0190B38D1226B8C734520)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/2YpQkMd1Q4ia6MjIkShOcA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=4934560B122A726172948764792439A15FF66C081D2DD3462B43B5FABC692748)
 
 不支持平台：macOS、iOS。
 
@@ -5260,7 +5260,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试获取指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/ze-_CMsNTNCbrmdZee0FQQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=B9C2DBD9CF57F585BE4415DBA3216686018899A2D8BBCA7A474FABA094330BA5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/ze-_CMsNTNCbrmdZee0FQQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=96BE4CE69E930671DBFF7954AC929648C8B54F1FFF834298E3E6863E23ECE914)
 
 不支持平台：macOS、iOS。
 
@@ -5333,7 +5333,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取作用于该对象的所有自定义注解。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/jCJQFyUOQeOPrZLupk-5rg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=D255BFC6F3D15C271717C477DD0657A377C67C21C0A6C475C9782ED773352EE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/jCJQFyUOQeOPrZLupk-5rg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=D5680E92E8339E4684EEC6456AB80725A47D974AB694ACDCB0B1CF4267AE004A)
 
 不支持平台：macOS、iOS。
 
@@ -5394,7 +5394,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [InstancePropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancepropertyinfo) 对应的实例成员属性在给定实例中的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/vV2Ks14FQo6wOrKCF0yS0A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=AAAC1E69BDC7DC9FF7994695B5C6AD3B49D574EE09F38C938673B6AD783175C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/vV2Ks14FQo6wOrKCF0yS0A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=43C80413100177CF8E240CA6F5C2EFD3B013D1188034629282889CBD6F04B0CA)
 
 不支持平台：macOS、iOS。
 
@@ -5455,7 +5455,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该实例成员属性信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/YFpuPu4HQxuBUQjc0vyjyg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=48CAE6CD958FC1C2337C27912E51938A14FF9D9FC79E970F4E220A52541AF55F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/YFpuPu4HQxuBUQjc0vyjyg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=9C69FF5BC8F1D5612AD490C126BA2C8FCB9388ED5093826A7970C4731815C546)
 
 不支持平台：macOS、iOS。
 
@@ -5504,7 +5504,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该 [InstancePropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancepropertyinfo) 对应的实例成员属性是否是抽象的。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/EZ_NMJdJSxCurupzNE3uYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E4AAEE43E21FFBED187DE8FCDD0F9B94F7143D66358722E70E69687846F774DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/EZ_NMJdJSxCurupzNE3uYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=140C143FC6F0F7215680D8164D3D5E79D284C19575EFED1EF5263EF2A3FA7A06)
 
 不支持平台：macOS、iOS。
 
@@ -5559,7 +5559,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该 [InstancePropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancepropertyinfo) 对应的实例成员属性是否可修改。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/ReaWllyUS7SGlR4pxl87Zg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=ED4F150611D1B054863557C915ED46D490C4E1C17764C2730A320F06BF5897A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/ReaWllyUS7SGlR4pxl87Zg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=0CE8CFB4F7BF77AB7AC2F500A80F21A8E6E7BF510366F296C2AD9EAE1562DA90)
 
   * 不支持平台：macOS、iOS。
   * 如果实例成员属性被 mut 修饰符所修饰，则该实例成员属性可被修改，否则不可被修改。
@@ -5622,7 +5622,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该 [InstancePropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancepropertyinfo) 对应的实例成员属性是否拥有 open 语义。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/aoxApXLJT02dhhbLLZ8XIA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=FBAB9F0C648F6AAA4E6229C5E9E864C8DDA8732FDCFA6CD53A6A38E691CB76BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/aoxApXLJT02dhhbLLZ8XIA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=0831AE538C9222A4ED8229F4EF84B162C4B713E3560C4C3206D3DAAA8814B184)
 
 不支持平台：macOS、iOS。
 
@@ -5682,7 +5682,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：设置该 [InstancePropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancepropertyinfo) 对应的实例成员属性在给定实例中的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/fc7mWmUGS3yc5Is3sd_0IA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2BC37D41158D760E9FF42CA189176580645F8C0F8F1F99366FC844308A2FB819)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/fc7mWmUGS3yc5Is3sd_0IA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=3C8ABDF4E2AF6D7EF8D1101BA5FA995DDE11E14885367DFD2C7D32D4001F9592)
 
 不支持平台：macOS、iOS。
 
@@ -5697,7 +5697,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
   * [IllegalSetException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_exceptions#class-illegalsetexception) \- 如果该实例成员属性信息所对应的实例成员属性不可修改，则抛出异常。
   * [IllegalTypeException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_exceptions#class-illegaltypeexception) \- 如果入参实例运行时类型与该实例成员属性信息所对应的实例成员属性所属的类型不严格相同，则抛出异常。
-  * [IllegalTypeException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_exceptions#class-illegaltypeexception) \- 如��新值 newValue 的运行时类型不是该实例成员属性信息所对应的实例成员属性的声明类型的子类型，则抛出异常。
+  * [IllegalTypeException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_exceptions#class-illegaltypeexception) \- 如果新值 newValue 的运行时类型不是该实例成员属性信息所对应的实例成员属性的声明类型的子类型，则抛出异常。
 
 
 
@@ -5750,7 +5750,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取字符串形式的该实例成员属性信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/Hf-MHvF5Tnu727HNhSYBVQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=C103F91B7A9EB5205ED4656D8D73A05CC26715C0FDB3F33D0D9E1AEF20CD4F9A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/Hf-MHvF5Tnu727HNhSYBVQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=5042AA8BC4F4C40A7F860BED9121B099D1F19C0D6C99491FCE1069F4996D15FB)
 
 不支持平台：macOS、iOS。
 
@@ -5799,7 +5799,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该实例成员属性信息与给定的另一个实例成员属性信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/YKk0IFc5Qs-3wUSyxTAhEg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5B99F947A3AB84BD6B06B26891333B7417BCE5E6448D99BD3FFA59F5BC5C1C67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/YKk0IFc5Qs-3wUSyxTAhEg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=E6892286A7149FF0FB685E99C9D2A8A0C683C23B34B9FEC89BB5E0C9FFD82280)
 
 不支持平台：macOS、iOS。
 
@@ -5866,7 +5866,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该实例成员属性信息与给定的另一个实例成员属性信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/ufI40VXPR-uM7kFhOK2_YQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=B7F31E5D5AF4E3FAD924951F6DE3619187104CB934BC230230A857B5C9EB759C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/ufI40VXPR-uM7kFhOK2_YQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BF0121F7873470B5711ACCD15768A2B7D266E34AD2B0E1B699640246AFF4EC47)
 
 不支持平台：macOS、iOS。
 
@@ -5933,7 +5933,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：描述实例成员变量信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/Gwm-fHLuSQa-FCae8lG10w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5699E8F1C1363943F1D96A60CEEC8E4DD74D12BC059B90928129A778AC13EC82)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/Gwm-fHLuSQa-FCae8lG10w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=72DEFA3753EB85DB6868776C373B08EF7424CF32E2879E198B4772011847B4AD)
 
 不支持平台：macOS、iOS。
 
@@ -5952,7 +5952,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有作用于该 [InstanceVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancevariableinfo) 对应的实例成员变量的自定义注解，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/mF5heXGhTN2Bf7ekljrhQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5A2E4655907AB09291A348C1078651756B2C16DFA5B6BE12062F0A82BDBC7CC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/mF5heXGhTN2Bf7ekljrhQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=A136F7E30AA9A068BE17BA082230433CCBD16A01CC7D16A7C6FE70D94ECF7966)
 
   * 不支持平台：macOS、iOS。
   * 如果无任何注解作用于该实例成员变量信息所对应的实例成员变量，则返回空集合。
@@ -6003,7 +6003,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [InstanceVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancevariableinfo) 对应的实例成员变量所拥有的所有修饰符的信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/R4UaK3NlTrytEIAIhGYtpA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=0ADAB8BF65AB681186FD8A9FD6EC17DBBA9F1C7A21333F70DF2A61621E0811C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/R4UaK3NlTrytEIAIhGYtpA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=F568BC6A8D1E2DE0451BC14F6A3C425F612E188689AD81367E7F2CB47798E56B)
 
   * 不支持平台：macOS、iOS。
   * 如果该实例成员变量无任何修饰符，则返回空集合。
@@ -6049,7 +6049,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [InstanceVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancevariableinfo) 对应的实例成员变量的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/DDOshcsuRNiYKvrxNCp2Og/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=3A731E27BBFF4F71EB31D9937C0A0FAD703F449D73B08C70992B578F3928DC5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/DDOshcsuRNiYKvrxNCp2Og/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=0207685765BF6D402C9D7B3C921F40E994C4B652FCE4515BE1E080CD9CCCEFD4)
 
 不支持平台：macOS、iOS。
 
@@ -6090,7 +6090,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [InstanceVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancevariableinfo) 对应的实例成员变量的声明类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/9dQdPnDbRICF7au2zo-I9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=3A4D26D61A63A03F1E238964E41B7E93A187FB94994A4B7DC3589FB643010139)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/9dQdPnDbRICF7au2zo-I9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=AC691386A58109609ECD0E2DA3923065347F507EF772AE4E8232BA8ABB49D312)
 
 不支持平台：macOS、iOS。
 
@@ -6131,7 +6131,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/tq2-YvYCSkG-PyI1V_RrnA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=D7673105192E53DA76DE7CEFC3402D32D3B6E72CD8BF893FF47A996AD653B53B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/tq2-YvYCSkG-PyI1V_RrnA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=5F429706A3F9A462BF5C1D79199C5100D126237A5AFE29D6FD9215A6FB5CAB6A)
 
 不支持平台：macOS、iOS。
 
@@ -6193,7 +6193,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试获取指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/EJxluv70QAWqWbTY_Zu7DA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2E1E7B05D8DF28377B9A2441B1FF5FA181E26F1592B5F41EE3D4DB57E2372083)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/EJxluv70QAWqWbTY_Zu7DA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=4800A6555E7ED6247C6D04AD6C7DAA280819E0CC4D20F135E6409E4284CF8561)
 
 不支持平台：macOS、iOS。
 
@@ -6262,7 +6262,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取作用于该对象的所有自定义注解。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/3vGj7MkaQxSsVNYFfvs12Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=C39516EDBCAA017502572B2F4E8A6C0B5D3D6E2CDACACF922F31AE01D6F51B8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/3vGj7MkaQxSsVNYFfvs12Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=9A9FDDFD2BC7AB50D004EF32155535CBBC721909BA774001976CA89CE826E40D)
 
 不支持平台：macOS、iOS。
 
@@ -6319,7 +6319,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [InstanceVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancevariableinfo) 对应的实例成员变量在给定实例中的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/jR2c0LMHRbGAY_R-jGPJuw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=4BE5A725E069030D23896E55188C5169A34388B80E7DCA5996B2A22CF924D99A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/jR2c0LMHRbGAY_R-jGPJuw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=04EBB65FDB3506D47F3BE15E76369625F3395929A45F8A0CAC74D3A80A5865DE)
 
 不支持平台：macOS、iOS。
 
@@ -6385,7 +6385,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该实例成员变量信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/AL82ugs8RgyE98vFfl0Qyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=8DF7EDB604ECB37F5EE61584C606AAD86806C7810BBC009C535CCAD6B16FE515)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/AL82ugs8RgyE98vFfl0Qyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=9AD0F54104FE328E458B161555AD6ED2EC31907FD8A11C6B4719AB3E1778F540)
 
 不支持平台：macOS、iOS。
 
@@ -6430,7 +6430,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该 [InstanceVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancevariableinfo) 对应的实例成员变量是否可修改。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/xXwv8xd3RnmBHhVvExFyGA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=D83D7DE83B4099DE190AC78D8F87A90B6442BD05300FAB4207C2A25C698E9B5F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/xXwv8xd3RnmBHhVvExFyGA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=CE9EC0D2B27ACC911E931E7747CD6E098236D5F35A8F4CF298A5368896059624)
 
   * 不支持平台：macOS、iOS。
   * 如果实例成员变量被 var 修饰符所修饰，则该实例成员变量可被修改。
@@ -6485,7 +6485,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：设置该 [InstanceVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-instancevariableinfo) 对应的实例成员变量在给定实例中的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/LNmMewGUQrmAWLH1vK2Cpw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=866041C8A8C74A86B8C46C4A78DFF93817987694B956A9131840B44498C7DDB9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/LNmMewGUQrmAWLH1vK2Cpw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=FF203ABC8C3D682761163FADBDF40182E3A53B3CCE346AAE7C0A3F45588C6E88)
 
 不支持平台：macOS、iOS。
 
@@ -6545,7 +6545,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取字符串形式的该实例成员变量信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/JqJYn3_6S8e6SR1FK8OybQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E4B269715E0C4E52B2910F1208ADB76D120976FAD2040C93A5554A3845BCDE3E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/JqJYn3_6S8e6SR1FK8OybQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=2B4BE3A37E2B806E1EA08D48D22327D53CD0D09DFF7978CFA913A9D708959967)
 
 不支持平台：macOS、iOS。
 
@@ -6590,7 +6590,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该实例成员变量信息与给定的另一个实例成员变量信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/30EP8rU3SHSkKPJoQGommQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=0ED907E01E99A12FF42598DCD1831634076253F6D3B15655BE086F1C2EEC435E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/30EP8rU3SHSkKPJoQGommQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=426598BD07262F7D0681B559044A7F0B64B8CBC151B2FDEBFC37142C9C00AB8B)
 
 不支持平台：macOS、iOS。
 
@@ -6648,7 +6648,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该实例成员变量信息与给定的另一个实例成员变量信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/prF_Ls2lRIef6V710Wfdfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=94AE55E69B5DD0A1A8A13FDF4B84EFCBCC8E42F047D6C907B32D504040E8EE02)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/prF_Ls2lRIef6V710Wfdfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=19D9AE3B2899720B0B3C356C50CFA8096B8C2FA9774A15AD587FC04307FF27F8)
 
 不支持平台：macOS、iOS。
 
@@ -6706,7 +6706,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：interface 类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/ZJS24YK6TAi-dYXEhf4vmQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=41A49D8995EA156EB3E310619A792F4BD9D78998A8A5E729F5FAFE013C1E03BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/ZJS24YK6TAi-dYXEhf4vmQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B714F6D62087E3BBADC9B357BA23299D5BAA819153934607CF7FF6C5046B995E)
 
 不支持平台：macOS、iOS。
 
@@ -6723,7 +6723,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：如果该 [InterfaceTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-interfacetypeinfo) 所对应的 interface 类型拥有 sealed 语义，则获取该 interface 类型所在包内的所有子类型的类型信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/9waWScJXSia-lgedFWa7Ww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=8B74A7BCF8B3F0BE30E228B9C50A31C2E4CC9862BD122E5AC217DA0FCF07907E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/9waWScJXSia-lgedFWa7Ww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=2D43BDAD61960EE9EB8609BCC812332DD1E6C4D3E97BB465C7CB1D16F8DFE14D)
 
   * 不支持平台：macOS、iOS。
   * 如果该 interface 类型不拥有 sealed 语义，则返回空集合。
@@ -6781,7 +6781,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定 qualifiedName 所对应的类型的 [InterfaceTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-interfacetypeinfo)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/QXXMOmMJTXeSprlOQ8ixkg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2395E619284794D4991AA0FE8CB1F16B2AFAF3B6CE80F3873CF3B40F05400F5F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/QXXMOmMJTXeSprlOQ8ixkg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=7D69DD4EE3988B2F09EEADDA4039F10D8B23356C8B3022A6D0CE4058C1179468)
 
 不支持平台：macOS、iOS。
 
@@ -6831,7 +6831,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 运行时类型是指在程序运行时，通过动态绑定确定的类型，运行时类型与实例对象相绑定。在继承等场景下运行时类型和静态类型可能不一致。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/muAMdceVRgyc0V41Jbeykg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=12A093D5766B4011EF114C1998F96BC1CCAC812DA09529E55D1639DF08D3B075)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/muAMdceVRgyc0V41Jbeykg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B03A9C0B79583EC9E301EE429D765ACCD42A0EDD0C6935C70A043093BF0E39E3)
 
 不支持平台：macOS、iOS。
 
@@ -6889,7 +6889,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定 T 类型对应的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/0_So7Wp6Qpu2cRdsY3zetw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=08FCA76697345FCD039ED1F10FEF36C47C95338DE0B65962EDA14A6C95995657)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/0_So7Wp6Qpu2cRdsY3zetw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EBC6F7EAF2BB78BC16F2FC4DD6D7665214588F5B7045F8712FAA99F1B67C9B49)
 
 不支持平台：macOS、iOS。
 
@@ -6933,7 +6933,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该 [InterfaceTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-interfacetypeinfo) 所对应的 interface 类型是否拥有 sealed 语义。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/yyPYsXs8Qw-43snX0f0J3Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=288816838F298D8AB330F29342E7F48F6042E5D670B9C50F096D5D457076EAFD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/yyPYsXs8Qw-43snX0f0J3Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C5F8D44DD61FCBC7FB4BE7DF0C520AC9CDFC42F4D27A236E5980BE7D64C215BA)
 
 不支持平台：macOS、iOS。
 
@@ -6974,7 +6974,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：描述包信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/3MxkBaVdQh6_OoVaSv8hIA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=0B7263770D5322930917154E2D8034D4C6767DDF7DDFAF81EB1B7C451673A851)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/3MxkBaVdQh6_OoVaSv8hIA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=298680B637FF50EB474531E6090FF7157F32F179BC5EF3185ED9BD2D47880F43)
 
 不支持平台：macOS、iOS。
 
@@ -6993,7 +6993,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的包中所有 public 全局函数的信息所组成的列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/YmK-HH9aT1e9mKnAXfoc2g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=58D4E3D61A5111D7E4A0EBCDA6A4AAB3390521AE3BDDBD8819B257400CCC7130)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/YmK-HH9aT1e9mKnAXfoc2g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=871668D75EE297B019AF5252DF6B37380B049DCC47A624A4E467FB838A5C175C)
 
 不支持平台：macOS、iOS。
 
@@ -7019,7 +7019,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
         // 获取当前包的信息
         let packageInfo = PackageInfo.get("abc.test")
     
-        // 获取包中的全局函数信息
+        // 获取包中的全��函数信息
         let functions = packageInfo.functions
         println("全局函数数量: ${functions.size}")
     
@@ -7038,7 +7038,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该包信息所对应的包的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/sVuRok8uQwmGfqZPiZCBwQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=8739388A54CE732ADA935847CEA776DDAF93436C57651657C8C68601DAE6C19C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/sVuRok8uQwmGfqZPiZCBwQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=90BE6194D95163FEE6E5354755DD2867C24E4173400ADEAF2850CA031940D015)
 
   * 不支持平台：macOS、iOS。
   * 包的名称不包含其所在的模块名称和其父包的名称，例如限定名称为 a/b.c.d 的包的名称是 d 。
@@ -7077,7 +7077,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该包信息所对应的包的组织名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/A_ypJhHaQCeX6yCXtyy-Ow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5521436F1A47B74BB7079CB7E457ACF9A4A9321825A6FAFBBF20579595D69845)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/A_ypJhHaQCeX6yCXtyy-Ow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=4A84179B12F49595C0BF04285512C7390965C4DE00B7A6D39871BD4ED4F57BF9)
 
 不支持平台：macOS、iOS。
 
@@ -7113,7 +7113,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的父包的 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/8CKKosoBT-6hsp0wep1Eyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=F6DE384E8BAA11A371569D71CE47C9C3339EF0D6EECFBDC69805952EBAE53CBA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/8CKKosoBT-6hsp0wep1Eyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=267B4B4AC64A875D8265825183319617F1F55886BFA4C7FAEDAB011BDFCF239D)
 
 不支持平台：macOS、iOS。
 
@@ -7153,7 +7153,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的包的限定名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/D4POsiJdRAuz5Ae8EG_35A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=964E9243C2FA4B8EB4C5CE0ACDC0B8055EFE2F8A3E7885ECFFE000082D87C30E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/D4POsiJdRAuz5Ae8EG_35A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=9FABAE874D55B71E50BBE4A05AF79103A98D19DF4531D9D0F6874C37472E9662)
 
   * 不支持平台：macOS、iOS。
   * 包的限定名称的格式是 (module_name/)?(default|package_name)(.package_name)*，例如限定名称为 a/b.c.d 的包位于模块 a 下的 b 包里的 c 包里。
@@ -7192,7 +7192,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的 root 包的 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/piyTFw12Sw-HK_HShJOo_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=16D3C4C76EE3E5F91CE1054B0C6BCB2412F97CFA7285536FCB3DF4FE6C0A78F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/piyTFw12Sw-HK_HShJOo_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C3E883AF5977F3C1A8CA1AB2F65BA0DF2F48A471AA907D5B264FAD04F56B6225)
 
   * 不支持平台：macOS、iOS。
   * 如果包本身就是 root 包，那么其 rootPackage 属性返回的是其本身。例如，限定名称为 a.b.c 的包，rootPackage 返回的是 a; 限定名称为 a 的包，rootpackage 返回的是 a。
@@ -7235,7 +7235,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的所有子包的 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/UihXRUXWQWawM1qat7qOzQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=0E90CDA7967DA5357649DD1B5D8B4AA0ED8F75F6BDE4D9D61C41A6C40E8B51FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/UihXRUXWQWawM1qat7qOzQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=62A5A98379BDE379859E5F93CEF306AB34B2E57B8D9A70F889F48D3EBB8E1C12)
 
   * 不支持平台：macOS、iOS。
   * 该属性只会返回已被加载的子包。
@@ -7273,7 +7273,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的包中所有全局定义的 public 类型的类型信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/F9sxW-ACS1uwlFk3tbszmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=EB9A7C6BA38177EB94C30AF088E330542988A6B0D6691D7661B14E50BF47949C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/F9sxW-ACS1uwlFk3tbszmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=79EC8ADE9CAE5FC2854A131FD2B5EDA6D38EF5E624CD3E03B09915753F84FBD9)
 
   * 不支持平台：macOS、iOS。
   * 目前该列表不包含所有反射尚未支持的类型。
@@ -7318,7 +7318,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的包中所有 public 全局变量的信息所组成的列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/UL1rYhvaRCyE6_sOKHd7MQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=565E8BB87BD308E3989CC49E0337CFA6E9B106E9C1DB8BB1799FF132AA61E7A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/UL1rYhvaRCyE6_sOKHd7MQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=0C5132DFA4DD2C14B2B48E75771230222EE9E6A54ECBC512C81770BE36D1CD7B)
 
 不支持平台：macOS、iOS。
 
@@ -7358,7 +7358,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的包的版本号。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/zidXMQivSv24iIDtZONU_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=4D003F30CC6803833C2AAA826B9E77F9363D5BC11BBE3212777B4091A6A66A89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/zidXMQivSv24iIDtZONU_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=CA5D9A8262E2911F26F7E08ADA8F15AC896030EDCE170C440029F301D78FD883)
 
   * 不支持平台：macOS、iOS。
   * 由于目前动态库中尚无版本信息，获取到的版本号总是空字符串。
@@ -7395,7 +7395,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定 qualifiedName 所对应的 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/Kng0znpEQImztntHK1WZ4w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E46E54921B9BEE7E093721EB6A5616B54F59FE8C089053A76F421C07190E2594)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/Kng0znpEQImztntHK1WZ4w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=D4533607B7F3DA6595E7028B87CCB5296B59CE94BA858D5DB3003013C8583B75)
 
 不支持平台：macOS、iOS。
 
@@ -7446,7 +7446,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：运行时动态加载指定路径下的一个仓颉动态库模块并获得该模块的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/snaUDVLpQ6e3sBaCB0Fy4w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=40EB9885F01B2FA2597813A958724B414648C41301F3C2313C07FDB264654F15)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/snaUDVLpQ6e3sBaCB0Fy4w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=CA558A8989785E152FFACEA00E65536FEB6AEFF0D0631A41154BEDC1AB8FA303)
 
   * 不支持平台：macOS、iOS。
   * 为了提升兼容性，路径 path 中的共享库文件名不需要后缀名（如 .so 和 .dll 等）。
@@ -7506,7 +7506,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试在该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的包中获取拥有给定函数名称且与给定形参类型信息列表匹配的 public 全局函数的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/O052scVESqO2rQDl6K3-aA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=D1FF19FDBB0B0F755DF591B5500ED993844B74ED63D077170FBD7A6BF25B0AB2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/O052scVESqO2rQDl6K3-aA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=E574E5B48B3CAEBD61CE292A5E59FF6E5A2B0380E3CECBAB0F43D66A38FF98B5)
 
 不支持平台：macOS、iOS。
 
@@ -7564,7 +7564,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试在该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的包中获取拥有给定函数名称的所有 public 全局函数的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/kcfzddAUQ8um8sm1IAcjGw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=703A614E6D014AFBCDF8E4B7CEE63F10984B176F45BC4BAE66CDADE119B79339)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/kcfzddAUQ8um8sm1IAcjGw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=3EE18A0EB330C72FDBA291453CACCDE1756625DF9DA51CCB8A0F75C579F178D1)
 
 不支持平台：macOS、iOS。
 
@@ -7619,7 +7619,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试获取该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应限定名称为 qualifiedName 的子包的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/b30C1JYJTWyWcKsqrz0TYA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=38C13EBE25CB73D431F3C3FC3C810350662C3F0FAAFB6761B442FA17BE40A0EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/b30C1JYJTWyWcKsqrz0TYA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C481C07FA6A4990A9713B445FDEA78589406F5895985E7D0096F269500E2465F)
 
 不支持平台：macOS、iOS。
 
@@ -7676,7 +7676,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试在该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的包中获取拥有给定类型名称的全局定义的 public 类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/VPJ61AqPQ_Ol-F9Zay0yfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=7C692F20E8B0300E824D1DD4D67F375A810EFD900660253579A0718558B201F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/VPJ61AqPQ_Ol-F9Zay0yfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B9FE5DAC0424672260B18E2BC987784F34D7D4747F2BFAC31CAD0F2F47C195CA)
 
 不支持平台：macOS、iOS。
 
@@ -7733,7 +7733,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试在该 [PackageInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-packageinfo) 对应的包中获取拥有给定变量名称的 public 全局变量的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/CT_LtuivQ_GQhfLPNanjTA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=39D473BBB1BBA4906960DA322940193164091A0F5C7B5E0AEA448DF035F6DF01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/CT_LtuivQ_GQhfLPNanjTA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=8EF71D481A424E3BB325E3F3B7D4CA58266AFE025D7511F594D50D2008453140)
 
 不支持平台：macOS、iOS。
 
@@ -7788,7 +7788,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该包信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/VpM2mNMBSVO7zvyi0sZCBA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=3D0E5F57206B2D730A15FC8266ECD1671E908BC61BD58670331B48C29FBA5630)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/VpM2mNMBSVO7zvyi0sZCBA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=50477ED69894F1C39843544E32CA3425FBF485124660B73244680550506B7C85)
 
 不支持平台：macOS、iOS。
 
@@ -7826,7 +7826,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取字符串形式的该包信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/GilZ31lyQcu6DSEbbW7N4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=70FC7D9B14055AFDF88959EBD189806DE5FFE1405D2131A1C2D8F42BAD80ABEC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/GilZ31lyQcu6DSEbbW7N4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=65A00EFEFA6657A60AB26495FCF1679625AF52FB0F3129AE243BDC0DC311605E)
 
   * 不支持平台：macOS、iOS。
   * 内部实现为该包信息的限定名称字符串。
@@ -7867,7 +7867,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该包信息与给定的另一个包信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/7n8iLIpjTsmyyUuKQ4m1GQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=9347EA3725362AD483CDF0067A81C040B1488993C011559B5EE2A6ABAC79B228)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/7n8iLIpjTsmyyUuKQ4m1GQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=DC3D985ADCF79CA8741AB4051507EE9C138E0D236D72F2362DDC1E72495F6E0C)
 
   * 不支持平台：macOS、iOS。
   * 内部实现为比较两个包信息的限定名称是否相等。
@@ -7915,7 +7915,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该包信息与给定的另一个包信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/OfvLIi4URbebqo6BgXsHUw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=253EA1215B88968905C3C780DE433AD5FAF19C6C3B24F2BAEA96BE44992BC1F5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/OfvLIi4URbebqo6BgXsHUw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=1C699F1C422117B11F4F9075099582E483C8C006FD3172DB8D21CC480AA2AC88)
 
   * 不支持平台：macOS、iOS。
   * 内部实现为比较两个包信息的限定名称是否相等。
@@ -7963,7 +7963,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：描述函数形参信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/oAQAiSoHSASKJE7-hmx0SQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=747FE09D3E3BA79576BD45482330A8B9AAD9ABFB1121B3823857D4C62FDA530B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/oAQAiSoHSASKJE7-hmx0SQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=F56C2D233357EBC2B388EB1F295F88C233B035C6A8C14DE1E690D22247461C8D)
 
 不支持平台：macOS、iOS。
 
@@ -7982,7 +7982,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有作用于该 [ParameterInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-parameterinfo) 对应的函数形参的自定义注解，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/MDFJkthrSQq3Ee-UtfTCWA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=C3C9455AC1D9C03CBB45C7B6C8B4BB81B80C5E59956AD0BBA7218CDE35066F77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/MDFJkthrSQq3Ee-UtfTCWA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=156DFE295F8E6DB24D2F8CCCBF5A0CBDAED322D9234DE89F322EB6A9B3974923)
 
   * 不支持平台：macOS、iOS。
   * 如果无任何注解作用于该函数形参信息所对应的函数形参，则返回空集合。
@@ -8039,7 +8039,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获知该 [ParameterInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-parameterinfo) 对应的形参是其所在函数的第几个形参。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/G4px5D0dTGOUaS5H3-dqOQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E53C9E2D527D3DD53FEFC0AE95E961F03F493D3228695D033E3163D17B82AF81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/G4px5D0dTGOUaS5H3-dqOQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=24933D82A5F1B53E3AF41B7D94D6C2A83A62F44E0A85895B714E57F633F6535D)
 
   * 不支持平台：macOS、iOS。
   * index 从 0 开始计数。
@@ -8089,7 +8089,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [ParameterInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-parameterinfo) 对应的形参的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/lvNAqqZxR8WZhYpL0npBag/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2E73703A8C1876D0BBE68867C041D12EC974B7C1B54C7385A8ED3DF5E8751938)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/lvNAqqZxR8WZhYpL0npBag/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=98A5E9B76353A4E9AE25DF6526D78E488EEB5AC928178541C7DC488319326171)
 
 不支持平台：macOS、iOS。
 
@@ -8135,7 +8135,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [ParameterInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-parameterinfo) 对应的函数形参的声明类型所对应的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/V-F2FSgvQD-tXR-m02CK9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=13A4955238CB5BA9ECF9ADBDBF7D5DEA401E6C88EC84670721154C1E780241F3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/V-F2FSgvQD-tXR-m02CK9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=F37378697D4E1C7B82E9359D609ACD2408C6FBCC2DF456BC04A0C79FA28211FA)
 
 不支持平台：macOS、iOS。
 
@@ -8182,7 +8182,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/bwvd-zNoRNe10ZRH2M2Qkw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=AE78ECE666F0261C0F03C424C64FC897A2750D1CF90E1FB6A9AC292D70FB0A43)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/bwvd-zNoRNe10ZRH2M2Qkw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=D93810ED220B1DEB3F2BD81B2C1812331366AE6E49F08B43E3BE47F2F4FF3EA6)
 
 不支持平台：macOS、iOS。
 
@@ -8252,7 +8252,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试获取指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/7suWH8PKTNyASbhEzgHFCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=EE7A2EA1C4073D3F186C63D0D5091ABF6BDEFABAB02FD2951A3DE39394A22773)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/7suWH8PKTNyASbhEzgHFCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=8004985F50A39E28FE7B1EADF6ED2A1A119E4AFAE079F00371DE041528B3AFDD)
 
 不支持平台：macOS、iOS。
 
@@ -8313,7 +8313,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取作用于该对象的所有自定义注解。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/Lr-BxH-ORiSsmtSW98z67A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=CD7E73FA5BAD6C556C9FF006A65FC1B169C2257C556FC1C28F632A537B0214B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/Lr-BxH-ORiSsmtSW98z67A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=27A3EA05F0248281A3B864068329EA11CFEACE8BF8212295413E97D0DB9FA9D4)
 
 不支持平台：macOS、iOS。
 
@@ -8382,7 +8382,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该函数形参信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/MrDpTDztRnCLU-j45rZe9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=12F05C4C9BE03A08B298A68C7B217BED87A38A1A76BD216AC4A92AEFADBDF6A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/MrDpTDztRnCLU-j45rZe9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=2502D3BE94E0805316D4C6BA682AC2E03618600A5E2CC61838F7270E522158AE)
 
 不支持平台：macOS、iOS。
 
@@ -8434,7 +8434,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取字符串形式的该函数形参信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/G45oNIrCScqwC_sNZFyzmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=0DB0C70C1AE624DD5C951C5531B5706B11CEC1F29CFF2EDDB0B1D3080CB17BAF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/G45oNIrCScqwC_sNZFyzmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=F2500EF980A1A6605A2DB105A33307A433C7841CEA2CBD270079E53167B377C8)
 
 不支持平台：macOS、iOS。
 
@@ -8486,7 +8486,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该函数形参信息与给定的另一个函数形参信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/JE_uWvl4TmyGvDn5Buom8w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=D3B996CFA65D1144D7ECC11A900EAC39D8615CA3DE6CC85F508EBB8365E50B12)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/JE_uWvl4TmyGvDn5Buom8w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=466B5205F36014072298F0666ACB01049D2CC47DB89893824F01F6141518B77C)
 
 不支持平台：macOS、iOS。
 
@@ -8545,7 +8545,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该函数形参信息与给定的另一个函数形参信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/hmfrKi_tRdKit1a2b5PpcA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=375AB516FDD4F053DA778D42CE212FC45F69832B0CCBDB1F20EC6451176EA142)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/hmfrKi_tRdKit1a2b5PpcA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EA091877EEDED8FAE7ECE7333C9CAC5612FFDECB11D9C65FF36CBB17C5D08D6C)
 
 不支持平台：macOS、iOS。
 
@@ -8606,7 +8606,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 原始数据类型包括无类型（Nothing）、单元类型（[Unit](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#unit)）、字符类型（[Rune](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#rune)）、布尔类型（[Bool](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#bool)），整形类型（[Int8](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int8)，[Int16](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int16)，[Int32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int32)，[Int64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int64)，[IntNative](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#intnative)，[UInt8](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#uint8)，[UInt16](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#uint16)，[UInt32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#uint32)，[UInt64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#uint64)，[UIntNative](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#uintnative)）和浮点类型（[Float16](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float16)，[Float32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float32)，[Float64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float64)）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/r6u2Ajd_RPuCRbV2A_YKwg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=02C67240A5DE90FD50033BE7B4444F4A2AA907A5CCC3C253A70A278D06428276)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/r6u2Ajd_RPuCRbV2A_YKwg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C2DBB5BB8F891BFD4B991978032A88B54857416153850C386A7BA51DD78FCE1A)
 
 不支持平台：macOS、iOS。
 
@@ -8623,7 +8623,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定的类型的限定名称所对应类型的 [PrimitiveTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-primitivetypeinfo)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/EU9_FQtYSqOE8hrOeryZtQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=4FCE571B0398F1F021F035458C23B98023B8B21975CBF7E4D701409CF0C407F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/EU9_FQtYSqOE8hrOeryZtQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=7ECF2B817066293BBEB0FE9F944A1ABF838C695248466CACB3564B90EDD9F525)
 
 不支持平台：macOS、iOS。
 
@@ -8671,7 +8671,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 运行时类型是指在程序运行时，通过动态绑定确定的类型，运行时类型与实例对象相绑定。在继承等场景下运行时类型和静态类型可能不一致。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/QGZC4456SvaiHNB8qW3oFQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2B14E6ACC6658E1E16B07E8F001FA77BB99A9C984282FC7C068DEFA16FF7C5EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/QGZC4456SvaiHNB8qW3oFQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=7CA58928077F5318DBA5837043DD234AC949576804C9E7D88CF09F0D998EDA2B)
 
 不支持平台：macOS、iOS。
 
@@ -8718,7 +8718,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定 T 类型对应的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/kMR2VeC8Tby-JiD8Uid5Yw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=BA324714AA4993B255AD2035CEF597C8585926AB094A2C4FB345F892072A8673)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/kMR2VeC8Tby-JiD8Uid5Yw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B1DDEDF6EB118CE49F5E7CBADBA7001922EB4FEE4CA95BE9C134D51A1110951B)
 
 不支持平台：macOS、iOS。
 
@@ -8758,7 +8758,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：描述静态成员函数信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/xo8YyObMSLmau7NnTTNe6A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=F18D30AB37326BABF889E3D3B4F1946348F7522C546F96813CA65E4538C1B1F3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/xo8YyObMSLmau7NnTTNe6A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EDD03187E5888BC265C33D9F1C3AE8C35C3978F0873FCB39336A7ABCF0BA7754)
 
 不支持平台：macOS、iOS。
 
@@ -8777,7 +8777,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有作用于该 [StaticFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticfunctioninfo) 对应的静态成员函数的自定义注解，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/09kL6lDnTwm-jHm1MPYfmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=096CE2C340C5E4E204BAD3E9BD3FA27B0DA4FEA86EBE6CDEBCCE2E91131333DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/09kL6lDnTwm-jHm1MPYfmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=897E32DA224A536503EB6E5B4063FFBCAB9CF8301DBD1E7719536ABB788EF32B)
 
   * 不支持平台：macOS、iOS。
   * 如果无任何注解作用于该 [StaticFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticfunctioninfo) 对应的静态成员函数，则返回空集合。
@@ -8834,7 +8834,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticfunctioninfo) 对应的实例成员函数的泛型参数信息列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/HF0sZ72XRieAeLd1EPc-fQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=AB3C4FE5C9DEF4B9678A7860CF45C5AB445CFD9B6DD464BD67DDB696C9222BE5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/HF0sZ72XRieAeLd1EPc-fQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=0B1AC2AA5773FC258557F103C358E7D6490351808A672EAC1555ADFE19826428)
 
 不支持平台：macOS、iOS。
 
@@ -8893,7 +8893,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticfunctioninfo) 对应的静态成员函数所拥有的所有修饰符的信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/zG79EBV-SpamI2JPYSpLOA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=670991C54B87284F20CD27800E852C2AC4985279DB8502B7C781C8574B9F3E38)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/zG79EBV-SpamI2JPYSpLOA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=61697173DCED6D9AB1C4DF3E3B157E3D026AC34704B3C15A8D00CD4A21A2EA77)
 
   * 不支持平台：macOS、iOS。
   * 如果该静态成员函数无任何修饰符，则返回空集合。
@@ -8947,7 +8947,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticfunctioninfo) 对应的静态成员函数的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/ylR5M0_4QT6MuA67SyPSQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=D6DA236A3B63769CCCF6460044123078E68B1D5D75254CEFEA7ACB9574F432E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/ylR5M0_4QT6MuA67SyPSQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=2E0E8B7F5AB2475E7FDF592274AE37C3ACE52E5E7688570B9F0A113635C8A703)
 
   * 不支持平台：macOS、iOS。
   * 构成重载的所有静态成员函数将拥有相同的名称。
@@ -8995,7 +8995,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticfunctioninfo) 对应的静态成员函数的参数信息列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/1bXWbwsFSLydQSRR5BQloQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=1AA5595A28DA81AF9CED0CF4E77C944DE5BEC2B54D232AD1AB71868D8EAE8B5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/1bXWbwsFSLydQSRR5BQloQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=0B92F689E69A2CD655B1D194D9635F71C1ECEAA6CDEFAD30E708C39C020A7711)
 
   * 不支持平台：macOS、iOS。
   * 不保证参数顺序，可根据 ParameterInfo的 index 属性确定参数实际位置。
@@ -9053,7 +9053,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticfunctioninfo) 对应的静态成员函数的返回值类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/R-LYKtiITUG4EpgaR5sf3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=0D7781703F7BE868769273A1E13ABF7E522BEEE42657C52E4291B3F343346EE8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/R-LYKtiITUG4EpgaR5sf3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=345A02ECD03D8F9FC56051B441B544E29E6D98682D84937DFC62E3E192D0AFEE)
 
 不支持平台：macOS、iOS。
 
@@ -9102,7 +9102,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：调用该 [StaticFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticfunctioninfo) 对应静态成员函数，传入方法所属的类型信息和实参列表并返回调用结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/xOK_ow_DRoesXilECK9hgQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=CB01138343FC7E42FD64124977D75FE6CC3B61862AA21E1ED702243071E4CBCE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/xOK_ow_DRoesXilECK9hgQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=DEF74534A889BD67E9132EB61F5E77CCD84E2887C7B5F2306E2B3C04E75243C8)
 
   * 不支持平台：macOS、iOS。
   * 实参列表的类型确保和函数入参类型完全一致，否则会导致参数检查失败。
@@ -9170,7 +9170,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：调用该 [StaticFunctionInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticfunctioninfo) 对应静态成员函数，传入方法所属的类型信息和实参列表并返回调用结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/WthNXar0Q76Ii64XSILbDQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=C5CA95140E1C017AAB45AF2A094EA5D069B9983F50937F6DD200D4AE77AAC7EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/WthNXar0Q76Ii64XSILbDQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=293A5B96BA7A0C1014F26108CC8461EBB4D5BF236E18F843DFCD0804E9232BF7)
 
   * 不支持平台：macOS、iOS。
   * 实参列表的类型确保和函数入参类型完全一致，否则会导致参数检查失败。
@@ -9260,7 +9260,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/6Um-KKvkTPuiv5ypXmv2RQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5B451E3F277404E4C116AD39CE426240AB78C4E71E026E717DE0D4A8388113DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/6Um-KKvkTPuiv5ypXmv2RQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=528B7DF82F3757792CFBB3B4ABF5173C7CA65DE1729C0DBD0A0D69A8CC92F8E4)
 
 不支持平台：macOS、iOS。
 
@@ -9327,7 +9327,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试获取指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/dZUu-lWdTJS_l-C78xdLuw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=BD254721213360CAAA202FDB502D158BDF99161B6E64581765C411B7753D4E4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/dZUu-lWdTJS_l-C78xdLuw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=89A445D065BC21D6E2F3E0456A3DC2907B6DC29AE5C19F71045E74319079A642)
 
 不支持平台：macOS、iOS。
 
@@ -9391,7 +9391,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取作用于该对象的所有自定义注解。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/rEGJCzaHSyaNGUwpkhrDuA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=BEB716CA03EDD0EC45314A999F60765BF55F8799D189A08A1C8BB9786BC3018D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/rEGJCzaHSyaNGUwpkhrDuA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=20790099A2DB85EDBF36F6D71FF4F06A2A73D081E90CC3B79979167E2AC3F473)
 
 不支持平台：macOS、iOS。
 
@@ -9458,7 +9458,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该静态成员函数信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/_CpZ9nUETMeaRZoPwb4HaQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=697167FB15824FBB2C59DCA634F0F02098803E7F4576C19BD8AC2F048B44726B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/_CpZ9nUETMeaRZoPwb4HaQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=D56D4FA0C2F67CE9544C8678A21631A3FC861E339CC39D8409798C37AFEF1829)
 
 不支持平台：macOS、iOS。
 
@@ -9511,7 +9511,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取字符串形式的该静态成员函数信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/zesYT3UVQlmFkmtYOZTFUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=888120FB0E717F06CFD62073EEF96F7A0102FC758BB7DE7F72410716E1FCC7C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/zesYT3UVQlmFkmtYOZTFUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=974DFF02117A500B4C59530615E3CAA377C5469E2EDF57649911414618A08FC4)
 
 不支持平台：macOS、iOS。
 
@@ -9564,7 +9564,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该静态成员函数信息与给定的另一个静态成员函数信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/PCZrp0cCR-mmJXbKMFLSAg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=61E221C23C8392CF6D7E57A60E2EA86ADBA74D87587BBE0324353AB02332D54C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/PCZrp0cCR-mmJXbKMFLSAg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=73F13CA9D314C425B0F859E76BE765C00FC5E2C453F41863CF6FD85227970DB3)
 
 不支持平台：macOS、iOS。
 
@@ -9622,7 +9622,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该静态成员函数信息与给定的另一个静态成员函数信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/-RfOwePvQ723XCYNO1OO-A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=4203DE2B5A76CBC9E1CD0A2F2FBAA68ED5912E47B6BC8D868F63DCB956AF9382)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/-RfOwePvQ723XCYNO1OO-A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=6ABBF2E631D157F599073AF0CDA6F3599E6887827C14F475D94003944D2DF835)
 
 不支持平台：macOS、iOS。
 
@@ -9676,7 +9676,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：描述静态成员属性信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/ewhVOWYlTFWEmOdJuzYLeg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=A26E019F16084FBC1EC030CC45820B7798768957FDB29E089A0767810627705D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/ewhVOWYlTFWEmOdJuzYLeg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=046814FAAD78AF8854270728D2D151A113007F9674960ABA85472A3305E811DE)
 
 不支持平台：macOS、iOS。
 
@@ -9695,7 +9695,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有作用于该 [StaticPropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticpropertyinfo) 所对应的静态成员属性的注解所组成的集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/y4qTG0s-T9eSOMaNT0u2SA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=48A96367B3AF60F9CE01A7F9A79DE38C340CA45363F33BA1954CECFC727AE40C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/y4qTG0s-T9eSOMaNT0u2SA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=4CC78C881E47B7A765526F034C8EB44DB0F02AB74438F0D5F979022C64199D4B)
 
   * 不支持平台：macOS、iOS。
   * 如果无任何注解作用于该静态成员属性信息所对应的静态成员属性，则返回空集合。
@@ -9754,7 +9754,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticPropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticpropertyinfo) 对应的静态成员属性所拥有的所有修饰符的信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/zzM42kykSpuGp9HpD2BiFw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=F244FD9BB063B5AA732107E16CCD790B961766465BD86691B12942FC2043212B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/zzM42kykSpuGp9HpD2BiFw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=6A9BC507898370079F935037FE2C864FB61FD08EAF5676C9F6FE909CAC7CDCA4)
 
   * 不支持平台：macOS、iOS。
   * 如果该静态成员属性无任何修饰符，则返回空集合。
@@ -9813,7 +9813,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticPropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticpropertyinfo) 对应的静态成员属性的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/jMIIsjgdTBK3SaSbHYciyQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5D614DFD630C86E9165B10A1A33890771E03535B9F6F265E43BC67870E2AA710)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/jMIIsjgdTBK3SaSbHYciyQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EBAA56688F0E951EBAB16A68380133FA0D91E04B2A3EE598CB03CDEEFD625B9E)
 
 不支持平台：macOS、iOS。
 
@@ -9860,7 +9860,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticPropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticpropertyinfo) 对应的静态成员属性的声明类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/7gmhqvaXRae6BE3rxRUYfw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=B32478D5C282EAC360FBFC9C22D38F3EA3FE7FE506F0554B8DD2243D27C56898)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/7gmhqvaXRae6BE3rxRUYfw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=A8C1D42FC2DF2EE4A507DAB0388E28B8A450CBF72A921A45E93574EC2DD5CD8F)
 
 不支持平台：macOS、iOS。
 
@@ -9914,7 +9914,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/mitNAJXJR6K3aOVtbGz6PA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2881F85268F6CAE7FB63C94418CAE6D35AC3AB3B4E4D3C4D6C1A399261B71466)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/mitNAJXJR6K3aOVtbGz6PA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=A4E8B5E43B7A97C05F51C7A5B4BF495C688D0D551C2EC0FBFE94C7CFA77D2B4B)
 
 不支持平台：macOS、iOS。
 
@@ -9967,7 +9967,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
         return
     }
 
-运行结果：
+运行���果：
     
     
     MyAnnotation注解数量: 1
@@ -9979,7 +9979,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试获取指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/WA0Gi5veRBq3ywO-9_1qCw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=9FEADD11BC2FD08CE1F999CF5C90758EA362AE673D5164C42C4BD3B71F1E0CDC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/WA0Gi5veRBq3ywO-9_1qCw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BBB58AE44571B6A4C8673461805A2686D1BF7373C5095E579A970A9A6308C243)
 
 不支持平台：macOS、iOS。
 
@@ -10042,7 +10042,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取作用于该对象的所有自定义注解。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/4ZpjBXtwRy6CxKHcDF7MBg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E7BE702A23BD660E34E5FD692DA4157D377610E5F49A9DFB658969A59FE2967E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/4ZpjBXtwRy6CxKHcDF7MBg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=E8639DFEF62BE60BCD5A41E04EC7EDFCC63FF0F29D99BDC3878523EC328D3FFC)
 
 不支持平台：macOS、iOS。
 
@@ -10107,7 +10107,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticPropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticpropertyinfo) 对应的静态成员属性的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/7ksvKEBTSsKxFzfTZfUjaw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=367B4890F7460851AF11720F1473FD6B95DFD4FAAEC48530C2E009C71DB841E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/7ksvKEBTSsKxFzfTZfUjaw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BA4D53A7ADCB4E9275BB323E918FAF0CEA716404BD3DE86EDE408CEFACF864B4)
 
   * 不支持平台：macOS、iOS。
   * 如果该静态成员属性缺少合法实现，如 interface 类型中的抽象静态成员属性，则应抛出 [UnsupportedException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_exceptions#class-unsupportedexception) 异常，但由于后端尚未支持，故尚未实现。
@@ -10164,7 +10164,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该静态成员属性信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/163CqeovTl2qYW1mluwI0Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=FEC50E47C058D12403508E1432286492DE9AA6867CC8A7713299CC46C0B44311)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/163CqeovTl2qYW1mluwI0Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=92D2CE1CFB90B223408A792BEF2141E38C748255FC0C27E53876A97F77B6D993)
 
 不支持平台：macOS、iOS。
 
@@ -10214,9 +10214,9 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
     
     public func isMutable(): Bool
 
-功能：判断该静态成员属性信息��对应的静态成员属性是否可修改。
+功能：判断该静态成员属性信息所对应的静态成员属性是否可修改。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/wz-r4qt_TZqnkgq3Bdhh3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=F8FC24CFA839CAD00BBB730365468C167FB603E8457735DFE44E4A2A2F999AA5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/wz-r4qt_TZqnkgq3Bdhh3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=6B46D674C283462EBAAD309E74F0AB2C66D732B7922ED124CD2561C0B8E67994)
 
 不支持平台：macOS、iOS。
 
@@ -10226,7 +10226,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/yCsDRxU-SJCrWGlJkQaD4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=B6EEFBB4EB8E9176672B68162463002892C10B514A4444E142B1EEA21E7BAC13)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/yCsDRxU-SJCrWGlJkQaD4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EFD2C8A5C53F19F5E751F26F93CC3EFE9D325CD5AC655DD20685C240E3BC3FC5)
 
 如果静态成员属性被 mut 修饰符所修饰，则该静态成员属性可被修改，否则不可被修改。
 
@@ -10283,7 +10283,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：设置该 [StaticPropertyInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticpropertyinfo) 对应的静态成员属性的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/F0ndH7KeRZ-GknAejguQXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=74A7B4445E98C13B4F362B55413157ABE4EA3D20ACC4481CFB70E64FF22FECAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/F0ndH7KeRZ-GknAejguQXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EE4E0A5F9356654C37A6DEA669B35151157EADA721131BE8442B98B7291D5BB1)
 
   * 不支持平台：macOS、iOS。
   * 如果该静态成员属性缺少合法实现，如 interface 类型中的抽象静态成员属性，则应抛出 [UnsupportedException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_exceptions#class-unsupportedexception) 异常，但由于后端尚未支持，故尚未实现。
@@ -10348,7 +10348,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取字符串形式的该静态成员属性信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/eLyCr4GbTBWHiX-rTxesFQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=AB2E42EBEB111EC8462AD38E97BF01080CE1B32601F3B785AC96A268ABFD0B53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/eLyCr4GbTBWHiX-rTxesFQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=99170BE1F76ED03BB8D71BFE9D217429241C232DF2AEAB99CBE6740142000906)
 
 不支持平台：macOS、iOS。
 
@@ -10400,7 +10400,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该静态成员属性信息与给定的另一个静态成员属性信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/bVRLG-0DTEKYn9ZWjr3mqw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=380EC670BAB6FF126EFDE2E3087AFF871444F57995BA28B7FD4155F4622E0DC0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/bVRLG-0DTEKYn9ZWjr3mqw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=FEEFE4375D8444E6C518AADDDB5E26B920165D656FAD7B31A88D3B6D20B040C0)
 
 不支持平台：macOS、iOS。
 
@@ -10465,7 +10465,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该静态成员属性信息与给定的另一个静态成员属性信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/ofBurMGhS96UzVJapWingg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=1D69B770900284DF4BD595DF6F69950C63F8B07A3CB0B32949C9F08944BBE52A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/ofBurMGhS96UzVJapWingg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=A9309A8966F941CD7570CCB62DF12D39A4D4193A16D25B0F1D74B897153632CA)
 
 不支持平台：macOS、iOS。
 
@@ -10523,7 +10523,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：描述静态成员变量信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/4DOts6T_QlqU5uOdSyHJJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=37A88F4AACEF6D6F3223D0A7C74C56D570ADF900A2F6E83479001BCF0D2C4D9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/4DOts6T_QlqU5uOdSyHJJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B810FF42A3C65DD09B33B71FBE24BB8DBE1BB5D55A6CC1317EF12805ABD47DFB)
 
 不支持平台：macOS、iOS。
 
@@ -10542,7 +10542,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有作用于该 [StaticVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticvariableinfo) 对应的静态成员变量的自定义注解，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/9sD4_3uvRnCIONLjfBK9Pw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=C0115CBBDA62A7CF23A9DC76F826368657061E77D46159158893138A9E6F7CD3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/9sD4_3uvRnCIONLjfBK9Pw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C4A63174DD1082E812BBEBB7937F4403022EE1966636C6BBBB66FE786E4FD387)
 
   * 不支持平台：macOS、iOS。
   * 如果无任何注解作用于该 [StaticVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticvariableinfo) 对应的静态成员变量，则返回空集合。
@@ -10597,7 +10597,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticvariableinfo) 对应的静态成员变量所拥有的所有修饰符的信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/77yYvRVkQUaWX0jy0ECWFQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=960F23808C0C7CCB1A124BC603B3C9E77BDFDA75C200770D20C8C67C4B462CD5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/77yYvRVkQUaWX0jy0ECWFQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=A34D058A5E761F62355A95482D198356E3B8D60561040E686EA83BFE0DA416B5)
 
   * 不支持平台：macOS、iOS。
   * 如果该静态成员变量无任何修饰符，则返回空集合。
@@ -10648,7 +10648,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticvariableinfo) 对应的静态成员变量的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/2aPSvKucR4quPKfFgzTnSw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=3170EF7DD71D8B050AEEC50D68A23DC9563E2038368E704A2C049F0742556ACF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/2aPSvKucR4quPKfFgzTnSw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=DBDA976CF5DCE0E9BED133EF26E8E097E76315F4FB244F27A428E45F9B918A71)
 
 不支持平台：macOS、iOS。
 
@@ -10691,7 +10691,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticvariableinfo) 对应的静态成员变量的声明类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/TwE2uRYkQDCrbN03UzZBvA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=0404619BEDAD5EE29040D8A92FB4CE5B43B6F50D81CCBD023AF74C74A35CD541)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/TwE2uRYkQDCrbN03UzZBvA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=6DD60CDDF50067004E25D9A6A62E8487E843692FB50F2855DD6596B59B772206)
 
 不支持平台：macOS、iOS。
 
@@ -10737,7 +10737,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/P5ez6BYtTrSV1dBqpMM8qg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=6B28BC3458E6BF4BCE766BD2C5DB83C267FFDC6D86D49145FBC9FD937A14BEF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/P5ez6BYtTrSV1dBqpMM8qg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=5343BFAFEA5F3FFFED13C84B7F26A296421D16F5298CD036A3CB10872B230064)
 
 不支持平台：macOS、iOS。
 
@@ -10798,7 +10798,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试获取指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/P7sMRNbiQkS8lmI4gDLFcQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E92DBF8B336849C6B91EC8E89B1025E191642590913AF8945826F3020307ABAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/P7sMRNbiQkS8lmI4gDLFcQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=1C722D329694244E96776AADFD717A3ED5E2F5CD9067968EF8128029D86D94A4)
 
 不支持平台：macOS、iOS。
 
@@ -10856,7 +10856,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取作用于该对象的所有自定义注解。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/fzvwhmvoT6qxsJcg4-FJpA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=FFF94DC532D91DF792397B74D6F2A3C4DAA2B692051EA18B213A4D8B76122BE2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/fzvwhmvoT6qxsJcg4-FJpA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=E3BBCB153EA7CB33626C78C47D9B7072AC5EA9814F79933962CD577563EF3B59)
 
 不支持平台：macOS、iOS。
 
@@ -10917,7 +10917,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StaticVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticvariableinfo) 对应的静态成员变量的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/Ffd3hfBoSEuxlBiUp4OgUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=F329963A0A39F417535EC645B11C07B6B325CDC94E3A705444D02883A312D40E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/Ffd3hfBoSEuxlBiUp4OgUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=B2BA43C53970BDC9851C0E68E999DA06F62A32D2AFC7CF4C5EB23E8DD58DF5D9)
 
 不支持平台：macOS、iOS。
 
@@ -10961,7 +10961,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该静态成员变量信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/wvh8dPRfRzCH0R1GE2nP1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=10D9DFA8D9A7416174F2DD32FF5848C7EA0D06793E238E6CB127A91B3B423037)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/wvh8dPRfRzCH0R1GE2nP1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=D9A2621B1492C9A0B1CEDB1A2AB1BEA9A29BFC864B3E78D6F1A23B353F7937D4)
 
 不支持平台：macOS、iOS。
 
@@ -11009,7 +11009,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该 [StaticVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticvariableinfo) 对应的静态成员变量是否可修改。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/ps39kpJGSFSbT89lSQ7kjw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=71BEB36C2992BF47081ACD2DD97CF5D055242A2A2AB292ED2CD5C6A1E3450AD1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/ps39kpJGSFSbT89lSQ7kjw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=15B2D9C151E461643709B5858F50438B0AC153257A0754E78617D5CDD9B0F8C9)
 
   * 不支持平台：macOS、iOS。
   * 如果静态成员变量被 var 修饰符所修饰，则该静态成员变量可被修改。
@@ -11067,7 +11067,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：设置该 [StaticVariableInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-staticvariableinfo) 对应的静态成员变量的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/BZh_JeAJQ9yUiRChypDXiQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=77B400F01A022A70D06A171DB19A1CAAA96F8A215668183C6259527EC6981C65)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/BZh_JeAJQ9yUiRChypDXiQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=F116AE490ECEC68DAA194E4E9FDACD63705046E38B47EBEB76E9314CD623605C)
 
 不支持平台：macOS、iOS。
 
@@ -11120,7 +11120,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取字符串形式的该静态成员变量信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/9AykgWF2RPadPhSPriSwdw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=808D8ABFA2A7D081B2CAB6B6A4DB9C772D1DFA2000524198F6496D23873F73AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/9AykgWF2RPadPhSPriSwdw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C87BD4DD1BE05138605AE0431C53AA485DC950542CDC65DE5EAFC80FD8484EF2)
 
 不支持平台：macOS、iOS。
 
@@ -11168,7 +11168,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该静态成员变量信息与给定的另一个静态成员变量信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/ZTv0ofhjS2Cp8LBEV3hQew/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=5FC092B092C382E6F5B3F7EC478F005C1567D43D53E3AADD4FB34CB325BEB043)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/ZTv0ofhjS2Cp8LBEV3hQew/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C3063612ACAE6BA38D8EA51ADD0A060D11FA3F2037E294D2975069592BD95FE2)
 
 不支持平台：macOS、iOS。
 
@@ -11230,7 +11230,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该静态成员变量信息与给定的另一个静态成员变量信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/IbpwXzmQT42Gu67MNlPvHQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=3C2E36A6B71F8FC95F4D43C4E25C1D2E6C80B7FE6B3296FE30ACE1ADCDF6A7E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/IbpwXzmQT42Gu67MNlPvHQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=CF43680A4F97E0586C9CE60654F9804E33CCE65BE1B48776EAF81F3D79033929)
 
 不支持平台：macOS、iOS。
 
@@ -11292,7 +11292,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：描述 struct 类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/MKPA13EGQ-Gv6w92B2arJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=6BCA76EB0C84063B559CB7A9022BFA92CDBD5ED2FA87F21C7E14778403609F7A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/MKPA13EGQ-Gv6w92B2arJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=3070772B3C326462280106FD51E49EF3AF3246632DAF9E78155FCFFFC384F60A)
 
 不支持平台：macOS、iOS。
 
@@ -11330,7 +11330,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StructTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-structtypeinfo) 对应的 struct 的所有 public 构造函数信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/QMH_aaMASfebwqsOLxrJBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=F756399EE0D669C3C91C1844A53983D5BC1F5CFE04289A4EE7E01E783446DEDE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/QMH_aaMASfebwqsOLxrJBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=6E7DC57B57160ACC8A4C324AD329CBB7BD5CD3D172DB7A5EF0BADE2DCB19B502)
 
   * 不支持平台：macOS、iOS。
   * 如果该 struct 类型无任何 public 构造函数，则返回空集合。
@@ -11380,7 +11380,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StructTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-structtypeinfo) 对应的 struct 的所有 public 实例成员变量信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/ua45BdeHRqC6SrwRKjekEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=70A775EDFA592D43316419D0F5980D80ED9758A533B3F8547033B532210465FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/ua45BdeHRqC6SrwRKjekEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=9EEF52E382D09966B017F041A54705029E9AAEA1B68724CB8B3D61BDD65CA4BC)
 
   * 不支持平台：macOS、iOS。
   * 如果该 struct 类型无任何 public 实例成员变量，则返回空集合。
@@ -11426,7 +11426,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [StructTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-structtypeinfo) 对应的 struct 的所有 public 静态成员变量信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/TKq_yay9R4GcictQ61mGyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=BF456191019D6B6DCC3A57F575D833745DAADB0E4E3195F71DFEBD012AD4766B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/TKq_yay9R4GcictQ61mGyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=FAE88ED1B0E470039774527F87417EE0FCF00630337686CAF921DB94CF0535A1)
 
   * 不支持平台：macOS、iOS。
   * 如果该 struct 类型无任何 public 静态成员变量，则返回空集合。
@@ -11472,7 +11472,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定 qualifiedName 所对应的类型的 [StructTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-structtypeinfo)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/ydYc0FOeTfiAzJNiebYnSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=CDFF61C2FEECA2524E0B6C6DE1125B0E45ACD442AB050E087EFAECBF8546D14A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/ydYc0FOeTfiAzJNiebYnSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=BBC20C4A25730B30A6B013744D49A42D9A82A683ECC29B720B39472EE2FCE07E)
 
 不支持平台：macOS、iOS。
 
@@ -11520,7 +11520,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定的任意类型实例的运行时类型所对应的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/jdkPnt_UQICitAhhgIxh2A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=EF0BBDEFF79AD303F4D26EC7D7D0626E86B17198A9BD181773E48BB3175E8E56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/jdkPnt_UQICitAhhgIxh2A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=E457DC37C94AB067128563B83951D7D76CE0973C9DF3415D24371A20F14EB6C5)
 
 不支持平台：macOS、iOS。
 
@@ -11540,7 +11540,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 异常：
 
-  * [InfoNotFoundException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_exceptions#class-infonotfoundexception) \- 如果无法获得实例 a 的运行时类型所对应的类型信息，则抛出异常。
+  * [InfoNotFoundException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_exceptions#class-infonotfoundexception) \- 如果无��获得实例 a 的运行时类型所对���的类型信息，则抛出异常。
   * [IllegalTypeException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_exceptions#class-illegaltypeexception) \- 如果获取到的类型信息不是 [StructTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-structtypeinfo)， 则抛出异常。
 
 
@@ -11573,7 +11573,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定 T 类型对应的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/nXUi4XopTlWAChm3rVicfA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=082F0CBA0DC88601C76C6DC40A2C8F96FD46E486BD6C7B93C0187EFCD5D5E94E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/nXUi4XopTlWAChm3rVicfA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=D7737DC84A567DEEFF2DBC0BBC6AF93CBE509E3B911515D2CA38EBD653A2BB78)
 
 不支持平台：macOS、iOS。
 
@@ -11615,7 +11615,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：在该 [StructTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-structtypeinfo) 对应的 struct 类型中根据实参列表搜索匹配的构造函数并调用，传入实参列表，返回调用结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/JTFo7P-FSK2ntGlWWtqpuw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=40D088ED14D231E5FE354078A250DB442CB25E9A2ED16B23EFBC2B69B9DEED06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/JTFo7P-FSK2ntGlWWtqpuw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=DD85340CC184A1060F0A6A9C2C15F6290A0889138D7A9E324E349AB29D7B7D1B)
 
 不支持平台：macOS、iOS。
 
@@ -11674,7 +11674,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试在该 [StructTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-structtypeinfo) 对应的 struct 类型中获取与给定形参类型信息列表匹配的 public 构造函数的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/nxVsi3kGTRiepBkBQN2jrg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2BE185C5C9FF91DBCA298C6F7E88EB04D36BC127EFD9573916828C6D604B9799)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/nxVsi3kGTRiepBkBQN2jrg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=FA59F9D43575FAFF8708B28D9D6F7483BD7284AB6F7631444CC6D23A8C64A19F)
 
 不支持平台：macOS、iOS。
 
@@ -11737,7 +11737,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：给定变量名称，尝试获取该 [StructTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-structtypeinfo) 对应的 struct 类型中匹配的实例成员变量的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/4g67zc3pRVaqnWFVDDMdgg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=433AED8AF83C887E2CDE16A394BD8776550B2EF3C020B500E8FE02EB1D7B3F03)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/4g67zc3pRVaqnWFVDDMdgg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=F5B634BB6AAC9A9E3E513891126B0E9D346EE514D216C1539A5CD3D905427EB2)
 
 不支持平台：macOS、iOS。
 
@@ -11795,7 +11795,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：给定变量名称，尝试获取该 [StructTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-structtypeinfo) 对应的 struct 类型中匹配的静态成员变量的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/QL1P5VG-TeyKWiNDLdndYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=8B5CBA53AC817F96EEA7B33B97406A8F1EF006F2F53498846727DF859BED9AC2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/QL1P5VG-TeyKWiNDLdndYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=DF54E4BE4AED2D6585CBC8E31BCAF4371EEC149B8724F2A3835E1D07CE31BA06)
 
 不支持平台：macOS、iOS。
 
@@ -11850,13 +11850,13 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：[TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 提供了所有数据类型通用的操作接口。开发者通常无需向下转型为更具体的数据类型，如 [ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 等，就能进行反射操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/SHVtUL3ZRhqUy3Kr86e8bA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=C00B666279252597F633D8922806C6A393084005CABC91CC0D9ACB75C938A313)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/SHVtUL3ZRhqUy3Kr86e8bA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=1D51A8A9E6575520D9A3A36509C28CCF9CFD41F19242D9D94D0B2F0A59B99290)
 
 不支持平台：macOS、iOS。
 
 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 的子类包括 [PrimitiveTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-primitivetypeinfo)、[StructTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-structtypeinfo)、[ClassTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-classtypeinfo) 和 [InterfaceTypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-interfacetypeinfo)，分别对应基本数据类型，struct 数据类型，class 数据类型和 interface 数据类型的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/44gVvhsZQ2WGfUNztO_ZPg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=25E11619FA692E3EB12623F899A8EA58B445EAD51AF3D808338E7620FAD71A98)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/44gVvhsZQ2WGfUNztO_ZPg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=F06809F914FC55ABAFC960E6145720C5122EDFC89032311DEA765081A48A1BEC)
 
 类型的限定名称为(module_name/)?(default|package_name)(.package_name)*.(type_name)。
 
@@ -11875,7 +11875,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有作用于该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应的类型的自定义注解，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/8Hd5iSLZSKKkB9d-i77UPw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=4BB13163C3BAE567018BE65E33A879C1D5789238D8D2E31874BB29166BB099C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/8Hd5iSLZSKKkB9d-i77UPw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=4043C5434FB6AF2FDAC1F0F217E5D9572394A98CF2053CCC9B7108DD3C46DFBE)
 
   * 不支持平台：macOS、iOS。
   * 如果无任何注解作用于该类型信息所对应的类型，则返回空集合。
@@ -11925,7 +11925,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应类型的所有 public 实例成员函数信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/JgBSKQigTFC9azjbG4RQyg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=57FD3F6E7D040F9FCF538D3AE143E13C1EF499878FB1AA1D83415B09EEAF9D5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/JgBSKQigTFC9azjbG4RQyg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=CE9637A9CA038122AC0ED60D09DAAAAC4F5FCF96CED2455B7DBDE21161FCF863)
 
   * 不支持平台：macOS、iOS。
   * 如果该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应的类型无任何 public 实例成员函数，则返回空集合。
@@ -11976,7 +11976,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应类型的所有 public 实例成员属性信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/60LrI6a6Tx6NwLbohgU7pQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=82788DBD986C805750A9C5E86693AA790A5A606A687DB289C5A3594BEA54D5A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/60LrI6a6Tx6NwLbohgU7pQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=1E912334C876AF829317B3E73A9DE293D7E128113301DE625E2E7807360A3E70)
 
   * 不支持平台：macOS、iOS。
   * 如果该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应的类型无任何 public 实例成员属性，则返回空集合。
@@ -12028,7 +12028,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应的类型拥有的所有修饰符的信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/eeY6yxZHTIa_gFte7Lq2tg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=352293E8713ABBE5A6D185660D6C49EBD484A40DB18DBDB48D1DC79DD7679F4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/eeY6yxZHTIa_gFte7Lq2tg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=6EA9B892544D26D319C0681D096D49F533EA28C1B94E9D01CC325249717A51A8)
 
   * 不支持平台：macOS、iOS。
   * 如果该类型无任何修饰符，则返回空集合。
@@ -12074,7 +12074,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应的类型的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/Nb1MsgV8Qnqe80Umai62_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=1C98DFB092620762819833C987409544BE33B2063B811ED60521B3254879110C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/Nb1MsgV8Qnqe80Umai62_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=8CE0EF9212EE93B694FA01608432DC54EFF9AB87B6E42098001BB4DD92E3D2E4)
 
   * 不支持平台：macOS、iOS。
   * 该名称不包含任何模块名和包名前缀。
@@ -12118,7 +12118,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应的类型的限定名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/6J1OYuv7RhG9vIwdcKtUoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=996496F57188BF2467B13F2D84AD82C6EAAFF00B44D561F7AB3D7043E2F4097E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/6J1OYuv7RhG9vIwdcKtUoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=518ECB6689318DBE7D1DEC7052A4733EE9A0A5221FF8A52873C417EA6E94FD87)
 
   * 不支持平台：macOS、iOS。
   * 限定名称包含模块名和包名前缀。
@@ -12163,7 +12163,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应类型的所有 public 静态成员函数信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/NSPp-KGjRgutq68S6_4Ppg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=8400FA2CBCA9C62A340C41F6F8236EDC5874DCDA4589B9546B52DAF89BCD2A9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/NSPp-KGjRgutq68S6_4Ppg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=92EF18452C89984DC330B41F0326C8F44F79F90566CAED0DD13C5C4F99488485)
 
   * 不支持平台：macOS、iOS。
   * 如果该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应的类型无任何 public 静态成员函数，则返回空集合。
@@ -12214,7 +12214,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应类型的所有 public 静态成员属性信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/Tnhs3D2UQs-hNbcd2m83XQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=7217115E511F67BEB29BF0D2DB67402AA156801A32477E4D83D36EBA79D9A0C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/Tnhs3D2UQs-hNbcd2m83XQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=94C57164203F9BAB2451518422CC1C0312DC477FF0D85CA01CB238F0EDFB7ACD)
 
   * 不支持平台：macOS、iOS。
   * 如果该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应的类型无任何 public 静态成员属性，则返回空集合。
@@ -12266,7 +12266,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 对应的类型直接实现的所有 interface 类型的信息，返回对应集合。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/EycYvVx6TLCzKSJoL5H22A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=3BFB2C834268BDEE1485B9AEEAD21CA775EBA02AA81560D88E0C903111E47EB8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/EycYvVx6TLCzKSJoL5H22A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C6DA057D33897CEF0E07A70DFBC8EA4947B045FBA8393D05D74EA0DA62E12477)
 
   * 不支持平台：macOS、iOS。
   * 所有类型均默认直接实现 interface [Any](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-any) 类型。
@@ -12313,7 +12313,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定 qualifiedName 所对应的类型的 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/zkjmZNs0TtiWci6MrfsBoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=937965149CC3A0413FA6CD8668E453DD0D8B6A98A89D8A1D6A322CC2BFACAEC8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/zkjmZNs0TtiWci6MrfsBoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=751B027A73DD8DE6FE1D96981EA9177E5C2344CCAE4EB1A6D706FDD3979FC177)
 
   * 不支持平台：macOS、iOS。
   * 目前，对于 Tuple 类型，仅当 qualifiedName 对应的元组已被实例化时，该接口才可用。
@@ -12363,7 +12363,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定的任意类型实例的运行时类型所对应的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/ksBARw4pSZKQFXrEG2YMzw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=F275DD4550CEC09434EB77BC6C1BA65A965CF8D4DF65981F2DB93B33F0F00861)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/ksBARw4pSZKQFXrEG2YMzw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=5AC6678CDDC900966B547AB8C5BC8A8BC44162591E8BA10874D450A9C81F593A)
 
 不支持平台：macOS、iOS。
 
@@ -12415,7 +12415,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定的 class 类型的实例的运行时类型所对应的 class 类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/XDHwoftaTYS1Us8EOQEliQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=7CD61EE3FDDE0536C17D968E8521D9A8DCAE4B08A5FE9E7FD64EBFB57F9ECD81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/XDHwoftaTYS1Us8EOQEliQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=42B2E3E36E9FB655B7C21C8CE9ACDF7DD922155E1D898F70A7A284415FC01D90)
 
   * 不支持平台：macOS、iOS。
   * 未来版本即将废弃，使用 ClassTypeInfo 的 static func of(Object) 函数替代。
@@ -12468,7 +12468,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取给定 T 类型对应的类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/kBWWRS0tQxiQ8hhCptBX-g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=0C9E9D82CFF553443083A70901DFDEE5E3CADF70681DA145ACDEE9C7C1527B8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/kBWWRS0tQxiQ8hhCptBX-g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=DC35D24D618C8D251E3993626694CD802EEF7816AE0E27B94699C8BA8DCBDDC2)
 
   * 不支持平台：macOS、iOS。
   * T 支持传入类型别名，包括内置类型别名（如 [Int](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_types#type-int)、[UInt](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_types#type-uint) 和 Rune 等）与用户自定义类型别名。
@@ -12512,7 +12512,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取所有指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/Csq359u9Tl6WjirHi7jU9Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=35C6FBB7EBA3FF43ED024404AF5DDF62D0CC412A6498D977889C98C95C27BA65)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/Csq359u9Tl6WjirHi7jU9Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=D79E3031BD80716FF095AC41A2FEFFE9BDEE16281E7F2B12025340A6D75123BA)
 
 不支持平台：macOS、iOS。
 
@@ -12568,7 +12568,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试获取指定注解名称的自定义注解（通过泛型筛选）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/d45poIUaRp67a2etctfxUA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E84FA19CB83C5138FCB44A8E7DB2C98FB1AF615F7E70EB68470F539CA999933B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/d45poIUaRp67a2etctfxUA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=931D00F2868EBEC42D470EDEAF9C1A4136ADA89FF4D8DD6DDBF0A692FA571223)
 
 不支持平台：macOS、iOS。
 
@@ -12621,7 +12621,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取作用于该对象的所有自定义注解。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/Oz1N9gNqR1Wz18feB_5qdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=AEEFCB3FAAFCFC90317CB81C81EBE1DF4AA6DA1223798D472455AB39F1AA6E37)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/Oz1N9gNqR1Wz18feB_5qdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=8B488B02C1E4787F149157CCACE47C4112E8A1E32855D831671128F2346F4566)
 
 不支持平台：macOS、iOS。
 
@@ -12677,7 +12677,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：给定函数名称与函数形参类型列表所对应的类型信息列表，尝试获取该类型中匹配的实例成员函数的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/0o2RuCnER4SM4oowBT9hBQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=E8C58F6DD3693BB7BD1A9C95116B834B9EB03F622FFCAE22CF4C949467BA11A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/0o2RuCnER4SM4oowBT9hBQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=F2CDA96BE15D1FCFF3AE848CCF05C5A5A529C81F196F9E999B51DD547FCEF025)
 
 不支持平台：macOS、iOS。
 
@@ -12735,7 +12735,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：给定函数名称，尝试获取该类型中所有匹配的实例成员函数的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/jviB755SSbSm7aWpRRih1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=3809CC905800751385D19C982450A827510C8CC1CAD6430E8E17001130AE8D0D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/jviB755SSbSm7aWpRRih1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=EF6F23C020074A93F42F59CE729927589801711E663C36AE967E7A7D4E8316BA)
 
 不支持平台：macOS、iOS。
 
@@ -12786,7 +12786,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试获取该类型中与给定属性名称匹配的实例成员属性的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/3hBxQij9SA2244UJe2Kaug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=34531CB84816C8119F2CC11E234F8E2A16EA6AEF96135831A1667E0E19D54C73)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/3hBxQij9SA2244UJe2Kaug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=024ADEE9DE6B9992637FFB1FC251A5272E0898BFF7716A6D0D9A709A4BF4407E)
 
 不支持平台：macOS、iOS。
 
@@ -12844,7 +12844,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：通过给定函数名称与函数形参类型列表所对应的类型信息列表，尝试获取该类型中匹配的静态成员函数的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/ctm7IehHTouIYnlQHHdIzQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=4B099A9B09F70A798A2F6E1C11AE14D85555D03B9BD1752E71E9C33C5927EF65)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/ctm7IehHTouIYnlQHHdIzQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=88BAAD8F589265EA74A89B5B1ACEF57F694E2DFDC9380FF9A255835ED498B64C)
 
 不支持平台：macOS、iOS。
 
@@ -12907,7 +12907,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：给定函数名称，尝试获取该类型中所有匹配的静态成员函数的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/GNyULvATS1WB0wu2msPOHQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=DF04414A457128CFD1E57DEC3C54E910DEC9A605E831B80F723A0ED695887D6D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/GNyULvATS1WB0wu2msPOHQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=5C9D0A34C063B4714BD7CE8F9C372438FFE8283F4E0093AC40069C851C77B40A)
 
 不支持平台：macOS、iOS。
 
@@ -12959,7 +12959,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：尝试获取该类型中与给定属性名称匹配的静态成员属性的信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/K8Lb426hRGC4Kp9qcb05cA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=CDAE94214B0E329FCCD8F3590927D9EE4AB0F69F320AEF744BE4E528BE6C01C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/K8Lb426hRGC4Kp9qcb05cA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=C8860DA7529E352132767029FC709E0448DD904A95FB2E605A9980209711BB23)
 
 不支持平台：macOS、iOS。
 
@@ -13023,7 +13023,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取该类型信息的哈希值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/FuriL9llQQOBoTL1oYfu3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=2D388B8F37A8A0808BB8B5190833A14C0C7F5661BDA198675914CDAF30A016E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/FuriL9llQQOBoTL1oYfu3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=9DD2121F07D23B972317BB55DC923E108E429D55FCEEE9F6074E8B91E7F0AFCD)
 
   * 不支持平台：macOS、iOS。
   * 内部实现为该类型信息的限定名称字符串的哈希值。
@@ -13070,7 +13070,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断当前 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 实例对应的类型是否是参数中指定的 [TypeInfo](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-reflect_package_classes#class-typeinfo) 实例表示的类型的子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/sW1k98IHQDylShqddpE_dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=45C3BFA3A92F59761D2BB41CA9201D0F712767F1AEBE3991C5743CEF2328D1B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/sW1k98IHQDylShqddpE_dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=80F4F1EF8DD3515BF6CDD5C9D4BFE7736A1F65B737739B805F74B2093056B0AD)
 
 不支持平台：macOS、iOS。
 
@@ -13117,7 +13117,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：获取字符串形式的该类型信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/imGsSzv2RlCzqMficHbFeQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=851C07AAF4CA7C9549E253E289E4671DB16A232383A819CBBDC90963B36C6D0F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/imGsSzv2RlCzqMficHbFeQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=F2B8BAD16E816BD5BD3C76B74B2E8015B93FB76D2525EA9DBDE5B7B7A963DBE6)
 
   * 不支持平台：macOS、iOS。
   * 内部实现为该类型信息的限定名称字符串。
@@ -13164,7 +13164,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该类型信息与给定的另一个类型信息是否不等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/hjJzskYlSn-rYpL5P9YinA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=B20D6C7569F3D1F4402BD4EF33066AF194E460BEF9F2DB67093DA988FE9C99D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/hjJzskYlSn-rYpL5P9YinA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=3CD6EF382B214770ED516B0945D52982FE1E6726E57FB0CE9156D2A81A441B77)
 
 不支持平台：macOS、iOS。
 
@@ -13224,7 +13224,7 @@ interface 类型中的实例成员函数默认均拥有 open 语义。
 
 功能：判断该类型信息与给定的另一个类型信息是否相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/gnXoSs0ITteQJjwxtJUo7g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085326Z&HW-CC-Expire=86400&HW-CC-Sign=9C519E7B5E2D91AABB764074705C6917F407D6BACD48DF42D761B71D2EDAB235)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/gnXoSs0ITteQJjwxtJUo7g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111105Z&HW-CC-Expire=86400&HW-CC-Sign=DF7BF8AADEE5D0E3F515C0A4287E18B71E57BD1895FA46A2836B4FF06280837F)
 
 不支持平台：macOS、iOS。
 

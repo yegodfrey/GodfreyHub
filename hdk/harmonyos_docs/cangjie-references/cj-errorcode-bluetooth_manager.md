@@ -7,7 +7,7 @@ nodePath: 系统 / 网络 / Connectivity Kit（短距通信服务） / 错误码
 
 # 蓝牙服务子系统错误码
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/BYDbmhW3TA-4X-ge-FVKEw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090219Z&HW-CC-Expire=86400&HW-CC-Sign=F778E33DD9A359B81CA77A78619A74A91714C7F1F439B93140AD0C18102CEA3B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/BYDbmhW3TA-4X-ge-FVKEw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111111Z&HW-CC-Expire=86400&HW-CC-Sign=77DDE5D151B7F758DE0B0D5583713B9884730F350450FF480804B427EC0A480D)
 
 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-universal)。
 
@@ -63,7 +63,7 @@ Profile not supported.
 
 **处理步骤**
 
-检查设备是否支持该配置文件功能，若不支持则停止调用。
+检查设备是否支持该配置文件功能，若不支持���停止调用。
 
 #### 2900005
 

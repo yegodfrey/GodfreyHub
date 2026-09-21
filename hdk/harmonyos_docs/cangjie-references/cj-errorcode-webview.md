@@ -7,7 +7,7 @@ nodePath: 应用框架 / ArkWeb（方舟Web） / 错误码 / Webview错误码
 
 # Webview错误码
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/zxuuRnJMTIeXCMVUP3fY5g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090156Z&HW-CC-Expire=86400&HW-CC-Sign=69FDAAA26DA24FA7C9C7BEBF5F24B76EC7E2AC22857A929B70D57A685AB3FDF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/zxuuRnJMTIeXCMVUP3fY5g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111055Z&HW-CC-Expire=86400&HW-CC-Sign=3E909407EB999B63045E82C9118F8DED8F1F97F0CB2235BFED585BA6844EFEB4)
 
 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-universal)。
 
@@ -456,7 +456,7 @@ WebHttpBodyStream数据初始化失败。
 
 **可能原因**
 
-发起的POST等类型的请求中，携带的数据不合法。例如里面数据流中有文件类型的数据，但是该文件路径不存在，则数据流初始化失败。
+发起的POST等类型的请求中，携带的数据不合法。例��里面数据流中有文件类型���数据，但是该文件路径不存在，则数据流初始化失败。
 
 **处理步骤**
 

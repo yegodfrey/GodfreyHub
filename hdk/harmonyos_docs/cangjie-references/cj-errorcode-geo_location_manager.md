@@ -7,7 +7,7 @@ nodePath: 应用服务 / Location Kit（位置服务） / 错误码 / 位置服�
 
 # 位置服务错误码
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/cj4GvWmfSueo2FSKJKpiLg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090226Z&HW-CC-Expire=86400&HW-CC-Sign=D561E14449707C9921547481D69A31A59761C2B690D7AEA063466E371BC98DF4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/cj4GvWmfSueo2FSKJKpiLg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111118Z&HW-CC-Expire=86400&HW-CC-Sign=A4EC286D2A1216324EA39A51F2A1DF79053933AEFD03F874102322028310FC6F)
 
 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-universal)。
 
@@ -207,9 +207,9 @@ Failed to operate the geofence.
 
 **可能原因**
 
-1.GNSS芯片不支持地理围栏功能。
+1.GNSS芯片不支持地理围���功能。
 
-2.底层业务逻辑异常导致操作地理围栏失败。
+2.底层业���逻辑异常导致操作地理围栏失败。
 
 **处理步骤**
 

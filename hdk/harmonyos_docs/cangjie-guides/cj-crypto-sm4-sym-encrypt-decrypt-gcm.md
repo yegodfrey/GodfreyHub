@@ -78,7 +78,7 @@ nodePath: 系统 / 安全 / Crypto Architecture Kit（加解密算法框架服�
         let cipher = createCipher('SM4_128|GCM|PKCS7')
         cipher.initialize(CryptoMode.EncryptMode, symKey, gcmParams)
         let encryptUpdate = cipher.update(plainText)
-        // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams对象中。
+        // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams���象中。
         gcmParams.authTag = cipher.doFinal(Option<DataBlob>.None)
         return encryptUpdate
     }

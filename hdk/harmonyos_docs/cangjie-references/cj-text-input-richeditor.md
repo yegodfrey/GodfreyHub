@@ -41,7 +41,7 @@ controller | ?RichEditorController | 是 | - | 富文本控制器。
 
 通用属性：全部支持。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/8u0FX9BxQq2PX5XDeG-iUA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090149Z&HW-CC-Expire=86400&HW-CC-Sign=AEC319FD0D0A642DAB6F4996F0FA180EE2CE194877C1457BF38B6D3576C205D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/8u0FX9BxQq2PX5XDeG-iUA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=5BA619A8D0A2DCED2E42D7EE6E50E12200CF8150F673276D79810679EEBB1DC2)
 
   * align属性只支持上方、中间和下方位置的对齐方式。
   * 不支持borderImage属性。
@@ -64,7 +64,7 @@ controller | ?RichEditorController | 是 | - | 富文本控制器。
 
 **功能：** 设置自定义选择菜单。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/u_VAOhpUShe6TEMi7EBd_Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090149Z&HW-CC-Expire=86400&HW-CC-Sign=73F43C41CA84591384C5A1C4FE5C8F6AB0ED20032631F211D8BC322665C4F031)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/u_VAOhpUShe6TEMi7EBd_Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=1F310FD702D8F4D32F78A8812F52A04429F44D238AD4383AA51A8D08D088DA2F)
 
 自定义菜单超长时，建议内部嵌套[Scroll](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-scroll-swipe-scroll)组件使用，避免键盘被遮挡。
 
@@ -88,7 +88,7 @@ options | ?SelectionMenuOptions | 是 | - |  **命名参数。** 指定选择菜
 
 **功能：** 设置文本内容支持复制粘贴的能力。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/FSvcV0rATIGjw-aKvXp54w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090149Z&HW-CC-Expire=86400&HW-CC-Sign=D3174B2D6EE1D621867D1C90571DB9BA1ED2F555BB147491764E0C2BF71402AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/FSvcV0rATIGjw-aKvXp54w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=D84072EAE672D94516B27233909F1427C0272D1EBEBA892D7477FB1296D4C58C)
 
   * copyOptions不为CopyOptions.None时，长按组件内容，会弹出文本选择弹框。如果通过bindSelectionMenu等方式自定义文本选择菜单，则会弹出自定义的菜单。
   * 设置copyOptions为CopyOptions.None，复制、剪切功能不生效。
@@ -112,7 +112,7 @@ value | ?[CopyOptions](https://developer.huawei.com/consumer/cn/doc/cangjie-refe
 
 **功能：** 定义自定义键盘。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/eAF45kecQaiFdnf6paUnsg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090149Z&HW-CC-Expire=86400&HW-CC-Sign=677BC3C981864E3F788361DF7A3676361A53E3F104D79046912D0C67F46DCD4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/eAF45kecQaiFdnf6paUnsg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=DC06AE959D6C7175DC2D15F94FE77832C3D0A6AA9D949BE7579567DF82ADCF9A)
 
   * 当设置自定义键盘时，输入框激活后不会打开系统输入法，而是加载指定的自定义组件。
   * 自定义键盘的高度可以通过自定义组件根节点的height属性设置，宽度不可设置，使用系统默认值。
@@ -244,7 +244,7 @@ callback | ?[Callback](https://developer.huawei.com/consumer/cn/doc/cangjie-refe
 
 **功能：** 完成粘贴前，触发事件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/VTJ-Qq29R1SNhj5wdStRYA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090149Z&HW-CC-Expire=86400&HW-CC-Sign=B8BCFB816397E44848225B6167AD3161A23839BD6A2D6F7E51CF742675150963)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/VTJ-Qq29R1SNhj5wdStRYA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=DA5FD5FE0AFE678E9768DB23588F1CE051830B4AB4EFB1B42DFD16F2E0205AF3)
 
 开发者可以通过该方法，覆盖系统默认行为，实现图文的粘贴。
 
@@ -418,7 +418,7 @@ spanRange | ?(Int32, Int32) | 是 | - | span范围。初始值：(0, 0)。
     
     public var fontStyle: FontStyle
 
-**功能：** 字体样式。
+**功能：** 字���样式。
 
 **类型：** [FontStyle](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#enum-fontstyle)
 
@@ -2126,7 +2126,7 @@ imageStyle | ?RichEditorImageSpanStyle | 是 | - | **命名参数。** 图像样
 
 **功能：** 删除指定范围内的文本和图片。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/if0bmTgbSDmjCYOq1oP7gw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090149Z&HW-CC-Expire=86400&HW-CC-Sign=B8DEE64EE64F0C9FBFD8C1717D8AE1D1B97B3D1BC372C42F0E1B4CC1464F9FE6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/if0bmTgbSDmjCYOq1oP7gw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=15581756C0C316BF98F4943C3C4F91552C7C5AD359F0C50987A4CB9A731BB729)
 
 当所有参数省略时，删除所有文本和图片。
 
@@ -2390,4 +2390,4 @@ ArrayList<RichEditorSpanResult> | Span内容。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/ELOtW2lFSXapGF7MrHQBtQ/zh-cn_image_0000002743197839.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090149Z&HW-CC-Expire=86400&HW-CC-Sign=0A0103A3604137A426531B02CE3FF7782D46B3D26F11118B1D896EBB457474A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/ELOtW2lFSXapGF7MrHQBtQ/zh-cn_image_0000002743197839.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111050Z&HW-CC-Expire=86400&HW-CC-Sign=F34C25DEB4F7237D0678C789270051D923A12B82D3C35A92A2669509795ACA89)

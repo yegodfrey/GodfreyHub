@@ -15,7 +15,7 @@ hvigor可独立于DevEco Studio运行，这意味着，开发者可以在DevEco 
 
   * **[构建系统生命周期](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-build_lifecycle)**  
 
-  * **[构建任务说明](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-build_tasks)**  
+  * **[构��任务说明](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-build_tasks)**  
 
   * **[构建产物说明](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-build-products)**  
 

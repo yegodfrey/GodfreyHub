@@ -397,7 +397,7 @@ domainVerify |  标识是否开启域名校验。 \- true：表示开启域名�
   
 **表8** uris标签说明
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/8jF9ixyqQRWO-KRDpOSM6Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090110Z&HW-CC-Expire=86400&HW-CC-Sign=B6A44C3957349805080DBCD95CACCE1640F2D5C1F1887678041E804623341BA9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/8jF9ixyqQRWO-KRDpOSM6Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111020Z&HW-CC-Expire=86400&HW-CC-Sign=3427FD05BFE7F14AD2FDC81CF5C1F328276A1313A77EF9A493FC00F6EE3C863E)
 
 以下字符串类型的字段不支持使用资源索引的方式（$string）配置。
 
@@ -843,7 +843,7 @@ proxyData标签示例：
 属性名称 | 含义 | 数据类型 | 是否可缺省  
 ---|---|---|---  
 name | 标识环境变量的变量名称。取值为长度不超过4096字节的字符串。 | 字符串 | 该标签可缺省，缺省值为空。  
-value | 标识环境变量的值。取值为长度不超过4096字节的字符串。 | 字符串 | 该标签可缺省，缺省值为空。  
+value | 标��环境变量的值。取值为长度不超���4096字节的字符串。 | 字符串 | 该标签可缺省，缺省值为空。  
   
 appEnvironments标签示例：
     

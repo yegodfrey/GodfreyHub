@@ -62,7 +62,7 @@ nodePath: 版本说明 / HarmonyOS 26.0.0-仓颉 / OS平台能力 / API变更清
 新增API | NA | 类名：ActionMenuConfig API声明：public var levelMode: ?LevelMode 差异内容：public var levelMode: ?LevelMode | ohos.arkui.ui_context  
 新增API | NA | 类名：BaseDialogConfig API声明：public mut prop levelMode: ?LevelMode 差异内容：public mut prop levelMode: ?LevelMode | ohos.arkui.ui_context  
 新增API | NA | 类名：CustomDialogConfig API声明：public var borderStyle: ?EdgeStyles 差异内容：public var borderStyle: ?EdgeStyles | ohos.arkui.ui_context  
-新��API | NA | 类名：CustomDialogConfig API声明：public var height: ?Length 差异内容：public var height: ?Length | ohos.arkui.ui_context  
+新增API | NA | 类名：CustomDialogConfig API声明：public var height: ?Length 差异内容：public var height: ?Length | ohos.arkui.ui_context  
 新增API | NA | 类名：ShowDialogConfig API声明：public var shadow: ?ShadowOptions 差异内容：public var shadow: ?ShadowOptions | ohos.arkui.ui_context  
 新增API | NA | 类名：LevelMode API声明：public operator func !=(other: LevelMode): Bool 差异内容：public operator func !=(other: LevelMode): Bool | ohos.arkui.ui_context  
 新增API | NA | 类名：ShowDialogConfig API声明：public var isModal: ?Bool 差异内容：public var isModal: ?Bool | ohos.arkui.ui_context  

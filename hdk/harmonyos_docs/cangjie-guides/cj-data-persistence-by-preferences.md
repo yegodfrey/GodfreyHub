@@ -19,14 +19,14 @@ nodePath: 应用框架 / ArkData（方舟数据管理） / 应用数据持久化
 
 **图1** 用户首选项运作机制
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/DBe72pbnSRaugoF_Z3qMOQ/zh-cn_image_0000002743197523.png?HW-CC-KV=V1&HW-CC-Date=20260908T090116Z&HW-CC-Expire=86400&HW-CC-Sign=5F47739FB6684BC0C94E5AB3E061FF3584038B4398EBBAE7ADA224FA7A647BBD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/DBe72pbnSRaugoF_Z3qMOQ/zh-cn_image_0000002743197523.png?HW-CC-KV=V1&HW-CC-Date=20260921T111025Z&HW-CC-Expire=86400&HW-CC-Sign=26592195103BC35EBFECEA733C1BD2DD0027953B9F715F7B4EDE59A5616956B8)
 
 #### 约束限制
 
   * 首选项无法保证进程并发安全，会有文件损坏和数据丢失的风险，不支持在多进程场景下使用。
   * Key键为String类型，要求非空且长度不超过1024个字节。
   * 如果Value值为String类型，请使用UTF-8编码格式，可以为空，不为空时长度不超过16MB。
-  * 当存储的数据中包含非UTF-8格式的字符串时，请使用Array<UInt8>类型存储，否则会造成持久化文件出现格式错误造成文件损坏。
+  * 当存储的数据中包含非UTF-8格式的���符串时，请使用Array<UInt8>类型存储，否则会造成持久化文件出现格式错误造成文件损坏。
   * 当调用removePreferencesFromCache或者deletePreferences后，订阅的数据变更会主动取消订阅，重新getPreferences后需要重新订阅数据变更。
   * 不允许deletePreferences与其他接口多线程、多进程并发调用，否则会发生不可预期行为。
   * 内存会随着存储数据量的增大而增大，所以存储的数据量应该是轻量级的，建议存储的数据不超过一万条，否则会在内存方面产生较大的开销。
@@ -98,7 +98,7 @@ deletePreferences(context: UIAbilityContext, name: String): Unit | 从内存中�
 
 使用put()方法保存数据到缓存的Preferences实例中。在写入数据后，如有需要，可使用flush()方法将Preferences实例的数据存储到持久化文件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/Zc5Azg09QiK7bDl8kpf6ow/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090116Z&HW-CC-Expire=86400&HW-CC-Sign=DC698B9004490505802C68F8D51BC83A3453377781F63B9AFA301F3FA6FFBC9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/Zc5Azg09QiK7bDl8kpf6ow/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111025Z&HW-CC-Expire=86400&HW-CC-Sign=353202161094D3450B55A627ECFD542FE6CD3C0487C8B7BE5FB5B7FB4953DE24)
 
 当对应的键已经存在时，put()方法会覆盖其值。可以使用has()方法检查是否存在对应键值对。
 
@@ -166,7 +166,7 @@ deletePreferences(context: UIAbilityContext, name: String): Unit | 从内存中�
 
 使用deletePreferences()方法从内存中移除指定文件对应的Preferences实例，包括内存中的数据。若该Preference存在对应的持久化文件，则同时删除该持久化文件，包括指定文件及其备份文件、损坏文件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/_vBjIUfWRoisFDDyIkC-Ng/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090116Z&HW-CC-Expire=86400&HW-CC-Sign=88480DFC56ED4CA337145CC285A41C4016896C64ED299FCEB65C95B4775A0A00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/_vBjIUfWRoisFDDyIkC-Ng/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111025Z&HW-CC-Expire=86400&HW-CC-Sign=EE21454C51DA48AC7BFE7CA38DE2C27369470524D69C150776ED0735FABAC0EC)
 
      * 调用该接口后，应用不允许再使用该Preferences实例进行数据操作，否则会出现数据一致性问题。
      * 成功删除后，数据及文件将不可恢复。

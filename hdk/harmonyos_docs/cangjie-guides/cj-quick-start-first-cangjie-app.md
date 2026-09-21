@@ -7,7 +7,7 @@ nodePath: 基础入门 / 快速入门 / 构建第一个HarmonyOS应用（仓颉�
 
 # 构建第一个HarmonyOS应用（仓颉）
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/2eiuwHLNRB2Ero6rmtV5zQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084855Z&HW-CC-Expire=86400&HW-CC-Sign=BCE9CF86FCDC3481459B9EF23279590DA2410B7A24340EE25151D0FFD23B1A7E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/2eiuwHLNRB2Ero6rmtV5zQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111020Z&HW-CC-Expire=86400&HW-CC-Sign=12CE753D67AA064CF2E70C9542759DEF291C3A34AF031B7B920D02664FFC0F49)
 
 为确保运行效果，本文以使用[最新DevEco Studio版本](https://developer.huawei.com/consumer/cn/download/)为例。
 
@@ -17,11 +17,11 @@ nodePath: 基础入门 / 快速入门 / 构建第一个HarmonyOS应用（仓颉�
 
   2. 选择**Application** 应用开发（本文以应用开发为例，仓颉暂不支持元服务开发），选择模板 **[Cangjie] Empty Ability** ，然后单击**Next** 进行下一步配置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/cODLODt9T_-mseN1EArw3w/zh-cn_image_0000002743197505.png?HW-CC-KV=V1&HW-CC-Date=20260921T084855Z&HW-CC-Expire=86400&HW-CC-Sign=8102EBBA2D7012D73104DCB6D21678D64B66551A02FC4B755872D7513C916F42)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/cODLODt9T_-mseN1EArw3w/zh-cn_image_0000002743197505.png?HW-CC-KV=V1&HW-CC-Date=20260921T111020Z&HW-CC-Expire=86400&HW-CC-Sign=4CA41632B1009E8FD0063BFBFF506209B02ED447ADE625959BBB6852A4A1146B)
 
   3. 进入配置工程界面，可以修改工程名称和存储路径等工程的基本信息，也可以保持默认设置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/6j40fJanTaeluDgGLsotcQ/zh-cn_image_0000002713398624.png?HW-CC-KV=V1&HW-CC-Date=20260921T084855Z&HW-CC-Expire=86400&HW-CC-Sign=A6828CE4D2DD49F790C1F9F52E3EC0C6DAB2BBD354BE43D6CC87AB158B382365)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/6j40fJanTaeluDgGLsotcQ/zh-cn_image_0000002713398624.png?HW-CC-KV=V1&HW-CC-Date=20260921T111020Z&HW-CC-Expire=86400&HW-CC-Sign=31BA72BB43DC1520528E10794C9D7B24A8CB2DC2E315A660486DF88EA6616A1F)
 
   4. 单击 **Finish** ，完成工程创建，工具会自动生成基础示例代码和相关资源。
 
@@ -322,11 +322,11 @@ nodePath: 基础入门 / 快速入门 / 构建第一个HarmonyOS应用（仓颉�
 
   2. 真机连接成功后，进入**File > Project Structure > Project > Signing Configs**界面勾选**Automatically generate signature** ，单击界面提示的**Sign In** ，使用用户账号登录。等待自动签名完成后，单击**OK** 即可。如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/rCyVZzJQT5u46Vit8KUMHA/zh-cn_image_0000002743077555.png?HW-CC-KV=V1&HW-CC-Date=20260921T084855Z&HW-CC-Expire=86400&HW-CC-Sign=9DFF86D82EB8E42AA994851D2E95A0D2F3DBCD8462EED71F581C7D7E4C4E8E78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/rCyVZzJQT5u46Vit8KUMHA/zh-cn_image_0000002743077555.png?HW-CC-KV=V1&HW-CC-Date=20260921T111020Z&HW-CC-Expire=86400&HW-CC-Sign=65F0D0BACD1C89C51E9FF1C3202C4C83D1BFD338084B1160516484CE97569251)
 
-  3. 在编辑窗口右上角的工具栏，单击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/Kqia7khzQYGtYspMrNMl1A/zh-cn_image_0000002713558594.png?HW-CC-KV=V1&HW-CC-Date=20260921T084855Z&HW-CC-Expire=86400&HW-CC-Sign=0BA259CD9E7EACBD1673A4AF19DE0D43513B202DF02A054016883E3C64166F96)按钮运行。效果如下图所示：
+  3. 在编辑窗口右上角的工具栏，单击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/Kqia7khzQYGtYspMrNMl1A/zh-cn_image_0000002713558594.png?HW-CC-KV=V1&HW-CC-Date=20260921T111020Z&HW-CC-Expire=86400&HW-CC-Sign=D7A9074BE59A5EFACA5B1985CED2F466C49696341FC353D363564F9599D790B2)按钮运行。效果如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/-YGiBHyVTcenIYM6aGJJhw/zh-cn_image_0000002713558592.png?HW-CC-KV=V1&HW-CC-Date=20260921T084855Z&HW-CC-Expire=86400&HW-CC-Sign=0CC384EE7827B6CFAB14848CC30CB07966ABE6844408C56750A719B827A1DC31)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/-YGiBHyVTcenIYM6aGJJhw/zh-cn_image_0000002713558592.png?HW-CC-KV=V1&HW-CC-Date=20260921T111020Z&HW-CC-Expire=86400&HW-CC-Sign=1F0A302DBEB235049198A861526D034281E3FDC40F9C2887DF2A77909FFE39D9)
 
 
 
@@ -346,7 +346,7 @@ nodePath: 基础入门 / 快速入门 / 构建第一个HarmonyOS应用（仓颉�
            }
          }
 
-  3. 在编辑窗口右上角的工具栏，单击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/Pdf-H4uWSwmW09UkTQVF-A/zh-cn_image_0000002713558594.png?HW-CC-KV=V1&HW-CC-Date=20260921T084855Z&HW-CC-Expire=86400&HW-CC-Sign=96A8B7FBB105D31D7AC2E516C1B66AD7176BA32738D7A2D289110142842AA1E7)按钮运行。效果同使用真机运行。
+  3. 在编辑窗口右上角的工具栏，单击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/Pdf-H4uWSwmW09UkTQVF-A/zh-cn_image_0000002713558594.png?HW-CC-KV=V1&HW-CC-Date=20260921T111020Z&HW-CC-Expire=86400&HW-CC-Sign=103823283A20AD42376509CB2ADBBDF35D334A3D6FF95E12125A07780358E101)按钮运行。效果同使用真机运行。
 
 
 
@@ -359,22 +359,22 @@ nodePath: 基础入门 / 快速入门 / 构建第一个HarmonyOS应用（仓颉�
 
 仓颉入门示例，通过点击按键实现页面跳转。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/fFx_x0RtRfqBV_l4pp_7Og/zh-cn_image_0000002743197507.png?HW-CC-KV=V1&HW-CC-Date=20260921T084855Z&HW-CC-Expire=86400&HW-CC-Sign=86454C9A29C358B7892F39CA6BE77F889EFF96BA7B67D9338206AEDF25294AC8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/fFx_x0RtRfqBV_l4pp_7Og/zh-cn_image_0000002743197507.png?HW-CC-KV=V1&HW-CC-Date=20260921T111020Z&HW-CC-Expire=86400&HW-CC-Sign=3431CAC61C7FE7CEDCBF29E0CCDEE710B91B5BF1452A2894459EC55BFB3CC488)
 
-点击下载[仓颉入门示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260904161230.15805417614024869974875091906102:20260922164855:2800:1FBC0440374A3C2C6182B601E6CA00D496A3C956DED0ED9708BDE2733B1167F3.zip?needInitFileName=true)。
+点击下载[仓颉入门示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260904161230.15805417614024869974875091906102:20260922191020:2800:1DCCF0A8E8A968FD371ECE1F07C5B4A08F4CFF72EEF6823DB13CEC5F0CF023A3.zip?needInitFileName=true)。
 
 #### [h2]示例2
 
 造字的仓颉示例，通过滑动生成随机文字。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/VYRgxbnETYyN3t5HGYedtg/zh-cn_image_0000002713398626.png?HW-CC-KV=V1&HW-CC-Date=20260921T084855Z&HW-CC-Expire=86400&HW-CC-Sign=702D3A52EE894BEA924180484F32F37DAD77AAF927D72DBBC9F79C2631D050E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/VYRgxbnETYyN3t5HGYedtg/zh-cn_image_0000002713398626.png?HW-CC-KV=V1&HW-CC-Date=20260921T111020Z&HW-CC-Expire=86400&HW-CC-Sign=C8C96D326607FBDFB548257D9567829EC93E2DB1F8F27086394A077E505C1597)
 
-点击下载[造字的仓颉示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260904161230.99243464316560391513503652861660:20260922164855:2800:7989FC5A963A037F0AA1E6687778449CFFACE623E542736191784C42C6116BA7.zip?needInitFileName=true)。
+点击下载[造字的仓颉示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260904161230.99243464316560391513503652861660:20260922191020:2800:1F8FCEA6649FE29AF2232353406F259429FC75E2EED0814C316357E56377FFB1.zip?needInitFileName=true)。
 
 #### [h2]示例3
 
 仓颉魔方示例，综合应用仓颉语言的基础特性，实现三阶魔方的 Model、View 和 Controller，可以在控制台中模拟魔方操作，并验证魔方相关的数学规律。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/mV4u9lNzQtqmnAaQ4tj2qg/zh-cn_image_0000002743077557.png?HW-CC-KV=V1&HW-CC-Date=20260921T084855Z&HW-CC-Expire=86400&HW-CC-Sign=AC0FD1D67CB7C9BEB41F1EDBD58AF60389FCB2F580614FDF1D39462534687F36)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/mV4u9lNzQtqmnAaQ4tj2qg/zh-cn_image_0000002743077557.png?HW-CC-KV=V1&HW-CC-Date=20260921T111020Z&HW-CC-Expire=86400&HW-CC-Sign=93B42A69357CAC77BB90F72641B8D4A4F4ED1EE57898AB9C1788A4ADC35C5C5C)
 
-点击下载[仓颉魔方示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260904161230.03453130328758083556320422772710:20260922164855:2800:2D49308406032BE24198B85923993A7D765F9ACC427F2E06961EC39A4468E983.zip?needInitFileName=true)。
+点击下载[仓颉魔方示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260904161230.03453130328758083556320422772710:20260922191020:2800:7BBE03F66712913B2B0BBD8D682358FB539EB743338BFE24A55F2973DB03F53A.zip?needInitFileName=true)。

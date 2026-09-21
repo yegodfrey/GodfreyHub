@@ -29,7 +29,7 @@ ArkUI的UI开发模式就属于MVVM模式，通过对MVVM概念的基本介绍�
 
 ArkUI的UI开发模式即是MVVM模式，而状态变量在MVVM模式中扮演着ViewModel的角色，向上刷新UI，向下更新数据，整体框架如下图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/CZ9ksW1IQE66SADPmgcrsQ/zh-cn_image_0000002713558616.png?HW-CC-KV=V1&HW-CC-Date=20260908T090117Z&HW-CC-Expire=86400&HW-CC-Sign=9D95D0971E8E3FF8D23959A3C33BA6495719DEF538A883466D92FADDC3DCE53B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/CZ9ksW1IQE66SADPmgcrsQ/zh-cn_image_0000002713558616.png?HW-CC-KV=V1&HW-CC-Date=20260921T111026Z&HW-CC-Expire=86400&HW-CC-Sign=5DB29863F6F8CDCD447CCCB8DD88A6C95C552BDBF037892FCBFB2E75AD2C18E9)
 
 #### [h2]view层
 
@@ -150,7 +150,7 @@ Model层是应用的原始数据提供者。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/BPBOp5fPTK6g08MUDS_Gkw/zh-cn_image_0000002743197529.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090117Z&HW-CC-Expire=86400&HW-CC-Sign=13484A418384908EFF1AC6D591A5EDAB394BEF7B8001132FC8994294BCCF144B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/BPBOp5fPTK6g08MUDS_Gkw/zh-cn_image_0000002743197529.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111026Z&HW-CC-Expire=86400&HW-CC-Sign=CB403310E084FB0C0792CA3C9EC4518E28520BECA126CE666837B7A0FBDA6766)
 
 #### [h2]@Prop、@Link的作用
 
@@ -291,7 +291,7 @@ Model层是应用的原始数据提供者。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/R7FgWtUDSn21Ha8k1tjnxg/zh-cn_image_0000002713398648.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090117Z&HW-CC-Expire=86400&HW-CC-Sign=F32C5C14FA98E28CB0145E395182374888A94730960CAD8646508F5C8913A25E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/R7FgWtUDSn21Ha8k1tjnxg/zh-cn_image_0000002713398648.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111026Z&HW-CC-Expire=86400&HW-CC-Sign=1668CC861EB3DE4B9779DB1F0C4BCDA5BD240B9F05BDDE904DF5BE4E16D7155E)
 
 #### [h2]循环渲染组件
 
@@ -426,7 +426,7 @@ ForEach使用之后，冗余代码变得更少，并且代码结构更加清晰�
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/yyifp6bbSqmjAXdMJwHrew/zh-cn_image_0000002743077579.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090117Z&HW-CC-Expire=86400&HW-CC-Sign=9DB615FFE4648A46BF577C10B88D1C9DCE56B881B09765507CE93CA360852930)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/yyifp6bbSqmjAXdMJwHrew/zh-cn_image_0000002743077579.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111026Z&HW-CC-Expire=86400&HW-CC-Sign=A7C6DA4BFC98BA9AED7E8AD7121EC899ACCC75419FB256089EE777AD380FF1A4)
 
 #### [h2]Builder方法
 
@@ -567,13 +567,13 @@ Builder方法用于组件内定义方法，可以使得相同代码可以在组�
 
 效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/d4LinkVRQB-9arNNrZfYjg/zh-cn_image_0000002713558618.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090117Z&HW-CC-Expire=86400&HW-CC-Sign=16052D0F94466B328422CE6E038441F7ED0B3E7EF399C7338E9FEBEDD7A56FEA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/d4LinkVRQB-9arNNrZfYjg/zh-cn_image_0000002713558618.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111026Z&HW-CC-Expire=86400&HW-CC-Sign=60E8EF029A24E48A07DD6252657E139686A64A4F85330B6CD7B5F7E58225CE18)
 
 #### [h2]总结
 
 通过对代码结构的一步步优化，可以看到@Entry组件作为页面的入口，其build函数应该只需要考虑将需要的组件进行组合，类似于搭积木，将需要的组件搭起来。被page调用的子组件则类似积木，等着被需要的page进行调用。状态变量类似于粘合剂，当触发UI刷新事件时，状态变量能自动完成对应绑定的组件的刷新，从而实现page的按需刷新。
 
-虽然现有的架构并未使用到MVVM的设计理念，但是MVVM的核心理念已经呼之欲出，这也是为什么说ArkUI的UI开发天生属于MVVM模式，page和组件就是View层，page负责搭积木，组件就是积木被page组织；组件需要刷新，通过状态变量驱动组件刷新从而更新page；ViewModel的数据需要有来源，这就是Model层来源。
+虽然现有的架构并未使用到MVVM的设计理念，但是MVVM的核心理念已经呼之欲出，这也是为什么说ArkUI的UI开发天生属于MVVM模式，page和组件就是View层，page负责搭积木，组件就是积木被page组织；组件需要刷新，通过状态变��驱动组件刷新从而更新page；ViewModel的数据需要有来源，这就是Model层来源。
 
 示例中的代码功能还是比较简单的，但是已经感觉到功能越来越多的情况下，主page的代码越来越多，当备忘录需要添加的功能越来越多时，其他的page也需要使用到主page的组件时，应该如何去组织项目结构呢，MVVM模式是组织的首选。
 
@@ -589,7 +589,7 @@ model层存放本应用核心数据结构，这层本身和UI开发关系不大�
 
 **ViewModel层**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/3EoFz2lgTi-FUnMJqQqZdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090117Z&HW-CC-Expire=86400&HW-CC-Sign=DB02624FBCC003C14A740E1BE0E248448C1500886A879FA5B2F3A41C6D5BFA1D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/3EoFz2lgTi-FUnMJqQqZdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T111026Z&HW-CC-Expire=86400&HW-CC-Sign=475084B1D4621C390F392AD85ECC6EDA8F8CBA3537E472D64387ADB3DFB36AB1)
 
 ViewModel层不只是存放数据，他同时需要提供数据的服务及处理，因此很多框架会以“service”来进行表达此层。
 
@@ -915,4 +915,4 @@ View层根据需要来组织，但View层需要区分以下三种组件：
 
 效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/tGxb6ppKSN-OkN0ef-IwXw/zh-cn_image_0000002743197531.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090117Z&HW-CC-Expire=86400&HW-CC-Sign=24B64517A6BC8E147A1AC33BEDB3F17B4FC2DDB41658E1DB2E8039AE51B13FFC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/tGxb6ppKSN-OkN0ef-IwXw/zh-cn_image_0000002743197531.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111026Z&HW-CC-Expire=86400&HW-CC-Sign=F4CBEF67A61E658F3A8423BD1186F3E730C0A9287EEBC71CD67E0876066E2AB3)
