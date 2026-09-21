@@ -294,7 +294,10 @@ function contrastProbeCheck(image: PNG, layout: any, rule: any): string | null {
 }
 
 /**
- * C09 暗色非空渲染探针：暗色变体必须真的是暗色、有渲染内容、且没有大面积纯白异常块。
+ * C09 暗色非空渲染探针（已退役的主题轴断言，见 GFSoftware visual-spec.schema.json 的
+ * darkRenderProbes 注记）：暗色变体必须真的是暗色、有渲染内容、且没有大面积纯白异常块。
+ * 整屏取样、不锚定、不与浅色捕获成对——结构上不可能失败，因此不再被任何维度消费；
+ * 主题轴证据由 themeDeltaCheck（themeDeltas）承载。
  */
 function darkRenderProbeCheck(image: PNG, rule: any): string | null {
   const maxDarkMedianLuma = Number(rule.maxDarkMedianLuma ?? 0.2);
@@ -316,6 +319,93 @@ function darkRenderProbeCheck(image: PNG, rule: any): string | null {
   const pureWhite = lumas.filter((luma) => luma > pureWhiteLuma).length / lumas.length;
   if (pureWhite > maxPureWhiteFraction) {
     return `${(pureWhite * 100).toFixed(2)}% of pixels are near-white (limit ${maxPureWhiteFraction * 100}%); check the dark variant`;
+  }
+  return null;
+}
+
+/** 锚点界框内按 sample 比例取圆盘区域的中位色（与 colorDominanceCheck 同一采样语义）。 */
+function medianColorAt(image: PNG, bounds: Bounds, sample: any): Pixel {
+  const width = bounds.right - bounds.left;
+  const height = bounds.bottom - bounds.top;
+  const xRatio = Math.max(0, Math.min(1, Number(sample?.xRatio ?? 0.5)));
+  const yRatio = Math.max(0, Math.min(1, Number(sample?.yRatio ?? 0.5)));
+  const radius = Math.max(1, Math.min(width, height) * Number(sample?.radiusRatio ?? 0.04));
+  const centerX = bounds.left + width * xRatio, centerY = bounds.top + height * yRatio;
+  const samples: Pixel[] = [];
+  for (let y = Math.max(0, Math.floor(centerY - radius));
+    y <= Math.min(image.height - 1, Math.ceil(centerY + radius)); y++) {
+    for (let x = Math.max(0, Math.floor(centerX - radius));
+      x <= Math.min(image.height - 1, Math.ceil(centerX + radius)); x++) {
+      samples.push(pixelAt(image, x, y));
+    }
+  }
+  return medianPixel(samples);
+}
+
+/**
+ * C09 主题位移判定（themeDeltas，主题轴证据的唯一承载）：
+ * 锚定成对的浅色/深色采样对——同一锚点在深色变体帧与同场浅色基线帧上各取中位色，
+ * 判据是两帧之间的**位移量**（可反驳：两帧一致即红），不是绝对阈值。
+ *
+ * 阈值策略：比较器带文档化默认值，spec 可逐对覆盖。
+ *   - minMedianLumaShift 默认 0.06（线性 luma）。依据家族现有像素容差惯例：与退役探针
+ *     darkRenderProbeCheck.contentLumaDelta 的默认（0.06，"内容检出"级，同一线性域）同源，
+ *     对应 sRGB 中灰域约 15-20 个通道级，与描边检出 roundedOutlineCheck.minStrokeDelta
+ *     默认（12）同一量级——低于这个幅度的"位移"分不清是主题翻转还是采样噪声。
+ *   - maxChannelDelta 默认不启用（undefined）：深浅两侧走不同色板 token 的合法翻色
+ *     （如强调色换轴）逐通道位移可以很大；上限是可选的采样有效性加强，由 spec 声明。
+ */
+function themeDeltaCheck(variant: PNG, baseline: PNG, variantLayout: any, baselineLayout: any,
+  rule: any): string | null {
+  const match = rule?.match ?? {};
+  const nodeId = String(match.id ?? "");
+  const variantNode = findLayoutNode(variantLayout, nodeId, match.exact !== false);
+  if (!variantNode) return "semantic node is missing or not unique: " + nodeId;
+  const variantBounds = parseBounds(variantNode?.attributes?.bounds ?? variantNode?.bounds);
+  if (!variantBounds) return "semantic node has invalid bounds: " + nodeId;
+
+  // 浅色基线的锚点定位：基线布局树在场就分别定位（锚点两侧各用自己的几何），
+  // 缺席则复用变体 bounds——那是 spec 声明 structuralEquivalentTo.geometryInvariant
+  // 时由结构差分另行背书的前提，这里不重复强制。
+  let baselineBounds = variantBounds;
+  if (baselineLayout) {
+    const baselineNode = findLayoutNode(baselineLayout, nodeId, match.exact !== false);
+    if (!baselineNode) {
+      return `theme anchor '${nodeId}' is missing or not unique in the baseline layout`;
+    }
+    const parsed = parseBounds(baselineNode?.attributes?.bounds ?? baselineNode?.bounds);
+    if (!parsed) return `theme anchor '${nodeId}' has invalid bounds in the baseline layout`;
+    baselineBounds = parsed;
+  }
+
+  const sample = rule?.sample ?? {};
+  const variantColor = medianColorAt(variant, variantBounds, sample);
+  const baselineColor = medianColorAt(baseline, baselineBounds, sample);
+
+  const minShift = Number(rule.minMedianLumaShift ?? 0.06);
+  const variantLuma = linearizedLuma(variantColor);
+  const baselineLuma = linearizedLuma(baselineColor);
+  const shift = Math.abs(variantLuma - baselineLuma);
+  if (shift < minShift) {
+    return `theme shift ${shift.toFixed(4)} is below the required ${minShift} ` +
+      `(variant rgb ${variantColor.r},${variantColor.g},${variantColor.b} vs baseline rgb ` +
+      `${baselineColor.r},${baselineColor.g},${baselineColor.b}) — the theme axis did not move this anchor`;
+  }
+  const maxChannelDelta = rule.maxChannelDelta;
+  if (maxChannelDelta !== undefined && maxChannelDelta !== null) {
+    const cap = Number(maxChannelDelta);
+    const deltas: [string, number][] = [
+      ["red", Math.abs(variantColor.r - baselineColor.r)],
+      ["green", Math.abs(variantColor.g - baselineColor.g)],
+      ["blue", Math.abs(variantColor.b - baselineColor.b)],
+    ];
+    for (const [channel, delta] of deltas) {
+      if (delta > cap) {
+        return `channel delta ${delta} on ${channel} exceeds the sampling cap ${cap} ` +
+          `(variant rgb ${variantColor.r},${variantColor.g},${variantColor.b} vs baseline rgb ` +
+          `${baselineColor.r},${baselineColor.g},${baselineColor.b}) — the anchored area is not the same content`;
+      }
+    }
   }
   return null;
 }
@@ -394,6 +484,12 @@ export function compareVisualSpec(opts: {
   structuralBaselineSpecPath?: string;
   structuralBaselineLayoutPath?: string;
   structuralDensityPixels?: number;
+  /**
+   * 主题位移判定: spec 声明 themeDeltas 时由调用方提供**同场已捕获的浅色基线帧**
+   * （comparedTo 指向的那个检查点的 actual.png）。声明了配对却拿不到对方是编排缺口,
+   * 以 theme-baseline-missing 显式红 —— 绝不静默退化成"只看深色帧自己"。
+   */
+  themeBaselineActualPath?: string;
 }): VisualCompareResult {
   const specPath = path.resolve(opts.specPath);
   const actualPath = path.resolve(opts.actualPath);
@@ -421,10 +517,12 @@ export function compareVisualSpec(opts: {
   const colorProbeRules = Array.isArray(spec.colorProbes) ? spec.colorProbes : [];
   const contrastProbeRules = Array.isArray(spec.contrastProbes) ? spec.contrastProbes : [];
   const darkRenderRules = Array.isArray(spec.darkRenderProbes) ? spec.darkRenderProbes : [];
+  const themeDeltaRules = Array.isArray(spec.themeDeltas) ? spec.themeDeltas : [];
   const containmentRules = Array.isArray(spec.layoutContainments) ? spec.layoutContainments : [];
   const separationRules = Array.isArray(spec.layoutSeparations) ? spec.layoutSeparations : [];
   const needsLayout = roundedRules.length > 0 || roundedOutlineRules.length > 0 ||
     colorProbeRules.length > 0 || contrastProbeRules.length > 0 ||
+    themeDeltaRules.length > 0 ||
     containmentRules.length > 0 || separationRules.length > 0;
   if (needsLayout && !opts.layoutPath) {
     throw new Error("rendered shape, color, and layout checks require layoutPath");
@@ -454,6 +552,27 @@ export function compareVisualSpec(opts: {
     checks++;
     const message = darkRenderProbeCheck(actual, rule);
     if (message) issues.push({ id: String(rule.id ?? "dark-render-probe"), message });
+  }
+  // 主题位移判定（themeDeltas）：同场浅色基线帧必须由调用方提供。声明了成对却拿不到
+  // 基线捕获是编排缺口 —— 显式 theme-baseline-missing 红，与 structural-baseline-missing
+  // 同一条纪律；基线布局树若随结构性差分一起提供了，浅色锚点就按它自己的几何定位。
+  if (themeDeltaRules.length > 0) {
+    if (!opts.themeBaselineActualPath) {
+      checks += themeDeltaRules.length;
+      issues.push({ id: "theme-baseline-missing",
+        message: `spec declares ${themeDeltaRules.length} themeDeltas pair(s) but this run provided no ` +
+          "same-campaign light capture (--baseline-actual); paired theme evidence cannot be judged" });
+    } else {
+      const baselinePng = PNG.sync.read(fs.readFileSync(path.resolve(opts.themeBaselineActualPath)));
+      const baselineLayout = opts.structuralBaselineLayoutPath
+        ? readJson(path.resolve(opts.structuralBaselineLayoutPath))
+        : null;
+      for (const rule of themeDeltaRules) {
+        checks++;
+        const message = themeDeltaCheck(actual, baselinePng, layout!, baselineLayout, rule);
+        if (message) issues.push({ id: String(rule.id ?? "theme-delta"), message });
+      }
+    }
   }
   for (const rule of containmentRules) {
     checks++;

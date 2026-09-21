@@ -341,3 +341,98 @@ test("dark render probes accept dark content and reject void or white-flash rend
   assert.equal(white.status, "failed");
   assert.match(white.issues[0].message, /median luma|near-white/);
 });
+
+// —— themeDeltas：主题位移判定（C09 的新牙，§E-7 时序门的生产侧）——
+//
+// 判据是"位移量"而不是绝对阈值：同一锚点在深色变体帧与同场浅色基线帧上各取中位色，
+// 两帧一致（主题轴没动）必须红。变异样本按四个失败口各钉一条：位移不足、通道超限、
+// 基线缺席（编排红）、锚点缺失（声明错误）。
+function writeThemePng(file, surfaceRgb) {
+  const image = new PNG({ width: 80, height: 50 });
+  for (let y = 0; y < image.height; y++) {
+    for (let x = 0; x < image.width; x++) {
+      const i = (y * image.width + x) * 4;
+      const insideBox = x >= 10 && x < 70 && y >= 10 && y < 40;
+      const [r, g, b] = insideBox ? surfaceRgb : [128, 128, 128];
+      image.data[i] = r;
+      image.data[i + 1] = g;
+      image.data[i + 2] = b;
+      image.data[i + 3] = 255;
+    }
+  }
+  fs.writeFileSync(file, PNG.sync.write(image));
+}
+
+function themeFixture(variantRgb, baselineRgb, themeDeltas) {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-theme-"));
+  const actual = path.join(root, "actual.png");
+  const baseline = path.join(root, "baseline.png");
+  const layout = path.join(root, "layout.json");
+  const spec = path.join(root, "spec.json");
+  writeThemePng(actual, variantRgb);
+  writeThemePng(baseline, baselineRgb);
+  fs.writeFileSync(layout, JSON.stringify({
+    attributes: { id: "root", bounds: "[0,0][80,50]" },
+    children: [{ attributes: { id: "quiz.statistics.scope", bounds: "[10,10][70,40]" }, children: [] }],
+  }));
+  fs.writeFileSync(spec, JSON.stringify({ schemaVersion: 1, themeDeltas }));
+  return { root, actual, baseline, layout, spec };
+}
+
+const anchoredPair = (extra = {}) => [{
+  id: "theme-shift", match: { id: "quiz.statistics.scope", exact: true },
+  comparedTo: "quiz-statistics", ...extra,
+}];
+
+test("theme delta accepts an anchored pair whose luma moved at least the documented default", () => {
+  const f = themeFixture([30, 80, 140], [240, 240, 240], anchoredPair());
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
+    themeBaselineActualPath: f.baseline,
+  });
+  assert.equal(result.status, "passed", JSON.stringify(result.issues));
+});
+
+test("theme delta rejects a variant whose anchor did not move against the light capture", () => {
+  // 深色帧与浅色帧完全一致 = 主题轴没动这一锚点 = 正是"浅色注入下拍深色检查点"的假绿形态。
+  const f = themeFixture([240, 240, 240], [240, 240, 240], anchoredPair());
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
+    themeBaselineActualPath: f.baseline,
+  });
+  assert.equal(result.status, "failed");
+  assert.match(result.issues[0].message, /theme shift .* below the required/);
+});
+
+test("theme delta honors a per-pair maxChannelDelta sampling cap", () => {
+  // 位移下限满足（luma 动了），但红绿通道差超过声明上限 = 锚点两侧不是同一内容在翻色。
+  const f = themeFixture([30, 80, 140], [240, 240, 240],
+    anchoredPair({ minMedianLumaShift: 0.01, maxChannelDelta: 100 }));
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
+    themeBaselineActualPath: f.baseline,
+  });
+  assert.equal(result.status, "failed");
+  assert.match(result.issues[0].message, /exceeds the sampling cap/);
+});
+
+test("theme deltas without a same-campaign light capture fail as theme-baseline-missing", () => {
+  const f = themeFixture([30, 80, 140], [240, 240, 240], anchoredPair());
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
+  });
+  assert.equal(result.status, "failed");
+  assert.deepEqual(result.issues.map((issue) => issue.id), ["theme-baseline-missing"]);
+  assert.equal(result.summary.checks, 1, "声明的每一条配对都占一个检查位");
+});
+
+test("theme delta rejects a declared anchor that is missing from the layout", () => {
+  const f = themeFixture([30, 80, 140], [240, 240, 240],
+    anchoredPair().map((rule) => ({ ...rule, match: { id: "quiz.statistics.missing", exact: true } })));
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
+    themeBaselineActualPath: f.baseline,
+  });
+  assert.equal(result.status, "failed");
+  assert.match(result.issues[0].message, /semantic node is missing or not unique/);
+});

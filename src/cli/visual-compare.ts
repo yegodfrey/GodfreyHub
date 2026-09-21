@@ -22,6 +22,10 @@ try {
     structuralDensityPixels: value("--density", false)
       ? Number(value("--density", false))
       : undefined,
+    // 主题位移判定(可选): spec 声明 themeDeltas 时由编排方提供同场浅色基线帧
+    // (comparedTo 指向的检查点的 actual.png)。缺席时比较器出 theme-baseline-missing 红,
+    // 不会静默退化成只看深色帧自己(README §主题轴的证据必须是差分)。
+    themeBaselineActualPath: value("--baseline-actual", false),
   });
   process.stdout.write(JSON.stringify(result) + "\n");
   if (result.status !== "passed") process.exitCode = 2;
