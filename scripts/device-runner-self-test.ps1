@@ -834,6 +834,86 @@ try {
     } finally {
         Set-Item -LiteralPath function:\Invoke-GfHdcChecked -Value $gfHdcCheckedOriginal
     }
+
+    # ---- duplicate marker arrival adjudication (first-marker-wins made deterministic) ----
+    # GFVisualCheckpoint 的宿主侧裁定：同名检查点被两个类各自到达时，sweep 只把首捕获入账
+    # （判定消费面不变），但每次重复到达必须落 duplicate-marker 哨兵，并把重复到达声明的
+    # 锚集与首捕获登记的锚集对账——锚集一致（集合比较，与到达顺序无关）放行；互异则记
+    # sourceConflict，由判定相显式判红。三个形状在这里全部钉住：一致放行 / 互异定冲突 /
+    # 到达顺序翻转结论不变。
+    $script:GfDuplicateMarkerName = ''
+    $script:GfDuplicateMarkerAnchors = @()
+    function Invoke-GfDuplicateMarkerHilog {
+        param([Parameter(ValueFromRemainingArguments = $true)][object[]]$Arguments)
+        $anchors = (@($script:GfDuplicateMarkerAnchors | ForEach-Object { '"' + $_ + '"' }) -join ',')
+        Write-Output ('[GFVISUAL_CHECKPOINT] {"name":"' + $script:GfDuplicateMarkerName +
+            '","anchors":[' + $anchors + ']}')
+    }
+    function Invoke-GfDuplicateMarkerHdcChecked {
+        param([Parameter(ValueFromRemainingArguments = $true)][object[]]$Arguments)
+        $joined = ($Arguments | ForEach-Object { [string]$_ }) -join ' '
+        $global:LASTEXITCODE = 0
+        if ($joined -match 'file recv (\S+) (\S+)') {
+            $target = $Matches[2]
+            [IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($target)) | Out-Null
+            if ($target -match '\.json$') {
+                [IO.File]::WriteAllText($target, '{"elements":[{"id":"anchor-a"}]}')
+            } else {
+                [IO.File]::WriteAllText($target, 'synthetic-png-bytes')
+            }
+        }
+        return @('ok')
+    }
+    function Invoke-GfDuplicateMarkerCase {
+        param([string]$CaseName, [string[]]$FirstAnchors, [string[]]$SecondAnchors)
+        $captures = @{}
+        $sink = [Collections.Generic.List[string]]::new()
+        $script:GfDuplicateMarkerName = $CaseName
+        $script:GfDuplicateMarkerAnchors = @($FirstAnchors)
+        Invoke-GfVisualMarkerSweep -Hdc 'Invoke-GfDuplicateMarkerHilog' -Serial $device.Serial `
+            -ArtifactDir (Join-Path $tempRoot ("duplicate-" + $CaseName)) -Captures $captures -Sink $sink
+        $script:GfDuplicateMarkerAnchors = @($SecondAnchors)
+        Invoke-GfVisualMarkerSweep -Hdc 'Invoke-GfDuplicateMarkerHilog' -Serial $device.Serial `
+            -ArtifactDir (Join-Path $tempRoot ("duplicate-" + $CaseName)) -Captures $captures -Sink $sink
+        return [pscustomobject]@{
+            Capture = $captures[$CaseName]
+            Sink = ($sink -join "`n")
+        }
+    }
+    $gfCheckedForDuplicate = (Get-Item -LiteralPath function:\Invoke-GfHdcChecked).ScriptBlock
+    try {
+        Set-Item -LiteralPath function:\Invoke-GfHdcChecked `
+            -Value (Get-Item -LiteralPath function:\Invoke-GfDuplicateMarkerHdcChecked).ScriptBlock
+
+        # 0) Two arrivals declaring the same anchor set (order shuffled): the first capture
+        #    stands, the arrival is observable, and no conflict is recorded.
+        $agreeing = Invoke-GfDuplicateMarkerCase -CaseName 'dup-agree' `
+            -FirstAnchors @('anchor-a', 'anchor-b') -SecondAnchors @('anchor-b', 'anchor-a')
+        Assert-GfSelfTest ([int]$agreeing.Capture.markerArrivals -eq 2) `
+            'a second marker arrival must be counted on the banked capture.'
+        Assert-GfSelfTest ([string]$agreeing.Capture.sourceConflict -eq '') `
+            'two arrivals with the same anchor set must not be judged a source conflict.'
+        Assert-GfSelfTest ($agreeing.Sink -match 'duplicate-marker dup-agree' -and
+            $agreeing.Sink -notmatch 'duplicate-marker-conflict') `
+            'a repeated arrival must leave a duplicate-marker sentinel in the sweep log.'
+
+        # 1) Divergent anchor sets: the banked capture cannot be attributed, in either order.
+        $conflictAB = Invoke-GfDuplicateMarkerCase -CaseName 'dup-conflict-ab' `
+            -FirstAnchors @('anchor-a', 'anchor-b') -SecondAnchors @('anchor-c')
+        $conflictBA = Invoke-GfDuplicateMarkerCase -CaseName 'dup-conflict-ba' `
+            -FirstAnchors @('anchor-c') -SecondAnchors @('anchor-a', 'anchor-b')
+        foreach ($conflictCase in @($conflictAB, $conflictBA)) {
+            Assert-GfSelfTest ([string]$conflictCase.Capture.sourceConflict -ne '') `
+                'arrivals declaring divergent anchor sets must record a source conflict.'
+            Assert-GfSelfTest ($conflictCase.Sink -match 'duplicate-marker-conflict') `
+                'a divergent-arrival conflict must be observable in the sweep log.'
+        }
+        Assert-GfSelfTest (($conflictAB.Capture.sourceConflict -match 'anchor-c') -and
+            ($conflictBA.Capture.sourceConflict -match 'anchor-c')) `
+            'the conflict record must name both declared anchor sets regardless of arrival order.'
+    } finally {
+        Set-Item -LiteralPath function:\Invoke-GfHdcChecked -Value $gfCheckedForDuplicate
+    }
 } finally {
     if ((Test-Path -LiteralPath $tempRoot) -and
         $tempRoot.StartsWith($tempBase, [StringComparison]::OrdinalIgnoreCase)) {
@@ -841,4 +921,4 @@ try {
     }
 }
 
-Write-Output 'GfDeviceRunner SelfTest: PASS (inventory pruning + system prerequisites + collection shapes + Instrument visual and infrastructure isolation + prepare-cache reuse gating + single uitest daemon restart recovery).'
+Write-Output 'GfDeviceRunner SelfTest: PASS (inventory pruning + system prerequisites + collection shapes + Instrument visual and infrastructure isolation + prepare-cache reuse gating + single uitest daemon restart recovery + duplicate marker adjudication).'

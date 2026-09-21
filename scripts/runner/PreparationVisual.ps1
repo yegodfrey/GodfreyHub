@@ -221,7 +221,39 @@ function Invoke-GfVisualMarkerSweep {
         try { $parsed = $text.Substring($idx + $markerPrefix.Length).Trim() | ConvertFrom-Json } catch { continue }
         if ($null -eq $parsed) { continue }
         $name = [string]$parsed.name
-        if ([string]::IsNullOrWhiteSpace($name) -or $Captures.Contains($name)) { continue }
+        if ([string]::IsNullOrWhiteSpace($name)) { continue }
+        if ($Captures.Contains($name)) {
+            # first-marker-wins 的确定性化（2026-09-21 接线）：同名 marker 的后续到达不再静默
+            # 丢弃。首捕获照旧入账（判定消费面 $Captures[$name] 单份不变），但每次重复到达都
+            # 落 duplicate-marker 哨兵，并把重复到达声明的锚集与首捕获登记的锚集对账——两个
+            # 发射点声明的锚一致（同一检查点被重复发射同一态）则放行，捕获语义与到达顺序无关；
+            # 锚集互异（Quiz-settings-dark 实证形状：matrix 版等 range 锚、variants 版只等 scope
+            # 锚）则"入账帧来自哪个源"不可证明，在 capture 上记 sourceConflict，由判定相显式
+            # 判红。裁决本身是集合比较（全序、对称），先到谁后到谁不改变结论——顺序翻转结果
+            # 不变。属性一律索引器读、Add-Member -Force 写：StrictMode 下缺属性访问是抛的，
+            # 而"想补一句实话"绝不该把 sweep 打死。
+            $capture = $Captures[$name]
+            $arrivalAnchors = @(@($parsed.anchors) | ForEach-Object { [string]$_ } | Sort-Object)
+            $arrivalsProperty = $capture.PSObject.Properties['markerArrivals']
+            $arrivals = if ($null -ne $arrivalsProperty) { [int]$arrivalsProperty.Value + 1 } else { 2 }
+            $capture | Add-Member -MemberType NoteProperty -Name markerArrivals -Value $arrivals -Force
+            $Sink.Add("duplicate-marker $name (arrival #$arrivals; anchors [$($arrivalAnchors -join ',')])")
+            if ([string](Get-GfCollectionProperty -InputObject $capture -Name 'sourceConflict') -eq '') {
+                $declaredProperty = $capture.PSObject.Properties['declaredAnchors']
+                if ($null -ne $declaredProperty) {
+                    $declaredAnchors = @($declaredProperty.Value)
+                    if ((@($arrivalAnchors) -join ',') -ne (@($declaredAnchors) -join ',')) {
+                        $conflict = "arrival #$arrivals declares anchors [$($arrivalAnchors -join ',')] " +
+                            "but the first capture recorded [$($declaredAnchors -join ',')]; which emitter " +
+                            'produced the banked capture cannot be proven, so the checkpoint is judged red ' +
+                            'instead of silently keeping the first frame'
+                        $capture | Add-Member -MemberType NoteProperty -Name sourceConflict -Value $conflict -Force
+                        $Sink.Add("duplicate-marker-conflict $name (arrival #$arrivals)")
+                    }
+                }
+            }
+            continue
+        }
         # 官方 uitest CLI 只支持落盘 /data/local/tmp（HDK arkxtest 指南），由 uitest 进程
         # 写入、host 可直接 recv；-a 保留颜色/字号属性，供后续对比度类检查使用。
         $remotePng = "/data/local/tmp/gfvisual/$name.png"
@@ -231,6 +263,12 @@ function Invoke-GfVisualMarkerSweep {
         $capture = [pscustomobject]@{
             name = $name; status = 'captured'; drift = ''; error = ''; daemonRestart = ''
             png = (Join-Path $checkpointDir 'actual.png'); layout = (Join-Path $checkpointDir 'layout.json')
+            # 首捕获登记 marker 声明的锚集（排序后）与到达计数：重复到达时的对账基准
+            # （见上面的 duplicate-marker 分支）。判定只消费 png/layout/status 等既有键，
+            # 多出的登记字段不进任何判定面。
+            declaredAnchors = @(@($parsed.anchors) | ForEach-Object { [string]$_ } | Sort-Object)
+            markerArrivals = 1
+            sourceConflict = ''
         }
         try {
             Invoke-GfHdcChecked $Hdc $Serial @('shell', 'rm', '-f', $remotePng, $remoteJson) `
@@ -426,6 +464,52 @@ function Invoke-GfVisualCheckpoint {
         $providerArguments += @('--baseline-spec', $baselineSpecPath, '--baseline-layout', $baselineLayoutPath)
         if ($DensityPixels -gt 0) {
             $providerArguments += @('--density', "$DensityPixels")
+        }
+    }
+
+    # 主题位移判定（themeDeltas）的配对通路（D-1 牙的编排侧接线，2026-09-21）：spec 声明
+    # themeDeltas 时，从**同一战役**的捕获表里取 comparedTo 指向的浅色基线检查点的 actual
+    # 帧传给比较器（--baseline-actual）。映射不靠 X-dark ↔ X-baseline 命名惯例猜：
+    # themeDelta.comparedTo 是 visual-spec.schema 的必填显式声明，读它就是全部约定。
+    # 配对帧缺席不是错误输入（单套件只跑 dark 轴就是这种形状），此时不传参数，比较器
+    # 以 theme-baseline-missing 显式红收场——绝不静默跳过，也绝不拿跨战役的旧帧顶数
+    # （主题差分吃的是像素证据，陈旧浅色帧会把"同一构建的两帧翻色"变成"两份构建的差"）。
+    if ($null -ne $specJson -and
+        ($specJson.PSObject.Properties.Name -contains 'themeDeltas')) {
+        $themeBaselineNames = @(@($specJson.themeDeltas) |
+            ForEach-Object { [string]$_.PSObject.Properties['comparedTo'].Value } |
+            Where-Object { $_ } | Sort-Object -Unique)
+        if ($themeBaselineNames.Count -ne 1) {
+            throw "GfDeviceRunner: visual checkpoint '$name' declares themeDeltas with " +
+                "$($themeBaselineNames.Count) distinct comparedTo baselines; one checkpoint pairs " +
+                'with exactly one light baseline (declare one comparedTo per spec).'
+        }
+        $themeCapture = $null
+        if ($null -ne $captures -and $captures.Contains($themeBaselineNames[0])) {
+            $themeCapture = $captures[$themeBaselineNames[0]]
+        }
+        $themeBaselinePng = ''
+        if ($null -ne $themeCapture) {
+            $candidate = [string]$themeCapture.png
+            if (-not [string]::IsNullOrWhiteSpace($candidate) -and
+                (Test-Path -LiteralPath $candidate -PathType Leaf)) {
+                $themeBaselinePng = $candidate
+            }
+        }
+        if ($themeBaselinePng -ne '') {
+            $providerArguments += @('--baseline-actual', $themeBaselinePng)
+            # 浅色锚点几何：themeDeltaCheck 读比较器的 structuralBaselineLayoutPath 通道定位
+            # 浅色帧里的锚。若结构差分已经传了 --baseline-layout（comparedTo 通常就是
+            # structuralEquivalentTo.spec 指向的同一基线），不重复传——CLI 按首个出现的参数
+            # 取值，重复传只会让两个消费方读到不可预测的一份。spec 未声明结构差分时传这个
+            # 参数没有副作用：结构检查只由 spec 的 structuralEquivalentTo 声明触发。
+            if (-not (@($providerArguments) -contains '--baseline-layout')) {
+                $themeBaselineLayout = [string]$themeCapture.layout
+                if (-not [string]::IsNullOrWhiteSpace($themeBaselineLayout) -and
+                    (Test-Path -LiteralPath $themeBaselineLayout -PathType Leaf)) {
+                    $providerArguments += @('--baseline-layout', $themeBaselineLayout)
+                }
+            }
         }
     }
 
