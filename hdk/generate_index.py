@@ -36,8 +36,6 @@ def build_for(rootname, root):
         cpath = os.path.join(root, cat)
         if not os.path.isdir(cpath):
             continue
-        if cat in ("_deleted",):
-            continue
         docs = []
         for fn in sorted(os.listdir(cpath)):
             if not fn.endswith(".md"):

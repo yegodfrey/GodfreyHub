@@ -56,9 +56,6 @@ ROOTS = {"harmonyos": ROOT, "cangjie": CANGJIE_ROOT}
 
 # 不进索引的文件：索引产物本身（README/manifest）
 SKIP_FILES = {"README.md", "manifest.json"}
-# 跳过 _deleted 软删除目录
-SKIP_DIRS = {"_deleted"}
-
 FM_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 
 # 索引 schema 版本：FTS 表 tokenizer 与分词管线变更时必须 +1，
@@ -159,12 +156,11 @@ def parse_frontmatter(text):
 
 
 def _iter_md(rootname):
-    """遍历单个根的 .md 文件，yield (abs_fp, rel_to_root)；跳过 _deleted 与索引产物。"""
+    """遍历单个根的 .md 文件，yield (abs_fp, rel_to_root)；跳过索引产物。"""
     root = ROOTS.get(rootname)
     if not root or not os.path.isdir(root):
         return
     for dp, dirs, fs in os.walk(root):
-        dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
         for f in fs:
             if not f.endswith(".md") or f in SKIP_FILES:
                 continue

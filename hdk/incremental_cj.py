@@ -11,7 +11,7 @@
                         比对，仅内容变化时才重写本地文件。
   3. 已删除 (DELETED) —— 已抓文档重抓返回 404（对象存储静态托管，无 SPA
                         fallback，404 即确定下线），单独再查一次二次确认后
-                        软删除到 cangjie_docs/_deleted/（可恢复）。
+                        直接物理删除（用户 2026-09-21：不留旧版本副本）。
 
 状态独立保存在 incremental_cj_state.json（discovered/fetched/hashes/deleted），
 首跑从 crawl_cj_state.json 播种；与 crawl_cj.py 共用 crawl_cj.lock 与网络层。
@@ -39,7 +39,6 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = crawl_cj.OUT
 CRAWL_STATE = crawl_cj.STATE
 INC_STATE = os.path.join(HERE, "incremental_cj_state.json")
-DELETED_DIR = os.path.join(OUT, "_deleted")
 
 NWORK = crawl_cj.NWORK
 MAXQ = crawl_cj.MAXQ
@@ -107,28 +106,21 @@ def sync_crawl_state(disc, fetched):
 
 
 # --------------------------------------------------------------------------- #
-# 删除（软删除，可恢复）
+# 删除（直接物理删除，不留副本；用户 2026-09-21 指令）
 # --------------------------------------------------------------------------- #
-def soft_delete(path, s, fetched, hashes):
+def delete_doc(path, s, fetched, hashes):
     cat, fname = crawl_cj.doc_relpath(path)
     src = os.path.join(OUT, cat, fname)
     if not os.path.exists(src):
         fetched.discard(path)
         hashes.pop(path, None)
         return
-    dst_dir = os.path.join(DELETED_DIR, cat)
-    os.makedirs(dst_dir, exist_ok=True)
-    dst = os.path.join(dst_dir, fname)
-    if os.path.exists(dst):           # 避免同名覆盖，追加时间戳
-        dst = dst + "." + str(int(time.time()))
-    os.rename(src, dst)
+    os.remove(src)
     s["deleted"].append({
         "name": crawl_cj.name_of(path),
-        "file": os.path.relpath(dst, OUT).replace("\\", "/"),
         "at": time.strftime("%Y-%m-%dT%H:%M:%S"),
     })
     fetched.discard(path)
-    hashes.pop(path, None)
 
 
 # --------------------------------------------------------------------------- #
@@ -324,15 +316,15 @@ def _main(no_recheck, skip_delete, limit):
         q.put(None)
     q.join()
 
-    # 二次确认 + 软删除
+    # 二次确认 + 物理删除
     if not no_recheck:
         for p in sorted(delete_candidates):
             if confirm_gone(p):
                 if not skip_delete:
-                    soft_delete(p, s, fetched, hashes)
+                    delete_doc(p, s, fetched, hashes)
                     disc.discard(p)   # 已确认下线的文档移出发现集，避免下轮重复尝试
                 stats["deleted"] += 1
-                tag = "（已移到 _deleted）" if not skip_delete else "（--skip-delete 未删除）"
+                tag = "（已物理删除）" if not skip_delete else "（--skip-delete 未删除）"
                 print(f"[DELETE] {p} {tag}", flush=True)
             else:
                 print(f"[keep] {p} 二次确认仍存在，保留", flush=True)

@@ -4,14 +4,14 @@
 
 历史：原先这里自带一套「QQ 浏览器（qqbrowser-skill.exe）鉴权抓取 + Python 编排」的
 爬虫。该 QQ 传输路径已整体废弃并删除（本机无该 skill）。鉴权抓取的浏览器传输层现由
-`cj_mcp.py` 经 builtin_browser MCP 提供，本模块只保留被其复用的稳定数据层：
+`cj_iab.py`（内置浏览器桥）经本模块落盘，本模块只保留被其复用的稳定数据层：
 
   - 语料常量（OUT / CATALOGS / BASE_URL）与 html2text 配置 H
   - 断点续跑状态 load_state / save_state（走 hdk_io 原子写）
   - 运行锁 acquire_lock / release_lock（cangjie_crawl.lock，与直连进程互斥）
   - write_doc：把官方正文 HTML 转 Markdown 并按 `<catalog>/<objectId>.md` 落盘
 
-抓取流程（枚举目录树、批量取正文、增量回查/判删）见 cj_mcp.py。
+抓取流程（枚举目录树、批量取正文、增量回查/判删）见 cj_iab.py。
 """
 import json
 import os
@@ -57,8 +57,8 @@ def load_state():
     s.setdefault("tree", {})      # catalog -> {"docs":[{objectId,title,nodePath}]}
     s.setdefault("fetched", [])   # ["cangjie-guides/cj-notice", ...]
     s.setdefault("failed", [])
-    s.setdefault("hashes", {})    # name -> 正文指纹（cj_mcp 增量回查用）
-    s.setdefault("deleted", [])   # 软删除留痕
+    s.setdefault("hashes", {})    # name -> 正文指纹（cj_iab 增量回查用）
+    s.setdefault("deleted", [])   # 物理删除留痕（名称与时间戳）
     return s
 
 

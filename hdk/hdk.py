@@ -259,8 +259,6 @@ def cmd_state(args):
     STATE = crawl.STATE
     disk = set()
     for root, _, files in os.walk(OUT):
-        if "_deleted" in root:
-            continue
         for fn in files:
             if not fn.endswith(".md") or fn == "README.md":
                 continue

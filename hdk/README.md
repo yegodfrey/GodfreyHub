@@ -21,7 +21,7 @@ python hdk.py crawl --target harmonyos-cangjie  # 鸿蒙仓颉开发文档（需
 python hdk.py crawl --target cangjie            # 仓颉语言文档
 python hdk.py crawl --target all                # 三者都跑
 
-# 增量更新（发现新发布 / 重查修改 / 软删除已下线的文档）
+# 增量更新（发现新发布 / 重查修改 / 物理删除已下线的文档）
 python hdk.py incremental
 
 # 索引（默认增量；--full 全量重建）
@@ -37,7 +37,7 @@ python hdk.py stats            # 语料与索引统计
 python hdk.py manifest         # 生成各语料 manifest.json / README.md
 python hdk.py catalog build    # 枚举官方目录树，写 catalog_inventory.json（确定性完整性基线）
 python hdk.py catalog diff     # 清单 vs 磁盘语料双向对账（漏抓/多余）
-python hdk.py catalog purge-stale [--dry-run]  # 同词干新旧两版并存时软删除旧版（记录到 catalog_purged.json）
+python hdk.py catalog purge-stale [--dry-run]  # 同词干新旧两版并存时物理删除旧版（记录到 catalog_purged.json）
 python hdk.py state rebuild    # 以磁盘为准重建 crawl_state.json
 ```
 
@@ -63,7 +63,8 @@ python hdk.py state rebuild    # 以磁盘为准重建 crawl_state.json
 - `crawl.py` — HarmonyOS 文档（华为云 MCP 接口，免登录，多线程并发，发现集并入官方目录清单）
 - `crawl_cj.py` — 仓颉语言文档（静态站，断点续爬）
 - `crawl_cangjie.py` — 鸿蒙仓颉开发文档（浏览器鉴权抓取 + Python 编排落盘）
-- `cj_iab.py` — 鸿蒙仓颉浏览器桥传输层（枚举/批量/整批回传走内置浏览器 evaluate，编排复用 cj_mcp）
+- `cj_iab.py` — 鸿蒙仓颉开发文档采集器（内置浏览器桥：本地 HTTP 桥 + 浏览器 evaluate，
+  枚举/批量抓取/增量回查/判删/落盘单模块自包含；原 QwenWork 适配器通道已删除）
 - `catalog.py` — 官方目录树清单（匿名 getCatalogTree 枚举，确定性完整性基线）
 - `incremental.py` — HarmonyOS 增量更新器（目录 diff + 新/改/删检测）
 

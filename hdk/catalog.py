@@ -11,13 +11,13 @@ POST /community/servlet/consumer/cn/documentPortal/getCatalogTree，本模块调
 
 - build    : 枚举全部分类，写 catalog_inventory.json（名称清单 + 受限分类记录）
 - diff     : 清单 vs 磁盘语料双向 diff（漏抓 / 多余），完整性验证入口
-- purge-stale : 同词干新旧两版并存时软删除旧版（官方目录常并存两版，见
+- purge-stale : 同词干新旧两版并存时物理删除旧版（官方目录常并存两版，见
              select_current）；清理记录写 catalog_purged.json，names() 自动剔除
 - names()  : 供 crawl.py / incremental.py 加载清单（crawl 并入发现集、
              incremental 做确定性新增/删除检测）；文件缺失返回空集
 
 受限分类（登录墙，返回 92520001/restricted）：cangjie-practices、cangjie-references，
-由浏览器路（cj_mcp）覆盖，build 时记入 restrictedCategories 并跳过。
+由浏览器路（cj_iab）覆盖，build 时记入 restrictedCategories 并跳过。
 """
 import json
 import os
@@ -39,7 +39,7 @@ TREE_URL = ("https://svc-drcn.developer.huawei.com/community/servlet"
             "/consumer/cn/documentPortal/getCatalogTree")
 REFERER = "https://developer.huawei.com/consumer/cn/doc/"
 
-# 登录墙分类：知识 MCP 匿名通道拿不到目录，语料由浏览器路（cj_mcp）负责
+# 登录墙分类：知识 MCP 匿名通道拿不到目录，语料由浏览器路（cj_iab）负责
 RESTRICTED = {"cangjie-practices", "cangjie-references"}
 
 
@@ -174,7 +174,8 @@ def stale_variant_groups():
 
 
 def purge_stale_variants(dry_run=False):
-    """把同词干组的旧版变体软删除到 _deleted，保留 select_current 选出的当前版。
+    """把同词干组的旧版变体直接物理删除，保留 select_current 选出的当前版
+    （用户 2026-09-21：旧版本不留任何副本）。
 
     清理记录写入 catalog_purged.json（旧版名 -> 保留名），names() 此后自动剔除，
     crawl/incremental/diff 三处口径随之统一，不会反复报漏抓。
@@ -203,7 +204,7 @@ def purge_stale_variants(dry_run=False):
         fetched = set(s["fetched"])
         hashes = s["hashes"]
         for n in sorted(purged):
-            incremental.soft_delete(n, s, fetched, hashes)
+            incremental.delete_doc(n, s, fetched, hashes)
         incremental.save_inc_state({**s,
                                     "discovered": sorted(set(s["discovered"])),
                                     "fetched": sorted(fetched),
@@ -212,17 +213,15 @@ def purge_stale_variants(dry_run=False):
                                      {d["name"] for d in s["deleted"]})
     finally:
         crawl.release_lock()
-    print("[purge] 已软删除 %d 篇旧版变体 -> %s" % (len(purged), PURGED),
+    print("[purge] 已物理删除 %d 篇旧版变体（记录 -> %s）" % (len(purged), PURGED),
           flush=True)
     return purged
 
 
 def disk_names():
-    """磁盘语料的 name 集合（读 frontmatter，跳过 _deleted）。"""
+    """磁盘语料的 name 集合（读 frontmatter）。"""
     names = set()
     for root, _, files in os.walk(OUT):
-        if "_deleted" in root:
-            continue
         for fn in files:
             if not fn.endswith(".md"):
                 continue

@@ -9,8 +9,8 @@
   2. 已修改 (MODIFIED)  —— 重新抓取已抓取过的文档，用 title+content 的 sha256 哈希比对，
                            仅当内容变化时才重写本地文件。
   3. 已删除 (DELETED)    —— 若某篇已抓取文档在重查结果中消失，先用「单独再查一次」二次确认，
-                           确认官方已删除后，将其软删除（移动到 harmonyos_docs/_deleted/，
-                           可恢复），并从状态中移除。
+                           确认官方已删除后，将本地文件直接物理删除（用户 2026-09-21：
+                           旧版本/已下线内容不留任何副本），并从状态中移除。
 
 状态独立保存在 incremental_state.json（discovered/fetched/hashes/deleted），
 首次运行会从 crawl_state.json 播种 discovered/fetched，避免两套状态打架。
@@ -38,7 +38,6 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = crawl.OUT
 CRAWL_STATE = crawl.STATE
 INC_STATE = os.path.join(HERE, "incremental_state.json")
-DELETED_DIR = os.path.join(OUT, "_deleted")
 
 NWORK = 4
 BATCH = 10
@@ -121,7 +120,7 @@ def sync_crawl_state(disc, fetched, deleted_names):
     必须与 crawl_state.json 现有清单做并集而不是整体覆盖：增量状态比全量状态
     小（历史上未收录全部文档），覆盖会把 crawl_state 里已有记录的文档踢出
     discovered/fetched，下次全量爬虫经搜索重新发现它们，制造"假新增"并重复抓取。
-    deleted_names 是本次增量确认软删除的文档，从合并结果中剔除，避免复活死链。
+    deleted_names 是本次增量确认物理删除的文档，从合并结果中剔除，避免复活死链。
     """
     try:
         with open(CRAWL_STATE, encoding="utf-8") as f:
@@ -142,27 +141,22 @@ def sync_crawl_state(disc, fetched, deleted_names):
 
 
 # --------------------------------------------------------------------------- #
-# 删除（软删除，可恢复）
+# 删除（直接物理删除，不留副本；用户 2026-09-21 指令）
 # --------------------------------------------------------------------------- #
-def soft_delete(name, s, fetched, hashes):
+def delete_doc(name, s, fetched, hashes):
     cat, fname = crawl.doc_relpath(name)
     src = os.path.join(OUT, cat, fname)
     if not os.path.exists(src):
         fetched.discard(name)
         hashes.pop(name, None)
         return
-    dst_dir = os.path.join(DELETED_DIR, cat)
-    os.makedirs(dst_dir, exist_ok=True)
-    dst = os.path.join(dst_dir, fname)
-    if os.path.exists(dst):           # 避免同名覆盖，追加时间戳
-        dst = dst + "." + str(int(time.time()))
-    # Windows 上文件被杀软/索引服务/读进程占用的瞬间 rename 会抛 OSError:
+    # Windows 上文件被杀软/索引服务/读进程占用的瞬间删除会抛 OSError:
     # 带退避重试; 仍失败则保留原文件并跳过本项(与"判删需二次确认"的保守取向一致),
     # 不让单文件占用毁掉整轮增量(过去这里未捕获, 叠加锁遗留问题会让定时任务静默停摆)。
     last_err = None
     for attempt in range(4):
         try:
-            os.rename(src, dst)
+            os.remove(src)
             break
         except OSError as e:
             last_err = e
@@ -173,7 +167,6 @@ def soft_delete(name, s, fetched, hashes):
         return
     s["deleted"].append({
         "name": name,
-        "file": os.path.relpath(dst, OUT).replace("\\", "/"),
         "at": time.strftime("%Y-%m-%dT%H:%M:%S"),
     })
     fetched.discard(name)
@@ -440,14 +433,14 @@ def _run(no_recheck, skip_delete, limit):
     # 收尾再搜索一轮，捕捉本轮链接新发现（下轮增量会补抓）
     maybe_search()
 
-    # 二次确认 + 软删除
+    # 二次确认 + 物理删除
     if not no_recheck:
         for n in sorted(delete_candidates):
             if confirm_gone(n, get_mcp):
                 if not skip_delete:
-                    soft_delete(n, s, fetched, hashes)
+                    delete_doc(n, s, fetched, hashes)
                 stats["deleted"] += 1
-                tag = "（已移到 _deleted）" if not skip_delete else "（--skip-delete 未删除）"
+                tag = "（已物理删除）" if not skip_delete else "（--skip-delete 未删除）"
                 print(f"[DELETE] {n} {tag}", flush=True)
             else:
                 print(f"[keep] {n} 二次确认仍存在，保留", flush=True)
