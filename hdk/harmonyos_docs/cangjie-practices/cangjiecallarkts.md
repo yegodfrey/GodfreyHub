@@ -218,7 +218,7 @@ Array类型：
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/6fATRH7oRXaMWQSSYsBO8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090226Z&HW-CC-Expire=86400&HW-CC-Sign=14E541947FD9E4A358C64DBA991A4028911103BD839E51C8888A30382360A009)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/6fATRH7oRXaMWQSSYsBO8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085429Z&HW-CC-Expire=86400&HW-CC-Sign=ECE4BC4AE2EDD062A3355595B0B199F278B567E100276DC2A5BEFBA7D6C47A96)
 
 如果是调用异步函数，需要在Promise的onFulfilled回调中通过JSCallInfo取得返回值，然后进行以上类型转换和取值。
 
@@ -226,13 +226,13 @@ Array类型：
 
 本应用示例演示了如何加载和调用 ArkTS 位置服务模块[@ohos.geoLocationManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager)，获取服务状态和位置信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/m-fN_jZYQJSuvAfprjlMCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090226Z&HW-CC-Expire=86400&HW-CC-Sign=D8581CD66D49FD56D58856331E6AD0C0C504B95FC7A12293DE99CE5291E920D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/m-fN_jZYQJSuvAfprjlMCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085429Z&HW-CC-Expire=86400&HW-CC-Sign=8FB5D35633728113E464957D6833964002365B915581ED1E8815EF275BF349EA)
 
 应用示例需要访问设备位置信息，因此要向用户申请位置信息授权，相关配置和代码请参看完整示例项目。
 
 #### [h2]效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/84KKHINoT52OYNZEXzwdNQ/zh-cn_image_0000002639680946.png?HW-CC-KV=V1&HW-CC-Date=20260908T090226Z&HW-CC-Expire=86400&HW-CC-Sign=85746E8CF6256730917B4703835F8DE2F9358C8DE2AB85259C9BBA871C28E667)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/84KKHINoT52OYNZEXzwdNQ/zh-cn_image_0000002639680946.png?HW-CC-KV=V1&HW-CC-Date=20260921T085429Z&HW-CC-Expire=86400&HW-CC-Sign=B226D6EB3A00849FBBAEB821F0514CB457FC196DD5C3C396861F59B037F7DE07)
 
 #### [h2]互操作实现步骤
 
@@ -256,7 +256,7 @@ src/main/cangjie/service/LocationService.cj中实现了对 ArkTS 位置服务模
     public class LocationService {
         private let jsRuntime: JSRuntime // ArkTS 运行时
         private let jsContext: JSContext // ArkTS 代码执行上下文
-        private let jsModule: JSObject // 位置服务模块
+        private let jsModule: JSObject // 位置服务模��
         private static var instance: ?LocationService = None
     
         private init() {
@@ -334,4 +334,4 @@ geoLocationManager模块中的[isLocationEnabled](https://developer.huawei.com/c
 
 #### [h2]示例代码
 
-[加载和调用 ArkTS 模块示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183056.75773670025213053285455433937396:20260909170226:2800:1A71665642D5E52D76B3E4104BBA396BFF422A4E4574EDE6A5499E9496DE41B4.zip?needInitFileName=true)
+[加载和调用 ArkTS 模块示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183056.75773670025213053285455433937396:20260922165429:2800:CD522C9C5AF31926AB9E048AFE40C7A24B740F45E9075CC7F77E1ED3E6D90B5C.zip?needInitFileName=true)

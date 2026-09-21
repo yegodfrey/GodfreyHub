@@ -1658,7 +1658,7 @@ String | 返回生成的唯一目录路径。
 
 **功能：** 移动源目录至目标路径下。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/9bfYPZ_VQvG_raI8s17xMQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090217Z&HW-CC-Expire=86400&HW-CC-Sign=3BA4241F8FD24AADB1E03083BB2828B417109F141C932848C5F8D5FA89453DFD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/9bfYPZ_VQvG_raI8s17xMQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085359Z&HW-CC-Expire=86400&HW-CC-Sign=7E03CC1AAE79EC88C9B809FEA399708BFBFA162E3CB56D37BA5A2B7D6198D31B)
 
 该接口不支持在分布式文件路径下操作。
 
@@ -1729,7 +1729,7 @@ mode | Int32 | 否 | 0 |  **命名参数。** 移动模式，默认值为0。 \-
 
 **功能：** 移动文件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/mTDs_ml4Tbmd7LHFYprqHQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090217Z&HW-CC-Expire=86400&HW-CC-Sign=0EFF8BD3428885D4383FF35D615CB011A6EE65BAFFFB6EED4A286F13871E64BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/mTDs_ml4Tbmd7LHFYprqHQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085359Z&HW-CC-Expire=86400&HW-CC-Sign=80065BE970977FD181785E4D10204558028DA0D7E0A91CF3E44E7CAB4DC73710)
 
 该接口不支持在分布式文件路径下操作。
 
@@ -2080,7 +2080,7 @@ String | 返回读取文件的内容。
 
 **功能：** 重命名文件或目录。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/pZB_7bXMRdqdrlZUtBpAtw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090217Z&HW-CC-Expire=86400&HW-CC-Sign=43C09AAAE57EF7740EDD838AEA0742D5F0152537935AD9DDDBA6F5069F71F5A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/pZB_7bXMRdqdrlZUtBpAtw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085359Z&HW-CC-Expire=86400&HW-CC-Sign=23840843753AB162A0488FA61981FF6AC6C9C48FA275A308B276A86AADBD2E2E)
 
 该接口不支持在分布式文件路径下操作。
 
@@ -2883,7 +2883,7 @@ excludeMedia | Bool | 否 | false | **命名参数。** 是否排除Media中已�
 
 **类型：** Filter
 
-**读写能力：** 可读写
+**读写能力��** 可读写
 
 **系统能力：** SystemCapability.FileManagement.File.FileIO
 
@@ -3838,7 +3838,7 @@ encoding | String | 否 | "utf-8" | **命名参数。** 当数据是 String 类�
 
 **功能：** 表示文件权限，各特征位的含义如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/J0VmSqYuRqKpb4y02nwROw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090217Z&HW-CC-Expire=86400&HW-CC-Sign=0F845EF825BF0E340AFA8A11E71379F64E887848F1CC54146289C9DC13292F00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/J0VmSqYuRqKpb4y02nwROw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085359Z&HW-CC-Expire=86400&HW-CC-Sign=D4F1F20D133CE13A92C1E1C2C768B409A66C12A5B20FC290FEF153261AEC8ACE)
 
   * 以下值为八进制，取得的返回值为十进制，请换算后查看。
 

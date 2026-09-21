@@ -1182,7 +1182,7 @@ API示例代码使用说明：
 
 **功能：** 应用包安装时间戳，表示从1970-01-01 08:00:00 UTC+8逝去的毫秒数，单位毫秒。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/xA189RyWQLGTV2UxRfq9TA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090140Z&HW-CC-Expire=86400&HW-CC-Sign=1075DD6428A7EE10B83A8310648FF611C3D2A65B406763FDEE80138E591CE72F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/xA189RyWQLGTV2UxRfq9TA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085019Z&HW-CC-Expire=86400&HW-CC-Sign=274C6F3CF9209D54F628D021F077B96AC3AB9EECA57F8169C20CEF5591D1B978)
 
 设备出厂首次开机时，如果未获取到当前时间，会以Unix时间戳基准（1970-01-01 08:00:00 UTC+8）作为当前系统的起始时间。例如，开机后未获取到时间，等待32s之后安装成功，则应用包安装时间戳为32000。
 
@@ -1467,7 +1467,7 @@ BundleInfo | BundleInfo对象，返回当前应用的BundleInfo。
 
 **功能：** 根据给定的moduleName、abilityName和metadataName（module.json5中metadata标签下的name）获取自身相应配置文件的json格式字符串，返回对象为string数组。
 
-如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理模块](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-resource_manager)的相关接口，来获取引用的资源。
+如果配置文件信息采用了资源引用格式，则返回值将保持��源引用格式（例如 $string:res_id），开发者可以通过[资源管理模块](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-resource_manager)的相关接口，来获取引用的资源。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
 
@@ -2443,7 +2443,7 @@ Bool | 返回当前应用是否是默认应用，true表示是默认应用，fal
 
 **功能：** 应用运行时需向系统申请的权限集合的详细信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/lo8B3_DCTDuk-CXoILOR7Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090140Z&HW-CC-Expire=86400&HW-CC-Sign=0CA8E98C16572C81B86B29C7B9297AFDBE1716DE829758CB52C30161374A9F09)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/lo8B3_DCTDuk-CXoILOR7Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085019Z&HW-CC-Expire=86400&HW-CC-Sign=B39D85D47140B2E1D35CCC60F64B148A46A12D8B666181939C3CD46033817DD5)
 
 如果应用内多包申请的权限名称一样，但是权限申请理由不一致，系统只会返回一个权限申请理由，优先级从高到低顺序为entry类型HAP、feature类型HAP、应用内HSP。
 

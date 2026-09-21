@@ -180,7 +180,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.net / �
 
 功能：解析域名，得到 [IPAddress](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_classes#class-ipaddress) 列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/aPb_ozIhSiGJ2rcyc5YOhg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=E3FA0B4370129EB12539E6FCCC61A20D053D71B100201B1C3010F9AFD6F74BAE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/aPb_ozIhSiGJ2rcyc5YOhg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=73AB63FEE91B2FE4943E88BF3FDB560C77E660597AB8019924E8B0A279D58456)
 
   * 此接口只负责解析字面量 IP 或 DNS 域名，本身不提供 DNS 重绑定防护，也不会过滤回环、私网、链路本地、未指定地址或组播地址。
   * 当 domain 来自不可信输入时，调用方应在发起连接前校验解析结果，例如仅允许 isGlobalUnicast() 的地址，以避免 SSRF、内网探测或访问本地服务等风险。
@@ -222,7 +222,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.net / �
 
 功能：解析域名，得到 [IPAddress](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_classes#class-ipaddress) 列表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/jf5KniRsR2-cX3Be6xBfvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=1B62D25EDAC56960D1403529B294C029B938DB7FF67F6590563ADD145E2AA646)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/jf5KniRsR2-cX3Be6xBfvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=0FB1120B929BDF810C09F95CC85EFA2858214DD46A550E01E866525E6EF5AC16)
 
   * 此接口只负责解析字面量 IP 或 DNS 域名，本身不提供 DNS 重绑定防护，也不会过滤回环、私网、链路本地、未指定地址或组播地址。
   * 当 domain 来自不可信输入时，调用方应在发起连接前校验解析结果，例如仅允许 isGlobalUnicast() 的地址，以避免 SSRF、内网探测或访问本地服务等风险。
@@ -3773,7 +3773,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.net / �
 
 可以访问特定通信域（domain）、类型（type）和协议（protocol）组合的套接字。Socket 包已经提供了 TCP、 UDP 等常用网络协议的支持，因此，该类型适用于其他类型的网络编程需求。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/2dZu81ZGRPmDYka9EiBA3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=DB4DB194237E10507135DFF63AD986DF241A968026B3BCA390C208E13652B834)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/2dZu81ZGRPmDYka9EiBA3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=291CA102922C1DAA079F515A728C10553E97F86E81570A63B72DD1902D3479F0)
 
   * 当前 [RawSocket](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_classes#class-rawsocket) 已经验证的功能包括 TCP、UDP、UDS 以及 ICMP 协议套接字，其他类型使用上可能存在预期之外的问题。
   * 此外，由于接口的开放性，可以使用 connect 再 listen 的组合，部分场景可能存在预期外的问题。建议开发者使用时遵循正常的调用逻辑，避免产生问题。
@@ -3787,7 +3787,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.net / �
 
 功能：获取当前 [RawSocket](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_classes#class-rawsocket) 实例的本地地址。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/-RD14g4zTVOMGC6H1fAEdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=E9F3E79560F5E459E834837F84EF15BCF2BDBF4EDE1C482460A3F35B1F83CB22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/-RD14g4zTVOMGC6H1fAEdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=37AFA15391489B0931DA0A77128DEE5838A55439D7419B6D5BB7323DE919BE1C)
 
 未来版本即将废弃，使用 localAddress 替代。
 
@@ -3877,7 +3877,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.net / �
 
 功能：获取当前 [RawSocket](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_classes#class-rawsocket) 实例的对端地址。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/xi1_qlmhTnqplkL2YuumTg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=9AE779218CCDD95C3FF190992EAADDD5B29AFD3C8F50CE54BBA8F7A248B692D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/xi1_qlmhTnqplkL2YuumTg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=9342D2557BEDB976C42D679CF2B7892DAAF4AFF803FD4C333EC824B5F076C7B1)
 
 未来版本即将废弃，使用 remoteAddress 替代。
 
@@ -5276,7 +5276,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.net / �
 
 同时开启 SO_REUSEADDR/SO_REUSEPORT 会导致不可预知的系统错误，用户需谨慎配置值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/cS8a706LRXCQs2fMa9CTbA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=365F90459AE4D5EACBF173DD03124823551356B0CF0BD00DA90CB5DDB65E201A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/cS8a706LRXCQs2fMa9CTbA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=CEEB74CC9B4679809A9C3DFDD4271540ECBE463BE90E192DC6F8E4D37377C104)
 
 不支持平台：Windows。
 
@@ -6143,7 +6143,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.net / �
 
 功能：设置和读取 SO_LINGER 属性，默认值取决于系统，None 表示禁用此选项。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/Zd5q4Av9Qdur3jSG_0PXkw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=8834084CCF480FB67300B4EE9511BF525094D5B59EF7C2AA749E802F00D01F99)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/Zd5q4Av9Qdur3jSG_0PXkw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=38F57FB606CD64EC782225C59A4DD23D26D2008C7EAB274DC2786704EA93201C)
 
   * 如果 SO_LINGER 被设置为 Some(v)，当套接字关闭时，如果还有等待的字节流，我们将在关闭连接前等待 v 时间，如果超过时间，字节流还未被发送，连接将会被异常终止（通过 RST 报文关闭）。
   * 如果 SO_LINGER 被设置为 None，当套接字关闭时，连接将被立即关闭，如果当前等待发送的字符，使用 FIN-ACK 关闭连接，当还有剩余待发送的字符时，使用 RST 关闭连接。
@@ -6295,7 +6295,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.net / �
 
 这个选项类似于 noDelay，但仅影响 TCP ACK 和第一次响应。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/goXswKpJSdaZp8l1paLYog/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=5A2BF32D33EB8C79D8F7DABF70EA6D384F91ECE6B92E9F8F894113DCEDE39708)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/goXswKpJSdaZp8l1paLYog/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=1289D01D5302991020A8F702F5E049B63640841D48196D5EA0360CBB56F86EA2)
 
 不支持平台：Windows、macOS、iOS。
 
@@ -6998,7 +6998,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.net / �
 
 功能：读取报文。超时情况按 readTimeout 决定，详见 readTimeout。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/xle3pwSRQWSS7z9GKjJLTQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=AE71B43583CFF13F0A8BC3C2480A41BC9A71E5448E5B7D685893861033BE6E9D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/xle3pwSRQWSS7z9GKjJLTQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=2912E78D0C24C69691F82C2DD2F5DB11DE219A27AFF3F39A4E698C1E4648460C)
 
   * 由于系统底层接口差异，如果连接被对端关闭，read 和 write 接口的行为也有相应的差异。
   * Windows 系统上，对端关闭连接后，如果本端调用一次 write，会导致清空缓冲区内容，在此基础上再调用 read 会抛出连接关闭异常。
@@ -7728,7 +7728,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 属性默认以及配置生效后的行为取决于系统，使用前，请参阅不同系统针对此属性 SO_REUSEPORT 的说明文档。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/eB0D1l-iQeazlsR8EXzTzw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=9B54B22B3F46A0918686745165597B69C368364C4DD995E643BADCC9C9A2BDBE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/eB0D1l-iQeazlsR8EXzTzw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=7894DBDA459E1CEEBD3A1991562B17FD9011F1718590B1765D4E1B59E6E76B74)
 
 不支持平台：Windows。
 
@@ -8918,7 +8918,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 套接字资源需要用 close 接口显式回收。可参阅 [DatagramSocket](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_interfaces#interface-datagramsocket) 获取更多信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/0yTPKT-URcOJ_P2jMQOXog/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=01B50CEB167DC2651FE4C50724C87B3C1A30613CD847DBF8DB37C419DB753806)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/0yTPKT-URcOJ_P2jMQOXog/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=46D85F4397C99C504E933602B057D882614C55CBFFDDDA6FEC9025690A95A8CA)
 
 不支持平台：Windows。
 
@@ -8935,7 +8935,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：读取 socket 将要或已经绑定的本地地址。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/zttrF0wQTQuEfd-dEVgIrA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=84639A1C1EAFD79292A2481155FD40DD8003A48AB5A4DBEF90D2259AD48D5F00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/zttrF0wQTQuEfd-dEVgIrA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=FFF5C7CC078E09CE6DAA2C1286A347330D82D9CD45A252332C902C5A521A2D32)
 
 不支持平台：Windows。
 
@@ -8973,7 +8973,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置和读取 SO_RCVBUF 属性，提供一种方式指定发包缓存大小。选项的生效情况取决于系统。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/1O2HISEaSr6GIYpNzvB4rw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=EE36B3990E3C0A1B6DB78AC2A7D2432A4A096CE81ECFF239B51BE1459FACF20D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/1O2HISEaSr6GIYpNzvB4rw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=F55963EDC771D15A4D64E4E868715455D47A592120B82B4807F4578F1E321FE5)
 
 不支持平台：Windows。
 
@@ -9014,7 +9014,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 如果设置的时间过小将会设置为最小时钟周期值；过大时将设置为最大超时时间（263-1 纳秒）；默认值为 None。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/4I8mRx8oRRyb_8zO2RGXMw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=6B289916114FA4E851BFF1E5B9A4EC24AE7D8C2E5550A9D836F7C90B197BE602)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/4I8mRx8oRRyb_8zO2RGXMw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=C179248A76CCC4BCF2B1B16317AB3DAE03CCCC76023613128FF1203A4760C23D)
 
 不支持平台：Windows。
 
@@ -9052,7 +9052,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：读取 Socket 已经连接的远端地址，当 Socket 未连接时返回 None。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/Cvl94wMPRNuIXC0dgImaDw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=5F59AFB409B3D0305D03FB10E25A46C15893522E9C91C12B0817B22CF3A3763F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/Cvl94wMPRNuIXC0dgImaDw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=48A686689C4A03D91C2E1E183A2186E929AB50DF4132EC1BDDB3509AA46D92C8)
 
 不支持平台：Windows。
 
@@ -9134,7 +9134,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置和读取 SO_SNDBUF 属性，提供一种方式指定发包缓存大小。选项的生效情况取决于系统。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/DsGNuYI4RAKK_xnI9to3gg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=715F8D9E6E04CEAC760C93370D7F7C2DE739D1F5701E1DDDCEBECE7B600BAF56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/DsGNuYI4RAKK_xnI9to3gg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=FAD419E466F904C785D831AEBAC51CEA58510FA52B878405247919ADEEE97031)
 
 不支持平台：Windows。
 
@@ -9175,7 +9175,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 如果设置的时间过小将会设置为最小时钟周期值；过大时将设置为最大超时时间（263-1 纳秒）；默认值为 None。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/tK9Er1bYQzmck68o74gL1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=6E57217741D3A5864430BA85B9C87885B6D496333DB9CAA37D5F993BED3E6EAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/tK9Er1bYQzmck68o74gL1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=2180605D9BFB10F32F9A076B0337A25EC933260A1AC6DD46884C066CEEAE96DD)
 
 不支持平台：Windows。
 
@@ -9215,7 +9215,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 此文件类型可通过 [isSock](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-issockstring-deprecated)() 判断是否存在，可通过 [unlink](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-unlinkstring-deprecated)() 接口删除。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/KGDOMaOoScabYa6gwzXIbw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=8AD17B7AD4960048179337BC16968BDA6DEFD1849AFEE5CA1E42322FF45E79C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/KGDOMaOoScabYa6gwzXIbw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=DBBF63ECC1417FF9B8132EDDCD5B2C424BFAE0412593AAF2716C60F2E3DC0929)
 
 不支持平台：Windows。
 
@@ -9259,7 +9259,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 此文件类型可通过 [isSock](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-issockstring-deprecated)() 判断是否存在，可通过 [unlink](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-unlinkstring-deprecated)() 接口删除。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/abSwEsT3RFmZtA5HBOb2qQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=758C5D4103FF5491E1FFE35C3D13F3750A1D2A682D60CFAC7D31D53B17ED14F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/abSwEsT3RFmZtA5HBOb2qQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=D41CB204AE648965D5EF5CDA28394A9AC9DB4361CF3AF13799E3AF10BB37E5D6)
 
 不支持平台：Windows。
 
@@ -9302,7 +9302,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 此接口自动在本地地址中创建一个套接字文件，如该文件已存在则会绑定失败。此文件类型可通过 [isSock](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-issockstring-deprecated) 判断是否存在，可通过 [unlink](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-unlinkstring-deprecated)() 接口删除，失败后需要 close 套接字，不支持多次重试。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/v4KPDxraSfWwhSuEBrsanA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=7C36F030101F2E37F907B08EED9E4120BBE288EA52BBDAB8EC0E8CD5C0FA2015)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/v4KPDxraSfWwhSuEBrsanA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=31C98104C44D46C236286E6358954107CDF08D791EF4C7028AD42FB773E9E4A1)
 
 不支持平台：Windows。
 
@@ -9344,7 +9344,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：关闭套接字，所有操作除了 close/isClosed 之外，均不允许再调用。接口允许多次调用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/SKYXWPMtTyeYfKB9VFZTDw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=A9BF46215796CF98E2DB05DCB698B28D23EB0B4AE55A461E66D557B7BDEAF126)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/SKYXWPMtTyeYfKB9VFZTDw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=60C681AC73DD0BA59A5CB0D03D93EB79B76C9AF41E1EE48387A37B66534EF96D)
 
 不支持平台：Windows。
 
@@ -9392,7 +9392,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 仅接受该远端地址的报文。默认执行 bind，因此不需额外调用 bind。此操作执行后，端口将开始接收 ICMP 报文，若收到异常报文后，可能导致 send/sendTo 执行失败。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/rdkMIZUBR0uMmysCNEzdAA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=40DA195C2AFC58547BAD3E238D833D50C62EBE24C63B73E02A44AEEDCE89D77F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/rdkMIZUBR0uMmysCNEzdAA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=2ECFD0D6C91AACDFFF39509A8E6923A40DFD85854C6C1066271C83DCDC1AF95D)
 
 不支持平台：Windows。
 
@@ -9480,7 +9480,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 仅接受该远端地址的报文。必须在 bind 后调用。此操作执行后，端口将开始接收 ICMP 报文，若收到异常报文后，可能导致 send/sendTo 执行失败。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/VhHPjzehS6K3_dm6jeL2qg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=0D48EFE30EAACA2C8F152B4BA7A5B7B569007B6BF51D832A93FE1FE85D81A021)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/VhHPjzehS6K3_dm6jeL2qg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=E3D0552B74559E152E330201843F59068C62124FE8E5354DE5B0EF5E144C045E)
 
 不支持平台：Windows。
 
@@ -9565,7 +9565,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：停止连接。取消仅收取特定对端报文。可在 connect 前调用，可多次调用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/CcIJof0ERsebq1yJmI6mPQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=BE5536CF56DE9D4A5679C4A75F1B16FE5BA50FA9006D7B704587F9EDB26988B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/CcIJof0ERsebq1yJmI6mPQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=E075CAD79E48A2DDF3978708EFDC284995CC814915B84EDFA3F32EDAC7BAF7CE)
 
 不支持平台：Windows。
 
@@ -9666,7 +9666,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：获取指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/CxPwGbUNRp2MzGO8yCZt3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=ECFC69E37D151E0853C30A311B1249096C3A8644E045B19D47BE930E642F7E60)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/CxPwGbUNRp2MzGO8yCZt3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=1276C19F099316ADB7758724C51A438291D64917957CB2F67A0EB91BA4E2538B)
 
 不支持平台：Windows。
 
@@ -9763,7 +9763,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：获取指定的套接字参数。从 [IntNative](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#intnative) 强转而来。0 => false，非 0 => true。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/y9qKGBihSOGQir6jheo3PA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=352CCA40311EF3134ECC26C937D28986669BD824B6C3EE71D5340F4B646574F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/y9qKGBihSOGQir6jheo3PA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=A8368033CD8FDFD888BFFEA5C0251E4302F00D582C92D4CE19B4231298BEC84C)
 
 不支持平台：Windows。
 
@@ -9833,7 +9833,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：获取指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/dQaoVHkySp-SlXMOz3ez3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=6ACDE2078975B8E2919C98AA7390E1719AEF34177E7F492409487E5BE4E8540F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/dQaoVHkySp-SlXMOz3ez3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=CE2E0625F81CF90CCEAC55C77A0D950563A5AFBAB9442A52C589F59A9F5A4E80)
 
 不支持平台：Windows。
 
@@ -9900,7 +9900,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：判断套接字是否通过调用 close 显式关闭。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/6Jr_RE1yQtmZctA9D5b8Sw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=73C3097B66A56473B6E6B065103731B4416F95B58255D4CAAC1EDB36A92E2CE5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/6Jr_RE1yQtmZctA9D5b8Sw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=5B2D500C504688A46098D8460B4BD76BC9667923E7E3203DBB64AAA9D21EAC07)
 
 不支持平台：Windows。
 
@@ -9951,7 +9951,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：从 connect 连接到的地址收取报文。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/mqWZxVJQSBefONQTDeyH9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=2A13CDC7804E1BEB6A358E622F0C4FAD5C77C9B5196027CB82421929637EA378)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/mqWZxVJQSBefONQTDeyH9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=E56A1D2378B9F5297D9AA5ED644B2601BFC57D657CAAF65175E598258A5375B8)
 
 不支持平台：Windows。
 
@@ -10059,7 +10059,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：收取报文。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/hFCoXgkkQFeRP5a_LwTaQw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=C091F84E6403E6EB6FE91679821BC8E8B3353137E35DEDB7517F3322F758F0BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/hFCoXgkkQFeRP5a_LwTaQw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=388EB48860E707A4C4FCE4D79AD86BA1DEAAD082F74960EB44873F83E0F2F331)
 
 不支持平台：Windows。
 
@@ -10162,7 +10162,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：发送报文到 connect 连接到的地址。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/40YE5g09ReCorY1CShPOJA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=E7F22798CCBF8DCA0D88D41D2E4A8E543AC33E89E92083F7E2F24B8465851E8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/40YE5g09ReCorY1CShPOJA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=249B6A4134E4A9AD116E8A0577C9745B058EB452845B8D2C5DE8553129C7686C)
 
 不支持平台：Windows。
 
@@ -10248,7 +10248,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：发送报文。当没有足够的缓存地址时可能会被阻塞。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/hoF9gtDFQUefRrWnFiQ4NA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=DDF53DC2D3CC7596ECC1D092537352CF4ECD2C155958546C826197BD2C33D6C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/hoF9gtDFQUefRrWnFiQ4NA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=DBD24767446A15157B9B069E3E96F5BC97108DF38593ED24D4DA13EBF44A6FD9)
 
 不支持平台：Windows。
 
@@ -10352,7 +10352,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/dsSqOFXnQSe0Gz4SJxon6Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=797DD31BDE256BFA989354098D04F986CE80662282C58FFADF3C2CE39E23A998)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/dsSqOFXnQSe0Gz4SJxon6Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=208AA2E634A311E72D7321045AA33A8586985B14321DEF0C94FBFBEA5A795912)
 
 不支持平台：Windows。
 
@@ -10435,7 +10435,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/cLrALAKdQfST9Yi5WGmeVw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=9851E49DD385D2BB5F2E65B31C2A1C4DD6544F49A7F8E507034FCCDE55F35A72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/cLrALAKdQfST9Yi5WGmeVw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=AC1B3216D7026ACE3726BDBE1B1004E9CF6104B8377AAD8B7B0EB6613CFCFC84)
 
 不支持平台：Windows。
 
@@ -10501,7 +10501,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/JHN083GVRcOZqSM7OFFs7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=B74BE9E5AD01AC942B5E9728C654DD8D0E506E7426D8C9B9BB751F394128DB5C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/JHN083GVRcOZqSM7OFFs7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=CB15D12628F37390AD691B1C2BE6EC4BE2C32C1CDF5712BE190B60A3CEF812DC)
 
 不支持平台：Windows。
 
@@ -10563,7 +10563,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：返回当前 UDS 的状态信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/LN2EuZPrSIuYSvlKD6ZoXQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=CDD4B8C91C5EFE7A30F0FE895CEBDBD2D0232C30FEE827B90C785E7201338F83)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/LN2EuZPrSIuYSvlKD6ZoXQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=655181AE9B6716F8C8BC6BC9F28D7EA976DA12D6DEEABE0F34F064091DEEC10F)
 
 不支持平台：Windows。
 
@@ -10603,7 +10603,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 [UnixServerSocket](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_classes#class-unixserversocket) 监听连接，创建后可以通过属性和 setSocketOptionXX 接口配置属性值。需要调用 bind() 接口绑定本地地址开始监听连接。可以通过 accept() 接口接受连接。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/jkSW3BZzScekH1koG_FDFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=43C00048C75C29F7118B7F7D92A71F2DF61CA50A74C3BF7407C2C0B2AAD2255F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/jkSW3BZzScekH1koG_FDFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=81E654B1384DB0DE345DB97CE06F3ABEF4C4B1DDB789030415B7F660E10C1198)
 
 不支持平台：Windows。
 
@@ -10622,7 +10622,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 变量是否生效取决于系统行为。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/LZwdhGsGRPe89kpxzk6frA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=AB5CBFBB631115EF9CB1A8FA088019A8743729F2B9D2D5333A9398AF3BC4E2F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/LZwdhGsGRPe89kpxzk6frA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=A90D7507ED97988E09B810CA4FB7276CD4A68D27D41F186D3EAF572793C1A553)
 
 不支持平台：Windows。
 
@@ -10664,7 +10664,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：读取 Socket 将要或已经被绑定的本地地址。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/Ddwa1nFkTTi38jz0jteVfA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=509BF1C3918D4CEDAA5FC4DD9C23A193625070704C030A16F3E60AD4FADF9581)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/Ddwa1nFkTTi38jz0jteVfA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=C3E3BCF2FCE8816C59549519EFC1A83A2AB5EC953C6FB1BD74E5114C119F2EBB)
 
 不支持平台：Windows。
 
@@ -10702,7 +10702,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置和读取 SO_RCVBUF 属性。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/5FGABudUSN-VCZiPI8eyTA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=29086C7E869D58B853365D8E9DB8A3F323BFDCC7410E512D4597E4BBCA6C7A44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/5FGABudUSN-VCZiPI8eyTA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=75741BE6A452B2F60DDA1262A065137A86D7CA1C36244E84349B8FB6C3CED47D)
 
 不支持平台：Windows。
 
@@ -10744,7 +10744,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置和读取 SO_SNDBUF 属性。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/9rKeehK4STi5fBEmMAtRrQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=6BE6F24FD4BC841E2EF1F6F1159D597DA7543C1F46F201A76CD12707B3C66299)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/9rKeehK4STi5fBEmMAtRrQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=3F18DB3F09E71D339E4B7277CD7292DDEBBFA4500CD5EF1F109DEC33D613DD9D)
 
 不支持平台：Windows。
 
@@ -10786,7 +10786,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：创建一个未连接的 [UnixServerSocket](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_classes#class-unixserversocket) 实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/LbGkazx9R6y5FxwtKmE0Cg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=984857CF905FEDED9CD0315C83E69C4A7C0B02E4FF8D2A064019E0C90591FF7C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/LbGkazx9R6y5FxwtKmE0Cg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=76505DC14359AEAEAFAAC76A1172FF79C0601552E5DDEE7DFBD9488B21B077E7)
 
 不支持平台：Windows。
 
@@ -10829,7 +10829,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 此文件类型可通过 [isSock](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-issockstring-deprecated) 判断是否存在，可通过 [unlink](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-unlinkstring-deprecated)() 接口删除。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/smwLkE-eRq2Fd7UNSCYx_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=D72DA7976CA3AE198EC8EDC6CCED3559FD00181973FB4693C4D0CCB8B3B9BF67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/smwLkE-eRq2Fd7UNSCYx_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=9C7FC2413BB860958A63B0BE147644611C3796213423357B26939C010545CD7F)
 
 不支持平台：Windows。
 
@@ -10873,7 +10873,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：等待接受一个客户端的连接，或从队列中读取连接。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/Ka2jRg9DSpSRYFcv1Uue5g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=B22E9F3A7B05B7258F0E3343EB9F8C5043E24F51E5D4F8C41655A26B75A2DE6B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/Ka2jRg9DSpSRYFcv1Uue5g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=F6A02547D41861DEF495520B4DBC63A5F8FADFE9B399B62C105DEE9FC9569CF3)
 
 不支持平台：Windows。
 
@@ -10957,7 +10957,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：等待接受一个客户端的连接，或从队列中读取连接。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/-duzHk18Sz68Z_eipcr3CQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=5EDB84330A1E036D7BEE40EC59FFD5491878F18A586ABBDB99ED58DC692D6A45)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/-duzHk18Sz68Z_eipcr3CQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=E4DC13E7AF386E7C91C05895FC072E9A610D155E82C65363196A74C7810F69AB)
 
 不支持平台：Windows。
 
@@ -11046,7 +11046,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 此接口自动在本地地址中创建一个套接字文件，如该文件已存在则会绑定失败。此文件类型可通过 [isSock](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-issockstring-deprecated) 接口判断是否存在，可通过 [unlink](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-unlinkstring-deprecated)() 接口删除，失败后需要 close 套接字，不支持多次重试。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/iqpo05FmQcWaGpkKDItjuQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=51CA84763800033000B2F2B8527D74F34FC7ED2B44255B09219851C69FCB4983)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/iqpo05FmQcWaGpkKDItjuQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=3186C57C343368D4339A59599E6FF1F7513D8B70648FCA109E83F69CDB994942)
 
 不支持平台：Windows。
 
@@ -11097,7 +11097,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：关闭套接字，该套接字的所有操作除了 close/isClosed 之外，均不允许再调用。此接口允许多次调用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/b5ZEWgQyQlCTO4xFO1brJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=92981AB0D1304D7CE59DD6E48AC6F6C97272FF6554FA0CFF3A8D8D9698021C4C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/b5ZEWgQyQlCTO4xFO1brJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=469C66E2A56601FAE2A1B50934C80F79D6EBC50B25C149BBB7ABF7B1E3D612D9)
 
 不支持平台：Windows。
 
@@ -11153,7 +11153,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：获取指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/rEwftOm1S5WiAIuLAWZYKw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=B4D5594B30B6CB63252F81211F8E77341A421A5E17462E7E88BB277331716234)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/rEwftOm1S5WiAIuLAWZYKw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=011D707A4E72FE29C66F494665C818A65083CAED7E634E675302312EC9FCDECC)
 
 不支持平台：Windows。
 
@@ -11241,7 +11241,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：获取指定的套接字参数。从 [IntNative](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#intnative) 强转而来。0 => false，非 0 => true。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/eScttNtFQreQqDkiXrX7eg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=01CE267929B86A4E9791DACDE6D447ED791FAC29AA021DCE465B471BB74E75E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/eScttNtFQreQqDkiXrX7eg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=0928789A87B8EF907F827943A30B07464C15BF753C50BD9BFD3E4269CE942450)
 
 不支持平台：Windows。
 
@@ -11299,7 +11299,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：获取返回值为整型的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/dNTMKGw5QAOwtuc_hG4R_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=63C7458A7E9BD944B2A4089A6C16D68C06E282F50ECF40BFECBC78B477BDB28A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/dNTMKGw5QAOwtuc_hG4R_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=433C8F1D8F27D748D4F905017055382EA8FF7FFBD8B8DFA1F8EABC9302928D09)
 
 不支持平台：Windows。
 
@@ -11354,7 +11354,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：判断套接字是否通过调用 close 显式关闭。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/5IvRfe_lStyrtCKEzZ_DgQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=3E46264E31B3835737B191346F9AF40016EF268830D76F0DABA6C9C2507C9705)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/5IvRfe_lStyrtCKEzZ_DgQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=36C36FB94EC7D02C9AD1882251BA2AD5C2820EA2D753C0C911D99AEA20E093EE)
 
 不支持平台：Windows。
 
@@ -11424,7 +11424,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置返回值为整型的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/nQ0iKJBvTgakX9w4cKPo2w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=34573429A6D35D251F26C365BCD6CE6344DA3A346AE85CCFF75803064EA3F506)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/nQ0iKJBvTgakX9w4cKPo2w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=61C9F2DCE3B0D7C0D7708E0AA0D3DD232E9CD2FB59FA8A9FE31C0DA93CEA5331)
 
 不支持平台：Windows。
 
@@ -11498,7 +11498,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/2ACY0mj2TbKqFroI5vVrvA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=A96D91E00E6823F77C0BCD34A61303FFAB836CB8E6E783AF9A7C872BB0035DB1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/2ACY0mj2TbKqFroI5vVrvA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=C5F98E860D454669CD327DB9EED1CFF4EB58B76BF8CE3D4A9097037C01813CAD)
 
 不支持平台：Windows。
 
@@ -11552,7 +11552,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/A3qe45LSTq2jP-B61fdhoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=5CE7EB59213BE5EC529BCFCEB7443C1200EF955DEB7106950AB3B8F73C4D2C14)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/A3qe45LSTq2jP-B61fdhoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=3831F354E897328E01DF1492666ECC927EC9C40E0586E79A7943AF65F37899EA)
 
 不支持平台：Windows。
 
@@ -11602,7 +11602,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：返回当前 [UnixServerSocket](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_classes#class-unixserversocket) 的状态信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/dFj4leAQQ9ii9xrijnScwA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=584C4DACDE12B051FBA000D63BA02D675724E25A9C4504E9425DF1C4BF66E9B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/dFj4leAQQ9ii9xrijnScwA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=5CB4AD630A20B01DA1E5AEF7DD7511490B7DB9D0AFBC7AF898945D7A92F16765)
 
 不支持平台：Windows。
 
@@ -11668,7 +11668,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 [UnixSocket](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_classes#class-unixsocket) 实例创建后应调用 connect() 接口创建连接，并且在结束时显式调用 close() 回收资源。可参阅 [StreamingSocket](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_interfaces#interface-streamingsocket) 获取更多信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/wB-QhH-QTEK7t-7dulIafA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=519A240B7E5C5E13BBE85A1E3E48D77FFA30290C752188C133A178CBE1F445ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/wB-QhH-QTEK7t-7dulIafA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=D27C1D151C4373ABF3E2028154C5241C355817E72572E731B74642BD86DD0DE9)
 
 不支持平台：Windows。
 
@@ -11685,7 +11685,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：读取 Socket 将要或已经被绑定的本地地址。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/qhN3h0H2QwaBHS8QjMEAbQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=86F2F9A2292F7ACBD113A2031BC85934439832F91EA5C713FC9A21E0F9D6E83C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/qhN3h0H2QwaBHS8QjMEAbQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=9AEBB4F47EF2FEF60A32105ABF30F03932C002D1D3F4E97C2FE57A6A9792341A)
 
 不支持平台：Windows。
 
@@ -11727,7 +11727,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 如果设置的时间过小将会设置为最小时钟周期值，过大时将设置为None，默认值为 None。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/--_uiZg0TFiQP-OxvKNCHg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=F1BE11C45CB935810C1CD114392487B1496CB73A564DC1487192053E4CB5DD4F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/--_uiZg0TFiQP-OxvKNCHg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=9C3D5095D1475CB322DB76DC14F0E90E651D01D5809C2989760F50DECEBB7593)
 
 不支持平台：Windows。
 
@@ -11769,7 +11769,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置和读取 SO_RCVBUF 属性。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/KHQ8bFkcQxiu8rFBPw24Tg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=44A22C6C6B5F08D31B2E7B5C60A76BB1D0D5F004EDE33EB95F8A7B2DA4B7BBF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/KHQ8bFkcQxiu8rFBPw24Tg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=6DEAFB27C5C9429D19219D3A6AD24355D4DCF66A1D4E3CE5EF989EC1734C5688)
 
 不支持平台：Windows。
 
@@ -11812,7 +11812,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：读取 Socket 已经或将要连接的远端地址。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/AmKaI3mzRsCmbxXE0l3GFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=15C1101AF598260D53D211F82ACB942AB3C242AF95FA58E104BB47D791A76FEA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/AmKaI3mzRsCmbxXE0l3GFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=EC15A3C71B4E8A99A8E24BDA39691A5EB4E21FB788E50D946F0A8054F6C994C4)
 
 不支持平台：Windows。
 
@@ -11892,7 +11892,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置和读取 SO_SNDBUF 属性。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/belAl305TJypV_4B4BXD_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=7745691D78BA6F606FF0F4BDFAE5A85930D86409DD3A88A879BA412BE00F7D6E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/belAl305TJypV_4B4BXD_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=193FC0D8AFFF0C25A15BF790F3D864B94399C925B81FBE1953901A974C6E4B72)
 
 不支持平台：Windows。
 
@@ -11937,7 +11937,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 如果设置的时间过小将会设置为最小时钟周期值；过大时将设置为最大超时时间（263-1 纳秒）；默认值为 None。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/VKpA5bk8RuS_VoY3al9b1A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=5D387E6369C85C618DB451C027A8A4A31F60ACBF43C43662374B18D45AE65656)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/VKpA5bk8RuS_VoY3al9b1A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=3D52666AA940699B2AA2ADBC85C00593875E8A812743C8F37A04960694DC7233)
 
 不支持平台：Windows。
 
@@ -11979,7 +11979,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：创建一个未连接的 [UnixSocket](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_classes#class-unixsocket) 实例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/8kjpL61LR42ZDXVAPLVI4g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=D70EB9530BEECA86A76166480E728A7A95E981AFD3EBF0C346B1B1CA5103E556)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/8kjpL61LR42ZDXVAPLVI4g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=68FD467DCE0BCD016ED7413BB301D37F61329D56470E296FF41C61294C192365)
 
 不支持平台：Windows。
 
@@ -12022,7 +12022,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 此文件类型可通过 [isSock](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-issockstring-deprecated) 判断是否存在，可通过 [unlink](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-posix_package_funcs#func-unlinkstring-deprecated)() 接口删除。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/zMqTOLECQL6ZJ2QYYJ533w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=B9C86571AFD144F66FF6E4F979CD2615E7FF9E22E8B125C33115FF1D15C8B4DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/zMqTOLECQL6ZJ2QYYJ533w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=8C4116E0AE2BDF95B899DF0F819C86AF49284E2D026ECA3AE5844526F99A32A8)
 
 不支持平台：Windows。
 
@@ -12067,7 +12067,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：关闭套接字，所有操作除了 close/isClosed 之外，均不允许再调用。接口允许多次调用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/9UTer6e5S6yCiLsPPym-Dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=63C8B1EFD19135F5F1C59D0B0486E59421648DC15B5821C610B7832412BE2863)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/9UTer6e5S6yCiLsPPym-Dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=51A63317659174F70010F5E5FF195470E32AEC781BC94903301AB372DCC0F50C)
 
 不支持平台：Windows。
 
@@ -12143,7 +12143,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：建立远端连接，对端拒绝时连接失败，会自动绑定本地地址，因此不需要进行额外的绑定操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/8iadmwn9RF-NMq_Zi9pXww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=382F712B41D99559F8EF935FB156304DFE39122AC5A8338C00C75079FED1CD88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/8iadmwn9RF-NMq_Zi9pXww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=602AD09B2B71C2286612214FE2D8F4DD0DF93F1AD87A7875C523A205A8B1310E)
 
 不支持平台：Windows。
 
@@ -12237,7 +12237,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：获取指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/V8CfaIAcT7uNgtwQWmS4ZA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=A67F7B712D5597CFA9B2E0B4A6DBB434F272560847549C37579D74614E42C480)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/V8CfaIAcT7uNgtwQWmS4ZA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=1AE62DAC37763CF17F41C4D1889B0A4A278E2AAC03EE9BDC97BBAFFB876393D3)
 
 不支持平台：Windows。
 
@@ -12325,7 +12325,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：获取指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/Y5vCn9pGSW--0TQfzSbeSA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=6B8795CE49BAEEA6905381D5CB5B1543872FDB84D4E6716A6768BFC4B380DAAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/Y5vCn9pGSW--0TQfzSbeSA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=7D62F6C13CFC36ED537999D8624F1DD066EAB1FD84269969537604EB3F1AAD77)
 
 不支持平台：Windows。
 
@@ -12383,7 +12383,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：获取指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/AD4C0nZDSlS5UJlc48IpDA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=507C2235C0F5DA3BD45BE9445A252E0F857140E07EE09930D11FA0A2C75644BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/AD4C0nZDSlS5UJlc48IpDA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=E4B13EA471DC51121E15DF4A86AD3F4B2203BD97EBD9BF4AAADFB99EBB50F360)
 
 不支持平台：Windows。
 
@@ -12438,7 +12438,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：判断套接字是否通过调用 close 显式关闭。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/9_PIP-5ATJCjQvb1CZ3wLg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=76993ED2E5308D1F962C27F6BAD1EFB33FA72804B1FBCB08F5A881C686F76772)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/9_PIP-5ATJCjQvb1CZ3wLg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=37A86B199D8BAB50EF212571C1865983EEB925D03C8A2B665AB8F63A63934B14)
 
 不支持平台：Windows。
 
@@ -12520,7 +12520,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：读取报文。超时情况按 readTimeout 决定，详见 readTimeout。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/q7qyydS6TM65fy3PNlIZFg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=822580A28749B54132615935F8307B2C9BB1C712EBDF3FF1A11B249996284174)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/q7qyydS6TM65fy3PNlIZFg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=E55C4F8A0C70524207A6CF00E166417F941E51D0C9DF7B222985EDF3A828D224)
 
 不支持平台：Windows。
 
@@ -12622,14 +12622,14 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/4IEFBNgsS5iefA6yqKc-7w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=351264C93D74A7B94E3BBC4A09FCBAC587A28E26E8DA9C69BF3DE3D57E353006)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/4IEFBNgsS5iefA6yqKc-7w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=BEF24C925DED793236463D715C6314914D312731B3233DD90D3ED03DFF3F8DD1)
 
 不支持平台：Windows。
 
 参数：
 
   * level: [Int32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int32) \- [套接字选项级别](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_structs#struct-optionlevel)。
-  * option: [Int32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int32) \- [套接字选项名](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_structs#struct-optionname)。
+  * option: [Int32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int32) \- [套接字选���名](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_structs#struct-optionname)。
   * value: [CPointer](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#cpointert)<[Unit](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#unit)> \- 参数值。
   * valueLength: [UIntNative](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#uintnative) \- 参数值长度。
 
@@ -12696,7 +12696,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/VhNTqJ2XTde2eCJOhR9Q9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=84E4E1C4EBDA4567B4212F7A00887A3B0AC9D990E7E904A2970D2A6679CCE99F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/VhNTqJ2XTde2eCJOhR9Q9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=69B2AFFBE0E0ECE643C66C0E50E92C53F3489AF066F82041BD06D4BD46013E93)
 
 不支持平台：Windows。
 
@@ -12750,7 +12750,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：设置指定的套接字参数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/vLqN9LkvQGSLoBhfbO8Idw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=775ABFDDB33F5090F71320185F42D44FF13A80D67262672EF89794D3765BD5FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/vLqN9LkvQGSLoBhfbO8Idw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=DED3720B155863836DC80B578B5D7044911BCE944D8A56B5D4BE69C6D74C20AB)
 
 不支持平台：Windows。
 
@@ -12800,7 +12800,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：返回当前 [UnixSocket](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-net_package_classes#class-unixsocket) 的状态信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/req7vApTTYC7EZq1RPauZQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=22764DC5762E32335B5CCAE7C83F98F8765EB5289AFE89C00C0BD45ADBF5AB18)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/req7vApTTYC7EZq1RPauZQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=33E39889E592EA2EA7F8978D183F9F9A3BF16ECC98E4AD3B42AE905AF0CC71E0)
 
 不支持平台：Windows。
 
@@ -12881,7 +12881,7 @@ UdpSocket 需要被显式 close() 。可参见 [DatagramSocket](https://develope
 
 功能：读取写入。超时情况按 writeTimeout 决定，详见 writeTimeout。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/8KXie8DqQ1i6QR5RPLfZew/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090206Z&HW-CC-Expire=86400&HW-CC-Sign=F259DC00689D7B1DA7811A0D67708B83BCA7F105626135C0B1F5E622C5D719D7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/8KXie8DqQ1i6QR5RPLfZew/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085316Z&HW-CC-Expire=86400&HW-CC-Sign=EE7FCE23B9B6E2C41F18A5BE6E2ACCB2FFD12438BCA1F890693EE9279A0AF8AC)
 
 不支持平台：Windows。
 

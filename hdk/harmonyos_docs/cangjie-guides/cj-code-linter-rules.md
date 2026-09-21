@@ -1356,7 +1356,7 @@ enum 构造器名字在类型所在作用域下总是自动引入，可以省略
 
 一个线程中没有正确释放持有的锁会使其他线程无法获取该锁对象，导致阻塞。在发生异常时，要确保程序正确释放当前持有的锁。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/erv7qp4hTYKi0hvIU3eQ2A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090136Z&HW-CC-Expire=86400&HW-CC-Sign=5E4664AB50AD1AD494E8A3BB02DEF6FC1D513D06962477744FFC463E769D0D7C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/erv7qp4hTYKi0hvIU3eQ2A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085009Z&HW-CC-Expire=86400&HW-CC-Sign=7260A17EA3AB158B24B9B97A2DB76F67B7AF4779D183C92226F0792AC0E33DD2)
 
 在发生异常时，通过 synchronized 进行同步的代码块的锁会被自动释放，但是通过 mtx.lock() 获得的锁不会被自动释放，需要开发者手动释放。
 
@@ -1481,7 +1481,7 @@ enum 构造器名字在类型所在作用域下总是自动引入，可以省略
 
 对 “同一个数据” 的定义：
 
-  1. 对同一个 primitive type、enum、array 类型的变量或者 struct/class 类型的同一个 field 的访问，都算作同一个数据。
+  1. 对同一个 primitive type、enum、array 类���的变量或者 struct/class 类型的同一个 field 的访问，都算作同一个数据。
   2. 对 struct/class 类型的不同 field 的访问，算作不同数据 。
 
 
@@ -1721,7 +1721,7 @@ enum 构造器名字在类型所在作用域下总是自动引入，可以省略
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/t2NErtigS_ajBYwUG2ykQA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090136Z&HW-CC-Expire=86400&HW-CC-Sign=D4F81B36B4A3DD6C64DA38D7BD8D7C185B1CB4CFC3D7EC3304BDE8739633D995)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/t2NErtigS_ajBYwUG2ykQA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085009Z&HW-CC-Expire=86400&HW-CC-Sign=FF19706817FE80D8BE25BCF8C128DED06CFC515666791DFE3232A16B8F34F8AD)
 
 外部数据记录到日志中前，进行有效字符的校验。
 

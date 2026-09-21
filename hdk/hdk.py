@@ -23,7 +23,7 @@ mcp_server.py、generate_index.py）保留为可复用模块，由本入口统�
                        （含 cangjie-* 分类的鸿蒙仓颉开发文档），来源为华为云
                        HarmonyOS Developer Knowledge MCP（crawl.py）。
   - harmonyos-cangjie: 同上语料中的 cangjie-* 部分，官方接口需登录（HttpOnly cookie），
-                       经 builtin_browser MCP（cj_mcp.py）在已登录页面内鉴权抓取；crawl 补新、
+                       经内置浏览器桥（cj_iab.py）在已登录页面内鉴权抓取；crawl 补新、
                        incremental-cangjie 补新+回查已改+判删。
   - cangjie          : 本目录下 cangjie_docs/，仓颉语言官方文档
                        （cj-docs.gitcode.com 静态站，crawl_cj.py）。
@@ -99,11 +99,12 @@ def cmd_crawl(args):
     for t in targets:
         print(f"[hdk] === crawl target={t} ===", flush=True)
         if t == "harmonyos-cangjie":
-            # 经 builtin_browser MCP（本地适配器代理）驱动 cj_mcp 抓取；需浏览器已登录
-            # 华为开发者账号，串行、单次枚举+抓取补新（改/删用 incremental-cangjie）。
-            import cj_mcp
-            print("[hdk] 鸿蒙仓颉：经浏览器 MCP 枚举 + 抓取新文档（需已登录华为开发者账号）。", flush=True)
-            cj_mcp.CjMcp().go(["enumerate", "fetch"])
+            # 经内置浏览器桥（cj_iab）抓取：需浏览器已登录华为开发者账号，且
+            # browser-use 控制通道的 node relay 在跑（127.0.0.1:8791）。
+            # 串行、单次枚举+抓取补新（改/删用 incremental-cangjie）。
+            import cj_iab
+            print("[hdk] 鸿蒙仓颉：经内置浏览器桥枚举 + 抓取新文档（需已登录华为开发者账号 + node relay）。", flush=True)
+            cj_iab.go(["enumerate", "fetch"])
             if not args.no_index:
                 print("[hdk] 更新索引 root=harmonyos ...", flush=True)
                 indexer.ensure_index("harmonyos", force=True)
@@ -150,16 +151,16 @@ def cmd_incremental_cj(args):
 
 
 def cmd_incremental_cangjie(args):
-    # 鸿蒙仓颉开发文档增量：经浏览器 MCP 驱动 cj_mcp（补新 + 回查已改 + 判删）。
-    # 需浏览器已登录华为开发者账号，且同源 svc-drcn 可达；串行执行。
-    import cj_mcp
+    # 鸿蒙仓颉开发文档增量：经内置浏览器桥驱动 cj_iab（补新 + 回查已改 + 判删）。
+    # 需浏览器已登录华为开发者账号、同源 svc-drcn 可达、node relay 在跑；串行执行。
+    import cj_iab
     argv = ["incremental"]
     if args.skip_delete:
         argv.append("--skip-delete")
     if args.limit:
         argv.append("--limit=%d" % args.limit)
-    print("[hdk] 鸿蒙仓颉增量：经浏览器 MCP 补新+回查+判删（需已登录华为开发者账号）。", flush=True)
-    cj_mcp.CjMcp().go(argv)
+    print("[hdk] 鸿蒙仓颉增量：经内置浏览器桥补新+回查+判删（需已登录账号 + node relay）。", flush=True)
+    cj_iab.go(argv)
     if not args.no_index:
         print("[hdk] 更新索引 root=harmonyos ...", flush=True)
         indexer.ensure_index("harmonyos", force=True)
@@ -327,7 +328,7 @@ def main():
     p.set_defaults(fn=cmd_incremental_cj)
 
     p = sub.add_parser("incremental-cangjie",
-                       help="鸿蒙仓颉开发文档增量（经浏览器 MCP：补新/回查已改/判删，需登录华为开发者账号）")
+                       help="鸿蒙仓颉开发文档增量（经内置浏览器桥：补新/回查已改/判删，需登录华为开发者账号）")
     p.add_argument("--skip-delete", action="store_true", help="报告删除但不动文件")
     p.add_argument("--limit", type=int, default=0, help="限制重查处理量（冒烟测试）")
     p.add_argument("--no-index", action="store_true", help="完成后不更新索引")

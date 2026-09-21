@@ -14,7 +14,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.fs / 类
 
 功能：对应文件系统中的目录，它提供创建、移动、复制、删除、查询属性以及遍历目录等能力。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/qcKlRRCEScWFNHfx6cDhiw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090203Z&HW-CC-Expire=86400&HW-CC-Sign=C3AE80089EE61809E4682B27142116885D0C9618DB6329AFAA16FE75C21DDF2A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/qcKlRRCEScWFNHfx6cDhiw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085306Z&HW-CC-Expire=86400&HW-CC-Sign=56364BC5791BF1F05342EEBC694F70C9458C2964FCB8AFFAC1794B2F48A3BB90)
 
 非法路径指的是以下情况之一：
 
@@ -359,7 +359,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.fs / 类
 
 异常：
 
-  * [FSException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-fs_package_exceptions#class-fsexception) \- 当指定路径不存在、指定路径不是目录或获取目录的成员信息失败时，抛出异常。
+  * [FSException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-fs_package_exceptions#class-fsexception) \- 当指定路径不存���、指定路径不是目录或获取目录的成员信息失败时，抛出异常。
   * [IllegalArgumentException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_exceptions#class-illegalargumentexception) \- 当指定路径为空或包含空字符时，抛出异常。
 
 
@@ -585,11 +585,11 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.fs / 类
 
 功能：提供一些对文件进行操作的函数，包括文件的打开、创建、关闭、移动、复制、删除，文件的流式读写操作，查询属性以及一些其他函数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/zSOYp101RX2G1slPcJz1gw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090203Z&HW-CC-Expire=86400&HW-CC-Sign=FA5641FEB8164FFDDAB1275F901BC9FCC2ED6482218436B6ED13B23D55F153DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/zSOYp101RX2G1slPcJz1gw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085306Z&HW-CC-Expire=86400&HW-CC-Sign=59BDE9C13DDE5841DB2BE656EBBB965B59781979B6EECB705281B777DF4EED27)
 
 创建的 [File](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-fs_package_classes#class-file) 对象会默认打开对应的文件，当使用结束后需要及时调用 [close](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-fs_package_classes#func-close) 函数关闭文件，否则会造成资源泄露。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/YOhvdmTuSUmoAWNQnjE7nQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090203Z&HW-CC-Expire=86400&HW-CC-Sign=81752040B4759FB78851F3A52EE95F313801D5C0064FD2B5DBE18B3F8B266C72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/YOhvdmTuSUmoAWNQnjE7nQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085306Z&HW-CC-Expire=86400&HW-CC-Sign=B5DA8F021D5B12939C5E5B0721B6C31DD9B2CF728D1C624FDFD223E06620F735)
 
 非法路径指的是以下情况之一：
 
@@ -2005,7 +2005,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.fs / 类
 
 功能：创建一个新的符号链接到现有路径。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/bfQsrgXBRHasz8r-wxVabg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090203Z&HW-CC-Expire=86400&HW-CC-Sign=3F259E2782AD3D936B47071F9DC09470B263C748E27F4C4BE133A870EEE9774C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/bfQsrgXBRHasz8r-wxVabg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085306Z&HW-CC-Expire=86400&HW-CC-Sign=04EE10863591AC8814A7351E1C73559489ADAD8FE73E5A5B4BFCCDE0629B5504)
 
 在 Windows 上，创建一个目标不存在的符号链接时，会创建一个文件符号链接，如果目标路径后来被创建为目录，则符号链接将不起作用。
 
@@ -2070,7 +2070,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.fs / 类
 
 功能：创建一个新的符号链接到现有路径。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/V96zpknfRDuc3Zi8pdcd2A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090203Z&HW-CC-Expire=86400&HW-CC-Sign=FAF4D559FD14A044E3042FBCCB191A1CAFEE659B704F7300B6B1BEC56C9EBF16)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/V96zpknfRDuc3Zi8pdcd2A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085306Z&HW-CC-Expire=86400&HW-CC-Sign=A96CCD4EA2D5D6E172DD9A859A9C027A27D723544CF99FA1A48D4C6EECA77E3D)
 
 在 Windows 上，创建一个目标不存在的符号链接时，会创建一个文件符号链接，如果目标路径后来被创建为目录，则符号链接将不起作用。
 

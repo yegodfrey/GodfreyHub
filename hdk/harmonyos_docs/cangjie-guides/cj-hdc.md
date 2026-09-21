@@ -19,9 +19,9 @@ hdc分为三部分：
 
 关系如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/VUMtXCwDT3iHheqkhA8Kmg/zh-cn_image_0000002713558852.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=B93FD030AAA5A13477169D311342FF0513F329110780B2F4E00F9791F5EBB03A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/VUMtXCwDT3iHheqkhA8Kmg/zh-cn_image_0000002713558852.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=FA60CF0F7D0F209A1359AA67C1D1A523B804CE02EC2B0193805E99983DC6002A)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/wzbX0aQeSi-nWvHnCYsang/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=878A150BBFD9E7C6D3DF25BFCF4BC2EDE721FCBBBB7A8512722AAF6A1733DFDB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/wzbX0aQeSi-nWvHnCYsang/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=90B6719C4FB97D3291EBF83BD5C0A2F5BCB61A775BAC22EBE4CCDC0D48679849)
 
 hdc client在启动时，默认会判断server是否正在运行，如果没有运行则会启动一个新的hdc程序作为server，运行在后台。
 
@@ -45,7 +45,7 @@ hdc server启动时，默认会监听PC的8710端口，hdc client使用tcp协议
 
 例如，添加变量名为：OHOS_HDC_SERVER_PORT，变量值可设置为任意未被占用的端口，如18710。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/SGA003xpQAuyp7IkCtn6Pw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=E2592A48960B11D5D1CDA8C21E498DAC15AFDD6755BCA08904F611BBD12FFBAF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/SGA003xpQAuyp7IkCtn6Pw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=9C7463880C0A8287B024008B8BDD7616CCF038768234C57C6FD7FD12DE577FC3)
 
 环境变量配置完成后，关闭并重启命令行或其他使用到HarmonyOS SDK的软件。
 
@@ -97,7 +97,7 @@ keygen | 生成一个新的秘钥对。
 version | 打印hdc版本信息，也可使用hdc -v打印版本信息。  
 checkserver | 获取客户进程与服务进程版本信息。  
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/E694vTvgQNmPuVUw_TNKCg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=4F60612C1CE453AE209370CA0FA5D72FDEFE1FE0E5B95C7C1C0108FD8386F3A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/E694vTvgQNmPuVUw_TNKCg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=D91D3071C0901ACB63BAB71A4EDA3459324B1E4297C55C9C78AA5B6C6383FD89)
 
 全局参数在使用时需要放在命令之前。
 
@@ -194,7 +194,7 @@ HarmonyOS device connector(HDC) ... \------global commands:------- -h/help [verb
 connect-key | 设备标识符，即为hdc list targets返回的信息。  
 command | hdc支持的命令。  
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/c8DN13veQJ-Q44ivyDCP8A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=90DA10D8BE8ED024B4D3AD3B7BF5F4D75E3200F8EA143337E6F4B4A599CB1781)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/c8DN13veQJ-Q44ivyDCP8A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=2C014B44C07DB768FBB4B43AD6B37D652BED3AEC0110AFAA557043A866D24DEF)
 
 connect-key为每个设备唯一的标识符。如果通过usb连接，标识符为序列号；如果通过网络连接设备，标识符为“IP地址:端口号”。
 
@@ -208,7 +208,7 @@ connect-key为每个设备唯一的标识符。如果通过usb连接，标识符
 [Fail]ExecuteCommand need connect-key? please confirm a device by help info | 多设备连接时需要指定一个设备。  
 Unknown operation command... | 不支持的命令。  
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/JnKA3YMlRLSHmGNUplMA0Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=A6BB14EE158504B5C21F08394368D87DDA267B3A94292E039068186A4DD1B5ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/JnKA3YMlRLSHmGNUplMA0Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=B91167ECABD8D244101ADE8BB22B78E44382898A87EDA678D512A873653CB087)
 
 返回的错误提示信息后续会调整优化，请勿用于自动化脚本或程序的结果判断。
 
@@ -276,7 +276,7 @@ hdc环境变量 | 终端命令行输入hdc -h有回显帮助信息内容。 | �
 
 **TCP连接场景**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/q8iDvHHMTtCa8Hk0JHY6Nw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=EB2853429448E9D63D0B392E56C223413A2960FC3B93CF248DC981A1E4CB7668)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/q8iDvHHMTtCa8Hk0JHY6Nw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=DABDF479A1FC6F8B9265FB4CD7C85590BDAFD1165C400ED20ABD949FB1D7D1F6)
 
 TCP调试功能尚未稳定，请谨慎用于生产环境。
 
@@ -320,7 +320,7 @@ IP地址可在设备侧的设置里面查看到，端口号为上一步设备无
 
 远程连接如图所示:
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/qhsTN4WMRVGiUd85vNwAyg/zh-cn_image_0000002743197765.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=E265E1F1A51CE4CC2011B985FADFA0114E8D5A6AD479573F0908337F0B370B8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/qhsTN4WMRVGiUd85vNwAyg/zh-cn_image_0000002743197765.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=5F4265A4F2714B226EA682CF7C4AAC91CC24EF078D7A7B1CEEFE51C2626E8071)
 
 hdc client（客户端）在PC1中运行，hdc server（服务端）在PC2中运行，PC2中的hdc server连接设备。
 
@@ -354,7 +354,7 @@ Connect server failed | 与服务进程建立连接失败。
          # 在已有服务进程，且服务进程的网络监听参数为127.0.0.1:8710的环境中，执行查询设备命令
          hdc -s 127.0.0.1:8710 list targets
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/TlmXHCJxQSKYpo4pBcHJNw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=4EB169FAF71BE3687E9310811A98DE4FFCF70C405C430C4F2F1D192F402BE609)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/TlmXHCJxQSKYpo4pBcHJNw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=A1DCE7CB61AC17BD0F564E3B151920411BC2B91C57F5D2907F85EC8D91EB7FC4)
 
 当命令行中明确使用 -s 参数指定服务端口时，系统将忽略OHOS_HDC_SERVER_PORT环境变量中定义的端口设置。
 
@@ -416,7 +416,7 @@ Set device run mode successful. | 打开成功。
          
          hdc tmode port 1234
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/U200MTlvS4K-bELYfA_iww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=5A0DA44E830D45AE6A85BC9F1A2919347ABBAD8DC67E98EC89A032F41D2315D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/U200MTlvS4K-bELYfA_iww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=13B5BBBD993B983FF3D33956EF41DADF81A362401668FBD28235A4297C24FEBD)
 
 切换前，请确保条件满足：远端设备与近端PC处于同一网络，且PC可ping通远端设备IP。如不满足以上条件请勿使用该命令进行切换。
 
@@ -436,7 +436,7 @@ Set device run mode successful. | 打开成功。
          
          hdc tmode port close
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/jW_XoZdhRzCs9XOyVYo0bQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=BD3871E090303B351614CE58F4A60AFC0EFA93D519BC019F63A42E026E5C8391)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/jW_XoZdhRzCs9XOyVYo0bQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=352CA84588A596B9AFEB1632C541A68659A452687381FEEA92876E5CBF4548BF)
 
 执行完毕后，远端daemon进程将会退出并重启，USB连接将会断开，需要重新连接。
 
@@ -504,7 +504,7 @@ Connect OK | 连接成功
     # 在指定包名的应用数据目录内以非交互式模式执行命令，支持touch、rm、ls、stat、cat、mkdir命令。
     hdc shell -b com.example.myapplication ls data/storage/el2/base/
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/t7tCFkHzTLulR5U_g7lsLQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=731A42313E9B0F1F8B4D4688BF75BD25F354093229FEDEC2D9D08944E5182300)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/t7tCFkHzTLulR5U_g7lsLQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=60EDF4DECB1AC46C426035A823FA46C2EA2D6BE734AFA8046E1C290D86C1D764)
 
 使用参数[-b bundlename]指定包名，应满足条件：指定包名的已安装应用为“使用调试证书签名的应用”，如何申请调试证书及签名可参见：[申请调试证书](https://developer.huawei.com/consumer/cn/doc/app/agc-help-add-debugcert-0000001914263178)。
 
@@ -601,7 +601,7 @@ bundlename | 可调试应用进程的包名。
          hdc file send E:\example.txt /data/local/tmp/example.txt
          hdc file send -b com.example.myapplication a.txt data/storage/el2/base/b.txt
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/R38_KB1xQkGiJ28MiCOpRQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=49450D3184B9E52C019DAA10380EF8155BBED641DB9784395AF1D98D4F2FF49B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/R38_KB1xQkGiJ28MiCOpRQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=C710E9898D087DD29679825DAE835EBA6850145489E3D9E473331B8802F595C6)
 
 使用方法中，hdc file send -b com.example.myapplication a.txt data/storage/el2/base/b.txt指定了-b参数，将传输本地当前目录下的文件a.txt到包名为com.example.myapplication应用数据目录，传输到相对路径data/storage/el2/base/下，并重命名为b.txt。
 
@@ -633,7 +633,7 @@ bundlename | 可调试应用进程的包名。
          hdc file recv  /data/local/tmp/a.txt   ./a.txt
          hdc file recv -b com.example.myapplication data/storage/el2/base/b.txt   a.txt
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/MtIBOGEPSD-KS_tOwi3f0A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=FFD4A59010B2FC29452DE0FA2456A4FBCBE614C00A42E06C58854AC5B3124F86)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/MtIBOGEPSD-KS_tOwi3f0A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=FE2C9F299CEF9C30E67E22F6AED7F356474A5253A8354522F667AB7B00A30E5F)
 
 使用方法中，hdc file recv -b com.example.myapplication data/storage/el2/base/b.txt a.txt指定了-b参数，将传输名为com.example.myapplication可调试应用进程的应用数据相对路径data/storage/el2/base/下的文件b.txt到本地当前目录下，并重命名为a.txt。
 
@@ -751,7 +751,7 @@ kill [-r] | 终止hdc服务进程，使用-r参数触发服务进程重新启动
          hdc start
          hdc start -r # 服务进程启动状态下，触发服务进程重新启动
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/i4VixStiRiKaTVI6HVAvOA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=7842C4FEF9919F9162FD18D3E1069A2917FE6E1D128509F4EC6F18C5AACAB845)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/i4VixStiRiKaTVI6HVAvOA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=0C8B0DF0A69AC15F67BCFE6E70385716F35C6BCA1BAC97709E4BA335BA5D6827)
 
 当启动hdc服务进程且系统未检测到运行的服务进程时，日志等级的设置优先级如下：若同时指定了-l参数和配置了OHOS_HDC_LOG_LEVEL环境变量，则使用环境变量配置的日志等级；如果仅指定了-l参数，则采用该参数配置的日志等级；若两者均未指定，则服务进程将以默认的LOG_INFO等级启动。
 
@@ -794,7 +794,7 @@ Connect server failed | 与服务进程建立连接失败
          # 跳过进程查询，直接执行命令
          hdc -p list targets
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/CfilnvIRRcyW7ZE1ViaP5w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=4625B4A01BDDB51F1D741917E15ACD3FF196920E0916FEA8A6F053B21D4D6212)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/CfilnvIRRcyW7ZE1ViaP5w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=E57E619B6AA10BCD6D64EF6864C80782435C6EF68CEC3581DC13775517420206)
 
 在未指定 -p 参数的情况下直接执行 command 命令时，客户端将首先检查本地是否已有运行的服务进程。若系统未检测到运行的服务进程，客户端将自动启动服务进程，并建立连接以传递命令；若系统检测到运行的服务进程，客户端将直接与该后台服务建立连接并下发相应的命令。
 
@@ -814,7 +814,7 @@ Initial failed | 服务进程初始化失败。
          # 指定当前服务进程的网络监听参数并启动服务进程
          hdc -s 127.0.0.1:8710 -m
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/XWjP---wQwum47CvzaBjYw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=762F973BC2DA3E233038BACB828B3F86486FE5A30236B0A35702820C4F25DF3A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/XWjP---wQwum47CvzaBjYw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=26F999496A3A21C8A72526FB09E9AB18184D069E9931EE2334DE13BC8E3F39FF)
 
 使用前台启动参数时，可通过附加 -s 参数来指定服务进程的网络监听参数。如果既没有使用 -s 指定网络监听参数，也没有配置环境变量OHOS_HDC_SERVER_PORT配置监听端口，系统将采用默认网络监听参数:127.0.0.1:8710。
 
@@ -995,7 +995,7 @@ hdc运行时日志等级，默认为LOG_INFO，命令格式如下：
 [level] | 指定运行时日志等级 0：LOG_OFF 1：LOG_FATAL 2：LOG_WARN 3：LOG_INFO 4：LOG_DEBUG 5：LOG_ALL  6：LOG_LIBUSB。  
 command | hdc支持的命令。  
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/EHLV__irSBKbW9TqJ2G6eA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=FC36DEE86B37BC0D66F4E2D15FFEBA7A4663F20823F330E136FE0654558AEFD8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/EHLV__irSBKbW9TqJ2G6eA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=FEE46B3BB04140F15289A68300AB9C523CE3FB888EDBBF64ECA8D3B66ABCC950)
 
 当配置运行时日志级别为6（LOG_LIBUSB）时，将激活libusb相关的增量日志输出，增量日志级别的详细程度高、数据量大，有助于精确诊断服务进程中与USB相关的异常情况。USB相关操作主要由服务进程执行，因此，只有服务进程具备打印增量日志的功能。相应地，客户端侧的日志几乎不包含增量日志信息。
 
@@ -1020,7 +1020,7 @@ command | hdc支持的命令。
     
     hdc kill && hdc -l 6 -m
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/_NwLvwxzTTOmA0qu_Owdlg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=1EA0033F69C7B84335DC5304CC61A3B3C7404333A0CADB98EC529BB70C01C0D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/_NwLvwxzTTOmA0qu_Owdlg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=3C993B6A186805C19BD47421C0A7725123B959A906602DE36665D64637A1D264)
 
 -m参数指定以前台模式启动服务进程，可以直接观察前台日志输出，按下Ctrl+C退出进程。
 
@@ -1029,7 +1029,7 @@ command | hdc支持的命令。
     
     hdc kill && hdc -l 6 start
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/WXVe5XXlRiS_DHPAuAmFIA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090131Z&HW-CC-Expire=86400&HW-CC-Sign=D8A8DB3D7C64787480477F0C95FEDA23C9BE736B654E7BD3B9BA9210D712D432)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/WXVe5XXlRiS_DHPAuAmFIA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084956Z&HW-CC-Expire=86400&HW-CC-Sign=3A937A5EDA9CCB577D8761FC8A2EA62D9745A470FFAC23BB052E8599ECCD8FF3)
 
 以后台模式启动，可以在hdc.log中观察日志输出，日志路径可以查看**日志获取** 章节的描述。
 
@@ -1449,7 +1449,7 @@ hdc file send/recv 命令带-b选项时，SDK中的hdc或设备系统版本不�
 
 **处理步骤：**
 
-  * 场景一：升级到最新系统版本。
-  * 场景二：升级到最新SDK版本。
+  * 场景一：升级到��新系统版本。
+  * 场景���：升级到最新SDK版本。
 
 

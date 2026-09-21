@@ -76,7 +76,7 @@ cjpm 是主程序的名称，build 是当前执行的可用命令，--help 是�
       --mock                        enable support of mocking classes in tests
       --skip-script                 disable script 'build.cj'.
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/w_ioSKUYS4GqJxQWetP1pA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=81B5053F3F223148F42D55DE634BD3D280C10F1D7788078D4A69C0D750F7E129)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/w_ioSKUYS4GqJxQWetP1pA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=FC7C8556635A5B8622820A9162FAEBA3D7CB6CA5EDC96645B3FE2758B626EF73)
 
 在使用 cjpm 中心仓相关功能时，需要安装一些外部依赖，请参阅 stdx.net.tls 库文档，根据文档引导安装所需外部依赖。
 
@@ -285,7 +285,7 @@ build 有多个可配置项：
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/kwfpjhcfTOeVdwTeAATkqA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=0B063E305B863EF55933C9ED5E3CB62BE0E2126FB987C116C7B7DEC6B359378B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/kwfpjhcfTOeVdwTeAATkqA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=5B38146E2D6AA86DD634D6DEFCAAC883C32E6AF42107ADF75CB4A0023CEEA950)
 
   * -i, --incremental 选项仅会开启 cjpm 包级别的增量编译。开发者可以在配置文件的 compile-option 字段自行透传 --incremental-compile 和 --experimental 编译选项，从而开启 cjc 编译器提供的函数粒度增量功能。
   * -i, --incremental 选项目前仅支持基于源码的增量分析。如果导入的库内容有变更，需要开发者重新使用全量方式构建。
@@ -310,7 +310,7 @@ build 有多个可配置项：
     输入: cjpm build
     输出: cjpm build success
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/M5sCrRaIT12qHLQ_kceiJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=6ED8DC1CB16208F05851BEEB3EC33C37372D394B9DB54171CE8EF401ED7A81F1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/M5sCrRaIT12qHLQ_kceiJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=C75986E9DC5AC51DE09A7BA3FDB5D1DB9DE788375B1F6D4680E728FA13B5FADB)
 
 根据仓颉包管理规格，只有符合要求的有效源码包才能被正确纳入编译范围。如果编译时出现 no '.cj' file 相关的告警，很可能是因为对应包不符合规范导致源码文件不被编译。如果出现这种情况，请参考仓颉包管理规格说明修改代码目录结构。
 
@@ -369,7 +369,7 @@ run 有多个可配置项：
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/EIMXkoCSTrCyx8t8rMaxrA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=5F33C8CC77974295C71EB56D3A54DFC75C1344CA149474F8DBA96F9714251AAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/EIMXkoCSTrCyx8t8rMaxrA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=1345F68C35BDD62B1CDCBC4E8ED7FA62D0C11A3013C4F7823DBDCD8422BF64EF)
 
 \--run-args 选项将在之后的版本被删除，如果同时使用 --run-args 与 -- 选项， --run-args 的透传选项会被忽略。
 
@@ -630,7 +630,7 @@ cjpm test 参数选项使用示例:
     输入: cjpm test src --report-path=reports --report-format=xml
     输出: cjpm test success
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/aBgVCAyXRY-LMjW8-RSi8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=A8B1B993A3F72FCEB3122804A219A5FB73266651BCF8C31B6D90E7BCF55B6ED9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/aBgVCAyXRY-LMjW8-RSi8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=36495DD726D1926C9E80CE94329D2484DE2691CA0698B283EC98EF46B3AD35C9)
 
 cjpm test 会自动构建所有带有 mock 支持的包，因此在测试中，开发者可以对自定义的类或依赖源模块的类进行 mock 测试。为了能够从一些二进制依赖中 mock 类，应该通过 cjpm build --mock 来构建带有 mock 支持的类。
 
@@ -716,7 +716,7 @@ cjpm bench 参数选项使用示例:
     输入: cjpm bench src --report-format=csv
     输出: cjpm bench success
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/1HYNudJhQZmH_WbBqWOn8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=21F4C2835890A1AD607871B4075818EEA7BCFAF83E65E95BD6EC527A6C3222DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/1HYNudJhQZmH_WbBqWOn8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=6208403DB1F3867FBBB2920EFD230622CFFA4C517D525CA79AB8766B272F24A6)
 
 带有 cjpm bench 并不包含完全的 mock 支持，以避免在基准测试中由于在编译器中的 mock 处理而增加的任何开销。
 
@@ -736,7 +736,7 @@ clean 用于清理构建过程中的临时产物（target 文件夹）。该命�
     输入: cjpm clean --target-dir temp
     输出: cjpm clean success
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/e6rJtiz9TqyC5OaLCQH2BQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=B3F64F54B442241F9F43F29AACFA950CD1D47B4C98427045E4ED7AFD9FC95D6B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/e6rJtiz9TqyC5OaLCQH2BQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=FA46E5973D4B1C559844B32804D79C4C77D535B396B548504A690BC4CCEBE751)
 
 在 Windows 平台上，在子进程执行完成后立即清理子进程的可执行文件或父目录可能会失败。如果遇到该问题，可以在一小段延迟后重新尝试 clean 命令。
 
@@ -809,7 +809,7 @@ publish 用于将制品源码包上传到中心仓。
 
 执行 publish 命令时，cjpm 会检查编译产物目录中是否有名为 模块名-版本号.cjp 的制品源码包和元数据文件 meta-data.json，若任意一个文件不存在，或者元数据中的制品包校验码与制品包不匹配，则重新执行默认 bundle 流程。随后，cjpm 会将制品源码包和元数据上传到中心仓。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/9Z6uuLErTP2BzIT8GpWpzg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=36D0E947687F372CED189DE11F85733B920F854A285B5675E61413FF2AD58F34)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/9Z6uuLErTP2BzIT8GpWpzg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=461A711F85573B20877CD4A9EA31F02209863D40717F1687D423394EB8CB376D)
 
 使用 publish 功能需要正确进行中心仓配置，参考项目管理配置文件说明。
 
@@ -869,7 +869,7 @@ uninstall 用于卸载仓颉项目，清除对应的可执行文件和依赖文�
 
 uninstall 需要配置参数 name，以卸载名为 name 的产物，配置多个 name 时会依次删除。uninstall 可以通过 --root <value> 指定卸载的可执行文件路径，不配置时 Linux / macOS 系统下默认为 $HOME/.cjpm，Windows 系统下默认为 %USERPROFILE%/.cjpm，配置时将会卸载安装于 value/bin 的产物和安装于 value/libs 的依赖。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/-6DEn749RNi1i0gboKE5ug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=E3B7DDEB55DB64D6BF84EEAC69CE75FA9BCA3CFEA189595A57D091AEB9FAB870)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/-6DEn749RNi1i0gboKE5ug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=A25799C36512DA032A3BF7BF62EF7733A9760B711B1F11EAA97EC24151653D7F)
 
   * cjpm 在 Windows 平台暂不支持在中文路径下使用，如果遇到问题，请通过修改目录名规避；
   * cjpm 在 Linux/macOS 平台不支持带 \ 的路径，如果遇到问题，请通过修改目录名规避。
@@ -974,7 +974,7 @@ uninstall 需要配置参数 name，以卸载名为 name 的产物，配置多�
 
 一个合法的仓颉模块名称必须是一个合法的标识符。标识符可由字母、数字、下划线组成，标识符的开头必须是字母或若干下划线加字母的组合，例如 cjDemo，_cj_demo_1 或者 __cj_demo_1。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/nyY5Gpb0TvGqJoWUcoUHKQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=65797BB3FE2AFDF354087300E9E0C9490C4851F18D6E96B2659576EDC9E1F6B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/nyY5Gpb0TvGqJoWUcoUHKQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=93039FFFF5F1BE8D3DBA6CDF8F6C5B761CC989417D6BFC81ED798F3B84D4B532)
 
 当前仓颉模块名暂不支持使用 Unicode 字符，仓颉模块名必须是一个仅含 ASCII 字符的合法的标识符。
 
@@ -1069,7 +1069,7 @@ organization 配置后，模块代码中包声明及包导入需以 组织名 + 
 
 这里填入的命令会在 build 执行时插入到编译命令中间，并且拼接于模块配置的 compile-option 内容之后，优先级高于 compile-option。可用的命令参考《仓颉编程语言开发指南》的[编译选项](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-compile_options)章节内容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/mmwRCiXETuKNa25gBjr1vA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=DECC3B99EA0EE4C30DF07A97E6C73142674F13390A1391B10C2121F1D89A43B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/mmwRCiXETuKNa25gBjr1vA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=E132FB15069C8ACB32019DC60A070B81B86D4814DE8A259453B042B4D6E7BDF3)
 
   * override-compile-option 会生效于依赖模块内的包，开发者需保证配置的 cjc 编译选项与依赖模块内配置的 compile-option 没有冲突，否则编译过程中执行 cjc 将出现相应报错。对于不冲突的同类 cjc 编译选项，override-compile-option 内的选项优先级高于 compile-option。
   * 在工作空间编译场景下，仅 workspace 内配置的 override-compile-option 选项会应用于工作空间内所有模块所有包的编译；即使使用 -m 指定以单模块为入口模块进行编译，也不会使用入口模块的 override-compile-option。
@@ -1083,7 +1083,7 @@ organization 配置后，模块代码中包声明及包导入需以 组织名 + 
     
     link-option = "-z noexecstack -z relro -z now --strip-all"
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/tbaFymrTThqoJx7DZq0f7g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=A18F792E7690428F2893A591ED6BCE04EF5577F58CC1D024F5C488CF416182B6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/tbaFymrTThqoJx7DZq0f7g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=A374F321308DBB000501F07649A0ECAECC1BC1016FB00D22F40C4AEFBB55AEDF)
 
 link-option 中配置的命令在编译时只会自动透传给动态库和可执行产物对应的包。
 
@@ -1106,7 +1106,7 @@ link-option 中配置的命令在编译时只会自动透传给动态库和可�
 
 该字段可以指定编译产物的存放路径，不指定时默认为 target 文件夹。若该字段不为空，执行 cjpm clean 时会删除该字段所指向的文件夹，开发者需自身保证清理该目录行为的安全性。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/lKFa1NKUTqacasdFl7U1MQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=AE549B413510390364EAF828727686DA5D667391D882546540D9ACD9DB86441A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/lKFa1NKUTqacasdFl7U1MQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=8EAFCC2F7684811242A719C477827E0AF2EA99BE2F20D53067D7E673E7F1250A)
 
 若在编译时同时指定了 --target-dir 选项，则该选项的优先级会更高。
     
@@ -1363,7 +1363,7 @@ UI 类 | UI
 
 工作空间内的公共配置项，对所有成员模块生效。例如：配置了 [dependencies] xoo = { path = "path_xoo" } 的源码依赖，则所有成员模块可以直接使用 xoo 模块，无需在每个子模块的 cjpm.toml 中再配置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/h5I3ZKlXQLqooAFDP6rntg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=64B8A90E1B94A95016F5AFA922FCFC6E7B7DAF873B387FE6ECF5F2E0F2415899)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/h5I3ZKlXQLqooAFDP6rntg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=E4681061AFF4EE2F92C153DBD75C88D61D9E1FCACCAAE1692540975231E50FFA)
 
 package 字段用于配置模块的通用信息，不允许和 workspace 字段出现在同一个 cjpm.toml 中，除 package 外的其它字段均可在工作空间中使用。
 
@@ -1470,7 +1470,7 @@ version 字段可选的取值如下：
       "org::boo" = "2.0.0"
       coo = "[1.0.0, )"
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/oAXyJK4KRrWGy8rpFzyYWg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=573EE182EEB205EAAB56C6D62F4C3E1132FF049BA66B7C1CCC8C96C90B5C3BF3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/oAXyJK4KRrWGy8rpFzyYWg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=8E466AF6C97C4B600C170BB937AA395D679A13F5017F06B2C524AC157474F3EB)
 
   * 要想使中心仓依赖生效，需要正确进行中心仓配置，参考项目管理配置文件说明；
   * 若配置的依赖版本为版本范围或多个版本范围的组合，且均为空集，cjpm 将会报错。
@@ -1486,7 +1486,7 @@ dependencies 字段可以通过 output-type 属性指定编译产物类型，指
 
 进行如上配置后，将会忽略 pro0 和 pro1 的 cjpm.toml 中的 output-type 配置，将这两个模块的产物分别编译成 static 和 dynamic 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/oUgwVAImT3u7T9QWEGYTXQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=C638CC740DEF29A805674F60673B0AE628E711FF19BAC20B823E885F1FC86DBC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/oUgwVAImT3u7T9QWEGYTXQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=BCFF00737150317D188558D8464B921A72ED00FDE12E19792AABCDBFB29DB053)
 
 当发生潜在的依赖冲突时，cjpm 会基于特定策略决定最终用于编译的源码模块，参考 cjpm 依赖解析策略。
 
@@ -1527,7 +1527,7 @@ test-dependencies 内的依赖仅可用于文件名形如 xxx_test.cj 的测试�
 
 配置后，编译 demo 模块时，实际使用的间接依赖 bbb 为 new/path/to/bbb 下的 bbb 模块。aaa 中配置的 path/to/bbb 下的 bbb 模块不会被编译。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/QN5ZrDRDQRq6yLT6i190uQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=BB25C987B811269B1668AE2ED5F659BBC5FC327C609B28377725213C11618E84)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/QN5ZrDRDQRq6yLT6i190uQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=0D6EB146B94FA6820F8C81B045248C738EFBEA952B8B21C453F8A5F52336338A)
 
   * 仅入口模块的 replace 字段会在编译时生效；
   * 配置的依赖项为中心仓依赖时，version 字段必须为单一版本号。
@@ -1554,7 +1554,7 @@ test-dependencies 内的依赖仅可用于文件名形如 xxx_test.cj 的测试�
 
 若需要指定不同平台可使用的 c 库配置，请参见 target。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/3PeW9djTTI2mU1dcXeZTtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=1305E5E873C7C7C6CB545D5862C00822A5C6D26999199637F3D31C191CD0D910)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/3PeW9djTTI2mU1dcXeZTtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=F5D5E14168EF89D73931E942F3E5183443C95C94298F358BD11AA8B2ADA486A7)
 
 在 Windows 系统的多模块场景下，若多个模块配置了同名 c 库，由于 Windows 特殊的库读取策略，会最优先读取运行目录下的库文件，因此最终实际使用的库文件可能与其他系统不一致。
 
@@ -1619,7 +1619,7 @@ cjc-jobs 和 enable-heuristic-parallelism 用于控制 cjpm 执行 cjc 编译命
 
 compile-pipeline-parallel 配置项的取值为 true 或 false，代表是否开启流水并行编译优化。当开启此功能时，cjpm 会在上游包的 cjo 编译产物就绪时开始下游包的编译，从而提升编译流程整体的并行度，可以更充分地利用 CPU 资源，减少编译耗时。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/IfTbGiSUT523nrXq-ToSgQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=702D861E927A538B3E4238AD04CB286F5BD47779EEFA1CB864D16FBD3159203D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/IfTbGiSUT523nrXq-ToSgQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=C180EF5FF211371D52A51B1AAAEC407C007FE5FCC40460B18A1CABF2231566FF)
 
 目前 compile-pipeline-parallel 配置项为实验特性，暂不稳定，开发者若想启用该配置，需要注意如下限制：
 
@@ -1669,7 +1669,7 @@ combined 配置项是一个键值对，其中键为模块名，即 package.name�
 
 模块开发者可以将上述产物列表中的所有 cjo 文件和 root 包动态库 libdemo.so 提供给其他模块作为二进制依赖，无需提供子包的静态库文件。其他模块依赖该动态库之后，可以在代码中依赖其所有子包，例如可以通过 import demo.aoo 的方式依赖 demo.aoo 包。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/D2Wpc258QYW7rveyIR4GRw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=702CC0DB4C9AE3982EE7D0E10729D3EF624E58C192A984F8ED1518FF9C8C78A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/D2Wpc258QYW7rveyIR4GRw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=7508E3A2A337C07149E601FACED23E8D4E19511F47E8730AC41186DA464DCE4B)
 
   * 在应用此配置时，编译 root 包动态库需要使用其所有子包的静态库，因此需要保证 root 包不被其子包直接或间接导入。
   * 目前 profile.build.combined 配置项为实验特性，暂不稳定，开发者若想启用该配置，需要注意如下限制： 
@@ -1796,7 +1796,7 @@ combined 配置项是一个键值对，其中键为模块名，即 package.name�
 
 自定义透传给 cjc 的选项，通过 --cfg1 --cfg3 使能，每个模块设置的 customized-option 对该模块内的所有包生效。例如，执行 cjpm build --cfg1 --cfg3 命令时，透传给 cjc 的命令则为 --cfg="feature1=lion, feature2=cat" -O2。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/qm4Lqko4RgaYmUX14w0xNQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=9908B25536387329B8D3AD8C3A2B9C16C32999890E626EC7797F5E347BCCEAC2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/qm4Lqko4RgaYmUX14w0xNQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=CF0309E02BA91D93D9843ABEFC562568448305F2CB1100264549DD92F1E1EEBE)
 
 这里的条件值必须是一个合法的标识符。
 
@@ -1826,11 +1826,11 @@ combined 配置项是一个键值对，其中键为模块名，即 package.name�
     [target.x86_64-unknown-linux-gnu.release] # Linux 系统的 release 配置项
       [target.x86_64-unknown-linux-gnu.release.bin-dependencies]
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/yTbP_eZZQMWaipBUO0t6ug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=BBADA6977076CA682ACD56D40416F5FA3E645A14396C32B16C55C3D4EA39B89E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/yTbP_eZZQMWaipBUO0t6ug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=870B05129B391E6AF215E98353B2A087861D8464EE8FD24B8D563784A5D5CB89)
 
 cjc 支持的 target 名称列表及对应的系统平台，请参考[交叉编译](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-cross_compilation)。
 
-开发者可以通过配置 target.target-name 字段为某个 target 添加一系列配置项。target 的名称可以在相应的仓颉环境下通过命令 cjc -v 获取，命令输出中的 Target 项目即为该环境对应的 target 名称。上述用例应用于 Linux 系统，其他平台也适用，同样可以通过命令 cjc -v 获取 target 名称。
+开发者可以通过配�� target.target-name 字段为某�� target 添加一系列配置项。target 的名称可以在相应的仓颉环境下通过命令 cjc -v 获取，命令输出中的 Target 项目即为该环境对应的 target 名称。上述用例应用于 Linux 系统，其他平台也适用，同样可以通过命令 cjc -v 获取 target 名称。
 
 为特定 target 配置的专用配置项，将作用于该 target 的编译流程，也能被其他以该 target 为目标平台的交叉编译流程使用。配置项列表如下：
 
@@ -1851,7 +1851,7 @@ cjc 支持的 target 名称列表及对应的系统平台，请参考[交叉编�
 
 该字段用于导入已编译好的、适用于指定 target 的仓颉库产物文件，以导入下述的 pro0 模块和 pro1 模块的三个包来举例说明。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/BLnoVxuNS3y7fyf4qSYKug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=9398369A9FBE6B4AD73EF720068E1ED5EED495EA199B20CDABEAEB26308DED78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/BLnoVxuNS3y7fyf4qSYKug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=6583274553D769E54C3CEFD2D23C86B9A6BA602064064404484B88A45F369795)
 
 非特殊需求场景，不建议使用该字段，请使用上文介绍的 dependencies 字段导入模块源码。
     
@@ -1887,7 +1887,7 @@ path-option 选项为字符串数组结构，每个元素代表待导入的路�
 
 package-option 选项为 map 结构，pro0.xoo 名称作为 key (toml 配置文件中含有 . 的字符串作为整体时，需要用 "" 包含)，所以 key 的值为 libpro0.xoo.so 。前端文件 cjo 的路径作为 value，对应于该 cjo 的 .a 或 .so 需放置在相同路径下。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/NP8Ol6AkRlumqX7bZS6Wkw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=1762974D7DA2A52DD66DF49C7C9BED0A6E1D51353EA43AF57E873853B40018E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/NP8Ol6AkRlumqX7bZS6Wkw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=73D709558602F438D4D030B137A2AF2B0D5B71F8AB49A8ADC14232157D01D2D3)
 
 如果同时通过 package-option 和 path-option 导入了相同的包，则 package-option 字段的优先级更高。
 
@@ -1904,7 +1904,7 @@ package-option 选项为 map 结构，pro0.xoo 名称作为 key (toml 配置文�
         return 0
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/ArS5TGHSQ2SaX-aggTbSCA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=5F54D9254A72FA44E55699845A4826AAB92C227B6C78A3E7A143702F087B8134)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/ArS5TGHSQ2SaX-aggTbSCA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=9CA25842B248C7CCEF4F4D6B739AD4030815AF5FE9F3784E57998572A4625BCC)
 
 依赖的仓颉动态库文件可能是其他模块通过配置 profile.build.combined 生成的 root 包编译产物，包含其所有子包的符号。因此，在依赖检查时，如果找不到某个包对应的仓颉库，会使用该包对应的 root 包作为依赖，并打印告警提示。开发者需要保证以此方式导入的 root 包是通过对应方式生成的仓颉库文件，否则该库文件可能不会包含子包的符号，导致编译报错。
 
@@ -2074,7 +2074,7 @@ cangjie-repo.toml 可配置在三个位置，执行 cjpm 命令时，会按照�
 
 cjpm 通过 git 和中心仓下载文件的存储路径可以通过 CJPM_CONFIG 环境变量指定。如果未指定，则 Linux/macOS 上的默认位置为 $HOME/.cjpm，Windows 上的默认位置为 %USERPROFILE%/.cjpm 。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/0Ui1iImjSdq7oyPXXG7f9Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=DD1B48AC154CD1891D77448869DDE36D8DE635118F91E29A08598249DD1B47F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/0Ui1iImjSdq7oyPXXG7f9Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=E4840663886D4406289B1F33BE9418E35E250FF4B0865A30BDE154D900B1115D)
 
   * 该配置功能等同于 cangjie-repo.toml 中的 repository.cache。该配置仅在无有效 cangjie-repo.toml 配置或是有效配置为仓颉 sdk 中的 tools/config/cangjie-repo.toml 时才会生效。
   * 该配置会在未来被废弃，请使用 cangjie-repo.toml 代替。
@@ -2531,7 +2531,7 @@ cjpm 支持在部分平台之间交叉编译并运行。例如，假设目标平
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/YxC9joZhSfOAXeQxA259lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=71A093BCA5614F79A3160C7B0167E31D28A8F7D18A18EE139F1D74289A1EDB23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/YxC9joZhSfOAXeQxA259lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=9FEF8C43914CD0633196532EB8D038F530E3AD538DEE638836079E4139E2C6A4)
 
   * 编译产物位于用户配置的 target-dir 目录下以目标平台 target 命名的目录。
   * 若存在动态库依赖，则需要将动态库配置于运行环境的环境变量 LD_LIBRARY_PATH中。
@@ -2728,7 +2728,7 @@ feature 是一个命名的标志，用于指定需要编译的源代码。以下
     src-dir = "./windows"
     features = [ "os.windows" ]
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/I4ba7Sl-T62RAJxxIfCPbg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090138Z&HW-CC-Expire=86400&HW-CC-Sign=AF3DC4539E0E937742CF939E7AE3B077F113924025E8A442E4BD64ED599CAD03)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/I4ba7Sl-T62RAJxxIfCPbg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085016Z&HW-CC-Expire=86400&HW-CC-Sign=826E6FDAC3721ED92BE53C994EB05CF844E0A18CD06CDE4770F4B49B2B3CD4A1)
 
 对于在 source-set 中的源码文件，必须在源码文件头中，通过 feature 关键字显式声明其对应的 feature 名称。
 

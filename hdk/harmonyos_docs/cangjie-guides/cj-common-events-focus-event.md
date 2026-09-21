@@ -41,7 +41,7 @@ nodePath: 应用框架 / ArkUI（方舟UI框架） / UI开发（仓颉声明式�
 
 在一个应用程序中，任何时候都至少存在一个层级页面组件，并且该组件会持有当前焦点。当该层级页面关闭或不再可见时，焦点会自动转移到下一个可用的层级页面组件上，确保用户交互的连贯性和一致性。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/qaEUe_kWQx-K8Uyk2ZTtSQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090121Z&HW-CC-Expire=86400&HW-CC-Sign=9D0FA9DC52D403D8E4841CF655FBB86822B9D03911FC75E8BA8F913743E74590)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/qaEUe_kWQx-K8Uyk2ZTtSQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083014Z&HW-CC-Expire=86400&HW-CC-Sign=0F4F4CCEF15F350623A4A5736DE954CD3481879283748F6D373C937DEB005B43)
 
   * [Popup](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-popup-and-menu-components-popup)组件在[focusable](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-focus#func-focusablebool)属性（组件属性，非通用属性）为false的时候，不会有第2条特性。
   * NavBar、[NavDestination](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-navigation-switching-navdestination)没有第3条特性，对于它们的走焦范围，是与它们的首个父层级页面相同的。
@@ -207,7 +207,7 @@ onFocus和onBlur两个接口通常成对使用，来监听组件的焦点变化�
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/xPgumsCkSB2IdAXy4y_YHg/zh-cn_image_0000002743077747.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090121Z&HW-CC-Expire=86400&HW-CC-Sign=CCE6D02793604A80C7C3C7F81BCD68726FB49EE26A649B76B38D03FBF126830A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/xPgumsCkSB2IdAXy4y_YHg/zh-cn_image_0000002743077747.gif?HW-CC-KV=V1&HW-CC-Date=20260921T083014Z&HW-CC-Expire=86400&HW-CC-Sign=E8511851104DF548FB3F07DA671CCDB62DB0835C595B066F1F5B896007FD4C00)
 
 上述示例包含以下3步：
 
@@ -250,7 +250,7 @@ onFocus和onBlur两个接口通常成对使用，来监听组件的焦点变化�
 
 设置当前组件是否支持点击获焦能力。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/LYBlwsVQSfCQ2ftzrdmDzg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090121Z&HW-CC-Expire=86400&HW-CC-Sign=BA1E741C41756C31A72260E7CF9215C45CEAF8ED0477DA7F48BDD506CFDAE25C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/LYBlwsVQSfCQ2ftzrdmDzg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083014Z&HW-CC-Expire=86400&HW-CC-Sign=FFA0484424E2F5E7503601865C30E07AA949FCC83F25F7E2BE7AC0D8996EB203)
 
 当某组件处于获焦状态时，将其的focusable属性或enabled属性设置为false，会自动使该组件失焦，然后焦点按照走焦规范将焦点转移给其他组件。
     
@@ -361,7 +361,7 @@ onFocus和onBlur两个接口通常成对使用，来监听组件的焦点变化�
 
 运行效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/rrsvHIVFR9u32Oq25VXYXA/zh-cn_image_0000002713558786.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090121Z&HW-CC-Expire=86400&HW-CC-Sign=FBA9AA1A5441B7005C6BA98BADE40C1E2A2372313FBA85FA70DC4BF5F428462F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/rrsvHIVFR9u32Oq25VXYXA/zh-cn_image_0000002713558786.gif?HW-CC-KV=V1&HW-CC-Date=20260921T083014Z&HW-CC-Expire=86400&HW-CC-Sign=CB2228995CAB42DA0D1CBCB14ECFD271209BE0FFBA99D81395F22F40B8865A89)
 
 上述示例包含以下步骤：
 
@@ -404,7 +404,7 @@ onFocus和onBlur两个接口通常成对使用，来监听组件的焦点变化�
                     .height(70)
                     .backgroundColor(oneButtonColor)
                     .fontColor(Color.Black)
-                    // 监听第一个组件的获焦事件，获焦后改变颜色
+                    // 监听第一个组件的���焦事件，获焦后改变颜色
                     .onFocus({
                         => oneButtonColor = Color(0x64BB5C)
                     })
@@ -448,7 +448,7 @@ onFocus和onBlur两个接口通常成对使用，来监听组件的焦点变化�
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/veI3TDmcR3qrQLn_ChKufw/zh-cn_image_0000002743197699.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090121Z&HW-CC-Expire=86400&HW-CC-Sign=D726AEEC659A83A195273BBAE63D9DBB88EAB77D328C3E91CB8519375C3C4809)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/veI3TDmcR3qrQLn_ChKufw/zh-cn_image_0000002743197699.gif?HW-CC-KV=V1&HW-CC-Date=20260921T083014Z&HW-CC-Expire=86400&HW-CC-Sign=9E87FD108BF189BE01F8034D40DD8EF296DEC47E8FD4BFE8B9D3332C5E39F67A)
 
 上述示例包含以下2步：
 
@@ -561,13 +561,13 @@ onFocus和onBlur两个接口通常成对使用，来监听组件的焦点变化�
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/78FCD3pqSP60H8ye_6i2vA/zh-cn_image_0000002713398818.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090121Z&HW-CC-Expire=86400&HW-CC-Sign=4340BA5C353DF0BEC907D9F172470B20CC0F57240F62A6978C3E97CCED79B1EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/78FCD3pqSP60H8ye_6i2vA/zh-cn_image_0000002713398818.gif?HW-CC-KV=V1&HW-CC-Date=20260921T083014Z&HW-CC-Expire=86400&HW-CC-Sign=22BB98EF18A61612B5E60F37FCE183734DD4C9AF8F3BB46C465B66A1A5DA1395)
 
 #### 焦点与按键事件
 
 当组件获焦且存在点击事件（onClick）或单指单击事件（TapGesture）时，回车和空格会触发对应的事件回调。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/uoFr2F3JQb6XoNC3DICS4w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090121Z&HW-CC-Expire=86400&HW-CC-Sign=2389ABDD7C6C420C6D8DA0C38B452738F4D5AC050DA20DBAC526EF0AD28907AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/uoFr2F3JQb6XoNC3DICS4w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083014Z&HW-CC-Expire=86400&HW-CC-Sign=87986CDEA72EC8FFAFA041ADDA006DC1C58131354910EC1B13D8866C32B8D81D)
 
   * 点击事件（onClick）或单指单击事件（TapGesture）在回车、空格触发对应事件回调时，默认不冒泡传递，即父组件对应[按键事件](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-event-key)不会被同步触发。
   * 按键事件（onKeyEvent）默认冒泡传递，即同时会触发父组件的按键事件回调。
@@ -615,7 +615,7 @@ onFocus和onBlur两个接口通常成对使用，来监听组件的焦点变化�
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/rWRGnjElS5WJq_8LzAKIkg/zh-cn_image_0000002743077749.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090121Z&HW-CC-Expire=86400&HW-CC-Sign=1568EC6765306E759C445D11D13CBE3975DBDC3B082A3893A817B64FC7482915)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/rWRGnjElS5WJq_8LzAKIkg/zh-cn_image_0000002743077749.gif?HW-CC-KV=V1&HW-CC-Date=20260921T083014Z&HW-CC-Expire=86400&HW-CC-Sign=2CF14B4EDAB20BA9BCAC564895000753A294B3098446C9EE9FF34E30A9B2FE14)
 
 #### 组件获焦能力说明
 

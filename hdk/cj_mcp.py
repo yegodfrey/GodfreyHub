@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""鸿蒙仓颉开发文档采集器（浏览器 MCP 版，分片回传）。
+"""鸿蒙仓颉开发文档采集编排库（枚举/分片/增量/落盘/运行锁。
+
+本机的浏览器通道已由 cj_iab.py（内置浏览器桥）替代，hdk.py 不再直接调度本模块；
+CjIab 继承本模块的编排方法，仅替换 _goto/_raw 传输原语。）
 
 【运行前提(本机专用工具, 非干净环境可直接运行)】
   - 依赖 httpx2: 不在 hdk/requirements.txt 中, 仅存在于作者本机环境;
@@ -326,7 +329,7 @@ class CjMcp:
                 if cnt is None:
                     cj.log("[fetch] store fail, skip batch"); continue
                 for idx, m in enumerate(batch):
-                    html = bx.run(self.get_html(idx), timeout=300)
+                    html = bx.run(self.get_html(idx), timeout=600)
                     if not html:
                         s["failed"].append("%s/%s" % (cat, m["objectId"]))
                         failed.add("%s/%s" % (cat, m["objectId"]))
@@ -362,20 +365,22 @@ class CjMcp:
         for i in range(0, len(oids), BATCH):
             batch = oids[i:i + BATCH]
             metas = [meta_by[o] for o in batch]
-            cnt = bx.run(self.store_batch(cat, metas), timeout=200)
+            cnt = bx.run(self.store_batch(cat, metas), timeout=600)
             if cnt is None:
                 cj.log("[inc] store fail %s batch@%d (skipped)" % (cat, i))
                 continue
             for idx, o in enumerate(batch):
                 name = "%s/%s" % (cat, o)
-                html = bx.run(self.get_html(idx), timeout=300)
+                html = bx.run(self.get_html(idx), timeout=600)
                 if not html:
                     if is_new and name not in s["failed"]:
                         s["failed"].append(name)
                     continue
                 h = _md_hash(_md_from_html(html))
                 old = hashes.get(name)
-                if old is not None and old == h:
+                # 哈希相同但磁盘文件缺失（历史状态先于语料入库导致 947 篇从未落盘，
+                # 2026-09-21 发现）→ 视同需要写盘，回查同时承担文件存在性自愈
+                if old is not None and old == h and os.path.exists(_path_of(cat, o)):
                     unch += 1
                     continue
                 try:

@@ -113,7 +113,7 @@ CameraManager | 相机管理器。
 
 **功能：** 获取当前曝光模式。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/7hsMEC27SnKd-rHZHT4jSw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=C0B68255EFF310224B8C7FA12FC9A8CDC93260A967C3AA474C6A34841213E14F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/7hsMEC27SnKd-rHZHT4jSw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=FCEE8609FE0613374AE3321E9AFECBBC1CA931F5DB04F550F6EAC3FAC1386368)
 
 若未通过setExposureMode接口进行设置，直接调用该接口查询当前曝光模式，会返回无效值。
 
@@ -1908,7 +1908,7 @@ cameraOutput | CameraOutput | 是 | - | 需要移除的CameraOutput实例。
 
 **功能：** 提供设备在录像模式下设置视频防抖的操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/9XpRM07ERhG4bOuTFffKzw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=8D502672E33CD8005B694E855CC294BFFCEC2945516BF776B9E625043EBC1C7A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/9XpRM07ERhG4bOuTFffKzw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=6C748FEA545C4624E2A6400DA70E2E6C26A5064767F3602185595BB6DC8DAE3D)
 
   * 对视频进行防抖设置的前提是会话中有录像流（VideoOutput）。
 
@@ -2601,7 +2601,7 @@ camera | CameraDevice | 是 | - | CameraDevice对象。
 
 **功能：** 监听CameraInput的错误事件，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/WxaLkoxpSeKL-5gMSyGd4A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=94E0A220C5387721CEB57C300B48E928F0DF2703710B4099324FD530A3A29CC3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/WxaLkoxpSeKL-5gMSyGd4A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=196B29AABB9BAA773C4FB7017A04DBA889916B2CBC9B186C72B98C0A06A9F7CD)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -3694,7 +3694,7 @@ eventType | CameraEvents | 是 | - | 监听事件。必须为可被on函数监�
 
 **功能：** 相机设备状态回调，通过注册回调函数获取相机的状态变化。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/QYHcV00_TEqmNZfIZBXtSw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=4E61875ACE410E21E15372E7A697507C912A9F4510C5247EC814479C31DCED5C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/QYHcV00_TEqmNZfIZBXtSw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=53103EDB7AABC999788504598BFB0F1A728B7A535D8D2D75BDEA6626B2022FE8)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -3754,7 +3754,7 @@ callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 注册折叠设备折叠状态变化的监听。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/WG10-SwzR7aLADaVO9gQQw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=FB540D483042D07052AF3D671F563A81475EA18F61391100A573904FA4E046D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/WG10-SwzR7aLADaVO9gQQw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=2A5F6BA67510522857266DF0CD71260FC81FACB0AE46ED3D587084FD5D4668FD)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -3814,7 +3814,7 @@ callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 手电筒状态变化回调，通过注册回调函数获取手电筒状态变化。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/YH43CyMBQ2-Zn-i29Koq2w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=6CD7091177153FC2267C7A0A5EE819A122B82EEBB79EC7EFC2F53F5D1DF72AC0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/YH43CyMBQ2-Zn-i29Koq2w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=316B9C934B273A7ACFC74DD101BA8E0EE5441A37B56D992B6F2444FC1A39FAEC)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -5294,7 +5294,7 @@ eventType | CameraEvents | 是 | - | 监听事件。必须为可被on函数监�
 
 **功能：** 监听拍照开始，通过注册回调函数获取CaptureStartInfo。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/RW7pnO9lTHmc5AYQSY9zUA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=52E6E9B1248676A045DBFC93A373F4AD3E6E390881B546D50EC4CCD624CD44AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/RW7pnO9lTHmc5AYQSY9zUA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=D0F4E03D08F1CF2F8C18C1F7C4DB37F0A9400966014FB9922D6205F6121BA467)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -5418,7 +5418,7 @@ callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 监听拍照结束，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/CkT7R0GbQFKShL5pXGxa4g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=FBAC76419FDD1D2D65D94471ADADD0CA63BF599481A9025EF4FA029B30105C1D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/CkT7R0GbQFKShL5pXGxa4g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=EC5D8EAD9339C63A6836C3E40AAB2484DF848A0E78F83D3B6D687142C192AD08)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -5482,7 +5482,7 @@ callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 监听拍照曝光结束捕获，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/cky5GHa8TIuKVIkODpSvOg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=F98AAFD5812B7901337BC9F1D9B8D33CC441D06CCB7C8001994B7192418E80BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/cky5GHa8TIuKVIkODpSvOg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=B7495C568DBE6EE9B64599DBE8CC734BF1551BD754E5C523421FC86D17C2F971)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -5546,7 +5546,7 @@ callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 监听可拍下一张或拍照错误，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/I2_BwEliQGG6057U7NAkfw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=AE0B6337C892305BBF298FCE71C18DE22D8F160417C28A4B94A41F59CDFF4CA1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/I2_BwEliQGG6057U7NAkfw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=42816412847CD876573CD1AFE3350336312E4014F508BAF4418932C60FC4CE6C)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -5610,7 +5610,7 @@ callback | [Callback0Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 监听预估的拍照时间，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/SxXTCcVjQYCZFEY9oxj92w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=63B66CFE2B3C4332BBD6803660A7FEFF94693C6A13A232B871EFC0FE52DCD00F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/SxXTCcVjQYCZFEY9oxj92w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=416B1C23B7C2633012DA25CC793DFE74CD03682BD23AA4C20AC75AC55BDD8E73)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -5924,7 +5924,7 @@ callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 参数名 | 类型 | 必填 | 默认值 | 说明  
 ---|---|---|---|---  
-eventType | CameraEvents | 是 | - | 监听事件，必须为SmoothZoomInfoAvailable，session创建成功可监听。  
+eventType | CameraEvents | 是 | - | 监听事件，必须为SmoothZoomInfoAvailable，session创��成功可监听。  
 callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-api-callback_invoke#class-callback1argumenta)<SmoothZoomInfo> | 是 | - | 回调函数，用于处理SmoothZoomInfo。  
   
 **示例：**
@@ -5998,7 +5998,7 @@ eventType | CameraEvents | 是 | - | 监听事件。必须为可被on函数监�
 
 **功能：** 监听普通拍照会话的错误事件，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/KcZMhu9GRzCiHbkDVmhBng/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=04A5A04196AD6AFDAFAA2EE1FB57E0DC757878806BDC86A15C089125A126B3DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/KcZMhu9GRzCiHbkDVmhBng/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=0F4F955E240E2844DC217E11A3D5FEB98E767146AF42EEF799D3507BCB659E6F)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -6051,7 +6051,7 @@ callback | [Callback0Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 监听相机聚焦的状态变化，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/PxBB-3ZkQWGnwDCq5nAOJw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=F62F123393A623DA65043482FC99C131799421D7F65CB3130745E604B7F1579B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/PxBB-3ZkQWGnwDCq5nAOJw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=EC3270C7C4B4F532580FDED4254CD32275CB3D02646F2462110A0BEEB611ABC3)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -6104,7 +6104,7 @@ callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 监听相机平滑变焦的状态变化，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/DYobmOodTGO7AlodhgRlgA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=D864F41125822C874278D4340A4BB0EF3A61F157A22677DE8A787E91FF93BADD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/DYobmOodTGO7AlodhgRlgA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=4934D5A8CD95EC2C1679F48E14FCB53F9AF78C96DA7CF2683B4518C6CEA30F39)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -6634,7 +6634,7 @@ eventType | CameraEvents | 是 | - | 监听事件。必须为可被on函数监�
 
 **功能：** 监听预览帧启动，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/O5pefj6vRwiFkUrL_EvtkQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=8715D05AEF0AFA3B658A7DB3AE9F72017A45888AB50BF69108E3A1C61B312F58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/O5pefj6vRwiFkUrL_EvtkQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=214E4954DA7F8AD51970F7DC1A441F198BD12B2565F55B5044A2C43B92BF9630)
 
 不支持在on监听的回调方法里调用off注销回调。
 
@@ -6755,7 +6755,7 @@ callback | [Callback0Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 进行设置前，可通过getSupportedFrameRates查询支持的帧率范围。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/SlgtCSQxS6qLVT61iR_uIQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=864DD96CFF2B7A46F4C8EE32594A2DC03B4DCFD518A3F1952FF796A8F776977B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/SlgtCSQxS6qLVT61iR_uIQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=0FA643088C918EF77AE22CDEF7F0E34D6D414A8BC8C8ECAEB9516A0BE28F9463)
 
 仅在PhotoSession或VideoSession模式下支持。
 
@@ -7490,7 +7490,7 @@ eventType | CameraEvents | 是 | - | 监听事件，必须为[FrameStart, FrameE
 
 **功能：** 监听录像的特定事件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/YDbsqOaTT8aE9_7BkJLW3A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=54CEA48E3F67A2B848686AA6534ABE97B7E1C8B927C5D0B2DE34E6A0D86465C2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/YDbsqOaTT8aE9_7BkJLW3A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=06DC93971E9777578409CA2602D9665B6722A9826EBB901C758D8EF005C802FE)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -7611,7 +7611,7 @@ callback | [Callback0Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 进行设置前，可通过getSupportedFrameRates查询支持的帧率范围。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/ZdcjQkn5SAiWtvphLpT6Lw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=886F1B997CA279553FD3B70BDFF2065C5B2DAD45B238B09783C95E95A8D2382B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/ZdcjQkn5SAiWtvphLpT6Lw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=43B36EAF93C04011C18DD74BB457B98CD6C7AD4DB876598B7F1E9DB80681AC6D)
 
   * 仅在PhotoSession或VideoSession模式下支持。
 
@@ -7810,7 +7810,7 @@ maxFps | Int32 | 是 | - | 最大帧率，单位：fps。当传入的最小值�
 
 **功能：** 普通录像模式会话类，提供了对闪光灯、曝光、白平衡、对焦、变焦、视频防抖、色彩空间、微距及控制器的操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/VR6FozHlSYqp2hjJkkoMfQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=5B618D90C599A945A4920E479BBD6C6B3F35311EA9F17E612316E4EED8B9E1E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/VR6FozHlSYqp2hjJkkoMfQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=DDE69C406474075653F1F55F44EB11C5513B363EEB299145ECB9E85750F2658C)
 
 默认的视频录制模式，适用于一般场景。支持720P、1080p等多种分辨率的录制，可选择不同帧率（如30fps、60fps）。
 
@@ -8082,7 +8082,7 @@ eventType | CameraEvents | 是 | - | 监听事件。
 
 **功能：** 监听普通录像会话的错误事件，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/xuKkLGOpQ_Gz0l4peHUCiw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=21DFCDD5915D49F095ED696FDA8AFF889E564D5D90F116748AECEB603DF9FC7F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/xuKkLGOpQ_Gz0l4peHUCiw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=1AC34C04A97F7252921562E583B7E7586EB7DC56FE4C27C1FCDADC07B874B48A)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -8146,7 +8146,7 @@ callback | [Callback0Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 监听相机聚焦的状态变化，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/-6fFrZeJQiOxZ_M4rpFWjA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=BBC4E408697B73BFC1C11402DC7C2E3E0D98C4D272E17F8A0D9700FEE1B44139)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/-6fFrZeJQiOxZ_M4rpFWjA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=25D615876B5285A9492435F2E649AEEEC9E828DA021FD40FB4009FD5B5F79852)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 
@@ -8210,7 +8210,7 @@ callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 监听相机平滑变焦的状态变化，通过注册回调函数获取结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/K38nXB7tRX6IW0Kv0rGsiw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090223Z&HW-CC-Expire=86400&HW-CC-Sign=0D4E7F5C548B21DE826593244EAC1FBBE40A3F2968D76E5198139DF79C79AFC5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/K38nXB7tRX6IW0Kv0rGsiw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083529Z&HW-CC-Expire=86400&HW-CC-Sign=A7CD19334E9CE2CCFB8CC6292EAC4CD3AB68834011A2E1C2CBF41935C1FD7589)
 
 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
 

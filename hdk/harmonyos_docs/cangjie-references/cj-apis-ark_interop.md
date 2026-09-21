@@ -14,7 +14,7 @@ ArkTS 应用的开发语言包括 ArkTS、typescript、javascript，ArkTS 互操
     
     import ohos.ark_interop.*
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/DpMegwozQeCTUhngKmjL4w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090215Z&HW-CC-Expire=86400&HW-CC-Sign=99CE708CF4BD97DA85FC2CED06CF4229339F9249B9924687841338B162F5D9E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/DpMegwozQeCTUhngKmjL4w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085355Z&HW-CC-Expire=86400&HW-CC-Sign=EEEAD2E231ED5F26E093AFD2171E37F80C0CA026579D583C02C5E11BD1B5E6C0)
 
 当前暂不支持Kit化的导入方式，预计在下个版本支持。
 
@@ -7930,7 +7930,7 @@ JSValue | ArkTS统一类型。
 
 **起始版本：** 22
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/w078EOW_SwOLrpvdupBWSQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090215Z&HW-CC-Expire=86400&HW-CC-Sign=DEE7172FB413F30BD22C118113573B681BE6A6B08553F04615C18A33C1BAF3DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/w078EOW_SwOLrpvdupBWSQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085355Z&HW-CC-Expire=86400&HW-CC-Sign=52C7480AA28E3A03A0CC9BF8598C337CCEBD9DE9FFE3DB710926F31E6FC9DC35)
 
 仓颉应用中只能在主线程上使用 JSRuntime() 创建 ArkTS 运行时。
 

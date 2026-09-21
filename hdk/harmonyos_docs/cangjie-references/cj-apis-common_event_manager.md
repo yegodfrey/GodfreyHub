@@ -1749,7 +1749,7 @@ subscriber | [CommonEventSubscriber](https://developer.huawei.com/consumer/cn/do
 
 在设备上指定用户下安装了新的应用程序，将会触发事件通知服务发布该系统公共事件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/ttEkIodnSYuwAx6dviiRcQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090221Z&HW-CC-Expire=86400&HW-CC-Sign=039AB98074E40E3784499438E83B5B9E34CE6A9324541F77DB53F176BDEFF485)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/ttEkIodnSYuwAx6dviiRcQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083519Z&HW-CC-Expire=86400&HW-CC-Sign=81BA85B54BD2CC68A145BFF1EBE202D82836235F80DA746E3B23FB39209829DA)
 
 三方应用只能监听自身应用的安装事件。
 
@@ -1768,7 +1768,7 @@ subscriber | [CommonEventSubscriber](https://developer.huawei.com/consumer/cn/do
 
 对设备上安装的应用程序包清除缓存时，将会触发事件通知服务发布该系统公共事件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/a1Ad068-SaapxCoHvPfzGw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090221Z&HW-CC-Expire=86400&HW-CC-Sign=A5876E2DC4AC81B5BF943914A97F7D741031BB22F480998D631C745B134E1CC5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/a1Ad068-SaapxCoHvPfzGw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083519Z&HW-CC-Expire=86400&HW-CC-Sign=1479C60D4D10DD8059C598C4F1EAAB31B9D2811CE8E1D7A545AB3FE511BB8049)
 
 三方应用只能监听自身应用的缓存清理事件。
 
@@ -1787,7 +1787,7 @@ subscriber | [CommonEventSubscriber](https://developer.huawei.com/consumer/cn/do
 
 在设备上安装的应用程序包更新或者包的组件被禁用使能，将会触发事件通知服务发布该系统公共事件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/2659uxYHSYe-HsutZNAoUA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090221Z&HW-CC-Expire=86400&HW-CC-Sign=C8EC041A419D6FFCA26303EFDFEF6AD1CDDE2059719449A486B59323C5CAA72C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/2659uxYHSYe-HsutZNAoUA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083519Z&HW-CC-Expire=86400&HW-CC-Sign=C40C0448CA5F8193796871CC8FA2FF654EF8368B9C996250F3C26D89EB9D402D)
 
 三方应用只能监听自身应用的更改事件。
 
@@ -1806,7 +1806,7 @@ subscriber | [CommonEventSubscriber](https://developer.huawei.com/consumer/cn/do
 
 在设备上指定用户清除应用包数据，将会触发事件通知服务发布该系统公共事件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/lMjmGLJqTFagGh7F3PkVfA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090221Z&HW-CC-Expire=86400&HW-CC-Sign=B03F56895A81183410EDCFFDB6D857C176B7AF09C9F178EA74ECCEFB28CCE3D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/lMjmGLJqTFagGh7F3PkVfA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083519Z&HW-CC-Expire=86400&HW-CC-Sign=F8104A9664975A2F3E6763D1D4008EF01EAE9C3971A900E2E3FA517C00467335)
 
 三方应用只能监听自身应用的数据清理事件。
 
@@ -1864,7 +1864,7 @@ subscriber | [CommonEventSubscriber](https://developer.huawei.com/consumer/cn/do
 
 在设备指定用户下卸载指定的应用程序包，将会触发事件通知服务发布该系统公共事件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/eyrmqSE6TVayburEBDGzYQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090221Z&HW-CC-Expire=86400&HW-CC-Sign=C91523EC30E8DBF4CB0993E2D7DCA128A7CE724412BAF5666F9F1C62C58C548D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/eyrmqSE6TVayburEBDGzYQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083519Z&HW-CC-Expire=86400&HW-CC-Sign=12B31644269A4E72C378C96E7A4A854688A86B0C9ABDD7DA9CC492209CFBD10F)
 
 三方应用只能监听自身应用的卸载事件。
 
@@ -1896,9 +1896,9 @@ subscriber | [CommonEventSubscriber](https://developer.huawei.com/consumer/cn/do
 
 在设备上指定用户重启应用包并终止其所有进程，将会触发事件通知服务发布该系统公共事件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/vSsUS3KxTZGGEsfKG8HCKA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090221Z&HW-CC-Expire=86400&HW-CC-Sign=31BC87F0D8E7F855F1AA7960FD36911F5A7261F7C033D5DEACE4C03F75748C6E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/vSsUS3KxTZGGEsfKG8HCKA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083519Z&HW-CC-Expire=86400&HW-CC-Sign=856E11450D7FBD191E5C8EE74569E7B416339AA416A2A763BDB0D1C08E1E9E7C)
 
-三方应用只能监听自身应用的重启事件。
+三方应用只能���听自身应用的重启事件。
 
 **类型：** String
 
@@ -1973,7 +1973,7 @@ subscriber | [CommonEventSubscriber](https://developer.huawei.com/consumer/cn/do
 
 在设备上指定用户快速修复应用，将会触发事件通知服务发布该系统公共事件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/vx9C38LTQMq00d6QKxlRJQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090221Z&HW-CC-Expire=86400&HW-CC-Sign=A54879CE2806377A8B145B377056C743A135103E2FAE983B8B38D214DB27FBB4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/vx9C38LTQMq00d6QKxlRJQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083519Z&HW-CC-Expire=86400&HW-CC-Sign=5F06517B3CF15FC430BD654E79A7291DC7E9437F45107D2A1D6508D2FB0A6E38)
 
 三方应用只能监听自身应用的快速修复事件。
 

@@ -111,7 +111,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 比较当前原子类型的值与参数 old 指定的值是否相等。若相等，写入参数 new 指定的值，返回 true；否则，不写入值，并返回 false。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/m9s81UmqTua1Dc63Fn-Tpw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=AE912AAF712ED6752E58BD0514BA6A3890787020B204E67B4FDEB300EC3D37D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/m9s81UmqTua1Dc63Fn-Tpw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=65EA6CE413A32FEA75181C440200164873EE89D1C66C6FBF00799736112BC816)
 
 未来版本即将废弃，使用 compareAndSwap(Bool, Bool) 替代。
 
@@ -194,7 +194,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：读取操作，采用参数 memoryOrder 指定的内存排序方式，读取原子类型的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/hSt8wb3iRbGDmBxXdIkIUw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=A86DDE732C3452D62818C61033062438D3CF26721E7905713BD1C877B7BCCA4C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/hSt8wb3iRbGDmBxXdIkIUw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=C78D0FB02C330A8302B8668CA4914388E9F0B56DA1A455170D042B2FB7D2F0E9)
 
 未来版本即将废弃，使用 load() 替代。
 
@@ -272,7 +272,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：写入操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/BoyKIQkSQmG2xtr0vuZEzw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=0118AF2C8C82768DE9CEC191EBBEDA2647C32C38D92AC8A702014F9D64518700)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/BoyKIQkSQmG2xtr0vuZEzw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=0DFB12237EDB13CB7EFC347D7E1221ABA147A91B7F23C40A5BCF584DA024DE59)
 
 未来版本即将废弃，使用 store(Bool) 替代。
 
@@ -360,7 +360,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：交换操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型，并返回写入前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/AxIMr9osQxWqJjtLSRwemg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=19FE0A96A4AF743D3B3D1CF4313430CA953BE026304CACEA7AC857F7EB1B2004)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/AxIMr9osQxWqJjtLSRwemg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=88D89DC3DD1BF9ED7D00A89F58F771732D391A2EBA5A8810FF316937DE807BF5)
 
 未来版本即将废弃，使用 swap(Bool) 替代。
 
@@ -504,7 +504,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 比较当前原子类型的值与参数 old 指定的值是否相等。若相等，写入参数 new 指定的值，返回 true；否则，不写入值，并返回 false。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/TB5wuuwFTzGQo5-b7my-Sg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=DBE2C5FD2393B49D0A3E74E145ACF0C41013999CE861B90DFAF2A99F6410C432)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/TB5wuuwFTzGQo5-b7my-Sg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=32ACEE4B1B8146BE1B801B01E3D6115C71B451B3139F77B6FA810DE97C25F539)
 
 未来版本即将废弃，使用 compareAndSwap(Int16, Int16) 替代。
 
@@ -595,7 +595,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将原子类型的值与参数 val 进行加操作。将结果写入当前原子类型实例，并返回加法运算前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/yF4jXG-9RR6l8-vQ4G4onQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=53299727B6E8A8784A1F0E4AB5AAFB3419E8CF015B5EEB183B229FD73B86DD6F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/yF4jXG-9RR6l8-vQ4G4onQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=61FB630ECEFEB191D6788BE13ABE55EF9B7B6AF7912AA863B3193EC4DD637B0C)
 
 未来版本即将废弃，使用 fetchAdd(Int16) 替代。
 
@@ -684,7 +684,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行与操作。将结果写入当前原子类型实例，并返回与操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/c-ehytHyT-qNuPC4Uh9CbQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=4866D93D7855979C6178177CC9282F1658576FE5190264F739BF2C62B7E0B0BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/c-ehytHyT-qNuPC4Uh9CbQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=0FD23AEED76C248F62FD3DB62EE20C5351893DB3AC76CD9BF8CF1A5D7416BB83)
 
 未来版本即将废弃，使用 fetchAnd(Int16) 替代。
 
@@ -773,7 +773,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行或操作。将结果写入当前原子类型实例，并返回或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/KkkkubxdSf6KjTBmImVOJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=C72EDD0E647A96437A3A3DEA086187047A7F5F1925CCE02A987488393CD6C9F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/KkkkubxdSf6KjTBmImVOJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=F66E7DA295C7CBBB41D94007836D8EA279A2F93002258A47D2D4EECF336F60EA)
 
 未来版本即将废弃，使用 fetchOr(Int16) 替代。
 
@@ -862,7 +862,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，以原子类型的值为被减数，参数 val 为减数，做减操作。将结果写入当前原子类型实例，并返回减操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/mfF20hrrTdSdMHeWCIvajg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=CECE4D2C3A9D12FB7FEBEE9DB3ACBE0AF0BDD9BE4DC45E687843D6FC31A05025)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/mfF20hrrTdSdMHeWCIvajg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=F030FC84BEEF115E26F9EE2099F6ED22C4DAC75E6A25B37E1C2D3FFD0BDE71BB)
 
 未来版本即将废弃，使用 fetchSub(Int16) 替代。
 
@@ -951,7 +951,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行异或操作。将结果写入当前原子类型实例，并返回异或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/e5dVJX5bQaCqyMww99a9_w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=4FFD2DD0761ED623722AC375A13D814F1B8AC6D40B6DCEC1830BD847D311B8CC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/e5dVJX5bQaCqyMww99a9_w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=C1ED357B3BA3CF6F20CC94C34082FA7A48CE2CBAC3825E215741F8615CEE41AC)
 
 未来版本即将废弃，使用 fetchXor(Int16) 替代。
 
@@ -1032,7 +1032,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：读取操作，采用参数 memoryOrder 指定的内存排序方式，读取原子类型的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/V0j3TbfSTwqGUHJrxnxLKA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=F9D120FED0B88A0DAB9ED3B80B8A58A4A2BE50A22D7A038B12A2A79DE8D9E8FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/V0j3TbfSTwqGUHJrxnxLKA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=E6130435FB374D3ED55D88F5975026121CF8823852193DC9014C0F4F2620335F)
 
 未来版本即将废弃，使用 load() 替代。
 
@@ -1110,7 +1110,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：写入操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/EmLjKt8SQ2mxcSV_AjDRjA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=07EC8BFD5094B51B9674E20B43E9E262AA06DB1F9A630195D63EE0C6CC8ACE8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/EmLjKt8SQ2mxcSV_AjDRjA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=BB9BFB24F1C4A130FCB43C56895AE04261E3F96EA71804CE5426E88AFC809BBD)
 
 未来版本即将废弃，使用 store(Int16) 替代。
 
@@ -1191,7 +1191,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：交换操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型，并返回写入前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/TVgcNZRjRXaJNk4FhrY5Sw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=DE050DD7EDA41E17EC226FD6E744275F35DE4360277494246A1CB6872554C5F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/TVgcNZRjRXaJNk4FhrY5Sw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=5A264B69A69FA9DE58DC086620559883C27CB46032C577C669F12D1776488C4F)
 
 未来版本即将废弃，使用 swap(Int16) 替代。
 
@@ -1335,7 +1335,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 比较当前原子类型的值与参数 old 指定的值是否相等。若相等，写入参数 new 指定的值，返回 true；否则，不写入值，并返回 false。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/_bSZpT_KQXmPZDcZKk3BaA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=D5B29E25F99E046CC9353F9284449CADA799AD1D8BD4F71DC22D8FD9BB4776A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/_bSZpT_KQXmPZDcZKk3BaA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=B6D6838C403CB149F740EA2227553B716E6978FAD4954622A7D030B90544B43C)
 
 未来版本即将废弃，使用 compareAndSwap(Int32, Int32) 替代。
 
@@ -1426,7 +1426,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将原子类型的值与参数 val 进行加操作。将结果写入当前原子类型实例，并返回加法运算前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/6yXVnnatTNSV0bVWfEXWNA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=4BA63DB2C8F5AF1F7C7DBC2EB533F3E3C54C1D77E40CBD75BD7719BF836479AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/6yXVnnatTNSV0bVWfEXWNA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=558F2049903BDB84DF68A4881ABD0E156419087EEB624A45A2957FC5B86D2976)
 
 未来版本即将废弃，使用 fetchAdd(Int32) 替代。
 
@@ -1515,7 +1515,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行与操作。将结果写入当前原子类型实例，并返回与操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/h84o1HWVSOSkgPxN0p1VbQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=905555D0952C6E40A09FC5A3FA19E2695734A2940CB91B226ACD6CB88BA1819B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/h84o1HWVSOSkgPxN0p1VbQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=D4F5D6324F3485496C34E7513D6AAD347FCD28C475571A2E78C3FB7387B677C2)
 
 未来版本即将废弃，使用 fetchAnd(Int32) 替代。
 
@@ -1604,7 +1604,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行或操作。将结果写入当前原子类型实例，并返回或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/Q1yDEMqNQ6qE0mMAsuN22w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=B488508B260AF2168C0A93A1C73CF7E4080E163F92E8D1BEAA247EA4367B5FE5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/Q1yDEMqNQ6qE0mMAsuN22w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=99C89F2A26E029F3F5695F450E49690C53B71307C7658BF20A0B61AE13329977)
 
 未来版本即将废弃，使用 fetchOr(Int32) 替代。
 
@@ -1693,7 +1693,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，以原子类型的值为被减数，参数 val 为减数，做减操作。将结果写入当前原子类型实例，并返回减操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/HuOpaZPrSS-o2JEqKNvgMQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=D087FEF4950F8DF8E265878F7308182FCDAA246DF890D7D5DC5577E90F9EF9EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/HuOpaZPrSS-o2JEqKNvgMQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=EB2FB92B7A461F3F5E31D47AFE0BE97AFE3FF33BB188C1CCE3D392D0D0446138)
 
 未来版本即将废弃，使用 fetchSub(Int32) 替代。
 
@@ -1782,7 +1782,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行异或操作。将结果写入当前原子类型实例，并返回异或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/0fF-1q4LS2OEHjsEehSHWw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=31B57B98103DE1E86A9494111F0B08F2CF7BDC8E30905D26518A6A5EF7BEFE21)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/0fF-1q4LS2OEHjsEehSHWw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=BB1C1C1F6DBAE6E20556CA0736A4C056FB9D9F1481DC05602E1814042B643ECB)
 
 未来版本即将废弃，使用 fetchXor(Int32) 替代。
 
@@ -1863,7 +1863,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：读取操作，采用参数 memoryOrder 指定的内存排序方式，读取原子类型的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/vazNLFhrRcSJKXIMcmehZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=CB55D30643C50721D82EE251A53E38DCB016DF9C5B4F4BCD41A8A4925FECFEB8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/vazNLFhrRcSJKXIMcmehZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=05AE15CA2CC83954DAB8943F742819723D794647156561A7A62ACF58402C02F5)
 
 未来版本即将废弃，使用 load() 替代。
 
@@ -1941,7 +1941,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：写入操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/TGLkYSV1SBijTKh0C801sg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=E05A0A7E1233B8D54472850BCE6AE8B11D57684A8B0DC789412F6F5E42F4E5B1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/TGLkYSV1SBijTKh0C801sg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=4616303BE57468C8829716A3AB9B530CFB1FB92146875AAFA7ECEF968E68EF42)
 
 未来版本即将废弃，使用 store(Int32) 替代。
 
@@ -1971,7 +1971,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
     
     
     初始值: 10
-    使用 deprecated 的 store 方法修改后的值: 20
+    使用 deprecated 的 store 方法修��后的值: 20
 
 #### [h2]func swap(Int32)
     
@@ -2022,7 +2022,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：交换操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型，并返回写入前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/IXt1AqjqQzCv7GUNjodgqQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=826B84EE5E2F63288930A228D7568A83E36ACA86A142D2057043AB867AB80C17)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/IXt1AqjqQzCv7GUNjodgqQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=A7C459082F32855CDEAF2F65D3DA16CDC800D6AB63A64EBB87C45791950ED999)
 
 未来版本即将废弃，使用 swap(Int32) 替代。
 
@@ -2166,7 +2166,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 比较当前原子类型的值与参数 old 指定的值是否相等。若相等，写入参数 new 指定的值，返回 true；否则，不写入值，并返回 false。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/Utla_sHlS864Tbj04b78kg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=66EB3FE392EECE149313E3E047BE8A6E83483E4DEC3B893CC62FE5854967200C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/Utla_sHlS864Tbj04b78kg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=A0A43F0BA023B4D67BD06EB8B19F869FCD36E27A9C54B68CF90D5CF6927EE16F)
 
 未来版本即将废弃，使用 compareAndSwap(Int64, Int64) 替代。
 
@@ -2264,7 +2264,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将原子类型的值与参数 val 进行加操作。将结果写入当前原子类型实例，并返回加法运算前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/Gm_fg1-bTtmPtuHnA3XIzQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=BD1E1659BD60DE6EBCD700FAFFCF0679394C3C4DD806061B3B28BCCA8DF8DB1B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/Gm_fg1-bTtmPtuHnA3XIzQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=282054B47703D29E05019F56E9791213E1CDAF4FF3E71CF59D035D52CD5307D4)
 
 未来版本即将废弃，使用 fetchAdd(Int64) 替代。
 
@@ -2353,7 +2353,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行与操作。将结果写入当前原子类型实例，并返回与操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/eKVhldBBTNSxSN006m-efg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=A433FBB781186CFFA730AC9925ADFC23845FDC0CDADC5D4765AA9D3B91283B5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/eKVhldBBTNSxSN006m-efg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=A2ACB49FEB6566433961B62FD99C13F2FB4075038DBC32E2932C9DE27AB28846)
 
 未来版本即将废弃，使用 fetchAnd(Int64) 替代。
 
@@ -2442,7 +2442,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行或操作。将结果写入当前原子类型实例，并返回或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/7eioGBXESxeoUhIpJqP-iw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=8BB2C23480AEABC559FFA7A84FB7572C5C6ED7EB21A8EE450C0158B2754873F2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/7eioGBXESxeoUhIpJqP-iw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=A73B45E5B8A7638B03BD8F093C025EC6B542F0866C5F02EDA1C4148B6240F129)
 
 未来版本即将废弃，使用 fetchOr(Int64) 替代。
 
@@ -2531,7 +2531,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，以原子类型的值为被减数，参数 val 为减数，做减操作。将结果写入当前原子类型实例，并返回减操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/iDPGbsEHSguhDu0g3sLQ7w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=4DE037EE9C38EF41D17EA5E03951E5A50089BED80E77D02EE73019F270A67A46)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/iDPGbsEHSguhDu0g3sLQ7w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=A3B5F28C6C5609E8379D5F10801773247E60BB5130080189FFE423747B7F55F3)
 
 未来版本即将废弃，使用 fetchSub(Int64) 替代。
 
@@ -2620,7 +2620,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行异或操作。将结果写入当前原子类型实例，并返回异或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/TLS4tNG8QsiR-R_80KhsoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=6659D43B369823418B620742349078DA804F862643D1426840A836E7ECE68A1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/TLS4tNG8QsiR-R_80KhsoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=C0414D17E3541E26AAC9D0DC257528A858E46222A49615F9B736BF8D7ADB8E30)
 
 未来版本即将废弃，使用 fetchXor(Int64) 替代。
 
@@ -2701,7 +2701,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：读取操作，采用参数 memoryOrder 指定的内存排序方式，读取原子类型的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/F5ptofSlREyekZEgdIALGg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=592D728B14BE71614121704EC8741E2FD4EB614C0E921C5E29F8A8B6556DA511)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/F5ptofSlREyekZEgdIALGg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=4C66D32701518F02F5C5B01BFE95ED866DF2D58D693194909937CBDD4A8044A3)
 
 未来版本即将废弃，使用 load() 替代。
 
@@ -2779,7 +2779,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：写入操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/D1mDVEdvQwKf7eKE0bb_5w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=3ECFDA0881A9D4F8D787CFFE3C927DEDEE5D77B1F529B85C4F41051565487FD3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/D1mDVEdvQwKf7eKE0bb_5w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=386D03867E301760CABFE2CAC9A0792302E69698A1FB8857B7FB44F9925B4865)
 
 未来版本即将废弃，使用 store(Int64) 替代。
 
@@ -2860,7 +2860,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：交换操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型，并返回写入前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/9sVKB3kAQYCsQLgosc5htQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=0E2A4B4D3C2D0F1A784AA603EB04BA0C24FFF58571EAC67126BCEAF33D0C20D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/9sVKB3kAQYCsQLgosc5htQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=269025746DAFB81CCE59A3476B39B99F69FF7C55E2FA5A86FF20A36D5A30133E)
 
 未来版本即将废弃，使用 swap(Int64) 替代。
 
@@ -3004,7 +3004,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 比较当前原子类型的值与参数 old 指定的值是否相等。若相等，写入参数 new 指定的值，返回 true；否则，不写入值，并返回 false。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/IKwrxnUpQFKo1v4aExrPug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=3F3A7B8AA6844E4341849EBA788D405E4C42C9162354C87E10FAAB66B2E3985D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/IKwrxnUpQFKo1v4aExrPug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=D3A2BC3AE8CA9316B2D64B1DBF8A43CEF338AE1A6EF9B881EF13DCEAFE39E15C)
 
 未来版本即将废弃，使用 compareAndSwap(Int8, Int8) 替代。
 
@@ -3095,7 +3095,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将原子类型的值与参数 val 进行加操作。将结果写入当前原子类型实例，并返回加法运算前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/U8iMnxmfRZKVl5-RS2pNSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=9F653029099EB2D532DBD15DB1762677726ABA9B978451A4E1962B07D39F494C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/U8iMnxmfRZKVl5-RS2pNSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=2F36F2BA63E1196C0C3FD41CE6E2D5AA6FE0B708654C4D4BEAE6E11727CF3F2F)
 
 未来版本即将废弃，使用 fetchAdd(Int8) 替代。
 
@@ -3184,7 +3184,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行与操作。将结果写入当前原子类型实例，并返回与操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/qnoWvGg_SX2kpiDcXgtYnQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=F0A30F84DDAA9FBAC9549E750301A79BEB4A283A6047DEE5923E9AF4AB215344)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/qnoWvGg_SX2kpiDcXgtYnQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=13D186D4A5D2B86D27415001E8C8B5281EB6501846F96D2750D1197707743E73)
 
 未来版本即将废弃，使用 fetchAnd(Int8) 替代。
 
@@ -3273,7 +3273,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行或操作。将结果写入当前原子类型实例，并返回或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/fR42dXijSeicL7xZWDW3_g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=EB76092BD971AD9E36A881CF70139C4C1EADAE3950369177381F0965E5CAAFED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/fR42dXijSeicL7xZWDW3_g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=2E7471DDF942948CA32187CDF3435D791C2703F900A47CF25B79CD817F425B6C)
 
 未来版本即将废弃，使用 fetchOr(Int8) 替代。
 
@@ -3362,7 +3362,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，以原子类型的值为被减数，参数 val 为减数，做减操作。将结果写入当前原子类型实例，并返回减操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Z2SlcVEYR7OenFYCzZo4sA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=A19679AFEDCBBD17A274F4E084EA9D8444F1BC05FD844696764020C741FAE0CF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Z2SlcVEYR7OenFYCzZo4sA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=C492D084B3F1FF04EE263D06597FAAE3DD97BE845ED3E8247E000B107F01C719)
 
 未来版本即将废弃，使用 fetchSub(Int8) 替代。
 
@@ -3407,7 +3407,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
     
     public func fetchXor(val: Int8): Int8
 
-功能：采用默认内存排序方式，将当前原子类型实例的值与参数 val 进行异或操作。将结果写入当前原子类型实例，并返回异或操作前的值。
+功能：采用默认内存排序方式，将当前原子类型实例的值与参数 val 进行异或操作。将结果写入���前原子类型实例，并返回异或操作前的值。
 
 参数：
 
@@ -3451,7 +3451,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行异或操作。将结果写入当前原子类型实例，并返回异或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/u055JYY0RzqxvSKL6bp61g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=BB3647F46C6B52C819EE3F77F2B10C3AFC52C87A55B13914627AD1E3A006179B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/u055JYY0RzqxvSKL6bp61g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=5C0CB8841B892D019FF260503354B62A406A2C170FF9E0B99C117A4E02610E3C)
 
 未来版本即将废弃，使用 fetchXor(Int8) 替代。
 
@@ -3532,7 +3532,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：读取操作，采用参数 memoryOrder 指定的内存排序方式，读取原子类型的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/hAlM5jaMR-KsaqLPn4WZQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=31B6BBB45FAA2795EE168D0BDB4FA239C4D1AF38E15C2A74FC369B9E6E5DF3D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/hAlM5jaMR-KsaqLPn4WZQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=3ADCF3075E2414FAC24ED77BD8A9B2D6230FD237A9035472A2F40FC06960A352)
 
 未来版本即将废弃，使用 load() 替代。
 
@@ -3610,7 +3610,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：写入操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/Rxxtn9l_TJafA8SNWugScA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=C93617FE41D3E5609A0DD81E1D8F81340D04446A53D7A5960DC8BCD6DB52027B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/Rxxtn9l_TJafA8SNWugScA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=57184E6C92C543988498A110BD82F02C98F80731DF092C3953AFB72AAC5F349E)
 
 未来版本即将废弃，使用 store(Int8) 替代。
 
@@ -3691,7 +3691,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：交换操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型，并返回写入前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/z_xojiLzQLSpIg0YrOUYmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=A10C99970577FCDC7E1F0E5416955FA780004481A10F3873A54E2CB63FCE9AF2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/z_xojiLzQLSpIg0YrOUYmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=6BD261591CEF8D90AB82FB2C38327B38D80E33450A57F7D67A21685D04ED68FC)
 
 未来版本即将废弃，使用 swap(Int8) 替代。
 
@@ -3874,7 +3874,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 比较当前原子类型的值与参数 old 指定的值是否相等。若相等，写入参数 new 指定的值，返回 true；否则，不写入值，并返回 false。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/QXDOMjOkTt2DdqSVZBmiBA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=7F2C07DF223F97B3025550D7955AFA8A9170AFCAD7428D08762CE16090BC2E6B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/QXDOMjOkTt2DdqSVZBmiBA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=DC2D594FE09161C3A8BCCA73AF2A4538B4A4432BDBD41F889AFF3C6FE7832AD2)
 
 未来版本即将废弃，使用 compareAndSwap(Option<T>, Option<T>) 替代。
 
@@ -3995,7 +3995,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：读取操作，采用参数 memoryOrder 指定的内存排序方式，读取原子类型的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/Z9P-uQoJToyFETzUJyJLzA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=00D712FD78C874257F8A216B30BEE9ECA8DDB2C818B3E3B8B6682FF169F7722F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/Z9P-uQoJToyFETzUJyJLzA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=13E1894A298FA8DBD152E52DB0E7D55D74FB9FE115C776E784913717FB1BFF4C)
 
 未来版本即将废弃，使用 load() 替代。
 
@@ -4124,7 +4124,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：写入操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/1AHQljMvSSe1mw2T9pCf9Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=6F4DAB40EB5BE6A3E338047AEB077844413B7E31428D080B03E4AD174C2A3F85)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/1AHQljMvSSe1mw2T9pCf9Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=4CECD26AD740C7E99A700A2237632B8FE5C9A733CB5CD8E891688C7D2555DF9B)
 
 未来版本即将废弃，使用 store(Option<T>) 替代。
 
@@ -4271,7 +4271,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：交换操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型，并返回写入前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/MI0UF6F-RtqRp2lqPvvkWA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=13221C31D936F65DFAEED50F512BD019A5DC345A5491647C4165E9F9E453E090)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/MI0UF6F-RtqRp2lqPvvkWA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=57FDADE19021F8632C5E6AA0A0162064C00240648B9C5EBC11E79E459C6636F0)
 
 未来版本即将废弃，使用 swap(Option<T>) 替代。
 
@@ -4454,7 +4454,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 比较当前原子类型的值与参数 old 指定的值是否相等。若相等，写入参数 new 指定的值，返回 true；否则，不写入值，并返回 false。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/QIM70uUuThOKEgkyDdSuzw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=D0CF8815C830444023EFDEE5344AFC44149A7E72332AAF75269F214D5F3CA102)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/QIM70uUuThOKEgkyDdSuzw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=2110930A78D874B57A7B364C21B7FC83CEBB412036C69E9EC1B775CFC66561F0)
 
 未来版本即将废弃，使用 compareAndSwap(T, T) 替代。
 
@@ -4556,7 +4556,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：读取操作，采用参数 memoryOrder 指定的内存排序方式，读取原子类型的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/YX7j5uLJTCyuw3RXWhmqBA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=EB553C751EC26A441FE61ED3BC941C6AFB4F40C9D79811C9D3D6298F02E5A2A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/YX7j5uLJTCyuw3RXWhmqBA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=06351D393E36169160137B2F4E8D779F818A5C8895D408000680C28741A5B299)
 
 未来版本即将废弃，使用 load() 替代。
 
@@ -4659,7 +4659,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：写入操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/QUtTDEKqRcS4stA2CTQ5Ig/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=83E677039BFC460299E93702A76941C7C7CEB8971F18195FFE2C2439D5CBD403)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/QUtTDEKqRcS4stA2CTQ5Ig/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=1FA7F0902975E437999793E96EC1F4BAF054EB0E3DC89888B2FDDE9C534BD83C)
 
 未来版本即将废弃，使用 store(T) 替代。
 
@@ -4770,7 +4770,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：交换操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型，并返回写入前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/cFqda-W4QtSoslmLDNC-dA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=280E45DC173978A9C3CCC6DC39CA608474EB207E8D3064C54DC45982729020C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/cFqda-W4QtSoslmLDNC-dA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=325C07A141472C0BB4F91BA7AA78E62A050E39C3FB6F6FC070C8ACD783E08DE0)
 
 未来版本即将废弃，使用 swap(T) 替代。
 
@@ -4929,7 +4929,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 比较当前原子类型的值与参数 old 指定的值是否相等。若相等，写入参数 new 指定的值，返回 true；否则，不写入值，并返回 false。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/iYlUi3IySfaqydJ2IkvfRA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=D2D6E78F91628D422145FAAA0BAE436612BD813D5FAF7532D7D0F4C4EBADF219)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/iYlUi3IySfaqydJ2IkvfRA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=7F675D709E999B7A6203730646FD17C2FCDD9F75E11A8FDB2CA2FD0E10D61393)
 
 未来版本即将废弃，使用 compareAndSwap(UInt16, UInt16) 替代。
 
@@ -5020,7 +5020,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将原子类型的值与参数 val 进行加操作。将结果写入当前原子类型实例，并返回加法运算前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/woe1fKmQRcek66tqOW4NOQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=8B18C1D78EBC51B9F21F668E52C03B9DB95379F6CEEF44318A792075B4241187)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/woe1fKmQRcek66tqOW4NOQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=8E790992D70B8D622C440F62C986B41E9D803E1215C6F4D7DA6C44DBAB8FF09A)
 
 未来版本即将废弃，使用 fetchAdd(UInt16) 替代。
 
@@ -5109,7 +5109,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行与操作。将结果写入当前原子类型实例，并返回与操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/b1k31uaETMCZufFJStv1Qg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=B4E98F1B189F69372407E4BEB2193B9A4B0EA8C25E21C0FF10253EFD3EB41FEC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/b1k31uaETMCZufFJStv1Qg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=4869CFCB9EE2E79FDB79585A5B15F45A0ACE6F0503E4601BB161DB546317D5F2)
 
 未来版本即将废弃，使用 fetchAnd(UInt16) 替代。
 
@@ -5198,7 +5198,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行或操作。将结果写入当前原子类型实例，并返回或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/II5zGNuBQFK3u_fYs3Jo-w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=32781CC82E3DED63AA70DAF6926B4A69F2DFD7C8013171944BEE8C3FC8599497)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/II5zGNuBQFK3u_fYs3Jo-w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=F7D4E280ACFDB13E9E973AEB3BBD90A91C100AE26D599B31811E326CEF640AE6)
 
 未来版本即将废弃，使用 fetchOr(UInt16) 替代。
 
@@ -5287,7 +5287,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，以原子类型的值为被减数，参数 val 为减数，做减操作。将结果写入当前原子类型实例，并返回减操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/2_SC2u94RhueaI9H6hvozA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=A72C6330AB039A152BE46A3D636261A6D66BD659AFCA6EE8E5EB9A21B4F91AFB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/2_SC2u94RhueaI9H6hvozA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=AADC09A35AD5BB12A27F5C04E64AE8D1CCE45F1267080FACF13E5C4FAC6EA5F4)
 
 未来版本即将废弃，使用 fetchSub(UInt16) 替代。
 
@@ -5376,7 +5376,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行异或操作。将结果写入当前原子类型实例，并返回异或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/QXe1uvRVSGmO1EA_v-c0QQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=A5FF033DC5E054816E492DC7696CED38C1B7381C08AE7E7872C6465CE7808C52)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/QXe1uvRVSGmO1EA_v-c0QQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=D74EC2821345858CBBDC233BEEC3DA523443B78354EA9FA706AF278EFF7E709F)
 
 未来版本即将废弃，使用 fetchXor(UInt16) 替代。
 
@@ -5457,7 +5457,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：读取操作，采用参数 memoryOrder 指定的内存排序方式，读取原子类型的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/-A9O-V1VQ5-Bf3YeQGLUag/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=14ADB141F8713AFF2BABECF007A5096EC9A3D56C76C2F0916E5F2538BCE230CA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/-A9O-V1VQ5-Bf3YeQGLUag/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=83048932EB34C7B4BE9FD8B7968A2F226C94AAA1F2B0AEF591ACB959DDCA55AA)
 
 未来版本即将废弃，使用 load() 替代。
 
@@ -5535,7 +5535,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：写入操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/oGQzY6S1SwazmYAAZxv-KQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=4A1A317E590A4BE18A5E0680F83D75E77E269B20C442BF6165753D6E1AC5D1C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/oGQzY6S1SwazmYAAZxv-KQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=21F8634B303CBB830C42465144B96329512751470EA74563BE50517F6F81B74F)
 
 未来版本即将废弃，使用 store(UInt16) 替代。
 
@@ -5616,7 +5616,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：交换操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型，并返回写入前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/0kbVv5ftS1ycj9x6zIuC6A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=72DE079FDFF95672435D3E32FC06FDBF86C5B87CF30789A040C463E267BA1225)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/0kbVv5ftS1ycj9x6zIuC6A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=005B88A4ADC9225185426FB2FD8C37991BA09CBFAD1D6D6B70DBB02DC8D82238)
 
 未来版本即将废弃，使用 swap(UInt16) 替代。
 
@@ -5760,7 +5760,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 比较当前原子类型的值与参数 old 指定的值是否相等。若相等，写入参数 new 指定的值，返回 true；否则，不写入值，并返回 false。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/2V1arAeSRHyYRQWFDMdMUg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=A9BC276494B58D6CB86D626677870984DDAD3D595F2A425CD0556EE47530913A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/2V1arAeSRHyYRQWFDMdMUg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=85FA637270B2740ED7A19B7AF02DEE6C153282C6EA1386915A102B93C84A0022)
 
 未来版本即将废弃，使用 compareAndSwap(UInt32, UInt32) 替代。
 
@@ -5851,7 +5851,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将原子类型的值与参数 val 进行加操作。将结果写入当前原子类型实例，并返回加法运算前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/E4XOfJtcSR-azcvtoxTAqw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=BD639D8A79B9DCC9108401C323BC09066C202577F071F8DB2D6D2443B4214372)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/E4XOfJtcSR-azcvtoxTAqw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=6E4D01F66DDBA70DD50A729A46649A27B02DF0EC9977CFB1C00E878BC795D647)
 
 未来版本即将废弃，使用 fetchAdd(UInt32) 替代。
 
@@ -5940,7 +5940,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行与操作。将结果写入当前原子类型实例，并返回与操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/O_-muUa3QauCbvvWXHHWZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=B4720DFF1F9C35265C4EC22E98C513CBDC8C8D69551D64D11FDC4369B021A8D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/O_-muUa3QauCbvvWXHHWZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=45A7DA42E2DF7C57A27F94CD5949DB77160CA8E75C81BAC4DEB4250DEE503309)
 
 未来版本即将废弃，使用 fetchAnd(UInt32) 替代。
 
@@ -6029,7 +6029,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行或操作。将结果写入当前原子类型实例，并返回或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/teJmQN_FRKmdLDyq8SHNVg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=7068F19014484A466A00DFF56F91CDF34366254004639F64001FFF7295ED63A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/teJmQN_FRKmdLDyq8SHNVg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=B6AD6072CBE66C1FEA03DFF29816634F996D3251A2579732A35D4EA3AF0ED476)
 
 未来版本即将废弃，使用 fetchOr(UInt32) 替代。
 
@@ -6118,7 +6118,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，以原子类型的值为被减数，参数 val 为减数，做减操作。将结果写入当前原子类型实例，并返回减操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/x1vQ_NfSQZS-uxjhmQHJFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=50DA2EC9790793A2B1E997DE810E68E04775BCBE8E2E46964CC850DFE359B1BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/x1vQ_NfSQZS-uxjhmQHJFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=7D48E868F292E97DD5D8E8F4866BF3EE4147AC0D684E37C2F1DB3FA5639E757A)
 
 未来版本即将废弃，使用 fetchSub(UInt32) 替代。
 
@@ -6207,7 +6207,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行异或操作。将结果写入当前原子类型实例，并返回异或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/Y_6MckY4QPOdfYrAIop9hw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=1E02680D6AE362FCE78548B581E9AFC730B8DE67D2D52F985F3AD97102823719)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/Y_6MckY4QPOdfYrAIop9hw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=37BF3823730B81B2C1B6478F9DABF8035EFCEE75ECF6980E27BB42EF56DDD616)
 
 未来版本即将废弃，使用 fetchXor(UInt32) 替代。
 
@@ -6288,7 +6288,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：读取操作，采用参数 memoryOrder 指定的内存排序方式，读取原子类型的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/iuQFP_4NRAqdQ0f9NY-zaQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=FBB9344FC970D23DA7A173D2F692510C52ACBBECEE9CDF3D1F66D797BC41067D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/iuQFP_4NRAqdQ0f9NY-zaQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=EDA8CA1D141200F607841934529143420C4F16A81BD601C4ECFABD57869560E1)
 
 未来版本即将废弃，使用 load() 替代。
 
@@ -6366,7 +6366,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：写入操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/Zn4-1T8HQcCxIZJfG077Tw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=09DC76FB8D1001510E960AA1251F83B3D4A680E3D3383BDF0BEDC505FF34A233)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/Zn4-1T8HQcCxIZJfG077Tw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=AB85B2AA4050757BACFB582C0FC1F36C85B0A72CE5C34C26190B3E77298EA863)
 
 未来版本即将废弃，使用 store(UInt32) 替代。
 
@@ -6447,7 +6447,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：交换操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型，并返回写入前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/SfAW0GvBR8epXWitfZiENg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=62D236F1FBFF95B4172EBA795EC305277862E3914240ED211E9023740CA1A4B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/SfAW0GvBR8epXWitfZiENg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=74E463C215AAD1474F6AC22DAFBDFF78D91DFBEF2B78C8739FB4D29136D20182)
 
 未来版本即将废弃，使用 swap(UInt32) 替代。
 
@@ -6591,7 +6591,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 比较当前原子类型的值与参数 old 指定的值是否相等。若相等，写入参数 new 指定的值，返回 true；否则，不写入值，并返回 false。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/BDtTNMxbRlOvcoItBL0arw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=128A0C06BEB9BF2386C38E2C68D58E8D262FABBD75BA9FB0BD1AB2D332134D51)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/BDtTNMxbRlOvcoItBL0arw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=B22F95B1EED96F2ED55C2836575218FAF643D734595CC6B626A74A22F49F6FF3)
 
 未来版本即将废弃，使用 compareAndSwap(UInt64, UInt64) 替代。
 
@@ -6682,7 +6682,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将原子类型的值与参数 val 进行加操作。将结果写入当前原子类型实例，并返回加法运算前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/VWMvXnGsRaOEIEy2-UbouA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=0A64F210ACD4593CCFC24BF05F800958349FD358E98C50C18852AB1FB4844BF3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/VWMvXnGsRaOEIEy2-UbouA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=8B0B92DDA066F94AED8CF17D4E462D737DF2CC8FEDEE409A2DC02A0B3910EE1D)
 
 未来版本即将废弃，使用 fetchAdd(UInt64) 替代。
 
@@ -6771,7 +6771,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行与操作。将结果写入当前原子类型实例，并返回与操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/G_bJK-_dTh2MpkRvYmYgPA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=3D2C77F69F4A9C91A5831272239B1734F9E0F68C320D0CC8C973D8763C1A988F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/G_bJK-_dTh2MpkRvYmYgPA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=6A56BC40F8597245F7875D3A751F0CB3FDE09C9029877870BC795D4793954162)
 
 未来版本即将废弃，使用 fetchAnd(UInt64) 替代。
 
@@ -6860,7 +6860,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行或操作。将结果写入当前原子类型实例，并返回或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/PUECwJvqQWiafsKkm_720w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=46CCCF400A4863B7744386B07F14D825CBBA7F4724E099F456F26A181B84C45E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/PUECwJvqQWiafsKkm_720w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=E27B180F6A6EC30C8400F7F4AF40A4A9B00AEEDAE9B6BA8E8AB4B1313CBA795A)
 
 未来版本即将废弃，使用 fetchOr(UInt64) 替代。
 
@@ -6949,7 +6949,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，以原子类型的值为被减数，参数 val 为减数，做减操作。将结果写入当前原子类型实例，并返回减操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/PjjywX53SUqwRXrwaPJyhw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=2754C2845CA9B5A50D977B9DC4DF44125AD060BB7831BBC67CF7FC34E3EEBFDD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/PjjywX53SUqwRXrwaPJyhw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=B41172F6FF67DF92AD448204951CF78A275B29A08BDF518A5A43A55BCBA14052)
 
 未来版本即将废弃，使用 fetchSub(UInt64) 替代。
 
@@ -7038,7 +7038,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行异或操作。将结果写入当前原子类型实例，并返回异或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/kifHQ6jaS1O5cS14_pyucQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=8B96B8CAD1CA24371E3B33171FC95C0DE8C53281030B33F08172FF5E4E128E19)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/kifHQ6jaS1O5cS14_pyucQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=5B8E74AF8E58F386FB73BCD2A65E97F5AE4887DDD99DF417C33B697C3ACFDB5B)
 
 未来版本即将废弃，使用 fetchXor(UInt64) 替代。
 
@@ -7119,7 +7119,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：读取操作，采用参数 memoryOrder 指定的内存排序方式，读取原子类型的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/C-aOJUHCSzmVOMl5faCbEQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=A25558C36C331F4605CAB1752FA05172F780F89A94F6AF55D91FDF7963BDEEF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/C-aOJUHCSzmVOMl5faCbEQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=C5CF203EC4B57A5948EEF09CBEFCD2F0B8CD770D466C1BBEAB0CF377D0282604)
 
 未来版本即将废弃，使用 load() 替代。
 
@@ -7197,7 +7197,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：写入操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/eef1ManHSCaC8pXhgZ7b6w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=E3D9FE836BE772777E70DF743594F484F407208F776EFD2E1BDCBC8C817728C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/eef1ManHSCaC8pXhgZ7b6w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=BD8FA1A7A2CA21FBA960A8249C4A0B5C8D0A71C76C1A426365A4D2B173219A93)
 
 未来版本即将废弃，使用 store(UInt64) 替代。
 
@@ -7278,7 +7278,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：交换操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型，并返回写入前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/xQ7qPFpNQqeIhliT4Irltw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=60B3D3ECABE6A8E530ED50674E984ED79EBEC8B3C418C519D3F2D8DAB78297F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/xQ7qPFpNQqeIhliT4Irltw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=893492571DDE042D240F24D92AA4FFDE8C0E3BBE5525F87C1C4761618B2415CF)
 
 未来版本即将废弃，使用 swap(UInt64) 替代。
 
@@ -7422,7 +7422,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 比较当前原子类型的值与参数 old 指定的值是否相等。若相等，写入参数 new 指定的值，返回 true；否则，不写入值，并返回 false。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/sIHx_Eb9SY-wrE-1LP1hog/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=0FF51C038FD7088E73F19CC5B76BFFEF5CD82C8042E53806651D528B095D94F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/sIHx_Eb9SY-wrE-1LP1hog/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=D2537E27DB6886FBBA5A4ADCDB6ED2EB625432B6A439162879214804B3CCB976)
 
 未来版本即将废弃，使用 compareAndSwap(UInt8, UInt8) 替代。
 
@@ -7513,7 +7513,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将原子类型的值与参数 val 进行加操作。将结果写入当前原子类型实例，并返回加法运算前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/H7fV5gp1RLmNwFAN0QZR3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=4695F9116AB6255C0F7135307F3D7E9B852F166092692DAF6F97F8051622A15B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/H7fV5gp1RLmNwFAN0QZR3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=21E6B3A06560D54F4C03E9677057AE1DE8DCE5747E3CAF800DCF63924D1A62E2)
 
 未来版本即将废弃，使用 fetchAdd(UInt8) 替代。
 
@@ -7602,7 +7602,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行与操作。将结果写入当前原子类型实例，并返回与操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/ej0OsHZzQM6Wmnw5uV0xBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=B84AD5338BFEC398A2FC4D0E4F3052231B1E6613BBFFEBCFA38650BDB6FB1990)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/ej0OsHZzQM6Wmnw5uV0xBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=10B845684A1DF0367684EA8FDFCC7766F1F598BC0D19CD9077848CB47B9A96AD)
 
 未来版本即将废弃，使用 fetchAnd(UInt8) 替代。
 
@@ -7691,7 +7691,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行或操作。将结果写入当前原子类型实例，并返回或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/YRcXd1fKTWa2SSu8uR784Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=5780959A8F5E6E3A09A41A6F84F7D04B755CADAC552022A03C0487D4AC6283B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/YRcXd1fKTWa2SSu8uR784Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=7F88C20AB851C6C53D27D19C00A80AAF1A60260904630CA566D82E2615658D58)
 
 未来版本即将废弃，使用 fetchOr(UInt8) 替代。
 
@@ -7780,7 +7780,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，以原子类型的值为被减数，参数 val 为减数，做减操作。将结果写入当前原子类型实例，并返回减操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/bDNdgfdcSiWENPCAw5FNPg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=F2E730C22CA132ED66DBA2FDA069CDBD7F9594FD47A0A231514B25BAEB92BE88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/bDNdgfdcSiWENPCAw5FNPg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=7BA3FD09B03FEBF29BF1682B43E073EFC83593BAFCECD292518560E5508A7111)
 
 未来版本即将废弃，使用 fetchSub(UInt8) 替代。
 
@@ -7869,7 +7869,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：采用参数 memoryOrder 指定的内存排序方式，将当前原子类型实例的值与参数 val 进行异或操作。将结果写入当前原子类型实例，并返回异或操作前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/stNlxj4lT-iaJdN4X4M2CA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=22938956F088292199FD325565960F123EFC4323300A536135E11589D5700F20)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/stNlxj4lT-iaJdN4X4M2CA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=B49A983CF685607D03C331366828E9C410A1ACFCC172C5C25A4F3D8903929CD4)
 
 未来版本即将废弃，使用 fetchXor(UInt8) 替代。
 
@@ -7930,7 +7930,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
     main(): Unit {
         // 创建一个 AtomicUInt8 实例，初始值为 10
         let atomicUInt8 = AtomicUInt8(10)
-        println("AtomicUInt8 实例的值为: ${atomicUInt8.load()}")
+        println("AtomicUInt8 实例��值为: ${atomicUInt8.load()}")
     
         // 修改值
         atomicUInt8.store(20)
@@ -7950,7 +7950,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：读取操作，采用参数 memoryOrder 指定的内存排序方式，读取原子类型的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/08exmpyCTJCmnbIzqGR_2Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=98998670EE83CEEF3B05B7EEEAA34F5350F3C730B06522D63351CC4438A8A2C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/08exmpyCTJCmnbIzqGR_2Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=B0AA65EA40A6A742EC62147133B7EF483D69F6204AE3CAD1B1B3B8B2762C7795)
 
 未来版本即将废弃，使用 load() 替代。
 
@@ -8028,7 +8028,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：写入操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/vUyMOLE6Sam46GDP05rJvQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=1C5A8F39C1227FB87EC5F17187CD8976983311207D9855BF84FA7A6E3BA95A1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/vUyMOLE6Sam46GDP05rJvQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=01FBB90EA64C1E3E4B58B49012366D49F788C161E6F7B673AA975B50FE90775F)
 
 未来版本即将废弃，使用 store(UInt8) 替代。
 
@@ -8109,7 +8109,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：交换操作，采用参数 memoryOrder 指定的内存排序方式，将参数 val 指定的值写入原子类型，并返回写入前的值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/eTsnUGEcSVCIYWpUQDEHQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=240BF3CFD029FCBB40B42BE170DF21A4C6F1ED333F6A7A6ED4532C8D2E667CF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/eTsnUGEcSVCIYWpUQDEHQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=F68A7FA51B807EF4F95659A1A9D55FB9838C41D2871ED95B5465463615DFAD80)
 
 未来版本即将废弃，使用 swap(UInt8) 替代。
 
@@ -8268,7 +8268,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 然后执行唤醒操作。这使得挂起的线程被唤醒后可以继续执行。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/MjyNSK50TdeQu68k_nTOuQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=40771E2DA88EB7F965AF9E1FD459CB2CA2A4B86B87683D2D54330A3DD192910A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/MjyNSK50TdeQu68k_nTOuQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=6D79A6505BA29F29EEADAE986F3DEE1787128A71C439788D937F9A830C3FE6ED)
 
 未来版本即将废弃，使用 [Condition](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sync_package_interfaces#interface-condition) 替代。
 
@@ -8434,7 +8434,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：当前线程挂起，直到对应的 notify 函数被调用，或者挂起时间超过 timeout。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/F00O25SZR6Og7-P6qjwSWQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=0ADA9E17C564B50A1EF7B54FE5E70CF98C8D402A67C84B951599801A32829390)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/F00O25SZR6Og7-P6qjwSWQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=6B11FAA0C7A88299C53B03B7CAC5F52002E958028BEE19AD91CC56D0A3C584A5)
 
 线程在进入等待时会释放对应的互斥锁，被唤醒后再次持有互斥锁。
 
@@ -8516,7 +8516,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：提供对同一个互斥锁绑定多个条件变量的功能。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/L4KCAo2jR0atNtsynVj4Nw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=EF9417FE852B15C35E9E8F197DF6377826EFA1B77DCF675404C23EDAB897BD5C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/L4KCAo2jR0atNtsynVj4Nw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=A0B2A485BA3520A0575491AE8398046A5F994C37C1B4788C34992C142E60CED2)
 
   * 未来版本即将废弃，使用 Mutex 替代。
   * 该类应仅当在 [Monitor (deprecated)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sync_package_classes#class-monitor-deprecated) 类不足以实现高级并发算法时被使用。
@@ -8741,7 +8741,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：当前线程挂起，直到对应的 notify 函数被调用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/o3Z7hfOcQyKTgG_oit7GzA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=2276DBE60446348878FAC70CE60A35C4606D4E361B5BE78FE2699586414A0AE2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/o3Z7hfOcQyKTgG_oit7GzA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=F8AF39C11E1B533E0A946FD4183A412FD8A36D72D73E3C58DD85833A3E2E42E2)
 
 线程在进入等待时会释放对应的互斥锁，被唤醒后再次持有互斥锁。
 
@@ -8833,7 +8833,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 当一个线程试图获取一个已被其他线程持有的锁时，该线程会被阻塞，直到锁被释放，该线程才会被唤醒，可重入是指线程获取该锁后可再次获得该锁。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/IVFMZ5LLREygZp3nfGZ61A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=D1329EA3893B828506764AE1DC1629893C102FE270E0E809897BABB08262DA35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/IVFMZ5LLREygZp3nfGZ61A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=F30672F851D48588C06DB72DAC3AF7962A47562B7A4046E0FBAD88B765DB37EF)
 
   * 在访问共享数据之前，必须尝试获取锁。
   * 处理完共享数据后，必须进行解锁，以便其他线程可以获得锁。
@@ -9313,7 +9313,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 当一个线程试图获取一个已被其他线程持有的锁时，该线程会被阻塞，直到锁被释放，该线程才会被唤醒，可重入是指线程获取该锁后可再次获得该锁。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/ngFX9itYQ0G5YHmfEny2BQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=DB80FA2700A13B77F9B403E1621AA9EBA0A390C59A6DBB20BCD6F04C00A7A8D7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/ngFX9itYQ0G5YHmfEny2BQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=8B56717F962A2A52A0C4DAC1CCF9EAFE54E5332808C36204A93D8AF3AC71BC8A)
 
   * 未来版本即将废弃，使用 Mutex 替代。
   * [ReentrantMutex (deprecated)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sync_package_classes#class-reentrantmutex-deprecated) 是内置的互斥锁，开发者需要保证不继承它。
@@ -9568,7 +9568,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：提供可重入读写锁中的读锁类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/lweTv5n9QlSPtz9nHsFw8w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=1897872559BCFBFF76BFB9BA7CACFDC60627143B4743E9CFC6AFADE09D8517A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/lweTv5n9QlSPtz9nHsFw8w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=65A431DDEB61D9A2EC013FF3562F96DB25F722127D1E1279ADB0D20ECE21D1F2)
 
 未来版本即将废弃，使用 [Lock](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sync_package_interfaces#interface-lock) 替代。
 
@@ -9585,7 +9585,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：获取读锁。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/FiqXxSANQauEvxRiMcaTfw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=5D009A934B38B2EA13A3ED753FB4EB30A763B3EAE91DEA27DFA025645D26BD74)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/FiqXxSANQauEvxRiMcaTfw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=F32C26D69C825F35A990E9D8D445593DD0331933C720ADE9283B1C38F0D98E92)
 
   * 在公平模式下，如果没有其他线程持有或等待写锁，或是当前线程已持有读锁，则立即持有读锁；否则，当前线程进入等待状态。
   * 在非公平模式下，如果没有其他线程持有或等待写锁，则立即持有读锁；如果有其他线程持有写锁，当前线程进入等待状态；否则，线程是否能立即持有读锁不做保证。
@@ -9805,7 +9805,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 它和普通互斥锁的差异在于：读写锁同时携带两个互斥锁，分别为“读锁”以及“写锁”，并且它允许多个线程同时持有读锁。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/VA7_fN7ISX2dRVFGIPwyVQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=BF3276C0EFD0A26B0A3F841101B68DB0A74AEBC23E64E0B4D554A5FDD73606AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/VA7_fN7ISX2dRVFGIPwyVQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=1A1E92C859A2A627FE3D94D3E350CEF25CB9B51C15A66087CC55616A231DE154)
 
 未来版本即将废弃，使用 ReadWriteLock 替代。
 
@@ -9901,7 +9901,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：提供可重入读写锁中的写锁类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/W8Dbhtt_RH-0GDER6IANEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=F6BADF67247B5B4FE247FC367B4AB6EA26E80F40141085C639033D76AEB9EBE6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/W8Dbhtt_RH-0GDER6IANEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=75570E12F061C0D8B1B0FC14A02151B040BA77C5CE2965135E439D584F1CC961)
 
 未来版本即将废弃，使用 [UniqueLock](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sync_package_interfaces#interface-uniquelock) 替代。
 
@@ -10057,7 +10057,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 功能：释放写锁。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/bdgdToWeRxaTP8OwyCJnYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=A95CBD1418882D25C139F4E3FFEB9F4C2B7E5B2ED238AFCE6BA85BFF9121D39E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/bdgdToWeRxaTP8OwyCJnYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=CB9A8701E7772004AFA8A2184EE6E4582CFCDF8D78C77E08713B27270A6DAFEA)
 
   * 如果一个线程多次持有读锁，那么仅当释放操作和获取操作数量相同时才释放读锁；如果读锁被释放并且存在线程等待写锁，那么唤醒其中一个线程。
   * 在公平模式下，如果写锁被释放并且存在线程等待读锁，那么优先唤醒这些等待线程；如果没有线程等待读锁，但存在线程等待写锁，那么唤醒其中一个线程。
@@ -10589,7 +10589,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.sync / �
 
 用于在指定时间点或指定时间间隔后，执行指定任务一次或多次。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/0M9Tjim1RKGow7J3DCFHjg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090211Z&HW-CC-Expire=86400&HW-CC-Sign=8CF510CE80E8ED7FC8A9888C5D505844CCF19A4588FA7B4695A2D17CF7E8B283)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/0M9Tjim1RKGow7J3DCFHjg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085331Z&HW-CC-Expire=86400&HW-CC-Sign=6A2E0C9951D4F42DB6E650A985EDB09ABB0EB1DCB9C6232DA3DC712E54267AE0)
 
   * [Timer](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sync_package_classes#class-timer) 隐式包含了 spawn 操作，即，每个 [Timer](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sync_package_classes#class-timer) 会创建一个线程用于执行该 [Timer](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sync_package_classes#class-timer) 关联的 Task。
   * 每个 [Timer](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sync_package_classes#class-timer) 只能在初始化时绑定一个 Task，初始化完成后，无法重置关联的 Task。

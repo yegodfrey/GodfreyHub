@@ -36,7 +36,7 @@ nodePath: 基础入门 / 学习仓颉语言 / 附录 / cjc 编译选项
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/261ot13WQLa88qZIusatoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=B134F308E982A6051AF71E1C7C0B6DF822AB2CF09BB99DBB293FCF4F808417F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/261ot13WQLa88qZIusatoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=2C1855C25013DD167F05E79D6D59066C96D3985900440E320DD5C8419E9FE3ED)
 
 chir 、 obj 模式为实验性功能，使用 --output-type=[chir|obj] 可能有风险，必须配合 --experimental 选项一同使用。obj 模式需要与下列 --compile-target 选项配合使用（具体用法见 --compile-target ）。
 
@@ -57,7 +57,7 @@ cjc 默认为 exe 模式。
 
 该选项专用于 --output-type=obj 模式，默认为 exe 。因生成的 .obj/.o 文件属于编译中间产物，通过指定 --compile-target 可明确编译器采用对应编译策略，生成适配不同最终产物类型的中间文件；后续编译器可直接将该 .obj/.o 文件作为输入进行链接。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/eqidsLpmSYuGNETkhrI3JQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=74DCB87A0D7CF1F8ECABBE7A5C045F3612640FEC844E4AFF8CE83CA1FA762707)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/eqidsLpmSYuGNETkhrI3JQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=6A46A6D52E11BA31F44D5C153DB59C7474722ECED41507B719EA50EB54D146C7)
 
 该选项为实验性功能，使用存在潜在风险，且必须配合 --experimental 选项使用。
 
@@ -135,7 +135,7 @@ cjc 会将 main.cj 与 liblog.a 一同编译成一个可执行文件 main 。
     
     cjc main.cj -o a.out
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/lY2lJfArRqW0znorC_0TiQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=61BE94F17E650D5CD4B47DCAD0D67A7A2E671B843036161EF8946F36E01E9281)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/lY2lJfArRqW0znorC_0TiQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=964B81560BA6E08166A26A6B5DC74D59E2E3B65BB3BD6AD7F9749A43DC10329F)
 
 编译平台为 Windows 时，使用 -o 选项指定的可执行文件名称不允许为 cjc.exe ；编译目标平台为非 Windows 时，不允许为 cjc ，否则可能导致运行错误。
 
@@ -202,7 +202,7 @@ cjc 会将 main.cj 与 liblog.a 一同编译成一个可执行文件 main 。
 
 生成带有调试信息的可执行文件或库文件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/Px8BUCTrQeu3E6r24HmQtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=AD92E1D9D028A422A3389324347CE7ED27A4729F07FC73214BBB22F83764E8C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/Px8BUCTrQeu3E6r24HmQtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=F29898CB61A8487AEEC7B04D1BD5E5D01C5EE68DA532F23A7F8A86190E4A7448)
 
 -g 只能配合 -O0 使用，如果使用更高的优化级别可能会导致调试功能出现异常。
 
@@ -220,7 +220,7 @@ cjc 会将 main.cj 与 liblog.a 一同编译成一个可执行文件 main 。
 
 生成支持统计代码覆盖率的可执行程序。编译器会为每一个编译单元生成一个后缀名为 gcno 的代码信息文件。在执行程序后，每一个编译单元都会生成一个后缀名为 gcda 的执行统计文件。根据这两个文件，配合使用 cjcov 工具可以生成本次执行下的代码覆盖率报表。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/ymHqF5J8QEGyRpVC3_aU4Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=CB87EC5C3BE88BB5C1DD9D66930BA8F3C8894C06FCB9FA6B6A4DC30241E788D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/ymHqF5J8QEGyRpVC3_aU4Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=10C417183D15556060D2A0290C7296DB3F86DF2A8705014BF69B52CE21949D7D)
 
 \--coverage 只能配合 -O0 使用，如果使用更高的优化级别，编译器将告警并强制使用 -O0。--coverage 用于编译生成可执行程序，如果用于生成静态库或者动态库，那么在最终使用该库时可能出现链接错误。
 
@@ -236,7 +236,7 @@ cjc 会将 main.cj 与 liblog.a 一同编译成一个可执行文件 main 。
 
 #### [h2]--diagnostic-format=[default|noColor|json] [frontend]
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/XVJFTnnPQsibDD9knIUXpw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=03665CCA1BCDFB5F71C0655614083F03C0DF672FAA29CBF3C5B29430CA021C8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/XVJFTnnPQsibDD9knIUXpw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=578399585A1C9951E1F9C14A01E35C35F692EF7CF805CE8F4B52AC0899D0C103)
 
 Windows 版本暂不支持输出带颜色渲染的错误信息。
 
@@ -274,7 +274,7 @@ cjc 会打印出编译器版本信息、工具链依赖的相关信息以及编�
 
 指定导入模块的 AST 文件的搜索路径。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/d3UNQ3wURpGT7h__NAQANw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=5842A05B5DE3EAB434FBACE34B173D1113BE5475EC19B9F4869D56FDB9C28409)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/d3UNQ3wURpGT7h__NAQANw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=9BAEEF8022CF9A62BE8DBDD7627BDB511EBF46D76012536BB6A649ACC4969243)
 
 假设已有以下目录结构，libs/myModule 目录中包含 myModule 模块的库文件和 log 包的 AST 导出文件：
     
@@ -303,7 +303,7 @@ cjc 会打印出编译器版本信息、工具链依赖的相关信息以及编�
 
 构建平台部分代码使用，指定导入公共部分代码构建生成的 cjo 文件的路径。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/iMQ-m252Qgy01aSrR7jPBg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=92237A83BB677B22B0A78B36E156B438A37F6AD8569FC0D83C5BB51BA7E02A2B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/iMQ-m252Qgy01aSrR7jPBg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=3A8C9BE9CA7B0935721E34FB0B477D2CFBF33FB3D74F1012481BB6644B7DFD59)
 
 该选项为实验性功能，使用该选项可能有风险。此选项必须配合 --experimental 选项一同使用。
 
@@ -311,7 +311,7 @@ cjc 会打印出编译器版本信息、工具链依赖的相关信息以及编�
 
 通过 --scan-dependency 指令可以获得指定包源码或者一个包的 cjo 文件对于其他包的直接依赖以及其他信息，以 json 格式输出。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/HDbMvuOqSqez0jIf5jyEBQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=5520EC15C0142950A0D05F2356A804B21DF2584B88E78B9EE5912C6AE995F403)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/HDbMvuOqSqez0jIf5jyEBQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=C2FBE3929A7FB8BB372D40BFFF5D0F4F797DDE9788662416A3F1DCEB43DED58C)
     
     
     // this file is placed under directory pkgA
@@ -422,7 +422,7 @@ cjc 会打印出编译器版本信息、工具链依赖的相关信息以及编�
 
 控制编译器生成的中间文件的保存目录，例如 .cjo 文件。当指定 --output-dir <path1> 时也指定了 --output <path2>，则中间文件会被保存至 <path1>，最终输出会被保存至 <path1>/<path2> 。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/W_Jdw0cfRL-0jliiuQLu1Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=329C84C4B29422907F8F9A0323F7779F5CE29C82F3F6D52546921428EB78D6DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/W_Jdw0cfRL-0jliiuQLu1Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=FD726AF027AE1AA8E2FA93F77DB0B973675CFFC1862DBB9747AA5EECF1AB2D3A)
 
 同时指定此选项与 --output 选项时，--output 选项的参数必须是一个相对路径。
 
@@ -526,7 +526,7 @@ LTO 优化使用场景：
          # .bc 文件和源文件一起输入给仓颉编译器编译可执行文件
          $ cjc test.cj libpkg.bc --lto=full
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/jH9KUEfsSSWqeybvwuymmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=ACEAA9538797E8DEE5EEEC5C58B10CE3E290DD53EDE2F7BB8D010471E2C9E698)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/jH9KUEfsSSWqeybvwuymmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=BBCECD2C179692BC3DA372C2830E60E62CD27EF88D667F01001A6D0C94C99EA9)
 
 LTO 模式下 --output-type=staticlib 默认输出 bitcode 文件。
 
@@ -575,7 +575,7 @@ native | 原生静态库 (.a) | 输出经过 LTO 优化的静态库，自动链�
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/VfU8tPXtQl6WLLUOISSN9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=0E6E883C7C860D1AFECCE89B9034E7C589547473FA7701BE462B378038E2D9DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/VfU8tPXtQl6WLLUOISSN9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=13904A9C2436A85D2DF6D7F1E3368AD9154CD3C91340459BF0F37F81FA700386)
 
   * 仅在开启 --lto 时有效，否则将报错。
   * 不能与 --compile-as-exe 同时使用，否则将报错。
@@ -653,7 +653,7 @@ PGO（全称 Profile-Guided Optimization）是一种常用的编译优化技术�
 
 编译 macOS 目标时暂不支持使用该功能。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/w2a6ZOCwTUa6hLMeUjqhww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=138EC03A8905168E9B98BCB061F36F34A6BAE95C34725FFA39B25E3ABC1A0969)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/w2a6ZOCwTUa6hLMeUjqhww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=5D8A294C36D30C44B001F3E15807C2BE63DAB9FEB1C89308839E349AA53B75ED)
 
 \--pgo-instr-use 编译选项仅支持格式为 profdata 的配置文件。可使用 llvm-profdata 工具将 profraw 配置文件转换为 profdata 配置文件。
     
@@ -697,7 +697,7 @@ aarch64-apple-darwin | x86_64-apple-ios-simulator | cangjie-sdk-mac-aarch64-ios.
 
 指定编译目标的 CPU 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/0-gYV0ArS06QgCzsQ-zAAg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=9086996D361511A7D63485817940AF6BA985AC2A4A05EBF61F2B1F20F5BD11C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/0-gYV0ArS06QgCzsQ-zAAg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=F2355DEDB120AA58D9738C42F1430BB46DC2B55847A35E9348C5D2554DECFB4B)
 
 该选项为实验性功能，使用该功能生成的二进制可能存在潜在的运行时问题，请注意使用该选项的风险。此选项必须配合 --experimental 选项一同使用。
 
@@ -953,7 +953,7 @@ cjc 会将该选项的多个参数透传给链接器，参数之间用空格分�
 
 关闭反射选项，即编译过程中不生成相关反射信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/6w14n8kkQx-pWQ9fcaVPGA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=11E34BF837CB6CADA4BC2D76336ED903D563E89CD071C118BC0026CB9A2AE644)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/6w14n8kkQx-pWQ9fcaVPGA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=6637E8D16A11B68200699C0B8BE448BB261C22757D7D3FCB63115D86122FD4BA)
 
 交叉编译至 aarch64-linux-ohos 目标时，默认关闭反射信息，该选项不生效。
 
@@ -987,7 +987,7 @@ cjc 会将该选项的多个参数透传给链接器，参数之间用空格分�
     # 运行
     ./main
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/J0EyNNXlTVyVlo0hfMu4EA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=923369183A25B9352ADF02545518273B39FA193551745316C97658729EB918F9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/J0EyNNXlTVyVlo0hfMu4EA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=80037B4F0C52F7D8CD4894876BEDA632DFFA122B7C56DDEEAE245495D6080C70)
 
 \--sanitize 选项不能与 --compile-macro 同时使用，否则会报错。
 
@@ -1029,7 +1029,7 @@ unittest 测试框架提供的入口，由宏自动生成。当使用 cjc --test
 
 来编译 a.cj ，执行 main 会有如下输出：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/D8iERY3FR6SGfWTv3jOopQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=39DD0331422C49282F5DEC8A3146BEEB1B421FBFDA8795F83760B7BE38D89842)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/D8iERY3FR6SGfWTv3jOopQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=A5F94B27CAE1677D7AD6C6ABDF6477675947C0D5ABFAA11A97720C0279235A34)
 
 不保证用例每次执行的用时都相同。
     
@@ -1125,7 +1125,7 @@ unittest 测试框架提供的入口，由宏自动生成。当使用 cjc --test
 
 如果启用此选项，编译器将仅编译包中的测试文件（以 _test.cj 结尾）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/x4xwxUZNRGm2Dcn5OH8Kqg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=DA57AABBADD2BCEA587890B94321B65A604C3F3592FCD131FBD4B6724C0391E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/x4xwxUZNRGm2Dcn5OH8Kqg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=013DDFC475AC1DC1FFCE2B6432A7AB3DCDCF880D61CFE2DA02C2DC3659A7A3DE)
 
 使用此选项时，应单独以常规模式编译相同的包，然后通过 -L/-l 链接选项添加依赖，或在使用 LTO 选项时添加依赖的 .bc 文件。否则，编译器将报缺少依赖的符号的错误。
 
@@ -1240,7 +1240,7 @@ unittest 测试框架提供的入口，由宏自动生成。当使用 cjc --test
 
 如果传递了 on ，则该包将使能 mock 编译，该选项允许在测试用例中 mock 该包中的类。off 是一种显式禁用 mock 的方法。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/70cLTYcHTFq4QluiA87lJA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=3A5F3192EBA8807D0CF9BDB6247A3859CD7A6BA244A2EA45202D23163C74D759)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/70cLTYcHTFq4QluiA87lJA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=F08170D156A14037AA0E863F1384AA618446BF90A7643E3ED398D551026F3165)
 
 在测试模式下（当使能 --test 时）自动启用对此包的 mock 支持，不需要显式传递 --mock 选项。
 
@@ -1310,7 +1310,7 @@ cjc 支持以下并行编译选项，以获得更高的编译效率。
 
 如果该编译选项未设置，编译器会基于硬件能力自动计算最大并行数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/hEJ9nCzvQuSJCQw_YHkctg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=E0B343793BC6BCD2E63C8D5F3CBC272139A5B13FC2C3EBE4238A1BF1900D225D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/hEJ9nCzvQuSJCQw_YHkctg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=422008FE46A2A23DB68D436251776EB2AF6563A47D82785732B59ECB13243822)
 
 \--jobs 1 表示完全使用串行方式进行编译。
 
@@ -1401,7 +1401,7 @@ cjc 默认使用 O0 级别的代码优化。当前 cjc 支持如下优化级别�
 
 当优化等级等于 z 时， cjc除了进行 Os 级别优化外，还将进一步缩减 code size 大小。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/B9N1mLldSvCkWBm5JGJflQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=8CAEC613B0396092828B31299B1ACE955C5058C943E0C5F02657BA705ED840B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/B9N1mLldSvCkWBm5JGJflQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=200AF5BA553B329F9EEF1ED4F4CA90E1BE5DDC4CB733CCB4F5E3E6EB32014144)
 
 当优化等级等于 s 或 z 时，不允许同时使用链接时优化编译选项 --lto=[full|thin]。
 
@@ -1441,7 +1441,7 @@ cjc 支持以下代码混淆选项：
 
 外形混淆功能会混淆代码中的符号（包括函数名和全局变量名）、路径名、代码行号和函数排布顺序。使用该编译选项后，cjc 会在当前目录生成符号映射输出文件 *.obf.map。如果配置了 --obf-sym-output-mapping 选项，则 --obf-sym-output-mapping 的参数值将作为 cjc 生成的符号映射输出文件名。符号映射输出文件中包含混淆前后符号的映射关系，使用符号映射输出文件可以解混淆被混淆过的符号。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/N6-CfsjVRT-akgvtWUnraA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=2A58C48F28BA3EEC292CD5C3D0D38ACC1B15A50645E5138E9101FCA557A6FA60)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/N6-CfsjVRT-akgvtWUnraA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=253FE080B982B0C9BF2384CA2CBB1033CEB424C69FE03924F3C1D1A7E4D19554)
 
 外形混淆功能和并行编译功能相互冲突，请勿同时开启。如果和并行编译同时开启，并行编译将失效。
 
@@ -1610,7 +1610,7 @@ field 之间用分隔符 '.' 分隔。如果 field 是函数名，则需要将�
 ... | 匹配任意数量的参数  
 *** | 匹配一个任意类型的参数  
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/jSXkYg9CQnWf8U2fLo-SYQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=56C920F91FB416733A4A14E3BFD154549391BCE69C7C1AD96DD75E1C521A2338)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/jSXkYg9CQnWf8U2fLo-SYQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=46F63DBA712AC008DF44AF18060A7A9FF1BDADD03FA267475C0E5C983ED8D521)
 
 参数类型也由字段名组成，因此也可以使用字段名通配符对单个参数类型进行匹配。
 
@@ -1702,7 +1702,7 @@ cjc 默认生成地址无关代码，在编译可执行文件时默认生成地�
 
 #### 代码覆盖率插桩选项
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/RfRnhwaeREOGhlK7VxB9PA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=92CFD1E9E2D2BE4EC2220BE70005039DB65DD8A60191A6A681573F59A05A73BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/RfRnhwaeREOGhlK7VxB9PA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=A392E71DD27BCF76E6735EEBBADCB65A10852D98AECB7DE9CAD7484DD106A4C1)
 
 Windows 和 macOS 版本目前不支持代码覆盖率插桩选项。
 
@@ -1855,7 +1855,7 @@ __cj_sancov_bool_flag_ctor 回调函数需要开发者自行实现，开启 SanC
 
 启用实验性功能，允许在命令行使用其他实验性功能选项。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/6j4s5fTzT6SlUQpadLYjTA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=030D9238AAA6F3B39CF5993A3DB42032233E8CA089039EE589A3B765831B6990)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/6j4s5fTzT6SlUQpadLYjTA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=BDA55B4170EBFD0585A93C981D71CEFD4F1F4C5D5EAD3143BD7B7B0ECB7D0031)
 
 使用实验性功能生成的二进制文件可能存在潜在的运行时问题，请注意使用该选项的风险。
 
@@ -1887,7 +1887,7 @@ __cj_sancov_bool_flag_ctor 回调函数需要开发者自行实现，开启 SanC
 
 通过 --incremental-compile[frontend]开启增量编译。开启后，cjc会在编译时根据前次编译的缓存文件加快此次编译的速度。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/MZ8riyNgSzWyHnZeH581Vg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=BBB0B7D5CE2E02B74721343CAB101AE386F9D2F47C00392A9D09849CD9A93714)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/MZ8riyNgSzWyHnZeH581Vg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=8112DF6F1B62AD5A8A306DE2B4E0E13648834F2D0A57E2A9D11D0ABB22D31973)
 
 该选项为实验性功能，使用该功能生成的二进制有可能会存在潜在的运行时问题，请注意使用该选项的风险。此选项必须配合 --experimental 选项一同使用。
 
@@ -1901,7 +1901,7 @@ __cj_sancov_bool_flag_ctor 回调函数需要开发者自行实现，开启 SanC
 
 关闭标准库 core 包自动导入功能。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/9FY4TIcUTqC7orXWySPFFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=E67AB34C5BE9D6D84EF4E67A76884C6DD9034D805CAEC6AF6BA260B273B47B44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/9FY4TIcUTqC7orXWySPFFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=BDC1F3894F6BE6A8B1D88FEA2F30D17B2FBD374422A7FA7CBDD3C47AE336FA4A)
 
 该选项仅能用于编译仓颉标准库 core 包，不能用于编译其他仓颉代码的场景。
 
@@ -1925,7 +1925,7 @@ __cj_sancov_bool_flag_ctor 回调函数需要开发者自行实现，开启 SanC
 
 可通过 --dump-to-screen[frontend] 配合前端相关的转储选项（如 --dump-ast[frontend]， --dump-chir[frontend], --dump-ir[frontend]和 --dump-all[frontend]）将相应的中间表示文本内容打印到屏幕上。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/_4BANz2dTpmQvGchzbdysQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090115Z&HW-CC-Expire=86400&HW-CC-Sign=BA4E69D9B09CD377B283F962E0A6636C28FB77BC84D8E9668D33E2EBCE16DE06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/_4BANz2dTpmQvGchzbdysQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T084910Z&HW-CC-Expire=86400&HW-CC-Sign=D45745A97AE00EF3EBABBAFB4568BC282AEA1B59131F94F8505D33575286287A)
 
 输出到屏幕时仅显示最终结果；输出到文件时会在产物目录下创建以 _AST, _CHIR, _IR 为后缀的目录，用以保存中间过程的详细信息。
 

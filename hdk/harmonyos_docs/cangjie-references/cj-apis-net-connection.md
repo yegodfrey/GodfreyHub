@@ -1240,7 +1240,7 @@ networkCap | Array<NetCap> | 否 | Array<NetCap>() | **命名参数。** 网络�
 
 **功能：** 网络连接的句柄。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/2AllvhLaQgeiDFn1iwpfIQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090220Z&HW-CC-Expire=86400&HW-CC-Sign=4EE9FEC8053F757EC1378C1B344C9E46C77B76DA4F0DBC924D419C480C7A4670)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/2AllvhLaQgeiDFn1iwpfIQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083516Z&HW-CC-Expire=86400&HW-CC-Sign=7291BDFD17CE866AEC1EF477365FCAA03CE40D6B9B9788842F60E7FDD6D5AB4B)
 
 （1）设备从无网络状态转变为有网络状态时，将触发netAvailable事件、netCapabilitiesChange事件和netConnectionPropertiesChange事件；
 
@@ -1571,7 +1571,7 @@ callback | [Callback0Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **异常：**
 
-  * [BusinessException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-api-business_exception#class-businessexception)：对应错误码如下表，详见[网络连接管理错误码](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-net-connection)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-universal)。
+  * [BusinessException](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-api-business_exception#class-businessexception)：对应错误码��下表，详见[网络连接管理错误码](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-net-connection)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-errorcode-universal)。
 
 错误码ID | 错误信息  
 ---|---  

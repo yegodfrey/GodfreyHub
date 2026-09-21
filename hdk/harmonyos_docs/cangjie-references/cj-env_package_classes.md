@@ -18,7 +18,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.env / �
 
 读操作是同步的，内部设有缓存区来保存控制台输入的内容，当到达控制台输入流的结尾时，控制台读取函数将返回None。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/hTZ9EV51RYWxN8lcrJfXkA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090203Z&HW-CC-Expire=86400&HW-CC-Sign=70A731B65F8866843D6B1FC6E88189390DFE13D8370249DDA8D53FF1A653EB0F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/hTZ9EV51RYWxN8lcrJfXkA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083357Z&HW-CC-Expire=86400&HW-CC-Sign=5CC628A1170D0318A7EB5EB2976F4F81B14F1DFB972D3551A7CE0763B7C9F302)
 
 [ConsoleReader](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-env_package_classes#class-consolereader) 只有一个实例，所有方法共享同一个缓存区，相关read方法返回None的情形有：
 
@@ -80,7 +80,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.env / �
 
 功能：从标准输入中读取并放入 arr 中。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/eNd088tRRau3T5vaM1eeAw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090203Z&HW-CC-Expire=86400&HW-CC-Sign=04E1E523319870ED1573C6FCD4051C5057286DC7820CC5A122AA512B8BAF5733)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/eNd088tRRau3T5vaM1eeAw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083357Z&HW-CC-Expire=86400&HW-CC-Sign=09AB15A88A14DB79AED26CE0611DEE5F8DF5663DC0CBBC9EA70BDC821F94E269)
 
 该函数存在风险，可能读取出来的结果恰好把 UTF-8 code point 从中截断，如果发生截断，将导致该 [Array](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-arrayt)<[Byte](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_types#type-byte)> 转换成字符串的结果不正确或抛出异常。
 
@@ -175,7 +175,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.env / �
 
 读取成功返回 ?[String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string)，无输入或到达 EOF 时返回 None。该接口不会抛出异常，即使输入不符合 UTF-8 编码的字符串，也会构造出一个 [String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string) 并返回，其行为等同于 [String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string).[fromUtf8Uncheck](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#static-func-fromutf8uncheckedarrayuint8)([Array](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-arrayt)<[Byte](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_types#type-byte)>)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/Xdc15VeZQlG4u15CrRzW-g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090203Z&HW-CC-Expire=86400&HW-CC-Sign=76190A589D3E965E1F99EE9724E8DD6952E6E63D7E5AFC4425E4D8E3788C23FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/Xdc15VeZQlG4u15CrRzW-g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083357Z&HW-CC-Expire=86400&HW-CC-Sign=06B366696DAFEF0256B5263B4EB2D9A9EF78518D278B6C1A4F062589398B16BE)
 
 由于该函数使用终端规范模式（行缓冲），输入内容后需按回车或 Ctrl+D 才能被读取。若需按键即时响应（如游戏、TUI 应用），当前暂不支持。
 
@@ -522,7 +522,7 @@ ch包含在结果中，如果读取到文件结束符 EOF，将返回读取到�
 
 功能：将指定的 16 位有符号整数值的文本表示写入标准输出或标准错误流中。
 
-参数：
+参数��
 
   * v: [Int16](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int16) \- 要写入的值。
 

@@ -18,7 +18,7 @@ nodePath: 应用框架 / ArkUI（方舟UI框架） / 仓颉组件 / 滚动与滑
 
 可以包含子组件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/nFry_q9iS2C5uEg7XMxBMA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090147Z&HW-CC-Expire=86400&HW-CC-Sign=1ECACAD244D3B61874F29CC36B497A080478F44A753174BD73762D966DCD0B87)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/nFry_q9iS2C5uEg7XMxBMA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085221Z&HW-CC-Expire=86400&HW-CC-Sign=58C6F5A52E7C85C7E2DB547A9F44E54C320AFBFAAB50C9A79DD97773D01EA67E)
 
   * 子组件类型：系统组件和自定义组件，支持渲染控制类型（[if/else](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-rendering-control-ifelse)、[ForEach](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-rendering-control-foreach)和[LazyForEach](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-rendering-control-lazyforeach)）。不建议子组件中混用懒加载组件（包括LazyForEach）和非懒加载组件，或者子组件中使用多个懒加载组件，否则可能导致懒加载组件预加载能力失效等问题。不建议在组件动画过程中对数据源进行操作，否则会导致布局出现异常。
   * Swiper子组件的[visibility](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-visibility#func-visibilityvisibility)属性设置为Visibility.None或者Visibility.Hidden时，对应子组件不显示，但依然会在视窗内占位。
@@ -50,7 +50,7 @@ child | () -> Unit | 是 | - | **命名参数。** Swiper容器的子组件。
 
 通用属性：全部支持。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/w5odlgZ2SG-c7rDdQmlBdQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090147Z&HW-CC-Expire=86400&HW-CC-Sign=E076596CB2F03DFA39CA04C0AA06097E3DE9F90933622D5C33A58390FDFDB0F2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/w5odlgZ2SG-c7rDdQmlBdQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085221Z&HW-CC-Expire=86400&HW-CC-Sign=C5B5878C2B3E309C9E9BBFA847A6D9E79E3A99E318D578FADEA16AC30557AFA5)
 
 Swiper组件[通用属性clip](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-universal-attribute-shapclip#func-clipbool)的初始值为true。
 
@@ -148,7 +148,7 @@ value | ?Bool | 是 | - |  是否禁用组件滑动切换功能。设置为true�
 value | ?Int32 | 是 | - |  视窗内显示的子元素个数。设置小于等于0的值时，按照初始值处理。 初始值：1。 取值范围：(0, +∞)，设置小于等于0的值时，按照初始值处理。  
 swipeByGroup | ?Bool | 否 | None |  **命名参数。** 是否按组进行翻页。如果设为true，在翻页时会按组进行翻页，每组内子元素的数量为displayCount value的值；如果为false，则为默认翻页行为，即按照子元素进行翻页。 初始值：false。  
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/8mh6cWy0TrWhphwjbFVrhA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090147Z&HW-CC-Expire=86400&HW-CC-Sign=DE1BB3CF068BB9C5DE593B78D8676D018F595134B8A1941F363604820C1E223A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/8mh6cWy0TrWhphwjbFVrhA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085221Z&HW-CC-Expire=86400&HW-CC-Sign=DDE5957FA3BCD0FE2DFEE42DF995432F488F353AC930464211E0A93619B1A906)
 
 当Swiper子组件个数小于等于Swiper组件内容区内显示的节点总个数(totalDisplayCount = DisplayCount + prevMargin? (1 : 0) + nextMargin? (1 : 0))时，一般按照非循环模式布局处理，此时，前后边距对应子组件不显示，但依然会在视窗内占位。Swiper组件按照totalDisplayCount个数判断测算规格。例外情况如下：
 
@@ -382,7 +382,7 @@ event | ?(Int32) -> Unit | 是 | - |  回调函数，当前显示的子组件索
 
 **功能：** 构造数字指示器的样式。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/mVz-r3mcQ62QzCRlbMOgUA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090147Z&HW-CC-Expire=86400&HW-CC-Sign=A857021A5A7C435C138BFFF60BFC5E6CB5A7644E9DB948E50608A9B2C9A326D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/mVz-r3mcQ62QzCRlbMOgUA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085221Z&HW-CC-Expire=86400&HW-CC-Sign=08559EDA3CE2499082D34EDFA91529BBB1BD73895F0CC5B8D2CBC06D42A5976F)
 
 按组翻页时，数字导航点显示的子节点数量，不包括占位节点。
 
@@ -484,13 +484,13 @@ value | ?[ResourceColor](https://developer.huawei.com/consumer/cn/doc/cangjie-re
 
 **功能：** DotIndicator的构造函数。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/F0gheYwoS0-W6PWC9LUmxA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090147Z&HW-CC-Expire=86400&HW-CC-Sign=96FF381160174B249C2A135E1EA74350CDB233A7D0FAFF24F5A52F43F19C040E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/F0gheYwoS0-W6PWC9LUmxA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085221Z&HW-CC-Expire=86400&HW-CC-Sign=20EF1CD60096A54C25CF194CF5958496ADBAE4725CF94AFB83CF28B5AF9F0195)
 
 按压导航点时，导航点会放大至1.33倍显示，因此非按压态时导航点的可见范围边界至实际范围边界存在一定距离，该距离会随着itemWidth、itemHeight、selectedItemWidth、selectedItemHeight等参数变大而变大。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-**起始版本：** 22
+**���始版本：** 22
 
 **父类型：**
 
@@ -968,7 +968,7 @@ callback | ?[VoidCallback](https://developer.huawei.com/consumer/cn/doc/cangjie-
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/iaVTRSyDQzyfoaemIop9SA/zh-cn_image_0000002743197823.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090147Z&HW-CC-Expire=86400&HW-CC-Sign=C8EFF84820F60CB74BFAD58849E0877408D0F3C918EEFA9461EF6896AE55E996)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/iaVTRSyDQzyfoaemIop9SA/zh-cn_image_0000002743197823.gif?HW-CC-KV=V1&HW-CC-Date=20260921T085221Z&HW-CC-Expire=86400&HW-CC-Sign=950746909AD6A5D0CF12F897DD5D406496E6FAD8470A58E4177095EEDEC160BB)
 
 #### [h2]示例代码2（设置数字指示器）
 
@@ -1069,7 +1069,7 @@ callback | ?[VoidCallback](https://developer.huawei.com/consumer/cn/doc/cangjie-
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/AopUhSmrTIay9kf-9H8E3Q/zh-cn_image_0000002713398942.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090147Z&HW-CC-Expire=86400&HW-CC-Sign=66C4E01AA344B2E692CF66A6382F37A6B19D9CA94021CFA22B07D2F3FD401976)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/AopUhSmrTIay9kf-9H8E3Q/zh-cn_image_0000002713398942.gif?HW-CC-KV=V1&HW-CC-Date=20260921T085221Z&HW-CC-Expire=86400&HW-CC-Sign=17A4CCD84CD83ED785468EC8F19F12AFC945867F6C66021571C94EEA2485E0AD)
 
 #### [h2]示例代码3（设置按组翻页）
 
@@ -1168,7 +1168,7 @@ callback | ?[VoidCallback](https://developer.huawei.com/consumer/cn/doc/cangjie-
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/5Ib2D8hISfyTsC2d2YgVog/zh-cn_image_0000002743077873.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090147Z&HW-CC-Expire=86400&HW-CC-Sign=886A0669E6E070BE975F172286DA54BD87FE7083A33BB75FAAE639FB5DC06CB8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/5Ib2D8hISfyTsC2d2YgVog/zh-cn_image_0000002743077873.gif?HW-CC-KV=V1&HW-CC-Date=20260921T085221Z&HW-CC-Expire=86400&HW-CC-Sign=8C623B530875DC0F6805BA3A8135D9BF8DCFB965069465401AE5746EBFA37FF1)
 
 #### [h2]示例代码4（设置圆点导航点超长显示）
 
@@ -1271,4 +1271,4 @@ callback | ?[VoidCallback](https://developer.huawei.com/consumer/cn/doc/cangjie-
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/yXdY8-5jTjGSLNXqpDjKKQ/zh-cn_image_0000002713558912.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090147Z&HW-CC-Expire=86400&HW-CC-Sign=B2970720148E8B3D7C730FF3F326B2B375F798B98CC8009A6D929C35741C7B21)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/yXdY8-5jTjGSLNXqpDjKKQ/zh-cn_image_0000002713558912.gif?HW-CC-KV=V1&HW-CC-Date=20260921T085221Z&HW-CC-Expire=86400&HW-CC-Sign=052DEDA4645A4816CF8434B5F8E56014F6A078DD8A7E7B052CE0183B7E698DF0)

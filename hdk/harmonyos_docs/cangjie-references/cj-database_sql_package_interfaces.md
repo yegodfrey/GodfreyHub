@@ -37,7 +37,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：获取列值大小。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/HgqySFroRlubiiAVpbMOcg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=9562DC2DCADFD7952EC23B3C7B364BFA357BF3576A76EF279D75B506B2FB6AD8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/HgqySFroRlubiiAVpbMOcg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=9013812A60D5D19C2737748780E08607A9EE53ED3063A460E07E50F90C9A31F9)
 
   * 对于数值数据，表示最大精度。
   * 对于字符数据，表示以字符为单位的长度。
@@ -372,9 +372,9 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
     
     func next(values: Array<SqlDbType>): Bool
 
-功能：向后移动一行，必须先调用一次 next 才能移动到第一行，第二次调用移动到第二行，依此类推。当返回 true 时，驱动会在 values 中填入行数据；当返回 false 时结束，且不会修改 values 的内容。
+��能：向后移动一行，必须���调用一次 next 才能移动到第一行，第二次调用移动到第二行，依此类推。当返回 true 时，驱动会在 values 中填入行数据；当返回 false 时结束，且不会修改 values 的内容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/dld75zGyRby3xjoPaFKYPg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=A389ED15B5742BBEB44C55EC865DD45DAE8ED050E01237C37B67B848269C136B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/dld75zGyRby3xjoPaFKYPg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=F648096B8BE709C96490DCD73E555AF541E74FB310272E2F7D9042FB0F99E5D3)
 
 未来版本即将废弃，可使用 [next()](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-database_sql_package_interfaces#func-next) 替代。
 
@@ -399,13 +399,13 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：所有 sql 数据类型的父类。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/ukeoTKvJR-m_KPaI30ethQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=AB7B19D37FC1BAB7C74F5213C0CE899C563CD822F8932C44AB1959BFD65BA1DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/ukeoTKvJR-m_KPaI30ethQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=74E64A57C91D70635672765F241B8A61907BB5B85C2A4CF1BC8B5B7E893C871A)
 
 未来版本即将废弃。
 
 要扩展用户定义的类型，请继承 [SqlDbType (deprecated)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-database_sql_package_interfaces#interface-sqldbtype-deprecated) 或 [SqlNullableDbType (deprecated)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-database_sql_package_interfaces#interface-sqlnullabledbtype-deprecated)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/7fefz4IxQPOZa24pwPaKmQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=C96D2EDDF801FAA685FF9F4992EF3F6E334CD2FA3538D03597A3C298527B48D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/7fefz4IxQPOZa24pwPaKmQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=EE9D018BE57AB876258FD339A14A094B33D480C79FEBD62D5801D418A1B6DAAF)
 
 [SqlDbType (deprecated)](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-database_sql_package_interfaces#interface-sqldbtype-deprecated) 接口所有实现类型都必须具有公共 value 属性。每种 sql 数据类型实现类，同时满足以下条件：
 
@@ -431,7 +431,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：允许 null 值的 sql 数据类型父类。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/rj_H2pgATziXjRsj5zXmtQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=A8C0A2BD41FC8B88166CC0E843610BB2E60D76B5FB7ADAEC451F563BB1FBCB1B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/rj_H2pgATziXjRsj5zXmtQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=8F654587594DA774C59F67E2D2415D9906CF4594DAA157CD2B67B744B5B3973B)
 
 未来版本即将废弃。
 
@@ -502,7 +502,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：执行 sql 语句，得到查询结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/aDTEcSzuSDmpzRL6rxaZ1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=9335DC99158DDEC45F81CB3499E246582F4BDE12CCC1257AA535638DD9ED326E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/aDTEcSzuSDmpzRL6rxaZ1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=021B97A5C2676686FCD096D17AB881846CE7F556585A574E1D9768C0AD65FF7D)
 
 未来版本即将废弃，可使用 query() 替代。
 
@@ -591,7 +591,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：执行 sql 语句，得到更新结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/on8zEjSiQV6eGN1WmZaVOw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=C92C24B1011F64475FC191517CE7FCE96B3EC5ADF6906A1B885698E392F0451A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/on8zEjSiQV6eGN1WmZaVOw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=5C3433C63955D988F0F627EC5C84CDD0C764BEB1ADE89BE36AC331EF474EA018)
 
 未来版本即将废弃，可使用 update() 替代。
 

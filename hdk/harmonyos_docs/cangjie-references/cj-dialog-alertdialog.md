@@ -712,7 +712,7 @@ showInSubWindow | ?Bool | 否 | None | **命名参数。** 某弹框需要显示
 isModal | ?Bool | 否 | None | **命名参数。** 弹窗是否为模态窗口。模态窗口有蒙层，非模态窗口无蒙层。初始值：true，此时弹窗有蒙层。  
 backgroundColor | ?[ResourceColor](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#interface-resourcecolor) | 否 | None | **命名参数。** 弹窗背板颜色。**说明：** 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则颜色显示将不符合预期效果。初始值: Color.Transparent  
 backgroundBlurStyle | ?[BlurStyle](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#enum-blurstyle) | 否 | None | **命名参数。** 弹窗背板模糊材质。**说明：** 设置为BlurStyle.None即可关闭背景虚化。当设置了backgroundBlurStyle为非None值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。初始值: BlurStyle.ComponentUltraThick  
-onWillDismiss | ?[Callback](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#type-callbackt-v)<[DismissDialogAction](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-dialog-actionsheet#class-dismissdialogaction), Unit> | 否 | None | **命名参数。** 交互式关闭回调函数。**说明：** 1.当用户执行点击遮障层关闭、左滑/右滑、三键back、键盘ESC关闭交互操作时，如果注册该回调函数，则不会立刻关闭弹窗。在回调函数中可以通过reason得到阻拦关闭弹窗的操作类型，从而根据原因选择是否能关闭弹窗。当前组件返回的reason中，暂不支持CLOSE_BUTTON的枚举值。2.在onWillDismiss回调中，不能再做onWillDismiss拦截。  
+onWillDismiss | ?[Callback](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#type-callbackt-v)<[DismissDialogAction](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-dialog-actionsheet#class-dismissdialogaction), Unit> | 否 | None | **命名参数。** 交互式关闭回调函数。**说明：** 1.当用户执行点击遮障层关闭、左滑/右滑、三键back、键盘ESC��闭交互操作时，如果注册���回调函数，则不会立刻关闭弹窗。在回调函数中可以通过reason得到阻拦关闭弹窗的操作类型，从而根据原因选择是否能关闭弹窗。当前组件返回的reason中，暂不支持CLOSE_BUTTON的枚举值。2.在onWillDismiss回调中，不能再做onWillDismiss拦截。  
 transition | ?[TransitionEffect](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-animation-transition#class-transitioneffect) | 否 | None | **命名参数。** 设置弹窗显示和退出的过渡效果。**说明：** 1.如果不设置，则使用默认的显示/退出动效。 2.显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。 3.退出动效中按back键，不会打断退出动效，退出动效继续执行，继续按back键退出应用。  
 cornerRadius | ?[BorderRadiuses](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#class-borderradiuses) | 否 | None | **命名参数。** 设置背板的圆角半径。可分别设置4个圆角的半径。圆角大小受组件尺寸限制，最大值为组件宽或高的一半，若值为负，则按照默认值处理。 百分比参数方式：以父元素弹窗宽和高的百分比来设置弹窗的圆角。**说明：** 当cornerRadius属性类型为LocalizedBorderRadiuses时，支持随语言习惯改变布局顺序。初始值: BorderRadiuses(topLeft: 32.vp, topRight: 32.vp, bottomLeft: 32.vp, bottomRight: 32.vp)  
 width | ?[Length](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-common-types#interface-length) | 否 | None | **命名参数。** 设置弹窗背板的宽度。**说明：** \- 弹窗宽度默认最大值：None。 - 百分比参数方式：弹窗参考宽度为所在窗口的宽度，在此基础上调小或调大。  
@@ -1395,7 +1395,7 @@ Bool | 如果两个枚举值相等则返回true，否则返回false。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/QrPeL2VZTiqrl30-2hlooA/zh-cn_image_0000002743077917.png?HW-CC-KV=V1&HW-CC-Date=20260908T090152Z&HW-CC-Expire=86400&HW-CC-Sign=88DABAF8A1BA966CE2CDFD8B78221276BC2FF0F336D6FA472616B375A8503569)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/QrPeL2VZTiqrl30-2hlooA/zh-cn_image_0000002743077917.png?HW-CC-KV=V1&HW-CC-Date=20260921T085235Z&HW-CC-Expire=86400&HW-CC-Sign=2D63FB844496215ECEF8DF6BC6F04986DD6B69D005402DE45974D1EDA8ECCE6E)
 
 #### [h2]示例2（可在主窗外弹出的弹窗）
     
@@ -1447,4 +1447,4 @@ Bool | 如果两个枚举值相等则返回true，否则返回false。
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/vpvz6FyWRMWy1wYfjbBjaw/zh-cn_image_0000002713558956.png?HW-CC-KV=V1&HW-CC-Date=20260908T090152Z&HW-CC-Expire=86400&HW-CC-Sign=92513B2848B303A4946AFCB20DDC40D8618DD2FA43CB7CE3D9C562AE38B56B88)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/vpvz6FyWRMWy1wYfjbBjaw/zh-cn_image_0000002713558956.png?HW-CC-KV=V1&HW-CC-Date=20260921T085235Z&HW-CC-Expire=86400&HW-CC-Sign=F44E3DA32A9BEBDC94B2A763B738255330071ECCDA4CB269BC77D408B78140C6)

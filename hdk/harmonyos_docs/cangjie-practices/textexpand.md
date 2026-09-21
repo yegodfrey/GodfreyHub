@@ -22,13 +22,13 @@ nodePath: 实践 / 文本展开与折叠
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/QXvQ7HdSRdaGcFh0sEtfxw/zh-cn_image_0000002669681007.png?HW-CC-KV=V1&HW-CC-Date=20260908T090226Z&HW-CC-Expire=86400&HW-CC-Sign=6409A30B356D5D88DE99A7C5992E39EF1941A1B964AF9C55DD1F035CF03FFFE6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/QXvQ7HdSRdaGcFh0sEtfxw/zh-cn_image_0000002669681007.png?HW-CC-KV=V1&HW-CC-Date=20260921T085428Z&HW-CC-Expire=86400&HW-CC-Sign=9C221E754422158E657A50F28645ED3B891214E6475C91734E2C8716F2564DE5)
 
 #### 实现原理
 
 需要计算出“...”前最后一个文字的索引和显示行高，以确定“收起”、“展开”按钮的位置，其原理如图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/mNB2XuYBSIi3Yikz1Ykmwg/zh-cn_image_0000002669560895.png?HW-CC-KV=V1&HW-CC-Date=20260908T090226Z&HW-CC-Expire=86400&HW-CC-Sign=CEF96387A6D4E1E6D812387D992F316C64B7BD5FD1923EE38A28F04C3DEC84C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/mNB2XuYBSIi3Yikz1Ykmwg/zh-cn_image_0000002669560895.png?HW-CC-KV=V1&HW-CC-Date=20260921T085428Z&HW-CC-Expire=86400&HW-CC-Sign=CF69564064CCE9AA10558F581DAD63C4DBC813F2FF9D3F3D721618E6B085EBCF)
 
 计算文本高度，结合按钮和“...”的宽度，计算收起文本最后一个文字的坐标，换算为对应内容索引，截断显示相应的内容。
 
@@ -157,4 +157,4 @@ nodePath: 实践 / 文本展开与折叠
 
 #### 示例代码
 
-[文本展开与折叠示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183056.22398658171552924597452870735306:20260909170226:2800:D7A4952C9EA4F83DF6F3E224E37EC39E7183B30162A46159E22CD315B03D2894.zip?needInitFileName=true)
+[文本展开与折叠示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183056.22398658171552924597452870735306:20260922165428:2800:F6E603EC19DD5A957424BD1931E2348E5F1888A3D22A45962036287F790713F8.zip?needInitFileName=true)

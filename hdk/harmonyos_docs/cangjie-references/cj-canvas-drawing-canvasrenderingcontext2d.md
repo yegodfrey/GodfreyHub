@@ -9,7 +9,7 @@ nodePath: 应用框架 / ArkUI（方舟UI框架） / 仓颉组件 / 画布绘制
 
 使用RenderingContext在Canvas组件上进行绘制，绘制对象可以是矩形、文本、图片等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/tIwuM-XESbCgSUoRe-VMxw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090151Z&HW-CC-Expire=86400&HW-CC-Sign=015C785B928A445BB92D1ED8C0E9F0A5EF3B5A8B07BCC05CB229CD479AC00416)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/tIwuM-XESbCgSUoRe-VMxw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083322Z&HW-CC-Expire=86400&HW-CC-Sign=50C63BE6E19B00C6B8B9E2A3F57CEAB90F4F2C5DAD9F415BC9D35B5A2B0E47D8)
 
   * 本文绘制接口在调用时会存入被关联的Canvas组件的指令队列中。仅在当前帧进入渲染阶段且关联的Canvas组件处于可见状态时，这些指令才会从队列中被提取并执行。因此，在Canvas组件不可见的情况下，应尽量避免频繁调用绘制接口，以防止指令在队列中堆积，从而避免内存占用过大的问题。
   * Canvas组件的宽或高超过8000px时使用CPU渲染，会导致性能明显下降。
@@ -546,7 +546,7 @@ h | Float64 | 是 | - |  指定矩形的高度。 默认单位：vp。
 参数名 | 类型 | 必填 | 默认值 | 说明  
 ---|---|---|---|---  
 x | Float64 | 是 | - |  指定矩形左上角点的x坐标。 默认单位：vp。  
-y | Float64 | 是 | - |  指定矩形左上角点的y坐标。 默认单位：vp。  
+y | Float64 | 是 | - |  指定矩形左上角点的y坐标。 默认单位���vp。  
 w | Float64 | 是 | - |  指定矩形的宽度。 默认单位：vp。  
 h | Float64 | 是 | - |  指定矩形的高度。 默认单位：vp。  
   
@@ -1632,4 +1632,4 @@ dirtyHeight | ?[Length](https://developer.huawei.com/consumer/cn/doc/cangjie-ref
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/d7FIHD0_STCGrdXCSCuDdA/zh-cn_image_0000002713558946.png?HW-CC-KV=V1&HW-CC-Date=20260908T090151Z&HW-CC-Expire=86400&HW-CC-Sign=2B19E8759063D0C3A285935CDD1024E387D9AF97E8A8DC9C7334C86B1F9AC487)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/d7FIHD0_STCGrdXCSCuDdA/zh-cn_image_0000002713558946.png?HW-CC-KV=V1&HW-CC-Date=20260921T083322Z&HW-CC-Expire=86400&HW-CC-Sign=0EE9666573E49CEE6BB07512FBFCA3B977D88348290238D74D4C03F23F6A76D7)

@@ -151,7 +151,7 @@ T 表示数组的元素类型，T 可以是任意类型。
 
 功能：构造一个指定长度的数组，其中元素都用指定初始值进行初始化。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/Ecy0lbhEQUmHpVTWmvNQcg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=00C3CD8405F89276033DD150AD01528B72D6BF8E2E8861F7058CF94E42562231)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/Ecy0lbhEQUmHpVTWmvNQcg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=B0B26CE26167FF669668B016C1437777A7F533585995B384E2EE2AE9350C08C8)
 
 该构造函数不会拷贝 repeat， 如果 repeat 是一个引用类型，构造后数组的每一个元素都将指向相同的引用。
 
@@ -238,7 +238,7 @@ T 表示数组的元素类型，T 可以是任意类型。
 
 功能：克隆数组的指定区间。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/wCsfupj8RTaoU-HE3h7_Jw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=833B0029865E126426DF81E232CF2A03B8F84834DF09D7850D1C9987D35DCF9D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/wCsfupj8RTaoU-HE3h7_Jw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=E3248767A42D39C8CC9AAC266D50B21BF6D8D394D5C94EE8D3C1748E33EDE0F5)
 
   1. 如果参数 range 是使用 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 构造函数构造的 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 实例，有如下行为：
      * start 的值就是构造函数传入的值本身，不受构造时传入的 hasStart 的值的影响。
@@ -622,7 +622,7 @@ T 表示数组的元素类型，T 可以是任意类型。
 
 功能：获取数组切片。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/tD4PhrsHTOeai4NB0FAkZw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=53B3220A5B26336BF16DE79B965040C25BE6A605FCE7B708FA4B3ED3E3AC0CD3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/tD4PhrsHTOeai4NB0FAkZw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=E942D6954A4EB237B2A72CD865822055D9B756C2C48DF6A541EB993006EAB644)
 
 切片不会对数组数据进行拷贝，是对原数据特定区间的引用。
 
@@ -884,7 +884,7 @@ T 表示数组的元素类型，T 可以是任意类型。
 
 功能：根据给定区间获取数组切片。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/EtZPljTiT2iABFttfTG3Qw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=EDF6A65A586FB3EBD2B8D546B2574110A664F277B79A1BD2C9A8DD26C00A6306)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/EtZPljTiT2iABFttfTG3Qw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=2361D6975B96B8BE6A864D6200F98F688B2917ED4A211BF4E28E670145265EC8)
 
   1. 如果参数 range 是使用 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 构造函数构造的 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 实例，有如下行为：
      * start 的值就是构造函数传入的值本身，不受构造时传入的 hasStart 的值的影响。
@@ -936,7 +936,7 @@ T 表示数组的元素类型，T 可以是任意类型。
 
 range 表示的区见的长度和目标数组 value 的大小需相等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/_3WNAu_SQbuSvyU8-qSuRg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=F6B86E0FFB004581D580A3E116F56F5C6309609A2490CEAE02A505884AC104F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/_3WNAu_SQbuSvyU8-qSuRg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=C9DDB738239A457D4223165DE3E01BA08EEA8B27D9C63436CBC5B8C968E03042)
 
   1. 如果参数 range 是使用 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 构造函数构造的 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 实例，有如下行为：
      * start 的值就是构造函数传入的值本身，不受构造时传入的 hasStart 的值的影响。
@@ -1286,7 +1286,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
 
 功能：返回数组中子数组 elements 出现的第一个位置，如果数组中不包含此数组，返回 None。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/ZrIvk25oQzKscEyQ3rmDsQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=10D4641C7D5BCCDB04F17BD4B700BFF1449825FB4E2AF5B997D772EFCDD32BCD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/ZrIvk25oQzKscEyQ3rmDsQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=0DD3C29BB240EB18241E5BAFA98833224A69501A97FB6ED090E58DE28B1BB6C1)
 
 当 T 的类型是 [Int64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int64) 时，此函数的变长参数语法糖版本可能会和 public func indexOf(element: T, fromIndex: Int64): Option<Int64> 产生歧义，根据优先级，当参数数量是 2 个时，会优先调用 public func indexOf(element: T, fromIndex: Int64): Option<Int64>。
 
@@ -1733,7 +1733,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
 
 功能：删除后缀。
 
-如果当前数组结尾与 suffix 完全匹配，删除其后缀。返回值为当前数组删除后缀后得到的切片。
+如果当前数组结尾与 suffix 完全匹配，删除其后缀。返��值为当前数组删除后缀后得到���切片。
 
 参数：
 
@@ -2228,7 +2228,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
 
 功能：构造一个默认 [CPointerHandle](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-cpointerhandlet-where-t--ctype) 实例，其中原始指针为空指针，仓颉数组为空数组。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/lZuaAodBSnqc4AUWvnTTcw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=A9013BEBAB11153C3411EAB6E8096948B901CA00D41EB8846F2D94B9778BD2F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/lZuaAodBSnqc4AUWvnTTcw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=FE4E25FBF4A8B97FA1AF7CF4FC77F7443545E059C5519589B9BC2575533E3AF0)
 
 未来版本即将废弃，可使用 [acquireArrayRawData](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_funcs#func-acquirearrayrawdatatarrayt-where-t--ctype) 函数构造 CPointerHandle 实例。
 
@@ -2258,7 +2258,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
 
 功能：通过传入的 [CPointer](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#cpointert) 和 [Array](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-arrayt) 初始化一个 [CPointerHandle](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-cpointerhandlet-where-t--ctype)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/be6PYet3T3menT-rC6S8YA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=97BC796BC9C020BD72A66E3E9E260ADDDA5BBB1C2ABCEEFC8EE1E70BCB197FC5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/be6PYet3T3menT-rC6S8YA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=61E09F1C773D45B0C86BDE8F6F6CBFE0F9A2532B4EB4C11AFD346FEA529B4300)
 
 未来版本即将废弃，可使用 [acquireArrayRawData](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_funcs#func-acquirearrayrawdatatarrayt-where-t--ctype) 函数构造 CPointerHandle 实例。
 
@@ -3142,7 +3142,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
 
 功能：[Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration) 表示时间间隔，是一个描述一段时间的时间类型，提供了常用的静态实例，以及计算、比较等功能。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/O4yQPTNzQsa19-hZJoW4PA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=5B5AB0322168AAA044B5EDC13051E57C53A1AF4455B3BC6D3EA234F541B486D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/O4yQPTNzQsa19-hZJoW4PA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=C9EC65EE63D8DE0525B8795CE663478D35E40485F90D82023ECEF75C9AD3B6B6)
 
   * [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration) 表示范围为 [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration).Min 至 [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration).Max，数值表示为[-263, 263)（单位为秒），精度为纳秒。
   * [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration) 每个时间单位均用整数表示，如果实际值不为整数，则向绝对值小的方向取整。例如表示 1小时30分46秒 的 [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration) 实例调用 toHours 方法，将返回结果 1 而不是 1.5 或 2。
@@ -4805,7 +4805,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/oM95T2cqSGmo5YdIuPi6pg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=782C6B3189C671440AF52ECD6E5315BDEBB896C709BAFA10A1865838ADA757E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/oM95T2cqSGmo5YdIuPi6pg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=5A18D2DD93828E00239169E32FE365C715425DA5BD426CECB092355BA71A1012)
 
   * 当 step > 0 且 start >= end，或者 step < 0 且 start <= end 时，该 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 实例将是一个空区间。
   * 当 step > 0 且 start > end，或者 step < 0 且 start < end 时，该 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 实例将是一个空区间。
@@ -4959,7 +4959,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
         println("Range start value: ${range.start}")
     }
 
-运行结果：
+��行结果：
     
     
     Range start value: 5
@@ -5239,7 +5239,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
 
 功能：该结构体表示仓颉字符串，提供了构造、查找、拼接等一系列字符串操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/RLMryJY6SrOWcOS58itvHw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=9BE6C8FD4BFD48384E4CBDA6C7CCA37214E9395F5CE434FA550448763048D038)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/RLMryJY6SrOWcOS58itvHw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=09FE5707FB3FB7B7CF0FE7E79BD8DA0A84609A7C0085931B040DC58EAB4A3289)
 
   * String 类型仅支持 UTF-8 编码。
   * 出于 String 对象内存开销方面的优化，String 的长度被限制在 4GB大小，即 String的最大长度不超过 [UInt32 的最大值](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#uint32)。
@@ -5598,7 +5598,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
 
 相较于 [fromUtf8Unchecked](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#static-func-fromutf8uncheckedarrayuint8) 函数，withRawData 没有做数组的拷贝，直接用传入的数组构造了字符串。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/Nasv0b_URgCFM6O3HySXww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=7262AB7C861B504A5CDDE2C0C64FA84351E01AFD04263F68B44DB01AF7239A91)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/Nasv0b_URgCFM6O3HySXww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=0F23FBC68EA0DD743B49288730C4DEA726A3336A187D87C07DE3EEF3C4E8FCC1)
 
 用户应该保证：
 
@@ -6837,7 +6837,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
 
 功能：获取字符串的 UTF-8 编码的原始字节数组。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/z42-pxE5StiH78gCr2pacA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=6235FE795280A69B102BF7AF43B52AC6700EFD2E84B273F74503D2327FDCFF95)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/z42-pxE5StiH78gCr2pacA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=FE4173087CB0475E0E3FC7D4E80235D48C2CB9748C0F7C72A12CB1E88CE3963A)
 
 用户不应该对获取的数组进行修改，这将破坏字符串的不可变性。
 
@@ -7126,7 +7126,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
 
 功能：对原字符串按照分隔符分割。可以指定是否删除空串。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/yxsLH7j8T9-u7xvZCNQIJA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=F1F4029C17EF7ED8780FCDB85E889F17C9827DA5488D5DFFF17338136E194F87)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/yxsLH7j8T9-u7xvZCNQIJA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=0F145A5C206BADE17E3C7CE0AFD0F61644EC9DA6F71630752722000E266F8350)
 
   * 原字符串为空时，返回数组长度一律为 0。
   * 当分隔符未出现在原字符串（非空）中，返回长度为 1 的字符串数组，唯一的元素为原字符串。
@@ -7190,7 +7190,7 @@ range 表示的区见的长度和目标数组 value 的大小需相等。
 
 功能：对原字符串按照分隔符分割。需指定最多分隔子串数，并可以指定是否删除空串。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/-aF3WpxwQNiJLYMiERMoVA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=B66B92593620582519B60413C501FA8537C8D45537ED7DB955374B02D970CC47)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/-aF3WpxwQNiJLYMiERMoVA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=B4F3A99743DA9FFF5BED30A8A3F7DE9D556511CF35EEA0B8C152285143495679)
 
   * 原字符串为空时，返回数组长度一律为 0。
   * 当最多分隔子串数为 0 时，返回空的字符串数组。
@@ -8230,7 +8230,7 @@ ASCII 空白字符包括 ASCII 码在区间 [0x09, 0x0D] 范围内的字符以�
 
 返回值：
 
-  * [Bool](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#bool) \- 原字符串字典序小于或等于 right 时，返回 true，否则返回 false。
+  * [Bool](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#bool) \- 原字符串字典序小于或等于 right 时，返回 true，��则返回 false。
 
 
 
@@ -8471,7 +8471,7 @@ ASCII 空白字符包括 ASCII 码在区间 [0x09, 0x0D] 范围内的字符以�
 
 功能：根据给定区间获取当前字符串的切片。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/FVV7oGOMQAm0IjI9QQ4wBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=1B8FED580D1F701E9693DD645EBC0238B3CCCF9484FC1333071C845C6B3E0C5B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/FVV7oGOMQAm0IjI9QQ4wBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=B7533ED3CEF182EF2FE3CA954E02FD0982F80E6A259E4E821726BC8D8ACC938E)
 
   1. 如果参数 range 是使用 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 构造函数构造的 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 实例，有如下行为：
      * start 的值就是构造函数传入的值本身，不受构造时传入的 hasStart 的值的影响。

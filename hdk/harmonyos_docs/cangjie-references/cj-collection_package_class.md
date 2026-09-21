@@ -276,7 +276,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
     
     public func addLast(element: T): Unit
 
-功能：在此双端队列尾部插入元素。
+功能：在此双��队列尾部插入元素。
 
 参数：
 
@@ -487,7 +487,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：以指定大小进行扩容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/W1OK6gpPRaGPpsXvbAmZrg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=34D55257249D6BED53C4D62A066AC791CDEB13D4FA0DA4A1682707655CB0B057)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/W1OK6gpPRaGPpsXvbAmZrg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=7973CEF1237E1A768B37F66BEB670AEC383CE0ED374DD485CD5BF52EBB05BF88)
 
   * 若入参 additional ≤ 0，不执行任何扩容操作。
   * 若当前剩余容量 ≥ additional，不进行扩容，直接返回。
@@ -631,7 +631,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 [ArrayList](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_package_class#class-arraylistt) 是一种线性的动态数组，与 [Array](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-arrayt) 不同，它可以根据需要自动调整大小，并且在创建时不需要指定大小。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/TZ9XfppiTHSDVauBGFvYEw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=E6160D347E533438245114A45A7FDF726E32FD03A280BFF825BD9E2FA996DF5B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/TZ9XfppiTHSDVauBGFvYEw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=06C0DA50FA9ADB792B0621D0597B6BD6DA3EB6D648D421911F0830ED6AD6F425)
 
   * 当向动态数组中添加元素时，如果数组已满，则会重新分配更大的内存空间，并将原有的元素复制到新的内存空间中。
 
@@ -1258,7 +1258,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：返回 [ArrayList](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_package_class#class-arraylistt) 的原始数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/7dc4Gb3IT_Kxq5VtOi8zmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=2E451201AD813655F625363B061DB068ED4A7E02258547F4123893672A639833)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/7dc4Gb3IT_Kxq5VtOi8zmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=971E5B64C8E45E9E4D63CDE493A40DD17AD3E53EA480D035628C73A9E295812B)
 
 这是一个 unsafe 的接口，使用处需要在 unsafe 上下文中。
 
@@ -1425,7 +1425,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：删除此 [ArrayList](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_package_class#class-arraylistt) 中 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 范围所包含的所有元素。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/4Xr-LjICR9GfbPY4Ay_m1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=133BEDD2C8B25F9D57F409A6B563308B6C4849608E195DA5AD18535DFDF08FD4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/4Xr-LjICR9GfbPY4Ay_m1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=2710AB594C3882A9CEEE71F2E90567BE5415DDE3D3E2B5E8CBE47F823A14524E)
 
 如果参数 range 是使用 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 构造函数构造的 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 实例，hasEnd 为 false 时，end 值不生效，且不受构造时传入的 isClosed 的值的影响，数组切片取到原数组最后一个元素。
 
@@ -1516,7 +1516,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：以指定大小进行扩容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/06fBAe3TRBO4P-d2oES17Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=C246AE49EA8857DEB6094E61B7A24DE6BB13B00048C24336B333E054282C61DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/06fBAe3TRBO4P-d2oES17Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=B4CC78849BC82DC2EDEF3230730803FF02A81485CED3E58FD794B54146B50CB5)
 
   * 若入参 additional ≤ 0，不执行任何扩容操作。
   * 若当前剩余容量 ≥ additional，不进行扩容，直接返回。
@@ -1607,7 +1607,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：以传入参数 range 作为索引，返回索引对应的 [ArrayList](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_package_class#class-arraylistt)<T>。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/MnkXPr0wTxO43jwLdbEHiA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=9046EEE1719FBE65A316AB4442316C8E30A981107D25FF320BDD778CFA6BFC12)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/MnkXPr0wTxO43jwLdbEHiA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=B9513A966B624A8438EDB31525887D26E7E4ECD991316DF75C636961C2CF2523)
 
 如果参数 range 是使用 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 构造函数构造的，那么有如下行为：
 
@@ -1675,7 +1675,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 通过传入的比较函数，根据其返回值 [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering) 类型的结果，可对数组进行自定义排序 comparator: (t1: T, t2: T) -> [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering)，如果 comparator 的返回值为 [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering).GT，排序后 t1 在 t2 后；如果 comparator 的返回值为 [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering).LT，排序后 t1 在 t2 前；如果 comparator 的返回值为 [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering).EQ，且为稳定排序，那么 t1 在 t2 之前； 如果 comparator 的返回值为 [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering).EQ，且为不稳定排序，那么 t1，t2 顺序不确定。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/YF3SZJFBQ4-uIYL33G8TMA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=7CC27115CFFFCF1BB9D844E84372A75A038E44500BE0E5112FA4266E74E1FC64)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/YF3SZJFBQ4-uIYL33G8TMA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=CB140CF8683473473D0401213C592D334EEC12EAD8EC7615AA75BDC1407C842C)
 
 未来版本即将废弃，使用 [sort](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sort_package_funcs#func-sorttlistt-bool-bool-where-t--comparablet) 替代。
 
@@ -1725,7 +1725,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 通过传入的比较函数，根据其返回值 [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering) 类型的结果，可对数组进行自定义排序 comparator: (t1: T, t2: T) -> [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering)，如果 comparator 的返回值为 [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering).GT，排序后 t1 在 t2 后；如果 comparator 的返回值为 [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering).LT，排序后 t1 在 t2 前；如果 comparator 的返回值为 [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering).EQ，且为稳定排序，那么 t1 在 t2 之前； 如果 comparator 的返回值为 [Ordering](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_enums#enum-ordering).EQ，且为不稳定排序，那么 t1，t2 顺序不确定。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/V17RWmIgRuOdRZAPoYCLZA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=7C7A2D5CC6067C97E10E241896DBA22D018C4C7D622090CC594B4DDAF48E0CAF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/V17RWmIgRuOdRZAPoYCLZA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=BF37D6234600C67ED8AF820211C89281D7C470560834008F51ACD6A9BA62939F)
 
 未来版本即将废弃，使用 [sort](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sort_package_funcs#func-sorttlistt-bool-bool-where-t--comparablet) 替代。
 
@@ -1907,7 +1907,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：运算符重载 - 切片。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/SMK5GJnCSKeFhvGgaFfhYw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=B5A594A6548578CBB6276E0A83624E246C56C57B3CE1BF8B5184B560C9110AC8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/SMK5GJnCSKeFhvGgaFfhYw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=0EDEDAF4630889247D29875095688865F9AAF2A6429246EB303268927960EFD1)
 
   * 如果参数 range 是使用 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 构造函数构造的 [Range](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-ranget-where-t--countablet--comparablet--equatablet) 实例，有如下行为：
 
@@ -2106,7 +2106,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：为 [ArrayList](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_package_class#class-arraylistt)<T> 扩展 [SortExtension](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sort_package_interfaces#interface-sortextension-deprecated) 接口，支持数组排序。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/y4Bz45l3SgyNWJr7QIDRHA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=6F8093796B6374515F95C79645DB21A41B26F00D2BFC4F39FEDD09F950211F40)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/y4Bz45l3SgyNWJr7QIDRHA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=EE1ED6D7856D04E5D3813E2AF4973A02EDB660E8F3A2088E08C1A0EAC80E2C42)
 
 未来版本即将废弃。
 
@@ -2123,7 +2123,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：将当前数组内元素以升序的方式非稳定排序。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/2sqtiuFcSoynh8sDXJ6YTg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=72E39BC9A6CC1928837753E9AAE8895E806C1C000849BAD00483C4FF8833ED9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/2sqtiuFcSoynh8sDXJ6YTg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=449BC5E56F5C191BE4FF24ED751EBAB5210526AC45B9A231062344BF447A6898)
 
 未来版本即将废弃，使用 [sort](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sort_package_funcs#func-sorttlistt-bool-bool-where-t--comparablet) 替代。
 
@@ -2157,7 +2157,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：将当前数组内元素以升序的方式排序。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/O5H060ZPQiaAotrsdhNMJQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=646B007BFFA548DDFC860F5F3966F84E78E86633BF1373B147475E4CF025429A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/O5H060ZPQiaAotrsdhNMJQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=632315326C77A3B8662FA1189B8056CA47285CBD56834D446C77FBAFB52CBF0B)
 
 未来版本即将废弃，使用 [sort](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sort_package_funcs#func-sorttlistt-bool-bool-where-t--comparablet) 替代。
 
@@ -2198,7 +2198,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：将当前数组内元素以降序的方式非稳定排序。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/IIqj8HfXQ72wvxGiAJ1FjQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=C94000DEAB1A6F5C4F662A5FDE029695836A5670AF856D0C2F86A3C7B91EA729)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/IIqj8HfXQ72wvxGiAJ1FjQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=A944A69EFD379DBC51F9DABFB8D1BDEC41BC0A21CAD8FC7F80479B9E20BBD1CC)
 
 未来版本即将废弃，使用 [sort](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sort_package_funcs#func-sorttlistt-bool-bool-where-t--comparablet) 替代。
 
@@ -2232,7 +2232,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：将当前数组内元素以降序的方式排序。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/-bQ3BMILTdukqZvlrZ1ftQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=2B649CBF00171502E915BD185714F808E3B93F281A699ED5375BCEDE74B6E088)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/-bQ3BMILTdukqZvlrZ1ftQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=567762D35DA9314A14650637C3196261CE7B1E484C1BB5C6BB03805A9F446708)
 
 未来版本即将废弃，使用 [sort](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-sort_package_funcs#func-sorttlistt-bool-bool-where-t--comparablet) 替代。
 
@@ -2736,7 +2736,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.collecti
 
 功能：以指定大小进行扩容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/EuYihBw0S0a3Atqk_-Yqcw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=452F662047ECD45FB5C86137817062FED04763EE4AF31E842E334CB60D45143D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/EuYihBw0S0a3Atqk_-Yqcw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=356E3FACFD1038615EA74E22EB25CA1448F641B6453988E705DBBEE73C6CF746)
 
   * 若入参 additional ≤ 0，不执行任何扩容操作。
   * 若当前剩余容量 ≥ additional，不进行扩容，直接返回。
@@ -3313,7 +3313,7 @@ ArrayStack 只支持后进先出（Last In First Out，LIFO），只能在头部
 
 功能：以指定大小进行扩容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/xa6ieBDwRqWCymfxeS3UhQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=6304472156DFFC01E479C862385BB917A7D3BE7C8DFB01C43701224F5E335849)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/xa6ieBDwRqWCymfxeS3UhQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=D6125EDC83894AAAD8FFD579CCB1B62DD8A2DB127F247D21452BA9ED113407B0)
 
   * 若入参 additional ≤ 0，不执行任何扩容操作。
   * 若当前剩余容量 ≥ additional，不进行扩容，直接返回。
@@ -4459,7 +4459,7 @@ ArrayStack 只支持后进先出（Last In First Out，LIFO），只能在头部
 
 功能：以指定大小进行扩容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/5sbDem2OTMaS7eiAlpZnyg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=5E3CFB9818C168FAC31C0E7944570FDCC82B400AB5EA62E75E1A2405A802D46E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/5sbDem2OTMaS7eiAlpZnyg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=B905DB4BD84CC36913C63EBB32278EF3877761FCE9CCF1F00C9891B56DF22BBA)
 
   * 若入参 additional ≤ 0，不执行任何扩容操作。
   * 若当前剩余容量 ≥ additional，不进行扩容，直接返回。
@@ -5059,7 +5059,7 @@ ArrayStack 只支持后进先出（Last In First Out，LIFO），只能在头部
 
 功能：返回此 [HashSet](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_package_class#class-hashsett-where-t--hashable--equatablet) 的内部数组容量大小。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/0QsmAebHS-CECk-EVKBP1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=204B482DB4F64D8ED4CCB6C5E6E5A025597575D47A88CC4D8517180C72674FE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/0QsmAebHS-CECk-EVKBP1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=75F84EDECF6A0D5362FCD3A23F0F8E60DB98307C93BC28CC780BF5EC9282C8BE)
 
 容量大小不一定等于 [HashSet](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-collection_package_class#class-hashsett-where-t--hashable--equatablet) 的 size。
 
@@ -5856,7 +5856,7 @@ ArrayStack 只支持后进先出（Last In First Out，LIFO），只能在头部
 
 功能：以指定大小进行扩容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/uPi0w5BTQUKN8QJXee9BsA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090200Z&HW-CC-Expire=86400&HW-CC-Sign=418B41DA423EA2DC31A1CE948767AAE4501C7DF409F65EB25DA3B61B04333185)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/uPi0w5BTQUKN8QJXee9BsA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085258Z&HW-CC-Expire=86400&HW-CC-Sign=20F8CD10D8F6B9485CB4F26B1B1459C99F813230A7B35D7B8F0C257A42920117)
 
   * 若入参 additional ≤ 0，不执行任何扩容操作。
   * 若当前剩余容量 ≥ additional，不进行扩容，直接返回。

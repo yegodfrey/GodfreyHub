@@ -1069,7 +1069,7 @@ spawn 表达式的返回类型是 [Future](https://developer.huawei.com/consumer
 
 功能：统计当前迭代器包含元素数量。此方法会消耗迭代器中所有元素来计算迭代器中的元素数量。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/UCgQbqnTRd2gxwHJdiK--g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=F147B0877BB7F9DF0E1A3CBB38CB175DB1F9894539BD3D2FD04D0FD829E24D64)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/UCgQbqnTRd2gxwHJdiK--g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=6538D94DDA6750185BC11BBF4C3663AA09454EA8FA871BACCE580284120824AA)
 
 该方法会消耗迭代器，即使用该方法后迭代器内不再包含任何元素。
 
@@ -1697,7 +1697,7 @@ spawn 表达式的返回类型是 [Future](https://developer.huawei.com/consumer
 
 功能：从前往后从当前迭代器跳过指定个数的元素，返回一个新的迭代器，原迭代器保持不变。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/mYVZHAlSTKyce_Hm1QsG6g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=98B99717AB60932BA2B4E326858D2DF295C6F445E0D2F0363CE91383D593D1E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/mYVZHAlSTKyce_Hm1QsG6g/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=0EB63FA1E6879DEB2D97BE1B8898F072E3FC66AAD2DD841167AFD3E1812FB631)
 
   * 当 count < 0 时，抛出异常。
   * 当 count = 0 时，不跳过任何元素，返回一个与原迭代器内容一致的新迭代器。
@@ -1912,7 +1912,7 @@ spawn 表达式的返回类型是 [Future](https://developer.huawei.com/consumer
     
     extend<T> Iterator<T> where T <: Comparable<T>
 
-功能：为 [Iterator](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_classes#class-iteratort)<T> 类型扩展 [Comparable](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-comparablet)<T> 接口，支持比较操作。
+功能：为 [Iterator](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_classes#class-iteratort)<T> 类型扩展 [Comparable](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-comparablet)<T> ���口，支持比较操作。
 
 **func max()**
     
@@ -2369,7 +2369,7 @@ spawn 表达式的返回类型是 [Future](https://developer.huawei.com/consumer
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/kWVeEkEwQH-QZqgUZL4zpg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=E24C6E34013C8FD5C011A8B3E91EE5BFF7D0C727B8E87B715E6026AF2B78F420)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/kWVeEkEwQH-QZqgUZL4zpg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=B3179CA3B7AAF7E50B809AB7DB3564B905EF5EEA104F45798897CA0A36C33888)
 
 [StringBuilder](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_classes#class-stringbuilder) 仅支持 UTF-8 编码的字符数据。
 
@@ -3449,7 +3449,7 @@ spawn 表达式的返回类型是 [Future](https://developer.huawei.com/consumer
 
 功能：以指定大小进行扩容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/G8Lef78PSJaTk9XGh7uhDQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=1E327805920E85FE10A93F9F1C52552B8F265AED646BB7940DB9A6FF9D943866)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/G8Lef78PSJaTk9XGh7uhDQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=6D5770DE5C371FCF642EBDBF3DF2E47E8EDF8205520509BDD3213AE56B5FAC89)
 
   * 若入参 additional ≤ 0，不执行任何扩容操作。
   * 若当前剩余容量 ≥ additional，不进行扩容，直接返回。
@@ -3551,7 +3551,7 @@ spawn 表达式的返回类型是 [Future](https://developer.huawei.com/consumer
 
 功能：获取 [StringBuilder](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_classes#class-stringbuilder) 实例中的字符串。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/-NuL_xkIQYyhKtVC2-_MLA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090157Z&HW-CC-Expire=86400&HW-CC-Sign=C13DBC97C92DA48446D29133C6C383955F0134CD911EC09044C3014FDD0E9463)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/-NuL_xkIQYyhKtVC2-_MLA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085248Z&HW-CC-Expire=86400&HW-CC-Sign=A6DBCD92F0A39A64BF962886713260F07B75FA510257D9BCB7353E66AD6196B6)
 
 该函数不会将字符串数据进行拷贝。
 

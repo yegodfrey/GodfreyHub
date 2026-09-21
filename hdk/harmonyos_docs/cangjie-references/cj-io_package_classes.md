@@ -351,7 +351,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：关闭当前流。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/_yBnSqeTToWVoBiNu14Lnw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=9CDE034E17987D3DEABBBD6ED11D044A7EC63EE165ABDA5C0EC8A54A6BA3EF57)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/_yBnSqeTToWVoBiNu14Lnw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=51CE292C202C146F0204E61E511D8DEECD991860060440A65AD1BA0764668570)
 
 调用此方法后不可再调用 [BufferedInputStream](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_classes#class-bufferedinputstreamt-where-t--inputstream) 的其他接口，否则会造成非预期现象。
 
@@ -646,7 +646,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：移动光标到指定的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/fQl-aoSnQW6e7yO5YGHU7w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=1A57FD9078D2AB9A2F92D8F35E84AD4E3C9E790356B291CAEF494EE94F574BDD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/fQl-aoSnQW6e7yO5YGHU7w/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=F7213728DE2561277C4D97E44734818C9ED188D075BDEFADAC2CC04749354D32)
 
   * 指定的位置不能位于流中数据头部之前。
   * 指定位置可以超过流中数据末尾。
@@ -1084,7 +1084,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：关闭当前流。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/hOmSWSI8R4WyeH0lni8QBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=AB008DC5B5D286E38A90001A752071784C30FA6B85AC4A1E58C4AF8233F3D0E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/hOmSWSI8R4WyeH0lni8QBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=6FD07AFDBE14BA2DFF3C3694433AF593B9F8E55331749612EE3D6FD59576DB36)
 
 调用此方法后不可再调用 [BufferedOutputStream](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_classes#class-bufferedoutputstreamt-where-t--outputstream) 的其他接口，否则会造成非预期现象。
 
@@ -1382,7 +1382,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：移动光标到指定的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/cUj7hG0WQTio3zfsnohFUQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=44191ACC781781986C71F2410F1CEAF6321690CD2F3262901768E2E3D1BB92A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/cUj7hG0WQTio3zfsnohFUQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=87C1B09E7919B71320F55F5B89CE11EAB42650E798B4C49FAF063909D0F9EF06)
 
   * 指定的位置不能位于流中数据头部之前。
   * 指定位置可以超过流中数据末尾。
@@ -1621,7 +1621,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：获取当前 [ByteBuffer](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_classes#class-bytebuffer) 中未被读取的数据的切片。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/M8H3cLCFQ-60W-7076VubQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=F5AA2BD0E8343096FC8BC9929483A8D62C0F2EB7B07CD0F9768FE41B155D1B51)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/M8H3cLCFQ-60W-7076VubQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=AB8CF65578DAA05E1A887D9BFDEB997455423B9EE0B3789D04D40538E7203B61)
 
   * 缓冲区进行读取，写入或重置等修改操作会导致这个切片失效。
   * 对切片的修改会影响缓冲区的内容。
@@ -1833,7 +1833,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：以指定大小扩容缓冲区。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/d25pfOjjR3GPDEAtI3NNFw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=E07BDCD3D7C80BF3555A689A751DB1DEECC869CD893DA919563FF1F685D5FD56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/d25pfOjjR3GPDEAtI3NNFw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=889C3468E1B29070590109D7BBE8FA0B037972D6ED520351CFB8C6B86022B9E8)
 
   * 若入参 additional ≤ 0，不执行任何扩容操作。
   * 若当前剩余容量 ≥ additional，不进行扩容，直接返回。
@@ -1905,7 +1905,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：将光标跳转到指定位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/3UacQ5LvRU6a067d7Qogew/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=FF96BF8C84A59B487C83A7431DC3ED047CAD9CF85AEBDE77D1D5E195DF8654AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/3UacQ5LvRU6a067d7Qogew/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=CE2A6F2FA03CD979CF45AF969D1BA4BBAC4C04657344A725D630E889B81C6B3E)
 
   * 指定的位置不能位于流中数据头部之前。
   * 指定位置可以超过流中数据末尾。
@@ -2371,7 +2371,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：提供从 [InputStream](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_interfaces#interface-inputstream) 输入流中读出数据并转换成字符或字符串的能力。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/SDdrkLClRHOKHato6sbb4A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=379D29285B3D19023A3E1E5F4ECD916E33A8317E0F48B6C95DB317690BCEA476)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/SDdrkLClRHOKHato6sbb4A/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=8E513A60F7EFBD4238AA6375F986CC259E6A71F4E00F79EEFBD3F8629BA5F6B2)
 
   * [StringReader](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_classes#class-stringreadert-where-t--inputstream) 内部默认有缓冲区，缓冲区容量 4096 个字节。
   * [StringReader](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_classes#class-stringreadert-where-t--inputstream) 目前仅支持 UTF-8 编码，暂不支持 UTF-16、UTF-32。
@@ -2413,7 +2413,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 相当于循环调用 func readln()，内部遇到非法字符时也会抛出异常。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/AhGEKtFPTWSUyh2gS1kQdg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=1C7F2282476834739E9B43D5EC9BF9531A494E4637CD4AF90CF7178ABDA94C17)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/AhGEKtFPTWSUyh2gS1kQdg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=A72FB4388D72D63BD8FCFBCC218847717C745539E7241E43E6BCFE2441D5C7A8)
 
   * 每行都由换行符进行分隔。
   * 换行符是 \n \r \r\n 之一。
@@ -2512,7 +2512,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：按行读取流中的数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/oVaqisXRQoGnt-Kie5jFfw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=BDD120C05E176473C532EE1DEF8DFBAB9A98B339221D301AF60F9B4CC5D04E68)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/oVaqisXRQoGnt-Kie5jFfw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=A8DF125B7C19354EE6CB1ABCE484508CCF2F4D76E23D9D50345E3B6D331A80C9)
 
   * 读取的数据会去掉原换行符。
 
@@ -2760,7 +2760,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：关闭当前流。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/0S1d60VmSiaSIzwzQ4VkcQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=323964EDD019FD07D6D40364CD4D7E65A83C955F6DACFC4C4598F18AB67603DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/0S1d60VmSiaSIzwzQ4VkcQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=F92C6E375F6523D7399F9A737DB4D2F4E18220DC7A3EA9093E186B9920EE74BB)
 
 调用此方法后不可再调用 [StringReader](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_classes#class-stringreadert-where-t--inputstream) 的其他接口，否则会造成非预期现象。
 
@@ -2824,11 +2824,11 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 返回值：
 
-  * [Bool](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#bool) \- 如果当前流已经被关闭，返回 true，否则返回 false。
+  * [Bool](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#bool) \- 如果当前流已经被关闭，返回 true，否则��回 false。
 
 
 
-示例：
+示例��
     
     
     import std.io.*
@@ -2944,7 +2944,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：移动光标到指定的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/-ZJAJAGCTXynMBO6un3iqQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=EF1FDE77D01EEB3D2AF59C736A07F3F4FDF99ED369D271E773DB88BCB9AB6B06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/-ZJAJAGCTXynMBO6un3iqQ/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=B64CD87727AC4B4886D68787240CC35D9B36B04533EA5A7C12A0ABD1D76B667C)
 
   * 指定的位置不能位于流中数据头部之前。
   * 指定位置可以超过流中数据末尾。
@@ -3033,7 +3033,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：提供将 [String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string) 以及一些 [ToString](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_interfaces#interface-tostring) 类型转换成指定编码格式和字节序配置的字符串并写入到输出流的能力。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/cG6AmpSGTdCq3DMDNDFhxA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=D9CEDCE4D79514DDAA10B3444B41DC79FC93DFD3B3BB021B13757E110D0103AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/cG6AmpSGTdCq3DMDNDFhxA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=DBCC8F9AB3527CF9D6FD17B04B719B884C2E106C6AA7B8B68CEB3C7C2973EB74)
 
   * [StringWriter](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_classes#class-stringwritert-where-t--outputstream) 内部默认有缓冲区，缓冲区容量 4096 个字节。
   * [StringWriter](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_classes#class-stringwritert-where-t--outputstream) 目前仅支持 UTF-8 编码，暂不支持 UTF-16、UTF-32。
@@ -4216,7 +4216,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：关闭当前流。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/NOHeiXLcTJipBhYGt71BlQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=BEBB737964AE9FB8597BE8E46E92EA67484B772B6CCD81E2017B4539DEE9B900)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/NOHeiXLcTJipBhYGt71BlQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=7CFFB89C9DC2688246DDC9B51D85F41ABB0817395884310FB1CF9C66F09DC348)
 
 调用此方法后不可再调用 [StringWriter](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_classes#class-stringwritert-where-t--outputstream) 的其他接口，否则会造成非预期现象。
 
@@ -4359,7 +4359,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.io / 类
 
 功能：移动光标到指定的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/8PdwweNYROqx-g66iW6EGA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090204Z&HW-CC-Expire=86400&HW-CC-Sign=4AD0D9E467FA3F2372D7F60E228C1C8177BAD7B1650706B390CB37AF70F01B7E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/8PdwweNYROqx-g66iW6EGA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085309Z&HW-CC-Expire=86400&HW-CC-Sign=C918A29B460550916F96D2435CB5989E79B0EC819D7F33CB7091ADA842CB1D3B)
 
   * 指定的位置不能位于流中数据头部之前。
   * 指定位置可以超过流中数据末尾。

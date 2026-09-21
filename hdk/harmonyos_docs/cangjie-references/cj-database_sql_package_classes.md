@@ -622,7 +622,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：大整数，对应仓颉 [Int64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int64) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/hhAH-mkVRzKJFyHCORGNnA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=9A65CF975A22CCF1B0C44454E69A8942136D88D61B064A315AB4D0B6403E000F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/hhAH-mkVRzKJFyHCORGNnA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=2643B4F99315200080E7A4D0D7BACECD8B90F6097B7BC277E11D421226DD5920)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -735,7 +735,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：定长二进制字符串，对应仓颉 [Array](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-arrayt)<[Byte](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_types#type-byte)> 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/prMKF8JkRjOTyR9QoVpH4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=1892C83C7E3AE892D6573072C1CB66A203F3B7CBC0E14DFF8EDACDEAD3020D9A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/prMKF8JkRjOTyR9QoVpH4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=46D8D4DED507FEA39D38E947F644829B64A149804365E62B5137E64C16546ADB)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -860,7 +860,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：变长超大二进制字符串（BINARY LARGE OBJECT），对应仓颉 [InputStream](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_interfaces#interface-inputstream) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/mLLbVFn4QB-Ao1zmANux7Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=7112211376E9E50CED1EA6CA7F40F4975B7C0E3D1F79E6B59950D003E5F2EE12)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/mLLbVFn4QB-Ao1zmANux7Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=B6E647CFCC506F56F36AF8557FCCB914E95486B6B6EB542B2AE736765ED5BCCF)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -988,7 +988,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：布尔类型，对应仓颉 [Bool](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#bool) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/eM3Bwa3kQx-9vuc_lSOvtQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=D1114041067C633910849538ED733E02B4FFE6C825B618F0413B930DF78E2179)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/eM3Bwa3kQx-9vuc_lSOvtQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=5AE187ECEB4649A9CE5A9609EB2A602B9E1B35DB06D5F1FABF89B23D4B2A378D)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -1101,7 +1101,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：字节，对应仓颉 [Int8](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int8) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/Y0mLbRbYSk2i_xio2Q7_9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=A5929F445790D377A3149D4729AE8FE6B9E441EDB61D531675A4F38E21623A24)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/Y0mLbRbYSk2i_xio2Q7_9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=AAEEFFAF5726D03FC2202F37E6D2E226C5D9EE1D0FF392ADE7B6663D93CCA5BD)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -1214,7 +1214,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：定长字符串，对应仓颉 [String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/Q2N2TzcqRjSyERjL62nLKg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=E3E7D52E64A4EE45C857ACD5FA05FBDF8B9AEB53F86ABFC38F3AE18D87954038)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/Q2N2TzcqRjSyERjL62nLKg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=72C79AD3FF49FE9C7E0B6500A71F6B08616D2A35E3421868E1FC3357CA233FAD)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -1327,7 +1327,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：变长超大字符串（RUNE LARGE OBJECT），对应仓颉 [InputStream](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_interfaces#interface-inputstream) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/oPYFCfjaQy-CilgZjY7rIw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=9E4E9120EAA01CE054BE56EB8E5308D01F7E948168C98934AF217B415DF4A874)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/oPYFCfjaQy-CilgZjY7rIw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=08A6AA8C74839803039914358610C6C2A626A39850736B7FBB8DACB36CC1D528)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -1455,7 +1455,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：日期，仅年月日有效，对应仓颉 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/Ui_kXTOdRtqUomtTQIlKWw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=C2EA91F5A662CDC65B3D6C20FE61897D4313C33AC56B3F1845C8762E1FD34B36)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/Ui_kXTOdRtqUomtTQIlKWw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=0EDAB285F524AE0466E7EDFABB044E26C894912171158D3C01740C34BE31F513)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -1575,7 +1575,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：高精度数，对应仓颉 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/XABhiZ9PSxKxUKRqAhGqKQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=AE96155B8A1072EF1A51AC715538C309A419F5DD41E9F073C6A2DD9E35EEF3B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/XABhiZ9PSxKxUKRqAhGqKQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=9D289AABF065EF75A6E55B07CCD9A7F02DBF7D6938DA379F9CE4CC4CF6F5D090)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -1695,7 +1695,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：双精度数，对应仓颉 [Float64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float64) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/NnNyGKCiRAeykxyzkRDCxA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=2B94EC5A5C18AF51AE1031D8BD719724CDF7F5CFEBCE96CE0A2C94FBA50CF60B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/NnNyGKCiRAeykxyzkRDCxA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=A50ED3A23CFC69315BC76BCE03814751BF679FE8A5F788B02EF87C1C3C1D3611)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -1808,7 +1808,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：中整数，对应仓颉 [Int32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int32) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/hbK8WwgkRrq_Iy-xAdsE4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=7B9E985D5F2C74870631D6FD9F90DC999394A717595D9B8B41D4C479ABAA17BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/hbK8WwgkRrq_Iy-xAdsE4A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=D70073FF2431CAA5AFBC1A2B1AC9E160CBE1A6EDF0855828D66DE2A961369BE1)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -1921,7 +1921,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：时间间隔，对应仓颉 [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Jg8j8yCCTqCOdHTwtAcnAQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=F323F2D5A309949C21D5E5BE775606A47306CDDD7DEBFFB54C27B5E74443213B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Jg8j8yCCTqCOdHTwtAcnAQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=8095A1C0D2F3CB551C4D552225FC2B0F41B1C9929A46B089BCD0248C2C6C2B6C)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -2041,7 +2041,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：大整数，对应仓颉 [Int64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int64) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/TO-KEXUsQGSbCQlF3NroBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=B12A0AB6EF4FFDC3EB26F40AFE9F03B7E41D14FABD36EEB3EEA130DAED8C7489)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/TO-KEXUsQGSbCQlF3NroBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=8C14DBCFEFB3DA32C0DC4C49E08E779DB863A0815AB18BEEB77FE72B38CF13EE)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -2154,7 +2154,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：定长二进制字符串，对应仓颉 [Array](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-arrayt)<[Byte](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_types#type-byte)> 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/7T44cnh8TCWXKU5bVe9ggQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=5B12A9F7CE301246D0DADF04D6343AF15EE431793AE995646551F2F6B9B45991)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/7T44cnh8TCWXKU5bVe9ggQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=FC6E3A2EF7CB77A3833FFD81727062E6DEA6A0D7F100F78F447AAF08C0116465)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -2271,7 +2271,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：变长超大二进制字符串（BINARY LARGE OBJECT），对应仓颉 [InputStream](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_interfaces#interface-inputstream) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/6ThTzQhIQP6KK-A9eDgI3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=6D767D34C69F7C53B0033E58B69ABC67041F48CECFB80BB2CF3BCC2FFE1D35B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/6ThTzQhIQP6KK-A9eDgI3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=7E079DC815B1D2BB29B5018FA4B0A4042BCBA6ADC7613A146BE06EFB0B3EC94B)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -2401,7 +2401,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：布尔类型，对应仓颉 [Bool](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#bool) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/QDHm9H6FQbGpfe-D592jqw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=2E3B900CDBF5CD5325B8B3504BC673053FA1182A4350C5497FE26EFB0271FECA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/QDHm9H6FQbGpfe-D592jqw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=0866E2EF4BC75B9DD08FFC3465181987DB81DEA906B67F897EE9D27DF665160D)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -2514,7 +2514,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：字节，对应仓颉 [Int8](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int8) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/aS8Ybp2tR42ymRnoJbQ7lQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=9912490AC0CCCE2077BAE791D1B9253260C8EB30B1F462CEB7140D9FE522DA73)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/aS8Ybp2tR42ymRnoJbQ7lQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=99D95B34A9ABE42B2EB4EED20568697059DE9B7B0B11850534E2DE294658A538)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -2627,7 +2627,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：定长字符串，对应仓颉 [String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/0nMi_8D7R7q4r5OxLRPduA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=71C71456E6F44E85AC8661789C2CB6DE0D8DEB187FD52DD15F7BAF7F4DD7610B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/0nMi_8D7R7q4r5OxLRPduA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=190B385E30916D900814B817F7A1D2A98CD913169C562B51153EE643956E7473)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -2687,7 +2687,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
         let value = sqlNullableChar.value
         println("SqlNullableChar value: ${value}")
     
-        // 修改value属性
+        // 修改value��性
         sqlNullableChar.value = Some("World")
         println("Modified SqlNullableChar value: ${sqlNullableChar.value}")
     }
@@ -2740,7 +2740,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：变长超大字符串（RUNE LARGE OBJECT），对应仓颉 [InputStream](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-io_package_interfaces#interface-inputstream) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/iCsUVnLVR2Weu519mWgcug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=7971167FAC651261AC23CBBB1D21D386327227D29C03B81B3CBA4A69D77CD259)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/iCsUVnLVR2Weu519mWgcug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=BF87C7ECAD3A6D772062DD2DA21767BBA5FFDAF9A36415520D917E2CD3EA716E)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -2871,7 +2871,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：日期，仅年月日有效，对应仓颉 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/wsNGVlHcTF-PRgIgyGkfSA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=7AE1F8498A0E6E6AA71D370B637F8917CD0A4EF1E6624395533B95FC7B31B299)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/wsNGVlHcTF-PRgIgyGkfSA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=B9620C389C068D305952EDC164567EBEE8832DA2AA3E52A5B6D6C4E81A9A271F)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -2989,7 +2989,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：高精度数，对应仓颉 [Decimal](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-math_numeric_package_structs#struct-decimal) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/ipfy28nySK-ylbjgw0RC7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=102C4891001666D04428B41D6D8A66350AE7AA5AC0C720E0AAB50586F58CDB4D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/ipfy28nySK-ylbjgw0RC7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=3B9B2A518ECB62FAD06043805CBF199516098207D883496E6ABFA833FB176764)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -3108,7 +3108,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：双精度数，对应仓颉 [Float64](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float64) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/dtGO0cWhTRewM1emRBIAiQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=1C42D3646F9C0A21DD11F285F7AC657479478764DAB7C5639BB1340A4CE7B51F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/dtGO0cWhTRewM1emRBIAiQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=AAD385467FC6CBC2ADF89DBFA83E59B11DFA14D8AA667C225B8C662B3D9F3E7A)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -3221,7 +3221,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：中整数，对应仓颉 [Int32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int32) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/4qF8j0XhSrmXP0EPWslAwA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=AB8D4C64506A92065765B54C920D896BFCD266BFF45C03BE1DDDF6B2405C8CA4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/4qF8j0XhSrmXP0EPWslAwA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=0019A3EBD0A9FAA6AC3D369F9A13B674FCD9148AC6C472F792A5D309E14E369C)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -3334,7 +3334,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：时间间隔，对应仓颉 [Duration](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-duration) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/YUFF5hjRT7mMPSK43lG9nw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=12F26483C3EC4E8F7595CBBA76AFD216945C076A3E6A4CD9199B87B2F619E15C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/YUFF5hjRT7mMPSK43lG9nw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=258D807090294560BFEE89B4AFE8BEF8ABD972BA6BB54A69EFA65FB9169F0F29)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -3449,7 +3449,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：浮点数，对应仓颉 [Float32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float32) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/ZBIns-WuQgiVDxhxLJbP-g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=B30614E1C295E1F350734354D32BD8D2DD81F83A496CB4600EAC21582C2F7386)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/ZBIns-WuQgiVDxhxLJbP-g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=59F0FF5675ABFCE485A65F084095F9D32F70174F604778FE3D245A514EF5EA3C)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -3562,7 +3562,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：小整数，对应仓颉 [Int16](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int16) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/ydX2W5g2RYC4OjKEPAh5nA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=1C7ACBC8083726DC96B4B937A4D3EC2D76CAFD392B7CC62D64C984A303B8C037)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/ydX2W5g2RYC4OjKEPAh5nA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=92CA186C19BC30429296271DECAF9315B2DC64818D89C607C4376C58D284784A)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -3675,7 +3675,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：时间，仅时分秒毫秒有效，对应仓颉 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/CkldVE8QSWqCO2yrnDIqaw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=BE59ABBC2D58ECA84E57D8B1D9B16708DD88A57308779D7C8EAFEB021C4B024C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/CkldVE8QSWqCO2yrnDIqaw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=5C0151547811EE25EC27B4C7E3B3F044D297402E0EF3F69E513C9091487824BB)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -3799,7 +3799,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：时间戳，对应仓颉 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/2HHM0MduS-myPDXvQAIJMA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=F94AC200D1E888A22BAF6C78516E89FCAB046824D873BC34E5E71F4DEF57217C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/2HHM0MduS-myPDXvQAIJMA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=960182378F87CEDBF78DD85D76586378E2000372729D7A990AD02366A1C0FE2B)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -3920,7 +3920,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：带时区的时间，仅时分秒毫秒时区有效，对应仓颉 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/KK56eQ2OTAOC15mzlHnDOA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=FA2DF1C3FA929D189D0F4437620B1EF1CC0108ADB97CF59EA7812B03F04B33ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/KK56eQ2OTAOC15mzlHnDOA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=B7BC0B0E8FDBDC57DAA57D6D854F23781325A252318F895D4341021C1A38BEF7)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -4041,7 +4041,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：变长二进制字符串，对应仓颉 [Array](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-arrayt)<[Byte](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_types#type-byte)> 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/Yxzu6kNIRgysoDK-s5e0Ow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=6E971713A572C4E2ADA426D1E87EA4F91CF5ACF2BB3951F7C33199B5E405DD58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/Yxzu6kNIRgysoDK-s5e0Ow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=EA053C3395774550E07D518D06EDE638FAC7EB72D437D09786C5AB8AAAD98326)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -4162,7 +4162,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：变长字符串，对应仓颉 [String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string) 类型，可为数据库 Null 值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/u0Zt2ariQHqBmVfjCNY-Nw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=19F102F3ED9C658B9F46FA4D61F8383BD22EE5CA282088071D4A92341177AA5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/u0Zt2ariQHqBmVfjCNY-Nw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=948F402C2166C566A3F7C8D6725AE93BF7E54662C6709A960F957C4CAB469AB4)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -4205,7 +4205,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：该数据的值。
 
-类型：?[String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string)
+类���：?[String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string)
 
 示例：
     
@@ -4912,7 +4912,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：浮点数，对应仓颉 [Float32](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#float32) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/-DrumoKwRPar2QQgdJaPAQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=0265070A13807E9A076B293295C050162BD9EAF0E47224454E0FEAEB25E3E135)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/-DrumoKwRPar2QQgdJaPAQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=EDEE9DCB4CE609090F0D227D1844168EB6A7050773EED615527181B42227EF99)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -5025,7 +5025,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：小整数，对应仓颉 [Int16](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_intrinsics#int16) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/3w0sLzj7TEi3DZWyr5h57Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=918524922D82FD01F1A24D980CCFDD70D0CD30C4B1C16EDFB26635F8BC960E0D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/3w0sLzj7TEi3DZWyr5h57Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=3C6188D43EA6B907B2E626EC30330B6251D2D6B67F51CCC1A341CD68A15B3B5F)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -5138,7 +5138,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：时间，仅时分秒毫秒有效，对应仓颉 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/0MwQxtLXRkyYNtBLuVfbFg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=56CB2AE0122B32E636C951E415EEAAB448A2CA3B310C2CC875822AF9BC03F477)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/0MwQxtLXRkyYNtBLuVfbFg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=7463884C97027798E3A7D1ABFCBE257FADD6B4412478C93FA6D9873A13D6EE48)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -5252,7 +5252,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：时间戳，对应仓颉 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/2w5fqgYMRXKT9PUKeLSEXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=CC7E198AC3D5343451C03F8F94C6BFF4409558D8B0936D36A3D8F66F0D4AFD01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/2w5fqgYMRXKT9PUKeLSEXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=5D7A2459FEE9E63999A25B43AFEC752DD6D4F4C8C26226014AA0D8172E07ADAD)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -5363,7 +5363,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：带时区的时间，仅时分秒毫秒时区有效，对应仓颉 [DateTime](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_structs#struct-datetime) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/mUGHdpCKS96TB-23UDArFg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=1B5BD69D2CC709DA545DACCD13747A4DE7DEA4826BE57B7FCAABDAD52643D9A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/mUGHdpCKS96TB-23UDArFg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=4D448E324C078346B81188275CDA4795B23D08F7C42E5AE8ED7CD5F9A6B57EE2)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -5474,7 +5474,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：变长二进制字符串，对应仓颉 [Array](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-arrayt)<[Byte](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_types#type-byte)> 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/M_WjsdpeQ0S6CYWtgmW3Og/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=E8B497595CE70EF04F177E082303BC0FF0338053C321B43B9EAB28AFF7EC71D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/M_WjsdpeQ0S6CYWtgmW3Og/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=204491FD9FA5724F9A5523142156E7FF8EFDDFE28E0B610CA04A90363CDD9A3D)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 
@@ -5584,7 +5584,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.database
 
 功能：变长字符串，对应仓颉 [String](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-core_package_structs#struct-string) 类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/m7q-OpAcSEivCTdcycKkNg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090202Z&HW-CC-Expire=86400&HW-CC-Sign=3150DCD9AA129FDB856A0129AA16D39B3894D43343A15ECFEFFCB4B74F75C8DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/m7q-OpAcSEivCTdcycKkNg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T085303Z&HW-CC-Expire=86400&HW-CC-Sign=05E7084780D69C9776203E2A213DE38C1C81CA1E061D07E30BDA6C363933BD3B)
 
 未来版本即将废弃，使用仓颉原生类型替代。
 

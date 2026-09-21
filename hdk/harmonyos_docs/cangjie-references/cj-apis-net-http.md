@@ -36,7 +36,7 @@ API示例代码使用说明：
 
 **功能：** 创建一个HTTP请求，里面包括发起请求、中断请求、订阅/取消订阅HTTP Response Header事件。当发起多个HTTP请求时，需为每个HTTP请求创建对应HttpRequest对象。每一个HttpRequest对象对应一个HTTP请求。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/x1BrVd98QZqbi9dVRWbzpg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090220Z&HW-CC-Expire=86400&HW-CC-Sign=0B3BB59C8C0A3EA19FF314F7C7DBA15A843EDB8AB56A61886CCC507B40E9AF71)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/x1BrVd98QZqbi9dVRWbzpg/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083517Z&HW-CC-Expire=86400&HW-CC-Sign=DB19A31E693A8280498AA57E0E2489461AF4A49C448F82B0E4B2CCE34F0A7350)
 
 当该请求使用完毕时，需调用destroy方法主动销毁HttpRequest对象，否则会出现资源泄露问题。
 
@@ -712,7 +712,7 @@ callback | [Callback1Argument](https://developer.huawei.com/consumer/cn/doc/cang
 
 **功能：** 根据URL地址，发起HTTP网络请求，
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/kqplDv56R3GLcGXFIZXluA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090220Z&HW-CC-Expire=86400&HW-CC-Sign=FB12782B3792901C0000D7D944C0687D4510419E33EF943CDF6C16CB736A82FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/kqplDv56R3GLcGXFIZXluA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083517Z&HW-CC-Expire=86400&HW-CC-Sign=466E1F3A556B7B502F1594E10D48107DEB3C97CB2024B5BF832F8ECF8F1B16FC)
 
 (1) 此接口仅支持接收5MB以内的数据，如果需要接收超过5MB的数据，则需主动在HttpRequestOptions的maxLimit中进行设置，或者使用requestInStream接口发起流式请求。
 
@@ -809,7 +809,7 @@ callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/cangjie-
 
 **功能：** 根据URL地址，发起HTTP网络请求，
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/IAGcgukDQDa7QnuaX6cHJA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090220Z&HW-CC-Expire=86400&HW-CC-Sign=01EC4D3C14A53FAC98F05D16731DB742DEA5B39D3FA17559761681A3747B693F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/IAGcgukDQDa7QnuaX6cHJA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083517Z&HW-CC-Expire=86400&HW-CC-Sign=8A25773EF544D72A89C02A653FCD521FFFF78DFE995020D011263327BE984E99)
 
 (1) 此接口仅支持接收5MB以内的数据，如果需要接收超过5MB的数据。
 
@@ -1222,7 +1222,7 @@ callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/cangjie-
 
 **功能：** 发送请求的额外数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/vqgZfzksRSC23cb0RV72nw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090220Z&HW-CC-Expire=86400&HW-CC-Sign=EF514D40FF38B82B34556D7A91092A307B95158D38C1B9BC362B6A87DCB0A139)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/vqgZfzksRSC23cb0RV72nw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083517Z&HW-CC-Expire=86400&HW-CC-Sign=F555DF886E2D6571E1B885681D0D353CA25F81F38CA44FD30ECF22D138CF0548)
 
 没有额外数据时，避免添加该参数；若必须添加，避免直接传入空字符串或者空数组。
 
@@ -1467,7 +1467,7 @@ usingCache | Bool | 否 | true | **命名参数。** 是否使用缓存，true�
 priority | UInt32 | 否 | 1 | **命名参数。** HTTP/HTTPS请求并发优先级，值越大优先级越高，范围[1,1000]，默认为1。  
 header | HashMap<String,String> | 否 | HashMap<String,String>() |  **命名参数。** HTTP请求头字段。当请求方式为"POST" "PUT" "DELETE" 或者""时，默认{'content-Type': 'application/json'}， 否则默认{'content-Type': 'application/x-www-form-urlencoded'}。 如果head中包含number类型的字段，最大支持int64的整数。  
 readTimeout | UInt32 | 否 | 60000 |  **命名参数。** 读取超时时间。单位为毫秒（ms），默认为60000ms。传入值需为uint32_t范围内的整数。 设置为0表示不会出现超时情况。  
-connectTimeout | UInt32 | 否 | 60000 | **命名参数。** 连接超时时间。单位为毫秒（ms），默认为60000ms。传入值需为uint32_t范围内的整数。  
+connectTimeout | UInt32 | 否 | 60000 | **命名参数。** 连接超时时间。单位为��秒（ms），默认为60000ms。传入值需为uint32_t范围内的整数。  
 usingProtocol | ?HttpProtocol | 否 | None | **命名参数。** 使用协议，默认值由系统自动指定为None。  
 usingProxy | UsingProxy | 否 | UsingProxy.UseDefault |  **命名参数。** HTTP代理配置，该项不配置时表示不使用代理。 \- 当usingProxy为布尔类型true时，使用默认网络代理，为false时，不使用代理。 \- 当usingProxy为HttpProxy类型时，使用指定网络代理。当前HttpProxy不支持指定username和password字段。  
 caPath | String | 否 | "" |  **命名参数。** 如果设置了此参数，系统将使用用户指定路径的CA证书（开发者需保证该路径下CA证书的可访问性），否则将使用系统预设CA证书。 系统预设CA证书位置：/etc/ssl/certs/cacert.pem。证书路径为沙箱映射路径（开发者可通过UIAbilityContext提供的能力获取应用沙箱路径）。目前仅支持后缀名为.pem的文本格式证书。  
@@ -1773,7 +1773,7 @@ Cache-Control为通用报头，但通常是在服务器端进行的，允许定�
 
 **功能：** 此参数将文件路径指向的文件内容设置为表单数据，如果未指定data内容，则必须设置filePath。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/cOlCDV4RSsiMN12ifLzC4Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090220Z&HW-CC-Expire=86400&HW-CC-Sign=9622963D8F78227B98B0F8A7C6FBAB279EF3210CD0DF8C9CCE181A5870ADD71D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/cOlCDV4RSsiMN12ifLzC4Q/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083517Z&HW-CC-Expire=86400&HW-CC-Sign=48DD01778154739D8CAEDD5AFE801C3033C40740A23D5072B8AEEE53413F900B)
 
 需传入文件管理模块支持的格式，可以通过文件管理的[access](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-apis-file_fs#static-func-accessstring-accessmodetype-accessflagtype)接口，验证文件是否存在且可访问。
 
@@ -1807,7 +1807,7 @@ Cache-Control为通用报头，但通常是在服务器端进行的，允许定�
 
 **功能：** 上传到服务器保存为文件的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/kN3fZMDwSJi1PyhQ5ZkOEw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090220Z&HW-CC-Expire=86400&HW-CC-Sign=8A0D8D7DB79B8685EFA7EF7D558254452253D7C4C85B8717A1D71D799F59FEF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/kN3fZMDwSJi1PyhQ5ZkOEw/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083517Z&HW-CC-Expire=86400&HW-CC-Sign=B11E81C8E9C76F7F01067E2192FE7A2FCAF804C6D58B1E6C61C99C6EFDF752BF)
 
   * 指定该字段后，请求头中会添加filename字段，表示上传到服务器文件的名称。
 

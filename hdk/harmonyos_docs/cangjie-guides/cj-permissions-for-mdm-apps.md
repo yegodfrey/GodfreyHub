@@ -9,7 +9,7 @@ nodePath: 系统 / 安全 / 程序访问控制 / 应用权限管控 / 应用权�
 
 以下权限仅对MDM（Mobile Device Management）设备管理应用开放。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/Y1H-W3o8RYeN4B-R2y14NA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090126Z&HW-CC-Expire=86400&HW-CC-Sign=2A3A59C1AAAE6B4F5A1A2E436E61504DA9C259BCDFED836FB017D2FA0CE3C192)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/Y1H-W3o8RYeN4B-R2y14NA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083107Z&HW-CC-Expire=86400&HW-CC-Sign=786010983778DFA1116C5B1FAB0DAA13F3B155BDDAC20947283D783EECCC435C)
 
 以下权限不支持自动签名，因此在调试和发布阶段，均需参照[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing-manual)的步骤，完成手动签名。
 
@@ -141,7 +141,7 @@ nodePath: 系统 / 安全 / 程序访问控制 / 应用权限管控 / 应用权�
 
 **授权方式：** 系统授权（system_grant）
 
-**起始版本：** 12
+**起���版本：** 12
 
 #### ohos.permission.ENTERPRISE_MANAGE_USB
 

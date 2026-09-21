@@ -7,7 +7,7 @@ FTS5 全文索引，对外以 **MCP 服务** 提供检索能力。全部离线�
 
 | 目录 | 内容 | 来源 |
 |---|---|---|
-| `harmonyos_docs/` | HarmonyOS 文档（约 2.6 万篇），含 `cangjie-*` 子目录的**鸿蒙仓颉开发文档**（guides/references/practices/faqs/releases） | 华为云 HarmonyOS Developer Knowledge MCP（免登录） + builtin_browser MCP 已登录会话（仓颉开发文档需登录） |
+| `harmonyos_docs/` | HarmonyOS 文档（约 2.6 万篇），含 `cangjie-*` 子目录的**鸿蒙仓颉开发文档**（guides/references/practices/faqs/releases） | 华为云 HarmonyOS Developer Knowledge MCP（免登录） + 内置浏览器已登录会话（仓颉开发文档需登录，经 cj_iab 桥） |
 | `cangjie_docs/` | 仓颉**语言**官方文档（dev-guide / libs / tools / release-notes） | `cj-docs.gitcode.com` 静态站 |
 
 ## 统一入口 `hdk.py`
@@ -17,7 +17,7 @@ FTS5 全文索引，对外以 **MCP 服务** 提供检索能力。全部离线�
 ```bash
 # 爬取（默认多轮驱动直到无新增；完成后自动增量更新索引）
 python hdk.py crawl --target harmonyos          # HarmonyOS 文档（免登录）
-python hdk.py crawl --target harmonyos-cangjie  # 鸿蒙仓颉开发文档（需 builtin_browser MCP 已登录会话）
+python hdk.py crawl --target harmonyos-cangjie  # 鸿蒙仓颉开发文档（需已登录内置浏览器 + node relay）
 python hdk.py crawl --target cangjie            # 仓颉语言文档
 python hdk.py crawl --target all                # 三者都跑
 
@@ -41,8 +41,9 @@ python hdk.py catalog purge-stale [--dry-run]  # 同词干新旧两版并存时�
 python hdk.py state rebuild    # 以磁盘为准重建 crawl_state.json
 ```
 
-> 注：`harmonyos-cangjie` 经 `cj_mcp.py` 依赖 builtin_browser MCP 承载的已登录华为开发者
-> 会话（HttpOnly cookie 纯 Python 读不到），且同一时刻只能串行抓取。
+> 注：`harmonyos-cangjie` 经 `cj_iab.py`（内置浏览器桥）在已登录华为开发者的浏览器标签页内
+> 鉴权抓取（HttpOnly cookie 纯 Python 读不到），同一时刻只能串行抓取。运行前提：浏览器已登录
+> 开发者账号，且 browser-use 控制通道的 node relay 在本机 127.0.0.1:8791 提供动作轮询。
 
 ## 发现机制：目录清单为准，搜索兜底
 
@@ -62,6 +63,7 @@ python hdk.py state rebuild    # 以磁盘为准重建 crawl_state.json
 - `crawl.py` — HarmonyOS 文档（华为云 MCP 接口，免登录，多线程并发，发现集并入官方目录清单）
 - `crawl_cj.py` — 仓颉语言文档（静态站，断点续爬）
 - `crawl_cangjie.py` — 鸿蒙仓颉开发文档（浏览器鉴权抓取 + Python 编排落盘）
+- `cj_iab.py` — 鸿蒙仓颉浏览器桥传输层（枚举/批量/整批回传走内置浏览器 evaluate，编排复用 cj_mcp）
 - `catalog.py` — 官方目录树清单（匿名 getCatalogTree 枚举，确定性完整性基线）
 - `incremental.py` — HarmonyOS 增量更新器（目录 diff + 新/改/删检测）
 

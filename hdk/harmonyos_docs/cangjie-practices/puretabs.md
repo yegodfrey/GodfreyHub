@@ -29,7 +29,7 @@ nodePath: 实践 / Tabs选项卡常见开发场景
 
 常见的应用页签导航效果包括底部导航、顶部导航和侧边导航。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/5SxPNfR4Ql-3DVHHf5e70w/zh-cn_image_0000002639520998.png?HW-CC-KV=V1&HW-CC-Date=20260908T090226Z&HW-CC-Expire=86400&HW-CC-Sign=21C49B0EB98070523B44B2517611010147E95D5B501DE67368D3F75DF38B9243)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/5SxPNfR4Ql-3DVHHf5e70w/zh-cn_image_0000002639520998.png?HW-CC-KV=V1&HW-CC-Date=20260921T085429Z&HW-CC-Expire=86400&HW-CC-Sign=D26F243C29F007D47A5365AC2D5276CEB9BA5800BCD966D61F3B54605476A776)
 
 底部导航栏通常用于应用的主导航，其标签数量相对固定，不涉及TabBar滑动。作为应用的主导航，开发者通常会自定义TabBar的样式。底部导航栏可通过设置Tabs的barPosition参数来实现，需将barPosition设置为BarPosition.End。
     
@@ -67,7 +67,7 @@ nodePath: 实践 / Tabs选项卡常见开发场景
 
 对于底部导航栏，通常用于应用主页面的功能区分。为了更好的用户体验，开发者通常会自定义页签样式。开发者可以使用Tabs组件提供的定制页签样式的API，将页签自定义为图标加文字标题的形式，并且在选中和非选中的状态下，提供不同的样式。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/Rhf5u9oxSmaANTSfq3ZlxQ/zh-cn_image_0000002669681005.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090226Z&HW-CC-Expire=86400&HW-CC-Sign=48DDCD469EBF0C5E62F58A58611144ADDB55277D89DBAF3C9680205257544F19)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/Rhf5u9oxSmaANTSfq3ZlxQ/zh-cn_image_0000002669681005.gif?HW-CC-KV=V1&HW-CC-Date=20260921T085429Z&HW-CC-Expire=86400&HW-CC-Sign=7E55236C8FAB175BEAD2B8D5C93AD216861899651AA64D442A4C076DF84F51E6)
 
 **实现原理**
 
@@ -128,7 +128,7 @@ Tabs组件的[tabBar()](https://developer.huawei.com/consumer/cn/doc/cangjie-ref
 
 在一些二级导航栏页面中，二级页签的内容上方通常会放置一些banner位或其他优先级较高的内容，并且在向上滑动时会退出显示区域。为了提供更好的用户体验，建议在上划的过程中，导航条能够吸附在顶部，便于用户进行内容切换。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/ypXAXcfySTu16Yugh3WyJQ/zh-cn_image_0000002669560893.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090226Z&HW-CC-Expire=86400&HW-CC-Sign=91E7232532C2EB530F2ECC04761B07EA82585B863562B20AC2EA9E0653CDEF67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/ypXAXcfySTu16Yugh3WyJQ/zh-cn_image_0000002669560893.gif?HW-CC-KV=V1&HW-CC-Date=20260921T085429Z&HW-CC-Expire=86400&HW-CC-Sign=92115D97C8FBD74E974014AF4A820E26F3702A53FAA0435020E8E063A060BD94)
 
 **实现原理**
 
@@ -208,7 +208,7 @@ Tabs组件在用户交互方面提供了丰富的特性，其中与滑动动作�
 
 在日常的应用开发中，经常需要实现用户自定义选择频道的功能。通常，这些自定义选择的频道会通过Tabs组件来展示，因此需要动态地更新Tabs的页签。本示例设计了一对父子组件来演示这一功能。父组件负责显示页签及其内容，并在页签栏的最右侧设置一个“更多”按钮。点击此按钮会弹出一个窗口，供用户选择需要显示的页签。该弹窗内容由子组件提供，关闭弹窗后，父组件的页签将被更新。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/BvRX4KmqQ2C-i6RKVaET9Q/zh-cn_image_0000002639680944.gif?HW-CC-KV=V1&HW-CC-Date=20260908T090226Z&HW-CC-Expire=86400&HW-CC-Sign=0451796799B89CC79A4EF0037534D96A56653A4BA8FBF3F9067E8168B462EC0A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/BvRX4KmqQ2C-i6RKVaET9Q/zh-cn_image_0000002639680944.gif?HW-CC-KV=V1&HW-CC-Date=20260921T085429Z&HW-CC-Expire=86400&HW-CC-Sign=1B2BDBEF34BE90106DD868914D9CD9D99FA0B3514EB2C5EA8A8C606E0B06ADEC)
 
 **实现原理**
 
@@ -367,10 +367,10 @@ Tabs组件在用户交互方面提供了丰富的特性，其中与滑动动作�
 
 Tabs页面不支持懒加载。 若要实现页面懒加载效果，可以通过自定义TabBar与[Swiper](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-layout-development-create-looping)组件结合[LazyForEach](https://developer.huawei.com/consumer/cn/doc/cangjie-guides/cj-rendering-control-lazyforeach)来实现页面的懒加载和释放。在使用Tabs组件时，仅保留TabBar，TabContent部分留空，用Swiper组件替代TabContent以显示内容。定义一个数值属性currentIndex，利用[TabsController](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-navigation-switching-tabs#class-tabscontroller)、[SwiperController](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-scroll-swipe-swiper#class-swipercontroller)及onchange函数，使其同时绑定Tabs组件和Swiper组件，从而实现联动。这是因为Swiper组件内支持LazyForEach组件，而原生Tabs组件不支持。在Swiper中利用LazyForEach显示内容，以实现Tabs的懒加载效果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/31X4HzynSUaOmwQq4Of0rw/zh-cn_image_0000002639521000.png?HW-CC-KV=V1&HW-CC-Date=20260908T090226Z&HW-CC-Expire=86400&HW-CC-Sign=CC196740ECD42CFABE8AE9C4B495774E533981FAC10C11D23C2CE84BE8581D14)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/31X4HzynSUaOmwQq4Of0rw/zh-cn_image_0000002639521000.png?HW-CC-KV=V1&HW-CC-Date=20260921T085429Z&HW-CC-Expire=86400&HW-CC-Sign=6131C3E405BF73F4F1FDA4C6EFD9A143B30ACFE13B3F04F0D6C837306B2A311C)
 
 详情请参见[页面懒加载和释放](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-navigation-switching-tabs#示例2页面懒加载和释放)。
 
 #### [h2]示例代码
 
-[Tabs选项卡常见开发场景示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183056.31295614463226676777628007001456:20260909170226:2800:C1001217B59EE581A341FDC47F9BC483CEF64BBCCCCA23DE0C13E2A4D2B3BAE7.zip?needInitFileName=true)
+[Tabs选项卡常见开发场景示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183056.31295614463226676777628007001456:20260922165429:2800:014D7DAC86FD5D270D9EF9BDF8ED9B8E2C256CD9DC42FB7C504B230F3D37C239.zip?needInitFileName=true)

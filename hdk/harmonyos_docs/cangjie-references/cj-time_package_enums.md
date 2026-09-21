@@ -224,7 +224,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.time / �
 
 功能：获取当前 [DayOfWeek](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_enums#enum-dayofweek) 实例的整数表示，周日表示为 0，周一至周六表示为 1 至 6。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/DwNmygfiQzO4MXmqluTYPQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090212Z&HW-CC-Expire=86400&HW-CC-Sign=351FFCA67994A5EE89D766968D2250D2E2B6A3035303B16E88A67B0CB6C2F251)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/DwNmygfiQzO4MXmqluTYPQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083434Z&HW-CC-Expire=86400&HW-CC-Sign=FB41BEAB04980113E99C395D1C2921A7A15319D54785B410CE596A47CC3CD3F5)
 
 未来版本即将废弃，可使用 toInteger() 替代。
 
@@ -724,7 +724,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.time / �
 
 功能：获取当前 [Month](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-time_package_enums#enum-month) 实例的整数表示，一月至十二月分别表示为 1 至 12。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/jkGShD58TSWP52_1j4Ygag/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260908T090212Z&HW-CC-Expire=86400&HW-CC-Sign=7AC24E6DBDC092CA61897EE9E26BF111E498D0B9548ACE16E6D177ABC9DE6BF2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/jkGShD58TSWP52_1j4Ygag/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260921T083434Z&HW-CC-Expire=86400&HW-CC-Sign=ED59282AD8036DF57C0D531E50C86ACD5D6EEB6C2867DB076B3EFF6A338AC412)
 
 未来版本即将废弃，可使用 toInteger() 替代。
 
@@ -847,7 +847,7 @@ nodePath: 应用框架 / Cangjie（仓颉） / 仓颉标准库API / std.time / �
         // 使用 + 操作符计算几个月后的月份
         let march = january + 2 // 一月 + 2个月 = 三月
         let july = january + 6 // 一月 + 6个月 = 七月
-        let nextJanuary = january + 12 // 一月 + 12个月 = 下一年的一月
+        let nextJanuary = january + 12 // 一月 + 12个�� = 下一年的一月
     
         println("一月: ${january}")
         println("一月 + 2个月 = ${march}")
