@@ -436,3 +436,113 @@ test("theme delta rejects a declared anchor that is missing from the layout", ()
   assert.equal(result.status, "failed");
   assert.match(result.issues[0].message, /semantic node is missing or not unique/);
 });
+
+// —— C15 containmentProbes：整树包含扫描（R1 溢出窗口 + R2 溢出容器）——
+//
+// 判据真源在 GFSoftware family/ui-dump-diagnostics.mjs 的 R1/R2（src/core/visual.ts 的
+// containmentScanCheck 是执行面副本，同步自该真源）。parity 钉：本组四个夹具的几何与期望
+// 判定**逐字对齐** family/tests/ui-dump-diagnostics.test.mjs 的 R1/R2 hermetic 用例
+// （1080×2400 视口；R2 正样本右溢 540；scroll-reachable 豁免；系统浮层窗口归属）——
+// 两侧都 hermetic，任何一边改判据或改夹具几何，对应一侧的测试当场红。
+function containmentFixture(layout) {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-containment-"));
+  const actual = path.join(root, "actual.png");
+  const layoutPath = path.join(root, "layout.json");
+  const spec = path.join(root, "spec.json");
+  writePng(actual, true);
+  fs.writeFileSync(layoutPath, JSON.stringify(layout));
+  fs.writeFileSync(spec, JSON.stringify({
+    schemaVersion: 1,
+    containmentProbes: [{ id: "tree.containment" }],
+  }));
+  return { root, actual, layoutPath, spec };
+}
+
+function runContainment(layout) {
+  const f = containmentFixture(layout);
+  return compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layoutPath,
+    outputDir: path.join(f.root, "report"),
+  });
+}
+
+const viewportNode = () => ({ attributes: { id: "root", bounds: "[0,0][1080,2400]" } });
+
+test("containment parity: overflow beyond a clip ancestor is red with node id and both bounds", () => {
+  // 对齐 family R2 正样本：clip 祖先 [0,0][540,2400]，子节点 [0,0][1080,200] 右溢 540px；
+  // 子节点对视口四边都在界内（1080 ≤ 1080）→ 只有容器红，没有窗口红。
+  const layout = viewportNode();
+  layout.children = [{
+    attributes: { type: "Column", bounds: "[0,0][540,2400]", clip: "true" },
+    children: [{ attributes: { type: "Image", bounds: "[0,0][1080,200]" } }],
+  }];
+  const result = runContainment(layout);
+  assert.equal(result.status, "failed");
+  assert.deepEqual(result.issues.map((issue) => issue.id), ["tree.containment.container"]);
+  assert.match(result.issues[0].message,
+    /node 'Image#2' bounds \[0,0\]\[1080,200\] exceed clip ancestor 'Column#1' bounds \[0,0\]\[540,2400\]/);
+  assert.match(result.issues[0].message, /right=540px/);
+});
+
+test("containment parity: leaving the viewport is red even without a clip ancestor", () => {
+  // 对齐 family R1 正样本：无任何 clip 祖先的节点 [1000,100][1200,200] 右越视口。
+  const layout = viewportNode();
+  layout.children = [{ attributes: { type: "Column", bounds: "[1000,100][1200,200]" } }];
+  const result = runContainment(layout);
+  assert.equal(result.status, "failed");
+  assert.deepEqual(result.issues.map((issue) => issue.id), ["tree.containment.window"]);
+  assert.match(result.issues[0].message,
+    /node 'Column#1' bounds \[1000,100\]\[1200,200\] leave viewport \[0,0\]\[1080,2400\]/);
+  assert.match(result.issues[0].message, /right=120px/);
+});
+
+test("containment parity: scroll-reachable exempts the container scan but not the window scan", () => {
+  // 对齐 family R2 豁免样本：scrollable+clip 祖先 [0,0][540,2400]，子 [0,0][1080,3280] ——
+  // 容器扫描被 scroll-reachable 豁免拦下（滚动即见），但 R1 对视口的下越界照红：
+  // 窗口判据没有滚动豁免是**真源语义**，不是本仓的自由发挥。
+  const layout = viewportNode();
+  layout.children = [{
+    attributes: { type: "Scroll", bounds: "[0,0][540,2400]", clip: "true", scrollable: "true" },
+    children: [{ attributes: { type: "Column", bounds: "[0,0][1080,3280]" } }],
+  }];
+  const result = runContainment(layout);
+  assert.equal(result.status, "failed");
+  assert.deepEqual(result.issues.map((issue) => issue.id), ["tree.containment.window"]);
+  assert.match(result.issues[0].message, /bottom=880px/);
+});
+
+test("containment parity: invisible nodes, foreign windows and unclipped parents are not facts", () => {
+  // 对齐 family R1/R2 豁免样本 + "chip.right > popup.right" 形态：非 clip 的 popup 祖先
+  // 对越出它的子节点不构成 R2 事实（R2 只判 clip 祖先）；invisible 与系统浮层窗口
+  // （hostWindowId 按语义锚点最多的 '28' 归属为应用窗口，'99' 是浮层）全部豁免 → passed。
+  const layout = viewportNode();
+  layout.children = [
+    { attributes: { type: "Column", bounds: "[100,100][400,200]", visible: "false" } },
+    { attributes: { type: "Column", id: "app.a", bounds: "[100,100][400,200]", hostWindowId: "28" } },
+    { attributes: { type: "Column", id: "app.b", bounds: "[100,100][400,200]", hostWindowId: "28" } },
+    { attributes: { type: "Overlay", id: "system.ball", bounds: "[100,100][400,200]", hostWindowId: "99" } },
+    { attributes: { type: "Popup", bounds: "[20,300][340,520]", clip: "false" },
+      children: [{ attributes: { type: "Image", id: "popup.chip", bounds: "[300,480][380,540]" } }] },
+  ];
+  const result = runContainment(layout);
+  assert.equal(result.status, "passed", JSON.stringify(result.issues));
+  assert.equal(result.summary.checks, 2, "一条声明 = 窗口扫描 + 容器扫描两个检查位");
+});
+
+test("checkpoints without containmentProbes gain no containment checks", () => {
+  // 未声明即不启用（显式声明的转正纪律）：比较器对存量 spec 的行为逐字节不变。
+  const f = fixture(true);
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(f.root, "report"),
+  });
+  assert.equal(result.status, "passed", JSON.stringify(result.issues));
+  assert.equal(result.summary.checks, 1);
+});
+
+test("containment scan fails loudly when the declared tree has no parsable viewport", () => {
+  // 空探针纪律：声明了扫描而视口判据解析不了 = 显式失败，绝不静默当绿。
+  const layout = viewportNode();
+  layout.attributes.bounds = "not-a-rect";
+  assert.throws(() => runContainment(layout), /invalid viewport bounds/);
+});

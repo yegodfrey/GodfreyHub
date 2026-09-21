@@ -85,6 +85,164 @@ function layoutContainmentCheck(layout: any, rule: any): string | null {
   return null;
 }
 
+/**
+ * C15 整树包含探针（containmentProbes）——判据真源在 GFSoftware
+ * `family/ui-dump-diagnostics.mjs` 的 R1（溢出窗口）/R2（溢出容器），与
+ * family/runner/ui-audit.ps1 的 B04/B05 同解；本处是**执行面副本，同步自该真源**
+ * （Hub 测试必须 hermetic，跨仓 import 不可行，见 AGENTS.md；两仓各配 hermetic 钉防漂移：
+ * GFSoftware 侧 family/tests/ui-dump-diagnostics.test.mjs 的 R1/R2 合成树夹具，本仓
+ * tests/visual.test.mjs 的 containment 夹具几何与期望判定逐字对齐它，注释互指——单边改判据
+ * 或改夹具即红）。判据语义（照抄真源，不自创第三份）：
+ *   R1  溢出窗口：非根节点的 bounds 任一边越出根视口（B04）。
+ *   R2  溢出容器：bounds 越出 **clip 祖先**的边界（B05）；溢出方向落在该祖先自身或它与
+ *       节点之间的 scrollable 祖先链上时内容滚动即见（scroll-reachable），不算被裁丢。
+ * 硬豁免（同真源具名类别）：根节点、bounds 缺失/非正面积（ArkUI 未挂载占位不构成被裁内容）、
+ * visible=false、应用窗口之外的系统浮层（hostWindowId 按语义锚点最多的窗口归属）。
+ * 事实判据零估宽误差："7天 chip 在 360vp 带：chip.right > popup.right"——直接比 bounds。
+ */
+interface ContainmentNode {
+  index: number;
+  parent: ContainmentNode | null;
+  type: string;
+  id: string;
+  key: string;
+  bounds: Bounds | null;
+  boundsRaw: string;
+  scrollable: boolean;
+  clip: boolean;
+  visible: boolean;
+  windowId: string;
+}
+
+function containmentAsBool(value: unknown): boolean {
+  return value === true || value === "true";
+}
+
+/** 真源 asBool 语义：只有 false/"false" 判不可见；"" / 缺失 = 未声明，不豁免。 */
+function containmentExplicitlyInvisible(value: unknown): boolean {
+  return value === false || value === "false";
+}
+
+function collectContainmentNodes(value: any, parent: ContainmentNode | null,
+  out: ContainmentNode[]): void {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return;
+  const attrs = (value.attributes !== null && typeof value.attributes === "object" &&
+    !Array.isArray(value.attributes)) ? value.attributes : value;
+  const node: ContainmentNode = {
+    index: out.length,
+    parent,
+    type: String(attrs?.type ?? ""),
+    id: String(attrs?.id ?? ""),
+    key: String(attrs?.key ?? ""),
+    bounds: parseBounds(attrs?.bounds ?? ""),
+    boundsRaw: typeof attrs?.bounds === "string" ? attrs.bounds : "",
+    scrollable: containmentAsBool(attrs?.scrollable),
+    clip: containmentAsBool(attrs?.clip),
+    visible: !containmentExplicitlyInvisible(attrs?.visible),
+    windowId: String(attrs?.hostWindowId ?? ""),
+  };
+  out.push(node);
+  const children = Array.isArray(value.children) ? value.children : [];
+  for (const child of children) collectContainmentNodes(child, node, out);
+}
+
+function containmentLabel(node: ContainmentNode): string {
+  const anchor = node.id !== "" ? node.id : node.key;
+  return anchor !== "" ? anchor : `${node.type !== "" ? node.type : "node"}#${node.index}`;
+}
+
+/** 应用窗口归属：语义锚点最多的 hostWindowId 即应用窗口（ui-dump-diagnostics 同解）。 */
+function deriveAppWindowId(nodes: ContainmentNode[]): string {
+  const groups = new Map<string, { total: number; anchored: number }>();
+  for (const node of nodes) {
+    if (node.windowId === "") continue;
+    const entry = groups.get(node.windowId) ?? { total: 0, anchored: 0 };
+    entry.total += 1;
+    if (node.id !== "" || node.key !== "") entry.anchored += 1;
+    groups.set(node.windowId, entry);
+  }
+  let best = "";
+  let bestKey: [number, number, string] | null = null;
+  for (const [windowId, entry] of groups) {
+    const key: [number, number, string] = [entry.anchored, entry.total, windowId];
+    if (bestKey === null ||
+        key[0] > bestKey[0] || (key[0] === bestKey[0] && key[1] > bestKey[1]) ||
+        (key[0] === bestKey[0] && key[1] === bestKey[1] && key[2] < bestKey[2])) {
+      best = windowId;
+      bestKey = key;
+    }
+  }
+  return best;
+}
+
+function containmentOverflows(node: Bounds, box: Bounds): [string, number][] {
+  const sides: [string, number][] = [];
+  if (node.left < box.left) sides.push(["left", box.left - node.left]);
+  if (node.top < box.top) sides.push(["top", box.top - node.top]);
+  if (node.right > box.right) sides.push(["right", node.right - box.right]);
+  if (node.bottom > box.bottom) sides.push(["bottom", node.bottom - box.bottom]);
+  return sides;
+}
+
+/** 溢出方向落在祖先自身或它与节点之间的 scrollable 链上时内容滚动即见（真源同解）。 */
+function scrollReachable(node: ContainmentNode, ancestor: ContainmentNode): boolean {
+  if (ancestor.scrollable) return true;
+  for (let cursor: ContainmentNode | null = node.parent;
+    cursor !== null && cursor !== ancestor; cursor = cursor.parent) {
+    if (cursor.scrollable) return true;
+  }
+  return false;
+}
+
+/**
+ * 整树包含扫描。返回 windowIssues（R1 溢出窗口）与 containerIssues（R2 溢出容器），
+ * 每个元素一条 issue（message 带越界节点 id 与双方 bounds）；空数组 = 该扫描无可反驳的
+ * 越界事实。声明了 containmentProbes 而根视口解析不了时抛错（与 layoutContainmentCheck
+ * 的 "invalid viewport bounds" 同型）：静默跳过就是空探针封 passed 的形状。
+ */
+function containmentScanCheck(layout: any): { windowIssues: VisualIssue[]; containerIssues: VisualIssue[] } {
+  const nodes: ContainmentNode[] = [];
+  collectContainmentNodes(layout, null, nodes);
+  if (nodes.length === 0) return { windowIssues: [], containerIssues: [] };
+  const viewport = nodes[0]!.bounds;
+  if (!viewport) throw new Error("visual checkpoint has invalid viewport bounds");
+  const appWindowId = deriveAppWindowId(nodes);
+  const inApp = (node: ContainmentNode): boolean =>
+    node.windowId === "" || node.windowId === appWindowId;
+  const windowIssues: VisualIssue[] = [];
+  const containerIssues: VisualIssue[] = [];
+  const rendered = (node: ContainmentNode): boolean =>
+    node.bounds !== null && (node.bounds.right - node.bounds.left) > 0 &&
+    (node.bounds.bottom - node.bounds.top) > 0 && node.visible;
+  for (const node of nodes) {
+    if (node.index === 0 || !rendered(node) || !inApp(node)) continue;
+    const bounds = node.bounds!;
+    const sides = containmentOverflows(bounds, viewport);
+    if (sides.length > 0) {
+      windowIssues.push({
+        id: "",
+        message: `node '${containmentLabel(node)}' bounds ${node.boundsRaw} leave viewport ` +
+          `[${viewport.left},${viewport.top}][${viewport.right},${viewport.bottom}] ` +
+          `(sides: ${sides.map(([side, px]) => `${side}=${px}px`).join(", ")})`,
+      });
+    }
+    for (let cursor = node.parent; cursor !== null; cursor = cursor.parent) {
+      if (!cursor.clip || cursor.bounds === null) continue;
+      const overflows = containmentOverflows(bounds, cursor.bounds);
+      if (overflows.length === 0) continue;
+      if (scrollReachable(node, cursor)) continue;
+      containerIssues.push({
+        id: "",
+        message: `node '${containmentLabel(node)}' bounds ${node.boundsRaw} exceed clip ancestor ` +
+          `'${containmentLabel(cursor)}' bounds [${cursor.bounds.left},${cursor.bounds.top}]` +
+          `[${cursor.bounds.right},${cursor.bounds.bottom}] ` +
+          `(sides: ${overflows.map(([side, px]) => `${side}=${px}px`).join(", ")})`,
+      });
+    }
+  }
+  return { windowIssues, containerIssues };
+}
+
 function layoutSeparationCheck(layout: any, rule: any): string | null {
   const firstMatch = rule?.first ?? {};
   const secondMatch = rule?.second ?? {};
@@ -518,12 +676,13 @@ export function compareVisualSpec(opts: {
   const contrastProbeRules = Array.isArray(spec.contrastProbes) ? spec.contrastProbes : [];
   const darkRenderRules = Array.isArray(spec.darkRenderProbes) ? spec.darkRenderProbes : [];
   const themeDeltaRules = Array.isArray(spec.themeDeltas) ? spec.themeDeltas : [];
-  const containmentRules = Array.isArray(spec.layoutContainments) ? spec.layoutContainments : [];
+  const containmentScanRules = Array.isArray(spec.containmentProbes) ? spec.containmentProbes : [];
+  const layoutContainmentRules = Array.isArray(spec.layoutContainments) ? spec.layoutContainments : [];
   const separationRules = Array.isArray(spec.layoutSeparations) ? spec.layoutSeparations : [];
   const needsLayout = roundedRules.length > 0 || roundedOutlineRules.length > 0 ||
     colorProbeRules.length > 0 || contrastProbeRules.length > 0 ||
-    themeDeltaRules.length > 0 ||
-    containmentRules.length > 0 || separationRules.length > 0;
+    themeDeltaRules.length > 0 || containmentScanRules.length > 0 ||
+    layoutContainmentRules.length > 0 || separationRules.length > 0;
   if (needsLayout && !opts.layoutPath) {
     throw new Error("rendered shape, color, and layout checks require layoutPath");
   }
@@ -574,7 +733,24 @@ export function compareVisualSpec(opts: {
       }
     }
   }
-  for (const rule of containmentRules) {
+  // C15 整树包含扫描（containmentProbes，显式声明才启用）：一条声明 = R1 窗口扫描 +
+  // R2 容器扫描两个检查位，每个越界事实再各占一个检查位（与结构差分 comparedAnchors 同一
+  // 记账法，保证 passed = checks - issues 不为负）。issue id 用声明的探针 id 作前缀：
+  // `<id>.window` / `<id>.container` —— 它们是内容断言，不是编排缺口的形状。
+  for (const rule of containmentScanRules) {
+    checks += 2;
+    const probeId = String(rule.id ?? "containment");
+    const scan = containmentScanCheck(layout);
+    for (const issue of scan.windowIssues) {
+      checks++;
+      issues.push({ id: `${probeId}.window`, message: issue.message });
+    }
+    for (const issue of scan.containerIssues) {
+      checks++;
+      issues.push({ id: `${probeId}.container`, message: issue.message });
+    }
+  }
+  for (const rule of layoutContainmentRules) {
     checks++;
     const message = layoutContainmentCheck(layout, rule);
     if (message) issues.push({ id: String(rule.id ?? "layout-containment"), message });
