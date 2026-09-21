@@ -135,7 +135,7 @@ function Invoke-GfMonkeySuite {
     } else { '' }
     if ([string]::IsNullOrWhiteSpace($node) -or -not (Test-Path -LiteralPath $node -PathType Leaf) -or
         [string]::IsNullOrWhiteSpace($monkeyScript) -or -not (Test-Path -LiteralPath $monkeyScript -PathType Leaf)) {
-        throw "GfDeviceRunner: monkey execution requires the GodfreyHub ui-monkey provider; use hub_family_test (missing: $monkeyScript)."
+        throw "GfDeviceRunner: monkey execution requires the GodfreyHub ui-monkey provider (missing: $monkeyScript); start through the family runner (gftool gate / family/runner/test.ps1) so GfToolchain resolves and exports GODFREYHUB_ROOT and GF_GODFREYHUB_NODE."
     }
     # 页面注册表即契约：身份锚点/必在场锚点/免疫清单的数据真源，缺失即刻失败，
     # 不允许"没有注册表就整晚瞎点"。

@@ -1,0 +1,1179 @@
+{
+  "tools": {
+    "hub_status": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "hub_scan": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "root": {
+          "type": "string",
+          "description": "要扫描的目录绝对路径"
+        }
+      },
+      "required": [
+        "root"
+      ],
+      "additionalProperties": false
+    },
+    "hub_set_project": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "hub_pull": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "project": {
+          "description": "项目名, 省略=当前项目",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hub_push": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "project": {
+          "description": "项目名, 省略=当前项目",
+          "type": "string"
+        },
+        "message": {
+          "type": "string",
+          "description": "提交说明"
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "hub_build": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "project": {
+          "description": "项目名, 省略=当前项目",
+          "type": "string"
+        },
+        "product": {
+          "description": "默认 debug; 真机部署仅支持 debug",
+          "type": "string"
+        },
+        "buildMode": {
+          "description": "默认 debug",
+          "type": "string"
+        },
+        "port": {
+          "description": "模拟器 hdc 端口, 省略按设备名实例解析",
+          "type": "number"
+        },
+        "device": {
+          "description": "真机序列号/无线 IP, 省略=已装本应用包的真机反推或唯一在线真机",
+          "type": "string"
+        },
+        "clean": {
+          "description": "先 hvigor clean",
+          "type": "boolean"
+        },
+        "noOhpm": {
+          "description": "跳过 ohpm install",
+          "type": "boolean"
+        },
+        "noDeploy": {
+          "description": "只构建不部署",
+          "type": "boolean"
+        },
+        "skipStart": {
+          "description": "只安装不启动",
+          "type": "boolean"
+        },
+        "buildTests": {
+          "description": "额外构建 ohosTest 测试包",
+          "type": "boolean"
+        },
+        "testTarget": {
+          "description": "buildTests 时指定 framework: ArkTS/Cangjie, 省略=全部",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hub_test": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "project": {
+          "description": "项目名, 省略=当前项目",
+          "type": "string"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "local",
+            "instrument"
+          ]
+        },
+        "modules": {
+          "description": "省略=全部声明了当前模式测试入口的模块",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scopes": {
+          "description": "套件或 Suite#case",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "coverage": {
+          "description": "覆盖率, 默认 true；false 时模拟器使用 unsigned 直跑",
+          "type": "boolean"
+        },
+        "patch": {
+          "description": "API 26 增量覆盖率补丁的绝对路径，扩展名必须为 .patch 或 .diff",
+          "type": "string"
+        },
+        "asan": {
+          "description": "instrument 模式 C/C++ ASan",
+          "type": "boolean"
+        },
+        "deviceLogTag": {
+          "description": "Instrument Test 期间按该 HiLog tag 采集；可与 domain 组合",
+          "type": "string"
+        },
+        "deviceLogDomain": {
+          "description": "Instrument Test 期间按该 HiLog domain 采集；采集前扩展并清空 app 缓冲区，结束后保存完整日志",
+          "type": "string"
+        },
+        "timeoutMs": {
+          "description": "默认 300000",
+          "type": "number"
+        },
+        "port": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "mode"
+      ],
+      "additionalProperties": false
+    },
+    "emu_list": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "emu_start": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "实例名(emu_list 中的 name)"
+        },
+        "port": {
+          "description": "可选约定 hdc 端口(10000-16555)",
+          "type": "number",
+          "minimum": 10000,
+          "maximum": 16555
+        },
+        "bootMode": {
+          "description": "可选启动模式；coldboot 保留 userdata，reset 会重置数据",
+          "type": "string",
+          "enum": [
+            "coldboot",
+            "snapshot",
+            "reset"
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "emu_stop": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "emu_enable_uitest": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "emu_create": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "实例名(按设备名置备)"
+        },
+        "deviceType": {
+          "description": "Phone/Tablet/Foldable/2in1/Wearable/TV, 省略=phone",
+          "type": "string"
+        },
+        "osVersion": {
+          "description": "省略=已下载镜像自动选",
+          "type": "string"
+        },
+        "screenProfile": {
+          "description": "预置屏幕型号, 如 'Mate 70'",
+          "type": "string"
+        },
+        "storage": {
+          "description": "存储 GB, 默认 6",
+          "type": "number"
+        },
+        "memory": {
+          "description": "内存 GB, 默认 3；适合双模拟器并行测试",
+          "type": "number"
+        },
+        "start": {
+          "description": "创建后立即启动等上线",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "emu_delete": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "force": {
+          "description": "默认 true",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "emu_images": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "all": {
+          "description": "true=含未下载的全部可用镜像, 默认 false",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dev_check_ets_files": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "待检查文件绝对路径列表"
+        },
+        "timeoutMs": {
+          "description": "总等待超时, 默认 120000",
+          "type": "number"
+        }
+      },
+      "required": [
+        "files"
+      ],
+      "additionalProperties": false
+    },
+    "dev_check_cpp_files": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "待检查 C/C++ 文件绝对路径列表"
+        },
+        "timeoutMs": {
+          "description": "诊断等待超时, 默认 120000",
+          "type": "number"
+        }
+      },
+      "required": [
+        "files"
+      ],
+      "additionalProperties": false
+    },
+    "lsp_symbols": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "query": {
+          "description": "符号名子串(全工程搜索)",
+          "type": "string"
+        },
+        "filePath": {
+          "description": "文件路径(文件符号表模式)",
+          "type": "string"
+        },
+        "root": {
+          "description": "工程根, 省略=当前项目",
+          "type": "string"
+        },
+        "maxResults": {
+          "description": "默认 50",
+          "type": "number"
+        },
+        "projectRoot": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dev_check_style": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "待检查文件或目录"
+        },
+        "project": {
+          "description": "工程名, 省略=当前项目(决定 cwd 与工程根)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "additionalProperties": false
+    },
+    "dev_check_compat": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "sourceVersion": {
+          "type": "string",
+          "description": "当前 SDK 版本名, 如 HarmonyOS_26.0.0(26)_Release"
+        },
+        "targetVersion": {
+          "type": "string",
+          "description": "目标 SDK 版本名"
+        },
+        "files": {
+          "description": "限定文件级扫描; 省略=工程级; modules=true 时按模块",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "modules": {
+          "description": "按模块扫描",
+          "type": "boolean"
+        },
+        "project": {
+          "description": "工程名, 省略=当前项目",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sourceVersion",
+        "targetVersion"
+      ],
+      "additionalProperties": false
+    },
+    "dev_compat_versions": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "project": {
+          "description": "工程名, 省略=当前项目",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dev_signature_generate": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "force": {
+          "description": "覆盖已有本地签名材料",
+          "type": "boolean"
+        },
+        "teamId": {
+          "description": "团队 ID",
+          "type": "string"
+        },
+        "product": {
+          "description": "product 名, 默认 default",
+          "type": "string"
+        },
+        "project": {
+          "description": "工程名, 省略=当前项目",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dev_check_refs": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "files": {
+          "description": "待检查 .ets 文件; 省略=全工程扫描",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "project": {
+          "description": "工程名, 省略=当前项目",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dev_check_native": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "project": {
+          "description": "工程名, 省略=当前项目",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ui_tree": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        },
+        "saveTo": {
+          "description": "布局 JSON 保存路径, 省略=临时目录",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ui_click": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ],
+      "additionalProperties": false
+    },
+    "ui_input_text": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "text": {
+          "type": "string"
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "ui_swipe": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "x1": {
+          "type": "number"
+        },
+        "y1": {
+          "type": "number"
+        },
+        "x2": {
+          "type": "number"
+        },
+        "y2": {
+          "type": "number"
+        },
+        "speed": {
+          "description": "滑动速度, 默认 1000",
+          "type": "number"
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        }
+      },
+      "required": [
+        "x1",
+        "y1",
+        "x2",
+        "y2"
+      ],
+      "additionalProperties": false
+    },
+    "ui_key": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "keyCode": {
+          "type": "number"
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyCode"
+      ],
+      "additionalProperties": false
+    },
+    "ui_screenshot": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "savePath": {
+          "type": "string",
+          "description": "保存路径(jpeg)"
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        }
+      },
+      "required": [
+        "savePath"
+      ],
+      "additionalProperties": false
+    },
+    "app_control": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "start",
+            "stop",
+            "uninstall"
+          ]
+        },
+        "bundle": {
+          "description": "包名, 省略=当前项目",
+          "type": "string"
+        },
+        "ability": {
+          "description": "start 时的 Ability, 省略=项目默认",
+          "type": "string"
+        },
+        "keepData": {
+          "description": "uninstall 时保留数据, 默认 false",
+          "type": "boolean"
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    "hilog_app": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "project": {
+          "description": "项目名, 省略=当前项目",
+          "type": "string"
+        },
+        "bundleName": {
+          "description": "包名, 优先于 project",
+          "type": "string"
+        },
+        "ability": {
+          "description": "restart 时的 Ability",
+          "type": "string"
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        },
+        "restart": {
+          "description": "先清日志并重启 App",
+          "type": "boolean"
+        },
+        "clearBeforeRestart": {
+          "type": "boolean"
+        },
+        "waitMs": {
+          "description": "重启后等待, 默认 2000",
+          "type": "number"
+        },
+        "lines": {
+          "description": "默认 200",
+          "type": "number"
+        },
+        "level": {
+          "type": "string",
+          "enum": [
+            "D",
+            "I",
+            "W",
+            "E",
+            "F"
+          ]
+        },
+        "tag": {
+          "type": "string"
+        },
+        "domain": {
+          "description": "如 0xD002800",
+          "type": "string"
+        },
+        "keyword": {
+          "description": "正则(最长 200 字符)/子串",
+          "type": "string"
+        },
+        "save": {
+          "description": "保存临时文件, 默认 true",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hilog_query": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        },
+        "lines": {
+          "description": "最多返回 1-10000 行，默认 200",
+          "type": "number"
+        },
+        "level": {
+          "type": "string",
+          "enum": [
+            "D",
+            "I",
+            "W",
+            "E",
+            "F"
+          ]
+        },
+        "tag": {
+          "description": "HiLog 标签",
+          "type": "string"
+        },
+        "domain": {
+          "description": "如 0xD002800",
+          "type": "string"
+        },
+        "keyword": {
+          "description": "正则(最长 200 字符)或子串过滤",
+          "type": "string"
+        },
+        "save": {
+          "description": "是否保存到系统临时目录，默认 true",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hilog_fault": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        },
+        "bundleName": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hdk_search_documents": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "关键词(中英文, 词元匹配)"
+        },
+        "limit": {
+          "description": "默认 10",
+          "type": "number"
+        },
+        "category": {
+          "description": "如 harmonyos-guides / harmonyos-references",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "additionalProperties": false
+    },
+    "hdk_get_document": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "docId": {
+          "type": "string"
+        },
+        "offset": {
+          "description": "起始偏移, 默认 0",
+          "type": "number"
+        },
+        "maxChars": {
+          "description": "默认 20000",
+          "type": "number"
+        }
+      },
+      "required": [
+        "docId"
+      ],
+      "additionalProperties": false
+    },
+    "verify": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "run",
+            "log",
+            "screenshots"
+          ]
+        },
+        "testPlan": {
+          "description": "run: 测试步骤与预期(中文)",
+          "type": "string"
+        },
+        "bundleName": {
+          "description": "run: 被测包名, 省略=当前项目",
+          "type": "string"
+        },
+        "ability": {
+          "description": "run: 启动 Ability",
+          "type": "string"
+        },
+        "freshStart": {
+          "description": "run: 先强停再启动",
+          "type": "boolean"
+        },
+        "maxSteps": {
+          "description": "run: 最大步数, 默认 15",
+          "type": "number"
+        },
+        "id": {
+          "description": "log/screenshots: 任务 id",
+          "type": "string"
+        },
+        "dirname": {
+          "description": "screenshots: 保存目录",
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    "ui_locate_code": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "控件文案(子串匹配)",
+          "type": "string"
+        },
+        "id": {
+          "description": "控件 id(子串匹配)",
+          "type": "string"
+        },
+        "x": {
+          "description": "X 坐标(与 y 一起, 坐标模式)",
+          "type": "number"
+        },
+        "y": {
+          "description": "Y 坐标",
+          "type": "number"
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        },
+        "project": {
+          "description": "项目名, 省略=当前项目",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hilog_locate_crash": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "stack": {
+          "description": "原始堆栈/faultlog 文本(可整段粘贴)",
+          "type": "string"
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        },
+        "project": {
+          "description": "项目名(用于源码映射), 省略=当前项目",
+          "type": "string"
+        },
+        "maxFrames": {
+          "description": "最多解析帧数, 默认 10",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hub_check": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "project": {
+          "description": "项目名, 省略=当前项目",
+          "type": "string"
+        },
+        "files": {
+          "description": "待检查 .ets 绝对路径, 省略=git 变更文件",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "timeoutMs": {
+          "description": "诊断等待超时, 默认 120000",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ide_get_open_files": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "project": {
+          "description": "工程名, 省略=当前项目",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ide_open_in_editor": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "filePath": {
+          "type": "string",
+          "description": "文件路径, 绝对路径或相对工程根"
+        },
+        "project": {
+          "description": "工程名, 省略=当前项目",
+          "type": "string"
+        }
+      },
+      "required": [
+        "filePath"
+      ],
+      "additionalProperties": false
+    },
+    "hn_evidence": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "doctor",
+            "capture",
+            "webview-devtools"
+          ]
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        },
+        "artifactDir": {
+          "description": "证据产物目录(capture/webview-devtools 用), 省略=系统临时目录按时间戳隔离",
+          "type": "string"
+        },
+        "remoteSocket": {
+          "description": "webview-devtools: webview_devtools_remote_<pid> 或 localabstract:webview_devtools_remote_<pid>, 省略=自动枚举",
+          "type": "string"
+        },
+        "timeoutMs": {
+          "description": "脚本执行超时毫秒, 默认 120000",
+          "type": "number"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    "hn_trace": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "doctor",
+            "capture",
+            "audit"
+          ],
+          "description": "doctor=检查 trace_streamer; capture=设备端采集; audit=离线转换审计"
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        },
+        "tags": {
+          "description": "capture: hitrace tag, 空格/逗号分隔, 默认 ability; 每个 token 仅允许 [A-Za-z0-9_-]",
+          "type": "string"
+        },
+        "durationSec": {
+          "description": "capture: 采集秒数(1..60), 默认 5",
+          "type": "number"
+        },
+        "bufferKb": {
+          "description": "capture: 环形缓冲区 KB, 默认 4096",
+          "type": "number"
+        },
+        "artifactDir": {
+          "description": "capture: trace 落地目录, 省略=系统临时目录 godfreyhub-hn/hn-trace-<时间戳>",
+          "type": "string"
+        },
+        "input": {
+          "description": "audit: 输入 trace 文件路径(.ftrace/.htrace/bytrace/rawtrace)",
+          "type": "string"
+        },
+        "outputDir": {
+          "description": "audit: 审计产物目录, 省略=脚本默认 .hvigor/outputs/profiler-trace-audit-*",
+          "type": "string"
+        },
+        "thresholdMs": {
+          "description": "audit: 慢 span 阈值(ms), 可多个, 省略=脚本默认 16.67/33.34",
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "force": {
+          "description": "audit: 覆盖 outputDir 下已存在的 trace.db; 缺省时重复审计同一目录会被脚本 blocked(database already exists)",
+          "type": "boolean"
+        },
+        "timeoutMs": {
+          "description": "audit: 上游脚本超时 ms, 默认 600000",
+          "type": "number"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    "hn_ux_audit": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "doctor",
+            "capture-audit",
+            "audit"
+          ],
+          "description": "doctor=环境自检; capture-audit=采集+审计(需设备); audit=离线审计已有证据"
+        },
+        "target": {
+          "description": "设备目标(127.0.0.1:port), 仅 capture-audit 使用, 省略=唯一在线设备",
+          "type": "string"
+        },
+        "artifactDir": {
+          "description": "证据产物目录, 省略=系统临时目录 hn-ux-<时间戳>",
+          "type": "string"
+        },
+        "evidenceSummary": {
+          "description": "audit: device_evidence_bundle 的 summary.json 路径(内含 layout/screenshot artifacts), 给出后忽略 layout/screenshot",
+          "type": "string"
+        },
+        "layout": {
+          "description": "audit: 布局 JSON 路径(未给 evidenceSummary 时与 screenshot 一起必填)",
+          "type": "string"
+        },
+        "screenshot": {
+          "description": "audit: 截图 PNG 路径",
+          "type": "string"
+        },
+        "bundle": {
+          "description": "前台应用包名, 省略=从证据推断(推断失败时脚本会 blocked 并提示显式传入)",
+          "type": "string"
+        },
+        "uxServiceRoot": {
+          "description": "UxTestService 目录路径(内含 ux_detect.py 与 checkMethod/, 即 <DevEco>/tools/UxTestService); 显式传参原样直传, 省略=从 toolchain().deveco 默认解析(目录存在才传)",
+          "type": "string"
+        },
+        "testCodes": {
+          "description": "UxTestService 规则码(逐个透传 --test-code), 省略=脚本默认 8 条",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "python": {
+          "description": "包装脚本解释器覆盖(ux 依赖 cv2/numpy/scipy/skimage, 建议指向专用 venv); 优先级: 本参数 > GODFREYHUB_UX_PYTHON > GODFREYHUB_HN_PYTHON > python",
+          "type": "string"
+        },
+        "language": {
+          "default": "zh",
+          "description": "UxTestService 结果语言, 默认 zh; 注意 zh-CN 会在部分规则触发缺 message key 异常, 不要用",
+          "type": "string",
+          "enum": [
+            "zh",
+            "en"
+          ]
+        },
+        "timeoutMs": {
+          "description": "包装脚本进程超时, 默认 300000",
+          "type": "number"
+        }
+      },
+      "required": [
+        "action",
+        "language"
+      ],
+      "additionalProperties": false
+    },
+    "hn_cdp": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "probe",
+            "eval"
+          ]
+        },
+        "target": {
+          "description": "probe: 设备目标(127.0.0.1:port), 省略=唯一在线设备",
+          "type": "string"
+        },
+        "artifactDir": {
+          "description": "probe: 证据产物目录, 省略=系统临时目录 hn-cdp 前缀隔离",
+          "type": "string"
+        },
+        "remoteSocket": {
+          "description": "probe: 指定 webview_devtools_remote_<pid>(多 WebView 时必填, 可带 localabstract: 前缀)",
+          "type": "string"
+        },
+        "webSocketUrl": {
+          "description": "eval: probe 结果里的 webSocketDebuggerUrl(ws://...)",
+          "type": "string"
+        },
+        "expression": {
+          "description": "eval: 页面内执行的 JS 表达式",
+          "type": "string"
+        },
+        "awaitPromise": {
+          "description": "eval: 等待 Promise 结果, 默认 true",
+          "type": "boolean"
+        },
+        "returnByValue": {
+          "description": "eval: 按值返回(可 JSON 化), 默认 true",
+          "type": "boolean"
+        },
+        "timeoutMs": {
+          "description": "probe 默认 120000 / eval 默认 15000",
+          "type": "number"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
