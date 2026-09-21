@@ -149,7 +149,9 @@ test("device-facing selectors default to every online target so a lone real devi
   assert.match(uitest, /const list = await onlineAllTargets\(\);/);
   assert.match(hilog, /deps\.onlineTargetList \?\? onlineAllTargets/);
   assert.match(hilog, /\(await onlineAllTargets\(\)\)\[0\]/);
-  assert.match(verify, /\(await onlineAllTargets\(\)\)\[0\]/);
+  // verifyUi 走 VerifyUiDeps 注入缝, 但缺省仍回落全量在线设备(与 hilog 同款形状)。
+  assert.match(verify, /deps\.onlineTargetsCommand \?\? onlineAllTargets/);
+  assert.match(verify, /\(await \(deps\.onlineTargetsCommand \?\? onlineAllTargets\)\(\)\)\[0\]/);
 });
 
 test("emulator target parsing rejects every empty and diagnostic marker", () => {

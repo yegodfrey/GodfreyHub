@@ -116,24 +116,51 @@ export interface VerifyOpts {
   signal?: AbortSignal; // MCP 请求级取消: 中止模型调用与设备操作
 }
 
-export async function verifyUi(opts: VerifyOpts): Promise<VerifyRecord> {
-  const env = verifyEnv();
+// 注入缝(与 core/visual-capture.ts 的 VisualCaptureDeps / proc.run 假原语同型的最小改动):
+// 全部字段缺省回落到本模块真实原语, 不注入时行为与既有签名完全一致; 测试注入假
+// 原语即可覆盖 record 落盘契约/AbortSignal 取消/maxSteps 截止/禁假通过, 无设备无网络全 hermetic。
+export type ChatCommand = (env: VerifyEnv, body: any, signal: AbortSignal | undefined,
+  timeoutMs?: number) => Promise<any>;
+
+export interface VerifyUiDeps {
+  env?: VerifyEnv;                       // 缺省走 verifyEnv()(进程环境变量)
+  chatCommand?: ChatCommand;             // 视觉模型调用
+  screenshotCommand?: typeof screenshot;
+  uiClickCommand?: typeof uiClick;
+  uiInputTextCommand?: typeof uiInputText;
+  uiSwipeCommand?: typeof uiSwipe;
+  uiKeyCommand?: typeof uiKey;
+  startAbilityCommand?: typeof startAbility;
+  stopAbilityCommand?: typeof stopAbility;
+  onlineTargetsCommand?: typeof onlineAllTargets;
+  sleepCommand?: typeof abortableSleep;
+}
+
+export async function verifyUi(opts: VerifyOpts, deps: VerifyUiDeps = {}): Promise<VerifyRecord> {
+  const env = deps.env ?? verifyEnv();
   if (!env) throw new Error("verify_ui 未配置: 需环境变量 UI_VERIFY_BASE_URL / UI_VERIFY_API_KEY / UI_VERIFY_MODEL_NAME(OpenAI 兼容视觉模型)");
   throwIfAborted(opts.signal);
-  const target = opts.target ?? (await onlineAllTargets())[0];
+  const target = opts.target ?? (await (deps.onlineTargetsCommand ?? onlineAllTargets)())[0];
   if (!target) throw new Error("没有在线设备");
   // UUID: Date.now().toString(36) 在同一毫秒的并发校验会共用 workDir 互相覆盖。
   const id = "v-" + randomUUID();
   const dir = workDir(id);
   const record: VerifyRecord = { id, testPlan: opts.testPlan, steps: [], successPart: "", failPart: "", finished: false, createdAt: new Date().toISOString() };
   rememberRecord(record);
+  const chatCommand = deps.chatCommand ?? chat;
+  const screenshotCommand = deps.screenshotCommand ?? screenshot;
+  const uiClickCommand = deps.uiClickCommand ?? uiClick;
+  const uiInputTextCommand = deps.uiInputTextCommand ?? uiInputText;
+  const uiSwipeCommand = deps.uiSwipeCommand ?? uiSwipe;
+  const uiKeyCommand = deps.uiKeyCommand ?? uiKey;
+  const sleepCommand = deps.sleepCommand ?? abortableSleep;
 
   try {
     if (opts.freshStart) {
-      await stopAbility(opts.bundleName, target);
-      await abortableSleep(1500, opts.signal);
+      await (deps.stopAbilityCommand ?? stopAbility)(opts.bundleName, target);
+      await sleepCommand(1500, opts.signal);
     }
-    if (opts.ability) await startAbility(opts.bundleName, opts.ability, target);
+    if (opts.ability) await (deps.startAbilityCommand ?? startAbility)(opts.bundleName, opts.ability, target);
 
     const messages: any[] = [
       { role: "system", content: "你是 HarmonyOS 应用 UI 自动化测试执行器。给定测试计划与当前屏幕截图, 每次通过 ui_action 执行一步操作并观察结果。坐标基于截图分辨率。完成全部步骤或无法继续时, 用 action=done 收尾, 在 result 中分别总结: 通过的预期(成功部分)与失败/未验证的预期(失败部分, 附原因)。" },
@@ -143,7 +170,7 @@ export async function verifyUi(opts: VerifyOpts): Promise<VerifyRecord> {
     for (let step = 1; step <= maxSteps; step++) {
       throwIfAborted(opts.signal);
       const shot = path.join(dir, "step_" + String(step).padStart(2, "0") + ".jpeg");
-      await screenshot(shot, target);
+      await screenshotCommand(shot, target);
       const b64 = stripDataUrl(fs.readFileSync(shot).toString("base64"));
       const userPrompt = step === 1
         ? "测试计划:\n" + opts.testPlan + "\n\n当前屏幕(第 1 步):"
@@ -155,7 +182,7 @@ export async function verifyUi(opts: VerifyOpts): Promise<VerifyRecord> {
           { type: "image_url", image_url: { url: "data:image/jpeg;base64," + b64 } },
         ],
       });
-      const resp = await chat(env, { model: env.model, messages, tools: [ACTION_TOOL], tool_choice: { type: "function", function: { name: "ui_action" } }, max_tokens: 800 }, opts.signal);
+      const resp = await chatCommand(env, { model: env.model, messages, tools: [ACTION_TOOL], tool_choice: { type: "function", function: { name: "ui_action" } }, max_tokens: 800 }, opts.signal);
       const msg = resp?.choices?.[0]?.message;
       const call = msg?.tool_calls?.[0]?.function;
       if (!call) {
@@ -183,10 +210,10 @@ export async function verifyUi(opts: VerifyOpts): Promise<VerifyRecord> {
       let performed = "";
       try {
         throwIfAborted(opts.signal);
-        if (action.action === "click") { performed = await uiClick(Number(action.x), Number(action.y), target); }
-        else if (action.action === "inputText") { performed = await uiInputText(Number(action.x), Number(action.y), String(action.text ?? ""), target); }
-        else if (action.action === "swipe") { performed = await uiSwipe(Number(action.x1), Number(action.y1), Number(action.x2), Number(action.y2), 600, target); }
-        else if (action.action === "keyEvent") { performed = await uiKey(Number(action.keyCode), target); }
+        if (action.action === "click") { performed = await uiClickCommand(Number(action.x), Number(action.y), target); }
+        else if (action.action === "inputText") { performed = await uiInputTextCommand(Number(action.x), Number(action.y), String(action.text ?? ""), target); }
+        else if (action.action === "swipe") { performed = await uiSwipeCommand(Number(action.x1), Number(action.y1), Number(action.x2), Number(action.y2), 600, target); }
+        else if (action.action === "keyEvent") { performed = await uiKeyCommand(Number(action.keyCode), target); }
         else { ok = false; performed = "未知 action: " + action.action; }
       } catch (e: any) {
         if (e instanceof AbortedError) throw e;
@@ -196,7 +223,7 @@ export async function verifyUi(opts: VerifyOpts): Promise<VerifyRecord> {
       record.steps.push({ step, action: action.action + (action.observation ? " | " + action.observation : ""), detail: performed || detail, ok });
       messages.push({ role: "assistant", content: null, tool_calls: [{ id: msg.tool_calls[0].id, type: "function", function: { name: "ui_action", arguments: call.arguments } }] });
       messages.push({ role: "tool", tool_call_id: msg.tool_calls[0].id, content: performed || "ok" });
-      await abortableSleep(1200, opts.signal); // 等界面稳定
+      await sleepCommand(1200, opts.signal); // 等界面稳定
     }
     if (!record.finished && record.failPart === "") record.failPart = "达到最大步数(" + maxSteps + ")未收到 done 判定";
     return record;
