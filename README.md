@@ -148,6 +148,16 @@ npm run hooks:install          # 新克隆后安装本仓 pre-push 推送自守�
 | `ide_get_open_files` | 列出 DevEco IDE 当前打开的编辑器文件（工程相对路径）。需 IDE 运行且 MCP 服务器已启用 |
 | `ide_open_in_editor` | 把指定文件在 DevEco IDE 编辑器里打开呈现给用户。需 IDE 运行且 MCP 服务器已启用 |
 
+### hn_* harmony-next 技能包接入（外部钉定克隆，子进程调用）
+| 工具 | 作用 |
+|---|---|
+| `hn_evidence` | 设备证据采集：doctor=环境自检（无设备不报错）/ capture=截图/布局/应用状态/有界日志证据包 / webview-devtools=ArkWeb DevTools socket 诊断。返回 decision/artifacts 等脚本顶层 JSON 原样透传 |
+| `hn_trace` | hitrace 采集与离线审计：doctor=检查 trace_streamer / capture=设备端 hitrace 采集落地本地（远端自动清理）/ audit=转 SQLite 并产出性能证据 JSON（counts/traceRange/topCallstack） |
+| `hn_ux_audit` | UI/UX 规则审计（DevEco UxTestService 包装）：doctor=环境自检 / capture-audit=设备采集+审计一站式 / audit=离线重跑已有证据。返回归一化 overall/rules（UTS.xxxx 折算 pass/issue/not_applicable/blocked/error） |
+| `hn_cdp` | ArkWeb/WebView CDP 通道：probe=枚举 DevTools socket、分类陈旧 fport、HTTP 探测，给出 webSocketDebuggerUrl / eval=对该 URL 执行 Runtime.evaluate（页内 JS，结果 64KB 截断保护） |
+
+技能包根默认探测本包同级 `harmony-next.skills/harmony-next`（含 SKILL.md 的克隆），或用 `GODFREYHUB_HN_SKILL_ROOT` 指定；上游脚本解释器默认 `python`，可经 `GODFREYHUB_HN_PYTHON` 覆盖。`hn_ux_audit` 依赖 cv2/numpy/scipy/skimage 等重包，建议用专用 venv 并经 `GODFREYHUB_UX_PYTHON`（或 `python` 参数）注入；`hn_trace` 的 trace_streamer 自动从 DevEco 安装目录解析，非默认安装路径先设 `DEVECO_PATH`。
+
 ### hdk_* 离线文档（完整语料随包分发）
 `hdk_search_documents` / `hdk_get_document`：HarmonyOS（27077 篇）+ 仓颉（374 篇）文档全文检索，直查 FTS5 词元索引。查询先做全词元 AND，不足时允许缺一个词元；标题和摘要保持 Markdown 原文可读格式。搜索 `limit` 强制限制在 1–100；正文默认每次最多返回 20000 字符，结果中的 `nextOffset` 可用于继续读取（单次可设 1000–50000）。
 
@@ -176,7 +186,7 @@ npm run hdk:stats      # 语料统计
 
 ## 按需裁剪工具（disabledTools）
 
-默认 41 个工具全部加载。包内 `config/local.config.json` 里加 `disabledTools` 数组可裁掉用不到的分组（支持 `*` 通配，命中即从工具清单移除）：
+默认 45 个工具全部加载。包内 `config/local.config.json` 里加 `disabledTools` 数组可裁掉用不到的分组（支持 `*` 通配，命中即从工具清单移除）：
 
 ```json
 { "disabledTools": ["hdk_*", "verify", "hub_test"] }

@@ -19,6 +19,10 @@ import { deviceUiTools } from "./tools/device-ui.js";
 import { docsTools } from "./tools/docs.js";
 import { linkageTools } from "./tools/linkage-tools.js";
 import { ideTools } from "./tools/ide-tools.js";
+import { hnEvidenceTools } from "./tools/hn-evidence.js";
+import { hnTraceTools } from "./tools/hn-trace.js";
+import { hnUxTools } from "./tools/hn-ux.js";
+import { hnCdpTools } from "./tools/hn-cdp.js";
 
 // GodfreyHub — 自包含 HarmonyOS 超级 MCP(全原生, 零子服务代理)
 //   hub_*  项目/git 一键同步/构建+同名实例部署   emu_* 模拟器生命周期+窗口命名
@@ -26,6 +30,7 @@ import { ideTools } from "./tools/ide-tools.js";
 //   ui_*   设备 UI 自动化(hdc uitest)             hilog_* 日志/崩溃采集
 //   hdk_*  离线文档库 FTS5 检索(直查本地索引)      verify 视觉模型 UI 自动化校验
 //   ide_*  DevEco 26 内置 MCP 桥接(IDE 打开文件/打开的编辑器; 符号搜索并入 lsp_symbols)
+//   hn_*   harmony-next 技能包接入(证据采集/hitrace 采集审计/UX 规则审计/WebView CDP)
 //   深度联动: ui_locate_code(UI→源码) hilog_locate_crash(崩溃→源码) hub_check(诊断+构建错误合并)
 //
 // 工具注册表按域拆分在 src/tools/, 每个工具 = zod schema + 类型化 handler。
@@ -40,6 +45,10 @@ const ALL_TOOLS: ToolDefinition[] = [
   ...docsTools,
   ...linkageTools,
   ...ideTools,
+  ...hnEvidenceTools,
+  ...hnTraceTools,
+  ...hnUxTools,
+  ...hnCdpTools,
 ];
 
 // 名称唯一性在启动时强制: 注册表拆成多文件后, 拼写冲突必须在进程启动瞬间暴露。
