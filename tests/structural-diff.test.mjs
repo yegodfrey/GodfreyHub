@@ -97,6 +97,48 @@ test("relative order is compared across differently nested trees", () => {
   assert.equal(structural.diffStructuralLayout(baseline, tree3([["a.first"], ["a.second"]])).status, "passed");
 });
 
+test("absolute pre-order shift from new leading nodes stays relative-order equivalent (Goread navigator-dark)", () => {
+  // Goread v2 改名回归事实链: 变体深色布局树在契约锚点之前多出 8 个带 id 节点,
+  // 所有契约锚点的绝对先序序号整体后移, 但相对次序未变 -> 不得判 structural-order-changed。
+  const declared = ["a.home.card", "a.home.power"];
+  const baseline = layout([["chrome.tab.1"], ["chrome.tab.2"], ["a.home.card"], ["a.home.power"]]);
+  const shifted = layout([
+    "v2.splash.logo", "v2.nav.rail", "v2.banner.slot", "v2.pill.1",
+    "v2.pill.2", "v2.pill.3", "v2.pill.4", "v2.pill.5",
+    "a.home.card", "a.home.power",
+  ].map((id) => [id]));
+  const result = structural.diffStructuralLayout(baseline, shifted, { declaredAnchors: declared });
+  assert.equal(result.status, "passed");
+  assert.equal(result.comparedAnchors, 2);
+  assert.ok(!result.issues.some((issue) => issue.id === "structural-order-changed"),
+    "an absolute pre-order shift must not be reported as an order change");
+});
+
+test("a real reordering of shared anchors is still a structural failure", () => {
+  const result = structural.diffStructuralLayout(
+    layout([["a.home.card"], ["a.home.power"], ["a.home.footer"]]),
+    layout([["a.home.card"], ["a.home.footer"], ["a.home.power"]]),
+  );
+  assert.equal(result.status, "failed");
+  assert.deepEqual(result.issues.map((issue) => issue.id), ["structural-order-changed"]);
+  assert.match(result.issues[0].message, /a\.home\.card,a\.home\.power,a\.home\.footer/);
+  assert.match(result.issues[0].message, /a\.home\.card,a\.home\.footer,a\.home\.power/);
+});
+
+test("a new node inserted mid-tree does not disturb the relative order of the surviving pairs", () => {
+  // 变体在 a.home.card 与 a.home.power 之间插入新节点: 契约锚点两两先后关系不变 -> 通过。
+  const declared = ["a.home.card", "a.home.power"];
+  const baseline = layout([["a.home.card"], ["a.home.power"]]);
+  const midInsert = layout([["a.home.card"], ["v2.new.section"], ["a.home.power"]]);
+  const exempt = structural.diffStructuralLayout(baseline, midInsert,
+    { declaredAnchors: declared });
+  assert.equal(exempt.status, "passed");
+  // 同一插入若被纳入对比集合: 只按"多出锚点"显式失败, 不得顺带报顺序改变。
+  const contracted = structural.diffStructuralLayout(baseline, midInsert,
+    { declaredAnchors: [...declared, "v2.new.section"] });
+  assert.deepEqual(contracted.issues.map((issue) => issue.id), ["structural-extra-anchor"]);
+});
+
 test("geometry drift is measured in vp against densityPixels and honors tolerance", () => {
   const baseline = layout([["a.card", "[0,0][300,150]"]]);
   const drifted = layout([["a.card", "[0,4][300,154]"]]); // 4px = 1.33vp @3x

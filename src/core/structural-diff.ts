@@ -70,10 +70,20 @@ export function extractOrderedAnchors(raw: unknown): Map<string, LayoutEntry> {
   return entries;
 }
 
+/**
+ * relativeOrder 语义(2026-09 修复 Goread navigator-dark 收据误撤销回归):
+ * 只比较共同锚点在树中的"相互先后关系", 不比较绝对先序序号。
+ * 反例(旧实现): 变体在锚点之前多出 N 个带 id 节点(Goread v2 改名后深色布局树
+ * 新增 6-8 个 id 节点)会把所有锚点的绝对序号整体后移, 而相对次序并未改变——
+ * 按绝对序号判等会把"顺序未变"误判为 changed, 撤销一条合法的 passed 收据。
+ * 实现: 返回 anchors 在该树中按出现次序排列的 id 序列(仅含树中存在的锚点)。
+ * 两树对该序列相等 ⟺ 任两枚共同锚点的先后关系在两树中一致 ⟺ 相对顺序等价
+ * (等价于共同锚点子序列的 LCS 为全长/两排列逆序对数为 0, 取此最小实现)。
+ * 调用方保证 anchors 均存在于 reference(传入前已按双边存在过滤)。
+ */
 function relativeOrder(reference: Map<string, LayoutEntry>, anchors: string[]): string {
-  return anchors
-    .map((anchor) => reference.get(anchor)?.order ?? -1)
-    .filter((order) => order >= 0)
+  return [...anchors]
+    .sort((a, b) => reference.get(a)!.order - reference.get(b)!.order)
     .join(",");
 }
 
@@ -149,6 +159,7 @@ export function diffStructuralLayout(baselineRaw: unknown, variantRaw: unknown,
   }
 
   const shared = allAnchors.filter((anchor) => baseline.has(anchor) && variant.has(anchor));
+  // 相对顺序比较的是共同锚点在各自树中的出现序列(与绝对先序序号无关, 见 relativeOrder 头注释)。
   const baselineOrder = relativeOrder(baseline, shared);
   const variantOrder = relativeOrder(variant, shared);
   if (baselineOrder !== variantOrder) {
