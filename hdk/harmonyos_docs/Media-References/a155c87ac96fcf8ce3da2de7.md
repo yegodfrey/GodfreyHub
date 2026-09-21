@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/failcontent-e
 |:---------------------------------------------------------------------|
 |public static class FailContent.ErrorDetail 操作失败的草稿信息，包括草稿ID、错误码、错误信息。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:-----------------------------------------------------------------|
@@ -21,75 +21,75 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/failcontent-e
 |void|[setErrCode](#section13302046131618)(int errCode) 设置错误码。|
 |void|[setErrMsg](#section1469365310160)(String errMsg) 设置失败信息。|
 
-#### Public Methods
+## Public Methods
 
-#### getDraftId
+### getDraftId
 
 |Method|
 |:--------------------------------------|
 |public String getDraftId() 获取操作失败的草稿ID。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:----------|
 |String|操作失败的草稿ID。|
 
-#### getErrCode
+### getErrCode
 
 |Method|
 |:-----------------------------|
 |public int getErrCode() 获取错误码。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:----------------------------------------------------------------------------------------------------------------|
 |int|[错误码](https://developer.huawei.com/consumer/cn/doc/development/Media-References/error-code-api-0000001110802270)。|
 
-#### getErrMsg
+### getErrMsg
 
 |Method|
 |:--------------------------------|
 |public String getErrMsg() 获取失败信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:------------------------------------------------------------------------------------------------------------------------------|
 |String|失败信息。请查看[错误码](https://developer.huawei.com/consumer/cn/doc/development/Media-References/error-code-api-0000001110802270)查找解决方法。|
 
-#### setDraftId
+### setDraftId
 
 |Method|
 |:--------------------------------------------------|
 |public void setDraftId(String draftId) 设置操作失败的草稿ID。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |draftId|操作失败的草稿ID。|
 
-#### setErrCode
+### setErrCode
 
 |Method|
 |:-----------------------------------------|
 |public void setErrCode(int errCode) 设置错误码。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------------------------------------------------------------------------------------------------------------|
 |errCode|[错误码](https://developer.huawei.com/consumer/cn/doc/development/Media-References/error-code-api-0000001110802270)。|
 
-#### setErrMsg
+### setErrMsg
 
 |Method|
 |:-------------------------------------------|
 |public void setErrMsg(String errMsg) 设置失败信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:------------------------------------------------------------------------------------------------------------------------------|

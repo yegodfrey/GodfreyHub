@@ -1,0 +1,26 @@
+---
+name: document/cn/HMSCore-Library/sdk-download-0000001050262860
+title: 华为统一扫码SDK下载（Android版）
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Library/sdk-download-0000001050262860
+---
+
+# 华为统一扫码SDK下载（Android版）
+
+1.0.3.301至2.9.0.300版本的SDK开源软件声明：[Scan Kit Open Source Software Notice.doc](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251128190206.68141065345986391024038390660253:50001231000000:2800:FB284838DDD75A56938372589E1D541F19AEABE50F1CE15DAEBBD620724AEDAC.doc?needInitFileName=true)。
+
+2.10.0.301版本的SDK开源软件声明：[Scan Kit Open Source Software Notice.docx](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251128190206.57018591993001974034520876588480:50001231000000:2800:8AE31AFB0B8E93CBD0800C7B5416F87D0984C3380F92918CDF9F6A0293C34D30.docx?needInitFileName=true)。
+
+2.11.0.300版本的SDK开源软件声明：[Scan Kit Open Source Software Notice.docx](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251128190206.76205402431870071679630496328377:50001231000000:2800:95A5AFC8B50F1BD951DD112E55A4292F443AEA76B716DF3DD0D535EAF47564C7.docx?needInitFileName=true)。
+
+2.12.0.300和2.12.0.301版本的SDK开源软件声明：[Scan Kit Open Source Software Notice.docx](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251128190206.51572286266156828400548687525241:50001231000000:2800:F6EEC6C929C576D0E3E21EE88A2D2D1C8ACBB58DA59901BFA49FF8898168B709.docx?needInitFileName=true)。
+
+2.13.0.301版本的SDK开源软件声明：[Scan Kit Open Source Software Notice.docx](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251128190206.23046821710360244093067431238950:50001231000000:2800:8D002072C1DE94A40FD852D2E6756125A6EBA7354819159AD906F04037AC182F.docx?needInitFileName=true)。
+
+2.13.0.302版本的SDK开源软件声明：[Scan Kit Open Source Software Notice.docx](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251128190206.68282916578898803379426573084574:50001231000000:2800:D9A127D96BA86E6F31F7F7CD31EEFA4EB61D6E307DCB18DA8E2E2608808BACE4.docx?needInitFileName=true)。
+
+2.13.0.303版本的SDK开源软件声明：[Scan Kit Open Source Software Notice.docx](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251128190207.79939501383519311335554863384587:50001231000000:2800:EB7DD7867077EF30494A35E4DC8590080867EAD2984EFC99513E77BA84F3F22C.docx?needInitFileName=true)。
+
+|SDK名称|SDK包|开发者|版本号|主要功能|个人信息处理规则|合规使用说明|校验码|
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------|:------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
+|华为统一扫码SDK（Android版）|针对Android Studio开发环境，华为提供了Maven仓集成方式的SDK包。集成方式请参见[集成SDK](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-integrating-sdk-0000001050042006)。|华为软件技术有限公司|最新版本：2.13.0.303 更多版本：[版本更新说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-version-change-history-0000001050043947)。|华为统一扫码SDK的主要功能介绍请参见[业务介绍](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/service-introduction-0000001050041994)。|SDK如何处理个人信息请参见[华为统一扫码SDK隐私声明](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/sdk-data-security-0000001050043971)。|您集成和使用我们的SDK时需要遵从个人信息保护基本要求，详情请参见[华为统一扫码SDK合规使用指南](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/sdk-compliance-guidelines-0000001654738081)。|已经随版本发布提供，可在SDK包中查看。|
+

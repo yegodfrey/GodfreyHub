@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-guid
 
 # 获取设备的位置信息开发指导(ArkTS)
 
-#### 场景概述
+## 场景概述
 
 开发者可以调用HarmonyOS位置相关接口，获取设备实时位置，或者最近的历史位置，以及监听设备的位置变化。
 
-对于位置敏感的应用业务，建议获取设备实时位置信息。如果不需要设备实时位置信息，并且希望尽可能的节省耗电，开发者可以考虑获取最近的历史位置。  
+对于位置敏感的应用业务，建议获取设备实时位置信息。如果不需要设备实时位置信息，并且希望尽可能的节省耗电，开发者可以考虑获取最近的历史位置。
 
-#### 接口说明
+## 接口说明
 
 获取设备的位置信息所使用的接口如下，详细说明参见Location Kit API参考：[@ohos.geoLocationManager (位置服务)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager)。
 
-本模块能力仅支持WGS-84坐标系。如需转换成其他坐标系，请参考[坐标转换工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-convert-coordinate)。  
+本模块能力仅支持WGS-84坐标系。如需转换成其他坐标系，请参考[坐标转换工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-convert-coordinate)。
 
 |接口名|功能描述|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|
@@ -27,13 +27,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-guid
 |[geoLocationManager.getLastLocation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geolocationmanagergetlastlocation)|获取最近一次定位结果。|
 |[geoLocationManager.isLocationEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geolocationmanagerislocationenabled)|判断位置服务是否已经开启。|
 
-#### 开发步骤
+## 开发步骤
 
 1. 获取设备的位置信息，需要有位置权限，位置权限申请的方法和步骤见[申请位置权限开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-permission-guidelines)。
 
 2. 导入geoLocationManager模块，所有与基础定位能力相关的功能API，都是通过该模块提供的。
 
-   ```
+   ```ts
    import { geoLocationManager } from '@kit.LocationKit';
    ```
 
@@ -41,7 +41,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-guid
 
    查询当前位置开关状态，返回结果为布尔值，true代表位置开关开启，false代表位置开关关闭，示例代码如下：
 
-   ```
+   ```ts
    import { geoLocationManager } from '@kit.LocationKit';
    try {
        let locationEnabled = geoLocationManager.isLocationEnabled();
@@ -61,7 +61,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-guid
 
      如果对位置的新鲜度比较敏感，可以先获取缓存位置，将位置中的时间戳与当前时间对比，若新鲜度不满足预期可以使用方式二获取位置。
 
-     ```
+     ```ts
      import { geoLocationManager } from '@kit.LocationKit';
      import { BusinessError } from '@kit.BasicServicesKit';
      try {
@@ -87,7 +87,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-guid
 
      以快速定位策略(PRIORITY_LOCATING_SPEED)为例，调用方式如下：
 
-     ```
+     ```ts
      import { geoLocationManager } from '@kit.LocationKit';
      import { BusinessError } from '@kit.BasicServicesKit';
      let request: geoLocationManager.SingleLocationRequest = {
@@ -121,7 +121,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-guid
 
    以地图导航场景为例，调用方式如下：
 
-   ```
+   ```ts
    import { geoLocationManager } from '@kit.LocationKit';
    let request: geoLocationManager.ContinuousLocationRequest= {
       'interval': 1,
@@ -139,7 +139,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-guid
 
    如果不主动结束定位可能导致设备功耗高，耗电快；建议在不需要获取定位信息时及时结束定位。
 
-   ```
+   ```ts
    // 该回调函数需要与on接口传入的回调函数保持一致。
    geoLocationManager.off('locationChange', locationCallback);
    ```

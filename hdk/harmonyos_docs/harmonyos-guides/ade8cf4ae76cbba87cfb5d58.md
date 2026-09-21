@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/unittest-guid
 
 # 单元测试框架使用指导
 
-#### 概述
+## 概述
 
 单元测试框架（JsUnit），是自动化测试框架基础底座，提供测试脚本识别、调度、执行和结果汇总的能力。开发者可在测试脚本中调用UI测试框架和白盒性能测试框架接口编写测试用例。
 
-本指南介绍单元测试框架的主要功能、实现原理和开发步骤。  
+本指南介绍单元测试框架的主要功能、实现原理和开发步骤。
 
-#### 框架能力全景
+## 框架能力全景
 
-单元测试框架支持的功能特性如下。  
+单元测试框架支持的功能特性如下。
 
 |特性|功能说明|
 |:-----------------|:-------------------------------------------------|
@@ -24,33 +24,33 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/unittest-guid
 |[数据驱动能力](#数据驱动)|提供数据驱动能力，支持复用同一个测试脚本，使用不同输入数据驱动测试脚本执行。|
 |[专项能力](#命令行执行测试脚本)|支持测试套与用例筛选、随机执行、压力测试、超时设置、遇错即停模式和跳过执行模式。|
 
-图1.单元测试框架主要功能
+**图1.单元测试框架主要功能**
 
-![](https://media:901787900061349542)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/ucFmxFpYRAqwrEdxkCviwQ/zh-cn_image_0000002701641036.png?HW-CC-KV=V1&HW-CC-Date=20260914T073630Z&HW-CC-Expire=31536000000&HW-CC-Sign=EF6FD724C9F412C189E48D0DF04063A325F1617E045D9C7823535A0B87376262)
 
-#### 单元测试框架发布方式
+## 单元测试框架发布方式
 
 单元测试框架以ohpm包独立发布，版本信息详见[服务组件官网](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fhypium)。开发者下载DevEco Studio后，在应用工程中的[oh-package.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5)文件中devDependencies节点中配置版本号即可使用对应版本框架功能。
 
-配置示例
+**配置示例**
 
-```
+```json
 "devDependencies": {
     "@ohos/hypium": "1.0.25"
   }
 ```
 
-#### 基于ArkTS编写和执行测试脚本
+## 基于ArkTS编写和执行测试脚本
 
-#### 搭建环境
+### 搭建环境
 
-测试脚本基于DevEco Studio编写，请下载[DevEco Studio](https://developer.huawei.com/consumer/cn/download/)并完成[hdc配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)。  
+测试脚本基于DevEco Studio编写，请下载[DevEco Studio](https://developer.huawei.com/consumer/cn/download/)并完成[hdc配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)。
 
-#### 新建测试脚本
+### 新建测试脚本
 
-参考[DevEco Studio指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-instrument-test#section36049271219)创建ArkTS测试用例。  
+参考[DevEco Studio指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-instrument-test#section36049271219)创建ArkTS测试用例。
 
-#### 编写单元测试脚本
+### 编写单元测试脚本
 
 一个完整的测试脚本需要包含以下基本元素：
 
@@ -60,7 +60,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/unittest-guid
 
 下面提供一个简单示例，测试场景：启动被测试页面，检查设备当前显示的页面是否为预期启动的页面。
 
-```
+```TypeScript
 import { describe, expect, it, Level, Size, TestType } from '@ohos/hypium';
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility, Want } from '@kit.AbilityKit';
@@ -95,43 +95,43 @@ export default function abilityTest() {
 }
 ```
 
-#### DevEco Studio执行测试脚本
+### DevEco Studio执行测试脚本
 
 连接目标测试设备（如手机），在DevEco Studio页面点击对应按钮执行测试脚本，当前支持以下四种方式：
 
 1. 测试包级别执行，即执行测试包内的全部用例。
-2. 测试类级别执行，即执行\*.ets文件里的所有测试用例。
+2. 测试类级别执行，即执行*.ets文件里的所有测试用例。
 3. 测试套级别执行，即执行describe接口中定义的全部测试用例。
 4. 测试用例级别执行，即执行指定it接口也就是单条测试用例。
 
 下面给出测试类级别即测试文件执行示例，其他请参考[运行模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-instrument-test#section1574003717165)。
 
-![](https://media:901787900061379543)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/5WMrmkoXRAe83x2F4t8s9w/zh-cn_image_0000002731360255.png?HW-CC-KV=V1&HW-CC-Date=20260914T073630Z&HW-CC-Expire=31536000000&HW-CC-Sign=5785092BA408F1BEE39486CF29818E45DE321F4470D0ED76118D2B120B42B046)
 
 * 查看测试结果
 
 测试执行后可直接在DevEco Studio中查看测试结果。
 
-![](https://media:901787900061425544)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/OdaNdS0uSXuvBh4LP30WaA/zh-cn_image_0000002701800952.png?HW-CC-KV=V1&HW-CC-Date=20260914T073630Z&HW-CC-Expire=31536000000&HW-CC-Sign=83C9CBC63D957660BFF83B6CF6538F4A40F8AD2D411F51F5C510387F51D96984)
 
 * 查看测试用例覆盖率
 
-执行测试用例后可以查看测试用例覆盖率，具体操作请参考[覆盖率统计模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-instrument-test#section1989615417457)章节内的内容。  
+执行测试用例后可以查看测试用例覆盖率，具体操作请参考[覆盖率统计模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-instrument-test#section1989615417457)章节内的内容。
 
-#### 命令行执行测试脚本
+### 命令行执行测试脚本
 
 脚本执行需连接硬件设备，开发者安装测试包到连接设备上，在命令行窗口中通过执行aa test命令并设置执行参数，触发执行测试用例。
 
 * aa test工具命令列表
 
-以下是单元测试过程中的常用命令，其他aa test命令及含义说明参考[命令指南说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aa-tool)。  
+以下是单元测试过程中的常用命令，其他aa test命令及含义说明参考[命令指南说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aa-tool)。
 
 |参数|参数说明|示例|
-|:---------------|:-----------------------------------------------------------------|:-------------------------------------------------|
+|:---------------|:---------------------------------------------------------------|:-------------------------------------------------|
 |--bundleName/-b|指定应用Bundle名称。|- b com.test.example|
 |--packageName/-p|指定应用模块名，适用于FA模型应用。|- p com.test.example.entry|
 |--moduleName/-m|指定应用模块名，适用于Stage模型应用。|-m entry|
-|-s|特定参数，以\<key, value\>键值对方式传入。框架支持通过-s参数键值配置多种用例执行方式，-s的参数及对应含义参见下表。|- s unittest /ets/testrunner/OpenHarmonyTestRunner|
+|-s|特定参数，以<key, value>键值对方式传入。框架支持通过-s参数键值配置多种用例执行方式，-s的参数及对应含义参见下表。|- s unittest /ets/testrunner/OpenHarmonyTestRunner|
 
 |参数|参数含义及取值|示例|
 |:-----------|:--------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
@@ -140,85 +140,86 @@ export default function abilityTest() {
 |notClass|排除执行方式，即指定不需要执行的测试套或测试用例。取值为describeName，describeName#itName，其中describeName为测试套名称、itName为测试用例名称。|-s notClass attributeTest#testAttributeIt|
 |itName|筛选执行方式， 指定要执行的测试用例。取值为itName。|-s itName testAttributeIt|
 |timeout|设置测试用例执行的超时时间。取值为正整数（单位ms），默认值：5000。|-s timeout 15000|
-|breakOnError|遇错即停方式，设置是否在用例失败时立即停止测试。取值为true（停止）/false（继续），默认为false。 说明：从@ohos/hypium 1.0.6版本开始支持。|-s breakOnError true|
-|random|随机执行方式，设置为true时随机顺序执行测试用例。取值为true（设置）/false（不设置），默认为false。 说明：从@ohos/hypium 1.0.3版本开始支持。|-s random true|
+|breakOnError|遇错即停方式，设置是否在用例失败时立即停止测试。取值为true（停止）/false（继续），默认为false。 **说明**：从@ohos/hypium 1.0.6版本开始支持。|-s breakOnError true|
+|random|随机执行方式，设置为true时随机顺序执行测试用例。取值为true（设置）/false（不设置），默认为false。 **说明**：从@ohos/hypium 1.0.3版本开始支持。|-s random true|
 |testType|筛选执行方式，指定筛选执行的用例类型。取值为function，performance，power，reliability，security，global，compatibility，user，standard，safety，resilience。|-s testType function|
 |level|筛选执行方式，指定筛选执行的用例级别。取值为0，1，2，3，4。|-s level 0|
 |size|筛选执行方式，指定筛选执行的用例规模。取值为small，medium，large。|-s size small|
-|stress|压力执行方式，指定执行用例的执行次数，设置后框架按照设置次数重复执行。取值为正整数。 说明：从@ohos/hypium 1.0.5版本开始支持。|-s stress 1000|
-|skipMessage|控制显示待执行的测试用例信息全集中，是否包含被设置跳过执行的测试套和用例的信息。取值为true（不显示相关信息）/false（显示相关信息），默认为false。 说明：从@ohos/hypium 1.0.17版本开始支持。|-s skipMessage true|
-|runSkipped|跳过执行方式，指定要执行的跳过测试套\&跳过用例。取值为all，skipped，describeName#itName。 说明：从@ohos/hypium 1.0.17版本开始支持。|-s runSkipped all|
+|stress|压力执行方式，指定执行用例的执行次数，设置后框架按照设置次数重复执行。取值为正整数。 **说明**：从@ohos/hypium 1.0.5版本开始支持。|-s stress 1000|
+|skipMessage|控制显示待执行的测试用例信息全集中，是否包含被设置跳过执行的测试套和用例的信息。取值为true（不显示相关信息）/false（显示相关信息），默认为false。 **说明**：从@ohos/hypium 1.0.17版本开始支持。|-s skipMessage true|
+|runSkipped|跳过执行方式，指定要执行的跳过测试套&跳过用例。取值为all，skipped，describeName#itName。 **说明**：从@ohos/hypium 1.0.17版本开始支持。|-s runSkipped all|
 
 * 执行测试脚本
 
-![](https://media:901787900061456545)  
-下文参数配置和命令示例均基于Stage模型。
+> 说明
+>
+> 下文参数配置和命令示例均基于Stage模型。
+>
+> 执行命令参数需基于@ohos/hypium框架发布版本，且测试应用包需集成该版本，否则命令参数无法响应，具体配置方式参考[发布方式](#单元测试框架发布方式)。
 
-执行命令参数需基于@ohos/hypium框架发布版本，且测试应用包需集成该版本，否则命令参数无法响应，具体配置方式参考[发布方式](#单元测试框架发布方式)。
+**示例代码1**：执行所有测试用例
 
-示例代码1：执行所有测试用例
-
-```
+```shell
  hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner
 ```
 
-示例代码2：执行指定的describe测试套用例，指定多个需用逗号隔开
+**示例代码2**：执行指定的describe测试套用例，指定多个需用逗号隔开
 
-```
+```shell
   hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s class s1,s2
 ```
 
-示例代码3：执行指定测试套中指定的用例，指定多个需用逗号隔开
+**示例代码3**：执行指定测试套中指定的用例，指定多个需用逗号隔开
 
-```
+```shell
   hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s class testStop#stop_1,testStop1#stop_0
 ```
 
-示例代码4：执行除指定配置外的所有用例，设置不执行多个测试套需用逗号隔开
+**示例代码4**：执行除指定配置外的所有用例，设置不执行多个测试套需用逗号隔开
 
-```
+```shell
   hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s notClass testStop
 ```
 
-示例代码5：执行指定it名称的所有用例，指定多个需用逗号隔开
+**示例代码5**：执行指定it名称的所有用例，指定多个需用逗号隔开
 
-```
+```shell
   hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s itName stop_0
 ```
 
-示例代码6：用例执行超时时长配置
+**示例代码6**：用例执行超时时长配置
 
-```
+```shell
   hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s timeout 15000
 ```
 
-示例代码7：用例以遇错即停模式执行用例
+**示例代码7**：用例以遇错即停模式执行用例
 
-```
+```shell
   hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s breakOnError true
 ```
 
-示例代码8：执行测试类型匹配的测试用例
+**示例代码8**：执行测试类型匹配的测试用例
 
-```
+```shell
   hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s testType function
 ```
 
-示例代码9：执行测试级别匹配的测试用例
+**示例代码9**：执行测试级别匹配的测试用例
 
-```
+```shell
   hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s level 0
 ```
 
-示例代码10：执行测试规模匹配的测试用例
+**示例代码10**：执行测试规模匹配的测试用例
 
-```
+```shell
   hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s size small
 ```
 
-示例代码11：执行测试用例指定次数
+**示例代码11**：执行测试用例指定次数
 
-```
+```shell
   hdc shell aa test -b xxx -m xxx -s unittest OpenHarmonyTestRunner -s stress 1000
 ```
 
@@ -226,7 +227,7 @@ export default function abilityTest() {
 
 1. 在命令行模式执行过程中，框架会打印如下日志信息。
 
-   ```
+   ```txt
    OHOS_REPORT_STATUS: class=ActsAbilityTest
    OHOS_REPORT_STATUS: current=1
    OHOS_REPORT_STATUS: id=JS
@@ -258,7 +259,7 @@ export default function abilityTest() {
 
 2. 命令行执行完成后，框架会打印如下相关日志信息。
 
-   ```
+   ```txt
    OHOS_REPORT_RESULT: stream=Tests run: 447, Failure: 0, Error: 1, Pass: 201, Ignore: 245
    OHOS_REPORT_CODE: 0
 
@@ -275,34 +276,35 @@ export default function abilityTest() {
    |Ignore|当前未执行用例数量。|
    |taskconsuming|执行当前测试用例总耗时（ms）。|
 
-   ![](https://media:901787900061490546)  
-当按照遇错即停方式执行时，用例发生错误时，注意查看Ignore字段以及错误中断时的提示信息。  
+   > 说明
+   >
+   > 当按照遇错即停方式执行时，用例发生错误时，注意查看Ignore字段以及错误中断时的提示信息。
 
-#### 单元测试框架能力使用说明
+## 单元测试框架能力使用说明
 
-#### 基础流程能力
+### 基础流程能力
 
-单元测试框架提供执行测试脚本所需的基础流程接口，开发者需要实现相关接口，框架侧在运行时通过基础流程接口识别测试用例，调度执行并汇总测试结果。当前支持的基础流程接口如下表所示：  
+单元测试框架提供执行测试脚本所需的基础流程接口，开发者需要实现相关接口，框架侧在运行时通过基础流程接口识别测试用例，调度执行并汇总测试结果。当前支持的基础流程接口如下表所示：
 
 |接口名|功能说明|
-|:----------------|:----------------------------------------------------------------------------------------------------|
+|:----------------|:--------------------------------------------------------------------------------------------------------|
 |describe|定义一个测试套，测试套中可以定义多个测试用例函数，但不支持异步函数。|
 |it|定义一条测试用例。|
 |beforeAll|在测试套内定义一个预置条件，在所有测试用例开始前执行且仅执行一次。|
 |beforeEach|在测试套内定义一个预置条件，在每条测试用例开始前执行，执行次数与it定义的测试用例数一致。|
-|beforeEachIt|在测试套内定义一个单元预置条件，在每条测试用例开始前执行。 外层测试套定义的beforeEachIt会在内部测试套中的测试用例执行前执行。 说明：从@ohos/hypium 1.0.25版本开始支持。|
+|beforeEachIt|在测试套内定义一个单元预置条件，在每条测试用例开始前执行。 外层测试套定义的beforeEachIt会在内部测试套中的测试用例执行前执行。 **说明**：从@ohos/hypium 1.0.25版本开始支持。|
 |afterEach|在测试套内定义一个单元清理条件，在每条测试用例结束后执行，执行次数与it定义的测试用例数一致。|
-|afterEachIt|在测试套内定义一个单元预置条件，在每条测试用例结束后执行。 外层测试套定义的afterEachIt会在内部测试套中的测试用例执行结束后执行。 说明：从@ohos/hypium 1.0.25版本开始支持。|
+|afterEachIt|在测试套内定义一个单元预置条件，在每条测试用例结束后执行。 外层测试套定义的afterEachIt会在内部测试套中的测试用例执行结束后执行。 **说明**：从@ohos/hypium 1.0.25版本开始支持。|
 |afterAll|在测试套内定义一个清理条件，在所有测试用例结束后执行且仅执行一次。|
-|beforeItSpecified|在测试套内定义一个单元预置条件，仅在指定测试用例开始前执行。 说明：从@ohos/hypium 1.0.15版本开始支持。|
-|afterItSpecified|在测试套内定义一个单元清理条件，仅在指定测试用例结束后执行。 说明：从@ohos/hypium 1.0.15版本开始支持。|
+|beforeItSpecified|在测试套内定义一个单元预置条件，仅在指定测试用例开始前执行。 **说明**：从@ohos/hypium 1.0.15版本开始支持。|
+|afterItSpecified|在测试套内定义一个单元清理条件，仅在指定测试用例结束后执行。 **说明**：从@ohos/hypium 1.0.15版本开始支持。|
 |expect|支持bool类型判断等多种断言能力。|
-|xdescribe|定义一个跳过的测试套，测试套中可以定义多个测试用例函数，但不支持异步函数。 说明：从@ohos/hypium 1.0.17版本开始支持。|
-|xit|定义一条跳过的测试用例。 说明：从@ohos/hypium 1.0.17版本开始支持。|
+|xdescribe|定义一个跳过的测试套，测试套中可以定义多个测试用例函数，但不支持异步函数。 **说明**：从@ohos/hypium 1.0.17版本开始支持。|
+|xit|定义一条跳过的测试用例。 **说明**：从@ohos/hypium 1.0.17版本开始支持。|
 
-示例代码1：beforeAll/beforeEach/afterEach/afterAll使用示例
+**示例代码1**：beforeAll/beforeEach/afterEach/afterAll使用示例
 
-```
+```TypeScript
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, Level } from '@ohos/hypium';
 
 export default function exampleTest() {
@@ -348,9 +350,9 @@ export default function exampleTest() {
 }
 ```
 
-示例代码2：beforeItSpecified/afterItSpecified使用示例，从1.0.15版本开始支持
+**示例代码2**：beforeItSpecified/afterItSpecified使用示例，从1.0.15版本开始支持
 
-```
+```TypeScript
 import { afterItSpecified, beforeItSpecified, describe, expect, it, Level } from '@ohos/hypium';
 
 export default function exampleTest() {
@@ -381,9 +383,9 @@ export default function exampleTest() {
 }
 ```
 
-示例代码3：xit使用示例，从1.0.17版本开始支持
+**示例代码3**：xit使用示例，从1.0.17版本开始支持
 
-```
+```TypeScript
 import { describe, it, Level, xit } from '@ohos/hypium';
 
 export default function describeExampleTest() {
@@ -400,9 +402,9 @@ export default function describeExampleTest() {
 }
 ```
 
-示例代码4：beforeEachIt/afterEachIt使用示例，从1.0.25版本开始支持
+**示例代码4**：beforeEachIt/afterEachIt使用示例，从1.0.25版本开始支持
 
-```
+```TypeScript
 import { describe, beforeEach, afterEach, beforeEachIt, afterEachIt, it, expect } from '@ohos/hypium';
 let str = "";
 export default function test() {
@@ -437,12 +439,12 @@ export default function test() {
 }
 ```
 
-#### 断言能力
+### 断言能力
 
-单元测试框架提供了丰富的断言接口，供开发者在不同测试场景下使用，详细接口可查看下表。  
+单元测试框架提供了丰富的断言接口，供开发者在不同测试场景下使用，详细接口可查看下表。
 
 |接口名|功能说明|
-|:-------------------------------|:----------------------------------------------------------------------|
+|:-------------------------------|:--------------------------------------------------------------------------|
 |assertClose|检验实际值和预期值之间的数值差异是否在指定的允许误差范围内。|
 |assertContain|检验实际值中是否包含预期值。|
 |assertEqual|检验实际值是否等于预期值。|
@@ -457,21 +459,21 @@ export default function test() {
 |assertNull|检验实际值是否是null。|
 |assertThrowError|检验实际值抛出Error内容是否为预期的异常类型。|
 |assertUndefined|检验实际值是否是undefined。|
-|assertNaN|检验实际值是否是NaN。 说明：从@ohos/hypium 1.0.4版本开始支持。|
-|assertNegUnlimited|检验实际值是否等于Number.NEGATIVE_INFINITY。 说明：从@ohos/hypium 1.0.4版本开始支持。|
-|assertPosUnlimited|检验实际值是否等于Number.POSITIVE_INFINITY。 说明：从@ohos/hypium 1.0.4版本开始支持。|
-|assertDeepEquals|检验实际值和预期值是否完全相等。 说明：从@ohos/hypium 1.0.4版本开始支持。|
-|assertPromiseIsPending|检验Promise是否处于Pending状态。 说明：从@ohos/hypium 1.0.4版本开始支持。|
-|assertPromiseIsRejected|检验Promise是否处于Rejected状态。 说明：从@ohos/hypium 1.0.4版本开始支持。|
-|assertPromiseIsRejectedWith|检验Promise是否处于Rejected状态，并且比较执行的结果值。 说明：从@ohos/hypium 1.0.4版本开始支持。|
-|assertPromiseIsRejectedWithError|检验Promise是否处于Rejected状态并包含异常，比较异常类型和异常信息。 说明：从@ohos/hypium 1.0.4版本开始支持。|
-|assertPromiseIsResolved|检验Promise是否处于Resolved状态。 说明：从@ohos/hypium 1.0.4版本开始支持。|
-|assertPromiseIsResolvedWith|检验Promise是否处于Resolved状态并比较结果值。 说明：从@ohos/hypium 1.0.4版本开始支持。|
-|not|断言取反，支持上述所有断言功能。 说明：从@ohos/hypium 1.0.4版本开始支持。|
+|assertNaN|检验实际值是否是NaN。 **说明**：从@ohos/hypium 1.0.4版本开始支持。|
+|assertNegUnlimited|检验实际值是否等于Number.NEGATIVE_INFINITY。 **说明**：从@ohos/hypium 1.0.4版本开始支持。|
+|assertPosUnlimited|检验实际值是否等于Number.POSITIVE_INFINITY。 **说明**：从@ohos/hypium 1.0.4版本开始支持。|
+|assertDeepEquals|检验实际值和预期值是否完全相等。 **说明**：从@ohos/hypium 1.0.4版本开始支持。|
+|assertPromiseIsPending|检验Promise是否处于Pending状态。 **说明**：从@ohos/hypium 1.0.4版本开始支持。|
+|assertPromiseIsRejected|检验Promise是否处于Rejected状态。 **说明**：从@ohos/hypium 1.0.4版本开始支持。|
+|assertPromiseIsRejectedWith|检验Promise是否处于Rejected状态，并且比较执行的结果值。 **说明**：从@ohos/hypium 1.0.4版本开始支持。|
+|assertPromiseIsRejectedWithError|检验Promise是否处于Rejected状态并包含异常，比较异常类型和异常信息。 **说明**：从@ohos/hypium 1.0.4版本开始支持。|
+|assertPromiseIsResolved|检验Promise是否处于Resolved状态。 **说明**：从@ohos/hypium 1.0.4版本开始支持。|
+|assertPromiseIsResolvedWith|检验Promise是否处于Resolved状态并比较结果值。 **说明**：从@ohos/hypium 1.0.4版本开始支持。|
+|not|断言取反，支持上述所有断言功能。 **说明**：从@ohos/hypium 1.0.4版本开始支持。|
 
-示例代码：
+**示例代码**：
 
-```
+```TypeScript
 import { describe, expect, it, Level } from '@ohos/hypium';
 
 export default function exampleTest() {
@@ -638,29 +640,30 @@ interface PromiseInfo {
 }
 ```
 
-#### Mock能力
+### Mock能力
 
-从@ohos/hypium 1.0.1版本开始，单元测试框架支持Mock能力。配置方式参考上文[发布方式](#单元测试框架发布方式)。  
-![](https://media:901787900061520547)  
-仅支持Mock应用工程中自定义对象，不支持Mock系统API对象。如需Mock系统API，请参考[系统模块Mock指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-test-mock#section8353132513310)。
+从@ohos/hypium 1.0.1版本开始，单元测试框架支持Mock能力。配置方式参考上文[发布方式](#单元测试框架发布方式)。
+> 说明
+>
+> 仅支持Mock应用工程中自定义对象，不支持Mock系统API对象。如需Mock系统API，请参考[系统模块Mock指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-test-mock#section8353132513310)。
 
-基础类
+**基础类**
 
-MockKit是Mock的基础类，用于指定需要Mock的实例和函数。  
+MockKit是Mock的基础类，用于指定需要Mock的实例和函数。
 
 |接口名|功能说明|
-|:--------------|:-----------------------------------------------|
+|:--------------|:---------------------------------------------------|
 |mockFunc|Mock某个类实例中的函数，支持使用异步函数。|
-|mockPrivateFunc|Mock某个类的实例上的私有方法。 说明：从@ohos/hypium 1.0.25版本开始支持。|
-|mockProperty|Mock某个类的实例上的属性。 说明：从@ohos/hypium 1.0.25版本开始支持。|
+|mockPrivateFunc|Mock某个类的实例上的私有方法。 **说明**：从@ohos/hypium 1.0.25版本开始支持。|
+|mockProperty|Mock某个类的实例上的属性。 **说明**：从@ohos/hypium 1.0.25版本开始支持。|
 |verify|验证函数在对应参数下的执行行为是否符合预期，返回一个VerificationMode类。|
 |ignoreMock|使用ignoreMock可以还原实例中被Mock后的函数，对被Mock后的函数有效。|
 |clear|用例执行完毕后，对被Mock对象实例进行还原处理（还原之后对象恢复被Mock之前的功能）。|
 |clearAll|用例执行完毕后，进行数据和内存清理，不会还原实例中被Mock后的函数。|
 
-VerificationMode
+**VerificationMode**
 
-VerificationMode用于验证被Mock函数的被调用次数，需同verify函数结合使用。  
+VerificationMode用于验证被Mock函数的被调用次数，需同verify函数结合使用。
 
 |接口名|功能说明|
 |:------|:----------------|
@@ -670,15 +673,15 @@ VerificationMode用于验证被Mock函数的被调用次数，需同verify函数
 |atMost|验证函数最多被调用的次数符合预期。|
 |never|验证函数从未被调用过。|
 
-when
+**when**
 
-when是一个函数，用于设置函数期望被Mock的值。  
+when是一个函数，用于设置函数期望被Mock的值。
 
 |接口名|功能说明|
 |:---|:----------------------------------------------------|
 |when|对传入后函数做检查，检查是否被Mock并标记过，返回一个内置函数，函数执行后返回一个类用于设置Mock值。|
 
-使用when函数之后，需使用如下函数设置函数被Mock后的返回值。  
+使用when函数之后，需使用如下函数设置函数被Mock后的返回值。
 
 |接口名|功能说明|
 |:-----------------|:--------------------------------|
@@ -687,9 +690,9 @@ when是一个函数，用于设置函数期望被Mock的值。
 |afterAction|设定预期返回一个函数执行的操作。|
 |afterThrow|设定预期抛出异常，并指定异常描述信息。|
 
-ArgumentMatchers相关接口
+**ArgumentMatchers相关接口**
 
-ArgumentMatchers用于用户自定义函数参数，当开发者想基于某类规则设定预期返回值时，可以使用。它以枚举值或函数的形式提供给开发者使用。  
+ArgumentMatchers用于用户自定义函数参数，当开发者想基于某类规则设定预期返回值时，可以使用。它以枚举值或函数的形式提供给开发者使用。
 
 |枚举名|功能说明|
 |:----------|:-----------------------------------------------------------------------|
@@ -704,14 +707,15 @@ ArgumentMatchers用于用户自定义函数参数，当开发者想基于某类�
 |:----------|:-------------------------------------------------------------------------|
 |matchRegexs|设定用户传任何符合正则表达式验证的参数，执行的结果都是预期的值，使用ArgumentMatchers.matchRegexs(Regex)方式调用。|
 
-![](https://media:901787900061559548)  
-使用Mock能力时必须导入Mock能力模块： MockKit，when，开发者可根据实际需求导入对应模块。
+> 说明
+>
+> 使用Mock能力时必须导入Mock能力模块： MockKit，when，开发者可根据实际需求导入对应模块。
+>
+> 例如：import { describe, expect, it, MockKit, when} from '@ohos/hypium'
 
-例如：import { describe, expect, it, MockKit, when} from '@ohos/hypium'
+**示例代码1**：使用afterReturn/afterReturnNothing设置预期返回值
 
-示例代码1：使用afterReturn/afterReturnNothing设置预期返回值
-
-```
+```TypeScript
 import { describe, expect, it, MockKit, when } from '@ohos/hypium';
 
 class ClassName {
@@ -743,9 +747,9 @@ export default function afterReturnTest() {
 }
 ```
 
-示例代码2：使用ArgumentMatchers设定参数类型为any即接受任何参数（undefined和null除外）
+**示例代码2**：使用ArgumentMatchers设定参数类型为any即接受任何参数（undefined和null除外）
 
-```
+```TypeScript
 import { ArgumentMatchers, describe, expect, it, MockKit, when } from '@ohos/hypium';
 
 class ClassName {
@@ -777,9 +781,9 @@ export default function argumentMatchersAnyTest() {
 }
 ```
 
-示例代码3：使用ArgumentMatchers设定参数类型为String
+**示例代码3**：使用ArgumentMatchers设定参数类型为String
 
-```
+```TypeScript
 import { ArgumentMatchers, describe, expect, it, MockKit, when } from '@ohos/hypium';
 
 class ClassName {
@@ -810,9 +814,9 @@ export default function argumentMatchersTest() {
 }
 ```
 
-示例代码4：使用ArgumentMatchers设定参数类型为matchRegexs（Regex）即正则表达式
+**示例代码4**：使用ArgumentMatchers设定参数类型为matchRegexs（Regex）即正则表达式
 
-```
+```TypeScript
 import { ArgumentMatchers, describe, expect, it, MockKit, when } from '@ohos/hypium';
 
 class ClassName {
@@ -842,9 +846,9 @@ export default function matchRegexsTest() {
 }
 ```
 
-示例代码5：使用verify函数验证被Mock函数在对应参数下的执行行为是否符合预期
+**示例代码5**：使用verify函数验证被Mock函数在对应参数下的执行行为是否符合预期
 
-```
+```TypeScript
 import { describe, it, MockKit } from '@ohos/hypium';
 
 class ClassName {
@@ -886,9 +890,9 @@ export default function verifyTest() {
 }
 ```
 
-示例代码6：使用ignoreMock函数还原指定被Mock函数实现
+**示例代码6**：使用ignoreMock函数还原指定被Mock函数实现
 
-```
+```TypeScript
 import { ArgumentMatchers, describe, expect, it, MockKit, when } from '@ohos/hypium';
 
 class ClassName {
@@ -930,9 +934,9 @@ export default function ignoreMockTest() {
 }
 ```
 
-示例代码7：使用clear函数还原类中所有被Mock函数原有实现
+**示例代码7**：使用clear函数还原类中所有被Mock函数原有实现
 
-```
+```TypeScript
 import { ArgumentMatchers, describe, expect, it, MockKit, when } from '@ohos/hypium';
 
 class ClassName {
@@ -975,9 +979,9 @@ export default function clearTest() {
 }
 ```
 
-示例代码8：使用afterThrow函数抛出指定异常信息
+**示例代码8**：使用afterThrow函数抛出指定异常信息
 
-```
+```TypeScript
 import { describe, expect, it, MockKit, when } from '@ohos/hypium';
 
 class ClassName {
@@ -1011,9 +1015,9 @@ export default function afterThrowTest() {
 }
 ```
 
-示例代码9：Mock异步返回Promise对象
+**示例代码9**：Mock异步返回Promise对象
 
-```
+```TypeScript
 import { describe, expect, it, MockKit, when } from '@ohos/hypium';
 
 class ClassName {
@@ -1051,9 +1055,9 @@ export default function mockPromiseTest() {
 }
 ```
 
-示例代码10：使用times/atLeast函数验证被Mock函数调用次数
+**示例代码10**：使用times/atLeast函数验证被Mock函数调用次数
 
-```
+```TypeScript
 import { describe, it, MockKit, when } from '@ohos/hypium';
 
 class ClassName {
@@ -1093,9 +1097,9 @@ export default function verifyTimesTest() {
 }
 ```
 
-示例代码11：Mock静态函数（从@ohos/hypium 1.0.16版本开始支持）
+**示例代码11**：Mock静态函数（从@ohos/hypium 1.0.16版本开始支持）
 
-```
+```TypeScript
 import { ArgumentMatchers, describe, expect, it, MockKit, when } from '@ohos/hypium';
 
 class ClassName {
@@ -1129,9 +1133,9 @@ export default function staticTest() {
 }
 ```
 
-示例代码12：Mock私有函数（从@ohos/hypium 1.0.25版本开始支持）
+**示例代码12**：Mock私有函数（从@ohos/hypium 1.0.25版本开始支持）
 
-```
+```TypeScript
 import { describe, it, expect, MockKit, when, ArgumentMatchers } from '@ohos/hypium';
 
 class ClassName {
@@ -1168,9 +1172,9 @@ export default function staticTest() {
 }
 ```
 
-示例代码13：Mock成员变量（从@ohos/hypium 1.0.25版本开始支持）
+**示例代码13**：Mock成员变量（从@ohos/hypium 1.0.25版本开始支持）
 
-```
+```TypeScript
 import { describe, it, expect, MockKit, when, ArgumentMatchers } from '@ohos/hypium';
 
 class ClassName {
@@ -1213,17 +1217,18 @@ export default function staticTest() {
 }
 ```
 
-#### 数据驱动
+### 数据驱动
 
 单元测试框架的数据驱动能力从[@ohos/hypium 1.0.2版本](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fhypium)开始支持。开发者可以复用测试用例代码，通过数据配置文件配置输入数据和预期结果数据，在用例实现中获取数据进行相应实现和断言处理，减少冗余测试代码。
 
-数据驱动能力可以根据测试数据配置来驱动测试用例的执行次数和每次执行时传入的参数，使用时依赖data.json配置文件，文件内容如下：  
-![](https://media:901787900061583549)  
-data.json与测试用例\*.test.js或\*.test.ets文件同目录。
+数据驱动能力可以根据测试数据配置来驱动测试用例的执行次数和每次执行时传入的参数，使用时依赖data.json配置文件，文件内容如下：
+> 说明
+>
+> data.json与测试用例*.test.js或*.test.ets文件同目录。
+>
+> data.json文件中的参数配置名称需同测试用例中定义参数名称保持一致。
 
-data.json文件中的参数配置名称需同测试用例中定义参数名称保持一致。
-
-```
+```json
 {
   "suites": [{
     "describe": ["paramExampleTest"],
@@ -1249,7 +1254,7 @@ data.json文件中的参数配置名称需同测试用例中定义参数名称�
 }
 ```
 
-配置参数说明：  
+配置参数说明：
 
 |配置项名称|功能|必填|
 |:---------|:----------------|:-|
@@ -1260,11 +1265,11 @@ data.json文件中的参数配置名称需同测试用例中定义参数名称�
 |"params"|测试套/测试用例可传入使用的参数。|否|
 |"stress"|测试套/测试用例指定执行次数。|否|
 
-示例代码
+**示例代码**
 
 Stage模型在测试工程中的TestAbility目录下TestAbility.ets文件中导入data.json（FA模型在测试工程中的TestAbility目录下的app.js或app.ets文件中导入data.json），并在文件中的Hypium.hypiumTest()函数执行前设置参数数据，参考下面示例代码。
 
-```
+```TypeScript
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { Hypium } from '@ohos/hypium';
@@ -1289,7 +1294,7 @@ export default class TestAbility extends UIAbility {
   }
 ```
 
-```
+```TypeScript
 import { describe, it } from '@ohos/hypium';
 
 export default function abilityTest() {
@@ -1309,47 +1314,49 @@ interface ParamObj {
 }
 ```
 
-![](https://media:901787900061616550)  
-若要使用数据驱动传入参数功能，测试用例it的func必须传入两个参数：done和data，且入参顺序不可调整。若不使用数据驱动传入参数功能，func可以不传参或仅传入done。  
+> 说明
+>
+> 若要使用数据驱动传入参数功能，测试用例it的func必须传入两个参数：done和data，且入参顺序不可调整。若不使用数据驱动传入参数功能，func可以不传参或仅传入done。
 
-#### 专项能力
+### 专项能力
 
-专项能力提供脚本执行配置能力，包括筛选执行、压力执行、随机执行等，通过命令行方式执行，具体用法请参考[命令行执行测试脚本](#命令行执行测试脚本)章节介绍。  
+专项能力提供脚本执行配置能力，包括筛选执行、压力执行、随机执行等，通过命令行方式执行，具体用法请参考[命令行执行测试脚本](#命令行执行测试脚本)章节介绍。
 
-#### 单元测试框架常见问题
+## 单元测试框架常见问题
 
-用例中增加的打印日志在用例结果之后才打印
+**用例中增加的打印日志在用例结果之后才打印**
 
-问题描述
+**问题描述**
 
 用例中新增的日志打印信息未在执行过程中出现，而是在执行结束之后才显示。
 
-可能原因
+**可能原因**
 
 此类情况仅在用例调用异步接口时出现。为确保日志正确捕获执行过程，用例中所有日志信息必须在用例执行结束前打印。
 
-解决方法
+**解决方法**
 
 当被调用的异步接口数量超过两个时，建议将接口调用封装成Promise方式调用。
 
-执行用例时报用例超时错误
+**执行用例时报用例超时错误**
 
-问题描述
+**问题描述**
 
 用例执行结束，控制台提示execute time XXms错误，即用例执行超时。
 
-可能原因
+**可能原因**
 
 1. 用例执行异步接口时，如果未调用done函数，会导致用例无法正常结束，最终超时。
 2. 用例调用函数耗时过长，超过用例执行设置的超时时间（默认5000ms）。
 3. 用例调用函数时断言失败抛出异常，导致用例执行超时终止。
 
-解决方法
+**解决方法**
 
 1. 检查用例代码逻辑，确保断言失败时能走到done函数，完成用例执行。
 2. 可在DevEco Studio的Run/Debug Configurations中修改用例执行超时参数，避免执行超时。
-3. 检查用例代码逻辑，确保断言通过。  
+3. 检查用例代码逻辑，确保断言通过。
 
-#### 完整示例
+## 完整示例
 
-[测试框架](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/Test/jsunit)  
+[测试框架](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/Test/jsunit)
+

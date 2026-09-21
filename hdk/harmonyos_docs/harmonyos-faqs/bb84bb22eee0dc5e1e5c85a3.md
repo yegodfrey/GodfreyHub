@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-490
 
 1、可以通过设置offset来实现贴边。
 
-```
+```screen
 @Entry
 @Component
 struct CustomDialogPage {
@@ -69,4 +69,5 @@ export struct CustomEditDialogWidget {
 }
 ```
 
-2、还可以通过设置keyboardAvoidDistance来实现和键盘贴边，示例参见：[设置弹出框避让软键盘的距离](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-custom-dialog#设置弹出框避让软键盘的距离)。  
+2、还可以通过设置keyboardAvoidDistance来实现和键盘贴边，示例参见：[设置弹出框避让软键盘的距离](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-custom-dialog#设置弹出框避让软键盘的距离)。
+

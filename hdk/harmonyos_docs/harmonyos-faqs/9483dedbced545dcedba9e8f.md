@@ -6,22 +6,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
 
 # 识别和解决NodeController节点迁移双挂与卡顿问题
 
-#### 问题现象
+## 问题现象
 
 * 场景一：节点双挂导致UI渲染异常。 在组件树中，当一个自定义节点被同时挂载到多个父节点下，会导致UI渲染异常（如UI不显示、白块等）。该问题可通过以下方式确认：
 
   1. hilog日志确认：
 
-     ```
+     ```txt
      Add [id:9][tag:Column] to [id:11][tag:NodeContainer] with previous parent [id:8][tag:NodeContainer]
      ```
 
-  2. ArkUI Inspector工具可视化确认： ![](https://media:201787709402519156)
+  2. ArkUI Inspector工具可视化确认： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/opOTNxmpQlmeu-WLBYY3oQ/zh-cn_image_0000002688056748.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=442DDF1F4C223FAF5AD2447354FE55E96C96B284CA74C0276408BB52180A8798)
 
      如图所示，通过工具可直观看到Column(9)同时被挂载NodeContainer(8)和NodeContainer(11)，形成节点的双挂现象。
 * 场景二：NodeController节点迁移调用reuse()导致卡顿。 在使用NodeController对Web组件等复杂节点进行上下树操作时，如果节点迁移过程中调用了reuse()方法，会触发自定义组件的aboutToReuse回调，导致不必要的重建和更新，从而出现卡顿现象。典型的问题伪代码如下：
 
-  ```
+  ```ts
   interface EventParams {
     NAME: string;
     VALUE: string;
@@ -29,11 +29,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
   }
 
   export class CashierNodeController extends NodeController {
-    /** 内部 BuilderNode，持有组件 */
+  /** 内部 BuilderNode，持有组件 */
     private builderNode: BuilderNode<[Object]> | null = null
-    /** 当前 URL */
+  /** 当前 URL */
     private url: string = ''
-    /** 来源 */
+   /** 来源 */
     private from: string | undefined = undefined
     /** 是否已初始化数据 */
     private hasData: boolean = false
@@ -43,25 +43,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
       FROM: ''
     };
 
-    /**
-     * 设置收银台数据（URL + from）
-     * 在 openVipMultiKuflix 时调用
-     */
+   /**
+  * 设置收银台数据（URL + from）
+  * 在 openVipMultiKuflix 时调用
+  */
     setData(url: string, from: string | undefined): void {
       this.url = url
       this.from = from
       this.hasData = true
 
-      // 如果BuilderNode已存在，直接更新
+    // 如果BuilderNode已存在，直接更新
       if (this.builderNode) {
         const params = this.buildParams()
         this.builderNode.update(params)
       }
     }
 
-    /**
-     * 构建参数 Map
-     */
+   /**
+  * 构建参数 Map
+  */
     private buildParams(): Map<string, string> {
       const params: Map<string, string> = new Map()
       params.set(this.eventParams.NAME, 'vip_weex_url')
@@ -72,55 +72,55 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
       return params
     }
 
-    /**
-     * NodeController 必须实现的方法
-     * 首次调用时 build() 创建，后续 FrameNode 重新附着到新 NodeContainer 时
-     * 调用 reuse() 跳过组件 aboutToDisappear/aboutToAppear 重建
-     */
+  /**
+  * NodeController 必须实现的方法
+  * 首次调用时 build() 创建，后续 FrameNode 重新附着到新 NodeContainer 时
+  * 调用 reuse() 跳过组件 aboutToDisappear/aboutToAppear 重建
+  */
     makeNode(uiContext: UIContext): FrameNode | null {
       if (!this.hasData) {
         return null
       }
 
       if (!this.builderNode) {
-        // 首次创建
+     // 首次创建
         this.builderNode = new BuilderNode(uiContext)
         const params = this.buildParams()
         this.builderNode.build(wrapBuilder(MultiScreenCashierViewBuilder), params)
       } else {
-        // 重新附着到新NodeContainer（横竖屏切换）：reuse跳过组件重建
+       // 重新附着到新NodeContainer（横竖屏切换）：reuse跳过组件重建
         const params = this.buildParams()
         this.builderNode.reuse(params)
       }
       return this.builderNode.getFrameNode()
     }
 
-    /**
-     * 获取当前 URL
-     */
+   /**
+  * 获取当前 URL
+  */
     getUrl(): string {
       return this.url
     }
 
-    /**
-     * 获取当前 from
-     */
+  /**
+  * 获取当前 from
+  */
     getFrom(): string | undefined {
       return this.from
     }
 
-    /**
-     * NodeContainer 移除时回调
-     * 不销毁 BuilderNode，因为 FrameNode 需要被另一个 NodeContainer 接管
-     */
+   /**
+  * NodeContainer 移除时回调
+  * 不销毁 BuilderNode，因为 FrameNode 需要被另一个 NodeContainer 接管
+  */
     aboutToDisappear(): void {
       // 子母屏↔半屏切换时NodeContainer会被移除，但FrameNode不应销毁
-      // 此处不做dispose，由外部显式调用dispose()来释放
+  // 此处不做dispose，由外部显式调用dispose()来释放
     }
 
-    /**
-     * 释放资源
-     */
+   /**
+  * 释放资源
+  */
     dispose(): void {
       this.builderNode?.dispose()
       this.builderNode = null
@@ -134,14 +134,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
   }
   ```
 
-上述代码中，makeNode()方法在BuilderNode已存在时调用了reuse()，这会在节点迁移时触发aboutToReuse回调，导致组件重建和卡顿。  
+  上述代码中，makeNode()方法在BuilderNode已存在时调用了reuse()，这会在节点迁移时触发aboutToReuse回调，导致组件重建和卡顿。
 
-#### 背景知识
+## 背景知识
 
 * [NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)：作为容器节点存在，用于挂载自定义节点（如[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)或[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)），并通过[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)动态控制节点的挂载和卸载。
-* NodeController：管理自定义节点的生命周期，包括创建、显示、更新和销毁。NodeController通常搭配NodeContainer进行使用。一个NodeController只允许与一个NodeContainer进行绑定。此外，通过调用NodeController的[rebuild](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller#rebuild)方法通知NodeContainer组件重新回调[makeNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller#makenode)方法，更新子节点。  
+* NodeController：管理自定义节点的生命周期，包括创建、显示、更新和销毁。NodeController通常搭配NodeContainer进行使用。一个NodeController只允许与一个NodeContainer进行绑定。此外，通过调用NodeController的[rebuild](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller#rebuild)方法通知NodeContainer组件重新回调[makeNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller#makenode)方法，更新子节点。
 
-#### 解决方案
+## 解决方案
 
 * 场景一：实现BuilderNode在不同NodeContainer间的迁移。 节点双挂问题的原因在于单个自定义节点（如BuilderNode）实例被多个NodeController引用并同时尝试挂载到不同的NodeContainer。这违反了每个节点只能有一个父节点的原则。
 
@@ -158,7 +158,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
 
   步骤一：创建自定义NodeController。
 
-  ```
+  ```ts
   import { BuilderNode, NodeController } from '@kit.ArkUI';
 
   // 用于控制和反馈对应的NodeContainer上的节点的行为，需要与NodeContainer一起使用
@@ -172,7 +172,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
     }
 
     makeNode(): FrameNode | null {
-      // 返回要挂载到NodeContainer的根节点
+    // 返回要挂载到NodeContainer的根节点
       return this.rootNode;
     }
 
@@ -180,7 +180,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
     attachContent(): void {
       if (this.builderNode) {
         let frameNode: FrameNode | null = this.builderNode.getFrameNode();
-        // 关键检查：确保节点未被挂载到其他父节点
+       // 关键检查：确保节点未被挂载到其他父节点
         if (frameNode?.getParent() != null) {
           return; // 节点已有父节点，跳过
         }
@@ -188,21 +188,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
       }
     }
 
-    // 卸载Content
+   // 卸载Content
     detachContent(): void {
       this.rootNode = null; // 清空根节点引用
     }
   }
   ```
 
-  <br />
-
   * attachContent()方法在挂载前检查frameNode.getParent()，若已存在父节点则终止挂载。
   * detachContent()清空rootNode，使节点可从当前NodeContainer安全卸载。
 
   步骤二：定义可复用的UI构建器。
 
-  ```
+  ```ts
   // @Builder中为动态组件的具体组件内容
   // 这里只为举例说明，UI组件描述比较简单，实际应用场景中，这里是比较复杂的UI组件描述，如Web组件等
   @Builder
@@ -222,26 +220,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
 
   步骤三：在入口组件实现节点的迁移。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct Index {
-    // 单例BuilderNode，可被多个NodeController共享
+   // 单例BuilderNode，可被多个NodeController共享
     private builderNode: BuilderNode<[string]> | null | undefined = new BuilderNode(this.getUIContext());
-    // 两个NodeController共享同一BuilderNode实例
+  // 两个NodeController共享同一BuilderNode实例
     private nodeController1: MyNodeController = new MyNodeController(this.builderNode);
     private nodeController2: MyNodeController = new MyNodeController(this.builderNode);
 
     aboutToAppear(): void {
-      // 初始化BuilderNode内容
+    // 初始化BuilderNode内容
       this.builderNode?.build(wrap, 'This is a Text');
     }
 
-    // 本例两个不同的NodeContainer只一个组件内，只为举例演示直观
-    // 实际应用场景中，NodeContainer通常在不同的页面，甚至不同的窗口中
+  // 本例两个不同的NodeContainer只一个组件内，只为举例演示直观
+  // 实际应用场景中，NodeContainer通常在不同的页面，甚至不同的窗口中
     build() {
       Column({ space: 20 }) {
-        // 第一个NodeContainer区域
+   // 第一个NodeContainer区域
         Column({ space: 20 }) {
           Button('Attach Content')
             .onClick(() => {
@@ -263,7 +261,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
         .height('50%');
 
         Divider();
-        // 第二个NodeContainer区域
+      // 第二个NodeContainer区域
         Column({ space: 20 }) {
           Button('Attach Content')
             .onClick(() => {
@@ -296,7 +294,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
 
   步骤一：创建Web组件的NodeController。
 
-  ```
+  ```ts
   import { BuilderNode, FrameNode, NodeController, UIContext } from '@kit.ArkUI'
   import { webview } from '@kit.ArkWeb'
 
@@ -316,9 +314,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
       Web({ src: data.url, controller: data.controller })
         .width('100%')
         .height('100%')
-        // 以下安全配置仅用于演示，生产环境须收紧：
-        // - mixedMode建议设为MixedMode.None或MixedMode.Compatibility
-        // - fileAccess建议关闭
+   // 以下安全配置仅用于演示，生产环境须收紧：
+  // - mixedMode建议设为MixedMode.None或MixedMode.Compatibility
+  // - fileAccess建议关闭
         .domStorageAccess(true)
         .javaScriptAccess(true)
         .fileAccess(true)
@@ -353,7 +351,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
         return
       }
       const frameNode = this.sharedBuilderNode.getFrameNode()
-      // 关键检查：确保节点未被挂载到其他父节点
+    // 关键检查：确保节点未被挂载到其他父节点
       if (frameNode?.getParent() != null) {
         return
       }
@@ -375,14 +373,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
   }
   ```
 
-  <br />
-
   * mount()方法先检查节点是否已挂载到其他父节点，若已存在父节点则跳过挂载；否则设置activeNode为BuilderNode的FrameNode，并调用rebuild()触发makeNode返回该节点，实现挂载。
   * unmount()方法将activeNode置为null，并调用rebuild()触发makeNode返回null，实现卸载。
 
   步骤二：在入口组件中实现Web组件的容器切换。
 
-  ```
+  ```ts
   // WebNodeController、createSharedBuilderNode、WebData定义在步骤一中
   // 实际项目中请根据文件存放位置调整import路径
   import { WebNodeController, createSharedBuilderNode, WebData } from '../common/WebNodeController'
@@ -463,4 +459,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
   }
   ```
 
-switchTo()方法先调用旧容器的unmount()卸载节点，再调用新容器的mount()挂载节点，实现Web组件节点在不同容器间的无重建切换。  
+  switchTo()方法先调用旧容器的unmount()卸载节点，再调用新容器的mount()挂载节点，实现Web组件节点在不同容器间的无重建切换。
+

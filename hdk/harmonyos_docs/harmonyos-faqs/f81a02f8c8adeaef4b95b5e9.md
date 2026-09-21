@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1373
 
 # 如何在Native侧获取窗口ID
 
-#### 问题现象
+## 问题现象
 
-在进行系统级功能开发、输入事件拦截、无障碍服务、屏幕录制、窗口管理时，如何在Native侧需要获取窗口的ID，以便后续的功能开发。  
+在进行系统级功能开发、输入事件拦截、无障碍服务、屏幕录制、窗口管理时，如何在Native侧需要获取窗口的ID，以便后续的功能开发。
 
-#### 背景知识
+## 背景知识
 
 HarmonyOS的窗口模块将窗口界面分为系统窗口、应用窗口两种基本类型。
 
@@ -19,19 +19,19 @@ HarmonyOS的窗口模块将窗口界面分为系统窗口、应用窗口两种�
   * 应用主窗口：应用主窗口用于显示应用界面，会在"任务管理界面"显示。
   * 应用子窗口：应用子窗口用于显示应用的弹窗、悬浮窗等辅助窗口，不会在"任务管理界面"显示。应用子窗口的生命周期跟随应用主窗口。设置方式参考[子窗口开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/subwindow-guide)。
 
-ArkTS与Native跨语言交互开发详见[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)。  
+ArkTS与Native跨语言交互开发详见[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)。
 
-#### 解决方案
+## 解决方案
 
 实现Native侧获取窗口ID可参考如下步骤：
 
 1. 由于在Native侧无法直接获取window实例，需要在ArkTS侧EntryAbility的onWindowStageCreate生命周期中获取。
 
-   ```
+   ```ts
    onWindowStageCreate(windowStage: window.WindowStage): void {
-     // Main window is created,set main page for this ability
+    // Main window is created,set main page for this ability
      hilog.info(0x0000, 'testTag', '%{public}s','Ability onWindowStageCreate');
-     // 1.获取应用主窗口。
+   // 1.获取应用主窗口。
      let windowClass: window.Window | null = null;
      windowStage.getMainWindow((err: BusinessError, data) => {
        let errCode: number = err.code;
@@ -40,7 +40,7 @@ ArkTS与Native跨语言交互开发详见[使用Node-API实现跨语言交互开
          return;
        }
        windowClass = data;
-       // 通过windowClass的getWindowProperties方法获取id信息
+     // 通过windowClass的getWindowProperties方法获取id信息
        this.windowID = windowClass.getWindowProperties().id;
        AppStorage.setOrCreate<number>('windowID', this.windowID);
        console.info(`Succeeded in obtaining the main window. Result:${data}`);
@@ -57,7 +57,7 @@ ArkTS与Native跨语言交互开发详见[使用Node-API实现跨语言交互开
 
 2. 获取到windowID后，调用Native方法将windowID传入Native侧。
 
-   ```
+   ```ts
    import testNapi from 'libentry.so';
 
    @Entry
@@ -83,29 +83,27 @@ ArkTS与Native跨语言交互开发详见[使用Node-API实现跨语言交互开
 
 3. 在Native侧接收到windowID后，将windowID进行固化用于后续使用。
 
-   ```
-   int32_t g_WindowID;
-   static napi_value setWindowID(napi_env env, napi_callback_info info)
-   {
-       size_t argc = 1;
-       napi_value args[1] = {nullptr};
-       napi_typedarray_type type_napi;
+       int32_t g_WindowID;
+       static napi_value setWindowID(napi_env env, napi_callback_info info)
+       {
+           size_t argc = 1;
+           napi_value args[1] = {nullptr};
+           napi_typedarray_type type_napi;
 
-       napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+           napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-       napi_get_value_int32(env, args[0], &g_WindowID);
+           napi_get_value_int32(env, args[0], &g_WindowID);
 
-       OH_LOG_Print(LOG_APP, LOG_INFO, 0x0, "setWindowID", "get windowID %{public}d", g_WindowID);
+           OH_LOG_Print(LOG_APP, LOG_INFO, 0x0, "setWindowID", "get windowID %{public}d", g_WindowID);
 
-       return nullptr;
-   }
-   ```
+           return nullptr;
+       }
 
 完整代码：
 
-entry\>src\>main\>ets\>entryability\>EntryAbility.ets:
+entry>src>main>ets>entryability>EntryAbility.ets:
 
-```
+```ts
 import { ConfigurationConstant, UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -123,9 +121,9 @@ export default class EntryAbility extends UIAbility {
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onDestroy');
   }
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    // Main window is created,set main page for this ability
+ // Main window is created,set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s','Ability onWindowStageCreate');
-    // 1.获取应用主窗口。
+  // 1.获取应用主窗口。
     let windowClass: window.Window | null = null;
     windowStage.getMainWindow((err: BusinessError, data) => {
       let errCode: number = err.code;
@@ -134,7 +132,7 @@ export default class EntryAbility extends UIAbility {
         return;
       }
       windowClass = data;
-      // 通过windowClass的getWindowProperties方法获取id信息
+   // 通过windowClass的getWindowProperties方法获取id信息
       this.windowID = windowClass.getWindowProperties().id;
       AppStorage.setOrCreate<number>('windowID', this.windowID);
       console.info(`Succeeded in obtaining the main window. Result:${data}`);
@@ -149,25 +147,25 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageDestroy(): void {
-    // Main window is destroyed, release UI related resources
+   // Main window is destroyed, release UI related resources
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
-    // Ability has brought to foreground
+ // Ability has brought to foreground
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground(): void {
-    // Ability has back to background
+  // Ability has back to background
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onBackground');
   }
 };
 ```
 
-entry\>src\>main\>ets\>pages\>Index.ets:
+entry>src>main>ets>pages>Index.ets:
 
-```
+```ts
 import testNapi from 'libentry.so';
 
 @Entry
@@ -191,63 +189,61 @@ struct Index {
 }
 ```
 
-entry\>src\>main\>cpp\>types\>libentry\>index.d.ts:
+entry>src>main>cpp>types>libentry>index.d.ts:
 
-```
+```ts
 export const setWindowID: (windowID: number) => void;
 ```
 
-entry\>src\>main\>cpp\>napi_init.cpp:
+entry>src>main>cpp>napi_init.cpp:
 
-```
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- */
-#include "napi/native_api.h"
-#include "hilog/log.h"
-int32_t g_WindowID;
-static napi_value setWindowID(napi_env env, napi_callback_info info)
-{
-    size_t argc = 1;
-    napi_value args[1] = {nullptr};
-    napi_typedarray_type type_napi;
+    /*
+     * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+     */
+    #include "napi/native_api.h"
+    #include "hilog/log.h"
+    int32_t g_WindowID;
+    static napi_value setWindowID(napi_env env, napi_callback_info info)
+    {
+        size_t argc = 1;
+        napi_value args[1] = {nullptr};
+        napi_typedarray_type type_napi;
 
-    napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+        napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-    napi_get_value_int32(env, args[0], &g_WindowID);
+        napi_get_value_int32(env, args[0], &g_WindowID);
 
-    OH_LOG_Print(LOG_APP, LOG_INFO, 0x0, "setWindowID", "get windowID %{public}d", g_WindowID);
+        OH_LOG_Print(LOG_APP, LOG_INFO, 0x0, "setWindowID", "get windowID %{public}d", g_WindowID);
 
-    return nullptr;
-}
-EXTERN_C_START
-static napi_value Init(napi_env env, napi_value exports)
-{
-    napi_property_descriptor desc[] = {
-        { "setWindowID", nullptr, setWindowID, nullptr, nullptr, nullptr, napi_default, nullptr }
+        return nullptr;
+    }
+    EXTERN_C_START
+    static napi_value Init(napi_env env, napi_value exports)
+    {
+        napi_property_descriptor desc[] = {
+            { "setWindowID", nullptr, setWindowID, nullptr, nullptr, nullptr, napi_default, nullptr }
+        };
+        napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
+        return exports;
+    }
+    EXTERN_C_END
+
+    static napi_module demoModule = {
+        .nm_version = 1,
+        .nm_flags = 0,
+        .nm_filename = nullptr,
+        .nm_register_func = Init,
+        .nm_modname = "entry",
+        .nm_priv = ((void*)0),
+        .reserved = { 0 },
     };
-    napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
-    return exports;
-}
-EXTERN_C_END
 
-static napi_module demoModule = {
-    .nm_version = 1,
-    .nm_flags = 0,
-    .nm_filename = nullptr,
-    .nm_register_func = Init,
-    .nm_modname = "entry",
-    .nm_priv = ((void*)0),
-    .reserved = { 0 },
-};
+    extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
+    {
+        napi_module_register(&demoModule);
+    }
 
-extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
-{
-    napi_module_register(&demoModule);
-}
-```
-
-#### 常见FAQ
+## 常见FAQ
 
 Q：Native侧有办法对窗口进行管理和控制么？
 
@@ -255,4 +251,5 @@ A：可以通过[WindowManager](https://developer.huawei.com/consumer/cn/doc/har
 
 Q：如何传入多个windowID？
 
-A：如果需要传入多个windowID可以通过构建Int32Array进行填充，在Native侧创建数组接收。  
+A：如果需要传入多个windowID可以通过构建Int32Array进行填充，在Native侧创建数组接收。
+

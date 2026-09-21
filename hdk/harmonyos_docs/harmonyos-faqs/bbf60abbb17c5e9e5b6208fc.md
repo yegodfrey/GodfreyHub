@@ -6,24 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1322
 
 # CanvasRenderingContext2D绘制长文本自动换行
 
-#### 问题现象
+## 问题现象
 
 使用CanvasRenderingContext2D绘制长文本时，这些长文本既没有换行符，也没有空格符，如何对绘制的文本进行自动换行？效果图如下：
 
-![](https://media:101782461542402970 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/UBEmRlnjSXuqm1tgTU0wzg/zh-cn_image_0000002658838901.png?HW-CC-KV=V1&HW-CC-Date=20260920T114735Z&HW-CC-Expire=31536000000&HW-CC-Sign=C5BC04B8E3173922908CD96295657E5FBB0638DBA87E8ABCF63F0C3F5068747E "点击放大")
 
-#### 背景知识
+## 背景知识
 
-[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)提供画布组件，用于自定义绘制图形，开发者使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象和[OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d)对象在Canvas组件上进行绘制，绘制对象可以是基础形状、文本、图片等。  
+[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)提供画布组件，用于自定义绘制图形，开发者使用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象和[OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d)对象在Canvas组件上进行绘制，绘制对象可以是基础形状、文本、图片等。
 
-#### 解决方案
+## 解决方案
 
 1. 通过MeasureText方法确定文本的宽度，如果绘制的文本总宽度并没有超过单行最大宽度，那么直接绘制。
 2. 如果绘制的文本总宽度超过单行最大宽度，则按字符逐字检查，当超出单行最大宽度做换行处理，最终得到一个文本数组。
 
 完整参考示例如下：
 
-```
+```ts
 import { PromptAction } from '@kit.ArkUI';
 
 @Entry
@@ -42,12 +42,12 @@ struct CanvasExample {
   promptAction: PromptAction = this.getUIContext().getPromptAction();
 
   handleDrawText() {
-    // 多个连续空格只保留一个
+   // 多个连续空格只保留一个
     let tempText = this.testText.replace(/(^\s*)|(\s*$)/g, ' ').replace(/ +/g, ' ');
     let textLen = tempText.length;
     this.context.font = `${this.fontSize}vp YaHei`;
 
-    // 如果绘制的文本总宽度并没有超过最大宽度，那么直接绘制
+   // 如果绘制的文本总宽度并没有超过最大宽度，那么直接绘制
     if (this.context.measureText(tempText).width + textLen * this.letterSpacing < this.context.width) {
       this.context.fillText(tempText, 0, 0);
     } else {
@@ -55,32 +55,32 @@ struct CanvasExample {
       let tempStr = '';
       for (let i = 0; i < textLen; i++) {
         let currStr = tempText[i];
-        // 判断当前字符是否是换行符，如果是，那么新增下一行
+       // 判断当前字符是否是换行符，如果是，那么新增下一行
         let isWrap = !/\r?\n/.test(currStr);
         if (isWrap && (this.context.measureText(tempStr + currStr).width + (tempStr.length + 1) * this.letterSpacing) <
         this.context.width) {
-          // 如果不是换行符且当前绘制的文本宽度加字距小于最大宽度，直接当前行字符串直接拼接
+        // 如果不是换行符且当前绘制的文本宽度加字距小于最大宽度，直接当前行字符串直接拼接
           tempStr += currStr;
         } else {
-          // 否则就是当前行的宽度已经达到极限，进行换行
+        // 否则就是当前行的宽度已经达到极限，进行换行
           strArray.push(tempStr);
           if (isWrap) {
-            // 如果不是换行符，直接新的一行开头就是这个字符
+          // 如果不是换行符，直接新的一行开头就是这个字符
             tempStr = currStr;
           } else {
-            // 否则，新的一行开头将换行符替换为空字符串
+        // 否则，新的一行开头将换行符替换为空字符串
             tempStr = '';
           }
         }
       }
-      // 如果还有剩余结尾的字符串，直接就算作一行
+  // 如果还有剩余结尾的字符串，直接就算作一行
       if (tempStr !== '') {
         strArray.push(tempStr);
         tempStr = '';
       }
 
       strArray.forEach((str, index) => {
-        // 逐行绘制，绘制的y坐标当前行行数加上字体大小加上行高近似的模拟
+      // 逐行绘制，绘制的y坐标当前行行数加上字体大小加上行高近似的模拟
         this.handleDrawOneLineText(str, (index + 1) * (this.fontSize + this.lineHeight));
       });
     }
@@ -89,7 +89,7 @@ struct CanvasExample {
   handleDrawOneLineText(str: string, y: number) {
     let tempStr = '';
     for (let i = 0, len = str.length; i < len; i++) {
-      // 逐字绘制，每行的y不变，单个字符的x是前面绘制文本的宽度加上每个字符的间距和
+   // 逐字绘制，每行的y不变，单个字符的x是前面绘制文本的宽度加上每个字符的间距和
       this.context.fillText(str[i], i * this.letterSpacing + (this.context.measureText(tempStr).width), y);
       tempStr += str[i];
     }

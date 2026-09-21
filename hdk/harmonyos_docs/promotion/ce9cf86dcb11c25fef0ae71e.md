@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-advert
 
 # 商品组
 
-* [查询商品组信息](https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-advertising-shopping-group1-0000001338498649)  
-* [编辑商品组](https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-advertising-shopping-group2-0000001338379169)  
+* **[查询商品组信息](https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-advertising-shopping-group1-0000001338498649)**   
+* **[编辑商品组](https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-advertising-shopping-group2-0000001338379169)**   

@@ -6,42 +6,45 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i
 
 # @ohos.security.identifySensitiveContent (识别敏感内容)
 
-识别敏感内容通过输入的[Policy](#policy)来检测指定文件中的敏感信息。系统根据提供的[Policy](#policy)策略（包括敏感标签、关键字集合和正则表达式），对文件内容进行关键字匹配和正则表达式匹配，返回匹配到的敏感内容结果。  
-![](https://media:401788445488245145)  
-本模块首批接口从API version 21开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。  
+> phone 21+ | 2in1 21+ | tablet 21+ | tv 21+
 
-#### 导入模块
+识别敏感内容通过输入的[Policy](#policy)来检测指定文件中的敏感信息。系统根据提供的[Policy](#policy)策略（包括敏感标签、关键字集合和正则表达式），对文件内容进行关键字匹配和正则表达式匹配，返回匹配到的敏感内容结果。
+> 说明
+>
+> 本模块首批接口从API version 21开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-```
+## 导入模块
+
+```ts
 import { identifySensitiveContent } from '@kit.DataProtectionKit';
 ```
 
-#### identifySensitiveContent.scanFile
+## identifySensitiveContent.scanFile
 
-scanFile(filePath: string, identifyPolicies:Array\<Policy\>): Promise\<Array\<MatchResult\>\>
+scanFile(filePath: string, identifyPolicies:Array<Policy>): Promise<Array<MatchResult>>
 
 根据设置的策略，识别指定文件中的敏感内容，返回识别的结果数组，包含匹配的敏感标签、匹配内容及匹配数量。使用Promise异步回调。
 
-需要权限：ohos.permission.ENTERPRISE_DATA_IDENTIFY_FILE
+**需要权限**：ohos.permission.ENTERPRISE_DATA_IDENTIFY_FILE
 
-系统能力： SystemCapability.Security.DataLossPrevention
+**系统能力：** SystemCapability.Security.DataLossPrevention
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:---------------|:-------------------------|:-|:-----------------------------------------------------------------|
+|:---------------|:-----------------------|:-|:-----------------------------------------------------------------|
 |filePath|string|是|识别的文件路径，需使用物理路径，路径指向的文件必须存在且支持访问。|
-|identifyPolicies|Array\<[Policy](#policy)\>|是|用于识别敏感内容的策略数组。每个Policy定义识别规则（标签、关键字、正则表达式），系统将根据这些规则扫描文件内容并返回匹配结果。|
+|identifyPolicies|Array<[Policy](#policy)>|是|用于识别敏感内容的策略数组。每个Policy定义识别规则（标签、关键字、正则表达式），系统将根据这些规则扫描文件内容并返回匹配结果。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------------------------------------|:-----------------------------------------|
-|Promise\<Array\<[MatchResult](#matchresult)\>\>|Promise对象，返回敏感内容识别的结果。成功时返回匹配结果数组，异常返回错误码。|
+|:------------------------------------------|:-----------------------------------------|
+|Promise<Array<[MatchResult](#matchresult)>>|Promise对象，返回敏感内容识别的结果。成功时返回匹配结果数组，异常返回错误码。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据泄露防护DLP服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dlp)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据泄露防护DLP服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dlp)。
 
 |错误码ID|错误信息|
 |:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -52,9 +55,9 @@ scanFile(filePath: string, identifyPolicies:Array\<Policy\>): Promise\<Array\<Ma
 |19110003|The file is not supported. Possible causes: 1. The file path does not exist. 2. The file type is not supported. 3. The file permission is not supported.|
 |19110004|A system error has occurred.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { identifySensitiveContent } from '@kit.DataProtectionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -85,7 +88,7 @@ try {
 }
 ```
 
-#### Policy
+## Policy
 
 定义敏感内容识别策略。
 
@@ -93,19 +96,19 @@ try {
 * 多个Policy策略之间独立，扫描时会分别应用每个策略。
 * sensitiveLabel用于标记匹配结果，便于识别具体匹配的策略。
 
-系统能力： SystemCapability.Security.DataLossPrevention  
+**系统能力：** SystemCapability.Security.DataLossPrevention
 
 |名称|类型|只读|可选|说明|
-|:-------------|:--------------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------|
+|:-------------|:------------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------|
 |sensitiveLabel|string|否|否|表示识别策略的标签，用于标识和分类匹配结果。长度范围1-30字节。|
-|keywords|Array\<string\>|否|否|表示关键字集合，用于匹配文件中的敏感关键字。 系统会在文件内容中搜索这些关键字，匹配时区分大小写，匹配成功则返回识别结果。Array最大50，每个元素最大30字节。|
-|regex|string|否|否|表示匹配敏感内容的正则表达式。系统将在文件内容中按此正则表达式进行模式匹配，匹配成功的内容将返回在结果中。长度范围0-512字节。 在输入字符串时，需检查某些特殊字符（如反斜杠 \\、双引号 "、换行符等），不会被自动转义，确保字符串的输入效果。|
+|keywords|Array<string>|否|否|表示关键字集合，用于匹配文件中的敏感关键字。 系统会在文件内容中搜索这些关键字，匹配时区分大小写，匹配成功则返回识别结果。Array最大50，每个元素最大30字节。|
+|regex|string|否|否|表示匹配敏感内容的正则表达式。系统将在文件内容中按此正则表达式进行模式匹配，匹配成功的内容将返回在结果中。长度范围0-512字节。 在输入字符串时，需检查某些特殊字符（如反斜杠 \、双引号 "、换行符等），不会被自动转义，确保字符串的输入效果。|
 
-#### MatchResult
+## MatchResult
 
 表示敏感内容的识别结果。
 
-系统能力： SystemCapability.Security.DataLossPrevention  
+**系统能力：** SystemCapability.Security.DataLossPrevention
 
 |名称|类型|只读|可选|说明|
 |:-------------|:-----|:-|:-|:-------------------------------------------------|

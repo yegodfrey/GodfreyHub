@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/hvevideoprope
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public enum [HVEVideoProperty](https://developer.huawei.com/consumer/cn/doc/Media-References/hvevideoproperty-0000001202689213).EncodeType 编码格式，分为H264和H265。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum Value and Description|
 |:-------------------------|

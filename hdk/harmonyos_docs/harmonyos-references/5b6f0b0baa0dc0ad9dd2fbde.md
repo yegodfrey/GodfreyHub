@@ -6,23 +6,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 # OhosPixelMapCreateOps
 
-```
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
+```c
 struct OhosPixelMapCreateOps {...}
 ```
 
-#### 概述
+## 概述
 
 用于定义创建PixelMap的设置选项，包含图片宽高、像素格式、是否可编辑、透明度类型及缩放类型信息，适用于在Native层创建PixelMap时指定初始化属性的场景。
 
-起始版本： 10
+**起始版本：** 10
 
-相关模块： [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image)
+**相关模块：** [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image)
 
-所在头文件： [image_pixel_map_mdk.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-pixel-map-mdk-h)  
+**所在头文件：** [image_pixel_map_mdk.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-pixel-map-mdk-h)
 
-#### 汇总
+## 汇总
 
-#### 成员变量
+### 成员变量
 
 |名称|描述|
 |:------------------|:-----------------------------------------------------------------------------------------------------------------------------------|

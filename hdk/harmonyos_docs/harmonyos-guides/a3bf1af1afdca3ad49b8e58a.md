@@ -8,24 +8,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-adsblock
 
 ArkWeb为应用提供广告过滤功能，支持通过云端推送默认的easylist规则，或允许应用通过接口设定自定义规则文件。它在网络层拦截广告资源的下载，或在网页中注入CSS规则以隐藏特定的广告元素。
 
-当前配置文件格式为[easylist规则](https://easylist-downloads.adblockplus.org/easylist.txt)。  
+当前配置文件格式为[easylist规则](https://easylist-downloads.adblockplus.org/easylist.txt)。
 
-#### 常用easylist语法规则
+## 常用easylist语法规则
 
 |规则类别|说明|示例|
-|:-------|:------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------|
-|URL拦截规则|拦截所有网站中url能匹配"example.com/js/\*_tv.js"的子资源请求。用于定义域名过滤规则，匹配特定的域名及其所有子域名。|\|\|example.com/js/\*_tv.js|
-|URL拦截规则|拦截非alimama.com、非taobao.com域名网站中的url匹配"alimama.cn"的第三方资源。$third_party是一种options语法，表示匹配第三方资源；域名前使用'\~'表示不包括该域名。|\|\|alimama.cn\^$third-party,domain=\~alimama.com\|\~taobao.com|
-|例外规则|关闭example.com网页内的广告过滤。@@是例外规则的语法关键字，表示不过滤。|@@\|\|example.com\^$document|
+|:-------|:-----------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|
+|URL拦截规则|拦截所有网站中url能匹配"example.com/js/*_tv.js"的子资源请求。用于定义域名过滤规则，匹配特定的域名及其所有子域名。|||example.com/js/*_tv.js|
+|URL拦截规则|拦截非alimama.com、非taobao.com域名网站中的url匹配"alimama.cn"的第三方资源。$third_party是一种options语法，表示匹配第三方资源；域名前使用'~'表示不包括该域名。|||alimama.cn^$third-party,domain=~alimama.com|~taobao.com|
+|例外规则|关闭example.com网页内的广告过滤。@@是例外规则的语法关键字，表示不过滤。|@@||example.com^$document|
 |例外规则|在域名为litv.tv的网页中，不过滤能匹配上".adserver."的子资源。|@@.adserver.$domain=litv.tv|
 |元素隐藏规则|隐藏myabandonware.com和myware.com域名中所有class="i528"的元素。##用于表示元素隐藏。|myabandonware.com, myware.com##.i528|
 |元素隐藏例外规则|不隐藏sdf-event.sakura.ne.jp网站中id="ad_1"的元素。|sdf-event.sakura.ne.jp#@##ad_1|
 
 例外规则，通常是与普通规则配合使用的，在某些特定场景下使普通规则不适用，单独应用例外规则是没有意义的。
 
-例如先配置了一条过滤所有网站的拦截规则：\|\|abc.com/js/123.js，如果某些网站出现误拦截或不能拦截的情况，可以针对这些网站配置新的例外规则。  
+例如先配置了一条过滤所有网站的拦截规则：||abc.com/js/123.js，如果某些网站出现误拦截或不能拦截的情况，可以针对这些网站配置新的例外规则。
 
-#### 约束与限制
+## 约束与限制
 
 * 在[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller)类中，增加开启/关闭广告过滤特性的接口[enableAdsBlock()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#enableadsblock12)，支持Web实例级的特性开关。
 
@@ -45,15 +45,15 @@ ArkWeb为应用提供广告过滤功能，支持通过云端推送默认的easyl
 
 * disallowedlist和allowedlist数据采用后缀匹配，例如应用设置的域名"xxyy.com"，可以匹配上url为"wwsstt.xxyy.com"的网站。
 
-#### 使用场景
+## 使用场景
 
-#### 开启广告过滤
+### 开启广告过滤
 
 应用可以通过AdsBlockManager提供的[setAdsBlockRules()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#setadsblockrules12)接口设置自定义的easylist过滤规则，并通过Web组件的[enableAdsBlock()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#enableadsblock12)接口使能广告过滤特性。
 
 在下面的示例中，演示了一个应用通过文件选择器选择easylist规则文件，并开启广告过滤功能。
 
-```
+```TypeScript
 import { webview } from '@kit.ArkWeb';
 import { picker, fileUri } from '@kit.CoreFileKit';
 
@@ -101,13 +101,13 @@ struct WebComponent {
 
 如果存在内置的easylist规则文件，[setAdsBlockRules()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#setadsblockrules12)接口的replace参数可用于设置规则文件的使用策略，replace为true表示不使用内置的easylist规则文件，replace为false表示自定义规则和内置的规则将会同时工作，如果发现内置规则与自定义规则冲突，可使用replace=true禁用内置规则效果。
 
-设置的自定义规则文件在应用进程内对所有的Web组件生效，是一个应用级全局配置文件，并将持久化，应用重启后可继续工作。  
+设置的自定义规则文件在应用进程内对所有的Web组件生效，是一个应用级全局配置文件，并将持久化，应用重启后可继续工作。
 
-#### 关闭特定域名页面的广告过滤
+### 关闭特定域名页面的广告过滤
 
 在Web组件的广告过滤开关开启后，应用有时候会期望关闭一些特定页面的广告过滤功能，除了可以使用自定义的easylist规则，AdsBlockManager还提供了[addAdsBlockDisallowedList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#addadsblockdisallowedlist12)接口完成此功能。
 
-```
+```TypeScript
 import { webview } from '@kit.ArkWeb';
 
 // 演示通过一个按钮的点击向Web组件设置广告过滤的域名策略
@@ -162,7 +162,7 @@ AdsBlockManager中缓存有2组域名列表，分别为DisallowedList和AllowedL
 
 例如，应用想要开启域名为'news.example.com'和'sport.example.com'的广告过滤，但需要关闭'example.com'的其他域名下网页的广告过滤，就可以先使用[addAdsBlockDisallowedList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#addadsblockdisallowedlist12)接口添加'example.com'域名到DisallowedList，再使用[addAdsBlockAllowedList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager#addadsblockallowedlist12)接口添加'news.example.com'和'sport.example.com'域名。
 
-```
+```TypeScript
 import { webview } from '@kit.ArkWeb';
 
 // 演示addAdsBlockAllowedList和addAdsBlockDisallowedList配套使用，设置网页级的广告过滤开关。
@@ -217,13 +217,13 @@ struct WebComponent {
 
 需要注意的是，AdsBlockManager的DisallowedList和AllowedList列表不会持久化，因此重启应用后会重置为空。
 
-如果Web组件未通过[enableAdsBlock()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#enableadsblock12)接口开启广告过滤功能，上述接口设置在此Web组件中将不起作用。  
+如果Web组件未通过[enableAdsBlock()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#enableadsblock12)接口开启广告过滤功能，上述接口设置在此Web组件中将不起作用。
 
-#### 收集广告过滤的信息
+### 收集广告过滤的信息
 
 在Web组件的广告过滤开关开启后，访问的网页如果发生了广告过滤，会通过Web组件的[onAdsBlocked()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#onadsblocked12)回调接口通知到应用，应用可根据需要进行过滤信息的收集和统计。
 
-```
+```TypeScript
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -249,4 +249,5 @@ struct WebComponent {
 }
 ```
 
-由于页面可能随时发生变化并不断产生网络请求，为了减少通知频次、降低对页面加载过程的影响，仅在页面加载完成时进行首次通知，此后发生的过滤将间隔1秒钟上报，无广告过滤则无通知。  
+由于页面可能随时发生变化并不断产生网络请求，为了减少通知频次、降低对页面加载过程的影响，仅在页面加载完成时进行首次通知，此后发生的过滤将间隔1秒钟上报，无广告过滤则无通知。
+

@@ -6,18 +6,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1104
 
 # 如何解决页面跳转无响应问题
 
-#### 问题现象
+## 问题现象
 
-使用Navigation进行页面跳转或返回时，页面无响应，如何排查？  
+使用Navigation进行页面跳转或返回时，页面无响应，如何排查？
 
-#### 背景知识
+## 背景知识
 
 * [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation)组件是路由导航的根视图容器，可以通过导航控制器[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)跳转[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navdestination10)子页。
 * [pushPathByName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#pushpathbyname10)通过指定的路由名称将目标页面压入导航栈，并支持传递参数。
 * 开发者可参考[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)实现对系统路由表的文件配置。
-* [routerMap标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#routermap标签)：标识模块配置的路由表的路径。可在resources/base/profile下面定义配置文件，文件名可以自定义，例如：router_map.json。  
+* [routerMap标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#routermap标签)：标识模块配置的路由表的路径。可在resources/base/profile下面定义配置文件，文件名可以自定义，例如：router_map.json。
 
-#### 解决方案
+## 解决方案
 
 1. 检查父页面是否有使用Navigation组件承载路由，跳转目标页面的根节点使用NavDestination组件。
 2. 检查导航控制器NavPathStack是否绑定Navigation组件。
@@ -31,10 +31,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1104
 
 正确使用Navigation跳转可参考如下代码：
 
-```
+```ts
 class TabNavStack {
   id: number; // 标识符
-  navStack: NavPathStack; //  导航栈对象。需确保每个TabContent内Navigation绑定的NavPathStack对象不同
+  navStack: NavPathStack; // 导航栈对象。需确保每个TabContent内Navigation绑定的NavPathStack对象不同
   content: string; // 内容
 
   constructor(id: number, navStack: NavPathStack, content: string) {
@@ -134,7 +134,7 @@ struct NavigationComponent {
 }
 ```
 
-```
+```ts
 // 跳转页面入口函数
 @Builder
 export function PageOneBuilder() {
@@ -175,7 +175,7 @@ struct PageOne {
 
 src/main/resources/base/profile/router_map.json配置如下所示：
 
-```
+```json
 {
   "routerMap": [
     {
@@ -189,4 +189,5 @@ src/main/resources/base/profile/router_map.json配置如下所示：
 
 效果图如下所示：
 
-![](https://media:201786586161892691 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/sPxKfcVVTpyQ5cd_knc2IQ/zh-cn_image_0000002658806741.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=450A249DCEF7BA44090E64CD11D8D155A6015FD8C9C9599128C8E0001E9BD719 "点击放大")
+

@@ -6,53 +6,55 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 # image_mdk_common.h
 
-#### 概述
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
+## 概述
 
 声明图像常用的枚举值和结构体。
 
-引用文件： \<multimedia/image_framework/image_mdk_common.h\>
+**引用文件：** <multimedia/image_framework/image_mdk_common.h>
 
-库： libimage_ndk.z.so
+**库：** libimage_ndk.z.so
 
-系统能力： SystemCapability.Multimedia.Image.Core
+**系统能力：** SystemCapability.Multimedia.Image.Core
 
-起始版本： 10
+**起始版本：** 10
 
-相关模块： [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image)  
+**相关模块：** [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image)
 
-#### 汇总
+## 汇总
 
-#### 宏定义
+### 宏定义
 
 |名称|描述|
-|:-------------------------|:------------------------|
-|IMAGE_RESULT_BASE 62980096|通用图像错误码，含义为操作失败。 起始版本： 10|
+|:-------------------------|:----------------------------|
+|IMAGE_RESULT_BASE 62980096|通用图像错误码，含义为操作失败。 **起始版本：** 10|
 
-#### 结构体
+### 结构体
 
 |名称|typedef关键字|描述|
 |:----------------------------------------------------------------------------------------------------------|:---------|:--------------------------------------------------------------------------------------------------------------------------------------|
 |[OhosImageSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagesize)|-|定义图像大小。是[OhosImageDecodingOps](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagedecodingops)的成员变量。|
 
-#### 枚举
+### 枚举
 
 |名称|typedef关键字|描述|
 |:----------------------------|:-----------|:------------|
 |[IRNdkErrCode](#irndkerrcode)|IRNdkErrCode|被使用的接口返回值的枚举。|
 
-#### 枚举类型说明
+## 枚举类型说明
 
-#### IRNdkErrCode
+### IRNdkErrCode
 
-```
+```c
 enum IRNdkErrCode
 ```
 
-描述
+**描述**
 
 被使用的接口返回值的枚举。
 
-起始版本： 10  
+**起始版本：** 10
 
 |枚举项|描述|
 |:----------------------------------------------------------------------|:-------------------|

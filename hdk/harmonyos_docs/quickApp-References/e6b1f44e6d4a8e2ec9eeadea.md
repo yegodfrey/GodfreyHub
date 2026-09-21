@@ -6,24 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 
 # rating
 
-#### 概述
+## 概述
 
-用于展示星级评分。  
+用于展示星级评分。
 
-#### 使用限制
+## 使用限制
 
 |限制条件|说明|
 |:---|:-----------|
 |适用终端|手机、平板、智慧屏、车机|
 |适用区域|全球|
 
-#### 子组件
+## 子组件
 
-不支持  
+不支持
 
-#### 属性
+## 属性
 
-除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。  
+除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。
 
 |名称|类型|默认值|是否必填|描述|
 |:--------|:------|:----|:---|:----------------|
@@ -32,29 +32,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 |stepsize|number|0.5|否|评星步长|
 |indicator|boolean|false|否|是否作为一个指示器（用户不可操作）|
 
-#### 样式
+## 样式
 
-支持active伪类。除了支持 [通用样式](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-common-styles-0000001170210009) 以外，还支持如下样式。  
+支持active伪类。除了支持 [通用样式](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-common-styles-0000001170210009) 以外，还支持如下样式。
 
 |名称|类型|默认值|是否必填|描述|
-|:--------------|:-----------------|:------------------|:---|:----------------------------------|
+|:--------------|:----------------|:-----------------|:---|:----------------------------------|
 |star-background|uri|-|否|仅支持本地路径图片和base64图片（华为扩展接口，非厂商联盟规范）。|
 |star-foreground|uri|-|否|仅支持本地路径图片和base64图片（华为扩展接口，非厂商联盟规范）。|
 |star-secondary|uri|-|否|仅支持本地路径图片和base64图片（华为扩展接口，非厂商联盟规范）。|
-|width|length\|percentage|numstars\*star资源的宽度|否|默认为numstars\*star资源的宽度。|
-|height|length\|percentage|star资源的高度|否|默认为star资源的高度。|
+|width|length|percentage|numstars*star资源的宽度|否|默认为numstars*star资源的宽度。|
+|height|length|percentage|star资源的高度|否|默认为star资源的高度。|
 
-#### 事件
+## 事件
 
-不支持 click 和 longpress 事件，不支持 swipe 事件。除了支持 [通用事件](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-events-0000001123530338) 以外，还支持如下事件。  
+不支持 click 和 longpress 事件，不支持 swipe 事件。除了支持 [通用事件](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-events-0000001123530338) 以外，还支持如下事件。
 
 |名称|参数|描述|
 |:-----|:-------------------------------------------------------|:-------------------------------------|
 |change|{rating:currentRating, isFromUser:isFromUserValue 1080+}|评星数发生改变时触发。 isFromUser说明：该事件是否由用户拖动触发。|
 
-#### 示例代码
+## 示例代码
 
-```
+```screen
 <template>
   <div class="container">
     <div class="page-title-wrap">
@@ -111,9 +111,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 
 效果图如下：
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220317173812.82444012476311897369419607647002:50001231000000:2800:FE5074313C8896A7090B82461B5C1F543538E88D8C112CCA77CAB2112C511AC9.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
+![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220317173812.82444012476311897369419607647002:50001231000000:2800:FE5074313C8896A7090B82461B5C1F543538E88D8C112CCA77CAB2112C511AC9.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)
 
-#### 版本更新说明
+## 版本更新说明
 
 |版本|发布日期|描述|
 |:---|:---------|:------------------------------|

@@ -13,9 +13,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-tes
 3. 将DevEco Testing安装目录下的hdc路径配置至系统环境变量中。
 4. 在CMD窗口中执行hdc list targets命令，可以识别到设备。
 
-参考链接
+**参考链接**
 
 [开发者选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-developer-mode)
-
-<br />
 

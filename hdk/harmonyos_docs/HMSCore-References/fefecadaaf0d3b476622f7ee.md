@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/audiofocust
 |:-------------------------------------------------|
 |public interface AudioFocusType 视频播放时获取音频焦点的场景的类型。|
 
-#### Public Field Summary
+## Public Field Summary
 
 |Qualifier and Type|Field and Description|
 |:-----------------|:---------------------------------------------------------------------|
@@ -18,21 +18,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/audiofocust
 |static final int|[NOT_GAIN_AUDIO_FOCUS_ALL](#section1145615192047) 视频静音和非静音播放时均不获取音频焦点。|
 |static final int|[NOT_GAIN_AUDIO_FOCUS_WHEN_MUTE](#section991016151656) 视频静音播放时不获取音频焦点。|
 
-#### Public Fields
+## Public Fields
 
-#### GAIN_AUDIO_FOCUS_ALL
+### GAIN_AUDIO_FOCUS_ALL
 
 |Fields|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int GAIN_AUDIO_FOCUS_ALL 视频静音和非静音播放时均获取音频焦点。 另请参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001050167043#section54539193202)|
 
-#### NOT_GAIN_AUDIO_FOCUS_ALL
+### NOT_GAIN_AUDIO_FOCUS_ALL
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NOT_GAIN_AUDIO_FOCUS_ALL 视频静音和非静音播放时均不获取音频焦点。 另请参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001050167043#section54539193202)|
 
-#### NOT_GAIN_AUDIO_FOCUS_WHEN_MUTE
+### NOT_GAIN_AUDIO_FOCUS_WHEN_MUTE
 
 |Fields|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

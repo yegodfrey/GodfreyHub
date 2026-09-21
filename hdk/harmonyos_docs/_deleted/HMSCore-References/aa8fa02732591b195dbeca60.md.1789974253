@@ -1,0 +1,12 @@
+---
+name: document/cn/HMSCore-References/ios-package-summary-0000001160363562
+title: Package Summary
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/ios-package-summary-0000001160363562
+---
+
+# Package Summary
+
+|Package Name|Description|
+|:-----------------------------------------------------------------------------------------------------------|:---------------------------|
+|[HMSLocation](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/ios-overview-0000001160365014)|提供单次定位、前台连续定位、后台定位、朝向获取相关接口。|
+

@@ -6,16 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/beacon-awarenes
 
 # 信标感知能力
 
-在使用信标相关能力之前，您需要将Beacon设备注册到您的工程下，具体可参见[Beacon管理](https://developer.huawei.com/consumer/cn/doc/development/system-Guides/beacon-management-0000001050040616)。  
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230529175022.64606008275959174593813711593925:50001231000000:2800:48DB16A0BB02F7A244FA98565461C60484EECBE04151B7F9D8A8679CC1CBC16A.png?needInitFileName=true?needInitFileName=true)  
-1. 目前的信标感知能力不支持息屏模式下的蓝牙扫描。
-2. 通过updateBarriers接口添加新的beacon围栏时，如果此前使用过该接口添加围栏、且需要保留旧围栏，那么在此次调用updateBarriers接口时，需要使用该接口同时添加新旧围栏，因为在调用该接口添加围栏时，Awareness Kit会覆盖上次调用时添加的旧围栏。  
+在使用信标相关能力之前，您需要将Beacon设备注册到您的工程下，具体可参见[Beacon管理](https://developer.huawei.com/consumer/cn/doc/development/system-Guides/beacon-management-0000001050040616)。
+> 注意
+>
+> 1. 目前的信标感知能力不支持息屏模式下的蓝牙扫描。
+> 2. 通过updateBarriers接口添加新的beacon围栏时，如果此前使用过该接口添加围栏、且需要保留旧围栏，那么在此次调用updateBarriers接口时，需要使用该接口同时添加新旧围栏，因为在调用该接口添加围栏时，Awareness Kit会覆盖上次调用时添加的旧围栏。
 
-#### 在Manifest指定权限
+## 在Manifest指定权限
 
 在调用信标感知能力时，开发者需要先在Manifest中指定相应的权限。
 
-```
+```screen
 <!-- 位置权限，此权限为敏感权限，声明后还需在代码中动态申请 -->
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <!-- 蓝牙权限（Android 12以下） -->
@@ -25,14 +26,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/beacon-awarenes
 <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
 ```
 
-#### 导入接口类
+## 导入接口类
 
 使用信标状态感知能力，除需要导入情景感知服务的公共能力类外，还需要导入信标状态相关的类。
 
-```
-import com.huawei.hmf.tasks.OnFailureListener;
-import com.huawei.hmf.tasks.OnSuccessListener;
-import com.huawei.hms.kit.awareness.Awareness;
+```screen
+importcom.huawei.hmf.tasks.OnFailureListener;
+importcom.huawei.hmf.tasks.OnSuccessListener;
+importcom.huawei.hms.kit.awareness.Awareness;
 // 导入信标快照相关类
 import com.huawei.hms.kit.awareness.capture.BeaconStatusResponse;
 import com.huawei.hms.kit.awareness.status.BeaconStatus;
@@ -43,15 +44,15 @@ import com.huawei.hms.kit.awareness.barrier.BeaconBarrier;
 import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
 ```
 
-#### 能力开发
+## 能力开发
 
-#### Capture
+### Capture
 
 1. 获取Awareness Kit的"Capture Client"。
 2. 通过"Capture Client"调用信标状态查询能力接口查询情景状态。
-3. 根据情景感知服务结果的返回，进行应用的业务处理。  
+3. 根据情景感知服务结果的返回，进行应用的业务处理。
 
-   ```
+   ```screen
    "Java"
    // 查询条件
    String namespace = "sample namespace";
@@ -91,7 +92,7 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
            });
    ```
 
-   ```
+   ```screen
    "Kotlin"
    val namespace = "sample namespace"
    val type = "sample type"
@@ -123,13 +124,13 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
            }
    ```
 
-#### Barrier
+### Barrier
 
 以下以开发信标"discover"的Barrier为例（当手机扫描到周围有匹配传入filter的信标设备后触发Barrier）。
 
-1. 定义Barrier。  
+1. 定义Barrier。
 
-   ```
+   ```screen
    "Java"
    String namespace = "sample namespace";
    String type = "sample type";
@@ -138,7 +139,7 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
    AwarenessBarrier discoverBeaconBarrier = BeaconBarrier.discover(filter);
    ```
 
-   ```
+   ```screen
    "Kotlin"
    val namespace = "sample namespace"
    val type = "sample type"
@@ -147,9 +148,9 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
    var discoverBeaconBarrier : AwarenessBarrier = BeaconBarrier.discover(filter)
    ```
 
-2. 定义Barrier状态改变时触发的"PendingIntent"，同时注册一个广播接收器用来接收这个广播。  
+2. 定义Barrier状态改变时触发的"PendingIntent"，同时注册一个广播接收器用来接收这个广播。
 
-   ```
+   ```screen
    "Java"
    final String BARRIER_RECEIVER_ACTION = getApplication().getPackageName() + "BEACON_BARRIER_RECEIVER_ACTION";
    Intent intent = new Intent(BARRIER_RECEIVER_ACTION); 
@@ -158,7 +159,7 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
    registerReceiver(barrierReceiver, new IntentFilter(BARRIER_RECEIVER_ACTION));
    ```
 
-   ```
+   ```screen
    "Kotlin"
    val BARRIER_RECEIVER_ACTION = application.packageName + "BEACON_BARRIER_RECEIVER_ACTION"
    val intent = Intent(BARRIER_RECEIVER_ACTION)
@@ -167,9 +168,9 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
    registerReceiver(barrierReceiver, IntentFilter(BARRIER_RECEIVER_ACTION))
    ```
 
-3. 定义Barrier对应的标签Label，然后添加Barrier。  
+3. 定义Barrier对应的标签Label，然后添加Barrier。
 
-   ```
+   ```screen
    "Java"
    String beaconBarrierLabel = "discover beacon barrier";
    // 定义更新围栏的请求
@@ -193,7 +194,7 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
            });
    ```
 
-   ```
+   ```screen
    "Kotlin"
    val beaconBarrierLabel = "discover beacon barrier"
    // 定义更新围栏的请求
@@ -210,9 +211,9 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
            }
    ```
 
-4. 定义广播接收器，用于监听Barrier事件，收到事件后进行应用的业务处理。  
+4. 定义广播接收器，用于监听Barrier事件，收到事件后进行应用的业务处理。
 
-   ```
+   ```screen
    "Java"
    // 定义广播接收器
    class BeaconBarrierReceiver extends BroadcastReceiver {
@@ -235,7 +236,7 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
    }
    ```
 
-   ```
+   ```screen
    "Kotlin"
    // 定义广播接收器
    internal inner class BeaconBarrierReceiver : BroadcastReceiver() {
@@ -251,9 +252,9 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
    }
    ```
 
-5. 在应用业务处理完成后，根据Barrier对应的标签Label，进行删除Barrier。  
+5. 在应用业务处理完成后，根据Barrier对应的标签Label，进行删除Barrier。
 
-   ```
+   ```screen
    "Java"
    String beaconBarrierLabel = "discover beacon barrier";
    // 定义更新围栏的请求
@@ -277,7 +278,7 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
            });
    ```
 
-   ```
+   ```screen
    "Kotlin"
    val beaconBarrierLabel = "discover beacon barrier"
    // 定义更新围栏的请求

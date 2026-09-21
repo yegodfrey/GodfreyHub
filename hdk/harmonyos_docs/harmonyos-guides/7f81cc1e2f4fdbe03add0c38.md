@@ -8,11 +8,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-js-code-c
 
 建议通过预编译生成JavaScript字节码缓存，可以降低Web页面第一次和第二次的加载时间。
 
-[Web完成时延](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization#section563844632917)场景下，建议优先修改。  
+[Web完成时延](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization#section563844632917)场景下，建议优先修改。
 
-#### 规则配置
+## 规则配置
 
-```
+```screen
 // code-linter.json5
 {
   "rules": {
@@ -21,13 +21,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-js-code-c
 }
 ```
 
-#### 选项
+## 选项
 
-该规则无需配置选项。  
+该规则无需配置选项。
 
-#### 正例
+## 正例
 
-```
+```screen
 import { webview } from '@kit.ArkWeb';
 interface Config {
   url: string,
@@ -73,9 +73,9 @@ struct JsCodeCacheByPrecompileCheckNoReport {
 }
 ```
 
-#### 反例
+## 反例
 
-```
+```screen
 import { webview } from '@kit.ArkWeb';
 import { hiTraceMeter } from '@kit.PerformanceAnalysisKit';
 @Entry
@@ -104,10 +104,11 @@ struct JsCodeCacheByPrecompileCheckReport {
 }
 ```
 
-#### 规则集
+## 规则集
 
-```
+```screen
 plugin:@performance/all
 ```
 
-Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。  
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+

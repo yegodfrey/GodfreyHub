@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/parameters-in-the-
 
 动态AIPP配置采用json文件格式。crop、resize、padding、dtc支持多batch配置。配置文件参数如下：
 
-```
+```screen
 {
     "input_para":
     {

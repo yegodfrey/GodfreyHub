@@ -10,55 +10,55 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/mapmodelcla
 |:----------------------------------|
 |public class MapModelCross 路口放大图模型。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
-|:--------------------------------------------------------------------------------------|
-|[MapModelCross](#section10218183882917)(int format, byte\[\] buf) 携带放大图格式和动态放大图格式的构造方法。|
+|:------------------------------------------------------------------------------------|
+|[MapModelCross](#section10218183882917)(int format, byte[] buf) 携带放大图格式和动态放大图格式的构造方法。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:-------------------------------------------------|
-|byte\[\]|[getPicBuf](#section882972412169)() 获取路口动态放大图。|
+|byte[]|[getPicBuf](#section882972412169)() 获取路口动态放大图。|
 |int|[getPicFormat](#section248619418374)() 获取路口放大图的格式。|
 
-#### Public Constructors
+## Public Constructors
 
-#### MapModelCross(int format, byte\[\] buf)
+### MapModelCross(int format, byte[] buf)
 
 |Constructor|
-|:----------------------------------------------------------------------|
-|public MapModelCross(int format, byte\[\] buf) 使用给定参数创建MapModelCross对象。|
+|:--------------------------------------------------------------------|
+|public MapModelCross(int format, byte[] buf) 使用给定参数创建MapModelCross对象。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------|
 |format|路口放大图的格式。|
 |buf|路口动态放大图。|
 
-#### Public Methods
+## Public Methods
 
-#### getPicBuf
+### getPicBuf
 
 |Method|
-|:-------------------------------------|
-|public byte\[\] getPicBuf() 获取路口动态放大图。|
+|:-----------------------------------|
+|public byte[] getPicBuf() 获取路口动态放大图。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
-|:-------|:----------|
-|byte\[\]|路口动态放大图。|
+|:-----|:----------|
+|byte[]|路口动态放大图。|
 
-#### getPicFormat
+### getPicFormat
 
 |Method|
 |:------------------------------------|
 |public int getPicFormat() 获取路口放大图的格式。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:---|:-------------------------------|

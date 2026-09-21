@@ -12,7 +12,7 @@ BigInt可以表示任意大小的整数。使用BigInt时，在整数字面量�
 
 示例如下：
 
-```
+```ts
 @Entry
 @Component
 struct BigIntNum {

@@ -6,10 +6,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-build-application
 
 # 应用构建类
 
-<br />
-
-* [认证服务](https://developer.huawei.com/consumer/cn/doc/app/agc-help-auth-services-0000001110178598)  
-* [云函数](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cloud-functions-0000001156538487)  
-* [云数据库](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cloud-db-0000001110338500)  
-* [云存储](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cloud-storage-0000001156658461)  
-* [云托管](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cloud-hosting-0000001110178600)  
+* **[认证服务](https://developer.huawei.com/consumer/cn/doc/app/agc-help-auth-services-0000001110178598)**   
+* **[云函数](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cloud-functions-0000001156538487)**   
+* **[云数据库](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cloud-db-0000001110338500)**   
+* **[云存储](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cloud-storage-0000001156658461)**   
+* **[云托管](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cloud-hosting-0000001110178600)**   

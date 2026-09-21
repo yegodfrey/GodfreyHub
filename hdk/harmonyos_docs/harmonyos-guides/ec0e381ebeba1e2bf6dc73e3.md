@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 
 # 查询超级隐私模式管控策略
 
-#### 场景介绍
+## 场景介绍
 
 从26.0.0开始，超级隐私模式新增查询设备当前的超级隐私管控策略信息的功能。
 
-超级隐私模式支持一键关闭位置、相机和麦克风等敏感器件。该模式管控的器件范围将随版本更新动态调整。应用可通过Device Security Kit提供的接口获取超级隐私模式的状态及各类隐私传感器的管控策略。  
+超级隐私模式支持一键关闭位置、相机和麦克风等敏感器件。该模式管控的器件范围将随版本更新动态调整。应用可通过Device Security Kit提供的接口获取超级隐私模式的状态及各类隐私传感器的管控策略。
 
-#### 约束与限制
+## 约束与限制
 
-本特性需要设备上存在超级隐私模式选项。开发者可通过在设备上选择"设置 \> 隐私和安全 \> 超级隐私模式"查看超级隐私模式选项。  
+本特性需要设备上存在超级隐私模式选项。开发者可通过在设备上选择"设置 > 隐私和安全 > 超级隐私模式"查看超级隐私模式选项。
 
-#### 业务流程
+## 业务流程
 
-![](https://media:401788444716707036)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/7lR7cL7ZQtucaUZkmtnplw/zh-cn_image_0000002762834217.png?HW-CC-KV=V1&HW-CC-Date=20260917T084602Z&HW-CC-Expire=31536000000&HW-CC-Sign=47CA604E7F6CF475E0716D30A68E60B63008EDB13EC12363CAD62AAE401CE808)
 
-流程说明：
+**流程说明：**
 
 1. 开发者应用调用[getSuperPrivacyPolicies](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-superprivacymode-api#getsuperprivacypolicies)接口查询当前超级隐私模式状态及控制策略信息。
 
@@ -28,31 +28,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 
 3. 开发者应用根据返回的超级隐私模式状态和控制策略信息进行业务处理。
 
-#### 接口说明
+## 接口说明
 
-以下是超级隐私管控策略查询接口，更多接口及使用方法请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-superprivacymode-api)。  
+以下是超级隐私管控策略查询接口，更多接口及使用方法请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-superprivacymode-api)。
 
 |接口名|描述|
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
-|[getSuperPrivacyPolicies](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-superprivacymode-api#getsuperprivacypolicies)() : Promise\<[SuperPrivacyPolicyInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-superprivacymode-api#superprivacypolicyinfo)\>|查询当前超级隐私模式状态及控制策略信息。|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
+|[getSuperPrivacyPolicies](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-superprivacymode-api#getsuperprivacypolicies)() : Promise<[SuperPrivacyPolicyInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-superprivacymode-api#superprivacypolicyinfo)>|查询当前超级隐私模式状态及控制策略信息。|
 
-#### 开发步骤
+## 开发步骤
 
 1. 导入超级隐私模块及相关公共模块。
 
-   ```
+   ```TypeScript
    import { superPrivacyMode } from '@kit.DeviceSecurityKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
    ```
 
 2. 调用[getSuperPrivacyPolicies](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-superprivacymode-api#getsuperprivacypolicies)接口查询超级隐私模式状态及控制策略信息。
 
-   ```
+   ```TypeScript
    const DOMAIN = 0x0000;
    const TAG = 'SuperPrivacyModeTest';
    ```
 
-   ```
+   ```TypeScript
    try {
      const policyInfo = await superPrivacyMode.getSuperPrivacyPolicies();
      hilog.info(DOMAIN, TAG, `Super privacy mode = ${policyInfo.superPrivacyMode}`);

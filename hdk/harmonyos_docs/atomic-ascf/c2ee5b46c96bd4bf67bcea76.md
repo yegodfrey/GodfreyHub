@@ -10,15 +10,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-ascf/components-web-vie
 
 此组件会自动铺满整个页面，每个页面只允许添加一个web-view组件。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-约束与限制：
+**约束与限制：**
 
 使用web-view组件之前需要完成开发准备，具体请参见[开发web-view组件](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/develop-web-view)。
 
-支持模拟器： 从1.0.17版本开始，支持模拟器运行。
+**支持模拟器：** 从1.0.17版本开始，支持模拟器运行。
 
-属性：  
+**属性：**
 
 |名称|类型|必填|描述|
 |:----------|:-----------|:-|:--------------------------------------------------------------------------------------------------|
@@ -27,11 +27,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-ascf/components-web-vie
 |binderror|eventhandler|否|网页加载失败的时候触发此事件。e.detail = { src }。|
 |bindmessage|eventhandler|否|网页通过[postMessage](#hasascfwebpostmessage)方法向元服务发送消息。e.detail = { data }，data是postMessage的参数组成的数组队列。|
 
-示例：
+**示例：**
 
 hxml文件：
 
-```
+```html
 <view>
   <web-view
     src="{{url}}"
@@ -44,7 +44,7 @@ hxml文件：
 
 JavaScript文件：
 
-```
+```js
 Page({
   data: {
     url: 'https://www.example.com' // 此处仅为样例，请开发者更换为可用webview指向的网页链接
@@ -61,30 +61,30 @@ Page({
 });
 ```
 
-#### 接口
+## 接口
 
-#### has.ascfweb.navigateTo
+### has.ascfweb.navigateTo
 
 has.ascfweb.navigateTo(Object object)
 
 保留当前页面，跳转到应用内的某个页面。但是不能跳转到tabBar页面。使用 [has.ascfweb.navigateBack](#hasascfwebnavigateback) 可以返回到原页面。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:-------|:-------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|url|string|是|需要跳转的应用内非tabBar的页面路径（在app.json中定义的代码包路径），路径后可以带参数。参数与路径之间用?分隔，参数与键值用=相连，多个参数用\&分隔。 支持格式：（假设app.json中定义了页面："page/path/path"） - 以/开头，是全局路径。 - 其他路径，例如：a.png、./a.png、../a.png。|
+|:-------|:-------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|url|string|是|需要跳转的应用内非tabBar的页面路径（在app.json中定义的代码包路径），路径后可以带参数。参数与路径之间用?分隔，参数与键值用=相连，多个参数用&分隔。 支持格式：（假设app.json中定义了页面："page/path/path"） - 以/开头，是全局路径。 - 其他路径，例如：a.png、./a.png、../a.png。|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
-```
+```js
 has.ascfweb.navigateTo({
   url: '/page/path/path?key=1',
   success: () => {
@@ -99,17 +99,17 @@ has.ascfweb.navigateTo({
 });
 ```
 
-#### has.ascfweb.navigateBack
+### has.ascfweb.navigateBack
 
 has.ascfweb.navigateBack(Object object)
 
 关闭当前页面，返回上一页面或多级页面。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|默认值|必填|描述|
 |:-------|:-------|:--|:-|:----------------------------|
@@ -118,9 +118,9 @@ has.ascfweb.navigateBack(Object object)
 |fail|function|-|否|接口调用失败的回调函数。|
 |complete|function|-|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
-```
+```js
 // 注意：调用 navigateTo 跳转时，调用该方法的页面会被加入堆栈，而 redirectTo 方法则不会。见下方示例代码
 // 此处是A页面
 has.ascfweb.navigateTo({
@@ -136,28 +136,28 @@ has.ascfweb.navigateBack({
 });
 ```
 
-#### has.ascfweb.reLaunch
+### has.ascfweb.reLaunch
 
 has.ascfweb.reLaunch(Object object)
 
 关闭所有页面，打开到应用内的某个页面。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:-------|:-------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|url|string|是|需要跳转的应用内页面路径（在app.json中定义的代码包路径），非tabBar的页面路径后可以带参数。参数与路径之间用?分隔，参数与键值用=相连，多个参数用\&分隔。 支持格式：（假设app.json中定义了页面："page/path/path"） - 以/开头，是全局路径。 - 其他路径，例如：a.png、./a.png、../a.png。|
+|:-------|:-------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|url|string|是|需要跳转的应用内页面路径（在app.json中定义的代码包路径），非tabBar的页面路径后可以带参数。参数与路径之间用?分隔，参数与键值用=相连，多个参数用&分隔。 支持格式：（假设app.json中定义了页面："page/path/path"） - 以/开头，是全局路径。 - 其他路径，例如：a.png、./a.png、../a.png。|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
-```
+```js
 // A页面跳转
 has.ascfweb.reLaunch({
   url: 'test?id=1'
@@ -172,17 +172,17 @@ Page({
 });
 ```
 
-#### has.ascfweb.switchTab
+### has.ascfweb.switchTab
 
 has.ascfweb.switchTab(Object object)
 
 如果应用定义了多标签(tab)，即客户端窗口的底部或顶部有可切换页面的标签(tab)，那么可以通过此接口跳转到tabBar页面，同时关闭其他所有非tabBar页面。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -191,11 +191,11 @@ has.ascfweb.switchTab(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
 app.json：
 
-```
+```json
   "tabBar": {
     "list": [{
       "pagePath": "index",
@@ -209,156 +209,157 @@ app.json：
 
 js代码：
 
-```
+```js
 has.ascfweb.switchTab({
   url: '/index'
 });
 ```
 
-#### has.ascfweb.redirectTo
+### has.ascfweb.redirectTo
 
 has.ascfweb.redirectTo(Object object)
 
 关闭当前页面，跳转到应用内的某个页面，但是不允许跳转到tabBar页面。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:-------|:-------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|url|string|是|需要跳转的应用内非tabBar的页面路径（在app.json中定义的代码包路径），路径后可以带参数。参数与路径之间用?分隔，参数与键值用=相连，多个参数用\&分隔。 支持格式：（假设app.json中定义了页面："page/path/path"） - 以/开头，是全局路径。 - 其他路径，例如：a.png、./a.png、../a.png。|
+|:-------|:-------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|url|string|是|需要跳转的应用内非tabBar的页面路径（在app.json中定义的代码包路径），路径后可以带参数。参数与路径之间用?分隔，参数与键值用=相连，多个参数用&分隔。 支持格式：（假设app.json中定义了页面："page/path/path"） - 以/开头，是全局路径。 - 其他路径，例如：a.png、./a.png、../a.png。|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
-```
+```js
 has.ascfweb.redirectTo({
   url: 'test?id=1'
 });
 ```
 
-#### has.ascfweb.postMessage
+### has.ascfweb.postMessage
 
 has.ascfweb.postMessage(Object object)
 
 此方法用于网页向元服务发送消息。消息会触发bindmessage上绑定的方法，方法的回调参数为网页postMessage的信息的数组队列。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:-------|:---------------|:-|:------------------------------------------------------------------------------------------------------------------------------|
-|data|string \| object|是|发出的消息对象或字符串。|
-|options|object|否|发送消息的可选配置。当前支持配置字段mode控制消息发送时机，mode支持以下合法值： - 'normal'：默认，消息会在特定时机（如：网页后退、组件销毁）触发并向元服务发送。 - 'realtime'：消息会立即向元服务发送。 起始版本： 2.0.4|
+|:-------|:--------------|:-|:----------------------------------------------------------------------------------------------------------------------------------|
+|data|string | object|是|发出的消息对象或字符串。|
+|options|object|否|发送消息的可选配置。当前支持配置字段mode控制消息发送时机，mode支持以下合法值： - 'normal'：默认，消息会在特定时机（如：网页后退、组件销毁）触发并向元服务发送。 - 'realtime'：消息会立即向元服务发送。 **起始版本：** 2.0.4|
 |success|function|否|success回调表示把data数据存储成功。存储成功的数据会在元服务后退、组件销毁时，通过bindmessage发送给用户。|
 |fail|function|否|回调表示没有把data数据存储成功。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
-```
+```js
 has.ascfweb.postMessage({ data: 'foo' });
 has.ascfweb.postMessage({ data: { foo: 'bar' } });
 has.ascfweb.postMessage({ data: { foo: 'bar' }, options: { mode: 'realtime' } });
 ```
 
-#### has.ascfweb.onMessage
+### has.ascfweb.onMessage
 
 has.ascfweb.onMessage(callback: function): void
 
 监听并接受来自[postMessage](#hasascfwebpostmessage)发送过来的消息。
 
-起始版本： 2.0.4
+**起始版本：** 2.0.4
 
-参数：  
+**参数：**
 
 |名称|类型|必填|说明|
-|:-------|:-------|:-|:-------------------------|
-|callback|function|是|回调方法，方法声明：(data) =\> void。|
+|:-------|:-------|:-|:------------------------|
+|callback|function|是|回调方法，方法声明：(data) => void。|
 
-示例：
+**示例：**
 
-```
+```js
 has.ascfweb.onMessage((data) => {
   console.info('onMessage, data:', data);
 });
 ```
 
-#### has.ascfweb.getEnv
+### has.ascfweb.getEnv
 
 has.ascfweb.getEnv(function callback)
 
 获取当前环境。以callback形式返回结果。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-参数：  
+**参数：**
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:-----------|
 |callback|function|否|获取当前环境的回调函数。|
 
-callback返回值：
+**callback返回值：**
 
-Object类型，包括以下字段。  
+Object类型，包括以下字段。
 
 |参数|类型|描述|
 |:---------|:------|:-----------------|
 |ascfweb|boolean|判断当前是否在ascfweb环境中。|
 |systemInfo|object|系统信息。|
 
-systemInfo说明：  
+**systemInfo说明：**
 
 |参数|类型|描述|
-|:-----------|:-----|:--------------------------------------------------------------------|
+|:-----------|:-----|:--------------------------------------------------------------|
 |deviceType|string|设备类型。|
 |brand|string|设备品牌名称。|
 |productModel|string|认证型号。|
 |osFullName|string|系统版本。|
-|ascfVersion|string|ASCF框架的版本号，ascfVersion是三位版本号，由\[大版本\].\[小版本\].\[修订版本\]三部分组成，例如：1.0.0。|
+|ascfVersion|string|ASCF框架的版本号，ascfVersion是三位版本号，由[大版本].[小版本].[修订版本]三部分组成，例如：1.0.0。|
 
-示例：
+**示例：**
 
-```
+```js
 has.ascfweb.getEnv(function(res) {
   console.info(res.ascfweb);   // true
   console.info(res.systemInfo);
 });
 ```
 
-#### has.authorize
+### has.authorize
 
 has.authorize(Object object)
 
 提前向用户发起授权请求。调用后会立刻弹窗询问用户是否同意授权元服务使用某项功能或获取用户的某些数据，但不会实际调用对应接口。如果用户之前已经同意授权，则不会出现弹窗，直接返回成功。
 
-起始版本： 2.0.2
+**起始版本：** 2.0.2
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:-------|:-------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|scope|string|是|需要获取权限的scope，详见"[scope列表](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/develop-authorization#scope列表)"。 注意： 仅支持申请摄像头（scope.camera）和麦克风（scope.record）两种权限。|
+|:-------|:-------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|scope|string|是|需要获取权限的scope，详见"[scope列表](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/develop-authorization#scope列表)"。 **注意**： 仅支持申请摄像头（scope.camera）和麦克风（scope.record）两种权限。|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-![](https://media:901788330612241880)  
-在申请权限时，需要在项目的配置文件中，逐个声明需要的权限，否则将无法获取授权。配置方式请参见[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+> 注意
+>
+> 在申请权限时，需要在项目的配置文件中，逐个声明需要的权限，否则将无法获取授权。配置方式请参见[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 
-示例：
+**示例：**
 
-```
+```js
 has.authorize({
   scope: 'scope.camera',
   success: () => {
@@ -373,28 +374,28 @@ has.authorize({
 });
 ```
 
-#### has.checkJsApi
+### has.checkJsApi
 
 has.checkJsApi(Object object)
 
 使用checkJsApi判断当前宿主是否支持某些API。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:--------|:---------|:-|:------------------------|
-|jsApiList|string\[\]|是|需要check的api名称数组。|
+|:--------|:-------|:-|:------------------------|
+|jsApiList|string[]|是|需要check的api名称数组。|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
-```
+```js
 has.checkJsApi({
   jsApiList: ['chooseImage', 'previewImage', 'compressImage', 'uploadFile'],
   success(res) {
@@ -406,37 +407,37 @@ has.checkJsApi({
 });
 ```
 
-#### has.chooseImage
+### has.chooseImage
 
 has.chooseImage(Object object)
 
 从本地相册选择图片或使用相机拍照。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|默认值|必填|描述|
-|:---------|:---------|:---------------------------|:-|:-----------------------------------------|
+|:---------|:-------|:-------------------------|:-|:-----------------------------------------|
 |count|number|9|否|最多可以选择的图片张数。默认值为9，最大不能超过20。|
-|sizeType|string\[\]|\['original', 'compressed'\]|否|所选的图片的尺寸。 - original：原图。 - compressed：压缩图。|
-|sourceType|string\[\]|\['album', 'camera'\]|否|选择图片的来源。 - album：从相册选图。 - camera：使用相机拍摄。|
+|sizeType|string[]|['original', 'compressed']|否|所选的图片的尺寸。 - original：原图。 - compressed：压缩图。|
+|sourceType|string[]|['album', 'camera']|否|选择图片的来源。 - album：从相册选图。 - camera：使用相机拍摄。|
 |success|function|-|否|接口调用成功的回调函数。|
 |fail|function|-|否|接口调用失败的回调函数。|
 |complete|function|-|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值：**
 
 |参数|类型|描述|
-|:------------|:--------------|:-------------------|
-|tempFilePaths|Array\<string\>|图片的本地临时文件路径列表（本地路径）。|
-|tempFiles|Array\<object\>|图片的本地临时文件列表。|
+|:------------|:------------|:-------------------|
+|tempFilePaths|Array<string>|图片的本地临时文件路径列表（本地路径）。|
+|tempFiles|Array<object>|图片的本地临时文件列表。|
 
-示例：
+**示例：**
 
-```
+```js
 has.chooseImage({
   count: 1, // 默认9
   sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -453,53 +454,53 @@ has.chooseImage({
 });
 ```
 
-#### has.previewImage
+### has.previewImage
 
 has.previewImage(Object object)
 
 在新页面中预览图片，预览的过程中用户可以进行保存图片等操作。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-注意事项：在调用此接口时如果需要支持保存网络资源，需要先完成[配置服务器域名](https://developer.huawei.com/consumer/cn/doc/atomic-guides/agc-help-harmonyos-server-domain)。
+**注意事项** ：在调用此接口时如果需要支持保存网络资源，需要先完成[配置服务器域名](https://developer.huawei.com/consumer/cn/doc/atomic-guides/agc-help-harmonyos-server-domain)。
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|默认值|必填|描述|
-|:-------|:---------|:--------------------|:-|:-------------------------------------------|
+|:-------|:-------|:--------------------|:-|:-------------------------------------------|
 |current|string|urls的第一个元素（即第一张图片url）|否|当前显示的图片的链接。|
-|urls|string\[\]|-|是|需要预览的图片列表（支持网络图片和本地图片，本地图片路径以internal://开头）。|
+|urls|string[]|-|是|需要预览的图片列表（支持网络图片和本地图片，本地图片路径以internal://开头）。|
 |showmenu|boolean|true|否|是否显示长按菜单。|
 |success|function|-|否|接口调用成功的回调函数。|
 |fail|function|-|否|接口调用失败的回调函数。|
 |complete|function|-|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
-```
+```js
 has.previewImage({
   current: '', // 当前显示图片的http链接
   urls: [] // 需要预览的图片http链接列表
 });
 ```
 
-#### has.uploadImage
+### has.uploadImage
 
 has.uploadImage(Object object)
 
 将本地图片上传到服务器。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-需要权限：在module.json5中声明ohos.permission.INTERNET。
+**需要权限** ：在module.json5中声明**ohos.permission.INTERNET**。
 
-注意事项：在调用此接口前，需要先完成[配置服务器域名](https://developer.huawei.com/consumer/cn/doc/atomic-guides/agc-help-harmonyos-server-domain)。
+**注意事项** ：在调用此接口前，需要先完成[配置服务器域名](https://developer.huawei.com/consumer/cn/doc/atomic-guides/agc-help-harmonyos-server-domain)。
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:-----------------------------------|
@@ -512,9 +513,9 @@ has.uploadImage(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
-```
+```js
 has.chooseImage({
   success (res) {
     const tempFilePaths = res.tempFilePaths;
@@ -533,21 +534,21 @@ has.chooseImage({
   }});
 ```
 
-#### has.downloadImage
+### has.downloadImage
 
 has.downloadImage(Object object)
 
 下载图片资源到本地。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-需要权限：在module.json5中声明ohos.permission.INTERNET。
+**需要权限** ：在module.json5中声明**ohos.permission.INTERNET**。
 
-注意事项：在调用此接口前，需要先完成[配置服务器域名](https://developer.huawei.com/consumer/cn/doc/atomic-guides/agc-help-harmonyos-server-domain)。
+**注意事项** ：在调用此接口前，需要先完成[配置服务器域名](https://developer.huawei.com/consumer/cn/doc/atomic-guides/agc-help-harmonyos-server-domain)。
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:---------------------------------------------|
@@ -558,9 +559,9 @@ has.downloadImage(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
-```
+```js
 has.downloadImage({
   url: 'https://www.example.com', // 此处仅为样例，请开发者更换为可用接口地址
   success(res) {
@@ -572,19 +573,19 @@ has.downloadImage({
 });
 ```
 
-#### has.getNetworkType
+### has.getNetworkType
 
 has.getNetworkType(Object object)
 
 获取网络类型。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-需要权限： 在module.json5中声明ohos.permission.GET_NETWORK_INFO。
+**需要权限：** 在module.json5中声明**ohos.permission.GET_NETWORK_INFO**。
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -592,15 +593,15 @@ has.getNetworkType(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值：**
 
 |参数|类型|描述|
 |:----------|:-----|:----------------------------------------------------------------------------------------------------------------------|
 |networkType|string|网络类型。 - cellular：蜂窝网络。 - wifi：Wi-Fi网络。 - bluetooth：蓝牙网络。 - ethernet：以太网网络。 - vpn：VPN网络。 - none：无网络。 - unknown：不常见的网络类型。|
 
-示例：
+**示例：**
 
-```
+```js
 has.getNetworkType({
   success: (res) => {
     const networkType = res.networkType; // 返回网络类型cellular，wifi，bluetooth，ethernet，vpn，none，unknown
@@ -609,31 +610,31 @@ has.getNetworkType({
 });
 ```
 
-#### has.openLocation
+### has.openLocation
 
 has.openLocation(Object object)
 
 使用引擎内置地图查看具体位置。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:--------|:-------|:-|:-------------------------------------------------------------------------------|
-|latitude|number|是|纬度，范围为-90 \~ 90，负数表示南纬。 说明： 中国大陆及港澳地区，请使用gcj02，其他地区请使用wgs84。|
-|longitude|number|是|经度，范围为-180 \~ 180，负数表示西经。根据type字段决定使用哪套坐标系。 说明： 中国大陆及港澳地区，请使用gcj02，其他地区请使用wgs84。|
+|:--------|:-------|:-|:----------------------------------------------------------------------------------|
+|latitude|number|是|纬度，范围为-90 ~ 90，负数表示南纬。 **说明：** 中国大陆及港澳地区，请使用gcj02，其他地区请使用wgs84。|
+|longitude|number|是|经度，范围为-180 ~ 180，负数表示西经。根据type字段决定使用哪套坐标系。 **说明：** 中国大陆及港澳地区，请使用gcj02，其他地区请使用wgs84。|
 |name|string|是|位置名。|
 |address|string|否|地址的详情说明。|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
-```
+```js
 has.openLocation({
   latitude: 0, // 纬度，浮点数，范围为90 ~ -90
   longitude: 0, // 经度，浮点数，范围为180 ~ -180。
@@ -642,19 +643,19 @@ has.openLocation({
 });
 ```
 
-#### has.getLocation
+### has.getLocation
 
 has.getLocation(Object object)
 
 获取当前的地理位置、速度。开启高精度定位，接口耗时会增加，可指定highAccuracyExpireTime作为超时时间。
 
-起始版本： 1.0.4
+**起始版本：** 1.0.4
 
-需要权限： 在module.json5中声明ohos.permission.LOCATION和ohos.permission.APPROXIMATELY_LOCATION。
+**需要权限：** 在module.json5中声明**ohos.permission.LOCATION** 和**ohos.permission.APPROXIMATELY_LOCATION**。
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|默认值|必填|描述|
 |:---------------------|:-------|:----|:-|:-----------------------------------------------|
@@ -666,20 +667,20 @@ has.getLocation(Object object)
 |fail|function|-|否|接口调用失败的回调函数。|
 |complete|function|-|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值：**
 
 |参数|类型|描述|
 |:---------------|:-----|:------------------------------------------------|
-|latitude|number|纬度，范围为-90\~90，负数表示南纬，根据type参数确定使用坐标。|
-|longitude|number|经度，范围为-180\~180，负数表示西经，根据type参数确定使用坐标。|
+|latitude|number|纬度，范围为-90~90，负数表示南纬，根据type参数确定使用坐标。|
+|longitude|number|经度，范围为-180~180，负数表示西经，根据type参数确定使用坐标。|
 |speed|number|速度，单位m/s。|
 |accuracy|number|位置的精确度，反映与真实位置之间的接近程度，可以理解成：10，即与真实位置相差10m，越小越精确。|
 |altitude|number|高度，单位：m。|
 |verticalAccuracy|number|垂直精度，单位：m。|
 
-示例：
+**示例：**
 
-```
+```js
 has.getLocation({
   type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
   success: (res) => {
@@ -691,17 +692,17 @@ has.getLocation({
 });
 ```
 
-#### has.login
+### has.login
 
 has.login(Object object)
 
 调用接口获取登录凭证（code）。使用该凭证进一步换取用户登录状态信息，包括用户在当前程序中的唯一标识（openid）、平台账号下的唯一标识（unionid）。用户数据的加密与解密通信需要依赖会话密钥来完成。进一步使用时，请参见[获取华为账号用户信息](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/develop-huawei-id-retrieval)。
 
-起始版本： 1.0.9
+**起始版本：** 1.0.9
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -709,7 +710,7 @@ has.login(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值**：
 
 |参数|类型|描述|
 |:------|:-----|:---------------------------------------------------------|
@@ -718,9 +719,9 @@ success返回值：
 |openID|string|华为账号用户在不同类型的产品的身份ID，同一个用户不同应用，OpenID值不同。|
 |unionID|string|华为账号用户在同一个开发者账号下产品的身份ID，同一个用户，同一个开发者账号下管理的不同应用，UnionID值相同。|
 
-示例：
+**示例：**
 
-```
+```js
 has.login({
   success: (res) => {
     console.info('login success', res);
@@ -734,29 +735,29 @@ has.login({
 });
 ```
 
-#### has.requestPayment
+### has.requestPayment
 
 has.requestPayment(Object object)
 
 拉起华为支付或跳转三方支付。使用前请参见[华为支付服务-开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-preparations)。
 
-起始版本： 1.0.9
+**起始版本：** 1.0.9
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------|
 |orderStr|string|是|拉起华为支付收银台或者跳转三方支付传入的订单信息，json字符串格式，具体数据格式要求请参见[orderStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#orderstr)。|
-|payload|string|否|预留信息，在请求接口时，入参如果传递，接口响应中则会原样返回。 说明： - 入参如果传递代表跳转三方支付，拉起H5支付场景下需要固定传递"AP"。 - 入参如果不传递代表拉起华为支付。 起始版本： 1.0.10|
+|payload|string|否|预留信息，在请求接口时，入参如果传递，接口响应中则会原样返回。 **说明：** - 入参如果传递代表跳转三方支付，拉起H5支付场景下需要固定传递"AP"。 - 入参如果不传递代表拉起华为支付。 **起始版本：** 1.0.10|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：
+**success返回值**：
 
-拉起华为支付success的返回值为空，跳转三方支付success的返回值包括以下字段。  
+拉起华为支付success的返回值为空，跳转三方支付success的返回值包括以下字段。
 
 |参数|类型|描述|
 |:------------------|:-----|:---------------------------------------------------------------------------------|
@@ -764,13 +765,13 @@ success返回值：
 |clientToken|string|客户端凭证。|
 |nextStep|string|下一步支付流程。|
 |extraInfo|string|保留字段，json string格式。|
-|payload|string|预留信息，在请求接口时，入参如果传递，接口响应中则会原样返回。 说明： 拉起H5支付场景下需要固定传递"AP"。|
+|payload|string|预留信息，在请求接口时，入参如果传递，接口响应中则会原样返回。 **说明：** 拉起H5支付场景下需要固定传递"AP"。|
 
-示例：
+**示例：**
 
 拉起华为支付：
 
-```
+```js
 has.requestPayment({
   orderStr: 'xxx',
   success: (res) => {
@@ -787,7 +788,7 @@ has.requestPayment({
 
 跳转三方支付：
 
-```
+```js
 has.requestPayment({
   orderStr: 'xxx',
   payload: 'AP',
@@ -803,38 +804,38 @@ has.requestPayment({
 });
 ```
 
-#### has.cashierPicker
+### has.cashierPicker
 
 has.cashierPicker(Object object)
 
 拉起通用收银台。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:-----------|:-------|:-|:-----------------------------------------------------------------------------------------------------------|
+|:-----------|:-------|:-|:--------------------------------------------------------------------------------------------------------------|
 |tradeSummary|string|否|订单的摘要信息。|
 |amount|number|否|订单总金额，单位：分。|
-|currency|string|否|货币单位。 说明： - 不传递则收银台不显示货币单位。 - 传递后收银台可以转换成货币符号则显示货币符号（比如￥），转换不了则显示所传递的值。|
-|extraInfo|string|否|保留字段。json string格式。若未填写，默认为空。 说明： 商户可以通过保留字段指定支付方式。指定收银台支付方式列表传递内容示例如下： {"selectPayType":"wechat_pay\|xxx"}。|
+|currency|string|否|货币单位。 **说明：** - 不传递则收银台不显示货币单位。 - 传递后收银台可以转换成货币符号则显示货币符号（比如￥），转换不了则显示所传递的值。|
+|extraInfo|string|否|保留字段。json string格式。若未填写，默认为空。 **说明：** 商户可以通过保留字段指定支付方式。指定收银台支付方式列表传递内容示例如下： {"selectPayType":"wechat_pay|xxx"}。|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值**：
 
 |参数|类型|描述|
 |:------------------|:-----|:---------------------------------------------------------------------------------|
 |selectedPaymentType|string|用户选择的支付方式。 - wechat_pay：微信支付。 - ali_pay：支付宝支付。 - 其他（其他为商户申请配置三方支付方式时所申请的三方支付相关配置）。|
 |clientToken|string|客户端凭证。|
 
-示例：
+**示例：**
 
-```
+```js
 has.cashierPicker({
   tradeSummary: '',
   amount: 100,
@@ -852,17 +853,17 @@ has.cashierPicker({
 });
 ```
 
-#### has.requestContract
+### has.requestContract
 
 has.requestContract(Object object)
 
 调起华为支付签约服务。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:----------|:-------|:-|:-------------------------------------------------------------------------------------------------------------------------------|
@@ -871,9 +872,9 @@ has.requestContract(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**示例：**
 
-```
+```js
 has.requestContract({
   contractStr: 'xxx',
   success: (res) => {
@@ -888,19 +889,19 @@ has.requestContract({
 });
 ```
 
-#### has.queryIapEnvStatus
+### has.queryIapEnvStatus
 
 has.queryIapEnvStatus(Object object)
 
 查询用户登录的账号服务地是否在IAP Kit支持结算的国家/地区中。当前只支持中国大陆。
 
-需要权限： 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
+**需要权限：** 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -908,7 +909,7 @@ has.queryIapEnvStatus(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-错误码信息：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:---------|:---------------------------------------------------------------------|
@@ -920,9 +921,9 @@ has.queryIapEnvStatus(Object object)
 |1001860050|The HUAWEI ID is not signed in.|
 |1001860054|The country or region of the signed-in HUAWEI ID does not support IAP.|
 
-示例：
+**示例：**
 
-```
+```js
 has.queryIapEnvStatus({
   success() {
     console.info('iap is support');
@@ -933,26 +934,26 @@ has.queryIapEnvStatus({
 });
 ```
 
-#### has.createIap
+### has.createIap
 
 has.createIap(Object object)
 
 发起购买，支持消耗型商品、非消耗型商品和自动续期订阅商品。在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)创建商品后，使用此接口拉起华为应用内支付收银台，显示商品名称、价格等信息。
 
-需要权限： 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
+**需要权限：** 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:------------------|:-------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |productId|string|是|待支付的商品ID。商品ID来源于开发者在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置商品信息时设置的"商品ID"，具体请参见[配置商品信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-config-product)。|
 |productType|number|是|需要查询的商品类型。 0：消耗型商品。 1：非消耗型商品。 2：自动续期订阅商品。 3：非续期订阅商品。|
-|developerPayload|string|否|商户侧保留信息。 若该字段有值，在支付成功后的回调结果中会原样返回给应用。 说明： 该参数长度限制为\[0, 256\]。|
-|reservedInfo|string|否|要求JSON String格式，商户可以将额外需要传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 例如： let reservedInfo = "{"key1":"value1","key2":"value2"}"; 说明： 该字段为预留字段，可选传入，开发者暂时无需关注。|
+|developerPayload|string|否|商户侧保留信息。 若该字段有值，在支付成功后的回调结果中会原样返回给应用。 **说明：** 该参数长度限制为[0, 256]。|
+|reservedInfo|string|否|要求JSON String格式，商户可以将额外需要传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 例如： let reservedInfo = "{"key1":"value1","key2":"value2"}"; **说明：** 该字段为预留字段，可选传入，开发者暂时无需关注。|
 |promotionalOfferId|string|否|优惠ID。优惠ID来源于开发者在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置商品信息时设置的促销优惠标识符，具体请参见[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)。传递该字段且要生效，需传递jwsRepresentation字段包含促销优惠信息。|
 |applicationUserName|string|否|用户账户相关联的混淆字符串，唯一标识用户。传递优惠ID场景，可以传递该字段。|
 |jwsRepresentation|string|否|包含购买参数信息的JWS格式签名数据。购买参数，如促销优惠等。详细说明见[生成订阅优惠签名购买参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-server-subscribe-offer-sign)。|
@@ -960,13 +961,13 @@ has.createIap(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值：**
 
 |参数|类型|描述|
 |:-----------|:-----|:----------------------------------------------------|
 |purchaseData|string|包含支付结果的JSON字符串，包含的参数请参见[PurchaseData](#purchasedata)。|
 
-错误码信息：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:---------|:----------------------------------------------------------------------------|
@@ -985,9 +986,9 @@ success返回值：
 |1001860059|Invalid promotional offer id.|
 |1001860060|Invalid purchase signature.|
 
-示例：
+**示例：**
 
-```
+```js
 has.createIap({
   // 替换为实际的商品id
   productId: 'product_id',
@@ -1006,19 +1007,19 @@ has.createIap({
 });
 ```
 
-#### has.finishIap
+### has.finishIap
 
 has.finishIap(Object object)
 
 应用完成已购商品的发货后，调用此接口确认发货，指明此次购买流程结束。
 
-需要权限： 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
+**需要权限：** 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:--------------|:-------|:-|:---------------------------------------------------------------------------------------------------------------------|
@@ -1029,7 +1030,7 @@ has.finishIap(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-错误码信息：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:---------|:---------------------------------------------------------------------|
@@ -1044,9 +1045,9 @@ has.finishIap(Object object)
 |1001860053|The purchase has been finished and cannot be finished again.|
 |1001860054|The country or region of the signed-in HUAWEI ID does not support IAP.|
 
-示例：
+**示例：**
 
-```
+```js
 has.finishIap({
   productType: 0,
   // 替换为实际的purchaseToken
@@ -1062,7 +1063,7 @@ has.finishIap({
 });
 ```
 
-#### has.queryIap
+### has.queryIap
 
 has.queryIap(Object object)
 
@@ -1072,13 +1073,13 @@ has.queryIap(Object object)
 
 * 若查询非消耗型商品，IAP返回用户所有已订购商品的购买数据。
 
-需要权限： 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
+**需要权限：** 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|默认值|必填|描述|
 |:----------------|:-------|:--|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1089,14 +1090,14 @@ has.queryIap(Object object)
 |fail|function|-|否|接口调用失败的回调函数。|
 |complete|function|-|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值：**
 
 |参数|类型|描述|
-|:----------------|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|purchaseDataList|string\[\]|[PurchaseData](#purchasedata)字符串的数组。|
+|:----------------|:-------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|purchaseDataList|string[]|[PurchaseData](#purchasedata)字符串的数组。|
 |continuationToken|string|支持分页查询的数据定位标志。 如果用户拥有的商品数量非常大，当响应中存在continuationToken时，应用必须对当前方法发起另一个调用，并传入本次接收到的continuationToken。如果商品仍未查完，仍需要继续发起调用，直到不再返回continuationToken，表示已经返回全部商品。|
 
-错误码信息：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:---------|:---------------------------------------------------------------------|
@@ -1109,9 +1110,9 @@ success返回值：
 |1001860050|The HUAWEI ID is not signed in.|
 |1001860054|The country or region of the signed-in HUAWEI ID does not support IAP.|
 
-示例：
+**示例：**
 
-```
+```js
 has.queryIap({
   productType: 0,
   queryType: 1,
@@ -1124,33 +1125,33 @@ has.queryIap({
 });
 ```
 
-#### has.queryIapProducts
+### has.queryIapProducts
 
 has.queryIapProducts(Object object)
 
 获取在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)上配置的商品的详情信息。
 
-需要权限： 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
+**需要权限：** 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:----------|:---------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------|:-------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |productType|number|是|需要查询的商品类型。 0：消耗型商品。 1：非消耗型商品。 2：自动续期订阅商品。 3：非续期订阅商品。|
-|productIds|string\[\]|是|待查询商品ID列表。 商品ID必须已经在当前应用中创建且唯一。 商品ID来源于开发者在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置商品信息时设置的商品ID，请参见[配置商品信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-config-product)。 说明： 一次查询最多支持200个商品，商品数量较多时建议分批查询。|
+|productIds|string[]|是|待查询商品ID列表。 商品ID必须已经在当前应用中创建且唯一。 商品ID来源于开发者在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置商品信息时设置的商品ID，请参见[配置商品信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-config-product)。 **说明：** 一次查询最多支持200个商品，商品数量较多时建议分批查询。|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：
+**success返回值：**
 
 返回[Product](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-iap#product)数组。
 
-错误码信息：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:---------|:----------------------------------------------------------------------------|
@@ -1165,9 +1166,9 @@ success返回值：
 |1001860050|The HUAWEI ID is not signed in.|
 |1001860054|The country or region of the signed-in HUAWEI ID does not support IAP.|
 
-示例：
+**示例：**
 
-```
+```js
 has.queryIapProducts({
   productType: 0,
   productIds: ['xxx-1', 'xxx-2'],
@@ -1180,19 +1181,19 @@ has.queryIapProducts({
 });
 ```
 
-#### has.isIapSandboxActivated
+### has.isIapSandboxActivated
 
 has.isIapSandboxActivated(Object object)
 
 检查沙盒测试能力是否生效。
 
-需要权限： 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
+**需要权限：** 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -1200,11 +1201,11 @@ has.isIapSandboxActivated(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：
+**success返回值：**
 
 返回boolean，表示沙盒测试能力是否生效。
 
-错误码信息：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:---------|:---------------------------------------------------------------------|
@@ -1219,9 +1220,9 @@ success返回值：
 |1001860057|The app provision type is not debug.|
 |1001860058|The HUAWEI ID is not test account.|
 
-示例：
+**示例：**
 
-```
+```js
 has.isIapSandboxActivated({
   success(res) {
     console.info('isIapSandboxActivated success', res);
@@ -1232,29 +1233,29 @@ has.isIapSandboxActivated({
 });
 ```
 
-#### has.showIapManagedSubscriptions
+### has.showIapManagedSubscriptions
 
 has.showIapManagedSubscriptions(Object object)
 
 跳转到订阅页或订阅详情页。
 
-需要权限： 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
+**需要权限：** 开发前需要配置[Client ID](https://developer.huawei.com/consumer/cn/doc/atomic-guides/account-atomic-client-id)、[配置签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section5181019153511)、[开通商户服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-merchant-service)、[开启和激活应用内购买服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-enable-in-app-purchases)。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:----------|:--------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------|:--------------------------------------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |uiParameter|[UIWindowParameter](#uiwindowparameter)|是|包含界面窗口模式的[UIWindowParameter](#uiwindowparameter)对象。|
-|groupId|string|否|订阅组ID，来源于开发者在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置管理的订阅组，请参见[新增订阅组](https://developer.huawei.com/consumer/cn/doc/app/non-subscription-0000001958955109#section37862471018)。 说明： - 传递groupId，跳转到订阅详情页。 - 不传递groupId，跳转到订阅页。如果用户在应用只有一条订阅数据，此时会跳转到此条订阅的订阅详情页。|
+|groupId|string|否|订阅组ID，来源于开发者在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置管理的订阅组，请参见[新增订阅组](https://developer.huawei.com/consumer/cn/doc/app/non-subscription-0000001958955109#section37862471018)。 **说明：** - 传递groupId，跳转到订阅详情页。 - 不传递groupId，跳转到订阅页。如果用户在应用只有一条订阅数据，此时会跳转到此条订阅的订阅详情页。|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-错误码信息：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:---------|:---------------------------------------------------------------------|
@@ -1267,9 +1268,9 @@ has.showIapManagedSubscriptions(Object object)
 |1001860050|The HUAWEI ID is not signed in.|
 |1001860054|The country or region of the signed-in HUAWEI ID does not support IAP.|
 
-示例：
+**示例：**
 
-```
+```js
 has.showIapManagedSubscriptions({
   uiParameter: {
     windowScreenMode: 1
@@ -1284,35 +1285,35 @@ has.showIapManagedSubscriptions({
 });
 ```
 
-#### has.requestSubscribeMessage
+### has.requestSubscribeMessage
 
 has.requestSubscribeMessage(Object object)
 
 订阅消息。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:-------|:--------------|:-|:-----------------------------|
-|tmplIds|Array\<string\>|是|需要订阅的消息模板的id的集合，一次调用最多可订阅3条消息。|
+|:-------|:------------|:-|:-----------------------------|
+|tmplIds|Array<string>|是|需要订阅的消息模板的id的集合，一次调用最多可订阅3条消息。|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值：**
 
 |参数|类型|描述|
-|:---------------------|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------------------|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |errMsg|string|接口调用成功时errMsg值为'requestSubscribeMessage:ok'。|
-|\[TEMPLATE_ID:string\]|string|\[TEMPLATE_ID\]是动态的键，即模板id，值包括'accept'、'reject'、'ban'、'filter'。'accept'表示用户同意订阅该条id对应的模板消息，'reject'表示用户拒绝订阅该条id对应的模板消息，'ban'表示已被后台封禁，'filter'表示该模板因为模板标题同名被后台过滤。|
+|[TEMPLATE_ID:string]|string|[TEMPLATE_ID]是动态的键，即模板id，值包括'accept'、'reject'、'ban'、'filter'。'accept'表示用户同意订阅该条id对应的模板消息，'reject'表示用户拒绝订阅该条id对应的模板消息，'ban'表示已被后台封禁，'filter'表示该模板因为模板标题同名被后台过滤。|
 
-示例：
+**示例：**
 
-```
+```js
 has.requestSubscribeMessage({
   tmplIds: [''],
   success: (res) => {
@@ -1327,19 +1328,19 @@ has.requestSubscribeMessage({
 });
 ```
 
-#### has.startRealNameVerification
+### has.startRealNameVerification
 
 has.startRealNameVerification(Object object)
 
 提供实名信息验证功能，调用该方法后会拉起实名信息验证授权组件。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-依赖关系： HarmonyOS SDK版本≥5.1.1(19)且ROM版本≥5.1.1
+**依赖关系：** HarmonyOS SDK版本≥5.1.1(19)且ROM版本≥5.1.1
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:----------|:-------|:-|:-----------------------------------------------------------------------------------------------------------------------------------|
@@ -1348,11 +1349,11 @@ has.startRealNameVerification(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：
+**success返回值：**
 
 返回string，代表实名信息验证ID，用于[实名信息验证结果查询](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-verification-result)。
 
-错误码信息：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:---------|:------------------------------------------------------------------------------------------------------------|
@@ -1367,9 +1368,9 @@ success返回值：
 |1020100008|The app ID does not match.|
 |1020100009|The user ID does not match.|
 
-示例：
+**示例：**
 
-```
+```js
 has.startRealNameVerification({
   preVerifyId: 'xxx',
   success: (res) => {
@@ -1384,19 +1385,19 @@ has.startRealNameVerification({
 });
 ```
 
-#### has.startRealNameAuth
+### has.startRealNameAuth
 
 has.startRealNameAuth(Object object)
 
 提供实名信息授权功能，调用该方法后会拉起实名信息授权组件。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-依赖关系： HarmonyOS SDK版本≥5.1.1(19)且ROM版本≥5.1.1
+**依赖关系：** HarmonyOS SDK版本≥5.1.1(19)且ROM版本≥5.1.1
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -1404,11 +1405,11 @@ has.startRealNameAuth(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：
+**success返回值：**
 
 返回string，代表实名信息授权ID，用于[实名信息授权结果查询](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-auth-result)。
 
-错误码信息：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:---------|:------------------------------------------------------------------------------------------------------------|
@@ -1420,9 +1421,9 @@ success返回值：
 |1020100004|The network is unavailable.|
 |1020100005|System internal error.|
 
-示例：
+**示例：**
 
-```
+```js
 has.startRealNameAuth({
   success: (res) => {
     console.info('startRealNameAuth success', res);
@@ -1436,19 +1437,19 @@ has.startRealNameAuth({
 });
 ```
 
-#### has.startFaceVerification
+### has.startFaceVerification
 
 has.startFaceVerification(Object object)
 
 提供人脸核身、实人验证功能，调用该方法后会拉起人脸核身、实人验证组件。
 
-起始版本： 1.0.10
+**起始版本：** 1.0.10
 
-依赖关系： HarmonyOS SDK版本≥5.1.1(19)且ROM版本≥5.1.1
+**依赖关系：** HarmonyOS SDK版本≥5.1.1(19)且ROM版本≥5.1.1
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:----------|:-------|:-|:------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1457,11 +1458,11 @@ has.startFaceVerification(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：
+**success返回值：**
 
 返回string，代表验证结果ID，用于[人脸核身实人验证结果查询](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-face-verifactaion-result)。
 
-错误码信息：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:---------|:------------------------------------------------------------------------------------------------------------|
@@ -1478,9 +1479,9 @@ success返回值：
 |1020100008|The app ID does not match.|
 |1020100009|The user ID does not match.|
 
-示例：
+**示例：**
 
-```
+```js
 has.startFaceVerification({
   preVerifyId: 'xxx',
   success: (res) => {
@@ -1495,17 +1496,17 @@ has.startFaceVerification({
 });
 ```
 
-#### has.getPhoneNumber
+### has.getPhoneNumber
 
 has.getPhoneNumber(Object object):void
 
 拉起获取手机号的功能页。使用前请参见[开发前提-获取手机号](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-preparations)完成环境配置。在获取到code后，将code传到开发者后台，并在开发者后台调用服务器端接口消费该code来[获取用户级凭证](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-obtain-user-token)，再通过[获取用户信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-user-info-get-phone)接口，来获取用户手机号。每个code有效期为5min，且只能消费一次。code即是获取用户级凭证接口中需要的授权码（Authorization Code）。
 
-起始版本： 1.0.12
+**起始版本：** 1.0.12
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -1513,26 +1514,26 @@ has.getPhoneNumber(Object object):void
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值：**
 
 |参数|类型|描述|
 |:---|:-----|:------|
 |code|string|临时登录凭据。|
 
-fail返回值：  
+**fail返回值：**
 
 |参数|类型|描述|
 |:------|:-----|:----|
 |errCode|number|错误码。|
 |errMsg|string|错误信息。|
 
-错误码：
+**错误码信息：**
 
 错误码统一为14000201，表示获取手机号失败，可能原因参考：[华为账号服务ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
-示例：
+**示例：**
 
-```
+```js
 has.getPhoneNumber({
   success: (res) => {
     console.info('getPhoneNumber success', res);
@@ -1548,19 +1549,19 @@ has.getPhoneNumber({
 
 体验示意图如下：
 
-![](https://media:901788330612272881 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/-ULkQyviQ7e3vfhyoi44Xg/zh-cn_image_0000002763053147.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=364571A38A6FCDD697147ABC210ADD95EB8AA63D44E4F1F346C333C2615D37EC "点击放大")
 
-#### has.getAvatarInfo
+### has.getAvatarInfo
 
 has.getAvatarInfo(Object object): void
 
 拉起获取用户头像的功能页。使用前请参见[配置Client-id](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-client-id)。
 
-起始版本： 1.0.12
+**起始版本：** 1.0.12
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -1568,15 +1569,15 @@ has.getAvatarInfo(Object object): void
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值**：
 
 |参数|类型|描述|
 |:--------|:-----|:----------|
 |avatarUri|string|用户头像本地文件路径。|
 
-示例：
+**示例：**
 
-```
+```js
 has.getAvatarInfo({
   success: (res) => {
     console.info('getAvatarInfo success', res);
@@ -1592,19 +1593,19 @@ has.getAvatarInfo({
 
 体验示意图如下：
 
-![](https://media:901788330612458882 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/z5tjkWZPQ-6_3PA5je4d-w/zh-cn_image_0000002733493620.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=A7F2C6A58802995856AA3FB875EAA470205968FBED8CEC724A73A302F575379F "点击放大")
 
-#### has.getInvoiceTitle
+### has.getInvoiceTitle
 
 has.getInvoiceTitle(Object object): void
 
 拉起获取发票抬头的功能页。使用前请参见[配置Client-id](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-client-id)。
 
-起始版本： 1.0.12
+**起始版本：** 1.0.12
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -1612,7 +1613,7 @@ has.getInvoiceTitle(Object object): void
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值**：
 
 |参数|类型|描述|
 |:-------------|:-----|:------|
@@ -1624,9 +1625,9 @@ success返回值：
 |bankName|string|公司银行名称。|
 |bankAccount|string|公司银行账户。|
 
-示例：
+**示例：**
 
-```
+```js
 has.getInvoiceTitle({
   success: (res) => {
     console.info('getInvoiceTitle success', res);
@@ -1642,19 +1643,19 @@ has.getInvoiceTitle({
 
 体验示意图如下：
 
-![](https://media:901788330612484883 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/pxx4I1wmQoa3KOSWRqxLgg/zh-cn_image_0000002733333758.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=3FF6CF1F63284D7709A17BE0A05EAAC48DBAB748F32E5D0197B74131D2B91499 "点击放大")
 
-#### has.getDeliveryAddress
+### has.getDeliveryAddress
 
 has.getDeliveryAddress(Object object): void
 
 拉起获取收货地址的功能页。使用前请参见[配置Client-id](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-client-id)。
 
-起始版本： 1.0.12
+**起始版本：** 1.0.12
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -1662,7 +1663,7 @@ has.getDeliveryAddress(Object object): void
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值**：
 
 |参数|类型|描述|
 |:-----------|:-----|:------|
@@ -1676,9 +1677,9 @@ success返回值：
 |streetName|string|街道名称。|
 |detailInfo|string|详细地址。|
 
-示例：
+**示例：**
 
-```
+```js
 has.getDeliveryAddress({
   success: (res) => {
     console.info('getDeliveryAddress success', res);
@@ -1694,36 +1695,36 @@ has.getDeliveryAddress({
 
 体验示意图如下：
 
-![](https://media:901788330612527884 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/GswuXK7_TfCJbiMgqEMbNA/zh-cn_image_0000002762893261.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=DF0D4A6B055720221893FEBF1D6960C2A291E49501E6C0D96B47F20628961544 "点击放大")
 
-#### has.getServiceSubscription
+### has.getServiceSubscription
 
 has.getServiceSubscription(Object object): void
 
 拉起订阅服务的功能页。使用前请参见[开通推送服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-config-setting)、[选用订阅模板](https://developer.huawei.com/consumer/cn/doc/atomic-guides/push-as-service-noti#section10491045195915)。
 
-起始版本： 1.0.12
+**起始版本：** 1.0.12
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
-|:-------|:--------------|:-|:-----------------------------|
-|tmplIds|Array\<string\>|是|需要订阅的消息模板的id的集合，一次调用最多可订阅3条消息。|
+|:-------|:------------|:-|:-----------------------------|
+|tmplIds|Array<string>|是|需要订阅的消息模板的id的集合，一次调用最多可订阅3条消息。|
 |success|function|否|接口调用成功的回调函数。|
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值**：
 
 |参数|类型|描述|
 |:-----|:-----|:-----------------------------------------|
 |errMsg|string|调用结果信息，调用成功返回'requestSubscribeMessage:ok'。|
 
-示例：
+**示例：**
 
-```
+```js
 has.getServiceSubscription({
   tmplIds: [''],
   success: (res) => {
@@ -1740,13 +1741,13 @@ has.getServiceSubscription({
 
 体验示意图如下：
 
-![](https://media:901788330612573885 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/SRDVUtN3Ry6XP2kozvlrQA/zh-cn_image_0000002763053149.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=20E761E7226319FADC68AD73DF4EBC4616F0D7604DCCEC86B6AACDF9F7ECCFDF "点击放大")
 
-#### PurchaseData
+### PurchaseData
 
 包含jws格式的订单信息、订阅状态信息。
 
-起始版本： 1.0.10  
+**起始版本：** 1.0.10
 
 |名称|类型|必填|描述|
 |:--------------------|:-----|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1754,11 +1755,11 @@ has.getServiceSubscription({
 |jwsPurchaseOrder|string|否|包含订单信息的JWS格式数据。可参见[对返回结果验签](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-verifying-signature)解码验签获取相关购买数据的JSON字符串，其包含的参数请参见[PurchaseOrderPayload](#purchaseorderpayload)。|
 |jwsSubscriptionStatus|string|否|包含订阅状态信息的JWS格式数据。可参见[对返回结果验签](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-verifying-signature)解码验签获取相关订阅状态信息的JSON字符串。|
 
-#### PurchaseOrderPayload
+### PurchaseOrderPayload
 
 订单信息模型，支持消耗型商品、非消耗型商品和自动续期订阅商品。
 
-起始版本： 1.0.10  
+**起始版本：** 1.0.10
 
 |名称|类型|必填|描述|
 |:--------------------------------|:------|:-|:-----------------------------------------------------------------------------------|
@@ -1781,43 +1782,43 @@ has.getServiceSubscription({
 |countryCode|string|是|国家/地区码，用于区分国家/地区信息，请参见[ISO 3166](https://www.iso.org/iso-3166-country-codes.html)标准。|
 |signedTime|number|是|签名时间，UTC时间戳，单位：ms。|
 
-#### SubGroupStatusPayload
+### SubGroupStatusPayload
 
 订阅组相关的订阅状态信息。
 
-起始版本： 1.0.10  
+**起始版本：** 1.0.10
 
 |名称|类型|必填|描述|
-|:----------------------------|:---------|:-|:----------------------------------------------------------------------------------------|
+|:----------------------------|:-------|:-|:----------------------------------------------------------------------------------------|
 |environment|string|是|环境类型。 - NORMAL：生产环境。 - SANDBOX：沙盒环境。|
 |applicationId|string|是|应用ID。|
 |packageName|string|是|应用包名。|
 |subGroupId|string|是|订阅组ID。|
 |lastSubscriptionStatus|object|否|订阅组中最后生效的订阅状态[SubscriptionStatus](#subscriptionstatus)，比如A切换B，B切换C，此处是C的订阅状态。|
-|historySubscriptionStatusList|object\[\]|否|订阅组最近生效的历史订阅状态[SubscriptionStatus](#subscriptionstatus)的列表，比如A切换B，B切换C，这里包含C，B，A三个订阅状态信息。|
+|historySubscriptionStatusList|object[]|否|订阅组最近生效的历史订阅状态[SubscriptionStatus](#subscriptionstatus)的列表，比如A切换B，B切换C，这里包含C，B，A三个订阅状态信息。|
 
-#### SubscriptionStatus
+### SubscriptionStatus
 
 订阅状态信息。
 
-起始版本： 1.0.10  
+**起始版本：** 1.0.10
 
 |名称|类型|必填|描述|
-|:----------------------|:---------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------------------|:-------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |subGroupGenerationId|string|是|订阅组的代ID。 - 用户切换订阅商品时，此ID不会改变。 - 订阅失效且超出[保留期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-subscription-functions#保留期)后，用户重新购买商品时，此ID会改变。|
 |subscriptionId|string|是|商品的订阅ID。以下场景，此ID会发生改变： - 用户切换订阅商品时。 - 订阅失效且超出[保留期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-subscription-functions#保留期)后，用户重新购买商品时。|
 |purchaseToken|string|是|购买token，在购买消耗型/非消耗型商品场景中与具体购买订单一一对应，在订阅型商品场景中与订阅ID一一对应。|
 |status|string|是|订阅状态。 1：生效中。 2：已到期。 3：尝试扣费。 5：撤销。|
 |expiresTime|number|是|自动续期订阅商品的过期时间，UTC时间戳，单位：ms。|
 |lastPurchaseOrder|object|否|当前订阅最新的一笔购买订单。购买订单包含的参数请参见[PurchaseOrderPayload](#purchaseorderpayload)。|
-|recentPurchaseOrderList|object\[\]|否|当前订阅最新的购买订单列表，包含续期、折算等产生的购买订单。购买订单包含的参数请参见[PurchaseOrderPayload](#purchaseorderpayload)。|
+|recentPurchaseOrderList|object[]|否|当前订阅最新的购买订单列表，包含续期、折算等产生的购买订单。购买订单包含的参数请参见[PurchaseOrderPayload](#purchaseorderpayload)。|
 |renewalInfo|object|否|当前订阅最新的未来扣费计划，包含的参数请参见[SubRenewalInfo](#subrenewalinfo)。|
 
-#### SubRenewalInfo
+### SubRenewalInfo
 
 订阅的扣费计划信息。
 
-起始版本： 1.0.10  
+**起始版本：** 1.0.10
 
 |名称|类型|必填|描述|
 |:-----------------------|:------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1835,44 +1836,44 @@ has.getServiceSubscription({
 |renewalTime|number|否|续期时间，UTC时间戳，单位：ms。|
 |expirationIntent|string|否|订阅续期失败的原因。 1：用户取消。 2：商品无效。 3：签约无效。 4：扣费异常。 5：用户不同意涨价。 6：未知。|
 
-#### UIWindowParameter
+### UIWindowParameter
 
 界面窗口参数。
 
-起始版本： 1.0.10  
+**起始版本：** 1.0.10
 
 |名称|类型|必填|描述|
 |:---------------|:-----|:-|:------------------------------|
 |windowScreenMode|number|是|界面窗口模式。 1：界面窗口弹窗模式。 2：界面窗口全屏模式。|
 
-#### Product
+### Product
 
 包含单个商品详细信息。
 
-起始版本： 1.0.10  
+**起始版本：** 1.0.10
 
 |名称|类型|必填|描述|
-|:-----------------|:---------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-----------------|:-------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |id|string|是|商品ID。|
 |type|number|是|商品类型。 0：消耗型商品。 1：非消耗型商品。 2：自动续期订阅商品。 3：非续期订阅商品。|
 |name|string|是|商品名称，为配置商品信息时配置的名称。 用于显示在应用内支付收银台。|
 |description|string|是|商品描述，即配置商品信息时配置的描述信息。|
-|price|string|是|商品的展示价格，包含商品币种和价格，格式为"币种+商品价格"，例如EUR 0.15。 部分国家/地区会返回"货币符号+商品价格"，例如中国大陆返回"￥0.15"。 此价格含税。 - 当商品为消耗型/非消耗型商品时，若[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)，该字段为商品的促销价格，未设置则为商品原价。 - 当商品为自动续期订阅商品时，该字段为商品的原价。 说明： 该字段已废弃，建议使用localPrice替代。|
+|price|string|是|商品的展示价格，包含商品币种和价格，格式为"币种+商品价格"，例如EUR 0.15。 部分国家/地区会返回"货币符号+商品价格"，例如中国大陆返回"￥0.15"。 此价格含税。 - 当商品为消耗型/非消耗型商品时，若[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)，该字段为商品的促销价格，未设置则为商品原价。 - 当商品为自动续期订阅商品时，该字段为商品的原价。 **说明：** 该字段已废弃，建议使用localPrice替代。|
 |localPrice|string|否|商品的展示价格，包含商品币种和价格，格式为"币种+商品价格"，例如EUR 0.15。 部分国家/地区会返回"货币符号+商品价格"，例如中国大陆返回"￥0.15"。 此价格含税。 - 当商品为消耗型/非消耗型商品时，若[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)，该字段为商品的促销价格，未设置则为商品原价。 - 当商品为自动续期订阅商品时，该字段为商品的原价。|
-|microPrice|number|是|商品实际价格乘以1,000,000后的微单位价格。 例如某个商品实际价格是1.99美元，则该商品对应的微单位价格为：1.99\*1000000=1990000。 - 当商品为消耗型/非消耗型商品或者非续期订阅商品，若[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)，该字段为商品微单位促销价格，未设置则为商品微单位原价。 - 当商品为自动续期订阅商品时，该字段为商品微单位原价。|
+|microPrice|number|是|商品实际价格乘以1,000,000后的微单位价格。 例如某个商品实际价格是1.99美元，则该商品对应的微单位价格为：1.99*1000000=1990000。 - 当商品为消耗型/非消耗型商品或者非续期订阅商品，若[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)，该字段为商品微单位促销价格，未设置则为商品微单位原价。 - 当商品为自动续期订阅商品时，该字段为商品微单位原价。|
 |originalLocalPrice|string|是|商品的原价，包含商品币种和价格，格式为"币种+商品价格"，例如EUR 0.15。 部分国家/地区会返回"货币符号+商品价格"，例如中国大陆返回"￥0.15"。 此价格含税。 - 当商品为消耗型/非消耗型商品或者非续期订阅商品，无论是否[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)，该字段均为商品原价。 - 当商品为自动续期订阅商品时，无此字段返回，开发者无需关注。|
-|originalMicroPrice|number|是|商品原价的微单位价格。 商品原价乘以1,000,000后的微单位价格。 例如某个商品原价是1.99美元，则该商品对应的微单位价格为：1.99\*1000000=1990000。 - 当商品为消耗型/非消耗型商品或者非续期订阅商品，无论是否[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)，该字段均为商品微单位原价。 - 当商品为自动续期订阅商品时，无此字段返回，开发者无需关注。|
+|originalMicroPrice|number|是|商品原价的微单位价格。 商品原价乘以1,000,000后的微单位价格。 例如某个商品原价是1.99美元，则该商品对应的微单位价格为：1.99*1000000=1990000。 - 当商品为消耗型/非消耗型商品或者非续期订阅商品，无论是否[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)，该字段均为商品微单位原价。 - 当商品为自动续期订阅商品时，无此字段返回，开发者无需关注。|
 |currency|string|是|用于支付该商品的币种，例如CNY。|
 |status|number|否|商品状态。 0：有效状态。 1：取消状态，即删除。此状态的商品不可续订，也不可订阅。 3：下线状态，不能订阅，但老用户仍可续订。|
 |subscriptionInfo|[SubscriptionInfo](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-iap#subscriptioninfo)|否|自动续期订阅商品相关的信息。|
-|promotionalOffers|[PromotionalOffer](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-iap#promotionaloffer)\[\]|否|订阅商品支持的优惠信息列表。|
+|promotionalOffers|[PromotionalOffer](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-iap#promotionaloffer)[]|否|订阅商品支持的优惠信息列表。|
 |jsonRepresentation|string|否|商品详细信息的原始JSON字符串。|
 
-#### SubscriptionInfo
+### SubscriptionInfo
 
 订阅信息。
 
-起始版本： 1.0.10  
+**起始版本：** 1.0.10
 
 |名称|类型|必填|描述|
 |:--------------------------|:-------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------|
@@ -1883,11 +1884,11 @@ has.getServiceSubscription({
 |hasEligibilityForIntroOffer|boolean|否|用户是否享受过同组订阅的促销。取值如下： - true：已享受过。 - false：未享受过。 - 其他：未获取到状态。|
 |introductoryOffer|[SubscriptionOffer](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-iap#subscriptionoffer)|否|促销信息。|
 
-#### SubscriptionOffer
+### SubscriptionOffer
 
 促销信息。
 
-起始版本： 1.0.10  
+**起始版本：** 1.0.10
 
 |名称|类型|必填|描述|
 |:----------|:-----|:-|:-----------------------------------------------------------------------------|
@@ -1898,18 +1899,18 @@ has.getServiceSubscription({
 |microPrice|number|是|促销价格的微单位价格。 促销价格乘以1,000,000后的微单位价格。|
 |offerType|number|是|促销类型。 0：推介促销。 1：优惠促销。|
 
-#### PromotionalOffer
+### PromotionalOffer
 
 订阅商品支持的自定义优惠信息。
 
-起始版本： 1.0.10  
+**起始版本：** 1.0.10
 
 |名称|类型|必填|描述|
-|:----------|:-----|:-|:-----------------------------------------------------------------------------------|
+|:----------|:-----|:-|:----------------------------------------------------------------------------------|
 |offerId|string|是|优惠ID。|
 |paymentMode|number|是|促销的付费方式。 1：免费试用。 2：随用随付。 3：提前支付。|
 |periodUnit|number|否|订阅周期单位。 0：天。 1：周。 2：月。 3：年。 4：分（预留参数，暂未支持）。|
 |periodCount|number|否|订阅周期数量。|
 |localPrice|string|是|显示的优惠商品价格，包含商品币种和价格，格式为"币种+商品价格"，例如EUR 0.15。 部分国家/地区会返回"货币符号+商品价格"，例如中国大陆返回"￥0.15"。|
-|microPrice|number|是|显示的优惠商品实际价格乘以1,000,000后的微单位价格。例如某个商品实际价格是1.99美元，则该商品对应的微单位价格为：1.99\*1000000=1990000。|
+|microPrice|number|是|显示的优惠商品实际价格乘以1,000,000后的微单位价格。例如某个商品实际价格是1.99美元，则该商品对应的微单位价格为：1.99*1000000=1990000。|
 

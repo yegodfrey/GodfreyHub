@@ -6,13 +6,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-cmac-ark
 
 # CMAC(ArkTS)
 
-CMAC是基于对称密钥分组加密算法的消息认证码（Cipher-based Message Authentication Code），目前支持3DES加密算法的消息认证方法。  
-![](https://media:401788444765191539)  
-仅支持在智能穿戴设备（Wearable）使用。  
+CMAC是基于对称密钥分组加密算法的消息认证码（Cipher-based Message Authentication Code），目前支持3DES加密算法的消息认证方法。
+> 说明
+>
+> 仅支持在智能穿戴设备（Wearable）使用。
 
-#### 开发步骤
+## 开发步骤
 
-生成密钥
+**生成密钥**
 
 1. 获取生成密钥算法参数配置。
 
@@ -20,7 +21,7 @@ CMAC是基于对称密钥分组加密算法的消息认证码（Cipher-based Mes
 
 除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview#支持的算法)的规格介绍，导入已有的密钥。
 
-执行CMAC
+**执行CMAC**
 
 1. 获取CMAC算法参数配置。
 
@@ -28,7 +29,7 @@ CMAC是基于对称密钥分组加密算法的消息认证码（Cipher-based Mes
 
 3. 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取MAC数据。
 
-```
+```ts
 /*
  * 以下以CMAC密钥的Promise操作使用为例。
  */

@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/system-References/network-http
 |:------------------------------------------------------------------------------------------------------------------------------|
 |public abstract static class RequestFinishedInfo.MetricsTime 时延指标相关数据。约束说明，使能QUIC的时候，在请求完成后，从ReqeustFinishInfo获取各种耗时数据会偶现为0的情况。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-------------------|:---------------------------------------------------------------------|
@@ -35,243 +35,243 @@ uri: https://developer.huawei.com/consumer/cn/doc/system-References/network-http
 |public abstract long|[getTotalTime](#section17162857171513)() 获取请求耗时时长（请求结束时间减去请求开始时间）。|
 |public abstract long|[getTtfb](#section8645857151519)() 获取首包返回时延。|
 
-#### Public Methods
+## Public Methods
 
-#### getCallEndTime
+### getCallEndTime
 
 |Method|
 |:----------------------------------------------------|
 |public abstract long getCallEndTime() 获取请求结束时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:---------------------------|
 |long|请求结束时间，存在为0的情况。如果流未关闭，则一定为0。|
 
-#### getCallStartTime
+### getCallStartTime
 
 |Method|
 |:------------------------------------------------------|
 |public abstract long getCallStartTime() 获取请求开始时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:----------|
 |long|请求开始时间。|
 
-#### getConnectEndTime
+### getConnectEndTime
 
 |Method|
 |:-------------------------------------------------------|
 |public abstract long getConnectEndTime() 获取连接结束时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:--------------|
 |long|连接结束时间，存在为0的情况。|
 
-#### getConnectionAcquiredTime
+### getConnectionAcquiredTime
 
 |Method|
 |:---------------------------------------------------------------|
 |public abstract long getConnectionAcquiredTime() 获取连接建立时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:--------------|
 |long|连接建立时间，存在为0的情况。|
 
-#### getConnectionReleasedTime
+### getConnectionReleasedTime
 
 |Method|
 |:---------------------------------------------------------------|
 |public abstract long getConnectionReleasedTime() 获取连接释放时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:--------------|
 |long|连接释放时间，存在为0的情况。|
 
-#### getConnectStartTime
+### getConnectStartTime
 
 |Method|
 |:------------------------------------------------------------|
 |public abstract long getConnectStartTime() 获取TCP连接开始时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:---------------|
 |long|TCP连接开始时间，默认值为0。|
 
-#### getDnsEndTime
+### getDnsEndTime
 
 |Method|
 |:--------------------------------------------------------------------|
 |public abstract long getDnsEndTime() 获取DNS解析结束时间，当DNS解析异常时，则为0，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-----------------------|
 |long|DNS解析结束时间，当DNS解析异常时，则为0。|
 
-#### getDnsStartTime
+### getDnsStartTime
 
 |Method|
 |:--------------------------------------------------------|
 |public abstract long getDnsStartTime() 获取DNS解析开始时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:----------|
 |long|DNS解析开始时间。|
 
-#### getRequestBodyEndTime
+### getRequestBodyEndTime
 
 |Method|
 |:--------------------------------------------------------------|
 |public abstract long getRequestBodyEndTime() 获取请求体发送完成时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-----------------|
 |long|请求体发送完成时间，存在为0的情况。|
 
-#### getRequestBodyStartTime
+### getRequestBodyStartTime
 
 |Method|
 |:----------------------------------------------------------------|
 |public abstract long getRequestBodyStartTime() 获取请求体发送开始时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:---------------|
 |long|请求体开始发送时间，默认值为0。|
 
-#### getRequestHeadersEndTime
+### getRequestHeadersEndTime
 
 |Method|
 |:-------------------------------------------------------------------|
 |public abstract long getRequestHeadersEndTime() 获取请求消息头发送完成时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-------------------|
 |long|请求消息头发送完成时间，存在为0的情况。|
 
-#### getRequestHeadersStartTime
+### getRequestHeadersStartTime
 
 |Method|
 |:---------------------------------------------------------------------|
 |public abstract long getRequestHeadersStartTime() 获取请求消息头开始发送时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-----------|
 |long|请求消息头开始发送时间。|
 
-#### getResponseBodyEndTime
+### getResponseBodyEndTime
 
 |Method|
 |:---------------------------------------------------------------|
 |public abstract long getResponseBodyEndTime() 获取响应体发送完成时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:------------------------------|
 |long|响应体发送完成时间，存在为0的情况。如果流未关闭，则一定为0。|
 
-#### getResponseBodyStartTime
+### getResponseBodyStartTime
 
 |Method|
 |:-----------------------------------------------------------------|
 |public abstract long getResponseBodyStartTime() 获取响应体开始发送时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-----------|
 |long|响应体数据开始发送时间。|
 
-#### getResponseHeadersEndTime
+### getResponseHeadersEndTime
 
 |Method|
 |:--------------------------------------------------------------------|
 |public abstract long getResponseHeadersEndTime() 获取响应消息头发送完成时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-----------|
 |long|响应消息头发送完成时间。|
 
-#### getResponseHeadersStartTime
+### getResponseHeadersStartTime
 
 |Method|
 |:------------------------------------------------------------------------------------------|
 |public abstract long getResponseHeadersStartTime() 获取响应消息头开始发送时间。实际上为客户端等待服务器返回消息头时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-------------------|
 |long|响应消息头开始发送时间，存在为0的情况。|
 
-#### getSecureConnectEndTime
+### getSecureConnectEndTime
 
 |Method|
 |:----------------------------------------------------------------|
 |public abstract long getSecureConnectEndTime() 获取TLS连接结束时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-----------------|
 |long|TLS连接结束时间，存在为0的情况。|
 
-#### getSecureConnectStartTime
+### getSecureConnectStartTime
 
 |Method|
 |:------------------------------------------------------------------|
 |public abstract long getSecureConnectStartTime() 获取TLS连接开始时间，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:----------|
 |long|TLS连接开始时间。|
 
-#### getTotalTime
+### getTotalTime
 
 |Method|
 |:------------------------------------------------------------------|
 |public abstract long getTotalTime() 获取请求耗时时长（请求结束时间减去请求开始时间）。单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:----------|
 |long|请求总耗时。|
 
-#### getTtfb
+### getTtfb
 
 |Method|
 |:---------------------------------------------|
 |public abstract long getTtfb() 获取首包返回时延，单位：ms。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:------------|

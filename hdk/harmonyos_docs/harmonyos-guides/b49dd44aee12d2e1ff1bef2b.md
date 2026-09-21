@@ -10,19 +10,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphic
 
 Image通过调用接口来创建，接口调用形式如下：
 
-```
+```ts
 Image(src: PixelMap | ResourceStr | DrawableDescriptor)
 ```
 
 该接口通过图片数据源获取图片，支持本地图片和网络图片的渲染展示。其中，src是图片的数据源，加载方式请参考[加载图片资源](#加载图片资源)。
 
-如果图片加载过程中出现白色块，请参考[Image白块解决方案](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-white-lump-solution)。如果图片加载时间过长，请参考[预置图片资源加载优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-texture-compression-improve-performance)。  
+如果图片加载过程中出现白色块，请参考[Image白块解决方案](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-white-lump-solution)。如果图片加载时间过长，请参考[预置图片资源加载优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-texture-compression-improve-performance)。
 
-#### 加载图片资源
+## 加载图片资源
 
-Image支持加载存档图、多媒体像素图和可绘制描述符三种类型。  
+Image支持加载存档图、多媒体像素图和可绘制描述符三种类型。
 
-#### 存档图类型数据源
+### 存档图类型数据源
 
 存档图类型的数据源可以分为本地资源、网络资源、Resource资源、媒体库资源和base64。
 
@@ -30,11 +30,12 @@ Image支持加载存档图、多媒体像素图和可绘制描述符三种类型
 
   创建文件夹，将本地图片放入ets文件夹下的任意位置。
 
-  Image组件引入本地图片路径，即可显示图片（根目录为ets文件夹）。不支持跨包、跨模块调用该Image组件。  
-  ![](https://media:401788444450316526)  
-  从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使相关模块：build-profile.json5中buildOption \> resOptions \> copyCodeResource \> enable设置为true，详见resOptions中[copyCodeResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile#section754823013348)相关介绍。
+  Image组件引入本地图片路径，即可显示图片（根目录为ets文件夹）。不支持跨包、跨模块调用该Image组件。
+  > 说明
+  >
+  > 从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使相关模块：build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中[copyCodeResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile#section754823013348)相关介绍。
 
-  ```
+  ```TypeScript
   // 'images/view.jpg'需要替换为开发者所需的资源文件
   Image('images/view.jpg')
     .width(200)
@@ -61,7 +62,7 @@ Image支持加载存档图、多媒体像素图和可绘制描述符三种类型
 
   缓存下载模块提供独立的预下载接口，允许应用开发者在创建Image组件前预下载所需图片。组件创建后，Image组件可直接从缓存下载模块中获取已下载的图片数据，从而加快图片的显示速度，优化加载体验，并有效避免网络图片加载延迟。网络缓存的位置位于应用根目录下的cache目录中。
 
-  ```
+  ```TypeScript
   // $r('app.string.LoadingResources')需要替换为开发者所需的资源文件，资源文件中的value值请替换为真实路径
   Image($r('app.string.LoadingResources'))
   ```
@@ -70,26 +71,26 @@ Image支持加载存档图、多媒体像素图和可绘制描述符三种类型
 
   使用资源格式可以跨包/跨模块引入图片，resources文件夹下的图片都可以通过$r资源接口读取到并转换到Resource格式。
 
-  图1 resources
+  **图1** resources
 
-  ![](https://media:401788444450521527)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/noVfJGB7RMK-_SgC9QFtsQ/zh-cn_image_0000002733433880.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=133C095126403F9FA2CF2DE8E480DFE37D694B8D4A2841F664BCFF11BD5FF8A4)
 
   调用方式：
 
-  ```
+  ```TypeScript
   // 请将$r('app.media.icon')替换为实际资源文件
   Image($r('app.media.icon'))
   ```
 
   还可以将图片放在rawfile文件夹下。
 
-  图2 rawfile
+  **图2** rawfile
 
-  ![](https://media:401788444450567528)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/VIp3C7bhRTSQ3m64rOT7xQ/zh-cn_image_0000002762993403.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=AA82088B2453AD6570F8FC5CEA2AC6B76AF7499B50EF710EBBBBC2350ACBFDD3)
 
   调用方式：
 
-  ```
+  ```TypeScript
   // $rawfile('example1.png')需要替换为开发者所需的资源文件
   Image($rawfile('example1.png'))
   ```
@@ -99,7 +100,7 @@ Image支持加载存档图、多媒体像素图和可绘制描述符三种类型
   支持file://路径前缀的字符串，用于访问通过[选择器](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker)提供的图片路径。
   1. 调用接口获取图库的照片url。
 
-     ```
+     ```TypeScript
      import { photoAccessHelper } from '@kit.MediaLibraryKit';
      import { BusinessError } from '@kit.BasicServicesKit';
      import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -155,7 +156,7 @@ Image支持加载存档图、多媒体像素图和可绘制描述符三种类型
 
   2. 从媒体库获取的url格式通常如下。
 
-     ```
+     ```TypeScript
      // 'file://media/Photos/5'需要替换为开发者所需的资源文件，资源文件中的value值请替换为真实路径
      Image('file://media/Photos/5')
        .width(200)
@@ -163,15 +164,15 @@ Image支持加载存档图、多媒体像素图和可绘制描述符三种类型
 
 * base64
 
-  路径格式为data:image/\[png\|jpeg\|bmp\|webp\|heif\];base64,\[base64 data\]，其中\[base64 data\]为Base64字符串数据。
+  路径格式为data:image/[png|jpeg|bmp|webp|heif];base64,[base64 data]，其中[base64 data]为Base64字符串数据。
 
-Base64格式字符串可用于存储图片的像素数据，在网页上使用较为广泛。  
+  Base64格式字符串可用于存储图片的像素数据，在网页上使用较为广泛。
 
-#### 多媒体像素图
+### 多媒体像素图
 
 PixelMap是图片解码后的像素图，具体用法请参考[Image Kit简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-overview)。以下示例将加载的网络图片返回的数据解码成PixelMap格式，再显示在Image组件上。
 
-```
+```TypeScript
 import { http } from '@kit.NetworkKit';
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -221,13 +222,13 @@ struct HttpExample {
 }
 ```
 
-#### 可绘制描述符
+### 可绘制描述符
 
 DrawableDescriptor是ArkUI提供的一种高级图片抽象机制，它通过将图片资源封装为可编程对象，实现了传统Image组件难以实现的动态组合与运行时控制功能。开发者可利用它实现图片的分层叠加（如徽章图标）、动态属性调整（如颜色滤镜）、复杂动画序列等高级效果，适用于需要灵活控制图片展现或实现复杂视觉交互的场景。详细使用方法，请参考[DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-drawabledescriptor)。
 
 通过DrawableDescriptor显示图片及动画的示例如下所示：
 
-```
+```TypeScript
 import {
   DrawableDescriptor,
   PixelMapDrawableDescriptor,
@@ -344,9 +345,9 @@ struct DrawableDescriptorType {
 }
 ```
 
-![](https://media:401788444450669529)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/cSXrmjYrSmmV3i4pwF8Hcg/zh-cn_image_0000002762833515.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=7EDA45EEE4CAA2921BCA162C26EB75F3690D21C779485B6063A74FBE8E110E15)
 
-#### 显示矢量图
+## 显示矢量图
 
 Image组件可显示矢量图（SVG格式的图片），SVG标签文档请参考[SVG标签说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-svg)。
 
@@ -354,39 +355,40 @@ Image组件可显示矢量图（SVG格式的图片），SVG标签文档请参考
 
 SVG格式的图片可以使用fillColor属性改变图片的绘制颜色。
 
-```
+```TypeScript
 // 请将$r('app.media.cloud')替换为实际资源文件
 Image($r('app.media.cloud'))
   .width(50)
   .fillColor(Color.Blue)
 ```
 
-图3 原始图片
+**图3** 原始图片
 
-![](https://media:401788444450721530)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/kLJksTQLRnq42IXyBOCszA/zh-cn_image_0000002733274000.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=B2AFB09ADDF68B9802E179F5B8E0AAA4ACB92354B3F844FBCB79A392E151C025)
 
-图4 设置绘制颜色后的SVG图片
+**图4** 设置绘制颜色后的SVG图片
 
-![](https://media:401788444450760531)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/FZXWz9VWQ72Qu8MMPqA-uA/zh-cn_image_0000002733433882.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=6E79DC5F79B1948B087C33FD454940E8E821BCFB069EE857169870CBA1A41044)
 
-#### 矢量图引用位图
+### 矢量图引用位图
 
 如果Image加载的SVG图源中包含对本地位图的引用，则SVG图源的路径应当设置为以ets为根目录的工程路径，同时，本地位图的路径应设置为与SVG图源同级的相对路径。
 
-Image加载的SVG图源路径设置方法如下所示：  
-![](https://media:401788444450970532)  
-从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使相关模块：build-profile.json5中buildOption \> resOptions \> copyCodeResource \> enable设置为true，详见resOptions中[copyCodeResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile#section754823013348)相关介绍。
+Image加载的SVG图源路径设置方法如下所示：
+> 说明
+>
+> 从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使相关模块：build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中[copyCodeResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile#section754823013348)相关介绍。
 
-```
+```TypeScript
 // 'images/icon.svg'需要替换为开发者所需的资源文件
 Image('/images/icon.svg')
   .width(50)
   .height(50)
 ```
 
-SVG图源通过\<image\>标签的xlink:href属性指定本地位图路径，本地位图路径设置为跟SVG图源同级的相对路径：
+SVG图源通过<image>标签的xlink:href属性指定本地位图路径，本地位图路径设置为跟SVG图源同级的相对路径：
 
-```
+```xml
 <svg width="200" height="200">
   <image width="200" height="200" xlink:href="sky.png"></image>
 </svg>
@@ -394,17 +396,17 @@ SVG图源通过\<image\>标签的xlink:href属性指定本地位图路径，本�
 
 文件工程路径示例如图：
 
-![](https://media:401788444451090533)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/Rm01HeiGSLmImJxUQPNgFQ/zh-cn_image_0000002762993405.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=DB7EE32C2117CD4C91800B8228D42250D63BB67805366BE7174BB584491385AE)
 
-#### 添加属性
+## 添加属性
 
-给Image组件设置属性可以使图片显示更灵活，达到一些自定义的效果。以下是几个常用属性的使用示例，完整属性信息详见[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)。  
+给Image组件设置属性可以使图片显示更灵活，达到一些自定义的效果。以下是几个常用属性的使用示例，完整属性信息详见[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)。
 
-#### 设置图片缩放类型
+### 设置图片缩放类型
 
 通过设置[objectFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#objectfit)属性，可以使图片在高度和宽度确定的框内进行缩放。
 
-```
+```TypeScript
 @Entry
 @Component
 struct ImageScalingType {
@@ -490,13 +492,13 @@ struct ImageScalingType {
 }
 ```
 
-![](https://media:401788444451377534)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/qxu6eKpfQ56rf69qZZkXMw/zh-cn_image_0000002762833517.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=92972032737CC7C67440773D08D93FB7B4AE911B530A178FEAF447FDB054DA68)
 
-#### 图片插值
+### 图片插值
 
 当原图分辨率较低并放大显示时，图片会变得模糊并出现锯齿。这时可以使用[interpolation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#interpolation)属性对图片进行插值，以提高显示清晰度。
 
-```
+```TypeScript
 @Entry
 @Component
 struct ImageInterpolationType {
@@ -551,13 +553,13 @@ struct ImageInterpolationType {
 }
 ```
 
-![](https://media:401788444451414535)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/ZSKaVNq8RmS2fz0ciKOyUw/zh-cn_image_0000002733274002.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A65F52531477596B36CCB32D6F582206F106305C0485B72182F00E5C7D4506D)
 
-#### 设置图片重复样式
+### 设置图片重复样式
 
 通过objectRepeat属性设置图片的重复样式方式，重复样式请参考[ImageRepeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#imagerepeat)枚举说明。
 
-```
+```TypeScript
 @Entry
 @Component
 struct ImageRepetitionStyle {
@@ -603,13 +605,13 @@ struct ImageRepetitionStyle {
 }
 ```
 
-![](https://media:401788444451452536)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/qTS3kr3oSvmIdjh__7Z34w/zh-cn_image_0000002733433884.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA0C48098FA42E18EDA5CC574F4CCF6B38714413AB1458EB3714D0F81CE24FDE)
 
-#### 设置图片渲染模式
+### 设置图片渲染模式
 
 通过renderMode属性设置图片的渲染模式为原色或黑白。
 
-```
+```TypeScript
 @Entry
 @Component
 struct SetImageRenderingMode {
@@ -640,15 +642,15 @@ struct SetImageRenderingMode {
 }
 ```
 
-![](https://media:401788444451498537)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/bWE8lIljQuSFyRa14rubdA/zh-cn_image_0000002762993407.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=0EF6F59DF4535A0397C42C318BB0B9ABE056F2D88D049CB03895B452EB4E3384)
 
-#### 设置图片解码尺寸
+### 设置图片解码尺寸
 
 通过sourceSize属性设置图片解码尺寸，降低图片的分辨率。
 
 原图尺寸为1280×960，该示例将图片解码为40×40和90×90两个尺寸。
 
-```
+```TypeScript
 @Entry
 @Component
 struct SetImageDecodingSize {
@@ -688,13 +690,13 @@ struct SetImageDecodingSize {
 }
 ```
 
-![](https://media:401788444451538538)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/ptNToH4gSXKr3eOfJu6sDA/zh-cn_image_0000002762833519.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=76F22C854B5010FE21B4C8C0D6C859BD2E5255F1F65815B0C984C751224229AA)
 
-#### 为图片添加滤镜效果
+### 为图片添加滤镜效果
 
 通过colorFilter调整图片的像素颜色，为图片添加滤镜。完整的示例及开发指导请参考[基于colorFilter实现图片滤镜效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-implementing-image-filters)。
 
-```
+```TypeScript
 @Entry
 @Component
 struct AddFilterEffectsToImages {
@@ -722,29 +724,29 @@ struct AddFilterEffectsToImages {
 }
 ```
 
-![](https://media:401788444451606539)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/W4P2yE1qTd2R95wGkU5BnA/zh-cn_image_0000002733274004.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=E174146190794011A584E7E179908A1531E42A36620AC37D25268E07F2203A3E)
 
-#### 同步加载图片
+### 同步加载图片
 
 一般情况下，图片加载流程会异步进行，以避免阻塞主线程，影响UI交互。但是特定情况下，图片刷新时会出现闪烁，这时可以使用syncLoad属性，使图片同步加载，从而避免出现闪烁。不建议图片加载较长时间时使用，会导致页面无法响应。
 
-```
+```TypeScript
 // 请将$r('app.media.icon')替换为实际资源文件
 Image($r('app.media.icon'))
   .syncLoad(true)
 ```
 
-#### 设置图片拉伸
+### 设置图片拉伸
 
 通过Image组件的resizable属性实现精准图片拉伸，其核心原理是：使用特定规则划分图片的固定区域与可拉伸区域，当图片拉伸时，仅对可拉伸区域进行拉伸，固定区域保持原始尺寸与形态不变。
 
-resizable属性参数类型为[ResizableOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#resizableoptions11)，支持使用slice(slice: { left, right, top, bottom })和lattice(lattice: [DrawingLattice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#drawinglattice12))两种图片拉伸方案。完整示例及开发指导请参考[基于resizable实现图片拉伸效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-implementing-image-resizable)  
+resizable属性参数类型为[ResizableOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#resizableoptions11)，支持使用slice(slice: { left, right, top, bottom })和lattice(lattice: [DrawingLattice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#drawinglattice12))两种图片拉伸方案。完整示例及开发指导请参考[基于resizable实现图片拉伸效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-implementing-image-resizable)
 
-#### 事件调用
+## 事件调用
 
 通过在Image组件上绑定onComplete事件，图片加载成功后可以获取图片的必要信息。如果图片加载失败，也可以通过绑定onError回调来获得结果。
 
-```
+```TypeScript
 import { hilog } from '@kit.PerformanceAnalysisKit';
 const DOMAIN = 0x0001;
 const TAG = 'Sample_imagecomponent';
@@ -790,4 +792,5 @@ struct EventCall {
 }
 ```
 
-![](https://media:401788444451673540)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/lF8oYsR5SBG-Y1K-RO3EuQ/zh-cn_image_0000002733433886.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=3B5A491E768C18DB9DFBCEA7DCD8A7584DDB479BE9F3A8C56B8BBBA55A31C824)
+

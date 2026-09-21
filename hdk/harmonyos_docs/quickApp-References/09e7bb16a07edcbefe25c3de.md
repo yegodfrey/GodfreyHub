@@ -6,40 +6,40 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 
 # label
 
-#### 概述
+## 概述
 
-用于为 \<input\> 、 \<textarea\> 组件定义标注。  
+用于为 <input> 、 <textarea> 组件定义标注。
 
-#### 使用限制
+## 使用限制
 
 |限制条件|说明|
 |:---|:-----------|
 |适用终端|手机、平板、智慧屏、车机|
 |适用区域|全球|
 
-#### 子组件
+## 子组件
 
-不支持  
+不支持
 
-#### 属性
+## 属性
 
-除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。  
+除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。
 
 |名称|类型|默认值|是否必填|描述|
 |:-----|:-----|:--|:---|:-----------|
 |target|string|-|否|目标input组件id。|
 
-#### 样式
+## 样式
 
-支持 \<text\> 样式，支持 [通用样式](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-common-styles-0000001170210009) 。  
+支持 <text> 样式，支持 [通用样式](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-common-styles-0000001170210009) 。
 
-#### 事件
+## 事件
 
-不支持  
+不支持
 
-#### 示例代码
+## 示例代码
 
-```
+```screen
 <template>
   <div class="container">
     <div class="page-title-wrap">

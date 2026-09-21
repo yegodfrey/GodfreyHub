@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-3
 
 1. 当开发者开启了[代码混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide)时，为了防止quickLoginAnonymousPhone（匿名手机号）属性在release包中被混淆，请在调用"获取匿名手机号"方法所在工程模块的混淆文件obfuscation-rules.txt中添加如下配置：
 
-   ```
+   ```typescript
    # 开发者开启属性混淆需要配置quickLoginAnonymousPhone属性白名单防止其被混淆
    -enable-property-obfuscation
    -keep-property-name
@@ -25,15 +25,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-3
 
 5. 确认是否在AGC的[开发与服务](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/myProject)中申请华为账号一键登录权限。图示为未申请状态，未申请将返回错误码[1001502014 应用未申请scopes或permissions权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-2)。
 
-   ![](https://media:401788444317718888)
-6. 申请的华为账号一键登录权限待审批或待生效，权限申请后需要24小时后生效或将调试设备的系统时间向后调整24小时后重试。
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/y-a07_iYRp-_I1VjYG6slw/zh-cn_image_0000002762994555.png?HW-CC-KV=V1&HW-CC-Date=20260917T084552Z&HW-CC-Expire=31536000000&HW-CC-Sign=55859013D8B1391ED436EBCFF5DFBAC6ECC582771E861091D70ABA64112E0905)
+6. 申请的华为账号一键登录权限待审批或待生效，**权限申请后需要24小时后生效或将调试设备的系统时间向后调整24小时后重试。**
 
 7. 权限申请成功后，确认scope参数是否传入的是quickLoginAnonymousPhone，详情可参考一键登录[客户端开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login#客户端开发)。
 
-   ```
+   ```typescript
    // 创建授权请求，并设置参数
    const authRequest = new authentication.HuaweiIDProvider().createAuthorizationWithHuaweiIDRequest();
-   // 获取匿名手机号需传quickLoginAnonymousPhone这个scope，传参之前需要先申请“华为账号一键登录”权限，否则会返回1001502014错误码
+   // 获取匿名手机号需传quickLoginAnonymousPhone这个scope，传参之前需要先申请"华为账号一键登录"权限，否则会返回1001502014错误码
    authRequest.scopes = ['quickLoginAnonymousPhone'];
    ```
 

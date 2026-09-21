@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-931
 
 # 如何实现组件向上移动时被幕布遮挡的效果
 
-#### 问题现象
+## 问题现象
 
-组件初始在幕布下方，如何实现点击后该组件缓慢运动直至被幕布组件完全遮挡的效果？  
+组件初始在幕布下方，如何实现点击后该组件缓慢运动直至被幕布组件完全遮挡的效果？
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782461581801676 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/fo3-EzbqTv2RjICO37s_8w/zh-cn_image_0000002628400344.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=226CEC678A0F8E72835526E62D8F0FAF4DF5DB77374F80BDA623A957B3E5A775 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * HarmonyOS提供全局[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)显式动画接口来指定由于闭包代码导致的状态变化插入过渡动效。同属性动画，布局类改变宽高的动画，内容都是直接到终点状态，例如文字、Canvas的内容等，如果要内容跟随宽高变化，可以使用renderFit属性配置。
 * [zIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-z-order#zindex)用于设置组件的堆叠顺序。同一容器中兄弟组件显示层级关系。zIndex值越大，显示层级越高，即zIndex值大的组件会覆盖在zIndex值小的组件上方。
-* [translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#translate)可设置组件平移效果，平移参考坐标系原点为所修饰组件的左上角点。  
+* [translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#translate)可设置组件平移效果，平移参考坐标系原点为所修饰组件的左上角点。
 
-#### 解决方案
+## 解决方案
 
 1. 将幕布组件的zIndex值设置为100，目标组件的zIndex值设置为50。
 2. 为目标组件添加onClick点击事件，在该事件中通过getUIContext方法获取UIContext实例对象，并调用animateTo方法，将组件的纵坐标设置为230，实现目标组件向上平移的效果。
@@ -28,7 +28,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-931
 
 完整示例参考如下：
 
-```
+```ts
 @Entry
 @Component
 struct CurtainCoverageDemo {
@@ -36,7 +36,7 @@ struct CurtainCoverageDemo {
 
   build() {
     Column() {
-      // 模拟幕布
+    // 模拟幕布
       Column() {
         Text('幕布组件')
           .textAlign(TextAlign.Center)
@@ -51,7 +51,7 @@ struct CurtainCoverageDemo {
       .zIndex(100)
       .backgroundColor('#f0f2f4');
 
-      // 被遮罩的运动组件
+    // 被遮罩的运动组件
       Row() {
         Text()
           .size({ width: 60, height: 60 })
@@ -79,6 +79,7 @@ struct CurtainCoverageDemo {
 }
 ```
 
-#### 总结
+## 总结
 
-zIndex可设置组件的堆叠顺序，zIndex值大的组件会覆盖在zIndex值小的组件上方。  
+zIndex可设置组件的堆叠顺序，zIndex值大的组件会覆盖在zIndex值小的组件上方。
+

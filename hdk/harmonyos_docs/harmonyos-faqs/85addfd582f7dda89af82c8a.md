@@ -6,26 +6,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1372
 
 # 如何实现一个自定义高度的底部弹窗
 
-#### 问题现象
+## 问题现象
 
 需要实现的底部弹窗可以设置一个最大高度。同时，实现的底部弹窗需要从下往上出现。
 
 * 如果弹窗内部视图的高度超过了这个最大高度，弹窗内部的视图就以这个自定义最大高度进行滚动展示；
-* 如果弹窗内部视图的高度没有超过这个最大高度，那么弹窗内部视图就完全展示；  
+* 如果弹窗内部视图的高度没有超过这个最大高度，那么弹窗内部视图就完全展示；
 
-#### 背景知识
+## 背景知识
 
 组件的[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)属性用于设置约束尺寸，组件布局时，进行尺寸范围限制。
 
-对于组件的显示方式，转场主要通过[transition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component)属性配置转场参数，在组件插入和删除时显示过渡动效，主要用于容器组件中的子组件插入和删除时，提升用户体验。  
+对于组件的显示方式，转场主要通过[transition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component)属性配置转场参数，在组件插入和删除时显示过渡动效，主要用于容器组件中的子组件插入和删除时，提升用户体验。
 
-#### 解决方案
+## 解决方案
 
 首先，通过使用容器组件的constraintSize属性对视图进行高度限制，constraintSize的优先级高于Width和Height，constraintSize里面的maxHeight小于Height时，就会滚动展示。接着，实现弹窗从底部向上显示，通过设置组件transition属性的转场参数。
 
 示例代码如下：
 
-```
+```screen
 @CustomDialog
 struct CustomDialogExample {
   // 最大可滚动区域高度

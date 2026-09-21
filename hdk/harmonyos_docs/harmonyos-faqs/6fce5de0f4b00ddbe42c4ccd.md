@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1491
 
 # 关于在Navigation的子页面使用bindSheet导致侧滑无响应的问题定位
 
-#### 问题现象
+## 问题现象
 
 在开发地图组件时，需要半模态的bindSheet显示一些内容，同时保持与地图的交互。
 
 问题代码示例参考如下：
 
-```
+```screen
 build() {
   NavDestination() {
     Stack() {
@@ -28,7 +28,7 @@ build() {
   .width('100%')
   .hideTitleBar(true)
   .onBackPressed(() => {
-    // 自己需要做出的动作，比如弹窗拦截等，以function举例。
+  // 自己需要做出的动作，比如弹窗拦截等，以function举例。
     this.function();
     console.info('onBackPressed')
     return true;
@@ -39,29 +39,29 @@ build() {
 }
 ```
 
-侧滑返回时，onBackPressed函数未触发。  
+侧滑返回时，onBackPressed函数未触发。
 
-#### 背景知识
+## 背景知识
 
 * [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)为推荐的路由导航组件，使用示例参考[使用导航控制器方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例2使用导航控制器方法)。
 * [绑定半模态页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sheet-page)默认是模态形式的非全屏弹窗式交互页面，允许部分底层父视图可见。
-* [SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)参数中可以配置onWillDismiss属性，用于设置半模态页面的交互式关闭回调函数。  
+  * [SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)参数中可以配置onWillDismiss属性，用于设置半模态页面的交互式关闭回调函数。
 
-#### 问题定位
+## 问题定位
 
 根据对日志进行分析，侧滑时onBackPressed函数未被调用，若注册了onWillDismiss函数，则onWillDismiss函数会被触发。
 
-![](https://media:101782461585850749 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/07IpLXXjTkyEBuCns1eyqA/zh-cn_image_0000002628765706.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=F45C32C3E06702FC9A3F37C1A40E4337A31680C50A3D6A01CD7A03FE27BE03F7 "点击放大")
 
-#### 分析结论
+## 分析结论
 
-模态弹窗层级较高，会优先响应侧滑事件。当用户执行侧滑操作时，正常关闭半模态，不论是否注册onWillDismiss函数，NavDestination页面的onBackPressed均不会被触发。若注册了onWillDismiss函数，则会触发onWillDismiss回调。  
+模态弹窗层级较高，会优先响应侧滑事件。当用户执行侧滑操作时，正常关闭半模态，不论是否注册onWillDismiss函数，NavDestination页面的onBackPressed均不会被触发。若注册了onWillDismiss函数，则会触发onWillDismiss回调。
 
-#### 修改建议
+## 修改建议
 
 将该子页面onBackPressed中的处理逻辑放到半模态的onWillDismiss函数中。
 
-```
+```screen
 import { MapComponent } from '@kit.MapKit';
 
 @Entry

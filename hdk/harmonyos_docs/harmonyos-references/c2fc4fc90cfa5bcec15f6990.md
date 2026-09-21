@@ -6,9 +6,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 # 模块描述
 
-媒体子系统为开发者提供一套简单且易于理解的接口，使得开发者能够方便接入系统并使用系统的媒体资源。  
-![](https://media:401788444814757485)  
-本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
+媒体子系统为开发者提供一套简单且易于理解的接口，使得开发者能够方便接入系统并使用系统的媒体资源。
+> 说明
+>
+> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 媒体子系统包含了音视频相关媒体业务，提供以下常用功能：
 
@@ -24,9 +27,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 * 屏幕录制（[AVScreenCaptureRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder)^12+^）
 
-#### 导入模块
+## 导入模块
 
-```
+```ts
 import { media } from '@kit.MediaKit';
 ```
 

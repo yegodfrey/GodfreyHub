@@ -10,60 +10,60 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adsdata-000
 |:--------------------------|
 |public class AdsData 广告的数据。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
-|:------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|List\<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)\>|[getBackUpCreation](#section1472724219317)() 获取备用广告的创意列表。|
-|List\<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)\>|[getLinearCreations](#section6247519554)() 获取线性广告的创意列表。|
-|void|[setBackUpCreation](#section2728174210318)(List\<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)\> backUpCreation) 设置备用广告的创意列表。|
-|void|[setLinearCreations](#section189014135343)(List\<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)\> linearCreations) 设置线性广告的创意列表。|
+|:----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|List<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)>|[getBackUpCreation](#section1472724219317)() 获取备用广告的创意列表。|
+|List<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)>|[getLinearCreations](#section6247519554)() 获取线性广告的创意列表。|
+|void|[setBackUpCreation](#section2728174210318)(List<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)> backUpCreation) 设置备用广告的创意列表。|
+|void|[setLinearCreations](#section189014135343)(List<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)> linearCreations) 设置线性广告的创意列表。|
 
-#### Public Methods
+## Public Methods
 
-#### getBackUpCreation
+### getBackUpCreation
 
 |Method|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public List\<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)\> getBackUpCreation() 获取备用广告的创意列表。|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public List<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)> getBackUpCreation() 获取备用广告的创意列表。|
 
-Returns  
+**Returns**
 
 |Type|Description|
-|:------------------------------------------------------------------------------------------------------------------------|:----------|
-|List\<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)\>|备用广告创意列表。|
+|:----------------------------------------------------------------------------------------------------------------------|:----------|
+|List<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)>|备用广告创意列表。|
 
-#### getLinearCreations
+### getLinearCreations
 
 |Method|
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public List\<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)\> getLinearCreations() 获取线性广告的创意列表。|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public List<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)> getLinearCreations() 获取线性广告的创意列表。|
 
-Returns  
+**Returns**
 
 |Type|Description|
-|:------------------------------------------------------------------------------------------------------------------------|:----------|
-|List\<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)\>|线性广告创意列表。|
+|:----------------------------------------------------------------------------------------------------------------------|:----------|
+|List<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)>|线性广告创意列表。|
 
-#### setBackUpCreation
+### setBackUpCreation
 
 |Method|
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public void setBackUpCreation(List\<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)\> backUpCreation) 设置备用广告的创意列表。|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public void setBackUpCreation(List<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)> backUpCreation) 设置备用广告的创意列表。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------------|:----------|
 |backUpCreation|备用广告的创意列表。|
 
-#### setLinearCreations
+### setLinearCreations
 
 |Method|
-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public void setLinearCreations(List\<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)\> linearCreations) 设置线性广告的创意列表。|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public void setLinearCreations(List<[LinearCreative](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/linearcreative-0000001162405802)> linearCreations) 设置线性广告的创意列表。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------------|:----------|

@@ -6,23 +6,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cert
 
 # OH_CM_UkeyInfo
 
-```
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
+```c
 typedef struct {...} OH_CM_UkeyInfo
 ```
 
-#### 概述
+## 概述
 
 定义USB证书凭据信息的结构体类型。
 
-起始版本： 22
+**起始版本：** 22
 
-相关模块： [CertManagerType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanagertype)
+**相关模块：** [CertManagerType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanagertype)
 
-所在头文件： [cm_native_type.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cm-native-type-h)  
+**所在头文件：** [cm_native_type.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cm-native-type-h)
 
-#### 汇总
+## 汇总
 
-#### 成员变量
+### 成员变量
 
 |名称|描述|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------|:--------|

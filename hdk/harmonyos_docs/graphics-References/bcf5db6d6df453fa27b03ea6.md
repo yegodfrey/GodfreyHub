@@ -6,14 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/install_st
 
 # AREnginesApk.ARInstallStatus
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250409111414.20966772063117139172005188840215:50001231000000:2800:C28CFB270DD93FCFFEA8699F59CBB02AC0F3C3190CC70C6F5AF643F5A50FCE5E.png)  
-该枚举已废弃，无替代。  
+> 注意
+>
+> 该枚举已废弃，无替代。
 
 |Enum Info|
 |:--------------------------------------------|
 |public enum ARInstallStatus AR Engine服务端安装状态。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum Value and Description|
 |:-------------------------|

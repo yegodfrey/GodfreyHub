@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/getinputshape-
 
 # GetInputShape
 
-#### 接口定义
+## 接口定义
 
-```
+```screen
 AippInputShape GetInputShape();
 ```
 
-#### 功能介绍
+## 功能介绍
 
-获取AIPP参数中的图片尺寸参数。  
+获取AIPP参数中的图片尺寸参数。
 
-#### 返回
+## 返回
 
 |类型|描述|
 |:-------------------------------------------------------------------------------------------------------------|:----|

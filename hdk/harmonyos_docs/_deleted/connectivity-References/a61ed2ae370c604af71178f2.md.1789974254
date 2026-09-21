@@ -1,0 +1,16 @@
+---
+name: document/cn/connectivity-References/overview-0000001051606980
+title: Overview
+uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/overview-0000001051606980
+---
+
+# Overview
+
+常量类定义。
+
+## Class Summary
+
+|Class|Description|
+|:-----------------------------------------------------------------------------------------------------------------------|:--------------|
+|[HiWearErrorCode](https://developer.huawei.com/consumer/cn/doc/connectivity-References/hiwearerrorcode-0000001058717345)|Wear Engine错误码。|
+

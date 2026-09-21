@@ -6,18 +6,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 
 # 设置数字盾密码
 
-#### 场景介绍
+## 场景介绍
 
-用户首次激活数字盾时，需通过可信用户交互（全称Trusted User Interface，下文简称TUI）安全界面设置专用密码，后续进行交易认证时，将通过该密码完成安全验证。  
+用户首次激活数字盾时，需通过可信用户交互（全称Trusted User Interface，下文简称TUI）安全界面设置专用密码，后续进行交易认证时，将通过该密码完成安全验证。
 
-#### 约束与限制
+## 约束与限制
 
 1. 本功能在6.1.1(24)之前版本仅支持Phone；6.1.1(24)及之后版本，新增支持具备TUI能力的PC/2in1、具备TUI能力的Tablet。可通过接口[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationcheckconfirmuitextformat)查询设备是否具备TUI能力。
-2. 不支持的设备在调用数字盾服务相关业务接口时，返回错误码[1019100016](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth#section1019100016-数字盾服务未使能)。  
+2. 不支持的设备在调用数字盾服务相关业务接口时，返回错误码[1019100016](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth#section1019100016-数字盾服务未使能)。
 
-#### 业务流程
+## 业务流程
 
-![](https://media:401788444751461345)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/ShYoEzu9RCeJ-Juk1nlbdg/zh-cn_image_0000002733434560.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084604Z&HW-CC-Expire=31536000000&HW-CC-Sign=10238E2EA1BF3881BB5F2662E982CC44EAC24068D1BA402FA3D6F96147273C50)
 
 数字盾开通时，需由应用服务器、应用客户端、Universal Keystore Kit和Device Security Kit共同协作完成。流程如下：
 
@@ -28,29 +28,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 5. 初始化签名会话：应用客户端向Universal Keystore Kit发送"init会话"请求，Universal Keystore Kit返回会话句柄（handle）和challenge。
 6. 应用客户端向Device Security Kit发送"开通数字盾申请"，Device Security Kit执行"设置盾密码"操作，并返回开通结果（包含authToken和authID）。
 7. 完成update/finish签名操作：应用客户端将获取的authToken和待签名数据发送至Universal Keystore Kit发起认证签名操作，Universal Keystore Kit返回签名信息。
-8. 绑定数字盾：应用服务器接收应用客户端返回的签名信息，并完成验签操作，验签通过后将用户账户与数字盾对应的authID、匿名authID绑定关联。  
+8. 绑定数字盾：应用服务器接收应用客户端返回的签名信息，并完成验签操作，验签通过后将用户账户与数字盾对应的authID、匿名authID绑定关联。
 
-#### 接口说明
+## 接口说明
 
-接口及使用方法请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api)。  
+接口及使用方法请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api)。
 
 |接口名|描述|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
-|[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationcheckconfirmuitextformat)(text: string): Promise\<[TextCheckResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#textcheckresult)\>|检查将在TUI呈现的内容是否可以单行完整展示，可间接判断设备是否具备TUI能力。|
-|[getSecurityLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationgetsecuritylevel)(authID?: bigint): Promise\<[SecurityLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#securitylevel)\>|获取当前系统支持开通数字盾的最高安全等级或指定数字盾对应的安全等级。|
-|[enableTrustedAuthentication](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationenabletrustedauthentication)(challenge: Uint8Array, pwdInfo: [PasswordInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#passwordinfo), label: [TUILable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#tuilable)): Promise\<AuthInfo\>|创建数字盾密码。|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
+|[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationcheckconfirmuitextformat)(text: string): Promise<[TextCheckResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#textcheckresult)>|检查将在TUI呈现的内容是否可以单行完整展示，可间接判断设备是否具备TUI能力。|
+|[getSecurityLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationgetsecuritylevel)(authID?: bigint): Promise<[SecurityLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#securitylevel)>|获取当前系统支持开通数字盾的最高安全等级或指定数字盾对应的安全等级。|
+|[enableTrustedAuthentication](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationenabletrustedauthentication)(challenge: Uint8Array, pwdInfo: [PasswordInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#passwordinfo), label: [TUILable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#tuilable)): Promise<AuthInfo>|创建数字盾密码。|
 
-#### 开通数字盾界面介绍
+## 开通数字盾界面介绍
 
 下图为开通数字盾服务时对应的TUI（Trusted User Interface）界面示例，其中密码长度、对应TUI应用图标以及当前应用场景说明均由开发者调用接口时传入，当设置盾密码长度不符合要求、密码强度低、两次密码设置不一致时，均会有对应失败报错提醒。
 
-![](https://media:401788444751751346)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/YqrdY4gDTe2U418yLUu2Rg/zh-cn_image_0000002762994083.png?HW-CC-KV=V1&HW-CC-Date=20260917T084604Z&HW-CC-Expire=31536000000&HW-CC-Sign=587A5E0B19308921A6ED97426B7AD1CAD3E68489E5D36276AEF0A858DCC918FF)
 
-#### 开发步骤
+## 开发步骤
 
 1. 导入相关模块。
 
-   ```
+   ```typescript
    import { resourceManager } from '@kit.LocalizationKit'
    import { huks } from '@kit.UniversalKeystoreKit';
    import { BusinessError } from '@kit.BasicServicesKit';
@@ -62,7 +62,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 
 2. 调用[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationcheckconfirmuitextformat)接口，判断设备是否具备TUI能力。
 
-   ```
+   ```TypeScript
    async isSupportTUI():Promise<boolean> {
      if (canIUse('SystemCapability.Security.TrustedAuthentication')) {
        let text = 'a'; // 任意短字符串。
@@ -82,7 +82,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 
 3. 调用[getSecurityLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationgetsecuritylevel)接口，获取当前系统支持开通数字盾的最高安全等级，用于后续指定生成密钥及开通数字盾的安全等级。
 
-   ```
+   ```typescript
    async getSystemSecurityLevel(): Promise<trustedAuthentication.SecurityLevel> {
      try {
        const securityLevel = await trustedAuthentication.getSecurityLevel();
@@ -98,14 +98,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 
 4. 使用指定的会话密钥别名及指定密钥属性集合完成密钥生成，详细使用指导可参考密钥管理服务提供的[密钥生成开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-arkts)。
 
-   ![](https://media:401788444751972347)  
-   1、创建密钥时指定密钥属性集合中身份认证类型tag: huks.HuksTag.HUKS_TAG_USER_AUTH_TYPE时，必须要包括huks.HuksUserAuthType.HUKS_USER_AUTH_TYPE_TUI_PIN认证方式，其余认证类型（如人脸或指纹）可以根据业务需要进行定制配置。
+   > 说明
+   >
+   > 1、创建密钥时指定密钥属性集合中身份认证类型tag: huks.HuksTag.HUKS_TAG_USER_AUTH_TYPE时，必须要包括huks.HuksUserAuthType.HUKS_USER_AUTH_TYPE_TUI_PIN认证方式，其余认证类型（如人脸或指纹）可以根据业务需要进行定制配置。
+   >
+   > 2、若希望应用卸载后保留密钥、重装后继续使用，需使用密钥加密导出/导入功能，并在生成密钥时设置HUKS_TAG_IS_ALLOWED_WRAP指定密钥允许导出。
+   >
+   > 3、当使用SE级别数字盾时，密钥也需要指定为SE级别，只需要申请[ohos.permission.ACCESS_SE_KEY](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionaccess_se_key)权限，并在生成或导入密钥时添加tag: huks.HuksTag.HUKS_TAG_KEY_SECURITY_LEVEL，值设置为huks.HuksKeySecurityLevel.HUKS_KEY_SECURITY_LEVEL_SE，使用密钥时无需指定。SE级别密钥与TEE级别密钥的使用规格存在差异，详见[SE级别密钥规格介绍](#se与tee安全级别密钥规格差异)。
 
-   2、若希望应用卸载后保留密钥、重装后继续使用，需使用密钥加密导出/导入功能，并在生成密钥时设置HUKS_TAG_IS_ALLOWED_WRAP指定密钥允许导出。
-
-   3、当使用SE级别数字盾时，密钥也需要指定为SE级别，只需要申请[ohos.permission.ACCESS_SE_KEY](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionaccess_se_key)权限，并在生成或导入密钥时添加tag: huks.HuksTag.HUKS_TAG_KEY_SECURITY_LEVEL，值设置为huks.HuksKeySecurityLevel.HUKS_KEY_SECURITY_LEVEL_SE，使用密钥时无需指定。SE级别密钥与TEE级别密钥的使用规格存在差异，详见[SE级别密钥规格介绍](#se与tee安全级别密钥规格差异)。
-
-   ```
+   ```typescript
     async TestGenKeyForTuiPinSign(): Promise<void> {
       let properties: Array<huks.HuksParam> = [{
         tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
@@ -156,14 +157,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 
 6. 调用设置密码接口，发起数字盾密码创建申请。
 
-   ![](https://media:401788444751998348)  
-   开通数字盾的安全等级需与第4步生成密钥的安全等级保持一致，依据第3步获取的最高安全等级进行选择。
-   * 指定开通SE级别数字盾时，需在第4步生成SE安全等级的密钥，并在调用[enableTrustedAuthentication](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationenabletrustedauthentication)时，通过PasswordInfo的securityLevel字段指定为trustedAuthentication.SecurityLevel.SECURITY_LEVEL_SE。
-   * 在不支持开通SE安全级别的设备上指定开通SE安全级别数字盾时，返回错误码801。
-   * 隐私空间下仅支持开通TEE安全级别数字盾。
-   * 如果因为硬件老化等原因出现SE芯片故障，调用对应接口返回错误码[1019100023](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth#section1019100023-安全器件故障)，开发者可根据业务需要关闭数字盾，并指定生成TEE安全级别密钥，并开通TEE安全等级数字盾。
+   > 说明
+   >
+   > 开通数字盾的安全等级需与第4步生成密钥的安全等级保持一致，依据第3步获取的最高安全等级进行选择。
+   > * 指定开通SE级别数字盾时，需在第4步生成SE安全等级的密钥，并在调用[enableTrustedAuthentication](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationenabletrustedauthentication)时，通过PasswordInfo的securityLevel字段指定为trustedAuthentication.SecurityLevel.SECURITY_LEVEL_SE。
+   > * 在不支持开通SE安全级别的设备上指定开通SE安全级别数字盾时，返回错误码801。
+   > * 隐私空间下仅支持开通TEE安全级别数字盾。
+   > * 如果因为硬件老化等原因出现SE芯片故障，调用对应接口返回错误码[1019100023](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth#section1019100023-安全器件故障)，开发者可根据业务需要关闭数字盾，并指定生成TEE安全级别密钥，并开通TEE安全等级数字盾。
 
-   ```
+   ```typescript
    async SetPwd(challenge: Uint8Array, assetName: string): Promise<trustedAuthentication.AuthInfo> {
      try {
        const passwordInfo: trustedAuthentication.PasswordInfo = {
@@ -193,11 +195,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 
 7. 参考密钥管理服务提供的[签名/验签指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-signing-signature-verification-arkts)，使用第6步获取的authToken完成认证签名操作（initSession已在第5步完成），并结束会话。
 
-   ![](https://media:401788444752035349)  
-   * 数字盾签名场景为保障端到端安全性，应用服务器需在验签时感知authToken解析出的认证信息，因此签名时必须选择携带认证信息的签名类型（HUKS_KEY_PURPOSE_SIGN且HUKS_TAG_KEY_SECURE_SIGN_TYPE为HUKS_SECURE_SIGN_WITH_AUTHINFO）。该类型签名会在原始待签名数据之前自动附加41字节的认证信息后，再进行签名操作。
-   * 签名返回数据的整体结构为：41字节认证信息 + 原始数据签名值。开发者需将签名的完整返回数据（含前置41字节认证信息）上送至应用服务器进行验签。
-   * 应用服务器解析签名数据时，需先按上述偏移关系从签名数据中切分出前置41字节认证信息与签名值，并对签名值进行验签；验签通过后，可从认证信息中提取匿名化AuthId等字段，用于将用户账户与数字盾对应的authID、匿名化AuthId进行绑定关联（对应业务流程中的第8步）。
-   * 41字节认证信息的具体含义及解析方式，与[携带认证信息的签名类型指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-signing-signature-verification-overview#携带认证信息的签名类型)保持一致。
+   > 说明
+   > * 数字盾签名场景为保障端到端安全性，应用服务器需在验签时感知authToken解析出的认证信息，因此签名时必须选择**携带认证信息**的签名类型（HUKS_KEY_PURPOSE_SIGN且HUKS_TAG_KEY_SECURE_SIGN_TYPE为HUKS_SECURE_SIGN_WITH_AUTHINFO）。该类型签名会在原始待签名数据之前自动附加41字节的认证信息后，再进行签名操作。
+   > * 签名返回数据的整体结构为：**41字节认证信息 + 原始数据签名值**。开发者需将签名的完整返回数据（含前置41字节认证信息）上送至应用服务器进行验签。
+   > * 应用服务器解析签名数据时，需先按上述偏移关系从签名数据中切分出前置41字节认证信息与签名值，并对签名值进行验签；验签通过后，可从认证信息中提取匿名化AuthId等字段，用于将用户账户与数字盾对应的authID、匿名化AuthId进行绑定关联（对应业务流程中的第8步）。
+   > * 41字节认证信息的具体含义及解析方式，与[携带认证信息的签名类型指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-signing-signature-verification-overview#携带认证信息的签名类型)保持一致。
    * 签名返回数据（signature）整体结构如下表所示：
 
    |数据段|字段|偏移（字节）|长度（字节）|说明|
@@ -208,24 +210,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
    |认证信息|是否校验数据哈希|40|1|原数据是否进行了数据哈希校验，涉及TUI显示内容防篡改保护时，取值1表示需校验。|
    |签名值|原始数据的签名值|41|-|对待签名原始数据（含前置认证信息）生成的签名值。|
 
-#### SE与TEE安全级别密钥规格差异
+## SE与TEE安全级别密钥规格差异
 
-从API 26.0.0起，数字盾服务支持开通SE安全级别的数字盾，开通前需指定生成SE安全级别密钥。与TEE安全级别密钥不同，SE密钥在独立的安全芯片中生成和使用，提供更高级别的安全防护。如需使用SE密钥，需显式指定[密钥安全级别](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeysecuritylevel)。  
+从API 26.0.0起，数字盾服务支持开通SE安全级别的数字盾，开通前需指定生成SE安全级别密钥。与TEE安全级别密钥不同，SE密钥在独立的安全芯片中生成和使用，提供更高级别的安全防护。如需使用SE密钥，需显式指定[密钥安全级别](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeysecuritylevel)。
 
-#### 约束与限制
+### 约束与限制
 
 * SE安全级别密钥依赖安全芯片，请先[查询设备硬件是否支持](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#trustedauthenticationgetsecuritylevel)。
 * 使用SE安全级别密钥需要申请权限[ohos.permission.ACCESS_SE_KEY](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionaccess_se_key)。
 * SE安全级别密钥当前仅支持SM2、SM4算法，使用方式和规格与TEE安全级别密钥基本一致。但受资源限制，输入数据长度和会话并发数量与TEE级别不同，详细规格请查看[支持的接口及规格](#支持的接口及规格)。
 * SE安全级别密钥仅支持数字信封导入密钥，不支持明文导入密钥。
 * SE密钥的生成与使用接口最大支持4路并发，超过此限制将返回繁忙错误。
-* 使用SE密钥时仅支持单会话。若应用已创建SE会话，再次创建SE会话将覆盖原有会话，会话超时时间为120秒。当有应用正在使用未过期的SE会话时，其他应用创建SE会话会因会话超限而报错，需稍后重试。  
+* 使用SE密钥时仅支持单会话。若应用已创建SE会话，再次创建SE会话将覆盖原有会话，会话超时时间为120秒。当有应用正在使用未过期的SE会话时，其他应用创建SE会话会因会话超限而报错，需稍后重试。
 
-#### 支持的接口及规格
+### 支持的接口及规格
 
-SE安全级别密钥支持以下HUKS接口：  
-![](https://media:401788444752073350)  
-只有生成密钥、安全导入密钥、加密导入密钥时需要指定SE安全级别，其他使用密钥接口无需指定。  
+SE安全级别密钥支持以下HUKS接口：
+> 说明
+>
+> 只有生成密钥、安全导入密钥、加密导入密钥时需要指定SE安全级别，其他使用密钥接口无需指定。
 
 |接口|规格|说明|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|
@@ -238,7 +241,7 @@ SE安全级别密钥支持以下HUKS接口：
 |密钥使用（[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)/[updateSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksupdatesession9)/[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)/[abortSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksabortsession9-1)）|详细规格请查看SM2算法规格和SM4算法规格。|仅支持加密解密和签名验签，无需指定SE安全级别。|
 |密钥证明（[anonAttestKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksanonattestkeyitem11-1)）|仅支持匿名证明。|无需指定SE安全级别。|
 
-SM2算法规格  
+**SM2算法规格**
 
 |算法|密钥长度|用途|摘要算法|填充模式|数据限制|
 |:--|:---|:----|:-------|:--------|:----------|
@@ -246,7 +249,7 @@ SM2算法规格
 |SM2|256|签名/验签|NoDigest|NoPadding|输入数据=32字节|
 |SM2|256|加密/解密|SM3|NoPadding|数据总大小≤128字节|
 
-SM4算法规格  
+**SM4算法规格**
 
 |算法|密钥长度|用途|填充模式|分组模式|数据限制|
 |:--|:---|:----|:--------|:---|:-------|
@@ -255,16 +258,17 @@ SM4算法规格
 |SM4|128|加密/解密|NoPadding|CTR|单段≤256字节|
 |SM4|128|加密/解密|NoPadding|CBC|单段≤256字节|
 
-![](https://media:401788444752110351)  
-SE安全级别密钥不支持AES、RSA、ECC算法。不支持SM4的CFB和OFB模式。  
+> 说明
+>
+> SE安全级别密钥不支持AES、RSA、ECC算法。不支持SM4的CFB和OFB模式。
 
-#### 示例代码
+### 示例代码
 
-密钥生成
+**密钥生成**
 
 使用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9-1)接口生成SE安全级别密钥时，需要通过[HUKS_TAG_KEY_SECURITY_LEVEL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)指定安全级别。
 
-```
+```typescript
 import { huks } from '@kit.UniversalKeystoreKit';
 
 let keyAlias = 'se_sm2_sign_key';
@@ -290,11 +294,11 @@ async function testGenerateKey() {
 }
 ```
 
-密钥删除
+**密钥删除**
 
 使用[deleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksdeletekeyitem9-1)接口删除SE安全级别密钥时，无需指定安全级别参数。
 
-```
+```typescript
 import { huks } from '@kit.UniversalKeystoreKit';
 
 let keyAlias = 'se_sm2_sign_key';
@@ -323,11 +327,11 @@ async function testDeleteKey() {
 }
 ```
 
-密钥查询
+**密钥查询**
 
 使用[getKeyItemProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgetkeyitemproperties9-1)接口查询SE安全级别密钥属性时，无需指定安全级别参数。
 
-```
+```typescript
 import { huks } from '@kit.UniversalKeystoreKit';
 
 let keyAlias = 'se_sm2_sign_key';
@@ -356,11 +360,11 @@ async function testGetKeyProperties() {
 }
 ```
 
-导出公钥
+**导出公钥**
 
 使用[exportKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksexportkeyitem9-1)导出SE安全级别密钥公钥时，无需指定安全级别参数。
 
-```
+```typescript
 import { huks } from '@kit.UniversalKeystoreKit';
 
 let keyAlias = 'se_sm2_sign_key';
@@ -390,11 +394,11 @@ async function testExportKey() {
 }
 ```
 
-安全导入密钥
+**安全导入密钥**
 
 使用[importWrappedKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksimportwrappedkeyitem9-1)以数字信封格式安全导入SE安全级别密钥时，密钥加密密钥（KEK）与待导入密钥的安全级别必须匹配，详细步骤请参考[数字信封导入密钥(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-import-envelop-key-arkts)。
 
-```
+```typescript
 import { huks } from '@kit.UniversalKeystoreKit';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
@@ -513,11 +517,11 @@ async function testImportSm2Key() {
 }
 ```
 
-加密导出/导入密钥
+**加密导出/导入密钥**
 
 使用[wrapKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukswrapkeyitem20)加密导出SE安全级别密钥时，无需参数中指定安全级别，使用[unwrapKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksunwrapkeyitem20)加密导入SE安全级别密钥时，安全级别需要与生成密钥时一致。
 
-```
+```typescript
 import { huks } from '@kit.UniversalKeystoreKit';
 
 let keyAlias = 'se_wrap_key';

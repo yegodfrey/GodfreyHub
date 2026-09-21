@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/pay-propose-sig
 
 商户支付接入流程：
 
-![](https://media:801773305065958554)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/G_dreOPdQRC5AcgCkpaBtQ/zh-cn_image_0000002480160124.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A0A12E16E112C3CBFD1FC02AC1C86C69B10DD4385006CCA57801F31F9C42CAB)
 
 1. 商户客户端请求商户服务器创建商品订单。
 2. 商户服务器调用华为支付服务提供的[H5预下单](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-pay-propose-sign-h5app-prepay-0000001752641209)接口获取预下单号（prepayId和h5Url）返回给客户端。
@@ -19,19 +19,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/pay-propose-sig
 7. 签约成功后，华为支付服务器会调用回调接口返回签约结果信息给商户服务器；取消签约和签约失败场景不会有回调结果通知。
 8. 商户服务器收到支付和签约结果回调响应后，使用SM2验签方式对支付结果进行验签。
 
-![](https://media:801773305065997555)  
-支付是否成功可以通过回调通知中的orderStatus的返回状态判断：
+> 说明
+>
+> 支付是否成功可以通过回调通知中的orderStatus的返回状态判断：
+>
+> * TRX_SUCCESS：交易成功
+> * TRX_FAILED：交易失败
 
-* TRX_SUCCESS：交易成功
-* TRX_FAILED：交易失败  
-
-#### App内webView加载h5Url
+## App内webView加载h5Url
 
 商户客户端获取h5Url后通过应用webView组件加载该URL来拉起华为支付收银台完成支付。
 
 * HarmonyOS应用WebView处理加载h5Url后的重定向示例如下：
 
-  ```
+  ```screen
   // API 9以下的代码示例
   webView.setWebAgent(new WebAgent() { 
           @Override 
@@ -94,7 +95,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/pay-propose-sig
 
 * Android应用webView处理加载h5Url后的重定向示例如下：
 
-  ```
+  ```screen
   public boolean shouldOverrideUrlLoading(WebView view, String url) { 
           Log.d(TAG, "WebView shouldOverrideUrlLoading" + url); 
           try { 
@@ -111,15 +112,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/pay-propose-sig
       }
   ```
 
-#### 支付结果获取
+## 支付结果获取
 
 1. 商户在构建"直连商户H5预下单"请求时通过参数传入callbackUrl。 在华为支付服务器完成支付后，将以POST方式调用callbackUrl，将支付结果返回给商户服务器。参见[支付结果回调通知](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-notify-pay-result-0000001538536148)。
 
-2. 商户可通过[查询支付订单](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-query-order-status-0000001589215985)接口主动查询华为支付服务器获取支付结果。  
+2. 商户可通过[查询支付订单](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-query-order-status-0000001589215985)接口主动查询华为支付服务器获取支付结果。
 
-#### API列表
+## API列表
 
-H5支付API列表  
+H5支付API列表
 
 |功能列表|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|

@@ -6,23 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-509
 
 # 如何自定义cancelButton点击事件的业务逻辑
 
-#### 问题现象
+## 问题现象
 
 开发者使用cancelButton属性时，有以下经典场景：
 
-* 场景一：Search组件的cancelButton点击事件目前无法自定义业务逻辑，比如控制页面的显示和隐藏，只能设置样式。如何自定义Search组件的cancelButton点击事件的业务逻辑？
-* 场景二：TextInput组件的cancelButton属性设置为CancelButtonStyle.INPUT，输入内容不为空时，失焦后如何使图标隐藏？  
+* **场景一**：Search组件的cancelButton点击事件目前无法自定义业务逻辑，比如控制页面的显示和隐藏，只能设置样式。如何自定义Search组件的cancelButton点击事件的业务逻辑？
+* **场景二**：TextInput组件的cancelButton属性设置为CancelButtonStyle.INPUT，输入内容不为空时，失焦后如何使图标隐藏？
 
-#### 背景知识
+## 背景知识
 
 * Search组件的[cancelButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-search#cancelbutton10)设置右侧清除按钮样式，仅支持自定义样式，不支持自定义点击事件。
-* [onEditChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#oneditchange8)：输入状态变化时，触发该回调。有光标时为编辑态，无光标时为非编辑态。  
+* [onEditChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#oneditchange8)：输入状态变化时，触发该回调。有光标时为编辑态，无光标时为非编辑态。
 
-#### 解决方案
+## 解决方案
 
-* 针对场景一：Search组件的cancelButton点击事件，只支持设置样式，如果要自定义业务逻辑，可以使用Stack在搜索框上堆叠一个图标，自行对这个图标增加业务逻辑。
+* **针对场景一** ：Search组件的cancelButton点击事件，只支持设置样式，如果要自定义业务逻辑，可以使用Stack在搜索框上堆叠一个图标，自行对这个图标增加业务逻辑。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct Index {
@@ -60,7 +60,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-509
           Image($r('app.media.background'))
             .height(44)
             .onClick(() => {
-              // 此处编写自定义逻辑。
+            // 此处编写自定义逻辑。
               this.isFocus = !this.isFocus;
             });
         };
@@ -69,11 +69,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-509
   }
   ```
 
-* 针对场景二：
+* **针对场景二** ：
   1. 使用三元表达式更改图标的显示模式，通过onEditChange判断当前是否为输入状态，isEditing为true时表示正在输入。
   2. 当前为编辑状态时，设置清除按钮的样式为CancelButtonStyle.INPUT，当前为非编辑态时，设置清除按钮的样式为CancelButtonStyle.INVISIBLE。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct ClearNodeExample {
@@ -89,7 +89,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-509
           .height(60)
           .margin({ bottom: 16, left: 20, right: 20 })
           .cancelButton({
-            // 使用三元表达式更改图标的显示模式
+          // 使用三元表达式更改图标的显示模式
             style: (this.isOK ? CancelButtonStyle.INPUT : CancelButtonStyle.INVISIBLE),
             icon: {
               size: 45,
@@ -98,7 +98,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-509
             }
           })
           .onEditChange((isEditing: boolean) => {
-            // 存储TextInput组件的编辑状态
+          // 存储TextInput组件的编辑状态
             this.isOK = isEditing;
           })
           .onChange((value: string) => {
@@ -120,13 +120,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-509
   }
   ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)组件的cancelButton的内边距如何取消？
 
 A：为了使cancelButton的图标在视觉上更贴近TextInput组件的最右侧，可以使用[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)布局组件来实现图标的覆盖效果。以下是一个示例代码，展示了如何通过Stack来调整cancelButton的位置：
 
-```
+```ts
 @Entry
 @Component
 struct TextInputPage {
@@ -171,4 +171,5 @@ struct TextInputPage {
 
 Q：如何实现TextInput的清除按钮功能？
 
-A：在API11及以上版本可以[设置右侧清除按钮样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#示例4设置右侧清除按钮样式)；在API18及以上版本可以[设置symbol类型清除按钮](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#示例15设置symbol类型清除按钮)。  
+A：在API11及以上版本可以[设置右侧清除按钮样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#示例4设置右侧清除按钮样式)；在API18及以上版本可以[设置symbol类型清除按钮](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#示例15设置symbol类型清除按钮)。
+

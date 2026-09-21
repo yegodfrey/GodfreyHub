@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/blank-and
 
 # 空白与分隔
 
-* [Blank](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-blank)  
-* [Divider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-divider)  
+* **[Blank](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-blank)**   
+* **[Divider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-divider)**   

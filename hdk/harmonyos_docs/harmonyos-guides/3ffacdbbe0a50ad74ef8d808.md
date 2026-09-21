@@ -13,13 +13,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-docking-s
 * 软键盘避让：在移动设备上，由于输入法通常显示在屏幕下方区域，应用可设置不同的Web页面软键盘避让模式，来避让软键盘。例如：平移、调整大小和不避让。
 * 自定义软键盘输入：在移动设备上，可以使用自绘制输入法在Web页面输入，以此替代系统软键盘。
 
-#### Web页面输入框输入与软键盘交互的W3C标准支持
+## Web页面输入框输入与软键盘交互的W3C标准支持
 
 为支持Web页面与系统软键盘、自定义软键盘等的良好交互，ArkWeb遵循并实现了W3C规范中的以下输入控制属性：
 
 * type属性
 
-  type属性定义了input元素的类型，影响输入的验证、显示方式和键盘类型。常见的type值包括：  
+  type属性定义了input元素的类型，影响输入的验证、显示方式和键盘类型。常见的type值包括：
 
   |type值|描述|
   |:-------|:---------|
@@ -40,22 +40,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-docking-s
 
 * inputmode属性
 
-  inputmode属性用于配置输入法类型，默认值：text。  
+  inputmode属性用于配置输入法类型，默认值：text。
 
   |inputmode|描述|
-  |:--------|:-----------------------------------------------------------|
+  |:--------|:-----------------------------------------------------|
   |decimal|只显示数字键盘，通常还有一个逗号键。|
-  |email|文本键盘，键通常用于电子邮件地址，如\[@\]。|
+  |email|文本键盘，键通常用于电子邮件地址，如[@]。|
   |none|不应出现键盘。|
   |numeric|只显示数字键盘。|
-  |search|文本键盘，\[enter\]键通常显示为\[go\]。|
-  |tel|只显示数字键盘，通常还有\[+\]、\[\*\]和\[#\]键。|
+  |search|文本键盘，[enter]键通常显示为[go]。|
+  |tel|只显示数字键盘，通常还有[+]、[*]和[#]键。|
   |text|默认文本键盘。|
-  |url|文本键盘，键通常用于网址，如\[.\]和\[/\]，以及特殊的\[.com\]键，或者其他通常用于本地设置的域名结束符。|
+  |url|文本键盘，键通常用于网址，如[.]和[/]，以及特殊的[.com]键，或者其他通常用于本地设置的域名结束符。|
 
 * enterkeyhint属性
 
-  enterkeyhint属性用于指定移动设备虚拟键盘上回车键的显示方式。  
+  enterkeyhint属性用于指定移动设备虚拟键盘上回车键的显示方式。
 
   |enterkeyhint值|描述|
   |:------------|:--------|
@@ -67,18 +67,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-docking-s
   |search|执行搜索|
   |send|发送信息|
 
-![](https://media:401788444425657276)  
-点击网页输入框时，屏幕下方将弹出系统默认的软键盘，用户可以进行文字输入。
+> 说明
+>
+> 点击网页输入框时，屏幕下方将弹出系统默认的软键盘，用户可以进行文字输入。
+>
+> type属性影响键盘显示、输入验证和元素外观。
+>
+> inputmode优化移动设备键盘输入体验，不影响基本行为或验证。
 
-type属性影响键盘显示、输入验证和元素外观。
-
-inputmode优化移动设备键盘输入体验，不影响基本行为或验证。  
-
-#### 软键盘自动弹出
+## 软键盘自动弹出
 
 为提升用户体验，可以在页面完成加载后，输入框自动获焦并弹出软键盘。通过调用[showTextInput()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#showtextinput10)设置软键盘自动弹出功能。
 
-```
+```html
 <!-- index.html -->
 <!DOCTYPE html>
 <html>
@@ -92,7 +93,7 @@ inputmode优化移动设备键盘输入体验，不影响基本行为或验证�
 </html>
 ```
 
-```
+```ts
 // Index.ets
 import { webview } from '@kit.ArkWeb';
 import { inputMethod } from '@kit.IMEKit';
@@ -116,146 +117,145 @@ struct WebComponent {
 }
 ```
 
-#### 设置软键盘避让模式
+## 设置软键盘避让模式
 
 在移动设备上，支持设置Web页面的软键盘避让模式。
 
 1. 在应用代码中设置[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)的软键盘避让模式[setKeyboardAvoidMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#setkeyboardavoidmode11)。ArkWeb组件支持Resize和Offset两种模式。
 
-* Resize模式下，应用窗口高度可缩小避开软键盘，ArkWeb组件跟随ArkUI重新布局。
-* Offset模式下（以及默认模式），应用窗口高度不变，ArkWeb组件根据自身的避让模式进行避让。
+   * Resize模式下，应用窗口高度可缩小避开软键盘，ArkWeb组件跟随ArkUI重新布局。
+   * Offset模式下（以及默认模式），应用窗口高度不变，ArkWeb组件根据自身的避让模式进行避让。
 
-（1）设置UIContext的软键盘避让模式。
+   （1）设置UIContext的软键盘避让模式。
 
-```
-import { KeyboardAvoidMode } from '@kit.ArkUI';
-import { hilog } from '@kit.PerformanceAnalysisKit';
+   ```TypeScript
+   import { KeyboardAvoidMode } from '@kit.ArkUI';
+   import { hilog } from '@kit.PerformanceAnalysisKit';
 
-// ···
-onWindowStageCreate(windowStage: window.WindowStage) {
-  hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
+   // ···
+   onWindowStageCreate(windowStage: window.WindowStage) {
+     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-  windowStage.loadContent('pages/Index', (err, data) => {
-    let keyboardAvoidMode = windowStage.getMainWindowSync().getUIContext().getKeyboardAvoidMode();
-    // 设置虚拟键盘抬起时压缩页面大小为减去键盘的高度
-  windowStage.getMainWindowSync().getUIContext().setKeyboardAvoidMode(KeyboardAvoidMode.RESIZE);
-    if (err.code) {
-      hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
-      return;
-    }
-    hilog.info(0x0000, 'testTag', 'Succeeded in loading the content. Data: %{public}s', JSON.stringify(data) ?? '');
-  });
-}
-```
+     windowStage.loadContent('pages/Index', (err, data) => {
+       let keyboardAvoidMode = windowStage.getMainWindowSync().getUIContext().getKeyboardAvoidMode();
+       // 设置虚拟键盘抬起时压缩页面大小为减去键盘的高度
+     windowStage.getMainWindowSync().getUIContext().setKeyboardAvoidMode(KeyboardAvoidMode.RESIZE);
+       if (err.code) {
+         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
+         return;
+       }
+       hilog.info(0x0000, 'testTag', 'Succeeded in loading the content. Data: %{public}s', JSON.stringify(data) ?? '');
+     });
+   }
+   ```
 
-（2）在Web组件中调起软键盘。
+   （2）在Web组件中调起软键盘。
 
-```
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>测试网页</title>
-  </head>
-  <body>
-    <h1>DEMO</h1>
-    <input type="text" id="input_a">
-  </body>
-</html>
-```
+   ```html
+   <!-- index.html -->
+   <!DOCTYPE html>
+   <html>
+     <head>
+       <title>测试网页</title>
+     </head>
+     <body>
+       <h1>DEMO</h1>
+       <input type="text" id="input_a">
+     </body>
+   </html>
+   ```
 
-```
-// Index.ets
-import { webview } from '@kit.ArkWeb';
+   ```TypeScript
+   // Index.ets
+   import { webview } from '@kit.ArkWeb';
 
-@Entry
-@Component
-struct KeyboardAvoidExample {
-  controller: webview.WebviewController = new webview.WebviewController();
-  build() {
-    Column() {
-      Row().height("50%").width("100%").backgroundColor(Color.Gray)
-      Web({ src: $rawfile("index.html"),controller: this.controller})
-      Text("I can see the bottom of the page").width("100%").textAlign(TextAlign.Center).backgroundColor(Color.Pink).layoutWeight(1)
-    }.width('100%').height("100%")
-  }
-}
-```
+   @Entry
+   @Component
+   struct KeyboardAvoidExample {
+     controller: webview.WebviewController = new webview.WebviewController();
+     build() {
+       Column() {
+         Row().height("50%").width("100%").backgroundColor(Color.Gray)
+         Web({ src: $rawfile("index.html"),controller: this.controller})
+         Text("I can see the bottom of the page").width("100%").textAlign(TextAlign.Center).backgroundColor(Color.Pink).layoutWeight(1)
+       }.width('100%').height("100%")
+     }
+   }
+   ```
 
-ArkWeb组件将跟随ArkUI重新布局，效果如图1和图2所示。
+   ArkWeb组件将跟随ArkUI重新布局，效果如图1和图2所示。
 
-图1 Web组件网页默认软键盘避让模式
+   **图1** Web组件网页默认软键盘避让模式
 
-![](https://media:401788444425684277)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/MhjNLAEGTAmnwyB_FkAsvA/zh-cn_image_0000002733274444.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=C10823D12F049E2E331F954660BD42A0AF03544991DF7F97C6D51D23EEEBBA4A)
 
-图2 Web组件网页跟随ArkUI软键盘避让模式
+   **图2** Web组件网页跟随ArkUI软键盘避让模式
 
-![](https://media:401788444425716278)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/4Wdo55s6Q9G8z-rupiQ5kg/zh-cn_image_0000002733434326.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=6CBAC9875488413206808625106F5CD8C16E8B848C3CE42EC616B739AC7C074B)
+2. 在UIContext的键盘避让模式为Offset模式时，应用可通过[WebKeyboardAvoidMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#webkeyboardavoidmode12)设置ArkWeb组件的键盘避让模式。Web组件的[WebKeyboardAvoidMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#webkeyboardavoidmode12)接口优先级高于W3C侧virtualKeyboard.overlayContent。
 
-2.在UIContext的键盘避让模式为Offset模式时，应用可通过[WebKeyboardAvoidMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#webkeyboardavoidmode12)设置ArkWeb组件的键盘避让模式。Web组件的[WebKeyboardAvoidMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#webkeyboardavoidmode12)接口优先级高于W3C侧virtualKeyboard.overlayContent。
+   * RESIZE_VISUAL：仅调整可视视口的大小，而不调整布局视口的大小。
+   * RESIZE_CONTENT：调整可视视口和布局视口的大小。
+   * OVERLAYS_CONTENT：不调整任何视口的大小，获焦input元素没有滚动到可视区域的行为。
 
-* RESIZE_VISUAL：仅调整可视视口的大小，而不调整布局视口的大小。
-* RESIZE_CONTENT：调整可视视口和布局视口的大小。
-* OVERLAYS_CONTENT：不调整任何视口的大小，获焦input元素没有滚动到可视区域的行为。
+   > 说明
+   >
+   > 可视视口指用户正在看到的网站的区域，该区域的宽度等于移动设备的浏览器窗口的宽度。
+   >
+   > 布局视口指网页本身的宽度。
 
-![](https://media:401788444425739279)  
-可视视口指用户正在看到的网站的区域，该区域的宽度等于移动设备的浏览器窗口的宽度。
+   在应用代码中设置ArkWeb的软键盘避让模式。
 
-布局视口指网页本身的宽度。
+   ```TypeScript
+   // Index.ets
+   import { webview } from '@kit.ArkWeb';
 
-在应用代码中设置ArkWeb的软键盘避让模式。
+   @Entry
+   @Component
+   struct KeyboardAvoidExample {
+     controller: webview.WebviewController = new webview.WebviewController();
+     build() {
+       Column() {
+         Row().height('50%').width('100%').backgroundColor(Color.Gray)
+         Web({ src: $rawfile('index.html'),controller: this.controller})
+           .keyboardAvoidMode(WebKeyboardAvoidMode.OVERLAYS_CONTENT) // 此时ArkWeb组件不会调整任何视口的大小。
+         Text('I can see the bottom of the page')
+           .width('100%')
+           .textAlign(TextAlign.Center)
+           .backgroundColor(Color.Pink)
+           .layoutWeight(1)
+       }.width('100%').height('100%')
+     }
+   }
+   ```
 
-```
-// Index.ets
-import { webview } from '@kit.ArkWeb';
+   ArkWeb组件根据避让模式进行避让，效果见图3。
 
-@Entry
-@Component
-struct KeyboardAvoidExample {
-  controller: webview.WebviewController = new webview.WebviewController();
-  build() {
-    Column() {
-      Row().height('50%').width('100%').backgroundColor(Color.Gray)
-      Web({ src: $rawfile('index.html'),controller: this.controller})
-        .keyboardAvoidMode(WebKeyboardAvoidMode.OVERLAYS_CONTENT) // 此时ArkWeb组件不会调整任何视口的大小。
-      Text('I can see the bottom of the page')
-        .width('100%')
-        .textAlign(TextAlign.Center)
-        .backgroundColor(Color.Pink)
-        .layoutWeight(1)
-    }.width('100%').height('100%')
-  }
-}
-```
+   **图3** Web组件网页自身软键盘避让模式
 
-ArkWeb组件根据避让模式进行避让，效果见图3。
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/nZo1I7D6SL6jzF3c0vvrJg/zh-cn_image_0000002762993849.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=81660F27AB681B5944676AA41EA1093B6333C1FB7B856B4E46E6A10533E6DAA8)
+3. 在软键盘弹出时，为使Web组件不发生避让行为，可通过调用[expandSafeArea()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#expandsafearea)设置Web组件扩展安全区域。更多详细示例可参考[网页中安全区域计算和避让适配](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-safe-area-insets)。
 
-图3 Web组件网页自身软键盘避让模式
+   ```ts
+   // xxx.ets
+   import { webview } from '@kit.ArkWeb';
 
-![](https://media:401788444425768280)
+   @Entry
+   @Component
+   struct WebComponent {
+     controller: webview.WebviewController = new webview.WebviewController();
 
-3.在软键盘弹出时，为使Web组件不发生避让行为，可通过调用[expandSafeArea()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#expandsafearea)设置Web组件扩展安全区域。更多详细示例可参考[网页中安全区域计算和避让适配](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-safe-area-insets)。
+     build() {
+       Column() {
+         Web({ src: 'www.example.com', controller: this.controller })
+           .width('100%').height('100%')
+           .expandSafeArea([SafeAreaType.KEYBOARD, SafeAreaType.SYSTEM])
+       }
+     }
+   }
+   ```
 
-```
-// xxx.ets
-import { webview } from '@kit.ArkWeb';
-
-@Entry
-@Component
-struct WebComponent {
-  controller: webview.WebviewController = new webview.WebviewController();
-
-  build() {
-    Column() {
-      Web({ src: 'www.example.com', controller: this.controller })
-        .width('100%').height('100%')
-        .expandSafeArea([SafeAreaType.KEYBOARD, SafeAreaType.SYSTEM])
-    }
-  }
-}
-```
-
-与其他Web组件行为的交互场景：  
+与其他Web组件行为的交互场景：
 
 |交叉场景|规格|
 |:-----------|:------------------------------------------------------|
@@ -266,7 +266,7 @@ struct WebComponent {
 |软键盘托管|软键盘避让行为与普通场景行为一致。|
 |Web嵌套滚动|在嵌套滚动场景下，建议不要使用Web软键盘避让，包括RESIZE_VISUAL和RESIZE_CONTENT。|
 
-#### 拦截系统软键盘与自定义软键盘输入
+## 拦截系统软键盘与自定义软键盘输入
 
 应用可以通过监听[onInterceptKeyboardAttach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oninterceptkeyboardattach12)回调，在软键盘拉起前，控制软键盘的显示，包括系统默认软键盘、带有特定Enter键的软键盘，或完全自定义软键盘。借助这一功能，开发者能够实现对软键盘的灵活管理。
 
@@ -274,7 +274,7 @@ struct WebComponent {
 * 使用带有定制Enter键的系统软键盘
 * 使用完全由应用程序自定义的软键盘
 
-```
+```ts
   // Index.ets
   import { webview } from '@kit.ArkWeb';
   import { inputMethodEngine } from '@kit.IMEKit';
@@ -383,7 +383,7 @@ struct WebComponent {
   }
 ```
 
-```
+```html
 <!-- index.html -->
     <!DOCTYPE html>
     <html>
@@ -437,14 +437,15 @@ struct WebComponent {
 
 ArkWeb自定义键盘的示例效果如图4、图5和图6所示。
 
-图4 ArkWeb自定义键盘数字键盘
+**图4** ArkWeb自定义键盘数字键盘
 
-![](https://media:401788444425796281)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/4WEse2plSCm2t2CxuT_yow/zh-cn_image_0000002762833963.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=A003CBAF46BEA032CC09EDD87C6929FE6737E7F8910DA09F22FA9CD76CF7F333)
 
-图5 ArkWeb自定义键盘字母键盘
+**图5** ArkWeb自定义键盘字母键盘
 
-![](https://media:401788444425826282)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/qssLq3r3ScOsAb7iWWYL8Q/zh-cn_image_0000002733274446.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=26ED39A15FCE15CD4C18155C342CDFC38757935FB53CF8DDD704DF1FC8D295C5)
 
-图6 ArkWeb自定义键盘符号键盘
+**图6** ArkWeb自定义键盘符号键盘
 
-![](https://media:401788444425857283)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/AvvpnGuNQwm5gmcq_qKfjg/zh-cn_image_0000002733434328.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=666662FA4C35E55A32AB3789C5B79A73611AAAE63BD1368C74C8AFACC6C2C7EA)
+

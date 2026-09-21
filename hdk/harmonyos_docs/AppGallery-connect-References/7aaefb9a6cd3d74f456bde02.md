@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # Overview
 
-包含游戏多媒体实例参数和房间定义。  
+包含游戏多媒体实例参数和房间定义。
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|
@@ -26,7 +26,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |[Axis](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gamemme-model-axis-android-0000001639900260)|玩家朝向信息。|
 |[ErrorResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gamemme-model-errorresult-android-0000001703708714)|错误结果。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum|Description|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|

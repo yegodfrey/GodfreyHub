@@ -10,9 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-396
 
 1. 给画布添加移动手势。
 
-   <br />
-
-   ```
+   ```typescript
    import { DrawPathType, DrawViewModel } from '../viewmodel/DrawViewModel';
 
    @Component
@@ -84,13 +82,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-396
    }
    ```
 
-   <br />
-
 2. 绘制路径以及马赛克。
 
-   <br />
-
-   ```
+   ```ts
    export class DrawPathPointModel {
      x: number = 0;
      y: number = 0;
@@ -98,7 +92,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-396
 
    export enum DrawPathType {
      pen = 0, // Brush
-     pattern // Mosaic
+     pattern// Mosaic
    }
 
    // Configure the brush
@@ -118,7 +112,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-396
      public canvasWidth: number = 0;
      private pattern: CanvasPattern | null = null;
      private points: DrawPathPointModel[] = [];
-     // Draw a path
+    // Draw a path
      private drawPath = new Path2D();
 
      constructor() {
@@ -170,13 +164,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-396
    }
    ```
 
-   <br />
-
 3. 使用Stack组件进行页面布局。
 
-   <br />
-
-   ```
+   ```typescript
    import { DrawView } from './MosaicEffect';
    import { DrawViewModel } from '../viewmodel/DrawViewModel';
 
@@ -199,6 +189,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-396
      }
    }
    ```
-
-   <br />
 

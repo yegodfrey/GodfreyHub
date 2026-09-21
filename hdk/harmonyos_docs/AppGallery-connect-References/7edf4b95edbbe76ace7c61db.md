@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # UserProfileInfo
 
-个人账户信息。  
+个人账户信息。
 
-#### Parameters
+## Parameters
 
 |Name|Type|Description|
 |:----------|:-----|:----------|

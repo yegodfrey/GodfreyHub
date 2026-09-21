@@ -6,39 +6,39 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-54
 
 # 如何实现解码Base64字符串格式图片为PixelMap并保存入系统图库
 
-#### 问题现象
+## 问题现象
 
-如何将Base64字符串格式的图片解码为PixelMap，并保存至系统图库中。  
+如何将Base64字符串格式的图片解码为PixelMap，并保存至系统图库中。
 
-#### 背景知识
+## 背景知识
 
 * [ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)将所支持格式的图片文件解码成[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)，以便在应用中显示或处理图片。
 * [Base64Helper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#base64helper9)类提供Base64编解码能力。[decode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#decode9)接口可以将Base64字符串解码为原始的二进制数据。
-* [showAssetsCreationDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#showassetscreationdialog12)调用接口显示保存确认弹窗。如果用户同意保存，将返回一个已创建并授予保存权限的URI列表，应用可使用这些URI写入需要保存的图片和视频。  
+* [showAssetsCreationDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#showassetscreationdialog12)调用接口显示保存确认弹窗。如果用户同意保存，将返回一个已创建并授予保存权限的URI列表，应用可使用这些URI写入需要保存的图片和视频。
 
-#### 解决方案
+## 解决方案
 
 * 解码Base64字符串格式图片为PixelMap：
   1. 使用[Base64Helper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#base64helper9)的[decode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#decode9)接口解码Base64字符串获取图片的二进制数据。
   2. 通过保存图片数据的ArrayBuffer创建[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)，然后通过[createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#createpixelmap7)接口创建PixelMap。
 
-  ```
+  ```ts
   async base64Str2PixelMap() {
     let imageSource: image.ImageSource | undefined = undefined;
     try {
-      // 判断是否以固定格式开头，如果不是则为非法base64字符串图片
+    // 判断是否以固定格式开头，如果不是则为非法base64字符串图片
       let headerReg = new RegExp('data:image/\\w+;base64,');
       let idx = this.imageStr.search(headerReg);
       if (idx !== 0) {
         console.error(`Invalid image base64 string`);
         return;
       }
-      // 去除头部固定格式字符串
+    // 去除头部固定格式字符串
       let base64Str = this.imageStr.replace(headerReg, '');
-      // 解码base64为图片二进制数据
+    // 解码base64为图片二进制数据
       let base64Helper = new util.Base64Helper();
       let imgData = await base64Helper.decode(base64Str);
-      // 通过图片二进制数据创建ImageSource，并解码为PixelMap
+   // 通过图片二进制数据创建ImageSource，并解码为PixelMap
       imageSource = image.createImageSource(imgData.buffer.slice(0));
       this.pixelMap = await imageSource.createPixelMap();
     } catch (err) {
@@ -56,23 +56,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-54
   2. 保存图片数据入应用的沙箱目录下。
   3. 通过[showAssetsCreationDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#showassetscreationdialog12)保存沙箱目录下的图片入系统图库。
 
-  ```
+  ```ts
   async saveBase64StrImage() {
-    // 匹配开头固定格式的字符串，若不存在，则为非法base64图片
+   // 匹配开头固定格式的字符串，若不存在，则为非法base64图片
     let headerReg = new RegExp('data:image/\\w+;base64,');
     let matchArr = this.imageStr.match(headerReg);
     if (!matchArr || matchArr.length === 0) {
       console.error(`Invalid image base64 string`);
       return;
     }
-    // 去除头部固定格式的字符串
+  // 去除头部固定格式的字符串
     let base64Str = this.imageStr.replace(headerReg, '');
-    // 获得图片编码格式信息
+  // 获得图片编码格式信息
     let fileNameExtension = matchArr[0].replace('data:image/', '').replace(';base64,', '');
-    // 解码base64为图片二进制数据
+   // 解码base64为图片二进制数据
     let base64Helper = new util.Base64Helper();
     let imgData = await base64Helper.decode(base64Str);
-    // 写入沙箱文件
+   // 写入沙箱文件
     let context = this.getUIContext().getHostContext() as Context;
     let srcFilePath = context.tempDir + `/temp_img.${fileNameExtension}`;
     let tmpFile: fileIo.File | undefined = undefined;
@@ -97,17 +97,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-54
       let srcFileUris: Array<string> = [
         srcFileUri,
       ];
-      // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。
+    // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。
       let photoCreationConfigs: Array<photoAccessHelper.PhotoCreationConfig> = [
         {
           fileNameExtension: fileNameExtension,
           photoType: photoAccessHelper.PhotoType.IMAGE,
         },
       ];
-      // 基于弹窗授权的方式获取媒体库的目标uri。
+    // 基于弹窗授权的方式获取媒体库的目标uri。
       let desFileUris: Array<string> =
         await phAccessHelper.showAssetsCreationDialog(srcFileUris, photoCreationConfigs);
-      // 将来源于应用沙箱的照片内容写入媒体库的目标uri。
+    // 将来源于应用沙箱的照片内容写入媒体库的目标uri。
       desFile = await fileIo.open(desFileUris[0], fileIo.OpenMode.WRITE_ONLY);
       srcFile = await fileIo.open(srcFileUri, fileIo.OpenMode.READ_ONLY);
       await fileIo.copyFile(srcFile.fd, desFile.fd);
@@ -127,7 +127,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-54
 
 完整示例参考如下：
 
-```
+```ts
 import { Context } from '@kit.AbilityKit';
 import { util } from '@kit.ArkTS';
 import image from '@ohos.multimedia.image';
@@ -143,14 +143,14 @@ struct Base64ImageDemo {
   async image2Base64Str() {
     let imageSource: image.ImageSource | undefined = undefined;
     try {
-      // 读取rawfile目录下的图片文件
+    // 读取rawfile目录下的图片文件
       let context = this.getUIContext().getHostContext() as Context;
       let imgData = await context.resourceManager.getRawFileContent('img.png');
-      // 获取图片mime type
+   // 获取图片mime type
       imageSource = image.createImageSource(imgData.buffer.slice(0));
       let info = await imageSource.getImageInfo();
       let mime = info.mimeType;
-      // 编码图片数据为base64字符串
+   // 编码图片数据为base64字符串
       let base64Helper = new util.Base64Helper();
       let base64Str = await base64Helper.encodeToString(imgData);
       this.imageStr = `data:${mime};base64,` + base64Str;
@@ -166,19 +166,19 @@ struct Base64ImageDemo {
   async base64Str2PixelMap() {
     let imageSource: image.ImageSource | undefined = undefined;
     try {
-      // 判断是否以固定格式开头，如果不是则为非法base64字符串图片
+     // 判断是否以固定格式开头，如果不是则为非法base64字符串图片
       let headerReg = new RegExp('data:image/\\w+;base64,');
       let idx = this.imageStr.search(headerReg);
       if (idx !== 0) {
         console.error(`Invalid image base64 string`);
         return;
       }
-      // 去除头部固定格式字符串
+   // 去除头部固定格式字符串
       let base64Str = this.imageStr.replace(headerReg, '');
-      // 解码base64为图片二进制数据
+    // 解码base64为图片二进制数据
       let base64Helper = new util.Base64Helper();
       let imgData = await base64Helper.decode(base64Str);
-      // 通过图片二进制数据创建ImageSource，并解码为PixelMap
+    // 通过图片二进制数据创建ImageSource，并解码为PixelMap
       imageSource = image.createImageSource(imgData.buffer.slice(0));
       this.pixelMap = await imageSource.createPixelMap();
     } catch (err) {
@@ -192,21 +192,21 @@ struct Base64ImageDemo {
 
 
   async saveBase64StrImage() {
-    // 匹配开头固定格式的字符串，若不存在，则为非法base64图片
+  // 匹配开头固定格式的字符串，若不存在，则为非法base64图片
     let headerReg = new RegExp('data:image/\\w+;base64,');
     let matchArr = this.imageStr.match(headerReg);
     if (!matchArr || matchArr.length === 0) {
       console.error(`Invalid image base64 string`);
       return;
     }
-    // 去除头部固定格式的字符串
+   // 去除头部固定格式的字符串
     let base64Str = this.imageStr.replace(headerReg, '');
-    // 获得图片编码格式信息
+ // 获得图片编码格式信息
     let fileNameExtension = matchArr[0].replace('data:image/', '').replace(';base64,', '');
-    // 解码base64为图片二进制数据
+  // 解码base64为图片二进制数据
     let base64Helper = new util.Base64Helper();
     let imgData = await base64Helper.decode(base64Str);
-    // 写入沙箱文件
+  // 写入沙箱文件
     let context = this.getUIContext().getHostContext() as Context;
     let srcFilePath = context.tempDir + `/temp_img.${fileNameExtension}`;
     let tmpFile: fileIo.File | undefined = undefined;
@@ -231,17 +231,17 @@ struct Base64ImageDemo {
       let srcFileUris: Array<string> = [
         srcFileUri,
       ];
-      // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。
+    // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选。
       let photoCreationConfigs: Array<photoAccessHelper.PhotoCreationConfig> = [
         {
           fileNameExtension: fileNameExtension,
           photoType: photoAccessHelper.PhotoType.IMAGE,
         },
       ];
-      // 基于弹窗授权的方式获取媒体库的目标uri。
+    // 基于弹窗授权的方式获取媒体库的目标uri。
       let desFileUris: Array<string> =
         await phAccessHelper.showAssetsCreationDialog(srcFileUris, photoCreationConfigs);
-      // 将来源于应用沙箱的照片内容写入媒体库的目标uri。
+    // 将来源于应用沙箱的照片内容写入媒体库的目标uri。
       desFile = await fileIo.open(desFileUris[0], fileIo.OpenMode.WRITE_ONLY);
       srcFile = await fileIo.open(srcFileUri, fileIo.OpenMode.READ_ONLY);
       await fileIo.copyFile(srcFile.fd, desFile.fd);

@@ -26,10 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-buildin
 
 将页面中的元素分解之后再对每个基本元素按顺序实现，可以减少多层嵌套造成的视觉混乱和逻辑混乱，提高代码的可读性，方便对页面做后续的调整。以下图为例进行分解：
 
-图1 页面布局分解
+**图1** 页面布局分解
 
-![](https://media:401788444572978056)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/pJZ9CE2RQz69v6_B99cGMQ/zh-cn_image_0000002762993699.png?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=A38AA483D2387755F91E819536EE68698C95D208609824BD4912FDB93CCB2FAF)
 
-图2 留言区布局分解
+**图2** 留言区布局分解
 
-![](https://media:401788444573018057)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/WcEVlS9pRBG27CVZCiVaqA/zh-cn_image_0000002762833815.png?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=53FE16FCB91A34FA3B8130574FFD81B5882CB80537AF84F8BB376D5AFC7E3B8F)
+

@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # 语音转文本
 
-* [VoiceParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/minigame-voiceparam-js-0000002026611157)  
+* **[VoiceParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/minigame-voiceparam-js-0000002026611157)**   

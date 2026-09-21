@@ -6,36 +6,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-navi-matr
 
 # 批量算路
 
-#### 场景介绍
+## 场景介绍
 
-多个起点到多个终点的批量算路功能，在驾车、步行、骑行模式下，快速批量计算多个起点分别到多个终点的路线距离和耗时。  
+多个起点到多个终点的批量算路功能，在驾车、步行、骑行模式下，快速批量计算多个起点分别到多个终点的路线距离和耗时。
 
-#### 接口说明
+## 接口说明
 
-以下是路径规划功能相关接口，主要由[navi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api)命名空间下的方法提供，更多接口及使用方法请参见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api)。  
+以下是路径规划功能相关接口，主要由[navi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api)命名空间下的方法提供，更多接口及使用方法请参见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api)。
 
 |接口名|描述|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
-|[getDrivingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getdrivingmatrix)(params: [DrivingMatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#drivingmatrixparams)): Promise\<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)\>|驾车批量算路。|
-|[getDrivingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getdrivingmatrix-1)(context: [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context), params: [DrivingMatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#drivingmatrixparams)): Promise\<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)\>|驾车批量算路。支持传入Context上下文。|
-|[getWalkingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getwalkingmatrix)(params: [MatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixparams)): Promise\<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)\>|步行批量算路。|
-|[getWalkingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getwalkingmatrix-1)(context: [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context), params: [MatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixparams)): Promise\<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)\>|步行批量算路。支持传入Context上下文。|
-|[getCyclingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getcyclingmatrix)(params: [MatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixparams)): Promise\<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)\>|骑行批量算路。|
-|[getCyclingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getcyclingmatrix-1)(context: [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context), params: [MatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixparams)): Promise\<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)\>|骑行批量算路。支持传入Context上下文。|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
+|[getDrivingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getdrivingmatrix)(params: [DrivingMatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#drivingmatrixparams)): Promise<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)>|驾车批量算路。|
+|[getDrivingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getdrivingmatrix-1)(context: [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context), params: [DrivingMatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#drivingmatrixparams)): Promise<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)>|驾车批量算路。支持传入Context上下文。|
+|[getWalkingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getwalkingmatrix)(params: [MatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixparams)): Promise<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)>|步行批量算路。|
+|[getWalkingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getwalkingmatrix-1)(context: [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context), params: [MatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixparams)): Promise<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)>|步行批量算路。支持传入Context上下文。|
+|[getCyclingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getcyclingmatrix)(params: [MatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixparams)): Promise<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)>|骑行批量算路。|
+|[getCyclingMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#getcyclingmatrix-1)(context: [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context), params: [MatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixparams)): Promise<[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)>|骑行批量算路。支持传入Context上下文。|
 |[DrivingMatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#drivingmatrixparams)|驾车批量算路的参数。|
 |[MatrixParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixparams)|步行、骑行批量算路的参数。|
 |[MatrixResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-navi-api#matrixresult)|批量算路的结果。|
 
-#### 开发步骤
+## 开发步骤
 
 导入相关模块。
 
-```
+```typescript
 import { navi } from '@kit.MapKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-#### 驾车批量算路
+### 驾车批量算路
 
 根据多组起终点坐标批量检索符合条件的驾车路径规划方案。支持以下功能：
 
@@ -45,10 +45,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 * 支持多种路线偏好选择，如时间最短、避免经过收费的公路、避开高速公路、距离优先等。
 
-![](https://media:401788444294816720)  
-为保证性能与准确性，单次请求中的起点数量乘以终点数量应小于100。
+> 说明
+>
+> 为保证性能与准确性，单次请求中的起点数量乘以终点数量应小于100。
 
-```
+```typescript
 async testDrivingMatrix() {
   let params: navi.DrivingMatrixParams = {
     // 起点的经纬度
@@ -78,7 +79,7 @@ async testDrivingMatrix() {
 }
 ```
 
-#### 步行批量算路
+### 步行批量算路
 
 根据多组起终点坐标批量检索符合条件的步行路径规划方案。支持以下功能：
 
@@ -86,10 +87,11 @@ async testDrivingMatrix() {
 
 * 融入出行策略（时间最短、避免轮渡）。
 
-![](https://media:401788444294839721)  
-为保证性能与准确性，单次请求中的起点数量乘以终点数量应小于100。
+> 说明
+>
+> 为保证性能与准确性，单次请求中的起点数量乘以终点数量应小于100。
 
-```
+```TypeScript
 async testWalkingMatrix() {
   let params: navi.MatrixParams = {
     // 起点的经纬度
@@ -118,7 +120,7 @@ async testWalkingMatrix() {
 }
 ```
 
-#### 骑行批量算路
+### 骑行批量算路
 
 根据多组起终点坐标批量检索符合条件的骑行路径规划方案。支持以下功能：
 
@@ -126,10 +128,11 @@ async testWalkingMatrix() {
 
 * 融入出行策略（时间最短、避免轮渡）。
 
-![](https://media:401788444294862722)  
-为保证性能与准确性，单次请求中的起点数量乘以终点数量应小于100。
+> 说明
+>
+> 为保证性能与准确性，单次请求中的起点数量乘以终点数量应小于100。
 
-```
+```TypeScript
 async testCyclingMatrix() {
   let params: navi.MatrixParams = {
     // 起点的经纬度

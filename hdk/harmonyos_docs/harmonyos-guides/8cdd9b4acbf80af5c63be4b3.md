@@ -8,9 +8,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/subscribe-sys
 
 环境变量涵盖了所有可能影响应用运行时的环境配置信息，包括应用可指定的内部环境变量（字体大小、外观、语言等）和应用可感知的外部环境变量（屏幕方向等）。
 
-通常条件下，环境变量会跟随系统设置变化。  
+通常条件下，环境变量会跟随系统设置变化。
 
-#### 使用场景
+## 使用场景
 
 |场景|说明|约束限制|场景举例|
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
@@ -18,11 +18,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/subscribe-sys
 |[设置环境变量](#设置环境变量)|当前仅支持应用自定义字体大小、深浅色、语言。 - [设置字体大小](#设置字体大小) - [设置深浅色模式](#设置深浅色模式) - [设置应用语言](#设置应用语言)|当应用设置环境变量后，应用将无法通过订阅感知到对应的环境变量在系统中的变化。|应用自定义字体大小，以提升用户体验。|
 |[订阅环境变量](#订阅环境变量)|通过订阅环境变量，及时感知系统环境变化。支持订阅的环境变量包括语言、深浅色、屏幕方向等，详见[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)。|- 如果开发者将环境变量配置为不跟随系统变化（即[configuration标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file#configuration标签)中的对应字段取值为"nonFollowSystem"），应用将无法通过订阅感知对应的环境变量在系统中的变化。 - 应用订阅环境变量后，当应用处于后台时，环境变量发生变更，应用将无法实时收到订阅通知。相关通知推送会被延迟处理，待应用切换回前台时，才会收到订阅通知。|当用户旋转设备屏幕时，应用可以通过订阅环境变量感知环境变化重新布局用户界面，以适应屏幕方向和尺寸。|
 
-#### 获取环境变量
+## 获取环境变量
 
 开发者可以使用[getConfigurationSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getconfigurationsync10)主动获取当前[环境变量](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#configuration)，包括深浅色模式、屏幕方向、语言地区、屏幕密度、设备类型等，对应用程序作出相应处理，提供更好的用户体验。
 
-```
+```TypeScript
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -44,17 +44,17 @@ export default class EnvAbility0 extends UIAbility {
 }
 ```
 
-#### 设置环境变量
+## 设置环境变量
 
-支持应用自定义的环境变量包括[字体大小](#设置字体大小)、[深浅色模式](#设置深浅色模式)、[应用语言](#设置应用语言)，其他环境变量（例如屏幕方向等）均不支持直接设置。  
+支持应用自定义的环境变量包括[字体大小](#设置字体大小)、[深浅色模式](#设置深浅色模式)、[应用语言](#设置应用语言)，其他环境变量（例如屏幕方向等）均不支持直接设置。
 
-#### 设置字体大小
+### 设置字体大小
 
 应用字体大小默认不跟随系统变化，开发者可以通过将[configuration标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file#configuration标签)中fontSizeScale的值配置为followSystem，使得应用字体大小跟随系统变化。
 
 开发者可以使用[setFontSizeScale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextsetfontsizescale13)设置应用字体大小。设置后，应用字体将不跟随系统变化，不再支持订阅系统字体大小变化。
 
-```
+```TypeScript
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 
@@ -71,15 +71,15 @@ export default class EnvAbility1 extends UIAbility {
 }
 ```
 
-#### 设置深浅色模式
+### 设置深浅色模式
 
 应用深浅色模式默认跟随系统。开发者可以设置应用或组件的深浅色模式。设置后，不再支持订阅系统的深浅色模式变化。
 
-配置生效的优先级为：UIAbility/UIExtensionAbility的深浅色模式 \> 应用的深浅色模式 \> 系统的深浅色模式。
+配置生效的优先级为：UIAbility/UIExtensionAbility的深浅色模式 > 应用的深浅色模式 > 系统的深浅色模式。
 
-* 设置应用的深浅色模式： 使用ApplicationContext的[setColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextsetcolormode11)接口，可以设置应用深浅色模式。
+* **设置应用的深浅色模式：** 使用ApplicationContext的[setColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextsetcolormode11)接口，可以设置应用深浅色模式。
 
-  ```
+  ```TypeScript
   import { UIAbility, ConfigurationConstant } from '@kit.AbilityKit';
   import { hilog } from '@kit.PerformanceAnalysisKit';
   import { window } from '@kit.ArkUI';
@@ -98,9 +98,9 @@ export default class EnvAbility1 extends UIAbility {
   }
   ```
 
-* 设置UIAbility的深浅色模式： 使用UIAbilityContext的[setColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#setcolormode18)，可以设置UIAbility的深浅色模式。
+* **设置UIAbility的深浅色模式：** 使用UIAbilityContext的[setColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#setcolormode18)，可以设置UIAbility的深浅色模式。
 
-  ```
+  ```TypeScript
   import { UIAbility, ConfigurationConstant } from '@kit.AbilityKit';
   import { hilog } from '@kit.PerformanceAnalysisKit';
   import { window } from '@kit.ArkUI';
@@ -119,9 +119,9 @@ export default class EnvAbility1 extends UIAbility {
   }
   ```
 
-* 设置UIExtensionAbility的深浅色模式： 使用UIExtensionContext的[setColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiextensioncontext#setcolormode18)，可以设置UIExtensionAbility的深浅色模式。
+* **设置UIExtensionAbility的深浅色模式：** 使用UIExtensionContext的[setColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiextensioncontext#setcolormode18)，可以设置UIExtensionAbility的深浅色模式。
 
-  ```
+  ```TypeScript
   // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
   import { ShareExtensionAbility, ConfigurationConstant } from '@kit.AbilityKit';
 
@@ -133,11 +133,11 @@ export default class EnvAbility1 extends UIAbility {
   }
   ```
 
-#### 设置应用语言
+### 设置应用语言
 
 应用语言默认跟随系统语言变化。开发者可以使用[setLanguage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextsetlanguage11)设置应用语言。设置后，不再支持订阅系统语言变化。
 
-```
+```TypeScript
 import { UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -156,7 +156,7 @@ export default class EnvAbility5 extends UIAbility {
 }
 ```
 
-#### 订阅环境变量
+## 订阅环境变量
 
 系统配置的变化通常由"设置"中的选项或"控制中心"中的图标触发。订阅环境变量变化，可以使应用程序更加智能地响应系统环境变化，从而提供更好的用户体验。查看当前支持订阅变化的环境变量，参见[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)。
 
@@ -165,15 +165,15 @@ export default class EnvAbility5 extends UIAbility {
 * [使用ApplicationContext订阅回调](#使用applicationcontext订阅回调)
 * [在AbilityStage组件管理器中订阅回调](#在abilitystage组件管理器中订阅回调)
 * [在UIAbility组件中订阅回调](#在uiability组件中订阅回调)
-* [在ExtensionAbility组件中订阅回调](#在extensionability组件中订阅回调)  
+* [在ExtensionAbility组件中订阅回调](#在extensionability组件中订阅回调)
 
-#### 使用ApplicationContext订阅回调
+### 使用ApplicationContext订阅回调
 
 [ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)提供了注册回调函数以订阅环境变量的变化，并且可以通过调用相应的方法来撤销该回调。这有助于在资源不再需要时释放相关资源，从而提高系统的可靠性和性能。
 
 1. 使用[on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonenvironment)方法，应用程序可以通过在非应用组件模块中订阅环境变量的变化来动态响应这些变化。例如，使用该方法在页面中监测系统语言的变化。
 
-   ```
+   ```TypeScript
    import { common, EnvironmentCallback, Configuration } from '@kit.AbilityKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
    import { BusinessError } from '@kit.BasicServicesKit';
@@ -224,7 +224,7 @@ export default class EnvAbility5 extends UIAbility {
 
 2. 在资源使用完成之后，可以通过调用[off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextoffenvironment-1)方法释放相关资源。
 
-   ```
+   ```TypeScript
    import { common } from '@kit.AbilityKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
    import { BusinessError } from '@kit.BasicServicesKit';
@@ -256,16 +256,17 @@ export default class EnvAbility5 extends UIAbility {
    }
    ```
 
-#### 在AbilityStage组件管理器中订阅回调
+### 在AbilityStage组件管理器中订阅回调
 
-使用[AbilityStage.onConfigurationUpdate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage#onconfigurationupdate)回调方法订阅环境变量的变化。当环境变量发生变化时，会调用该回调方法。在该方法中，通过[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)对象获取最新的环境变量信息。可以进行相应的界面适配等操作，从而提高系统的灵活性和可维护性。  
-![](https://media:401788444549183785)  
-* DevEco Studio默认工程中未自动生成[AbilityStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage)，AbilityStage文件的创建参见[AbilityStage开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/abilitystage#开发步骤)。
-* 当使用回调方法订阅系统环境变量的变化时，该回调方法会随着AbilityStage的生命周期而存在，在Module销毁时一并销毁。
+使用[AbilityStage.onConfigurationUpdate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage#onconfigurationupdate)回调方法订阅环境变量的变化。当环境变量发生变化时，会调用该回调方法。在该方法中，通过[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)对象获取最新的环境变量信息。可以进行相应的界面适配等操作，从而提高系统的灵活性和可维护性。
+> 说明
+>
+> * DevEco Studio默认工程中未自动生成[AbilityStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage)，AbilityStage文件的创建参见[AbilityStage开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/abilitystage#开发步骤)。
+> * 当使用回调方法订阅系统环境变量的变化时，该回调方法会随着AbilityStage的生命周期而存在，在Module销毁时一并销毁。
 
 例如，在[AbilityStage.onConfigurationUpdate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage#onconfigurationupdate)回调方法中实现监测系统语言的变化。
 
-```
+```TypeScript
 import { AbilityStage, Configuration } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -292,16 +293,17 @@ export default class EnvAbilityStage extends AbilityStage {
 }
 ```
 
-#### 在UIAbility组件中订阅回调
+### 在UIAbility组件中订阅回调
 
-[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)组件提供了[UIAbility.onConfigurationUpdate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-ability#abilityonconfigurationupdate)回调方法用于订阅环境变量的变化。当环境变量发生变化时，会调用该回调方法。在该方法中，通过[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)对象获取最新的环境变量信息，而无需重启UIAbility。  
-![](https://media:401788444549207786)  
-* 当应用通过回调方法订阅环境变量变化时，该订阅会随着所在UIAbility的生命周期持续有效。一旦UIAbility被销毁，之前注册的所有回调订阅将自动失效，同时应用将不会再收到订阅的回调信息。
-* 如果使用该接口监听屏幕方向变化，需要在module.json5配置文件的[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)中将orientation字段配置为auto_rotation。
+[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)组件提供了[UIAbility.onConfigurationUpdate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-ability#abilityonconfigurationupdate)回调方法用于订阅环境变量的变化。当环境变量发生变化时，会调用该回调方法。在该方法中，通过[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)对象获取最新的环境变量信息，而无需重启UIAbility。
+> 说明
+>
+> * 当应用通过回调方法订阅环境变量变化时，该订阅会随着所在UIAbility的生命周期持续有效。一旦UIAbility被销毁，之前注册的所有回调订阅将自动失效，同时应用将不会再收到订阅的回调信息。
+> * 如果使用该接口监听屏幕方向变化，需要在module.json5配置文件的[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)中将orientation字段配置为auto_rotation。
 
 例如，在[onConfigurationUpdate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-ability#abilityonconfigurationupdate)回调方法中实现监测系统语言的变化。
 
-```
+```TypeScript
 import { AbilityConstant, Configuration, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -327,15 +329,16 @@ export default class EnvAbility9 extends UIAbility {
 }
 ```
 
-#### 在ExtensionAbility组件中订阅回调
+### 在ExtensionAbility组件中订阅回调
 
-[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-extensionability)组件提供了[onConfigurationUpdate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-ability#abilityonconfigurationupdate)回调方法用于订阅环境变量的变化。当环境变量发生变化时，会调用该回调方法。在该方法中，通过[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)对象获取最新的环境变量信息。  
-![](https://media:401788444549232787)  
-当应用通过回调方法订阅环境变量变化时，该订阅会随着所在ExtensionAbility的生命周期持续有效。一旦ExtensionAbility被销毁，之前注册的所有回调订阅将自动失效，同时应用将不会再收到订阅的回调信息。
+[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-extensionability)组件提供了[onConfigurationUpdate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-ability#abilityonconfigurationupdate)回调方法用于订阅环境变量的变化。当环境变量发生变化时，会调用该回调方法。在该方法中，通过[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)对象获取最新的环境变量信息。
+> 说明
+>
+> 当应用通过回调方法订阅环境变量变化时，该订阅会随着所在ExtensionAbility的生命周期持续有效。一旦ExtensionAbility被销毁，之前注册的所有回调订阅将自动失效，同时应用将不会再收到订阅的回调信息。
 
 以[FormExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability)为例说明。例如，在[onConfigurationUpdate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonconfigurationupdate)回调方法中实现环境变量的变化。
 
-```
+```TypeScript
 import { FormExtensionAbility } from '@kit.FormKit';
 import { Configuration } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

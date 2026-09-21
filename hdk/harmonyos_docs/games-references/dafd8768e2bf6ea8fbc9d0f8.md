@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/games-api-qui
 
 # 数据存储
 
-#### 属性
+## 属性
 
 |属性|说明|示例代码|
-|:-----|:-----------------------------------------------------|:---------------------------------------|
-|length|length是一个变量属性，不是函数，用于获取存储在 localStorage 对象中的数据项数量（只读）。|``` console.log(localStorage.length) ```|
+|:-----|:-----------------------------------------------------|:---------------------------------------------|
+|length|length是一个变量属性，不是函数，用于获取存储在 localStorage 对象中的数据项数量（只读）。|```screen console.log(localStorage.length) ```|
 
-#### 接口定义
+## 接口定义
 
 |接口|描述|
 |:----------------------------------------------------------------------------------------------------------------|:---------------------------|
@@ -22,76 +22,69 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/games-api-qui
 |[localStorage.getItem(string key)](#section731992621014)|根据key查询单条存在localStorage中的数据。|
 |[localStorage.key(number index)](#ZH-CN_TOPIC_0000002399796701__zh-cn_topic_0000001130711973_section711155914611)|根据index下标查询对应的key数据。|
 
-#### localStorage.clear()
+### localStorage.clear()
 
 * 描述 清空localStorage中的数据。
 
-<!-- -->
 
 * 示例代码
 
-  ```
+  ```screen
   localStorage.clear()
   ```
 
-#### localStorage.removeItem(string key)
+### localStorage.removeItem(string key)
 
 * 描述 根据key删除单条存在localStorage中的数据。
 
-<!-- -->
 
-* 参数  
+* 参数
 
   |参数|类型|必填(M)/选填(O)|说明|
   |:--|:-----|:----------|:-----------|
   |key|string|M|要删除的数据的Key值。|
 
-<!-- -->
 
 * 示例代码
 
-  ```
+  ```screen
   localStorage.removeItem("myKey");
   ```
 
-#### localStorage.setItem(string key,string value)
+### localStorage.setItem(string key,string value)
 
 * 描述 保存数据到localStorage。
 
-<!-- -->
 
-* 参数  
+* 参数
 
   |参数|类型|必填(M)/选填(O)|说明|
   |:----|:-----|:----------|:---------------------------------------------------------|
   |key|string|M|要存到localStorage中的数据的key。key允许存储的最大数据长度为1MB，所有数据存储的上限为10MB。|
   |value|string|M|要存到localStorage中的数据的值。|
 
-<!-- -->
 
 * 示例代码
 
-  ```
+  ```screen
   console.log(localStorage.setItem("myKey", JSON.stringify({'a': 'a'})))
   ```
 
-#### localStorage.getItem(string key)
+### localStorage.getItem(string key)
 
 * 描述 根据key查询单条存在localStorage中的数据。
 
-<!-- -->
 
-* 参数  
+* 参数
 
   |参数|类型|必填(M)/选填(O)|说明|
   |:--|:-----|:----------|:----------------------|
   |key|string|M|存在localStorage中数据的key值。|
 
-<!-- -->
 
 * 示例代码
 
-  ```
+  ```screen
   console.log(localStorage.getItem("myKey"))
   ```
 

@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/audio-mul
 
 # multimedia
 
-* [SystemSoundPlayer (音效播放器)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-multimedia-systemsoundplayer)  
+* **[SystemSoundPlayer (音效播放器)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-multimedia-systemsoundplayer)**   

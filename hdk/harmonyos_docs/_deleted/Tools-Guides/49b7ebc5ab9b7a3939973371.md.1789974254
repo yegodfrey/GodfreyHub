@@ -1,0 +1,22 @@
+---
+name: document/cn/Tools-Guides/overview-0000001050161530
+title: 概述
+uri: https://developer.huawei.com/consumer/cn/doc/Tools-Guides/overview-0000001050161530
+---
+
+# 概述
+
+HUAWEI Reality Studio是多功能3D编辑器，它提供了3D场景编辑，动画制作和事件交互等功能，帮助您快速打造3D可交互场景。可广泛用于教育培训、电商购物、娱乐等诸多行业的XR内容开发。
+
+HUAWEI Reality Studio目前只支持对模型进行基本的编辑，建模需要使用专业的建模软件完成。我们的价值在于，不需要了解3D相关的知识就可以非常简单地开发3D互动场景。
+
+## 推荐设备配置
+
+|类型|硬件|
+|:------|:----------------------------------------------------------------------|
+|Android|机型：MatePad系列，其他机型后续开放 内存：8G及以上|
+|PC|操作系统：Windows 10 X64 内存：16G及以上 硬盘：20G及以上 显卡：独立显卡，显存2GB以上 屏幕分辨率：1920*1080|
+
+## 支持的国家/地区
+
+Android版本支持的国家/请参见[支持的国家/地区](https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/support-regions-0000001086215526)。

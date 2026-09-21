@@ -6,29 +6,30 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-47
 
 # 应用内如何直接展示本应用保存到图库的图片和视频
 
-#### 问题现象
+## 问题现象
 
-应用使用受限权限ohos.permission.READ_IMAGEVIDEO可以筛选出保存在媒体库的图片和视频资源进行展示，是否有非受限权限的处理方案？  
+应用使用受限权限ohos.permission.READ_IMAGEVIDEO可以筛选出保存在媒体库的图片和视频资源进行展示，是否有非受限权限的处理方案？
 
-#### 背景知识
+## 背景知识
 
 * [ohos.permission.READ_IMAGEVIDEO](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionread_imagevideo)受限权限允许读取用户公共目录的图片或视频文件，可申请此权限的特殊场景与功能：应用需要克隆、备份或同步图片/视频类文件。
 * 应用可以使用安全控件或授权弹窗的方式，将用户指定的媒体资源保存到图库中，使用方式请参考：[保存媒体库资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton)。
-* 相册管理模块photoAccessHelper下的[getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)接口可以获取图库中的图片和视频资源。  
+* 相册管理模块photoAccessHelper下的[getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)接口可以获取图库中的图片和视频资源。
 
-#### 解决方案
+## 解决方案
 
 应用保存到图库的图片和视频，应用默认对这些资源具备读的权限，应用只需获取这些资源对应的媒体uri，通过[video](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video)组件加载展示，就可以实现应用内展示图库中自己保存的资源的诉求，无需申请受限权限，获取应用保存到图库的媒体uri可通过如下方案。
 
-1. 安全控件保存资源到图库。  
+1. 安全控件保存资源到图库。
+
    应用使用安全控件[SaveButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-security-components-savebutton)保存资源到图库，调用photoAccessHelper.createAsset创建媒体资源时获取的就是媒体uri，如下面示例中的photoUri。
 
-   ```
-   SaveButton(this.saveButtonOptions) // 创建安全控件按钮
+   ```ts
+   SaveButton(this.saveButtonOptions) //创建安全控件按钮
      .onClick(async (event, result: SaveButtonOnClickResult) => {
        if (result == SaveButtonOnClickResult.SUCCESS) {
          try {
-           // 1、使用安全控件创建文件
+        // 1、使用安全控件创建文件
            let phAccessHelper: photoAccessHelper.PhotoAccessHelper =
              photoAccessHelper.getPhotoAccessHelper(this.context);
            let options: photoAccessHelper.CreateOptions = {
@@ -37,9 +38,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-47
            let photoUri: string =
              await phAccessHelper.createAsset(photoAccessHelper.PhotoType.VIDEO, 'mp4', options);
            console.info('CameraDemo createAsset successfully, photoUri: ' + photoUri);
-           // 2.1、方式一：通过文件管理写入文件
+         // 2.1、方式一：通过文件管理写入文件
            let file = fs.openSync(photoUri, fs.OpenMode.WRITE_ONLY);
-           fs.writeSync(file.fd, this.imageBuffer); //图片的buffer数据
+           fs.writeSync(file.fd, this.imageBuffer);//图片的buffer数据
            fs.closeSync(file);
          } catch (error) {
            let err = error as BusinessError;
@@ -51,13 +52,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-47
      });
    ```
 
-2. 弹窗授权保存资源到图库。  
+2. 弹窗授权保存资源到图库。
+
    应用使用弹窗授权[showAssetsCreationDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#showassetscreationdialog12)方式保存资源到图库，调用phAccessHelper.showAssetsCreationDialog保存媒体资源时获取的就是媒体uri，如下面示例中的desFileUris。
 
-   ```
+   ```ts
    async dialogSave(imageBuffer: ArrayBuffer) {
      try {
-       //下载后的数据保存到Cache目录下
+      //下载后的数据保存到Cache目录下
        const newFileName = util.generateRandomUUID() + '.mp4';
        const newFilePath = this.context.cacheDir + '/' + newFileName;
        const srcFileUri = fileUri.getUriFromPath(newFilePath);
@@ -68,7 +70,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-47
        let srcFileUris: Array<string> = [
          srcFileUri
        ];
-       // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选
+      // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选
        let photoCreationConfigs: Array<photoAccessHelper.PhotoCreationConfig> = [
          {
            title: 'test',
@@ -77,10 +79,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-47
            subtype: photoAccessHelper.PhotoSubtype.DEFAULT,
          }
        ];
-       // 基于弹窗授权的方式获取媒体库的目标uri
+     // 基于弹窗授权的方式获取媒体库的目标uri
        let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(this.context);
        let desFileUris: Array<string> = await phAccessHelper.showAssetsCreationDialog(srcFileUris, photoCreationConfigs);
-       // 将来源于应用沙箱的照片内容写入媒体库的目标uri
+     // 将来源于应用沙箱的照片内容写入媒体库的目标uri
        let desFile: fileIo.File = await fileIo.open(desFileUris[0], fileIo.OpenMode.WRITE_ONLY);
        let srcFile: fileIo.File = await fileIo.open(srcFileUri, fileIo.OpenMode.READ_ONLY);
        await fileIo.copyFile(srcFile.fd, desFile.fd);
@@ -95,7 +97,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-47
 
 3. 通过getAssets接口查询获取媒体uri。 应用通过相册管理模块photoAccessHelper下的getAssets查询接口，会查询出应用有读权限的图片和视频，也就是查询到应用本身保存到图库的这些资源，从而获取到这些资源的媒体uri。
 
-   ```
+   ```ts
    async getAssetsUri(): Promise<void> {
      let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(this.context);
      let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
@@ -106,16 +108,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-47
      };
      let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
      await phAccessHelper.getAssets(fetchOption);
-     // 得到uri对应的PhotoAsset对象，读取文件的部分信息
+   // 得到uri对应的PhotoAsset对象，读取文件的部分信息
      const asset: photoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();
-     // 获取到的媒体uri
+   // 获取到的媒体uri
      this.videoSrc = asset.uri;
    }
    ```
 
 完整示例参考如下：
 
-```
+```ts
 import fs from '@ohos.file.fs';
 import common from '@ohos.app.ability.common';
 import { BusinessError } from '@ohos.base';
@@ -131,7 +133,7 @@ import { dataSharePredicates } from '@kit.ArkData';
 struct Index {
   private controller: VideoController | undefined;
   @State videoSrc: string = '';
-  // url需要替换成应用自己的链接，否则后续无法成功运行
+ // url需要替换成应用自己的链接，否则后续无法成功运行
   public url: string = 'XXXX';
   @State imageBuffer: ArrayBuffer | undefined = undefined;
   public context = this.getUIContext().getHostContext() as common.UIAbilityContext;
@@ -142,7 +144,7 @@ struct Index {
   };
 
   aboutToAppear(): void {
-    // 每一个httpRequest对应一个HTTP请求任务，不可复用
+  // 每一个httpRequest对应一个HTTP请求任务，不可复用
     let httpRequest = http.createHttp();
     let options: http.HttpRequestOptions = {
       method: http.RequestMethod.GET,
@@ -158,7 +160,7 @@ struct Index {
           if (error) {
             console.error('httpRequest failed.');
           }
-          // 判断网络获取到的资源是否为ArrayBuffer类型
+       // 判断网络获取到的资源是否为ArrayBuffer类型
           if (data.result instanceof ArrayBuffer) {
             this.imageBuffer = data.result as ArrayBuffer;
           }
@@ -168,7 +170,7 @@ struct Index {
 
   async dialogSave(imageBuffer: ArrayBuffer) {
     try {
-      //下载后的数据保存到Cache目录下
+    //下载后的数据保存到Cache目录下
       const newFileName = util.generateRandomUUID() + '.mp4';
       const newFilePath = this.context.cacheDir + '/' + newFileName;
       const srcFileUri = fileUri.getUriFromPath(newFilePath);
@@ -179,7 +181,7 @@ struct Index {
       let srcFileUris: Array<string> = [
         srcFileUri
       ];
-      // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选
+   // 指定待保存照片的创建选项，包括文件后缀和照片类型，标题和照片子类型可选
       let photoCreationConfigs: Array<photoAccessHelper.PhotoCreationConfig> = [
         {
           title: 'test',
@@ -188,10 +190,10 @@ struct Index {
           subtype: photoAccessHelper.PhotoSubtype.DEFAULT,
         }
       ];
-      // 基于弹窗授权的方式获取媒体库的目标uri
+    // 基于弹窗授权的方式获取媒体库的目标uri
       let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(this.context);
       let desFileUris: Array<string> = await phAccessHelper.showAssetsCreationDialog(srcFileUris, photoCreationConfigs);
-      // 将来源于应用沙箱的照片内容写入媒体库的目标uri
+   // 将来源于应用沙箱的照片内容写入媒体库的目标uri
       let desFile: fileIo.File = await fileIo.open(desFileUris[0], fileIo.OpenMode.WRITE_ONLY);
       let srcFile: fileIo.File = await fileIo.open(srcFileUri, fileIo.OpenMode.READ_ONLY);
       await fileIo.copyFile(srcFile.fd, desFile.fd);
@@ -203,9 +205,9 @@ struct Index {
     }
   }
 
-  /**
-   *通过getAssets接口查询应用自身保存到图库的资源，无需申请受限权限
-   */
+ /**
+*通过getAssets接口查询应用自身保存到图库的资源，无需申请受限权限
+*/
   async getAssetsUri(): Promise<void> {
     let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(this.context);
     let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
@@ -216,9 +218,9 @@ struct Index {
     };
     let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
       await phAccessHelper.getAssets(fetchOption);
-    // 得到uri对应的PhotoAsset对象，读取文件的部分信息
+ // 得到uri对应的PhotoAsset对象，读取文件的部分信息
     const asset: photoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();
-    // 获取到的媒体uri
+   // 获取到的媒体uri
     this.videoSrc = asset.uri;
   }
 
@@ -226,11 +228,11 @@ struct Index {
     Column() {
       Text(' ').fontSize(20);
       Text('方案一：安全控件获取uri');
-      SaveButton(this.saveButtonOptions) // 创建安全控件按钮
+      SaveButton(this.saveButtonOptions)//创建安全控件按钮
         .onClick(async (event, result: SaveButtonOnClickResult) => {
           if (result == SaveButtonOnClickResult.SUCCESS) {
             try {
-              // 1、使用安全控件创建文件
+            // 1、使用安全控件创建文件
               let phAccessHelper: photoAccessHelper.PhotoAccessHelper =
                 photoAccessHelper.getPhotoAccessHelper(this.context);
               let options: photoAccessHelper.CreateOptions = {
@@ -239,7 +241,7 @@ struct Index {
               let photoUri: string =
                 await phAccessHelper.createAsset(photoAccessHelper.PhotoType.VIDEO, 'mp4', options);
               console.info('CameraDemo createAsset successfully, photoUri: ' + photoUri);
-              // 2.1、方式一：通过文件管理写入文件
+           // 2.1、方式一：通过文件管理写入文件
               let file = fs.openSync(photoUri, fs.OpenMode.WRITE_ONLY);
               fs.writeSync(file.fd, this.imageBuffer); //图片的buffer数据
               fs.closeSync(file);

@@ -6,28 +6,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1431
 
 # 如何设置组件单边阴影样式
 
-#### 问题现象
+## 问题现象
 
-如何设置矩形组件仅显示单边阴影（如上边阴影），其他三边不显示？  
+如何设置矩形组件仅显示单边阴影（如上边阴影），其他三边不显示？
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782461570758479 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/yicWB4xxQh6GKmPgEXyviQ/zh-cn_image_0000002658843017.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=20D233A1372875FA9CB7C4D5FD6666E5287C9FEB5DEB07E3CB230B029F1E97E6 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 HarmonyOS提供阴影接口[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)可以为当前组件添加阴影效果，该接口支持两种类型参数：
 
 * [ShadowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadowoptions对象说明)类型可自定义阴影效果，用于设置阴影的模糊半径、阴影的颜色、X轴和Y轴的偏移量。在ShadowOptions模式下，当radius=0或者color的透明度为0时，无阴影效果。
-* [ShadowStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadowstyle10枚举说明)类型可简单配置阴影样式，主要改变阴影的大小尺寸。  
+* [ShadowStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadowstyle10枚举说明)类型可简单配置阴影样式，主要改变阴影的大小尺寸。
 
-#### 解决方案
+## 解决方案
 
 利用上层组件的特殊阴影样式配置与下层矩形组件的布局拼接，可实现单边阴影效果。
 
 完整示例参考如下：
 
-```
+```screen
 @Entry
 @Component
 struct ShadowDemo {
@@ -41,14 +41,14 @@ struct ShadowDemo {
         .width(200)
         .height(10)
         .shadow({
-          color: '#ff745454', // 阴影颜色
-          radius: 20, // 阴影模糊半径
-          offsetY: -20, // 阴影Y轴偏移量(负值表示向上)
+          color: '#ff745454',// 阴影颜色
+          radius: 20, //阴影模糊半径
+          offsetY: -20,// 阴影Y轴偏移量(负值表示向上)
         })
       }
 
       Row() {
-        // 组件内容
+       // 组件内容
         Text('设置单边阴影')
           .fontColor(Color.Black)
           .width(100)
@@ -69,6 +69,7 @@ struct ShadowDemo {
 }
 ```
 
-#### 总结
+## 总结
 
-当前组件通用属性支持阴影类型、模糊半径、颜色及X/Y轴偏移量的配置，但无法直接实现单边阴影。通过组合设置部分子组件的阴影样式，并与其他子组件拼接，可间接实现单边阴影效果。  
+当前组件通用属性支持阴影类型、模糊半径、颜色及X/Y轴偏移量的配置，但无法直接实现单边阴影。通过组合设置部分子组件的阴影样式，并与其他子组件拼接，可间接实现单边阴影效果。
+

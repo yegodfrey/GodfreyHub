@@ -6,4 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/integratin
 
 # 集成IndustryConnectionUI SDK
 
-请参考[集成Health Industry SDK](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/integrate-health-industrty-sdk-0000002372256553)集成industry-connectionui。  
+请参考[集成Health Industry SDK](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/integrate-health-industrty-sdk-0000002372256553)集成industry-connectionui。
+

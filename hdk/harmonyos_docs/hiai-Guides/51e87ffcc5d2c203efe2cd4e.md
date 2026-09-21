@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/config-obfuscation
 
 在HarmonyOS应用"entry"目录下的混淆配置文件"proguard-rules.pro"中加入ML Kit SDK和依赖SDK的混淆配置。
 
-```
+```screen
 -ignorewarnings
 -keepattributes *Annotation*
 -keepattributes Exceptions
@@ -23,10 +23,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/config-obfuscation
 -keep class **.ResourceTable$* {*;}
 ```
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250514172359.22279827737598186399099887085228:50001231000000:2800:C7839C594DBDA9D957F1DF385A70A3C9CBCF189C427A085A566CCB949140730E.png)  
-1. 若您需要集成语音合成服务，请在加入以上脚本后再配置如下内容：
-
-   ```
-   -dontobfuscate
-   ```
+> 注意
+>
+> 1. 若您需要集成语音合成服务，请在加入以上脚本后再配置如下内容：
+>
+>    ```screen
+>    -dontobfuscate
+>    ```
 

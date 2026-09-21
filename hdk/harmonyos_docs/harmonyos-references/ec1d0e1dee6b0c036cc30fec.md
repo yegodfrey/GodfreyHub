@@ -6,45 +6,47 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/aodnaviga
 
 # aodNaviManager (熄屏导航服务)
 
+> phone 26.0.0+
+
 本模块提供AOD Navigation Kit的基础能力，包括检查设备是否支持熄屏导航服务、检查熄屏导航开关状态、获取熄屏导航扩展能力集、熄屏导航初始化配置、规划路线设置、更新熄屏导航视图数据及数据同步等核心功能。
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
-#### 导入模块
+## 导入模块
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 ```
 
-#### aodNaviManager.isAodNaviSupported
+## aodNaviManager.isAodNaviSupported
 
 isAodNaviSupported(): boolean
 
 检查设备是否支持熄屏导航功能。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------|:----------------------------------|
 |boolean|返回设备是否支持熄屏导航功能。true表示支持，false表示不支持。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:--------------------------------------------|
 |1028300001|AOD navigation service initialization failed.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { abilityAccessCtrl, common } from '@kit.AbilityKit';
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -53,36 +55,36 @@ let supported: boolean = aodNaviManager.isAodNaviSupported();
 hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in checking whether AOD navigation is supported, supported: %{public}s', supported);
 ```
 
-#### aodNaviManager.isAodNaviSwitchEnabled
+## aodNaviManager.isAodNaviSwitchEnabled
 
-isAodNaviSwitchEnabled(): Promise\<boolean\>
+isAodNaviSwitchEnabled(): Promise<boolean>
 
 检查熄屏导航开关是否已启用，使用Promise异步回调。只有在设置页面中启用开关后，应用才能接入熄屏导航功能。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:--------------------------------------------|
-|Promise\<boolean\>|Promise对象。返回true表示熄屏导航开关开启；返回false表示熄屏导航开关关闭。|
+|:---------------|:--------------------------------------------|
+|Promise<boolean>|Promise对象。返回true表示熄屏导航开关开启；返回false表示熄屏导航开关关闭。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:--------------------------------------------|
 |1028300001|AOD navigation service initialization failed.|
 |1028300002|Marshalling or unmarshalling error.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -94,35 +96,35 @@ aodNaviManager.isAodNaviSwitchEnabled().then((enabled: boolean) => {
 });
 ```
 
-#### aodNaviManager.getAodNaviExtendCapabilities
+## aodNaviManager.getAodNaviExtendCapabilities
 
-getAodNaviExtendCapabilities(): AodNaviExtendDataType\[\]
+getAodNaviExtendCapabilities(): AodNaviExtendDataType[]
 
 获取熄屏导航服务的扩展能力集，使用Promise异步回调。不同设备可能支持不同的扩展能力，用户可以使用此接口检查支持的能力。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------------------|:-------------|
-|[AodNaviExtendDataType](#aodnaviextenddatatype)\[\]|返回支持的扩展数据类型列表。|
+|:------------------------------------------------|:-------------|
+|[AodNaviExtendDataType](#aodnaviextenddatatype)[]|返回支持的扩展数据类型列表。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:--------------------------------------------|
 |1028300001|AOD navigation service initialization failed.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -130,35 +132,35 @@ let capabilities: aodNaviManager.AodNaviExtendDataType[] = aodNaviManager.getAod
 hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in getting AOD navigation extend capabilities, capabilities: %{public}s', JSON.stringify(capabilities));
 ```
 
-#### aodNaviManager.setupAodNaviConfig
+## aodNaviManager.setupAodNaviConfig
 
-setupAodNaviConfig(config: AodNaviConfig): Promise\<void\>
+setupAodNaviConfig(config: AodNaviConfig): Promise<void>
 
 熄屏导航配置初始化。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-设备行为差异： 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
+**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:------------------------------|:-|:--------|
 |config|[AodNaviConfig](#aodnaviconfig)|是|熄屏导航配置对象。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -170,9 +172,9 @@ setupAodNaviConfig(config: AodNaviConfig): Promise\<void\>
 |1028300005|The AOD navigation switch is not enabled.|
 |1028300009|Invalid AOD view data count. Possible causes: 1.Data count must be within the range of 1 to 6. 2.Data count does not match the number of configured entries. 3.Configuration includes items unsupported by the current device.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -207,27 +209,27 @@ aodNaviManager.setupAodNaviConfig(config).then(() => {
 });
 ```
 
-#### aodNaviManager.onAodNaviEvent
+## aodNaviManager.onAodNaviEvent
 
-onAodNaviEvent(callback: Callback\<AodNaviEventInfo\>): void
+onAodNaviEvent(callback: Callback<AodNaviEventInfo>): void
 
 注册熄屏导航事件监听。只允许注册一个回调，新回调将覆盖之前的回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------|:-|:-----------|
-|callback|Callback\<[AodNaviEventInfo](#aodnavieventinfo)\>|是|熄屏导航事件的回调函数。|
+|:-------|:----------------------------------------------|:-|:-----------|
+|callback|Callback<[AodNaviEventInfo](#aodnavieventinfo)>|是|熄屏导航事件的回调函数。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:--------------------------------------------|
@@ -236,9 +238,9 @@ onAodNaviEvent(callback: Callback\<AodNaviEventInfo\>): void
 |1028300003|Service dependency error.|
 |1028300004|The AOD navigation permission is not enabled.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -262,36 +264,36 @@ aodNaviManager.onAodNaviEvent((eventInfo: aodNaviManager.AodNaviEventInfo) => {
 });
 ```
 
-#### aodNaviManager.offAodNaviEvent
+## aodNaviManager.offAodNaviEvent
 
-offAodNaviEvent(callback?: Callback\<AodNaviEventInfo\>): void
+offAodNaviEvent(callback?: Callback<AodNaviEventInfo>): void
 
 解注册熄屏导航事件监听。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------|:-|:------------------------|
-|callback|Callback\<[AodNaviEventInfo](#aodnavieventinfo)\>|否|AOD交互事件的回调函数，如果不传则停止所有监听。|
+|:-------|:----------------------------------------------|:-|:------------------------|
+|callback|Callback<[AodNaviEventInfo](#aodnavieventinfo)>|否|AOD交互事件的回调函数，如果不传则停止所有监听。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:--------------------------------------------|
 |1028300001|AOD navigation service initialization failed.|
 |1028300002|Marshalling or unmarshalling error.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -304,36 +306,36 @@ try {
 }
 ```
 
-#### aodNaviManager.setPlanRouteToAod
+## aodNaviManager.setPlanRouteToAod
 
-setPlanRouteToAod(planRoutes: PlanRoute\[\], markPoints?: MarkPoint\[\]): Promise\<void\>
+setPlanRouteToAod(planRoutes: PlanRoute[], markPoints?: MarkPoint[]): Promise<void>
 
 设置熄屏导航规划路线至AOD Navigation Kit，熄屏导航界面进行导航规划路线绘制，使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-设备行为差异： 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
+**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:---------|:--------------------------|:-|:------------------------------------------------------|
-|planRoutes|[PlanRoute](#planroute)\[\]|是|规划路线数组。 说明：数组最大长度限制为50000个，若路线轨迹点超过50000个点，需要应用进行抽稀后下发。|
-|markPoints|[MarkPoint](#markpoint)\[\]|否|标记点列表。|
+|:---------|:------------------------|:-|:----------------------------------------------------------|
+|planRoutes|[PlanRoute](#planroute)[]|是|规划路线数组。 **说明**：数组最大长度限制为50000个，若路线轨迹点超过50000个点，需要应用进行抽稀后下发。|
+|markPoints|[MarkPoint](#markpoint)[]|否|标记点列表。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:----------------|
-|Promise\<void\>|Promise对象，返回无返回值。|
+|:------------|:----------------|
+|Promise<void>|Promise对象，返回无返回值。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:------------------------------------------------------------------------|
@@ -344,9 +346,9 @@ setPlanRouteToAod(planRoutes: PlanRoute\[\], markPoints?: MarkPoint\[\]): Promis
 |1028300007|The number of route points exceeds the limit.|
 |1028300011|Failed to save the route points.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -369,36 +371,36 @@ aodNaviManager.setPlanRouteToAod(planRoutes, markPoints).then(() => {
 });
 ```
 
-#### aodNaviManager.setNaviDataToAod
+## aodNaviManager.setNaviDataToAod
 
-setNaviDataToAod(eventId: string, aodNaviInteractData: AodNaviInteractData): Promise\<void\>
+setNaviDataToAod(eventId: string, aodNaviInteractData: AodNaviInteractData): Promise<void>
 
 将设备亮屏期间应用产生的轨迹及导航数据同步至AOD Navigation Kit。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-设备行为差异： 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
+**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------------------|:------------------------------------------|:-|:------------------|
 |eventId|string|是|熄屏导航事件ID。|
 |aodNaviInteractData|[AodNaviInteractData](#aodnaviinteractdata)|是|设备亮屏期间应用产生的轨迹及导航数据。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:----------------|
-|Promise\<void\>|Promise对象，返回无返回值。|
+|:------------|:----------------|
+|Promise<void>|Promise对象，返回无返回值。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:------------------------------------------------------------------------|
@@ -410,9 +412,9 @@ setNaviDataToAod(eventId: string, aodNaviInteractData: AodNaviInteractData): Pro
 |1028300008|Invalid event ID.|
 |1028300011|Failed to save the route points.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -442,35 +444,35 @@ aodNaviManager.setNaviDataToAod(eventId, aodNaviInteractData).then(() => {
 });
 ```
 
-#### aodNaviManager.updateAodViewData
+## aodNaviManager.updateAodViewData
 
-updateAodViewData(aodViewData: AodViewData): Promise\<void\>
+updateAodViewData(aodViewData: AodViewData): Promise<void>
 
 更新熄屏导航界面视图数据。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-设备行为差异： 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
+**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----------|:--------------------------|:-|:-------------|
 |aodViewData|[AodViewData](#aodviewdata)|是|熄屏导航界面视图数据配置项。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:----------------|
-|Promise\<void\>|Promise对象，返回无返回值。|
+|:------------|:----------------|
+|Promise<void>|Promise对象，返回无返回值。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:------------------------------------------------------------------------|
@@ -480,9 +482,9 @@ updateAodViewData(aodViewData: AodViewData): Promise\<void\>
 |1028300006|The AOD navigation configuration has not been set up.|
 |1028300010|UpdateAodViewData must not be called under the hibernate strategy.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -500,35 +502,35 @@ aodNaviManager.updateAodViewData(aodViewData).then(() => {
 });
 ```
 
-#### aodNaviManager.updateAppRecordStatus
+## aodNaviManager.updateAppRecordStatus
 
-updateAppRecordStatus(recordStatus: AppRecordStatus): Promise\<void\>
+updateAppRecordStatus(recordStatus: AppRecordStatus): Promise<void>
 
 更新应用导航记录状态。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-设备行为差异： 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
+**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----------|:----------------------------------|:-|:--------|
 |recordStatus|[AppRecordStatus](#apprecordstatus)|是|应用导航记录状态。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:----------------|
-|Promise\<void\>|Promise对象，返回无返回值。|
+|:------------|:----------------|
+|Promise<void>|Promise对象，返回无返回值。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:------------------------------------------------------------------------|
@@ -537,9 +539,9 @@ updateAppRecordStatus(recordStatus: AppRecordStatus): Promise\<void\>
 |1028300002|Marshalling or unmarshalling error.|
 |1028300006|The AOD navigation configuration has not been set up.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -551,29 +553,29 @@ aodNaviManager.updateAppRecordStatus(aodNaviManager.AppRecordStatus.RECORDING).t
 });
 ```
 
-#### aodNaviManager.onAltitudeClimbChange
+## aodNaviManager.onAltitudeClimbChange
 
-onAltitudeClimbChange(callback: Callback\<AltitudeClimbInfo\>): void
+onAltitudeClimbChange(callback: Callback<AltitudeClimbInfo>): void
 
 注册累计爬升变化监听。只允许注册一个回调，新回调将覆盖之前的回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-设备行为差异： 在支持累计爬升功能的Phone设备上可正常调用，在不支持累计爬升功能的Phone设备上返回801错误码，可调用[getAodNaviExtendCapabilities](#aodnavimanagergetaodnaviextendcapabilities)接口获取设备是否支持累计爬升能力。
+**设备行为差异：** 在支持累计爬升功能的Phone设备上可正常调用，在不支持累计爬升功能的Phone设备上返回801错误码，可调用[getAodNaviExtendCapabilities](#aodnavimanagergetaodnaviextendcapabilities)接口获取设备是否支持累计爬升能力。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------------|:-|:-------------|
-|callback|Callback\<[AltitudeClimbInfo](#altitudeclimbinfo)\>|是|返回累计爬升信息的回调函数。|
+|:-------|:------------------------------------------------|:-|:-------------|
+|callback|Callback<[AltitudeClimbInfo](#altitudeclimbinfo)>|是|返回累计爬升信息的回调函数。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:----------------------------------------------------------------------|
@@ -583,9 +585,9 @@ onAltitudeClimbChange(callback: Callback\<AltitudeClimbInfo\>): void
 |1028300003|Service dependency error.|
 |1028300006|The AOD navigation configuration has not been set up.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 try {
@@ -597,35 +599,35 @@ try {
 }
 ```
 
-#### aodNaviManager.offAltitudeClimbChange
+## aodNaviManager.offAltitudeClimbChange
 
-offAltitudeClimbChange(callback?: Callback\<AltitudeClimbInfo\>): void
+offAltitudeClimbChange(callback?: Callback<AltitudeClimbInfo>): void
 
 解注册累计爬升变化监听。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------------|:-|:----------------|
-|callback|Callback\<[AltitudeClimbInfo](#altitudeclimbinfo)\>|否|回调函数，如果省略则移除所有回调。|
+|:-------|:------------------------------------------------|:-|:----------------|
+|callback|Callback<[AltitudeClimbInfo](#altitudeclimbinfo)>|否|回调函数，如果省略则移除所有回调。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。  
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
 |:---------|:----------------------------------|
 |1028300002|Marshalling or unmarshalling error.|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -633,48 +635,48 @@ aodNaviManager.offAltitudeClimbChange();
 hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altitude climb change.');
 ```
 
-#### AodNaviConfig
+## AodNaviConfig
 
 熄屏导航配置项。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
-|:----------------------|:--------------------------------------------------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------|
-|aliveStrategy|[AodNaviAliveStrategy](#aodnavialivestrategy)|否|否|熄屏导航时应用休眠策略。 说明：配置项差异导致的具体运行差异请查看[运行机制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aodnavigation-introduction#运行机制)。|
+|:----------------------|:--------------------------------------------------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------|
+|aliveStrategy|[AodNaviAliveStrategy](#aodnavialivestrategy)|否|否|熄屏导航时应用休眠策略。 **说明** ：配置项差异导致的具体运行差异请查看[运行机制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aodnavigation-introduction#运行机制)。|
 |aodViewDataConfig|[AodViewDataConfig](#aodviewdataconfig)|否|否|熄屏导航界面视图数据项配置。|
-|aodVoiceBroadcastConfig|[AodVoiceBroadcastConfig](#aodvoicebroadcastconfig)|否|是|熄屏导航语音播报配置。 说明：仅在应用保活策略为休眠时需要配置该项。|
-|aodProxyDataTypes|[AodNaviDataType](#aodnavidatatype)\[\]|否|是|熄屏导航代理数据项配置。 说明：熄屏导航时此部分数据项将由AOD Navigation Kit进行代理计算。仅在应用保活策略为休眠时需要配置该项。|
+|aodVoiceBroadcastConfig|[AodVoiceBroadcastConfig](#aodvoicebroadcastconfig)|否|是|熄屏导航语音播报配置。 **说明**：仅在应用保活策略为休眠时需要配置该项。|
+|aodProxyDataTypes|[AodNaviDataType](#aodnavidatatype)[]|否|是|熄屏导航代理数据项配置。 **说明**：熄屏导航时此部分数据项将由AOD Navigation Kit进行代理计算。仅在应用保活策略为休眠时需要配置该项。|
 
-#### AodNaviInteractData
+## AodNaviInteractData
 
 应用与AOD Navigation Kit之间的交互数据。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
-|:---------------|:------------------------------------------|:-|:-|:-------------------------------------------------------------|
-|historyRoutes|[HistoryRoute](#historyroute)\[\]|否|否|历史轨迹点列表。 说明：设备亮屏期间应用产生的轨迹数据和熄屏导航期间AOD代理产生的轨迹数据。数组长度最大限制为50000。|
-|aodNaviData|[AodNaviData](#aodnavidata)|否|否|导航数据。 说明：设备亮屏期间应用产生的导航数据（里程、步数等）和熄屏导航期间AOD代理产生的导航数据。|
-|historyClimbInfo|[AltitudeClimbInfo](#altitudeclimbinfo)\[\]|否|是|历史爬升信息。 说明：设备亮屏期间应用产生的海拔爬升数据和熄屏导航期间AOD代理产生的海拔爬升数据。|
+|:---------------|:----------------------------------------|:-|:-|:-----------------------------------------------------------------|
+|historyRoutes|[HistoryRoute](#historyroute)[]|否|否|历史轨迹点列表。 **说明**：设备亮屏期间应用产生的轨迹数据和熄屏导航期间AOD代理产生的轨迹数据。数组长度最大限制为50000。|
+|aodNaviData|[AodNaviData](#aodnavidata)|否|否|导航数据。 **说明**：设备亮屏期间应用产生的导航数据（里程、步数等）和熄屏导航期间AOD代理产生的导航数据。|
+|historyClimbInfo|[AltitudeClimbInfo](#altitudeclimbinfo)[]|否|是|历史爬升信息。 **说明**：设备亮屏期间应用产生的海拔爬升数据和熄屏导航期间AOD代理产生的海拔爬升数据。|
 
-#### AltitudeClimbInfo
+## AltitudeClimbInfo
 
 海拔爬升信息。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
 |:------------------|:-----|:-|:-|:------------------|
@@ -682,15 +684,15 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 |accumulateClimbUp|number|否|否|累计爬升高度。单位：米。值应为整数。|
 |accumulateClimbDown|number|否|否|累计下降高度。单位：米。值应为整数。|
 
-#### AodNaviData
+## AodNaviData
 
 熄屏导航数据，包括距离、步数及步频等数据。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
 |:---------------------|:--------------------------------------|:-|:-|:------------------|
@@ -708,18 +710,18 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 |avgPace|number|否|是|平均配速。单位：分钟/km。|
 |altitudeClimbInfo|[AltitudeClimbInfo](#altitudeclimbinfo)|否|是|累计爬升信息。|
 
-#### AodVoiceBroadcastConfig
+## AodVoiceBroadcastConfig
 
 熄屏导航语音播报配置项。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
-|:-------------------------|:--------------------------------------|:-|:-|:-------------------|
+|:-------------------------|:------------------------------------|:-|:-|:-------------------|
 |distance|number|否|是|里程碑距离。单位：km。值应为整数。|
 |timeInterval|number|否|是|时间间隔阈值。单位：分钟。|
 |yawDistanceThreshold|number|否|是|偏航距离阈值。单位：km。|
@@ -728,48 +730,48 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 |altitudeClimbUpThreshold|number|否|是|累计爬升阈值。单位：米。值应为整数。|
 |altitudeClimbDownThreshold|number|否|是|累计下降阈值。单位：米。值应为整数。|
 |speedThreshold|number|否|是|速度阈值。单位：km/h。|
-|markPointDistanceThreshold|number\[\]|否|是|标记点距离阈值。单位：米。|
-|broadcastContent|[AodNaviDataType](#aodnavidatatype)\[\]|否|是|熄屏导航播报内容。|
+|markPointDistanceThreshold|number[]|否|是|标记点距离阈值。单位：米。|
+|broadcastContent|[AodNaviDataType](#aodnavidatatype)[]|否|是|熄屏导航播报内容。|
 
-#### AodViewDataConfig
+## AodViewDataConfig
 
 熄屏导航视图数据配置项。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
-|:---------------|:--------------------------------------|:-|:-|:------------------------------------------------------------------------------------|
-|aodViewDataCount|number|否|否|数据项数量。值必须为\[1，6\]范围内的整数。|
-|aodViewDataTypes|[AodNaviDataType](#aodnavidatatype)\[\]|否|否|熄屏导航视图数据列表，熄屏界面将根据应用配置顺序进行显示布局。 说明：如果应用休眠策略为保活时，可跳过能力检查直接应用所有配置。否则，在配置之前必须检查扩展能力是否支持。|
+|:---------------|:------------------------------------|:-|:-|:----------------------------------------------------------------------------------------|
+|aodViewDataCount|number|否|否|数据项数量。值必须为[1，6]范围内的整数。|
+|aodViewDataTypes|[AodNaviDataType](#aodnavidatatype)[]|否|否|熄屏导航视图数据列表，熄屏界面将根据应用配置顺序进行显示布局。 **说明**：如果应用休眠策略为保活时，可跳过能力检查直接应用所有配置。否则，在配置之前必须检查扩展能力是否支持。|
 
-#### PlanRoute
+## PlanRoute
 
 规划路线信息，包括经度和纬度。采用GCJ02坐标系标准。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
 |:--------|:-----|:-|:-|:--|
 |longitude|number|否|否|经度。|
 |latitude|number|否|否|纬度。|
 
-#### HistoryRoute
+## HistoryRoute
 
 历史轨迹信息。采用GCJ02坐标系标准。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
 |:--------|:-----|:-|:-|:-------------|
@@ -779,15 +781,15 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 |altitude|number|否|是|海拔。单位：米。值应为整数。|
 |hSpeed|number|否|是|水平速度。单位：km/h。|
 
-#### MarkPoint
+## MarkPoint
 
 标记点信息。采用GCJ02坐标系标准。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
 |:--------|:-----|:-|:-|:-----|
@@ -795,97 +797,97 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 |longitude|number|否|否|经度。|
 |latitude|number|否|否|纬度。|
 
-#### AodNaviEventInfo
+## AodNaviEventInfo
 
 熄屏导航事件信息。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
-|:--------|:---------------------------------------------------------------------------------------|:-|:-|:-----------------------------------|
+|:--------|:--------------------------------------------------------------------------------------|:-|:-|:-----------------------------------|
 |eventId|string|是|否|唯一事件标识符。|
 |eventType|[AodNaviEventType](#aodnavieventtype)|否|否|事件类型。|
-|eventData|[AodNaviInteractData](#aodnaviinteractdata) \| [VoiceBroadcastData](#voicebroadcastdata)|否|是|应用与AOD Navigation Kit之间的交互数据或语音播报数据。|
+|eventData|[AodNaviInteractData](#aodnaviinteractdata) | [VoiceBroadcastData](#voicebroadcastdata)|否|是|应用与AOD Navigation Kit之间的交互数据或语音播报数据。|
 
-#### VoiceBroadcastData
+## VoiceBroadcastData
 
 语音播报数据。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
-|:--------------------|:-----------------------------------------------------------------------------------------|:-|:-|:--------------------|
+|:--------------------|:---------------------------------------------------------------------------------------|:-|:-|:--------------------|
 |timestamp|number|否|否|语音播报触发时间戳。单位：秒。值应为整数。|
 |voiceBroadcastEvent|[VoiceBroadcastEvent](#voicebroadcastevent)|否|否|语音播报事件类型。|
-|voiceBroadcastParam|number \| [GPSStatus](#gpsstatus) \| [MarkPointIndexToDistance](#markpointindextodistance)|否|否|语音播报参数。|
+|voiceBroadcastParam|number | [GPSStatus](#gpsstatus) | [MarkPointIndexToDistance](#markpointindextodistance)|否|否|语音播报参数。|
 |voiceBroadcastContent|[AodNaviData](#aodnavidata)|否|否|语音播报内容。|
 
-#### AodNaviDataType
+## AodNaviDataType
 
-type AodNaviDataType = AodNaviBasicDataType \| AodNaviExtendDataType
+type AodNaviDataType = AodNaviBasicDataType | AodNaviExtendDataType
 
 熄屏导航服务数据类型，主要包括基础数据类型和扩展数据类型。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |类型|说明|
 |:----------------------------------------------|:----------|
 |[AodNaviBasicDataType](#aodnavibasicdatatype)|熄屏导航基础数据类型。|
 |[AodNaviExtendDataType](#aodnaviextenddatatype)|熄屏导航扩展数据类型。|
 
-#### AodViewData
+## AodViewData
 
-type AodViewData = Partial\<Record\<AodNaviDataType, number\>\>
+type AodViewData = Partial<Record<AodNaviDataType, number>>
 
 熄屏导航视图数据，用于更新熄屏导航显示数据项。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |类型|说明|
-|:----------------------------------------------------|:--------------|
-|Record\<[AodNaviDataType](#aodnavidatatype), number\>|熄屏导航数据类型到数值的映射。|
+|:--------------------------------------------------|:--------------|
+|Record<[AodNaviDataType](#aodnavidatatype), number>|熄屏导航数据类型到数值的映射。|
 
-#### MarkPointIndexToDistance
+## MarkPointIndexToDistance
 
-type MarkPointIndexToDistance = Record\<number, number\>
+type MarkPointIndexToDistance = Record<number, number>
 
 标记点索引到距离的映射。用于熄屏导航语音播报。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |类型|说明|
-|:-----------------------|:------------------|
-|Record\<number, number\>|标记点索引到距离的映射。用于语音播报。|
+|:---------------------|:------------------|
+|Record<number, number>|标记点索引到距离的映射。用于语音播报。|
 
-#### AodNaviBasicDataType
+## AodNaviBasicDataType
 
 熄屏导航基本数据类型枚举。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|值|说明|
 |:-------------------|:-------------------|:------|
@@ -900,47 +902,47 @@ type MarkPointIndexToDistance = Record\<number, number\>
 |CURRENT_PACE|'currentPace'|当前配速。|
 |AVG_PACE|'avgPace'|平均配速。|
 
-#### AodNaviExtendDataType
+## AodNaviExtendDataType
 
 熄屏导航扩展数据类型枚举。扩展数据类型依赖于设备硬件支持。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|值|说明|
 |:------------------|:------------------|:------|
 |ALTITUDE_CLIMB_UP|'altitudeClimbUp'|累计爬升高度。|
 |ALTITUDE_CLIMB_DOWN|'altitudeClimbDown'|累计下降高度。|
 
-#### AodNaviEventType
+## AodNaviEventType
 
 熄屏导航事件回调类型。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|值|说明|
-|:-----------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|AOD_NAVI_ENTER|0|设备熄屏进入熄屏导航。 说明：接收到该类型回调事件后，应用需要： 1. 调用[setNaviDataToAod](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/aodnavigation-aodnavimanager#aodnavimanagersetnavidatatoaod)接口，将设备亮屏期间应用产生的轨迹和导航数据下发至AOD Navigation Kit 2. 若休眠策略为应用休眠，建议延后5秒释放长时任务以平衡性能，并主动丢弃该期间返回的数据。 3. 若休眠策略为应用保活，可启动定时刷新任务，通过[updateAodViewData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/aodnavigation-aodnavimanager#aodnavimanagerupdateaodviewdata)接口更新熄屏数据，刷新频率最高为1秒/次。|
-|AOD_NAVI_EXIT|1|设备亮屏退出熄屏导航。 说明：接收到该类型回调事件后，应用需要： 1. 若休眠策略为应用休眠，回调返回熄屏期间系统代理产生的轨迹点和导航数据，应用收到后进行数据合并。 2. 若休眠策略为应用保活，收到回调事件后，应用需暂停刷新熄屏界面数据项信息。|
-|AOD_NAVI_DATA_CACHE|2|熄屏导航数据缓存事件。 说明：当AOD Navigation Kit数据缓存满时（达到1440个轨迹点），将熄屏导航期间缓存的导航数据返回给应用。|
-|AOD_NAVI_VOICE_BROADCAST|3|熄屏导航期间语音播报事件。 说明：熄屏导航期间触发了语音播报条件，AOD Navigation Kit不支持语音播报能力，需要应用接收到播报事件后进行语音播报。|
+|:-----------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|AOD_NAVI_ENTER|0|设备熄屏进入熄屏导航。 **说明**：接收到该类型回调事件后，应用需要： 1. 调用[setNaviDataToAod](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/aodnavigation-aodnavimanager#aodnavimanagersetnavidatatoaod)接口，将设备亮屏期间应用产生的轨迹和导航数据下发至AOD Navigation Kit 2. 若休眠策略为应用休眠，建议延后5秒释放长时任务以平衡性能，并主动丢弃该期间返回的数据。 3. 若休眠策略为应用保活，可启动定时刷新任务，通过[updateAodViewData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/aodnavigation-aodnavimanager#aodnavimanagerupdateaodviewdata)接口更新熄屏数据，刷新频率最高为1秒/次。|
+|AOD_NAVI_EXIT|1|设备亮屏退出熄屏导航。 **说明**：接收到该类型回调事件后，应用需要： 1. 若休眠策略为应用休眠，回调返回熄屏期间系统代理产生的轨迹点和导航数据，应用收到后进行数据合并。 2. 若休眠策略为应用保活，收到回调事件后，应用需暂停刷新熄屏界面数据项信息。|
+|AOD_NAVI_DATA_CACHE|2|熄屏导航数据缓存事件。 **说明**：当AOD Navigation Kit数据缓存满时（达到1440个轨迹点），将熄屏导航期间缓存的导航数据返回给应用。|
+|AOD_NAVI_VOICE_BROADCAST|3|熄屏导航期间语音播报事件。 **说明**：熄屏导航期间触发了语音播报条件，AOD Navigation Kit不支持语音播报能力，需要应用接收到播报事件后进行语音播报。|
 
-#### VoiceBroadcastEvent
+## VoiceBroadcastEvent
 
 语音播报事件类型枚举。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|值|说明|
 |:------------------|:-|:-------|
@@ -953,30 +955,30 @@ type MarkPointIndexToDistance = Record\<number, number\>
 |SPEED|6|速度阈值。|
 |MARK_POINT|7|标记点距离。|
 
-#### AodNaviAliveStrategy
+## AodNaviAliveStrategy
 
 熄屏导航应用保活策略：应用休眠或保活。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|值|说明|
-|:---------|:-|:-------------------------------------------|
-|HIBERNATE|1|应用休眠。 说明：熄屏导航时导航业务由AOD代理，熄屏导航界面显示数据由AOD代理产生。|
-|KEEP_ALIVE|2|应用保活。 说明：熄屏导航时导航业务仍然运行在应用，熄屏导航界面显示数据来源于应用。|
+|:---------|:-|:-----------------------------------------------|
+|HIBERNATE|1|应用休眠。 **说明**：熄屏导航时导航业务由AOD代理，熄屏导航界面显示数据由AOD代理产生。|
+|KEEP_ALIVE|2|应用保活。 **说明**：熄屏导航时导航业务仍然运行在应用，熄屏导航界面显示数据来源于应用。|
 
-#### GPSStatus
+## GPSStatus
 
 GPS状态枚举。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|值|说明|
 |:-----------|:-|:---|
@@ -984,18 +986,18 @@ GPS状态枚举。
 |CONNECTED|1|已连接。|
 |DISCONNECTED|2|已断开。|
 
-#### AppRecordStatus
+## AppRecordStatus
 
 应用导航记录状态枚举。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.PhoneService.AodNaviService
+**系统能力：** SystemCapability.PhoneService.AodNaviService
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
 |名称|值|说明|
-|:--------|:-|:-----------------------------------------------------------|
+|:--------|:-|:---------------------------------------------------------------|
 |RECORDING|0|记录中。|
-|PAUSED|1|暂停。 说明：在应用暂停导航状态下，AOD Navigation Kit会同步暂停业务代理的计算，且熄屏界面不展示内容。|
+|PAUSED|1|暂停。 **说明**：在应用暂停导航状态下，AOD Navigation Kit会同步暂停业务代理的计算，且熄屏界面不展示内容。|
 

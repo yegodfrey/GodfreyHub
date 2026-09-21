@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-fon
 
 # 自定义字体设置
 
-#### 概述
+## 概述
 
 在应用开发中，字体是用户界面的核心视觉元素之一，也是构建良好用户体验的关键要素之一，直接影响应用界面的美观性、可读性和用户体验。
 
@@ -17,30 +17,30 @@ ArkUI提供了全面的字体控制能力，如自定义设置字体大小和字
 * [使用自定义字体显示文本](#section148766114477)
 * [从自定义字体恢复为系统字体](#section994084874710)
 * [使字体大小跟随系统设置](#section1635772719497)
-* [使字体大小不跟随系统设置](#section161251820115015)  
+* [使字体大小不跟随系统设置](#section161251820115015)
 
-#### 使用自定义字体显示文本
+## 使用自定义字体显示文本
 
-场景描述
+**场景描述**
 
 在字体设置中，点击选择字体列表中的某个字体后，页面的字体样式会发生变化。在退出应用重新进入后，默认显示退出前选择的字体样式。
 
-![](https://media:201788187308008975 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/4fA5-Qq_SouvRVJw4juAaw/zh-cn_image_0000002361481894.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=A254D612F8A6EC580825E986ADBA1D72128BCB4CC17F80F076343833ED4A4983 "点击放大")
 
-实现原理
+**实现原理**
 
 registerFont()方法可以在字体管理器中注册自定义字体，支持注册TTF格式和OTF格式的字体文件。
 
 [preferences (用户首选项)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences)则为应用提供了处理Key-Value键值型数据的能力，支持应用持久化轻量级数据，以及数据的修改和查询。
 
-开发步骤
+**开发步骤**
 
 1. 创建首选项工具类PreferenceUtils，在类中定义如下方法：
    * getTextFontPreference()方法：在其中通过[getPreferencesSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#preferencesgetpreferencessync10)方法获取首选项实例。
    * saveModifyFont()方法：在其中通过[putSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#putsync10)方法将传入的字体信息数据写入首选项实例中，再使用[flush()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#flush)方法将数据持久化存储。
    * getFont()方法：在其中通过[getSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#getsync10)方法从首选项实例中获取存储的数据。
 
-   ```
+   ```typescript
    export class PreferenceUtils {
      preference?: preferences.Preferences;
 
@@ -93,7 +93,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
 2. 在EntryAbility的onCreate()生命周期中，调用getTextFontPreference()方法获取首选项实例。
 
-   ```
+   ```typescript
    export default class EntryAbility extends UIAbility {
      onCreate(_want: Want, _launchParam: AbilityConstant.LaunchParam): void {
        // Get preference instance
@@ -107,7 +107,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
 3. 定义registerMyFont()方法注册自定义字体。 在使用时，需要通过UIContext中的[getFont()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getfont)方法获取当前UI上下文关联的Font对象，再通过该对象调用registerFont()方法注册字体。
 
-   ```
+   ```typescript
    // Register font
    export function registerMyFont(uiContext: UIContext) {
      try {
@@ -130,7 +130,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
 4. 通过@StorageLink装饰变量fontOffset，标识当前选择的字体。在页面aboutToAppear()生命周期中，调用registerMyFont()方法并传入UIContext，注册自定义字体，并通过PreferenceUtils类调用getFont()方法，获取首选项中存储的数据，赋值给fontOffset，实现退出重新进入应用后显示退出前选择的字体。
 
-   ```
+   ```typescript
    @StorageLink('fontOffset') fontOffset: string = '';
    // ...
 
@@ -145,7 +145,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
 5. 在MenuItem的onChange()事件中修改fontOffset的值，并通过saveModifyFont()方法，将选择的字体数据写入首选项并持久化存储。
 
-   ```
+   ```typescript
    MenuItem({
      content: item === '' ? $r('app.string.system_default') : item,
      endIcon: this.fontOffset === item ? $r('app.media.checkmark') : ''
@@ -158,7 +158,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
 6. 通过fontFamily属性传入变量fontOffset，使用注册的自定义字体改变字体样式。
 
-   ```
+   ```typescript
    // Example Text Content
    Column() {
      Text($r('app.string.preview_text'))
@@ -172,24 +172,24 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
    .borderRadius(16)
    ```
 
-#### 从自定义字体恢复为系统字体
+## 从自定义字体恢复为系统字体
 
-场景描述
+**场景描述**
 
 在应用设置页面的字体设置中，点击选择系统默认字体，首页和设置页顶部的字体样式变为系统默认。退出并重新进入应用后，仍会显示系统默认字体。
 
-![](https://media:201788187308246976 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/E-GDyo6NRXCcbECUpgxLJg/zh-cn_image_0000002395161853.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA00C6E3F603D33AA1F82855CD41878C1CEC08CA496770621C42DEF7BF68749C "点击放大")
 
-实现原理
+**实现原理**
 
 系统默认字体为无衬线字体HarmonyOS Sans，当fontFamily属性被显式设置为空字符串时，实际生效字体与不设置fontFamily时的效果一致，会回退到默认字体，字体样式、字重等其它属性可正常应用。
 
-开发步骤
+**开发步骤**
 
 1. 方法定义参考：[使用自定义字体显示文本](#li1099532613615)。
 2. 在MenuItem的onChange()事件中修改fontOffset的值，并调用saveModifyFont()方法修改首选项的值。
 
-   ```
+   ```typescript
    Menu() {
      ForEach(this.menuItemArr, (item: string) => {
        MenuItem({
@@ -207,25 +207,25 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
 3. 通过fontFamily属性传入变量fontOffset，使用注册的自定义字体改变字体样式。
 
-   ```
+   ```typescript
    Text($r('app.string.preview_text'))
      // ...
      .fontFamily(this.fontOffset)
    ```
 
-#### 使字体大小跟随系统设置
+## 使字体大小跟随系统设置
 
-场景描述
+**场景描述**
 
 在设置页面中，点击打开Toggle按钮，使页面字体大小跟随系统设置发生变化。此时，自定义字体大小和字重的Slider将被禁用，无法滑动或点击。
 
-![](https://media:201788187308512977 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/IxydJSH2R_KSNKhYj1j4dQ/zh-cn_image_0000002361641798.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=9533D532431C1B20788EBD386E4E8F9A83A42364D477212B9F7747B000ED8B87 "点击放大")
 
-实现原理
+**实现原理**
 
 在应用的[app.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file)配置文件中，configuration标签是用于标识应用字体大小跟随系统变更的配置文件。当configuration的fontSizeScale属性取值为followSystem，且字体大小fontSize属性使用fp为像素单位时，在改变系统设置中的字体大小缩放比例后，应用中的字体也会相应变化。
 
-开发步骤
+**开发步骤**
 
 1. 在AppScope/resources/base/profile下面定义配置文件xxx.json。 fontSizeScale属性取值（默认为nonFollowSystem不跟随系统）：
 
@@ -234,7 +234,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
    fontSizeMaxScale属性：用于设置应用字体大小在选择跟随系统后，相比系统字体的最大比例。
 
-   ```
+   ```screen
    {
      "configuration": {
        "fontSizeScale": "followSystem",
@@ -245,7 +245,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
 2. 在app.json5配置文件中通过configuration字段，标识当前应用字体大小是否跟随系统配置。
 
-   ```
+   ```json
    {
      "app": {
        "bundleName": "com.example.textdisplayfont",
@@ -262,7 +262,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 3. 配置完成后应用字体大小和字重即可随系统设置发生变化。
 4. 在Toggle组件的onChange()方法中，修改变量toggleState的值。
 
-   ```
+   ```typescript
    Toggle({ type: ToggleType.Switch, isOn: this.toggleState })
      .onChange((isOn: boolean) => {
        this.toggleState = isOn;
@@ -271,7 +271,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
 5. 根据toggleState的值，控制Slider组件是否可交互。 当toggleState为true时，表示跟随系统，Slider不可点击或滑动；为false时，表示不跟随系统，Slider可以点击或滑动。
 
-   ```
+   ```typescript
    Slider({
      min: -4,
      max: 4,
@@ -283,23 +283,23 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
      .enabled(!this.toggleState)
    ```
 
-#### 使字体大小不跟随系统设置
+## 使字体大小不跟随系统设置
 
-场景描述
+**场景描述**
 
 在设置页中点击关闭Toggle按钮，通过Slider组件可以调整页面字体大小。在系统设置中调整字体大小，页面字体不会发生变化。
 
-![](https://media:201788187308901978 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/d7zvc8whSaKnrnM2KdJN4w/zh-cn_image_0000002395321741.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=9732339B6AA629FF3ED0B8F2A0C94D754E4EAD7A95A1D7234D531B60F7C5D340 "点击放大")
 
-实现原理
+**实现原理**
 
 在应用的[app.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file)配置文件中，通过configuration标签标识了应用字体跟随系统设置，当字体大小fontSize属性使用屏幕物理像素单位px时，页面字体大小将不再受系统设置的影响。
 
-开发步骤
+**开发步骤**
 
 1. 使用[getDefaultDisplaySync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#displaygetdefaultdisplaysync9)方法获取display屏幕实例对象，然后通过该display对象获取设备的物理像素密度[densityDPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#display)。将字体大小fp为单位的数值传入fp2pxUtil()方法，将其转换为对应的px数值。
 
-   ```
+   ```typescript
    // Convert fp to px
    export function fp2pxUtil(fp: number): string {
      const pxStr: string = 'px';
@@ -320,21 +320,21 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
    * 当toggleState为true时：使用number类型的值，以fp为像素单位，页面字体跟随系统设置。
    * 当toggleState为false时：调用fp2pxUtil()方法，传入具体数值转为以px为单位的值，使页面字体不跟随系统设置。
 
-   ```
+   ```typescript
    Text($r('app.string.setting'))
      .width('100%')
      .fontWeight(700)
      .fontSize(this.toggleState ? 26 : fp2pxUtil(26))
    ```
 
-#### 常见问题
+## 常见问题
 
-#### 如何获取系统缩放比例系数来修改应用内字体大小
+### 如何获取系统缩放比例系数来修改应用内字体大小
 
 1. 在app.json5中不配置configuration标签，或者在configuration标签指定的文件中，将fontSizeScale属性取值为nonFollowSystem不跟随系统，使应用字体大小不随系统设置发生变化。
 2. 通过[onConfigurationUpdated()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-environmentcallback#onconfigurationupdated)获取系统设置中字体大小缩放比例fontSizeScale、字体粗细缩放比例fontWeightScale等变化的信息，再通过ApplicationContext.on('environment')对系统环境变化进行监听，可参考如下示例：
 
-   ```
+   ```typescript
    // System environment change information
    let envCallback: EnvironmentCallback = {
      onConfigurationUpdated(config) {
@@ -350,8 +350,8 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
    callbackId = appContext.on('environment', envCallback);
    ```
 
-3. 在需要修改字体大小的位置，将基础字体大小 \* 字体大小缩放系数的值，传入fontSize()属性即可。  
+3. 在需要修改字体大小的位置，将基础字体大小 * 字体大小缩放系数的值，传入fontSize()属性即可。
 
-#### 示例代码
+## 示例代码
 
 * [实现字体设置功能](https://gitcode.com/harmonyos_samples/text-display-font)

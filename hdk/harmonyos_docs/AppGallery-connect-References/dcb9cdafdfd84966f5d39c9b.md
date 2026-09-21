@@ -10,13 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:-------------------------------------------------------------------------------------|
 |public static final class AppLinking.CampaignInfo.Builder AppLinking.CampaignInfo的构造类。|
 
-#### Constructor Summary
+## Constructor Summary
 
 |Constructor Name And Description|
 |:--------------------------------------------|
 |public [Builder](#section17317239405)() 构造方法。|
 
-#### Method Summary
+## Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:------------------------------|:--------------------------------------------------------|
@@ -25,77 +25,77 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |AppLinking.CampaignInfo.Builder|[setSource](#section105492172116)(String source) 设置活动来源。|
 |AppLinking.CampaignInfo.Builder|[setMedium](#section9854835132112)(String medium) 设置活动媒介。|
 
-#### Constructor
+## Constructor
 
-#### Builder
+### Builder
 
 |Method|
 |:---------------------|
 |public Builder() 构造方法。|
 
-#### Methods
+## Methods
 
-#### build
+### build
 
 |Method|
 |:---------------------------------------------------|
 |public AppLinking.CampaignInfo build() 生成聚合链接中的活动信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:----------------------|:----------|
 |AppLinking.CampaignInfo|活动信息。|
 
-#### setName
+### setName
 
 |Method|
 |:------------------------------------------------------------------|
 |public AppLinking.CampaignInfo.Builder setName(String name) 设置活动名称。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|
 |name|需要设置的活动名称。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------------------------------|:----------|
 |AppLinking.CampaignInfo.Builder|构造器。|
 
-#### setSource
+### setSource
 
 |Method|
 |:----------------------------------------------------------------------|
 |public AppLinking.CampaignInfo.Builder setSource(String source) 设置活动来源。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------|
 |source|需要设置的活动来源。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------------------------------|:----------|
 |AppLinking.CampaignInfo.Builder|构造器。|
 
-#### setMedium
+### setMedium
 
 |Method|
 |:----------------------------------------------------------------------|
 |public AppLinking.CampaignInfo.Builder setMedium(String medium) 设置活动媒介。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------|
 |medium|需要设置的活动媒介。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------------------------------|:----------|

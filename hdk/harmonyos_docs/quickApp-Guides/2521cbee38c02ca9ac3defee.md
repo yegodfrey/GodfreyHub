@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-icp-s
 
 # 变更核准（备案）
 
-#### 变更核准（备案）
+## 变更核准（备案）
 
 在华为云核准（备案）系统中可以同时修改主体信息和快应用信息。操作步骤如下：
 
@@ -23,10 +23,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-icp-s
    ![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260211175842.31233036052696430378540266177157:50001231000000:2800:32145BD0B6098F7706A82BC85BD2F655032E58A65F50299E44E0E02E45EFA84E.png "点击放大")
 5. 在"真实性核验"页面由互联网信息负责人进行人脸视频认证，完成后提交初审。 ![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260211175842.26197067828873624293376793499857:50001231000000:2800:24778EB46ADD7E8F0EEB5A4CF28BF6610819F09FE31EE93619EA5D0E628CAC1A.png "点击放大")
 
-6. 华为工作人员将在3\~5个工作日内进行审核，将以短信或邮件形式通知审核结果，请耐心等待，且保持手机畅通。若需要修改核准（备案）信息，将以邮件形式通知。
-7. 华为平台人工初审通过后，请前往工信部网站核验短信验证码，详情请参见[工信部核验核准（备案）短信](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-icp-checkmessage-0000001820059249)。  
+6. 华为工作人员将在3~5个工作日内进行审核，将以短信或邮件形式通知审核结果，请耐心等待，且保持手机畅通。若需要修改核准（备案）信息，将以邮件形式通知。
+7. 华为平台人工初审通过后，请前往工信部网站核验短信验证码，详情请参见[工信部核验核准（备案）短信](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-icp-checkmessage-0000001820059249)。
 
-#### 变更主体
+## 变更主体
 
 在华为云核准（备案）系统中修改主体信息。操作步骤如下：
 
@@ -38,10 +38,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-icp-s
    ![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260211175842.27848129590696593222506323912128:50001231000000:2800:1DE29FC37E6C3181C5A0DC2110E832C7423FD67888605F6C47A616AE16CC675A.png "点击放大")
 3. 在"上传资料"页面重新提交附件材料，完成后提交初审。 ![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260211175842.58807734973751498371379607429995:50001231000000:2800:2099FF6FEDC3E0ABD89BEE15D2ABF79A212C930205073E63C3B379FF90B371B7.png "点击放大")
 
-4. 华为工作人员将在3\~5个工作日内进行审核，将以短信或邮件形式通知审核结果，请耐心等待，且保持手机畅通。若需要修改核准（备案）信息，将以邮件形式通知。
-5. 华为平台人工初审通过后，请前往工信部网站核验短信验证码，详情请参见[工信部核验核准（备案）短信](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-icp-checkmessage-0000001820059249)。  
+4. 华为工作人员将在3~5个工作日内进行审核，将以短信或邮件形式通知审核结果，请耐心等待，且保持手机畅通。若需要修改核准（备案）信息，将以邮件形式通知。
+5. 华为平台人工初审通过后，请前往工信部网站核验短信验证码，详情请参见[工信部核验核准（备案）短信](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-icp-checkmessage-0000001820059249)。
 
-#### 变更互联网信息
+## 变更互联网信息
 
 在华为云核准（备案）系统中修改快应用信息。操作步骤如下：
 
@@ -55,5 +55,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-icp-s
 
 4. 在"真实性核验"页面由快应用负责人进行人脸视频认证，完成后提交初审。 ![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260211175843.77949352986630518316182637671440:50001231000000:2800:EA358F4AEFBCA5982851F88588F2637F6AE80D78630AC3ECC34B0C2C6D91093F.png "点击放大")
 
-5. 华为工作人员将在3\~5个工作日内进行审核，将以短信或邮件形式通知审核结果，请耐心等待，且保持手机畅通。若需要修改核准（备案）信息，将以邮件形式通知。
-6. 华为平台人工初审通过后，请前往工信部网站核验短信验证码，详情请参见[工信部核验核准（备案）短信](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-icp-checkmessage-0000001820059249)。  
+5. 华为工作人员将在3~5个工作日内进行审核，将以短信或邮件形式通知审核结果，请耐心等待，且保持手机畅通。若需要修改核准（备案）信息，将以邮件形式通知。
+6. 华为平台人工初审通过后，请前往工信部网站核验短信验证码，详情请参见[工信部核验核准（备案）短信](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-icp-checkmessage-0000001820059249)。
+

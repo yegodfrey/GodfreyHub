@@ -12,10 +12,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/verifying-signa
 2. 获取对应的签名字符串，例如[obtainOwnedPurchases](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/harmonyos-js-hmsiap-0000001333923881#section12785229123913)接口返回的inAppSignature（对应inAppPurchaseDataList的签名字符串列表），取inAppSignature的第1条签名字符串参与验签。
 3. 使用IAP公钥对结果字符串和对应的签名字符串进行验签。可从返回对象（[PurchaseResultInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/purchaseresultinfo-0000001050135886)、[OwnedPurchasesResult](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/ownedpurchasesresult-0000001050135770)和[ConsumeOwnedPurchaseResult](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/consumeownedpurchaseresult-0000001050137625)）中获取signatureAlgorithm（例如：[OwnedPurchasesResult.getSignatureAlgorithm](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/ownedpurchasesresult-0000001050135770#section1721042803811)），然后使用获取到的算法进行验签。若获取到的算法为空，则使用SHA256WithRSA算法进行验签。
 
-![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260206135214.16820269972322797776255727606023:50001231000000:2800:6E0824525F2713DC271F09B5DD2861AF7CFF2E42134FCF386839C75C4D645AA1.png)  
-IAP提供了Java、PHP、C#、Python、Node.js、Golang、Ruby和Perl语言的示例代码，具体请参见[服务端示例代码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/server-sample-code-0000001050145549)。  
+> 说明
+>
+> IAP提供了Java、PHP、C#、Python、Node.js、Golang、Ruby和Perl语言的示例代码，具体请参见[服务端示例代码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/server-sample-code-0000001050145549)。
 
-```
+```screen
 "Android"
 /** 
  * 校验签名信息
@@ -80,7 +81,7 @@ public static boolean checkSign(String content, String sign, String publicKey, S
 }
 ```
 
-```
+```screen
 "Java"
 /** 
  * 校验签名信息 
@@ -144,7 +145,7 @@ public static boolean checkSign(String content, String sign, String publicKey, S
 }
 ```
 
-```
+```screen
 "HarmonyOS-JavaScript"
 // 执行CMD命令打开命令行工具，执行cd命令进入HarmonyOS应用"entry"目录。
 // 引入jsrsasign库
@@ -176,7 +177,7 @@ export default {
 }
 ```
 
-```
+```screen
 "HarmonyOS-ArkTS"
 import cryptoFramework from '@ohos.security.cryptoFramework';
 import util from '@ohos.util';

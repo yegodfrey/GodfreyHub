@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/component
 
 # 组件预览
 
-* [组件预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-previewer)  
+* **[组件预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-previewer)**   

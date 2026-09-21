@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-480
 
 # 如何实现护眼模式
 
-解决措施
+**解决措施**
 
 当前实现护眼模式可以采用下面两种方式：
 
@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-480
 
 方案二：可通过系统设置全局开启护眼模式，通过应用内指引用户跳转设置页面手动打开护眼模式。
 
-```
+```typescript
 import { common } from "@kit.AbilityKit";
 import { BusinessError } from "@kit.BasicServicesKit";
 

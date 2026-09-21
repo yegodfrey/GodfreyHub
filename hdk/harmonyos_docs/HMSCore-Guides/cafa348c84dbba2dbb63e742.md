@@ -8,27 +8,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/notificattion_s
 
 为维护华为通知生态秩序，保障用户合法权益和良好的使用体验，根据现行法律法规及[《华为开发者服务协议》](https://developer.huawei.com/consumer/cn/doc/start/agreement-0000001052728169)、[《华为APIs使用协议》](https://developer.huawei.com/consumer/cn/doc/20209)、[《华为推送服务使用协议》](https://developer.huawei.com/consumer/cn/doc/app/20213)、[《华为应用市场审核指南》](https://developer.huawei.com/consumer/cn/doc/50104)、[《消息分类标准》](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/message-classification-0000001149358835)、[《通知内容管理细则》](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/detailed-rules-0000001186781074)与本规范，特制定《华为通知消息管理规则》。
 
-所有发布上架到华为应用市场且使用推送通知行为的应用和联运应用应当遵守本规范，若您的行为违反本规范或[《华为应用市场联运服务协议》](https://developer.huawei.com/consumer/cn/doc/AGInterService#h1-1624329099807-10)，华为有权根据本规范和[《华为应用市场联运服务协议》](https://developer.huawei.com/consumer/cn/doc/AGInterService#h1-1624329099807-10)对您进行处罚。  
+所有发布上架到华为应用市场且使用推送通知行为的应用和联运应用应当遵守本规范，若您的行为违反本规范或[《华为应用市场联运服务协议》](https://developer.huawei.com/consumer/cn/doc/AGInterService#h1-1624329099807-10)，华为有权根据本规范和[《华为应用市场联运服务协议》](https://developer.huawei.com/consumer/cn/doc/AGInterService#h1-1624329099807-10)对您进行处罚。
 
-#### 华为通知定义
+## 华为通知定义
 
 华为通知包括在华为终端设备上展示的云端和本地通知消息：
 
 * 云端通知，通过华为推送服务发送的通知
 * 本地通知，应用在后台运行时发送或展示的通知
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.61972391203605235701515878388184:50001231000000:2800:56BCB7D3528FBADF8B616FD2587B657C2AF329A0B2B789AF26C73BADE61D6E18.png?needInitFileName=true?needInitFileName=true "点击放大")  
+![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.61972391203605235701515878388184:50001231000000:2800:56BCB7D3528FBADF8B616FD2587B657C2AF329A0B2B789AF26C73BADE61D6E18.png?needInitFileName=true?needInitFileName=true "点击放大")
 
-#### 通知使用基本原则
+## 通知使用基本原则
 
 * 优先采用规范布局，除特殊场景（参见[通知规范概要](#section5305232661)），禁止采用规范外的自定义样式，以保证通知体验的一致性。
 * 不可出于商业目的强制改变通知属性（如采用进行中通知强制置顶显示），避免损害用户使用体验。
 * 遵守通知分类规则（参见[消息分类标准](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/message-classification-0000001149358835)）。
-* 遵守通知内容管理细则（参见[内容管理细则](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/detailed-rules-0000001186781074)）。  
+* 遵守通知内容管理细则（参见[内容管理细则](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/detailed-rules-0000001186781074)）。
 
-#### 通知样式规范概要
+## 通知样式规范概要
 
-#### 通知样式
+### 通知样式
 
 |总体原则|例外|
 |:---------------------------------|:------------------------------------------------|
@@ -41,30 +41,30 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/notificattion_s
 |不得伪造横幅通知、锁屏通知。|-|
 |通知标题与文本内容不得重复。|-|
 
-#### 通知跳转
+### 通知跳转
 
 * 在非语音播报、VOIP通话、告警类消息等场景下，不得以推送消息为手段，故意在后台拉起应用进程。
 * 不得以推送消息为手段，利用本应用唤醒其他应用。
 * 通知点击跳转链接不得为非法网站。
-* 不得利用推送消息诱导下载安装第三方应用。  
+* 不得利用推送消息诱导下载安装第三方应用。
 
-#### 其他
+### 其他
 
 * 应用不得擅自篡改、损坏、反编译华为推送提供的服务SDK功能，改变华为推送服务的基本功能。
-* 避免出现其他可能影响终端用户体验的行为。  
+* 避免出现其他可能影响终端用户体验的行为。
 
-#### 通知设计规范
+## 通知设计规范
 
-#### 普通通知
+### 普通通知
 
-应用默认采用3行普通通知样式，若仅有内容详情，显示2行普通通知。  
+应用默认采用3行普通通知样式，若仅有内容详情，显示2行普通通知。
 
 |描述|图片展示|
 |:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |3行普通通知： 应用信息和时间 标题 文本内容|![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.78654220705309139653499782420436:50001231000000:2800:2838E59E76DA16CECC9A81495DC545FAE5A4B0CDE962C27808AEB9C92C090FAE.png?needInitFileName=true?needInitFileName=true "点击放大")|
 |2行普通通知： 应用信息和时间 标题或文本内容|![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.23660483155250747361369382796141:50001231000000:2800:7AD7FDCE8ADDF8D22375507651EB9332E06B74E686BF3921F60AD962FCEBC73B.png?needInitFileName=true?needInitFileName=true "点击放大")|
 
-#### 图片预览通知
+### 图片预览通知
 
 |描述|图片展示|
 |:-----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -76,19 +76,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/notificattion_s
 * 避免使用饱和度较高的颜色和纯色（如纯黑色、纯红色），颜色纯度和亮度的范围在10%-90%。
 * 图片应清晰可读，避免使用影响图片信息阅读体验的元素，包括但不限于二维码、马赛克、明显噪点、密集排布的文字和符号等。
 * 图片品质应与通知整体内容品质一致，避免使用内容复杂、排版凌乱、元素混杂、影响整体视觉效果的图片。
-* 图片不可影响通知必要文字内容的阅读。  
+* 图片不可影响通知必要文字内容的阅读。
 
-#### 操作类通知
+### 操作类通知
 
 * 通知在通知栏中不显示操作按钮，点击标题区域展开后，才显示操作按钮。
 * 支持1-3个操作按钮，按钮为文字按钮，左对齐显示（英文大写）。
-* 按钮文本超长后支持折行。  
+* 按钮文本超长后支持折行。
 
-#### 长文本类通知
+### 长文本类通知
 
-* 适用于文本内容较长的通知，展开最多可显示10余行内容详情，超长后"..."截断。  
+* 适用于文本内容较长的通知，展开最多可显示10余行内容详情，超长后"..."截断。
 
-#### 进度类通知
+### 进度类通知
 
 * 适用正在下载、更新、上传等场景的通知。
 * 通知支持显示百分比、文件大小、操作按钮的显示。
@@ -98,36 +98,34 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/notificattion_s
 |进度条|![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.71052958509933256286589504758799:50001231000000:2800:CF703A345A02A83930AF764000F34303E06568F261FA7DE5162CF6F3FBE6F880.png?needInitFileName=true?needInitFileName=true "点击放大")|
 |缓冲条|![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.23114212419301846532217050445728:50001231000000:2800:D66310A91C7B7EA0614931EE64DFEA53DF844A1896B0F069736E97055211A67B.png?needInitFileName=true?needInitFileName=true "点击放大")|
 
-#### 媒体类通知
+### 媒体类通知
 
 * 媒体类通知元素包括内容详情、操作图标、进度条、预览图片（可选）。
 
-<!-- -->
 
-* 折叠时显示3个操作图标，展开后最多显示5个图标。
+* 折叠时显示**3** 个操作图标，展开后最多显示**5** 个图标。
 
 |描述|图片展示|
 |:--------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |带预览图类媒体通知|![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.86704346510432237627501792281073:50001231000000:2800:38B18C942182593FA34F77E0C7A8C2B3AFC1FCA37806CA80528C54CDD51535E6.png?needInitFileName=true?needInitFileName=true "点击放大")|
 |无预览图类媒体通知|![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.33660753787638224408214997473370:50001231000000:2800:19DEA64BCFA8D29F17E726DD46B3A50DEE6FB32A58B9C821E037AC2F1CBECEF4.png?needInitFileName=true?needInitFileName=true "点击放大")|
 
-#### 自定义通知
+### 自定义通知
 
 特殊场景（参见[通知样式规范概要](#section5305232661)）下，以上通知模板无法满足应用需求，可按照以下规范，自定义通知布局：
 
 * 自定义通知标题需调用[DecoratedCustomViewStyle模板](https://developer.android.google.cn/reference/android/app/Notification.DecoratedCustomViewStyle)。
-* 自定义内容区域左右和底部的外边距需保证16dp安全距离（[自定义媒体通知布局](#ZH-CN_TOPIC_0000001652491952__li10673550143718)例外）。
-* 自定义通知折叠状态下最大面板高度为106dp。
+* **自定义内容区域左右和底部的外边距** 需保证16dp安全距离（[自定义媒体通知布局](#ZH-CN_TOPIC_0000001652491952__li10673550143718)例外）。
+* 自定义通知**折叠状态下**最大面板高度为106dp。
 
 ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.66852553073974651036708411069266:50001231000000:2800:7E4231BE4BB0CB97D9610202087439589571E002F381A0A55482C03775BE712F.png?needInitFileName=true?needInitFileName=true "点击放大")
 
-* 操作图标数量≤5个。
-* 保证在深色模式和浅色模式下，图标和文字都能显示清楚，文本和图标与通知背板的颜色至少保证2:1对比度，详情可参见[对比度网站](https://wenjiangs.com/wp-content/uploads/2017/06/contrast-ratio/)。
+* 操作图标数量**≤** **5** **个**。
+* **保证在深色模式和浅色模式下，图标和文字都能显示清楚** ，文本和图标与通知背板的颜色至少保证2:1对比度，详情可参见[对比度网站](https://wenjiangs.com/wp-content/uploads/2017/06/contrast-ratio/)。
 * 通知图标文件格式、尺寸和颜色请参见[通知图标规范](#section1626375315119)。
-* 自定义媒体通知布局如下图所示。
+* 自定义媒体通知布局如下图所示。 ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.16362097637154538083248662998116:50001231000000:2800:7ABD3AFB25FA0CA63D7E3A9EF1FE06F5ECD80E655796EC07B345E206B9050BC7.png?needInitFileName=true?needInitFileName=true "点击放大")
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.16362097637154538083248662998116:50001231000000:2800:7ABD3AFB25FA0CA63D7E3A9EF1FE06F5ECD80E655796EC07B345E206B9050BC7.png?needInitFileName=true?needInitFileName=true "点击放大")  
+### 通知图标规范
 
-#### 通知图标规范
+![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.71030941236681362125187534839026:50001231000000:2800:F45B341F29E2EF8AD8B295F8310EE766F4ABFF47E6A0D5AA4772DD381209B767.png?needInitFileName=true?needInitFileName=true "点击放大")
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241101095611.71030941236681362125187534839026:50001231000000:2800:F45B341F29E2EF8AD8B295F8310EE766F4ABFF47E6A0D5AA4772DD381209B767.png?needInitFileName=true?needInitFileName=true "点击放大")  

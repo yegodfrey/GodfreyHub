@@ -6,29 +6,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1553
 
 # 如何实现滑动经过复选框时选中/取消的功能
 
-#### 问题现象
+## 问题现象
 
-列表中的每一个Item都对应一个复选框。当前，CheckBox仅支持逐个选中/取消选中，如何实现手指滑动经过CheckBox的时候，CheckBox能完成选中/取消选中的功能，同时不影响列表滑动。  
+列表中的每一个Item都对应一个复选框。当前，CheckBox仅支持逐个选中/取消选中，如何实现手指滑动经过CheckBox的时候，CheckBox能完成选中/取消选中的功能，同时不影响列表滑动。
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782454391919396 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/hldUFmiMSwONg4wmdvNU3g/zh-cn_image_0000002658968445.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=48F7B6DB07E566E692BE450C0A5207CE97CE7C1AB8D0D6C3070A08FB2A283A47 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [CheckBox](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox)：多选框组件，通常用于某选项的打开或关闭。
 * [onAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)：组件区域变化事件，组件区域变化时触发该回调。仅会响应由布局变化所导致的组件大小、位置发生变化时的回调。
 * [onWillScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#onwillscroll12)：滚动事件回调，滚动组件滚动前触发。可以获取到相对于上一帧的偏移量、当前滑动状态、当前滑动操作的来源。
-* [onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch)：触摸事件，由手指在组件上按下、滑动或抬起时触发。回调中可以获取到触摸事件的类型。  
+* [onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch)：触摸事件，由手指在组件上按下、滑动或抬起时触发。回调中可以获取到触摸事件的类型。
 
-#### 解决方案
+## 解决方案
 
 CheckBox本身不提供滑动多选的能力，需要自定义选中逻辑：手指在CheckBox选择框区域进行滑动时，完成选中操作；手指在文本区域进行滑动时，进行列表滚动。
 
 1. 首先要明确组件的位置以及当前手指滑动的位置。对于组件的位置，自定义组件位置的数据类ComponentRect，记录当前组件四个边相对于父组件左上角的距离。通过onAreaChange事件，在组件位置发生变化时触发回调，重新计算位置并存储到map中。
 
-   ```
-   // 记录组件的位置
+   ```screen
+   //记录组件的位置
    interface ComponentRect {
      left: number;
      top: number;
@@ -37,8 +37,8 @@ CheckBox本身不提供滑动多选的能力，需要自定义选中逻辑：手
    }
    ```
 
-   ```
-   // 判断手指当前在哪个组件的矩形区域内
+   ```screen
+   //判断手指当前在哪个组件的矩形区域内
    detectCurrentComponent(x: number, y: number) {
      let cur = '';
      this.componentRects.forEach((rect, id) => {
@@ -51,8 +51,8 @@ CheckBox本身不提供滑动多选的能力，需要自定义选中逻辑：手
    }
    ```
 
-   ```
-   // 组件发生变化时，刷新组件的位置信息
+   ```screen
+   //组件发生变化时，刷新组件的位置信息
    .onAreaChange((oldVal, newVal) => {
      console.info(`${oldVal},${newVal}`);
      let area: ComponentRect = {
@@ -61,14 +61,14 @@ CheckBox本身不提供滑动多选的能力，需要自定义选中逻辑：手
        right: Number(newVal.position.x) + Number(newVal.width),
        bottom: Number(newVal.position.y) + Number(newVal.height)
      };
-     this.componentRects.set(item.id, area); // 记录组件位置
+     this.componentRects.set(item.id, area); //记录组件位置
    })
    ```
 
 2. ComponentRect数据类型记录的组件位置是包含了CheckBox和文本的，还需要再次根据组件位置比例判断手指是在CheckBox上还是在文本上，只有在CheckBox选择框上时才触发选中逻辑。
 
-   ```
-   // 获取手指处于组件上的横向比例
+   ```screen
+   //获取手指处于组件上的横向比例
    getRateWidth(x: number, index: string) {
      let item = this.componentRects.get(index);
      if (!item) {
@@ -80,18 +80,18 @@ CheckBox本身不提供滑动多选的能力，需要自定义选中逻辑：手
 
 3. 获取到组件位置和手指位置之后，动态执行CheckBox选中操作，当检测到触摸类型为TouchType.Move且在组件范围，说明手指滑过了选中框，就将对应CheckBox的状态值置反，同时设置列表的friction和onWillScroll用于禁止列表滑动。
 
-   ```
+   ```screen
    .onTouch((event) => {
-     // 获取当前手指的坐标（相对于父容器，与组件rect的坐标系一致）
+     //获取当前手指的坐标（相对于父容器，与组件rect的坐标系一致）
      const fingerX = event.touches[0].x;
      const fingerY = event.touches[0].y;
-     // 判断手指当前在哪个组件的矩形区域内
+    // 判断手指当前在哪个组件的矩形区域内
      let cur = this.detectCurrentComponent(fingerX, fingerY);
-     // 获取手指处于组件上的横向比例
+    // 获取手指处于组件上的横向比例
      let rate = this.getRateWidth(fingerX, cur);
      if (event.type === TouchType.Move && 0 < rate && rate < this.widthCheckRate) {
        this.isInCheckBox = true;
-       // 更新CheckBox状态
+     // 更新CheckBox状态
        if (cur !== this.curId) {
          this.curId = cur;
          let item = this.itemsMap.get(cur);
@@ -112,17 +112,17 @@ CheckBox本身不提供滑动多选的能力，需要自定义选中逻辑：手
 
 完整示例参考如下：
 
-```
+```screen
 @Entry
 @Component
 struct CheckBoxTest {
   @State items: Array<CheckBoxStatus> = [];
-  // 记录组件的位置信息
+// 记录组件的位置信息
   @State itemsMap: Map<string, CheckBoxStatus> = new Map<string, CheckBoxStatus>();
   @State isInCheckBox: boolean = false;
   private componentRects: Map<string, ComponentRect> = new Map(); // 存储组件的位置信息
-  private widthCheckRate: number = 0.2; // 选择框所占比例
-  private curId: string = ''; // 当前手指所在的组件
+  private widthCheckRate: number = 0.2; //选择框所占比例
+  private curId: string = ''; //当前手指所在的组件
 
   aboutToAppear(): void {
     for (let index = 0; index < 20; index++) {
@@ -155,7 +155,7 @@ struct CheckBoxTest {
           .backgroundColor('#fff1f3f5')
           .borderRadius(10)
           .margin({ left: 16, right: 16 })
-          // 组件发生变化时，刷新组件的位置信息
+  // 组件发生变化时，刷新组件的位置信息
           .onAreaChange((oldVal, newVal) => {
             console.info(`${oldVal},${newVal}`);
             let area: ComponentRect = {
@@ -164,13 +164,13 @@ struct CheckBoxTest {
               right: Number(newVal.position.x) + Number(newVal.width),
               bottom: Number(newVal.position.y) + Number(newVal.height)
             };
-            this.componentRects.set(item.id, area); // 记录组件位置
+            this.componentRects.set(item.id, area); //记录组件位置
           })
         })
       }
       .friction(this.isInCheckBox ? 1000 : 0)
       .onWillScroll(() => {
-        // 手指不在CheckBox框位置时，禁止列表滑动
+     // 手指不在CheckBox框位置时，禁止列表滑动
         if (this.isInCheckBox) {
           return { offsetRemain: 0 };
         }
@@ -184,16 +184,16 @@ struct CheckBoxTest {
     .height('95%')
     .backgroundColor('#ffffffff')
     .onTouch((event) => {
-      // 获取当前手指的坐标（相对于父容器，与组件rect的坐标系一致）
+    // 获取当前手指的坐标（相对于父容器，与组件rect的坐标系一致）
       const fingerX = event.touches[0].x;
       const fingerY = event.touches[0].y;
-      // 判断手指当前在哪个组件的矩形区域内
+   // 判断手指当前在哪个组件的矩形区域内
       let cur = this.detectCurrentComponent(fingerX, fingerY);
-      // 获取手指处于组件上的横向比例
+// 获取手指处于组件上的横向比例
       let rate = this.getRateWidth(fingerX, cur);
       if (event.type === TouchType.Move && 0 < rate && rate < this.widthCheckRate) {
         this.isInCheckBox = true;
-        // 更新CheckBox状态
+       // 更新CheckBox状态
         if (cur !== this.curId) {
           this.curId = cur;
           let item = this.itemsMap.get(cur);
@@ -212,7 +212,7 @@ struct CheckBoxTest {
     })
   }
 
-  // 判断手指当前在哪个组件的矩形区域内
+ // 判断手指当前在哪个组件的矩形区域内
   detectCurrentComponent(x: number, y: number) {
     let cur = '';
     this.componentRects.forEach((rect, id) => {
@@ -224,7 +224,7 @@ struct CheckBoxTest {
     return cur;
   }
 
-  // 获取手指处于组件上的横向比例
+// 获取手指处于组件上的横向比例
   getRateWidth(x: number, index: string) {
     let item = this.componentRects.get(index);
     if (!item) {
@@ -234,14 +234,14 @@ struct CheckBoxTest {
   }
 }
 
-// 记录CheckBox的状态
+//记录CheckBox的状态
 interface CheckBoxStatus {
   id: string;
   name: string;
   checked: boolean;
 }
 
-// 记录组件的位置
+//记录组件的位置
 interface ComponentRect {
   left: number;
   top: number;

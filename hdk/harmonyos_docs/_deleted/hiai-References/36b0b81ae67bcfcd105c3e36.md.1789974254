@@ -1,0 +1,24 @@
+---
+name: document/cn/hiai-References/enumeration-0000001052249430
+title: 枚举类
+uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/enumeration-0000001052249430
+---
+
+# 枚举类
+
+* **[AiModelDescription_Frequency](https://developer.huawei.com/consumer/cn/doc/hiai-References/frequency-0000001052889444)**   
+* **[AiModelDescription_DeviceType](https://developer.huawei.com/consumer/cn/doc/hiai-References/devicetype-0000001052490761)**   
+* **[AiModelDescription_Framework](https://developer.huawei.com/consumer/cn/doc/hiai-References/framework-0000001051650696)**   
+* **[AiModelDescription_ModelType](https://developer.huawei.com/consumer/cn/doc/hiai-References/modeltyp-0000001052570739)**   
+* **[AiTensorImage_Format](https://developer.huawei.com/consumer/cn/doc/hiai-References/format-0000001051490704)**   
+* **[HIAI_DataType](https://developer.huawei.com/consumer/cn/doc/hiai-References/hiai-datatype-0000001051809440)**   
+* **[ModelPriority](https://developer.huawei.com/consumer/cn/doc/hiai-References/modelpriority-0000001059203110)**   
+* **[OpExecuteDevice](https://developer.huawei.com/consumer/cn/doc/hiai-References/opexecutedevice-0000001225896829)**   
+* **[PrecisionMode](https://developer.huawei.com/consumer/cn/doc/hiai-References/precisionmode-0000001058114899)**   
+* **[CacheMode](https://developer.huawei.com/consumer/cn/doc/hiai-References/cachemode-0000001280980074)**   
+* **[WeightDataType](https://developer.huawei.com/consumer/cn/doc/hiai-References/weighdatatype-0000001333300065)**   
+* **[ExecuteDeviceSelectMode](https://developer.huawei.com/consumer/cn/doc/hiai-References/executedeviceselectmode-0000001281459574)**   
+* **[TuningStrategy](https://developer.huawei.com/consumer/cn/doc/hiai-References/tuningstrategy-0000001333619929)**   
+* **[ImageType](https://developer.huawei.com/consumer/cn/doc/hiai-References/imagetype-0000001333699845)**   
+* **[ExecuteDevice](https://developer.huawei.com/consumer/cn/doc/hiai-References/executedevice-0000002014720312)**   
+* **[DeviceMemoryReusePlan](https://developer.huawei.com/consumer/cn/doc/hiai-References/devicememoryreuseplan-0000002050722333)**   

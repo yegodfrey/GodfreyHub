@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/message-stream-0000002
 
 Agent Client发送待处理任务给Agent Server（兼容谷歌A2A message/stream）：
 
-```
+```screen
 curl 'https://xxx/agent/message' \
 -H 'Content-Type: application/json' \
 -H 'agent-session-id:8f01f3d172cd4396a0e535ae8aec6687 '\
@@ -36,7 +36,7 @@ curl 'https://xxx/agent/message' \
                 },
                 {
                     "kind": "data",
-                    "data": "{{结构化数据，以JSONObject形式存放，如用户参数、端插件执行结果等，具体报文参见后续章节}}"
+                    "https://developer.huawei.com/consumer/cn/doc/service/query-data-0000002537691281": "{{结构化数据，以JSONObject形式存放，如用户参数、端插件执行结果等，具体报文参见后续章节}}"
                 }
             ]
         }
@@ -44,13 +44,11 @@ curl 'https://xxx/agent/message' \
 }'
 ```
 
-<br />
-
 Agent Server返回AgentClient流式响应消息：
 
 Agent Server向Agent Client基于SSE协议推送Task中间状态：
 
-```
+```screen
 {
     "jsonrpc": "2.0",
     "id": "{{与agent-server通信的全局唯一消息序列号，从请求中取出该字段返回}}",
@@ -78,13 +76,11 @@ Agent Server向Agent Client基于SSE协议推送Task中间状态：
 
 任务状态手机端效果：
 
-![](https://media:301785143856923798 "点击放大")
-
-<br />
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/uaMG0A4LQeCp4YbO42HZXQ/zh-cn_image_0000002640264166.png?HW-CC-KV=V1&HW-CC-Date=20260909T161107Z&HW-CC-Expire=31536000000&HW-CC-Sign=60BC91E2E3B4897F3D6D16F4159C192C2E9CEE76B1163263DD302E4ADAB96FDC "点击放大")
 
 Agent Server向Agent Client基于SSE协议推送Task中间处理结果：
 
-```
+```screen
 {
     "jsonrpc": "2.0",
     "id": "{{与agent-server通信的全局唯一消息序列号，从请求中取出该字段返回}}",
@@ -98,15 +94,15 @@ Agent Server向Agent Client基于SSE协议推送Task中间处理结果：
              "artifactId": "{{本条Artifact的唯一ID}}",
             "parts": [{
                     "kind": "reasoningText",
-                    "reasoningText": "{{agent-server处理的响应，表示深度思考的流式输出内容，支持markdown，如果是增量输出，则append为True}}"
+                    "reasoningText": "{{agent-server处理的响应，表示深度思考的流式输出内容，https://developer.huawei.com/consumer/cn/doc/service/markdown-grammar-0000002553963585，如果是增量输出，则append为True}}"
                 },
                {
                     "kind": "text",
-                    "text": "{{agent-server处理的响应，表示正文流式输出内容，支持markdown，如果是增量输出，则append为True，流式输出结束时lastChunk为True}}"
+                    "text": "{{agent-server处理的响应，表示正文流式输出内容，https://developer.huawei.com/consumer/cn/doc/service/markdown-grammar-0000002553963585，如果是增量输出，则append为True，流式输出结束时lastChunk为True}}"
                 },
                 {
                     "kind": "data"
-                    "data": " {{结构化数据，以JSONObject形式存放，可存放卡片结构化数据、端指令、推荐问题、循证引用等信息，可扩展}}"
+                    "https://developer.huawei.com/consumer/cn/doc/service/response-data-0000002505931382": " {{结构化数据，以JSONObject形式存放，可存放卡片结构化数据、端指令、推荐问题、循证引用等信息，可扩展}}"
                 }
             ]
         }
@@ -117,6 +113,4 @@ Agent Server向Agent Client基于SSE协议推送Task中间处理结果：
     }
 }
 ```
-
-<br />
 

@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-full-m
 
 # 媒体组件
 
-* [video](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-media-video)  
+* **[video](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-media-video)**   

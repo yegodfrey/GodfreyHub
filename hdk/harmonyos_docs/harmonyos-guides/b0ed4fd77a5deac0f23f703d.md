@@ -10,50 +10,50 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-dsp-tran
 
 数字信号处理（DSP）中的快速傅里叶变换（FFT）可将实数时域信号高效转换为频域表示；其逆变换（IFFT）则能将频域信号恢复为时域信号。当开发者需要对音频信号、传感器数据或其他时序信号进行频谱分析、频域滤波或信号重构时，可使用本接口。
 
-FFT和IFFT功能均提供单精度（float）和双精度（double）两种数据类型的接口，基于高效算法实现时域与频域之间的相互变换。支持的最大FFT点数为2\^16（即65536点）。请注意：输入信号的长度必须等于2的log2n次方，其中log2n是在创建配置时指定的参数。  
+FFT和IFFT功能均提供单精度（float）和双精度（double）两种数据类型的接口，基于高效算法实现时域与频域之间的相互变换。支持的最大FFT点数为2^16（即65536点）。请注意：输入信号的长度必须等于2的log2n次方，其中log2n是在创建配置时指定的参数。
 
-#### 场景介绍
+## 场景介绍
 
 FFT与IFFT变换适用于以下典型场景：
 
-* 频谱分析：将时域音频信号转换为频域，分析频率成分。
-* 频域滤波：在频域进行滤波操作（如去噪、回声消除）后再变换回时域。
-* 信号重构：对频域信号进行IFFT恢复时域信号，用于信号合成。
-* 振动分析：对传感器振动信号进行频谱分析，检测设备故障特征频率。  
+* **频谱分析**：将时域音频信号转换为频域，分析频率成分。
+* **频域滤波**：在频域进行滤波操作（如去噪、回声消除）后再变换回时域。
+* **信号重构**：对频域信号进行IFFT恢复时域信号，用于信号合成。
+* **振动分析**：对传感器振动信号进行频谱分析，检测设备故障特征频率。
 
-#### 接口说明
+## 接口说明
 
-具体API详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-dsp-transform-8h)。  
+具体API详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-dsp-transform-8h)。
 
-#### 配置管理
-
-|名称|描述|
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_CreateConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_createconfig) (FAST_FFTConfig\*\* config, uint32_t log2n)|创建单精度FFT配置（log2n为FFT点数对应的以2为底的对数值，必须满足0\<log2n\<=[FAST_MAX_FFT_LOG2N](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_max_fft_log2n)，即1到16）。|
-|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_CreateConfigD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_createconfigd) (FAST_FFTConfig\*\* config, uint32_t log2n)|创建双精度FFT配置（log2n为FFT点数对应的以2为底的对数值，必须满足0\<log2n\<=[FAST_MAX_FFT_LOG2N](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_max_fft_log2n)，即1到16）。|
-|void [HMS_FAST_FFT_DestroyConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_destroyconfig) (FAST_FFTConfig\* config)|销毁FFT配置并释放资源。|
-
-#### 正向变换
+### 配置管理
 
 |名称|描述|
-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|
-|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_ForwardTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_forwardtransform) (FAST_FFTConfig\* config, uint32_t length, const float input\[\], float outputRe\[\], float outputIm\[\])|计算单精度实数时域信号的DFT。|
-|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_ForwardTransformD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_forwardtransformd) (FAST_FFTConfig\* config, uint32_t length, const double input\[\], double outputRe\[\], double outputIm\[\])|计算双精度实数时域信号的DFT。|
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_CreateConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_createconfig) (FAST_FFTConfig** config, uint32_t log2n)|创建单精度FFT配置（log2n为FFT点数对应的以2为底的对数值，必须满足0<log2n<=[FAST_MAX_FFT_LOG2N](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_max_fft_log2n)，即1到16）。|
+|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_CreateConfigD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_createconfigd) (FAST_FFTConfig** config, uint32_t log2n)|创建双精度FFT配置（log2n为FFT点数对应的以2为底的对数值，必须满足0<log2n<=[FAST_MAX_FFT_LOG2N](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_max_fft_log2n)，即1到16）。|
+|void [HMS_FAST_FFT_DestroyConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_destroyconfig) (FAST_FFTConfig* config)|销毁FFT配置并释放资源。|
 
-#### 逆向变换
+### 正向变换
 
 |名称|描述|
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|
-|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_InverseTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_inversetransform) (FAST_FFTConfig\* config, uint32_t length, const float inputRe\[\], const float inputIm\[\], float output\[\])|计算单精度复数频域序列的逆DFT。|
-|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_InverseTransformD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_inversetransformd) (FAST_FFTConfig\* config, uint32_t length, const double inputRe\[\], const double inputIm\[\], double output\[\])|计算双精度复数频域序列的逆DFT。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|
+|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_ForwardTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_forwardtransform) (FAST_FFTConfig* config, uint32_t length, const float input[], float outputRe[], float outputIm[])|计算单精度实数时域信号的DFT。|
+|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_ForwardTransformD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_forwardtransformd) (FAST_FFTConfig* config, uint32_t length, const double input[], double outputRe[], double outputIm[])|计算双精度实数时域信号的DFT。|
 
-#### 开发步骤
+### 逆向变换
+
+|名称|描述|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|
+|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_InverseTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_inversetransform) (FAST_FFTConfig* config, uint32_t length, const float inputRe[], const float inputIm[], float output[])|计算单精度复数频域序列的逆DFT。|
+|[FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_FFT_InverseTransformD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_inversetransformd) (FAST_FFTConfig* config, uint32_t length, const double inputRe[], const double inputIm[], double output[])|计算双精度复数频域序列的逆DFT。|
+
+## 开发步骤
 
 本小节以正向FFT计算的单精度接口为例（单精度无后缀，双精度D后缀）。
 
 1. 在CMake脚本中链接相关动态库。
 
-   ```
+   ```cmake
    find_library(
        lib_fast_dsp
        NAMES fast_dsp
@@ -72,11 +72,11 @@ FFT与IFFT变换适用于以下典型场景：
 
 5. 调用HMS_FAST_FFT_DestroyConfig销毁FFT配置实例，释放内部资源。
 
-#### 代码示例
+## 代码示例
 
-#### 单精度FFT变换示例
+### 单精度FFT变换示例
 
-```
+```cpp
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
@@ -157,9 +157,9 @@ FAST_ErrorCode fft_single_precision_demo() {
 }
 ```
 
-#### 双精度FFT变换示例
+### 双精度FFT变换示例
 
-```
+```cpp
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
@@ -240,19 +240,20 @@ FAST_ErrorCode fft_double_precision_demo() {
 }
 ```
 
-#### 注意事项
+## 注意事项
 
-1. FFT大小限制：log2n必须在1到16之间，即FFT大小N的范围是2到65536。
+1. **FFT大小限制**：log2n必须在1到16之间，即FFT大小N的范围是2到65536。
 
-2. 输入长度匹配：正向和逆向变换的输入长度必须与创建配置时指定的log2n一致（length=2\^log2n）。
+2. **输入长度匹配**：正向和逆向变换的输入长度必须与创建配置时指定的log2n一致（length=2^log2n）。
 
-3. 输出数组大小：对于实数输入的FFT，输出数组大小为length/2+1，因为实信号的频谱具有共轭对称性。
+3. **输出数组大小**：对于实数输入的FFT，输出数组大小为length/2+1，因为实信号的频谱具有共轭对称性。
 
-4. 内存管理：使用完FFT配置后务必调用[HMS_FAST_FFT_DestroyConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_destroyconfig)释放资源。
+4. **内存管理** ：使用完FFT配置后务必调用[HMS_FAST_FFT_DestroyConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_destroyconfig)释放资源。
 
-5. 精度选择：单精度版本计算速度更快，双精度版本精度更高，根据应用场景选择合适的版本。
+5. **精度选择**：单精度版本计算速度更快，双精度版本精度更高，根据应用场景选择合适的版本。
 
-6. 线程安全性：在多线程环境中，严禁多个线程同时操作同一个[FAST_FFTConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_fftconfig)配置对象。包括并发调用[HMS_FAST_FFT_ForwardTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_forwardtransform)（前向变换）、[HMS_FAST_FFT_InverseTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_inversetransform)（逆变换）及其对应的双精度接口。为确保多线程环境下的计算稳定性，建议采取以下方案：
+6. **线程安全性** ：在多线程环境中，严禁多个线程同时操作同一个[FAST_FFTConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_fftconfig)配置对象。包括并发调用[HMS_FAST_FFT_ForwardTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_forwardtransform)（前向变换）、[HMS_FAST_FFT_InverseTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_fft_inversetransform)（逆变换）及其对应的双精度接口。为确保多线程环境下的计算稳定性，建议采取以下方案：
 
    * 每个线程独立创建自己的[FAST_FFTConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_fftconfig)对象（推荐，无锁且高性能）；
-* 或通过互斥锁外部保护所有对该配置对象的调用。  
+   * 或通过互斥锁外部保护所有对该配置对象的调用。
+

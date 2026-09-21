@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-connectiv
 
 # 基础通信
 
-* [蓝牙](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-bluetooth)  
-* [NFC](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-nfc)  
+* **[蓝牙](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-bluetooth)**   
+* **[NFC](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-nfc)**   

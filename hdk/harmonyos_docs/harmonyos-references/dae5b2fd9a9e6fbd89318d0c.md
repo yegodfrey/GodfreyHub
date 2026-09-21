@@ -6,16 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-
 
 # OH_Rdb_Transaction
 
-```
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
+```c
 typedef struct OH_Rdb_Transaction OH_Rdb_Transaction
 ```
 
-#### 概述
+## 概述
 
 表示事务类型。
 
-起始版本： 18
+**起始版本：** 18
 
-相关模块： [RDB](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb)
+**相关模块：** [RDB](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb)
 
-所在头文件： [oh_rdb_transaction.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-rdb-transaction-h)  
+**所在头文件：** [oh_rdb_transaction.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-rdb-transaction-h)
+

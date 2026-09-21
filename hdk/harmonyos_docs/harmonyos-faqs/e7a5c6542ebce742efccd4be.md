@@ -6,24 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-1
 
 # 应用使用卡顿，运行一段时间后出现闪退
 
-#### 问题现象
+## 问题现象
 
-应用使用过程中出现卡顿，一段时间后发生闪退。  
+应用使用过程中出现卡顿，一段时间后发生闪退。
 
-#### 背景知识
+## 背景知识
 
 * 句柄泄漏是进程在调用系统文件之后，没有释放已经打开的文件句柄。
 * 句柄泄漏日志文件规格可以参考[句柄泄漏日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-leak-guidelines#句柄泄漏日志规格)。
 * 如果Leaked fd Top 10的句柄信息属于ashmem、socket、pipe、sync_file或dmabuf这五类特殊类型，且该类型的句柄个数超过1000个，日志中会增加整机详细的维测信息。
-* ashmem是一种匿名共享内存机制,允许多个进程共享同一块内存区域,而无需显式的文件系统交互。它基于Linux内核的内存映射机制(mmap)实现,通过文件描述符(File Descriptor)传递共享内存的句柄。  
+* ashmem是一种匿名共享内存机制,允许多个进程共享同一块内存区域,而无需显式的文件系统交互。它基于Linux内核的内存映射机制(mmap)实现,通过文件描述符(File Descriptor)传递共享内存的句柄。
 
-#### 场景一
+## 场景一
 
-#### 问题定位
+### 问题定位
 
 1. 查看句柄泄漏日志文件，ashmem句柄个数达到5000+，存在句柄泄漏。
 
-   ```
+   ```shell
    time: 2025/06/08 12:55:50
    pid: 30687
    process: com.hx.example
@@ -46,7 +46,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-1
 
 2. 搜索关键字LOGGER_MEMCHECK_ASHMEM_INFO，查看整机ashmem内存的详细信息。可以看到应用占用的物理共享内存达到500M左右(515649536byte)。
 
-   ```
+   ```shell
    Process_name Virtual_size Physical_size
    Total ashmem  of [audio_server] virtual size is  140265, physical size is 163840 
    Total ashmem  of [multimodalinput] virtual size is  4096, physical size is 4096 
@@ -62,7 +62,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-1
 
 3. 从Ashmem_name可以看出，基本都是dev/ashmem/EXTRawData，和图片有关。目前系统采用了统一渲染架构，应用使用PixelMap解码和几何变换的时候会生成ashmem。
 
-   ```
+   ```shell
    Process_name	Process_ID	Fd	Cnode_idx	Applicant_Pid	Ashmem_name	Virtual_size	Physical_size	magic
    // ...
    com.hx.example	30687	16158	328447	30687	dev/ashmem/EXTRawData	90000	90112	3956290
@@ -81,21 +81,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-1
    // ...
    ```
 
-#### 分析结论
+### 分析结论
 
-句柄泄漏导致应用在运行过程中持续消耗系统资源，最终出现卡死或闪退。  
+句柄泄漏导致应用在运行过程中持续消耗系统资源，最终出现卡死或闪退。
 
-#### 修改建议
+### 修改建议
 
-申请句柄后必须进行释放，特别是在异常分支提前return的场景中，示例可见[优化建议1：函数各个异常分支及时增加关闭句柄的操作](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-opt#section0221141523718)。  
+申请句柄后必须进行释放，特别是在异常分支提前return的场景中，示例可见[优化建议1：函数各个异常分支及时增加关闭句柄的操作](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-opt#section0221141523718)。
 
-#### 场景二
+## 场景二
 
-#### 问题定位
+### 问题定位
 
-1. 在hilog日志中搜索关键字Kill Reason\|PROCESS_KILL，找到终止原因Kill Reason:ResourceLeak:Ashmem Leak，表示Ashmem内存泄漏。
+1. 在hilog日志中搜索关键字Kill Reason|PROCESS_KILL，找到终止原因Kill Reason:ResourceLeak:Ashmem Leak，表示Ashmem内存泄漏。
 
-   ```
+   ```shell
    12-15 18:27:42.349  1573  1573 I C01311/foundation/AppMS: [a92ab8e29d5199d 0 0][AMSI3051]kill reason=KillApplication, 20817
    12-15 18:27:42.350  1573  1573 W C01311/foundation/AppMS: [a92ab8e29d5199d 0 0][AMSI3075]kill pid 20817, ret:0, Kill Reason:KillApplication,callingPid=933
    12-15 18:27:42.350  1573  1573 W C01311/foundation/AppMS: [a92ab8e29d5199d 0 0][AMSI3079]nullptr
@@ -103,9 +103,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-1
    12-15 18:27:42.351   933 26981 I C01716/resource_schedule_service/RESOURCE_QUOTA_CONTROL: [a92ab8e29d5199d 0 0][ClearAppInfo:186] clear app info, uid:20020256
    ```
 
-2. 从memory_leak目录下查看文件名为memleak-kernel-\[应用包名\]-0-sample.txt的采样文件，可以看到泄漏内存的类型为ashmem，在18:23:59时超出了阈值hardThreshold:4096(MB)。
+2. 从memory_leak目录下查看文件名为memleak-kernel-[应用包名]-0-sample.txt的采样文件，可以看到泄漏内存的类型为ashmem，在18:23:59时超出了阈值hardThreshold:4096(MB)。
 
-   ```
+   ```shell
    memoryName:ashmem
    softThreshold:2048(MB)
    hardThreshold:4096(MB)
@@ -119,9 +119,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-1
    28              129820          5446410         2025/12/15 18:23:59
    ```
 
-3. 同目录下查看内存映射文件memleak-kernel-\[应用包名\]-0-\[timestamp\].txt，搜索关键字Process ashmem overview info，找到ashmem内存概览信息，观察到应用进程虚拟内存占用约5G，物理内存占用约2G。
+3. 同目录下查看内存映射文件memleak-kernel-[应用包名]-0-[timestamp].txt，搜索关键字Process ashmem overview info，找到ashmem内存概览信息，观察到应用进程虚拟内存占用约5G，物理内存占用约2G。
 
-   ```
+   ```shell
    Process_name Virtual_size Physical_size
    Total ashmem  of [audio_server] virtual size is  85509, physical size is 57344 
    Total ashmem  of [multimodalinput] virtual size is  8192, physical size is 8192 
@@ -133,7 +133,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-1
 
 4. 搜索关键字Process ashmem detail info，找到ashmem内存详细信息，观察应用进程那些ashmem内存占用较高，主要关注Process_name、Virtual_size和Physical_size这几列，观察到某个ashmem资源占用高达277755556字节。
 
-   ```
+   ```shell
    Process_name	Process_ID	Fd	Cnode_idx	Applicant_Pid	Ashmem_name	Virtual_size	Physical_size	magic
    // ...
    com.hx.example	20579	39	328359	20579	dev/ashmem/srcImageSize-8333x8333-pixelMapSize-8333x8333-streamsize-3036967-mimetype-jpeg	277755556	192512	2186702
@@ -153,10 +153,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-1
    com.hx.example	20579	354	328359	20579	dev/ashmem/EXTRawData	277755556	72732672	2191221
    ```
 
-#### 分析结论
+### 分析结论
 
-应用存在ashmem图片共享内存资源泄漏。  
+应用存在ashmem图片共享内存资源泄漏。
 
-#### 修改建议
+### 修改建议
 
-通过[setMemoryNameSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#setmemorynamesync13)或者[OH_PixelmapNative_SetMemoryName()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_setmemoryname)自定义PixelMap内存标识符，快速定位泄漏的图片资源，减少加载图片资源的数量，及时释放图片共享内存。详情参考[ashmem泄漏](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-way#section2825227501)。  
+通过[setMemoryNameSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#setmemorynamesync13)或者[OH_PixelmapNative_SetMemoryName()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_setmemoryname)自定义PixelMap内存标识符，快速定位泄漏的图片资源，减少加载图片资源的数量，及时释放图片共享内存。详情参考[ashmem泄漏](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-way#section2825227501)。
+

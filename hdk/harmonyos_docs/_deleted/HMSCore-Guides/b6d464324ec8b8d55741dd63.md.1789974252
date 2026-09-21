@@ -1,0 +1,72 @@
+---
+name: document/cn/HMSCore-Guides/android-config-agc-0000001050043955
+title: 配置AppGallery Connect
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-config-agc-0000001050043955
+---
+
+# 配置AppGallery Connect
+
+在开发应用前，需要在AppGallery Connect中配置相关信息。
+
+## 注册成为开发者
+
+在开发应用前需要在[华为开发者联盟](https://developer.huawei.com/consumer/cn)网站上注册成为开发者并完成实名认证，具体方法请参见[帐号注册认证](https://developer.huawei.com/consumer/cn/doc/start/registration-and-verification-0000001053628148)。
+
+## 创建应用
+
+参见[创建项目](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-createproject-0000001100334664)和[创建应用](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-createapp-0000001146718717)完成应用的创建。
+
+## 生成签名证书指纹
+
+签名证书指纹用于校验应用的真实性，您需要根据签名证书在本地生成签名证书指纹，并在应用上架前将签名证书指纹配置到AppGallery Connect。
+
+在生成签名证书指纹前需要满足以下两个条件：
+
+* 已创建应用程序的签名证书，签名证书创建请参见[生成签名证书](https://developer.huawei.com/consumer/cn/codelab/HMSPreparation/index.html#2)。
+* 当前PC已经安装[JDK](https://www.oracle.com/java/technologies/javase-downloads.html)。
+
+操作步骤如下：
+
+* Windows
+  1. 执行CMD命令打开命令行工具，执行**cd** 命令进入keytool.exe所在的目录（以下样例为JDK安装在C盘的Program Files目录）。
+
+     ```screen
+     cd C:\Program Files\Java\jdk\bin
+     ```
+
+  2. 执行命令**keytool -list -v -keystore** *<keystore-file>* ，按命令行提示进行操作。*<keystore-file>* 为应用签名证书的完整路径。
+
+     例如：
+
+     ```screen
+     keytool -list -v -keystore C:\TestApp.jks
+     ```
+
+  3. 根据结果获取对应的SHA256指纹。 ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20240709174405.73300554079760870545999276006103:50001231000000:2800:9A4CC06B73B29B00B177A2CDF531B6DD7670882CC541EBF2D006DBDE4982892B.png?needInitFileName=true?needInitFileName=true "点击放大")
+
+* macOS
+  1. 打开Terminal终端。 ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20240709174405.05100221710832465363582819219690:50001231000000:2800:E29B1731CA7108ABA67DE8DF30E61DCE88F0BE0648146DD60BE5FA04B77A5F0F.png?needInitFileName=true?needInitFileName=true)
+
+  2. 执行命令**keytool -list -v -keystore** *<keystore-file>* ，按命令行提示进行操作。*<keystore-file>* 为应用签名证书的完整路径。
+
+     例如：
+
+     ```screen
+     keytool -list -v -keystore /Users/admin/Downloads/HmsDemo.jks
+     ```
+
+  3. 根据结果获取对应的SHA256指纹。 ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20240709174405.24054185753771144498456039051330:50001231000000:2800:D54BFB8B554DD544D9B204EC02B53CF11BF47F455213339758C6B246142E69F2.png?needInitFileName=true?needInitFileName=true)
+
+## 配置签名证书指纹
+
+1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站，点击"我的项目"。
+2. 在项目列表中找到您的项目，在项目中点击需要配置签名证书指纹的应用。
+3. 在"项目设置 > 常规"页面的"应用"区域，点击"SHA256证书指纹"后的"添加证书指纹"，输入生成的SHA256指纹。
+
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20240709174405.11052818588998876522092898076302:50001231000000:2800:16DEC7BBD2434B6DFFFCE5A4150659D3D12D0E175F35616E9FD6159C5FB015DD.png?needInitFileName=true?needInitFileName=true)
+   > 说明
+   >
+   > 在"项目设置"页面的"应用"区域，点击"Client Secret"后面的![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20240709174405.05590377399823924420377657666733:50001231000000:2800:CB6F2CEFEEDF7FE1E6157A16CA7FC4B3BC0C3C62DB16009D416E1D5DD68B1B68.png?needInitFileName=true?needInitFileName=true)即可复制Client Secret。
+
+4. 配置完成后，点击"保存"。
+

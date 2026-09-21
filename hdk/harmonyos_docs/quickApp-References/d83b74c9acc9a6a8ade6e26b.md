@@ -6,46 +6,46 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 
 # canvas
 
-#### 概述
+## 概述
 
-定义一个画布，在画布上可以绘制图形或图片。  
+定义一个画布，在画布上可以绘制图形或图片。
 
-#### 限制条件
+## 限制条件
 
 |限制条件|说明|
 |:---|:-------|
 |适用终端|手机、平板、车机|
 |适用区域|全球|
 
-#### 子组件
+## 子组件
 
-不支持。  
+不支持。
 
-#### 属性
+## 属性
 
-除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。  
+除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。
 
 |属性|类型|默认值|描述|
-|:-------------|:------|:----|:---------------------------------------------------------------------|
-|id|string|-|必填项，组件的唯一标识符。 注意： 同一页面中的id不可重复，如果使用一个已经使用的id，该canvas对应的画布将被隐藏，并不再正常工作。|
+|:-------------|:------|:----|:------------------------------------------------------------------------|
+|id|string|-|必填项，组件的唯一标识符。 > 注意 > 同一页面中的id不可重复，如果使用一个已经使用的id，该canvas对应的画布将被隐藏，并不再正常工作。|
 |disable-scroll|boolean|false|当在canvas中移动，且有绑定手势事件时，禁止屏幕滚动以及下拉刷新。|
 
-#### 样式
+## 样式
 
-支持 [通用样式](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-common-styles-0000001170210009) 。  
+支持 [通用样式](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-common-styles-0000001170210009) 。
 
-#### 事件
+## 事件
 
-除了支持 [通用事件](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-events-0000001123530338) 以外，还支持如下事件。  
+除了支持 [通用事件](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-events-0000001123530338) 以外，还支持如下事件。
 
 |名称|参数|描述|
 |:------|:-|:----------------------------------------------------|
 |longtap|-|手指长按500ms之后触发，触发长按事件后进行移动，不会触发屏幕的滚动。|
 |error|-|当发生错误时触发error事件，detail = {errMsg: 'something wrong'}。|
 
-#### 示例代码
+## 示例代码
 
-```
+```screen
 <template>
   <!-- There can only be one root node in the template -->
   <div class="container">
@@ -787,16 +787,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 </script>
 ```
 
-#### 版本更新说明
+## 版本更新说明
 
 |版本|发布日期|描述|
 |:---|:---------|:-------|
 |1030|2018-10-31|第一次正式发布。|
 
-#### 相关链接
+## 相关链接
 
-#### 案例
+### 案例
 
 * [保存canvas绘制内容到相册，无法看到绘制内容](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-case-0000001082020374#section33111179514)
 * [华为快应用中通过setInterval绘制canvas动画很卡顿](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-case-0000001082020374#section19628242161212)
-* [如何在快应用图标的右上角添加角标](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-case-0000001082020374#section1196371569)  
+* [如何在快应用图标的右上角添加角标](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-case-0000001082020374#section1196371569)
+

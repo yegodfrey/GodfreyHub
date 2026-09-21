@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/payment-marketi
 
 # 运营工具
 
-* [商家券](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/payment-merchant-coupons-0000001871681997)  
+* **[商家券](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/payment-merchant-coupons-0000001871681997)**   

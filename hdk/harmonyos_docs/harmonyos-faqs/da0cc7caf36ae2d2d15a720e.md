@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-829
 
 # 应用内列表滑动后出现重复数据
 
-#### 问题现象
+## 问题现象
 
-进入应用，在应用搜索框输入搜索关键词，得到搜索结果数据列表，进行滑动之后，出现了重复的搜索结果。  
+进入应用，在应用搜索框输入搜索关键词，得到搜索结果数据列表，进行滑动之后，出现了重复的搜索结果。
 
-#### 背景知识
+## 背景知识
 
 [LazyForEach：数据懒加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach#basicdatasource示例代码)，LazyForEach从数据源中按需迭代数据，并在每次迭代时创建相应组件。当在滚动容器中使用了LazyForEach，框架会根据滚动容器可视区域按需创建组件，当组件滑出可视区域外时，框架会销毁并回收组件以降低内存占用。
 
-在LazyForEach循环渲染过程中，系统为每个item生成一个唯一且持久的[键值](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach#键值生成规则)，用于标识对应的组件。键值变化时，ArkUI框架将视为该数组元素已被替换或修改，并基于新的键值创建新的组件。  
+在LazyForEach循环渲染过程中，系统为每个item生成一个唯一且持久的[键值](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach#键值生成规则)，用于标识对应的组件。键值变化时，ArkUI框架将视为该数组元素已被替换或修改，并基于新的键值创建新的组件。
 
-#### 问题定位
+## 问题定位
 
 1. 复现问题获取日志，从问题日志信息中可以看到，应用在数据懒加载的过程中，使用了重复的键值：
 
-   ```
+   ```shell
    06-13 14:52:33.803   30081-30081   C0392D/com.dou...ceLazyForEach  com.xxx.xxx  W     [(100000:100000:scope)] Use repeat key for index: 3
    06-13 14:52:33.804   30081-30081   C0392D/com.dou...ceLazyForEach  com.xxx.xxx  W     [(100000:100000:scope)] Use repeat key for index: 4
    06-13 14:52:33.805   30081-30081   C0392D/com.dou...ceLazyForEach  com.xxx.xxx  W     [(100000:100000:scope)] Use repeat key for index: 13
@@ -29,17 +29,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-829
    ```
 
 2. 进一步分析在数据懒加载的过程中，当不同数据项生成的键值相同时，框架的行为是不可预测的。在滑动过程中，LazyForEach会预加载划入划出当前页面的子组件，而新建的子组件和销毁的旧子组件具有相同的键值，框架可能取用错误的缓存，导致子组件渲染出现问题。
-3. 若未发现键值重复日志或问题，可能是数据源重复导致的，需要排查数据源是否重复。  
+3. 若未发现键值重复日志或问题，可能是数据源重复导致的，需要排查数据源是否重复。
 
-#### 分析结论
+## 分析结论
 
-应用在数据懒加载的过程中，使用了重复的键值，导致子组件渲染出现问题。  
+应用在数据懒加载的过程中，使用了重复的键值，导致子组件渲染出现问题。
 
-#### 修改建议
+## 修改建议
 
 修改LazyForEach的键值生成函数，使每个数据项生成唯一的键值，保证渲染效果符合预期。示例代码如下：
 
-```
+```ts
 @Entry
 @Component
 struct LazyForEachTest {
@@ -83,7 +83,7 @@ struct LazyForEachTest {
 
 以下是数据项中自定义数据源的实现：
 
-```
+```ts
 class ListDataSource implements IDataSource {
   private list: number[] = [];
   private listeners: DataChangeListener[] = [];
@@ -113,27 +113,27 @@ class ListDataSource implements IDataSource {
     }
   }
 
-  // 通知控制器数据删除
+ // 通知控制器数据删除
   notifyDataDelete(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataDelete(index);
     });
   }
 
-  // 通知控制器添加数据
+// 通知控制器添加数据
   notifyDataAdd(index: number): void {
     this.listeners.forEach(listener => {
       listener.onDataAdd(index);
     });
   }
 
-  // 在指定索引位置删除一个元素
+ // 在指定索引位置删除一个元素
   public deleteItem(index: number): void {
     this.list.splice(index, 1);
     this.notifyDataDelete(index);
   }
 
-  // 在指定索引位置插入一个元素
+ // 在指定索引位置插入一个元素
   public insertItem(index: number, data: number): void {
     this.list.splice(index, 0, data);
     this.notifyDataAdd(index);

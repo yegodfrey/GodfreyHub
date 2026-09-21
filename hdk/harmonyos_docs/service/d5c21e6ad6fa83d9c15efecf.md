@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/tasks-cancel-000000253
 
 Agent Client发送任务取消请求给Agent Server（兼容谷歌A2A tasks/cancel）：
 
-```
+```screen
 curl 'https://xxx/agent/message' \
 -H 'Content-Type: application/json' \
 -H 'agent-session-id:8f01f3d172cd4396a0e535ae8aec6687 '\
@@ -23,7 +23,7 @@ curl 'https://xxx/agent/message' \
 
 Agent Client获取Agent Server任务取消的处理响应：
 
-```
+```screen
 {
     "jsonrpc": "2.0",
     "id": "{{与agent-server通信的全局唯一消息序列号，从请求中取出该字段返回}}",
@@ -39,6 +39,4 @@ Agent Client获取Agent Server任务取消的处理响应：
     }
 }
 ```
-
-<br />
 

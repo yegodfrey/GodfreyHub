@@ -6,53 +6,58 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-bas
 
 # Class (WebController)
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 WebController是ArkWeb组件的控制器类，用于控制Web组件的各种行为。一个WebController对象只能与一个Web组件绑定，绑定后开发者可通过该控制器对Web组件进行页面导航（前进/后退/加载）、焦点控制、缩放调整、页面刷新与停止、Cookie管理、JavaScript注入与执行等操作。
 
-WebController适用于需要在应用侧对嵌入式Web组件进行主动控制的场景，例如实现浏览器式的前进后退导航、在应用侧与网页侧之间建立JavaScript交互通道、动态加载网页内容或管理Cookie数据。  
-![](https://media:401788445310328724)  
-* 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+WebController适用于需要在应用侧对嵌入式Web组件进行主动控制的场景，例如实现浏览器式的前进后退导航、在应用侧与网页侧之间建立JavaScript交互通道、动态加载网页内容或管理Cookie数据。
+> 说明
+>
+> * 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+>
+> * 本Class从API version 8开始支持。
+>
+> * 该组件从API version 9开始废弃，建议使用[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller)代替。
+>
+> * 示例效果请以真机运行为准。
 
-* 本Class从API version 8开始支持。
+## 创建对象
 
-* 该组件从API version 9开始废弃，建议使用[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller)代替。
-
-* 示例效果请以真机运行为准。
-
-#### 创建对象
-
-```
+```ts
 let webController: WebController = new WebController()
 ```
 
-#### constructor^(deprecated)^
+## constructor^(deprecated)^
 
 constructor()
 
-WebController的构造函数。  
-![](https://media:401788445310376725)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[constructor^11+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#constructor11)代替。
+WebController的构造函数。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[constructor^11+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#constructor11)代替。
 
-系统能力： SystemCapability.Web.Webview.Core  
+**系统能力：** SystemCapability.Web.Webview.Core
 
-#### getCookieManager^(deprecated)^
+## getCookieManager^(deprecated)^
 
 getCookieManager(): WebCookie
 
-获取Web组件cookie管理对象。  
-![](https://media:401788445310717726)  
-从API version 9开始支持，从API version 9开始废弃，建议使用[getCookie](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webcookiemanager#getcookiedeprecated)代替。
+获取Web组件cookie管理对象。
+> 说明
+>
+> 从API version 9开始支持，从API version 9开始废弃，建议使用[getCookie](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webcookiemanager#getcookiedeprecated)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------|:---------------------------------------------------------------------------------------------------------------------------------------|
 |WebCookie|Web组件cookie管理对象，参考[WebCookie](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcookie)定义。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -71,19 +76,20 @@ struct WebComponent {
 }
 ```
 
-#### requestFocus^(deprecated)^
+## requestFocus^(deprecated)^
 
 requestFocus()
 
-使当前Web页面获取焦点。  
-![](https://media:401788445310765727)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[requestFocus^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#requestfocus)代替。
+使当前Web页面获取焦点。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[requestFocus^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#requestfocus)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -102,25 +108,26 @@ struct WebComponent {
 }
 ```
 
-#### accessBackward^(deprecated)^
+## accessBackward^(deprecated)^
 
 accessBackward(): boolean
 
-当前页面是否可后退，即当前页面是否有返回历史记录。  
-![](https://media:401788445311227728)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[accessBackward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessbackward)代替。
+当前页面是否可后退，即当前页面是否有返回历史记录。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[accessBackward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessbackward)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------|:--------------------|
 |boolean|可以后退返回true，否则返回false。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -140,25 +147,26 @@ struct WebComponent {
 }
 ```
 
-#### accessForward^(deprecated)^
+## accessForward^(deprecated)^
 
 accessForward(): boolean
 
-当前页面是否可前进，即当前页面是否有前进历史记录。  
-![](https://media:401788445311279729)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[accessForward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessforward)代替。
+当前页面是否可前进，即当前页面是否有前进历史记录。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[accessForward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessforward)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------|:-----------------------------------|
 |boolean|返回true表示当前页面可以前进，返回false表示当前页面不可以前进。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -178,31 +186,32 @@ struct WebComponent {
 }
 ```
 
-#### accessStep^(deprecated)^
+## accessStep^(deprecated)^
 
 accessStep(step: number): boolean
 
-检查当前页面是否可前进或者后退给定的step步。  
-![](https://media:401788445311350730)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[accessStep^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessstep)代替。
+检查当前页面是否可前进或者后退给定的step步。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[accessStep^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessstep)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:-----|:-|:--------------------|
 |step|number|是|要跳转的步数，正数代表前进，负数代表后退。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------|:--------------------------------------|
 |boolean|页面是否可以前进或后退给定的step步。true表示可以，false为不可以。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -223,19 +232,20 @@ struct WebComponent {
 }
 ```
 
-#### backward^(deprecated)^
+## backward^(deprecated)^
 
 backward()
 
-按照历史栈，后退一个页面。建议在调用backward前先调用[accessBackward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessbackward)检查当前页面是否可后退。  
-![](https://media:401788445311660731)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[backward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#backward)代替。
+按照历史栈，后退一个页面。建议在调用backward前先调用[accessBackward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessbackward)检查当前页面是否可后退。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[backward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#backward)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -254,19 +264,20 @@ struct WebComponent {
 }
 ```
 
-#### forward^(deprecated)^
+## forward^(deprecated)^
 
 forward()
 
-按照历史栈，前进一个页面。建议在调用forward前先调用[accessForward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessforward)检查当前页面是否可前进。  
-![](https://media:401788445311696732)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[forward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#forward)代替。
+按照历史栈，前进一个页面。建议在调用forward前先调用[accessForward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessforward)检查当前页面是否可前进。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[forward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#forward)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -285,25 +296,26 @@ struct WebComponent {
 }
 ```
 
-#### deleteJavaScriptRegister^(deprecated)^
+## deleteJavaScriptRegister^(deprecated)^
 
 deleteJavaScriptRegister(name: string)
 
-删除通过registerJavaScriptProxy注册到window上的指定name的应用侧JavaScript对象。删除后立即生效，无须调用[refresh](#refreshdeprecated)接口。  
-![](https://media:401788445311732733)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[deleteJavaScriptRegister^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#deletejavascriptregister)代替。
+删除通过registerJavaScriptProxy注册到window上的指定name的应用侧JavaScript对象。删除后立即生效，无须调用[refresh](#refreshdeprecated)接口。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[deleteJavaScriptRegister^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#deletejavascriptregister)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:-----|:-|:----------------------------------------------|
 |name|string|是|注册对象的名称，可在网页侧JavaScript中通过此名称调用应用侧JavaScript对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -323,25 +335,26 @@ struct WebComponent {
 }
 ```
 
-#### getHitTest^(deprecated)^
+## getHitTest^(deprecated)^
 
 getHitTest(): HitTestType
 
-获取当前被点击区域的元素类型。  
-![](https://media:401788445311827734)  
-从API version 8开始支持，从API version 9开始废弃。建议使用[getHitTest^(deprecated)^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#gethittestdeprecated)替代。
+获取当前被点击区域的元素类型。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃。建议使用[getHitTest^(deprecated)^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#gethittestdeprecated)替代。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:----------------------------------------------------------------------------------------------------------------------------------|:----------|
 |[HitTestType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#hittesttypedeprecated)|被点击区域的元素类型。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -361,7 +374,7 @@ struct WebComponent {
 }
 ```
 
-#### loadData^(deprecated)^
+## loadData^(deprecated)^
 
 loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string })
 
@@ -369,13 +382,14 @@ baseUrl为空时，通过"data"协议加载指定的一段字符串。
 
 当baseUrl为"data"协议时，编码后的data字符串将被Web组件作为"data"协议加载。
 
-当baseUrl为"http/https"协议时，编码后的data字符串将被Web组件以类似loadUrl的方式以非编码字符串处理。  
-![](https://media:401788445311867735)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[loadData^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loaddata)代替。
+当baseUrl为"http/https"协议时，编码后的data字符串将被Web组件以类似loadUrl的方式以非编码字符串处理。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[loadData^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loaddata)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---------|:-----|:-|:----------------------------------------------------------------------------------------------------------|
@@ -385,9 +399,9 @@ baseUrl为空时，通过"data"协议加载指定的一段字符串。
 |baseUrl|string|否|指定的一个URL路径（"http"/"https"/"data"协议），并由Web组件赋值给window.origin。为空时通过"data"协议加载字符串。默认值为空字符串。|
 |historyUrl|string|否|历史记录URL。默认值为空字符串。非空时，可被历史记录管理，实现前进后退功能。当baseUrl为空时，此属性无效。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -410,30 +424,31 @@ struct WebComponent {
 }
 ```
 
-#### loadUrl^(deprecated)^
+## loadUrl^(deprecated)^
 
-loadUrl(options: { url: string \| Resource, headers?: Array\<Header\> })
+loadUrl(options: { url: string | Resource, headers?: Array<Header> })
 
 使用指定的HTTP头加载指定的URL。
 
 通过loadUrl注入的对象只在当前document有效，即通过loadUrl导航到新的页面会无效。
 
-而通过registerJavaScriptProxy注入的对象，在loadUrl导航到新的页面也会有效。  
-![](https://media:401788445312150736)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[loadUrl^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)代替。
+而通过registerJavaScriptProxy注入的对象，在loadUrl导航到新的页面也会有效。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[loadUrl^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:-----------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------|
-|url|string \| Resource|是|需要加载的 URL。|
-|headers|Array\<[Header](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#header)\>|否|URL的附加HTTP请求头，用于自定义请求行为（如设置身份验证信息、指定内容类型、添加用户代理等）。当需要在请求中携带额外信息时传入。不传入时使用默认值（空数组），不携带额外HTTP请求头。|
+|:------|:---------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------|
+|url|string | Resource|是|需要加载的 URL。|
+|headers|Array<[Header](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#header)>|否|URL的附加HTTP请求头，用于自定义请求行为（如设置身份验证信息、指定内容类型、添加用户代理等）。当需要在请求中携带额外信息时传入。不传入时使用默认值（空数组），不携带额外HTTP请求头。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -452,19 +467,20 @@ struct WebComponent {
 }
 ```
 
-#### onActive^(deprecated)^
+## onActive^(deprecated)^
 
 onActive(): void
 
-调用此接口通知Web组件进入前台激活状态。  
-![](https://media:401788445312582737)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[onActive^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#onactive)替代。
+调用此接口通知Web组件进入前台激活状态。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[onActive^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#onactive)替代。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -483,19 +499,20 @@ struct WebComponent {
 }
 ```
 
-#### onInactive^(deprecated)^
+## onInactive^(deprecated)^
 
 onInactive(): void
 
-调用此接口通知Web组件进入未激活状态。  
-![](https://media:401788445312649738)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[onInactive^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#oninactive)替代。
+调用此接口通知Web组件进入未激活状态。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[onInactive^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#oninactive)替代。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -514,25 +531,26 @@ struct WebComponent {
 }
 ```
 
-#### zoom^(deprecated)^
+## zoom^(deprecated)^
 
 zoom(factor: number): void
 
-调整当前网页的缩放比例。  
-![](https://media:401788445312684739)  
-从API version 8开始支持，从API version 9开始废弃。建议使用[zoom^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#zoom)替代。
+调整当前网页的缩放比例。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃。建议使用[zoom^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#zoom)替代。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-----|:-----|:-|:-------------------------------------------------|
-|factor|number|是|缩放系数。1表示恢复默认加载网页的缩放比例；小于1为缩小，大于1为放大。取值范围(0, 100\]。|
+|:-----|:-----|:-|:------------------------------------------------|
+|factor|number|是|缩放系数。1表示恢复默认加载网页的缩放比例；小于1为缩小，大于1为放大。取值范围(0, 100]。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -552,19 +570,20 @@ struct WebComponent {
 }
 ```
 
-#### refresh^(deprecated)^
+## refresh^(deprecated)^
 
 refresh()
 
-调用此接口通知Web组件刷新网页。  
-![](https://media:401788445312738740)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[refresh^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#refresh)代替。
+调用此接口通知Web组件刷新网页。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[refresh^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#refresh)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -583,27 +602,28 @@ struct WebComponent {
 }
 ```
 
-#### registerJavaScriptProxy^(deprecated)^
+## registerJavaScriptProxy^(deprecated)^
 
-registerJavaScriptProxy(options: { object: object, name: string, methodList: Array\<string\> })
+registerJavaScriptProxy(options: { object: object, name: string, methodList: Array<string> })
 
-注入JavaScript对象到window对象中，并在window对象中调用该对象的方法。注入的对象在页面下一次（重新）加载前不会出现在JavaScript中。  
-![](https://media:401788445312786741)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[registerJavaScriptProxy^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#registerjavascriptproxy)代替。
+注入JavaScript对象到window对象中，并在window对象中调用该对象的方法。注入的对象在页面下一次（重新）加载前不会出现在JavaScript中。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[registerJavaScriptProxy^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#registerjavascriptproxy)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:---------|:--------------|:-|:------------------------------------------------------------------------------------|
+|:---------|:------------|:-|:------------------------------------------------------------------------------------|
 |object|object|是|参与注册的应用侧JavaScript对象。可以声明方法，也可以声明属性，但是不支持h5直接调用。其中方法的参数和返回类型只能为string、number、boolean。|
 |name|string|是|注册对象的名称，与window中调用的对象名一致。注册后window对象可以通过此名字访问应用侧JavaScript对象。|
-|methodList|Array\<string\>|是|参与注册的应用侧JavaScript对象的方法。|
+|methodList|Array<string>|是|参与注册的应用侧JavaScript对象的方法。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 class TestObj {
   constructor() {
@@ -643,7 +663,7 @@ struct Index {
 
 加载的HTML文件。
 
-```
+```html
 <!-- index.html -->
 <!DOCTYPE html>
 <html>
@@ -662,26 +682,27 @@ struct Index {
 </html>
 ```
 
-#### runJavaScript^(deprecated)^
+## runJavaScript^(deprecated)^
 
-runJavaScript(options: { script: string, callback?: (result: string) =\> void })
+runJavaScript(options: { script: string, callback?: (result: string) => void })
 
-异步执行JavaScript脚本，并通过回调方式返回脚本执行的结果。runJavaScript需要在loadUrl完成后，比如onPageEnd中调用。  
-![](https://media:401788445312871742)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[runJavaScript^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascript)代替。
+异步执行JavaScript脚本，并通过回调方式返回脚本执行的结果。runJavaScript需要在loadUrl完成后，比如onPageEnd中调用。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[runJavaScript^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascript)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------|:-|:----------------------------------------------------------------------|
+|:-------|:-----------------------|:-|:----------------------------------------------------------------------|
 |script|string|是|JavaScript脚本。|
-|callback|(result: string) =\> void|否|回调执行JavaScript脚本结果。JavaScript脚本若执行失败或无返回值时，返回null。当callback参数不传入时不进行回调。|
+|callback|(result: string) => void|否|回调执行JavaScript脚本结果。JavaScript脚本若执行失败或无返回值时，返回null。当callback参数不传入时不进行回调。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -711,7 +732,7 @@ struct WebComponent {
 
 加载的HTML文件。
 
-```
+```html
 <!-- index.html -->
 <!DOCTYPE html>
 <html>
@@ -730,19 +751,20 @@ struct WebComponent {
 </html>
 ```
 
-#### stop^(deprecated)^
+## stop^(deprecated)^
 
 stop()
 
-停止页面加载。  
-![](https://media:401788445313343743)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[stop^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#stop)代替。
+停止页面加载。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[stop^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#stop)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -761,19 +783,20 @@ struct WebComponent {
 }
 ```
 
-#### clearHistory^(deprecated)^
+## clearHistory^(deprecated)^
 
 clearHistory(): void
 
-删除所有前进后退记录。  
-![](https://media:401788445313385744)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[clearHistory^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#clearhistory)代替。
+删除所有前进后退记录。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[clearHistory^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#clearhistory)代替。
 
-系统能力： SystemCapability.Web.Webview.Core
+**系统能力：** SystemCapability.Web.Webview.Core
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component

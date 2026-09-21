@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-creator-wor
 
 # 游戏适配
 
-* [游戏代码适配](https://developer.huawei.com/consumer/cn/doc/games-guides/games-creator-code-0000002349749837)  
-* [系统能力适配](https://developer.huawei.com/consumer/cn/doc/games-guides/games-creator-system-0000002318337730)  
+* **[游戏代码适配](https://developer.huawei.com/consumer/cn/doc/games-guides/games-creator-code-0000002349749837)**   
+* **[系统能力适配](https://developer.huawei.com/consumer/cn/doc/games-guides/games-creator-system-0000002318337730)**   

@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/hwaudioconfig
 |:---------------------------------------------------------------------|
 |public final class HwAudioConfigManager 音频配置管理，例如：设置缓存大小、清除缓存、保存播放列表等。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -24,93 +24,93 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/hwaudioconfig
 |void|[continueToDownloadIfNeed](#section2300mcpsimp)() 继续缓冲。|
 |void|[setSessionState](#section4501627198)(boolean isActive) 设置MediaSession状态。|
 
-#### Public Methods
+## Public Methods
 
-#### setPlayCacheSize
+### setPlayCacheSize
 
 |Method|
 |:-----------------------------------------------|
 |public void setPlayCacheSize(long size) 设置缓冲区大小。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
-|:---|:-----------------------------------------------------------|
-|size|缓冲区大小。 设置范围：Mx1024x1024，M取大于1的整数，默认值200\*1024\*1024，单位：Byte。|
+|:---|:--------------------------------------------------------------|
+|size|缓冲区大小。 设置范围：*M* x1024x1024，*M*取大于1的整数，默认值200*1024*1024，单位：Byte。|
 
-#### getPlayCacheSize
+### getPlayCacheSize
 
 |Method|
 |:--------------------------------------|
 |public long getPlayCacheSize() 获取缓冲区大小。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:---|:-------------|
 |long|缓冲区大小，单位：Byte。|
 
-#### getUsedCacheSize
+### getUsedCacheSize
 
 |Method|
 |:------------------------------------------|
 |public long getUsedCacheSize() 获取已使用的缓冲区大小。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:---|:-----------------|
 |long|已使用的缓冲区大小，单位：Byte。|
 
-#### clearPlayCache
+### clearPlayCache
 
 |Method|
 |:---------------------------------|
 |public void clearPlayCache() 清除缓存。|
 
-#### setNotificationFactory
+### setNotificationFactory
 
 |Method|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setNotificationFactory([INotificationFactory](https://developer.huawei.com/consumer/cn/doc/development/Media-References/inotificationfactory-0000001175782607) factory) 设置通知工厂，用于传递通知栏样式信息，例如当前歌曲的歌曲名、歌手名、图片等。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |factory|通知创建工厂。|
 
-#### setSaveQueue
+### setSaveQueue
 
 |Method|
 |:------------------------------------------------------|
 |public void setSaveQueue(boolean isSaveQueue) 是否保存播放队列。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----------|:----------------------------------------------------------------|
 |isSaveQueue|是否保存播放队列。 * true：保存 * false：不保存 默认值false。设置为true，下次启动时可以直接恢复播放队列。|
 
-#### stopDownload
+### stopDownload
 
 |Method|
 |:-------------------------------|
 |public void stopDownload() 停止缓冲。|
 
-#### continueToDownloadIfNeed
+### continueToDownloadIfNeed
 
 |Method|
 |:-------------------------------------------|
 |public void continueToDownloadIfNeed() 继续缓冲。|
 
-#### setSessionState
+### setSessionState
 
 |Method|
 |:--------------------------------------------------------------|
 |public void setSessionState(boolean isActive) 设置MediaSession状态。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------------------------------------------------------------------------------------------------------------------|

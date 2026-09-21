@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/mapservicea
 |:----------------------------------------|
 |public class MapServiceAreaInfo 地图服务区信息类。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:----------------------------------------------------|
@@ -18,39 +18,39 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/mapservicea
 |int|[getRemainDist](#section20518181032)() 获取当前位置到服务区的距离。|
 |int|[getType](#section93404311441)() 获取服务区的类型。|
 
-#### Public Methods
+## Public Methods
 
-#### getName
+### getName
 
 |Method|
 |:--------------------------------|
 |public String getName() 获取服务区的名称。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:-----|:----------|
 |String|返回当前服务区的名称。|
 
-#### getRemainDist
+### getRemainDist
 
 |Method|
 |:----------------------------------------|
 |public int getRemainDist() 获取当前位置到服务区的距离。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:---|:------------------|
 |int|返回当前位置到服务区的距离，单位：米。|
 
-#### getType
+### getType
 
 |Method|
 |:-----------------------------|
 |public int getType() 获取服务区的类型。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:---|:-------------------------|

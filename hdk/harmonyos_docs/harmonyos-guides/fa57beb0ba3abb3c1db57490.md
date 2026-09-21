@@ -10,9 +10,9 @@ PDF Kit支持添加和删除PDF文档书签。
 
 添加书签时，可设置标题、颜色，是否粗体、斜体、跳转信息等。
 
-![](https://media:401788444367239479)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/qhMg6njzQce0Zg5JHlpPgw/zh-cn_image_0000002733435410.png?HW-CC-KV=V1&HW-CC-Date=20260917T084549Z&HW-CC-Expire=31536000000&HW-CC-Sign=9EC283D190CA3A31DF10B3CF3210D20E568A605303413C50F061D4FEFC9AC311)
 
-#### 接口说明
+## 接口说明
 
 |接口名|描述|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|
@@ -24,9 +24,9 @@ PDF Kit支持添加和删除PDF文档书签。
 |[setDestInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#setdestinfo)(info: DestInfo): void|设置书签的跳转信息。|
 |[getBookmarkInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getbookmarkinfo)(): BookmarkInfo|获取书签信息。|
 
-#### 示例代码
+## 示例代码
 
-添加书签：
+**添加书签**：
 
 1. 调用loadDocument方法，加载PDF文档。
 
@@ -40,7 +40,7 @@ PDF Kit支持添加和删除PDF文档书签。
 
 6. 设置保存文档沙箱路径并保存。
 
-删除书签：
+**删除书签**：
 
 1. 调用loadDocument方法，加载PDF文档。
 
@@ -50,7 +50,7 @@ PDF Kit支持添加和删除PDF文档书签。
 
 4. 设置保存文档沙箱路径并保存。
 
-```
+```TypeScript
 import { pdfService } from '@kit.PDFKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 // ...

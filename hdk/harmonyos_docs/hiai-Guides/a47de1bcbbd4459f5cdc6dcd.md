@@ -6,6 +6,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/specifications-000
 
 # 规格说明
 
-* [支持的平台](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/supported-platforms-0000001052830507)  
-* [支持的算子](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/supported-operators-0000001327003937)  
-* [算子规格说明](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/operator-specifications-0000001052845655)  
+* **[支持的平台](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/supported-platforms-0000001052830507)**   
+* **[支持的算子](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/supported-operators-0000001327003937)**   
+* **[算子规格说明](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/operator-specifications-0000001052845655)**   

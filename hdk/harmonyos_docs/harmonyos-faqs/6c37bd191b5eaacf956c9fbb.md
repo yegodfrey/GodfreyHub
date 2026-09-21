@@ -6,34 +6,34 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-895
 
 # 怎么解决自定义Span组件在NavDestination下无法显示问题
 
-#### 问题现象
+## 问题现象
 
 包含Span组件的自定义组件，包含在Text组件下，让该Text组件置于NavDestination页面下，结果该自定义组件Span里的内容：Span自定义组件内容，没有显示。
 
 问题效果预览：
 
-![](https://media:101782454337076657 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/vekZBIQ5RqOsRB0s_UjIXQ/zh-cn_image_0000002658918867.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=64FBB4D1C4990A9042464B31D2707D2B4EE28D14E8939DFCC8F44D7C0AC25677 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [Text组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)：Text是文本组件，通常用于展示用户视图，如显示文章的文字。
-* [NavDestination组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)：作为子页面的根容器，用于显示Navigation的内容区。  
+* [NavDestination组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)：作为子页面的根容器，用于显示Navigation的内容区。
 
-#### 问题定位
+## 问题定位
 
 * Span内容不显示，依据文档排查该自定义子组件当前能力是否支持使用Span组件。
-* 在NavDestination页面下不显示，单独抽离出来在Page页面查看是否显示。  
+* 在NavDestination页面下不显示，单独抽离出来在Page页面查看是否显示。
 
-#### 分析结论
+## 分析结论
 
 * Page会把全部的自定义组件都展开，Text组件解析到自定义组件下。
-* NavDestination机制下不会全部展开，自定义组件依赖后续组件内部自行展开，Text组件非容器组件，没有在解析子组件时做展开自定义操作。  
+* NavDestination机制下不会全部展开，自定义组件依赖后续组件内部自行展开，Text组件非容器组件，没有在解析子组件时做展开自定义操作。
 
-#### 修改建议
+## 修改建议
 
 1. Text不支持自定义组件，且Span组件作为Text、ContainerSpan组件的子组件，只能在这两个组件内使用，把Text和其下的Span抽离出来成单独的组件。
 
-   ```
+   ```ts
    @Component
    export struct pageOne {
      build() {
@@ -81,10 +81,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-895
 
    效果预览：
 
-   ![](https://media:101782454337105658 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Wl3jZ8E6RfmIkhD35-GEsQ/zh-cn_image_0000002628399650.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=F794826ABBDF4EB1192CC4E37562714EEC83A03AFFBE2024A496B632C465AC36 "点击放大")
 2. 如果Span组件是一组公共的特性，则可以通过@Builder装饰器把公共的部分抽取出来。
 
-   ```
+   ```ts
    @Component
    export struct pageOne {
      build() {
@@ -137,10 +137,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-895
 
    效果预览：
 
-   ![](https://media:101782454337133659 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/okcsi1iGQ-6LJVVOisumwA/zh-cn_image_0000002658798917.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8292F7B9962B6C93F99B20F1350C9560EA19F76BE59927DAD60033FA32EE686 "点击放大")
 3. 如果需要使用自定义组件，应该选择支持自定义子组件的组件，比如Column组件。
 
-   ```
+   ```ts
    @Component
    export struct CustomSpan {
      aboutToAppear(): void {
@@ -200,10 +200,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-895
 
    效果预览：
 
-![](https://media:101782454337196660 "点击放大")  
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/zOcuOjfhQWuPgnUyaaBuxg/zh-cn_image_0000002628559556.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=2F0C73BD3757BB7EE3DD5F2DAC6A3C78ACFBD18814DA7B173CFDC30E2690AD86 "点击放大")
 
-#### 总结
+## 总结
 
 * 组件下的子组件在使用时，首先要判断该组件支持的子组件类型，只有支持的子组件才能使用，才能保证所有场景都正确显示，比如Span组件只能在Text、ContainerSpan组件里使用。所以，最好按照组件规格说明来使用组件。
 * 自定义组件在使用时，要判断其所在父组件是否支持自定义组件，如果不支持，则不应该包含自定义组件。比如Text组件不支持自定义组件，就不能在Text的子组件里使用自定义组件。否则，系统不能保证所有场景显示都符合预期。
-* 自定义组件在使用时，也要判断自定义组件的最外层组件的使用范围。比如，自定义组件最外层是Span，而Span只能在Text和ContainerSpan里使用，如果用在Column里，则不会生效。  
+* 自定义组件在使用时，也要判断自定义组件的最外层组件的使用范围。比如，自定义组件最外层是Span，而Span只能在Text和ContainerSpan里使用，如果用在Column里，则不会生效。
+

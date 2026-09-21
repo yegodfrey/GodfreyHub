@@ -6,34 +6,37 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-p
 
 # 代扣结果回调通知
 
-#### 功能介绍
+> phone | 2in1 | tablet
 
-用户代扣支付完成后，华为支付服务器调用此接口向开发者服务器发送支付关键事件通知。  
-![](https://media:401788444937584411)  
-1. 为保证回调请求的可靠性，系统具备重试机制，所以可能出现重发的通知。
+## 功能介绍
 
-2. 订单状态需根据orderStatus字段判断。
+用户代扣支付完成后，华为支付服务器调用此接口向开发者服务器发送支付关键事件通知。
+> 说明
+>
+> 1. 为保证回调请求的可靠性，系统具备重试机制，所以可能出现重发的通知。
+>
+> 2. 订单状态需根据orderStatus字段判断。
 
-#### 接口原型
+## 接口原型
 
-* 承载协议： HTTPS POST
+* **承载协议：** HTTPS POST
 
-* 接口方向： 华为支付服务器 -\> 开发者服务器
+* **接口方向：** 华为支付服务器 -> 开发者服务器
 
-* 接口URL： URL由开发者在请求预下单接口时传递的callbackUrl
+* **接口URL：** URL由开发者在请求预下单接口时传递的callbackUrl
 
-* 数据格式：
+* **数据格式：**
 
   请求消息：Content-Type: application/json
 
-响应消息：Content-Type: application/json  
+  响应消息：Content-Type: application/json
 
-#### 请求参数
+## 请求参数
 
-Request Body  
+**Request Body**
 
 |参数|是否必选|参数类型|描述|
-|:--------------|:---|:---------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+|:--------------|:---|:-------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 |callbackId|是|String|回调通知的唯一ID。|
 |callbackTime|是|String|回调通知时间。格式为yyyy-MM-dd HH:mm:ss。|
 |dataType|是|String|数据加密类型标识。 - encrypt：加密 - plain：未加密|
@@ -53,12 +56,12 @@ Request Body
 |promotionAmount|是|Long|优惠金额，单位：分。|
 |finishTime|否|String|支付完成时间，UTC时间格式（yyyy-MM-dd'T'HH:mm:ss.SSSZ）。|
 |paymentTools|否|String|支付工具。 - WECHAT_MICROPAY：微信小程序支付 - AGMT：快捷 - ACCT：账户余额 - HUAWEIPAY：华为pay|
-|promotionDetail|否|List\<[PromotionItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#promotionitem)\>|营销活动信息。|
+|promotionDetail|否|List<[PromotionItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#promotionitem)>|营销活动信息。|
 |payer|否|[PayerOut](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#payerout)|用户支付时客户端信息。|
 
-#### 请求示例
+## 请求示例
 
-```
+```json
 POST /hw/pay/callback HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 {
@@ -83,24 +86,24 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-#### 响应参数
+## 响应参数
 
-Response Header  
+**Response Header**
 
 |参数|是否必选|参数类型|描述|
 |:-----------|:---|:-----|:----------------------------------|
 |Content-Type|是|String|取值为：application/json; charset=UTF-8|
 
-Response Body  
+**Response Body**
 
 |参数|是否必选|参数类型|描述|
 |:---------|:---|:-----|:--------------------------------------------------------------------------------|
 |resultCode|是|String|响应码。华为支付侧解析application/json类型响应。 "000000"表示成功，其他值表示失败，如返回值格式不匹配或非"000000"将视为回调失败。|
 |resultDesc|是|String|结果描述。|
 
-#### 响应示例
+## 响应示例
 
-```
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=UTF-8
 {

@@ -6,60 +6,63 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-a
 
 # @ohos.arkui.observer (无感监听)
 
-本模块提供UI组件行为变化的无感监听能力，包括监听页面状态、滚动事件、页面路由、屏幕像素密度、布局和绘制、页面切换以及TabContent状态变化等。适用于需要在不侵入组件业务逻辑的情况下感知UI状态变化的场景。推荐使用[UIObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiobserver)进行组件监听。  
-![](https://media:401788445200638218)  
-* 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-* 本模块接口仅可在Stage模型下使用。
+本模块提供UI组件行为变化的无感监听能力，包括监听页面状态、滚动事件、页面路由、屏幕像素密度、布局和绘制、页面切换以及TabContent状态变化等。适用于需要在不侵入组件业务逻辑的情况下感知UI状态变化的场景。推荐使用[UIObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiobserver)进行组件监听。
+> 说明
+>
+> * 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> * 本模块接口仅可在Stage模型下使用。
+>
+> * UIObserver仅能监听到本进程内的相关信息，不支持获取跨进程场景的信息。
 
-* UIObserver仅能监听到本进程内的相关信息，不支持获取跨进程场景的信息。
+## 导入模块
 
-#### 导入模块
-
-```
+```ts
 import { uiObserver } from '@kit.ArkUI';
 ```
 
-#### NavDestinationState
+## NavDestinationState
 
 NavDestination组件状态。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
-|:---------------------|:--|:---------------------------------------------------------------|
-|ON_SHOWN|0|NavDestination组件显示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|ON_HIDDEN|1|NavDestination组件隐藏。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|ON_APPEAR^12+^|2|NavDestination从组件树上挂载。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|ON_DISAPPEAR^12+^|3|NavDestination从组件树上卸载。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|ON_WILL_SHOW^12+^|4|NavDestination组件显示之前。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|ON_WILL_HIDE^12+^|5|NavDestination组件隐藏之前。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|ON_WILL_APPEAR^12+^|6|NavDestination挂载到组件树之前。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|ON_WILL_DISAPPEAR^12+^|7|NavDestination从组件树上卸载之前。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|ON_ACTIVE^17+^|8|NavDestination组件处于激活态。 元服务API： 从API version 17开始，该接口支持在元服务中使用。|
-|ON_INACTIVE^17+^|9|NavDestination组件处于非激活态。 元服务API： 从API version 17开始，该接口支持在元服务中使用。|
-|ON_BACKPRESS^12+^|100|NavDestination组件返回。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
+|:---------------------|:--|:-------------------------------------------------------------------|
+|ON_SHOWN|0|NavDestination组件显示。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|ON_HIDDEN|1|NavDestination组件隐藏。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|ON_APPEAR^12+^|2|NavDestination从组件树上挂载。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|ON_DISAPPEAR^12+^|3|NavDestination从组件树上卸载。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|ON_WILL_SHOW^12+^|4|NavDestination组件显示之前。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|ON_WILL_HIDE^12+^|5|NavDestination组件隐藏之前。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|ON_WILL_APPEAR^12+^|6|NavDestination挂载到组件树之前。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|ON_WILL_DISAPPEAR^12+^|7|NavDestination从组件树上卸载之前。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|ON_ACTIVE^17+^|8|NavDestination组件处于激活态。 **元服务API：** 从API version 17开始，该接口支持在元服务中使用。|
+|ON_INACTIVE^17+^|9|NavDestination组件处于非激活态。 **元服务API：** 从API version 17开始，该接口支持在元服务中使用。|
+|ON_BACKPRESS^12+^|100|NavDestination组件返回。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
 
-#### ScrollEventType^12+^
+## ScrollEventType^12+^
 
 滚动事件的类型。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
 |:-----------|:-|:------|
 |SCROLL_START|0|滚动事件开始。|
 |SCROLL_STOP|1|滚动事件结束。|
 
-#### RouterPageState
+## RouterPageState
 
 routerPage生命周期触发时对应的状态。RouterPageState用于[RouterPageInfo](#routerpageinfo)中，作为[routerPageUpdate](#uiobserveronrouterpageupdate)无感监听的返回值。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
 |:-----------------|:-|:--------|
@@ -69,138 +72,138 @@ routerPage生命周期触发时对应的状态。RouterPageState用于[RouterPag
 |ON_PAGE_HIDE|3|page隐藏。|
 |ON_BACK_PRESS|4|page返回时。|
 
-#### TabContentState^12+^
+## TabContentState^12+^
 
 TabContent组件的状态。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
 |:------|:-|:--------------|
 |ON_SHOW|0|TabContent组件显示。|
 |ON_HIDE|1|TabContent组件隐藏。|
 
-#### NavDestinationInfo
+## NavDestinationInfo
 
 NavDestination组件信息，由系统返回给开发者。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:----------------------------------------------------------------------------|
-|navigationId|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|否|包含NavDestination组件的Navigation组件的id。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|name|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|否|NavDestination组件的名称。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|state|[NavDestinationState](#navdestinationstate)|否|否|NavDestination组件的状态。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|index^12+^|number|否|否|NavDestination在页面栈中的索引。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 取值范围：\[0, +∞)|
-|param^12+^|Object|否|是|NavDestination组件的参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|navDestinationId^12+^|string|否|否|NavDestination组件的唯一标识ID。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|mode^15+^|[NavDestinationMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#navdestinationmode枚举说明11)|否|是|NavDestination类型。 元服务API： 从API version 15开始，该接口支持在元服务中使用。|
-|uniqueId^15+^|number|否|是|NavDestination组件的uniqueId。 元服务API： 从API version 15开始，该接口支持在元服务中使用。|
-|size^23+^|[Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#size)|否|是|NavDestination组件的大小，单位是vp。 元服务API： 从API version 23开始，该接口支持在元服务中使用。|
+|:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:-------------------------------------------------------------------------------|
+|navigationId|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|否|包含NavDestination组件的Navigation组件的id。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|name|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|否|NavDestination组件的名称。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|state|[NavDestinationState](#navdestinationstate)|否|否|NavDestination组件的状态。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|index^12+^|number|否|否|NavDestination在页面栈中的索引。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。 取值范围：[0, +∞)|
+|param^12+^|Object|否|是|NavDestination组件的参数。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|navDestinationId^12+^|string|否|否|NavDestination组件的唯一标识ID。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|mode^15+^|[NavDestinationMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#navdestinationmode枚举说明11)|否|是|NavDestination类型。 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。|
+|uniqueId^15+^|number|否|是|NavDestination组件的uniqueId。 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。|
+|size^23+^|[Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#size)|否|是|NavDestination组件的大小，单位是vp。 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。|
 
-#### NavigationInfo^12+^
+## NavigationInfo^12+^
 
 Navigation组件信息。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:------------|:------------------------------------------------------------------------------------------------------------------------------|:-|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|navigationId|string|否|否|Navigation组件的id。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|pathStack|[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)|否|否|Navigation组件的导航控制器。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|uniqueId^20+^|number|否|是|Navigation组件的uniqueId，可以通过[queryNavigationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#querynavigationinfo12)获取。 元服务API： 从API version 20开始，该接口支持在元服务中使用。|
+|:------------|:------------------------------------------------------------------------------------------------------------------------------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|navigationId|string|否|否|Navigation组件的id。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|pathStack|[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)|否|否|Navigation组件的导航控制器。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|uniqueId^20+^|number|否|是|Navigation组件的uniqueId，可以通过[queryNavigationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#querynavigationinfo12)获取。 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。|
 
-#### ScrollEventInfo^12+^
+## ScrollEventInfo^12+^
 
 ScrollEvent滚动信息。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:----------|:-----------------------------------------------------------------------------------------------|:-|:-|:-----------------------------------------------------|
-|id|string|否|否|滚动组件的id。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|uniqueId|number|否|否|滚动组件的uniqueId。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|scrollEvent|[ScrollEventType](#scrolleventtype12)|否|否|滚动事件的类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|offset|number|否|否|滚动组件的当前偏移量。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|axis^20+^|[Axis](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#axis)|否|是|滚动组件的滚动方向。 元服务API： 从API version 20开始，该接口支持在元服务中使用。|
+|:----------|:-----------------------------------------------------------------------------------------------|:-|:-|:---------------------------------------------------------|
+|id|string|否|否|滚动组件的id。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|uniqueId|number|否|否|滚动组件的uniqueId。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|scrollEvent|[ScrollEventType](#scrolleventtype12)|否|否|滚动事件的类型。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|offset|number|否|否|滚动组件的当前偏移量。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|axis^20+^|[Axis](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#axis)|否|是|滚动组件的滚动方向。 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。|
 
-#### ObserverOptions^12+^
+## ObserverOptions^12+^
 
 Observer选项。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
 |:-|:-----|:-|:-|:-----|
 |id|string|否|否|组件的id。|
 
-#### RouterPageInfo
+## RouterPageInfo
 
 RouterPageInfo包含的信息，由系统返回给开发者。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:-----------------------------------------------------------------------------|
-|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) \| [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|否|否|触发生命周期的routerPage页面对应的上下文信息。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|index|number|否|否|触发生命周期的routerPage在栈中的位置。 取值范围：\[0, +∞) 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|name|string|否|否|触发生命周期的routerPage页面的名称。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|path|string|否|否|触发生命周期的routerPage页面的路径。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|state|[RouterPageState](#routerpagestate)|否|否|触发生命周期的routerPage页面的状态。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|pageId^12+^|string|否|否|触发生命周期的routerPage页面的唯一标识。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|size^23+^|[Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#size)|否|是|routerPage页面的大小，单位是vp。 元服务API： 从API version 23开始，该接口支持在元服务中使用。|
+|:----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:--------------------------------------------------------------------------------|
+|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|否|否|触发生命周期的routerPage页面对应的上下文信息。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|index|number|否|否|触发生命周期的routerPage在栈中的位置。 取值范围：[0, +∞) **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|name|string|否|否|触发生命周期的routerPage页面的名称。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|path|string|否|否|触发生命周期的routerPage页面的路径。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|state|[RouterPageState](#routerpagestate)|否|否|触发生命周期的routerPage页面的状态。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|pageId^12+^|string|否|否|触发生命周期的routerPage页面的唯一标识。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|size^23+^|[Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#size)|否|是|routerPage页面的大小，单位是vp。 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。|
 
-#### DensityInfo^12+^
+## DensityInfo^12+^
 
 屏幕像素密度变化回调包含的信息。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:------|:------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------|
+|:------|:------------------------------------------------------------------------------------------------------------|:-|:-|:-----------------------|
 |context|[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|否|否|屏幕像素密度变化时页面对应的上下文信息。|
-|density|number|否|否|变化后的屏幕像素密度。 取值范围：\[0, +∞)|
+|density|number|否|否|变化后的屏幕像素密度。 取值范围：[0, +∞)|
 
-#### NavDestinationSwitchInfo^12+^
+## NavDestinationSwitchInfo^12+^
 
 Navigation组件页面切换的信息。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:--------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:-------------------------|
-|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) \| [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|否|否|触发页面切换的Navigation对应的上下文信息。|
-|from|[NavDestinationInfo](#navdestinationinfo) \| [NavBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbar12)|否|否|页面切换的源页面。|
-|to|[NavDestinationInfo](#navdestinationinfo) \| [NavBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbar12)|否|否|页面切换的目的页面。|
+|:--------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:-------------------------|
+|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|否|否|触发页面切换的Navigation对应的上下文信息。|
+|from|[NavDestinationInfo](#navdestinationinfo) | [NavBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbar12)|否|否|页面切换的源页面。|
+|to|[NavDestinationInfo](#navdestinationinfo) | [NavBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navbar12)|否|否|页面切换的目的页面。|
 |operation|[NavigationOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationoperation11枚举说明)|否|否|页面切换操作类型。|
 
-#### NavDestinationSwitchObserverOptions^12+^
+## NavDestinationSwitchObserverOptions^12+^
 
 Navigation组件页面切换事件的监听选项。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
 |:-----------|:----------------------------------------------------------------------------------------------------|:-|:-|:--------------------|
 |navigationId|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|否|指定需要监听的Navigation的ID。|
 
-#### TextChangeEventInfo^22+^
+## TextChangeEventInfo^22+^
 
 输入框文本变化的信息。
 
-元服务API： 从API version 22开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
 |:-------|:-----|:-|:-|:------------|
@@ -208,55 +211,55 @@ Navigation组件页面切换事件的监听选项。
 |uniqueId|number|否|否|文本输入组件的唯一标识符。|
 |content|string|否|否|变化后的文本内容。|
 
-#### TabContentInfo^12+^
+## TabContentInfo^12+^
 
 TabContent页面的切换信息。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:-----------------|:------------------------------------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|tabContentId|string|否|否|TabContent组件的id。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|tabContentUniqueId|number|否|否|TabContent组件的uniqueId。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|state|[TabContentState](#tabcontentstate12)|否|否|TabContent组件的状态。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|index|number|否|否|TabContent组件的下标索引。索引从0开始。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|id|string|否|否|Tabs组件的id。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|uniqueId|number|否|否|Tabs组件的uniqueId。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|lastIndex^22+^|number|否|是|最近一次聚焦的TabContent组件的下标索引。索引从0开始。仅在[on('tabChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiobserver#ontabchange22)的回调函数中存在。 元服务API： 从API version 22开始，该接口支持在元服务中使用。|
+|:-----------------|:------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|tabContentId|string|否|否|TabContent组件的id。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|tabContentUniqueId|number|否|否|TabContent组件的uniqueId。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|state|[TabContentState](#tabcontentstate12)|否|否|TabContent组件的状态。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|index|number|否|否|TabContent组件的下标索引。索引从0开始。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|id|string|否|否|Tabs组件的id。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|uniqueId|number|否|否|Tabs组件的uniqueId。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|lastIndex^22+^|number|否|是|最近一次聚焦的TabContent组件的下标索引。索引从0开始。仅在[on('tabChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiobserver#ontabchange22)的回调函数中存在。 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。|
 
-#### WindowSizeLayoutBreakpointInfo^22+^
+## WindowSizeLayoutBreakpointInfo^22+^
 
 窗口尺寸布局断点变化回调的信息。
 
-元服务API： 从API version 22开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------|:-|:-|:-------------|
 |widthBreakpoint|[WidthBreakpoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#widthbreakpoint13)|是|否|窗口宽度所在的布局断点枚举。|
 |heightBreakpoint|[HeightBreakpoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#heightbreakpoint13)|是|否|窗口高度所在的布局断点枚举。|
 
-#### uiObserver.on('navDestinationUpdate')
+## uiObserver.on('navDestinationUpdate')
 
-on(type: 'navDestinationUpdate', callback: Callback\<NavDestinationInfo\>): void
+on(type: 'navDestinationUpdate', callback: Callback<NavDestinationInfo>): void
 
 监听NavDestination组件的状态变化。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------------------|:-|:-----------------------------------------------------|
+|:-------|:--------------------------------------------------|:-|:-----------------------------------------------------|
 |type|string|是|监听事件，固定为'navDestinationUpdate'，即NavDestination组件的状态变化。|
-|callback|Callback\<[NavDestinationInfo](#navdestinationinfo)\>|是|回调函数。返回当前的NavDestination组件状态。|
+|callback|Callback<[NavDestinationInfo](#navdestinationinfo)>|是|回调函数。返回当前的NavDestination组件状态。|
 
-示例：
+**示例：**
 
-```
+```ts
 // Index.ets
 // 演示 uiObserver.on('navDestinationUpdate', callback)
 // uiObserver.off('navDestinationUpdate', callback)
@@ -309,48 +312,48 @@ struct Index {
 }
 ```
 
-#### uiObserver.off('navDestinationUpdate')
+## uiObserver.off('navDestinationUpdate')
 
-off(type: 'navDestinationUpdate', callback?: Callback\<NavDestinationInfo\>): void
+off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>): void
 
 取消监听NavDestination组件的状态变化。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------------------|:-|:-----------------------------------------------------|
+|:-------|:--------------------------------------------------|:-|:-----------------------------------------------------|
 |type|string|是|监听事件，固定为'navDestinationUpdate'，即NavDestination组件的状态变化。|
-|callback|Callback\<[NavDestinationInfo](#navdestinationinfo)\>|否|回调函数。返回当前的NavDestination组件状态。|
+|callback|Callback<[NavDestinationInfo](#navdestinationinfo)>|否|回调函数。返回当前的NavDestination组件状态。|
 
-示例：
+**示例：**
 
-参考[uiObserver.on('navDestinationUpdate')](#uiobserveronnavdestinationupdate)示例。  
+参考[uiObserver.on('navDestinationUpdate')](#uiobserveronnavdestinationupdate)示例。
 
-#### uiObserver.on('navDestinationUpdate')
+## uiObserver.on('navDestinationUpdate')
 
-on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback\<NavDestinationInfo\>): void
+on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<NavDestinationInfo>): void
 
 监听NavDestination组件的状态变化。与[uiObserver.on](#uiobserveronnavdestinationupdate)相比，新增了options参数，即支持指定监听的Navigation的id。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:----------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------|
 |type|string|是|监听事件，固定为'navDestinationUpdate'，即NavDestination组件的状态变化。|
 |options|{ navigationId: [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) }|是|指定监听的Navigation的id。|
-|callback|Callback\<[NavDestinationInfo](#navdestinationinfo)\>|是|回调函数。返回当前的NavDestination组件状态。|
+|callback|Callback<[NavDestinationInfo](#navdestinationinfo)>|是|回调函数。返回当前的NavDestination组件状态。|
 
-示例：
+**示例：**
 
-```
+```ts
 // Index.ets
 // 演示 uiObserver.on('navDestinationUpdate', navigationId, callback)
 // uiObserver.off('navDestinationUpdate', navigationId, callback)
@@ -404,113 +407,113 @@ struct Index {
 }
 ```
 
-#### uiObserver.off('navDestinationUpdate')
+## uiObserver.off('navDestinationUpdate')
 
-off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback\<NavDestinationInfo\>): void
+off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<NavDestinationInfo>): void
 
 取消监听NavDestination组件的状态变化。与[uiObserver.off](#uiobserveroffnavdestinationupdate)相比，新增了options参数，即支持指定监听的Navigation的id。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:----------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------|
 |type|string|是|监听事件，固定为'navDestinationUpdate'，即NavDestination组件的状态变化。|
 |options|{ navigationId: [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) }|是|指定监听的Navigation的id。|
-|callback|Callback\<[NavDestinationInfo](#navdestinationinfo)\>|否|回调函数。返回当前的NavDestination组件状态。|
+|callback|Callback<[NavDestinationInfo](#navdestinationinfo)>|否|回调函数。返回当前的NavDestination组件状态。|
 
-示例：
+**示例：**
 
-参考[uiObserver.on('navDestinationUpdate')](#uiobserveronnavdestinationupdate-1)示例。  
+参考[uiObserver.on('navDestinationUpdate')](#uiobserveronnavdestinationupdate-1)示例。
 
-#### uiObserver.on('scrollEvent')^12+^
+## uiObserver.on('scrollEvent')^12+^
 
-on(type: 'scrollEvent', callback: Callback\<ScrollEventInfo\>): void
+on(type: 'scrollEvent', callback: Callback<ScrollEventInfo>): void
 
 监听所有滚动组件滚动事件的开始和结束。滚动组件包括[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)、[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------|:-|:---------------------------------|
+|:-------|:----------------------------------------------|:-|:---------------------------------|
 |type|string|是|监听事件，固定为'scrollEvent'，即滚动事件的开始和结束。|
-|callback|Callback\<[ScrollEventInfo](#scrolleventinfo12)\>|是|回调函数。返回滚动事件的信息。|
+|callback|Callback<[ScrollEventInfo](#scrolleventinfo12)>|是|回调函数。返回滚动事件的信息。|
 
-示例：
+**示例：**
 
-参考[uiObserver.off('scrollEvent')](#uiobserveroffscrollevent12-1)示例。  
+参考[uiObserver.off('scrollEvent')](#uiobserveroffscrollevent12-1)示例。
 
-#### uiObserver.off('scrollEvent')^12+^
+## uiObserver.off('scrollEvent')^12+^
 
-off(type: 'scrollEvent', callback?: Callback\<ScrollEventInfo\>): void
+off(type: 'scrollEvent', callback?: Callback<ScrollEventInfo>): void
 
 取消监听所有滚动组件滚动事件的开始和结束。滚动组件包括[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)、[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------|:-|:---------------------------------|
+|:-------|:----------------------------------------------|:-|:---------------------------------|
 |type|string|是|监听事件，固定为'scrollEvent'，即滚动事件的开始和结束。|
-|callback|Callback\<[ScrollEventInfo](#scrolleventinfo12)\>|否|回调函数。返回滚动事件的信息。|
+|callback|Callback<[ScrollEventInfo](#scrolleventinfo12)>|否|回调函数。返回滚动事件的信息。|
 
-示例：
+**示例：**
 
-参考[uiObserver.off('scrollEvent')](#uiobserveroffscrollevent12-1)示例。  
+参考[uiObserver.off('scrollEvent')](#uiobserveroffscrollevent12-1)示例。
 
-#### uiObserver.on('scrollEvent')^12+^
+## uiObserver.on('scrollEvent')^12+^
 
-on(type: 'scrollEvent', options: ObserverOptions, callback: Callback\<ScrollEventInfo\>): void
+on(type: 'scrollEvent', options: ObserverOptions, callback: Callback<ScrollEventInfo>): void
 
 监听指定id的滚动组件滚动事件的开始和结束。滚动组件包括[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)、[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------|:-|:---------------------------------|
+|:-------|:----------------------------------------------|:-|:---------------------------------|
 |type|string|是|监听事件，固定为'scrollEvent'，即滚动事件的开始和结束。|
 |options|[ObserverOptions](#observeroptions12)|是|指定监听的滚动组件的id。|
-|callback|Callback\<[ScrollEventInfo](#scrolleventinfo12)\>|是|回调函数。返回滚动事件的信息。|
+|callback|Callback<[ScrollEventInfo](#scrolleventinfo12)>|是|回调函数。返回滚动事件的信息。|
 
-示例：
+**示例：**
 
-参考[uiObserver.off('scrollEvent')](#uiobserveroffscrollevent12-1)示例。  
+参考[uiObserver.off('scrollEvent')](#uiobserveroffscrollevent12-1)示例。
 
-#### uiObserver.off('scrollEvent')^12+^
+## uiObserver.off('scrollEvent')^12+^
 
-off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback\<ScrollEventInfo\>): void
+off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void
 
 取消监听指定id的滚动组件滚动事件的开始和结束。滚动组件包括[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)、[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------|:-|:---------------------------------|
+|:-------|:----------------------------------------------|:-|:---------------------------------|
 |type|string|是|监听事件，固定为'scrollEvent'，即滚动事件的开始和结束。|
 |options|[ObserverOptions](#observeroptions12)|是|指定监听的滚动组件的id。|
-|callback|Callback\<[ScrollEventInfo](#scrolleventinfo12)\>|否|回调函数。返回滚动事件的信息。|
+|callback|Callback<[ScrollEventInfo](#scrolleventinfo12)>|否|回调函数。返回滚动事件的信息。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { uiObserver } from '@kit.ArkUI'
 
 @Entry
@@ -577,27 +580,27 @@ struct Index {
 }
 ```
 
-#### uiObserver.on('routerPageUpdate')
+## uiObserver.on('routerPageUpdate')
 
-on(type: 'routerPageUpdate', context: UIAbilityContext \| UIContext, callback: Callback\<RouterPageInfo\>): void
+on(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback: Callback<RouterPageInfo>): void
 
 监听router中page页面的状态变化。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------|
 |type|string|是|监听事件，固定为'routerPageUpdate'，即router中page页面的状态变化。|
-|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) \| [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面的范围。|
-|callback|Callback\<[RouterPageInfo](#routerpageinfo)\>|是|回调函数。携带pageInfo，返回当前的page页面状态。|
+|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面的范围。|
+|callback|Callback<[RouterPageInfo](#routerpageinfo)>|是|回调函数。携带pageInfo，返回当前的page页面状态。|
 
-示例：
+**示例：**
 
-```
+```ts
 // used in UIAbility
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { UIContext, window, uiObserver } from '@kit.ArkUI';
@@ -631,27 +634,27 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-#### uiObserver.off('routerPageUpdate')
+## uiObserver.off('routerPageUpdate')
 
-off(type: 'routerPageUpdate', context: UIAbilityContext \| UIContext, callback?: Callback\<RouterPageInfo\>): void
+off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void
 
 取消监听router中page页面的状态变化。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------|
 |type|string|是|监听事件，固定为'routerPageUpdate'，即router中page页面的状态变化。|
-|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) \| [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面的范围。|
-|callback|Callback\<[RouterPageInfo](#routerpageinfo)\>|否|需要被注销的回调函数。|
+|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面的范围。|
+|callback|Callback<[RouterPageInfo](#routerpageinfo)>|否|需要被注销的回调函数。|
 
-示例：
+**示例：**
 
-```
+```ts
 // used in UIAbility
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { uiObserver, UIContext } from '@kit.ArkUI';
@@ -676,27 +679,27 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-#### uiObserver.on('densityUpdate')^12+^
+## uiObserver.on('densityUpdate')^12+^
 
-on(type: 'densityUpdate', context: UIContext, callback: Callback\<DensityInfo\>): void
+on(type: 'densityUpdate', context: UIContext, callback: Callback<DensityInfo>): void
 
 监听屏幕像素密度变化。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------------------------------------------------------------------------|:-|:---------------------------------|
 |type|string|是|监听事件，固定为'densityUpdate'，即屏幕像素密度变化。|
 |context|[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面的范围。|
-|callback|Callback\<[DensityInfo](#densityinfo12)\>|是|回调函数。携带DensityInfo，返回变化后的屏幕像素密度。|
+|callback|Callback<[DensityInfo](#densityinfo12)>|是|回调函数。携带DensityInfo，返回变化后的屏幕像素密度。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { uiObserver } from '@kit.ArkUI';
 
 @Entry
@@ -725,25 +728,25 @@ struct Index {
 }
 ```
 
-#### uiObserver.off('densityUpdate')^12+^
+## uiObserver.off('densityUpdate')^12+^
 
-off(type: 'densityUpdate', context: UIContext, callback?: Callback\<DensityInfo\>): void
+off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void
 
 取消监听屏幕像素密度的变化。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------|
 |type|string|是|监听事件，固定为'densityUpdate'，即屏幕像素密度变化。|
 |context|[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面的范围。|
-|callback|Callback\<[DensityInfo](#densityinfo12)\>|否|需要被注销的回调函数。若不指定具体的回调函数，则注销指定UIContext下所有densityUpdate事件监听。|
+|callback|Callback<[DensityInfo](#densityinfo12)>|否|需要被注销的回调函数。若不指定具体的回调函数，则注销指定UIContext下所有densityUpdate事件监听。|
 
-```
+```ts
 import { uiObserver } from '@kit.ArkUI';
 
 @Entry
@@ -778,27 +781,27 @@ struct Index {
 }
 ```
 
-#### uiObserver.on('willDraw')^12+^
+## uiObserver.on('willDraw')^12+^
 
-on(type: 'willDraw', context: UIContext, callback: Callback\<void\>): void
+on(type: 'willDraw', context: UIContext, callback: Callback<void>): void
 
 监听每一帧绘制指令下发情况。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------------------------------------------------------------------------|:-|:--------------------------|
 |type|string|是|监听事件，固定为'willDraw'，即是否将要绘制。|
 |context|[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面的范围。|
-|callback|Callback\<void\>|是|回调函数。|
+|callback|Callback<void>|是|回调函数。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { uiObserver } from '@kit.ArkUI';
 
 @Entry
@@ -818,25 +821,25 @@ struct Index {
 }
 ```
 
-#### uiObserver.off('willDraw')^12+^
+## uiObserver.off('willDraw')^12+^
 
-off(type: 'willDraw', context: UIContext, callback?: Callback\<void\>): void
+off(type: 'willDraw', context: UIContext, callback?: Callback<void>): void
 
 取消监听每一帧绘制指令下发情况。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------------------------------------------------------------------------|:-|:--------------------------|
 |type|string|是|监听事件，固定为'willDraw'，即是否将要绘制。|
 |context|[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面的范围。|
-|callback|Callback\<void\>|否|需要被注销的回调函数。|
+|callback|Callback<void>|否|需要被注销的回调函数。|
 
-```
+```ts
 import { uiObserver } from '@kit.ArkUI';
 
 @Entry
@@ -862,27 +865,27 @@ struct Index {
 }
 ```
 
-#### uiObserver.on('didLayout')^12+^
+## uiObserver.on('didLayout')^12+^
 
-on(type: 'didLayout', context: UIContext, callback: Callback\<void\>): void
+on(type: 'didLayout', context: UIContext, callback: Callback<void>): void
 
 监听每一帧布局完成情况。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------------------------------------------------------------------------|:-|:---------------------------|
 |type|string|是|监听事件，固定为'didLayout'，即是否布局完成。|
 |context|[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面的范围。|
-|callback|Callback\<void\>|是|回调函数。|
+|callback|Callback<void>|是|回调函数。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { uiObserver } from '@kit.ArkUI';
 
 @Entry
@@ -902,25 +905,25 @@ struct Index {
 }
 ```
 
-#### uiObserver.off('didLayout')^12+^
+## uiObserver.off('didLayout')^12+^
 
-off(type: 'didLayout', context: UIContext, callback?: Callback\<void\>): void
+off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void
 
 取消监听每一帧布局完成情况。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------------------------------------------------------------------------|:-|:---------------------------|
 |type|string|是|监听事件，固定为'didLayout'，即是否布局完成。|
 |context|[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面的范围。|
-|callback|Callback\<void\>|否|需要被注销的回调函数。|
+|callback|Callback<void>|否|需要被注销的回调函数。|
 
-```
+```ts
 import { uiObserver } from '@kit.ArkUI';
 
 @Entry
@@ -946,27 +949,27 @@ struct Index {
 }
 ```
 
-#### uiObserver.on('navDestinationSwitch')^12+^
+## uiObserver.on('navDestinationSwitch')^12+^
 
-on(type: 'navDestinationSwitch', context: UIAbilityContext \| UIContext, callback: Callback\<NavDestinationSwitchInfo\>): void
+on(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, callback: Callback<NavDestinationSwitchInfo>): void
 
 监听Navigation的页面切换事件。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------|
 |type|string|是|监听事件，固定为'navDestinationSwitch'，即Navigation的页面切换事件。|
-|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) \| [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面切换事件的范围。|
-|callback|Callback\<[NavDestinationSwitchInfo](#navdestinationswitchinfo12)\>|是|回调函数。携带NavDestinationSwitchInfo，返回页面切换事件的信息。|
+|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面切换事件的范围。|
+|callback|Callback<[NavDestinationSwitchInfo](#navdestinationswitchinfo12)>|是|回调函数。携带NavDestinationSwitchInfo，返回页面切换事件的信息。|
 
-示例：
+**示例：**
 
-```
+```ts
 // EntryAbility.ets
 // 演示 uiObserver.on('navDestinationSwitch', UIAbilityContext, callback)
 // uiObserver.off('navDestinationSwitch', UIAbilityContext, callback)
@@ -1019,7 +1022,7 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-```
+```ts
 // Index.ets
 // 演示 uiObserver.on('navDestinationSwitch', UIContext, callback)
 // uiObserver.off('navDestinationSwitch', UIContext, callback)
@@ -1072,50 +1075,50 @@ struct Index {
 }
 ```
 
-#### uiObserver.off('navDestinationSwitch')^12+^
+## uiObserver.off('navDestinationSwitch')^12+^
 
-off(type: 'navDestinationSwitch', context: UIAbilityContext \| UIContext, callback?: Callback\<NavDestinationSwitchInfo\>): void
+off(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, callback?: Callback<NavDestinationSwitchInfo>): void
 
 取消监听Navigation的页面切换事件。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------|
 |type|string|是|监听事件，固定为'navDestinationSwitch'，即Navigation的页面切换事件。|
-|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) \| [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面切换事件的范围。|
-|callback|Callback\<[NavDestinationSwitchInfo](#navdestinationswitchinfo12)\>|否|需要被注销的回调函数。|
+|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面切换事件的范围。|
+|callback|Callback<[NavDestinationSwitchInfo](#navdestinationswitchinfo12)>|否|需要被注销的回调函数。|
 
-示例：
+**示例：**
 
-参考[uiObserver.on('navDestinationSwitch')](#uiobserveronnavdestinationswitch12)示例。  
+参考[uiObserver.on('navDestinationSwitch')](#uiobserveronnavdestinationswitch12)示例。
 
-#### uiObserver.on('navDestinationSwitch')^12+^
+## uiObserver.on('navDestinationSwitch')^12+^
 
-on(type: 'navDestinationSwitch', context: UIAbilityContext \| UIContext, observerOptions: NavDestinationSwitchObserverOptions, callback: Callback\<NavDestinationSwitchInfo\>): void
+on(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, observerOptions: NavDestinationSwitchObserverOptions, callback: Callback<NavDestinationSwitchInfo>): void
 
 监听Navigation的页面切换事件。与[uiObserver.on](#uiobserveronnavdestinationswitch12)相比，新增了observerOptions参数，即支持设置监听选项。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------|
+|:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------|
 |type|string|是|监听事件，固定为'navDestinationSwitch'，即Navigation的页面切换事件。|
-|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) \| [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面切换事件的范围。|
+|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面切换事件的范围。|
 |observerOptions|[NavDestinationSwitchObserverOptions](#navdestinationswitchobserveroptions12)|是|监听选项。|
-|callback|Callback\<[NavDestinationSwitchInfo](#navdestinationswitchinfo12)\>|是|回调函数。携带NavDestinationSwitchInfo，返回页面切换事件的信息。|
+|callback|Callback<[NavDestinationSwitchInfo](#navdestinationswitchinfo12)>|是|回调函数。携带NavDestinationSwitchInfo，返回页面切换事件的信息。|
 
-示例：
+**示例：**
 
-```
+```ts
 // EntryAbility.ets
 // 演示 uiObserver.on('navDestinationSwitch', UIAbilityContext, NavDestinationSwitchObserverOptions, callback)
 // uiObserver.off('navDestinationSwitch', UIAbilityContext, NavDestinationSwitchObserverOptions, callback)
@@ -1172,7 +1175,7 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-```
+```ts
 // Index.ets
 // 演示 uiObserver.on('navDestinationSwitch', UIContext, NavDestinationSwitchObserverOptions, callback)
 // uiObserver.off('navDestinationSwitch', UIContext, NavDestinationSwitchObserverOptions, callback)
@@ -1226,49 +1229,49 @@ struct Index {
 }
 ```
 
-#### uiObserver.off('navDestinationSwitch')^12+^
+## uiObserver.off('navDestinationSwitch')^12+^
 
-off(type: 'navDestinationSwitch', context: UIAbilityContext \| UIContext, observerOptions: NavDestinationSwitchObserverOptions, callback?: Callback\<NavDestinationSwitchInfo\>): void
+off(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, observerOptions: NavDestinationSwitchObserverOptions, callback?: Callback<NavDestinationSwitchInfo>): void
 
 取消监听Navigation的页面切换事件。与[uiObserver.off](#uiobserveroffnavdestinationswitch12)相比，新增了observerOptions参数，即支持设置监听选项。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------|
+|:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------|
 |type|string|是|监听事件，固定为'navDestinationSwitch'，即Navigation的页面切换事件。|
-|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) \| [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面切换事件的范围。|
+|context|[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)|是|上下文信息，用以指定监听页面切换事件的范围。|
 |observerOptions|[NavDestinationSwitchObserverOptions](#navdestinationswitchobserveroptions12)|是|监听选项。|
-|callback|Callback\<[NavDestinationSwitchInfo](#navdestinationswitchinfo12)\>|否|需要被注销的回调函数。|
+|callback|Callback<[NavDestinationSwitchInfo](#navdestinationswitchinfo12)>|否|需要被注销的回调函数。|
 
-示例：
+**示例：**
 
-参考[uiObserver.on('navDestinationSwitch')](#uiobserveronnavdestinationswitch12-1)接口示例。  
+参考[uiObserver.on('navDestinationSwitch')](#uiobserveronnavdestinationswitch12-1)接口示例。
 
-#### uiObserver.on('tabContentUpdate')^12+^
+## uiObserver.on('tabContentUpdate')^12+^
 
-on(type: 'tabContentUpdate', callback: Callback\<TabContentInfo\>): void
+on(type: 'tabContentUpdate', callback: Callback<TabContentInfo>): void
 
 监听TabContent页面的切换事件。相比[on('tabChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiobserver#ontabchange22)，本接口不支持监听Tabs组件初始化时，显示首个页签的事件。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------------|:-|:---------------------------------------------|
+|:-------|:--------------------------------------------|:-|:---------------------------------------------|
 |type|string|是|监听事件，固定为'tabContentUpdate'，即TabContent页面的切换事件。|
-|callback|Callback\<[TabContentInfo](#tabcontentinfo12)\>|是|回调函数。携带TabContentInfo，返回TabContent页面切换事件的信息。|
+|callback|Callback<[TabContentInfo](#tabcontentinfo12)>|是|回调函数。携带TabContentInfo，返回TabContent页面切换事件的信息。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { uiObserver } from '@kit.ArkUI';
 
 function callbackFunc(info: uiObserver.TabContentInfo) {
@@ -1317,48 +1320,48 @@ struct TabsExample {
 }
 ```
 
-#### uiObserver.off('tabContentUpdate')^12+^
+## uiObserver.off('tabContentUpdate')^12+^
 
-off(type: 'tabContentUpdate', callback?: Callback\<TabContentInfo\>): void
+off(type: 'tabContentUpdate', callback?: Callback<TabContentInfo>): void
 
 取消监听TabContent页面的切换事件。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------------|:-|:---------------------------------------------|
+|:-------|:--------------------------------------------|:-|:---------------------------------------------|
 |type|string|是|监听事件，固定为'tabContentUpdate'，即TabContent页面的切换事件。|
-|callback|Callback\<[TabContentInfo](#tabcontentinfo12)\>|否|需要被注销的回调函数。|
+|callback|Callback<[TabContentInfo](#tabcontentinfo12)>|否|需要被注销的回调函数。|
 
-示例：
+**示例：**
 
-参考[uiObserver.on('tabContentUpdate')](#uiobserverontabcontentupdate12)接口示例。  
+参考[uiObserver.on('tabContentUpdate')](#uiobserverontabcontentupdate12)接口示例。
 
-#### uiObserver.on('tabContentUpdate')^12+^
+## uiObserver.on('tabContentUpdate')^12+^
 
-on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback\<TabContentInfo\>): void
+on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback<TabContentInfo>): void
 
 监听指定Tabs组件id的TabContent页面切换事件。相比[on('tabChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uiobserver#ontabchange22)，本接口不支持监听Tabs组件初始化时，显示首个页签的事件。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------------|:-|:---------------------------------------------|
+|:-------|:--------------------------------------------|:-|:---------------------------------------------|
 |type|string|是|监听事件，固定为'tabContentUpdate'，即TabContent页面的切换事件。|
 |options|[ObserverOptions](#observeroptions12)|是|指定监听的Tabs组件的id。|
-|callback|Callback\<[TabContentInfo](#tabcontentinfo12)\>|是|回调函数。携带TabContentInfo，返回TabContent页面切换事件的信息。|
+|callback|Callback<[TabContentInfo](#tabcontentinfo12)>|是|回调函数。携带TabContentInfo，返回TabContent页面切换事件的信息。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { uiObserver } from '@kit.ArkUI';
 
 function callbackFunc(info: uiObserver.TabContentInfo) {
@@ -1407,24 +1410,25 @@ struct TabsExample {
 }
 ```
 
-#### uiObserver.off('tabContentUpdate')^12+^
+## uiObserver.off('tabContentUpdate')^12+^
 
-off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback\<TabContentInfo\>): void
+off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void
 
 取消监听指定Tabs组件id的TabContent页面切换事件。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------------|:-|:---------------------------------------------|
+|:-------|:--------------------------------------------|:-|:---------------------------------------------|
 |type|string|是|监听事件，固定为'tabContentUpdate'，即TabContent页面的切换事件。|
 |options|[ObserverOptions](#observeroptions12)|是|指定监听的Tabs组件的id。|
-|callback|Callback\<[TabContentInfo](#tabcontentinfo12)\>|否|需要被注销的回调函数。|
+|callback|Callback<[TabContentInfo](#tabcontentinfo12)>|否|需要被注销的回调函数。|
 
-示例：
+**示例：**
 
-参考[uiObserver.on('tabContentUpdate')](#uiobserverontabcontentupdate12-1)接口示例。  
+参考[uiObserver.on('tabContentUpdate')](#uiobserverontabcontentupdate12-1)接口示例。
+

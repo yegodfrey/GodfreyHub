@@ -6,17 +6,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i
 
 # @ohos.inputMethodEngine (输入法服务)
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 @ohos.inputMethodEngine模块是面向输入法应用（包括系统输入法和第三方输入法）的服务端API模块，提供了输入法应用与系统输入法框架之间的交互能力。
 
 本模块是输入法应用的服务端接口，定义了输入法应用在运行期间所需的全部开放能力，包括输入法生命周期管理、软键盘面板的创建与控制、文本编辑操作（插入、删除、选中文本）、光标控制、物理键盘事件监听、安全模式管理、私有数据通信等。
 
 输入法应用通过本模块可以：1）订阅输入法绑定/解绑事件，感知编辑框的连接与断开；2）创建和管理软键盘面板（固定态、悬浮态、候选态）及状态栏面板，控制面板的显示、隐藏、大小调整、位置移动、沉浸模式等；3）通过InputClient对编辑框进行文本插入、删除、选中文本、移动光标、发送功能键和扩展编辑动作等操作；4）通过KeyboardDelegate监听物理键盘按键事件、光标位置变化、文本选择变化、文本内容变化、编辑框属性变化等；5）管理安全模式（基础模式/完全访问模式），支持隐私面板设置；6）与编辑框应用进行私有数据通信和自定义消息通信。
 
-当开发输入法应用时使用本模块。本模块需在InputMethodExtensionAbility中使用，适用于系统输入法开发、第三方输入法开发、自定义键盘布局等场景。  
-![](https://media:401788445000768593)  
-本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+当开发输入法应用时使用本模块。本模块需在InputMethodExtensionAbility中使用，适用于系统输入法开发、第三方输入法开发、自定义键盘布局等场景。
+> 说明
+>
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-本模块的核心开放能力由以下关键Interface承载：  
+本模块的核心开放能力由以下关键Interface承载：
 
 |Interface/Class|说明|
 |:-----------------|:------------------------------------------------------------------------------------------------------------------------|
@@ -27,9 +30,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i
 |Panel|输入法面板对象，提供面板页面内容加载、大小调整、位置移动、显示/隐藏、面板状态切换、隐私模式设置、沉浸模式与效果设置、面板矩形区域预设置、热区更新等能力。通过createPanel()获取实例。|
 |MessageHandler|自定义通信对象，用于接收编辑框应用发送的自定义通信数据，并提供终止通知回调。通过InputClient.recvMessage()注册。|
 
-输入法应用的典型使用流程涉及多个API的组合调用，核心流程为：获取InputMethodAbility实例 -\> 订阅inputStart事件 -\> 在回调中获取KeyboardController和InputClient -\> 创建Panel -\> 加载面板页面内容 -\> 通过InputClient操作编辑框文本 -\> 通过KeyboardController控制键盘显隐。
+输入法应用的典型使用流程涉及多个API的组合调用，核心流程为：获取InputMethodAbility实例 -> 订阅inputStart事件 -> 在回调中获取KeyboardController和InputClient -> 创建Panel -> 加载面板页面内容 -> 通过InputClient操作编辑框文本 -> 通过KeyboardController控制键盘显隐。
 
-```
+```javascript
 // 以下为阐述调用逻辑的伪代码
 
 // 1. 获取输入法能力对象
@@ -76,13 +79,13 @@ inputMethodAbility.on('inputStop', () => {
 });
 ```
 
-#### 导入模块
+## 导入模块
 
-```
+```ts
 import { inputMethodEngine } from '@kit.IMEKit';
 ```
 
-#### 常量
+## 常量
 
 功能键常量值、编辑框常量值及光标常量值，用于输入法应用识别编辑框类型、回车键功能、光标移动方向等属性。输入法应用可根据这些常量值调整键盘布局和输入行为，例如：根据编辑框类型（PATTERN_TEXT/PATTERN_NUMBER等）切换不同的键盘布局，根据回车键功能（ENTER_KEY_TYPE_SEARCH/ENTER_KEY_TYPE_SEND等）调整回车键的显示文本和图标。
 
@@ -92,10 +95,10 @@ import { inputMethodEngine } from '@kit.IMEKit';
 * 编辑框常量（PATTERN/OPTION/FLAG/DISPLAY_MODE系列）：定义编辑框的输入类型、输入属性、状态标识和显示模式，输入法应用据此调整键盘布局和输入策略。
 * 光标常量（CURSOR系列）：定义光标移动方向，用于[moveCursor](#movecursor9)和[moveCursorSync](#movecursorsync10)接口指定光标移动方向。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|值|说明|
-|:---------------------------------|:-----|:---|:----------------------------------|
+|:---------------------------------|:-----|:---|:--------------------------------------|
 |ENTER_KEY_TYPE_UNSPECIFIED|number|0|无功能键。|
 |ENTER_KEY_TYPE_GO|number|2|"前往"功能键。|
 |ENTER_KEY_TYPE_SEARCH|number|3|"搜索"功能键。|
@@ -114,10 +117,10 @@ import { inputMethodEngine } from '@kit.IMEKit';
 |PATTERN_PASSWORD|number|7|密码编辑框。|
 |PATTERN_PASSWORD_NUMBER^11+^|number|8|数字密码编辑框。|
 |PATTERN_PASSWORD_SCREEN_LOCK^11+^|number|9|锁屏密码编辑框。|
-|PATTERN_USER_NAME^20+^|number|10|用户名编辑框。 模型约束： 该参数仅可在Stage模型下使用。|
-|PATTERN_NEW_PASSWORD^20+^|number|11|新密码编辑框。 模型约束： 该参数仅可在Stage模型下使用。|
-|PATTERN_NUMBER_DECIMAL^20+^|number|12|带小数点的数字编辑框。 模型约束： 该参数仅可在Stage模型下使用。|
-|PATTERN_ONE_TIME_CODE^20+^|number|13|验证码编辑框。 模型约束： 该参数仅可在Stage模型下使用。|
+|PATTERN_USER_NAME^20+^|number|10|用户名编辑框。 **模型约束：** 该参数仅可在Stage模型下使用。|
+|PATTERN_NEW_PASSWORD^20+^|number|11|新密码编辑框。 **模型约束：** 该参数仅可在Stage模型下使用。|
+|PATTERN_NUMBER_DECIMAL^20+^|number|12|带小数点的数字编辑框。 **模型约束：** 该参数仅可在Stage模型下使用。|
+|PATTERN_ONE_TIME_CODE^20+^|number|13|验证码编辑框。 **模型约束：** 该参数仅可在Stage模型下使用。|
 |OPTION_ASCII|number|20|允许输入ASCII值。|
 |OPTION_NONE|number|0|不指定编辑框输入属性。|
 |OPTION_AUTO_CAP_CHARACTERS|number|2|允许输入字符。|
@@ -135,7 +138,7 @@ import { inputMethodEngine } from '@kit.IMEKit';
 |CURSOR_RIGHT^9+^|number|4|光标右移。|
 |WINDOW_TYPE_INPUT_METHOD_FLOAT^9+^|number|2105|输入法应用窗口风格标识。|
 
-#### inputMethodEngine.getInputMethodAbility^9+^
+## inputMethodEngine.getInputMethodAbility^9+^
 
 getInputMethodAbility(): InputMethodAbility
 
@@ -143,22 +146,22 @@ getInputMethodAbility(): InputMethodAbility
 
 输入法应用获取该实例后，可订阅软键盘显示/隐藏请求事件、创建/销毁输入法面板等。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:----------------------------------------|:-------|
 |[InputMethodAbility](#inputmethodability)|输入法能力对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 // 获取输入法应用客户端实例
 let inputMethodAbility: inputMethodEngine.InputMethodAbility = inputMethodEngine.getInputMethodAbility();
 ```
 
-#### inputMethodEngine.getKeyboardDelegate^9+^
+## inputMethodEngine.getKeyboardDelegate^9+^
 
 getKeyboardDelegate(): KeyboardDelegate
 
@@ -166,75 +169,77 @@ getKeyboardDelegate(): KeyboardDelegate
 
 输入法应用获取该实例后，可订阅物理键盘按键事件、选中文本变化事件等。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------------------------------------|:-----------|
 |[KeyboardDelegate](#keyboarddelegate)|客户端编辑事件监听代理。|
 
-示例：
+**示例：**
 
-```
+```ts
 // 获取客户端编辑事件监听代理实例
 let keyboardDelegate: inputMethodEngine.KeyboardDelegate = inputMethodEngine.getKeyboardDelegate();
 ```
 
-#### inputMethodEngine.getInputMethodEngine^(deprecated)^
+## inputMethodEngine.getInputMethodEngine^(deprecated)^
 
 getInputMethodEngine(): InputMethodEngine
 
 获取输入法应用客户端实例[InputMethodEngine](#inputmethodenginedeprecated)（输入法引擎）。
 
-输入法应用获取该实例后，可订阅软键盘显示/隐藏请求事件等。  
-![](https://media:401788445000796594)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.getInputMethodAbility()](#inputmethodenginegetinputmethodability9)替代。
+输入法应用获取该实例后，可订阅软键盘显示/隐藏请求事件等。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.getInputMethodAbility()](#inputmethodenginegetinputmethodability9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------------------------------------------------|:--------|
 |[InputMethodEngine](#inputmethodenginedeprecated)|输入法应用客户端。|
 
-示例：
+**示例：**
 
-```
+```ts
 // 获取输入法应用客户端实例（已废弃）
 let InputMethodEngine: inputMethodEngine.InputMethodEngine = inputMethodEngine.getInputMethodEngine();
 ```
 
-#### inputMethodEngine.createKeyboardDelegate^(deprecated)^
+## inputMethodEngine.createKeyboardDelegate^(deprecated)^
 
 createKeyboardDelegate(): KeyboardDelegate
 
-获取客户端编辑事件监听代理实例[KeyboardDelegate](#keyboarddelegate)。输入法应用获取该实例后，可订阅物理键盘按键事件、选中文本变化事件等。  
-![](https://media:401788445000825595)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.getKeyboardDelegate()](#inputmethodenginegetkeyboarddelegate9)替代。
+获取客户端编辑事件监听代理实例[KeyboardDelegate](#keyboarddelegate)。输入法应用获取该实例后，可订阅物理键盘按键事件、选中文本变化事件等。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.getKeyboardDelegate()](#inputmethodenginegetkeyboarddelegate9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------------------------------------|:-----------|
 |[KeyboardDelegate](#keyboarddelegate)|客户端编辑事件监听代理。|
 
-示例：
+**示例：**
 
-```
+```ts
 let keyboardDelegate: inputMethodEngine.KeyboardDelegate = inputMethodEngine.createKeyboardDelegate();
 ```
 
-#### CommandDataType^12+^
+## CommandDataType^12+^
 
-type CommandDataType = number \| string \| boolean;
+type CommandDataType = number | string | boolean;
 
 表示私有数据类型，接口参数具体类型根据其功能而定。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |类型|说明|
 |:------|:---------|
@@ -242,48 +247,50 @@ type CommandDataType = number \| string \| boolean;
 |string|表示值类型为字符串。|
 |boolean|表示值类型为布尔值。|
 
-#### SizeChangeCallback^15+^
+## SizeChangeCallback^15+^
 
-type SizeChangeCallback = (size: window.Size, keyboardArea?: KeyboardArea) =\> void
+type SizeChangeCallback = (size: window.Size, keyboardArea?: KeyboardArea) => void
 
 当输入法面板大小变化时触发的回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----------|:---------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------|
 |size|[window.Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#size7)|是|当前面板大小。|
 |keyboardArea|[KeyboardArea](#keyboardarea15)|否|当前面板中可作为键盘区域的大小。当需要获取或监听键盘区域变化时传入此参数，不传入时默认为undefined（不返回键盘区域信息）。|
 
-#### InputMethodEngine^(deprecated)^
+## InputMethodEngine^(deprecated)^
 
-![](https://media:401788445000848596)  
-从 API version 8开始支持，从API version 23开始废弃。建议使用[InputMethodAbility](#inputmethodability)替代。
+> 说明
+>
+> 从 API version 8开始支持，从API version 23开始废弃。建议使用[InputMethodAbility](#inputmethodability)替代。
 
-下列API均需使用[getInputMethodEngine](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethodengine#inputmethodenginegetinputmethodenginedeprecated)获取到InputMethodEngine实例后，通过实例调用。  
+下列API均需使用[getInputMethodEngine](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethodengine#inputmethodenginegetinputmethodenginedeprecated)获取到InputMethodEngine实例后，通过实例调用。
 
-#### on('inputStart')^(deprecated)^
+### on('inputStart')^(deprecated)^
 
-on(type: 'inputStart', callback: (kbController: KeyboardController, textInputClient: TextInputClient) =\> void): void
+on(type: 'inputStart', callback: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void
 
-订阅输入法绑定成功事件。使用callback异步回调。  
-![](https://media:401788445000872597)  
-从API version 8开始支持，API version 23开始废弃，建议使用[inputMethodEngine.InputMethodAbility.on](#oninputstart9)替代。
+订阅输入法绑定成功事件。使用callback异步回调。
+> 说明
+>
+> 从API version 8开始支持，API version 23开始废弃，建议使用[inputMethodEngine.InputMethodAbility.on](#oninputstart9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------|
+|:-------|:--------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------|
 |type|string|是|设置监听类型，固定取值为'inputStart'。|
-|callback|(kbController: [KeyboardController](#keyboardcontroller), textInputClient: [TextInputClient](#textinputclientdeprecated)) =\> void|是|回调函数，返回订阅输入法的KeyboardController和TextInputClient实例。|
+|callback|(kbController: [KeyboardController](#keyboardcontroller), textInputClient: [TextInputClient](#textinputclientdeprecated)) => void|是|回调函数，返回订阅输入法的KeyboardController和TextInputClient实例。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodEngine()
   .on('inputStart',
     (keyboardController: inputMethodEngine.KeyboardController, textInputClient: inputMethodEngine.TextInputClient) => {
@@ -291,26 +298,27 @@ inputMethodEngine.getInputMethodEngine()
     });
 ```
 
-#### off('inputStart')^(deprecated)^
+### off('inputStart')^(deprecated)^
 
-off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient) =\> void): void
+off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void
 
-取消订阅输入法绑定成功事件。  
-![](https://media:401788445000895598)  
-从API version 8开始支持，API version 23开始废弃，建议使用[inputMethodEngine.InputMethodAbility.off](#offinputstart9)替代。
+取消订阅输入法绑定成功事件。
+> 说明
+>
+> 从API version 8开始支持，API version 23开始废弃，建议使用[inputMethodEngine.InputMethodAbility.off](#offinputstart9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------|
+|:-------|:--------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------|
 |type|string|是|设置监听类型，固定取值为'inputStart'。|
-|callback|(kbController: [KeyboardController](#keyboardcontroller), textInputClient: [TextInputClient](#textinputclientdeprecated)) =\> void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|(kbController: [KeyboardController](#keyboardcontroller), textInputClient: [TextInputClient](#textinputclientdeprecated)) => void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodEngine()
   .off('inputStart',
     (kbController: inputMethodEngine.KeyboardController, textClient: inputMethodEngine.TextInputClient) => {
@@ -318,26 +326,27 @@ inputMethodEngine.getInputMethodEngine()
     });
 ```
 
-#### on('keyboardShow'\|'keyboardHide')^(deprecated)^
+### on('keyboardShow'|'keyboardHide')^(deprecated)^
 
-on(type: 'keyboardShow'\|'keyboardHide', callback: () =\> void): void
+on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void
 
-订阅输入法软键盘显示或隐藏事件。使用callback异步回调。  
-![](https://media:401788445000916599)  
-从API version 8开始支持，API version 23开始废弃，建议使用[inputMethodEngine.InputMethodAbility.on](#onkeyboardshowkeyboardhide9)替代。
+订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
+> 说明
+>
+> 从API version 8开始支持，API version 23开始废弃，建议使用[inputMethodEngine.InputMethodAbility.on](#onkeyboardshowkeyboardhide9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------|:-|:------------------------------------------------------------|
+|:-------|:---------|:-|:------------------------------------------------------------|
 |type|string|是|设置监听类型。 -'keyboardShow'表示显示输入法软键盘。 -'keyboardHide'表示隐藏输入法软键盘。|
-|callback|() =\> void|是|回调函数。|
+|callback|() => void|是|回调函数。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodEngine().on('keyboardShow', () => {
   console.info('inputMethodEngine keyboardShow.');
 });
@@ -346,37 +355,38 @@ inputMethodEngine.getInputMethodEngine().on('keyboardHide', () => {
 });
 ```
 
-#### off('keyboardShow'\|'keyboardHide')^(deprecated)^
+### off('keyboardShow'|'keyboardHide')^(deprecated)^
 
-off(type: 'keyboardShow'\|'keyboardHide', callback?: () =\> void): void
+off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void
 
-取消订阅输入法软键盘显示或隐藏事件。使用callback异步回调。  
-![](https://media:401788445000939600)  
-从API version 8开始支持，API version 23开始废弃，建议使用[inputMethodEngine.InputMethodAbility.off](#offkeyboardshowkeyboardhide9)替代。
+取消订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
+> 说明
+>
+> 从API version 8开始支持，API version 23开始废弃，建议使用[inputMethodEngine.InputMethodAbility.off](#offkeyboardshowkeyboardhide9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------|:-|:----------------------------------------------------------------------|
+|:-------|:---------|:-|:----------------------------------------------------------------------|
 |type|string|是|要取消监听的输入法软键盘事件类型。 -'keyboardShow'表示显示输入法软键盘。 -'keyboardHide'表示隐藏输入法软键盘。|
-|callback|() =\> void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|() => void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodEngine().off('keyboardShow');
 inputMethodEngine.getInputMethodEngine().off('keyboardHide');
 ```
 
-#### InputMethodAbility
+## InputMethodAbility
 
 InputMethodAbility是输入法应用的核心能力对象，提供输入法生命周期管理、面板创建与销毁、事件订阅等功能。输入法应用通过[getInputMethodAbility](#inputmethodenginegetinputmethodability9)获取该实例。
 
 核心功能概述：
 
-* 生命周期事件订阅：通过on('inputStart')订阅输入法绑定事件获取[KeyboardController](#keyboardcontroller)和[InputClient](#inputclient9)实例，通过on('inputStop')订阅输入法解绑事件，通过on('keyboardShow'\|'keyboardHide')订阅软键盘显示/隐藏事件。
+* 生命周期事件订阅：通过on('inputStart')订阅输入法绑定事件获取[KeyboardController](#keyboardcontroller)和[InputClient](#inputclient9)实例，通过on('inputStop')订阅输入法解绑事件，通过on('keyboardShow'|'keyboardHide')订阅软键盘显示/隐藏事件。
 * 面板管理：通过[createPanel](#createpanel10)创建输入法面板，通过[destroyPanel](#destroypanel10)销毁面板。createPanel与destroyPanel需配对调用，防止资源泄漏。
 * 子类型与安全模式：通过on('setSubtype')订阅输入法子类型变化事件，通过on('securityModeChange')订阅安全模式变化事件，通过[getSecurityMode](#getsecuritymode11)获取当前安全模式。
 * 私有通信：通过on('privateCommand')订阅应用私有数据事件，用于输入法应用与绑定应用之间的私有数据交互。
@@ -387,16 +397,16 @@ InputMethodAbility是输入法应用的核心能力对象，提供输入法生�
 1. 输入法应用在[InputMethodExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-extension-ability)的onCreate生命周期中调用getInputMethodAbility()获取实例。
 2. 订阅on('inputStart')事件，在回调中获取KeyboardController和InputClient实例。
 3. 在on('inputStart')回调中调用createPanel()创建面板，并调用panel.setUiContent()加载键盘页面。
-4. 订阅on('keyboardShow'\|'keyboardHide')事件，在回调中调用panel.show()/panel.hide()显示/隐藏面板。
+4. 订阅on('keyboardShow'|'keyboardHide')事件，在回调中调用panel.show()/panel.hide()显示/隐藏面板。
 5. 在InputMethodExtensionAbility的onDestroy生命周期中调用destroyPanel()销毁面板，取消所有事件订阅。
 
 下列API均需使用[getInputMethodAbility](#inputmethodenginegetinputmethodability9)获取到InputMethodAbility实例后，通过实例调用。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-#### on('inputStart')^9+^
+### on('inputStart')^9+^
 
-on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) =\> void): void
+on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void): void
 
 订阅输入法绑定成功事件。使用callback异步回调。
 
@@ -404,18 +414,18 @@ on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient:
 
 使用后效果：当编辑框绑定到输入法应用时，触发回调并返回KeyboardController和InputClient实例。输入法应用可在回调中创建面板、加载键盘页面、订阅KeyboardDelegate事件等。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------|
+|:-------|:-----------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------|
 |type|string|是|设置监听类型，固定取值为'inputStart'。|
-|callback|(kbController: [KeyboardController](#keyboardcontroller), inputClient: [InputClient](#inputclient9)) =\> void|是|回调函数，返回输入法操作相关实例。kbController为键盘控制器实例，用于控制键盘显示/隐藏；inputClient为输入客户端实例，用于与编辑框进行文本交互。|
+|callback|(kbController: [KeyboardController](#keyboardcontroller), inputClient: [InputClient](#inputclient9)) => void|是|回调函数，返回输入法操作相关实例。kbController为键盘控制器实例，用于控制键盘显示/隐藏；inputClient为输入客户端实例，用于与编辑框进行文本交互。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility()
   .on('inputStart',
     (keyboardController: inputMethodEngine.KeyboardController, inputClient: inputMethodEngine.InputClient) => {
@@ -423,30 +433,30 @@ inputMethodEngine.getInputMethodAbility()
     });
 ```
 
-#### off('inputStart')^9+^
+### off('inputStart')^9+^
 
-off(type: 'inputStart', callback?: (kbController: KeyboardController, inputClient: InputClient) =\> void): void
+off(type: 'inputStart', callback?: (kbController: KeyboardController, inputClient: InputClient) => void): void
 
 取消订阅输入法绑定成功事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------|:-|:----------------------------------|
+|:-------|:-----------------------------------------------------------------------------------------------------------|:-|:----------------------------------|
 |type|string|是|设置监听类型，固定取值为'inputStart'。|
-|callback|(kbController: [KeyboardController](#keyboardcontroller), inputClient: [InputClient](#inputclient9)) =\> void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|(kbController: [KeyboardController](#keyboardcontroller), inputClient: [InputClient](#inputclient9)) => void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().off('inputStart');
 ```
 
-#### on('inputStop')^9+^
+### on('inputStop')^9+^
 
-on(type: 'inputStop', callback: () =\> void): void
+on(type: 'inputStop', callback: () => void): void
 
 订阅停止输入法应用事件。使用callback异步回调。
 
@@ -454,49 +464,49 @@ on(type: 'inputStop', callback: () =\> void): void
 
 使用后效果：当输入法应用被停止绑定时触发回调。输入法应用应在回调中隐藏面板、取消事件订阅、释放InputClient相关资源。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------|:-|:-----------------------|
+|:-------|:---------|:-|:-----------------------|
 |type|string|是|设置监听类型，固定取值为'inputStop'。|
-|callback|() =\> void|是|回调函数，无返回参数。|
+|callback|() => void|是|回调函数，无返回参数。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().on('inputStop', () => {
   console.info('inputMethodAbility inputStop');
 });
 ```
 
-#### off('inputStop')^9+^
+### off('inputStop')^9+^
 
-off(type: 'inputStop', callback: () =\> void): void
+off(type: 'inputStop', callback: () => void): void
 
 取消订阅停止输入法应用事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------|:-|:-----------------------|
+|:-------|:---------|:-|:-----------------------|
 |type|string|是|设置监听类型，固定取值为'inputStop'。|
-|callback|() =\> void|是|取消订阅的回调函数。|
+|callback|() => void|是|取消订阅的回调函数。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().off('inputStop', () => {
   console.info('inputMethodAbility delete inputStop notification.');
 });
 ```
 
-#### on('setCallingWindow')^9+^
+### on('setCallingWindow')^9+^
 
-on(type: 'setCallingWindow', callback: (wid: number) =\> void): void;
+on(type: 'setCallingWindow', callback: (wid: number) => void): void;
 
 订阅设置调用窗口事件。使用callback异步回调。
 
@@ -504,49 +514,49 @@ on(type: 'setCallingWindow', callback: (wid: number) =\> void): void;
 
 使用后效果：当调用方窗口发生变化时触发回调，返回新的窗口ID。输入法应用可根据窗口ID调整面板位置。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------------|:-|:------------------------------|
+|:-------|:--------------------|:-|:------------------------------|
 |type|string|是|设置监听类型，固定取值为'setCallingWindow'。|
-|callback|(wid: number) =\> void|是|回调函数，参数为调用方窗口的Id。|
+|callback|(wid: number) => void|是|回调函数，参数为调用方窗口的Id。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().on('setCallingWindow', (windowId: number) => {
   console.info('inputMethodAbility setCallingWindow');
 });
 ```
 
-#### off('setCallingWindow')^9+^
+### off('setCallingWindow')^9+^
 
-off(type: 'setCallingWindow', callback: (wid:number) =\> void): void
+off(type: 'setCallingWindow', callback: (wid:number) => void): void
 
 取消订阅设置调用窗口事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:----------------------------------|
+|:-------|:-------------------|:-|:----------------------------------|
 |type|string|是|设置监听类型，固定取值为'setCallingWindow'。|
-|callback|(wid:number) =\> void|是|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|(wid:number) => void|是|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().off('setCallingWindow', (windowId: number) => {
   console.info('inputMethodAbility delete setCallingWindow notification.');
 });
 ```
 
-#### on('keyboardShow'\|'keyboardHide')^9+^
+### on('keyboardShow'|'keyboardHide')^9+^
 
-on(type: 'keyboardShow'\|'keyboardHide', callback: () =\> void): void
+on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void
 
 订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
 
@@ -554,18 +564,18 @@ on(type: 'keyboardShow'\|'keyboardHide', callback: () =\> void): void
 
 使用后效果：当软键盘显示请求触发时，'keyboardShow'回调被调用，输入法应用应在回调中调用panel.show()显示面板；当软键盘隐藏请求触发时，'keyboardHide'回调被调用，输入法应用应在回调中调用panel.hide()隐藏面板。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------|:-|:--------------------------------------------------------------|
+|:-------|:---------|:-|:--------------------------------------------------------------|
 |type|string|是|设置监听类型。 - 'keyboardShow'表示显示输入法软键盘。 - 'keyboardHide'表示隐藏输入法软键盘。|
-|callback|() =\> void|是|回调函数。|
+|callback|() => void|是|回调函数。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().on('keyboardShow', () => {
   console.info('InputMethodAbility keyboardShow.');
 });
@@ -574,24 +584,24 @@ inputMethodEngine.getInputMethodAbility().on('keyboardHide', () => {
 });
 ```
 
-#### off('keyboardShow'\|'keyboardHide')^9+^
+### off('keyboardShow'|'keyboardHide')^9+^
 
-off(type: 'keyboardShow'\|'keyboardHide', callback?: () =\> void): void
+off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void
 
 取消订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------|:-|:--------------------------------------------------------------|
+|:-------|:---------|:-|:--------------------------------------------------------------|
 |type|string|是|设置监听类型。 - 'keyboardShow'表示显示输入法软键盘。 - 'keyboardHide'表示隐藏输入法软键盘。|
-|callback|() =\> void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|() => void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().off('keyboardShow', () => {
   console.info('InputMethodAbility delete keyboardShow notification.');
 });
@@ -600,9 +610,9 @@ inputMethodEngine.getInputMethodAbility().off('keyboardHide', () => {
 });
 ```
 
-#### on('setSubtype')^9+^
+### on('setSubtype')^9+^
 
-on(type: 'setSubtype', callback: (inputMethodSubtype: InputMethodSubtype) =\> void): void
+on(type: 'setSubtype', callback: (inputMethodSubtype: InputMethodSubtype) => void): void
 
 订阅设置输入法子类型事件。使用callback异步回调。
 
@@ -610,18 +620,18 @@ on(type: 'setSubtype', callback: (inputMethodSubtype: InputMethodSubtype) =\> vo
 
 使用后效果：当输入法子类型变化时触发回调，返回新的输入法子类型信息。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------|
+|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------|
 |type|string|是|设置监听类型，固定取值为'setSubtype'。|
-|callback|(inputMethodSubtype: [InputMethodSubtype](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-subtype)) =\> void|是|回调函数，返回设置的输入法子类型（InputMethodSubtype，输入法子类型）。|
+|callback|(inputMethodSubtype: [InputMethodSubtype](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-subtype)) => void|是|回调函数，返回设置的输入法子类型（InputMethodSubtype，输入法子类型）。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { InputMethodSubtype } from '@kit.IMEKit';
 
 inputMethodEngine.getInputMethodAbility().on('setSubtype', (inputMethodSubtype: InputMethodSubtype) => {
@@ -629,32 +639,32 @@ inputMethodEngine.getInputMethodAbility().on('setSubtype', (inputMethodSubtype: 
 });
 ```
 
-#### off('setSubtype')^9+^
+### off('setSubtype')^9+^
 
-off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) =\> void): void
+off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void
 
 取消订阅设置输入法子类型事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------|
+|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------|
 |type|string|是|设置监听类型，固定取值为'setSubtype'。|
-|callback|(inputMethodSubtype: [InputMethodSubtype](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-subtype)) =\> void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|(inputMethodSubtype: [InputMethodSubtype](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-subtype)) => void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().off('setSubtype', () => {
   console.info('InputMethodAbility delete setSubtype notification.');
 });
 ```
 
-#### on('securityModeChange')^11+^
+### on('securityModeChange')^11+^
 
-on(type: 'securityModeChange', callback: Callback\< SecurityMode\>): void
+on(type: 'securityModeChange', callback: Callback< SecurityMode>): void
 
 订阅输入法安全模式改变类型事件。使用callback异步回调。
 
@@ -662,42 +672,42 @@ on(type: 'securityModeChange', callback: Callback\< SecurityMode\>): void
 
 使用后效果：当安全模式变化时触发回调，返回当前的安全模式值。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------|:-|:--------------------------------|
+|:-------|:----------------------------------------|:-|:--------------------------------|
 |type|string|是|设置监听类型，固定取值为'securityModeChange'。|
-|callback|Callback\<[SecurityMode](#securitymode11)\>|是|回调函数，返回当前输入法应用的安全模式。|
+|callback|Callback<[SecurityMode](#securitymode11)>|是|回调函数，返回当前输入法应用的安全模式。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility()
   .on('securityModeChange', (securityMode: inputMethodEngine.SecurityMode) => {
     console.info(`InputMethodAbility securityModeChange, security is ${securityMode}`);
   });
 ```
 
-#### off('securityModeChange')^11+^
+### off('securityModeChange')^11+^
 
-off(type: 'securityModeChange', callback?: Callback\< SecurityMode\>): void
+off(type: 'securityModeChange', callback?: Callback< SecurityMode>): void
 
 取消订阅输入法安全模式改变类型事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------|:-|:----------------------------------|
+|:-------|:----------------------------------------|:-|:----------------------------------|
 |type|string|是|设置监听类型，固定取值为'securityModeChange'。|
-|callback|Callback\<[SecurityMode](#securitymode11)\>|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|Callback<[SecurityMode](#securitymode11)>|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 let securityChangeCallback: (securityMode: inputMethodEngine.SecurityMode) => void =
   (securityMode: inputMethodEngine.SecurityMode) => {
     console.info(`InputMethodAbility securityModeChange, security is ${securityMode}`);
@@ -707,9 +717,9 @@ inputMethodAbility.on('securityModeChange', securityChangeCallback);
 inputMethodAbility.off('securityModeChange', securityChangeCallback);
 ```
 
-#### on('privateCommand')^12+^
+### on('privateCommand')^12+^
 
-on(type: 'privateCommand', callback: Callback\<Record\<string, CommandDataType\>\>): void;
+on(type: 'privateCommand', callback: Callback<Record<string, CommandDataType>>): void;
 
 订阅输入法私有数据事件。使用callback异步回调。
 
@@ -717,26 +727,26 @@ on(type: 'privateCommand', callback: Callback\<Record\<string, CommandDataType\>
 
 使用后效果：当绑定应用向输入法发送私有数据时触发回调，返回私有数据记录。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------|:-|:----------------------------|
+|:-------|:--------------------------------------------------------------|:-|:----------------------------|
 |type|string|是|设置监听类型，固定取值为'privateCommand'。|
-|callback|Callback\<Record\<string, [CommandDataType](#commanddatatype12)\>\>|是|回调函数，返回向输入法应用发送的私有数据。|
+|callback|Callback<Record<string, [CommandDataType](#commanddatatype12)>>|是|回调函数，返回向输入法应用发送的私有数据。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:------------------------------------------|
 |12800010|not the preconfigured default input method.|
 
-示例：
+**示例：**
 
-```
+```ts
 let privateCommandCallback: (record: Record<string, inputMethodEngine.CommandDataType>) => void =
   (record: Record<string, inputMethodEngine.CommandDataType>) => {
     for (const key in record) {
@@ -746,32 +756,32 @@ let privateCommandCallback: (record: Record<string, inputMethodEngine.CommandDat
 inputMethodEngine.getInputMethodAbility().on('privateCommand', privateCommandCallback);
 ```
 
-#### off('privateCommand')^12+^
+### off('privateCommand')^12+^
 
-off(type: 'privateCommand', callback?: Callback\<Record\<string, CommandDataType\>\>): void
+off(type: 'privateCommand', callback?: Callback<Record<string, CommandDataType>>): void
 
 取消订阅输入法私有数据事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------|:-|:----------------------------------|
+|:-------|:--------------------------------------------------------------|:-|:----------------------------------|
 |type|string|是|设置监听类型，固定取值为'privateCommand'。|
-|callback|Callback\<Record\<string, [CommandDataType](#commanddatatype12)\>\>|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|Callback<Record<string, [CommandDataType](#commanddatatype12)>>|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:------------------------------------------|
 |12800010|not the preconfigured default input method.|
 
-示例：
+**示例：**
 
-```
+```ts
 let privateCommandCallback: (record: Record<string, inputMethodEngine.CommandDataType>) => void =
   (record: Record<string, inputMethodEngine.CommandDataType>) => {
     for (const key in record) {
@@ -782,9 +792,9 @@ let privateCommandCallback: (record: Record<string, inputMethodEngine.CommandDat
 inputMethodEngine.getInputMethodAbility().off('privateCommand', privateCommandCallback);
 ```
 
-#### on('callingDisplayDidChange')^18+^
+### on('callingDisplayDidChange')^18+^
 
-on(type: 'callingDisplayDidChange', callback: Callback\<number\>): void
+on(type: 'callingDisplayDidChange', callback: Callback<number>): void
 
 订阅编辑框对应窗口所在屏幕ID变化事件。使用callback异步回调。
 
@@ -792,141 +802,141 @@ on(type: 'callingDisplayDidChange', callback: Callback\<number\>): void
 
 使用后效果：当编辑框所在屏幕ID发生变化时触发回调，返回新的屏幕ID。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------|:-|:-------------------------------------|
+|:-------|:---------------|:-|:-------------------------------------|
 |type|string|是|设置监听类型，固定取值为'callingDisplayDidChange'。|
-|callback|Callback\<number\>|是|回调函数，返回编辑框设置对应窗口屏幕ID。|
+|callback|Callback<number>|是|回调函数，返回编辑框设置对应窗口屏幕ID。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:------------------------|
 |801|capability not supported.|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().on('callingDisplayDidChange', (displayId: number) => {
   console.info(`display id: ${displayId}`);
 });
 inputMethodEngine.getInputMethodAbility().on('callingDisplayDidChange', callingDisplayDidChangeCallback);
 ```
 
-#### off('callingDisplayDidChange')^18+^
+### off('callingDisplayDidChange')^18+^
 
-off(type: 'callingDisplayDidChange', callback?: Callback\<number\>): void
+off(type: 'callingDisplayDidChange', callback?: Callback<number>): void
 
 取消订阅编辑框对应窗口所在屏幕ID变化事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------|:-|:-------------------------------------|
+|:-------|:---------------|:-|:-------------------------------------|
 |type|string|是|设置监听类型，固定取值为'callingDisplayDidChange'。|
-|callback|Callback\<number\>|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|Callback<number>|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().off('callingDisplayDidChange', (displayId: number) => {
   console.info('InputMethodAbility delete calling display notification.');
 });
 ```
 
-#### on('discardTypingText')^20+^
+### on('discardTypingText')^20+^
 
-on(type: 'discardTypingText', callback: Callback\<void\> ): void
+on(type: 'discardTypingText', callback: Callback<void> ): void
 
-订阅编辑框应用发送\\u201c清空候选词\\u201d事件到输入法。使用callback异步回调。
+订阅编辑框应用发送\u201c清空候选词\u201d事件到输入法。使用callback异步回调。
 
 使用场景：编辑框应用需要通知输入法清空当前候选词列表时使用（如用户切换输入框、提交表单后等场景）。
 
 使用后效果：当编辑框应用发送清空候选词请求时触发回调，输入法应用应在回调中清空候选词列表和预输入文本。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------|:-|:-------------------------------------------------------------------------------|
+|:-------|:-------------|:-|:-------------------------------------------------------------------------------|
 |type|string|是|设置监听类型，固定取值为'discardTypingText'。 - 'discardTypingText'：表示订阅编辑框应用发送"清空候选词"事件到输入法。|
-|callback|Callback\<void\>|是|回调函数。|
+|callback|Callback<void>|是|回调函数。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().on('discardTypingText', () => {
   console.info('InputMethodAbility discard the typing text.');
 });
 ```
 
-#### off('discardTypingText')^20+^
+### off('discardTypingText')^20+^
 
-off(type: 'discardTypingText', callback?: Callback\<void\> ): void
+off(type: 'discardTypingText', callback?: Callback<void> ): void
 
-取消订阅编辑框应用发送\\u201c清空候选词\\u201d事件到输入法。使用callback异步回调。
+取消订阅编辑框应用发送\u201c清空候选词\u201d事件到输入法。使用callback异步回调。
 
 使用场景：编辑框应用需要通知输入法清空当前候选词列表时使用（如用户切换输入框、提交表单后等场景）。
 
 使用后效果：当编辑框应用发送清空候选词请求时触发回调，输入法应用应在回调中清空候选词列表和预输入文本。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------|:-|:---------------------------------------------------------------------------------|
+|:-------|:-------------|:-|:---------------------------------------------------------------------------------|
 |type|string|是|设置监听类型，固定取值为'discardTypingText'。 - 'discardTypingText'：表示取消订阅编辑框应用发送"清空候选词"事件到输入法。|
-|callback|Callback\<void\>|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|Callback<void>|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility().off('discardTypingText', () => {
   console.info('InputMethodAbility discard the typing text.');
 });
 ```
 
-#### getSecurityMode^11+^
+### getSecurityMode^11+^
 
 getSecurityMode(): SecurityMode
 
 获取输入法应用的当前安全模式。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------------------------------|:----|
 |[SecurityMode](#securitymode11)|安全模式。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:-------------------------------|
 |12800004|not an input method application.|
 
-示例：
+**示例：**
 
-```
+```ts
 let security: inputMethodEngine.SecurityMode = inputMethodEngine.getInputMethodAbility().getSecurityMode();
 console.info(`getSecurityMode, securityMode is : ${security}`);
 ```
 
-#### createPanel^10+^
+### createPanel^10+^
 
-createPanel(ctx: BaseContext, info: PanelInfo, callback: AsyncCallback\<Panel\>): void
+createPanel(ctx: BaseContext, info: PanelInfo, callback: AsyncCallback<Panel>): void
 
 创建输入法面板，仅支持输入法应用在[InputMethodExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-extension-ability)（输入法扩展能力）类中调用。使用callback异步回调。
 
@@ -936,33 +946,34 @@ createPanel(ctx: BaseContext, info: PanelInfo, callback: AsyncCallback\<Panel\>)
 * 未调用destroyPanel()会导致面板资源泄漏，影响系统资源使用。
 * 单个输入法应用仅允许创建一个软键盘类型和一个状态栏类型的面板。
 
-![](https://media:401788445000964601)  
-单个输入法应用仅允许创建一个[软键盘类型](#paneltype10)和一个[状态栏类型](#paneltype10)的面板。
+> 说明
+>
+> 单个输入法应用仅允许创建一个[软键盘类型](#paneltype10)和一个[状态栏类型](#paneltype10)的面板。
+>
+> 输入法面板不支持创建子窗口。例如：不支持使用window.createWindow[设置应用子窗口](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/application-window-fa#设置应用子窗口)、[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)、[CustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)等接口创建子窗口弹窗。建议开发者采用非子窗的替代方案，如[弹出框](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog)、[bindMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindmenu)或设置showInSubwindow为false。
 
-输入法面板不支持创建子窗口。例如：不支持使用window.createWindow[设置应用子窗口](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/application-window-fa#设置应用子窗口)、[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)、[CustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)等接口创建子窗口弹窗。建议开发者采用非子窗的替代方案，如[弹出框](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog)、[bindMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindmenu)或设置showInSubwindow为false。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:---------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------|
 |ctx|[BaseContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-basecontext)|是|当前输入法应用上下文信息。|
 |info|[PanelInfo](#panelinfo10)|是|输入法面板信息。|
-|callback|AsyncCallback\<[Panel](#panel10)\>|是|回调函数。当输入法面板创建成功，err为undefined，data为获取到的Panel对象；否则为错误对象。|
+|callback|AsyncCallback<[Panel](#panel10)>|是|回调函数。当输入法面板创建成功，err为undefined，data为获取到的Panel对象；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.|
 |12800004|not an input method application.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { inputMethodEngine, InputMethodExtensionAbility } from '@kit.IMEKit';
 import { Want } from '@kit.AbilityKit';
@@ -992,43 +1003,44 @@ class InputMethodExt extends InputMethodExtensionAbility {
 }
 ```
 
-#### createPanel^10+^
+### createPanel^10+^
 
-createPanel(ctx: BaseContext, info: PanelInfo): Promise\<Panel\>
+createPanel(ctx: BaseContext, info: PanelInfo): Promise<Panel>
 
-创建输入法面板，仅支持输入法应用在[InputMethodExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-extension-ability)类中调用。使用promise异步回调。  
-![](https://media:401788445000990602)  
-单个输入法应用仅允许创建一个[软键盘类型](#paneltype10)和一个[状态栏类型](#paneltype10)的面板。
+创建输入法面板，仅支持输入法应用在[InputMethodExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-extension-ability)类中调用。使用promise异步回调。
+> 说明
+>
+> 单个输入法应用仅允许创建一个[软键盘类型](#paneltype10)和一个[状态栏类型](#paneltype10)的面板。
+>
+> 输入法面板不支持创建子窗口。例如：不支持使用window.createWindow[设置应用子窗口](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/application-window-fa#设置应用子窗口)、[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)、[CustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)等接口创建子窗口弹窗。建议开发者采用非子窗的替代方案，如[弹出框](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog)、[bindMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindmenu)或设置showInSubwindow为false。
 
-输入法面板不支持创建子窗口。例如：不支持使用window.createWindow[设置应用子窗口](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/application-window-fa#设置应用子窗口)、[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)、[CustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)等接口创建子窗口弹窗。建议开发者采用非子窗的替代方案，如[弹出框](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog)、[bindMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindmenu)或设置showInSubwindow为false。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:---------------------------------------------------------------------------------------------------------------------|:-|:------------|
 |ctx|[BaseContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-basecontext)|是|当前输入法应用上下文信息。|
 |info|[PanelInfo](#panelinfo10)|是|输入法面板信息。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:---------------------------|:-------------------|
-|Promise\<[Panel](#panel10)\>|Promise对象，返回Panel对象。|
+|:-------------------------|:-------------------|
+|Promise<[Panel](#panel10)>|Promise对象，返回Panel对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.|
 |12800004|not an input method application.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { inputMethodEngine, InputMethodExtensionAbility } from '@kit.IMEKit';
 import { Want } from '@kit.AbilityKit';
@@ -1054,9 +1066,9 @@ class InputMethodExt extends InputMethodExtensionAbility {
 }
 ```
 
-#### destroyPanel^10+^
+### destroyPanel^10+^
 
-destroyPanel(panel: Panel, callback: AsyncCallback\<void\> ): void
+destroyPanel(panel: Panel, callback: AsyncCallback<void> ): void
 
 销毁输入法面板。需先通过 [createPanel](#createpanel10) 创建面板后调用。使用callback异步回调。
 
@@ -1066,26 +1078,26 @@ destroyPanel(panel: Panel, callback: AsyncCallback\<void\> ): void
 * 销毁的面板必须是已成功创建的面板对象。
 * 未正确销毁面板会导致资源泄漏，建议在面板使用完毕后及时调用destroyPanel()释放资源。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:-------------------------------------|
+|:-------|:------------------|:-|:-------------------------------------|
 |panel|[Panel](#panel10)|是|要销毁的面板对象。|
-|callback|AsyncCallback\<void\>|是|回调函数。当输入法面板销毁成功，err为undefined，否则为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当输入法面板销毁成功，err为undefined，否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 创建面板信息，设置面板类型为软键盘，状态为固定态
@@ -1116,9 +1128,9 @@ inputMethodEngine.getInputMethodAbility().createPanel(this.context, panelInfo, (
 });
 ```
 
-#### destroyPanel^10+^
+### destroyPanel^10+^
 
-destroyPanel(panel: Panel): Promise\<void\>
+destroyPanel(panel: Panel): Promise<void>
 
 销毁输入法面板。使用promise异步回调。
 
@@ -1128,31 +1140,31 @@ destroyPanel(panel: Panel): Promise\<void\>
 * 销毁的面板必须是已成功创建的面板对象。
 * 未正确销毁面板会导致资源泄漏，建议在面板使用完毕后及时调用destroyPanel()释放资源。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:----------------|:-|:--------|
 |panel|[Panel](#panel10)|是|要销毁的面板对象。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 创建面板信息，设置面板类型为软键盘，状态为固定态
@@ -1184,29 +1196,29 @@ if (inputPanel) {
 }
 ```
 
-#### KeyboardDelegate
+## KeyboardDelegate
 
 KeyboardDelegate是键盘事件监听代理对象，用于输入法应用监听物理键盘按键事件和编辑框文本/光标/选区变化事件。输入法应用通过[getKeyboardDelegate](#inputmethodenginegetkeyboarddelegate9)获取该实例。
 
 核心功能概述：
 
-* 物理键盘按键事件：通过on('keyDown'\|'keyUp')订阅物理按键的按下/抬起事件，通过on('keyEvent')订阅更完整的按键事件（含组合键信息）。callback返回true表示按键事件被消费，返回false表示不消费。
+* 物理键盘按键事件：通过on('keyDown'|'keyUp')订阅物理按键的按下/抬起事件，通过on('keyEvent')订阅更完整的按键事件（含组合键信息）。callback返回true表示按键事件被消费，返回false表示不消费。
 * 光标与选区变化事件：通过on('cursorContextChange')订阅光标位置变化事件，通过on('selectionChange')订阅文本选区变化事件。输入法应用可根据这些事件调整候选词位置或输入策略。
 * 文本变化事件：通过on('textChange')订阅编辑框文本内容变化事件，输入法应用可据此更新候选词或输入建议。
 * 编辑框属性变化事件：通过on('editorAttributeChanged')订阅编辑框属性变化事件，输入法应用可根据编辑框属性变化动态调整键盘布局。
 
 使用场景：
 
-* 开发物理键盘快捷键处理功能时，订阅on('keyDown'\|'keyUp')或on('keyEvent')事件拦截特定按键。
+* 开发物理键盘快捷键处理功能时，订阅on('keyDown'|'keyUp')或on('keyEvent')事件拦截特定按键。
 * 需要根据编辑框实时状态（光标、选区、文本、属性）调整输入法行为时，订阅对应的on事件。
 
 下列API均需使用[getKeyboardDelegate](#inputmethodenginegetkeyboarddelegate9)获取到KeyboardDelegate实例后，通过实例调用。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-#### on('keyDown'\|'keyUp')
+### on('keyDown'|'keyUp')
 
-on(type: 'keyDown'\|'keyUp', callback: (event: KeyEvent) =\> boolean): void
+on(type: 'keyDown'|'keyUp', callback: (event: KeyEvent) => boolean): void
 
 订阅硬键盘（即物理键盘）上物理按键的按下或抬起事件。使用callback异步回调。
 
@@ -1214,18 +1226,18 @@ on(type: 'keyDown'\|'keyUp', callback: (event: KeyEvent) =\> boolean): void
 
 使用后效果：当物理按键按下/抬起时触发回调，回调函数返回按键信息。若按键事件被事件订阅者消费，则callback应返回true，否则返回false。返回true时按键事件不再向编辑框传递，返回false时按键事件继续向编辑框传递。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------------|:-|:-----------------------------------------------------|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------|
 |type|string|是|设置监听类型。 - 'keyDown'表示键盘按下。 - 'keyUp'表示键盘抬起。|
-|callback|(event: [KeyEvent](#keyevent)) =\> boolean|是|回调函数，返回按键信息。 若按键事件被事件订阅者消费，则callback应返回true，否则返回false。|
+|callback|(event: [KeyEvent](#keyevent)) => boolean|是|回调函数，返回按键信息。 若按键事件被事件订阅者消费，则callback应返回true，否则返回false。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getKeyboardDelegate().on('keyUp', (keyEvent: inputMethodEngine.KeyEvent) => {
   console.info(`inputMethodEngine keyCode.(keyUp): ${keyEvent.keyCode}`);
   console.info(`inputMethodEngine keyAction.(keyUp): ${keyEvent.keyAction}`);
@@ -1238,24 +1250,24 @@ inputMethodEngine.getKeyboardDelegate().on('keyDown', (keyEvent: inputMethodEngi
 });
 ```
 
-#### off('keyDown'\|'keyUp')
+### off('keyDown'|'keyUp')
 
-off(type: 'keyDown'\|'keyUp', callback?: (event: KeyEvent) =\> boolean): void
+off(type: 'keyDown'|'keyUp', callback?: (event: KeyEvent) => boolean): void
 
 取消订阅硬键盘（即物理键盘）上物理按键的按下或抬起事件。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------------|:-|:-----------------------------------------------------------------------|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------------------------|
 |type|string|是|设置监听类型。 - 'keyDown'表示键盘按下。 - 'keyUp'表示键盘抬起。|
-|callback|(event: [KeyEvent](#keyevent)) =\> boolean|否|取消订阅的回调函数，用于取消特定的键盘按键事件订阅。传入callback时取消指定回调的订阅，参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|(event: [KeyEvent](#keyevent)) => boolean|否|取消订阅的回调函数，用于取消特定的键盘按键事件订阅。传入callback时取消指定回调的订阅，参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getKeyboardDelegate().off('keyUp', (keyEvent: inputMethodEngine.KeyEvent) => {
   console.info('delete keyUp notification.');
   return true;
@@ -1266,28 +1278,28 @@ inputMethodEngine.getKeyboardDelegate().off('keyDown', (keyEvent: inputMethodEng
 });
 ```
 
-#### on('keyEvent')^10+^
+### on('keyEvent')^10+^
 
-on(type: 'keyEvent', callback: (event: InputKeyEvent) =\> boolean): void
+on(type: 'keyEvent', callback: (event: InputKeyEvent) => boolean): void
 
-订阅硬键盘（即物理键盘）事件。使用callback异步回调。与on('keyDown'\|'keyUp')相比，on('keyEvent')提供更完整的按键事件信息（包含组合键Ctrl/Shift/Alt状态、unicodeChar等），适用于需要处理组合键或获取更丰富按键信息的场景。
+订阅硬键盘（即物理键盘）事件。使用callback异步回调。与on('keyDown'|'keyUp')相比，on('keyEvent')提供更完整的按键事件信息（包含组合键Ctrl/Shift/Alt状态、unicodeChar等），适用于需要处理组合键或获取更丰富按键信息的场景。
 
 使用场景：需要处理组合键（如Ctrl+C、Shift+Enter等）或获取更完整按键信息（如unicodeChar、ctrlKey等）的场景。
 
 使用后效果：当物理按键事件触发时回调被调用。若按键事件被事件订阅者消费，则callback应返回true，否则返回false。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:-------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |type|string|是|设置监听类型，固定取值为'keyEvent'。|
-|callback|(event: [InputKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keyevent#keyevent)) =\> boolean|是|回调函数，入参为按键事件信息，返回值类型为布尔类型。 - 入参按键事件信息的数据类型为[InputKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keyevent#keyevent)。 - 若按键事件被事件订阅者消费，则callback应返回true，否则返回false。|
+|callback|(event: [InputKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keyevent#keyevent)) => boolean|是|回调函数，入参为按键事件信息，返回值类型为布尔类型。 - 入参按键事件信息的数据类型为[InputKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keyevent#keyevent)。 - 若按键事件被事件订阅者消费，则callback应返回true，否则返回false。|
 
-示例：
+**示例：**
 
-```
+```ts
 import type { KeyEvent } from '@kit.InputKit';
 
 inputMethodEngine.getKeyboardDelegate().on('keyEvent', (keyEvent: KeyEvent) => {
@@ -1299,24 +1311,24 @@ inputMethodEngine.getKeyboardDelegate().on('keyEvent', (keyEvent: KeyEvent) => {
 });
 ```
 
-#### off('keyEvent')^10+^
+### off('keyEvent')^10+^
 
-off(type: 'keyEvent', callback?: (event: InputKeyEvent) =\> boolean): void
+off(type: 'keyEvent', callback?: (event: InputKeyEvent) => boolean): void
 
 取消订阅硬键盘（即物理键盘）事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------|
+|:-------|:-------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------|
 |type|string|是|设置监听类型，固定取值为'keyEvent'。|
-|callback|(event: [InputKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keyevent#keyevent)) =\> boolean|否|取消订阅的回调函数，用于取消特定的键盘事件订阅。传入callback时取消指定回调的订阅，参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|(event: [InputKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keyevent#keyevent)) => boolean|否|取消订阅的回调函数，用于取消特定的键盘事件订阅。传入callback时取消指定回调的订阅，参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 import type { KeyEvent } from '@kit.InputKit';
 
 inputMethodEngine.getKeyboardDelegate().off('keyEvent', (keyEvent: KeyEvent) => {
@@ -1326,9 +1338,9 @@ inputMethodEngine.getKeyboardDelegate().off('keyEvent', (keyEvent: KeyEvent) => 
 inputMethodEngine.getKeyboardDelegate().off('keyEvent');
 ```
 
-#### on('cursorContextChange')
+### on('cursorContextChange')
 
-on(type: 'cursorContextChange', callback: (x: number, y:number, height:number) =\> void): void
+on(type: 'cursorContextChange', callback: (x: number, y:number, height:number) => void): void
 
 订阅光标变化事件。使用callback异步回调。
 
@@ -1336,18 +1348,18 @@ on(type: 'cursorContextChange', callback: (x: number, y:number, height:number) =
 
 使用后效果：当编辑框光标位置发生变化时触发回调，返回光标的x坐标、y坐标和高度信息，输入法应用可据此调整候选词窗口或面板的定位。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------------|:-|:----------------------------------------------------------------------|
+|:-------|:---------------------------------------------|:-|:----------------------------------------------------------------------|
 |type|string|是|光标变化事件，固定取值为'cursorContextChange'。|
-|callback|(x: number, y: number, height: number) =\> void|是|回调函数，返回光标信息。 - x为光标上端的x坐标值，单位：px，y为光标上端的y坐标值，单位：px，height为光标的高度值，单位：px。|
+|callback|(x: number, y: number, height: number) => void|是|回调函数，返回光标信息。 - x为光标上端的x坐标值，单位：px，y为光标上端的y坐标值，单位：px，height为光标的高度值，单位：px。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getKeyboardDelegate().on('cursorContextChange', (x: number, y: number, height: number) => {
   console.info('inputMethodEngine cursorContextChange x:' + x);
   console.info('inputMethodEngine cursorContextChange y:' + y);
@@ -1355,30 +1367,30 @@ inputMethodEngine.getKeyboardDelegate().on('cursorContextChange', (x: number, y:
 });
 ```
 
-#### off('cursorContextChange')
+### off('cursorContextChange')
 
-off(type: 'cursorContextChange', callback?: (x: number, y: number, height: number) =\> void): void
+off(type: 'cursorContextChange', callback?: (x: number, y: number, height: number) => void): void
 
 取消订阅光标变化事件。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:----------------------------------|
+|:-------|:-------------------------------------------|:-|:----------------------------------|
 |type|string|是|光标变化事件，固定取值为'cursorContextChange'。|
-|callback|(x: number, y:number, height:number) =\> void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|(x: number, y:number, height:number) => void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getKeyboardDelegate().off('cursorContextChange');
 ```
 
-#### on('selectionChange')
+### on('selectionChange')
 
-on(type: 'selectionChange', callback: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) =\> void): void
+on(type: 'selectionChange', callback: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void): void
 
 订阅文本选择范围变化事件。使用callback异步回调。
 
@@ -1386,18 +1398,18 @@ on(type: 'selectionChange', callback: (oldBegin: number, oldEnd: number, newBegi
 
 使用后效果：当编辑框中文本选择范围发生变化时触发回调，返回变化前后的选区起始和终止下标。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------|
+|:-------|:---------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------|
 |type|string|是|文本选择变化事件，固定取值为'selectionChange'。|
-|callback|(oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) =\> void|是|回调函数，返回文本选择信息。 - oldBegin为变化前被选中文本的起始下标，oldEnd为变化前被选中文本的终止下标。 - newBegin为变化后被选中文本的起始下标，newEnd为变化后被选中文本的终止下标。|
+|callback|(oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void|是|回调函数，返回文本选择信息。 - oldBegin为变化前被选中文本的起始下标，oldEnd为变化前被选中文本的终止下标。 - newBegin为变化后被选中文本的起始下标，newEnd为变化后被选中文本的终止下标。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getKeyboardDelegate()
   .on('selectionChange', (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => {
     console.info('selectionChange oldBegin:' + oldBegin);
@@ -1407,33 +1419,33 @@ inputMethodEngine.getKeyboardDelegate()
   });
 ```
 
-#### off('selectionChange')
+### off('selectionChange')
 
-off(type: 'selectionChange', callback?: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) =\> void): void
+off(type: 'selectionChange', callback?: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void): void
 
 取消订阅文本选择范围变化事件。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------------------------------------------|:-|:----------------------------------|
+|:-------|:---------------------------------------------------------------------------|:-|:----------------------------------|
 |type|string|是|文本选择变化事件，固定取值为'selectionChange'。|
-|callback|(oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) =\> void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|(oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getKeyboardDelegate()
   .off('selectionChange', (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => {
     console.info('delete selectionChange notification.');
   });
 ```
 
-#### on('textChange')
+### on('textChange')
 
-on(type: 'textChange', callback: (text: string) =\> void): void
+on(type: 'textChange', callback: (text: string) => void): void
 
 订阅文本内容变化事件。使用callback异步回调。
 
@@ -1441,49 +1453,49 @@ on(type: 'textChange', callback: (text: string) =\> void): void
 
 使用后效果：当编辑框文本内容发生变化时触发回调，返回当前编辑框的完整文本内容。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:------------------------|
+|:-------|:---------------------|:-|:------------------------|
 |type|string|是|文本变化事件，固定取值为'textChange'。|
-|callback|(text: string) =\> void|是|回调函数，返回订阅的文本内容。|
+|callback|(text: string) => void|是|回调函数，返回订阅的文本内容。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getKeyboardDelegate().on('textChange', (text: string) => {
   console.info('inputMethodEngine textChange. text:' + text);
 });
 ```
 
-#### off('textChange')
+### off('textChange')
 
-off(type: 'textChange', callback?: (text: string) =\> void): void
+off(type: 'textChange', callback?: (text: string) => void): void
 
 取消订阅文本内容变化事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:----------------------------------|
+|:-------|:---------------------|:-|:----------------------------------|
 |type|string|是|文本变化事件，固定取值为'textChange'。|
-|callback|(text: string) =\> void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|(text: string) => void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getKeyboardDelegate().off('textChange', (text: string) => {
   console.info('delete textChange notification. text:' + text);
 });
 ```
 
-#### on('editorAttributeChanged')^10+^
+### on('editorAttributeChanged')^10+^
 
-on(type: 'editorAttributeChanged', callback: (attr: EditorAttribute) =\> void): void
+on(type: 'editorAttributeChanged', callback: (attr: EditorAttribute) => void): void
 
 订阅编辑框属性变化事件。使用callback异步回调。
 
@@ -1491,46 +1503,46 @@ on(type: 'editorAttributeChanged', callback: (attr: EditorAttribute) =\> void): 
 
 使用后效果：当编辑框属性发生变化时触发回调，返回变化后的编辑框属性信息（包括inputPattern和enterKeyType），输入法应用可据此重新调整键盘布局。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------------------------------------------|:-|:---------------------------------------|
+|:-------|:--------------------------------------------------|:-|:---------------------------------------|
 |type|string|是|编辑框属性变化事件，固定取值为'editorAttributeChanged'。|
-|callback|(attr: [EditorAttribute](#editorattribute)) =\> void|是|回调函数，返回变化的编辑框属性。|
+|callback|(attr: [EditorAttribute](#editorattribute)) => void|是|回调函数，返回变化的编辑框属性。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getKeyboardDelegate()
   .on('editorAttributeChanged', (editorAttribute: inputMethodEngine.EditorAttribute) => {
     console.info(`Succeeded in receiving attribute of editor, inputPattern = ${editorAttribute.inputPattern}, enterKeyType = ${editorAttribute.enterKeyType}`);
   });
 ```
 
-#### off('editorAttributeChanged')^10+^
+### off('editorAttributeChanged')^10+^
 
-off(type: 'editorAttributeChanged', callback?: (attr: EditorAttribute) =\> void): void
+off(type: 'editorAttributeChanged', callback?: (attr: EditorAttribute) => void): void
 
 取消订阅编辑框属性变化事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------------------------------------------|:-|:----------------------------------------|
+|:-------|:--------------------------------------------------|:-|:----------------------------------------|
 |type|string|是|编辑框属性变化事件，固定取值为'editorAttributeChanged'。|
-|callback|(attr: [EditorAttribute](#editorattribute)) =\> void|否|所要取消订阅的回调处理函数。参数不填写时，默认取消订阅type对应的所有回调事件。|
+|callback|(attr: [EditorAttribute](#editorattribute)) => void|否|所要取消订阅的回调处理函数。参数不填写时，默认取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getKeyboardDelegate().off('editorAttributeChanged');
 ```
 
-#### Panel^10+^
+## Panel^10+^
 
 Panel是输入法面板对象，提供面板页面加载、显示/隐藏、尺寸调整、位置移动、模式切换等功能。Panel实例通过InputMethodAbility的[createPanel](#createpanel10)接口获取，使用完毕后需调用[destroyPanel](#destroypanel10)销毁以释放资源。createPanel与destroyPanel必须配对调用。
 
@@ -1552,34 +1564,34 @@ Panel是输入法面板对象，提供面板页面加载、显示/隐藏、尺�
 
 下列API均需使用[createPanel](#createpanel10)获取到Panel实例后，通过实例调用。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-#### setUiContent^10+^
+### setUiContent^10+^
 
-setUiContent(path: string, callback: AsyncCallback\<void\> ): void
+setUiContent(path: string, callback: AsyncCallback<void> ): void
 
 为当前的输入法面板加载具体页面内容，使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:-----------------------------------------|
+|:-------|:------------------|:-|:-----------------------------------------|
 |path|string|是|具体页面的路径。路径长度建议不超过1024字符。|
-|callback|AsyncCallback\<void\>|是|回调函数。当面板页面内容加载成功，err为undefined，否则err为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当面板页面内容加载成功，err为undefined，否则err为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 设置输入法面板内容
@@ -1593,37 +1605,37 @@ panel.setUiContent('pages/page2/page2', (err: BusinessError) => {
 });
 ```
 
-#### setUiContent^10+^
+### setUiContent^10+^
 
-setUiContent(path: string): Promise\<void\>
+setUiContent(path: string): Promise<void>
 
 为当前的输入法面板加载具体页面内容，使用Promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:-----|:-|:-----------------------|
 |path|string|是|具体页面的路径。路径长度建议不超过1024字符。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 panel.setUiContent('pages/page2/page2').then(() => {
@@ -1633,33 +1645,33 @@ panel.setUiContent('pages/page2/page2').then(() => {
 });
 ```
 
-#### setUiContent^10+^
+### setUiContent^10+^
 
-setUiContent(path: string, storage: LocalStorage, callback: AsyncCallback\<void\> ): void
+setUiContent(path: string, storage: LocalStorage, callback: AsyncCallback<void> ): void
 
 为当前的输入法面板加载与LocalStorage相关联的具体页面内容，使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------|
 |path|string|是|LocalStorage相关联的具体页面的路径。路径长度建议不超过1024字符。|
 |storage|[LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management#localstorage9)|是|存储单元，为应用程序范围内的可变状态属性和不可变状态属性提供存储。|
-|callback|AsyncCallback\<void\>|是|回调函数。当面板页面内容加载成功，err为undefined，否则err为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当面板页面内容加载成功，err为undefined，否则err为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 创建并初始化LocalStorage对象
@@ -1674,38 +1686,38 @@ panel.setUiContent('pages/page2/page2', storage, (err: BusinessError) => {
 });
 ```
 
-#### setUiContent^10+^
+### setUiContent^10+^
 
-setUiContent(path: string, storage: LocalStorage): Promise\<void\>
+setUiContent(path: string, storage: LocalStorage): Promise<void>
 
 为当前面板加载与LocalStorage相关联的具体页面内容，使用Promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------|
 |path|string|是|具体页面的路径。路径长度建议不超过1024字符。|
 |storage|[LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management#localstorage9)|是|存储单元，为应用程序范围内的可变状态属性和非可变状态属性提供存储。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 创建并初始化LocalStorage对象
@@ -1718,37 +1730,38 @@ panel.setUiContent('pages/page2/page2', storage).then(() => {
 });
 ```
 
-#### resize^10+^
+### resize^10+^
 
-resize(width: number, height: number, callback: AsyncCallback\<void\> ): void
+resize(width: number, height: number, callback: AsyncCallback<void> ): void
 
-改变当前输入法面板的大小，使用callback异步回调。  
-![](https://media:401788445001018603)  
-面板宽度不超出屏幕宽度，面板高度不高于屏幕高度的0.7倍。
+改变当前输入法面板的大小，使用callback异步回调。
+> 说明
+>
+> 面板宽度不超出屏幕宽度，面板高度不高于屏幕高度的0.7倍。
+>
+> 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
 
-手机的PanelFlag是FLG_FLOATING且面板宽度在0\~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:-------------------------------------------------------|
+|:-------|:------------------|:-|:-------------------------------------------------------|
 |width|number|是|目标面板的宽度，单位为px。该参数应为大于或等于0的整数，不超出屏幕宽度。超出范围时返回错误码401。|
 |height|number|是|目标面板的高度，单位为px。该参数应为大于或等于0的整数，不高于屏幕高度的0.7倍。超出范围时返回错误码401。|
-|callback|AsyncCallback\<void\>|是|回调函数。当面板大小改变成功，err为undefined，否则err为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当面板大小改变成功，err为undefined，否则err为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 改变输入法面板大小
@@ -1761,42 +1774,43 @@ panel.resize(500, 1000, (err: BusinessError) => {
 });
 ```
 
-#### resize^10+^
+### resize^10+^
 
-resize(width: number, height: number): Promise\<void\>
+resize(width: number, height: number): Promise<void>
 
-改变当前输入法面板的大小，使用Promise异步回调。  
-![](https://media:401788445001042604)  
-面板宽度不超出屏幕宽度，面板高度不高于屏幕高度的0.7倍。
+改变当前输入法面板的大小，使用Promise异步回调。
+> 说明
+>
+> 面板宽度不超出屏幕宽度，面板高度不高于屏幕高度的0.7倍。
+>
+> 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
 
-手机的PanelFlag是FLG_FLOATING且面板宽度在0\~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:-------------------------------------------------------|
 |width|number|是|目标面板的宽度，单位为px。该参数应为大于或等于0的整数，不超出屏幕宽度。超出范围时返回错误码401。|
 |height|number|是|目标面板的高度，单位为px。该参数应为大于或等于0的整数，不高于屏幕高度的0.7倍。超出范围时返回错误码401。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 改变输入法面板大小
@@ -1807,33 +1821,33 @@ panel.resize(500, 1000).then(() => {
 });
 ```
 
-#### moveTo^10+^
+### moveTo^10+^
 
-moveTo(x: number, y: number, callback: AsyncCallback\<void\> ): void
+moveTo(x: number, y: number, callback: AsyncCallback<void> ): void
 
 移动面板位置，使用callback异步回调。[面板状态](#panelflag10)为固定态时，不产生实际移动效果。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:-------------------------------------------------------|
+|:-------|:------------------|:-|:-------------------------------------------------------|
 |x|number|是|横轴方向移动的值，单位为px。该参数应为整数。值大于0表示右移，小于0表示左移。超出屏幕范围时返回错误码401。|
 |y|number|是|纵轴方向移动的值，单位为px。该参数应为整数。值大于0表示下移，小于0表示上移。超出屏幕范围时返回错误码401。|
-|callback|AsyncCallback\<void\>|是|回调函数。当面板位置移动成功，err为undefined，否则err为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当面板位置移动成功，err为undefined，否则err为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 移动输入法面板位置
@@ -1846,38 +1860,38 @@ panel.moveTo(300, 300, (err: BusinessError) => {
 });
 ```
 
-#### moveTo^10+^
+### moveTo^10+^
 
-moveTo(x: number, y: number): Promise\<void\>
+moveTo(x: number, y: number): Promise<void>
 
 移动面板位置，使用promise异步回调。[面板状态](#panelflag10)为固定态时，不产生实际移动效果。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--|:-----|:-|:-------------------------------|
 |x|number|是|横轴方向移动的值，值大于0表示右移，单位为px。该参数应为整数。|
 |y|number|是|纵轴方向移动的值，值大于0表示下移，单位为px。该参数应为整数。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 移动输入法面板位置
@@ -1888,17 +1902,17 @@ panel.moveTo(300, 300).then(() => {
 });
 ```
 
-#### startMoving^15+^
+### startMoving^15+^
 
 startMoving(): void
 
 发送移动命令给窗口，使面板进入可拖动状态。不产生实际移动效果，仅在用户通过鼠标拖动面板时才会移动。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1907,38 +1921,38 @@ startMoving(): void
 |12800013|window manager service error.|
 |12800017|invalid panel type or panel flag.|
 
-示例：
+**示例：**
 
-```
+```ts
 panel.startMoving();
 ```
 
-#### getDisplayId^15+^
+### getDisplayId^15+^
 
-getDisplayId(): Promise\<number\>
+getDisplayId(): Promise<number>
 
 获取当前窗口的displayId，使用Promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:------------------------|
-|Promise\<number\>|Promise对象。返回窗口的displayId。|
+|:--------------|:------------------------|
+|Promise<number>|Promise对象。返回窗口的displayId。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
 |12800002|input method engine error. Possible causes: 1.input method panel not created. 2.the input method application does not subscribe to related events.|
 |12800013|window manager service error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 panel.getDisplayId().then((result: number) => {
@@ -1948,23 +1962,23 @@ panel.getDisplayId().then((result: number) => {
 });
 ```
 
-#### show^10+^
+### show^10+^
 
-show(callback: AsyncCallback\<void\> ): void
+show(callback: AsyncCallback<void> ): void
 
 显示当前输入法面板，使用callback异步回调。输入法应用与编辑框绑定成功后可正常调用。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:-------------------------------------|
-|callback|AsyncCallback\<void\>|是|回调函数。当面板显示成功，err为undefined，否则err为错误对象。|
+|:-------|:------------------|:-|:-------------------------------------|
+|callback|AsyncCallback<void>|是|回调函数。当面板显示成功，err为undefined，否则err为错误对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 panel.show((err: BusinessError) => {
@@ -1976,23 +1990,23 @@ panel.show((err: BusinessError) => {
 });
 ```
 
-#### show^10+^
+### show^10+^
 
-show(): Promise\<void\>
+show(): Promise<void>
 
 显示当前输入法面板，使用promise异步回调。输入法应用与编辑框绑定成功后可正常调用。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 panel.show().then(() => {
@@ -2002,23 +2016,23 @@ panel.show().then(() => {
 });
 ```
 
-#### hide^10+^
+### hide^10+^
 
-hide(callback: AsyncCallback\<void\> ): void
+hide(callback: AsyncCallback<void> ): void
 
 隐藏当前输入法面板，使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:-------------------------------------|
-|callback|AsyncCallback\<void\>|是|回调函数。当面板隐藏成功，err为undefined，否则err为错误对象。|
+|:-------|:------------------|:-|:-------------------------------------|
+|callback|AsyncCallback<void>|是|回调函数。当面板隐藏成功，err为undefined，否则err为错误对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 panel.hide((err: BusinessError) => {
@@ -2030,23 +2044,23 @@ panel.hide((err: BusinessError) => {
 });
 ```
 
-#### hide^10+^
+### hide^10+^
 
-hide(): Promise\<void\>
+hide(): Promise<void>
 
 隐藏当前输入法面板，使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 panel.hide().then(() => {
@@ -2056,39 +2070,40 @@ panel.hide().then(() => {
 });
 ```
 
-#### adjustPanelRect^12+^
+### adjustPanelRect^12+^
 
 adjustPanelRect(flag: PanelFlag, rect: PanelRect): void
 
-预设置输入法应用横竖屏大小。接口调用完毕表示adjust请求已提交到输入法框架，不表示执行完毕。  
-![](https://media:401788445001066605)  
-仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。
+预设置输入法应用横竖屏大小。接口调用完毕表示adjust请求已提交到输入法框架，不表示执行完毕。
+> 说明
+>
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。
+>
+> 此接口为同步接口，接口返回成功仅代表系统侧收到设置的请求，不代表设置完成。如果需要感知执行过程中的异常，建议使用[updatePanelRect](#updatepanelrect)或[updatePanelRectSync](#updatepanelrectsync)。
+>
+> 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
 
-此接口为同步接口，接口返回成功仅代表系统侧收到设置的请求，不代表设置完成。如果需要感知执行过程中的异常，建议使用[updatePanelRect](#updatepanelrect)或[updatePanelRectSync](#updatepanelrectsync)。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-手机的PanelFlag是FLG_FLOATING且面板宽度在0\~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
-
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:------------------------|:-|:--------------------------------------------------------------------------------------------------|
 |flag|[PanelFlag](#panelflag10)|是|目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。|
 |rect|[PanelRect](#panelrect12)|是|目标面板横屏状态及竖屏状态的横坐标，纵坐标，宽度以及高度。固定态：高度不能超过屏幕高度的70%，宽度不能超过屏幕宽度；悬浮态：高度不能超过屏幕高度，宽度不能超过屏幕宽度。超出范围时返回错误码401。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 |12800013|window manager service error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { window } from '@kit.ArkUI';
 
 // 定义横屏状态下面板的矩形区域
@@ -2118,32 +2133,33 @@ let panelRect: inputMethodEngine.PanelRect = {
 panel.adjustPanelRect(panelFlag, panelRect);
 ```
 
-#### adjustPanelRect^15+^
+### adjustPanelRect^15+^
 
 adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect): void
 
-预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。  
-![](https://media:401788445001105606)  
-仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。此接口兼容[adjustPanelRect](#adjustpanelrect12)的调用方法，若入参rect仅填写属性landscapeRect和portraitRect，则默认调用[adjustPanelRect](#adjustpanelrect12)。
+预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。
+> 说明
+>
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。此接口兼容[adjustPanelRect](#adjustpanelrect12)的调用方法，若入参rect仅填写属性landscapeRect和portraitRect，则默认调用[adjustPanelRect](#adjustpanelrect12)。
+>
+> 此接口为同步接口，接口返回成功仅代表系统侧收到设置的请求，不代表设置完成。如果需要感知执行过程中的异常，建议使用[updatePanelRect](#updatepanelrect-1)或[updatePanelRectSync](#updatepanelrectsync-1)。
+>
+> 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+>
+> 当com.ohos.sceneboard进程不存在时，输入法热区生效范围保持和软键盘区域一致。
 
-此接口为同步接口，接口返回成功仅代表系统侧收到设置的请求，不代表设置完成。如果需要感知执行过程中的异常，建议使用[updatePanelRect](#updatepanelrect-1)或[updatePanelRectSync](#updatepanelrectsync-1)。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-手机的PanelFlag是FLG_FLOATING且面板宽度在0\~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
-
-当com.ohos.sceneboard进程不存在时，输入法热区生效范围保持和软键盘区域一致。
-
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:----------------------------------------|:-|:----------------------------------|
 |flag|[PanelFlag](#panelflag10)|是|目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。|
 |rect|[EnhancedPanelRect](#enhancedpanelrect15)|是|目标面板横屏状态及竖屏状态的位置、大小、避让区域以及热区。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -2151,9 +2167,9 @@ adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect): void
 |12800013|window manager service error.|
 |12800017|invalid panel type or panel flag.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { window } from '@kit.ArkUI';
 
 let landscapeRect1: window.Rect = {
@@ -2184,48 +2200,49 @@ let panelRect: inputMethodEngine.EnhancedPanelRect = {
 panel.adjustPanelRect(panelFlag, panelRect);
 ```
 
-#### updatePanelRect
+### updatePanelRect
 
-updatePanelRect(flag: PanelFlag, rect: PanelRect): Promise\<void\>
+updatePanelRect(flag: PanelFlag, rect: PanelRect): Promise<void>
 
-预设置输入法应用横竖屏大小。使用Promise异步回调。  
-![](https://media:401788445001134607)  
-仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。
+预设置输入法应用横竖屏大小。使用Promise异步回调。
+> 说明
+>
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。
+>
+> 此接口为异步接口，接口返回仅代表系统侧收到设置的请求，不代表已完成设置。
+>
+> 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
 
-此接口为异步接口，接口返回仅代表系统侧收到设置的请求，不代表已完成设置。
+**起始版本：** 26.0.0
 
-手机的PanelFlag是FLG_FLOATING且面板宽度在0\~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-起始版本： 26.0.0
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-模型约束： 此接口仅可在Stage模型下使用。
-
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:------------------------|:-|:--------------------------------------------------------------------------------------------------|
 |flag|[PanelFlag](#panelflag10)|是|目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。|
 |rect|[PanelRect](#panelrect12)|是|目标面板横屏状态及竖屏状态的横坐标，纵坐标，宽度以及高度。固定态：高度不能超过屏幕高度的70%，宽度不能超过屏幕宽度；悬浮态：高度不能超过屏幕高度，宽度不能超过屏幕宽度。超出范围时返回错误码401。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------|
 |12800013|window manager service error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { window } from '@kit.ArkUI';
 
 let landscapeRect: window.Rect = {
@@ -2252,51 +2269,52 @@ let panelRect: inputMethodEngine.PanelRect = {
 panel.updatePanelRect(panelFlag, panelRect);
 ```
 
-#### updatePanelRect
+### updatePanelRect
 
-updatePanelRect(flag: PanelFlag, rect: EnhancedPanelRect): Promise\<void\>
+updatePanelRect(flag: PanelFlag, rect: EnhancedPanelRect): Promise<void>
 
-预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。使用Promise异步回调。  
-![](https://media:401788445001157608)  
-仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。此接口兼容[adjustPanelRect](#adjustpanelrect12)的调用方法，若入参rect仅填写属性landscapeRect和portraitRect，则默认调用[adjustPanelRect](#adjustpanelrect12)。
+预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。使用Promise异步回调。
+> 说明
+>
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。此接口兼容[adjustPanelRect](#adjustpanelrect12)的调用方法，若入参rect仅填写属性landscapeRect和portraitRect，则默认调用[adjustPanelRect](#adjustpanelrect12)。
+>
+> 此接口为异步接口，接口返回仅代表系统侧收到设置的请求，不代表已完成设置。
+>
+> 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+>
+> 当com.ohos.sceneboard进程不存在时，输入法热区生效范围保持和软键盘区域一致。
 
-此接口为异步接口，接口返回仅代表系统侧收到设置的请求，不代表已完成设置。
+**起始版本：** 26.0.0
 
-手机的PanelFlag是FLG_FLOATING且面板宽度在0\~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-当com.ohos.sceneboard进程不存在时，输入法热区生效范围保持和软键盘区域一致。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-起始版本： 26.0.0
-
-模型约束： 此接口仅可在Stage模型下使用。
-
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:----------------------------------------|:-|:----------------------------------|
 |flag|[PanelFlag](#panelflag10)|是|目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。|
 |rect|[EnhancedPanelRect](#enhancedpanelrect15)|是|目标面板横屏状态及竖屏状态的位置、大小、避让区域以及热区。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:--------------------------------|
 |12800013|window manager service error.|
 |12800017|invalid panel type or panel flag.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { window } from '@kit.ArkUI';
 
 let landscapeRect1: window.Rect = {
@@ -2327,44 +2345,45 @@ let panelRect: inputMethodEngine.EnhancedPanelRect = {
 panel.updatePanelRect(panelFlag, panelRect);
 ```
 
-#### updatePanelRectSync
+### updatePanelRectSync
 
 updatePanelRectSync(flag: PanelFlag, rect: PanelRect): void
 
-预设置输入法应用横竖屏大小。  
-![](https://media:401788445001183609)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[updatePanelRect](#updatepanelrect)。
+预设置输入法应用横竖屏大小。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[updatePanelRect](#updatepanelrect)。
+>
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。
+>
+> 此接口为同步接口，接口返回代表系统侧收到设置的请求，并已完成设置。
+>
+> 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
 
-仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。
+**起始版本：** 26.0.0
 
-此接口为同步接口，接口返回代表系统侧收到设置的请求，并已完成设置。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-手机的PanelFlag是FLG_FLOATING且面板宽度在0\~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-起始版本： 26.0.0
-
-模型约束： 此接口仅可在Stage模型下使用。
-
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:------------------------|:-|:--------------------------------------------------------------------------------------------------|
 |flag|[PanelFlag](#panelflag10)|是|目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。|
 |rect|[PanelRect](#panelrect12)|是|目标面板横屏状态及竖屏状态的横坐标，纵坐标，宽度以及高度。固定态：高度不能超过屏幕高度的70%，宽度不能超过屏幕宽度；悬浮态：高度不能超过屏幕高度，宽度不能超过屏幕宽度。超出范围时返回错误码401。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------|
 |12800013|window manager service error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { window } from '@kit.ArkUI';
 
 let landscapeRect: window.Rect = {
@@ -2391,47 +2410,48 @@ let panelRect: inputMethodEngine.PanelRect = {
 panel.updatePanelRectSync(panelFlag, panelRect);
 ```
 
-#### updatePanelRectSync
+### updatePanelRectSync
 
 updatePanelRectSync(flag: PanelFlag, rect: EnhancedPanelRect): void
 
-预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。  
-![](https://media:401788445001252610)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[updatePanelRect](#updatepanelrect)。
+预设置输入法应用横竖屏大小、位置、自定义避让区域以及热区。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[updatePanelRect](#updatepanelrect)。
+>
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。此接口兼容[adjustPanelRect](#adjustpanelrect12)的调用方法，若入参rect仅填写属性landscapeRect和portraitRect，则默认调用[adjustPanelRect](#adjustpanelrect12)。
+>
+> 此接口为同步接口，接口返回代表系统侧收到设置的请求，并已完成设置。
+>
+> 手机的PanelFlag是FLG_FLOATING且面板宽度在0~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+>
+> 当com.ohos.sceneboard进程不存在时，输入法热区生效范围保持和软键盘区域一致。
 
-仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。此接口兼容[adjustPanelRect](#adjustpanelrect12)的调用方法，若入参rect仅填写属性landscapeRect和portraitRect，则默认调用[adjustPanelRect](#adjustpanelrect12)。
+**起始版本：** 26.0.0
 
-此接口为同步接口，接口返回代表系统侧收到设置的请求，并已完成设置。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-手机的PanelFlag是FLG_FLOATING且面板宽度在0\~288vp之间时，面板底部功能键将随面板宽度动态调整大小，为了保证最佳用户体验，建议面板宽度不小于90vp。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-当com.ohos.sceneboard进程不存在时，输入法热区生效范围保持和软键盘区域一致。
-
-起始版本： 26.0.0
-
-模型约束： 此接口仅可在Stage模型下使用。
-
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:----------------------------------------|:-|:----------------------------------|
 |flag|[PanelFlag](#panelflag10)|是|目标面板状态类型。类型为FLG_FIXED或FLG_FLOATING。|
 |rect|[EnhancedPanelRect](#enhancedpanelrect15)|是|目标面板横屏状态及竖屏状态的位置、大小、避让区域以及热区。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:--------------------------------|
 |12800013|window manager service error.|
 |12800017|invalid panel type or panel flag.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { window } from '@kit.ArkUI';
 
 let landscapeRect1: window.Rect = {
@@ -2462,29 +2482,30 @@ let panelRect: inputMethodEngine.EnhancedPanelRect = {
 panel.updatePanelRectSync(panelFlag, panelRect);
 ```
 
-#### updateRegion^15+^
+### updateRegion^15+^
 
-updateRegion(inputRegion: Array\<window.Rect\>): void
+updateRegion(inputRegion: Array<window.Rect>): void
 
-更新当前状态下输入法面板内的热区。  
-![](https://media:401788445001345611)  
-仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。
+更新当前状态下输入法面板内的热区。
+> 说明
+>
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。
+>
+> 此接口为同步接口，接口返回仅代表系统侧收到更新热区的请求，不代表已完成热区更新。
+>
+> 当com.ohos.sceneboard进程不存在时，输入法热区生效范围保持和软键盘区域一致。
 
-此接口为同步接口，接口返回仅代表系统侧收到更新热区的请求，不代表已完成热区更新。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-当com.ohos.sceneboard进程不存在时，输入法热区生效范围保持和软键盘区域一致。
-
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------|
-|inputRegion|Array\<[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)\>|是|面板内接收输入事件的区域。 - 数组大小限制为\[1, 4\]。 - 传入的热区位置是相对于输入法面板窗口左顶点的位置。|
+|:----------|:----------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------|
+|inputRegion|Array<[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)>|是|面板内接收输入事件的区域。 - 数组大小限制为[1, 4]。 - 传入的热区位置是相对于输入法面板窗口左顶点的位置。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -2492,9 +2513,9 @@ updateRegion(inputRegion: Array\<window.Rect\>): void
 |12800013|window manager service error.|
 |12800017|invalid panel type or panel flag.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
 
@@ -2507,75 +2528,76 @@ let inputRegion: Array<window.Rect> = [{
 panel.updateRegion(inputRegion);
 ```
 
-#### on('show')^10+^
+### on('show')^10+^
 
-on(type: 'show', callback: () =\> void): void
+on(type: 'show', callback: () => void): void
 
 监听当前面板显示状态，使用 callback 异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------|:-|:-----------------------|
+|:-------|:---------|:-|:-----------------------|
 |type|string|是|监听当前面板的状态类型，固定取值为'show'。|
-|callback|() =\> void|是|回调函数。|
+|callback|() => void|是|回调函数。|
 
-示例：
+**示例：**
 
-```
+```ts
 panel.on('show', () => {
   console.info('Panel is showing.');
 });
 ```
 
-#### on('hide')^10+^
+### on('hide')^10+^
 
-on(type: 'hide', callback: () =\> void): void
+on(type: 'hide', callback: () => void): void
 
 监听当前面板隐藏状态，使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------|:-|:-----------------------|
+|:-------|:---------|:-|:-----------------------|
 |type|string|是|监听当前面板的状态类型，固定取值为'hide'。|
-|callback|() =\> void|是|回调函数。|
+|callback|() => void|是|回调函数。|
 
-示例：
+**示例：**
 
-```
+```ts
 panel.on('hide', () => {
   console.info('Panel is hiding.');
 });
 ```
 
-#### on('sizeChange')^12+^
+### on('sizeChange')^12+^
 
 on(type: 'sizeChange', callback: SizeChangeCallback): void
 
-监听当前面板大小变化，使用callback异步回调。  
-![](https://media:401788445001535612)  
-仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。输入法通过adjustPanelRect等接口对面板大小进行调节时，系统会根据一定规则校验计算出最终的数值（例如超出屏幕等场景），输入法应用可通过该回调获取的真实面板大小，完成最终的面板布局刷新。
+监听当前面板大小变化，使用callback异步回调。
+> 说明
+>
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。输入法通过adjustPanelRect等接口对面板大小进行调节时，系统会根据一定规则校验计算出最终的数值（例如超出屏幕等场景），输入法应用可通过该回调获取的真实面板大小，完成最终的面板布局刷新。
+>
+> * 从API version 12-14开始支持，此接口回调函数中仅包含[window.Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#size7)类型的必选参数。
+> * 从API version 15起，调用[adjustPanelRect](#adjustpanelrect15)接口后，此接口回调函数增加[KeyboardArea](#keyboardarea15)类型的可选参数。
 
-* 从API version 12-14开始支持，此接口回调函数中仅包含[window.Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#size7)类型的必选参数。
-* 从API version 15起，调用[adjustPanelRect](#adjustpanelrect15)接口后，此接口回调函数增加[KeyboardArea](#keyboardarea15)类型的可选参数。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------|:-|:--------------------------------|
 |type|string|是|监听当前面板的大小是否产生变化，固定值为'sizeChange'。|
 |callback|[SizeChangeCallback](#sizechangecallback15)|是|回调函数。返回当前软键盘面板的大小，包含宽度和高度值。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { window } from '@kit.ArkUI';
 
 // 监听面板大小变化事件
@@ -2590,87 +2612,88 @@ panel.on('sizeChange', (windowSize: window.Size, keyboardArea: inputMethodEngine
 });
 ```
 
-#### off('show')^10+^
+### off('show')^10+^
 
-off(type: 'show', callback?: () =\> void): void
+off(type: 'show', callback?: () => void): void
 
 取消监听当前面板的显示状态，使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------|:-|:----------------------------------|
+|:-------|:---------|:-|:----------------------------------|
 |type|string|是|取消监听当前面板的状态类型，固定取值为'show'。|
-|callback|() =\> void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|() => void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 panel.off('show');
 ```
 
-#### off('hide')^10+^
+### off('hide')^10+^
 
-off(type: 'hide', callback?: () =\> void): void
+off(type: 'hide', callback?: () => void): void
 
 取消监听当前面板的隐藏状态，使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------|:-|:----------------------------------|
+|:-------|:---------|:-|:----------------------------------|
 |type|string|是|要取消监听的当前面板状态类型，固定取值为'hide'。|
-|callback|() =\> void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
+|callback|() => void|否|取消订阅的回调函数。参数不填写时，取消订阅type对应的所有回调事件。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 panel.off('hide');
 ```
 
-#### off('sizeChange')^12+^
+### off('sizeChange')^12+^
 
 off(type: 'sizeChange', callback?: SizeChangeCallback): void
 
-取消监听当前面板大小变化，使用callback异步回调。  
-![](https://media:401788445001573613)  
-仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。输入法通过adjustPanelRect等接口对面板大小进行调节时，系统会根据一定规则校验计算出最终的数值（例如超出屏幕等场景），输入法应用可通过该回调获取的真实面板大小，完成最终的面板布局刷新。
+取消监听当前面板大小变化，使用callback异步回调。
+> 说明
+>
+> 仅用于SOFT_KEYBOARD类型，状态为FLG_FIXED或FLG_FLOATING的面板。输入法通过adjustPanelRect等接口对面板大小进行调节时，系统会根据一定规则校验计算出最终的数值（例如超出屏幕等场景），输入法应用可通过该回调获取的真实面板大小，完成最终的面板布局刷新。
+>
+> * 从API version 12-14开始支持，此接口回调函数中仅包含[window.Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#size7)类型的必选参数。
+> * 从API version 15起，调用[adjustPanelRect](#adjustpanelrect15)接口后，此接口回调函数增加[KeyboardArea](#keyboardarea15)类型的可选参数。
 
-* 从API version 12-14开始支持，此接口回调函数中仅包含[window.Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#size7)类型的必选参数。
-* 从API version 15起，调用[adjustPanelRect](#adjustpanelrect15)接口后，此接口回调函数增加[KeyboardArea](#keyboardarea15)类型的可选参数。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------|:-|:---------------------------------------------------|
 |type|string|是|监听当前面板的大小是否产生变化，固定取值为'sizeChange'。|
 |callback|[SizeChangeCallback](#sizechangecallback15)|否|回调函数。返回当前软键盘面板的大小，包含宽度和高度值。参数不填写时，取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { window } from '@kit.ArkUI';
 
 panel.off('sizeChange', (windowSize: window.Size) => {
@@ -2678,84 +2701,84 @@ panel.off('sizeChange', (windowSize: window.Size) => {
 });
 ```
 
-#### changeFlag^10+^
+### changeFlag^10+^
 
 changeFlag(flag: PanelFlag): void
 
 将输入法应用的面板状态改变为其他[PanelFlag](#panelflag10)形态，仅对[SOFT_KEYBOARD](#paneltype10)生效。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:------------------------|:-|:--------|
 |flag|[PanelFlag](#panelflag10)|是|目标面板状态类型。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 let panelFlag: inputMethodEngine.PanelFlag = inputMethodEngine.PanelFlag.FLG_FIXED;
 panel.changeFlag(panelFlag);
 ```
 
-#### setPrivacyMode^11+^
+### setPrivacyMode^11+^
 
 setPrivacyMode(isPrivacyMode: boolean): void
 
 将输入法应用的面板设置为隐私模式，隐私模式不可被录屏、截屏。
 
-需要权限： ohos.permission.PRIVACY_WINDOW
+**需要权限：** ohos.permission.PRIVACY_WINDOW
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------------|:------|:-|:----------------------------------------------------|
 |isPrivacyMode|boolean|是|是否设置隐私模式。 - 值为true，表示将设置为隐私模式。 - 值为false，表示将设置为非隐私模式。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:------------------------------------------------------------------------------------------------------------|
 |201|permissions check fails.|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.|
 
-示例：
+**示例：**
 
-```
+```ts
 let isPrivacyMode: boolean = true;
 panel.setPrivacyMode(isPrivacyMode);
 ```
 
-#### setImmersiveMode^15+^
+### setImmersiveMode^15+^
 
 setImmersiveMode(mode: ImmersiveMode): void
 
 设置输入法应用的沉浸模式。只能设置为不使用沉浸模式(NONE_IMMERSIVE)、浅色沉浸模式(LIGHT_IMMERSIVE)或深色沉浸模式(DARK_IMMERSIVE)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:--------------------------------|:-|:----|
 |mode|[ImmersiveMode](#immersivemode15)|是|沉浸模式。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -2763,33 +2786,33 @@ setImmersiveMode(mode: ImmersiveMode): void
 |12800002|input method engine error. Possible causes: 1.input method panel not created. 2.the input method application does not subscribe to related events.|
 |12800013|window manager service error.|
 
-示例：
+**示例：**
 
-```
+```ts
 panel.setImmersiveMode(inputMethodEngine.ImmersiveMode.LIGHT_IMMERSIVE);
 ```
 
-#### getImmersiveMode^15+^
+### getImmersiveMode^15+^
 
 getImmersiveMode(): ImmersiveMode
 
 获取输入法应用的沉浸模式。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:----|
 |[ImmersiveMode](#immersivemode15)|沉浸模式。|
 
-示例：
+**示例：**
 
-```
+```ts
 let mode: inputMethodEngine.ImmersiveMode = panel.getImmersiveMode();
 ```
 
-#### setImmersiveEffect^20+^
+### setImmersiveEffect^20+^
 
 setImmersiveEffect(effect: ImmersiveEffect): void
 
@@ -2804,19 +2827,19 @@ setImmersiveEffect(effect: ImmersiveEffect): void
   * [adjustPanelRect](#adjustpanelrect15)(支持API version 15)
   * [resize](#resize10)(支持API version 10)
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-设备行为差异：该接口仅在phone和tablet设备中可正常调用，在其他设备中返回错误码801。
+**设备行为差异**：该接口仅在phone和tablet设备中可正常调用，在其他设备中返回错误码801。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:------------------------------------|:-|:----|
 |effect|[ImmersiveEffect](#immersiveeffect20)|是|沉浸效果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -2826,9 +2849,9 @@ setImmersiveEffect(effect: ImmersiveEffect): void
 |12800020|invalid immersive effect. 1.The gradient mode and the fluid light mode can only be used when the immersive mode is enabled. 2.The fluid light mode can only be used when the gradient mode is enabled. 3.When the gradient mode is not enabled, the gradient height can only be 0.|
 |12800021|this operation is allowed only after adjustPanelRect or resize is called.|
 
-示例：
+**示例：**
 
-```
+```ts
 let effect: inputMethodEngine.ImmersiveEffect = {
   gradientHeight: 100,
   gradientMode: inputMethodEngine.GradientMode.LINEAR_GRADIENT
@@ -2836,40 +2859,41 @@ let effect: inputMethodEngine.ImmersiveEffect = {
 panel.setImmersiveEffect(effect);
 ```
 
-#### setKeepScreenOn^20+^
+### setKeepScreenOn^20+^
 
-setKeepScreenOn(isKeepScreenOn: boolean): Promise\<void\>
+setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>
 
-设置屏幕常亮。使用Promise异步回调。  
-![](https://media:401788445001598614)  
-* 当键盘拉起时设置常亮生效，键盘关闭则自动失效。
-* 规范使用该接口：必要场景（例如：语音输入）下，设置该属性为true；退出必要场景后，重置该属性为false；其他场景下，不使用该接口。
+设置屏幕常亮。使用Promise异步回调。
+> 说明
+>
+> * 当键盘拉起时设置常亮生效，键盘关闭则自动失效。
+> * 规范使用该接口：必要场景（例如：语音输入）下，设置该属性为true；退出必要场景后，重置该属性为false；其他场景下，不使用该接口。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------------|:------|:-|:-----------------------------------|
 |isKeepScreenOn|boolean|是|是否设置屏幕常亮。true表示打开屏幕常亮，false表示关闭屏幕常亮。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------|
 |12800013|window manager service error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 panel.setKeepScreenOn(true).then(() => {
@@ -2879,29 +2903,29 @@ panel.setKeepScreenOn(true).then(() => {
 })
 ```
 
-#### getSystemPanelCurrentInsets^21+^
+### getSystemPanelCurrentInsets^21+^
 
-getSystemPanelCurrentInsets(displayId: number): Promise\<SystemPanelInsets\>
+getSystemPanelCurrentInsets(displayId: number): Promise<SystemPanelInsets>
 
 获取指定屏幕当前状态（例如：折叠或展开）下，当前输入法键盘状态（例如：悬浮或固定）下输入法软键盘相对系统面板的偏移区域。使用Promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:-----|:-|:-------------------------------------------------------|
 |displayId|number|是|输入法键盘所在屏幕的displayId，可通过[getDisplayId](#getdisplayid15)获取|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:---------------------------------------------------|:-------------------------|
-|Promise\<[SystemPanelInsets](#systempanelinsets21)\>|Promise对象。输入法键盘与系统面板的偏移区域。|
+|:-------------------------------------------------|:-------------------------|
+|Promise<[SystemPanelInsets](#systempanelinsets21)>|Promise对象。输入法键盘与系统面板的偏移区域。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -2909,9 +2933,9 @@ getSystemPanelCurrentInsets(displayId: number): Promise\<SystemPanelInsets\>
 |12800017|invalid panel type or panel flag. Possible causes: 1. Current panel's type is not SOFT_KEYBOARD. 2. Panel's flag is not FLG_FIXED or FLG_FLOATING.|
 |12800022|invalid displayId.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { inputMethodEngine } from '@kit.IMEKit';
 
@@ -2937,30 +2961,30 @@ inputMethodAbility.createPanel(this.context, panelConfig).then((panel: inputMeth
 });
 ```
 
-#### setSystemPanelButtonColor^22+^
+### setSystemPanelButtonColor^22+^
 
-setSystemPanelButtonColor(fillColor: string \| undefined, backgroundColor: string \| undefined): Promise\<void\>
+setSystemPanelButtonColor(fillColor: string | undefined, backgroundColor: string | undefined): Promise<void>
 
 设置当前面板功能键颜色和功能键的背景颜色。使用Promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:--------------|:----------------|:-|:-------------------------------------------------------------------------------------------|
-|fillColor|string\|undefined|是|功能键的颜色，取值范围为\[#01000000, #FFFFFFFF\] 或 \[#000000, #FFFFFF\]，不支持具有完全透明Alpha通道（#00xxxxxx）的值。|
-|backgroundColor|string\|undefined|是|功能键的背景颜色，取值范围为\[#01000000, #FFFFFFFF\] 或 \[#000000, #FFFFFF\]，不支持具有完全透明Alpha通道（#00xxxxxx）的值。|
+|:--------------|:---------------|:-|:---------------------------------------------------------------------------------------|
+|fillColor|string|undefined|是|功能键的颜色，取值范围为[#01000000, #FFFFFFFF] 或 [#000000, #FFFFFF]，不支持具有完全透明Alpha通道（#00xxxxxx）的值。|
+|backgroundColor|string|undefined|是|功能键的背景颜色，取值范围为[#01000000, #FFFFFFFF] 或 [#000000, #FFFFFF]，不支持具有完全透明Alpha通道（#00xxxxxx）的值。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象。无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象。无返回结果。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 确保有panel实例，可以使用inputMethodEngine.getInputMethodAbility().createPanel(...)创建panel实例
@@ -2978,37 +3002,37 @@ try {
 }
 ```
 
-#### KeyboardController
+## KeyboardController
 
 下列API均需使用[on('inputStart')](#oninputstart9)获取到KeyboardController实例后，通过实例调用。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-#### hide^9+^
+### hide^9+^
 
-hide(callback: AsyncCallback\<void\>): void
+hide(callback: AsyncCallback<void>): void
 
 隐藏输入法。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:-----------------------------------|
-|callback|AsyncCallback\<void\>|是|回调函数。当输入法隐藏成功，err为undefined，否则为错误对象。|
+|:-------|:------------------|:-|:-----------------------------------|
+|callback|AsyncCallback<void>|是|回调函数。当输入法隐藏成功，err为undefined，否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 keyboardController.hide((err: BusinessError) => {
@@ -3020,31 +3044,31 @@ keyboardController.hide((err: BusinessError) => {
 });
 ```
 
-#### hide^9+^
+### hide^9+^
 
-hide(): Promise\<void\>
+hide(): Promise<void>
 
 隐藏输入法。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 keyboardController.hide().then(() => {
@@ -3054,25 +3078,26 @@ keyboardController.hide().then(() => {
 });
 ```
 
-#### hideKeyboard^(deprecated)^
+### hideKeyboard^(deprecated)^
 
-hideKeyboard(callback: AsyncCallback\<void\>): void
+hideKeyboard(callback: AsyncCallback<void>): void
 
-隐藏输入法。使用callback异步回调。  
-![](https://media:401788445001632615)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.KeyboardController.hide](#hide9)替代。
+隐藏输入法。使用callback异步回调。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.KeyboardController.hide](#hide9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:-----------------------------------|
-|callback|AsyncCallback\<void\>|是|回调函数。当输入法隐藏成功，err为undefined，否则为错误对象。|
+|:-------|:------------------|:-|:-----------------------------------|
+|callback|AsyncCallback<void>|是|回调函数。当输入法隐藏成功，err为undefined，否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 keyboardController.hideKeyboard((err: BusinessError) => {
@@ -3084,25 +3109,26 @@ keyboardController.hideKeyboard((err: BusinessError) => {
 });
 ```
 
-#### hideKeyboard^(deprecated)^
+### hideKeyboard^(deprecated)^
 
-hideKeyboard(): Promise\<void\>
+hideKeyboard(): Promise<void>
 
-隐藏输入法。使用promise异步回调。  
-![](https://media:401788445001663616)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.KeyboardController.hide](#hide9)替代。
+隐藏输入法。使用promise异步回调。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.KeyboardController.hide](#hide9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 keyboardController.hideKeyboard().then(() => {
@@ -3112,32 +3138,32 @@ keyboardController.hideKeyboard().then(() => {
 });
 ```
 
-#### exitCurrentInputType^11+^
+### exitCurrentInputType^11+^
 
-exitCurrentInputType(callback: AsyncCallback\<void\>): void
+exitCurrentInputType(callback: AsyncCallback<void>): void
 
 退出当前输入类型，仅支持系统配置的默认输入法应用调用。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:--------------------------------------|
-|callback|AsyncCallback\<void\>|是|回调函数。当退出当前输入类型成功，err为undefined，否则为错误对象。|
+|:-------|:------------------|:-|:--------------------------------------|
+|callback|AsyncCallback<void>|是|回调函数。当退出当前输入类型成功，err为undefined，否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:-------------------------------------------------------------------------------------------------------|
 |12800008|input method manager service error. Possible cause: a system error, such as null pointer, IPC exception.|
 |12800010|not the preconfigured default input method.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 keyboardController.exitCurrentInputType((err: BusinessError) => {
@@ -3149,32 +3175,32 @@ keyboardController.exitCurrentInputType((err: BusinessError) => {
 });
 ```
 
-#### exitCurrentInputType^11+^
+### exitCurrentInputType^11+^
 
-exitCurrentInputType(): Promise\<void\>
+exitCurrentInputType(): Promise<void>
 
 退出当前输入类型，仅支持系统配置的默认输入法应用调用。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:-------------------------------------------------------------------------------------------------------|
 |12800008|input method manager service error. Possible cause: a system error, such as null pointer, IPC exception.|
 |12800010|not the preconfigured default input method.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 keyboardController.exitCurrentInputType().then(() => {
@@ -3184,22 +3210,22 @@ keyboardController.exitCurrentInputType().then(() => {
 });
 ```
 
-#### SecurityMode^11+^
+## SecurityMode^11+^
 
 输入法的安全模式，如BASIC或FULL。
 
-系统能力: SystemCapability.MiscServices.InputMethodFramework  
+**系统能力:** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|值|说明|
 |:----|:-|:---------------------|
 |BASIC|0|基础访问模式，基础打字模式，会限制网络访问。|
 |FULL|1|完全访问模式，不做限制，可以访问网络。|
 
-#### ExtendAction^10+^
+## ExtendAction^10+^
 
 编辑框中文本的扩展编辑操作类型，如剪切、复制等。
 
-系统能力: SystemCapability.MiscServices.InputMethodFramework  
+**系统能力:** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|值|说明|
 |:---------|:-|:--|
@@ -3208,11 +3234,11 @@ keyboardController.exitCurrentInputType().then(() => {
 |COPY|4|复制。|
 |PASTE|5|粘贴。|
 
-#### Direction^10+^
+## Direction^10+^
 
 光标的移动方向。
 
-系统能力: SystemCapability.MiscServices.InputMethodFramework  
+**系统能力:** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|值|说明|
 |:-----------|:-|:--|
@@ -3221,61 +3247,63 @@ keyboardController.exitCurrentInputType().then(() => {
 |CURSOR_LEFT|3|向左。|
 |CURSOR_RIGHT|4|向右。|
 
-#### Range^10+^
+## Range^10+^
 
 选中的文本范围。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
 |:----|:-----|:-|:-|:----------------|
 |start|number|否|否|选中文本的首字符在编辑框的索引值。|
 |end|number|否|否|选中文本的末字符在编辑框的索引值。|
 
-#### Movement^10+^
+## Movement^10+^
 
 选中文本时，光标移动的方向
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
 |:--------|:------------------------|:-|:-|:-------------|
 |direction|[Direction](#direction10)|否|否|选中文本时，光标的移动方向。|
 
-#### MessageHandler^15+^
+## MessageHandler^15+^
 
-自定义通信对象。  
-![](https://media:401788445001699617)  
-开发者可通过注册此对象来接收已绑定当前输入法应用的编辑框应用所发送的自定义通信数据，接收到自定义通信数据时会触发此对象中[onMessage](#onmessage15)回调函数。
+自定义通信对象。
+> 说明
+>
+> 开发者可通过注册此对象来接收已绑定当前输入法应用的编辑框应用所发送的自定义通信数据，接收到自定义通信数据时会触发此对象中[onMessage](#onmessage15)回调函数。
+>
+> 此对象全局唯一，多次注册仅保留最后一次注册的对象及有效性，并触发上一个已注册对象的[onTerminated](#onterminated15)回调函数。
+>
+> 若取消注册全局已注册的对象时，会触发被取消对象中[onTerminated](#onterminated15)回调函数。
 
-此对象全局唯一，多次注册仅保留最后一次注册的对象及有效性，并触发上一个已注册对象的[onTerminated](#onterminated15)回调函数。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-若取消注册全局已注册的对象时，会触发被取消对象中[onTerminated](#onterminated15)回调函数。
-
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
-
-#### onMessage^15+^
+### onMessage^15+^
 
 onMessage(msgId: string, msgParam?: ArrayBuffer): void
 
-接收已绑定当前输入法应用的编辑框应用发送的自定义数据回调函数。  
-![](https://media:401788445001773618)  
-当已注册的[MessageHandler](#messagehandler15)接收到来自已绑定当前输入法应用的编辑框应用所发送的自定义通信数据时，会触发该回调函数。
+接收已绑定当前输入法应用的编辑框应用发送的自定义数据回调函数。
+> 说明
+>
+> 当已注册的[MessageHandler](#messagehandler15)接收到来自已绑定当前输入法应用的编辑框应用所发送的自定义通信数据时，会触发该回调函数。
+>
+> msgId为必选参数，msgParam为可选参数。存在收到仅有msgId自定义数据的可能，需与数据发送方确认自定义数据。
 
-msgId为必选参数，msgParam为可选参数。存在收到仅有msgId自定义数据的可能，需与数据发送方确认自定义数据。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:----------|:-|:---------------|
 |msgId|string|是|接收到的自定义通信数据的标识符。|
 |msgParam|ArrayBuffer|否|接收到的自定义通信数据的消息体。|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility()
   .on('inputStart',
     (keyboardController: inputMethodEngine.KeyboardController, inputClient: inputMethodEngine.InputClient) => {
@@ -3291,21 +3319,22 @@ inputMethodEngine.getInputMethodAbility()
     });
 ```
 
-#### onTerminated^15+^
+### onTerminated^15+^
 
 onTerminated(): void
 
-监听对象终止回调函数。  
-![](https://media:401788445001941619)  
-当应用注册新的[MessageHandler](#messagehandler15)对象时，会触发上一个已注册[MessageHandler](#messagehandler15)对象的[onTerminated](#onterminated15)回调函数。
+监听对象终止回调函数。
+> 说明
+>
+> 当应用注册新的[MessageHandler](#messagehandler15)对象时，会触发上一个已注册[MessageHandler](#messagehandler15)对象的[onTerminated](#onterminated15)回调函数。
+>
+> 当应用取消注册时，会触发当前已注册[MessageHandler](#messagehandler15)对象的[onTerminated](#onterminated15)回调函数。
 
-当应用取消注册时，会触发当前已注册[MessageHandler](#messagehandler15)对象的[onTerminated](#onterminated15)回调函数。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**示例：**
 
-示例：
-
-```
+```ts
 inputMethodEngine.getInputMethodAbility()
   .on('inputStart',
     (keyboardController: inputMethodEngine.KeyboardController, inputClient: inputMethodEngine.InputClient) => {
@@ -3321,7 +3350,7 @@ inputMethodEngine.getInputMethodAbility()
     });
 ```
 
-#### InputClient^9+^
+## InputClient^9+^
 
 InputClient是输入法客户端对象，代表当前绑定到输入法应用的编辑框客户端。InputClient实例通过InputMethodAbility的[on('inputStart')](#oninputstart9)事件回调获取，每个绑定事件对应一个InputClient实例，输入法应用通过该实例与编辑框进行文本交互。
 
@@ -3342,35 +3371,35 @@ InputClient是输入法客户端对象，代表当前绑定到输入法应用的
 
 下列API均需使用[on('inputStart')](#oninputstart9)获取到InputClient实例后，通过实例调用。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-#### sendKeyFunction^9+^
+### sendKeyFunction^9+^
 
-sendKeyFunction(action:number, callback: AsyncCallback\<boolean\>): void
+sendKeyFunction(action:number, callback: AsyncCallback<boolean>): void
 
 发送功能键。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:-------------------------------------------------------------------------------|
+|:-------|:---------------------|:-|:-------------------------------------------------------------------------------|
 |action|number|是|功能键键值。 - 当值为0时，表示无效按键。 - 当值为1时，表示确认键（即回车键）。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。当功能键发送成功，err为undefined，data为true；当功能键发送失败，err为undefined，data为false；否则为错误对象。|
+|callback|AsyncCallback<boolean>|是|回调函数。当功能键发送成功，err为undefined，data为true；当功能键发送失败，err为undefined，data为false；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let action: number = 1;
@@ -3388,38 +3417,38 @@ inputClient.sendKeyFunction(action, (err: BusinessError, result: boolean) => {
 });
 ```
 
-#### sendKeyFunction^9+^
+### sendKeyFunction^9+^
 
-sendKeyFunction(action: number): Promise\<boolean\>
+sendKeyFunction(action: number): Promise<boolean>
 
 发送功能键。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:--------------------------------------|
 |action|number|是|功能键键值。 当值为0时，表示无效按键； 当值为1时，表示确认键（即回车键）。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:----------------------------------------------------------------------------------|
-|Promise\<boolean\>|Promise对象。resolve返回true表示功能键发送成功；resolve返回false表示功能键发送失败；reject时抛出错误对象，表示执行过程中发生错误。|
+|:---------------|:----------------------------------------------------------------------------------|
+|Promise<boolean>|Promise对象。resolve返回true表示功能键发送成功；resolve返回false表示功能键发送失败；reject时抛出错误对象，表示执行过程中发生错误。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let action: number = 1;
@@ -3434,9 +3463,9 @@ inputClient.sendKeyFunction(action).then((result: boolean) => {
 });
 ```
 
-#### getForward^9+^
+### getForward^9+^
 
-getForward(length:number, callback: AsyncCallback\<string\>): void
+getForward(length:number, callback: AsyncCallback<string>): void
 
 获取光标前固定长度的文本。使用callback异步回调。
 
@@ -3444,18 +3473,18 @@ getForward(length:number, callback: AsyncCallback\<string\>): void
 
 使用后效果：成功时返回光标前指定长度的文本字符串，输入法应用可据此更新候选词或输入建议。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:------------------------------------------------------|
+|:-------|:--------------------|:-|:------------------------------------------------------|
 |length|number|是|文本长度。不能小于0。|
-|callback|AsyncCallback\<string\>|是|回调函数。当光标前固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。|
+|callback|AsyncCallback<string>|是|回调函数。当光标前固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3463,9 +3492,9 @@ getForward(length:number, callback: AsyncCallback\<string\>): void
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800006|input method controller error. Possible cause: create InputMethodController object failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -3478,29 +3507,29 @@ inputClient.getForward(length, (err: BusinessError, text: string) => {
 });
 ```
 
-#### getForward^9+^
+### getForward^9+^
 
-getForward(length:number): Promise\<string\>
+getForward(length:number): Promise<string>
 
 获取光标前固定长度的文本。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:---------|
 |length|number|是|文本长度。不能小于0|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:----------------------|
-|Promise\<string\>|Promise对象，返回光标前固定长度的文本。|
+|:--------------|:----------------------|
+|Promise<string>|Promise对象，返回光标前固定长度的文本。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3508,9 +3537,9 @@ getForward(length:number): Promise\<string\>
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800006|input method controller error. Possible cause: create InputMethodController object failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -3521,31 +3550,32 @@ inputClient.getForward(length).then((text: string) => {
 });
 ```
 
-#### getForwardSync^10+^
+### getForwardSync^10+^
 
 getForwardSync(length:number): string
 
-获取光标前固定长度的文本。  
-![](https://media:401788445001966620)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[getForward](#getforward9-1)。
+获取光标前固定长度的文本。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[getForward](#getforward9-1)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------|
 |length|number|是|文本长度。不能小于0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:------------|
 |string|返回光标前固定长度的文本。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3553,32 +3583,32 @@ getForwardSync(length:number): string
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800006|input method controller error. Possible cause: create InputMethodController object failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 let length: number = 1;
 let text: string = inputClient.getForwardSync(length);
 console.info(`Succeeded in getting forward, text: ${text}`);
 ```
 
-#### getBackward^9+^
+### getBackward^9+^
 
-getBackward(length:number, callback: AsyncCallback\<string\>): void
+getBackward(length:number, callback: AsyncCallback<string>): void
 
 获取光标后固定长度的文本。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:------------------------------------------------------|
+|:-------|:--------------------|:-|:------------------------------------------------------|
 |length|number|是|文本长度。不能小于0。|
-|callback|AsyncCallback\<string\>|是|回调函数。当光标后固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。|
+|callback|AsyncCallback<string>|是|回调函数。当光标后固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3586,9 +3616,9 @@ getBackward(length:number, callback: AsyncCallback\<string\>): void
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800006|input method controller error. Possible cause: create InputMethodController object failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -3601,29 +3631,29 @@ inputClient.getBackward(length, (err: BusinessError, text: string) => {
 });
 ```
 
-#### getBackward^9+^
+### getBackward^9+^
 
-getBackward(length:number): Promise\<string\>
+getBackward(length:number): Promise<string>
 
 获取光标后固定长度的文本。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------|
 |length|number|是|文本长度。不能小于0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:----------------------|
-|Promise\<string\>|Promise对象，返回光标后固定长度的文本。|
+|:--------------|:----------------------|
+|Promise<string>|Promise对象，返回光标后固定长度的文本。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3631,9 +3661,9 @@ getBackward(length:number): Promise\<string\>
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800006|input method controller error. Possible cause: create InputMethodController object failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -3644,31 +3674,32 @@ inputClient.getBackward(length).then((text: string) => {
 });
 ```
 
-#### getBackwardSync^10+^
+### getBackwardSync^10+^
 
 getBackwardSync(length:number): string
 
-获取光标后固定长度的文本。  
-![](https://media:401788445001992621)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[getBackward](#getbackward9)。
+获取光标后固定长度的文本。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[getBackward](#getbackward9)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------|
 |length|number|是|文本长度。不能小于0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:------------|
 |string|返回光标后固定长度的文本。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3676,17 +3707,17 @@ getBackwardSync(length:number): string
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800006|input method controller error. Possible cause: create InputMethodController object failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 let length: number = 1;
 let text: string = inputClient.getBackwardSync(length);
 console.info(`Succeeded in getting backward, text: ${text}`);
 ```
 
-#### deleteForward^9+^
+### deleteForward^9+^
 
-deleteForward(length:number, callback: AsyncCallback\<boolean\>): void
+deleteForward(length:number, callback: AsyncCallback<boolean>): void
 
 删除光标前固定长度的文本。使用callback异步回调。
 
@@ -3694,18 +3725,18 @@ deleteForward(length:number, callback: AsyncCallback\<boolean\>): void
 
 使用后效果：成功时返回true，编辑框中光标前指定长度的文本被删除。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:---------------------------------------------------------------------------------------------|
+|:-------|:---------------------|:-|:---------------------------------------------------------------------------------------------|
 |length|number|是|文本长度。不能小于0。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。当光标前固定长度的文本删除成功，err为undefined，data为true；当光标前固定长度的文本删除失败，err为undefined，data为false；否则为错误对象。|
+|callback|AsyncCallback<boolean>|是|回调函数。当光标前固定长度的文本删除成功，err为undefined，data为true；当光标前固定长度的文本删除失败，err为undefined，data为false；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3713,9 +3744,9 @@ deleteForward(length:number, callback: AsyncCallback\<boolean\>): void
 |12800002|input method engine error. Possible causes: 1.input method panel not created. 2.the input method application does not subscribe to related events.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -3732,29 +3763,29 @@ inputClient.deleteForward(length, (err: BusinessError, result: boolean) => {
 });
 ```
 
-#### deleteForward^9+^
+### deleteForward^9+^
 
-deleteForward(length:number): Promise\<boolean\>
+deleteForward(length:number): Promise<boolean>
 
 删除光标前固定长度的文本。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------|
 |length|number|是|文本长度。不能小于0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:------------------------------------------------------------------------------------------------|
-|Promise\<boolean\>|Promise对象。resolve返回true表示删除光标前固定长度的文本成功；resolve返回false表示删除光标前固定长度的文本失败；reject时抛出错误对象，表示执行过程中发生错误。|
+|:---------------|:------------------------------------------------------------------------------------------------|
+|Promise<boolean>|Promise对象。resolve返回true表示删除光标前固定长度的文本成功；resolve返回false表示删除光标前固定长度的文本失败；reject时抛出错误对象，表示执行过程中发生错误。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3762,9 +3793,9 @@ deleteForward(length:number): Promise\<boolean\>
 |12800002|input method engine error. Possible causes: 1.input method panel not created. 2.the input method application does not subscribe to related events.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -3779,25 +3810,26 @@ inputClient.deleteForward(length).then((result: boolean) => {
 });
 ```
 
-#### deleteForwardSync^10+^
+### deleteForwardSync^10+^
 
 deleteForwardSync(length:number): void
 
-删除光标前固定长度的文本。  
-![](https://media:401788445002015622)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[deleteForward](#deleteforward9)。
+删除光标前固定长度的文本。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[deleteForward](#deleteforward9)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------|
 |length|number|是|文本长度。不能小于0。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3805,16 +3837,16 @@ deleteForwardSync(length:number): void
 |12800002|input method engine error. Possible causes: 1.input method panel not created. 2.the input method application does not subscribe to related events.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 let length: number = 1;
 inputClient.deleteForwardSync(length);
 ```
 
-#### deleteBackward^9+^
+### deleteBackward^9+^
 
-deleteBackward(length:number, callback: AsyncCallback\<boolean\>): void
+deleteBackward(length:number, callback: AsyncCallback<boolean>): void
 
 删除光标后固定长度的文本。使用callback异步回调。
 
@@ -3822,18 +3854,18 @@ deleteBackward(length:number, callback: AsyncCallback\<boolean\>): void
 
 使用后效果：成功时返回true，编辑框中光标后指定长度的文本被删除。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:----------------------------------------------------|
+|:-------|:---------------------|:-|:----------------------------------------------------|
 |length|number|是|文本长度。不能小于0。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。当光标后固定长度的文本删除成功，err为undefined，data为true；否则为错误对象。|
+|callback|AsyncCallback<boolean>|是|回调函数。当光标后固定长度的文本删除成功，err为undefined，data为true；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3841,9 +3873,9 @@ deleteBackward(length:number, callback: AsyncCallback\<boolean\>): void
 |12800002|input method engine error. Possible causes: 1.input method panel not created. 2.the input method application does not subscribe to related events.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -3860,29 +3892,29 @@ inputClient.deleteBackward(length, (err: BusinessError, result: boolean) => {
 });
 ```
 
-#### deleteBackward^9+^
+### deleteBackward^9+^
 
-deleteBackward(length:number): Promise\<boolean\>
+deleteBackward(length:number): Promise<boolean>
 
 删除光标后固定长度的文本。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------|
 |length|number|是|文本长度。不能小于0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:------------------------------------------------------------------------------------------------|
-|Promise\<boolean\>|Promise对象。resolve返回true表示删除光标后固定长度的文本成功；resolve返回false表示删除光标后固定长度的文本失败；reject时抛出错误对象，表示执行过程中发生错误。|
+|:---------------|:------------------------------------------------------------------------------------------------|
+|Promise<boolean>|Promise对象。resolve返回true表示删除光标后固定长度的文本成功；resolve返回false表示删除光标后固定长度的文本失败；reject时抛出错误对象，表示执行过程中发生错误。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3890,9 +3922,9 @@ deleteBackward(length:number): Promise\<boolean\>
 |12800002|input method engine error. Possible causes: 1.input method panel not created. 2.the input method application does not subscribe to related events.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -3907,25 +3939,26 @@ inputClient.deleteBackward(length).then((result: boolean) => {
 });
 ```
 
-#### deleteBackwardSync^10+^
+### deleteBackwardSync^10+^
 
 deleteBackwardSync(length:number): void
 
-删除光标后固定长度的文本。  
-![](https://media:401788445002044623)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[deleteBackward](#deletebackward9-1)。
+删除光标后固定长度的文本。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[deleteBackward](#deletebackward9-1)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------|
 |length|number|是|文本长度。不能小于0。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3933,16 +3966,16 @@ deleteBackwardSync(length:number): void
 |12800002|input method engine error. Possible causes: 1.input method panel not created. 2.the input method application does not subscribe to related events.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 let length: number = 1;
 inputClient.deleteBackwardSync(length);
 ```
 
-#### insertText^9+^
+### insertText^9+^
 
-insertText(text:string, callback: AsyncCallback\<boolean\>): void
+insertText(text:string, callback: AsyncCallback<boolean>): void
 
 插入文本。使用callback异步回调。
 
@@ -3950,18 +3983,18 @@ insertText(text:string, callback: AsyncCallback\<boolean\>): void
 
 使用后效果：成功时返回true，文本已插入到编辑框光标位置。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:--------------------------------------------|
+|:-------|:---------------------|:-|:--------------------------------------------|
 |text|string|是|文本内容。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。当文本插入成功，err为undefined，data为true；否则为错误对象。|
+|callback|AsyncCallback<boolean>|是|回调函数。当文本插入成功，err为undefined，data为true；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3969,9 +4002,9 @@ insertText(text:string, callback: AsyncCallback\<boolean\>): void
 |12800002|input method engine error. Possible causes: 1.input method panel not created. 2.the input method application does not subscribe to related events.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 
@@ -3988,29 +4021,29 @@ inputClient.insertText('test', (err: BusinessError, result: boolean) => {
 });
 ```
 
-#### insertText^9+^
+### insertText^9+^
 
-insertText(text:string): Promise\<boolean\>
+insertText(text:string): Promise<boolean>
 
 插入文本。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:-----|:-|:--|
 |text|string|是|文本。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:--------------------------------------------------------------------------------|
-|Promise\<boolean\>|Promise对象。resolve返回true表示插入文本成功；resolve返回false表示插入文本失败；reject时抛出错误对象，表示执行过程中发生错误。|
+|:---------------|:--------------------------------------------------------------------------------|
+|Promise<boolean>|Promise对象。resolve返回true表示插入文本成功；resolve返回false表示插入文本失败；reject时抛出错误对象，表示执行过程中发生错误。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -4018,9 +4051,9 @@ insertText(text:string): Promise\<boolean\>
 |12800002|input method engine error. Possible causes: 1.input method panel not created. 2.the input method application does not subscribe to related events.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputClient.insertText('test').then((result: boolean) => {
@@ -4034,25 +4067,26 @@ inputClient.insertText('test').then((result: boolean) => {
 });
 ```
 
-#### insertTextSync^10+^
+### insertTextSync^10+^
 
 insertTextSync(text: string): void
 
-插入文本。  
-![](https://media:401788445002067624)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[insertText](#inserttext9-1)。
+插入文本。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[insertText](#inserttext9-1)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:-----|:-|:----|
 |text|string|是|文本内容。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -4060,15 +4094,15 @@ insertTextSync(text: string): void
 |12800002|input method engine error. Possible causes: 1.input method panel not created. 2.the input method application does not subscribe to related events.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 inputClient.insertTextSync('test');
 ```
 
-#### getEditorAttribute^9+^
+### getEditorAttribute^9+^
 
-getEditorAttribute(callback: AsyncCallback\<EditorAttribute\>): void
+getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void
 
 获取编辑框属性值。使用callback异步回调。
 
@@ -4076,24 +4110,24 @@ getEditorAttribute(callback: AsyncCallback\<EditorAttribute\>): void
 
 使用后效果：返回编辑框属性信息（包括inputPattern输入类型和enterKeyType回车键类型），输入法应用据此调整键盘布局。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------------------------------------------|:-|:--------------------------------------------------|
-|callback|AsyncCallback\<[EditorAttribute](#editorattribute)\>|是|回调函数。当编辑框属性值获取成功，err为undefined，data为编辑框属性值；否则为错误对象。|
+|:-------|:-------------------------------------------------|:-|:--------------------------------------------------|
+|callback|AsyncCallback<[EditorAttribute](#editorattribute)>|是|回调函数。当编辑框属性值获取成功，err为undefined，data为编辑框属性值；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
-|示例：| |
+|**示例：**| |
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputClient.getEditorAttribute((err: BusinessError, editorAttribute: inputMethodEngine.EditorAttribute) => {
@@ -4106,31 +4140,31 @@ inputClient.getEditorAttribute((err: BusinessError, editorAttribute: inputMethod
 });
 ```
 
-#### getEditorAttribute^9+^
+### getEditorAttribute^9+^
 
-getEditorAttribute(): Promise\<EditorAttribute\>
+getEditorAttribute(): Promise<EditorAttribute>
 
 获取编辑框属性值。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:---------------------------------------------|:------------------|
-|Promise\<[EditorAttribute](#editorattribute)\>|Promise对象，返回编辑框属性值。|
+|:-------------------------------------------|:------------------|
+|Promise<[EditorAttribute](#editorattribute)>|Promise对象，返回编辑框属性值。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputClient.getEditorAttribute().then((editorAttribute: inputMethodEngine.EditorAttribute) => {
@@ -4141,41 +4175,42 @@ inputClient.getEditorAttribute().then((editorAttribute: inputMethodEngine.Editor
 });
 ```
 
-#### getEditorAttributeSync^10+^
+### getEditorAttributeSync^10+^
 
 getEditorAttributeSync(): EditorAttribute
 
-获取编辑框属性值。  
-![](https://media:401788445002090625)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[getEditorAttribute](#geteditorattribute9)。
+获取编辑框属性值。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[getEditorAttribute](#geteditorattribute9)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:----------------------------------|:-------|
 |[EditorAttribute](#editorattribute)|编辑框属性对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 let editorAttribute: inputMethodEngine.EditorAttribute = inputClient.getEditorAttributeSync();
 console.info(`editorAttribute.inputPattern:  ${editorAttribute.inputPattern}`);
 console.info(`editorAttribute.enterKeyType:  ${editorAttribute.enterKeyType}`);
 ```
 
-#### moveCursor^9+^
+### moveCursor^9+^
 
-moveCursor(direction: number, callback: AsyncCallback\<void\>): void
+moveCursor(direction: number, callback: AsyncCallback<void>): void
 
 移动光标。使用callback异步回调。
 
@@ -4183,27 +4218,27 @@ moveCursor(direction: number, callback: AsyncCallback\<void\>): void
 
 使用后效果：成功时编辑框中的光标按指定方向移动一步。direction取值参见[光标常量](#常量)，1为上移，2为下移，3为左移，4为右移。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:--------|:--------------------|:-|:--------------------------------------------------------------------|
+|:--------|:------------------|:-|:--------------------------------------------------------------------|
 |direction|number|是|光标移动方向。 - 当值为1时，表示向上。 - 当值为2时，表示向下。 - 当值为3时，表示向左。 - 当值为4时，表示向右。不能小于0。|
-|callback|AsyncCallback\<void\>|是|回调函数。当光标移动成功，err为undefined，否则为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当光标移动成功，err为undefined，否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputClient.moveCursor(inputMethodEngine.Direction.CURSOR_UP, (err: BusinessError) => {
@@ -4215,38 +4250,38 @@ inputClient.moveCursor(inputMethodEngine.Direction.CURSOR_UP, (err: BusinessErro
 });
 ```
 
-#### moveCursor^9+^
+### moveCursor^9+^
 
-moveCursor(direction: number): Promise\<void\>
+moveCursor(direction: number): Promise<void>
 
 移动光标。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:-----|:-|:--------------------------------------------------------------------|
 |direction|number|是|光标移动方向。 - 当值为1时，表示向上。 - 当值为2时，表示向下。 - 当值为3时，表示向左。 - 当值为4时，表示向右。不能小于0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputClient.moveCursor(inputMethodEngine.Direction.CURSOR_UP).then(() => {
@@ -4256,64 +4291,65 @@ inputClient.moveCursor(inputMethodEngine.Direction.CURSOR_UP).then(() => {
 });
 ```
 
-#### moveCursorSync^10+^
+### moveCursorSync^10+^
 
 moveCursorSync(direction: number): void
 
-移动光标。  
-![](https://media:401788445002111626)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[moveCursor](#movecursor9)。
+移动光标。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[moveCursor](#movecursor9)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:-----|:-|:--------------------------------------------------------------------|
 |direction|number|是|光标移动方向。 - 当值为1时，表示向上。 - 当值为2时，表示向下。 - 当值为3时，表示向左。 - 当值为4时，表示向右。不能小于0。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 inputClient.moveCursorSync(inputMethodEngine.Direction.CURSOR_UP);
 ```
 
-#### selectByRange^10+^
+### selectByRange^10+^
 
-selectByRange(range: Range, callback: AsyncCallback\<void\>): void
+selectByRange(range: Range, callback: AsyncCallback<void>): void
 
 根据索引范围选中文本。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:-------------------------------------|
+|:-------|:------------------|:-|:-------------------------------------|
 |range|[Range](#range10)|是|选中文本的范围。|
-|callback|AsyncCallback\<void\>|是|回调函数。当成功发送选中事件后，err为undefined，否则为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当成功发送选中事件后，err为undefined，否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 设置预上屏文本的替换范围为第一个字符
@@ -4328,38 +4364,38 @@ inputClient.selectByRange(range, (err: BusinessError) => {
 });
 ```
 
-#### selectByRange^10+^
+### selectByRange^10+^
 
-selectByRange(range: Range): Promise\<void\>
+selectByRange(range: Range): Promise<void>
 
 根据索引范围选中文本。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:----------------|:-|:-------|
 |range|[Range](#range10)|是|选中文本的范围。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 设置预上屏文本的替换范围为第一个字符
@@ -4372,67 +4408,68 @@ inputClient.selectByRange(range).then(() => {
 });
 ```
 
-#### selectByRangeSync^10+^
+### selectByRangeSync^10+^
 
 selectByRangeSync(range: Range): void
 
-根据索引范围选中文本。  
-![](https://media:401788445002136627)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[selectByRange](#selectbyrange10)。
+根据索引范围选中文本。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[selectByRange](#selectbyrange10)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:----------------|:-|:-------|
 |range|[Range](#range10)|是|选中文本的范围。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 // 设置预上屏文本的替换范围为第一个字符
 // 设置选中文本的起始和结束位置
 let range: inputMethodEngine.Range = { start: 0, end: 1 };
 inputClient.selectByRangeSync(range);
 ```
 
-#### selectByMovement^10+^
+### selectByMovement^10+^
 
-selectByMovement(movement: Movement, callback: AsyncCallback\<void\>): void
+selectByMovement(movement: Movement, callback: AsyncCallback<void>): void
 
 根据光标移动方向选中文本。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:----------------------|:-|:-------------------------------------|
 |movement|[Movement](#movement10)|是|选中时光标移动的方向。|
-|callback|AsyncCallback\<void\>|是|回调函数。当成功发送选中事件后，err为undefined，否则为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当成功发送选中事件后，err为undefined，否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 设置选中时光标向上移动
@@ -4446,38 +4483,38 @@ inputClient.selectByMovement(movement, (err: BusinessError) => {
 });
 ```
 
-#### selectByMovement^10+^
+### selectByMovement^10+^
 
-selectByMovement(movement: Movement): Promise\<void\>
+selectByMovement(movement: Movement): Promise<void>
 
 根据光标移动方向选中文本。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:----------------------|:-|:----------|
 |movement|[Movement](#movement10)|是|选中时光标移动的方向。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 设置选中时光标向上移动
@@ -4489,65 +4526,66 @@ inputClient.selectByMovement(movement).then(() => {
 });
 ```
 
-#### selectByMovementSync^10+^
+### selectByMovementSync^10+^
 
 selectByMovementSync(movement: Movement): void
 
-根据光标移动方向选中文本。  
-![](https://media:401788445002161628)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[selectByMovement](#selectbymovement10-1)。
+根据光标移动方向选中文本。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[selectByMovement](#selectbymovement10-1)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:----------------------|:-|:----------|
 |movement|[Movement](#movement10)|是|选中时光标移动的方向。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 
-示例：
+**示例：**
 
-```
+```ts
 // 设置选中时光标向上移动
 let movement: inputMethodEngine.Movement = { direction: 1 };
 inputClient.selectByMovementSync(movement);
 ```
 
-#### getTextIndexAtCursor^10+^
+### getTextIndexAtCursor^10+^
 
-getTextIndexAtCursor(callback: AsyncCallback\<number\>): void
+getTextIndexAtCursor(callback: AsyncCallback<number>): void
 
 获取光标所在处的文本索引。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:------------------------------------------------------------------------|
-|callback|AsyncCallback\<number\>|是|回调函数。当文本索引获取成功，err为undefined，index为光标所在处的文本索引；否则err为错误对象，index为undefined。|
+|:-------|:--------------------|:-|:------------------------------------------------------------------------|
+|callback|AsyncCallback<number>|是|回调函数。当文本索引获取成功，err为undefined，index为光标所在处的文本索引；否则err为错误对象，index为undefined。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800006|input method controller error. Possible cause: create InputMethodController object failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputClient.getTextIndexAtCursor((err: BusinessError, index: number) => {
@@ -4559,32 +4597,32 @@ inputClient.getTextIndexAtCursor((err: BusinessError, index: number) => {
 });
 ```
 
-#### getTextIndexAtCursor^10+^
+### getTextIndexAtCursor^10+^
 
-getTextIndexAtCursor(): Promise\<number\>
+getTextIndexAtCursor(): Promise<number>
 
 获取光标所在处的文本索引。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:----------------------|
-|Promise\<number\>|Promise对象，返回光标所在处的文本索引。|
+|:--------------|:----------------------|
+|Promise<number>|Promise对象，返回光标所在处的文本索引。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800006|input method controller error. Possible cause: create InputMethodController object failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputClient.getTextIndexAtCursor().then((index: number) => {
@@ -4594,62 +4632,64 @@ inputClient.getTextIndexAtCursor().then((index: number) => {
 });
 ```
 
-#### getTextIndexAtCursorSync^10+^
+### getTextIndexAtCursorSync^10+^
 
 getTextIndexAtCursorSync(): number
 
-获取光标所在处的文本索引。  
-![](https://media:401788445002189629)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[getTextIndexAtCursor](#gettextindexatcursor10)。
+获取光标所在处的文本索引。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[getTextIndexAtCursor](#gettextindexatcursor10)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:------------|
 |number|返回光标所在处的文本索引。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800006|input method controller error. Possible cause: create InputMethodController object failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 let index: number = inputClient.getTextIndexAtCursorSync();
 console.info(`Succeeded in getTextIndexAtCursorSync, index: ${index}`);
 ```
 
-#### sendExtendAction^10+^
+### sendExtendAction^10+^
 
-sendExtendAction(action: ExtendAction, callback: AsyncCallback\<void\>): void
+sendExtendAction(action: ExtendAction, callback: AsyncCallback<void>): void
 
 发送扩展编辑操作。使用callback异步回调。
 
-使用场景：输入法应用需要触发编辑框的扩展编辑功能。例如：用户点击键盘上的剪切按钮时发送CUT操作；用户点击复制按钮时发送COPY操作；用户点击粘贴按钮时发送PASTE操作；用户点击全选按钮时发送SELECT_ALL操作；自定义工具栏中集成编辑快捷操作。  
-![](https://media:401788445002332630)  
-输入法应用调用该接口向编辑框发送扩展编辑操作，编辑框监听相应事件[on('handleExtendAction')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#onhandleextendaction10)，从而进一步做出处理。
+使用场景：输入法应用需要触发编辑框的扩展编辑功能。例如：用户点击键盘上的剪切按钮时发送CUT操作；用户点击复制按钮时发送COPY操作；用户点击粘贴按钮时发送PASTE操作；用户点击全选按钮时发送SELECT_ALL操作；自定义工具栏中集成编辑快捷操作。
+> 说明
+>
+> 输入法应用调用该接口向编辑框发送扩展编辑操作，编辑框监听相应事件[on('handleExtendAction')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#onhandleextendaction10)，从而进一步做出处理。
+>
+> 编辑框响应[ExtendAction](#extendaction10)的PASTE命令时，需要编辑框应用申请[ohos.permission.READ_PASTEBOARD](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionread_pasteboard)权限。
 
-编辑框响应[ExtendAction](#extendaction10)的PASTE命令时，需要编辑框应用申请[ohos.permission.READ_PASTEBOARD](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionread_pasteboard)权限。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------|:-|:-------------------------------|
 |action|[ExtendAction](#extendaction10)|是|要发送的扩展操作。|
-|callback|AsyncCallback\<void\>|是|回调函数。发送成功，err为undefined，否则为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。发送成功，err为undefined，否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -4657,9 +4697,9 @@ sendExtendAction(action: ExtendAction, callback: AsyncCallback\<void\>): void
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800006|input method controller error. Possible cause: create InputMethodController object failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputClient.sendExtendAction(inputMethodEngine.ExtendAction.COPY, (err: BusinessError) => {
@@ -4671,33 +4711,34 @@ inputClient.sendExtendAction(inputMethodEngine.ExtendAction.COPY, (err: Business
 });
 ```
 
-#### sendExtendAction^10+^
+### sendExtendAction^10+^
 
-sendExtendAction(action: ExtendAction): Promise\<void\>
+sendExtendAction(action: ExtendAction): Promise<void>
 
-发送扩展编辑操作。使用promise异步回调。  
-![](https://media:401788445002382631)  
-输入法应用调用该接口向编辑框发送扩展编辑操作，编辑框监听相应事件[on('handleExtendAction')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#onhandleextendaction10)，从而进一步做出处理。
+发送扩展编辑操作。使用promise异步回调。
+> 说明
+>
+> 输入法应用调用该接口向编辑框发送扩展编辑操作，编辑框监听相应事件[on('handleExtendAction')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#onhandleextendaction10)，从而进一步做出处理。
+>
+> 编辑框响应[ExtendAction](#extendaction10)的PASTE命令时，需要编辑框应用申请[ohos.permission.READ_PASTEBOARD](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionread_pasteboard)权限。
 
-编辑框响应[ExtendAction](#extendaction10)的PASTE命令时，需要编辑框应用申请[ohos.permission.READ_PASTEBOARD](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionread_pasteboard)权限。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:------------------------------|:-|:--------|
 |action|[ExtendAction](#extendaction10)|是|要发送的扩展操作。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -4705,9 +4746,9 @@ sendExtendAction(action: ExtendAction): Promise\<void\>
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800006|input method controller error. Possible cause: create InputMethodController object failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputClient.sendExtendAction(inputMethodEngine.ExtendAction.COPY).then(() => {
@@ -4717,33 +4758,34 @@ inputClient.sendExtendAction(inputMethodEngine.ExtendAction.COPY).then(() => {
 });
 ```
 
-#### sendPrivateCommand^12+^
+### sendPrivateCommand^12+^
 
-sendPrivateCommand(commandData: Record\<string, CommandDataType\>): Promise\<void\>
+sendPrivateCommand(commandData: Record<string, CommandDataType>): Promise<void>
 
-发送私有数据至需要与输入法应用通信的系统其他部分。使用promise异步回调。  
-![](https://media:401788445002416632)  
-* 私有数据通道是系统预置输入法应用与系统特定组件（如文本框、桌面应用等）的通信机制，常用于设备级厂商在特定设备上实现自定义的输入法功能。
-* 私有数据规格限制：总大小32KB，数量限制5条。
-* 私有数据默认发送给文本框，如果需要发送给桌面应用，请在私有数据中携带一条{'sys_cmd':1}数据。
+发送私有数据至需要与输入法应用通信的系统其他部分。使用promise异步回调。
+> 说明
+>
+> * 私有数据通道是系统预置输入法应用与系统特定组件（如文本框、桌面应用等）的通信机制，常用于设备级厂商在特定设备上实现自定义的输入法功能。
+> * 私有数据规格限制：总大小32KB，数量限制5条。
+> * 私有数据默认发送给文本框，如果需要发送给桌面应用，请在私有数据中携带一条{'sys_cmd':1}数据。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:------------------------------------------------------|:-|:----|
-|commandData|Record\<string, [CommandDataType](#commanddatatype12)\>|是|私有数据。|
+|:----------|:----------------------------------------------------|:-|:----|
+|commandData|Record<string, [CommandDataType](#commanddatatype12)>|是|私有数据。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -4751,9 +4793,9 @@ sendPrivateCommand(commandData: Record\<string, CommandDataType\>): Promise\<voi
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800010|not the preconfigured default input method.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputMethodEngine.getInputMethodAbility().on('inputStart', (kbController, textInputClient) => {
@@ -4772,25 +4814,26 @@ textInputClient.sendPrivateCommand(record).then(() => {
 })
 ```
 
-#### getCallingWindowInfo^12+^
+### getCallingWindowInfo^12+^
 
-getCallingWindowInfo(): Promise\<WindowInfo\>
+getCallingWindowInfo(): Promise<WindowInfo>
 
-获取当前拉起输入法的输入框所在应用窗口信息。使用promise异步回调。  
-![](https://media:401788445002671633)  
-本接口仅适用于适配使用[Panel](#panel10)作为软键盘窗口的输入法应用。
+获取当前拉起输入法的输入框所在应用窗口信息。使用promise异步回调。
+> 说明
+>
+> 本接口仅适用于适配使用[Panel](#panel10)作为软键盘窗口的输入法应用。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------------------|:-----------------------------|
-|Promise\<[WindowInfo](#windowinfo12)\>|Promise对象，返回拉起输入法的输入框所在应用窗口信息。|
+|:-----------------------------------|:-----------------------------|
+|Promise<[WindowInfo](#windowinfo12)>|Promise对象，返回拉起输入法的输入框所在应用窗口信息。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -4798,9 +4841,9 @@ getCallingWindowInfo(): Promise\<WindowInfo\>
 |12800012|the input method panel does not exist.|
 |12800013|window manager service error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputClient.getCallingWindowInfo().then((windowInfo: inputMethodEngine.WindowInfo) => {
@@ -4811,30 +4854,30 @@ inputClient.getCallingWindowInfo().then((windowInfo: inputMethodEngine.WindowInf
 });
 ```
 
-#### setPreviewText^12+^
+### setPreviewText^12+^
 
-setPreviewText(text: string, range: Range): Promise\<void\>
+setPreviewText(text: string, range: Range): Promise<void>
 
 设置预上屏文本。使用promise异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:----------------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |text|string|是|预上屏的文本。|
 |range|[Range](#range10)|是|替换的文本范围。 - 当值为{ start: -1, end: -1 }时，默认将参数text替换当前预上屏区域全部文本。 - 当start等于end，默认将参数text插入start对应的光标位置。 - 当start不等于end，将参数text替换range对应区域的文本。 - 当start与end为其他含有负数值的组合，按照参数错误返回。 - 当输入框已有预上屏文本，参数range不得超过预上屏文本范围，否则按照参数错误返回。 - 当输入框无预上屏文本，参数range不得超过输入框文本范围，否则按照参数错误返回。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -4842,9 +4885,9 @@ setPreviewText(text: string, range: Range): Promise\<void\>
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800011|text preview not supported.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 设置预上屏文本的替换范围为第一个字符
@@ -4857,26 +4900,27 @@ inputClient.setPreviewText('test', range).then(() => {
 });
 ```
 
-#### setPreviewTextSync^12+^
+### setPreviewTextSync^12+^
 
 setPreviewTextSync(text: string, range: Range): void
 
-设置预上屏文本。  
-![](https://media:401788445002744634)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[setPreviewText](#setpreviewtext12)。
+设置预上屏文本。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[setPreviewText](#setpreviewtext12)。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:----------------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |text|string|是|预上屏的文本。|
 |range|[Range](#range10)|是|替换的文本范围。 - 当值为{ start: -1, end: -1 }时，默认将参数text替换当前预上屏区域全部文本。 - 当start等于end，默认将参数text插入start对应的光标位置。 - 当start不等于end，将参数text替换range对应区域的文本。 - 当start与end为其他含有负数值的组合，按照参数错误返回。 - 当输入框已有预上屏文本，参数range不得超过预上屏文本范围，否则按照参数错误返回。 - 当输入框无预上屏文本，参数range不得超过输入框文本范围，否则按照参数错误返回。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -4884,43 +4928,44 @@ setPreviewTextSync(text: string, range: Range): void
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800011|text preview not supported.|
 
-示例：
+**示例：**
 
-```
+```ts
 // 设置预上屏文本的替换范围为第一个字符
 // 设置选中文本的起始和结束位置
 let range: inputMethodEngine.Range = { start: 0, end: 1 };
 inputClient.setPreviewTextSync('test', range);
 ```
 
-#### finishTextPreview^12+^
+### finishTextPreview^12+^
 
-finishTextPreview(): Promise\<void\>
+finishTextPreview(): Promise<void>
 
-结束预上屏。使用promise异步回调。  
-![](https://media:401788445002777635)  
-若当前输入框已有预上屏状态文本，调用此接口后，预上屏内容将被系统正式上屏。
+结束预上屏。使用promise异步回调。
+> 说明
+>
+> 若当前输入框已有预上屏状态文本，调用此接口后，预上屏内容将被系统正式上屏。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800011|text preview not supported.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 inputClient.finishTextPreview().then(() => {
@@ -4930,61 +4975,63 @@ inputClient.finishTextPreview().then(() => {
 });
 ```
 
-#### finishTextPreviewSync^12+^
+### finishTextPreviewSync^12+^
 
 finishTextPreviewSync(): void
 
-结束预上屏。  
-![](https://media:401788445002803636)  
-同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[finishTextPreview](#finishtextpreview12)。
+结束预上屏。
+> 说明
+>
+> 同步接口阻塞主线程，容易影响UI交互，需谨慎使用。建议优先使用对应的异步接口[finishTextPreview](#finishtextpreview12)。
+>
+> 若当前输入框已有预上屏状态文本，调用此接口后，预上屏内容将被系统正式上屏。
 
-若当前输入框已有预上屏状态文本，调用此接口后，预上屏内容将被系统正式上屏。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**错误码：**
 
-错误码：
-
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |12800003|input method client error. Possible causes: 1.the edit box is not focused. 2.no edit box is bound to current input method application. 3.ipc failed due to the large amount of data transferred or other reasons.|
 |12800011|text preview not supported.|
 
-示例：
+**示例：**
 
-```
+```ts
 inputClient.finishTextPreviewSync();
 ```
 
-#### sendMessage^15+^
+### sendMessage^15+^
 
-sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise\<void\>
+sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>
 
-发送自定义通信至已绑定当前输入法应用的编辑框应用。使用Promise异步回调。  
-![](https://media:401788445002826637)  
-该接口需要编辑框与输入法绑定并进入编辑状态，且输入法应用处于完整体验模式时才能调用。
+发送自定义通信至已绑定当前输入法应用的编辑框应用。使用Promise异步回调。
+> 说明
+>
+> 该接口需要编辑框与输入法绑定并进入编辑状态，且输入法应用处于完整体验模式时才能调用。
+>
+> msgId最大限制256B，msgParam最大限制128KB。
 
-msgId最大限制256B，msgParam最大限制128KB。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:----------|:-|:-------------------------------------------------------|
 |msgId|string|是|需要发送至已绑定当前输入法应用的编辑框应用的自定义数据的标识符。最大长度256字节。超出范围时返回错误码401。|
 |msgParam|ArrayBuffer|否|需要发送至已绑定当前输入法应用的编辑框应用的自定义数据的消息体。最大大小128KB。超出范围时返回错误码401。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -4995,9 +5042,9 @@ msgId最大限制256B，msgParam最大限制128KB。
 |12800015|the other side does not accept the request.|
 |12800016|input method client is not editable.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let msgId: string = "testMsgId";
@@ -5009,35 +5056,36 @@ inputClient.sendMessage(msgId, msgParam).then(() => {
 });
 ```
 
-#### recvMessage^15+^
+### recvMessage^15+^
 
 recvMessage(msgHandler?: MessageHandler): void;
 
-注册或取消注册MessageHandler。  
-![](https://media:401788445002850638)  
-[MessageHandler](#messagehandler15)对象全局唯一，多次注册仅保留最后一次注册的对象及有效性，并触发上一个已注册对象的[onTerminated](#onterminated15)回调函数。
+注册或取消注册MessageHandler。
+> 说明
+>
+> [MessageHandler](#messagehandler15)对象全局唯一，多次注册仅保留最后一次注册的对象及有效性，并触发上一个已注册对象的[onTerminated](#onterminated15)回调函数。
+>
+> 未填写参数，则取消全局已注册的[MessageHandler](#messagehandler15)，并会触发被取消注册对象中[onTerminated](#onterminated15)回调函数。
 
-未填写参数，则取消全局已注册的[MessageHandler](#messagehandler15)，并会触发被取消注册对象中[onTerminated](#onterminated15)回调函数。
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---------|:----------------------------------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |msgHandler|[MessageHandler](#messagehandler15)|否|该对象将通过[onMessage](#onmessage15)接收来自已绑定当前输入法应用的编辑框应用所发送的自定义通信数据，并通过[onTerminated](#onterminated15)接收终止此对象订阅的消息。 若不填写此参数，则取消全局已注册的[MessageHandler](#messagehandler15)对象，同时触发其[onTerminated](#onterminated15)回调函数。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:--------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Incorrect parameter types.|
 
-示例：
+**示例：**
 
-```
+```ts
 inputMethodEngine.getInputMethodAbility()
   .on('inputStart',
     (kbController: inputMethodEngine.KeyboardController, client: inputMethodEngine.InputClient) => {
@@ -5055,67 +5103,69 @@ inputMethodEngine.getInputMethodAbility()
     });
 ```
 
-#### getAttachOptions^19+^
+### getAttachOptions^19+^
 
 getAttachOptions(): AttachOptions
 
 获取绑定输入法时的附加选项。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:---------------|
 |[AttachOptions](#attachoptions19)|返回绑定输入法时的附加选项内容。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:-----------------------------------|
 |801|Capability not supported. 适用版本：19-19|
 
-![](https://media:401788445002883639)  
-从API version 20 开始，错误码801 Capability not supported.被移除。
+> 注意
+>
+> 从API version 20 开始，错误码801 Capability not supported.被移除。
 
-示例：
+**示例：**
 
-```
+```ts
 let attachOptions: inputMethodEngine.AttachOptions = inputClient.getAttachOptions();
 console.info(`Succeeded in getting AttachOptions, AttachOptions is ${attachOptions}`);
 ```
 
-#### on('attachOptionsDidChange')^19+^
+### on('attachOptionsDidChange')^19+^
 
-on(type: 'attachOptionsDidChange', callback: Callback\<AttachOptions\>): void
+on(type: 'attachOptionsDidChange', callback: Callback<AttachOptions>): void
 
 订阅绑定输入法时的附加选项变更事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:---------------------------------------------|
+|:-------|:------------------------------------------|:-|:---------------------------------------------|
 |type|string|是|绑定输入法时的附加选项变更事件，固定取值为'attachOptionsDidChange'。|
-|callback|Callback\<[AttachOptions](#attachoptions19)\>|是|回调函数，返回绑定输入法时的附加选项。|
+|callback|Callback<[AttachOptions](#attachoptions19)>|是|回调函数，返回绑定输入法时的附加选项。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:------------------------------------|
 |801|Capability not supported. 适用版本：19-19。|
 
-![](https://media:401788445002910640)  
-从API version 20 开始，错误码801 Capability not supported.被移除。
+> 注意
+>
+> 从API version 20 开始，错误码801 Capability not supported.被移除。
 
-示例：
+**示例：**
 
-```
+```ts
 // 创建附加选项变更回调函数
 let attachOptionsDidChangeCallback: (attachOptions: inputMethodEngine.AttachOptions) => void =
   (_attachOptions: inputMethodEngine.AttachOptions) => {
@@ -5130,24 +5180,24 @@ inputClient.off('attachOptionsDidChange', attachOptionsDidChangeCallback);
 console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 ```
 
-#### off('attachOptionsDidChange')^19+^
+### off('attachOptionsDidChange')^19+^
 
-off(type: 'attachOptionsDidChange', callback?: Callback\<AttachOptions\>): void
+off(type: 'attachOptionsDidChange', callback?: Callback<AttachOptions>): void
 
 取消订阅绑定输入法时的附加选项变更事件。使用callback异步回调。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:---------------------------------------------|
+|:-------|:------------------------------------------|:-|:---------------------------------------------|
 |type|string|是|绑定输入法时的附加选项变更事件，固定取值为'attachOptionsDidChange'。|
-|callback|Callback\<[AttachOptions](#attachoptions19)\>|否|取消订阅的回调函数。参数不填写时，默认取消订阅type对应的所有回调事件。|
+|callback|Callback<[AttachOptions](#attachoptions19)>|否|取消订阅的回调函数。参数不填写时，默认取消订阅type对应的所有回调事件。|
 
-示例：
+**示例：**
 
-```
+```ts
 let attachOptionsDidChangeCallback: (attachOptions: inputMethodEngine.AttachOptions) => void =
   (_attachOptions: inputMethodEngine.AttachOptions) => {
     console.info(`AttachOptionsDidChangeCallback1: attachOptionsDidChange event triggered`);
@@ -5159,11 +5209,11 @@ inputClient.off('attachOptionsDidChange', attachOptionsDidChangeCallback);
 console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 ```
 
-#### CapitalizeMode^20+^
+## CapitalizeMode^20+^
 
 枚举，定义了文本首字母大写的不同模式。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|值|说明|
 |:---------|:-|:------------|
@@ -5172,14 +5222,14 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |WORDS|2|每个单词的首字母大写。|
 |CHARACTERS|3|每个字母都大写。|
 
-#### EditorAttribute
+## EditorAttribute
 
 编辑框属性值。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
-|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:----------------------------------------------------------------------------------------------------|
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------|
 |enterKeyType|number|是|否|编辑框的功能属性，详见[常量中的功能键定义](#常量)。|
 |inputPattern|number|是|否|编辑框的文本属性，详见[常量中的编辑框定义](#常量)。|
 |isTextPreviewSupported^12+^|boolean|否|否|编辑框是否支持预上屏。 - 值为true，表示支持。 - 值为false，表示不支持。|
@@ -5192,24 +5242,24 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |capitalizeMode^20+^|[CapitalizeMode](#capitalizemode20)|是|是|编辑框设置大小写模式。如果没有设置或设置非法值，默认不进行任何首字母大写处理。|
 |gradientMode^20+^|[GradientMode](#gradientmode20)|是|是|渐变模式。如果没有设置或设置非法值，默认不使用渐变模式。|
 |extraConfig^22+^|[InputMethodExtraConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-extraconfig#inputmethodextraconfig)|是|是|输入法扩展信息。|
-|consumeKeyEvents|boolean|是|是|编辑框是否具有完整处理字母、字符、功能等按键的能力。 - 值为true，表示具备此能力。 - 值为false，表示不具备此能力。 起始版本： 26.0.0 模型约束： 该参数仅可在Stage模型下使用。|
+|consumeKeyEvents|boolean|是|是|编辑框是否具有完整处理字母、字符、功能等按键的能力。 - 值为true，表示具备此能力。 - 值为false，表示不具备此能力。 **起始版本：** 26.0.0 **模型约束：** 该参数仅可在Stage模型下使用。|
 
-#### KeyEvent
+## KeyEvent
 
 按键属性值。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
 |:--------|:-----|:-|:-|:-----------------------------------------------------------------------------------------------------------------|
 |keyCode|number|是|否|按键的键值。键码值说明参考[KeyCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode#keycode)。|
 |keyAction|number|是|否|按键事件类型。 - 当值为2时，表示按下事件； - 当值为3时，表示抬起事件。|
 
-#### PanelFlag^10+^
+## PanelFlag^10+^
 
 输入法面板状态类型枚举。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|值|说明|
 |:------------------|:-|:--------|
@@ -5217,60 +5267,60 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |FLG_FLOATING|1|悬浮态面板类型。|
 |FLAG_CANDIDATE^15+^|2|候选词态面板类型。|
 
-#### PanelType^10+^
+## PanelType^10+^
 
 输入法面板类型枚举。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|值|说明|
 |:------------|:-|:-----|
 |SOFT_KEYBOARD|0|软键盘类型。|
 |STATUS_BAR|1|状态栏类型。|
 
-#### PanelInfo^10+^
+## PanelInfo^10+^
 
 输入法面板属性。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
 |:---|:------------------------|:-|:-|:-------|
 |type|[PanelType](#paneltype10)|否|否|面板的类型。|
 |flag|[PanelFlag](#panelflag10)|否|是|面板的状态类型。|
 
-#### PanelRect^12+^
+## PanelRect^12+^
 
 输入法面板位置大小信息。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
 |:------------|:---------------------------------------------------------------------------------------------------------|:-|:-|:-----------------|
 |landscapeRect|[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)|否|否|横屏状态时输入法面板窗口的位置大小。|
 |portraitRect|[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)|否|否|竖屏状态时输入法面板窗口的位置大小。|
 
-#### EnhancedPanelRect^15+^
+## EnhancedPanelRect^15+^
 
 增强的输入法面板位置、大小信息，包含自定义避让区域、自定义热区。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
-|:-------------------|:------------------------------------------------------------------------------------------------------------------|:-|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------------------|:----------------------------------------------------------------------------------------------------------------|:-|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |landscapeRect|[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)|否|是|横屏状态时输入法面板窗口的位置大小。 - 当fullScreenMode不填写或值为false时，此属性为必选。|
 |portraitRect|[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)|否|是|竖屏状态时，输入法面板窗口的位置大小。 - 当fullScreenMode不填写或值为false时，此属性为必选。|
 |landscapeAvoidY|number|否|是|横屏状态时，面板中的避让线距离面板顶部的距离，单位px。默认值为0。 - 应用内其他系统组件会对避让线以下的输入法面板区域进行避让。 - 面板为固定态时，避让线到屏幕底部的高度不能超过屏幕高度的70%。当面板高度大于屏幕高度70%时，取默认值0将无法通过此校验，需要开发者手动设置，使得避让线到屏幕底部的高度不超过屏幕高度的70%。|
-|landscapeInputRegion|Array\<[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)\>|否|是|横屏状态时，面板接收输入事件的区域。 - 数组大小限制为\[1, 4\]。默认值为横屏时的面板大小。 - 传入的热区位置是相对于输入法面板窗口左顶点的位置。|
+|landscapeInputRegion|Array<[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)>|否|是|横屏状态时，面板接收输入事件的区域。 - 数组大小限制为[1, 4]。默认值为横屏时的面板大小。 - 传入的热区位置是相对于输入法面板窗口左顶点的位置。|
 |portraitAvoidY|number|否|是|竖屏状态时，面板中的避让线距离面板顶部的距离，单位px。默认值为0。 - 应用内其他系统组件会对避让线以下的输入法面板区域进行避让。 - 面板为固定态时，避让线到屏幕底部的高度不能超过屏幕高度的70%。当面板高度大于屏幕高度70%时，取默认值0将无法通过此校验，需要开发者手动设置，使得避让线到屏幕底部的高度不超过屏幕高度的70%。|
-|portraitInputRegion|Array\<[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)\>|否|是|竖屏状态时，面板接收输入事件的区域。 - 数组大小限制为\[1, 4\]。默认值为竖屏时的面板大小。 - 传入的热区位置是相对于输入法面板窗口左顶点的位置。|
+|portraitInputRegion|Array<[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)>|否|是|竖屏状态时，面板接收输入事件的区域。 - 数组大小限制为[1, 4]。默认值为竖屏时的面板大小。 - 传入的热区位置是相对于输入法面板窗口左顶点的位置。|
 |fullScreenMode|boolean|否|是|是否开启全屏模式。默认值为false。 - 值为true，landscapeRect和portraitRect可不填写。 - 值为false，landscapeRect和portraitRect为必选属性。|
 
-#### KeyboardArea^15+^
+## KeyboardArea^15+^
 
 面板中的键盘区域。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
 |:-----|:-----|:-|:-|:--------------------------------|
@@ -5279,33 +5329,33 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |left|number|否|否|键盘区域的左边界到面板区域左边界的距离，单位为px，该参数为整数。|
 |right|number|否|否|键盘区域的右边界到面板区域右边界的距离，单位为px，该参数为整数。|
 
-#### AttachOptions^19+^
+## AttachOptions^19+^
 
 绑定输入法时的附加选项。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
 |:---------------------------|:------------------------------------------------|:-|:-|:-------------------------------------------------------------------------|
 |requestKeyboardReason|[RequestKeyboardReason](#requestkeyboardreason19)|否|是|该属性由编辑框应用设置，如果没有设置或设置非法值，则默认没有特定的原因触发键盘请求。|
 |isSimpleKeyboardEnabled^20+^|boolean|否|是|是否使能简单键盘，该属性由编辑框应用设置，true表示使能简单键盘，false表示不使能简单键盘。 如果没有设置或设置非法值，则默认不使能简单键盘。|
 
-#### WindowInfo^12+^
+## WindowInfo^12+^
 
 窗口信息。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------|
 |rect|[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)|否|否|窗口矩形区域。|
 |status|[window.WindowStatusType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)|否|否|窗口模式类型。|
 
-#### ImmersiveMode^15+^
+## ImmersiveMode^15+^
 
 枚举，输入法沉浸模式。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|值|说明|
 |:--------------|:-|:-------------------|
@@ -5314,11 +5364,11 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |LIGHT_IMMERSIVE|2|浅色沉浸模式。|
 |DARK_IMMERSIVE|3|深色沉浸模式。|
 
-#### RequestKeyboardReason^19+^
+## RequestKeyboardReason^19+^
 
 枚举，请求键盘输入的原因。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|值|说明|
 |:----|:-|:---------------|
@@ -5327,33 +5377,33 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |TOUCH|2|表示键盘请求是由触摸操作触发的。|
 |OTHER|20|表示键盘请求是由其他原因触发的。|
 
-#### GradientMode^20+^
+## GradientMode^20+^
 
 枚举，输入法渐变模式。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|值|说明|
 |:--------------|:-|:-------|
 |NONE|0|不使用渐变模式。|
 |LINEAR_GRADIENT|1|线性渐变。|
 
-#### ImmersiveEffect^20+^
+## ImmersiveEffect^20+^
 
 沉浸效果。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
 |:-------------|:------------------------------|:-|:-|:-----------------------|
 |gradientHeight|number|否|否|渐变高度，不能超过屏幕高度的15%。单位：px。|
 |gradientMode|[GradientMode](#gradientmode20)|否|否|渐变模式。|
 
-#### SystemPanelInsets^21+^
+## SystemPanelInsets^21+^
 
 输入法软键盘相对系统面板的偏移区域。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 |名称|类型|只读|可选|说明|
 |:-----|:-----|:-|:-|:----------------------------------|
@@ -5361,38 +5411,40 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |left|number|是|否|键盘区域的左边界到系统面板区域左边界的距离，单位为px，该参数为整数。|
 |right|number|是|否|键盘区域的右边界到系统面板区域右边界的距离，单位为px，该参数为整数。|
 
-#### TextInputClient^(deprecated)^
+## TextInputClient^(deprecated)^
 
-下列API示例中都需使用[on('inputStart')](#oninputstartdeprecated)回调获取到TextInputClient实例，再通过此实例调用对应方法。  
-![](https://media:401788445002934641)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[InputClient](#inputclient9)替代。
+下列API示例中都需使用[on('inputStart')](#oninputstartdeprecated)回调获取到TextInputClient实例，再通过此实例调用对应方法。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[InputClient](#inputclient9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework  
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-#### getForward^(deprecated)^
+### getForward^(deprecated)^
 
-getForward(length:number, callback: AsyncCallback\<string\>): void
+getForward(length:number, callback: AsyncCallback<string>): void
 
 获取光标前固定长度的文本。使用callback异步回调。
 
 使用场景：分析已输入文本内容以提供智能补全建议、检查文本格式、实现文本预测功能、实现文本语义分析等。
 
-使用后效果：成功时返回光标前指定长度的文本字符串，输入法应用可据此更新候选词或输入建议。  
-![](https://media:401788445002959642)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getForward](#getforward9)替代。
+使用后效果：成功时返回光标前指定长度的文本字符串，输入法应用可据此更新候选词或输入建议。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getForward](#getforward9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:------------------------------------------------------|
+|:-------|:--------------------|:-|:------------------------------------------------------|
 |length|number|是|文本长度。不能小于0。|
-|callback|AsyncCallback\<string\>|是|回调函数。当光标前固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。|
+|callback|AsyncCallback<string>|是|回调函数。当光标前固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -5405,31 +5457,32 @@ textInputClient.getForward(length, (err: BusinessError, text: string) => {
 });
 ```
 
-#### getForward^(deprecated)^
+### getForward^(deprecated)^
 
-getForward(length:number): Promise\<string\>
+getForward(length:number): Promise<string>
 
-获取光标前固定长度的文本。使用promise异步回调。  
-![](https://media:401788445002980643)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getForward](#getforward9-1)替代。
+获取光标前固定长度的文本。使用promise异步回调。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getForward](#getforward9-1)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------|
 |length|number|是|文本长度。不能小于0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:----------------------|
-|Promise\<string\>|Promise对象，返回光标前固定长度的文本。|
+|:--------------|:----------------------|
+|Promise<string>|Promise对象，返回光标前固定长度的文本。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -5440,26 +5493,27 @@ textInputClient.getForward(length).then((text: string) => {
 });
 ```
 
-#### getBackward^(deprecated)^
+### getBackward^(deprecated)^
 
-getBackward(length:number, callback: AsyncCallback\<string\>): void
+getBackward(length:number, callback: AsyncCallback<string>): void
 
-获取光标后固定长度的文本。使用callback异步回调。  
-![](https://media:401788445003003644)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getBackward](#getbackward9)替代。
+获取光标后固定长度的文本。使用callback异步回调。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getBackward](#getbackward9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:------------------------------------------------------|
+|:-------|:--------------------|:-|:------------------------------------------------------|
 |length|number|是|文本长度。不能小于0。|
-|callback|AsyncCallback\<string\>|是|回调函数。当光标后固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。|
+|callback|AsyncCallback<string>|是|回调函数。当光标后固定长度的文本获取成功，err为undefined，data为获取到的文本；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -5472,31 +5526,32 @@ textInputClient.getBackward(length, (err: BusinessError, text: string) => {
 });
 ```
 
-#### getBackward^(deprecated)^
+### getBackward^(deprecated)^
 
-getBackward(length:number): Promise\<string\>
+getBackward(length:number): Promise<string>
 
-获取光标后固定长度的文本。使用promise异步回调。  
-![](https://media:401788445003034645)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getBackward](#getbackward9)替代。
+获取光标后固定长度的文本。使用promise异步回调。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getBackward](#getbackward9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------|
 |length|number|是|文本长度。不能小于0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:----------------------|
-|Promise\<string\>|Promise对象，返回光标后固定长度的文本。|
+|:--------------|:----------------------|
+|Promise<string>|Promise对象，返回光标后固定长度的文本。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -5507,30 +5562,31 @@ textInputClient.getBackward(length).then((text: string) => {
 });
 ```
 
-#### deleteForward^(deprecated)^
+### deleteForward^(deprecated)^
 
-deleteForward(length:number, callback: AsyncCallback\<boolean\>): void
+deleteForward(length:number, callback: AsyncCallback<boolean>): void
 
 删除光标前固定长度的文本。使用callback异步回调。
 
 使用场景：实现退格键功能、逐字删除输入、删除错误的输入、实现自定义删除逻辑等。
 
-使用后效果：成功时返回true，编辑框中光标前指定长度的文本被删除。  
-![](https://media:401788445003056646)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.deleteForward](#deleteforward9)替代。
+使用后效果：成功时返回true，编辑框中光标前指定长度的文本被删除。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.deleteForward](#deleteforward9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:---------------------------------------------------------------------------------------------|
+|:-------|:---------------------|:-|:---------------------------------------------------------------------------------------------|
 |length|number|是|文本长度。不能小于0。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。当光标前固定长度的文本删除成功，err为undefined，data为true；当光标前固定长度的文本删除失败，err为undefined，data为false；否则为错误对象。|
+|callback|AsyncCallback<boolean>|是|回调函数。当光标前固定长度的文本删除成功，err为undefined，data为true；当光标前固定长度的文本删除失败，err为undefined，data为false；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -5547,31 +5603,32 @@ textInputClient.deleteForward(length, (err: BusinessError, result: boolean) => {
 });
 ```
 
-#### deleteForward^(deprecated)^
+### deleteForward^(deprecated)^
 
-deleteForward(length:number): Promise\<boolean\>
+deleteForward(length:number): Promise<boolean>
 
-删除光标前固定长度的文本。使用promise异步回调。  
-![](https://media:401788445003078647)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.deleteForward](#deleteforward9)替代。
+删除光标前固定长度的文本。使用promise异步回调。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.deleteForward](#deleteforward9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------|
 |length|number|是|文本长度。不能小于0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:------------------------------------------------------------------------------------------------|
-|Promise\<boolean\>|Promise对象。resolve返回true表示删除光标前固定长度的文本成功；resolve返回false表示删除光标前固定长度的文本失败；reject时抛出错误对象，表示执行过程中发生错误。|
+|:---------------|:------------------------------------------------------------------------------------------------|
+|Promise<boolean>|Promise对象。resolve返回true表示删除光标前固定长度的文本成功；resolve返回false表示删除光标前固定长度的文本失败；reject时抛出错误对象，表示执行过程中发生错误。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -5586,30 +5643,31 @@ textInputClient.deleteForward(length).then((result: boolean) => {
 });
 ```
 
-#### deleteBackward^(deprecated)^
+### deleteBackward^(deprecated)^
 
-deleteBackward(length:number, callback: AsyncCallback\<boolean\>): void
+deleteBackward(length:number, callback: AsyncCallback<boolean>): void
 
 删除光标后固定长度的文本。使用callback异步回调。
 
 使用场景：实现删除键功能、删除光标后的字符、快速修正输入、实现自定义删除逻辑等。
 
-使用后效果：成功时返回true，编辑框中光标后指定长度的文本被删除。  
-![](https://media:401788445003103648)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.deleteBackward](#deletebackward9)替代。
+使用后效果：成功时返回true，编辑框中光标后指定长度的文本被删除。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.deleteBackward](#deletebackward9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:----------------------------------------------------|
+|:-------|:---------------------|:-|:----------------------------------------------------|
 |length|number|是|文本长度。不能小于0。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。当光标后固定长度的文本删除成功，err为undefined，data为true；否则为错误对象。|
+|callback|AsyncCallback<boolean>|是|回调函数。当光标后固定长度的文本删除成功，err为undefined，data为true；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -5626,31 +5684,32 @@ textInputClient.deleteBackward(length, (err: BusinessError, result: boolean) => 
 });
 ```
 
-#### deleteBackward^(deprecated)^
+### deleteBackward^(deprecated)^
 
-deleteBackward(length:number): Promise\<boolean\>
+deleteBackward(length:number): Promise<boolean>
 
-删除光标后固定长度的文本。使用promise异步回调。  
-![](https://media:401788445003126649)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.deleteBackward](#deletebackward9)替代。
+删除光标后固定长度的文本。使用promise异步回调。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.deleteBackward](#deletebackward9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------|
 |length|number|是|文本长度。不能小于0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:--------------------------------------------------------|
-|Promise\<boolean\>|Promise对象。返回true表示删除光标后固定长度的文本成功；返回false表示删除光标后固定长度的文本失败。|
+|:---------------|:--------------------------------------------------------|
+|Promise<boolean>|Promise对象。返回true表示删除光标后固定长度的文本成功；返回false表示删除光标后固定长度的文本失败。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let length: number = 1;
@@ -5665,26 +5724,27 @@ textInputClient.deleteBackward(length).then((result: boolean) => {
 });
 ```
 
-#### sendKeyFunction^(deprecated)^
+### sendKeyFunction^(deprecated)^
 
-sendKeyFunction(action: number, callback: AsyncCallback\<boolean\>): void
+sendKeyFunction(action: number, callback: AsyncCallback<boolean>): void
 
-发送功能键。使用callback异步回调。  
-![](https://media:401788445003150650)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.sendKeyFunction](#sendkeyfunction9)替代。
+发送功能键。使用callback异步回调。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.sendKeyFunction](#sendkeyfunction9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:-------------------------------------------------------------------------------|
+|:-------|:---------------------|:-|:-------------------------------------------------------------------------------|
 |action|number|是|功能键键值。 - 当值为0时，表示无效按键； - 当值为1时，表示确认键（即回车键）。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。当功能键发送成功，err为undefined，data为true；当功能键发送失败，err为undefined，data为false；否则为错误对象。|
+|callback|AsyncCallback<boolean>|是|回调函数。当功能键发送成功，err为undefined，data为true；当功能键发送失败，err为undefined，data为false；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let action: number = 1;
@@ -5701,31 +5761,32 @@ textInputClient.sendKeyFunction(action, (err: BusinessError, result: boolean) =>
 });
 ```
 
-#### sendKeyFunction^(deprecated)^
+### sendKeyFunction^(deprecated)^
 
-sendKeyFunction(action: number): Promise\<boolean\>
+sendKeyFunction(action: number): Promise<boolean>
 
-发送功能键。使用promise异步回调。  
-![](https://media:401788445003185651)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.sendKeyFunction](#sendkeyfunction9)替代。
+发送功能键。使用promise异步回调。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.sendKeyFunction](#sendkeyfunction9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:--------------------------------------|
 |action|number|是|功能键键值。 当值为0时，表示无效按键； 当值为1时，表示确认键（即回车键）。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:------------------------------------------|
-|Promise\<boolean\>|Promise对象。返回true表示发送功能键成功；返回false表示发送功能键失败。|
+|:---------------|:------------------------------------------|
+|Promise<boolean>|Promise对象。返回true表示发送功能键成功；返回false表示发送功能键失败。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let action: number = 1;
@@ -5740,30 +5801,31 @@ textInputClient.sendKeyFunction(action).then((result: boolean) => {
 });
 ```
 
-#### insertText^(deprecated)^
+### insertText^(deprecated)^
 
-insertText(text:string, callback: AsyncCallback\<boolean\>): void
+insertText(text:string, callback: AsyncCallback<boolean>): void
 
 插入文本。使用callback异步回调。
 
 使用场景：插入候选词、插入特殊符号、实现文本自动补全、快速插入常用短语等。
 
-使用后效果：成功时返回true，文本已插入到编辑框光标位置。  
-![](https://media:401788445003208652)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.insertText](#inserttext9)替代。
+使用后效果：成功时返回true，文本已插入到编辑框光标位置。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.insertText](#inserttext9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:--------------------------------------------|
+|:-------|:---------------------|:-|:--------------------------------------------|
 |text|string|是|文本。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。当文本插入成功，err为undefined，data为true；否则为错误对象。|
+|callback|AsyncCallback<boolean>|是|回调函数。当文本插入成功，err为undefined，data为true；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 textInputClient.insertText('test', (err: BusinessError, result: boolean) => {
@@ -5779,31 +5841,32 @@ textInputClient.insertText('test', (err: BusinessError, result: boolean) => {
 });
 ```
 
-#### insertText^(deprecated)^
+### insertText^(deprecated)^
 
-insertText(text:string): Promise\<boolean\>
+insertText(text:string): Promise<boolean>
 
-插入文本。使用promise异步回调。  
-![](https://media:401788445003256653)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.insertText](#inserttext9)替代。
+插入文本。使用promise异步回调。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.insertText](#inserttext9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:-----|:-|:--|
 |text|string|是|文本。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:----------------------------------------|
-|Promise\<boolean\>|Promise对象。返回true表示插入文本成功；返回false表示插入文本失败。|
+|:---------------|:----------------------------------------|
+|Promise<boolean>|Promise对象。返回true表示插入文本成功；返回false表示插入文本失败。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 textInputClient.insertText('test').then((result: boolean) => {
@@ -5817,29 +5880,30 @@ textInputClient.insertText('test').then((result: boolean) => {
 });
 ```
 
-#### getEditorAttribute^(deprecated)^
+### getEditorAttribute^(deprecated)^
 
-getEditorAttribute(callback: AsyncCallback\<EditorAttribute\>): void
+getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void
 
 获取编辑框属性值。使用callback异步回调。
 
 使用场景：根据编辑框类型调整输入法界面、根据编辑框配置提供不同的输入建议、实现特定输入逻辑、适配不同类型的输入框等。
 
-使用后效果：返回编辑框属性信息（包括inputPattern输入类型和enterKeyType回车键类型），输入法应用据此调整键盘布局。  
-![](https://media:401788445003290654)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getEditorAttribute](#geteditorattribute9)替代。
+使用后效果：返回编辑框属性信息（包括inputPattern输入类型和enterKeyType回车键类型），输入法应用据此调整键盘布局。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getEditorAttribute](#geteditorattribute9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------------------------------------------|:-|:---------------------------------------------------|
-|callback|AsyncCallback\<[EditorAttribute](#editorattribute)\>|是|回调函数。当编辑框的属性值获取成功，err为undefined，data为编辑框属性值；否则为错误对象。|
+|:-------|:-------------------------------------------------|:-|:---------------------------------------------------|
+|callback|AsyncCallback<[EditorAttribute](#editorattribute)>|是|回调函数。当编辑框的属性值获取成功，err为undefined，data为编辑框属性值；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 
@@ -5854,25 +5918,26 @@ textInputClient.getEditorAttribute((err: BusinessError,
 });
 ```
 
-#### getEditorAttribute^(deprecated)^
+### getEditorAttribute^(deprecated)^
 
-getEditorAttribute(): Promise\<EditorAttribute\>
+getEditorAttribute(): Promise<EditorAttribute>
 
-获取编辑框属性值。使用promise异步回调。  
-![](https://media:401788445003320655)  
-从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getEditorAttribute](#geteditorattribute9)替代。
+获取编辑框属性值。使用promise异步回调。
+> 说明
+>
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用[inputMethodEngine.InputClient.getEditorAttribute](#geteditorattribute9)替代。
 
-系统能力： SystemCapability.MiscServices.InputMethodFramework
+**系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:---------------------------------------------|:------------------|
-|Promise\<[EditorAttribute](#editorattribute)\>|Promise对象，返回编辑框属性值。|
+|:-------------------------------------------|:------------------|
+|Promise<[EditorAttribute](#editorattribute)>|Promise对象，返回编辑框属性值。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 textInputClient.getEditorAttribute().then((editorAttribute: inputMethodEngine.EditorAttribute) => {

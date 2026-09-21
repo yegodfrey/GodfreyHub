@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-313
 
 利用[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象的arc绘制弧形路径，结合lineTo方法绘制直线，参考代码如下：
 
-```
+```screen
 @Entry
 @Component
 struct CanvasDrawRoundedRectangle {
@@ -24,25 +24,25 @@ struct CanvasDrawRoundedRectangle {
     lineDash = lineDash || [];
     this.ctx.beginPath();
     this.ctx.setLineDash(lineDash);
-    // Draw the first arc path
+  // Draw the first arc path
     this.ctx.arc(x + radius, y + radius, radius, Math.PI, Math.PI * 3 / 2);
-    // Draw the first straight path
+   // Draw the first straight path
     this.ctx.lineTo(width - radius + x, y);
-    // Draw the second arc path
+   // Draw the second arc path
     this.ctx.arc(width - radius + x, radius + y, radius, Math.PI * 3 / 2, Math.PI * 2);
-    // Draw the second straight path
+  // Draw the second straight path
     this.ctx.lineTo(width + x, height + y - radius);
-    // Draw the third arc path
+// Draw the third arc path
     this.ctx.arc(width - radius + x, height - radius + y, radius, 0, Math.PI / 2);
-    // Draw the third straight path
+  // Draw the third straight path
     this.ctx.lineTo(radius + x, height + y);
     // Draw the fourth arc path
     this.ctx.arc(radius + x, height - radius + y, radius, Math.PI / 2, Math.PI);
-    // Draw the fourth straight path
+   // Draw the fourth straight path
     this.ctx.lineTo(x, y + radius);
     // Set brush color
     this.ctx.strokeStyle = strokeColor;
-    // Stroke drawing
+  // Stroke drawing
     this.ctx.stroke();
     if (fillColor) {
       this.ctx.fillStyle = fillColor;
@@ -70,4 +70,5 @@ struct CanvasDrawRoundedRectangle {
 
 实现效果图如下所示：
 
-![](https://media:101782454302770183)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/U5ewIVfVQgGGAHNTEFt_jg/zh-cn_image_0000002624635838.png?HW-CC-KV=V1&HW-CC-Date=20260920T114736Z&HW-CC-Expire=31536000000&HW-CC-Sign=B974BDBBD00BDBCE9A1F45DECB66E42FDD0B09EC7CB0123BB3C5B2806AD03527)
+

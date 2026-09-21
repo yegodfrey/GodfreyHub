@@ -6,10 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Examples/sample-code-0000
 
 # Android示例代码
 
-![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210827165209.95303261601202947820369415678855:50520826090459:2800:18CC14E08F12C6EB468356E33956A0123770A5619804185732434E0EC2F28190.png?needInitFileName=true?needInitFileName=true)  
-CV模型中的表格识别、文档转换、视频人像分割、model creator（定制图像分类）、高光谱技术（光谱超分）相关功能已经下线，接口已废弃。
+> 说明
+>
+> CV模型中的表格识别、文档转换、视频人像分割、model creator（定制图像分类）、高光谱技术（光谱超分）相关功能已经下线，接口已废弃。
 
-下列Android Studio工程包含了Demo的源码，提供HUAWEI HiAI Engine各原子化能力的体验Demo。  
+下列Android Studio工程包含了Demo的源码，提供HUAWEI HiAI Engine各原子化能力的体验Demo。
 
 |分类|名称|下载链接|
 |:------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -50,5 +51,6 @@ CV模型中的表格识别、文档转换、视频人像分割、model creator�
 |自然语言处理|[IM类意图识别](https://developer.huawei.com/consumer/cn/doc/development/hiai-Guides/im-intent-recognition-introduction-0000001054809242)示例代码|[huawei-hiaiengine-nlu-android-demo.zip](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210827165212.30618229604413024319406458588220:50520826090459:2800:0B1BFFE55AC6ED42B8F8F0873B216ED28FFE3ABD53AA8ABD83023AF139AD93A7.zip?needInitFileName=true)|
 |自然语言处理|[实体识别](https://developer.huawei.com/consumer/cn/doc/development/hiai-Guides/entity-recognition-introduction-0000001054090615)示例代码|[huawei-hiaiengine-nlu-android-demo.zip](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210827165212.30618229604413024319406458588220:50520826090459:2800:0B1BFFE55AC6ED42B8F8F0873B216ED28FFE3ABD53AA8ABD83023AF139AD93A7.zip?needInitFileName=true)|
 
-![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210827165209.81761275289237057578880381638185:50520826090459:2800:A1426CD1E6659799D70A21280922ECC47C693BE5587EB52FF27B81AE9C65FCC5.png?needInitFileName=true?needInitFileName=true)  
-您需要参见示例工程中"README"文件的详细步骤以完成示例代码运行。
+> 说明
+>
+> 您需要参见示例工程中"README"文件的详细步骤以完成示例代码运行。

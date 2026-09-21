@@ -1,0 +1,18 @@
+---
+name: document/cn/graphics-Guides/development-preparations-0000001141967347
+title: 开发准备
+uri: https://developer.huawei.com/consumer/cn/doc/graphics-Guides/development-preparations-0000001141967347
+---
+
+# 开发准备
+
+1. 下载并解压[骨骼动画插件SDK](https://developer.huawei.com/consumer/cn/doc/development/graphics-Library/sdk-download-0000001050441521)，压缩包内包含头文件和库文件。
+   * 头文件包含接口API和相关结构体的定义。
+   * 库文件包含PC端Windows平台下运行所需的动态链接库".dll"文件和手机端Android平台下运行所需的动态链接库".so"文件。
+2. 调用骨骼动画插件前，需要添加打点功能依赖aar包，可以通过修改代码工程的应用级build.gradle文件来实现，任意aar包版本号均可。
+
+   ```screen
+   implementation 'com.huawei.hms:stats:4.0.3.302'
+   ```
+
+   ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20211227101413.61686442075101958357291001053111:50521226030127:2800:5D8CD16438A09F99FFDB5A149ECD2826F9FB0827B8AE0CCF07E0CFFDF5B796BB.png?needInitFileName=true?needInitFileName=true)

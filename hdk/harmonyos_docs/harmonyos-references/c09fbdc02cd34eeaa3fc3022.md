@@ -6,55 +6,57 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-commo
 
 # mapCommon（地图属性模型）
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | wearable 5.1.0(18)+
+
 本模块提供map组件相关属性设置接口。
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-#### 导入模块
+## 导入模块
 
-```
+```typescript
 import { mapCommon } from '@kit.MapKit';
 ```
 
-#### MapOptions
+## MapOptions
 
 提供Map组件初始化的属性。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:------------------------|:--------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|mapType|[MapType](#maptype)|否|是|地图类型，默认值为[MapType](#maptype).STANDARD，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|position|[CameraPosition](#cameraposition)|否|否|地图相机位置。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|bounds|[LatLngBounds](#latlngbounds)|否|是|地图展示边界，默认值无边界，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 说明： 西南角纬度不能大于东北角纬度。|
-|minZoom|number|否|是|地图最小层级，有效范围：\[2, 20\]，默认值为2，异常值按默认值处理。 如果设置的最小缩放级别小于2，minZoom会取2；如果设置的最小缩放层级大于20，minZoom会取20。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|maxZoom|number|否|是|地图最大层级，有效范围：\[2, 20\]，默认值为20，异常值按默认值处理。 如果设置的最大缩放级别小于2，maxZoom会取2；如果设置的最大缩放层级大于20，maxZoom会取20。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|rotateGesturesEnabled|boolean|否|是|是否支持旋转手势，默认值为true，异常值按默认值处理。 - true：支持 - false：不支持 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|scrollGesturesEnabled|boolean|否|是|是否支持滑动手势，默认值为true，异常值按默认值处理。 - true：支持 - false：不支持 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|zoomGesturesEnabled|boolean|否|是|是否支持缩放手势，默认值为true，异常值按默认值处理。 - true：支持 - false：不支持 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|tiltGesturesEnabled|boolean|否|是|是否支持倾斜手势，默认值为true，异常值按默认值处理。 - true：支持 - false：不支持 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|zoomControlsEnabled|boolean|否|是|是否展示缩放控件，默认值为true，异常值按默认值处理。 - true：展示 - false：不展示 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|myLocationControlsEnabled|boolean|否|是|是否展示我的位置按钮，默认值为false，异常值按默认值处理。 - true：展示 - false：不展示 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|compassControlsEnabled|boolean|否|是|是否展示指南针控件，默认值为true，异常值按默认值处理。 - true：展示 - false：不展示 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|scaleControlsEnabled|boolean|否|是|是否展示比例尺，默认值为false，异常值按默认值处理。 - true：展示 - false：不展示 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|padding|[Padding](#padding)|否|是|设置地图和边界的距离，默认值为{ left: 0 , top: 0 , right: 0 , bottom: 0 }。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|styleId|string|否|是|自定义样式ID。ID不生效时，使用系统样式。使用方式详见[显示自定义地图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style)章节。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
-|dayNightMode|[DayNightMode](#daynightmode)|否|是|日间夜间模式，默认值为[DayNightMode](#daynightmode).DAY（日间模式）。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
-|alwaysShowScaleEnabled|boolean|否|是|是否一直显示比例尺，只有比例尺启用时该参数才生效。启用比例尺可以由地图初始化时scaleControlsEnabled属性设置为true或者通过[setScaleControlsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#setscalecontrolsenabled)方法设置为true。 - true：始终显示 - false：关闭始终显示 默认是false。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
-|logoScale|number|否|是|Logo缩放比例，取值范围是\[0.8, 1\]，默认值是1，异常值按默认值处理。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
-|sphereEnabled|boolean|否|是|是否开启3D地球效果，默认值为false。 - true：开启3D地球效果 - false：关闭3D地球效果 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
-|indoorMapEnabled|boolean|否|是|是否启用室内图，默认值为false。 - true：开启室内图 - false：关闭室内图 起始版本： 5.1.1(19) 元服务API： 从版本5.1.1(19)开始，该接口支持在元服务中使用。|
-|scaleUnit|[ScaleUnit](#scaleunit)|否|是|地图比例尺单位，默认值为[ScaleUnit](#scaleunit).METRIC_UNIT（公制单位）。 起始版本： 5.1.1(19) 元服务API： 从版本5.1.1(19)开始，该接口支持在元服务中使用。|
-|language|string|否|是|地图语言。语种取值请参见[地图组件支持语言](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-language#地图组件支持语言)列表。默认使用当前系统语言。 起始版本： 6.0.0(20) 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
-|approveNumberEnabled|boolean|否|是|是否显示审图号并附带logo，只有路由地在中国才会显示。 - true：显示审图号 - false：隐藏审图号 起始版本： 6.1.0(23) 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:------------------------|:--------------------------------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|mapType|[MapType](#maptype)|否|是|地图类型，默认值为[MapType](#maptype).STANDARD，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|position|[CameraPosition](#cameraposition)|否|否|地图相机位置。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|bounds|[LatLngBounds](#latlngbounds)|否|是|地图展示边界，默认值无边界，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。 **说明：** 西南角纬度不能大于东北角纬度。|
+|minZoom|number|否|是|地图最小层级，有效范围：[2, 20]，默认值为2，异常值按默认值处理。 如果设置的最小缩放级别小于2，minZoom会取2；如果设置的最小缩放层级大于20，minZoom会取20。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|maxZoom|number|否|是|地图最大层级，有效范围：[2, 20]，默认值为20，异常值按默认值处理。 如果设置的最大缩放级别小于2，maxZoom会取2；如果设置的最大缩放层级大于20，maxZoom会取20。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|rotateGesturesEnabled|boolean|否|是|是否支持旋转手势，默认值为true，异常值按默认值处理。 - true：支持 - false：不支持 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|scrollGesturesEnabled|boolean|否|是|是否支持滑动手势，默认值为true，异常值按默认值处理。 - true：支持 - false：不支持 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|zoomGesturesEnabled|boolean|否|是|是否支持缩放手势，默认值为true，异常值按默认值处理。 - true：支持 - false：不支持 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|tiltGesturesEnabled|boolean|否|是|是否支持倾斜手势，默认值为true，异常值按默认值处理。 - true：支持 - false：不支持 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|zoomControlsEnabled|boolean|否|是|是否展示缩放控件，默认值为true，异常值按默认值处理。 - true：展示 - false：不展示 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|myLocationControlsEnabled|boolean|否|是|是否展示我的位置按钮，默认值为false，异常值按默认值处理。 - true：展示 - false：不展示 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|compassControlsEnabled|boolean|否|是|是否展示指南针控件，默认值为true，异常值按默认值处理。 - true：展示 - false：不展示 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|scaleControlsEnabled|boolean|否|是|是否展示比例尺，默认值为false，异常值按默认值处理。 - true：展示 - false：不展示 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|padding|[Padding](#padding)|否|是|设置地图和边界的距离，默认值为{ left: 0 , top: 0 , right: 0 , bottom: 0 }。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|styleId|string|否|是|自定义样式ID。ID不生效时，使用系统样式。使用方式详见[显示自定义地图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style)章节。 **起始版本：** 5.0.0(12) **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
+|dayNightMode|[DayNightMode](#daynightmode)|否|是|日间夜间模式，默认值为[DayNightMode](#daynightmode).DAY（日间模式）。 **起始版本：** 5.0.0(12) **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
+|alwaysShowScaleEnabled|boolean|否|是|是否一直显示比例尺，只有比例尺启用时该参数才生效。启用比例尺可以由地图初始化时scaleControlsEnabled属性设置为true或者通过[setScaleControlsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#setscalecontrolsenabled)方法设置为true。 - true：始终显示 - false：关闭始终显示 默认是false。 **起始版本：** 5.0.0(12) **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
+|logoScale|number|否|是|Logo缩放比例，取值范围是[0.8, 1]，默认值是1，异常值按默认值处理。 **起始版本：** 5.0.3(15) **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
+|sphereEnabled|boolean|否|是|是否开启3D地球效果，默认值为false。 - true：开启3D地球效果 - false：关闭3D地球效果 **起始版本：** 5.0.3(15) **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
+|indoorMapEnabled|boolean|否|是|是否启用室内图，默认值为false。 - true：开启室内图 - false：关闭室内图 **起始版本：** 5.1.1(19) **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。|
+|scaleUnit|[ScaleUnit](#scaleunit)|否|是|地图比例尺单位，默认值为[ScaleUnit](#scaleunit).METRIC_UNIT（公制单位）。 **起始版本：** 5.1.1(19) **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。|
+|language|string|否|是|地图语言。语种取值请参见[地图组件支持语言](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-language#地图组件支持语言)列表。默认使用当前系统语言。 **起始版本：** 6.0.0(20) **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
+|approveNumberEnabled|boolean|否|是|是否显示审图号并附带logo，只有路由地在中国才会显示。 - true：显示审图号 - false：隐藏审图号 **起始版本：** 6.1.0(23) **元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
 
-示例：
+**示例：**
 
-```
+```typescript
 // 地图初始化参数
 let mapOptions: mapCommon.MapOptions = {
   mapType: mapCommon.MapType.STANDARD,
@@ -91,54 +93,54 @@ let mapOptions: mapCommon.MapOptions = {
 };
 ```
 
-#### LatLng
+## LatLng
 
 经纬度对象。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:--------|:-----|:-|:-|:-------------------------|
-|latitude|number|否|否|纬度，单位：度，取值范围：\[-90, 90\]。|
-|longitude|number|否|否|经度，单位：度，取值范围：\[-180, 180)。|
+|名称|**类型**|只读|可选|**说明**|
+|:--------|:-----|:-|:-|:------------------------|
+|latitude|number|否|否|纬度，单位：度，取值范围：[-90, 90]。|
+|longitude|number|否|否|经度，单位：度，取值范围：[-180, 180)。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let position: mapCommon.LatLng = {
   latitude: 39.9,
   longitude: 116.4
 };
 ```
 
-#### CameraPosition
+## CameraPosition
 
 相机状态，包括位置、倾斜角、缩放级别等信息。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:------|:----------------|:-|:-|:----------------------------------------------------------------------------------------------|
+|名称|**类型**|只读|可选|**说明**|
+|:------|:----------------|:-|:-|:---------------------------------------------------------------------------------------------|
 |target|[LatLng](#latlng)|否|否|地图中心位置的经纬度坐标。|
-|zoom|number|否|否|屏幕中心附近的缩放级别，取值范围：\[2, 20\]，默认值为2。|
-|tilt|number|否|是|相机与垂直于地球表面的线的夹角角度，单位：度，取值范围：\[0, 75\]，默认值为0。|
-|bearing|number|否|是|地图旋转角度。 以正北方向为0度、顺时针方向为正的角度，单位：度，默认值为0，取值范围：\[0, 360)。超出取值范围的值会换算成取值范围内的值，比如361会被换算成1，-1换算为359。|
+|zoom|number|否|否|屏幕中心附近的缩放级别，取值范围：[2, 20]，默认值为2。|
+|tilt|number|否|是|相机与垂直于地球表面的线的夹角角度，单位：度，取值范围：[0, 75]，默认值为0。|
+|bearing|number|否|是|地图旋转角度。 以正北方向为0度、顺时针方向为正的角度，单位：度，默认值为0，取值范围：[0, 360)。超出取值范围的值会换算成取值范围内的值，比如361会被换算成1，-1换算为359。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let cameraPosition: mapCommon.CameraPosition = {
   target: {
     latitude: 39.9,
@@ -150,26 +152,26 @@ let cameraPosition: mapCommon.CameraPosition = {
 };
 ```
 
-#### LatLngBounds
+## LatLngBounds
 
 经纬度划分的一个矩形区域。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
+|名称|**类型**|只读|可选|**说明**|
 |:--------|:----------------|:-|:-|:------|
 |northeast|[LatLng](#latlng)|否|否|东北角经纬度。|
 |southwest|[LatLng](#latlng)|否|否|西南角经纬度。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let bounds: mapCommon.LatLngBounds = {
   northeast: {
     latitude: 41.5,
@@ -182,53 +184,53 @@ let bounds: mapCommon.LatLngBounds = {
 };
 ```
 
-#### PatternItem
+## PatternItem
 
 圆、多边形或折线的边框样式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
+|名称|**类型**|只读|可选|**说明**|
 |:-----|:----------------------------------|:-|:-|:--------------------------------------------|
 |type|[PatternItemType](#patternitemtype)|否|否|边框样式类型。|
 |length|number|否|是|边框样式类型为DASH或GAP时的边框长度，默认值为1，取值范围：大于等于0，单位：px。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let patternItem: mapCommon.PatternItem = {
   type: mapCommon.PatternItemType.DASH,
   length: 10
 };
 ```
 
-#### MyLocationStyle
+## MyLocationStyle
 
 自定义定位样式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|anchorU|number|否|是|锚点横坐标方向的偏移量，建议取值\[0, 1\]，默认值为0.5。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|anchorV|number|否|是|锚点纵坐标方向的偏移量，建议取值\[0, 1\]，默认值为0.5。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|icon|string \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|否|是|定位图标。 - 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 - string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,\<图片的Base64字节编码值\>）。 说明： 从5.0.0(12)版本开始，icon属性支持[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)和[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)类型。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|radiusFillColor|number|否|是|定位图标填充色，默认值为0x8F7570FF（紫色），颜色值为ARGB格式。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|displayType|[MyLocationDisplayType](#mylocationdisplaytype)|否|是|定位图标的展示样式，默认值为[MyLocationDisplayType](#mylocationdisplaytype).DEFAULT。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
+|名称|**类型**|只读|可选|**说明**|
+|:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|anchorU|number|否|是|锚点横坐标方向的偏移量，建议取值[0, 1]，默认值为0.5。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|anchorV|number|否|是|锚点纵坐标方向的偏移量，建议取值[0, 1]，默认值为0.5。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|icon|string | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|否|是|定位图标。 - 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 - string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,<图片的Base64字节编码值>）。 **说明：** 从5.0.0(12)版本开始，icon属性支持[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)和[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)类型。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|radiusFillColor|number|否|是|定位图标填充色，默认值为0x8F7570FF（紫色），颜色值为ARGB格式。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|displayType|[MyLocationDisplayType](#mylocationdisplaytype)|否|是|定位图标的展示样式，默认值为[MyLocationDisplayType](#mylocationdisplaytype).DEFAULT。 **起始版本：** 5.0.0(12) **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let style: mapCommon.MyLocationStyle = {
   anchorU: 0.5,
   anchorV: 1,
@@ -239,27 +241,27 @@ let style: mapCommon.MyLocationStyle = {
 };
 ```
 
-#### Poi
+## Poi
 
 地图上的POI对象。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
+|名称|**类型**|只读|可选|**说明**|
 |:-------|:----------------|:-|:-|:---------|
 |id|string|否|否|POI的标识。|
 |name|string|否|否|POI的名称。|
 |position|[LatLng](#latlng)|否|否|POI的经纬度位置。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let poi: mapCommon.Poi = {
   id: "1001",
   name: "城东烧烤店",
@@ -270,65 +272,65 @@ let poi: mapCommon.Poi = {
 };
 ```
 
-#### BaseOverlayOptions
+## BaseOverlayOptions
 
 定义覆盖物基本属性。[MarkerOptions](#markeroptions)、[MapCircleOptions](#mapcircleoptions)、[MapPolygonOptions](#mappolygonoptions)、[MapPolylineOptions](#mappolylineoptions)、[MapArcParams](#maparcparams)、[ImageOverlayParams](#imageoverlayparams)、[BasePriorityOverlayParams](#basepriorityoverlayparams)等继承该基础类。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:------|:------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|名称|**类型**|只读|可选|**说明**|
+|:------|:------|:-|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |visible|boolean|否|是|是否可见，默认值为true，异常值按默认值处理。 - true：可见 - false：不可见|
-|zIndex|number|否|是|覆盖物的叠加顺序，具有较大z指数的覆盖物会绘制在具有较小z指数的覆盖物上，具有相同z指数的叠加顺序为元素添加的先后顺序。覆盖物初始化时如果未设置zIndex参数，默认值为0。异常值按默认值处理。 说明： [BasePriorityOverlayParams](#basepriorityoverlayparams)的zIndex向下取整数。|
+|zIndex|number|否|是|覆盖物的叠加顺序，具有较大z指数的覆盖物会绘制在具有较小z指数的覆盖物上，具有相同z指数的叠加顺序为元素添加的先后顺序。覆盖物初始化时如果未设置zIndex参数，默认值为0。异常值按默认值处理。 **说明：** [BasePriorityOverlayParams](#basepriorityoverlayparams)的zIndex向下取整数。|
 
-#### MarkerOptions
+## MarkerOptions
 
 描述Marker属性，继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|position|[LatLng](#latlng)|否|否|标记的位置坐标。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|rotation|number|否|是|标记的旋转角度，单位：度。 以正北方向为0度、顺时针方向为正的角度，默认值为0，取值范围：\[0, 360)。超出取值范围的值会换算成取值范围内的值，比如361会被换算成1，-1换算为359。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|icon|string \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|否|是|图标，不传时显示默认图标。 - 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 - string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,\<图片的Base64字节编码值\>）。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 说明： 从5.0.0(12)版本开始，icon属性支持[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)和[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)类型。|
-|alpha|number|否|是|透明度，取值范围\[0, 1\]，0代表完全透明，1表示完全不透明，默认值为1，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|anchorU|number|否|是|锚点的水平坐标，以图像宽度的比例，建议取值\[0, 1\]，默认值为0.5，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|anchorV|number|否|是|锚点的垂直坐标，以图像高度的比例，建议取值\[0, 1\]，默认值为1，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|clickable|boolean|否|是|标记是否可以点击，默认值为false，异常值按默认值处理。 - true：可点击 - false：不可点击 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|draggable|boolean|否|是|是否可以通过长按来拖拽，默认值为false，异常值按默认值处理。 - true：可拖拽 - false：不可拖拽 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|flat|boolean|否|是|是否平贴地图，默认值为false，异常值按默认值处理。 - true：可平贴 - false：不可平贴 说明： 开启3D地球且层级处于2\~5层时不可平贴地图。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|title|string|否|是|信息窗口的标题，信息窗的最大宽度为136vp，超长字串超出部分用省略号"..."表示。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|snippet|string|否|是|信息窗口的子标题，信息窗的最大宽度为136vp，超长字串超出部分用省略号"..."表示。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|infoWindowAnchorU|number|否|是|指示标记信息窗口的锚点在水平方向上的位置。值范围：\[0, 1\]，默认值为0.5，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|infoWindowAnchorV|number|否|是|指示标记信息窗口的锚点在垂直方向上的位置。值范围：\[0, 1\]，默认值为0，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|altitude|number|否|是|相对于地面的高度，单位：m，默认值为0，异常值按默认值处理。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
-|collisionRule|[CollisionRule](#collisionrule)|否|是|标记与地图POI之间的冲突处理规则，默认值为[CollisionRule](#collisionrule).NONE。异常值按照默认值处理。 说明： 从5.0.3(15)版本开始，collisionRule属性支持CollisionRule.NONE和CollisionRule.ALL类型；从6.1.0(23)版本开始，collisionRule属性新增支持CollisionRule.NAME和CollisionRule.ICON_CASCADE类型。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
-|annotations|[Text](#text)\[\]|否|是|标记的注释，最小长度为1，最大长度为3。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
-|showIcon|boolean|否|是|是否显示标记的图标，默认值为true。根据显示的图标对异常值进行处理。 - true：显示标记的图标 - false：不显示标记的图标 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
-|annotationPosition|[TextPosition](#textposition)|否|是|注释相对于图标的位置，默认值为[TextPosition](#textposition).DEFAULT。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
-|iconBuilder|[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)|否|是|用于生成标记图标的自定义组件。自定义组件的优先级高于图标属性。 起始版本： 6.0.0(20) 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用|
-|offsetX|number|否|是|标记图标沿X轴的偏移量，X轴向右是正方向，原点是图标的中心点，单位：px。若只设置了一个offsetX，offsetY默认设置为0，异常值不处理。若设置offsetX则偏移量以offsetX为准，若未设置offsetX则偏移量以anchorU为准。 起始版本： 6.0.2(22) 元服务API： 从版本6.0.2(22)开始，该接口支持在元服务中使用|
-|offsetY|number|否|是|标记图标沿Y轴的偏移量，Y轴向下是正方向，原点是图标的中心点，单位：px。若只设置了一个offsetY，offsetX默认设置为0，异常值不处理。若设置offsetY则偏移量以offsetY为准，若未设置offsetY则偏移量以anchorV为准。 起始版本： 6.0.2(22) 元服务API： 从版本6.0.2(22)开始，该接口支持在元服务中使用|
-|forceVisible|boolean|否|是|碰撞后是否强制显示，默认值为false，异常值按默认值处理。 - true：碰撞后仍能显示 - false：碰撞后不强制显示 起始版本： 6.1.0(23) 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
-|priority|number|否|是|两个标记（Marker）碰撞时优先级低的标记（Marker）被隐藏，碰撞优先级，数值越大，优先级越低。该值为整数，取值范围：\[0, 65535\]。 当取值小于最小值时，按照取值范围的最小值处理；取值大于最大值时，按照取值范围的最大值处理。 当不配置或取值为null、undefined，默认为2147483647，即碰撞优先级最低。 起始版本： 6.1.0(23) 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
-|minZoom|number|否|是|展示的最小地图层级，默认值为2。最小层级不大于最大层级，不小于2，异常值按默认值处理。如果设置的最小缩放级别小于2，minZoom会取2。 起始版本： 6.1.0(23) 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
-|maxZoom|number|否|是|展示的最大地图层级，默认值为20。最大层级不大于20，不小于最小层级，异常值按默认值处理。如果设置的最大缩放级别大于20，maxZoom会取20。 起始版本： 6.1.0(23) 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
-|annotationBackgroundColor|number|否|是|注释的背景颜色，颜色值为ARGB格式，默认值无背景色，异常值按默认值处理。 起始版本： 6.1.1(24) 元服务API： 从版本6.1.1(24)开始，该接口支持在元服务中使用。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|position|[LatLng](#latlng)|否|否|标记的位置坐标。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|rotation|number|否|是|标记的旋转角度，单位：度。 以正北方向为0度、顺时针方向为正的角度，默认值为0，取值范围：[0, 360)。超出取值范围的值会换算成取值范围内的值，比如361会被换算成1，-1换算为359。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|icon|string | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|否|是|图标，不传时显示默认图标。 - 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 - string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,<图片的Base64字节编码值>）。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。 **说明：** 从5.0.0(12)版本开始，icon属性支持[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)和[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)类型。|
+|alpha|number|否|是|透明度，取值范围[0, 1]，0代表完全透明，1表示完全不透明，默认值为1，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|anchorU|number|否|是|锚点的水平坐标，以图像宽度的比例，建议取值[0, 1]，默认值为0.5，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|anchorV|number|否|是|锚点的垂直坐标，以图像高度的比例，建议取值[0, 1]，默认值为1，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|clickable|boolean|否|是|标记是否可以点击，默认值为false，异常值按默认值处理。 - true：可点击 - false：不可点击 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|draggable|boolean|否|是|是否可以通过长按来拖拽，默认值为false，异常值按默认值处理。 - true：可拖拽 - false：不可拖拽 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|flat|boolean|否|是|是否平贴地图，默认值为false，异常值按默认值处理。 - true：可平贴 - false：不可平贴 **说明：** 开启3D地球且层级处于2~5层时不可平贴地图。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|title|string|否|是|信息窗口的标题，信息窗的最大宽度为136vp，超长字串超出部分用省略号"..."表示。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|snippet|string|否|是|信息窗口的子标题，信息窗的最大宽度为136vp，超长字串超出部分用省略号"..."表示。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|infoWindowAnchorU|number|否|是|指示标记信息窗口的锚点在水平方向上的位置。值范围：[0, 1]，默认值为0.5，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|infoWindowAnchorV|number|否|是|指示标记信息窗口的锚点在垂直方向上的位置。值范围：[0, 1]，默认值为0，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|altitude|number|否|是|相对于地面的高度，单位：m，默认值为0，异常值按默认值处理。 **起始版本：** 5.0.0(12) **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
+|collisionRule|[CollisionRule](#collisionrule)|否|是|标记与地图POI之间的冲突处理规则，默认值为[CollisionRule](#collisionrule).NONE。异常值按照默认值处理。 **说明：** 从5.0.3(15)版本开始，collisionRule属性支持CollisionRule.NONE和CollisionRule.ALL类型；从6.1.0(23)版本开始，collisionRule属性新增支持CollisionRule.NAME和CollisionRule.ICON_CASCADE类型。 **起始版本：** 5.0.3(15) **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
+|annotations|[Text](#text)[]|否|是|标记的注释，最小长度为1，最大长度为3。 **起始版本：** 5.0.3(15) **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
+|showIcon|boolean|否|是|是否显示标记的图标，默认值为true。根据显示的图标对异常值进行处理。 - true：显示标记的图标 - false：不显示标记的图标 **起始版本：** 5.0.3(15) **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
+|annotationPosition|[TextPosition](#textposition)|否|是|注释相对于图标的位置，默认值为[TextPosition](#textposition).DEFAULT。 **起始版本：** 5.0.3(15) **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
+|iconBuilder|[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)|否|是|用于生成标记图标的自定义组件。自定义组件的优先级高于图标属性。 **起始版本：** 6.0.0(20) **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用|
+|offsetX|number|否|是|标记图标沿X轴的偏移量，X轴向右是正方向，原点是图标的中心点，单位：px。若只设置了一个offsetX，offsetY默认设置为0，异常值不处理。若设置offsetX则偏移量以offsetX为准，若未设置offsetX则偏移量以anchorU为准。 **起始版本：** 6.0.2(22) **元服务API：** 从版本6.0.2(22)开始，该接口支持在元服务中使用|
+|offsetY|number|否|是|标记图标沿Y轴的偏移量，Y轴向下是正方向，原点是图标的中心点，单位：px。若只设置了一个offsetY，offsetX默认设置为0，异常值不处理。若设置offsetY则偏移量以offsetY为准，若未设置offsetY则偏移量以anchorV为准。 **起始版本：** 6.0.2(22) **元服务API：** 从版本6.0.2(22)开始，该接口支持在元服务中使用|
+|forceVisible|boolean|否|是|碰撞后是否强制显示，默认值为false，异常值按默认值处理。 - true：碰撞后仍能显示 - false：碰撞后不强制显示 **起始版本：** 6.1.0(23) **元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
+|priority|number|否|是|两个标记（Marker）碰撞时优先级低的标记（Marker）被隐藏，碰撞优先级，数值越大，优先级越低。该值为整数，取值范围：[0, 65535]。 当取值小于最小值时，按照取值范围的最小值处理；取值大于最大值时，按照取值范围的最大值处理。 当不配置或取值为null、undefined，默认为2147483647，即碰撞优先级最低。 **起始版本：** 6.1.0(23) **元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
+|minZoom|number|否|是|展示的最小地图层级，默认值为2。最小层级不大于最大层级，不小于2，异常值按默认值处理。如果设置的最小缩放级别小于2，minZoom会取2。 **起始版本：** 6.1.0(23) **元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
+|maxZoom|number|否|是|展示的最大地图层级，默认值为20。最大层级不大于20，不小于最小层级，异常值按默认值处理。如果设置的最大缩放级别大于20，maxZoom会取20。 **起始版本：** 6.1.0(23) **元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
+|annotationBackgroundColor|number|否|是|注释的背景颜色，颜色值为ARGB格式，默认值无背景色，异常值按默认值处理。 **起始版本：** 6.1.1(24) **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let markerOptions: mapCommon.MarkerOptions = {
   position: {
     latitude: 39.9,
@@ -357,31 +359,31 @@ let markerOptions: mapCommon.MarkerOptions = {
 };
 ```
 
-#### MapCircleOptions
+## MapCircleOptions
 
 描述MapCircle属性，继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:----------|:-----------------------------------|:-|:-|:---------------------------------------------------------------------------------------------------|
-|center|[LatLng](#latlng)|否|否|圆的圆心，不能为空。圆的中心点纬度在\[-85.051119, 85.051119\]范围内才能画出圆。若圆中心点纬度为-85.051119或85.051119时，能画出半径为1米的圆。异常值不处理。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:----------|:---------------------------------|:-|:-|:-------------------------------------------------------------------------------------------------|
+|center|[LatLng](#latlng)|否|否|圆的圆心，不能为空。圆的中心点纬度在[-85.051119, 85.051119]范围内才能画出圆。若圆中心点纬度为-85.051119或85.051119时，能画出半径为1米的圆。异常值不处理。|
 |radius|number|否|否|圆的半径，单位：m，取值范围：大于等于0，默认值为0，异常值按默认值处理。|
 |clickable|boolean|否|是|圆的可点击性，默认值为false，异常值按默认值处理。 - true：可点击 - false：不可点击|
 |fillColor|number|否|是|圆的填充颜色，默认值为0x00000000（透明），颜色值为ARGB格式，异常值按默认值处理。|
 |strokeColor|number|否|是|圆的边框颜色，默认值为0xff000000（黑色），颜色值为ARGB格式，异常值按默认值处理。|
-|patterns|Array\<[PatternItem](#patternitem)\>|否|是|圆的边框样式，默认值为空数组，异常值按默认值处理。|
+|patterns|Array<[PatternItem](#patternitem)>|否|是|圆的边框样式，默认值为空数组，异常值按默认值处理。|
 |strokeWidth|number|否|是|圆的边框宽度，单位：px，默认值为10，取值范围：大于等于0，异常值按默认值处理。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let mapCircleOptions: mapCommon.MapCircleOptions = {
   center: {
     latitude: 39.9,
@@ -397,33 +399,33 @@ let mapCircleOptions: mapCommon.MapCircleOptions = {
 };
 ```
 
-#### MapPolygonOptions
+## MapPolygonOptions
 
 描述MapPolygon属性，继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:----------|:-----------------------------------|:-|:-|:--------------------------------------------------------------------|
-|points|Array\<[LatLng](#latlng)\>|否|否|多边形的一组顶点，纬度取值范围：\[-85.2, 85.2\]，异常值不处理。|
-|holes|Array\<Array\<[LatLng](#latlng)\>\>|否|是|多边形的一组空心洞，默认值为空数组，异常值按默认值处理。 说明： 当空心洞的坐标贴合多边形边缘时，会导致渲染出现异常，渲染多余的空心区域。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:----------|:---------------------------------|:-|:-|:------------------------------------------------------------------------|
+|points|Array<[LatLng](#latlng)>|否|否|多边形的一组顶点，纬度取值范围：[-85.2, 85.2]，异常值不处理。|
+|holes|Array<Array<[LatLng](#latlng)>>|否|是|多边形的一组空心洞，默认值为空数组，异常值按默认值处理。 **说明：** 当空心洞的坐标贴合多边形边缘时，会导致渲染出现异常，渲染多余的空心区域。|
 |clickable|boolean|否|是|多边形的可点击性，默认值为false，异常值按默认值处理。 - true：可点击 - false：不可点击|
 |fillColor|number|否|是|多边形的填充颜色，默认值为0x00000000（透明），颜色值为ARGB格式，异常值按默认值处理。|
 |geodesic|boolean|否|是|多边形的线段是否为大地曲线，默认值为false，异常值按默认值处理。 - true：大地曲线 - false：非大地曲线|
 |strokeColor|number|否|是|多边形的边框颜色，默认值为0xff000000（黑色），颜色值为ARGB格式，异常值按默认值处理。|
 |jointType|[JointType](#jointtype)|否|是|多边形线条的拐角样式，默认值为[JointType](#jointtype).DEFAULT，异常值按默认值处理。|
-|patterns|Array\<[PatternItem](#patternitem)\>|否|是|多边形的边框样式，默认值为空数组，异常值按默认值处理。|
+|patterns|Array<[PatternItem](#patternitem)>|否|是|多边形的边框样式，默认值为空数组，异常值按默认值处理。|
 |strokeWidth|number|否|是|多边形的边框宽度，单位：px，默认值为10，取值范围：大于等于0，异常值按默认值处理。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let polygonOptions: mapCommon.MapPolygonOptions = {
   points: [
     { latitude: 41.893478, longitude: 116.4 },
@@ -444,37 +446,37 @@ let polygonOptions: mapCommon.MapPolygonOptions = {
 };
 ```
 
-#### MapPolylineOptions
+## MapPolylineOptions
 
 描述MapPolyline属性，继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|points|Array\<[LatLng](#latlng)\>|否|否|折线的一组顶点，异常值不处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|clickable|boolean|否|是|折线的可点击性，默认值为false，异常值按默认值处理。 - true：可点击 - false：不可点击 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|color|number|否|是|折线的颜色，默认值为0xff000000（黑色），颜色值为ARGB格式，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|colors|Array\<number\>|否|是|折线的多段颜色，默认值为空数组（黑色），颜色值为ARGB格式，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|startCap|[CapStyle](#capstyle)|否|是|折线的起始顶点的样式，默认值为[CapStyle](#capstyle).BUTT，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|endCap|[CapStyle](#capstyle)|否|是|折线的结束顶点的样式，默认值为[CapStyle](#capstyle).BUTT，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|geodesic|boolean|否|是|折线的线段是否为大地曲线，默认值为false，异常值按默认值处理。 - true：大地曲线 - false：非大地曲线 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|jointType|[JointType](#jointtype)|否|是|折线的线条拐角样式，默认值为[JointType](#jointtype).DEFAULT，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|patterns|Array\<[PatternItem](#patternitem)\>|否|是|折线的样式，默认值为空数组，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|width|number|否|是|折线的宽度，单位：px，默认值为10，取值范围：\[0, 512\]，大于512按512处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|gradient|boolean|否|是|折线的渐变属性，默认值为false，异常值按默认值处理。 - true：可渐变 - false：不可渐变 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|customTexture|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|是|折线纹理。建议纹理使用没有背景色（透明色）的图片。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 说明： 从版本6.1.0(23)开始，新增调整纹理间距功能，可通过更换带有更宽透明背景的纹理图片，实现纹理间距调整。|
-|isTextureMappingUsed|boolean|否|是|是否使用贴图的方式处理纹理，默认值为false。 - true：使用贴图的方式处理纹理 - false：不使用贴图的方式处理纹理 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
-|customTextures|Array\<[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)\>|否|是|多个纹理图片。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 说明： 如果同时传入customTexture和customTextures，则呈现customTexture的效果。|
-|customTextureIndexes|Array\<number\>|否|是|每个坐标对应的纹理索引。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 说明： 如果传入customTextures，则必须传入customTextureIndexes，同时customTextureIndexes的数组长度必须和points数组长度一致，customTextureIndexes每个元素取值必须在0到customTextures数组长度-1的范围内，如果不满足，返回错误码401。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|points|Array<[LatLng](#latlng)>|否|否|折线的一组顶点，异常值不处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|clickable|boolean|否|是|折线的可点击性，默认值为false，异常值按默认值处理。 - true：可点击 - false：不可点击 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|color|number|否|是|折线的颜色，默认值为0xff000000（黑色），颜色值为ARGB格式，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|colors|Array<number>|否|是|折线的多段颜色，默认值为空数组（黑色），颜色值为ARGB格式，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|startCap|[CapStyle](#capstyle)|否|是|折线的起始顶点的样式，默认值为[CapStyle](#capstyle).BUTT，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|endCap|[CapStyle](#capstyle)|否|是|折线的结束顶点的样式，默认值为[CapStyle](#capstyle).BUTT，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|geodesic|boolean|否|是|折线的线段是否为大地曲线，默认值为false，异常值按默认值处理。 - true：大地曲线 - false：非大地曲线 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|jointType|[JointType](#jointtype)|否|是|折线的线条拐角样式，默认值为[JointType](#jointtype).DEFAULT，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|patterns|Array<[PatternItem](#patternitem)>|否|是|折线的样式，默认值为空数组，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|width|number|否|是|折线的宽度，单位：px，默认值为10，取值范围：[0, 512]，大于512按512处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|gradient|boolean|否|是|折线的渐变属性，默认值为false，异常值按默认值处理。 - true：可渐变 - false：不可渐变 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|customTexture|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|是|折线纹理。建议纹理使用没有背景色（透明色）的图片。 **起始版本：** 5.0.0(12) **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。 **说明：** 从版本6.1.0(23)开始，新增调整纹理间距功能，可通过更换带有更宽透明背景的纹理图片，实现纹理间距调整。|
+|isTextureMappingUsed|boolean|否|是|是否使用贴图的方式处理纹理，默认值为false。 - true：使用贴图的方式处理纹理 - false：不使用贴图的方式处理纹理 **起始版本：** 5.0.3(15) **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。|
+|customTextures|Array<[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)>|否|是|多个纹理图片。 **起始版本：** 5.0.3(15) **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。 **说明：** 如果同时传入customTexture和customTextures，则呈现customTexture的效果。|
+|customTextureIndexes|Array<number>|否|是|每个坐标对应的纹理索引。 **起始版本：** 5.0.3(15) **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。 **说明：** 如果传入customTextures，则必须传入customTextureIndexes，同时customTextureIndexes的数组长度必须和points数组长度一致，customTextureIndexes每个元素取值必须在0到customTextures数组长度-1的范围内，如果不满足，返回错误码401。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let polylineOption: mapCommon.MapPolylineOptions = {
   points: [
     { latitude: 39.693478, longitude: 116.334595 },
@@ -498,50 +500,50 @@ let polylineOption: mapCommon.MapPolylineOptions = {
 };
 ```
 
-#### BasePriorityOverlayParams
+## BasePriorityOverlayParams
 
 描述气泡、点注释等覆盖物的基础信息，继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:-----------|:------|:-|:-|:---------------------------------------------------------------------------------------------|
-|anchorU|number|否|是|POI的锚点在水平方向上的位置，值的范围为\[0, 1\]，默认值为0.5，异常值按默认值处理。|
-|anchorV|number|否|是|POI的锚点在垂直方向上的位置，值的范围为\[0, 1\]，默认值为1，异常值按默认值处理。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:-----------|:------|:-|:-|:-------------------------------------------------------------------------------------------|
+|anchorU|number|否|是|POI的锚点在水平方向上的位置，值的范围为[0, 1]，默认值为0.5，异常值按默认值处理。|
+|anchorV|number|否|是|POI的锚点在垂直方向上的位置，值的范围为[0, 1]，默认值为1，异常值按默认值处理。|
 |forceVisible|boolean|否|是|POI的显示属性，默认值为false，异常值按默认值处理。 - true：碰撞后仍能显示 - false：碰撞后不可显示|
 |priority|number|否|是|碰撞优先级，数值越大，优先级越低，取值范围大于0，默认值为Number.MAX_VALUE，异常值按默认值处理。|
-|minZoom|number|否|是|展示的地图最小图层，有效范围：\[2, 20\]，默认值为2，异常值按默认值处理。如果设置的最小缩放级别小于2，minZoom会取2。 约束条件：最小层级不大于最大层级，不小于2。|
-|maxZoom|number|否|是|展示的地图最大图层，有效范围：\[2, 20\]，默认值为20，异常值按默认值处理。如果设置的最大缩放级别大于20，maxZoom会取20。 约束条件：最大层级不大于20，不小于最小层级。|
+|minZoom|number|否|是|展示的地图最小图层，有效范围：[2, 20]，默认值为2，异常值按默认值处理。如果设置的最小缩放级别小于2，minZoom会取2。 约束条件：最小层级不大于最大层级，不小于2。|
+|maxZoom|number|否|是|展示的地图最大图层，有效范围：[2, 20]，默认值为20，异常值按默认值处理。如果设置的最大缩放级别大于20，maxZoom会取20。 约束条件：最大层级不大于20，不小于最小层级。|
 
-#### PointAnnotationParams
+## PointAnnotationParams
 
 描述点注释属性，继承[BasePriorityOverlayParams](#basepriorityoverlayparams)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|position|[LatLng](#latlng)|否|否|点注释图标锚点，异常值不处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|repeatable|boolean|否|是|点注释名称与地图POI名称相同时，是否支持去重，默认值为false，异常值按默认值处理。 - true：支持去重 - false：不支持去重 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 说明： 碰撞规则为[CollisionRule](#collisionrule).NONE时，repeatable不支持设置。|
-|collisionRule|[CollisionRule](#collisionrule)|否|是|点注释的碰撞规则，默认值为[CollisionRule](#collisionrule).NAME，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 说明： 设置碰撞规则为[CollisionRule](#collisionrule).ALL，需要同时设置覆盖物碰撞优先级priority属性。|
-|titles|Array\<[Text](#text)\>|否|否|点注释的标题，数组长度最小为1，最大为3。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|icon|string \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|否|是|点注释的图标，不传时使用默认图标。 - 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 - string类型入参支持两种格式： 1. 资源相对路径格式：图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。 2. toDataURL格式（如data:image/png;base64,\<图片的Base64字节编码值\>）。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 说明： 从5.0.0(12)版本开始，icon属性支持[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)和[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)类型。|
-|showIcon|boolean|否|是|点注释是否展示图标。默认值为true。 - true：展示 - false：不展示 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|textPosition|[TextPosition](#textposition)|否|是|设置点注释的文本位置。 默认值为[TextPosition](#textposition).DEFAULT。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|position|[LatLng](#latlng)|否|否|点注释图标锚点，异常值不处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|repeatable|boolean|否|是|点注释名称与地图POI名称相同时，是否支持去重，默认值为false，异常值按默认值处理。 - true：支持去重 - false：不支持去重 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。 **说明：** 碰撞规则为[CollisionRule](#collisionrule).NONE时，repeatable不支持设置。|
+|collisionRule|[CollisionRule](#collisionrule)|否|是|点注释的碰撞规则，默认值为[CollisionRule](#collisionrule).NAME，异常值按默认值处理。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。 **说明：** 设置碰撞规则为[CollisionRule](#collisionrule).ALL，需要同时设置覆盖物碰撞优先级priority属性。|
+|titles|Array<[Text](#text)>|否|否|点注释的标题，数组长度最小为1，最大为3。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|icon|string | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|否|是|点注释的图标，不传时使用默认图标。 - 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 - string类型入参支持两种格式： 1. 资源相对路径格式：图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。 2. toDataURL格式（如data:image/png;base64,<图片的Base64字节编码值>）。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。 **说明：** 从5.0.0(12)版本开始，icon属性支持[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)和[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)类型。|
+|showIcon|boolean|否|是|点注释是否展示图标。默认值为true。 - true：展示 - false：不展示 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|textPosition|[TextPosition](#textposition)|否|是|设置点注释的文本位置。 默认值为[TextPosition](#textposition).DEFAULT。 **起始版本：** 5.0.0(12) **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let pointAnnotationOptions: mapCommon.PointAnnotationParams = {
   position: {
     latitude: 39.918,
@@ -571,26 +573,26 @@ let pointAnnotationOptions: mapCommon.PointAnnotationParams = {
 };
 ```
 
-#### BubbleParams
+## BubbleParams
 
 描述气泡属性，继承[BasePriorityOverlayParams](#basepriorityoverlayparams)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
-|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|positions|Array\<Array\<[LatLng](#latlng)\>\>|否|否|气泡位置，系统基于多个位置段计算图标的适当位置，异常值不处理。|
-|icons|Array\<string \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)\>|否|否|气泡图标，异常值不处理。 - 必须提供4个方向的图标，传入的图标宽高需要相同。 - 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 - string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,\<图片的Base64字节编码值\>）。 说明： 从5.0.0(12)版本开始，icon属性支持[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)和[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)类型。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:--------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|positions|Array<Array<[LatLng](#latlng)>>|否|否|气泡位置，系统基于多个位置段计算图标的适当位置，异常值不处理。|
+|icons|Array<string | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)>|否|否|气泡图标，异常值不处理。 - 必须提供4个方向的图标，传入的图标宽高需要相同。 - 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 - string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,<图片的Base64字节编码值>）。 **说明：** 从5.0.0(12)版本开始，icon属性支持[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)和[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)类型。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let bubbleOptions: mapCommon.BubbleParams = {
   positions: [[{ latitude: 39.9, longitude: 116.4 }]],
   // 图片按照左上右下的顺序取值，图片需存放在resources/rawfile目录下
@@ -609,30 +611,30 @@ let bubbleOptions: mapCommon.BubbleParams = {
 };
 ```
 
-#### Text
+## Text
 
 用于描述点注释标题的文本属性。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
+|**名称**|**类型**|只读|可选|**说明**|
 |:----------|:----------------------|:-|:-|:----------------------------------------------------|
 |content|string|否|否|标题内容，最大宽度为136vp，超长字串超出部分用省略号"..."表示。|
 |color|number|否|是|标题字体颜色，默认值为0xFF000000（黑色），颜色值为ARGB格式。|
-|fontSize|number|否|是|标题字体大小，默认值为15，单位：px。取值范围：\[0,100\]，超出范围按范围内最大值或最小值处理。|
+|fontSize|number|否|是|标题字体大小，默认值为15，单位：px。取值范围：[0,100]，超出范围按范围内最大值或最小值处理。|
 |strokeColor|number|否|是|标题描边颜色，默认值为0xFFFFFFFF（白色），颜色值为ARGB格式。|
-|strokeWidth|number|否|是|标题描边宽度，默认值为2，单位：px。取值范围：\[0,10\]，超出范围按范围内最大值或最小值处理。|
+|strokeWidth|number|否|是|标题描边宽度，默认值为2，单位：px。取值范围：[0,10]，超出范围按范围内最大值或最小值处理。|
 |fontStyle|[FontStyle](#fontstyle)|否|是|标题字体样式，默认值为[FontStyle](#fontstyle).REGULAR，异常值按默认值处理。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let text: mapCommon.Text = {
   content: "南京夫子庙",
   color: 0xFF000000,
@@ -643,28 +645,28 @@ let text: mapCommon.Text = {
 };
 ```
 
-#### Padding
+## Padding
 
 设置地图和边界的距离的参数。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
+|**名称**|**类型**|只读|可选|**说明**|
 |:-----|:-----|:-|:-|:-----------------------------------|
 |left|number|否|是|在地图左侧增加的填充距离，单位：px，默认值为0，异常值按照默认值处理。|
 |top|number|否|是|在地图顶部增加的填充距离，单位：px，默认值为0，异常值按照默认值处理。|
 |right|number|否|是|在地图右侧增加的填充距离，单位：px，默认值为0，异常值按照默认值处理。|
 |bottom|number|否|是|在地图底部增加的填充距离，单位：px，默认值为0，异常值按照默认值处理。|
 
-示例：
+**示例：**
 
-```
+```typescript
 // 初始化参数，左边距0，底边距50
 let padding: mapCommon.Padding = {
   left: 0,
@@ -672,19 +674,19 @@ let padding: mapCommon.Padding = {
 };
 ```
 
-#### VisibleRegion
+## VisibleRegion
 
 VisibleRegion包含四个点，这四个点定义了地图相机的四边形可视区域。因为相机可能会倾斜，所以这个多边形也可以是梯形而不一定是矩形。如果相机正好位于可视区域中心上方，则形状为矩形，但如果相机倾斜，则形状将显示为最短边最接近视点的梯形。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
+|**名称**|**类型**|只读|可选|**说明**|
 |:--------|:----------------------------|:-|:-|:-------------|
 |farLeft|[LatLng](#latlng)|否|否|定义相机的左上角。|
 |farRight|[LatLng](#latlng)|否|否|定义相机的右上角。|
@@ -692,85 +694,85 @@ VisibleRegion包含四个点，这四个点定义了地图相机的四边形可�
 |nearLeft|[LatLng](#latlng)|否|否|定义相机的左下角。|
 |nearRight|[LatLng](#latlng)|否|否|定义相机的右下角。|
 
-示例：
+**示例：**
 
-```
+```typescript
 // 示例中this.mapController来源参考指南显示地图示例代码
 let projection: map.Projection = this.mapController?.getProjection();
 let visibleRegion: mapCommon.VisibleRegion = projection.getVisibleRegion();
 ```
 
-#### MapPoint
+## MapPoint
 
 屏幕坐标点。屏幕左顶点为（0, 0）点，positionX正值代表可视区域向右移动，负值代表可视区域向左移动。positionY正值代表可视区域向下移动，负值代表可视区域向上移动。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
-|名称|类型|只读|可选|说明|
+|**名称**|**类型**|只读|可选|**说明**|
 |:--------|:-----|:-|:-|:-----------|
 |positionX|number|否|否|点的X坐标，单位：px。|
 |positionY|number|否|否|点的Y坐标，单位：px。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let point: mapCommon.MapPoint = {
   positionX: 100,
   positionY: 100
 };
 ```
 
-#### CustomMapStyleOptions
+## CustomMapStyleOptions
 
 自定义样式参数。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
-|名称|类型|只读|可选|说明|
-|:-----------|:-----|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------|
-|styleId|string|否|是|自定义样式ID。 说明： styleId和styleContent同时传入，优先使用styleId。styleId可在[Petal Maps Studio](https://developer.petalmaps.com/console/studio/)平台上创建。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:-----------|:-----|:-|:-|:----------------------------------------------------------------------------------------------------------------------------------------|
+|styleId|string|否|是|自定义样式ID。 **说明：** styleId和styleContent同时传入，优先使用styleId。styleId可在[Petal Maps Studio](https://developer.petalmaps.com/console/studio/)平台上创建。|
 |styleContent|string|否|是|离线样式内容，内容格式参见[样式参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-style#样式参考)。|
 
-示例：
+**示例：**
 
-```
+```typescript
 // styleId需要替换为您自己的样式ID，样式ID可在Petal Maps Studio平台上创建
 let param: mapCommon.CustomMapStyleOptions = {
   styleId: "xxxxxxx"
 };
 ```
 
-#### ClusterItem
+## ClusterItem
 
 待聚合节点。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
-|名称|类型|只读|可选|说明|
+|**名称**|**类型**|只读|可选|**说明**|
 |:-------|:----------------|:-|:-|:--------|
 |position|[LatLng](#latlng)|否|否|待聚合节点的坐标。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let clusterItem: mapCommon.ClusterItem = {
   position: {
     latitude: 39.99,
@@ -779,32 +781,32 @@ let clusterItem: mapCommon.ClusterItem = {
 };
 ```
 
-#### ClusterOverlayParams
+## ClusterOverlayParams
 
 聚合图层参数。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
-|名称|类型|只读|可选|说明|
-|:-----------|:-----------------------------------|:-|:-|:---------------|
-|clusterItems|Array\<[ClusterItem](#clusteritem)\>|否|否|待聚合节点数组。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:-----------|:---------------------------------|:-|:-|:---------------|
+|clusterItems|Array<[ClusterItem](#clusteritem)>|否|否|待聚合节点数组。|
 |distance|number|否|否|聚合节点聚合的距离，单位：vp。|
 
-接口提供以下方法，支持聚合项自定义图标。  
+接口提供以下方法，支持聚合项自定义图标。
 
 |返回类型|方法|
-|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------|
-|Promise\<[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)\>|[getCustomIcon](#getcustomicon)?(clusterItems: Array\<[ClusterItem](#clusteritem)\>) 根据聚合项自定义图标，使用Promise异步回调。|
+|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
+|Promise<[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)>|[getCustomIcon](#getcustomicon)?(clusterItems: Array<[ClusterItem](#clusteritem)>) 根据聚合项自定义图标，使用Promise异步回调。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let clusterItem1: mapCommon.ClusterItem = {
   position: {
     latitude: 39.89,
@@ -824,33 +826,33 @@ let array: Array<mapCommon.ClusterItem> = [
 let clusterOverlayParams: mapCommon.ClusterOverlayParams = { distance: 40, clusterItems: array };
 ```
 
-#### getCustomIcon
+### getCustomIcon
 
-getCustomIcon?(clusterItems: Array\<ClusterItem\>): Promise\<image.PixelMap\>
+getCustomIcon?(clusterItems: Array<ClusterItem>): Promise<image.PixelMap>
 
 根据聚合项自定义图标。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
-|参数名|类型|必填|说明|
-|:-----------|:-----------------------------------|:-|:------|
-|clusterItems|Array\<[ClusterItem](#clusteritem)\>|是|聚合节点数组。|
+|**参数名**|**类型**|必填|**说明**|
+|:-----------|:---------------------------------|:-|:------|
+|clusterItems|Array<[ClusterItem](#clusteritem)>|是|聚合节点数组。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------|
-|Promise\<[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)\>|Promise对象，返回[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。|
+|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------|
+|Promise<[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)>|Promise对象，返回[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。|
 
-示例：
+**示例：**
 
-```
+```typescript
 // 实现mapCommon.ClusterOverlayParams中的getCustomIcon方法
 import { mapCommon } from '@kit.MapKit';
 import { image } from '@kit.ImageKit';
@@ -893,34 +895,34 @@ export class ClusterOverlayParamsMore implements mapCommon.ClusterOverlayParams 
 }
 ```
 
-#### ImageOverlayParams
+## ImageOverlayParams
 
 覆盖物参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
-|名称|类型|只读|可选|说明|
-|:-----------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**名称**|**类型**|只读|可选|**说明**|
+|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |bounds|[LatLngBounds](#latlngbounds)|否|是|设置基于矩形区域的覆盖物的位置。position和bounds是可选的，但是两个参数需要必填其中一个参数，当两者都入参时，bounds具有更高的优先级。position入参时，width为必填参数。|
 |position|[LatLng](#latlng)|否|是|设置覆盖物的位置。position和bounds是可选的，但是两个参数需要必填其中一个，当两者都入参时，bounds具有更高的优先级。position入参时，width为必填参数。|
 |width|number|否|是|覆盖物的宽度，单位：m，仅当position有值时有效，width为正整数，默认值：0。|
 |height|number|否|是|覆盖物的高度，单位：m，当position和width都有值时才有效，height为正整数，默认值：0。|
-|anchorU|number|否|是|覆盖物的锚点在水平方向上的位置。取值范围：\[0,1\]。默认值为0.5。 说明： 当bounds有值时，设置anchorU会改变覆盖物的锚点在水平方向上的位置，不会改变bounds的范围。|
-|anchorV|number|否|是|覆盖物的锚点在垂直方向上的位置。取值范围：\[0,1\]。默认值为0.5。 说明： 当bounds有值时，设置anchorV会改变覆盖物的锚点在垂直方向上的位置，不会改变bounds的范围。|
-|bearing|number|否|是|覆盖物的旋转角度。 以正北方向为0度、顺时针方向为正的角度，默认值为0，单位：度，取值范围：\[0, 360)。超出取值范围的值会换算成取值范围内的值，比如361会被换算成1，-1换算为359。|
+|anchorU|number|否|是|覆盖物的锚点在水平方向上的位置。取值范围：[0,1]。默认值为0.5。 **说明：** 当bounds有值时，设置anchorU会改变覆盖物的锚点在水平方向上的位置，不会改变bounds的范围。|
+|anchorV|number|否|是|覆盖物的锚点在垂直方向上的位置。取值范围：[0,1]。默认值为0.5。 **说明：** 当bounds有值时，设置anchorV会改变覆盖物的锚点在垂直方向上的位置，不会改变bounds的范围。|
+|bearing|number|否|是|覆盖物的旋转角度。 以正北方向为0度、顺时针方向为正的角度，默认值为0，单位：度，取值范围：[0, 360)。超出取值范围的值会换算成取值范围内的值，比如361会被换算成1，-1换算为359。|
 |clickable|boolean|否|是|覆盖物是否可单击。 - true：可点击。 - false：不可点击。 默认值为false。|
-|image|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|否|覆盖物的图像入参。 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 说明： [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)为Resource和string两种格式，其中string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，image参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,\<图片的Base64字节编码值\>）。|
-|transparency|number|否|是|覆盖物的透明度。 取值范围：\[0, 1\]。 0表示不透明，1表示全透明。 默认值为0。|
+|image|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|否|覆盖物的图像入参。 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 **说明：** [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)为Resource和string两种格式，其中string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，image参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,<图片的Base64字节编码值>）。|
+|transparency|number|否|是|覆盖物的透明度。 取值范围：[0, 1]。 0表示不透明，1表示全透明。 默认值为0。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let imageOverlayParams: mapCommon.ImageOverlayParams = {
   bounds: { southwest: { latitude: 32, longitude: 118 }, northeast: { latitude: 32.4, longitude: 118.4 } },
   // 图标需存放在resources/rawfile目录下
@@ -935,34 +937,34 @@ let imageOverlayParams: mapCommon.ImageOverlayParams = {
 };
 ```
 
-#### BuildingOverlayParams
+## BuildingOverlayParams
 
 3D建筑参数。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
-|名称|类型|只读|可选|说明|
-|:----------------|:----------------------------------|:-|:-|:-----------------------------------------|
-|points|Array\<[LatLng](#latlng)\>|否|否|建筑底面坐标集合。 最少三个坐标点，而且坐标点按顺时针方向连接可以形成完整的平面。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:----------------|:----------------------------------|:-|:-|:----------------------------------------|
+|points|Array<[LatLng](#latlng)>|否|否|建筑底面坐标集合。 最少三个坐标点，而且坐标点按顺时针方向连接可以形成完整的平面。|
 |totalHeight|number|否|否|建筑距离地面的高度，单位：m。 限制最大高度30000m。|
 |floorBottomHeight|number|否|否|所选楼层底部到地面的高度，单位：m。|
 |topFaceColor|number|否|是|建筑顶部的颜色，颜色值是ARGB格式。 默认值为红色（0xffff0000）。|
 |sideFaceColor|number|否|是|建筑侧面的颜色，颜色值是ARGB格式。 默认值为红色（0xffff0000）。|
 |floorColor|number|否|是|所选楼层的顶部颜色，颜色值为ARGB格式。 默认值为红色（0xffff0000）。|
-|showLevel|number|否|是|建筑开始显示的层级。取值范围：\[2,20\]，默认值为15，超出范围按默认值处理。|
+|showLevel|number|否|是|建筑开始显示的层级。取值范围：[2,20]，默认值为15，超出范围按默认值处理。|
 |animationDuration|number|否|是|动画时长，单位：ms。取值需大于等于100ms，默认值为0，超出范围按默认值处理。|
 |sideTexture|[BuildingTexture](#buildingtexture)|否|是|建筑的侧面纹理。|
 |floorTexture|[BuildingTexture](#buildingtexture)|否|是|所选楼层的纹理。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let points: Array<mapCommon.LatLng> = [
   {
     latitude: 31.984794,
@@ -1116,27 +1118,27 @@ let buildingOverlayOptions: mapCommon.BuildingOverlayParams =
   };
 ```
 
-#### BuildingTexture
+## BuildingTexture
 
 建筑纹理。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
-|名称|类型|只读|可选|说明|
-|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|image|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|否|纹理图片。 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 说明： [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)为Resource和string两种格式，其中string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，image参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,\<图片的Base64字节编码值\>）。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:-----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|image|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|否|纹理图片。 图片格式支持jpg、jpeg、png、gif（只支持显示第一帧）、webp、svg。 **说明：** [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)为Resource和string两种格式，其中string类型入参支持两种格式： - 资源相对路径格式：图标存放在resources/rawfile，image参数传入rawfile文件夹下的相对路径。 - toDataURL格式（如data:image/png;base64,<图片的Base64字节编码值>）。|
 |width|number|否|是|纹理宽度，单位：m，取值大于等于0，默认值为3，异常值按默认值处理。|
 |height|number|否|是|纹理高度，单位：m，取值大于等于0，默认值为3，异常值按默认值处理。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let buildingTexture: mapCommon.BuildingTexture = {
   image: $r("app.media.floor_tex"),
   height: 10,
@@ -1144,30 +1146,30 @@ let buildingTexture: mapCommon.BuildingTexture = {
 };
 ```
 
-#### TraceOverlayParams
+## TraceOverlayParams
 
 动态轨迹的参数。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
-|名称|类型|只读|可选|说明|
-|:----------------|:-------------------------|:-|:-|:-------------------------------------------------------------------|
-|points|Array\<[LatLng](#latlng)\>|否|否|跟踪点。 points个数上限为100000。|
-|width|number|否|是|轨迹宽度，单位：px。 默认值为10。 取值范围：\[0, 512\]，大于512按512处理。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:----------------|:-----------------------|:-|:-|:-----------------------------------------------------------------------|
+|points|Array<[LatLng](#latlng)>|否|否|跟踪点。 points个数上限为100000。|
+|width|number|否|是|轨迹宽度，单位：px。 默认值为10。 取值范围：[0, 512]，大于512按512处理。|
 |color|number|否|是|轨迹颜色，颜色值是ARGB格式。 默认值为0xaaff0000。|
 |isMapMoving|boolean|否|是|设置地图和轨迹是否一起移动。 - true：地图和轨迹一起移动 - false：仅轨迹移动 默认值为false。|
-|animationDuration|number|否|是|轨迹动画持续时间，单位为ms，最小值为100。 默认值为5000。 说明： 当持续时间小于100ms时，时间将按默认值5000ms处理。|
-|animationCallback|Callback\<number\>|否|是|监听轨迹的当前位置。返回点的索引。|
+|animationDuration|number|否|是|轨迹动画持续时间，单位为ms，最小值为100。 默认值为5000。 **说明：** 当持续时间小于100ms时，时间将按默认值5000ms处理。|
+|animationCallback|Callback<number>|否|是|监听轨迹的当前位置。返回点的索引。|
 
-示例：
+**示例：**
 
-```
+```typescript
 // 示例中this.mapController来源参考指南显示地图示例代码
 // marker1的参数
 let markerOptions1: mapCommon.MarkerOptions = {
@@ -1310,19 +1312,19 @@ markers.push(markerBoy1, markerBoy2);
 let traceOverlay = await this.mapController.addTraceOverlay(traceOptions, markers);
 ```
 
-#### MapArcParams
+## MapArcParams
 
 弧线的参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
-|名称|类型|只读|可选|说明|
+|**名称**|**类型**|只读|可选|**说明**|
 |:----------|:----------------|:-|:-|:---------------------------------------------|
 |startPoint|[LatLng](#latlng)|否|否|起始位置。|
 |centerPoint|[LatLng](#latlng)|否|否|中心位置。|
@@ -1330,9 +1332,9 @@ let traceOverlay = await this.mapController.addTraceOverlay(traceOptions, marker
 |color|number|否|是|弧线的颜色，默认值为0xFFFFFFFF（白色），颜色值为ARGB格式，异常值按默认值处理。|
 |width|number|否|是|弧线的宽度，默认值为10，单位：px，取值范围：大于等于0，异常值按默认值处理。|
 
-示例：
+**示例：**
 
-```
+```typescript
 // 设置弧线参数
 let mapArcParams: mapCommon.MapArcParams = {
   // 弧线起点坐标
@@ -1357,53 +1359,53 @@ let mapArcParams: mapCommon.MapArcParams = {
 };
 ```
 
-#### CoordinateLatLng
+## CoordinateLatLng
 
 指定的坐标系和坐标。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
-|名称|类型|只读|可选|说明|
+|**名称**|**类型**|只读|可选|**说明**|
 |:-------------|:--------------------------------|:-|:-|:-----|
 |coordinateType|[CoordinateType](#coordinatetype)|否|否|坐标系类型。|
 |location|[LatLng](#latlng)|否|否|坐标。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let location: mapCommon.CoordinateLatLng = {
   coordinateType: mapCommon.CoordinateType.GCJ02,
   location: { latitude: 31.984410259206815, longitude: 118.76625379397866 }
 };
 ```
 
-#### TileOverlayParams
+## TileOverlayParams
 
 瓦片图层的参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.3(15)  
+**起始版本：** 5.0.3(15)
 
-|名称|类型|只读|可选|说明|
+|**名称**|**类型**|只读|可选|**说明**|
 |:-----------|:------|:-|:-|:--------------------------------------------------------|
 |tileUrl|string|否|否|瓦片图层的URL地址。 必须是以http或者https开头的URL且包含占位符{x}、{y}和{z}。|
-|transparency|number|否|是|瓦片图层的透明度。 取值范围为\[0, 1\]，0表示不透明，1表示透明。 默认值为0。|
+|transparency|number|否|是|瓦片图层的透明度。 取值范围为[0, 1]，0表示不透明，1表示透明。 默认值为0。|
 |fadeIn|boolean|否|是|是否开启瓦片图层淡入。 - true：开启瓦片图层淡入。 - false：不开启瓦片图层淡入。 默认值为true。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let params: mapCommon.TileOverlayParams = {
   // 开发者的地图瓦片图层地址，必须使用以http或者https开头的URL地址，且需包含?x={x}&y={y}&z={z}格式的占位符
   tileUrl: "https://xxx/xxx?x={x}&y={y}&z={z}",
@@ -1412,30 +1414,30 @@ let params: mapCommon.TileOverlayParams = {
 };
 ```
 
-#### TileOverlayOptions
+## TileOverlayOptions
 
 瓦片图层的参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
-|:---------------|:----------------------------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|tileUrl|string|否|是|瓦片图层的URL地址。 必须是以http或者https开头的URL且包含占位符{x}、{y}和{z}。 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
-|tileProvider|[TileProvider](#tileprovider)|否|是|根据瓦片坐标获取瓦片。 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
-|transparency|number|否|是|瓦片图层的透明度。 取值范围为\[0, 1\]，0表示不透明，1表示透明。 默认值为0。 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
-|fadeIn|boolean|否|是|是否开启瓦片图层淡入。 - true：开启瓦片图层淡入。 - false：不开启瓦片图层淡入。 默认值为true。 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
-|diskCacheEnabled|boolean|否|是|是否启用磁盘缓存。 - true：开启磁盘缓存。 - false：不开启磁盘缓存。 默认值为false。 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
-|diskCacheSize|number|否|是|磁盘缓存大小，单位：KB，默认值：20480。 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
-|diskCachePath|string|否|是|磁盘缓存路径。如果启用了磁盘缓存，则必须配置。 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
-|tileDataReuse|number\[\]|否|是|该配置项用于定义高层级复用低层级瓦片的规则。默认情况下，不进行层级复用。配置数组的长度固定为19，对应层级2至层级20。若数组长度不等于19，则不进行处理。数组中的数字需逐步增大或保持不变，若出现其他情况则视为异常值。数组中的值应在范围\[2, 20\]内，并会自动向下取整。任何异常值不处理。 起始版本： 6.1.1(24) 元服务API： 从版本6.1.1(24)开始，该接口支持在元服务中使用。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:---------------|:----------------------------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|tileUrl|string|否|是|瓦片图层的URL地址。 必须是以http或者https开头的URL且包含占位符{x}、{y}和{z}。 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
+|tileProvider|[TileProvider](#tileprovider)|否|是|根据瓦片坐标获取瓦片。 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
+|transparency|number|否|是|瓦片图层的透明度。 取值范围为[0, 1]，0表示不透明，1表示透明。 默认值为0。 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
+|fadeIn|boolean|否|是|是否开启瓦片图层淡入。 - true：开启瓦片图层淡入。 - false：不开启瓦片图层淡入。 默认值为true。 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
+|diskCacheEnabled|boolean|否|是|是否启用磁盘缓存。 - true：开启磁盘缓存。 - false：不开启磁盘缓存。 默认值为false。 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
+|diskCacheSize|number|否|是|磁盘缓存大小，单位：KB，默认值：20480。 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
+|diskCachePath|string|否|是|磁盘缓存路径。如果启用了磁盘缓存，则必须配置。 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
+|tileDataReuse|number[]|否|是|该配置项用于定义高层级复用低层级瓦片的规则。默认情况下，不进行层级复用。配置数组的长度固定为19，对应层级2至层级20。若数组长度不等于19，则不进行处理。数组中的数字需逐步增大或保持不变，若出现其他情况则视为异常值。数组中的值应在范围[2, 20]内，并会自动向下取整。任何异常值不处理。 **起始版本：** 6.1.1(24) **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let params: mapCommon.TileOverlayOptions = {
   // 开发者的地图瓦片图层地址，必须使用以http或者https开头的URL地址，且需包含?x={x}&y={y}&z={z}格式的占位符
   tileUrl: "https://xxx/xxx?x={x}&y={y}&z={z}",
@@ -1447,375 +1449,375 @@ let params: mapCommon.TileOverlayOptions = {
 };
 ```
 
-#### HeatmapParams
+## HeatmapParams
 
 热力图的参数。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
-|:---------|:------------------------------------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**名称**|**类型**|只读|可选|**说明**|
+|:---------|:----------------------------------|:-|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |id|string|否|否|热力图ID。|
-|data|[WeightedLatLng](#weightedlatlng)\[\]|否|否|热力图数据（建议数据量小于10000条）。|
-|color|Record\<number, number\>|否|是|热力图颜色，ARGB格式。取值范围：\[0，1\]，key是数据密度，value是ARGB格式的颜色。默认值：{ 0: 0x00026C39, 0.15: 0xAA138C4A, 0.3: 0xFF82CB67, 0.45: 0xFFE3F399, 0.6: 0xFFFEDE89, 0.75: 0xFFF67C4A, 0.9: 0xFFBE1827, 1: 0xFFA90426 } 如果某个记录的key取值范围或者value格式非法的话，移除这条记录，如果都不合法，就使用默认值。|
-|intensity|number \| Record\<number, number\>|否|是|热力图强度，可以配置不同层级的强度，key表示层级，value表示按强度，如果是number类型，所有层级使用同一个强度。 小于等于0按默认值1处理。|
-|opacity|number \| Record\<number, number\>|否|是|热力图透明度。取值范围\[0，1\]，0表示不透明，1表示透明，小于0按照最小值0处理，大于1按照最大值1处理。如果是number类型，所有层级使用同一个透明度。默认值：0。|
-|radius|number \| Record\<number, number\>|否|是|热力图半径，可以配置不同层级的半径，key表示层级，value表示按半径，如果是number类型，所有层级使用同一个半径，默认值10，默认单位：[RadiusUnit](#radiusunit).PIXEL_UNIT。|
+|data|[WeightedLatLng](#weightedlatlng)[]|否|否|热力图数据（建议数据量小于10000条）。|
+|color|Record<number, number>|否|是|热力图颜色，ARGB格式。取值范围：[0，1]，key是数据密度，value是ARGB格式的颜色。默认值：{ 0: 0x00026C39, 0.15: 0xAA138C4A, 0.3: 0xFF82CB67, 0.45: 0xFFE3F399, 0.6: 0xFFFEDE89, 0.75: 0xFFF67C4A, 0.9: 0xFFBE1827, 1: 0xFFA90426 } 如果某个记录的key取值范围或者value格式非法的话，移除这条记录，如果都不合法，就使用默认值。|
+|intensity|number | Record<number, number>|否|是|热力图强度，可以配置不同层级的强度，key表示层级，value表示按强度，如果是number类型，所有层级使用同一个强度。 小于等于0按默认值1处理。|
+|opacity|number | Record<number, number>|否|是|热力图透明度。取值范围[0，1]，0表示不透明，1表示透明，小于0按照最小值0处理，大于1按照最大值1处理。如果是number类型，所有层级使用同一个透明度。默认值：0。|
+|radius|number | Record<number, number>|否|是|热力图半径，可以配置不同层级的半径，key表示层级，value表示按半径，如果是number类型，所有层级使用同一个半径，默认值10，默认单位：[RadiusUnit](#radiusunit).PIXEL_UNIT。|
 |radiusUnit|[RadiusUnit](#radiusunit)|否|是|半径单位。默认值：[RadiusUnit](#radiusunit).PIXEL_UNIT。|
 |visible|boolean|否|是|热力图是否可见。默认值：true。 - true：可见。 - false：不可见。|
 
-#### RadiusUnit
+## RadiusUnit
 
 半径单位。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
 |名称|值|说明|
 |:---------|:-|:----|
 |PIXEL_UNIT|0|像素px。|
 |METER_UNIT|1|米。|
 
-#### WeightedLatLng
+## WeightedLatLng
 
 加权经纬度。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
-|:--------|:----------------|:-|:-|:----------------------------------|
+|**名称**|**类型**|只读|可选|**说明**|
+|:--------|:----------------|:-|:-|:---------------------------------|
 |point|[LatLng](#latlng)|否|否|经纬度。|
-|intensity|number|否|是|强度的权重，取值范围：\[0，+∞)，默认值：1，异常值按默认值处理。|
+|intensity|number|否|是|强度的权重，取值范围：[0，+∞)，默认值：1，异常值按默认值处理。|
 
-#### TileProvider
+## TileProvider
 
-type TileProvider = (x: number, y: number, z: number) =\> Promise\<ArrayBuffer\>
+type TileProvider = (x: number, y: number, z: number) => Promise<ArrayBuffer>
 
 根据瓦片坐标获取瓦片。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|必填|说明|
-|:-|:-----|:-|:---|
+|**名称**|**类型**|必填|**说明**|
+|:-----|:-----|:-|:-----|
 |x|number|是|X坐标。|
 |y|number|是|Y坐标。|
 |z|number|是|Z坐标。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:---------------------|:----------------|
-|Promise\<ArrayBuffer\>|Promise对象，返回瓦片字节。|
+|:-------------------|:----------------|
+|Promise<ArrayBuffer>|Promise对象，返回瓦片字节。|
 
-#### MvtOverlayParams
+## MvtOverlayParams
 
 矢量图层的参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Map.Core.EnhancedOverlay
+**系统能力：** SystemCapability.Map.Core.EnhancedOverlay
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
-|:------------|:---------------------------------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**名称**|**类型**|只读|可选|**说明**|
+|:------------|:------------------------------|:-|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |source|[MvtSource](#mvtsource)|否|否|矢量图层的来源。 元服务API：从版本6.0.0(20)开始，该接口支持在元服务中使用。|
-|layers|[MvtLayer](#mvtlayer)\[\]|否|否|样式数组，建议矢量图层少于2000层，确保矢量图层的流畅度。 元服务API：从版本6.0.0(20)开始，该接口支持在元服务中使用。|
-|blurIntensity|number \| Record\<number, number\>|否|是|矢量图层的模糊度，不支持3D地球。 模糊度范围：\[0, 20\]，小数向下取整，默认值为0，异常值按默认值处理。 若传数字，表示所有缩放层级按同一模糊度处理。 若传键值对，key为缩放层级，value为模糊度，有效层级范围：\[2，20\]，层级异常值大于20取20，小于2取2。例如：{ 5: 5, 10: 8, 18: 15}，2到4层级为0，默认不模糊，5到9层级模糊度为5，10到17层级模糊度为8，18到20层级模糊度为15。 起始版本： 6.0.2(22) 元服务API： 从版本6.0.2(22)开始，该接口支持在元服务中使用。|
+|layers|[MvtLayer](#mvtlayer)[]|否|否|样式数组，建议矢量图层少于2000层，确保矢量图层的流畅度。 元服务API：从版本6.0.0(20)开始，该接口支持在元服务中使用。|
+|blurIntensity|number | Record<number, number>|否|是|矢量图层的模糊度，不支持3D地球。 模糊度范围：[0, 20]，小数向下取整，默认值为0，异常值按默认值处理。 若传数字，表示所有缩放层级按同一模糊度处理。 若传键值对，key为缩放层级，value为模糊度，有效层级范围：[2，20]，层级异常值大于20取20，小于2取2。例如：{ 5: 5, 10: 8, 18: 15}，2到4层级为0，默认不模糊，5到9层级模糊度为5，10到17层级模糊度为8，18到20层级模糊度为15。 **起始版本：** 6.0.2(22) **元服务API：** 从版本6.0.2(22)开始，该接口支持在元服务中使用。|
 
-#### MvtSource
+## MvtSource
 
 矢量图层的来源。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core.EnhancedOverlay
+**系统能力：** SystemCapability.Map.Core.EnhancedOverlay
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
-|:-----------|:----------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------|
-|tileUrl|string|否|是|矢量图层的数据下载URL模板。URL必须包含占位符{x}、{y}和{z}。 说明： 使用在线下载方式添加矢量图层时（即使用tileUrl方式），需要申请访问网络的权限：ohos.permission.INTERNET。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:-----------|:----------------------------|:-|:-|:----------------------------------------------------------------------------------------------------------------|
+|tileUrl|string|否|是|矢量图层的数据下载URL模板。URL必须包含占位符{x}、{y}和{z}。 **说明：** 使用在线下载方式添加矢量图层时（即使用tileUrl方式），需要申请访问网络的权限：ohos.permission.INTERNET。|
 |tileProvider|[TileProvider](#tileprovider)|否|是|根据瓦片坐标获取瓦片。|
-|minZoom|number|否|是|最小缩放层级，默认值：2，取值范围：\[2, 20\]，异常值按默认值处理。|
-|maxZoom|number|否|是|最大缩放层级，默认值：20，取值范围：\[2, 20\]，异常值按默认值处理。|
+|minZoom|number|否|是|最小缩放层级，默认值：2，取值范围：[2, 20]，异常值按默认值处理。|
+|maxZoom|number|否|是|最大缩放层级，默认值：20，取值范围：[2, 20]，异常值按默认值处理。|
 
-#### MvtLayer
+## MvtLayer
 
 样式数组，用于配置样式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core.EnhancedOverlay
+**系统能力：** SystemCapability.Map.Core.EnhancedOverlay
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
+|**名称**|**类型**|只读|可选|**说明**|
 |:----------|:----------------------------|:-|:-|:------------------|
 |id|string|否|否|唯一标识，用于添加、更新或移除图层。|
 |type|[MvtLayerType](#mvtlayertype)|否|否|矢量图层类型。|
 |sourceLayer|string|否|否|矢量图层数据中图层的名称。|
 |paint|[MvtPaint](#mvtpaint)|否|是|用于配置几何体的渲染，如填充、描边等。|
 
-#### MvtPaint
+## MvtPaint
 
 用于配置几何体的渲染，如填充、描边等。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core.EnhancedOverlay
+**系统能力：** SystemCapability.Map.Core.EnhancedOverlay
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
-|:----------|:----------------------------------|:-|:-|:----------------------------------------------------------------------------|
-|fillColor|number \| [Expression](#expression)|否|是|填充颜色，默认值：0x000000，异常值按默认值处理。支持： - 十六进制RGB格式。 - 从矢量图层数据的属性中读取。|
-|fillOpacity|number \| [Expression](#expression)|否|是|填充不透明度，默认值：0，异常值按默认值处理。支持： - 取值范围为\[0, 1\]，0表示完全透明，1表示完全不透明。 - 从矢量图层数据的属性中读取。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:----------|:---------------------------------|:-|:-|:--------------------------------------------------------------------------|
+|fillColor|number | [Expression](#expression)|否|是|填充颜色，默认值：0x000000，异常值按默认值处理。支持： - 十六进制RGB格式。 - 从矢量图层数据的属性中读取。|
+|fillOpacity|number | [Expression](#expression)|否|是|填充不透明度，默认值：0，异常值按默认值处理。支持： - 取值范围为[0, 1]，0表示完全透明，1表示完全不透明。 - 从矢量图层数据的属性中读取。|
 
-#### MvtLayerType
+## MvtLayerType
 
 矢量图层类型。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core.EnhancedOverlay
+**系统能力：** SystemCapability.Map.Core.EnhancedOverlay
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
 |名称|值|说明|
 |:---|:-----|:-----|
 |FILL|'fill'|填充多边形。|
 
-#### Expression
+## Expression
 
 矢量图层叠加表达式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core.EnhancedOverlay
+**系统能力：** SystemCapability.Map.Core.EnhancedOverlay
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
-|:-------|:----------------------------------------------------|:-|:-|:------------------------------------------------------------|
+|**名称**|**类型**|只读|可选|**说明**|
+|:-------|:----------------------------------------------|:-|:-|:------------------------------------------------------------|
 |operator|[Operator](#operator)|否|否|操作符。|
-|args|string \| string\[\] \| [Expression](#expression)\[\]|否|否|参数。 说明： string\[\]和[Expression](#expression)\[\]类型为预留类型，将来使用。|
+|args|string | string[] | [Expression](#expression)[]|否|否|参数。 **说明：** string[]和[Expression](#expression)[]类型为预留类型，将来使用。|
 
-#### Operator
+## Operator
 
 操作符。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core.EnhancedOverlay
+**系统能力：** SystemCapability.Map.Core.EnhancedOverlay
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
 |名称|值|说明|
 |:--|:----|:-----|
 |GET|'get'|获取操作符。|
 
-#### FlowFieldOverlayParams
+## FlowFieldOverlayParams
 
 流场图层的参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core.EnhancedOverlay
+**系统能力：** SystemCapability.Map.Core.EnhancedOverlay
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
-|:----|:------------------------------|:-|:-|:---------------------------------------------------------------------------------------------------------------|
+|**名称**|**类型**|只读|可选|**说明**|
+|:-----|:------------------------------|:-|:-|:---------------------------------------------------------------------------------------------------------------|
 |data|string|否|否|流场图层的数据，数据格式参见[流场数据格式参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-flow-field#流场数据格式参考)。|
 |style|[ParticleStyle](#particlestyle)|否|是|粒子样式。|
 
-#### ParticleStyle
+## ParticleStyle
 
 粒子样式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core.EnhancedOverlay
+**系统能力：** SystemCapability.Map.Core.EnhancedOverlay
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
+|**名称**|**类型**|只读|可选|**说明**|
 |:----------|:-----|:-|:-|:--------------------------------------|
 |count|number|否|是|粒子数，默认值：2000，异常值按默认值处理，建议小于10000。|
 |color|number|否|是|粒子颜色，ARGB格式，默认值：0xffff69b4，异常值按默认值处理。|
 |maxSpeed|number|否|是|粒子最大速度，默认值：70，单位：m/s，建议小于255，异常值按默认值处理。|
-|speedFactor|number|否|是|粒子速度因子，取值范围\[0,1\]，默认值：0.2，异常值按默认值处理。|
+|speedFactor|number|否|是|粒子速度因子，取值范围[0,1]，默认值：0.2，异常值按默认值处理。|
 
-#### MassPointItem
+## MassPointItem
 
 海量点项。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
+|**名称**|**类型**|只读|可选|**说明**|
 |:-------|:----------------|:-|:-|:--------|
 |itemId|string|否|否|项目的唯一标识符。|
 |position|[LatLng](#latlng)|否|否|项目的经纬度坐标。|
 |title|string|否|是|标题。|
 |snippet|string|否|是|点的内容。|
 
-#### MassPointOverlayParams
+## MassPointOverlayParams
 
 海量点的参数。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 6.0.0(20)  
+**起始版本：** 6.0.0(20)
 
-|名称|类型|只读|可选|说明|
-|:------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:-----------------------------------|
+|**名称**|**类型**|只读|可选|**说明**|
+|:------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:---------------------------------|
 |id|string|否|否|海量点的唯一标识。|
-|items|[MassPointItem](#masspointitem)\[\]|否|否|海量点列表（建议数据量小于100000条）。|
-|icon|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|否|海量点的图标。|
-|anchorU|number|否|是|图标锚点在水平方向上的位置，取值范围：\[0, 1\]，默认值：0.5。|
-|anchorV|number|否|是|图标锚点在垂直方向上的位置，取值范围：\[0, 1\]，默认值：0.5。|
+|items|[MassPointItem](#masspointitem)[]|否|否|海量点列表（建议数据量小于100000条）。|
+|icon|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|否|海量点的图标。|
+|anchorU|number|否|是|图标锚点在水平方向上的位置，取值范围：[0, 1]，默认值：0.5。|
+|anchorV|number|否|是|图标锚点在垂直方向上的位置，取值范围：[0, 1]，默认值：0.5。|
 
-#### LineText
+## LineText
 
 提供地图线段的文本。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
-|名称|类型|只读|可选|说明|
-|:--------------|:----------------------|:-|:-|:-----------------------------------------------------------------------------------------------------------------|
-|lineNames|string\[\]|否|否|分段行文本内容列表。|
-|lineNameIndexes|number\[\]|否|否|用于在段中显示文本的段线范围。 说明： - 每个值必须大于等于0。 - 值序列必须单调不递减。 - LineNameIndexes数组长度必须是lineNames数组长度的两倍。 如果违反任何一个条件，则该参数将被视为无效参数。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:--------------|:----------------------|:-|:-|:---------------------------------------------------------------------------------------------------------------------|
+|lineNames|string[]|否|否|分段行文本内容列表。|
+|lineNameIndexes|number[]|否|否|用于在段中显示文本的段线范围。 **说明：** - 每个值必须大于等于0。 - 值序列必须单调不递减。 - LineNameIndexes数组长度必须是lineNames数组长度的两倍。 如果违反任何一个条件，则该参数将被视为无效参数。|
 |nameOnRight|boolean|否|是|显示在行的哪一边的文本。 - true：右侧。 - false：左侧。 默认值：true，异常值按默认值处理。|
 |color|number|否|是|文字内容的颜色，颜色值采用ARGB格式，默认值：0xFF000000，异常值按默认值处理。|
-|fontSize|number|否|是|文字内容的字体大小，默认值：15，单位：px，取值范围：\[0, 100\]，超出按边界值处理，null和undefined按默认值处理。|
+|fontSize|number|否|是|文字内容的字体大小，默认值：15，单位：px，取值范围：[0, 100]，超出按边界值处理，null和undefined按默认值处理。|
 |strokeColor|number|否|是|文本内容描边颜色，颜色值采用ARGB格式，默认值：0xFFFFFFFF，异常值按默认值处理。|
 |fontStyle|[FontStyle](#fontstyle)|否|是|文字内容的字体样式，默认值：[FontStyle](#fontstyle).REGULAR，异常值按默认值处理。|
 
-#### SphereParams
+## SphereParams
 
 3D地球的属性，包括启用晨昏线、城市灯光、动画持续时间、背景和覆盖物。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
-|名称|类型|只读|可选|说明|
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------|
-|sunLightEnabled|boolean|否|是|是否启用晨昏线。 - true：启用晨昏线。 - false：关闭晨昏线。 默认值：true，异常值按默认值处理。 说明： 晨昏线是地球表面上太阳光照范围的分界线，将地球分为白天和黑夜两个区域。晨昏线在地球上的位置会随着地球自转和公转而不断变化。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------|
+|sunLightEnabled|boolean|否|是|是否启用晨昏线。 - true：启用晨昏线。 - false：关闭晨昏线。 默认值：true，异常值按默认值处理。 **说明：** 晨昏线是地球表面上太阳光照范围的分界线，将地球分为白天和黑夜两个区域。晨昏线在地球上的位置会随着地球自转和公转而不断变化。|
 |cityLightEnabled|boolean|否|是|是否启用城市灯光，默认值：true，异常值按默认值处理。 - true：启用城市灯光。 - false：关闭城市灯光。|
 |animateDuration|number|否|是|动画持续时间，单位ms，取值范围：不小于0，异常值按默认值处理。|
-|backgroundImage|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|是|3D地球的背景。|
-|coverageImage|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|是|3D地球的覆盖物。|
+|backgroundImage|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|是|3D地球的背景。|
+|coverageImage|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|是|3D地球的覆盖物。|
 
-#### MapSignalParams
+## MapSignalParams
 
 信号路线的属性，继承[BaseOverlayOptions](#baseoverlayoptions)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
-|名称|类型|只读|可选|说明|
-|:-------------|:--------------------------------|:-|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|signalId|string|否|否|信号路线ID，空值不处理。 说明： 成功添加信号路线后，Map Kit会在应用进程内存中缓存signalId。删除路线时，默认保留该缓存，以便在应用进程存活期间，可无需网络直接重新添加已缓存的信号路线。 如果需要删除缓存的signalId，请调用[removeSignalLineCache](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#removesignallinecache)接口。|
-|points|[LatLng](#latlng)\[\]|否|是|信号路线的顶点，长度范围为\[0, 10000\]，路线长度小于200km，空值返回401。|
-|colors|number\[\]|否|是|信号路线的颜色，长度必须为3。三段颜色依次对应弱、中、强信号，ARGB格式，默认值：\[0xFFFC3C11, 0xFFFFDF42, 0xFF42B0FF\]（红、黄、蓝），数组长度必须为3，异常值按照默认值处理。|
-|width|number|否|是|信号路线的宽度，范围为\[0, 512\]，默认值：10，单位：px，传入值大于512按512处理，小于0按10处理，空值按默认值处理。|
+|**名称**|**类型**|只读|可选|**说明**|
+|:-------------|:--------------------------------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|signalId|string|否|否|信号路线ID，空值不处理。 **说明：** 成功添加信号路线后，Map Kit会在应用进程内存中缓存signalId。删除路线时，默认保留该缓存，以便在应用进程存活期间，可无需网络直接重新添加已缓存的信号路线。 如果需要删除缓存的signalId，请调用[removeSignalLineCache](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#removesignallinecache)接口。|
+|points|[LatLng](#latlng)[]|否|是|信号路线的顶点，长度范围为[0, 10000]，路线长度小于200km，空值返回401。|
+|colors|number[]|否|是|信号路线的颜色，长度必须为3。三段颜色依次对应弱、中、强信号，ARGB格式，默认值：[0xFFFC3C11, 0xFFFFDF42, 0xFF42B0FF]（红、黄、蓝），数组长度必须为3，异常值按照默认值处理。|
+|width|number|否|是|信号路线的宽度，范围为[0, 512]，默认值：10，单位：px，传入值大于512按512处理，小于0按10处理，空值按默认值处理。|
 |coordinateType|[CoordinateType](#coordinatetype)|否|是|表示坐标系类型，默认值[CoordinateType.GCJ02](#coordinatetype)，异常值按默认值处理。|
 
-#### MapType
+## MapType
 
 地图类型。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
 |名称|值|说明|
-|:--------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------|
-|STANDARD|0|标准地图，展示道路、建筑物以及河流等重要的自然特征。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|NONE|1|空地图，没有加载任何数据的地图。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|TERRAIN|2|地形图，在保留了行政区划边界、POI、楼块等地图要素的基础上，呈现完整清晰描绘地形走势的标准地图。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 说明： - 地图缩放层级在大于5且小于14的区间内才能看到地形图效果。 - 地形图在智能表设备上不显示效果。|
-|SATELLITE|3|卫星图，显示卫星照片的地图，只支持中国。 起始版本： 6.0.0(20) 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
-|HYBRID|4|混合地图，在显示卫星照片的同时也显示路网信息。 起始版本： 6.0.0(20) 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
+|:--------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+|STANDARD|0|标准地图，展示道路、建筑物以及河流等重要的自然特征。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|NONE|1|空地图，没有加载任何数据的地图。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|TERRAIN|2|地形图，在保留了行政区划边界、POI、楼块等地图要素的基础上，呈现完整清晰描绘地形走势的标准地图。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。 **说明：** - 地图缩放层级在大于5且小于14的区间内才能看到地形图效果。 - 地形图在智能表设备上不显示效果。|
+|SATELLITE|3|卫星图，显示卫星照片的地图，只支持中国。 **起始版本：** 6.0.0(20) **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
+|HYBRID|4|混合地图，在显示卫星照片的同时也显示路网信息。 **起始版本：** 6.0.0(20) **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。|
 
-#### PatternItemType
+## PatternItemType
 
 描述圆、多边形或折线的边框样式类型。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
 |名称|值|说明|
 |:---|:-|:------------------|
@@ -1823,17 +1825,17 @@ type TileProvider = (x: number, y: number, z: number) =\> Promise\<ArrayBuffer\>
 |DOT|1|表示折线、多边形或圆的边框的点。|
 |GAP|2|表示折线、多边形或圆中边框的间隙。|
 
-#### JointType
+## JointType
 
 折线、多边形的拐角绘制样式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
 |名称|值|说明|
 |:------|:-|:---------|
@@ -1841,36 +1843,36 @@ type TileProvider = (x: number, y: number, z: number) =\> Promise\<ArrayBuffer\>
 |BEVEL|1|使用斜角连接路径段。|
 |ROUND|2|使用圆角连接路径段。|
 
-#### LogoAlignment
+## LogoAlignment
 
 地图Logo的对齐方式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
 |名称|值|说明|
-|:------------|:-|:-------------------------------------------------------------------|
-|BOTTOM_START|0|将Logo放置在左下角位置。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|BOTTOM_END|1|将Logo放置在右下角位置。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|TOP_START|2|将Logo放置在左上角位置。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|TOP_END|3|将Logo放置在右上角位置。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|TOP_CENTER|4|将Logo放置在上方居中位置。 起始版本： 5.1.1(19) 元服务API： 从版本5.1.1(19)开始，该接口支持在元服务中使用。|
-|BOTTOM_CENTER|5|将Logo放置在底部居中位置。 起始版本： 5.1.1(19) 元服务API： 从版本5.1.1(19)开始，该接口支持在元服务中使用。|
+|:------------|:-|:---------------------------------------------------------------------------|
+|BOTTOM_START|0|将Logo放置在左下角位置。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|BOTTOM_END|1|将Logo放置在右下角位置。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|TOP_START|2|将Logo放置在左上角位置。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|TOP_END|3|将Logo放置在右上角位置。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|TOP_CENTER|4|将Logo放置在上方居中位置。 **起始版本：** 5.1.1(19) **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。|
+|BOTTOM_CENTER|5|将Logo放置在底部居中位置。 **起始版本：** 5.1.1(19) **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。|
 
-#### CapStyle
+## CapStyle
 
 用于自定义折线端点（起始顶点和末端顶点）样式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
 |名称|值|说明|
 |:-----|:-|:-----------|
@@ -1878,34 +1880,34 @@ type TileProvider = (x: number, y: number, z: number) =\> Promise\<ArrayBuffer\>
 |ROUND|1|在线的两端延长半圆。|
 |SQUARE|2|在线的两端延伸一个矩形。|
 
-#### CollisionRule
+## CollisionRule
 
 地图POI之间的碰撞规则。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
 |名称|值|说明|
-|:-----------|:-|:-----------------------------------------------------------------------------|
-|NONE|0|名称和图标都不参与碰撞。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|NAME|1|仅名称参与碰撞。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|ALL|2|图标和名称都参与碰撞。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
-|ICON_CASCADE|3|图标碰撞规则。只有标记（Marker）支持此规则。 起始版本： 6.1.0(23) 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
+|:-----------|:-|:-------------------------------------------------------------------------------------|
+|NONE|0|名称和图标都不参与碰撞。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|NAME|1|仅名称参与碰撞。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|ALL|2|图标和名称都参与碰撞。 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。|
+|ICON_CASCADE|3|图标碰撞规则。只有标记（Marker）支持此规则。 **起始版本：** 6.1.0(23) **元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。|
 
-#### FontStyle
+## FontStyle
 
 点注释标题的字体样式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
 |名称|值|说明|
 |:------------|:-|:--------------------------|
@@ -1916,54 +1918,54 @@ type TileProvider = (x: number, y: number, z: number) =\> Promise\<ArrayBuffer\>
 |MEDIUM|4|medium（中等粗细）。|
 |MEDIUM_ITALIC|5|medium and italic（斜体，中等粗细）。|
 
-#### CoordinateType
+## CoordinateType
 
 坐标系类型。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 4.1.0(11)  
+**起始版本：** 4.1.0(11)
 
 |名称|值|说明|
 |:----|:-|:--------|
 |WGS84|0|WGS84坐标系。|
 |GCJ02|1|GCJ02坐标系。|
 
-#### MyLocationDisplayType
+## MyLocationDisplayType
 
 定位图标的展示模式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
 |名称|值|说明|
-|:-------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------|
-|DEFAULT|0|连续定位，相机不移动到我的位置，定位蓝点跟踪设备移动。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
-|LOCATE|1|定位一次，且将相机移动到地图中心点。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
-|FOLLOW|2|连续定位，且将相机移动到地图中心点，定位蓝点跟随设备移动。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
-|FOLLOW_ROTATE|3|连续定位，且将相机移动到地图中心点，定位蓝点依照设备方向旋转，并且会跟随设备移动。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 说明： 需要权限：ohos.permission.ACCELEROMETER。|
-|TRACK_ROTATE|4|连续定位，位置图标会跟随设备的移动并根据设备方向旋转，但不会移动到地图中心。 起始版本： 6.0.0(20) 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。 说明： 需要权限：ohos.permission.ACCELEROMETER。|
-|MAP_ROTATE|5|持续获取定位，相机移动到地图的中心点。定位的蓝点会随着设备移动，地图也会根据设备的方向进行旋转。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 说明： 需要权限：ohos.permission.ACCELEROMETER。|
-|MAP_ROTATE_NO_CENTER|6|持续获取定位，相机不会移动到地图中心点。定位的蓝点会随着设备移动，地图也会根据设备的方向进行旋转。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 说明： 需要权限：ohos.permission.ACCELEROMETER。|
+|:-------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------|
+|DEFAULT|0|连续定位，相机不移动到我的位置，定位蓝点跟踪设备移动。 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
+|LOCATE|1|定位一次，且将相机移动到地图中心点。 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
+|FOLLOW|2|连续定位，且将相机移动到地图中心点，定位蓝点跟随设备移动。 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
+|FOLLOW_ROTATE|3|连续定位，且将相机移动到地图中心点，定位蓝点依照设备方向旋转，并且会跟随设备移动。 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。 **说明：** 需要权限：ohos.permission.ACCELEROMETER。|
+|TRACK_ROTATE|4|连续定位，位置图标会跟随设备的移动并根据设备方向旋转，但不会移动到地图中心。 **起始版本：** 6.0.0(20) **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。 **说明：** 需要权限：ohos.permission.ACCELEROMETER。|
+|MAP_ROTATE|5|持续获取定位，相机移动到地图的中心点。定位的蓝点会随着设备移动，地图也会根据设备的方向进行旋转。 **起始版本：** 26.0.0 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。 **说明：** 需要权限：ohos.permission.ACCELEROMETER。|
+|MAP_ROTATE_NO_CENTER|6|持续获取定位，相机不会移动到地图中心点。定位的蓝点会随着设备移动，地图也会根据设备的方向进行旋转。 **起始版本：** 26.0.0 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。 **说明：** 需要权限：ohos.permission.ACCELEROMETER。|
 
-#### DayNightMode
+## DayNightMode
 
 地图日间夜间模式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
 |名称|值|说明|
 |:----|:-|:-------------------------------|
@@ -1971,34 +1973,34 @@ type TileProvider = (x: number, y: number, z: number) =\> Promise\<ArrayBuffer\>
 |NIGHT|1|夜间模式。|
 |AUTO|2|自动模式，如果系统打开深色开关，显示夜间模式，否则显示日间模式。|
 
-#### ScaleUnit
+## ScaleUnit
 
 地图比例尺公英制单位。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.1.1(19)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.1.1(19)  
+**起始版本：** 5.1.1(19)
 
 |名称|值|说明|
 |:------------|:-|:----|
 |METRIC_UNIT|0|公制单位。|
 |IMPERIAL_UNIT|1|英制单位。|
 
-#### TextPosition
+## TextPosition
 
 设置点注释的文本位置。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
 |名称|值|说明|
 |:------|:-|:----------|
@@ -2008,17 +2010,17 @@ type TileProvider = (x: number, y: number, z: number) =\> Promise\<ArrayBuffer\>
 |LEFT|3|文本显示在图标的左侧。|
 |RIGHT|4|文本显示在图标的右侧。|
 
-#### MapElementType
+## MapElementType
 
 地图元素类型。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)  
+**起始版本：** 5.0.0(12)
 
 |名称|值|说明|
 |:---------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -6,16 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohau
 
 # OH_AudioSuitePipelineStruct
 
-```
+> phone 22+ | 2in1 22+ | tablet 22+
+
+```c
 typedef struct OH_AudioSuitePipelineStruct OH_AudioSuitePipeline
 ```
 
-#### 概述
+## 概述
 
 声明音频编创管线，用来管理音频编创节点。
 
-起始版本： 22
+**起始版本：** 22
 
-相关模块： [OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)
+**相关模块：** [OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)
 
-所在头文件： [native_audio_suite_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h)  
+**所在头文件：** [native_audio_suite_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h)
+

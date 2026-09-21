@@ -10,19 +10,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/client-file
 |:---------------------------------------------------------------------------------|
 |public static final class File.ContentExtras.Thumbnail extends GenericJson 文件缩略图类。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:----------------------------------------------------------------------------------------|
 |[File.ContentExtras.Thumbnail](#section1569052220454)() 构造File.ContentExtras.Thumbnail对象。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|
 |[File.ContentExtras.Thumbnail](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/client-file-contentextras-thumbnail-0000001050125328)|[clone](#section1372520533453)() 克隆一个File.ContentExtras.Thumbnail对象。|
-|byte\[\]|[decodeContent](#section1137545314616)() 使用URL安全的Base64解码的缩略图数据。|
-|[File.ContentExtras.Thumbnail](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/client-file-contentextras-thumbnail-0000001050125328)|[encodeContent](#section1521119323479)(byte\[\] content) 使用URL安全的Base64编码的缩略图数据。|
+|byte[]|[decodeContent](#section1137545314616)() 使用URL安全的Base64解码的缩略图数据。|
+|[File.ContentExtras.Thumbnail](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/client-file-contentextras-thumbnail-0000001050125328)|[encodeContent](#section1521119323479)(byte[] content) 使用URL安全的Base64编码的缩略图数据。|
 |String|[getContent](#section12111144714718)() 获取使用URL安全的Base64编码的缩略图数据。|
 |String|[getMimeType](#section181301175482)() 获取缩略图的MIME类型。|
 |Boolean|[getThumbnailPublic](#section2827192818484)() 获取是否允许匿名下载缩略图。|
@@ -31,162 +31,162 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/client-file
 |[File.ContentExtras.Thumbnail](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/client-file-contentextras-thumbnail-0000001050125328)|[setMimeType](#section1453054114918)(String mimeType) 设置缩略图的MIME类型。|
 |[File.ContentExtras.Thumbnail](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/client-file-contentextras-thumbnail-0000001050125328)|[setThumbnailPublic](#section688763612501)(Boolean thumbnailPublic) 设置是否允许匿名下载缩略图。|
 
-#### Public Constructors
+## Public Constructors
 
-#### File.ContentExtras.Thumbnail
+### File.ContentExtras.Thumbnail
 
 |Constructor|
 |:-------------------------------------------------------------------|
 |File.ContentExtras.Thumbnail() 构造一个File.ContentExtras.Thumbnail类对象 。|
 
-#### Public Methods
+## Public Methods
 
-#### decodeContent
+### decodeContent
 
 |Method|
-|:------------------------------------------------------|
-|public byte\[\] decodeContent() 使用URL安全的Base64解码的缩略图数据。|
+|:----------------------------------------------------|
+|public byte[] decodeContent() 使用URL安全的Base64解码的缩略图数据。|
 
-Returns  
+**Returns**
 
 |Type|Description|
-|:-------|:----------------------|
-|byte\[\]|返回URL安全的Base64解码的缩略图数据。|
+|:-----|:----------------------|
+|byte[]|返回URL安全的Base64解码的缩略图数据。|
 
-#### encodeContent
+### encodeContent
 
 |Method|
-|:------------------------------------------------------------------------------------------|
-|public File.ContentExtras.Thumbnail encodeContent(byte\[\] content) 使用URL安全的Base64编码的缩略图数据。|
+|:----------------------------------------------------------------------------------------|
+|public File.ContentExtras.Thumbnail encodeContent(byte[] content) 使用URL安全的Base64编码的缩略图数据。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |content|缩略图数据。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---------------------------|:----------------------------------|
 |File.ContentExtras.Thumbnail|返回一个File.ContentExtras.Thumbnail对象。|
 
-#### getContent
+### getContent
 
 |Method|
 |:----------------------------------------------------------------|
 |public String getContent() 获取使用URL安全的Base64编码的缩略图数据（RFC 4648第5节）。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:------------------------------------|
 |String|返回一个File.ContentExtras.Thumbnail对象数据。|
 
-#### setContent
+### setContent
 
 |Method|
 |:----------------------------------------------------------------------------------------------------|
 |public File.ContentExtras.Thumbnail setContent(String content) 设置使用URL安全的Base64编码的缩略图数据（RFC 4648第5节）。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------------------|
 |content|缩略图数据（0KB文件不允许设置缩略图数据）。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---------------------------|:----------------------------------|
 |File.ContentExtras.Thumbnail|返回一个File.ContentExtras.Thumbnail对象。|
 
-#### getMimeType
+### getMimeType
 
 |Method|
 |:----------------------------------------|
 |public String getMimeType() 获取缩略图的MIME类型。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:------------|
 |String|返回缩略图的MIME类型。|
 
-#### setMimeType
+### setMimeType
 
 |Method|
 |:-----------------------------------------------------------------------------|
 |public File.ContentExtras.Thumbnail setMimeType(String mimeType) 设置缩略图的MIME类型。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------|
 |mimeType|缩略图的MIME类型。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---------------------------|:----------------------------------|
 |File.ContentExtras.Thumbnail|返回一个File.ContentExtras.Thumbnail对象。|
 
-#### getThumbnailPublic
+### getThumbnailPublic
 
 |Method|
 |:-------------------------------------------------|
 |public Boolean getThumbnailPublic() 获取是否允许匿名下载缩略图。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------|:-------------|
 |Boolean|返回是否允许匿名下载缩略图。|
 
-#### setThumbnailPublic
+### setThumbnailPublic
 
 |Method|
 |:---------------------------------------------------------------------------------------------|
 |public File.ContentExtras.Thumbnail setThumbnailPublic(Boolean thumbnailPublic) 设置是否允许匿名下载缩略图。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------------|:-----------|
 |thumbnailPublic|缩略图是否允许匿名下载。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---------------------------|:----------------------------------|
 |File.ContentExtras.Thumbnail|返回一个File.ContentExtras.Thumbnail对象。|
 
-#### set
+### set
 
 |Method|
 |:-----------------------------------------------------------------------------------|
 |public File.ContentExtras.Thumbnail set(String fieldName, Object value) 设置自定义属性及属性值。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------|:----------|
 |fieldName|属性名称。|
 |value|属性值。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---------------------------|:----------------------------------|
 |File.ContentExtras.Thumbnail|返回一个File.ContentExtras.Thumbnail对象。|
 
-#### clone
+### clone
 
 |Method|
 |:------------------------------------------------------------------------------|
 |public File.ContentExtras.Thumbnail clone() 克隆一个File.ContentExtras.Thumbnail对象。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---------------------------|:----------------------------------|

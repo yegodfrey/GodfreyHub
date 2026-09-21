@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-init-list
 
 # @performance/init-list-component
 
-List组件在使用时，建议同时定义width和height属性。  
+List组件在使用时，建议同时定义width和height属性。
 
-#### 规则配置
+## 规则配置
 
-```
+```screen
 // code-linter.json5
 {
   "rules": {
@@ -19,13 +19,13 @@ List组件在使用时，建议同时定义width和height属性。
 }
 ```
 
-#### 选项
+## 选项
 
-该规则无需配置选项。  
+该规则无需配置选项。
 
-#### 正例
+## 正例
 
-```
+```screen
 @Component
 struct Greeting {
   @Builder myBuilder() {
@@ -42,9 +42,9 @@ struct Greeting {
 }
 ```
 
-#### 反例
+## 反例
 
-```
+```screen
 @Component
 struct Greeting {
   @Builder myBuilder() {
@@ -63,10 +63,11 @@ struct Greeting {
 }
 ```
 
-#### 规则集
+## 规则集
 
-```
+```screen
 plugin:@performance/all
 ```
 
-Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。  
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+

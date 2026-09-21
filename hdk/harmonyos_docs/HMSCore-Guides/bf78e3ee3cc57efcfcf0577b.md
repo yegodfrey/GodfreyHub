@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-scenari
 
 # 移动与智慧屏应用Authorization Code模式接入华为帐号（OAuth 2.0）
 
-#### 场景介绍
+## 场景介绍
 
 适用于基于Android操作系统的移动端、智慧屏应用，且希望基于[OAuth 2.0协议标准](https://oauth.net/2/)接入华为帐号的场景。
 
@@ -16,31 +16,31 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
 
 1. 移动与智慧屏应用调用Account SDK的登录接口，获取到授权码Authorization Code（有效期5分钟，且只能使用一次）。
 2. 移动与智慧屏应用将Authorization Code通过自定义接口发送给应用服务器，应用服务器通过调用华为帐号OAuth服务器的[获取凭证Access Token](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-obtain-token_hms_reference-0000001050048618)接口，换取Refresh Token和Access Token。
-3. 应用服务器通过使用Access Token参数，调用[获取用户信息](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/get-user-info-0000001060261938)接口，获取用户信息。  
-   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230410121612.21546326610055160633008510191657:50001231000000:2800:DF5E2DBCAA11CCE9248BAE36D608BEA673C584A89FE471822223CB2C5BB2319E.png?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-若您的应用需要在AppTouch上架时，请通过[AppTouch应用Authorization Code模式接入华为帐号（OAuth 2.0）](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-apptouch-auth-code-0000001117688518#section87102023114520)进行接入。  
+3. 应用服务器通过使用Access Token参数，调用[获取用户信息](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/get-user-info-0000001060261938)接口，获取用户信息。 说明
+   >
+   > 若您的应用需要在AppTouch上架时，请通过[AppTouch应用Authorization Code模式接入华为帐号（OAuth 2.0）](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-apptouch-auth-code-0000001117688518#section87102023114520)进行接入。
 
-#### 开发前提
+## 开发前提
 
 1. 请确认您已完成[开发准备](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dev-tool-0000001096112066)。
 2. 请确认您的应用有自己的服务器。
-3. 在进行开发之前，您可以下载[移动与智慧屏应用Authorization Code模式接入华为帐号Demo](https://github.com/HMS-Core/huawei-account-demo/tree/android_scenarios_demo/android_code_scenarios_demo)进行快速体验。  
+3. 在进行开发之前，您可以下载[移动与智慧屏应用Authorization Code模式接入华为帐号Demo](https://github.com/HMS-Core/huawei-account-demo/tree/android_scenarios_demo/android_code_scenarios_demo)进行快速体验。
 
-#### 帐号登录授权
+## 帐号登录授权
 
-#### 登录流程
+### 登录流程
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230410121612.86411841203278633466008936878272:50001231000000:2800:C2AEAE9A6C89227604DC728AD479D338031749402084418877C323EC1C8C322C.png?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
+![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230410121612.86411841203278633466008936878272:50001231000000:2800:C2AEAE9A6C89227604DC728AD479D338031749402084418877C323EC1C8C322C.png?needInitFileName=true?needInitFileName=true?needInitFileName=true)
 
-#### 客户端开发
+### 客户端开发
 
 1. 集成华为登录按钮，展示登录方式图标。
 
    华为帐号提供了一个按钮控件HuaweiIdAuthButton，此控件展示华为风格的登录按钮，可以让您方便快速地实现符合华为图标使用规范的登录按钮。
 
-   使用方法：在res \> layout目录下的xml布局文件中添加如下声明，并通过不同参数调整风格，详细信息请参见[HuaweiIdAuthButton控件使用指导](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/huaweiidauthbutton-0000001050179025)。
+   使用方法：在res > layout目录下的xml布局文件中添加如下声明，并通过不同参数调整风格，详细信息请参见[HuaweiIdAuthButton控件使用指导](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/huaweiidauthbutton-0000001050179025)。
 
-   ```
+   ```screen
    <!--id开发者可自定义-->
    <com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton
        android:id="@+id/HuaweiIdAuthButton"
@@ -48,13 +48,14 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
        android:layout_height="wrap_content"/>
    ```
 
-   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230410121612.65375589175797331976964344854215:50001231000000:2800:9E3FED1156591054C67E3F9AE71F5218EA426DD9DB9F62DC7EBF46A1137455B5.png?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-   如您需要使用华为帐号登录图标，请参见[华为帐号登录图标使用规范](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dev-specifications-0000001050048916)。
+   > 说明
+   >
+   > 如您需要使用华为帐号登录图标，请参见[华为帐号登录图标使用规范](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dev-specifications-0000001050048916)。
 2. 拉起登录授权页面请求用户授权。
 
-   将silentSignInByHwId绑定到登录按钮R.id.HuaweiIdAuthButton的onClick响应事件中，实现华为帐号登录功能。当用户点击登录按钮时，会启动登录视图。  
+   将silentSignInByHwId绑定到登录按钮R.id.HuaweiIdAuthButton的onClick响应事件中，实现华为帐号登录功能。当用户点击登录按钮时，会启动登录视图。
 
-   ```
+   ```screen
    "Java"
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +71,7 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
    }
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
@@ -80,9 +81,9 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
    }
    ```
 
-   在silentSignInByHwId方法中，构造了请求参数[AccountAuthParams](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthparams-0000001050196616)和华为帐号登录授权服务[AccountAuthService](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395)，通过调用静默登录接口[silentSignIn](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section782995853116)进行静默登录，如果静默登录成功，直接获取华为帐号code信息；如果静默登录失败，再调用前台登录授权接口[getSignInIntent](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section76155516411)，显式拉起登录授权视图进行登录。  
+   在silentSignInByHwId方法中，构造了请求参数[AccountAuthParams](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthparams-0000001050196616)和华为帐号登录授权服务[AccountAuthService](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395)，通过调用静默登录接口[silentSignIn](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section782995853116)进行静默登录，如果静默登录成功，直接获取华为帐号code信息；如果静默登录失败，再调用前台登录授权接口[getSignInIntent](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section76155516411)，显式拉起登录授权视图进行登录。
 
-   ```
+   ```screen
    "Java"
    // 华为帐号登录授权服务，提供静默登录接口silentSignIn，获取前台登录视图getSignInIntent，登出signOut等接口
    private AccountAuthService mAuthService;
@@ -132,7 +133,7 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
                    Intent signInIntent = mAuthService.getSignInIntent();
                    // 如果应用是全屏显示，即顶部无状态栏的应用，需要在Intent中添加如下参数：
                    // intent.putExtra(CommonConstant.RequestParams.IS_FULL_SCREEN, true);
-                   // 具体详情可以参见应用调用登录接口的时候是全屏页面，为什么在拉起登录页面的过程中顶部的状态栏会闪一下？应该如何解决？
+                   // 具体详情可以参见https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/faq-0000001050048966#section1049682611142
                    signInIntent.putExtra(CommonConstant.RequestParams.IS_FULL_SCREEN, true);
                    startActivityForResult(signInIntent, REQUEST_CODE_SIGN_IN);
                }
@@ -152,7 +153,7 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
    }
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    // 华为帐号登录授权服务，提供静默登录接口silentSignIn，获取前台登录视图getSignInIntent，登出signOut等接口
    private var mAuthService: AccountAuthService? = null
@@ -195,7 +196,7 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
                val signInIntent = mAuthService!!.getSignInIntent()
                // 如果应用是全屏显示，即顶部无状态栏的应用，需要在Intent中添加如下参数：
                // intent.putExtra(CommonConstant.RequestParams.IS_FULL_SCREEN, true)
-               // 具体详情可以参见应用调用登录接口的时候是全屏页面，为什么在拉起登录页面的过程中顶部的状态栏会闪一下？应该如何解决？
+               // 具体详情可以参见https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/faq-0000001050048966#section1049682611142
                signInIntent.putExtra(CommonConstant.RequestParams.IS_FULL_SCREEN, true)
                startActivityForResult(signInIntent, REQUEST_CODE_SIGN_IN)
            }
@@ -214,9 +215,9 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
    }
    ```
 
-3. [getSignInIntent](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section76155516411)前台登录授权接口登录成功后，处理登录授权结果，获取code，并发送给服务端。  
+3. [getSignInIntent](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section76155516411)前台登录授权接口登录成功后，处理登录授权结果，获取code，并发送给服务端。
 
-   ```
+   ```screen
    "Java"
    @Override
    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -230,14 +231,14 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
                dealWithResultOfSignIn(authAccount);
                Log.i(TAG, "onActivitResult of sigInInIntent, request code: " + REQUEST_CODE_SIGN_IN);
            } else {
-               // 登录失败，status code标识了失败的原因，请参见API参考中的错误码了解详细错误原因
+               // 登录失败，status code标识了失败的原因，请参见https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-apk-cn-common-error-codes-0000001050048616了解详细错误原因
                Log.e(TAG, "sign in failed : " +((ApiException)authAccountTask.getException()).getStatusCode());
            }
        }
    }
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
        super.onActivityResult(requestCode, resultCode, data)
@@ -250,55 +251,54 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
                dealWithResultOfSignIn(authAccount)
                Log.i(TAG, "onActivitResult of sigInInIntent, request code: $REQUEST_CODE_SIGN_IN")
            } else {
-               // 登录失败，status code标识了失败的原因，请参见API参考中的错误码了解详细错误原因
+               // 登录失败，status code标识了失败的原因，请参见https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-apk-cn-common-error-codes-0000001050048616了解详细错误原因
                Log.e(TAG, "sign in failed : " + (authAccountTask.exception as ApiException).statusCode)
            }
        }
    }
    ```
 
-#### 服务端开发
+### 服务端开发
 
 1. 接收客户端发送过来的code。
 
    该部分代码需要您根据应用设计自己开发。
 2. 用code换取Access Token和Refresh Token。
 
-   获取到code后调用服务器接口向帐号服务器请求获取Access Token、Refresh Token。接口详细信息请参见[获取凭证Access Token](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-obtain-token_hms_reference-0000001050048618)，接口调用错误码信息请参见[错误码](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/server-error-codes-0000001062371380)。  
-   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230410121612.40660031886172697684249853926639:50001231000000:2800:566D39F37E171989C0536B7C1F5C452AEB06DF583C95FB12A86C730045F4F650.png?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-   1. 为方便您快速调用接口，华为提供了一个基于Java语言开发的accountservertool.jar，该jar包封装了服务器端相关的rest接口，供您参考或直接使用，如您可以调用jar包中AuthCodeUtil.getTokensByCode(String code,String appId,String appSecret,String redirectUri)方法实现code换取Access Token和Refresh Token操作，详细信息请参见[accountservertool.jar工具包使用说明](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/accountservertool-summary-0000001116343162)。
-   2. code只能使用一次，并且只有5分钟有效期，如出现code过期或者已使用错误码，则需要重新获取code。
-   3. 请求参数中使用的redirect_url，请参见[设置回调地址](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/set-redirect-uri-0000001055126949)进行配置。
+   获取到code后调用服务器接口向帐号服务器请求获取Access Token、Refresh Token。接口详细信息请参见[获取凭证Access Token](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-obtain-token_hms_reference-0000001050048618)，接口调用错误码信息请参见[错误码](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/server-error-codes-0000001062371380)。
+   > 说明
+   > 1. 为方便您快速调用接口，华为提供了一个基于Java语言开发的accountservertool.jar，该jar包封装了服务器端相关的rest接口，供您参考或直接使用，如您可以调用jar包中AuthCodeUtil.getTokensByCode(String code,String appId,String appSecret,String redirectUri)方法实现code换取Access Token和Refresh Token操作，详细信息请参见[accountservertool.jar工具包使用说明](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/accountservertool-summary-0000001116343162)。
+   > 2. code只能使用一次，并且只有5分钟有效期，如出现code过期或者已使用错误码，则需要重新获取code。
+   > 3. 请求参数中使用的redirect_url，请参见[设置回调地址](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/set-redirect-uri-0000001055126949)进行配置。
 
-<!-- -->
 
-3. 使用Access Token调用[获取用户信息](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/get-user-info-0000001060261938)接口获取用户信息（昵称、头像、邮箱等）。  
-   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230410121612.47980177324039124174444030269194:50001231000000:2800:E3713DA69086E635548A80CE48FA1BBBEA28C996A3ECEEAFE3E6EF9AB642C927.png?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-   如您使用的是Java语言，accountservertool.jar中提供了AuthCodeUtil.getUserInfos(String accessToken,String getNickName)方法供您使用，详细信息请参见[accountservertool.jar工具包使用说明](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/accountservertool-summary-0000001116343162)。
+3. 使用Access Token调用[获取用户信息](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/get-user-info-0000001060261938)接口获取用户信息（昵称、头像、邮箱等）。 说明
+   >
+   > 如您使用的是Java语言，accountservertool.jar中提供了AuthCodeUtil.getUserInfos(String accessToken,String getNickName)方法供您使用，详细信息请参见[accountservertool.jar工具包使用说明](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/accountservertool-summary-0000001116343162)。
 
-   Access Token过期处理
+   **Access Token过期处理**
 
-   由于Access Token的有效期（60分钟）较短，当Access Token失效或者即将失效时（可通过[NSP_STATUS错误码](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/server-error-codes-0000001062371380)判断），可以使用Refresh Token（有效期180天）通过[获取凭证Access Token](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-obtain-token_hms_reference-0000001050048618)接口向帐号服务器请求获取新的Access Token。  
-   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230410121612.16064560989921450282139191579420:50001231000000:2800:CC47E5596014C62697B3549BA1DA920B993527A5AC9108750D02BD3B331AB637.png?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-   1. 如您使用的是Java语言，accountservertool.jar中提供了AuthCodeUtil.updateAccessToken(String refreshToken,String appId,String appSecret)方法进行access token刷新，详细信息请参见[accountservertool.jar工具包使用说明](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/accountservertool-summary-0000001116343162)。
-   2. 当Access Token失效时，若您不使用Refresh Token向帐号服务器请求获取新的Access Token，帐号的授权信息将会失效，导致使用Access Token的功能都会失败。
-   3. 当Access Token非正常失效（如修改密码，退出帐号，删除设备）时，业务可通过调用退出帐号接口后再调用静默登录接口获取新的Access Token。
+   由于Access Token的有效期（60分钟）较短，当Access Token失效或者即将失效时（可通过[NSP_STATUS错误码](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/server-error-codes-0000001062371380)判断），可以使用Refresh Token（有效期180天）通过[获取凭证Access Token](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-obtain-token_hms_reference-0000001050048618)接口向帐号服务器请求获取新的Access Token。
+   > 说明
+   > 1. 如您使用的是Java语言，accountservertool.jar中提供了AuthCodeUtil.updateAccessToken(String refreshToken,String appId,String appSecret)方法进行access token刷新，详细信息请参见[accountservertool.jar工具包使用说明](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/accountservertool-summary-0000001116343162)。
+   > 2. 当Access Token失效时，若您不使用Refresh Token向帐号服务器请求获取新的Access Token，帐号的授权信息将会失效，导致使用Access Token的功能都会失败。
+   > 3. 当Access Token非正常失效（如修改密码，退出帐号，删除设备）时，业务可通过调用退出帐号接口后再调用静默登录接口获取新的Access Token。
 
-   RefreshToken过期处理
+   **RefreshToken过期处理**
 
-由于Refresh Token的有效期为180天，当Refresh Token失效（可通过[错误码](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/server-error-codes-0000001062371380)判断）后，应用服务器需要通知客户端，重新调用Account SDK登录授权接口，请求用户重新授权。  
+   由于Refresh Token的有效期为180天，当Refresh Token失效（可通过[错误码](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/server-error-codes-0000001062371380)判断）后，应用服务器需要通知客户端，重新调用Account SDK登录授权接口，请求用户重新授权。
 
-#### 独立授权（可选）
+## 独立授权（可选）
 
-该步骤根据您的需要进行选择性接入。详情请参见[独立授权（可选）](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/independentsignin-0000001140395573)。  
+该步骤根据您的需要进行选择性接入。详情请参见[独立授权（可选）](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/independentsignin-0000001140395573)。
 
-#### 帐号退出
+## 帐号退出
 
 应用调用[signOut](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section1170815179335)接口退出当前已登录的帐号，并通知HMS Core SDK清除本地当前已经登录的帐号信息。
 
-1. 将[signOut](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section1170815179335)方法绑定到退出按钮HuaweiIdSignOutButton的onClick响应事件中，实现华为帐号退出功能。  
+1. 将[signOut](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section1170815179335)方法绑定到退出按钮HuaweiIdSignOutButton的onClick响应事件中，实现华为帐号退出功能。
 
-   ```
+   ```screen
    "Java"
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -311,18 +311,17 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
    }
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    override fun onCreate(savedInstanceState: Bundle?) {
        findViewById<View>(R.id.HuaweiIdSignOutButton).setOnClickListener { signOut() }
    }
    ```
 
-<!-- -->
 
-2. 调用[AccountAuthService](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395)类对象的[signOut](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section1170815179335)方法，实现华为帐号退出。  
+2. 调用[AccountAuthService](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395)类对象的[signOut](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section1170815179335)方法，实现华为帐号退出。
 
-   ```
+   ```screen
    "Java"
    private void signOut() {
        Task<Void> signOutTask = mAuthService.signOut();
@@ -340,7 +339,7 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
    }
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    private fun signOut() {
        val signOutTask = mAuthService!!.signOut()
@@ -352,15 +351,15 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
    }
    ```
 
-#### 取消授权
+## 取消授权
 
 为了提升应用隐私安全，应用可以提供入口，供用户取消对应用的授权。
 
 取消授权接口通过调用[AccountAuthService](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395)类对象的[cancelAuthorization](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section9140325133319)方法，实现取消授权。
 
-1. 将[cancelAuthorization](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section9140325133319)方法绑定到取消授权按钮HuaweiIdCancelAuthButton的onClick响应事件中，实现华为帐号取消授权功能。  
+1. 将[cancelAuthorization](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section9140325133319)方法绑定到取消授权按钮HuaweiIdCancelAuthButton的onClick响应事件中，实现华为帐号取消授权功能。
 
-   ```
+   ```screen
    "Java"
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -373,7 +372,7 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
    }
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
@@ -381,11 +380,10 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
    }
    ```
 
-<!-- -->
 
-2. 调用[AccountAuthService](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395)类对象的[cancelAuthorization](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section9140325133319)方法，实现华为帐号取消授权功能。  
+2. 调用[AccountAuthService](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395)类对象的[cancelAuthorization](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/accountauthservice-0000001050199395#section9140325133319)方法，实现华为帐号取消授权功能。
 
-   ```
+   ```screen
    "Java"
    private void cancelAuthorization() {
        Task<Void> task = mAuthService.cancelAuthorization();
@@ -404,7 +402,7 @@ Authorization Code模式基于OAuth 2.0协议标准，应用可以通过获取�
    }
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    private fun cancelAuthorization() {
        val task = mAuthService!!.cancelAuthorization()

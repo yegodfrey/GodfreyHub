@@ -6,51 +6,51 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-previewer
 
 # 支持使用预览器的API清单
 
-#### 组件
+## 组件
 
-#### ArkTS组件
+### ArkTS组件
 
 |组件|API|
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|AlphabetIndexer|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Blank|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Button|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Checkbox|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|CheckboxGroup|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|DataPanel|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|DatePicker|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Divider|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Gauge|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Image|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|ImageAnimator|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|ImageSpan|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|LoadingProgress|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Marquee|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Menu|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|MenuItem|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|MenuItemGroup|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Navigation|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|NavRouter|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|NavDestination|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|PatternLock|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Progress|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|QRCode|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Radio|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Rating|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|ScrollBar|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Search|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Select|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Slider|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Span|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Stepper|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|StepperItem|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Text|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|TextArea|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|TextClock|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|TextInput|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|TextPicker|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|TextTimer|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Toggle|
+|:---|:--------------------------------|
+|基础组件|AlphabetIndexer|
+|基础组件|Blank|
+|基础组件|Button|
+|基础组件|Checkbox|
+|基础组件|CheckboxGroup|
+|基础组件|DataPanel|
+|基础组件|DatePicker|
+|基础组件|Divider|
+|基础组件|Gauge|
+|基础组件|Image|
+|基础组件|ImageAnimator|
+|基础组件|ImageSpan|
+|基础组件|LoadingProgress|
+|基础组件|Marquee|
+|基础组件|Menu|
+|基础组件|MenuItem|
+|基础组件|MenuItemGroup|
+|基础组件|Navigation|
+|基础组件|NavRouter|
+|基础组件|NavDestination|
+|基础组件|PatternLock|
+|基础组件|Progress|
+|基础组件|QRCode|
+|基础组件|Radio|
+|基础组件|Rating|
+|基础组件|ScrollBar|
+|基础组件|Search|
+|基础组件|Select|
+|基础组件|Slider|
+|基础组件|Span|
+|基础组件|Stepper|
+|基础组件|StepperItem|
+|基础组件|Text|
+|基础组件|TextArea|
+|基础组件|TextClock|
+|基础组件|TextInput|
+|基础组件|TextPicker|
+|基础组件|TextTimer|
+|基础组件|Toggle|
 |容器组件|Badge|
 |容器组件|Column|
 |容器组件|ColumnSplit|
@@ -75,167 +75,167 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-previewer
 |容器组件|Tabs|
 |容器组件|TabContent|
 |容器组件|WaterFlow|
-|绘制组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|Circle|
-|绘制组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|Ellipse|
-|绘制组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|Line|
-|绘制组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|Polyline|
-|绘制组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|Path|
-|绘制组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|Rect|
-|绘制组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|Shape|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|Canvas|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|CanvasGradient|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|CanvasPattern|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|CanvasRenderingContext2D|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|ImageBitmap|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|ImageData|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|Matrix2D|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|OffscreenCanvasRenderingContext2D|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br />|Path2D|
+|绘制组件|Circle|
+|绘制组件|Ellipse|
+|绘制组件|Line|
+|绘制组件|Polyline|
+|绘制组件|Path|
+|绘制组件|Rect|
+|绘制组件|Shape|
+|画布组件|Canvas|
+|画布组件|CanvasGradient|
+|画布组件|CanvasPattern|
+|画布组件|CanvasRenderingContext2D|
+|画布组件|ImageBitmap|
+|画布组件|ImageData|
+|画布组件|Matrix2D|
+|画布组件|OffscreenCanvasRenderingContext2D|
+|画布组件|Path2D|
 
-#### JS组件
+### JS组件
 
 |组件|API|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|button|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|chart|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|divider|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|image|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|image-animator|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|input|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|label|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|marquee|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|menu|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|option|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|picker|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|picker-view|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|piece|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|progress|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|qrcode|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|rating|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|search|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|select|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|slider|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|span|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|switch|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|text|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|textarea|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|toolbar|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|toolbar-item|
-|基础组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|toggle|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|badge|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|dialog|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|div|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|form|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|list|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|list-item|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|list-item-group|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|panel|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|popup|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|refresh|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|stack|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|stepper|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|stepper-item|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|swiper|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|tabs|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|tab-bar|
-|容器组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|tab-content|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|canvas|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|CanvasRenderingContext2D|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Image|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|CanvasGradient|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|ImageData|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Path2D|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|ImageBitmap|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|OffscreenCanvas|
-|画布组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|OffscreenCanvasRenderingContext2D|
-|栅格组件 <br /> <br />|grid-container|
-|栅格组件 <br /> <br />|grid-row|
-|栅格组件 <br /> <br />|grid-col|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|svg|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|rect|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|circle|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|ellipse|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|path|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|line|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|polyline|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|polygon|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|text|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|tspan|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|textPath|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|animate|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|animateMotion|
-|svg组件 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|animateTransform|
+|:----|:--------------------------------|
+|基础组件|button|
+|基础组件|chart|
+|基础组件|divider|
+|基础组件|image|
+|基础组件|image-animator|
+|基础组件|input|
+|基础组件|label|
+|基础组件|marquee|
+|基础组件|menu|
+|基础组件|option|
+|基础组件|picker|
+|基础组件|picker-view|
+|基础组件|piece|
+|基础组件|progress|
+|基础组件|qrcode|
+|基础组件|rating|
+|基础组件|search|
+|基础组件|select|
+|基础组件|slider|
+|基础组件|span|
+|基础组件|switch|
+|基础组件|text|
+|基础组件|textarea|
+|基础组件|toolbar|
+|基础组件|toolbar-item|
+|基础组件|toggle|
+|容器组件|badge|
+|容器组件|dialog|
+|容器组件|div|
+|容器组件|form|
+|容器组件|list|
+|容器组件|list-item|
+|容器组件|list-item-group|
+|容器组件|panel|
+|容器组件|popup|
+|容器组件|refresh|
+|容器组件|stack|
+|容器组件|stepper|
+|容器组件|stepper-item|
+|容器组件|swiper|
+|容器组件|tabs|
+|容器组件|tab-bar|
+|容器组件|tab-content|
+|画布组件|canvas|
+|画布组件|CanvasRenderingContext2D|
+|画布组件|Image|
+|画布组件|CanvasGradient|
+|画布组件|ImageData|
+|画布组件|Path2D|
+|画布组件|ImageBitmap|
+|画布组件|OffscreenCanvas|
+|画布组件|OffscreenCanvasRenderingContext2D|
+|栅格组件|grid-container|
+|栅格组件|grid-row|
+|栅格组件|grid-col|
+|svg组件|svg|
+|svg组件|rect|
+|svg组件|circle|
+|svg组件|ellipse|
+|svg组件|path|
+|svg组件|line|
+|svg组件|polyline|
+|svg组件|polygon|
+|svg组件|text|
+|svg组件|tspan|
+|svg组件|textPath|
+|svg组件|animate|
+|svg组件|animateMotion|
+|svg组件|animateTransform|
 
-#### 接口
+## 接口
 
-#### UI界面
+### UI界面
 
 |模块|API|
-|:------------------------------------------------------------------------------------------------------|:-------------------------|
-|@ohos.animator (动画) <br /> <br />|Animator|
-|@ohos.animator (动画) <br /> <br />|AnimatorResult|
-|@ohos.animator (动画) <br /> <br />|AnimatorOptions|
-|@ohos.mediaquery (媒体查询) <br /> <br />|matchMediaSync|
-|@ohos.mediaquery (媒体查询) <br /> <br />|MediaQueryResult|
-|@ohos.mediaquery (媒体查询) <br /> <br />|MediaQueryListener|
-|@ohos.promptAction (弹窗) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|showToast|
-|@ohos.promptAction (弹窗) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|showDialog|
-|@ohos.promptAction (弹窗) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|showActionMenu|
-|@ohos.promptAction (弹窗) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|ShowToastOptions|
-|@ohos.promptAction (弹窗) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|Button|
-|@ohos.promptAction (弹窗) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|ShowDialogSuccessResponse|
-|@ohos.promptAction (弹窗) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|ShowDialogOptions|
-|@ohos.promptAction (弹窗) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|ActionMenuSuccessResponse|
-|@ohos.promptAction (弹窗) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|ActionMenuOptions|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|pushUrl|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|replaceUrl|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|back|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|clear|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|getLength|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|getState|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|enableAlertBeforeBackPage|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|disableAlertBeforeBackPage|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|getParams|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|RouterMode|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|RouterOptions|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|RouterState|
-|@ohos.router (页面路由) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|EnableAlertOptions|
+|:----------------------|:-------------------------|
+|@ohos.animator (动画)|Animator|
+|@ohos.animator (动画)|AnimatorResult|
+|@ohos.animator (动画)|AnimatorOptions|
+|@ohos.mediaquery (媒体查询)|matchMediaSync|
+|@ohos.mediaquery (媒体查询)|MediaQueryResult|
+|@ohos.mediaquery (媒体查询)|MediaQueryListener|
+|@ohos.promptAction (弹窗)|showToast|
+|@ohos.promptAction (弹窗)|showDialog|
+|@ohos.promptAction (弹窗)|showActionMenu|
+|@ohos.promptAction (弹窗)|ShowToastOptions|
+|@ohos.promptAction (弹窗)|Button|
+|@ohos.promptAction (弹窗)|ShowDialogSuccessResponse|
+|@ohos.promptAction (弹窗)|ShowDialogOptions|
+|@ohos.promptAction (弹窗)|ActionMenuSuccessResponse|
+|@ohos.promptAction (弹窗)|ActionMenuOptions|
+|@ohos.router (页面路由)|pushUrl|
+|@ohos.router (页面路由)|replaceUrl|
+|@ohos.router (页面路由)|back|
+|@ohos.router (页面路由)|clear|
+|@ohos.router (页面路由)|getLength|
+|@ohos.router (页面路由)|getState|
+|@ohos.router (页面路由)|enableAlertBeforeBackPage|
+|@ohos.router (页面路由)|disableAlertBeforeBackPage|
+|@ohos.router (页面路由)|getParams|
+|@ohos.router (页面路由)|RouterMode|
+|@ohos.router (页面路由)|RouterOptions|
+|@ohos.router (页面路由)|RouterState|
+|@ohos.router (页面路由)|EnableAlertOptions|
 
-#### 网络管理
+### 网络管理
 
 |模块|API|
 |:--------------------|:------------------------------------------------------------------------------------------|
 |@ohos.net.http (数据请求)|http.createHttp 如果Http请求需要配置代理才能访问，API 12及以上的预览器支持使用系统的http_proxy/https_proxy/no_proxy环境变量。|
 
-#### 数据管理
+### 数据管理
 
 |模块|API|
-|:------------------------------------------------------------------------------|:------------------------------------------|
-|@ohos.data.preferences (用户首选项) <br /> <br /> <br /> <br /> <br /> <br /> <br />|data_preferences.getPreferences|
-|@ohos.data.preferences (用户首选项) <br /> <br /> <br /> <br /> <br /> <br /> <br />|data_preferences.deletePreferences|
-|@ohos.data.preferences (用户首选项) <br /> <br /> <br /> <br /> <br /> <br /> <br />|data_preferences.removePreferencesFromCache|
-|@ohos.data.preferences (用户首选项) <br /> <br /> <br /> <br /> <br /> <br /> <br />|Preferences|
-|@ohos.data.preferences (用户首选项) <br /> <br /> <br /> <br /> <br /> <br /> <br />|ValueType|
+|:-----------------------------|:------------------------------------------|
+|@ohos.data.preferences (用户首选项)|data_preferences.getPreferences|
+|@ohos.data.preferences (用户首选项)|data_preferences.deletePreferences|
+|@ohos.data.preferences (用户首选项)|data_preferences.removePreferencesFromCache|
+|@ohos.data.preferences (用户首选项)|Preferences|
+|@ohos.data.preferences (用户首选项)|ValueType|
 
-#### 文件管理
+### 文件管理
 
-从DevEco Studio 6.0.0 Beta5版本开始，仅支持在预览/预览调试Stage模型的HAP/HSP时，使用文件管理的相关API，并且需要先打开Enable file operation开关。
+从DevEco Studio 6.0.0 Beta5版本开始，仅支持在预览/预览调试Stage模型的HAP/HSP时，使用文件管理的相关API，并且需要先打开**Enable file operation**开关。
 
-![](https://media:401788752115641471 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/Fr-1Uhd2QouXEK8GM5EaXg/zh-cn_image_0000002731543147.png?HW-CC-KV=V1&HW-CC-Date=20260915T011702Z&HW-CC-Expire=31536000000&HW-CC-Sign=BFD4F8CB3F9334AC83807DBB3A999AF164E74C8ABA3A2509F2FE1DBA51D69B34 "点击放大")
 
 |模块|API|
-|:-------------------------------------------------------------------------------------------------------|:-----------|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.open|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.close|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.fdatasync|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.fsync|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.read|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.write|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.mkdir|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.mkdtemp|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.rename|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.rmdir|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.unlink|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.stat|
-|@ohos.file.fs (文件管理) <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />|fs.truncate|
+|:-------------------|:-----------|
+|@ohos.file.fs (文件管理)|fs.open|
+|@ohos.file.fs (文件管理)|fs.close|
+|@ohos.file.fs (文件管理)|fs.fdatasync|
+|@ohos.file.fs (文件管理)|fs.fsync|
+|@ohos.file.fs (文件管理)|fs.read|
+|@ohos.file.fs (文件管理)|fs.write|
+|@ohos.file.fs (文件管理)|fs.mkdir|
+|@ohos.file.fs (文件管理)|fs.mkdtemp|
+|@ohos.file.fs (文件管理)|fs.rename|
+|@ohos.file.fs (文件管理)|fs.rmdir|
+|@ohos.file.fs (文件管理)|fs.unlink|
+|@ohos.file.fs (文件管理)|fs.stat|
+|@ohos.file.fs (文件管理)|fs.truncate|
 

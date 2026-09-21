@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-907
 
 # 多指touch中move事件下发时机问题
 
-#### 问题现象
+## 问题现象
 
 在多指touch事件上，当第二个手指触发的时候，回调的touch事件会短暂丢失第二根手指的move信息。
 
 问题代码示例参考如下：
 
-```
+```screen
 @Entry
 @Component
 struct TouchExample {
@@ -48,6 +48,7 @@ struct TouchExample {
 }
 ```
 
-#### 解决方案
+## 解决方案
 
-手指信息未丢失，原因在于move和down事件的下发周期问题，down事件的信息是立即下发，move事件的信息是由vsync按帧刷新下发，两帧中间存在多个move报点，不是每个报点都会下发，是等vsync来了，下发最新的那个报点。  
+手指信息未丢失，原因在于move和down事件的下发周期问题，down事件的信息是立即下发，move事件的信息是由vsync按帧刷新下发，两帧中间存在多个move报点，不是每个报点都会下发，是等vsync来了，下发最新的那个报点。
+

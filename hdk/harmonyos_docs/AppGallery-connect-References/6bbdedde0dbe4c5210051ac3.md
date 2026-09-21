@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # 核心类
 
-* [HWPGMEngine](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gamemme-hwpgmengine-ios-0000001272768358)  
-* [EngineCreateParams](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gamemme-enginecreateparams-ios-0000001325388721)  
+* **[HWPGMEngine](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gamemme-hwpgmengine-ios-0000001272768358)**   
+* **[EngineCreateParams](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gamemme-enginecreateparams-ios-0000001325388721)**   

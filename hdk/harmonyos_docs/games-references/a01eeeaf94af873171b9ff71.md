@@ -10,10 +10,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/setrtmchannel
 |:------------------------------------------------------------|
 |export interface SetRtmChannelPropertiesReq 设置RTM频道自定义属性请求对象。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Mandatory/Optional|Description|
-|:----------------|:----------------------|:-----------------|:----------------------------------------------|
+|:----------------|:--------------------|:-----------------|:----------------------------------------------|
 |channelId|string|Mandatory|频道ID，仅支持数字(0-9)和字母 (A-Z,a-z)。|
-|channelProperties|{\[k: string\]: string}|Mandatory|频道自定义属性。属性key最长100个字节，属性value最长1948个字节。最多可设置5组。|
+|channelProperties|{[k: string]: string}|Mandatory|频道自定义属性。属性key最长100个字节，属性value最长1948个字节。最多可设置5组。|
 

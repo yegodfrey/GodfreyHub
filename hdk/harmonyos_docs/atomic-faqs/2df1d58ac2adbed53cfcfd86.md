@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-67
 
 # 元服务基于AtomicServiceEnhancedWeb组件的H5相机拍摄与沙箱文件预览实现方案
 
-#### 问题现象
+## 问题现象
 
-元服务中如何使用AtomicServiceEnhancedWeb组件加载本地H5页面，并利用JS SDK (@atomicservice/aseweb-sdk)调用系统相机进行拍照和录像？  
+元服务中如何使用AtomicServiceEnhancedWeb组件加载本地H5页面，并利用JS SDK (@atomicservice/aseweb-sdk)调用系统相机进行拍照和录像？
 
-#### 背景知识
+## 背景知识
 
 [AtomicServiceEnhancedWeb](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomicserviceweb-guidelines#atomicserviceenhancedweb)：AtomicServiceEnhancedWeb是AtomicServiceWeb的增强版，为开发者提供Web页面加载、页面交互、更多H5高阶开放能力等，保障开发者在H5混合ArkTS开发的场景有更加连续的体验。
 
@@ -20,33 +20,33 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-67
 
 [has.getLocalImgData](https://developer.huawei.com/consumer/cn/doc/atomic-guides/components-atomicserviceenhancedweb#hasgetlocalimgdata)：获取本地图片。
 
-[has.filePreview.openPreview](https://developer.huawei.com/consumer/cn/doc/atomic-guides/components-atomicserviceenhancedweb#hasfilepreviewopenpreview)：预览文件，只支持预览本地文件。  
+[has.filePreview.openPreview](https://developer.huawei.com/consumer/cn/doc/atomic-guides/components-atomicserviceenhancedweb#hasfilepreviewopenpreview)：预览文件，只支持预览本地文件。
 
-#### 解决方案
+## 解决方案
 
 受限于Web组件的安全沙箱机制，H5页面无法直接读取系统公共目录（如系统相机生成的临时文件）。本方案利用ArkTS层拥有完整文件读写权限的特性，将ArkTS作为数据中转桥梁，将系统临时文件迁移至Web组件可访问的私有沙箱目录（CacheDir），从而实现H5端的文件读取与预览。
 
-实现逻辑：
+**实现逻辑：**
 
 1. 系统调用：H5端调用has.cameraPicker.pick()接口拉起系统相机进行拍摄。
 2. 路径透传：拍摄完成后，H5获取系统临时路径，并通过document.title监听机制将路径传递给ArkTS层。
 3. 沙箱迁移：ArkTS接收路径后即可读取源文件，并将其复制到应用上下文的缓存目录，生成Webview可读的沙箱路径。
 4. 分级预览：H5获取沙箱路径后，根据文件类型采用不同的预览策略：图片：调用has.getLocalImgData读取文件流，转换为Base64实现内嵌预览。视频：调用has.filePreview.openPreview调起系统视频预览器进行播放。
 
-前置准备：
+**前置准备**：
 
 1. 参考官方指南：请阅读[AtomicServiceEnhancedWeb组件开发指南](https://developer.huawei.com/consumer/cn/doc/atomic-guides/develop-atomicserviceenhancedweb)了解环境搭建流程。
 2. 手动集成SDK（重要）：
    * 找到npm包中的aseweb-sdk.umd.js文件，路径为node_modules/@atomicservice/aseweb-sdk/dist/aseweb-sdk.umd.js。
    * 将其复制至项目的静态资源目录（如rawfile：src/main/resources/rawfile/aseweb-sdk.umd.js）。
-   * 同步修改HTML文件中的引用路径：\<script src="./aseweb-sdk.umd.js"\>\</script\>（假设HTML文件也在rawfile中）。
+   * 同步修改HTML文件中的引用路径：<script src="./aseweb-sdk.umd.js"></script>（假设HTML文件也在rawfile中）。
 3. 添加开放权限：在module.json5添加[ohos.permission.CAMERA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissioncamera)以及[ohos.permission.MICROPHONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissionmicrophone)权限。
 
-完整代码如下：
+**完整代码如下：**
 
 1. src/main/ets/pages/Index.ets：
 
-   ```
+   ```ts
    import { AtomicServiceEnhancedWeb, AtomicServiceEnhancedWebController } from '@atomicservice/ascfapi';
    import common from '@ohos.app.ability.common';
    import fs from '@ohos.file.fs';
@@ -65,7 +65,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-67
              src: this.webUrl,
              controller: this.asController,
              onTitleReceive: (event) => {
-               // 协议格式：URI:file://.....
+              // 协议格式：URI:file://.....
                if (event && event.title && event.title.startsWith('URI:')) {
                  const originalUri = event.title.substring(4);
                  this.moveFileToSandbox(originalUri);
@@ -81,25 +81,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-67
        .hideBackButton(true)
      }
 
-     // 搬运图片和视频
+    // 搬运图片和视频
      async moveFileToSandbox(srcUri: string) {
        try {
          console.info('[ArkTS] 收到文件，准备搬运: ' + srcUri);
 
-         // 1. 自动识别文件后缀 (jpg 还是 mp4)
-         // srcUri 可能是 file://.../IMG_2024.jpg
+        // 1. 自动识别文件后缀 (jpg 还是 mp4)
+   // srcUri 可能是 file://.../IMG_2024.jpg
          let extension = 'dat'; // 默认后缀
          const dotIndex = srcUri.lastIndexOf('.');
          if (dotIndex > 0) {
            extension = srcUri.substring(dotIndex + 1);
          }
 
-         // 2. 构造沙箱路径：/data/storage/.../cache/temp_file.mp4
-         // 使用时间戳防止覆盖
+       // 2. 构造沙箱路径：/data/storage/.../cache/temp_file.mp4
+   // 使用时间戳防止覆盖
          const fileName = `temp_${new Date().getTime()}.${extension}`;
          const sandboxPath = this.context.cacheDir + '/' + fileName;
 
-         // 3. 复制文件
+        // 3. 复制文件
          const srcFile = await fs.open(srcUri, fs.OpenMode.READ_ONLY);
          const destFile = await fs.open(sandboxPath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE | fs.OpenMode.TRUNC);
 
@@ -120,8 +120,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-67
 
          console.info('[ArkTS] 搬运完成: ' + sandboxPath);
 
-         // 4. 通知 H5：文件好了，路径给你，类型也给你
-         // 回调参数: (路径, 文件类型: image/video)
+        // 4. 通知 H5：文件好了，路径给你，类型也给你
+   // 回调参数: (路径, 文件类型: image/video)
          const fileType = (extension === 'mp4' || extension === 'mov') ? 'video' : 'image';
          this.asController.loadUrl(`javascript:window.onSandboxFileReady('${sandboxPath}', '${fileType}')`);
 
@@ -135,7 +135,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-67
 
 2. src/main/resources/rawfile/camera.html：
 
-   ```
+   ```cshtml
    <!DOCTYPE html>
    <html>
 
@@ -152,7 +152,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-67
                font-family: sans-serif;
            }
 
-           /* 预览区 */
+         /* 预览区 */
            #preview-box {
                width: 90%;
                height: 40vh;
@@ -177,7 +177,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-67
                font-size: 14px;
            }
 
-           /* 按钮组 */
+         /* 按钮组 */
            .btn-group {
                display: flex;
                justify-content: space-around;
@@ -241,7 +241,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-67
                setTimeout(() => el.style.display = 'none', 2000);
            }
 
-           // 1. 启动相机 (支持 image 或 video)
+          // 1. 启动相机 (支持 image 或 video)
            function startCamera(type) {
                if (typeof has === 'undefined' || !has.cameraPicker) {
                    alert("SDK未就绪"); return;
@@ -272,22 +272,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-67
                });
            }
 
-           // 2. ArkTS 搬运完成回调
-           // sandboxPath: 沙箱内的绝对路径
-           // fileType: 'image' 或 'video'
+          // 2. ArkTS 搬运完成回调
+   // sandboxPath: 沙箱内的绝对路径
+   // fileType: 'image' 或 'video'
            window.onSandboxFileReady = function (sandboxPath, fileType) {
                console.log("沙箱文件就绪:", sandboxPath, fileType);
 
                if (fileType === 'image') {
-                   // --- 图片逻辑：使用 getLocalImgData 内嵌预览 ---
+                  // --- 图片逻辑：使用 getLocalImgData 内嵌预览 ---
                    handleImagePreview(sandboxPath);
                } else {
-                   // --- 视频逻辑：使用 filePreview 打开全屏预览 ---
+                // --- 视频逻辑：使用 filePreview 打开全屏预览 ---
                    handleVideoPreview(sandboxPath);
                }
            }
 
-           // 处理图片预览
+          // 处理图片预览
            function handleImagePreview(path) {
                if (!has.getLocalImgData) { showToast("预览接口不可用"); return; }
 
@@ -309,17 +309,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-67
                });
            }
 
-           // 处理视频预览 (使用系统预览能力)
+         // 处理视频预览 (使用系统预览能力)
            function handleVideoPreview(path) {
                if (!has.filePreview || !has.filePreview.openPreview) {
                    alert("当前系统版本不支持 filePreview 接口");
                    return;
                }
 
-               // 调用系统预览
+             // 调用系统预览
                has.filePreview.openPreview({
                    uri: path, // 传入沙箱路径
-                   title: '录像回放', // 预览窗口标题
+                   title: '录像回放',// 预览窗口标题
                    type: 'video/mp4', // 显式指定 MIME 类型，帮助系统识别
                    success: () => {
                        console.log("预览拉起成功");

@@ -13,27 +13,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/opendevice-
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public class OpenDevice 本类提供了获取[OpenDeviceClient](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hms-opendeviceclient-0000001050831617)实现类的实例的方法。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |static [OpenDeviceClient](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hms-opendeviceclient-0000001050831617)|[getOpenDeviceClient](#section3617929104119)(Context context) 静态方法，用于获取[OpenDeviceClient](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hms-opendeviceclient-0000001050831617)实现类的实例。|
 
-#### Public Methods
+## Public Methods
 
-#### getOpenDeviceClient
+### getOpenDeviceClient
 
 |Method|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static OpenDeviceClient getOpenDeviceClient(Context context) 静态方法，用于获取[OpenDeviceClient](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hms-opendeviceclient-0000001050831617)实现类的实例。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |context|应用的上下文。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|

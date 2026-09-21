@@ -6,6 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/start/template-services-000000
 
 # 模板服务
 
-<br />
-
-* [模板类商品上架说明](https://developer.huawei.com/consumer/cn/doc/start/template-product-listing-instructions-0000002064816134)  
+* **[模板类商品上架说明](https://developer.huawei.com/consumer/cn/doc/start/template-product-listing-instructions-0000002064816134)**   

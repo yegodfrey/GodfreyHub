@@ -6,25 +6,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pen-point-pre
 
 # 接入报点预测
 
-接入报点预测功能，可以优化应用中手写效果的绘制跟手性，提升应用中手写笔书写场景的跟手体验。  
+接入报点预测功能，可以优化应用中手写效果的绘制跟手性，提升应用中手写笔书写场景的跟手体验。
 
-#### 场景介绍
+## 场景介绍
 
 在应用的自定义界面中，获取到界面的触摸事件，通过调用报点预测的接口，可以得到预测的下一个报点的位置信息。
 
-![](https://media:401788444722781074)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/wl2kgYNVSq2KS-9_DENtxg/zh-cn_image_0000002733274802.png?HW-CC-KV=V1&HW-CC-Date=20260917T084602Z&HW-CC-Expire=31536000000&HW-CC-Sign=810A4A9D56D75AD872D3DD310D55DB63B36C53DB4FB7709FB9F7AB0193444142)
 
-#### 接口说明
+## 接口说明
 
 |类名|接口名|描述|
 |:-----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----|
 |[PointPredictor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-pointpredictor)|[getPredictionPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-pointpredictor#getpredictionpoint)(event: [TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#touchevent对象说明)): [TouchPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#touchpoint11)|获取预测点|
 
-#### 开发步骤
+## 开发步骤
 
 1. 导入相关模块。获取当前界面的触摸事件信息，调用接口计算预测点信息。
 
-   ```
+   ```TypeScript
+   import { PointPredictor } from '@kit.Penkit';
+
    @Entry
    @Component
    struct PointPredictorDemo {

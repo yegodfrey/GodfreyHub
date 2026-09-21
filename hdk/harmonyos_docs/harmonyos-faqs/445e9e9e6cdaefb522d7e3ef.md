@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1109
 
 # 实现卡片投影效果
 
-#### 问题现象
+## 问题现象
 
-当给组件设置阴影属性时，可以实现投影效果，使组件具有悬浮和立体感。以下是几种具体的投影效果：  
+当给组件设置阴影属性时，可以实现投影效果，使组件具有悬浮和立体感。以下是几种具体的投影效果：
 
 |场景|场景说明|
 |:------------|:-----------------------------|
@@ -16,11 +16,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1109
 |场景二：实现阴影扩展效果|控制阴影区域向外扩展。|
 |场景三：实现多个阴影样式|实现左上角亮色阴影，右下角暗色阴影，增强立体感。|
 
-#### 背景知识
+## 背景知识
 
-[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)为当前组件提供阴影效果，并通过设置偏移量来模拟投影效果。  
+[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)为当前组件提供阴影效果，并通过设置偏移量来模拟投影效果。
 
-#### 解决方案
+## 解决方案
 
 * 场景一：实现右下角投影效果。
   1. 使用radius属性给阴影添加圆角效果与卡片圆角对齐。
@@ -28,7 +28,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1109
 
   示例代码如下：
 
-  ```
+  ```ts
   @Entry
   @Component
   struct Index {
@@ -60,14 +60,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1109
 
   效果图如下：
 
-  ![](https://media:101782461612640182 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/wWB3CMVlRgudezN5TR5Bjg/zh-cn_image_0000002628407492.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=E94E96B7B578FA0A0524AA553E92E6BDA4DB65F126CEB5CB01D98DAE76110BD4 "点击放大")
 * 场景二：实现阴影扩展效果。
   1. 使用radius属性给阴影添加圆角效果与卡片圆角对齐。
   2. 给卡片外部增加一层容器，通过padding实现扩展效果，通过position实现扩展方向。
 
   示例代码如下：
 
-  ```
+  ```ts
   @Entry
   @Component
   struct Index2 {
@@ -97,12 +97,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1109
 
   效果图如下：
 
-  ![](https://media:101782461612725183 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/ZrVKrrzKTva3FjBiTyHQag/zh-cn_image_0000002628567388.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=9308C78D7264DE51A8081AADA083A62A0E66CF6A3417F13A322EBBB75BD89F97 "点击放大")
 * 场景三：实现多个阴影样式。 通过父子组件嵌套实现，设置父子组件的大小，边框等完全一致，仅设置的阴影效果不一致。
 
   示例代码如下：
 
-  ```
+  ```ts
   @Entry
   @Component
   struct Index3 {
@@ -147,4 +147,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1109
 
   效果图如下：
 
-![](https://media:101782461612806184 "点击放大")  
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/9tMixtb1RVyc9KCsntw3qA/zh-cn_image_0000002658926705.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B3B913136DE0190BF2E6BED52A7FA07953277850A17C41E224CC0B11089611E "点击放大")
+

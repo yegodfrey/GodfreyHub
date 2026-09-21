@@ -1,0 +1,45 @@
+---
+name: document/cn/HMSCore-References/constant-values-0000001050165190
+title: Constant-values
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001050165190
+---
+
+# Constant-values
+
+## com.huawei.hms.iap.entity.InAppPurchaseData
+
+|Qualifier and Type|Constant Field|Value|
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------|:----------------|
+|public static final int|[NOT_PRESENT](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/inapppurchasedata-0000001050137635#section1254213477129)|Integer.MIN_VALUE|
+
+## com.huawei.hms.iap.entity.InAppPurchaseData.PurchaseState
+
+|Qualifier and Type|Constant Field|Value|
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|
+|public static final int|[INITIALIZED](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/inapppurchasedata-purchasestate-0000001050137691#section1550624330)|Integer.MIN_VALUE|
+|public static final int|[PURCHASED](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/inapppurchasedata-purchasestate-0000001050137691#section1643382516318)|0|
+|public static final int|[CANCELED](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/inapppurchasedata-purchasestate-0000001050137691#section815571415215)|1|
+|public static final int|[REFUNDED](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/inapppurchasedata-purchasestate-0000001050137691#section145861326139)|2|
+|public static final int|[PENDING](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/inapppurchasedata-purchasestate-0000001050137691#section38276419713)|3|
+
+## com.huawei.hms.iap.entity.StartIapActivityReq
+
+|Qualifier and Type|Constant Field|Value|
+|:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:----|
+|public static final int|[TYPE_SUBSCRIBE_MANAGER_ACTIVITY](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/startiapactivityreq-0000001050135894#section815571415215)|2|
+|public static final int|[TYPE_SUBSCRIBE_EDIT_ACTIVITY](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/startiapactivityreq-0000001050135894#section146531020181911)|3|
+
+## com.huawei.hms.iap.IapClient.PriceType
+
+|Qualifier and Type|Constant Field|Value|
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:----|
+|public static final int|[IN_APP_CONSUMABLE](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/iapclient-pricetype-0000001050137601#section815571415215)|0|
+|public static final int|[IN_APP_NONCONSUMABLE](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/iapclient-pricetype-0000001050137601#section125238149811)|1|
+|public static final int|[IN_APP_SUBSCRIPTION](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/iapclient-pricetype-0000001050137601#section114345155819)|2|
+
+## com.huawei.hms.iap.entity.SignAlgorithmConstants
+
+|Qualifier and Type|Constant Field|Value|
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|
+|public static final String|[SIGNATURE_ALGORITHM_SHA256WITHRSA_PSS](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/signalgorithmconstants-0000001095000552#section815571415215)|"SHA256WithRSA/PSS" > 注意 > 当您在服务器侧验签时，可以使用该常量"SHA256WithRSA/PSS"；当您在端侧验签时，请不要使用该常量。|
+

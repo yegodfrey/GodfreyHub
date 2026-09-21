@@ -6,27 +6,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-766
 
 # 如何使用Swiper实现四宫格会议页面
 
-#### 问题现象
+## 问题现象
 
 需要实现一个动态会议的布局场景：
 
 1. 会议参与者人数动态增加和减少，具体人数不确定。
 2. 每个页面排列四个人，采用2×2的布局方式。如果人数超过四个，会自动排在下一页。
 3. 支持左右滑动切换页面。
-4. 页面底部显示当前页数和总页数。  
+4. 页面底部显示当前页数和总页数。
 
-#### 效果预览
+## 效果预览
 
 |会议页|与会人页面1|与会人页面2|运行效果图|
-|:-------------------------------------------|:-------------------------------------------|:-------------------------------------------|:-------------------------------------------|
-|![](https://media:101782461581140660 "点击放大")|![](https://media:101782461581231661 "点击放大")|![](https://media:101782461581319662 "点击放大")|![](https://media:101782461581416663 "点击放大")|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/IkOfaxLZTei2D7XLJpw11Q/zh-cn_image_0000002658915015.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=711C33A3A86FE42441F8AAC20BE9F7589C4FED484C7B486940E8CB6ECB25C2A9 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/8NKLL1xuQQaA7Acwi-QQPw/zh-cn_image_0000002628395804.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=36388F2CD65C0EED82E43A688CB275FAEBBF63D19CE420C3B654782B261A3A99 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/sgzJl4XqStSWGqlGQ5oSHQ/zh-cn_image_0000002658795069.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=509C70CF5AE53139ECAF8B0A7F4B17A81DE9BD18023F730E58C256A55C57B6C7 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/u-qpvGXFTkCTzgXDvkf1PA/zh-cn_image_0000002628555698.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=3E97B23E9591ED7167FF8F18AD28B27AFFAFC1D35AD19617F6A84BF5D907AB6B "点击放大")|
 
-#### 背景知识
+## 背景知识
 
 * 滑块视图容器组件[Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)能够实现子组件的滑动轮播，并且可以结合[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach)懒加载优化性能。Swiper组件允许用户通过滑动手势在多个页面之间进行切换。
-* LazyForEach用于在列表中延迟加载项，以提升应用的加载速度和性能。[Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)组件能够使容器内的子元素在指定方向上自动对齐和均匀分布，适用于动态布局场景，可以使用Flex布局实现四宫格效果。  
+* LazyForEach用于在列表中延迟加载项，以提升应用的加载速度和性能。[Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)组件能够使容器内的子元素在指定方向上自动对齐和均匀分布，适用于动态布局场景，可以使用Flex布局实现四宫格效果。
 
-#### 解决方案
+## 解决方案
 
 主要功能实现在MeetingSwiper.ets中，LazyDataSource.ets为懒加载数据通用工具类，ObservedArray.ets是一个继承自Array的类，通过new操作符创建的ObservedArray的实例可以观察到属性变化。MeetingSwiper.ets中的功能实现：
 
@@ -40,11 +40,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-766
 
 * MeetingSwiper.ets代码示例如下：
 
-  ```
+  ```ts
   import { JSON } from '@kit.ArkTS';
   import { LazyDataSource } from './LazyDataSource';
 
-  // 与会人
+  //与会人
   class ItemParam {
     name: string = '';
 
@@ -57,11 +57,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-766
   @Component
   struct MeetingSwiper {
     private swiperController: SwiperController = new SwiperController();
-    @State private dataArr: LazyDataSource<ItemParam[]> = new LazyDataSource(); // 处理后的数据
+    @State private dataArr: LazyDataSource<ItemParam[]> = new LazyDataSource(); //处理后的数据
     list: ItemParam[] = []; // 初始数据
 
     aboutToAppear(): void {
-      // 初始化数据
+     // 初始化数据
       for (let i = 1; i <= 6; i++) {
         let param = new ItemParam(`第${i}个`);
         this.list.push(param);
@@ -77,9 +77,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-766
       }
       // 清空数据
       this.dataArr.clear();
-      // 添加第一屏会议界面
+   // 添加第一屏会议界面
       this.dataArr.pushData([]);
-      // 添加与会人
+     // 添加与会人
       this.dataArr.pushDataPositionArray(1, listArr);
     }
 
@@ -100,7 +100,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-766
               .width('100%')
               .height('100%')
             } else {
-              Flex({ wrap: FlexWrap.Wrap, justifyContent: FlexAlign.SpaceBetween }) { // 子组件多行布局
+              Flex({ wrap: FlexWrap.Wrap, justifyContent: FlexAlign.SpaceBetween }) { //子组件多行布局
                 ForEach(item, (param: ItemParam,itemIndex:number) => {
                   Text(param.name)
                     .width('calc((100% - 40vp)/2)')
@@ -112,7 +112,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-766
                     .onClick(() => {
                       // 点击按钮，删除对应与会人，更新数据
                       if(itemIndex === 0 && (((index-1)*4+ itemIndex) === this.list.length - 1)) {
-                        //当点击的是当前屏最后一个按钮时，先跳转前一页，然后删除并刷新数据
+                       //当点击的是当前屏最后一个按钮时，先跳转前一页，然后删除并刷新数据
                         this.swiperController.changeIndex(index-1);
                         setTimeout(()=>{
                           this.list.splice((index-1)*4+ itemIndex, 1);
@@ -128,7 +128,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-766
             }
           }, (item: ItemParam[]) => JSON.stringify(item))
         }
-        .indicator(Indicator.digit()) // 设置数字导航点样式
+        .indicator(Indicator.digit()) //设置数字导航点样式
         .loop(false)
         .width('100%')
         .height('100%')
@@ -141,7 +141,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-766
 
 * LazyDataSource.ets代码示例如下：
 
-  ```
+  ```ts
   import { ObservedArray } from './ObservedArray';
 
   class BasicDataSource<T> implements IDataSource {
@@ -156,14 +156,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-766
       return undefined;
     }
 
-    // 该方法为框架侧调用，为LazyForEach组件向其数据源处添加listener监听
+    //该方法为框架侧调用，为LazyForEach组件向其数据源处添加listener监听
     registerDataChangeListener(listener: DataChangeListener): void {
       if (this.listeners.indexOf(listener) < 0) {
         this.listeners.push(listener);
       }
     }
 
-    // 该方法为框架侧调用，为LazyForEach组件向其数据源处添加listener监听
+    //该方法为框架侧调用，为LazyForEach组件向其数据源处添加listener监听
     unregisterDataChangeListener(listener: DataChangeListener): void {
       const pos = this.listeners.indexOf(listener);
       if (pos >= 0) {
@@ -171,35 +171,35 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-766
       }
     }
 
-    // 通知LazyForEach组件需要重载所有子组件
+    //通知LazyForEach组件需要重载所有子组件
     notifyDataReload(): void {
       this.listeners.forEach(listener => {
         listener.onDataReloaded();
       });
     }
 
-    // 通知LazyForEach组件需要在index对应索引处添加子组件
+    //通知LazyForEach组件需要在index对应索引处添加子组件
     notifyDataAdd(index: number): void {
       this.listeners.forEach(listener => {
         listener.onDataAdd(index);
       });
     }
 
-    // 通知LazyForEach组件在index对应索引处数据有变化，需要重建该子组件
+   // 通知LazyForEach组件在index对应索引处数据有变化，需要重建该子组件
     notifyDataChange(index: number): void {
       this.listeners.forEach(listener => {
         listener.onDataChange(index);
       });
     }
 
-    // 通知LazyForEach组件需要在index对应索引处删除该子组件
+   // 通知LazyForEach组件需要在index对应索引处删除该子组件
     notifyDataDelete(index: number): void {
       this.listeners.forEach(listener => {
         listener.onDataDelete(index);
       });
     }
 
-    // 通知LazyForEach组件将from索引和to索引处的子组件进行交换
+  // 通知LazyForEach组件将from索引和to索引处的子组件进行交换
     notifyDataMove(from: number, to: number): void {
       this.listeners.forEach(listener => {
         listener.onDataMove(from, to);
@@ -280,7 +280,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-766
 
 * ObservedArray.ets：
 
-  ```
+  ```ts
   @Observed
   export class ObservedArray<T> extends Array<T> {
     constructor(args?: T[]) {

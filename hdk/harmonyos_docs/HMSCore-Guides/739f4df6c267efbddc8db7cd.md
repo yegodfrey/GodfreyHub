@@ -8,48 +8,49 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-sdk-ui-
 
 您可以通过调用[HuaweiMap.getUiSettings](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/huaweimap-0000001050151757#section86721421145920)()方法获取到[UiSettings](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/uisettings-0000001050150406)对象，该类支持控制UI控件的可见性，以及设置地图手势开关。UI控件主要包括：缩放控件、指南针、"我的位置"按钮。
 
-<br />
+## 缩放控件
 
-#### 缩放控件
+地图SDK提供了内置的缩放控件，默认情况下是开启的。
 
-地图SDK提供了内置的缩放控件，默认情况下是开启的。  
 示例代码如下：
 
-```
+```java
 "Java"
 // 缩放控件控制开关
 hMap.getUiSettings().setZoomControlsEnabled(false);
 ```
 
-```
+```java
 "Kotlin"
 // 缩放控件控制开关
 hMap.uiSettings.isZoomControlsEnabled = false
 ```
 
-#### 指南针
+## 指南针
 
-地图SDK提供了指南针功能，默认显示在地图的右上角。如果启用，当地图不是指向正北方向时，地图右上角会显示一个指南针图标，点击指南针可使地图旋转为正北方向；当地图为正北方向时，指南针图标隐藏。如果禁用，将不会显示指南针图标。  
+地图SDK提供了指南针功能，默认显示在地图的右上角。如果启用，当地图不是指向正北方向时，地图右上角会显示一个指南针图标，点击指南针可使地图旋转为正北方向；当地图为正北方向时，指南针图标隐藏。如果禁用，将不会显示指南针图标。
+
 示例代码如下：
 
-```
+```java
 "Java"
 // 指南针控制开关
 hMap.getUiSettings().setCompassEnabled(false);
 ```
 
-```
+```java
 "Kotlin"
 // 指南针控制开关
 hMap.uiSettings.isCompassEnabled = false
 ```
 
-#### "我的位置"按钮
+## "我的位置"按钮
 
-启用"我的位置"按钮之前，您需要确保已经开启了android.permission.ACCESS_FINE_LOCATION和android.permission.ACCESS_COARSE_LOCATION权限，以及开启了"我的位置"图层。当启用了"我的位置"按钮功能时，该按钮才会显示在地图上。  
+启用"我的位置"按钮之前，您需要确保已经开启了android.permission.ACCESS_FINE_LOCATION和android.permission.ACCESS_COARSE_LOCATION权限，以及开启了"我的位置"图层。当启用了"我的位置"按钮功能时，该按钮才会显示在地图上。
+
 示例代码如下：
 
-```
+```java
 "Java"
 // "我的位置"图层开关
 hMap.setMyLocationEnabled(true);
@@ -57,7 +58,7 @@ hMap.setMyLocationEnabled(true);
 hMap.getUiSettings().setMyLocationButtonEnabled(true);
 ```
 
-```
+```java
 "Kotlin"
 // "我的位置"图层开关 
 hMap.isMyLocationEnabled = true
@@ -65,7 +66,7 @@ hMap.isMyLocationEnabled = true
 hMap.uiSettings.isMyLocationButtonEnabled = true
 ```
 
-#### 地图手势控制
+## 地图手势控制
 
 您可以通过[UiSettings](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/uisettings-0000001050150406)对象来启用或禁止相关的地图手势。
 
@@ -76,64 +77,64 @@ hMap.uiSettings.isMyLocationButtonEnabled = true
 
   示例代码如下：
 
-  ```
+  ```java
   "Java"
   // 缩放手势控制开关
   hMap.getUiSettings().setZoomGesturesEnabled(true);
   ```
 
-  ```
+  ```java
   "Kotlin"
   // 缩放手势控制开关
   hMap.uiSettings.isZoomGesturesEnabled = true
   ```
 
-<!-- -->
 
-* 滚动平移手势：用户可以通过用手指拖动地图来进行移动。  
+* 滚动平移手势：用户可以通过用手指拖动地图来进行移动。
+
   示例代码如下：
 
-  ```
+  ```java
   "Java"
   // 移动手势控制开关
   hMap.getUiSettings().setScrollGesturesEnabled(true);
   ```
 
-  ```
+  ```java
   "Kotlin"
   // 移动手势控制开关
   hMap.uiSettings.isScrollGesturesEnabled = true
   ```
 
-<!-- -->
 
-* 倾斜手势：用户可以将两个手指在地图上进行向下或向上移动来改变地图的倾斜度。  
+* 倾斜手势：用户可以将两个手指在地图上进行向下或向上移动来改变地图的倾斜度。
+
   示例代码如下：
 
-  ```
+  ```java
   "Java"
   // 倾斜手势控制开关
   hMap.getUiSettings().setTiltGesturesEnabled(true);
   ```
 
-  ```
+  ```java
   "Kotlin"
   // 倾斜手势控制开关
   hMap.uiSettings.isTiltGesturesEnabled = true
   ```
 
-<!-- -->
 
-* 旋转手势：用户可以通过将两个手指放在地图上旋转来旋转地图。  
+* 旋转手势：用户可以通过将两个手指放在地图上旋转来旋转地图。
+
   示例代码如下：
 
-  ```
+  ```java
   "Java"
   // 旋转手势控制开关
   hMap.getUiSettings().setRotateGesturesEnabled(true);
   ```
 
-  ```
+  ```java
   "Kotlin"
   // 旋转手势控制开关
   hMap.uiSettings.isRotateGesturesEnabled = true

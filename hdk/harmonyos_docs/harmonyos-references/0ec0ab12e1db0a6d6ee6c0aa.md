@@ -6,45 +6,48 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-n
 
 # @ohos.net.vpn (VPN管理)
 
-本模块是操作系统提供的内置VPN功能，允许用户通过系统的网络设置进行VPN连接，通常提供的功能较少，而且有比较严格的限制。  
-![](https://media:401788445567969404)  
-本模块首批接口从 API version 10 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。  
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-#### 导入模块
+本模块是操作系统提供的内置VPN功能，允许用户通过系统的网络设置进行VPN连接，通常提供的功能较少，而且有比较严格的限制。
+> 说明
+>
+> 本模块首批接口从 API version 10 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-```
+## 导入模块
+
+```js
 import { vpn } from '@kit.NetworkKit';
 ```
 
-#### LinkAddress
+## LinkAddress
 
 type LinkAddress = connection.LinkAddress
 
-获取网络链接信息。
+表示网络链路信息。
 
-系统能力：SystemCapability.Communication.NetManager.Core  
+**系统能力**：SystemCapability.Communication.NetManager.Core
 
 |类型|说明|
 |:-----------------------------------------------------------------------------------------------------------------------------|:------|
 |[connection.LinkAddress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#linkaddress)|网络链路信息。|
 
-#### RouteInfo
+## RouteInfo
 
 type RouteInfo = connection.RouteInfo
 
-获取网络路由信息。
+表示网络路由信息。
 
-系统能力：SystemCapability.Communication.NetManager.Core  
+**系统能力**：SystemCapability.Communication.NetManager.Core
 
 |类型|说明|
 |:-------------------------------------------------------------------------------------------------------------------------|:------|
 |[connection.RouteInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#routeinfo)|网络路由信息。|
 
-#### AbilityContext
+## AbilityContext
 
 type AbilityContext = _AbilityContext
 
-系统能力：SystemCapability.Ability.AbilityRuntime.Core  
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 |类型|说明|
 |:------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

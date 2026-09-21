@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # Overview
 
-#### Class/Struct Summary
+## Class/Struct Summary
 
 |Class/Struct|Description|
 |:--------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|

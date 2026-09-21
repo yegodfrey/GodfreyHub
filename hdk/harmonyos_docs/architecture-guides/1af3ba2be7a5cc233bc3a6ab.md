@@ -6,28 +6,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/pc_status_
 
 # PC应用通过系统托盘后台保活
 
-#### 场景介绍
+## 场景介绍
 
-HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可以让应用进程在PC后台持续保活运行。如持续开启后台服务、U盾等场景可采用此方案实现，本示例介绍基于系统托盘能力如何实现PC应用后台保活。  
+HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可以让应用进程在PC后台持续保活运行。如持续开启后台服务、U盾等场景可采用此方案实现，本示例介绍基于系统托盘能力如何实现PC应用后台保活。
 
-#### 效果预览
+## 效果预览
 
-![](https://media:201787627673439883 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/jmyBqYI0QTWLuGfEVWb8OA/zh-cn_image_0000002687847534.png?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=8E96CB56741D412F49E57B7096E28C2E85ABE0F3D8F0907B5C97D6D9296BE359 "点击放大")
 
-从日志可以看出应用进入后台后，应用还在后台运行中。通过托盘退出后，应用也退出了。  
+从日志可以看出应用进入后台后，应用还在后台运行中。通过托盘退出后，应用也退出了。
 
-#### 实现思路
+## 实现思路
 
-1. 准备托盘图标，存放于对应模块的rawfile/resources下，大小为24vp\*24vp。
+1. 准备托盘图标，存放于对应模块的rawfile/resources下，大小为24vp*24vp。
 2. 在util中定义系统托盘相关方法（从resource中获取图片、调用系统托盘启动）。这一步目的是为了能让业务侧代码更加清晰，将系统托盘启动代码封装起来，实际上业务侧可直接调用这些方法。
 
-   ```
+   ```ts
    /**
-    * @description 获取图片
-    * @param { string } name
-    * @param { any } context
-    * @return { void }
-    */
+   * @description 获取图片
+   * @param { string } name
+   * @param { any } context
+   * @return { void }
+   */
    const getPixelMap = async (name: string, context: common.UIAbilityContext) => {
      // 获取resourceManager资源管理器
      const resourceMgr = context.resourceManager;
@@ -43,10 +43,10 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
    };
 
    /**
-    * @description 加载状态栏
-    * @param { any } context
-    * @return { void }
-    */
+   * @description 加载状态栏
+   * @param { any } context
+   * @return { void }
+   */
    export const loadStatusBar = async (context: common.UIAbilityContext): Promise<void> => {
      // 设置系统托盘图标信息
      let icon: statusBarManager.StatusBarIcon = {
@@ -106,7 +106,7 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
 
 3. 新建一个BackGroundAbility（UIAbility）用于承载后台进程，并在module.json5中配置。
 
-   ```
+   ```json
    {
      "name": "BackGroundAbility",
      "srcEntry": "./ets/backgroundability/BackGroundAbility.ets",
@@ -121,12 +121,12 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
 
 4. 在util中新增方法，用于启动BackGroundAbility后台进程。将ProcessMode值设置为NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM以创建一个新进程，在该进程上启动UIAbility，并绑定该进程到状态栏图标上。
 
-   ```
+   ```ts
    /**
-    * @description 维持后台状态栏
-    * @param { any } context
-    * @return { void }
-    */
+   * @description 维持后台状态栏
+   * @param { any } context
+   * @return { void }
+   */
    export const holdStatusBar = (context: common.UIAbilityContext | common.UIExtensionContext): Promise<void> => {
      return new Promise((resolve, reject) => {
        let want: Want = {
@@ -153,7 +153,7 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
 
 5. 在应用启动时加载系统托盘并通过启动BackGroundAbility维持系统托盘。
 
-   ```
+   ```ts
    onCreate(): void {
      try {
        this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
@@ -182,7 +182,7 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
 
 6. 创建状态栏左键点击事件在EntryAbility的onCreate()中注册，点击图标则showAbility。
 
-   ```
+   ```ts
    let global_context: common.UIAbilityContext;
 
    export function myShowUiAbility() {
@@ -212,7 +212,7 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
 
 7. 在EntryAbility的onPrepareToTerminate()中调用hideAbility并且在该回调中返回true阻拦此次关闭，可实现关闭应用之后，点击托盘，再显示应用界面到前台的效果。
 
-   ```
+   ```ts
    onPrepareToTerminate(): boolean {
      hilog.info(0x0000, 'testTag', '%{public}s', 'EntryAbility onPrepareToTerminate');
      this.context.hideAbility().then(() => {
@@ -230,7 +230,7 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
 
    BackGroundAbility：
 
-   ```
+   ```ts
    onPrepareToTerminate(): boolean {
      // 公共事件相关信息
      let options: commonEventManager.CommonEventPublishData = {
@@ -252,7 +252,7 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
 
    EntryAbility：
 
-   ```
+   ```ts
    // 用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作
    let subscriber: commonEventManager.CommonEventSubscriber | null = null;
    // 订阅者信息，其中的event字段需要替换为实际的事件名称。
@@ -286,18 +286,18 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
      });
    ```
 
-#### 环境准备
+## 环境准备
 
 * 本示例基于API Version 24 Release及以上版本进行开发与验证。
-* 本示例需要使用DevEco Studio 6.1.1 Release及以上版本进行编译运行。  
+* 本示例需要使用DevEco Studio 6.1.1 Release及以上版本进行编译运行。
 
-#### 权限说明
+## 权限说明
 
-允许应用关闭前执行自定义的预关闭动作：[ohos.permission.PREPARE_APP_TERMINATE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionprepare_app_terminate)。  
+允许应用关闭前执行自定义的预关闭动作：[ohos.permission.PREPARE_APP_TERMINATE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionprepare_app_terminate)。
 
-#### 工程目录
+## 工程目录
 
-```
+```ts
 ├──entry/src/main/ets                     // 代码区
 │  ├──backgroundability
 │  │  └──BackGroundAbility.ets                  
@@ -312,20 +312,21 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
 └──entry/src/main/resources               // 应用资源目录
 ```
 
-#### 参考文档
+## 参考文档
 
 [statusBarManager.addToStatusBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-manager#statusbarmanageraddtostatusbar)
 
 [startAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability)
 
-[onPrepareToTerminate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onpreparetoterminate10)  
+[onPrepareToTerminate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onpreparetoterminate10)
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：在项目中如何主动关闭托盘保活？
 
-A：由于托盘通过BackGroundAbility在后台维持着，无法直接关闭，所以要先主动关闭BackGroundAbility然后再关闭托盘。  
+A：由于托盘通过BackGroundAbility在后台维持着，无法直接关闭，所以要先主动关闭BackGroundAbility然后再关闭托盘。
 
-#### 代码下载
+## 代码下载
 
-[PC应用通过系统托盘后台保活示例代码](https://media:201787627673499884)  
+[PC应用通过系统托盘后台保活示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260825111433.41434876861637680280678794941531:50001231000000:2800:0DE93BE865C113E3FB77340EC804A5F05F11DFAEB9DC2712F6C974BCD3DA813F.zip?needInitFileName=true)
+

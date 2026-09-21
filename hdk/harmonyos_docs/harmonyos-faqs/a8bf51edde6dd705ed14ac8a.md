@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1349
 
 # 实现List头部插入数据时显示的项不变
 
-#### 问题现象
+## 问题现象
 
-当用户在聊天界面上滑时，通常需要从数据库中加载更早的消息，这些消息需要插入到当前消息列表的头部，如果直接将数据插入到头部而不进行其他操作，会使当前正在查看的消息被挤出屏幕。那么如何实现往List数据源数组的头部插入数据时List显示的项不变呢？  
+当用户在聊天界面上滑时，通常需要从数据库中加载更早的消息，这些消息需要插入到当前消息列表的头部，如果直接将数据插入到头部而不进行其他操作，会使当前正在查看的消息被挤出屏幕。那么如何实现往List数据源数组的头部插入数据时List显示的项不变呢？
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782454373907151 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/cqH6aatdRJKsfONtfd2N2g/zh-cn_image_0000002658840791.png?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=2F98000AF9E3A3641807514AD718C64A93CDE77717A40A4D50F5007CB8D4A010 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [onScrollIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#onscrollindex)在子组件划入或划出List显示区域时触发，可用于记录List当前项的索引位置。
 * [scrollToIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrolltoindex)可以让ListItem滑动到指定Index，支持设置滑动额外偏移量。
-* [currentOffset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#currentoffset)可以获取List当前的滑动偏移量，从而计算scrollToIndex所需的滑动额外偏移量。  
+* [currentOffset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#currentoffset)可以获取List当前的滑动偏移量，从而计算scrollToIndex所需的滑动额外偏移量。
 
-#### 解决方案
+## 解决方案
 
 1. 通过onScrollIndex记录当前索引位置。
 2. 插入新数据时，使当前Index的值更新为oldIndex+新插入数组长度，调用scrollToIndex接口滑动到更新后的索引处。
@@ -28,7 +28,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1349
 
 完整示例参考如下：
 
-```
+```ts
 @Entry
 @Component
 struct StableList {
@@ -80,7 +80,7 @@ struct StableList {
     }
     this.nextItemIndex += 5;
     this.listData = [...newItems, ...this.listData];
-    // 计算新的位置并滚动
+   // 计算新的位置并滚动
     const newListLength: number = newItems.length;
     const newIndex: number = oldIndex + newListLength;
     this.scrollerForList.scrollToIndex(newIndex, false, undefined,

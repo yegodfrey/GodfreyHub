@@ -8,9 +8,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/learn-guidance-0000001
 
 在这里，将为您介绍怎么高效学习华为主题的整体业务，能找到合适的业务去输出产物。
 
-![](https://media:201779934639767503 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/D9-k4KaWRAiUvLEXeuYQYQ/zh-cn_image_0000001074050075.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=27E0523CC5E507360F05574A375E9F70B7F3DABACDA1632BAD61733BB0748044 "点击放大")
 
-#### 1. 入门级
+## 1. 入门级
 
 如果您是插画师，摄影师，新人设计师，拥有精美的图片设计能力，没有接触过主题业务，建议先了解这4方面内容，这些内容的素材数量少且易制作。
 
@@ -19,13 +19,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/learn-guidance-0000001
 * 视频铃声
 * AOD熄屏显示
 
-#### 1.1 壁纸
+### 1.1 壁纸
 
 设计师可多种风格去设计壁纸。用户可在华为主题App里的壁纸栏目里挑选自己喜欢的壁纸，并可购买或免费下载，设置成自己手机的锁屏界面或者桌面背景，使手机更具有色彩性与多选择性。华为主题已上线多类风格精品壁纸库。
 
 您只需要设计一张图就可以完成壁纸的制作。
 
-![](https://media:201779934639891504 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/ngJxuJdVTL2UKxNvJLHcQA/zh-cn_image_0000001074169969.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=D92EADACB5C821457E09E3C93E5D4B3EE56EE31B953C49FE4752858C1DD1D48D "点击放大")
 
 学习建议：
 
@@ -33,13 +33,13 @@ a. 如果你想知道壁纸的制作规格是什么，可查看[壁纸规范](ht
 
 b. 如果你想知道制作好的壁纸是否符合规范，可查看[壁纸测试规范](https://developer.huawei.com/consumer/cn/doc/distribution/content/wallpaper-test-0000001057539336)。
 
-c. 如果你想知道怎么上传壁纸 ，可查看[上传指南](https://developer.huawei.com/consumer/cn/doc/content/wallpaper-upload-0000001055348466)。  
+c. 如果你想知道怎么上传壁纸 ，可查看[上传指南](https://developer.huawei.com/consumer/cn/doc/content/wallpaper-upload-0000001055348466)。
 
-#### 1.2 动态壁纸
+### 1.2 动态壁纸
 
 动态壁纸是具备特殊动效的壁纸，创意新颖。用户可在华为主题App里的动态壁纸栏目里挑选自己喜欢的动态壁纸，并可购买或免费下载，设置成自己手机的锁屏界面或者桌面背景，使手机更具有趣味性。华为主题目前已上线海量精品动态壁纸。您只需要准备一个MP4文件就可以制作动态壁纸了。
 
-![](https://media:201779934640144505 "点击放大") ![](https://media:201779934640315506) ![](https://media:201779934640364507) ![](https://media:201779934640518508)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/IBBhc1RSRRyutpJ-ovFU0A/zh-cn_image_0000001077494856.gif?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=24F4D207A4E5D6A924ACF46AFD70EDA362F3B436D2B35BA4CA4BAA1FF10BF1BC "点击放大") ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/e9aN7zivRfajSixhHsd09Q/zh-cn_image_0000001077654462.gif?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=273398091385C639DEE267F42A6DE0C1F332EE608B1709F3A8B1899392B2969B) ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/HoKoeLxnRkqLw-poxVtFWQ/zh-cn_image_0000001092790227.gif?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=93E4C1E3A20786AA89D21089A792D3C5BFFA1FB8F0F05971118274506ECC2D8C) ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/IaY59MsmQAqvUAXGnFQGuw/zh-cn_image_0000001077814438.gif?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=FD20BB70C6BFC9F891F341E4884375D33AEEBA6B0F01D694563DA9BD44EE2C56)
 
 学习建议：
 
@@ -47,12 +47,11 @@ a. 如果你想知道动态壁纸的制作规格，可查看[动态壁纸规范]
 
 b. 如果你想知道制作好的动态壁纸是否符合规范，可查看[动态壁纸测试规范](https://developer.huawei.com/consumer/cn/doc/distribution/content/livewallpaper-test-0000001057818928)。
 
-c. 如果你想知道怎么上传动态壁纸，可查看[上传指南](https://developer.huawei.com/consumer/cn/doc/content/livewallpaper-upload-0000001055068451)。  
+c. 如果你想知道怎么上传动态壁纸，可查看[上传指南](https://developer.huawei.com/consumer/cn/doc/content/livewallpaper-upload-0000001055068451)。
 
-#### 1.3 视频铃声
+### 1.3 视频铃声
 
 视频铃声是附带背景音乐的动态壁纸。用户可在华为主题App里的视频铃声栏目里挑选自己喜欢的视频铃声，可购买或免费下载，可设置成自己手机的来电铃声，锁屏界面或者桌面背景，使手机更具有好玩性。您只需要准备一个MP4文件就可以制作视频铃声了。
-
 
 学习建议：
 
@@ -60,34 +59,33 @@ a. 如果你想知道视频铃声的制作规格，可查看[视频铃声规范]
 
 b. 如果你想知道制作好的视频铃声是否符合规范，可查看[视频铃声测试规范](https://developer.huawei.com/consumer/cn/doc/distribution/content/videoringtone-test-0000001057258921)。
 
-c. 如果你想知道怎么上传视频铃声，可查看[上传指南](https://developer.huawei.com/consumer/cn/doc/content/livewallpaper-upload-0000001055068451)。  
+c. 如果你想知道怎么上传视频铃声，可查看[上传指南](https://developer.huawei.com/consumer/cn/doc/content/livewallpaper-upload-0000001055068451)。
 
-#### 1.4 AOD熄屏显示
+### 1.4 AOD熄屏显示
 
 AOD熄屏显示是用图片设计成熄屏显示，点亮时间和通知，方便至极。用户可在华为主题App里的熄屏显示栏目挑选自己喜欢的AOD，可购买或者免费下载，并应用在熄屏上，为用户节约开手机看时间的时间成本以及亮屏动作，以及为用户的时间显示提供了多样性。华为主题提供了丰富的样式供用户选择。
 
 您只需要设计时间/时钟图片/一张背景图就可以完成AOD的制作。
 
-![](https://media:201779934640770509 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/bUfHdCeGQNO5ELu1HkjbQg/zh-cn_image_0000001075052316.png?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D9BD0449837794E94033EBF772018A24736A75C42F8230944C1F9AD158C7FB8 "点击放大")
 
 学习建议:
 
 1. 如果你想知道AOD的制作规格是什么，可查看[AOD规范](https://developer.huawei.com/consumer/cn/doc/content/aod-specification-0000001057549640)。
 2. 如果你准备好资源了，想知道怎么用工具制作AOD，可查看[AOD视频教程](https://developer.huawei.com/consumer/cn/doc/content/aod-video-0000001057311470)。工具：点击"[下载](https://developer.huawei.com/consumer/cn/doc/distribution/content/themes-design-tools-0000001054531194)"。
 
-<!-- -->
 
 3. 如果你想知道制作好的AOD是否符合规范，可查看[AOD测试规范](https://developer.huawei.com/consumer/cn/doc/distribution/content/aod-test-0000001056821215)。
 4. 如果你想知道怎么上传AOD，可查看[上传指南](https://developer.huawei.com/consumer/cn/doc/content/themes-upload-0000001055029726)。
 
-#### 2. 进阶级
+## 2. 进阶级
 
 如果您是有较好的设计及切图能力，有使用编辑主题工具的经历，可以先了解这4个方面内容，这些内容需要耗费较多时间制作图片素材。
 
 * 手机主题
 * 表盘主题
 
-#### 2.1 手机主题
+### 2.1 手机主题
 
 手机主题主要是对手机锁屏、壁纸、图标、通知栏、短信、拨号、联系人、设置等手机皮肤界面进行个性化设计。
 
@@ -95,7 +93,7 @@ AOD熄屏显示是用图片设计成熄屏显示，点亮时间和通知，方�
 
 您需要提前设计好锁屏图片，壁纸，图标，气泡等资源，设计好后就可以导入手机主题工具快速制作手机主题了。
 
-![](https://media:201779934640850510 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/ehCmCPpZROivmEFPS2JnXg/zh-cn_image_0000001075530262.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B36F064123E7A8CA93C80232007C3653D52FBD14AA19A70813D34F98100DAA2 "点击放大")
 
 手机主题根据EMUI系统可分为：
 
@@ -112,13 +110,14 @@ b. 如果你准备好资源了，想知道怎么用工具制作手机主题，�
 
 c. 如果你想知道制作好的手机主题是否符合规范，可查看[主题测试审核规范](https://developer.huawei.com/consumer/cn/doc/content/harmonyos5-theme-test-0000002318301165)。
 
-d. 如果你想知道怎么上传手机主题，可查看[上传指南](https://developer.huawei.com/consumer/cn/doc/content/themes-upload-0000001055029726)。  
+d. 如果你想知道怎么上传手机主题，可查看[上传指南](https://developer.huawei.com/consumer/cn/doc/content/themes-upload-0000001055029726)。
 
-#### 2.2 表盘主题
+### 2.2 表盘主题
 
 表盘主题是对华为系列手表以及手环界面进行美化设计。用户可在华为运动健康App里的表盘市场栏目里挑选自己喜欢的主题，购买或者免费下载，并应用在自己的手表或者手环上，为表上显示的信息多样化，并具有设计性。目前已上线海量精品表盘主题，为用户提供个性化选择。您需要提前设计好背景图，指针，时间切图等，设计好后这些资源就可以导入表盘工具快速制作表盘主题了。
 
-![](https://media:201779934640902511 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/LZs1rnyjSyejPRMKIgDZtA/zh-cn_image_0000001077654650.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=929D12565CBC7F596061191FB751306248A055A988720050590DACEAD8384949 "点击放大")
+
 表盘现在分为：
 
 1. 智能手表
@@ -133,18 +132,17 @@ b. 如果你准备好资源了，想知道怎么用工具制作表盘主题，�
 
 c. 如果你想知道制作好的表盘主题是否符合规范，可查看[表盘主题测试规范](https://developer.huawei.com/consumer/cn/doc/content/sportwatch-test-0000001057059331)。
 
-d. 如果你想知道怎么上传表盘主题，可查看[上传指南](https://developer.huawei.com/consumer/cn/doc/content/sportwatch-upload-0000001054469759)。（智能表GT系列和智能手环band系列上传步骤一致）。  
+d. 如果你想知道怎么上传表盘主题，可查看[上传指南](https://developer.huawei.com/consumer/cn/doc/content/sportwatch-upload-0000001054469759)。（智能表GT系列和智能手环band系列上传步骤一致）。
 
-#### 3. 专家级
+## 3. 专家级
 
-如果您是设计师+开发者结合模式，熟悉如何通过xml脚本来制作动效，可以先了解这个方面，这个内容需要您熟悉华为官方主题引擎的基础功能，以便于将它们结合起来制作有创意的主题。  
+如果您是设计师+开发者结合模式，熟悉如何通过xml脚本来制作动效，可以先了解这个方面，这个内容需要您熟悉华为官方主题引擎的基础功能，以便于将它们结合起来制作有创意的主题。
 
-#### 3.1 高级主题
+### 3.1 高级主题
 
 高级主题是基于华为引擎制作的，使用xml用特定的语法描述锁屏界面。在一定需求下，在手机主题工具之上，运用引擎中的基础功能，动效和高级动效开发风格多变的用户界面。用户可在华为主题App里的主题栏目挑选自己喜欢的主题，试用之后觉得满意的话，可购买或者免费下载其主题，尤其是手机的锁屏，有解压类的，游戏类的，唯美类的等等，变得丰富动态化，也具有非常大的吸引力。
 
 您需要提前准备好动态的切图资源，就可以用引擎的脚本编写你所想的动态效果。
-
 
 a. 如果你想了解引擎是什么，可查看[引擎概述](https://developer.huawei.com/consumer/cn/doc/distribution/content/themes-engine-overview-0000001054588463)；
 
@@ -158,4 +156,5 @@ c. 怎么应用引擎的2D高级动效，例如跟手粒子，可查看[详情�
 
 d. 怎么应用引擎的基础功能，可查看[详情文档](https://developer.huawei.com/consumer/cn/doc/distribution/content/text-0000001074068045)；
 
-基础功能在锁屏上可制作多样式简单以及复杂的动效，比如随着时间流逝，锁屏图片不断更换；摇晃手机，播放锁屏上的动效等场景。  
+基础功能在锁屏上可制作多样式简单以及复杂的动效，比如随着时间流逝，锁屏图片不断更换；摇晃手机，播放锁屏上的动效等场景。
+

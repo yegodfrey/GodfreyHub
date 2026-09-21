@@ -6,25 +6,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-f
 
 # 人脸检测
 
-#### 适用场景
+## 适用场景
 
 检测图片中的人脸，返回高精度人脸矩形框坐标、人脸五官位置、人脸朝向、人脸置信度。可通过对人脸的定位，实现对人脸特定位置的美化修饰。广泛应用于各类人脸识别场景，如人脸聚类、美颜等场景中。
 
 效果如下图所示：
 
-![](https://media:401788762251353089)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/t366fxKNTlaQaQNO5bixww/zh-cn_image_0000002762835287.png?HW-CC-KV=V1&HW-CC-Date=20260917T084541Z&HW-CC-Expire=31536000000&HW-CC-Sign=B619C0ED482FFB3C777460D51A83DF5FAE7A5109965966834874D4AB8DA980C0)
 
-#### 世界坐标系
+## 世界坐标系
 
 以下方图片指示坐标系辅助表示人脸朝向。
 
-![](https://media:401788762251382090)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/rLK71K_eQBWHf0ZMTq0ELg/zh-cn_image_0000002733275774.png?HW-CC-KV=V1&HW-CC-Date=20260917T084541Z&HW-CC-Expire=31536000000&HW-CC-Sign=585F58DED1719A0C892AB9DC876B4F4C7EE49CF86787FDE8E8668AB9BD1A3C77)
 
-#### 开发步骤
+## 开发步骤
 
 1. 在使用人脸检测时，将实现人脸检测相关的类添加至工程。
 
-   ```
+   ```typescript
    import { faceDetector } from '@kit.CoreVisionKit';
    import { image } from '@kit.ImageKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -35,7 +35,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-f
 
 2. 初始化和释放：在aboutToAppear中调用[faceDetector.init()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-face-detector-api#facedetectorinit)初始化人脸检测分析器（加载模型），在aboutToDisappear中调用[faceDetector.release()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-face-detector-api#facedetectorrelease)释放资源。
 
-   ```
+   ```typescript
    async aboutToAppear(): Promise<void> {
      const initResult = await faceDetector.init();
      hilog.info(0x0000, 'faceDetectorSample', `Face detector initialization result:${initResult}`);
@@ -49,7 +49,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-f
 
 3. 通过photoAccessHelper.PhotoViewPicker拉起图库选择图片，使用fileIo与image模块将URI转换为[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)，为后续检测接口准备输入数据。
 
-   ```
+   ```typescript
    Button('选择图片')
      .type(ButtonType.Capsule)
      .fontColor(Color.White)
@@ -64,7 +64,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-f
 
    选择图片与解码图片的方法实现如下：
 
-   ```
+   ```typescript
    private async selectImage() {
      let uri = await this.openPhoto();
      if (!uri) {
@@ -103,7 +103,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-f
 
 4. 构造[VisionInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-face-detector-api#visioninfo)对象并传入待检测图片的PixelMap，调用[faceDetector.detect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-face-detector-api#facedetectordetect)方法，获取人脸位置、五官、朝向等检测结果并展示在界面上。
 
-   ```
+   ```typescript
    Button('人脸检测')
      .type(ButtonType.Capsule)
      .fontColor(Color.White)
@@ -141,11 +141,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-f
       })
    ```
 
-#### 开发实例
+## 开发实例
 
-#### Index.ets
+### Index.ets
 
-```
+```typescript
 import { faceDetector } from '@kit.CoreVisionKit';
 import { image } from '@kit.ImageKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

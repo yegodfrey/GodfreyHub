@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/gameobe-frame
 |:--------------------------------------------------------------|
 |namespace Com.Huawei.Game.Gobes public class FrameExtInfo 附加信息。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Description|
 |:---|:----|:----------|

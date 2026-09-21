@@ -10,10 +10,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/healthfield
 |:--------------------------------------|
 |public final class HealthFields 健康属性常量。|
 
-#### Public Field Summary
+## Public Field Summary
 
 |Qualifier and Type|Field and Description|
-|:------------------------|:----------------------------------------------------------------------------------------------------------------------|
+|:-----------------|:----------------------------------------------------------------------------------------------------------------------|
 |static final Field|[FIELD_SYSTOLIC_PRESSURE](#section14849145919304) 收缩压。|
 |static final Field|[FIELD_SYSTOLIC_PRESSURE_AVG](#section1685145917308) 平均收缩压。|
 |static final Field|[FIELD_SYSTOLIC_PRESSURE_MIN](#section185375943015) 最小收缩压。|
@@ -63,9 +63,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/healthfield
 |static final Field|[FIELD_TIME_ZONE](#section525785171720) 时区。|
 |static final Field|[FIELD_DYSMENORRHOEA_LEVEL](#section425845112178) 痛经程度。|
 |static final Field|[FIELD_PHYSICAL_SYMPTOMS](#section084813420511) 身体症状。|
-|static final Field <br />|[SYS_MODE](#section146014249168) 治疗模式。|
-|static final Field <br />|[SYS_SESSION_DATE](#section5384152610167) 生成报告的时间。|
-|static final Field <br />|[EVENT_AHI](#section1589228131618) AHI。|
+|static final Field|[SYS_MODE](#section146014249168) 治疗模式。|
+|static final Field|[SYS_SESSION_DATE](#section5384152610167) 生成报告的时间。|
+|static final Field|[EVENT_AHI](#section1589228131618) AHI。|
 |static final Field|[SYS_DURATION](#section7525112917162) 使用时长。|
 |static final Field|[LUMIS_TIDVOL_MEDIAN](#section12156193041616) 潮气量-中位数。|
 |static final Field|[LUMIS_TIDVOL](#section1695483020160) 潮气量-95％分位数。|
@@ -89,449 +89,449 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/healthfield
 |static final Field|[UNKNOW_EVENT_TIMES](#section18645555183517) 未知事件总次数。|
 |static final Field|[ALL_EVENT_TIMES](#section026755614351) 所有事件统计总数。|
 
-#### Public Fields
+## Public Fields
 
-#### FIELD_SYSTOLIC_PRESSURE
+### FIELD_SYSTOLIC_PRESSURE
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------|
 |public static final Field FIELD_SYSTOLIC_PRESSURE 收缩压。|
 
-#### FIELD_SYSTOLIC_PRESSURE_AVG
+### FIELD_SYSTOLIC_PRESSURE_AVG
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------------|
 |public static final Field FIELD_SYSTOLIC_PRESSURE_AVG 平均收缩压。|
 
-#### FIELD_SYSTOLIC_PRESSURE_MIN
+### FIELD_SYSTOLIC_PRESSURE_MIN
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------------|
 |public static final Field FIELD_SYSTOLIC_PRESSURE_MIN 最小收缩压。|
 
-#### FIELD_SYSTOLIC_PRESSURE_MAX
+### FIELD_SYSTOLIC_PRESSURE_MAX
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------------|
 |public static final Field FIELD_SYSTOLIC_PRESSURE_MAX 最大收缩压。|
 
-#### FIELD_DIASTOLIC_PRESSURE
+### FIELD_DIASTOLIC_PRESSURE
 
-|Field|
+|**Field**|
 |:------------------------------------------------------|
 |public static final Field FIELD_DIASTOLIC_PRESSURE 舒张压。|
 
-#### FIELD_DIASTOLIC_PRESSURE_AVG
+### FIELD_DIASTOLIC_PRESSURE_AVG
 
-|Field|
+|**Field**|
 |:------------------------------------------------------------|
 |public static final Field FIELD_DIASTOLIC_PRESSURE_AVG 平均舒张压。|
 
-#### FIELD_DIASTOLIC_PRESSURE_MIN
+### FIELD_DIASTOLIC_PRESSURE_MIN
 
-|Field|
+|**Field**|
 |:------------------------------------------------------------|
 |public static final Field FIELD_DIASTOLIC_PRESSURE_MIN 最小舒张压。|
 
-#### FIELD_DIASTOLIC_PRESSURE_MAX
+### FIELD_DIASTOLIC_PRESSURE_MAX
 
-|Field|
+|**Field**|
 |:------------------------------------------------------------|
 |public static final Field FIELD_DIASTOLIC_PRESSURE_MAX 最大舒张压。|
 
-#### FIELD_BODY_POSTURE
+### FIELD_BODY_POSTURE
 
-|Field|
+|**Field**|
 |:-------------------------------------------------|
 |public static final Field FIELD_BODY_POSTURE 身体姿态。|
 
-#### FIELD_MEASURE_BODY_PART_OF_BLOOD_PRESSURE
+### FIELD_MEASURE_BODY_PART_OF_BLOOD_PRESSURE
 
-|Field|
+|**Field**|
 |:--------------------------------------------------------------------------|
 |public static final Field FIELD_MEASURE_BODY_PART_OF_BLOOD_PRESSURE 血压测量位置。|
 
-#### FIELD_SPHYGMUS
+### FIELD_SPHYGMUS
 
-|Field|
+|**Field**|
 |:-------------------------------------------|
 |public static final Field FIELD_SPHYGMUS 脉搏。|
 
-#### FIELD_MEASUREMENT_ANOMALY_FLAG
+### FIELD_MEASUREMENT_ANOMALY_FLAG
 
-|Field|
+|**Field**|
 |:---------------------------------------------------------------|
 |public static final Field FIELD_MEASUREMENT_ANOMALY_FLAG 测量异常事件。|
 
-#### FIELD_BEFORE_MEASURE_ACTIVITY
+### FIELD_BEFORE_MEASURE_ACTIVITY
 
-|Field|
+|**Field**|
 |:-------------------------------------------------------------|
 |public static final Field FIELD_BEFORE_MEASURE_ACTIVITY 测量前活动。|
 
-#### FIELD_LEVEL
+### FIELD_LEVEL
 
-|Field|
+|**Field**|
 |:------------------------------------------|
 |public static final Field FIELD_LEVEL 血糖级别。|
 
-#### FIELD_CORRELATION_WITH_MEALTIME
+### FIELD_CORRELATION_WITH_MEALTIME
 
-|Field|
+|**Field**|
 |:--------------------------------------------------------------|
 |public static final Field FIELD_CORRELATION_WITH_MEALTIME 膳食时间。|
 
-#### FIELD_CORRELATION_WITH_SLEEP_STATE
+### FIELD_CORRELATION_WITH_SLEEP_STATE
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------------------|
 |public static final Field FIELD_CORRELATION_WITH_SLEEP_STATE 睡眠状态。|
 
-#### FIELD_SAMPLE_SOURCE
+### FIELD_SAMPLE_SOURCE
 
-|Field|
+|**Field**|
 |:----------------------------------------------------|
 |public static final Field FIELD_SAMPLE_SOURCE 血糖样本来源。|
 
-#### FIELD_SATURATION
+### FIELD_SATURATION
 
-|Field|
+|**Field**|
 |:------------------------------------------------|
 |public static final Field FIELD_SATURATION 血氧饱和度。|
 
-#### FIELD_SATURATION_AVG
+### FIELD_SATURATION_AVG
 
-|Field|
+|**Field**|
 |:------------------------------------------------------|
 |public static final Field FIELD_SATURATION_AVG 平均血氧饱和度。|
 
-#### FIELD_SATURATION_MIN
+### FIELD_SATURATION_MIN
 
-|Field|
+|**Field**|
 |:------------------------------------------------------|
 |public static final Field FIELD_SATURATION_MIN 最小血氧饱和度。|
 
-#### FIELD_SATURATION_MAX
+### FIELD_SATURATION_MAX
 
-|Field|
+|**Field**|
 |:------------------------------------------------------|
 |public static final Field FIELD_SATURATION_MAX 最大血氧饱和度。|
 
-#### FIELD_OXYGEN_SUPPLY_FLOW_RATE
+### FIELD_OXYGEN_SUPPLY_FLOW_RATE
 
-|Field|
+|**Field**|
 |:------------------------------------------------------------|
 |public static final Field FIELD_OXYGEN_SUPPLY_FLOW_RATE 供氧流速。|
 
-#### FIELD_OXYGEN_SUPPLY_FLOW_RATE_AVG
+### FIELD_OXYGEN_SUPPLY_FLOW_RATE_AVG
 
-|Field|
+|**Field**|
 |:------------------------------------------------------------------|
 |public static final Field FIELD_OXYGEN_SUPPLY_FLOW_RATE_AVG 平均供氧流速。|
 
-#### FIELD_OXYGEN_SUPPLY_FLOW_RATE_MIN
+### FIELD_OXYGEN_SUPPLY_FLOW_RATE_MIN
 
-|Field|
+|**Field**|
 |:------------------------------------------------------------------|
 |public static final Field FIELD_OXYGEN_SUPPLY_FLOW_RATE_MIN 最小供氧流速。|
 
-#### FIELD_OXYGEN_SUPPLY_FLOW_RATE_MAX
+### FIELD_OXYGEN_SUPPLY_FLOW_RATE_MAX
 
-|Field|
+|**Field**|
 |:------------------------------------------------------------------|
 |public static final Field FIELD_OXYGEN_SUPPLY_FLOW_RATE_MAX 最大供氧流速。|
 
-#### FIELD_OXYGEN_THERAPY
+### FIELD_OXYGEN_THERAPY
 
-|Field|
+|**Field**|
 |:--------------------------------------------------|
 |public static final Field FIELD_OXYGEN_THERAPY 氧疗法。|
 
-#### FIELD_SPO2_MEASUREMENT_MECHANISM
+### FIELD_SPO2_MEASUREMENT_MECHANISM
 
-|Field|
+|**Field**|
 |:-------------------------------------------------------------------|
 |public static final Field FIELD_SPO2_MEASUREMENT_MECHANISM 血氧饱和测量方法。|
 
-#### FIELD_SPO2_MEASUREMENT_APPROACH
+### FIELD_SPO2_MEASUREMENT_APPROACH
 
-|Field|
+|**Field**|
 |:-------------------------------------------------------------------|
 |public static final Field FIELD_SPO2_MEASUREMENT_APPROACH 通过血氧饱和度测量。|
 
-#### FIELD_TEMPERATURE
+### FIELD_TEMPERATURE
 
-|Field|
+|**Field**|
 |:----------------------------------------------|
 |public static final Field FIELD_TEMPERATURE 体温。|
 
-#### FIELD_MEASURE_BODY_PART_OF_TEMPERATURE
+### FIELD_MEASURE_BODY_PART_OF_TEMPERATURE
 
-|Field|
+|**Field**|
 |:---------------------------------------------------------------------|
 |public static final Field FIELD_MEASURE_BODY_PART_OF_TEMPERATURE 测温位置。|
 
-#### FIELD_MEASURE_TIME
+### FIELD_MEASURE_TIME
 
-|Field|
+|**Field**|
 |:------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final Field FIELD_MEASURE_TIME 血糖测量时机（枚举值）取值如下： 1：早餐前血糖（即空腹血糖） 2：早餐后血糖 3：午餐前血糖 4：午餐后血糖 5：晚餐前血糖 6：晚餐后血糖 7：睡前血糖 8：凌晨血糖 9：随机时段血糖|
 
-#### FIELD_TEXTURE
+### FIELD_TEXTURE
 
-|Field|
+|**Field**|
 |:----------------------------------------------|
 |public static final Field FIELD_TEXTURE 宫颈粘液质地。|
 
-#### FIELD_AMOUNT
+### FIELD_AMOUNT
 
-|Field|
+|**Field**|
 |:--------------------------------------------|
 |public static final Field FIELD_AMOUNT 宫颈粘液量。|
 
-#### FIELD_POSITION
+### FIELD_POSITION
 
-|Field|
+|**Field**|
 |:---------------------------------------------|
 |public static final Field FIELD_POSITION 宫颈位置。|
 
-#### FIELD_DILATION_STATUS
+### FIELD_DILATION_STATUS
 
-|Field|
+|**Field**|
 |:------------------------------------------------------|
 |public static final Field FIELD_DILATION_STATUS 宫颈扩张状态。|
 
-#### FIELD_FIRMNESS_LEVEL
+### FIELD_FIRMNESS_LEVEL
 
-|Field|
+|**Field**|
 |:---------------------------------------------------|
 |public static final Field FIELD_FIRMNESS_LEVEL 宫颈硬度。|
 
-#### FIELD_VOLUME
+### FIELD_VOLUME
 
-|Field|
+|**Field**|
 |:------------------------------------------|
 |public static final Field FIELD_VOLUME 月经量。|
 
-#### FIELD_DETECTION_RESULT
+### FIELD_DETECTION_RESULT
 
-|Field|
+|**Field**|
 |:--------------------------------------------------------|
 |public static final Field FIELD_DETECTION_RESULT 排卵期测试结果。|
 
-#### FIELD_THRESHOLD
+### FIELD_THRESHOLD
 
-|Field|
+|**Field**|
 |:----------------------------------------------|
 |public static final Field FIELD_THRESHOLD 心率阈值。|
 
-#### FIELD_AVG_HEART_RATE
+### FIELD_AVG_HEART_RATE
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------|
 |public static final Field FIELD_AVG_HEART_RATE 平均心率阈值。|
 
-#### FIELD_MAX_HEART_RATE
+### FIELD_MAX_HEART_RATE
 
-|Field|
+|**Field**|
 |:----------------------------------------------------|
 |public static final Field FIELD_MAX_HEART_RATE 最大心率值。|
 
-#### FIELD_MIN_HEART_RATE
+### FIELD_MIN_HEART_RATE
 
-|Field|
+|**Field**|
 |:----------------------------------------------------|
 |public static final Field FIELD_MIN_HEART_RATE 最小心率值。|
 
-#### FIELD_RECORD_DAY
+### FIELD_RECORD_DAY
 
-|Field|
+|**Field**|
 |:-----------------------------------------------|
 |public static final Field FIELD_RECORD_DAY 记录时间。|
 
-#### FIELD_STATUS
+### FIELD_STATUS
 
-|Field|
+|**Field**|
 |:--------------------------------------------|
 |public static final Field FIELD_STATUS 当日主状态。|
 
-#### FIELD_SUB_STATUS
+### FIELD_SUB_STATUS
 
-|Field|
+|**Field**|
 |:------------------------------------------------|
 |public static final Field FIELD_SUB_STATUS 当日子状态。|
 
-#### FIELD_REMARKS
+### FIELD_REMARKS
 
-|Field|
+|**Field**|
 |:------------------------------------------|
 |public static final Field FIELD_REMARKS 备注。|
 
-#### FIELD_TIME_ZONE
+### FIELD_TIME_ZONE
 
-|Field|
+|**Field**|
 |:--------------------------------------------|
 |public static final Field FIELD_TIME_ZONE 时区。|
 
-#### FIELD_DYSMENORRHOEA_LEVEL
+### FIELD_DYSMENORRHOEA_LEVEL
 
-|Field|
+|**Field**|
 |:--------------------------------------------------------|
 |public static final Field FIELD_DYSMENORRHOEA_LEVEL 痛经程度。|
 
-#### FIELD_PHYSICAL_SYMPTOMS
+### FIELD_PHYSICAL_SYMPTOMS
 
-|Field|
+|**Field**|
 |:------------------------------------------------------|
 |public static final Field FIELD_PHYSICAL_SYMPTOMS 身体症状。|
 
-#### SYS_MODE
+### SYS_MODE
 
-|Field|
+|**Field**|
 |:---------------------------------------|
 |public static final Field SYS_MODE 治疗模式。|
 
-#### SYS_SESSION_DATE
+### SYS_SESSION_DATE
 
-|Field|
+|**Field**|
 |:--------------------------------------------------|
 |public static final Field SYS_SESSION_DATE 生成报告的时间。|
 
-#### EVENT_AHI
+### EVENT_AHI
 
-|Field|
+|**Field**|
 |:---------------------------------------|
 |public static final Field EVENT_AHI AHI。|
 
-#### SYS_DURATION
+### SYS_DURATION
 
-|Field|
+|**Field**|
 |:-------------------------------------------|
 |public static final Field SYS_DURATION 使用时长。|
 
-#### LUMIS_TIDVOL_MEDIAN
+### LUMIS_TIDVOL_MEDIAN
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------|
 |public static final Field LUMIS_TIDVOL_MEDIAN 潮气量-中位数。|
 
-#### LUMIS_TIDVOL
+### LUMIS_TIDVOL
 
-|Field|
+|**Field**|
 |:-------------------------------------------------|
 |public static final Field LUMIS_TIDVOL 潮气量-95％分位数。|
 
-#### LUMIS_TIDVOL_MAX
+### LUMIS_TIDVOL_MAX
 
-|Field|
+|**Field**|
 |:--------------------------------------------------|
 |public static final Field LUMIS_TIDVOL_MAX 潮气量-最大值。|
 
-#### CLINICAL_RESPRATE_MEDIAN
+### CLINICAL_RESPRATE_MEDIAN
 
-|Field|
+|**Field**|
 |:-------------------------------------------------------------|
 |public static final Field CLINICAL_RESPRATE_MEDIAN 每分钟呼吸频率中位数。|
 
-#### CLINICAL_RESP_RATE
+### CLINICAL_RESP_RATE
 
-|Field|
+|**Field**|
 |:---------------------------------------------------------|
 |public static final Field CLINICAL_RESP_RATE 95%分位呼吸频率中位数。|
 
-#### CLINICAL_RESP_RATE_MAX
+### CLINICAL_RESP_RATE_MAX
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------------|
 |public static final Field CLINICAL_RESP_RATE_MAX 每分钟呼吸频率最大值。|
 
-#### LUMIS_IERATIO_MEDIAN
+### LUMIS_IERATIO_MEDIAN
 
-|Field|
+|**Field**|
 |:--------------------------------------------------------------|
 |public static final Field LUMIS_IERATIO_MEDIAN 吸气时间：呼气时间⽐率-中位数。|
 
-#### LUMIS_IERATIO_QUANTILE
+### LUMIS_IERATIO_QUANTILE
 
-|Field|
+|**Field**|
 |:-------------------------------------------------------------------|
 |public static final Field LUMIS_IERATIO_QUANTILE 吸气时间：呼气时间⽐率-95％分位数。|
 
-#### LUMIS_IERATIO_MAX
+### LUMIS_IERATIO_MAX
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------------|
 |public static final Field LUMIS_IERATIO_MAX 吸气时间：呼气时间⽐率-最大值。|
 
-#### MASK_OFF
+### MASK_OFF
 
-|Field|
+|**Field**|
 |:-----------------------------------------|
 |public static final Field MASK_OFF 面罩脱落次数。|
 
-#### HYPOVENTILATION_INDEX
+### HYPOVENTILATION_INDEX
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------|
 |public static final Field HYPOVENTILATION_INDEX 低通气指数。|
 
-#### OBSTRUCTIVE_APNEA_INDEX
+### OBSTRUCTIVE_APNEA_INDEX
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------------|
 |public static final Field OBSTRUCTIVE_APNEA_INDEX 阻塞性呼吸暂停指数。|
 
-#### PRESSURE_BELOW
+### PRESSURE_BELOW
 
-|Field|
+|**Field**|
 |:--------------------------------------------------------------|
 |public static final Field PRESSURE_BELOW P95（95%的使用时间内的压力值，小于）。|
 
-#### HYPOVENTILATION_EVENT_TIMES
+### HYPOVENTILATION_EVENT_TIMES
 
-|Field|
+|**Field**|
 |:--------------------------------------------------------------|
 |public static final Field HYPOVENTILATION_EVENT_TIMES 低通气事件总次数。|
 
-#### SNORING_EVENT_TIMES
+### SNORING_EVENT_TIMES
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------|
 |public static final Field SNORING_EVENT_TIMES 鼾声事件总次数。|
 
-#### CENTER_APNEA_EVENT_TIMES
+### CENTER_APNEA_EVENT_TIMES
 
-|Field|
+|**Field**|
 |:-----------------------------------------------------------------|
 |public static final Field CENTER_APNEA_EVENT_TIMES 阻塞（阻塞性呼吸暂停总次数）。|
 
-#### OBSTRUCTIVE_APNEA_EVENT_TIMES
+### OBSTRUCTIVE_APNEA_EVENT_TIMES
 
-|Field|
+|**Field**|
 |:----------------------------------------------------------------------|
 |public static final Field OBSTRUCTIVE_APNEA_EVENT_TIMES 中枢（开放式呼吸暂停）总次数。|
 
-#### AIR_FLOW_LIMIT_EVENT_TIMES
+### AIR_FLOW_LIMIT_EVENT_TIMES
 
-|Field|
+|**Field**|
 |:------------------------------------------------------------|
 |public static final Field AIR_FLOW_LIMIT_EVENT_TIMES 气流受限总次数。|
 
-#### MASSIVE_LEAK_EVENT_TIMES
+### MASSIVE_LEAK_EVENT_TIMES
 
-|Field|
+|**Field**|
 |:------------------------------------------------------------|
 |public static final Field MASSIVE_LEAK_EVENT_TIMES 大量漏气事件总次数。|
 
-#### UNKNOW_EVENT_TIMES
+### UNKNOW_EVENT_TIMES
 
-|Field|
+|**Field**|
 |:----------------------------------------------------|
 |public static final Field UNKNOW_EVENT_TIMES 未知事件总次数。|
 
-#### ALL_EVENT_TIMES
+### ALL_EVENT_TIMES
 
-|Field|
+|**Field**|
 |:--------------------------------------------------|
 |public static final Field ALL_EVENT_TIMES 所有事件统计总数。|
 

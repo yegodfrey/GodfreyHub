@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-42
 
 ArkTS侧
 
-```
+```ts
 // index.ets
 import testNapi from 'libentry.so';
 import { PromptAction } from '@kit.ArkUI';
@@ -43,25 +43,25 @@ struct NativeGetArkTSObject {
 }
 ```
 
-```
+```ts
 // index.d.ts
 export const callFunction: (a:object) => void;
 ```
 
 Native侧
 
-```
-// Pass in an instance object and call functions in the object on the C++side 
+```cpp
+// Pass in an instance object and call functions in the object on the C++side
 #include "napi/native_api.h" 
 static napi_value CallFunction(napi_env env, napi_callback_info info) { 
-    // Get instance object 
+   // Get instance object
     size_t argc = 1; 
     napi_value args[1] = {nullptr}; 
     napi_get_cb_info(env, info, &argc, args, NULL, NULL); 
-    // Method for obtaining objects 
+  // Method for obtaining objects
     napi_value onCall; 
     napi_get_named_property(env, args[0], "onCall", &onCall); 
-    // Call functions in the object 
+  // Call functions in the object
     napi_value res; 
     napi_call_function(env, args[0], onCall, 0, nullptr, &res); 
     return onCall; 

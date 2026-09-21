@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/harmonyos-sport
 
 # 跑步运动记录
 
-* [写入跑步运动记录](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/harmonyos-write-sports-recording-scene-0000001234047133)  
-* [读取跑步运动记录](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/harmonyos-read-sports-recording-scene-0000001188526106)  
+* **[写入跑步运动记录](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/harmonyos-write-sports-recording-scene-0000001234047133)**   
+* **[读取跑步运动记录](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/harmonyos-read-sports-recording-scene-0000001188526106)**   

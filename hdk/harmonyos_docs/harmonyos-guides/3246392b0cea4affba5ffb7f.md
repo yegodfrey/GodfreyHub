@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-mana
 
 # 资源管理
 
-* [Rawfile开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawfile-guidelines)  
+* **[Rawfile开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawfile-guidelines)**   

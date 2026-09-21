@@ -6,50 +6,54 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-c
 
 # @ohos.contact (联系人)
 
-本模块提供联系人管理能力，包括添加联系人、删除联系人、更新联系人等。  
-![](https://media:401788444893800874)  
-本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。  
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
-#### 导入模块
+本模块提供联系人管理能力，包括添加联系人、删除联系人、更新联系人等。
+> 说明
+>
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-```
+## 导入模块
+
+```ts
 import { contact } from '@kit.ContactsKit';
 ```
 
-#### contact.addContact^10+^
+## contact.addContact^10+^
 
-addContact(context: Context, contact: Contact, callback: AsyncCallback\<number\>): void
+addContact(context: Context, contact: Contact, callback: AsyncCallback<number>): void
 
 添加联系人。使用callback异步回调。
 
-元服务API：从API version 12 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:--------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |contact|[Contact](#contact)|是|联系人信息。|
-|callback|AsyncCallback\<number\>|是|回调函数。当添加联系人成功，err为undefined，data为返回添加的联系人id；否则为错误对象。|
+|callback|AsyncCallback<number>|是|回调函数。当添加联系人成功，err为undefined，data为返回添加的联系人id；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 4.Internal error. Failed to save contact portrait.|
 
-示例：  
-![](https://media:401788444893824875)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
   import { BusinessError } from '@kit.BasicServicesKit';
   import { common } from '@kit.AbilityKit';
   import { contact } from '@kit.ContactsKit';
@@ -72,28 +76,29 @@ addContact(context: Context, contact: Contact, callback: AsyncCallback\<number\>
   });
 ```
 
-#### contact.addContact^(deprecated)^
+## contact.addContact^(deprecated)^
 
-addContact(contact: Contact, callback: AsyncCallback\<number\>): void
+addContact(contact: Contact, callback: AsyncCallback<number>): void
 
-添加联系人。使用callback异步回调。  
-![](https://media:401788444893847876)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[addContact](#contactaddcontact10)替代。
+添加联系人。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[addContact](#contactaddcontact10)替代。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:---------------------------------------------------|
+|:-------|:--------------------|:-|:---------------------------------------------------|
 |contact|[Contact](#contact)|是|联系人信息。|
-|callback|AsyncCallback\<number\>|是|回调函数。当添加联系人成功，err为undefined，data为返回添加的联系人id；否则为错误对象。|
+|callback|AsyncCallback<number>|是|回调函数。当添加联系人成功，err为undefined，data为返回添加的联系人id；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
@@ -116,45 +121,46 @@ contact.addContact(context, {
 });
 ```
 
-#### contact.addContact^10+^
+## contact.addContact^10+^
 
-addContact(context: Context, contact: Contact): Promise\<number\>
+addContact(context: Context, contact: Contact): Promise<number>
 
 添加联系人。使用Promise异步回调。
 
-元服务API：从API version 12 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |contact|[Contact](#contact)|是|联系人信息。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:--------------------|
-|Promise\<number\>|Promise对象，返回添加的联系人id。|
+|:--------------|:--------------------|
+|Promise<number>|Promise对象，返回添加的联系人id。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 4.Internal error. Failed to save contact portrait.|
 
-示例：  
-![](https://media:401788444893868877)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
   import { contact } from '@kit.ContactsKit';
   import { common } from '@kit.AbilityKit';
 
@@ -173,33 +179,34 @@ addContact(context: Context, contact: Contact): Promise\<number\>
   });
 ```
 
-#### contact.addContact^(deprecated)^
+## contact.addContact^(deprecated)^
 
-addContact(contact: Contact): Promise\<number\>
+addContact(contact: Contact): Promise<number>
 
-添加联系人。使用Promise异步回调。  
-![](https://media:401788444893894878)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[addContact](#contactaddcontact10-1)替代。
+添加联系人。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[addContact](#contactaddcontact10-1)替代。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------|:-|:-----|
 |contact|[Contact](#contact)|是|联系人信息。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:--------------------|
-|Promise\<number\>|Promise对象，返回添加的联系人id。|
+|:--------------|:--------------------|
+|Promise<number>|Promise对象，返回添加的联系人id。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 // Promise 成功时返回添加成功后的数据。
@@ -217,36 +224,37 @@ promise.then((data) => {
 });
 ```
 
-#### contact.deleteContact^10+^
+## contact.deleteContact^10+^
 
-deleteContact(context: Context, key: string, callback: AsyncCallback\<void\>): void
+deleteContact(context: Context, key: string, callback: AsyncCallback<void>): void
 
 删除联系人。使用callback异步回调。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |key|string|是|联系人的唯一查询键key，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
-|callback|AsyncCallback\<void\>|是|回调函数。当删除联系人成功，err为undefined，否则为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当删除联系人成功，err为undefined，否则为错误对象。|
 
-错误码：  
+**错误码：**
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444893918879)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
   import { BusinessError } from '@kit.BasicServicesKit';
   import { contact } from '@kit.ContactsKit';
   import { common } from '@kit.AbilityKit';
@@ -266,28 +274,29 @@ deleteContact(context: Context, key: string, callback: AsyncCallback\<void\>): v
   });
 ```
 
-#### contact.deleteContact^(deprecated)^
+## contact.deleteContact^(deprecated)^
 
-deleteContact(key: string, callback: AsyncCallback\<void\>): void
+deleteContact(key: string, callback: AsyncCallback<void>): void
 
-删除联系人。使用callback异步回调。  
-![](https://media:401788444893941880)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[deleteContact](#contactdeletecontact10)替代。
+删除联系人。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[deleteContact](#contactdeletecontact10)替代。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:--------------------------------------------------------------|
+|:-------|:------------------|:-|:--------------------------------------------------------------|
 |key|string|是|联系人的唯一查询键key，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
-|callback|AsyncCallback\<void\>|是|回调函数。当删除联系人成功，err为undefined，否则为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当删除联系人成功，err为undefined，否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -306,41 +315,42 @@ contact.selectContacts().then((data) => {
 });
 ```
 
-#### contact.deleteContact^10+^
+## contact.deleteContact^10+^
 
-deleteContact(context: Context, key: string): Promise\<void\>
+deleteContact(context: Context, key: string): Promise<void>
 
 删除联系人。使用Promise异步回调。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |key|string|是|联系人的唯一查询键key，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:-------------------------|
-|Promise\<void\>|Promise对象。无返回结果的Promise对象。|
+|:------------|:-------------------------|
+|Promise<void>|Promise对象。无返回结果的Promise对象。|
 
-错误码：  
+**错误码：**
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444893970881)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -356,33 +366,34 @@ contact.selectContacts().then((data) => {
 });
 ```
 
-#### contact.deleteContact^(deprecated)^
+## contact.deleteContact^(deprecated)^
 
-deleteContact(key: string): Promise\<void\>
+deleteContact(key: string): Promise<void>
 
-删除联系人。使用Promise异步回调。  
-![](https://media:401788444893993882)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[deleteContact](#contactdeletecontact10-1)替代。
+删除联系人。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[deleteContact](#contactdeletecontact10-1)替代。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--|:-----|:-|:---------------------------------------------------------------|
 |key|string|是|联系人的唯一查询键key值，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:-------------------------|
-|Promise\<void\>|Promise对象。无返回结果的Promise对象。|
+|:------------|:-------------------------|
+|Promise<void>|Promise对象。无返回结果的Promise对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 // 通过selectContacts接口选择联系人。
@@ -395,38 +406,39 @@ contact.selectContacts().then((data) => {
 });
 ```
 
-#### contact.updateContact^10+^
+## contact.updateContact^10+^
 
-updateContact(context: Context, contact: Contact, callback: AsyncCallback\<void\>): void
+updateContact(context: Context, contact: Contact, callback: AsyncCallback<void>): void
 
 更新联系人。使用callback异步回调。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |contact|[Contact](#contact)|是|联系人信息。id必填，可通过[selectContacts](#contactselectcontacts10-1)接口获取。|
-|callback|AsyncCallback\<void\>|是|回调函数。当更新联系人成功，err为undefined，否则为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当更新联系人成功，err为undefined，否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawId.|
 
-示例：  
-![](https://media:401788444894018883)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -454,28 +466,29 @@ contact.selectContacts().then((data) => {
 });
 ```
 
-#### contact.updateContact^(deprecated)^
+## contact.updateContact^(deprecated)^
 
-updateContact(contact: Contact, callback: AsyncCallback\<void\>): void
+updateContact(contact: Contact, callback: AsyncCallback<void>): void
 
-更新联系人。使用callback异步回调。  
-![](https://media:401788444894045884)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[updateContact](#contactupdatecontact10)替代。
+更新联系人。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[updateContact](#contactupdatecontact10)替代。
 
-需要权限：ohos.permission.WRITE_CONTACTS和ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS和ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:--------------------------------------------------------------|
+|:-------|:------------------|:-|:--------------------------------------------------------------|
 |contact|[Contact](#contact)|是|联系人信息。id必填，可通过[selectContacts](#contactselectcontacts10-1)接口获取。|
-|callback|AsyncCallback\<void\>|是|回调函数。当更新联系人成功，err为undefined，否则为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当更新联系人成功，err为undefined，否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -499,39 +512,40 @@ contact.selectContacts().then((data) => {
 });
 ```
 
-#### contact.updateContact^10+^
+## contact.updateContact^10+^
 
-updateContact(context: Context, contact: Contact, attrs: ContactAttributes, callback: AsyncCallback\<void\>): void
+updateContact(context: Context, contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void
 
 更新联系人（支持传入联系人的属性列表）。使用callback异步回调。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:--------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |contact|[Contact](#contact)|是|联系人信息。id必填，可通过[selectContacts](#contactselectcontacts10-1)接口获取。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则更新联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<void\>|是|回调函数。当更新联系人成功，err为undefined，否则为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当更新联系人成功，err为undefined，否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawId.|
 
-示例：  
-![](https://media:401788444894068885)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -560,29 +574,30 @@ contact.selectContacts().then((data) => {
 });
 ```
 
-#### contact.updateContact^(deprecated)^
+## contact.updateContact^(deprecated)^
 
-updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback\<void\>): void
+updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void
 
-更新联系人，支持传入联系人的属性列表。使用callback异步回调。  
-![](https://media:401788444894105886)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[updateContact](#contactupdatecontact10-1)替代。
+更新联系人，支持传入联系人的属性列表。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[updateContact](#contactupdatecontact10-1)替代。
 
-需要权限：ohos.permission.WRITE_CONTACTS和ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS和ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:--------------------------------------|:-|:--------------------------------------------------------------|
 |contact|[Contact](#contact)|是|联系人信息。id必填，可通过[selectContacts](#contactselectcontacts10-1)接口获取。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则更新联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<void\>|是|回调函数。当更新联系人成功，err为undefined，否则为错误对象。|
+|callback|AsyncCallback<void>|是|回调函数。当更新联系人成功，err为undefined，否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -609,17 +624,17 @@ contact.selectContacts().then((data) => {
 });
 ```
 
-#### contact.updateContact^10+^
+## contact.updateContact^10+^
 
-updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Promise\<void\>
+updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Promise<void>
 
 更新联系人（支持传入联系人的属性列表）。使用Promise异步回调。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -627,26 +642,27 @@ updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Pr
 |contact|[Contact](#contact)|是|联系人信息。id必填，可通过[selectContacts](#contactselectcontacts10-1)接口获取。|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，如果为空，则更新联系人的所有属性字段（包括姓名、电话、邮箱等）。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:-------------------------|
-|Promise\<void\>|Promise对象。无返回结果的Promise对象。|
+|:------------|:-------------------------|
+|Promise<void>|Promise对象。无返回结果的Promise对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 2.Failed to open contact portrait file. 3.Internal error. Invalid contact id. Failed to generate contact profile. 4.Internal error. Failed to save contact portrait. 5.Internal error. Invalid contact rawId.|
 
-示例：  
-![](https://media:401788444894127887)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
   import { contact } from '@kit.ContactsKit';
   import { common } from '@kit.AbilityKit';
 
@@ -671,34 +687,35 @@ updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Pr
   });
 ```
 
-#### contact.updateContact^(deprecated)^
+## contact.updateContact^(deprecated)^
 
-updateContact(contact: Contact, attrs?: ContactAttributes): Promise\<void\>
+updateContact(contact: Contact, attrs?: ContactAttributes): Promise<void>
 
-更新联系人，支持传入联系人的属性列表。使用Promise异步回调。  
-![](https://media:401788444894151888)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[updateContact](#contactupdatecontact10-2)替代。
+更新联系人，支持传入联系人的属性列表。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[updateContact](#contactupdatecontact10-2)替代。
 
-需要权限：ohos.permission.WRITE_CONTACTS和ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS和ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------------------|:-|:--------------------------------------------------------------|
 |contact|[Contact](#contact)|是|联系人信息。id必填，可通过[selectContacts](#contactselectcontacts10-1)接口获取。|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，如果为空，则更新联系人的所有属性字段（包括姓名、电话、邮箱等）。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:-------------------------|
-|Promise\<void\>|Promise对象。无返回结果的Promise对象。|
+|:------------|:-------------------------|
+|Promise<void>|Promise对象。无返回结果的Promise对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 // 通过selectContacts接口选择联系人。
@@ -720,38 +737,39 @@ contact.selectContacts().then((data) => {
 });
 ```
 
-#### contact.isLocalContact^10+^
+## contact.isLocalContact^10+^
 
-isLocalContact(context: Context, id: number, callback: AsyncCallback\<boolean\>): void
+isLocalContact(context: Context, id: number, callback: AsyncCallback<boolean>): void
 
 判断当前联系人id是否在电话簿中。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:---------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |id|number|是|联系人对象的id属性，一个联系人对应一个id。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。成功返回布尔值，true代表联系人id在本地电话簿中，false则代表联系人id不在本地电话簿中；失败返回具体的错误码信息。|
+|callback|AsyncCallback<boolean>|是|回调函数。成功返回布尔值，true代表联系人id在本地电话簿中，false则代表联系人id不在本地电话簿中；失败返回具体的错误码信息。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:--------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.|
 
-示例：  
-![](https://media:401788444894174889)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -767,28 +785,29 @@ contact.isLocalContact(context, 1, (err: BusinessError, data) => {
 });
 ```
 
-#### contact.isLocalContact^(deprecated)^
+## contact.isLocalContact^(deprecated)^
 
-isLocalContact(id: number, callback: AsyncCallback\<boolean\>): void
+isLocalContact(id: number, callback: AsyncCallback<boolean>): void
 
-判断当前联系人id是否在电话簿中。使用callback异步回调。  
-![](https://media:401788444894197890)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[isLocalContact](#contactislocalcontact10)替代。
+判断当前联系人id是否在电话簿中。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[isLocalContact](#contactislocalcontact10)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:------------------------------------------------------------------|
+|:-------|:---------------------|:-|:------------------------------------------------------------------|
 |id|number|是|联系人对象的id属性，一个联系人对应一个id。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。成功返回布尔值，true代表联系人id在本地电话簿中，false则代表联系人id不在本地电话簿中；失败返回具体的错误码信息。|
+|callback|AsyncCallback<boolean>|是|回调函数。成功返回布尔值，true代表联系人id在本地电话簿中，false则代表联系人id不在本地电话簿中；失败返回具体的错误码信息。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -802,43 +821,44 @@ contact.isLocalContact(1, (err: BusinessError, data) => {
 });
 ```
 
-#### contact.isLocalContact^10+^
+## contact.isLocalContact^10+^
 
-isLocalContact(context: Context, id: number): Promise\<boolean\>
+isLocalContact(context: Context, id: number): Promise<boolean>
 
 判断当前联系人id是否在电话簿中。使用Promise异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |id|number|是|联系人对象的id属性，一个联系人对应一个id。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:-----------------------------------------------------|
-|Promise\<boolean\>|Promise对象。返回true表示联系人id在本地电话簿中，返回false表示联系人id不在本地电话簿中。|
+|:---------------|:-----------------------------------------------------|
+|Promise<boolean>|Promise对象。返回true表示联系人id在本地电话簿中，返回false表示联系人id不在本地电话簿中。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:--------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.|
 
-示例：  
-![](https://media:401788444894217891)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
   import { contact } from '@kit.ContactsKit';
   import { common } from '@kit.AbilityKit';
 
@@ -850,33 +870,34 @@ isLocalContact(context: Context, id: number): Promise\<boolean\>
   });
 ```
 
-#### contact.isLocalContact^(deprecated)^
+## contact.isLocalContact^(deprecated)^
 
-isLocalContact(id: number): Promise\<boolean\>
+isLocalContact(id: number): Promise<boolean>
 
-判断当前联系人id是否在电话簿中。使用Promise异步回调。  
-![](https://media:401788444894240892)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[isLocalContact](#contactislocalcontact10-1)替代。
+判断当前联系人id是否在电话簿中。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[isLocalContact](#contactislocalcontact10-1)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--|:-----|:-|:----------------------|
 |id|number|是|联系人对象的id属性，一个联系人对应一个id。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:-----------------------------------------------------|
-|Promise\<boolean\>|Promise对象。返回true表示联系人id在本地电话簿中，返回false表示联系人id不在本地电话簿中。|
+|:---------------|:-----------------------------------------------------|
+|Promise<boolean>|Promise对象。返回true表示联系人id在本地电话簿中，返回false表示联系人id不在本地电话簿中。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 // 判断id为1的联系人是否在本地电话簿中
@@ -886,38 +907,39 @@ promise.then((data) => {
 });
 ```
 
-#### contact.isMyCard^10+^
+## contact.isMyCard^10+^
 
-isMyCard(context: Context, id: number, callback: AsyncCallback\<boolean\>): void
+isMyCard(context: Context, id: number, callback: AsyncCallback<boolean>): void
 
 判断是否为"我的名片"。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:---------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |id|number|是|名片对象的id属性。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。成功返回是否为"我的名片"的布尔值。true代表的是"我的名片"，false代表不是；失败时则返回错误码。|
+|callback|AsyncCallback<boolean>|是|回调函数。成功返回是否为"我的名片"的布尔值。true代表的是"我的名片"，false代表不是；失败时则返回错误码。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:--------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.|
 
-示例：  
-![](https://media:401788444894266893)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
   import { BusinessError } from '@kit.BasicServicesKit';
   import { contact } from '@kit.ContactsKit';
   import { common } from '@kit.AbilityKit';
@@ -933,32 +955,33 @@ isMyCard(context: Context, id: number, callback: AsyncCallback\<boolean\>): void
   });
 ```
 
-#### contact.isMyCard^(deprecated)^
+## contact.isMyCard^(deprecated)^
 
-isMyCard(id: number, callback: AsyncCallback\<boolean\>): void
+isMyCard(id: number, callback: AsyncCallback<boolean>): void
 
-判断是否为"我的名片"。使用callback异步回调。  
-![](https://media:401788444894288894)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[isMyCard](#contactismycard10)替代。
+判断是否为"我的名片"。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[isMyCard](#contactismycard10)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:-------------------------------------------------------------|
+|:-------|:---------------------|:-|:-------------------------------------------------------------|
 |id|number|是|名片对象的id属性。|
-|callback|AsyncCallback\<boolean\>|是|回调函数。成功返回是否为"我的名片"的布尔值。true代表的是"我的名片"，false则代表不是；失败返回具体的错误码信息。|
+|callback|AsyncCallback<boolean>|是|回调函数。成功返回是否为"我的名片"的布尔值。true代表的是"我的名片"，false则代表不是；失败返回具体的错误码信息。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
-// 判断id为1的名片是否为“我的名片”
+// 判断id为1的名片是否为"我的名片"
 contact.isMyCard(1, (err: BusinessError, data) => {
   if (err) {
     console.error(`Failed to isMyCard. Code: ${err.code}, message: ${err.message}`);
@@ -968,43 +991,44 @@ contact.isMyCard(1, (err: BusinessError, data) => {
 });
 ```
 
-#### contact.isMyCard^10+^
+## contact.isMyCard^10+^
 
-isMyCard(context: Context, id: number): Promise\<boolean\>
+isMyCard(context: Context, id: number): Promise<boolean>
 
 判断是否为"我的名片"。使用Promise异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |id|number|是|名片对象的id属性。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:-------------------------------------|
-|Promise\<boolean\>|Promise对象。返回true表示是"我的名片"，返回false代表不是。|
+|:---------------|:-------------------------------------|
+|Promise<boolean>|Promise对象。返回true表示是"我的名片"，返回false代表不是。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:--------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.|
 
-示例：  
-![](https://media:401788444894314895)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
   import { contact } from '@kit.ContactsKit';
   import { common } from '@kit.AbilityKit';
 
@@ -1016,73 +1040,75 @@ isMyCard(context: Context, id: number): Promise\<boolean\>
   });
 ```
 
-#### contact.isMyCard^(deprecated)^
+## contact.isMyCard^(deprecated)^
 
-isMyCard(id: number): Promise\<boolean\>
+isMyCard(id: number): Promise<boolean>
 
-判断是否为"我的名片"。使用Promise异步回调。  
-![](https://media:401788444894336896)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[isMyCard](#contactismycard10-1)替代。
+判断是否为"我的名片"。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[isMyCard](#contactismycard10-1)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--|:-----|:-|:---------|
 |id|number|是|名片对象的id属性。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:-------------------------------------|
-|Promise\<boolean\>|Promise对象。返回true表示是"我的名片"，返回false代表不是。|
+|:---------------|:-------------------------------------|
+|Promise<boolean>|Promise对象。返回true表示是"我的名片"，返回false代表不是。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
-// 判断id为1的名片是否为“我的名片”
+// 判断id为1的名片是否为"我的名片"
 let promise = contact.isMyCard(1);
 promise.then((data) => {
   console.info(`Succeeded in isMyCard. data->${JSON.stringify(data)}`);
 });
 ```
 
-#### contact.queryMyCard^10+^
+## contact.queryMyCard^10+^
 
-queryMyCard(context: Context, callback: AsyncCallback\<Contact\>): void
+queryMyCard(context: Context, callback: AsyncCallback<Contact>): void
 
 查询"我的名片"。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:---------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询"我的名片"成功，err为undefined，data为获取到的"我的名片"；否则为错误对象。|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询"我的名片"成功，err为undefined，data为获取到的"我的名片"；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444894368897)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
   import { BusinessError } from '@kit.BasicServicesKit';
   import { contact } from '@kit.ContactsKit';
   import { common } from '@kit.AbilityKit';
@@ -1098,31 +1124,32 @@ queryMyCard(context: Context, callback: AsyncCallback\<Contact\>): void
   });
 ```
 
-#### contact.queryMyCard^(deprecated)^
+## contact.queryMyCard^(deprecated)^
 
-queryMyCard(callback: AsyncCallback\<Contact\>): void
+queryMyCard(callback: AsyncCallback<Contact>): void
 
-查询"我的名片"。使用callback异步回调。  
-![](https://media:401788444894394898)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryMyCard](#contactquerymycard10)替代。
+查询"我的名片"。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryMyCard](#contactquerymycard10)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------|:-|:------------------------------------------------------|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询"我的名片"成功，err为undefined，data为获取到的"我的名片"；否则为错误对象。|
+|:-------|:---------------------------------|:-|:------------------------------------------------------|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询"我的名片"成功，err为undefined，data为获取到的"我的名片"；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
-// 回调函数，查询“我的名片”
+// 回调函数，查询"我的名片"
 contact.queryMyCard((err: BusinessError, data) => {
   if (err) {
     console.error(`Failed to query My Card. Code: ${err.code}, message: ${err.message}`);
@@ -1132,38 +1159,39 @@ contact.queryMyCard((err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryMyCard^10+^
+## contact.queryMyCard^10+^
 
-queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback\<Contact\>): void
+queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
 查询"我的名片"（支持传入联系人的属性列表）。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:--------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询"我的名片"成功，err为undefined，data为获取到的"我的名片"；否则为错误对象。|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询"我的名片"成功，err为undefined，data为获取到的"我的名片"；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444894418899)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
   import { BusinessError } from '@kit.BasicServicesKit';
   import { contact } from '@kit.ContactsKit';
   import { common } from '@kit.AbilityKit';
@@ -1181,32 +1209,33 @@ queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback\
   });
 ```
 
-#### contact.queryMyCard^(deprecated)^
+## contact.queryMyCard^(deprecated)^
 
-queryMyCard(attrs: ContactAttributes, callback: AsyncCallback\<Contact\>): void
+queryMyCard(attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
-查询"我的名片"（支持传入联系人的属性列表）。使用callback异步回调。  
-![](https://media:401788444894457900)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryMyCard](#contactquerymycard10-1)替代。
+查询"我的名片"（支持传入联系人的属性列表）。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryMyCard](#contactquerymycard10-1)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:--------------------------------------|:-|:------------------------------------------------------|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询"我的名片"成功，err为undefined，data为获取到的"我的名片"；否则为错误对象。|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询"我的名片"成功，err为undefined，data为获取到的"我的名片"；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
-// 传入联系人的属性列表，查询“我的名片”
+// 传入联系人的属性列表，查询"我的名片"
 contact.queryMyCard({
   attributes: [contact.Attribute.ATTR_NAME, contact.Attribute.ATTR_PHONE]
 }, (err: BusinessError, data) => {
@@ -1218,43 +1247,44 @@ contact.queryMyCard({
 });
 ```
 
-#### contact.queryMyCard^10+^
+## contact.queryMyCard^10+^
 
-queryMyCard(context: Context, attrs?: ContactAttributes): Promise\<Contact\>
+queryMyCard(context: Context, attrs?: ContactAttributes): Promise<Contact>
 
 查询"我的名片"（支持传入联系人的属性列表）。使用Promise异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------------------|:-----------------------|
-|Promise\<[Contact](#contact)\>|Promise对象。返回"我的名片"联系人对象。|
+|:---------------------------|:-----------------------|
+|Promise<[Contact](#contact)>|Promise对象。返回"我的名片"联系人对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444894489901)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
   import { contact } from '@kit.ContactsKit';
   import { common } from '@kit.AbilityKit';
 
@@ -1268,36 +1298,37 @@ queryMyCard(context: Context, attrs?: ContactAttributes): Promise\<Contact\>
   });
 ```
 
-#### contact.queryMyCard^(deprecated)^
+## contact.queryMyCard^(deprecated)^
 
-queryMyCard(attrs?: ContactAttributes): Promise\<Contact\>
+queryMyCard(attrs?: ContactAttributes): Promise<Contact>
 
-查询"我的名片"（支持传入联系人的属性列表）。使用Promise异步回调。  
-![](https://media:401788444894607902)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryMyCard](#contactquerymycard10-2)替代。
+查询"我的名片"（支持传入联系人的属性列表）。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryMyCard](#contactquerymycard10-2)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------|:-|:----------------------------------------|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------------------|:-----------------------|
-|Promise\<[Contact](#contact)\>|Promise对象。返回"我的名片"联系人对象。|
+|:---------------------------|:-----------------------|
+|Promise<[Contact](#contact)>|Promise对象。返回"我的名片"联系人对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
-// 回调函数，传入联系人的属性列表，查询“我的名片”。
+// 回调函数，传入联系人的属性列表，查询"我的名片"。
 let promise = contact.queryMyCard({
   attributes: [contact.Attribute.ATTR_NAME, contact.Attribute.ATTR_PHONE]
 });
@@ -1306,25 +1337,26 @@ promise.then((data) => {
 });
 ```
 
-#### contact.selectContact^(deprecated)^
+## contact.selectContact^(deprecated)^
 
-selectContact(callback: AsyncCallback\<Array\<Contact\>\>): void
+selectContact(callback: AsyncCallback<Array<Contact>>): void
 
-调用选择联系人接口，打开选择联系人UI界面。使用callback异步回调。  
-![](https://media:401788444894723903)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[selectContacts](#contactselectcontacts10)替代。
+调用选择联系人接口，打开选择联系人UI界面。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[selectContacts](#contactselectcontacts10)替代。
 
-系统能力：SystemCapability.Applications.Contacts
+**系统能力**：SystemCapability.Applications.Contacts
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:-----------------------------------------------------|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当调用选择联系人接口成功，err为undefined，data为选择的联系人数组；否则为错误对象。|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当调用选择联系人接口成功，err为undefined，data为选择的联系人数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -1338,25 +1370,26 @@ contact.selectContact((err: BusinessError, data) => {
 });
 ```
 
-#### contact.selectContact^(deprecated)^
+## contact.selectContact^(deprecated)^
 
-selectContact(): Promise\<Array\<Contact\>\>
+selectContact(): Promise<Array<Contact>>
 
-调用选择联系人接口，打开选择联系人UI界面。使用Promise异步回调。  
-![](https://media:401788444895335904)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[selectContacts](#contactselectcontacts10-1)替代。
+调用选择联系人接口，打开选择联系人UI界面。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[selectContacts](#contactselectcontacts10-1)替代。
 
-系统能力：SystemCapability.Applications.Contacts
+**系统能力**：SystemCapability.Applications.Contacts
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------|:----------------------|
-|Promise\<Array\<[Contact](#contact)\>\>|Promise对象。返回选择的联系人数组对象。|
+|:----------------------------------|:----------------------|
+|Promise<Array<[Contact](#contact)>>|Promise对象。返回选择的联系人数组对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 // 打开选择联系人UI界面
@@ -1366,33 +1399,33 @@ promise.then((data) => {
 });
 ```
 
-#### contact.selectContacts^10+^
+## contact.selectContacts^10+^
 
-selectContacts(callback: AsyncCallback\<Array\<Contact\>\>): void
+selectContacts(callback: AsyncCallback<Array<Contact>>): void
 
 调用选择联系人接口，打开选择联系人UI界面。使用callback异步回调。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.Contacts
+**系统能力**：SystemCapability.Applications.Contacts
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:-----------------------------------------------------|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当调用选择联系人接口成功，err为undefined，data为选择的联系人数组；否则为错误对象。|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当调用选择联系人接口成功，err为undefined，data为选择的联系人数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -1406,25 +1439,25 @@ contact.selectContacts((err: BusinessError, data) => {
 });
 ```
 
-#### contact.selectContacts^10+^
+## contact.selectContacts^10+^
 
-selectContacts(): Promise\<Array\<Contact\>\>
+selectContacts(): Promise<Array<Contact>>
 
 调用选择联系人接口，打开选择联系人UI界面。使用Promise异步回调。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.Contacts
+**系统能力**：SystemCapability.Applications.Contacts
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------|:----------------------|
-|Promise\<Array\<[Contact](#contact)\>\>|Promise对象。返回选择的联系人数组对象。|
+|:----------------------------------|:----------------------|
+|Promise<Array<[Contact](#contact)>>|Promise对象。返回选择的联系人数组对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 // 打开选择联系人UI界面
@@ -1434,34 +1467,34 @@ promise.then((data) => {
 });
 ```
 
-#### contact.selectContacts^10+^
+## contact.selectContacts^10+^
 
-selectContacts(options: ContactSelectionOptions, callback: AsyncCallback\<Array\<Contact\>\>): void
+selectContacts(options: ContactSelectionOptions, callback: AsyncCallback<Array<Contact>>): void
 
 调用选择联系人接口，打开选择联系人UI界面（选择联系人时支持传入筛选条件[ContactSelectionOptions](#contactselectionoptions10)）。使用callback异步回调。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.Contacts
+**系统能力**：SystemCapability.Applications.Contacts
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:----------------------------------------------------|:-|:-----------------------------------------------------|
 |options|[ContactSelectionOptions](#contactselectionoptions10)|是|选择联系人时的筛选条件，表示单选或多选。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当调用选择联系人接口成功，err为undefined，data为选择的联系人数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当调用选择联系人接口成功，err为undefined，data为选择的联系人数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -1477,39 +1510,39 @@ contact.selectContacts({
 });
 ```
 
-#### contact.selectContacts^10+^
+## contact.selectContacts^10+^
 
-selectContacts(options: ContactSelectionOptions): Promise\<Array\<Contact\>\>
+selectContacts(options: ContactSelectionOptions): Promise<Array<Contact>>
 
 调用选择联系人接口，打开选择联系人UI界面（选择联系人时支持传入筛选条件）。使用Promise异步回调。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.Contacts
+**系统能力**：SystemCapability.Applications.Contacts
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------------------------------------------|:-|:-----------------------|
 |options|[ContactSelectionOptions](#contactselectionoptions10)|是|选择联系人时的筛选条件，用于指定是单选还是多选。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------|:----------------------|
-|Promise\<Array\<[Contact](#contact)\>\>|Promise对象。返回选择的联系人数组对象。|
+|:----------------------------------|:----------------------|
+|Promise<Array<[Contact](#contact)>>|Promise对象。返回选择的联系人数组对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 // 打开选择联系人UI界面，支持选择一个联系人
@@ -1519,38 +1552,39 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryContact^10+^
+## contact.queryContact^10+^
 
-queryContact(context: Context, key: string, callback: AsyncCallback\<Contact\>): void
+queryContact(context: Context, key: string, callback: AsyncCallback<Contact>): void
 
 根据key查询联系人。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:---------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |key|string|是|联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444895382905)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -1566,28 +1600,29 @@ contact.queryContact(context, 'xxx', (err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryContact^(deprecated)^
+## contact.queryContact^(deprecated)^
 
-queryContact(key: string, callback: AsyncCallback\<Contact\>): void
+queryContact(key: string, callback: AsyncCallback<Contact>): void
 
-根据联系人唯一标识符key查询联系人。使用callback异步回调。  
-![](https://media:401788444895415906)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContact](#contactquerycontact10)替代。
+根据联系人唯一标识符key查询联系人。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContact](#contactquerycontact10)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------|:-|:---------------------------------------------------------------------------------|
+|:-------|:---------------------------------|:-|:---------------------------------------------------------------------------------|
 |key|string|是|联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -1601,39 +1636,40 @@ contact.queryContact('xxx', (err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryContact^10+^
+## contact.queryContact^10+^
 
-queryContact(context: Context, key: string, holder: Holder, callback: AsyncCallback\<Contact\>): void
+queryContact(context: Context, key: string, holder: Holder, callback: AsyncCallback<Contact>): void
 
 根据key和holder查询联系人。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:---------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |key|string|是|联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444895446907)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -1653,29 +1689,30 @@ contact.queryContact(context, 'xxx', {
 });
 ```
 
-#### contact.queryContact^(deprecated)^
+## contact.queryContact^(deprecated)^
 
-queryContact(key: string, holder: Holder, callback: AsyncCallback\<Contact\>): void
+queryContact(key: string, holder: Holder, callback: AsyncCallback<Contact>): void
 
-根据key和holder查询联系人。使用callback异步回调。  
-![](https://media:401788444895559908)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContact](#contactquerycontact10-1)替代。
+根据key和holder查询联系人。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContact](#contactquerycontact10-1)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------|:-|:---------------------------------------------------------------------------------|
+|:-------|:---------------------------------|:-|:---------------------------------------------------------------------------------|
 |key|string|是|联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -1693,39 +1730,40 @@ contact.queryContact('xxx', {
 });
 ```
 
-#### contact.queryContact^10+^
+## contact.queryContact^10+^
 
-queryContact(context: Context, key: string, attrs: ContactAttributes, callback: AsyncCallback\<Contact\>): void
+queryContact(context: Context, key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
 根据key和attrs查询联系人。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:--------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |key|string|是|联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444895595909)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -1743,29 +1781,30 @@ contact.queryContact(context, 'xxx', {
 });
 ```
 
-#### contact.queryContact^(deprecated)^
+## contact.queryContact^(deprecated)^
 
-queryContact(key: string, attrs: ContactAttributes, callback: AsyncCallback\<Contact\>): void
+queryContact(key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
-根据key和指定属性(attrs)查询联系人。使用callback异步回调。  
-![](https://media:401788444895711910)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContact](#contactquerycontact10-2)替代。
+根据key和指定属性(attrs)查询联系人。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContact](#contactquerycontact10-2)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:--------------------------------------|:-|:---------------------------------------------------------------------------------|
 |key|string|是|联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -1781,17 +1820,17 @@ contact.queryContact('xxx', {
 });
 ```
 
-#### contact.queryContact^10+^
+## contact.queryContact^10+^
 
-queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback\<Contact\>): void
+queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
 根据key、holder和attrs查询联系人。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:--------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1799,22 +1838,23 @@ queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttrib
 |key|string|是|联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444896124911)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
   import { BusinessError } from '@kit.BasicServicesKit';
   import { contact } from '@kit.ContactsKit';
   import { common } from '@kit.AbilityKit';
@@ -1836,30 +1876,31 @@ queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttrib
   });
 ```
 
-#### contact.queryContact^(deprecated)^
+## contact.queryContact^(deprecated)^
 
-queryContact(key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback\<Contact\>): void
+queryContact(key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
-根据key、holder和attrs查询联系人。使用callback异步回调。  
-![](https://media:401788444896217912)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContact](#contactquerycontact10-3)替代。
+根据key、holder和attrs查询联系人。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContact](#contactquerycontact10-3)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:--------------------------------------|:-|:---------------------------------------------------------------------------------|
 |key|string|是|联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key，可以通过[queryKey](#contactquerykey10)获取。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，为空则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，当该参数为空时，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<[Contact](#contact)\>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
+|callback|AsyncCallback<[Contact](#contact)>|是|回调函数。当查询联系人成功，err为undefined，data为查询的联系人对象；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -1879,17 +1920,17 @@ contact.queryContact('xxx', {
 });
 ```
 
-#### contact.queryContact^10+^
+## contact.queryContact^10+^
 
-queryContact(context: Context, key: string, holder?: Holder, attrs?: ContactAttributes): Promise\<Contact\>
+queryContact(context: Context, key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>
 
 根据key、holder和attrs查询联系人。使用Promise异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1898,26 +1939,27 @@ queryContact(context: Context, key: string, holder?: Holder, attrs?: ContactAttr
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，不传该参数，则默认查询所有联系人属性。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------------------|:---------------------|
-|Promise\<[Contact](#contact)\>|Promise对象。返回查询到的联系人对象。|
+|:---------------------------|:---------------------|
+|Promise<[Contact](#contact)>|Promise对象。返回查询到的联系人对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444896246913)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
 
@@ -1935,19 +1977,20 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryContact^(deprecated)^
+## contact.queryContact^(deprecated)^
 
-queryContact(key: string, holder?: Holder, attrs?: ContactAttributes): Promise\<Contact\>
+queryContact(key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>
 
-根据key、holder和attrs查询联系人。使用Promise异步回调。  
-![](https://media:401788444896279914)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContact](#contactquerycontact10-4)替代。
+根据key、holder和attrs查询联系人。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContact](#contactquerycontact10-4)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:--------------------------------------|:-|:-------------------------------------------------------------------------------|
@@ -1955,15 +1998,15 @@ queryContact(key: string, holder?: Holder, attrs?: ContactAttributes): Promise\<
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，不传该参数则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，不传默认查询所有联系人属性。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------------------|:---------------------|
-|Promise\<[Contact](#contact)\>|Promise对象。返回查询到的联系人对象。|
+|:---------------------------|:---------------------|
+|Promise<[Contact](#contact)>|Promise对象。返回查询到的联系人对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 // 异步回调，查询联系人
@@ -1979,37 +2022,38 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryContacts^10+^
+## contact.queryContacts^10+^
 
-queryContacts(context: Context, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContacts(context: Context, callback: AsyncCallback<Array<Contact>>): void
 
 查询所有联系人。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444896309915)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -2025,27 +2069,28 @@ contact.queryContacts(context, (err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryContacts^(deprecated)^
+## contact.queryContacts^(deprecated)^
 
-queryContacts(callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContacts(callback: AsyncCallback<Array<Contact>>): void
 
-查询所有联系人。使用callback异步回调。  
-![](https://media:401788444896339916)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContacts](#contactquerycontacts10)替代。
+查询所有联系人。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContacts](#contactquerycontacts10)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:----------------------------------------------------|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|:-------|:----------------------------------------|:-|:----------------------------------------------------|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -2059,38 +2104,39 @@ contact.queryContacts((err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryContacts^10+^
+## contact.queryContacts^10+^
 
-queryContacts(context: Context, holder: Holder, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContacts(context: Context, holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
 根据holder查询所有联系人。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444896371917)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -2110,28 +2156,29 @@ contact.queryContacts(context, {
 });
 ```
 
-#### contact.queryContacts^(deprecated)^
+## contact.queryContacts^(deprecated)^
 
-queryContacts(holder: Holder, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContacts(holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
-根据holder查询所有联系人。使用callback异步回调。  
-![](https://media:401788444896420918)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContacts](#contactquerycontacts10-1)替代。
+根据holder查询所有联系人。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContacts](#contactquerycontacts10-1)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:----------------------------------------------------|
+|:-------|:----------------------------------------|:-|:----------------------------------------------------|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -2149,38 +2196,39 @@ contact.queryContacts({
 });
 ```
 
-#### contact.queryContacts^10+^
+## contact.queryContacts^10+^
 
-queryContacts(context: Context, attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContacts(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据attrs查询所有联系人。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444896467919)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -2198,28 +2246,29 @@ contact.queryContacts(context, {
 });
 ```
 
-#### contact.queryContacts^(deprecated)^
+## contact.queryContacts^(deprecated)^
 
-queryContacts(attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContacts(attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
-根据attrs查询所有联系人。使用callback异步回调。  
-![](https://media:401788444896500920)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContacts](#contactquerycontacts10-2)替代。
+根据attrs查询所有联系人。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContacts](#contactquerycontacts10-2)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:----------------------------------------------------|
+|:-------|:----------------------------------------|:-|:----------------------------------------------------|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -2235,39 +2284,40 @@ contact.queryContacts({
 });
 ```
 
-#### contact.queryContacts^10+^
+## contact.queryContacts^10+^
 
-queryContacts(context: Context, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContacts(context: Context, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据holder和attrs查询所有联系人。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444896540921)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -2289,29 +2339,30 @@ contact.queryContacts(context, {
 });
 ```
 
-#### contact.queryContacts^(deprecated)^
+## contact.queryContacts^(deprecated)^
 
-queryContacts(holder: Holder, attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContacts(holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
-根据holder和attrs查询所有联系人。使用callback异步回调。  
-![](https://media:401788444896614922)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContacts](#contactquerycontacts10-3)替代。
+根据holder和attrs查询所有联系人。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContacts](#contactquerycontacts10-3)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:----------------------------------------------------|
+|:-------|:----------------------------------------|:-|:----------------------------------------------------|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -2331,17 +2382,17 @@ contact.queryContacts({
 });
 ```
 
-#### contact.queryContacts^10+^
+## contact.queryContacts^10+^
 
-queryContacts(context: Context, holder?: Holder, attrs?: ContactAttributes): Promise\<Array\<Contact\>\>
+queryContacts(context: Context, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
 根据holder和attrs查询所有联系人。使用Promise异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -2349,26 +2400,27 @@ queryContacts(context: Context, holder?: Holder, attrs?: ContactAttributes): Pro
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，如果为空，默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，不传该参数默认查询所有联系人属性。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------|:-----------------------|
-|Promise\<Array\<[Contact](#contact)\>\>|Promise对象。返回查询到的联系人数组对象。|
+|:----------------------------------|:-----------------------|
+|Promise<Array<[Contact](#contact)>>|Promise对象。返回查询到的联系人数组对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444896703923)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
 
@@ -2386,34 +2438,35 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryContacts^(deprecated)^
+## contact.queryContacts^(deprecated)^
 
-queryContacts(holder?: Holder, attrs?: ContactAttributes): Promise\<Array\<Contact\>\>
+queryContacts(holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
-根据holder和attrs查询所有联系人。使用Promise异步回调。  
-![](https://media:401788444896890924)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContacts](#contactquerycontacts10-4)替代。
+根据holder和attrs查询所有联系人。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContacts](#contactquerycontacts10-4)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:--------------------------------------|:-|:--------------------------------|
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，不传默认查询所有联系人属性。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------|:-----------------------|
-|Promise\<Array\<[Contact](#contact)\>\>|Promise对象。返回查询到的联系人数组对象。|
+|:----------------------------------|:-----------------------|
+|Promise<Array<[Contact](#contact)>>|Promise对象。返回查询到的联系人数组对象。|
 
-示例：
+**示例：**
 
-```
+```js
   import { contact } from '@kit.ContactsKit';
 
   // 根据holder和attrs查询所有联系人
@@ -2429,38 +2482,39 @@ queryContacts(holder?: Holder, attrs?: ContactAttributes): Promise\<Array\<Conta
   });
 ```
 
-#### contact.queryContactsByPhoneNumber^10+^
+## contact.queryContactsByPhoneNumber^10+^
 
-queryContactsByPhoneNumber(context: Context, phoneNumber: string, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByPhoneNumber(context: Context, phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void
 
 根据电话号码查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |phoneNumber|string|是|联系人的电话号码，仅支持全匹配，不支持通配符匹配。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 2.Internal error. The query resultSet is nullptr. 3.Internal error. The query resultSet is empty.|
 
-示例：  
-![](https://media:401788444897211925)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -2476,28 +2530,29 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', (err: BusinessError, 
 });
 ```
 
-#### contact.queryContactsByPhoneNumber^(deprecated)^
+## contact.queryContactsByPhoneNumber^(deprecated)^
 
-queryContactsByPhoneNumber(phoneNumber: string, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByPhoneNumber(phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void
 
-根据电话号码查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。  
-![](https://media:401788444897241926)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByPhoneNumber](#contactquerycontactsbyphonenumber10)替代。
+根据电话号码查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByPhoneNumber](#contactquerycontactsbyphonenumber10)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:--------------------------------------------|:-|:----------------------------------------------------|
+|:----------|:----------------------------------------|:-|:----------------------------------------------------|
 |phoneNumber|string|是|联系人的电话号码，仅支持全匹配，不支持通配符匹配。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -2511,39 +2566,40 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', (err: BusinessError, data) => 
 });
 ```
 
-#### contact.queryContactsByPhoneNumber^10+^
+## contact.queryContactsByPhoneNumber^10+^
 
-queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
 根据电话号码和holder查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |phoneNumber|string|是|联系人的电话号码，仅支持全匹配，不支持通配符匹配。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 2.Internal error. The query resultSet is nullptr. 3.Internal error. The query resultSet is empty.|
 
-示例：  
-![](https://media:401788444897272927)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -2563,29 +2619,30 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 });
 ```
 
-#### contact.queryContactsByPhoneNumber^(deprecated)^
+## contact.queryContactsByPhoneNumber^(deprecated)^
 
-queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
-根据电话号码和holder查询联系人，使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。  
-![](https://media:401788444897325928)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByPhoneNumber](#contactquerycontactsbyphonenumber10-1)替代。
+根据电话号码和holder查询联系人，使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByPhoneNumber](#contactquerycontactsbyphonenumber10-1)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:--------------------------------------------|:-|:----------------------------------------------------|
+|:----------|:----------------------------------------|:-|:----------------------------------------------------|
 |phoneNumber|string|是|联系人的电话号码，仅支持全匹配，不支持通配符匹配。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -2603,39 +2660,40 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 });
 ```
 
-#### contact.queryContactsByPhoneNumber^10+^
+## contact.queryContactsByPhoneNumber^10+^
 
-queryContactsByPhoneNumber(context: Context, phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByPhoneNumber(context: Context, phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据电话号码和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |phoneNumber|string|是|联系人的电话号码，仅支持全匹配，不支持通配符匹配。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 2.Internal error. The query resultSet is nullptr. 3.Internal error. The query resultSet is empty.|
 
-示例：  
-![](https://media:401788444897371929)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -2653,29 +2711,30 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 });
 ```
 
-#### contact.queryContactsByPhoneNumber^(deprecated)^
+## contact.queryContactsByPhoneNumber^(deprecated)^
 
-queryContactsByPhoneNumber(phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByPhoneNumber(phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
-根据电话号码和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。  
-![](https://media:401788444897403930)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByPhoneNumber](#contactquerycontactsbyphonenumber10-2)替代。
+根据电话号码和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByPhoneNumber](#contactquerycontactsbyphonenumber10-2)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:--------------------------------------------|:-|:----------------------------------------------------|
+|:----------|:----------------------------------------|:-|:----------------------------------------------------|
 |phoneNumber|string|是|联系人的电话号码，仅支持全匹配，不支持通配符匹配。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -2690,40 +2749,41 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 });
 ```
 
-#### contact.queryContactsByPhoneNumber^10+^
+## contact.queryContactsByPhoneNumber^10+^
 
-queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据电话号码、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |phoneNumber|string|是|联系人的电话号码，仅支持全匹配，不支持通配符匹配。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果该参数为空，则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 2.Internal error. The query resultSet is nullptr. 3.Internal error. The query resultSet is empty.|
 
-示例：  
-![](https://media:401788444897436931)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -2745,30 +2805,31 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 });
 ```
 
-#### contact.queryContactsByPhoneNumber^(deprecated)^
+## contact.queryContactsByPhoneNumber^(deprecated)^
 
-queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
-根据电话号码、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。  
-![](https://media:401788444897467932)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByPhoneNumber](#contactquerycontactsbyphonenumber10-3)替代。
+根据电话号码、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByPhoneNumber](#contactquerycontactsbyphonenumber10-3)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:--------------------------------------------|:-|:----------------------------------------------------|
+|:----------|:----------------------------------------|:-|:----------------------------------------------------|
 |phoneNumber|string|是|联系人的电话号码，仅支持全匹配，不支持通配符匹配。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果该参数为空，则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -2787,17 +2848,17 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 });
 ```
 
-#### contact.queryContactsByPhoneNumber^10+^
+## contact.queryContactsByPhoneNumber^10+^
 
-queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise\<Array\<Contact\>\>
+queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
 根据电话号码、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----------|:--------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -2806,26 +2867,27 @@ queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder?: Holde
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------|:-----------------------|
-|Promise\<Array\<[Contact](#contact)\>\>|Promise对象。返回查询到的联系人数组对象。|
+|:----------------------------------|:-----------------------|
+|Promise<Array<[Contact](#contact)>>|Promise对象。返回查询到的联系人数组对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|1.Parameter error. Possible causes: Mandatory parameters are left unspecified. 2.Internal error. The query resultSet is nullptr. 3.Internal error. The query resultSet is empty.|
 
-示例：  
-![](https://media:401788444897527933)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
 
@@ -2843,19 +2905,20 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryContactsByPhoneNumber^(deprecated)^
+## contact.queryContactsByPhoneNumber^(deprecated)^
 
-queryContactsByPhoneNumber(phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise\<Array\<Contact\>\>
+queryContactsByPhoneNumber(phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
-根据电话号码、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。  
-![](https://media:401788444897590934)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByPhoneNumber](#contactquerycontactsbyphonenumber10-4)替代。
+根据电话号码、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByPhoneNumber](#contactquerycontactsbyphonenumber10-4)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----------|:--------------------------------------|:-|:------------------------------------------|
@@ -2863,15 +2926,15 @@ queryContactsByPhoneNumber(phoneNumber: string, holder?: Holder, attrs?: Contact
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------|:-----------------------|
-|Promise\<Array\<[Contact](#contact)\>\>|Promise对象。返回查询到的联系人数组对象。|
+|:----------------------------------|:-----------------------|
+|Promise<Array<[Contact](#contact)>>|Promise对象。返回查询到的联系人数组对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let promise = contact.queryContactsByPhoneNumber('138xxxxxxxx', {
@@ -2886,38 +2949,39 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryContactsByEmail^10+^
+## contact.queryContactsByEmail^10+^
 
-queryContactsByEmail(context: Context, email: string, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByEmail(context: Context, email: string, callback: AsyncCallback<Array<Contact>>): void
 
 根据email查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |email|string|是|联系人的邮箱地址。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444897710935)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -2933,28 +2997,29 @@ contact.queryContactsByEmail(context, 'xxx@email.com', (err: BusinessError, data
 });
 ```
 
-#### contact.queryContactsByEmail^(deprecated)^
+## contact.queryContactsByEmail^(deprecated)^
 
-queryContactsByEmail(email: string, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByEmail(email: string, callback: AsyncCallback<Array<Contact>>): void
 
-根据email查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。  
-![](https://media:401788444897883936)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByEmail](#contactquerycontactsbyemail10)替代。
+根据email查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByEmail](#contactquerycontactsbyemail10)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:----------------------------------------------------|
+|:-------|:----------------------------------------|:-|:----------------------------------------------------|
 |email|string|是|联系人的邮箱地址。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -2967,39 +3032,40 @@ contact.queryContactsByEmail('xxx@email.com', (err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryContactsByEmail^10+^
+## contact.queryContactsByEmail^10+^
 
-queryContactsByEmail(context: Context, email: string, holder: Holder, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByEmail(context: Context, email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
 根据email和holder查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |email|string|是|联系人的邮箱地址。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444898016937)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -3019,29 +3085,30 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 });
 ```
 
-#### contact.queryContactsByEmail^(deprecated)^
+## contact.queryContactsByEmail^(deprecated)^
 
-queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
-根据email和holder查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。  
-![](https://media:401788444898059938)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByEmail](#contactquerycontactsbyemail10-1)替代。
+根据email和holder查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByEmail](#contactquerycontactsbyemail10-1)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:----------------------------------------------------|
+|:-------|:----------------------------------------|:-|:----------------------------------------------------|
 |email|string|是|联系人的邮箱地址。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空默认使用系统联系人应用查询。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -3058,39 +3125,40 @@ contact.queryContactsByEmail('xxx@email.com', {
 });
 ```
 
-#### contact.queryContactsByEmail^10+^
+## contact.queryContactsByEmail^10+^
 
-queryContactsByEmail(context: Context, email: string, attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByEmail(context: Context, email: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据email和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |email|string|是|联系人的邮箱地址。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444898407939)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -3108,29 +3176,30 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 });
 ```
 
-#### contact.queryContactsByEmail^(deprecated)^
+## contact.queryContactsByEmail^(deprecated)^
 
-queryContactsByEmail(email: string, attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByEmail(email: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
-根据email和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。  
-![](https://media:401788444898439940)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByEmail](#contactquerycontactsbyemail10-2)替代。
+根据email和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByEmail](#contactquerycontactsbyemail10-2)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:----------------------------------------------------|
+|:-------|:----------------------------------------|:-|:----------------------------------------------------|
 |email|string|是|联系人的邮箱地址。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -3145,40 +3214,41 @@ contact.queryContactsByEmail('xxx@email.com', {
 });
 ```
 
-#### contact.queryContactsByEmail^10+^
+## contact.queryContactsByEmail^10+^
 
-queryContactsByEmail(context: Context, email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByEmail(context: Context, email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据email、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |email|string|是|联系人的邮箱地址。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444898470941)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -3200,30 +3270,31 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 });
 ```
 
-#### contact.queryContactsByEmail^(deprecated)^
+## contact.queryContactsByEmail^(deprecated)^
 
-queryContactsByEmail(email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback\<Array\<Contact\>\>): void
+queryContactsByEmail(email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
-根据email、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。  
-![](https://media:401788444898504942)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByEmail](#contactquerycontactsbyemail10-3)替代。
+根据email、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByEmail](#contactquerycontactsbyemail10-3)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------|:-|:----------------------------------------------------|
+|:-------|:----------------------------------------|:-|:----------------------------------------------------|
 |email|string|是|联系人的邮箱地址。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|是|联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。|
-|callback|AsyncCallback\<Array\<[Contact](#contact)\>\>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Contact](#contact)>>|是|回调函数。当查询联系人成功，err为undefined，data为查询到的联系人对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -3242,17 +3313,17 @@ contact.queryContactsByEmail('xxx@email.com', {
 });
 ```
 
-#### contact.queryContactsByEmail^10+^
+## contact.queryContactsByEmail^10+^
 
-queryContactsByEmail(context: Context, email: string, holder?: Holder, attrs?: ContactAttributes): Promise\<Array\<Contact\>\>
+queryContactsByEmail(context: Context, email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
 根据email、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3261,26 +3332,27 @@ queryContactsByEmail(context: Context, email: string, holder?: Holder, attrs?: C
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------|:-----------------------|
-|Promise\<Array\<[Contact](#contact)\>\>|Promise对象。返回查询到的联系人数组对象。|
+|:----------------------------------|:-----------------------|
+|Promise<Array<[Contact](#contact)>>|Promise对象。返回查询到的联系人数组对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444898534943)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { common } from '@kit.AbilityKit';
 
 // 请在组件内获取context。
@@ -3297,19 +3369,20 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryContactsByEmail^(deprecated)^
+## contact.queryContactsByEmail^(deprecated)^
 
-queryContactsByEmail(email: string, holder?: Holder, attrs?: ContactAttributes): Promise\<Array\<Contact\>\>
+queryContactsByEmail(email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
-根据email、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。  
-![](https://media:401788444898967944)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByEmail](#contactquerycontactsbyemail10-4)替代。
+根据email、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryContactsByEmail](#contactquerycontactsbyemail10-4)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:--------------------------------------|:-|:------------------------------------|
@@ -3317,15 +3390,15 @@ queryContactsByEmail(email: string, holder?: Holder, attrs?: ContactAttributes):
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。|
 |attrs|[ContactAttributes](#contactattributes)|否|联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------|:-----------------------|
-|Promise\<Array\<[Contact](#contact)\>\>|Promise对象。返回查询到的联系人数组对象。|
+|:----------------------------------|:-----------------------|
+|Promise<Array<[Contact](#contact)>>|Promise对象。返回查询到的联系人数组对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let promise = contact.queryContactsByEmail('xxx@email.com', {
@@ -3340,35 +3413,36 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryGroups^10+^
+## contact.queryGroups^10+^
 
-queryGroups(context: Context, callback: AsyncCallback\<Array\<Group\>\>): void
+queryGroups(context: Context, callback: AsyncCallback<Array<Group>>): void
 
 查询联系人的所有群组。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
-|callback|AsyncCallback\<Array\<[Group](#group)\>\>|是|回调函数。当查询联系人的群组成功，err为undefined，data为查询到的群组对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Group](#group)>>|是|回调函数。当查询联系人的群组成功，err为undefined，data为查询到的群组对象数组；否则为错误对象。|
 
-错误码：  
+**错误码：**
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444899153945)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -3384,27 +3458,28 @@ contact.queryGroups(context, (err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryGroups^(deprecated)^
+## contact.queryGroups^(deprecated)^
 
-queryGroups(callback: AsyncCallback\<Array\<Group\>\>): void
+queryGroups(callback: AsyncCallback<Array<Group>>): void
 
-查询联系人的所有群组。使用callback异步回调。  
-![](https://media:401788444899250946)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryGroups](#contactquerygroups10)替代。
+查询联系人的所有群组。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryGroups](#contactquerygroups10)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------|:-|:------------------------------------------------------|
-|callback|AsyncCallback\<Array\<[Group](#group)\>\>|是|回调函数。当查询联系人的群组成功，err为undefined，data为查询到的群组对象数组；否则为错误对象。|
+|:-------|:------------------------------------|:-|:------------------------------------------------------|
+|callback|AsyncCallback<Array<[Group](#group)>>|是|回调函数。当查询联系人的群组成功，err为undefined，data为查询到的群组对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -3417,38 +3492,39 @@ contact.queryGroups((err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryGroups^10+^
+## contact.queryGroups^10+^
 
-queryGroups(context: Context, holder: Holder, callback: AsyncCallback\<Array\<Group\>\>): void
+queryGroups(context: Context, holder: Holder, callback: AsyncCallback<Array<Group>>): void
 
 根据holder查询联系人的所有群组。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
-|callback|AsyncCallback\<Array\<[Group](#group)\>\>|是|回调函数。当查询联系人的群组成功，err为undefined，data为查询到的群组对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Group](#group)>>|是|回调函数。当查询联系人的群组成功，err为undefined，data为查询到的群组对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444899315947)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -3468,28 +3544,29 @@ contact.queryGroups(context, {
 });
 ```
 
-#### contact.queryGroups^(deprecated)^
+## contact.queryGroups^(deprecated)^
 
-queryGroups(holder: Holder, callback: AsyncCallback\<Array\<Group\>\>): void
+queryGroups(holder: Holder, callback: AsyncCallback<Array<Group>>): void
 
-根据holder查询联系人的所有群组。使用callback异步回调。  
-![](https://media:401788444899347948)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryGroups](#contactquerygroups10-1)替代。
+根据holder查询联系人的所有群组。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryGroups](#contactquerygroups10-1)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------|:-|:------------------------------------------------------|
+|:-------|:------------------------------------|:-|:------------------------------------------------------|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。|
-|callback|AsyncCallback\<Array\<[Group](#group)\>\>|是|回调函数。当查询联系人的群组成功，err为undefined，data为查询到的群组对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Group](#group)>>|是|回调函数。当查询联系人的群组成功，err为undefined，data为查询到的群组对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -3506,43 +3583,44 @@ contact.queryGroups({
 });
 ```
 
-#### contact.queryGroups^10+^
+## contact.queryGroups^10+^
 
-queryGroups(context: Context, holder?: Holder): Promise\<Array\<Group\>\>
+queryGroups(context: Context, holder?: Holder): Promise<Array<Group>>
 
 根据holder查询联系人的所有群组。使用Promise异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------------------------|:----------------------|
-|Promise\<Array\<[Group](#group)\>\>|Promise对象。返回查询到的群组对象数组。|
+|:------------------------------|:----------------------|
+|Promise<Array<[Group](#group)>>|Promise对象。返回查询到的群组对象数组。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444899429949)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -3558,33 +3636,34 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryGroups^(deprecated)^
+## contact.queryGroups^(deprecated)^
 
-queryGroups(holder?: Holder): Promise\<Array\<Group\>\>
+queryGroups(holder?: Holder): Promise<Array<Group>>
 
-根据holder查询联系人的所有群组。使用Promise异步回调。  
-![](https://media:401788444899458950)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryGroups](#contactquerygroups10-2)替代。
+根据holder查询联系人的所有群组。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryGroups](#contactquerygroups10-2)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:----------------|:-|:--------------------------------|
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------------------------|:----------------------|
-|Promise\<Array\<[Group](#group)\>\>|Promise对象。返回查询到的群组对象数组。|
+|:------------------------------|:----------------------|
+|Promise<Array<[Group](#group)>>|Promise对象。返回查询到的群组对象数组。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let promise = contact.queryGroups({
@@ -3597,37 +3676,38 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryHolders^10+^
+## contact.queryHolders^10+^
 
-queryHolders(context: Context, callback: AsyncCallback\<Array\<Holder\>\>): void
+queryHolders(context: Context, callback: AsyncCallback<Array<Holder>>): void
 
 查询所有创建联系人的应用信息类。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:--------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
-|callback|AsyncCallback\<Array\<[Holder](#holder)\>\>|是|回调函数。当查询创建联系人的应用信息类成功，err为undefined，data为查询到的创建联系人应用信息的对象数组；否则为错误对象。|
+|callback|AsyncCallback<Array<[Holder](#holder)>>|是|回调函数。当查询创建联系人的应用信息类成功，err为undefined，data为查询到的创建联系人应用信息的对象数组；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444899555951)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -3643,27 +3723,28 @@ contact.queryHolders(context, (err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryHolders^(deprecated)^
+## contact.queryHolders^(deprecated)^
 
-queryHolders(callback: AsyncCallback\<Array\<Holder\>\>): void
+queryHolders(callback: AsyncCallback<Array<Holder>>): void
 
-查询所有创建联系人的应用信息类。使用callback异步回调。  
-![](https://media:401788444899870952)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryHolders](#contactqueryholders10)替代。
+查询所有创建联系人的应用信息类。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryHolders](#contactqueryholders10)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------|:-|:-------------------------------------------------------------------|
-|callback|AsyncCallback\<Array\<[Holder](#holder)\>\>|是|回调函数。当查询创建联系人的应用信息类成功，err为undefined，data为查询到的创建联系人应用信息的对象数组；否则为错误对象。|
+|:-------|:--------------------------------------|:-|:-------------------------------------------------------------------|
+|callback|AsyncCallback<Array<[Holder](#holder)>>|是|回调函数。当查询创建联系人的应用信息类成功，err为undefined，data为查询到的创建联系人应用信息的对象数组；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -3676,42 +3757,43 @@ contact.queryHolders((err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryHolders^10+^
+## contact.queryHolders^10+^
 
-queryHolders(context: Context): Promise\<Array\<Holder\>\>
+queryHolders(context: Context): Promise<Array<Holder>>
 
 查询所有创建联系人的应用信息类。使用Promise异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:------------------------------------|:------------------------------|
-|Promise\<Array\<[Holder](#holder)\>\>|Promise对象。返回查询到的创建联系人应用信息的对象数组。|
+|:--------------------------------|:------------------------------|
+|Promise<Array<[Holder](#holder)>>|Promise对象。返回查询到的创建联系人应用信息的对象数组。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:---------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: Mandatory parameters are left unspecified.|
 
-示例：  
-![](https://media:401788444900105953)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -3723,27 +3805,28 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryHolders^(deprecated)^
+## contact.queryHolders^(deprecated)^
 
-queryHolders(): Promise\<Array\<Holder\>\>
+queryHolders(): Promise<Array<Holder>>
 
-查询所有创建联系人的应用信息类。使用Promise异步回调。  
-![](https://media:401788444900147954)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryHolders](#contactqueryholders10-1)替代。
+查询所有创建联系人的应用信息类。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryHolders](#contactqueryholders10-1)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:------------------------------------|:------------------------------|
-|Promise\<Array\<[Holder](#holder)\>\>|Promise对象。返回查询到的创建联系人应用信息的对象数组。|
+|:--------------------------------|:------------------------------|
+|Promise<Array<[Holder](#holder)>>|Promise对象。返回查询到的创建联系人应用信息的对象数组。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let promise = contact.queryHolders();
@@ -3752,38 +3835,39 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryKey^10+^
+## contact.queryKey^10+^
 
-queryKey(context: Context, id: number, callback: AsyncCallback\<string\>): void
+queryKey(context: Context, id: number, callback: AsyncCallback<string>): void
 
 根据联系人的id查询联系人的key。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:--------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |id|number|是|联系人对象的id属性，是联系人对象在数据库中的唯一标识符。|
-|callback|AsyncCallback\<string\>|是|回调函数。当查询联系人的key成功，err为undefined，data为查询到的联系人对应的key；否则为错误对象。|
+|callback|AsyncCallback<string>|是|回调函数。当查询联系人的key成功，err为undefined，data为查询到的联系人对应的key；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:--------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.|
 
-示例：  
-![](https://media:401788444900179955)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -3799,28 +3883,29 @@ contact.queryKey(context, 1, (err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryKey^(deprecated)^
+## contact.queryKey^(deprecated)^
 
-queryKey(id: number, callback: AsyncCallback\<string\>): void
+queryKey(id: number, callback: AsyncCallback<string>): void
 
-根据联系人的id查询联系人的key。使用callback异步回调。  
-![](https://media:401788444900247956)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryKey](#contactquerykey10)替代。
+根据联系人的id查询联系人的key。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryKey](#contactquerykey10)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:----------------------------------------------------------|
+|:-------|:--------------------|:-|:----------------------------------------------------------|
 |id|number|是|联系人对象的id属性。|
-|callback|AsyncCallback\<string\>|是|回调函数。当查询联系人的key成功，err为undefined，data为查询到的联系人对应的key；否则为错误对象。|
+|callback|AsyncCallback<string>|是|回调函数。当查询联系人的key成功，err为undefined，data为查询到的联系人对应的key；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -3833,39 +3918,40 @@ contact.queryKey(1, (err: BusinessError, data) => {
 });
 ```
 
-#### contact.queryKey^10+^
+## contact.queryKey^10+^
 
-queryKey(context: Context, id: number, holder: Holder, callback: AsyncCallback\<string\>): void
+queryKey(context: Context, id: number, holder: Holder, callback: AsyncCallback<string>): void
 
 根据联系人的id和holder查询联系人的key。使用callback异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:--------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |id|number|是|联系人对象的id属性。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则使用系统联系人应用查询。|
-|callback|AsyncCallback\<string\>|是|回调函数。当查询联系人的key成功，err为undefined，data为查询到的联系人对应的key；否则为错误对象。|
+|callback|AsyncCallback<string>|是|回调函数。当查询联系人的key成功，err为undefined，data为查询到的联系人对应的key；否则为错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:--------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.|
 
-示例：  
-![](https://media:401788444900350957)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
@@ -3885,29 +3971,30 @@ contact.queryKey(context, 1, {
 });
 ```
 
-#### contact.queryKey^(deprecated)^
+## contact.queryKey^(deprecated)^
 
-queryKey(id: number, holder: Holder, callback: AsyncCallback\<string\>): void
+queryKey(id: number, holder: Holder, callback: AsyncCallback<string>): void
 
-根据联系人的id和holder查询联系人的key。使用callback异步回调。  
-![](https://media:401788444900421958)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryKey](#contactquerykey10-1)替代。
+根据联系人的id和holder查询联系人的key。使用callback异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryKey](#contactquerykey10-1)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:----------------------------------------------------------|
+|:-------|:--------------------|:-|:----------------------------------------------------------|
 |id|number|是|联系人对象的id属性。|
 |holder|[Holder](#holder)|是|创建联系人的应用信息类，如果传入参数为空则使用系统联系人应用查询。|
-|callback|AsyncCallback\<string\>|是|回调函数。当查询联系人的key成功，err为undefined，data为查询到的联系人对应的key；否则为错误对象。|
+|callback|AsyncCallback<string>|是|回调函数。当查询联系人的key成功，err为undefined，data为查询到的联系人对应的key；否则为错误对象。|
 
-示例：
+**示例：**
 
-```
+```js
 import { BusinessError } from '@kit.BasicServicesKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -3924,17 +4011,17 @@ contact.queryKey(1, {
 });
 ```
 
-#### contact.queryKey^10+^
+## contact.queryKey^10+^
 
-queryKey(context: Context, id: number, holder?: Holder): Promise\<string\>
+queryKey(context: Context, id: number, holder?: Holder): Promise<string>
 
 根据联系人的id和holder查询联系人的key。使用Promise异步回调。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -3942,26 +4029,27 @@ queryKey(context: Context, id: number, holder?: Holder): Promise\<string\>
 |id|number|是|联系人对象的id属性。|
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，不传该参数，则使用系统联系人应用查询。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:-------------------------|
-|Promise\<string\>|Promise对象。返回查询到的联系人对应的key。|
+|:--------------|:-------------------------|
+|Promise<string>|Promise对象。返回查询到的联系人对应的key。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:----|:--------------------------------------------------------------------------------------------------------------|
 |201|Permission denied.|
 |401|Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.|
 
-示例：  
-![](https://media:401788444900506959)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -3977,34 +4065,35 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryKey^(deprecated)^
+## contact.queryKey^(deprecated)^
 
-queryKey(id: number, holder?: Holder): Promise\<string\>
+queryKey(id: number, holder?: Holder): Promise<string>
 
-根据联系人的id和holder查询联系人的key。使用Promise异步回调。  
-![](https://media:401788444900556960)  
-从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryKey](#contactquerykey10-2)替代。
+根据联系人的id和holder查询联系人的key。使用Promise异步回调。
+> 说明
+>
+> 从API version 7 开始支持，从API version 10 开始废弃，建议使用[queryKey](#contactquerykey10-2)替代。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:----------------|:-|:------------------------------|
 |id|number|是|联系人对象的id属性。|
 |holder|[Holder](#holder)|否|创建联系人的应用信息类，不传该参数，则使用系统联系人应用查询。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:-------------------------|
-|Promise\<string\>|Promise对象。返回查询到的联系人对应的key。|
+|:--------------|:-------------------------|
+|Promise<string>|Promise对象。返回查询到的联系人对应的key。|
 
-示例：
+**示例：**
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let promise = contact.queryKey(1, {
@@ -4017,44 +4106,45 @@ promise.then((data) => {
 });
 ```
 
-#### contact.queryContactsCount^22+^
+## contact.queryContactsCount^22+^
 
-queryContactsCount(context: Context): Promise\<number\>
+queryContactsCount(context: Context): Promise<number>
 
 查询所有联系人的数量。使用Promise异步回调。
 
-元服务API：从API version 22 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 22 开始，该接口支持在元服务中使用。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:-------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:---------------------|
-|Promise\<number\>|Promise对象。返回查询到的联系人数量。|
+|:--------------|:---------------------|
+|Promise<number>|Promise对象。返回查询到的联系人数量。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:-------|:-----------------|
 |201|Permission denied.|
 |16700001|General error.|
 
-示例：  
-![](https://media:401788444900601961)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -4066,32 +4156,32 @@ promise.then((data) => {
 });
 ```
 
-#### contact.addContactViaUI^15+^
+## contact.addContactViaUI^15+^
 
-addContactViaUI(context: Context, contact: Contact): Promise\<number\>
+addContactViaUI(context: Context, contact: Contact): Promise<number>
 
 调用新建联系人接口，打开新建联系人UI界面。使用Promise异步回调。
 
-元服务API: 从API version 15 开始，该接口支持在元服务中使用。
+**元服务API**: 从API version 15 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.Contacts
+**系统能力**：SystemCapability.Applications.Contacts
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |contact|[Contact](#contact)|是|联系人信息。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:-----------------------------------------------------|
-|Promise\<number\>|Promise对象。返回添加的联系人id，即新建联系人时系统自动生成的唯一标识，一个id唯一对应一个联系人。|
+|:--------------|:-----------------------------------------------------|
+|Promise<number>|Promise对象。返回添加的联系人id，即新建联系人时系统自动生成的唯一标识，一个id唯一对应一个联系人。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:-------|:---------------------------------------------------------------------------|
@@ -4101,11 +4191,12 @@ addContactViaUI(context: Context, contact: Contact): Promise\<number\>
 |16700102|Failed to set value to contacts data.|
 |16700103|User cancel.|
 
-示例：  
-![](https://media:401788444900891962)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -4125,32 +4216,32 @@ promise.then((data) => {
   });
 ```
 
-#### contact.saveToExistingContactViaUI^15+^
+## contact.saveToExistingContactViaUI^15+^
 
-saveToExistingContactViaUI(context: Context, contact: Contact): Promise\<number\>
+saveToExistingContactViaUI(context: Context, contact: Contact): Promise<number>
 
 调用保存至已有联系人接口，选择联系人UI界面并完成编辑。使用Promise异步回调。
 
-元服务API: 从API version 15 开始，该接口支持在元服务中使用。
+**元服务API**: 从API version 15 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.Contacts
+**系统能力**：SystemCapability.Applications.Contacts
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |contact|[Contact](#contact)|是|联系人信息。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:--------------------|
-|Promise\<number\>|Promise对象。返回添加的联系人id。|
+|:--------------|:--------------------|
+|Promise<number>|Promise对象。返回添加的联系人id。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:-------|:---------------------------------------------------------------------------|
@@ -4161,11 +4252,12 @@ saveToExistingContactViaUI(context: Context, contact: Contact): Promise\<number\
 |16700102|Failed to set value to contacts data.|
 |16700103|User cancel.|
 
-示例：  
-![](https://media:401788444901146963)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -4186,34 +4278,34 @@ promise.then((data) => {
   });
 ```
 
-#### contact.addContacts^23+^
+## contact.addContacts^23+^
 
-addContacts(context: Context, contacts: Array\<Contact\>): Promise\<Array\<number\>\>
+addContacts(context: Context, contacts: Array<Contact>): Promise<Array<number>>
 
 批量添加联系人。使用Promise异步回调。
 
-元服务API：从API version 23 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 23 开始，该接口支持在元服务中使用。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:-------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
-|contacts|Array\<[Contact](#contact)\>|是|联系人信息数组。|
+|contacts|Array<[Contact](#contact)>|是|联系人信息数组。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------|:------------------------|
-|Promise\<Array\<number\>\>|Promise对象，返回批量添加的联系人id数组。|
+|:---------------------|:------------------------|
+|Promise<Array<number>>|Promise对象，返回批量添加的联系人id数组。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:-------|:-----------------------|
@@ -4221,11 +4313,12 @@ addContacts(context: Context, contacts: Array\<Contact\>): Promise\<Array\<numbe
 |16700001|General error.|
 |16700002|Invalid parameter value.|
 
-示例：  
-![](https://media:401788444901191964)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 
@@ -4244,21 +4337,21 @@ contact.addContacts(context, [contactInfo1, contactInfo2]).then((data) => {
 });
 ```
 
-#### contact.hasMatchedCallLog^24+^
+## contact.hasMatchedCallLog^24+^
 
-hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number, withinTime: number): Promise\<boolean\>
+hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number, withinTime: number): Promise<boolean>
 
 检查是否有符合条件的通话记录，仅针对运营商通话。使用Promise异步回调。
 
-元服务API：从API version 24开始，该接口支持在元服务中使用。
+**元服务API**：从API version 24开始，该接口支持在元服务中使用。
 
-需要权限：ohos.permission.CHECK_CALL_LOG
+**需要权限**：ohos.permission.CHECK_CALL_LOG
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----------|:------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -4267,15 +4360,15 @@ hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number, wi
 |minDuration|number|是|最短通话时长，单位为秒(s)，取值范围大于0。|
 |withinTime|number|是|表示从当前时间开始计算，通话的起始时间和结束时间应在此时间范围内，单位为秒(s)。查询时间范围大于0且不超过6小时，超过6小时的以6小时查询。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:-----------------------------------------------|
-|Promise\<boolean\>|Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。|
+|:---------------|:-----------------------------------------------|
+|Promise<boolean>|Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:-------|:-----------------------|
@@ -4283,11 +4376,12 @@ hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number, wi
 |16700001|General error.|
 |16700002|Invalid parameter value.|
 
-示例：  
-![](https://media:401788444901379965)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
 
@@ -4304,21 +4398,21 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration, withinTime).then((h
 });
 ```
 
-#### contact.hasMatchedCallLog^24+^
+## contact.hasMatchedCallLog^24+^
 
-hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number): Promise\<boolean\>
+hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number): Promise<boolean>
 
 检查是否有符合条件的通话记录，默认查询6小时以内的通话记录，仅针对运营商通话。使用Promise异步回调。
 
-元服务API：从API version 24开始，该接口支持在元服务中使用。
+**元服务API**：从API version 24开始，该接口支持在元服务中使用。
 
-需要权限：ohos.permission.CHECK_CALL_LOG
+**需要权限**：ohos.permission.CHECK_CALL_LOG
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----------|:------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -4326,15 +4420,15 @@ hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number): P
 |phoneNumber|string|是|联系人的电话号码。|
 |minDuration|number|是|最短通话时长，单位为秒(s)，取值范围大于0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:-----------------------------------------------|
-|Promise\<boolean\>|Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。|
+|:---------------|:-----------------------------------------------|
+|Promise<boolean>|Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:-------|:-----------------------|
@@ -4342,11 +4436,12 @@ hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number): P
 |16700001|General error.|
 |16700002|Invalid parameter value.|
 
-示例：  
-![](https://media:401788444901416966)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
 
@@ -4361,40 +4456,40 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 });
 ```
 
-#### contact.syncContacts
+## contact.syncContacts
 
-syncContacts(context: Context, mode: ContactSyncMode, progress: ContactSyncProgress, contacts: Array\<Contact\>): Promise\<Array\<number\>\>
+syncContacts(context: Context, mode: ContactSyncMode, progress: ContactSyncProgress, contacts: Array<Contact>): Promise<Array<number>>
 
 批量同步多个联系人至联系人数据库。每次最多可批量同步400个联系人。调用方必须处于前台。使用Promise异步回调。
 
-起始版本：26.0.0
+**起始版本**：26.0.0
 
-元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
 
-需要权限：ohos.permission.WRITE_CONTACTS
+**需要权限**：ohos.permission.WRITE_CONTACTS
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 |mode|[ContactSyncMode](#contactsyncmode)|是|表示联系人同步模式的类型。|
 |progress|[ContactSyncProgress](#contactsyncprogress)|是|表示联系人同步进度的相关信息。|
-|contacts|Array\<[Contact](#contact)\>|是|表示需要同步至数据库的联系人信息数组。|
+|contacts|Array<[Contact](#contact)>|是|表示需要同步至数据库的联系人信息数组。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------|:-------------------------------------|
-|Promise\<Array\<number\>\>|Promise对象，返回联系人创建结果的数组。有效的联系人ID表示创建成功。|
+|:---------------------|:-------------------------------------|
+|Promise<Array<number>>|Promise对象，返回联系人创建结果的数组。有效的联系人ID表示创建成功。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------|
@@ -4405,11 +4500,12 @@ syncContacts(context: Context, mode: ContactSyncMode, progress: ContactSyncProgr
 |16700004|The number of contacts exceeds the limit.|
 |16700103|User cancel.|
 
-示例：  
-![](https://media:401788444901448967)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
 
@@ -4456,48 +4552,49 @@ for (let batch: number = 1; batch <= totalBatches; batch++) {
 }
 ```
 
-#### contact.queryContactSyncInfo
+## contact.queryContactSyncInfo
 
-queryContactSyncInfo(context: Context): Promise\<Array\<ContactSyncInfo\>\>
+queryContactSyncInfo(context: Context): Promise<Array<ContactSyncInfo>>
 
 查询当前应用的联系人信息同步状态。如果返回的联系人同步信息为空，则调用方不进行联系人同步或联系人同步已完成。使用Promise异步回调。
 
-起始版本：26.0.0
+**起始版本**：26.0.0
 
-元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
 
-需要权限：ohos.permission.READ_CONTACTS
+**需要权限**：ohos.permission.READ_CONTACTS
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.Applications.ContactsData
+**系统能力**：SystemCapability.Applications.ContactsData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:------------------------------------------------------|:-------------------------------------------------|
-|Promise\<Array\<[ContactSyncInfo](#contactsyncinfo)\>\>|Promise对象，返回调用应用程序的联系人同步信息数组。如果没有正在同步的联系人，则返回null。|
+|:--------------------------------------------------|:-------------------------------------------------|
+|Promise<Array<[ContactSyncInfo](#contactsyncinfo)>>|Promise对象，返回调用应用程序的联系人同步信息数组。如果没有正在同步的联系人，则返回null。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:-------|:-----------------|
 |201|Permission denied.|
 |16700001|General error.|
 
-示例：  
-![](https://media:401788444901482968)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
 
@@ -4507,36 +4604,36 @@ const syncInfoList: contact.ContactSyncInfo[] = await contact.queryContactSyncIn
 console.info('queryContactSyncInfo syncInfoList '  + JSON.stringify(syncInfoList));
 ```
 
-#### contact.importContactsViaUI
+## contact.importContactsViaUI
 
-importContactsViaUI(context: Context, contacts: Array\<Contact\>): Promise\<Array\<number\>\>
+importContactsViaUI(context: Context, contacts: Array<Contact>): Promise<Array<number>>
 
 通过UI交互批量导入多个联系人。每次最多可导入100个联系人。不支持导入联系人的头像。使用Promise异步回调。
 
-起始版本：26.0.0
+**起始版本**：26.0.0
 
-元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.Applications.Contacts
+**系统能力**：SystemCapability.Applications.Contacts
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:-------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |context|Context|是|应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。|
-|contacts|Array\<[Contact](#contact)\>|是|表示待导入数据库的联系人信息数组。|
+|contacts|Array<[Contact](#contact)>|是|表示待导入数据库的联系人信息数组。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------|:-------------------------------------------------------------------------|
-|Promise\<Array\<number\>\>|Promise对象，返回联系人创建结果的数组。数组中返回值大于0表示该联系人创建成功，返回值为-1表示创建失败，返回值为-2表示用户未选择该联系人。|
+|:---------------------|:-------------------------------------------------------------------------|
+|Promise<Array<number>>|Promise对象，返回联系人创建结果的数组。数组中返回值大于0表示该联系人创建成功，返回值为-1表示创建失败，返回值为-2表示用户未选择该联系人。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Contacts错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts)。
 
 |错误码ID|错误信息|
 |:-------|:-------------------------------------------------|
@@ -4546,11 +4643,12 @@ importContactsViaUI(context: Context, contacts: Array\<Contact\>): Promise\<Arra
 |16700004|The number of contacts exceeds the limit.|
 |16700103|User cancel.|
 
-示例：  
-![](https://media:401788444901521969)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在界面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 import { common } from '@kit.AbilityKit';
 
@@ -4572,153 +4670,153 @@ promise.then((data) => {
 });
 ```
 
-#### ContactSelectionOptions^10+^
+## ContactSelectionOptions^10+^
 
 选择联系人条件。
 
-系统能力：SystemCapability.Applications.Contacts  
+**系统能力**：SystemCapability.Applications.Contacts
 
 |名称|类型|只读|可选|说明|
-|:------------------------|:--------------------------------------------------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|isMultiSelect^10+^|boolean|否|是|是否为多选，true:多选，false:单选。默认值为false。元服务API：从API version 11 开始，该接口支持在元服务中使用。|
-|maxSelectable^15+^|number|否|是|联系人数量上限。默认值为10000，超出上限则以默认值筛选。元服务API：从API version 15 开始，该接口支持在元服务中使用。|
-|isDisplayedByName^15+^|boolean|否|是|是否按联系人姓名维度展示，true:按联系人姓名维度展示，false:按联系人号码维度展示，默认值为false。元服务API：从API version 15 开始，该接口支持在元服务中使用。|
-|filter^15+^|[ContactSelectionFilter](#contactselectionfilter15)|否|是|联系人查询过滤器。元服务API：从API version 15 开始，该接口支持在元服务中使用。|
-|isAutoDismissOnNavigation|boolean|否|是|拉起picker的页面发生路由切换时是否允许自动关闭picker，true:允许自动关闭picker，false:不允许自动关闭picker，默认值为false。 起始版本： 26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。|
+|:------------------------|:--------------------------------------------------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|isMultiSelect^10+^|boolean|否|是|是否为多选，true:多选，false:单选。默认值为false。**元服务API**：从API version 11 开始，该接口支持在元服务中使用。|
+|maxSelectable^15+^|number|否|是|联系人数量上限。默认值为10000，超出上限则以默认值筛选。**元服务API**：从API version 15 开始，该接口支持在元服务中使用。|
+|isDisplayedByName^15+^|boolean|否|是|是否按联系人姓名维度展示，true:按联系人姓名维度展示，false:按联系人号码维度展示，默认值为false。**元服务API**：从API version 15 开始，该接口支持在元服务中使用。|
+|filter^15+^|[ContactSelectionFilter](#contactselectionfilter15)|否|是|联系人查询过滤器。**元服务API**：从API version 15 开始，该接口支持在元服务中使用。|
+|isAutoDismissOnNavigation|boolean|否|是|拉起picker的页面发生路由切换时是否允许自动关闭picker，true:允许自动关闭picker，false:不允许自动关闭picker，默认值为false。 **起始版本：** 26.0.0 **元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。 **模型约束**：此接口仅可在Stage模型下使用。|
 
-#### ContactSelectionFilter^15+^
+## ContactSelectionFilter^15+^
 
 联系人查询过滤器。
 
-元服务API：从API version 15 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 15 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.Contacts  
+**系统能力**：SystemCapability.Applications.Contacts
 
 |名称|类型|只读|可选|说明|
 |:-----------|:------------------------------|:-|:-|:----|
 |filterClause|[FilterClause](#filterclause15)|否|否|过滤条件。|
 |filterType|[FilterType](#filtertype15)|否|否|过滤类型。|
 
-#### FilterType^15+^
+## FilterType^15+^
 
 枚举，联系人过滤类型。
 
-元服务API：从API version 15 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 15 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|值|说明|
-|:-----------------------------|:-|:-------------------------------------------------------------|
-|SHOW_FILTER|0|仅展示符合过滤条件的联系人。 系统能力：SystemCapability.Applications.Contacts|
-|DEFAULT_SELECT|1|默认勾选符合过滤条件的联系人。 系统能力：SystemCapability.Applications.Contacts|
-|SHOW_FILTER_AND_DEFAULT_SELECT|2|默认勾选仅展示符合过滤条件的联系人。 系统能力：SystemCapability.Applications.Contacts|
+|:-----------------------------|:-|:-----------------------------------------------------------------|
+|SHOW_FILTER|0|仅展示符合过滤条件的联系人。 **系统能力**：SystemCapability.Applications.Contacts|
+|DEFAULT_SELECT|1|默认勾选符合过滤条件的联系人。 **系统能力**：SystemCapability.Applications.Contacts|
+|SHOW_FILTER_AND_DEFAULT_SELECT|2|默认勾选仅展示符合过滤条件的联系人。 **系统能力**：SystemCapability.Applications.Contacts|
 
-#### FilterClause^15+^
+## FilterClause^15+^
 
 联系人过滤条件。多个筛选条件之间是"或者"的关系，如果参数是数组类型，数组最多只能包含3个元素。
 
-元服务API：从API version 15 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 15 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.Contacts  
+**系统能力**：SystemCapability.Applications.Contacts
 
 |名称|类型|只读|可选|说明|
-|:------------|:-----------------------------------------|:-|:-|:--------|
-|id|Array\<[FilterOptions](#filteroptions15)\>|否|是|联系人id。|
-|name|Array\<[FilterOptions](#filteroptions15)\>|否|是|联系人姓名。|
+|:------------|:---------------------------------------|:-|:-|:--------|
+|id|Array<[FilterOptions](#filteroptions15)>|否|是|联系人id。|
+|name|Array<[FilterOptions](#filteroptions15)>|否|是|联系人姓名。|
 |dataItem|[DataFilter](#datafilter15)|否|是|联系人数据过滤项。|
-|focusModeList|Array\<[FilterOptions](#filteroptions15)\>|否|是|专注模式。|
+|focusModeList|Array<[FilterOptions](#filteroptions15)>|否|是|专注模式。|
 
-#### FilterOptions^15+^
+## FilterOptions^15+^
 
 联系人过滤参数。
 
-元服务API：从API version 15 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 15 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.Contacts  
+**系统能力**：SystemCapability.Applications.Contacts
 
 |名称|类型|只读|可选|说明|
-|:--------------|:--------------------------------------------------------------------------------------------------------------------------------|:-|:-|:----------------|
+|:--------------|:-----------------------------------------------------------------------------------------------------------------------------|:-|:-|:----------------|
 |filterCondition|[FilterCondition](#filtercondition15)|否|否|过滤条件。|
-|value|string \| [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-valuesbucket#valuetype) \[\]|否|是|过滤值，默认为undefined。|
+|value|string | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-valuesbucket#valuetype) []|否|是|过滤值，默认为undefined。|
 
-#### FilterCondition^15+^
+## FilterCondition^15+^
 
 枚举，过滤条件。
 
-元服务API：从API version 15 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 15 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|值|说明|
-|:-----------|:-|:-----------------------------------------------------------------|
-|IS_NOT_NULL|0|对应字段不为空。 系统能力：SystemCapability.Applications.Contacts|
-|EQUAL_TO|1|对应字段等于某值，值类型为string。 系统能力：SystemCapability.Applications.Contacts|
-|NOT_EQUAL_TO|2|对应字段不等于某值。 系统能力：SystemCapability.Applications.Contacts|
-|IN|3|对应字段值在某数组中，值类型为string。 系统能力：SystemCapability.Applications.Contacts|
-|NOT_IN|4|对应字段值不在某数组中。 系统能力：SystemCapability.Applications.Contacts|
-|CONTAINS|5|对应字段值包含某值，值类型为string 系统能力：SystemCapability.Applications.Contacts|
+|:-----------|:-|:---------------------------------------------------------------------|
+|IS_NOT_NULL|0|对应字段不为空。 **系统能力**：SystemCapability.Applications.Contacts|
+|EQUAL_TO|1|对应字段等于某值，值类型为string。 **系统能力**：SystemCapability.Applications.Contacts|
+|NOT_EQUAL_TO|2|对应字段不等于某值。 **系统能力**：SystemCapability.Applications.Contacts|
+|IN|3|对应字段值在某数组中，值类型为string。 **系统能力**：SystemCapability.Applications.Contacts|
+|NOT_IN|4|对应字段值不在某数组中。 **系统能力**：SystemCapability.Applications.Contacts|
+|CONTAINS|5|对应字段值包含某值，值类型为string **系统能力**：SystemCapability.Applications.Contacts|
 
-#### DataFilter^15+^
+## DataFilter^15+^
 
 联系人数据过滤项。
 
-元服务API：从API version 15 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 15 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.Contacts  
+**系统能力**：SystemCapability.Applications.Contacts
 
 |名称|类型|只读|可选|说明|
-|:------|:-----------------------------------------|:-|:-|:---------------------------------------------|
+|:------|:---------------------------------------|:-|:-|:---------------------------------------------|
 |field|[DataField](#datafield15)|否|否|联系人数据字段。|
-|options|Array\<[FilterOptions](#filteroptions15)\>|否|否|联系人过滤参数，数组中多个FilterOptions之间是"或"的关系，数组的最大长度为3。|
+|options|Array<[FilterOptions](#filteroptions15)>|否|否|联系人过滤参数，数组中多个FilterOptions之间是"或"的关系，数组的最大长度为3。|
 
-#### DataField^15+^
+## DataField^15+^
 
 枚举，联系人数据字段。
 
-元服务API：从API version 15 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 15 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|值|说明|
-|:-----------|:-|:--------------------------------------------------|
-|EMAIL|0|联系人邮箱。 系统能力：SystemCapability.Applications.Contacts。|
-|PHONE|1|联系人电话。 系统能力：SystemCapability.Applications.Contacts。|
-|ORGANIZATION|2|联系人单位。 系统能力：SystemCapability.Applications.Contacts。|
+|:-----------|:-|:------------------------------------------------------|
+|EMAIL|0|联系人邮箱。 **系统能力**：SystemCapability.Applications.Contacts。|
+|PHONE|1|联系人电话。 **系统能力**：SystemCapability.Applications.Contacts。|
+|ORGANIZATION|2|联系人单位。 **系统能力**：SystemCapability.Applications.Contacts。|
 
-#### Contact
+## Contact
 
 联系人对象类。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
-|:-----------------|:--------------------------------------|:-|:-|:-------------------------------------------|
+|:-----------------|:--------------------------------------|:-|:-|:-----------------------------------------------|
 |INVALID_CONTACT_ID|number|是|否|默认联系人的id，值为-1。|
 |id|number|是|是|联系人的id，由系统自动生成。|
 |key|string|是|是|联系人的key，由系统自动生成。|
 |contactAttributes|[ContactAttributes](#contactattributes)|否|是|联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。|
-|emails|[Email](#email)\[\]|否|是|联系人的邮箱地址列表。|
-|events|[Event](#event)\[\]|否|是|联系人的生日、周年纪念等重要日期列表。|
-|groups|[Group](#group)\[\]|否|是|联系人的群组列表。 说明： 添加或更新联系人时，仅支持关联到已有群组，不支持创建新群组。|
-|imAddresses|[ImAddress](#imaddress)\[\]|否|是|联系人的即时消息地址列表。|
-|phoneNumbers|[PhoneNumber](#phonenumber)\[\]|否|是|联系人的电话号码列表。|
+|emails|[Email](#email)[]|否|是|联系人的邮箱地址列表。|
+|events|[Event](#event)[]|否|是|联系人的生日、周年纪念等重要日期列表。|
+|groups|[Group](#group)[]|否|是|联系人的群组列表。 **说明**： 添加或更新联系人时，仅支持关联到已有群组，不支持创建新群组。|
+|imAddresses|[ImAddress](#imaddress)[]|否|是|联系人的即时消息地址列表。|
+|phoneNumbers|[PhoneNumber](#phonenumber)[]|否|是|联系人的电话号码列表。|
 |portrait|[Portrait](#portrait)|否|是|联系人的头像。|
-|postalAddresses|[PostalAddress](#postaladdress)\[\]|否|是|联系人的邮政地址列表。|
-|relations|[Relation](#relation)\[\]|否|是|联系人的关系列表。|
-|sipAddresses|[SipAddress](#sipaddress)\[\]|否|是|联系人的会话发起协议(SIP)地址列表。|
-|websites|[Website](#website)\[\]|否|是|联系人的网站列表。|
+|postalAddresses|[PostalAddress](#postaladdress)[]|否|是|联系人的邮政地址列表。|
+|relations|[Relation](#relation)[]|否|是|联系人的关系列表。|
+|sipAddresses|[SipAddress](#sipaddress)[]|否|是|联系人的会话发起协议(SIP)地址列表。|
+|websites|[Website](#website)[]|否|是|联系人的网站列表。|
 |name|[Name](#name)|否|是|联系人的姓名。|
 |nickName|[NickName](#nickname)|否|是|联系人的昵称。|
 |note|[Note](#note)|否|是|联系人的备注。|
 |organization|[Organization](#organization)|否|是|联系人的组织信息。|
 
-示例：
+**示例：**
 
 使用JSON格式创建联系人数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let myContact: contact.Contact = {
@@ -4735,25 +4833,25 @@ let myContact: contact.Contact = {
 };
 ```
 
-#### ContactAttributes
+## ContactAttributes
 
 联系人属性列表，一般作为入参用来标识希望查询的联系人属性。
 
 当传入为null时，默认查询全部属性。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
-|:---------|:--------------------------|:-|:-|:-------|
-|attributes|[Attribute](#attribute)\[\]|否|否|联系人属性列表。|
+|:---------|:------------------------|:-|:-|:-------|
+|attributes|[Attribute](#attribute)[]|否|否|联系人属性列表。|
 
-示例：
+**示例：**
 
 通过JSON格式创建数据。
 
-```
+```js
 let contactAttributes: contact.ContactAttributes = {
     attributes: [
         contact.Attribute.ATTR_EMAIL,
@@ -4763,13 +4861,13 @@ let contactAttributes: contact.ContactAttributes = {
 };
 ```
 
-#### Attribute
+## Attribute
 
 枚举，类型为number。联系人属性列表。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|值|说明|
 |:--------------------|:-|:-----------------|
@@ -4788,21 +4886,21 @@ let contactAttributes: contact.ContactAttributes = {
 |ATTR_SIP_ADDRESS|12|联系人的会话发起协议(SIP)地址。|
 |ATTR_WEBSITE|13|联系人的网站。|
 
-示例：
+**示例：**
 
 通过JSON格式创建数据。
 
-```
+```js
 let attributes = [contact.Attribute.ATTR_EMAIL, contact.Attribute.ATTR_NAME, contact.Attribute.ATTR_PHONE];
 ```
 
-#### Email
+## Email
 
 联系人的邮箱。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:---------------|:-----|:-|:-|:-------------|
@@ -4816,11 +4914,11 @@ let attributes = [contact.Attribute.ATTR_EMAIL, contact.Attribute.ATTR_NAME, con
 |displayName|string|否|是|邮箱的显示名称。|
 |labelId|number|否|是|邮箱的类型。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let email: contact.Email = {
@@ -4831,16 +4929,16 @@ let email: contact.Email = {
 
 或使用new一个Email对象的方式创建数据。
 
-```
+```js
 let email = new contact.Email();
 email.email = 'xxx@email.com';
 ```
 
-#### Holder
+## Holder
 
 创建联系人的应用信息类。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:----------|:-----|:-|:-|:------------------------------|
@@ -4848,11 +4946,11 @@ email.email = 'xxx@email.com';
 |displayName|string|是|是|应用名称，默认值为空。|
 |holderId|number|否|是|应用Id，默认值为空。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 let holder: contact.Holder = {
   bundleName: 'com.ohos.contacts',
   displayName: 'displayName',
@@ -4860,13 +4958,13 @@ let holder: contact.Holder = {
 };
 ```
 
-#### Event
+## Event
 
 联系人事件类。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:----------------|:-----|:-|:-|:--------------|
@@ -4879,11 +4977,11 @@ let holder: contact.Holder = {
 |labelName|string|否|是|事件类型名称。|
 |labelId|number|否|是|事件类型。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 let event: contact.Event = {
     eventDate: '2000-01-01'
 };
@@ -4891,29 +4989,29 @@ let event: contact.Event = {
 
 或使用new一个Event对象的方式创建数据。
 
-```
+```js
 let event = new contact.Event();
 event.eventDate = '2000-01-01';
 ```
 
-#### Group
+## Group
 
 联系人的群组类。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:------|:-----|:-|:-|:--------|
 |groupId|number|否|是|联系人群组的Id。|
 |title|string|否|否|联系人群组的名称。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let group: contact.Group = {
@@ -4922,13 +5020,13 @@ let group: contact.Group = {
 };
 ```
 
-#### ImAddress
+## ImAddress
 
 联系人的即时消息地址。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:---------------|:-----|:-|:-|:------------------|
@@ -4945,11 +5043,11 @@ let group: contact.Group = {
 |labelName|string|否|是|即时消息类型名称。|
 |labelId|number|否|是|即时消息类型。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let imAddress: contact.ImAddress = {
@@ -4960,35 +5058,35 @@ let imAddress: contact.ImAddress = {
 
 或使用new一个ImAddress对象的方式创建数据。
 
-```
+```js
 let imAddress = new contact.ImAddress();
 imAddress.imAddress = 'imAddress';
 ```
 
-#### Name
+## Name
 
 联系人的名字类。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
-|:-----------------|:------|:-|:-|:-----------------------------------------------------------------------|
-|familyName|string|否|是|联系人的家庭姓名。元服务API：从API version 11 开始，该接口支持在元服务中使用。|
-|familyNamePhonetic|string|否|是|联系人的家庭姓名拼音。元服务API：从API version 11 开始，该接口支持在元服务中使用。|
-|fullName|string|否|否|联系人的全名。元服务API：从API version 11 开始，该接口支持在元服务中使用。|
-|givenName|string|否|是|联系人的名称(firstName)。元服务API：从API version 11 开始，该接口支持在元服务中使用。|
-|givenNamePhonetic|string|否|是|联系人的名称拼音。元服务API：从API version 11 开始，该接口支持在元服务中使用。|
-|middleName|string|否|是|联系人的中间名。元服务API：从API version 11 开始，该接口支持在元服务中使用。|
-|middleNamePhonetic|string|否|是|联系人的中间名拼音。元服务API：从API version 11 开始，该接口支持在元服务中使用。|
-|namePrefix|string|否|是|联系人的姓名前缀。元服务API：从API version 11 开始，该接口支持在元服务中使用。|
-|nameSuffix|string|否|是|联系人的姓名后缀。元服务API：从API version 11 开始，该接口支持在元服务中使用。|
-|hasName^22+^|boolean|否|是|联系人信息中是否包含姓名。true表示包含，false表示不包含。元服务API：从API version 22 开始，该接口支持在元服务中使用。|
+|:-----------------|:------|:-|:-|:---------------------------------------------------------------------------|
+|familyName|string|否|是|联系人的家庭姓名。**元服务API**：从API version 11 开始，该接口支持在元服务中使用。|
+|familyNamePhonetic|string|否|是|联系人的家庭姓名拼音。**元服务API**：从API version 11 开始，该接口支持在元服务中使用。|
+|fullName|string|否|否|联系人的全名。**元服务API**：从API version 11 开始，该接口支持在元服务中使用。|
+|givenName|string|否|是|联系人的名称(firstName)。**元服务API**：从API version 11 开始，该接口支持在元服务中使用。|
+|givenNamePhonetic|string|否|是|联系人的名称拼音。**元服务API**：从API version 11 开始，该接口支持在元服务中使用。|
+|middleName|string|否|是|联系人的中间名。**元服务API**：从API version 11 开始，该接口支持在元服务中使用。|
+|middleNamePhonetic|string|否|是|联系人的中间名拼音。**元服务API**：从API version 11 开始，该接口支持在元服务中使用。|
+|namePrefix|string|否|是|联系人的姓名前缀。**元服务API**：从API version 11 开始，该接口支持在元服务中使用。|
+|nameSuffix|string|否|是|联系人的姓名后缀。**元服务API**：从API version 11 开始，该接口支持在元服务中使用。|
+|hasName^22+^|boolean|否|是|联系人信息中是否包含姓名。true表示包含，false表示不包含。**元服务API**：从API version 22 开始，该接口支持在元服务中使用。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let name: contact.Name = {
@@ -4997,23 +5095,23 @@ let name: contact.Name = {
 };
 ```
 
-#### NickName
+## NickName
 
 联系人的昵称类。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:-------|:-----|:-|:-|:------|
 |nickName|string|否|否|联系人的昵称。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let nickName: contact.NickName = {
@@ -5021,46 +5119,46 @@ let nickName: contact.NickName = {
 };
 ```
 
-#### Note
+## Note
 
 联系人的备注类。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:----------|:-----|:-|:-|:--------|
 |noteContent|string|否|否|联系人的备注内容。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 let note: contact.Note = {
     noteContent: 'noteContent'
 };
 ```
 
-#### Organization
+## Organization
 
 联系人的组织类。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:----|:-----|:-|:-|:----|
 |name|string|否|否|单位名称。|
 |title|string|否|是|职位名称。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let organization: contact.Organization = {
@@ -5069,13 +5167,13 @@ let organization: contact.Organization = {
 };
 ```
 
-#### PhoneNumber
+## PhoneNumber
 
 联系人电话号码类。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:---------------|:-----|:-|:-|:---------------------------------|
@@ -5105,11 +5203,11 @@ let organization: contact.Organization = {
 |phoneNumber|string|否|否|电话号码。|
 |labelId|number|否|是|电话号码类型。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let phoneNumber: contact.PhoneNumber = {
@@ -5120,33 +5218,34 @@ let phoneNumber: contact.PhoneNumber = {
 
 或使用new一个PhoneNumber对象的方式创建数据。
 
-```
+```js
 let phoneNumber = new contact.PhoneNumber();
 phoneNumber.phoneNumber = '138xxxxxxxx';
 ```
 
-#### Portrait
+## Portrait
 
-联系人的头像类。  
-![](https://media:401788444901562970)  
-从API version 22开始，支持通过uri和[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)格式设置联系人头像资源(暂不支持通过[addContactViaUI](#contactaddcontactviaui15)、[saveToExistingContactViaUI](#contactsavetoexistingcontactviaui15)接口设置)。
+联系人的头像类。
+> 说明
+>
+> 从API version 22开始，支持通过uri和[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)格式设置联系人头像资源(暂不支持通过[addContactViaUI](#contactaddcontactviaui15)、[saveToExistingContactViaUI](#contactsavetoexistingcontactviaui15)接口设置)。
+>
+> uri为可访问的联系人头像文件地址，[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)为通过联系人头像资源生成的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)对象。
+>
+> 从API version 22开始，支持通过uri格式读取联系人头像资源，该格式仅支持以[fileIo.open](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopen)方式打开，无法直接在Image组件内显示，需读取后转换为[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)格式显示。
 
-uri为可访问的联系人头像文件地址，[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)为通过联系人头像资源生成的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)对象。
-
-从API version 22开始，支持通过uri格式读取联系人头像资源，该格式仅支持以[fileIo.open](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopen)方式打开，无法直接在Image组件内显示，需读取后转换为[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)格式显示。
-
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
-|:---------|:------------------------------------------------------------------------------------------------------------|:-|:-|:-------------------------------------------------------|
-|uri|string|否|否|uri格式联系人头像。元服务API：从API version 11 开始，该接口支持在元服务中使用。|
-|photo^22+^|[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|是|PixelMap格式的联系人头像。元服务API：从API version 22 开始，该接口支持在元服务中使用。|
+|:---------|:------------------------------------------------------------------------------------------------------------|:-|:-|:-----------------------------------------------------------|
+|uri|string|否|否|uri格式联系人头像。**元服务API**：从API version 11 开始，该接口支持在元服务中使用。|
+|photo^22+^|[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|是|PixelMap格式的联系人头像。**元服务API**：从API version 22 开始，该接口支持在元服务中使用。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 import { image } from '@kit.ImageKit';
 
@@ -5164,13 +5263,13 @@ async function SetPortraitPixelMap(photo: image.PixelMap) {
 }
 ```
 
-#### PostalAddress
+## PostalAddress
 
 联系人的邮政地址类。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:---------------|:-----|:-|:-|:---------------|
@@ -5190,11 +5289,11 @@ async function SetPortraitPixelMap(photo: image.PixelMap) {
 |street|string|否|是|联系人所在的街道。|
 |labelId|number|否|是|邮政地址类型。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let postalAddress: contact.PostalAddress = {
@@ -5205,7 +5304,7 @@ let postalAddress: contact.PostalAddress = {
 
 或使用new一个PostalAddress对象的方式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let postalAddress = new contact.PostalAddress();
@@ -5213,13 +5312,13 @@ postalAddress.city = 'city';
 postalAddress.postalAddress = 'postalAddress';
 ```
 
-#### Relation
+## Relation
 
 联系人的关系类。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:------------------------|:-----|:-|:-|:---------------|
@@ -5243,11 +5342,11 @@ postalAddress.postalAddress = 'postalAddress';
 |relationName|string|否|否|关系名称。|
 |labelId|number|否|是|关系类型。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let relation: contact.Relation = {
@@ -5258,7 +5357,7 @@ let relation: contact.Relation = {
 
 或使用new一个Relation对象的方式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let relation = new contact.Relation();
@@ -5266,13 +5365,13 @@ relation.relationName = 'relationName';
 relation.labelId = contact.Relation.RELATION_ASSISTANT;
 ```
 
-#### SipAddress
+## SipAddress
 
 联系人的会话发起协议(SIP)地址类。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:---------------|:-----|:-|:-|:------------------------|
@@ -5285,11 +5384,11 @@ relation.labelId = contact.Relation.RELATION_ASSISTANT;
 |sipAddress|string|否|否|会话发起协议(SIP)地址。|
 |labelId|number|否|是|会话发起协议(SIP)地址类型。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let sipAddress: contact.SipAddress = {
@@ -5299,30 +5398,30 @@ let sipAddress: contact.SipAddress = {
 
 或使用new一个SipAddress对象的方式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let sipAddress = new contact.SipAddress();
 sipAddress.sipAddress = 'sipAddress';
 ```
 
-#### Website
+## Website
 
 联系人的网站信息类。
 
-元服务API：从API version 11 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:------|:-----|:-|:-|:--------|
 |website|string|否|否|联系人的网站信息。|
 
-示例：
+**示例：**
 
 使用JSON格式创建数据。
 
-```
+```js
 import { contact } from '@kit.ContactsKit';
 
 let website: contact.Website = {
@@ -5330,58 +5429,58 @@ let website: contact.Website = {
 };
 ```
 
-#### ContactSyncMode
+## ContactSyncMode
 
 枚举，同步模式的类型。
 
-起始版本：26.0.0
+**起始版本**：26.0.0
 
-元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|值|说明|
 |:---------------|:-|:------------------------------------------------------------------|
 |MODE_INCREMENTAL|1|表示将在数据库中插入或更新云端和本地之间不同的联系人。|
 |MODE_CLOUD_BASED|2|表示所有本地联系人将被云联系人替换。当使用云覆盖本地模式进行批量同步时，在第一次批量同步期间会删除所有本地联系人（第三方联系人除外）。|
 
-#### ContactSyncProgress
+## ContactSyncProgress
 
 联系人同步进度的信息。包含同步ID、当前批次和总批次。
 
-起始版本：26.0.0
+**起始版本**：26.0.0
 
-元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
-|:-----------|:-----|:-|:-|:-----------------------------------------|
-|syncId|number|否|否|表示用于同步所有联系人的同步标识符。取值范围: \[0, 2147483647\]。|
+|:-----------|:-----|:-|:-|:---------------------------------------|
+|syncId|number|否|否|表示用于同步所有联系人的同步标识符。取值范围: [0, 2147483647]。|
 |currentBatch|number|否|否|表示要同步的当前联系人批次的标识符。值的范围是从1到totalBatches。|
 |totalBatches|number|否|否|表示要同步的联系人批次总数。|
 
-#### ContactSyncInfo
+## ContactSyncInfo
 
 调用应用程序相关的联系人同步的信息。
 
-起始版本：26.0.0
+**起始版本**：26.0.0
 
-元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.Applications.ContactsData  
+**系统能力**：SystemCapability.Applications.ContactsData
 
 |名称|类型|只读|可选|说明|
 |:---------------|:----------------------------------|:-|:-|:--------------------------------------|
 |mode|[ContactSyncMode](#contactsyncmode)|否|否|联系人同步模式。|
 |syncId|number|否|否|表示用于同步所有联系人的同步标识符。|
-|completedBatches|Array\<number\>|否|否|表示已成功同步的联系人批次标识符数组。取值范围为1到totalBatches。|
+|completedBatches|Array<number>|否|否|表示已成功同步的联系人批次标识符数组。取值范围为1到totalBatches。|
 |totalBatches|number|否|否|表示要同步的联系人批次总数。|
 |lastSyncTime|number|否|否|表示联系人同步的最新时间戳，单位为毫秒(ms)。|
 

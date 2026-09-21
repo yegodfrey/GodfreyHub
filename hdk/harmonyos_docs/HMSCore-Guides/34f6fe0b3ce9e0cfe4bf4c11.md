@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/accountserverto
 
 # accountservertool.jar工具包使用说明
 
-#### 场景介绍
+## 场景介绍
 
-[accountservertool.jar](https://github.com/HMS-Core/huawei-account-demo/blob/java_accountservertool/accountservertool-1.0.jar)提供了基于Java语言的Authorization Code模式服务器端REST接口的封装和ID Token模式服务器端校验工具类，让您快速完成服务器端代码开发，您也可以参见[accountservertool样例代码](https://github.com/HMS-Core/huawei-account-demo/tree/java_accountservertool/AccountServerTool_Java)用自己的方式实现对应功能。具体方法如下：  
+[accountservertool.jar](https://github.com/HMS-Core/huawei-account-demo/blob/java_accountservertool/accountservertool-1.0.jar)提供了基于Java语言的Authorization Code模式服务器端REST接口的封装和ID Token模式服务器端校验工具类，让您快速完成服务器端代码开发，您也可以参见[accountservertool样例代码](https://github.com/HMS-Core/huawei-account-demo/tree/java_accountservertool/AccountServerTool_Java)用自己的方式实现对应功能。具体方法如下：
 
-|序号|方法|使用场景|
-|:-|:--------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**序号**|**方法**|**使用场景**|
+|:-----|:--------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |1|AuthCodeUtil.getTokensByCode(String code, String appId, String appSecret, String redirectUri)|Authorization Code模式下使用，根据Code换取Access Token和Refresh Token，详细REST接口信息请参见[获取凭证Access Token](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-obtain-token_hms_reference-0000001050048618)。|
 |2|AuthCodeUtil.parseAccessToken(String accessToken)|Authorization Code模式下使用，解析Access Token，详细REST接口信息请参见[解析凭证Access Token](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-gettokeninfo-0000001050050585)。|
 |3|AuthCodeUtil.updateAccessToken(String refreshToken, String appId, String appSecret)|Authorization Code模式下使用，使用Refresh Token 刷新Access Token，详细REST接口信息请参见[获取凭证Access Token](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-obtain-token_hms_reference-0000001050048618)。|
 |4|AuthCodeUtil.getUserInfos(String accessToken, String getNickName)|Authorization Code模式下使用，使用Access Token获取用户信息，详细REST接口信息请参见[获取用户信息](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/get-user-info-0000001060261938)。|
 |5|IdTokenUtil.getUserInfosByIdToken(String idToken, String appId)|ID-Token模式下服务器校验ID Token使用，如果校验通过从ID Token中解析出用户信息。|
 
-#### Code模式调用示例
+## Code模式调用示例
 
-```
+```screen
 public class AuthCodeDemo {
     private static final Logger logger = LoggerFactory.getLogger(AuthCodeDemo.class);
     /**
@@ -134,11 +134,11 @@ public class AuthCodeDemo {
 }
 ```
 
-全部样例代码请参见[github](https://github.com/HMS-Core/huawei-account-demo/blob/java_accountservertool/AccountServerTool_Java/src/main/java/com/huawei/hms/account/AuthCodeDemo.java)。  
+全部样例代码请参见[github](https://github.com/HMS-Core/huawei-account-demo/blob/java_accountservertool/AccountServerTool_Java/src/main/java/com/huawei/hms/account/AuthCodeDemo.java)。
 
-#### ID Token服务端校验与解析示例
+## ID Token服务端校验与解析示例
 
-```
+```screen
 public class IdTokenDemo {
     public static void main(String[] args) {
         /**

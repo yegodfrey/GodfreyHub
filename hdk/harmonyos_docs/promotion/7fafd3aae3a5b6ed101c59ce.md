@@ -8,31 +8,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_new_api04-000000
 
 【简介】通过此接口可以查询计划
 
-请求地址
+**请求地址**
 
 https://ads.cloud.huawei.com/ads/v1/promotion/campaign/query
 
-请求方法
+**请求方法**
 
-GET
+**GET**
 
-请求参数  
+**请求参数**
 
-|-------------|-------|----|------------------------------------------------------------------------------|
-|参数名称|类型|是否必选|描述|
+|-------------|-------|--------|------------------------------------------------------------------------------|
+|**参数名称**|**类型**|**是否必选**|**描述**|
 |advertiser_id|long|否|广告主ID，当登录授权的华为账号为如下场景时此字段必填： 1）授权账号关联的是经理账户； 2）授权账号关联的是服务商账户； 3）授权账号关联了多个子客账户。|
-|page|integer|是|搜索页码， 取值范围1\~10000；|
-|page_size|integer|是|一页展示数量， 取值范围 10\~50；|
+|page|integer|是|搜索页码， 取值范围1~10000；|
+|page_size|integer|是|一页展示数量， 取值范围 10~50；|
 |filtering|Struct1|否|过滤条件，若此字段不传，或传空则视为无限制条件|
 
-<br />
+filtering (Struct1)定义
 
-filtering (Struct1)定义  
-
-|------------------|----------|----|-------------------------------------------------------------------------------------------------------------------------------|
-|参数名称|类型|是否必选|描述|
-|campaign_name|string|否|计划名称， 最大长度不得超过100； 不能使用"\^","\|"特殊字符|
-|campaign_ids|string\[\]|否|推广计划ID列表， 最多100个；|
+|------------------|--------|--------|-------------------------------------------------------------------------------------------------------------------------------|
+|**参数名称**|**类型**|**是否必选**|**描述**|
+|campaign_name|string|否|计划名称， 最大长度不得超过100； 不能使用"^","|"特殊字符|
+|campaign_ids|string[]|否|推广计划ID列表， 最多100个；|
 |updated_begin_time|string|否|计划更新的开始时间， 格式如下: "yyyy-MM-dd HH:mm:ss"；|
 |updated_end_time|string|否|计划更新的结束时间， 格式如下: "yyyy-MM-dd HH:mm:ss"；|
 |created_begin_time|string|否|计划创建的开始时间， 格式如下: "yyyy-MM-dd HH:mm:ss"；|
@@ -40,9 +38,7 @@ filtering (Struct1)定义
 |show_status|string|否|计划状态 详见[【计划界面显示的状态】](https://developer.huawei.com/consumer/cn/doc/promotion/ads_meijuzhi-0000001510863205#section2276115111528)|
 |campaign_type|string|否|计划类型 详见[【计划类型】](https://developer.huawei.com/consumer/cn/doc/promotion/ads_meijuzhi-0000001510863205#section65101236574)|
 
-<br />
-
-请求示例
+**请求示例**
 
 GET /ads/v1/promotion/campaign/query HTTP/1.1
 
@@ -52,42 +48,34 @@ Content-Type:application/json
 
 Authorization:Bearer CgB6e3x9ERGComr9dENxZX22iBk+mLuf1yGtQVPUjPJUMrstfKlqpdXk+kfHU9J8ZJ/soYIZHZzT446GeSYumluQuhsK7jvz4kz1Bkms4CLI/rE=
 
-<br />
+    {
+    "page": "1",
+    "page_size": "50",
+    "filtering": {
+    "campaign_type": "CAMPAIGN_TYPE_DISPLAY",
+    "campaign_name": "计划-展示广告-国内"
+    }
+    }
 
-```
-{
-"page": "1",
-"page_size": "50",
-"filtering": {
-"campaign_type": "CAMPAIGN_TYPE_DISPLAY",
-"campaign_name": "计划-展示广告-国内"
-}
-}
-```
+**响应字段**
 
-响应字段  
-
-|-------|-------|----|
-|参数名称|类型|描述|
+|--------|-------|------|
+|**参数名称**|**类型**|**描述**|
 |code|string|返回码|
 |message|string|返回描述|
 |data|Struct1|计划列表|
 
-<br />
+data(Struct1)定义
 
-data(Struct1)定义  
-
-|-----|-----------|----|
-|参数名称|类型|描述|
+|--------|---------|------|
+|**参数名称**|**类型**|**描述**|
 |total|integer|总条数|
-|data|Struct2\[\]|计划列表|
+|data|Struct2[]|计划列表|
 
-<br />
-
-data(Struct2)定义  
+data(Struct2)定义
 
 |----------------------------|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|参数名称|类型|描述|
+|**参数名称**|**类型**|**描述**|
 |campaign_name|string|计划名称|
 |campaign_id|string|计划ID|
 |campaign_status|string|操作状态， 详见[【计划/任务/创意操作状态】](https://developer.huawei.com/consumer/cn/doc/promotion/ads_meijuzhi-0000001510863205#section15571113711462)|
@@ -102,33 +90,29 @@ data(Struct2)定义
 |flow_resource|string|投放网络 详见[【投放网络】](https://developer.huawei.com/consumer/cn/doc/promotion/ads_meijuzhi-0000001510863205#section11983101283716)|
 |store_id|long|商品库id|
 
-<br />
-
-应答示例
+**应答示例**
 
 HTTPS/1.1 200 OK
 
-```
-{
-"code": "200",
-"data": {
-"total": 1,
-"data": [
-{
-"campaign_name": "无明确目的导向-展示广告-20220608-09:36:35",
-"created_time": "2022-06-08 09:37:49",
-"product_type": "ANDROID_APP",
-"user_balance_status": "ADVERTISER_BALANCE_NOT_EXCEED",
-"campaign_status": "OPERATION_STATUS_ENABLE",
-"campaign_type": "CAMPAIGN_TYPE_DISPLAY",
-"flow_resource": "FLOW_RESOURCE_SHOWAD",
-"campaign_daily_budget_status": "CAMPAIGN_DAILY_BUDGET_NOT_EXCEED",
-"show_status": "CAMPAIGN_STATUS_DELIVERY_OK",
-"campaign_id": "30059151",
-"today_daily_budget": 999999999
-}
-]
-}
-}
-```
+    {
+    "code": "200",
+    "data": {
+    "total": 1,
+    "data": [
+    {
+    "campaign_name": "无明确目的导向-展示广告-20220608-09:36:35",
+    "created_time": "2022-06-08 09:37:49",
+    "product_type": "ANDROID_APP",
+    "user_balance_status": "ADVERTISER_BALANCE_NOT_EXCEED",
+    "campaign_status": "OPERATION_STATUS_ENABLE",
+    "campaign_type": "CAMPAIGN_TYPE_DISPLAY",
+    "flow_resource": "FLOW_RESOURCE_SHOWAD",
+    "campaign_daily_budget_status": "CAMPAIGN_DAILY_BUDGET_NOT_EXCEED",
+    "show_status": "CAMPAIGN_STATUS_DELIVERY_OK",
+    "campaign_id": "30059151",
+    "today_daily_budget": 999999999
+    }
+    ]
+    }
+    }
 

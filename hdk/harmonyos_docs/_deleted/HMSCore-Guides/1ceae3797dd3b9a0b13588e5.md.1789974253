@@ -1,0 +1,39 @@
+---
+name: document/cn/HMSCore-Guides/apply-id-0000001050069756
+title: 申请账号服务
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/apply-id-0000001050069756
+---
+
+# 申请账号服务
+
+1. 登录[开发者联盟网站](https://developer.huawei.com/consumer/cn/)，单击右上角"管理中心"。
+
+   若您之前未注册开发者账号，请参见[注册账号](https://developer.huawei.com/consumer/cn/doc/start/registration-and-verification-0000001053628148)和[实名认证](https://developer.huawei.com/consumer/cn/doc/start/itrna-0000001076878172)成为开发者并完成实名认证。开发者可实名认证为个人开发者或者企业开发者，认证前，请先了解二者的[权益区别](https://developer.huawei.com/consumer/cn/doc/start/dbiae-0000001336403980#section10229144715113)。
+   > 说明
+   > * 如果有明确大规模用户使用场景和商用目的，建议优先认证为企业账号，一个企业仅能认证一个账号。
+
+
+2. 单击"账号"。若无"账号"卡片，请单击右上角"自定义桌面"添加卡片。
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/e9HTsoFfTB6rC4YbvNLJ9w/zh-cn_image_0000002547959203.png?HW-CC-KV=V1&HW-CC-Date=20260909T140422Z&HW-CC-Expire=31536000000&HW-CC-Sign=8287C590F0297F3B4E9A94CFAAC8CD553BB73D01A8D17854690065C546BD695C)
+
+
+3. 单击"申请账号服务"，同意协议后，进入产品信息填写页面。
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/FYZaNGuAT9KgX-a2lMG2wQ/zh-cn_image_0000002548039197.png?HW-CC-KV=V1&HW-CC-Date=20260909T140422Z&HW-CC-Expire=31536000000&HW-CC-Sign=A170BE180F4E4088609EBC58CFA19CB104D6D2D72E4031B268E4BB2612BB1168)
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/ZUgoTlMFSpiRD-x4mEXQPg/zh-cn_image_0000002516359398.png?HW-CC-KV=V1&HW-CC-Date=20260909T140422Z&HW-CC-Expire=31536000000&HW-CC-Sign=A00A268D22CE10E241F9660A5123B357B412BA2DE39F4238F6947B63027715A3)
+
+   |**项目**|**填写说明**|
+   |:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |产品类型|* 如果是客户端开发，请选择"移动应用"。 * 如果是服务器对接，请选择"服务器应用"。|
+   |账号接入方式|如果是移动应用，默认为"SDK接入"。|
+   |选择产品|1. 如果此前已创建过产品，则从已创建的产品列表里选择产品。 如果未创建，请单击"创建产品"。 > 说明 > * 创建产品时填写的"应用名称"将展示给用户，如后续需要修改应用信息，请前往[AGC-开发与服务](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/myApp)。 > * 应用名称需要与软件包中的应用名称一致，否则可能会[申请华为运动健康服务](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/apply-kitservice-0000001050071707)审核不通过。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/KtRrp94wSPGucN6NCtPFVw/zh-cn_image_0000002516519314.png?HW-CC-KV=V1&HW-CC-Date=20260909T140422Z&HW-CC-Expire=31536000000&HW-CC-Sign=06ACD330AECEEB2F75E0EF7CF2E6F354B25A542271EE94E1CF77C2265CEC9158 "点击放大") 2. 创建成功后，生成APP ID以及Secret信息。用来唯一标识应用。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/L6U6VSNcTUigbn0N6kUA0w/zh-cn_image_0000002516519316.png?HW-CC-KV=V1&HW-CC-Date=20260909T140422Z&HW-CC-Expire=31536000000&HW-CC-Sign=E95680246AA1E04C059150F5D13A30AB6ADF5033E9219DA0A713578C98D2318E "点击放大")|
+   |回调地址|服务器应用此处必选，由您的技术人员提供。后续可修改。 > 说明 > 以http(s)开头，且是合法的URL，长度最大255，不能以"/"结尾，不能包含字符"?"，不能包含get参数，支持IP地址和端口。必须全路径匹配，有且只有一个回调地址。|
+   |应用访问地址|服务器应用此处必选，为三方服务器出口IP地址，支持配置多个。由您的技术人员提供。后续可修改。|
+   |应用包名|填写[应用包名](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/application-package-name-0000001580840241)。如"com.health.demo"，务必与APK包名一致，填写后不能修改。 > 注意 > 如果您需要使用[自定义数据类型](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/overview-0000001147638696#section1194717361189)，包名请勿使用com.huawei开头。|
+   |SHA256证书指纹|填写[应用证书指纹](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/application-certificate-guide-0000001530080540)。 签名证书指纹用于在通过华为HMS Core SDK调用HMS Core（APK）时，校验应用的真实性。|
+
+
+4. 单击"提交"，即完成"账号服务"的开通。
+

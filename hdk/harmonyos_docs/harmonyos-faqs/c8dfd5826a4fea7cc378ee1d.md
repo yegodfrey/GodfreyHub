@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-mindspore-
 
 # MindSpore Lite Kit使用三方框架模型的方法
 
-#### 问题现象
+## 问题现象
 
-MindSpore Lite使用.ms格式模型进行推理。当前大部分开发者使用了不同的第三方框架,比如TensorFlow、TensorFlow Lite、Caffe、ONNX等。为了保持开发者的模型一致性，MindSpore Lite如何使用这些三方框架的模型？  
+MindSpore Lite使用.ms格式模型进行推理。当前大部分开发者使用了不同的第三方框架,比如TensorFlow、TensorFlow Lite、Caffe、ONNX等。为了保持开发者的模型一致性，MindSpore Lite如何使用这些三方框架的模型？
 
-#### 背景知识
+## 背景知识
 
 [MindSpore Lite](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-kit-introduction)是HarmonyOS内置的轻量化AI引擎，目前已经在图像分类、目标识别、人脸识别、文字识别等应用中广泛使用。[开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-kit-introduction#开发流程)：MindSpore Lite分为两个阶段：
 
@@ -22,12 +22,13 @@ MindSpore Lite使用.ms格式模型进行推理。当前大部分开发者使用
 2. [模型部署](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deployment)：
    * [使用MindSpore Lite进行模型推理 (C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-guidelines)
    * [使用MindSpore Lite进行端侧训练 (C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-train-guidelines)
-3. [开发方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-kit-introduction#开发方式)：  
+3. [开发方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-kit-introduction#开发方式)：
+
    MindSpore Lite已作为系统部件在HarmonyOS标准系统内置，基于MindSpore Lite开发AI应用的开发方式有：
    * 方式一：[使用MindSpore Lite实现图像分类（ArkTS）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-guidelines-based-js)。开发者直接在UI代码中调用MindSpore Lite ArkTS API加载模型并进行AI模型推理，此方式可快速验证效果。
-* 方式二：[使用MindSpore Lite实现图像分类（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-guidelines-based-native)。开发者将算法模型和调用MindSpore Lite Native API的代码封装成动态库，并通过N-API封装成ArkTS接口，供UI调用。  
+   * 方式二：[使用MindSpore Lite实现图像分类（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-guidelines-based-native)。开发者将算法模型和调用MindSpore Lite Native API的代码封装成动态库，并通过N-API封装成ArkTS接口，供UI调用。
 
-#### 解决方案
+## 解决方案
 
 1. 构建模型：建立用于特定目标识别的推理模型，此步骤可以根据实际的业务场景需要由开发者自行构建。 场景1：目标识别，识别摄像头中人物的手势，如✌或者✋。
 
@@ -51,9 +52,9 @@ MindSpore Lite使用.ms格式模型进行推理。当前大部分开发者使用
    3. 设置输入数据。
    4. 执行推理。
 
-完整示例代码参考：[基于MindSporeLite接口实现图像分类](https://gitee.com/harmonyos_samples/MindSporeLiteArkTS/tree/master)。  
+完整示例代码参考：[基于MindSporeLite接口实现图像分类](https://gitee.com/harmonyos_samples/MindSporeLiteArkTS/tree/master)。
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：主要应用场景有哪些？
 
@@ -81,10 +82,11 @@ A：目前三方中心仓已有一个ONNX可以使用：[sherpa_onnx](https://oh
 
 Q：MindSpore Lite使用的模型中是否支持控制流算子？
 
-A：目前MindSpore Lite并不支持控制流算子，建议开发者修改成无控制流算子的模型。  
+A：目前MindSpore Lite并不支持控制流算子，建议开发者修改成无控制流算子的模型。
 
-#### 总结
+## 总结
 
 * MindSpore Lite提供离线转换模型功能的工具，支持多种类型的模型转换，转换后的模型可用于推理。目前支持的输入模型类型有：MindSpore、TensorFlow Lite、Caffe、TensorFlow、ONNX和PyTorch。
 * 可根据业务场景实现推理模型，并部署到端侧调用。如，针对特定目标的检测（手势、燃气表设备等）。
-* 需要自己开发并使用数据集进行模型的开发和训练。  
+* 需要自己开发并使用数据集进行模型的开发和训练。
+

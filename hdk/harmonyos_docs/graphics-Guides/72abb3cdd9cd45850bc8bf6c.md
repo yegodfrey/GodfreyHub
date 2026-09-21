@@ -16,7 +16,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-Guides/requirements-f
 
 格式：png/png序列全屏素材设计比例：16:9
 
-素材尺寸为：540\*960px
+素材尺寸为：540*960px
 
 帧率：建议制作10fps
 
@@ -30,7 +30,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-Guides/requirements-f
 
 * 脸部素材
 
-格式：png/png序列脸部素材比例：根据素材需要自定尺寸大小，参考尺寸如上图所示素材最大尺寸为：1000\*1000px
+格式：png/png序列脸部素材比例：根据素材需要自定尺寸大小，参考尺寸如上图所示素材最大尺寸为：1000*1000px
 
 帧率：建议制作10fps
 

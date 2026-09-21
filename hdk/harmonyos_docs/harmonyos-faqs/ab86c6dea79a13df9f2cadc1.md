@@ -10,11 +10,11 @@ ArkTS支持TS中的重载，包括多个重载签名及一个实现签名。函�
 
 ArkTS不支持多个函数体的重载。示例如下：
 
-```
-// declare 
+```typescript
+// declare
 function test(param: User): number; 
 function test(param: number, flag: boolean): number; 
-// implement 
+// implement
 function test(param: User | number, flag?: boolean) { 
   if (typeof param === 'number') { 
     return param + (flag ? 1 : 0) 

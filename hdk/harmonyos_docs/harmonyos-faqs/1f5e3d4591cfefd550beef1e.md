@@ -6,32 +6,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-181
 
 # Web组件如何清除缓存信息
 
-#### 问题现象
+## 问题现象
 
-Web组件在加载网页时，会产生多种缓存数据，如Cache，Cookie还有DOM Storage，要如何清除它们？  
+Web组件在加载网页时，会产生多种缓存数据，如Cache，Cookie还有DOM Storage，要如何清除它们？
 
-#### 背景知识
+## 背景知识
 
 * [缓存与存储管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-cookie-and-data-storage-mgmt#缓存与存储管理)：在访问网站时，网络资源请求通常需要较长的时间。开发者可以通过Cache和DOM Storage等手段将资源保存到本地，以提高访问同一网站的速度。
 * [removeCache](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#removecache)：清除应用中的资源缓存文件，对应目录为data/storage/el2/base/cache/web/Cache目录。
 * [removeAllCache](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#removeallcache18)：清除应用中的资源缓存文件，对应目录为data/storage/el2/base/cache/web目录。
 * [clearAllCookiesSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webcookiemanager#clearallcookiessync11)：清除所有Cookie信息。
-* [deleteAllData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webstorage#deletealldata)：清除被JavaScript存储API使用的所有存储数据，这包括Web SQL数据库和HTML5支持的Web存储API。  
+* [deleteAllData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webstorage#deletealldata)：清除被JavaScript存储API使用的所有存储数据，这包括Web SQL数据库和HTML5支持的Web存储API。
 
-#### 解决方案
+## 解决方案
 
 场景一：清除Web的缓存Cache信息，对应存储目录data/storage/el2/base/cache/web。
 
 1. 方法一：使用实例接口removeCache，清除应用中data/storage/el2/base/cache/web/Cache目录下所有的资源缓存文件，需要创建WebviewController实例对象之后调用。
 
-   ```
+   ```screen
    import { webview } from '@kit.ArkWeb';
    import { BusinessError } from '@kit.BasicServicesKit';
 
    @Entry
    @Component
    struct WebComponent {
-     // url需替换为真实路径
+   // url需替换为真实路径
      url: string | Resource = 'xxxx';
      mode: CacheMode = CacheMode.None;
      controller: webview.WebviewController = new webview.WebviewController();
@@ -41,7 +41,7 @@ Web组件在加载网页时，会产生多种缓存数据，如Cache，Cookie还
          Button('removeCache')
            .onClick(() => {
              try {
-               // 设置为true时同时清除ROM和RAM中的缓存，设置为false时只清除RAM中的缓存
+             // 设置为true时同时清除ROM和RAM中的缓存，设置为false时只清除RAM中的缓存
                this.controller.removeCache(true);
              } catch (error) {
                console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
@@ -58,7 +58,7 @@ Web组件在加载网页时，会产生多种缓存数据，如Cache，Cookie还
 
 2. 方法二：API18及以上版本可以使用静态接口removeAllCache，清除应用中data/storage/el2/base/cache/web目录中所有的缓存文件，Web组件未初始化时也可调用。
 
-   ```
+   ```screen
    // xxx.ets
    import { webview } from '@kit.ArkWeb';
    import { BusinessError } from '@kit.BasicServicesKit';
@@ -66,7 +66,7 @@ Web组件在加载网页时，会产生多种缓存数据，如Cache，Cookie还
    @Entry
    @Component
    struct WebComponent {
-     // url需替换为真实路径
+   // url需替换为真实路径
      url: string | Resource = 'xxxx';
      controller: webview.WebviewController = new webview.WebviewController();
 
@@ -91,13 +91,13 @@ Web组件在加载网页时，会产生多种缓存数据，如Cache，Cookie还
 
 场景二：清除Web的缓存的Cookie信息，可使用clearAllCookiesSync方法进行清除，对应存储目录data/storage/el2/base/cache/web/Cookies。
 
-```
+```screen
 import { webview } from '@kit.ArkWeb';
 
 @Entry
 @Component
 struct WebComponent {
-  // url需替换为真实路径
+// url需替换为真实路径
   url: string | Resource = 'xxxx';
   controller: webview.WebviewController = new webview.WebviewController();
 
@@ -115,19 +115,20 @@ struct WebComponent {
 }
 ```
 
-![](https://media:101782461558583269)  
-[clearSessionCookieSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webcookiemanager#clearsessioncookiesync11)函数仅用于清除会话Cookie，即那些未设置max-age或expires属性、在浏览器会话结束时自动失效的Cookie。对于设置了过期时间的持久化Cookie，该函数不会进行任何操作，从而确保不会误删长期有效的数据。
+> 说明
+>
+> [clearSessionCookieSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webcookiemanager#clearsessioncookiesync11)函数仅用于清除会话Cookie，即那些未设置max-age或expires属性、在浏览器会话结束时自动失效的Cookie。对于设置了过期时间的持久化Cookie，该函数不会进行任何操作，从而确保不会误删长期有效的数据。
 
 场景三：清除DOM Storage（Session Storage + Local Storage）信息，可使用webview.WebStorage.deleteAllData进行清除。
 
-```
+```screen
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct WebComponent {
-  // url需替换为真实路径
+// url需替换为真实路径
   url: string | Resource = 'xxxx';
   controller: webview.WebviewController = new webview.WebviewController();
 
@@ -151,7 +152,7 @@ struct WebComponent {
 
 针对以上三种场景，除了以上提供的方法外，还可以通过文件管理方式，删除文件夹，达到清除应用Web缓存目的，以'data/storage/el2/base/cache/web/Cache'为例：
 
-```
+```screen
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo as fs } from '@kit.CoreFileKit';
@@ -159,7 +160,7 @@ import { fileIo as fs } from '@kit.CoreFileKit';
 @Entry
 @Component
 struct Index {
-  // url需替换为真实路径
+// url需替换为真实路径
   url: string | Resource = 'xxxx';
   controller: webview.WebviewController = new webview.WebviewController();
 
@@ -187,9 +188,9 @@ struct Index {
 }
 ```
 
-上述提供了Web组件API清除缓存接口，以及文件管理清除缓存方式，建议使用Web提供接口触发清除缓存，不建议使用手动删除目录方式。  
+上述提供了Web组件API清除缓存接口，以及文件管理清除缓存方式，建议使用Web提供接口触发清除缓存，不建议使用手动删除目录方式。
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：Web组件的removeCache和removeAllCache在清除资源优化上有什么区别？
 
@@ -197,4 +198,5 @@ A：removeCache是一个实例方法，作用范围仅清除当前Web组件实�
 
 Q：Web组件的removeCache和removeAllCache能否清除localStorage？
 
-A：removeCache和removeAllCache无法清除localStorage，它的清除由JavaScript垃圾回收自动处理，可通过使用webview.WebStorage.deleteAllData或runJavaScript调用前端代码实现清除功能。  
+A：removeCache和removeAllCache无法清除localStorage，它的清除由JavaScript垃圾回收自动处理，可通过使用webview.WebStorage.deleteAllData或runJavaScript调用前端代码实现清除功能。
+

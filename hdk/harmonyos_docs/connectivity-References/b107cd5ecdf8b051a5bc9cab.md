@@ -10,21 +10,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/in-app
 |:-----------------------------------------------------------------------------------------|
 |public interface HwCallAbilityCallBack 音视频通话能力查询回调接口，由开发者实现并传入，作用是返回支持的音视频通话能力，以便开发者进一步操作。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:-----------------------------------------------------------------------------------------------------------------------------|
 |void|[callAbilityResult](#ZH-CN_TOPIC_0000001051063785__section2139102625219)(String phoneNumberSha256, int retCode) 接收音视频通话能力查询结果。|
 
-#### Public Methods
+## Public Methods
 
-#### callAbilityResult
+### callAbilityResult
 
 |Method|
 |:----------------------------------------------------------------------------------|
 |public void callAbilityResult(String phoneNumberSha256, int retCode) 接收音视频通话能力查询结果。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|

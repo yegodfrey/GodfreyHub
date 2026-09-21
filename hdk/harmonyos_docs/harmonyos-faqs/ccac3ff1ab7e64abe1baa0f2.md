@@ -6,24 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1395
 
 # 使用TextPicker实现DatePicker的效果
 
-#### 问题现象
+## 问题现象
 
 DatePicker可以用于在指定日期范围内选择日期，但是开发过程中DatePicker的样式或者功能往往不能够满足自定义需求，如以下场景：
 
 * 场景一：DatePicker滑动过程中，年月日的滚动会互相关联，比如选择2025年12月，从12月滚动到1月时，年份会变成2026年，无法满足自定义要求。
 * 场景二：DatePicker只能选择年月日，无法满足只有【年】或者【年月】或【月日】的场景。
-* 场景三：实现只有【年月】的生日选择器，要求切换年份时月份变为与原来选择月份的最近月份。  
+* 场景三：实现只有【年月】的生日选择器，要求切换年份时月份变为与原来选择月份的最近月份。
 
-#### 背景知识
+## 背景知识
 
 * [DatePicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datepicker)：日期选择器，用于根据指定日期范围创建日期滑动选择器。滚动时年月会自动关联。
-* [TextPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker)：滑动选择文本内容的组件。可以按需创建单列数据选择器、多列非联动数据选择器和多列联动数据选择器。  
+* [TextPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker)：滑动选择文本内容的组件。可以按需创建单列数据选择器、多列非联动数据选择器和多列联动数据选择器。
 
-#### 解决方案
+## 解决方案
 
 * 场景一解决方案：使用多列非联动数据选择器。可以给TextPicker多列分别设置为年和月，即可模拟DatePicker日期选择效果。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct TextPickerExample1 {
@@ -48,13 +48,12 @@ DatePicker可以用于在指定日期范围内选择日期，但是开发过程�
 
   效果预览：
 
-  ![](https://media:101782461543463991 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/cU5-8QDYTu-7fZKtEWswYw/zh-cn_image_0000002628762570.png?HW-CC-KV=V1&HW-CC-Date=20260920T114735Z&HW-CC-Expire=31536000000&HW-CC-Sign=3BDFF9A02F21A8410F2F3B1F7884720D25DD3B174FB0E3A178E65648B6B26079 "点击放大")
 
-<!-- -->
 
 * 场景二解决方案：使用单列联动选择器实现年的选择，多列联动选择器实现年月或月日的选择。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct TextPickerExample2 {
@@ -135,11 +134,11 @@ DatePicker可以用于在指定日期范围内选择日期，但是开发过程�
 
   效果预览：
 
-  ![](https://media:101782461543681992 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/9cc7KtmHQheisHaOMTW6bA/zh-cn_image_0000002658961883.png?HW-CC-KV=V1&HW-CC-Date=20260920T114735Z&HW-CC-Expire=31536000000&HW-CC-Sign=37D0B88918F61C764DC7A9DC16C7E2DFCFBBC3072E66A1A62C0BB1CBD1A54756 "点击放大")
 
 * 场景三解决方案：当多列联动选择器触发[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker#onchange18)时，判断如果年份发生改变，就把月份设置为之前的月。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct TextPickerExample3 {
@@ -210,4 +209,5 @@ DatePicker可以用于在指定日期范围内选择日期，但是开发过程�
 
   效果预览：
 
-![](https://media:101782461543757993 "点击放大")  
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/ogdDIe6gRtWc4BqF_v5AJg/zh-cn_image_0000002628602672.png?HW-CC-KV=V1&HW-CC-Date=20260920T114735Z&HW-CC-Expire=31536000000&HW-CC-Sign=925595B4C240F948586839011A6E3B0D688CE2B60F075ADA5172F69ABF043317 "点击放大")
+

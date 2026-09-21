@@ -6,5 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-b
 
 # Network Boost Kit（网络加速服务）
 
-* [ArkTS API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-arkts)  
-* [C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-c)  
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
+
+* **[ArkTS API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-arkts)**   
+* **[C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-c)**   

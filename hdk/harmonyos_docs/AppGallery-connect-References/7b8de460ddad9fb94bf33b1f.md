@@ -7,38 +7,38 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 # AGCAppMessagingButtonType
 
 |Class Info|
-|:--------------------------------------------------------------------------------------------------------------------|
-|按钮类型。 OBJECTIVE-C ``` enum AGCAppMessagingButtonType {} ``` SWIFT ``` public enum AGCAppMessagingButtonType : Int ```|
+|:--------------------------------------------------------------------------------------------------------------------------------|
+|按钮类型。 OBJECTIVE-C ```screen enum AGCAppMessagingButtonType {} ``` SWIFT ```screen public enum AGCAppMessagingButtonType : Int ```|
 
-#### AGCAppMessagingButtonTypeJump
+## AGCAppMessagingButtonTypeJump
 
 URL链接跳转。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 AGCAppMessagingButtonTypeJump
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 case jump = 0
 ```
 
-#### AGCAppMessagingButtonTypeShare
+## AGCAppMessagingButtonTypeShare
 
 分享跳转。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 AGCAppMessagingButtonTypeShare
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 case share = 1
 ```
 

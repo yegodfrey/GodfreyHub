@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/supported-operator
 
 # 支持的算子
 
-#### hiai::op算子
+## hiai::op算子
 
-hiai::op算子定义所在目录：" /ddk/ai_ddk_lib/include/graph/op/"。  
+hiai::op算子定义所在目录：" /ddk/ai_ddk_lib/include/graph/op/"。
 
 |算子名|所属分类|所在文件|
 |:------------------------------------------------------------|:-------------|:---------------|
@@ -177,9 +177,9 @@ hiai::op算子定义所在目录：" /ddk/ai_ddk_lib/include/graph/op/"。
 |[Mish](#ZH-CN_TOPIC_0000001327003937__p102091319477)|nn_defs|nn_defs.h|
 |[Swish](#ZH-CN_TOPIC_0000001327003937__p1675143017559)|nn_defs|nn_defs.h|
 
-#### ge::op算子
+## ge::op算子
 
-ge::op命名空间下的算子定义所在目录： "/ddk/ai_ddk_lib/include/graph/compatible/"。  
+ge::op命名空间下的算子定义所在目录： "/ddk/ai_ddk_lib/include/graph/compatible/"。
 
 |算子名|所属分类|所在文件|
 |:------------------------------------------------------------|:-------------|:---------------|
@@ -271,14 +271,14 @@ ge::op命名空间下的算子定义所在目录： "/ddk/ai_ddk_lib/include/gra
 |TopK|nn_defs|nn_defs.h|
 |Multinomial|random_defs|random_defs.h|
 
-#### 激活算子说明
+## 激活算子说明
 
 |算子名|函数公式|
-|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |Activation|![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260104150609.66528468050799315323187699068780:50001231000000:2800:82FA2DED3402CAF73E3D34679147784E9E4813978127724CDF59234BE37E41D9.png "点击放大")|
 |Activation|![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260104150609.56963539431550159963946320506875:50001231000000:2800:4407BE2CA5FE86CA5B652E47AF19925C16C1AB6DCDD638475DF0390CF3CA0C3D.png "点击放大")|
 |Activation|![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260104150609.57865575824939476409215448709991:50001231000000:2800:14BFD7101150A29210A9C923BCEAFFC938502B7F4EF439C56665404A0A614C9C.png "点击放大")|
-|Activation|![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260104150609.85533001995495008263059216717102:50001231000000:2800:0F37DCC02903697B5EEB92E9FB448EAC14410603DAFDDDA0F63CAD705002612F.png "点击放大") 说明： z默认值是20.0，float类型。|
+|Activation|![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260104150609.85533001995495008263059216717102:50001231000000:2800:0F37DCC02903697B5EEB92E9FB448EAC14410603DAFDDDA0F63CAD705002612F.png "点击放大") > 说明 > z默认值是20.0，float类型。|
 |Activation|![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260104150609.85987720268404413126512982922728:50001231000000:2800:CF3FB8DE320264A7D6955C0F9617EC5434DF2FC19363772E274D988DE1A00AC8.png "点击放大")|
 |Activation|![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260104150610.60259499356487484987179338792416:50001231000000:2800:37F71EDEC2F223AA56CC9BAAB9A4C5EDDA72754ECAF18E5CF570690BF097C8D2.png "点击放大")|
 |Activation|![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260104150610.89468831686687920388395174836653:50001231000000:2800:6A9F45703657CB2E09072B1FAA974A82B2B817A478828F632586877A132389FD.png "点击放大")|

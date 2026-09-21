@@ -8,9 +8,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d
 
 ArkGraphics 3D（方舟3D图形）基于轻量级的3D引擎以及渲染管线为开发者提供基础3D场景绘制能力，供开发者便捷、高效地构建3D场景并完成渲染。
 
-ArkGraphics 3D以自定义场景模式为核心能力，支持开发者自行构建和管理Scene、Camera、Light等节点，从而对3D场景的渲染效果与交互行为进行完全控制。同时，为了便于快速预览和展示模型，也提供自动场景模式，允许开发者直接加载glTF（.gltf文件和.glb文件）模型，由框架自动创建基础相机、光源及交互控制。  
+ArkGraphics 3D以自定义场景模式为核心能力，支持开发者自行构建和管理Scene、Camera、Light等节点，从而对3D场景的渲染效果与交互行为进行完全控制。同时，为了便于快速预览和展示模型，也提供自动场景模式，允许开发者直接加载glTF（.gltf文件和.glb文件）模型，由框架自动创建基础相机、光源及交互控制。
 
-#### 功能介绍
+## 功能介绍
 
 * 提供加载并解析标准[glTF](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html)（GL Transmission Format）模型（.gltf文件和.glb文件）的能力，同时支持使用[MeshOpt](https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Vendor/EXT_meshopt_compression/README.md)压缩，输入带有EXT_meshopt_compression扩展描述的glTF模型。支持开发者将glTF模型文件置于应用文件沙盒中，并通过ArkGraphics 3D提供的异步接口完成模型的加载以及渲染。具体可见[Scene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene)。
 * 提供自定义灯光（Light）、相机（Camera）节点以及通用节点（Node）的能力，可支撑开发者自定义场景灯光、渲染视角等信息，同时支撑用户动态地调整场景树结构以及节点属性进而调整3D场景。具体可见[Scene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene)以及[SceneNode (节点管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-nodes)。
@@ -20,22 +20,23 @@ ArkGraphics 3D以自定义场景模式为核心能力，支持开发者自行构
 
 综上，ArkGraphics 3D提供以自定义Scene为核心的3D场景渲染能力，同时通过自动场景模式为模型的快速展示提供便捷入口，满足从简单预览到复杂渲染控制的不同开发需求。
 
-具体接口的使用和参数说明，可见[@ohos.graphics.scene (ArkGraphics 3D模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-scene)。  
+具体接口的使用和参数说明，可见[@ohos.graphics.scene (ArkGraphics 3D模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-scene)。
 
-#### 框架原理
+## 框架原理
 
-![](https://media:401788444139575416)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/Df5eSSzzT66rt6fHYBC89Q/zh-cn_image_0000002733275110.png?HW-CC-KV=V1&HW-CC-Date=20260917T084545Z&HW-CC-Expire=31536000000&HW-CC-Sign=C84825E7E74A2B9897492E936D662031262A4EA4892679E82CBF563602EA478B)
 
 如上图 ArkGraphics 3D接口能力由图形后端、引擎层以及接口层三个关键部分共同组成。
 
 * 图形后端：主要指GPU硬件提供的驱动接口类型，业界通用的主要包含OpenGL ES以及Vulkan两类。引擎层通过下发GPU指令调用这些接口，实现场景的渲染。
 * 引擎层：依托Ark Graphics Platform渲染引擎部件提供渲染能力，AGP引擎具有易用性、高画质、可扩展等特性。引擎使用先进的ECS（Entity-Component-System）架构设计，进行模块化封装（如材质定义、后处理特效等），为开发者提供了灵活易用的开发套件。
-* 接口层：基于引擎的ECS Framework，通过NAPI层对数据进行组织处理，向开发者暴露简单易用的3D渲染接口，支持开发者使用少量代码完成3D场景的开发。  
+* 接口层：基于引擎的ECS Framework，通过NAPI层对数据进行组织处理，向开发者暴露简单易用的3D渲染接口，支持开发者使用少量代码完成3D场景的开发。
 
-#### 约束限制
+## 约束限制
 
-使用ArkGraphics 3D模块需要硬件设备支持OpenGL ES 3.2以上或者Vulkan 1.0以上的GPU驱动。  
+使用ArkGraphics 3D模块需要硬件设备支持OpenGL ES 3.2以上或者Vulkan 1.0以上的GPU驱动。
 
-#### 模拟器支持情况
+## 模拟器支持情况
 
-本Kit暂不支持模拟器。  
+本Kit暂不支持模拟器。
+

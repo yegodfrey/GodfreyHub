@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wal
 
 # Overview
 
-开发者可通过集成[CreateWalletPassRequest](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wallet-create-walletpass-0000001050145782)等接口组装卡券数据，然后将卡劵数据推送给华为服务器来实现卡劵添加操作。  
+开发者可通过集成[CreateWalletPassRequest](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wallet-create-walletpass-0000001050145782)等接口组装卡券数据，然后将卡劵数据推送给华为服务器来实现卡劵添加操作。
 
-#### Interface Summary
+## Interface Summary
 
 |Interface|Description|
 |:-----------------------------------------------------------------------------------------------------------------------------------|:----------|
 |[IResolvableTaskResult](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wallet-ireslovable-0000001050147719)|返回Task结果。|
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|

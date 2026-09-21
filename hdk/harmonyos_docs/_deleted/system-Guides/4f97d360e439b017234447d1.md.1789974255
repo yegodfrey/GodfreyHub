@@ -1,0 +1,213 @@
+---
+name: document/cn/system-Guides/faq-0000001053428240
+title: FAQ
+uri: https://developer.huawei.com/consumer/cn/doc/system-Guides/faq-0000001053428240
+---
+
+# FAQ
+
+## License相关FAQ
+
+### License授权与证书授权的区别？
+
+只是两种不同的授权方式，授权能力和授权范围是完全一样的。
+
+* License授权通过集成HEM Kit，为已审批项目中的设备进行远程授权。
+* 证书授权通过申请证书后将证书集成到对应的APK中进行线下授权。
+
+## 证书相关FAQ
+
+### 如果开发者的APK以前是V1签名，现在华为要求换成V1+V2签名的方式，开发者会不会受影响呢，覆盖安装的时候会不会提示不能安装呢？
+
+不会，只要开发者还是使用原来的keystore进行签名，只是添加了V2签名的参数，是可以覆盖安装的。
+
+### 如何获取设备的IMEI号、WIFI MAC地址和MEID？
+
+IMEI号和MEID可以在"设置"→"关于手机/关于平板电脑"→"IMEI"或"MEID"查看；WIFI MAC地址可以在"设置" →"关于手机/关于平板电脑"→"状态信息"→"WLAN MAC地址"查看。
+
+### 如果手机无IMEI号，如何申请开发证书？
+
+由于某些电信制式的手机，可能无IMEI号，此时建议使用WIFI MAC地址或MEID。
+
+### 有些手机在没有插入SIM卡时，检查APK都正常，但是依旧拿不到MDM权限？
+
+可以检查下APK安装时的日志，如果有下面这行日志：HwCertificationManager: there is no imei on this phone.
+
+请插入SIM卡后再进行开发证书测试。
+
+### 申请商用证书或开发证书时，等了很久也没有审批？
+
+证书审核有严格的流程，请用户耐心等候。
+
+* 商用证书的审核周期一般为1-2周，开发证书一般为2~3个工作日。
+* 商用证书时，如果审批电子流一直停留在渠道经理或者SSE审核，请在"联盟官网->MDM能力->接入准备->证书申请->联系方式"中找到政企接口人的联系方式，请和他沟通，让他审批并通知后台审核人员。
+
+### 同一个APK在EMUI 8.x以上可以正常使用， 但在EMUI 8.x上提示没有权限？
+
+EMUI 8.x的版本，要求keystore的别名必须为cert， 请将keystore的别名改为cert后再重新签名申请证书。
+
+可以通过以下命令查看和修改别名。
+
+查看别名：
+
+```screen
+keytool -list -v -keystore your.keystore -storepass yourpassword
+```
+
+修改别名为cert：
+
+```screen
+keytool -changealias -keystore your.keystore -alias yourcurrentalias -destalias cert
+```
+
+### 无法成功调用API，日志里有"Does not have MDM permission"类似提示？
+
+请按照如下步骤排查：
+
+1. 检查设备管理器APK是否激活。（必须激活）
+2. 检查APK包名和证书是否一致。（必须一致）
+3. 检查APK的manifest.xml是否有com.huawei.permission.sec.MDM根权限。（必须有）
+4. 检查APK的manifest.xml是否有异常中提示的权限。（必须有）
+5. 开发证书时检查设备的IMEI号是否与证书中的DeviceIds一致。（必须一致）
+6. 检查证书中的有效期ValidPeriod是否有效。如果修改了设备的系统时间，需要保证时间在证书中的有效期内。（必须满足）
+7. 检查证书中的ApkHash是否为*，*代表开发证书。如果是商用证书，则该证书只绑定了申请证书时所上传的APK。APK有任何修改（包括签名，版本号的修改）都必须重新申请商用证书。因为商用证书会检验APK的所有文件的hash值。任何改动hash值都将改变，导致调用不成功。（必须满足）
+8. 检查签名信息与申请开发证书时所上传的APK的签名信息是否一致。（证书里的这些字段，所有字段都满足才有权限调用mdm接口）。（必须满足）
+9. 检查APK传给设备管理器（DeviceAdmin）的ComponentName和调用api传入的ComponentName是否相同。（必须满足）
+10. 检查APK安装时的日志，如果有下面这行日志：HwCertificationManager: there is no imei on this phone. 请插入sim卡后再进行开发证书测试。
+11. 检查APK中是否有多个MANIFEST.MF文件，如果有，请删除其他MANIFEST.MF，只保留根目录META-INF下的MANIFEST.MF。
+12. 检查APK的签名，META-INF目录下，是否有.DSA的文件，如果有，请换一个签名文件，重新给APK签名，直到改成CERT.RSA。我们只支持RSA的签名算法。
+13. APK在EMUI 8.x的版本上使用时， 请检查META-INF目录下的.SF文件的名称是否为CERT，如果不是，请修改keystore的别名为cert，这样签名后的.SF文件的名称是CERT。
+
+### 在开发者联盟MDM业务板块申请证书时，APK上传失败？
+
+请按照如下步骤排查：
+
+* 网站提示300:".CER中的Apkhash和.MF转化的hash值不一致、X-Android-APK-Signed不为2，或者临时证书不匹配，请检查后上传合适的APK！",
+* 网站提示301:"只能上传android V1+V2签名的APK，同时保证X-Android-APK-Signed为2，请检查后重新选择！"
+
+1. 将APK解压，查看META-INF目录下的*.SF文件，如果第4行内容X-Android-APK-Signed为2,3，请重新编译不带签名的APK，然后手动进行V1+V2签名。apksigner工具使用的版本>=29时，签名命令请添加--v3-signing-enabled false参数。
+2. 在申请正式商用证书时，需要保证提交的集成了临时商用证书的APK正常有效，能够获取到MDM权限。
+
+### 应用集成证书后在EMUI 4.1上为什么无法安装？
+
+现在的证书不支持EMUI 4.1的设备，导致安装失败，请尝试将设备升级到EMUI 5.x。
+
+### 如果已经申请了商用证书，后来APK版本更新了，还需要再次申请商用证书吗？
+
+需要，由于商用证书会与APK版本进行绑定（商用证书ApkHash必选），所以开发者APK更新后，需要申请新的商用证书。
+
+### 证书的有效期是多长时间？
+
+开发证书有效期默认6个月，临时商用证书有效期默认1个月，正式商用证书的有效期可在申请时选择，有效期与申请时一致。
+
+### 申请正式商用证书时因"API授权申请列表中申请的权限多于AndroidManifest.xml中声明使用的权限"被驳回？
+
+填写API授权申请列表时，请不要申请AndroidManifest.xml中未声明使用的权限，以免证书审核时被驳回。
+
+### 如何签名打包证书？
+
+MDM能力中有较多与签名、证书等相关的内容，为了便于开发者集成开发，我们将签名相关内容专题整理。
+
+[MDM签名步骤和新增FAQ.pdf](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20240430085411.39171521401119968290486735764115:50001231000000:2800:682C99284A5427B67B4899A86A8D460401142C5AAFE4BC806B5F3DFF6905A41C.pdf?needInitFileName=true)
+
+## 通用FAQ
+
+### 在其他非华为手机上是否可以使用华为MDM能力SDK？
+
+不可以，只能支持华为设备的功能。
+
+### APK扫描出有组件暴露风险，申请被驳回？
+
+MDM的能力只能授予当前APK使用，不能提供给其它应用使用，**不允许直接将MDM能力暴露出去**，需要整改后再提交申请。如果暴露内容的和MDM能力无关，需要在最新的自检表进行澄清。
+
+具体整改内容可参考：[MDM应用安全开发规范](https://developer.huawei.com/consumer/cn/doc/system-Guides/app-dev-0000001077043320#section840812421619)
+
+### 使用DevicePackageManager相关接口时，发现如下异常如何处理？
+
+![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20240430085411.51434145513809938415032607902672:50001231000000:2800:DD304CCADABCC443DC3333E6741C0913D805855049A772B4EDD0A91FE2834A1D.png?needInitFileName=true?needInitFileName=true "点击放大")
+
+请将mdm的jar包使用compileOnly的方式集成到IDE中。
+
+### 新设备在激活设备管理器时，提示要先登录华为帐号?
+
+这个操作是为了避免设备管理器权限遭恶意利用，根据提示登录华为帐号后即可。
+
+### 将设置加入setTaskLockAppList白名单之后，进入恢复出厂设置点击重置无反应是怎么回事？
+
+查看是否是否登录华为账号，如果已经登录华为账号，需要将com.huawei.hwid也加入白名单中，这样点击重置才会生效。
+
+### addPersistentApp和setSuperTrustListForHwSystemManger两个保活接口有什么区别（应用保活）？
+
+* addPersistentApp:对应开发指导书"保持某应用始终运行"功能，添加后，保活单中的应用不能被任何方式停止运行。HarmonyOS3.0及之后的版本，允许列表中的应用自启动、关联启动，允许后台运行，默认开启忽略电池优化。需要申请com.huawei.permission.sec.MDM_APP_MANAGEMENT权限才能调用此接口。
+* setSuperTrustListForHwSystemManger:设置应用为信任应用，允许应用自启动、关联启动，默认开启忽略电池优化，允许后台运行，从而达到保活目的。需要申请com.huawei.systemmanager.permission.ACCESS_INTERFACE 和 com.huawei.permission.sec.MDM_APP_MANAGEMENT 权限才能调用此接口。 说明
+  >
+  > 建议两个接口配合在一起使用。
+
+### 如果通过MDM应用禁用了USB文件传输功能，忘记了开启，并且把MDM应用删除了，该怎么办？
+
+当MDM应用被取消激活，或被删除后，此MDM之前所设置的所有状态，都会被取消。此时想打开USB文件传输功能，需要用户手动打开USB调试，然后重新拔插USB即可。
+
+### 禁用/启用相机接口（setCameraDisabled）失效？
+
+targetSdkVersion>=29时，如果是Device Admin的管控模式，需要先调用setDeprecatedAdminInterfacesEnabled接口开启Device Admin deprecated APIs 功能（详见最新MDM能力API说明），禁用/启用相机接口才能生效。
+
+### 设备上通过证书的方式已经获取了录音权限，但是在通话场景，录音的时候依旧弹出toast，暂时不能录音，录音失效。
+
+接工信部要求，通信过程中录音产生的文件违反规定，华为改为通话禁止录音。而有一些APP通话时却可以录音，因为他们采用的方式是打开无障碍服务，采用native层的接口录音的。
+
+### 申请了使用情况访问权限"android.permission.PACKAGE_USAGE_STATS"，为什么应用没有显示在使用情况访问权限列表中？
+
+如果应用在MDM设置的可信任应用列表中时，应用会不显示在"设置 > 安全 > 更多安全设置 > 使用情况访问权限"列表中。
+
+### 怎样卸载MDM应用？
+
+"设置 > 安全 > 更多安全设置 > 设备管理器"中先解除激活对应的MDM应用再卸载，若通过addDisabledDeactivateMdmPackages添加了禁止反激活名单，则需要先通过removeDisabledDeactivateMdmPackages删除后才能解除激活然后卸载。
+
+### MDM应用如何实现开机自启动？
+
+* 被拉起应用需要监听开机广播"android.intent.action.BOOT_COMPLETED"来启动应用。
+* 首先通过setSuperTrustListForHwSystemManger将需要拉起应用添加到可信任列表，其次调用addBackgroundPopUpWindowTrustList将需要拉起应用添加到后台弹窗列表。
+* EMUI 10.0及之后的版本需要声明使用悬浮窗的权限<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> 与后台弹窗权限<uses-permission android:name="com.huawei.permission.POPUP_BACKGROUND_WINDOW" />。
+* 应用安装后启动过一次。
+
+### 设置三方桌面为默认桌面应用指导
+
+设置三方桌面为默认桌面需要注意，当设备已开机但用户尚未解锁设备时，EMUI 5.0及以上设备将在安全的"直接启动"模式下运行。该模式下只支持设置了directBootAware的应用且无法访问应用私密数据，需要三方桌面应用在组件里设置<activity|provider|receiver|service ... android:directBootAware="true">，并针对应用数据访问进行适配（注意：不能在用户解锁前使用凭据加密(CE)存储数据）：
+
+1. 对于用户解锁前就需要使用的必要数据，务必迁移至设备加密存储，可在用户解锁前通过DeviceProtectedStorageContext进行读取和使用。
+2. 对于无法迁移到设备加密存储或用户解锁前非必要的数据，可以通过接收用户解锁通知，在用户解锁后主动获取并使用（监听ACTION_USER_UNLOCKED）。
+
+### addNetworkList、addBrowserNetworkList、addNetworkAccessAppList的区别是什么？
+
+* addNetworkList：系统上网控制接口，只能设置黑名单或者白名单中的一种，支持域名与ip同时配置，对所有App都生效（appList为域名时已经做了DNS防劫持的除外）。
+* addBrowserNetworkList：华为浏览器上网控制接口，只能设置黑名单或者白名单中的一种，支持域名与ip同时配置。
+* addNetworkAccessAppList：App上网控制接口，设置可以上网的App，不在列表中的App无法访问网络。
+
+
+* addBrowserNetworkList、addNetworkList两个接口只能同时设置黑名单或者同时设置白名单。华为浏览器受addBrowserNetworkList，addNetworkList两个接口的管控，效果叠加。同时设置黑名单时，华为浏览器无法访问两个黑名单的网址，同时设置白名单时，华为浏览器只能访问同时在两个白名单中的网址。
+* addNetworkAccessAppList、addBrowserNetworkList两个接口同时设置时，当addNetworkAccessAppList接口设置了"com.huawei.browser"时，addBrowserNetworkList接口设置的策略有效，否则华为浏览器无法访问网络，addBrowserNetworkList策略无效。
+* addNetworkAccessAppList、addNetworkList两个接口同时设置时，addNetworkAccessAppList设置的App，不受addNetworkList接口白名单策略的控制，可以访问所有网络（华为浏览器受addBrowserNetworkList管控）。addNetworkAccessAppList设置的App，受addNetworkList接口黑名单策略的控制，无法访问addNetworkList的黑名单策略。
+* 推荐使用场景： 场景1：访问公司内部网址
+
+  addNetworkList（白名单）+ addBrowserNetworkList（白名单）+ (addNetworkAccessAppList)
+
+  场景2：拦截网址
+
+  addNetworkList（黑名单）+ addBrowserNetworkList（黑名单）+ (addNetworkAccessAppList)
+
+### 通过setWifiProfile、addSsidToTrustList/addSSIDToWhiteList（已废弃）、addSsidToBlockList/addSSIDToBlackList（已废弃）接口设置的SSID，判断能否连接的优先级是什么样的？
+
+优先级：白名单>黑名单>企业WiFi列表。即：
+
+* 设置了白名单（不会去检查黑名单和企业WiFi列表）：
+  1. 当前SSID在白名单内，则正常连接;
+  2. 当前SSID不在白名单内，则断开连接。
+* 没有设置白名单，设置了黑名单和企业WiFi列表：
+  1. 当前SSID在黑名单内，则断开连接;
+  2. 当前SSID不在黑名单内，但在企业WiFi列表内，则正常连接；
+  3. 当前SSID不在黑名单内，且不在企业WiFi列表内，则断开连接。
+
+### addDisallowedRunningApp接口使用后有问题？
+
+为了避免系统不稳定，请不要添加com.huawei.hwid、com.android.phone、com.huawei.iaware、com.android.systemui、com.huawei.systemserver、com.huawei.android.hwouc、com.huawei.systemmanager、com.huawei.android.launcher、设置、开机向导、联系人到阻止运行清单中。
+

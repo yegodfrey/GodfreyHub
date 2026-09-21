@@ -1,0 +1,18 @@
+---
+name: document/cn/hiai-References/structure-0000001180896288
+title: 结构体类
+uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/structure-0000001180896288
+---
+
+# 结构体类
+
+* **[AippChannelSwapPara](https://developer.huawei.com/consumer/cn/doc/hiai-References/aippchannelswappara-0000001245377102)**   
+* **[AippCropPara](https://developer.huawei.com/consumer/cn/doc/hiai-References/aippcroppara-0000001291497277)**   
+* **[AippCscPara](https://developer.huawei.com/consumer/cn/doc/hiai-References/aippcscpara-0000001244372196)**   
+* **[AippDtcPara](https://developer.huawei.com/consumer/cn/doc/hiai-References/aippdtcpara-0000001291851965)**   
+* **[AippInputShape](https://developer.huawei.com/consumer/cn/doc/hiai-References/aippinputshape-0000001291616705)**   
+* **[AippPaddingPara](https://developer.huawei.com/consumer/cn/doc/hiai-References/aipppaddingpara-0000001283790237)**   
+* **[AippResizePara](https://developer.huawei.com/consumer/cn/doc/hiai-References/aippresizepara-0000001245217314)**   
+* **[BuildOptions](https://developer.huawei.com/consumer/cn/doc/hiai-References/buildoptions-0000001226017497)**   
+* **[DynamicShapeConfig](https://developer.huawei.com/consumer/cn/doc/hiai-References/dynamicshapeconfig-0000001281339986)**   
+* **[NativeHandle](https://developer.huawei.com/consumer/cn/doc/hiai-References/nativehandle-0000002017503216)**   

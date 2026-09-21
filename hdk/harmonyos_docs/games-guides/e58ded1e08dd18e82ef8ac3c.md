@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-gamemme-rtm
 
 # 功能开发
 
-完成创建API客户端和获取到访问API的Access Token后，您即可以调用对应的接口来完成相应的功能开发。  
+完成创建API客户端和获取到访问API的Access Token后，您即可以调用对应的接口来完成相应的功能开发。
 
 |接口|说明|
 |:------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -15,5 +15,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-gamemme-rtm
 |设置频道属性|设置指定频道的属性，API的详细调用方法请参见[设置频道属性](https://developer.huawei.com/consumer/cn/doc/games-references/gamemme-set-channel-property-restapi-0000002358963844)。|
 |删除频道属性|删除指定频道的属性，API的详细调用方法请参见[删除频道属性](https://developer.huawei.com/consumer/cn/doc/games-references/gamemme-delete-channel-property-restapi-0000002392643873)。|
 
-![](https://media:401781143662567904)  
-如需调试相关API，可使用API Explorer进行在线调试，具体可参见[调试API](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-debugg-api-0000001346861040)。  
+> 说明
+>
+> 如需调试相关API，可使用**API Explorer** 进行在线调试，具体可参见[调试API](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-debugg-api-0000001346861040)。
+

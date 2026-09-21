@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/busmanager-se
 
 # 开发串口通信服务
 
-* [串口通信开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/serial-guidelines)  
+* **[串口通信开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/serial-guidelines)**   

@@ -6,9 +6,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/sdk-version
 
 # 存量设备API版本使用数量参考
 
-截止2026年9月6日，HarmonyOS设备各API版本使用量占比如下，开发者可根据占比来为应用合理定义需要兼容的API版本。  
-![](https://media:401788767401317806)  
-本数据约15天进行一次更新。  
+截止2026年9月6日，HarmonyOS设备各API版本使用量占比如下，开发者可根据占比来为应用合理定义需要兼容的API版本。
+> 说明
+>
+> 本数据约15天进行一次更新。
 
 |HarmonyOS版本|API版本|设备量占比|
 |:----------|:--------|:-----|

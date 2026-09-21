@@ -17,24 +17,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 * [修改默认数据处理位置](#section8328654182616)
 * [使用指定数据处理位置](#section66216133276)
 
-#### 使用默认数据处理位置
+## 使用默认数据处理位置
 
 直接调用服务的相关接口使用即可。
 
-```
+```screen
 const storageManagement = agconnect.cloudStorage();
 ```
 
-#### 修改默认数据处理位置
+## 修改默认数据处理位置
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20240821163246.83565011944221126462207625499414:50001231000000:2800:849C1A0A253272CC406948F0BAFC56FB5B143A7324A85B63990D4E2DDE4EF4BC.png?needInitFileName=true?needInitFileName=true)  
-在AGC上设置的"默认数据处理位置"适用于项目下所有应用，此处修改的"默认数据处理位置"仅对本应用生效，不会影响其他应用。
+> 注意
+>
+> 在AGC上设置的"默认数据处理位置"适用于项目下所有应用，此处修改的"默认数据处理位置"仅对本应用生效，不会影响其他应用。
 
-调用[agconnect.instance().setOption()](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agccore-web-agcinstance-0000001159665969#section122413951213)方法修改数据处理位置。  
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20240821163246.40135676446079819881137611441377:50001231000000:2800:B2823E66DEDBFD628115D570E70E1DB36B9A295F67ECB8F4E238F090EBD72ED2.png?needInitFileName=true?needInitFileName=true)  
-建议此接口在agc初始化方法调用后立刻调用，数据处理位置及其对应的枚举值详情请参见[AGCRoutePolicy](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agccore-web-agcroutepolicy-0000001159665971)。
+调用[agconnect.instance().setOption()](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agccore-web-agcinstance-0000001159665969#section122413951213)方法修改数据处理位置。
+> 说明
+>
+> 建议此接口在agc初始化方法调用后立刻调用，数据处理位置及其对应的枚举值详情请参见[AGCRoutePolicy](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agccore-web-agcroutepolicy-0000001159665971)。
 
-```
+```screen
 // 应用配置信息
 const agconnectConfig = require('../agconnect-services.json'); 
 // 初始化agc 
@@ -47,17 +49,16 @@ var optCN = {
 agconnect.instance().setOption(optCN); 
 ```
 
-#### 使用指定数据处理位置
+## 使用指定数据处理位置
 
 您还可以通过指定目标数据处理位置，实现不同数据处理位置访问不同区域的数据，此处目标数据处理位置以中国为例进行介绍。
 
-1. 调用agconnect.instance()方法并传入一个identifier参数，返回一个AGCInstance对象。例如：agconnect.instance("CN")返回一个instance对象，其identifier为"CN"。  
-   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20240821163246.00383276821114214094969678159544:50001231000000:2800:41B3F791284271E661D0A1B0A01FCB5A7126E2866D043B2A6B936658DA47E150.png?needInitFileName=true?needInitFileName=true)  
-   * identifier为字符串类型，为AGCInstance对象的唯一标识符，由您自定义。
-   * agconnect.instance()不传入identifier时，identifier默认为"\[DEFAULT_CATEGORY\]"。
-   * 每个AGCInstance对象之间相互独立，需要保证每个AGCInstance除数据处理位置设置不同外，其他设置完全一致。
+1. 调用agconnect.instance()方法并传入一个identifier参数，返回一个AGCInstance对象。例如：agconnect.instance("CN")返回一个instance对象，其identifier为"CN"。 说明
+   > * identifier为字符串类型，为AGCInstance对象的唯一标识符，由您自定义。
+   > * agconnect.instance()不传入identifier时，identifier默认为"[DEFAULT_CATEGORY]"。
+   > * 每个AGCInstance对象之间相互独立，需要保证每个AGCInstance除数据处理位置设置不同外，其他设置完全一致。
 
-   ```
+   ```screen
    // 应用配置信息
    const agconnectConfig = require('../agconnect-services.json');
    // 初始化agc
@@ -65,11 +66,11 @@ agconnect.instance().setOption(optCN);
    instanceCN.configInstance(agConnectConfig);
    ```
 
-2. 构造[AGConnectOptions](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agccore-agconnectoptions-0000001116446037)对象，指定目标数据处理位置。  
-   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20240821163246.48717300000418480941678032774813:50001231000000:2800:318BCCF33304489EAC22A6227FEF955CEBF478708434B2D227702E42FEE64E92.png?needInitFileName=true?needInitFileName=true)  
-   数据处理位置及其对应的枚举值详情请参见[AGCRoutePolicy](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agccore-web-agcroutepolicy-0000001159665971)。
+2. 构造[AGConnectOptions](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agccore-agconnectoptions-0000001116446037)对象，指定目标数据处理位置。 说明
+   >
+   > 数据处理位置及其对应的枚举值详情请参见[AGCRoutePolicy](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-References/agccore-web-agcroutepolicy-0000001159665971)。
 
-   ```
+   ```screen
    // AGConnectOptions对象
    var optCN = {
        routePolicy: 1 // routePolicy值对应不同的数据处理位置，此时设置为中国
@@ -80,9 +81,10 @@ agconnect.instance().setOption(optCN);
 
 3. 在指定目标数据处理位置即可使用云存储服务。
 
-   ```
+   ```screen
    // 初始化云存储实例
    const storageManagement = agconnect.cloudStorage(instanceCN, 'bucketForCN');// 数据处理位置为中国
    ```
 
-4. 如果您需要实现访问其他数据处理位置，重复上述步骤，指定不同的目标数据处理位置即可。  
+4. 如果您需要实现访问其他数据处理位置，重复上述步骤，指定不同的目标数据处理位置即可。
+

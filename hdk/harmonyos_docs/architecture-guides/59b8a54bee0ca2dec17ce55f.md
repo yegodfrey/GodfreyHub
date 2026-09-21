@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/pdf_to_lon
 
 # 试题PDF转长图保存
 
-#### 场景介绍
+## 场景介绍
 
 试题PDF转长图是教育类应用的高频使用场景之一，如用户可将PDF课件和试卷转换为长图，方便浏览并记忆学习内容。
 
-本示例基于[PDF Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-api)、[@ohos.multimedia.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-image)实现PDF转长图功能，将PDF文件内容转换为一张长图，并保存至图库。  
+本示例基于[PDF Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-api)、[@ohos.multimedia.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-image)实现PDF转长图功能，将PDF文件内容转换为一张长图，并保存至图库。
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782462931294077 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/8rikaGV_TiKGgWqtm4bKIw/zh-cn_image_0000002555507663.png?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=8FE270899EB723EF978F4D757095907092EA6EA1BE3006DDE74224EB30CE0C44 "点击放大")
 
-#### 实现思路
+## 实现思路
 
 1. 通过PdfView组件预览PDF文件。
 
-   ```
+   ```ts
    PdfView({
      controller: this.controller,
      pageFit: pdfService.PageFit.FIT_WIDTH,
@@ -30,9 +30,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/pdf_to_lon
 
 2. 获取PDF文件每页的图片信息，并处理当前页的像素数据。
 
-   ```
+   ```ts
    // 检查PDF文档是否成功加载，只有在成功加载的情况下才执行后续操作
-   this.isConverting = true; // 设置转换状态为“正在转换”
+   this.isConverting = true; // 设置转换状态为"正在转换"
 
    // 获取PDF文档的总页数
    const pageCount = this.pdfDocument.getPageCount();
@@ -83,7 +83,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/pdf_to_lon
      const pageWidth = GeneratedDestructObj_1.width;
      const pageHeight = GeneratedDestructObj_1.height;
 
-     // 初始化单页解码选项
+     //初始化单页解码选项
      const singleOpts: image.DecodingOptions = {
        editable: true, // 设置解码后的PixelMap为可编辑状态
        desiredPixelFormat: image.PixelMapFormat.BGRA_8888, // 设置目标像素格式为BGRA_8888
@@ -125,7 +125,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/pdf_to_lon
 
 3. 通过SaveButton组件将图片保存至图库。
 
-   ```
+   ```ts
    SaveButton({ text: SaveDescription.SAVE })
      .onClick(async (event: ClickEvent, result: SaveButtonOnClickResult) => {
        if (result === SaveButtonOnClickResult.SUCCESS) {
@@ -136,15 +136,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/pdf_to_lon
      });
    ```
 
-#### 约束与限制
+## 约束与限制
 
 * 本示例支持API Version 20 Release及以上版本。
 * 本示例支持HarmonyOS 6.0.0 Release SDK及以上版本。
-* 本示例需要使用DevEco Studio 6.0.0 Release及以上版本进行编译运行。  
+* 本示例需要使用DevEco Studio 6.0.0 Release及以上版本进行编译运行。
 
-#### 工程目录
+## 工程目录
 
-```
+```ts
 ├──entry/src/main/ets
 │  ├──common
 │  │  └──CommonConstants.ets       // 常量
@@ -161,14 +161,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/pdf_to_lon
 └──entry/src/main/resources        // 应用资源目录
 ```
 
-#### 参考文档
+## 参考文档
 
 [SaveButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-security-components-savebutton)
 
 [PDF Kit（PDF服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-api)
 
-[Interface(PixelMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)  
+[Interface(PixelMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)
 
-#### 代码下载
+## 代码下载
 
-[试题PDF转长图保存示例代码](https://media:101782462931349078)  
+[试题PDF转长图保存示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626163531.28109022695304020169917643803588:50001231000000:2800:5BB820B7CD6280A0843CC505F45B2F1F9D382897374B0271C09887F71841453D.zip?needInitFileName=true)
+

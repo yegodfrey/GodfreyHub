@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-in
 
 # HiAppEvent介绍
 
-#### 简介
+## 简介
 
-HiAppEvent是系统为应用开发者提供的事件订阅和事件打点机制，支持记录应用运行过程中的故障、统计、安全和行为事件，帮助开发者定位问题、分析应用运行情况，统计访问量、用户活跃度、操作习惯以及其他影响用户使用产品的关键因素。  
+HiAppEvent是系统为应用开发者提供的事件订阅和事件打点机制，支持记录应用运行过程中的故障、统计、安全和行为事件，帮助开发者定位问题、分析应用运行情况，统计访问量、用户活跃度、操作习惯以及其他影响用户使用产品的关键因素。
 
-#### 基本概念
+## 基本概念
 
-打点：记录用户操作引起的变化，提供业务数据信息，供开发、产品、运维分析。
+**打点**：记录用户操作引起的变化，提供业务数据信息，供开发、产品、运维分析。
 
 * 事件领域：标识事件的领域，建议设置为业务领域名称，以便于区分不同的业务领域。
 
@@ -26,29 +26,30 @@ HiAppEvent是系统为应用开发者提供的事件订阅和事件打点机制�
   * 安全事件：记录涉及应用安全行为的事件，例如用户授权等行为。
 * 事件参数：指定事件的参数，每个事件可以包含一组参数，建议设置为事件属性或事件发生的上下文信息，以便于描述事件的详细信息。
 
-事件订阅：通过HiAppEvent的接口[addWatcher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#hiappeventaddwatcher)，开发者可以注册监听自己关注的系统事件或应用事件。目的是当订阅的事件发生后，接收事件的回调信息并进行处理。  
+**事件订阅** ：通过HiAppEvent的接口[addWatcher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#hiappeventaddwatcher)，开发者可以注册监听自己关注的系统事件或应用事件。目的是当订阅的事件发生后，接收事件的回调信息并进行处理。
 
-#### 实现原理
+## 实现原理
 
-#### 系统事件订阅机制
+### 系统事件订阅机制
 
 在当前系统应用沙箱机制下，应用进程仅可以直接访问自己的应用沙箱目录，参考[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。而系统事件信息的存放路径不在应用沙箱目录中，因此无法直接获取。
 
 应用调用HiAppEvent的addWatcher接口订阅系统事件并创建共享目录。当应用进程发生故障时，DFX系统捕获相关信息，生成事件和日志，并写入到共享目录。HiAppEvent监听到事件后，将事件回调给应用。
 
-![](https://media:401788444709365972)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/sXWxAxs8RgOe7Tras8TpZg/zh-cn_image_0000002762834347.png?HW-CC-KV=V1&HW-CC-Date=20260917T084601Z&HW-CC-Expire=31536000000&HW-CC-Sign=EE49551C7B4F3B6964FFED26F03DE03076EF3C9C1E4292346ED51EDA95549E06)
 
-#### 应用事件订阅机制
+### 应用事件订阅机制
 
 应用调用addWatcher接口订阅关注的应用事件后，还需在应用事件发生时，调用[write](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#hiappeventwrite-1)接口进行打点，用来记录应用事件。
 
 HiAppEvent通过事件领域和事件名称关联应用事件，并通过addWatcher接口设置的回调方式将事件回调给应用。
 
-![](https://media:401788444709393973)  
-![](https://media:401788444709590974)  
-若应用已订阅到相关事件，但在触发回调前应用退出，则未回调的事件会在应用下次启动调用addWatcher后进行回调。例如订阅崩溃事件场景，在应用崩溃退出后，下次启动调用addWatcher后执行事件回调。  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/W7DvX2ULSBGm80kkSUgjzg/zh-cn_image_0000002733274832.png?HW-CC-KV=V1&HW-CC-Date=20260917T084601Z&HW-CC-Expire=31536000000&HW-CC-Sign=2B7FBB87B07774964C2DF42B74F6425DB6DE00663D0961D1B3B6203D6DFB475D)
+> 说明
+>
+> 若应用已订阅到相关事件，但在触发回调前应用退出，则未回调的事件会在应用下次启动调用addWatcher后进行回调。例如订阅崩溃事件场景，在应用崩溃退出后，下次启动调用addWatcher后执行事件回调。
 
-#### 约束与限制
+## 约束与限制
 
 * 订阅接口addWatcher是同步接口，涉及IO操作。对于性能有要求的模块，建议将接口的调用放到非主线程。
 
@@ -73,13 +74,13 @@ HiAppEvent通过事件领域和事件名称关联应用事件，并通过addWatc
 |音频卡顿事件|不支持|不支持|不支持|
 |ArkWeb抛滑丢帧事件|支持|支持|支持|
 
-#### 系统事件故障日志目录规格
+## 系统事件故障日志目录规格
 
-HiAppEvent支持订阅系统事件，部分事件信息中存在external_log、page_switch_log字段包含有日志路径信息。当前故障日志所在目录规格如下，需注意目录规格可能会随版本演进更新。  
+HiAppEvent支持订阅系统事件，部分事件信息中存在external_log、page_switch_log字段包含有日志路径信息。当前故障日志所在目录规格如下，需注意目录规格可能会随版本演进更新。
 
 |故障日志文件目录|目录包含内容|目录空间上限|
-|:----------------------------------|:--------------------------------------------|:----------------------------------------------------|
-|/data/storage/el2/log/hiappevent|崩溃事件日志、应用冻屏日志、地址越界事件日志、任务执行超时事件日志、CPU高负载事件日志。|默认5MB。 说明：启用minidump时，上限调整至35MB；关闭minidump时，上限恢复至5MB。|
+|:----------------------------------|:--------------------------------------------|:--------------------------------------------------------|
+|/data/storage/el2/log/hiappevent|崩溃事件日志、应用冻屏日志、地址越界事件日志、任务执行超时事件日志、CPU高负载事件日志。|默认5MB。 **说明**：启用minidump时，上限调整至35MB；关闭minidump时，上限恢复至5MB。|
 |/data/storage/el2/log/watchdog|主线程超时事件日志、滑动丢帧事件日志。|10MB|
 |/data/storage/el2/log/resourcelimit|资源泄漏事件日志。|2048MB|
 |/data/storage/el2/log/page_switch|页面切换日志。|18320KB。页面切换日志达到上限后由系统自动老化。|

@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/hvetemplatein
 |:-----------------------------------------|
 |public final class HVETemplateInfo 模板详情信息。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:----------------------------------------------------|
@@ -24,105 +24,105 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/hvetemplatein
 |int|[getSegmentsCount](#section185901460471)() 获取模板片段数。|
 |String|[getThumbUrl](#section17566331172011)() 获取模板预览视频路径。|
 
-#### Public Methods
+## Public Methods
 
-#### getAspectRatio
+### getAspectRatio
 
 |Method|
 |:-------------------------------------|
 |public String getAspectRatio() 获取模板宽高。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:-----|:----------|
 |String|模板宽高。|
 
-#### getDescription
+### getDescription
 
 |Method|
 |:---------------------------------------|
 |public String getDescription() 获取模板描述信息。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:-----|:----------|
 |String|模板描述信息。|
 
-#### getDownloadCount
+### getDownloadCount
 
 |Method|
 |:---------------------------------------|
 |public long getDownloadCount() 获取模板下载次数。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:---|:----------|
 |long|模板下载次数。|
 
-#### getDuration
+### getDuration
 
 |Method|
 |:-------------------------------------|
 |public long getDuration() 获取模板时长，单位：s。|
 
-#### getId
+### getId
 
 |Method|
 |:----------------------------|
 |public String getId() 获取模板ID。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:-----|:----------|
 |String|模板ID。|
 
-#### getName
+### getName
 
 |Method|
 |:------------------------------|
 |public String getName() 获取模板名称。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:-----|:----------|
 |String|模板名称。|
 
-#### getPreviewUrl
+### getPreviewUrl
 
 |Method|
 |:---------------------------------------|
 |public String getPreviewUrl() 获取模板预览图路径。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:-----|:----------|
 |String|模板预览图路径。|
 
-#### getSegmentsCount
+### getSegmentsCount
 
 |Method|
 |:-------------------------------------|
 |public int getSegmentsCount() 获取模板片段数。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:---|:----------|
 |int|模板片段数。|
 
-#### getThumbUrl
+### getThumbUrl
 
 |Method|
 |:--------------------------------------|
 |public String getThumbUrl() 获取模板预览视频路径。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:-----|:----------|

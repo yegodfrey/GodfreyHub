@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:-------------------------------|
 |public class RecordParam 视频录制参数。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Mandatory/Optional|Description|
 |:-------|:-------|:-----------------|:-----------------------------------------------|

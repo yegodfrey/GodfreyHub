@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/appupdatecl
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public interface AppUpdateClient AppUpdateClient类定义了应用升级相关功能的方法，在调用[JosApps.getAppUpdateClient](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/josapps-0000001050123631#section1377613116239)类时会返回该实例。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -18,22 +18,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/appupdatecl
 |void|[showUpdateDialog](#section1113567144514)(Context context, [ApkUpgradeInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/apkupgradeinfo-0000001050121688) info,boolean mustBtnOne) 弹出应用升级提示框。|
 |void|[releaseCallBack](#section16647184024517)() 释放回调。|
 
-#### Public Methods
+## Public Methods
 
-#### checkAppUpdate
+### checkAppUpdate
 
 |Method|
 |:---------------------------------------------------------------------------------------------------------------|
 |public void checkAppUpdate(Context context, CheckUpdateCallBack callBack) 应用启动并完成初始化后，或用户主动检测更新时，应用可以调用此方法查询新版本。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
-|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |context|应用客户端的Context。|
-|callBack|检测版本更新的回调结果。CheckUpdateCallBack定义如下： ``` public interface CheckUpdateCallBack { //从应用市场获取的更新状态信息。 //intent中包含参数见intent表。 void onUpdateInfo(Intent intent); //以下方法预留，无需处理 void onMarketInstallInfo(Intent intent); //以下方法预留，无需处理 void onMarketStoreError(int responseCode); //以下方法预留，无需处理 void onUpdateStoreError(int responseCode); } ```|
+|callBack|检测版本更新的回调结果。CheckUpdateCallBack定义如下： ```screen public interface CheckUpdateCallBack { //从应用市场获取的更新状态信息。 //intent中包含参数见#ZH-CN_TOPIC_0000001050123641__p12396232312表。 void onUpdateInfo(Intent intent); //以下方法预留，无需处理 void onMarketInstallInfo(Intent intent); //以下方法预留，无需处理 void onMarketStoreError(int responseCode); //以下方法预留，无需处理 void onUpdateStoreError(int responseCode); } ```|
 
-intent说明  
+**intent说明**
 
 |参数名|获取方法|类型|说明|
 |:-----------|:---------------------------------------------------------------------------------------------------------------|:-----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,9 +44,9 @@ intent说明
 |buttonStatus|intent.getIntExtra(UpdateKey.BUTTON_STATUS, DEFAULT_VALUE) 说明：DEFAULT_VALUE为获取不到UpdateKey.BUTTON_STATUS时自定义的默认值。|int|非强制更新状态用户点击立即更新还是以后再说。 * 100：以后再说，此时用户可以不立即更新应用或游戏而继续使用。 * 101：立即更新，启动应用或游戏的更新。|
 |info|intent.getSerializableExtra(UpdateKey.INFO)|Serializable|检查到更新后应用的更新信息，参见[ApkUpgradeInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/apkupgradeinfo-0000001050121688)。|
 
-Sample Code
+**Sample Code**
 
-```
+```screen
 private static class UpdateCallBack implements CheckUpdateCallBack {
     public void onUpdateInfo(Intent intent) {
         if (intent != null) {
@@ -85,13 +85,13 @@ private static class UpdateCallBack implements CheckUpdateCallBack {
 }
 ```
 
-#### showUpdateDialog
+### showUpdateDialog
 
 |Method|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void showUpdateDialog(Context context, [ApkUpgradeInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/apkupgradeinfo-0000001050121688) info,boolean mustBtnOne) 在检测到应用有新版本更新时，应用可以调用此方法手动弹出应用升级提示框。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:--------------------------------------------------------------------------------------------------------------------------------|
@@ -99,7 +99,7 @@ Parameters
 |info|检测到的更新信息，具体参数参见[ApkUpgradeInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/apkupgradeinfo-0000001050121688)。|
 |mustBtnOne|强制更新按钮选择。 * true：升级提示框只有升级按钮，无取消按钮，用户只能选择升级。 * false：升级提示框有升级按钮和取消按钮，用户可选择不升级。|
 
-#### releaseCallBack
+### releaseCallBack
 
 |Method|
 |:-------------------------------------------------------------------------------|

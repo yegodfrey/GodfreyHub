@@ -1,0 +1,16 @@
+---
+name: document/cn/connectivity-References/overview-0000001060193728
+title: Overview
+uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/overview-0000001060193728
+---
+
+# Overview
+
+包含Pencil Engine使能接口，用于判断当前设备是否支持Pencil Engine。
+
+## Class Summary
+
+|Class|Description|
+|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
+|[HwPenEngineManager](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/hwpenenginemanager-0000001059478757)|Pencil Engine功能管理类，判断Pencil Engine功能是否可用。|
+

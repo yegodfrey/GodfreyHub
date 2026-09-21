@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-
 
 # Relation
 
-* [Relation概述](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-relation-overview-0000002498501224)  
-* [自定义关系](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-relation-definition-0000002498341248)  
-* [添加/删除关系](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-relation-manage-0000002530101213)  
-* [获取和查询关系](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-relation-query-0000002530261181)  
+* **[Relation概述](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-relation-overview-0000002498501224)**   
+* **[自定义关系](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-relation-definition-0000002498341248)**   
+* **[添加/删除关系](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-relation-manage-0000002530101213)**   
+* **[获取和查询关系](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-relation-query-0000002530261181)**   

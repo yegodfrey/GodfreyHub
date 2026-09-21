@@ -8,15 +8,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-obs
 
 为了增强状态管理框架对类对象中属性的观测能力，开发者可以使用[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-observedv2#observedv2)装饰器和[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-trace#trace)装饰器装饰类以及类中的属性。
 
-@ObservedV2和@Trace提供了对嵌套类对象属性变化直接观测的能力，是状态管理V2中相对核心的能力之一。在阅读本文档前，建议提前阅读：[状态管理概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview)来了解状态管理V2整体的能力架构。  
-![](https://media:401788444637613980)  
-@ObservedV2与@Trace装饰器从API version 12开始支持。
+@ObservedV2和@Trace提供了对嵌套类对象属性变化直接观测的能力，是状态管理V2中相对核心的能力之一。在阅读本文档前，建议提前阅读：[状态管理概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview)来了解状态管理V2整体的能力架构。
+> 说明
+>
+> @ObservedV2与@Trace装饰器从API version 12开始支持。
+>
+> 从API version 12开始，@ObservedV2与@Trace装饰器支持在ArkTS卡片中使用。
+>
+> 从API version 12开始，@ObservedV2与@Trace装饰器支持在元服务中使用。
 
-从API version 12开始，@ObservedV2与@Trace装饰器支持在ArkTS卡片中使用。
-
-从API version 12开始，@ObservedV2与@Trace装饰器支持在元服务中使用。  
-
-#### 概述
+## 概述
 
 @ObservedV2装饰器与@Trace装饰器用于装饰类以及类中的属性，使得被装饰的类和属性具有深度观测的能力：
 
@@ -25,13 +26,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-obs
 * 在嵌套类中，嵌套类中的属性property被@Trace装饰且嵌套类被@ObservedV2装饰时，才具有触发UI刷新的能力。
 * 在继承类中，父类或子类中的属性property被@Trace装饰且该property所在类被@ObservedV2装饰时，才具有触发UI刷新的能力。
 * 未被@Trace装饰的属性用在UI中无法感知到变化，也无法触发UI刷新。
-* 使用@ObservedV2与@Trace装饰器的类，需通过new操作符实例化后，才具备被观测变化的能力。  
+* 使用@ObservedV2与@Trace装饰器的类，需通过new操作符实例化后，才具备被观测变化的能力。
 
-#### 状态管理V1版本对嵌套类对象属性变化直接观测的局限性
+## 状态管理V1版本对嵌套类对象属性变化直接观测的局限性
 
 现有状态管理V1版本无法实现对嵌套类对象属性变化的直接观测。
 
-```
+```TypeScript
 @Observed
 class Father {
   public son: Son;
@@ -75,11 +76,11 @@ struct Index {
 }
 ```
 
-![](https://media:401788444637949981)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/0tnoYO-bSK-Wty3ivZYf7Q/zh-cn_image_0000002733273640.png?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=77720D784CACE44104D4A46A4BC1A1CD6DE7C76316219AC90455ECD6BF1419BA)
 
 在上述代码中，点击Text组件增加age的值时，不会触发UI刷新。原因在于现有的状态管理框架无法观测到嵌套类中属性age的值变化。V1版本的解决方案是使用[@ObjectLink装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)与自定义组件来实现观测。
 
-```
+```TypeScript
 @Observed
 class Father {
   public son: Son;
@@ -136,11 +137,11 @@ struct Index {
 }
 ```
 
-![](https://media:401788444638109982)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/o7ogGJhwQv2fXMIrNLnFxw/zh-cn_image_0000002733433518.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=D0B558997E69AE4AF4CEC204504C321CAC45A1C5C21AD1067E6E86A2128C9C74)
 
-通过这种方式虽然能够实现对嵌套类中属性变化的观测，但是当嵌套层级较深时，代码将会变得十分复杂，易用性差。因此推出类装饰器@ObservedV2与成员变量装饰器@Trace，增强对嵌套类中属性变化的观测能力。  
+通过这种方式虽然能够实现对嵌套类中属性变化的观测，但是当嵌套层级较深时，代码将会变得十分复杂，易用性差。因此推出类装饰器@ObservedV2与成员变量装饰器@Trace，增强对嵌套类中属性变化的观测能力。
 
-#### 装饰器说明
+## 装饰器说明
 
 |@ObservedV2类装饰器|说明|
 |:--------------|:--------------------------------|
@@ -152,13 +153,13 @@ struct Index {
 |装饰器参数|无。|
 |可装饰的变量|class中成员属性。属性的类型可以为number、string、boolean、class、[Array](#trace装饰基础类型的数组)、[Date](#trace装饰date类型)、[Map](#trace装饰map类型)、[Set](#trace装饰set类型)等类型。@Trace不支持观察Function类型的数据，修改@Trace装饰的Function类型的数据，UI不会刷新。|
 
-#### 观察变化
+## 观察变化
 
 使用@ObservedV2装饰的类中被@Trace装饰的属性具有被观测变化的能力，当该属性值变化时，会触发该属性绑定的UI组件刷新。
 
 * 在嵌套类中使用@Trace装饰的属性具有被观测变化的能力。
 
-```
+```TypeScript
 @ObservedV2
 class Son {
   @Trace public age: number = 100;
@@ -188,11 +189,11 @@ struct Index {
 }
 ```
 
-![](https://media:401788444638338983)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/zVJdggimRx-vxsUbAh9gug/zh-cn_image_0000002762993043.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A0057B9F956055E08FEA74E5DE25BEDB68A756F3E98AA909AF1958F9E9E03C8)
 
 * 在继承类中使用@Trace装饰的属性具有被观测变化的能力。
 
-```
+```TypeScript
 @ObservedV2
 class Father {
   @Trace public name: string = 'Tom';
@@ -221,11 +222,11 @@ struct Index {
 }
 ```
 
-![](https://media:401788444638377984)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/RyQJqEpIQ9yfJCr5lPEy4w/zh-cn_image_0000002762833157.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=071E77BEA16848FA067F4C9A70880634217E2108C36FCE453A368029C9575B82)
 
 * 类中使用@Trace装饰的静态属性具有被观测变化的能力。
 
-```
+```TypeScript
 @ObservedV2
 class Manager {
   @Trace public static count: number = 1;
@@ -249,7 +250,7 @@ struct Index {
 }
 ```
 
-![](https://media:401788444638597985)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/1x9kBzzlQ0iUp7DCu9aCqg/zh-cn_image_0000002733273642.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=FBFE21B1C74696D559D0D2C39931315D4F5ACA4F86EC3DBBF11B20E67CEE5608)
 
 * @Trace装饰内置类型时，可以观测各自API导致的变化：
 
@@ -260,13 +261,13 @@ struct Index {
   |Map|set, clear, delete|
   |Set|add, clear, delete|
 
-#### 使用限制
+## 使用限制
 
 @ObservedV2与@Trace装饰器存在以下使用限制：
 
 * 非@Trace装饰的成员属性用在UI上无法触发UI刷新。
 
-```
+```TypeScript
 @ObservedV2
 class Person {
   public id: number = 0;
@@ -300,11 +301,11 @@ struct Index {
 }
 ```
 
-![](https://media:401788444638630986)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/JWU2hUPSRJCspXAXxESHlg/zh-cn_image_0000002733433520.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=D09B15EC46A21C45923E2C6DC86696BCF125477665F5895A2C1ED601161B7DD2)
 
 * @ObservedV2仅能装饰class，无法装饰自定义组件。
 
-```
+```ts
 @ObservedV2 // 错误用法，编译时报错
 struct Index {
   build() {
@@ -314,7 +315,7 @@ struct Index {
 
 * @Trace不能用在没有被@ObservedV2装饰的class上。
 
-```
+```ts
 class User {
   id: number = 0;
   @Trace name: string = 'Tom'; // 错误用法，编译时报错
@@ -323,7 +324,7 @@ class User {
 
 * @Trace是class中属性的装饰器，不能用在struct中。
 
-```
+```ts
 @ComponentV2
 struct Comp {
   @Trace message: string = 'Hello World'; // 错误用法，编译时报错
@@ -335,7 +336,7 @@ struct Comp {
 
 * @ObservedV2、@Trace不能与[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)、[@Track](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-track)混合使用。
 
-```
+```ts
 @Observed
 class User {
   @Trace name: string = 'Tom'; // 错误用法，编译时报错
@@ -349,7 +350,7 @@ class Person {
 
 * 使用@ObservedV2与@Trace装饰的类不能和[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)等V1的装饰器混合使用，编译时报错。
 
-```
+```TypeScript
 // 以@State装饰器为例
 @ObservedV2
 class Job {
@@ -398,11 +399,11 @@ struct Index {
 }
 ```
 
-![](https://media:401788444638676987)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/e0kwqeqcRSmHZuBBPRQ8dw/zh-cn_image_0000002762993045.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=FBD656E96C70DB36ECBE2B777AEFF7B32B8BE8BBD5A87CB85DB194DE8616905F)
 
 * 继承自@ObservedV2的类无法和@State等V1的装饰器混用，运行时报错。
 
-```
+```TypeScript
 // 以@State装饰器为例
 @ObservedV2
 class Job {
@@ -458,11 +459,11 @@ struct Index {
 ```
 
 * 使用@ObservedV2与@Trace装饰器的类，需通过new操作符实例化后，才具备被观测变化的能力。
-* @ObservedV2的类实例无法直接使用JSON.parse反序列化获得（直接使用JSON.parse反序列化获得的对象无法观察属性变化），可搭配三方库[class-transformer](https://gitcode.com/CPF-ApplicationTPC/openharmony_tpc_samples/tree/master/class-transformer)实现反序列化后可观察，示例请参考[@ObservedV2装饰对象的序列化与反序列化](#observedv2装饰对象的序列化与反序列化)。  
+* @ObservedV2的类实例无法直接使用JSON.parse反序列化获得（直接使用JSON.parse反序列化获得的对象无法观察属性变化），可搭配三方库[class-transformer](https://gitcode.com/CPF-ApplicationTPC/openharmony_tpc_samples/tree/master/class-transformer)实现反序列化后可观察，示例请参考[@ObservedV2装饰对象的序列化与反序列化](#observedv2装饰对象的序列化与反序列化)。
 
-#### 使用场景
+## 使用场景
 
-#### 嵌套类场景
+### 嵌套类场景
 
 在下面的嵌套类场景中，Pencil类是Son类中最里层的类，Pencil类被@ObservedV2装饰且属性length被@Trace装饰，此时length的变化能够被观测到。
 
@@ -472,7 +473,7 @@ struct Index {
 * 自定义组件Page中的son是常规变量，因此点击Button('assign Son')并不会观测到变化。
 * 当点击Button('assign Son')后，再点击Button('change length')并不会引起UI刷新。因为此时son的地址改变，其关联的UI组件并没有关联到最新的son。
 
-```
+```TypeScript
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const DOMAIN = 0x0001;
@@ -532,19 +533,19 @@ struct Page {
 }
 ```
 
-![](https://media:401788444638852988)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/mKwKzxhGTlGVBVGLwhZeyw/zh-cn_image_0000002762833159.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=BBA86D004E7A99AE6A22094103794BF2D4B644B75841F3741ECE85CDA7877CE1)
 
-#### 继承类场景
+### 继承类场景
 
 @Trace支持在类的继承场景中使用，无论是在基类还是继承类中，只有被@Trace装饰的属性才具有被观测变化的能力。
 
 以下例子中，声明class GrandFather、Father、Uncle、Son、Cousin，继承关系如下图。
 
-![](https://media:401788444639082989)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/Pu6YgbrBT36WrO74WLtnCg/zh-cn_image_0000002733273644.png?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=7EE7B1778E714E44BCD7D9172AAB03EB8016D652BCF0003442006EC0BFAF2E53)
 
 创建类Son和类Cousin的实例，点击Button('change Son age')和Button('change Cousin age')可以触发UI的刷新。
 
-```
+```TypeScript
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const DOMAIN = 0x0001;
@@ -628,17 +629,17 @@ struct Index {
 }
 ```
 
-![](https://media:401788444639187990)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/W3rD_uk4QlSVXGEQJ-qKdw/zh-cn_image_0000002733433522.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=EB2A95D89B4A5A87565581CE80C34FB0562C3D63B17C6ECDC353888F428401DE)
 
-在继承场景中，不建议在子类中重复声明与父类同名的@Trace属性，否则可能导致非预期的依赖收集。详情请参考[延迟加载场景下父子类同名@Trace属性导致非预期的依赖收集](#延迟加载场景下父子类同名trace属性导致非预期的依赖收集)。  
+在继承场景中，不建议在子类中重复声明与父类同名的@Trace属性，否则可能导致非预期的依赖收集。详情请参考[延迟加载场景下父子类同名@Trace属性导致非预期的依赖收集](#延迟加载场景下父子类同名trace属性导致非预期的依赖收集)。
 
-#### @Trace装饰基础类型的数组
+### @Trace装饰基础类型的数组
 
 @Trace装饰数组时，使用支持的API能够观测到变化。支持的API见[观察变化](#观察变化)。
 
 在下面的示例中@ObservedV2装饰的Arr类中的属性numberArr是@Trace装饰的数组，当使用数组API操作numberArr时，可以观测到对应的变化。注意使用数组长度进行判断以防越界访问。
 
-```
+```TypeScript
 let nextId: number = 0;
 
 @ObservedV2
@@ -762,14 +763,14 @@ struct Index {
 }
 ```
 
-![](https://media:401788444639335991)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/iCnuZqXfSvONHFRBsEHtfA/zh-cn_image_0000002762993047.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=C75AE9B4A79DF8A5A734BA73220A7FF259C138BC36C073F9C3E894C778D7ED41)
 
-#### @Trace装饰对象数组
+### @Trace装饰对象数组
 
 * @Trace装饰对象数组personList以及Person类中的age属性，因此当personList、age改变时均可以观测到变化。
 * 点击Text组件更改age时，Text组件会刷新。
 
-```
+```TypeScript
 let nextId: number = 0;
 
 @ObservedV2
@@ -840,14 +841,14 @@ struct Index {
 }
 ```
 
-![](https://media:401788444639474992)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/bXLq-fJdR1-T8xKudEpyDQ/zh-cn_image_0000002762833161.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=4607001DF644700B20B46E427F7B5CF73158B22F84D8CE9F287293D000974D21)
 
-#### @Trace装饰Map类型
+### @Trace装饰Map类型
 
 * 被@Trace装饰的Map类型属性可以观测到调用API带来的变化，包括 set、clear、delete。
 * 因为Info类被@ObservedV2装饰且属性memberMap被@Trace装饰，点击Button('init map')对memberMap赋值也可以观测到变化。
 
-```
+```TypeScript
 @ObservedV2
 class Info {
   @Trace public memberMap: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
@@ -909,14 +910,14 @@ struct MapSample {
 }
 ```
 
-![](https://media:401788444639565993)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/BLpFxtbSRAyBes-xtyfFag/zh-cn_image_0000002733273646.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=980D9957103F21C6363B3E64AFEB9C31FE33CE153D6E39779E1EBB6538473664)
 
-#### @Trace装饰Set类型
+### @Trace装饰Set类型
 
 * 被@Trace装饰的Set类型属性可以观测到调用API带来的变化，包括 add、clear和delete。
 * 因为Info类被@ObservedV2装饰且属性memberSet被@Trace装饰，点击Button('init set')对memberSet赋值也可以观测到变化。
 
-```
+```TypeScript
 @ObservedV2
 class Info {
   @Trace public memberSet: Set<number> = new Set([0, 1, 2, 3, 4]);
@@ -969,14 +970,14 @@ struct SetSample {
 }
 ```
 
-![](https://media:401788444639640994)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/9ExkdYnpRFCL5_0biqSFiQ/zh-cn_image_0000002733433524.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=9363F3E5E6D1D9AFFCB17E1288C256A0A14D8CE663AFA4037A4936BE87E57DB5)
 
-#### @Trace装饰Date类型
+### @Trace装饰Date类型
 
 * @Trace装饰的Date类型属性可以观测调用API带来的变化，包括 setFullYear、setMonth、setDate、setHours、setMinutes、setSeconds、setMilliseconds、setTime、setUTCFullYear、setUTCMonth、setUTCDate、setUTCHours、setUTCMinutes、setUTCSeconds、setUTCMilliseconds。
 * 因为Info类被@ObservedV2装饰且属性selectedDate被@Trace装饰，点击Button('set selectedDate to 2023-07-08')对selectedDate赋值也可以观测到变化。
 
-```
+```TypeScript
 @ObservedV2
 class Info {
   @Trace public selectedDate: Date = new Date('2021-08-08');
@@ -1025,15 +1026,15 @@ struct DateSample {
 }
 ```
 
-![](https://media:401788444639824995)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/-ZwBdGvOR4W1jx4j-bhdoA/zh-cn_image_0000002762993049.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=2B439FB362AEEE47512BA1F2FE6F1D85D388B23315ED63A13B8B2B39CE8DCCDE)
 
-#### 常见问题
+## 常见问题
 
-#### @ObservedV2装饰对象的序列化与反序列化
+### @ObservedV2装饰对象的序列化与反序列化
 
 @ObservedV2装饰的对象序列化后会为@Trace装饰的属性添加__ob_前缀。
 
-```
+```ts
 @ObservedV2
 class Info {
   @Trace name: string = 'Tom';
@@ -1046,7 +1047,7 @@ let jsonResult: string = JSON.stringify(realInfo); // '{"__ob_name":"Tom","__ob_
 
 将@ObservedV2装饰的对象通过JSON.stringify序列化后，再通过JSON.parse反序列化，将失去观察能力。
 
-```
+```ts
 @ObservedV2
 class Info {
   @Trace name: string = 'Tom';
@@ -1066,11 +1067,11 @@ let isInfoByParse: boolean = parseInfo instanceof Info; // false
 
 class-transformer可以通过如下命令安装。
 
-```
+```text
 ohpm install class-transformer
 ```
 
-```
+```ts
 import { plainToInstance } from 'class-transformer'; // 导入三方库
 @ObservedV2
 class Info {
@@ -1094,11 +1095,11 @@ let isInfoByTransformed: boolean = transformedInfo instanceof Info; // true
 
 reflect-metadata可以通过如下命令安装。
 
-```
+```text
 ohpm install reflect-metadata@0.2.1
 ```
 
-```
+```ts
 import { plainToInstance, Type as TypeFromLibrary} from 'class-transformer'; // 导入三方库
 import 'reflect-metadata'; // 三方库的@Type装饰器需要使用
 @ObservedV2
@@ -1124,7 +1125,7 @@ let isInfo: boolean = (wrapperHandled.info) instanceof Info; // true
 
 在UI中使用的完整示例如下。
 
-```
+```TypeScript
 import { plainToInstance, Type as TypeFromLibrary } from 'class-transformer'; // 导入三方库
 import 'reflect-metadata'; // 三方库的@Type装饰器需要使用
 
@@ -1225,15 +1226,15 @@ struct SerializationAndDeserialization {
 }
 ```
 
-![](https://media:401788444640160996)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/Q4JCYLrRRm6WRAbvyOcYow/zh-cn_image_0000002762833163.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=F48E327DE016B1D3098B09CF2FA356C7128782C82585F92D4D5434DA3AB3F0B4)
 
-#### router传递的@ObservedV2类型显示异常
+### router传递的@ObservedV2类型显示异常
 
 用router传递的@ObservedV2类，由于经过序列化生成的属性名称与类中的原始属性名称不一致，不能直接通过as类型转换成@ObservedV2的实例，需要反序列化重新生成@ObservedV2实例。反序列化相关内容请参考[@ObservedV2装饰对象的序列化与反序列化](#observedv2装饰对象的序列化与反序列化)。
 
 【反例】
 
-```
+```ts
 // 文件pages/faqs/RouterIndex.ets内容
 
 @ObservedV2
@@ -1278,7 +1279,7 @@ struct RouterIndex {
 }
 ```
 
-```
+```ts
 // 文件pages/faqs/ChildPage.ets内容
 
 import { RouterModel } from './RouterIndex';
@@ -1304,7 +1305,7 @@ struct Detail {
 
 【正例】
 
-```
+```TypeScript
 @ObservedV2
 export class RouterModel {
   @Trace public id: number = -1;
@@ -1347,7 +1348,7 @@ struct RouterIndex {
 }
 ```
 
-```
+```TypeScript
 import { RouterModel } from './RouterIndex';
 import { plainToInstance } from 'class-transformer'; // 导入三方库
 
@@ -1370,9 +1371,9 @@ struct Detail {
 }
 ```
 
-![](https://media:401788444640539997)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/p83s89UuRCq8G_trJcbwGw/zh-cn_image_0000002733273648.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C40168309F30211687E5E69AB77C13AB173CC791EC1CDFD201A4A606F70F3EC)
 
-#### 延迟加载场景下父子类同名@Trace属性导致非预期的依赖收集
+### 延迟加载场景下父子类同名@Trace属性导致非预期的依赖收集
 
 框架执行[@Computed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-computed)计算、组件渲染或[PersistenceV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2)持久化时，会收集执行过程中访问到的状态变量依赖。如果父类和子类声明了同名的@Trace属性，子类又通过[延迟加载（lazy import）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-lazy-import)延迟加载，并恰好在上述依赖收集过程中首次加载，则该子类同名属性会触发到父类的同名属性的读取，从而收集到该同名属性的依赖。
 
@@ -1380,7 +1381,7 @@ struct Detail {
 
 【反例】
 
-```
+```TypeScript
 // LazyImportTraceBase.ets
 @ObservedV2
 export class Parent {
@@ -1388,7 +1389,7 @@ export class Parent {
 }
 ```
 
-```
+```TypeScript
 // LazyImportTraceChild.ets
 import { Parent } from './LazyImportTraceBase';
 
@@ -1399,7 +1400,7 @@ export class Child extends Parent {
 }
 ```
 
-```
+```TypeScript
 // 延迟加载Child类
 import lazy { Child } from './LazyImportTraceChild';
 
@@ -1446,7 +1447,7 @@ struct LazyImportTrace {
 
 将value统一定义在父类中，子类直接继承该属性，不再重复声明同名的@Trace属性。仅需按以下方式修改LazyImportTraceChild.ets，其他代码保持不变。
 
-```
+```TypeScript
 import { Parent } from './LazyImportTraceBase';
 
 @ObservedV2
@@ -1456,4 +1457,5 @@ export class Child extends Parent {
 }
 ```
 
-![](https://media:401788444640588998)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/w_leQz_1QuiDlpXPONIekQ/zh-cn_image_0000002733433526.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=5DFA1314769DEEBD6104875512F3324A17A66829A4444F184B123D68EEF4603C)
+

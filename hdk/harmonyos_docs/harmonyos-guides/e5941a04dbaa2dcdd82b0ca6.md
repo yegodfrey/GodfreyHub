@@ -10,39 +10,41 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avrecor
 
 在进行应用开发的过程中，开发者可以通过AVRecorder的state属性，主动获取当前状态或使用[on('stateChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#onstatechange9)方法监听状态变化。开发过程中必须严格遵循状态机要求，例如只能在started状态下调用[pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#pause9-1)接口，只能在paused状态下调用[resume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#resume9-1)接口。
 
-图1 录制状态变化示意图
+**图1** 录制状态变化示意图
 
-![](https://media:401788444207033501)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/FSHIuB2NQ7eAXAGm6eHwlg/zh-cn_image_0000002733274970.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=BC5895BB1AA267E4D4F62C3832C48245B54C00836E0C1212F392E50AE08521AD)
 
-状态的详细说明请参考[AVRecorderState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avrecorderstate9)。  
+状态的详细说明请参考[AVRecorderState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avrecorderstate9)。
 
-#### 申请权限
+## 申请权限
 
 在开发此功能前，开发者应根据实际需求申请相关权限：
 
-* 当需要使用麦克风时，需要申请ohos.permission.MICROPHONE麦克风权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
+* 当需要使用麦克风时，需要申请**ohos.permission.MICROPHONE** 麦克风权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
 * 当需要读取和保存音频文件时，请优先使用[AudioViewPicker音频选择器对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#audioviewpicker)。
 
-![](https://media:401788444207063502)  
-仅应用需要克隆、备份或同步用户公共目录的音频类文件时，可申请ohos.permission.READ_AUDIO、ohos.permission.WRITE_AUDIO权限来读写音频文件，申请方式请参考[申请受控权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl)，通过AGC审核后才能使用。为避免应用的上架申请被驳回，开发者应优先使用Picker/控件等替代方案，仅少量符合[特殊场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionread_audio)的应用被允许申请受限权限。  
+> 说明
+>
+> 仅应用需要克隆、备份或同步用户公共目录的音频类文件时，可申请ohos.permission.READ_AUDIO、ohos.permission.WRITE_AUDIO权限来读写音频文件，申请方式请参考[申请受控权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl)，通过AGC审核后才能使用。为避免应用的上架申请被驳回，开发者应优先使用Picker/控件等替代方案，仅少量符合[特殊场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionread_audio)的应用被允许申请受限权限。
 
-#### 开发音频录制应用须知
+## 开发音频录制应用须知
 
 * 如果需要持续录制或后台录制，请申请长时任务避免进入挂起（Suspend）状态。具体参考[长时任务开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task)。
 * 录制需要在前台启动，启动后可以退后台。在后台启动录制将会失败。
 * 应用录制音频时需要使用合适的录制流类型，请参考[选择合适的录制流类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-right-sourcetype-for-recording)。
-* 应用录制音频时需要切换输入设备路由，请参考[实现音频输入设备路由切换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-input-device-switcher)。  
+* 应用录制音频时需要切换输入设备路由，请参考[实现音频输入设备路由切换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-input-device-switcher)。
 
-#### 开发步骤及注意事项
+## 开发步骤及注意事项
 
 详细的API说明请参考[AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder)。
 
 1. 创建AVRecorder实例，实例创建完成进入idle状态。
 
-   ![](https://media:401788444207086503)  
-   需要在avRecorder完成赋值后，再进行剩余操作。
+   > 说明
+   >
+   > 需要在avRecorder完成赋值后，再进行剩余操作。
 
-   ```
+   ```TypeScript
    this.avRecorder = await media.createAVRecorder();
    ```
 
@@ -53,7 +55,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avrecor
    |stateChange|必要事件，监听AVRecorder的state属性改变。|
    |error|必要事件，监听AVRecorder的错误信息。|
 
-   ```
+   ```TypeScript
    this.avRecorder?.on('stateChange', (state: media.AVRecorderState, reason: media.StateChangeReason) => {
      console.info(`AVRecorder state is changed to ${state}, reason: ${reason}`);
      // 用户可以在此补充状态发生切换后想要进行的动作。
@@ -66,20 +68,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avrecor
 
 3. 配置音频录制参数，调用[prepare](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#prepare9-1)接口，此时进入prepared状态。
 
-   ![](https://media:401788444207113504)  
-   配置参数需要注意：
-   * 配置参数之前需要确保完成对应权限的申请，请参考[申请权限](#申请权限)。
+   > 说明
+   >
+   > 配置参数需要注意：
+   > * 配置参数之前需要确保完成对应权限的申请，请参考[申请权限](#申请权限)。
+   >
+   > * prepare接口的入参config中仅设置音频相关的配置参数，如示例代码所示。
+   >
+   >   如果只需要录制音频，请不要设置视频相关配置参数；如果需要录制视频，可以参考[视频录制开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-recording)进行开发。直接设置视频相关参数会导致后续步骤报错。
+   > * 需要使用支持的[录制规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#支持的格式)，具体录制参数配置可参考[AVRecorderProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderprofile9)。
+   >
+   > * 录制输出的URL地址（即示例里avRecorderConfig中的url），形式为fd://xx（fd number）。需要基础文件操作接口（[Core File Kit的ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)）实现应用文件访问能力，获取方式参考[应用文件访问与管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-file-access)。
+   >
+   > * 示例中配置的audioCodec音频编码格式、fileFormat封装格式请参考[AVRecorderProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderprofile9)。
 
-   * prepare接口的入参config中仅设置音频相关的配置参数，如示例代码所示。
-
-     如果只需要录制音频，请不要设置视频相关配置参数；如果需要录制视频，可以参考[视频录制开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-recording)进行开发。直接设置视频相关参数会导致后续步骤报错。
-   * 需要使用支持的[录制规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#支持的格式)，具体录制参数配置可参考[AVRecorderProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderprofile9)。
-
-   * 录制输出的URL地址（即示例里avRecorderConfig中的url），形式为fd://xx（fd number）。需要基础文件操作接口（[Core File Kit的ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)）实现应用文件访问能力，获取方式参考[应用文件访问与管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-file-access)。
-
-   * 示例中配置的audioCodec音频编码格式、fileFormat封装格式请参考[AVRecorderProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderprofile9)。
-
-   ```
+   ```TypeScript
    public async prepareAudioRecorder(context: common.Context): Promise<void> {
      let path: string = context.filesDir + '/audio_example.m4a';
      let file: fileIo.File = await fileIo.open(path, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
@@ -111,48 +114,48 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avrecor
 
 4. 开始录制，调用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#start9-1)接口，此时进入started状态。
 
-   ```
+   ```TypeScript
    await this.avRecorder?.start();
    ```
 
 5. 暂停录制，调用[pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#pause9-1)接口，此时进入paused状态。
 
-   ```
+   ```TypeScript
    await this.avRecorder?.pause();
    ```
 
 6. 恢复录制，调用[resume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#resume9-1)接口，此时再次进入started状态。
 
-   ```
+   ```TypeScript
    await this.avRecorder?.resume();
    ```
 
 7. 停止录制，调用[stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#stop9-1)接口，此时进入stopped状态。
 
-   ```
+   ```TypeScript
    await this.avRecorder?.stop();
    await this.closeFd();
    ```
 
 8. 重置资源，调用[reset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#reset9-1)接口，重新进入idle状态，允许重新配置录制参数。
 
-   ```
+   ```TypeScript
    await this.avRecorder?.reset();
    ```
 
 9. 销毁实例，调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#release9-1)接口，进入released状态，退出录制。
 
-   ```
+   ```TypeScript
    await this.avRecorder?.release();
    ```
 
-#### 完整示例
+## 完整示例
 
 参考以下示例，完成"开始录制-暂停录制-恢复录制-停止录制"的完整流程。
 
-使用当前示例代码时，需要申请ohos.permission.MICROPHONE麦克风权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
+使用当前示例代码时，需要申请**ohos.permission.MICROPHONE** 麦克风权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
 
-```
+```TypeScript
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
 import { fileIo } from '@kit.CoreFileKit';

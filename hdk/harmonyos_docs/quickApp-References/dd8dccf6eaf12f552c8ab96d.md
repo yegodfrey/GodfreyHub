@@ -6,34 +6,35 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 
 # custommarker
 
-#### 概述
+## 概述
 
-map 组件的子组件。  
+map 组件的子组件。
 
-#### 使用限制
+## 使用限制
 
 |限制条件|说明|
 |:---|:----|
 |适用终端|手机、平板|
 |适用区域|中国大陆|
 
-#### 子组件
+## 子组件
 
-支持。  
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926191805.33769371403718018630206174178545:50001231000000:2800:2F1F3FFA4ECD6C78492CB65275E69FA584C726B852C01C47B88774C078504439.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-* 建议不要在custommarker内部嵌套dom层级过深或者添加过多子组件，否则会引起性能问题。
-* custommarker中禁止嵌套custommarker。
-* 建议内部子组件使用stack、div、text、image等完成布局，不要使用tab、tab-bar、tab-content、swiper、list、map等组件。  
+支持。
+> 说明
+>
+> * 建议不要在custommarker内部嵌套dom层级过深或者添加过多子组件，否则会引起性能问题。
+> * custommarker中禁止嵌套custommarker。
+> * 建议内部子组件使用stack、div、text、image等完成布局，不要使用tab、tab-bar、tab-content、swiper、list、map等组件。
 
-#### 属性
+## 属性
 
-除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。  
+除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。
 
 |名称|类型|默认值|是否必填|描述|
 |:---------------|:-----|:--|:---|:-----------------|
 |custommarkerattr|object|-|是|custommarker的位置信息。|
 
-custommarkerattr说明  
+**custommarkerattr说明**
 
 |名称|类型|默认值|是否必填|描述|
 |:--------|:-----|:--|:---|:--------------------------------------------------------------|
@@ -44,17 +45,17 @@ custommarkerattr说明
 |anchorX|number|0|否|原点是对应的经纬度，数值为相对X轴的偏移。|
 |anchorY|number|0|否|原点是对应的经纬度，数值为相对Y轴的偏移。|
 
-#### 样式
+## 样式
 
-支持[通用样式](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-common-styles-0000001170210009)以外，还支持[\<div\>](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-component-div-0000001074137300)样式。  
+支持[通用样式](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-common-styles-0000001170210009)以外，还支持[<div>](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-component-div-0000001074137300)样式。
 
-#### 事件
+## 事件
 
-支持[通用事件](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-events-0000001123530338)。  
+支持[通用事件](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-events-0000001123530338)。
 
-#### 示例代码
+## 示例代码
 
-```
+```screen
 <template>
     <div>
         <map latitude=39.906901 longitude=116.397972>

@@ -6,59 +6,61 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-p
 
 # 预下单
 
-#### 功能介绍
+> phone | 2in1 | tablet
 
-开发者可以调用该接口获取预支付ID（prepayId）。  
+## 功能介绍
 
-#### 场景描述
+开发者可以调用该接口获取预支付ID（prepayId）。
 
-在接入Payment Kit的支付并签约前，开发者需要调用该接口获取到预支付ID（prepayId），用prepayId构建[orderStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#orderstr)参数返回给客户端调用支付接口拉起华为支付收银台。  
+## 场景描述
 
-#### 接口原型
+在接入Payment Kit的支付并签约前，开发者需要调用该接口获取到预支付ID（prepayId），用prepayId构建[orderStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#orderstr)参数返回给客户端调用支付接口拉起华为支付收银台。
 
-* 载协议： HTTPS POST
+## 接口原型
 
-* 接口方向： 开发者服务器 -\> 华为支付服务器
+* **载协议：** HTTPS POST
 
-* 接口URL： https://petalpay-developer.cloud.huawei.com.cn/api/v1/aggr/pay-and-sign/preorder/create/app
+* **接口方向：** 开发者服务器 -> 华为支付服务器
 
-  说明：元服务预下单接口请使用<https://petalpay-developer.cloud.huawei.com.cn/api/v1/aggr/pay-and-sign/preorder/create/fa>
-* 数据格式：
+* **接口URL：** https://petalpay-developer.cloud.huawei.com.cn/api/v1/aggr/pay-and-sign/preorder/create/app
+
+  说明：元服务预下单接口请使用[https://petalpay-developer.cloud.huawei.com.cn/api/v1/aggr/pay-and-sign/preorder/create/fa](https://petalpay-developer.cloud.huawei.com.cn/api/v1/aggr/pay-and-sign/preorder/create/fa)
+* **数据格式：**
 
   请求消息：Content-Type: application/json; charset=UTF-8
 
-响应消息：Content-Type: application/json; charset=UTF-8  
+  响应消息：Content-Type: application/json; charset=UTF-8
 
-#### 请求参数
+## 请求参数
 
-Request Header  
+**Request Header**
 
 |参数|是否必选|参数类型|描述|
 |:-----------|:---|:-----|:---------------------------------------------------------------------------------------------------------------------|
 |Content-Type|是|String|取值为：application/json; charset=UTF-8|
 |PayMercAuth|是|String|取值为：[PayMercAuth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#paymercauth)的JSON字符串|
 
-Request Body  
+**Request Body**
 
 |参数|是否必选|类型|说明|
-|:-------------|:---|:---------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------------|:---|:-------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |appId|是|String|应用ID。获取方式请参见[AppID管理及关联](https://developer.huawei.com/consumer/cn/doc/pay-docs/hwzf-appidguanli-0000001757041165)。|
 |mercOrderNo|是|String|商户订单号，由商户自己生成，商户需保证订单信息唯一性。最小长度为1，最大长度46。|
 |mercNo|是|String|商户号。最大长度12。|
 |tradeSummary|是|String|交易的摘要。格式建议："商户应用名称-商品描述"。最大长度128。|
 |totalAmount|是|Long|订单金额，必须为大于0的整数值，单位：分。|
 |currency|否|String|交易币种单位，最大长度为3。 CNY （默认，当前仅支持该币种单位）|
-|goodsDetail|否|List\<[GoodDetail](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#gooddetail)\>|订单详细信息列表。|
-|allocationType|否|String|分账类型。 - NO_ALLOCATION：不分账（默认） - DELAY_ORDER_ALLOCATION：延时分账 说明： 使用该字段需联系开发者的商户对接人协助申请开通分账能力。分账相关操作参见[分账交易管理](https://developer.huawei.com/consumer/cn/doc/pay-docs/hwzf-dongjiefenzhang-0000001200646822)。|
+|goodsDetail|否|List<[GoodDetail](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#gooddetail)>|订单详细信息列表。|
+|allocationType|否|String|分账类型。 - NO_ALLOCATION：不分账（默认） - DELAY_ORDER_ALLOCATION：延时分账 **说明：** 使用该字段需联系开发者的商户对接人协助申请开通分账能力。分账相关操作参见[分账交易管理](https://developer.huawei.com/consumer/cn/doc/pay-docs/hwzf-dongjiefenzhang-0000001200646822)。|
 |callbackUrl|是|String|回调通知地址，通知URL必须为外网环境可直接访问的URL，要求为https地址。具体要求参考[通知回调接口说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-rest-overview#通知回调接口说明)。最大长度为512。|
 |payload|否|String|商户预留信息，在查询和回调通知时会原样返回。最大长度255。|
-|expireTime|否|String|交易过期时间。此时间必须为准确的UTC时间。 格式要求："yyyy-MM-dd'T'HH:mm:ss.SSSZ" 。 说明： - 下单过期时间，不传默认2个小时，如果传递则最小值无限制，最大180天，超过180天系统会报错。 - 传已过时间可能会导致订单因过期、超时等原因异常关闭。 - 开发者可以参考[获取对应的UTC过期时间示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-appendix#获取对应的utc过期时间示例)来获取对应的UTC过期时间。|
+|expireTime|否|String|交易过期时间。此时间必须为准确的UTC时间。 格式要求："yyyy-MM-dd'T'HH:mm:ss.SSSZ" 。 **说明：** - 下单过期时间，不传默认2个小时，如果传递则最小值无限制，最大180天，超过180天系统会报错。 - 传已过时间可能会导致订单因过期、超时等原因异常关闭。 - 开发者可以参考[获取对应的UTC过期时间示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-appendix#获取对应的utc过期时间示例)来获取对应的UTC过期时间。|
 |contractInfo|是|[ContractInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#contractinfo)|签约信息。|
 |payer|否|[PayerIn](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#payerin)|支付者信息。|
 
-#### 请求示例
+## 请求示例
 
-```
+```json
 POST /api/v1/aggr/pay-and-sign/preorder/create/app HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 PayMercAuth: {"callerId":"10132120***","traceId":"202305151026422776499","time":1684117602555,"authId":"120291744647139***","headerSign":"u+H1Oe3fXV9mGCES89XA7tSjp8+********************lOG7eAFfwjEWJu5JyvY5KunSeE6DiKs=","bodySign":"yWDtXOBqDoItPgHmF57L6U5G7F/*******************asPj10iUIFeaszpiRT2aQDaqLGaxvta6J5UxIUmAp+wGdV/juGEvQ="}
@@ -81,15 +83,15 @@ Accept: application/json
 }
 ```
 
-#### 响应参数
+## 响应参数
 
-Response Header  
+**Response Header**
 
 |参数|是否必选|参数类型|描述|
 |:-----------|:---|:-----|:----------------------------------|
 |Content-Type|是|String|取值为：application/json; charset=UTF-8|
 
-Response Body  
+**Response Body**
 
 |参数|是否必选|参数类型|描述|
 |:----------|:---|:-----|:-----------------------------------------------------------------------------------------------------------------------------------|
@@ -101,9 +103,9 @@ Response Body
 |prepayId|是|String|预支付ID。有效期10分钟。|
 |mercOrderNo|否|String|商户订单号，由商户自己生成，商户需保证订单信息唯一性。最小长度为1，最大长度46。|
 
-#### 响应示例
+## 响应示例
 
-```
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=UTF-8
 {
@@ -115,12 +117,12 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-#### 错误码
+## 错误码
 
-resultCode非400000的错误码请查看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。  
+**resultCode** 非400000的错误码请查看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。
 
-|返回码|错误码|错误描述|解决方案|
-|:-----|:------------------------|:-----------|:-----------------------------------------------------------------------------|
+|**返回码**|**错误码**|**错误描述**|解决方案|
+|:------|:------------------------|:-----------|:-----------------------------------------------------------------------------|
 |400000|UNKNOW_ERROR|服务暂不可用，请稍后重试|稍后重试。|
 |400000|INVALID_ARGUMENTS|参数不合法|检查请求参数。|
 |400000|INVALID_MERCNO|无效商户号|检查入参商户号是否正确。|

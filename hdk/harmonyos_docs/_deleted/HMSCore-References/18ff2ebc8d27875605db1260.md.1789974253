@@ -1,0 +1,13 @@
+---
+name: document/cn/HMSCore-References/package-summary-0000001073904986
+title: Package Summary
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/package-summary-0000001073904986
+---
+
+# Package Summary
+
+|Package Name|Description|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|
+|[com.huawei.hms.identity.entity](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/com-huawei-hms-identity-entity-overview-0000001050159779)|包含用户身份地址实体类。|
+|[com.huawei.hms.identity](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/com-huawei-hms-identity-overview-0000001050157824)|包含用户身份地址服务类。|
+

@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/system-References/network-file
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public class InterruptedException extends [NetworkException](https://developer.huawei.com/consumer/cn/doc/system-References/network-file-exception-networkexception-0000001091598055) 文件上传/下载中断异常实体类（多为主动取消或者暂停请求）。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:-------------------------------------------------------------------------------------------------------------------------------------|
@@ -18,21 +18,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/system-References/network-file
 |public [InterruptedException](#section114762417137)(String message) 使用指定错误信息，构造InterruptedException对象。|
 |public [InterruptedException](#section532465741116)(String message, Throwable throwable) 使用指定错误信息和异常，构造InterruptedException对象。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:----------------------------------------------------|
 |public int|[getStatusCode](#section668132695614)() 获取任务中断返回的状态码。|
 
-#### Public Constructors
+## Public Constructors
 
-#### InterruptedException(int code, String message, Throwable throwable)
+### InterruptedException(int code, String message, Throwable throwable)
 
 |Constructor|
 |:----------------------------------------------------------------------------------------------------------|
 |public InterruptedException(int code, String message, Throwable throwable) 使用已有参数，构造InterruptedException对象。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------|:------------|
@@ -40,42 +40,42 @@ Parameters
 |message|错误信息。|
 |throwable|Throwable异常类。|
 
-#### InterruptedException(String message)
+### InterruptedException(String message)
 
 |Constructor|
 |:-----------------------------------------------------------------------------|
 |public InterruptedException(String message) 使用指定错误信息，构造InterruptedException对象。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |message|错误信息。|
 
-#### InterruptedException(String message, Throwable throwable)
+### InterruptedException(String message, Throwable throwable)
 
 |Constructor|
 |:-----------------------------------------------------------------------------------------------------|
 |public InterruptedException(String message, Throwable throwable) 使用指定错误信息和异常，构造InterruptedException对象。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------|:------------|
 |message|错误信息。|
 |throwable|Throwable异常类。|
 
-#### Public Methods
+## Public Methods
 
-#### getStatusCode
+### getStatusCode
 
 |Method|
 |:---------------------------------------|
 |public int getStatusCode() 获取任务中断返回的状态码。|
 
-Returns  
+**Returns**
 
 |Type|Description|
-|:---|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|int|任务中断返回的状态码。 * [CANCEL](https://developer.huawei.com/consumer/cn/doc/system-References/network-file-result-0000001091587549#section16548191214615)：任务取消 <!-- --> * [PAUSE](https://developer.huawei.com/consumer/cn/doc/system-References/network-file-result-0000001091587549#section82212552477)：任务暂停|
+|:---|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|int|任务中断返回的状态码。 * [CANCEL](https://developer.huawei.com/consumer/cn/doc/system-References/network-file-result-0000001091587549#section16548191214615)：任务取消 * [PAUSE](https://developer.huawei.com/consumer/cn/doc/system-References/network-file-result-0000001091587549#section82212552477)：任务暂停|
 

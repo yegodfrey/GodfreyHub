@@ -10,9 +10,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/abstractuiexte
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------|
 |com.huawei.hms.mlplugin.productvisionsearch.MLProductVisionSearchCapture.AbstractProductFragment 商品展示页面，继承自fragment，需要按照Fragment流程补充完整，使用此Fragment展示商品信息。|
 
-Sample code：
+**Sample code：**
 
-```
+```screen
 // RealProductBean是自定义的商品Bean文件。
 public class ProductFragment extends MLProductVisionSearchCapture.AbstractProductFragment<RealProductBean>{
 
@@ -42,65 +42,65 @@ public class ProductFragment extends MLProductVisionSearchCapture.AbstractProduc
 }
 ```
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
-|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|abstract List\<T\>|[getProductList](#section1650010718242)(List\<[MLProductVisionSearch](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlproductvisionsearch-0000001050169505)\> productVisionSearchList) throws Exception 返回商品详情信息集（同步请求返回），\<T\> 为自定义的商品结果Bean文件。|
+|:-----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|abstract List<T>|[getProductList](#section1650010718242)(List<[MLProductVisionSearch](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlproductvisionsearch-0000001050169505)> productVisionSearchList) throws Exception 返回商品详情信息集（同步请求返回），<T> 为自定义的商品结果Bean文件。|
 |abstract boolean|[onError](#section13451162111246)(Exception e) 返回异常信息。|
-|abstract void|[onResult](#section4775122910248)(List\<T\> productList) 返回商品详情信息集，\<T\> 为自定义的商品结果Bean文件。|
+|abstract void|[onResult](#section4775122910248)(List<T> productList) 返回商品详情信息集，<T> 为自定义的商品结果Bean文件。|
 
-#### Public Methods
+## Public Methods
 
-#### getProductList(List\<MLProductVisionSearch\> productVisionSearchList) throws Exception
+### getProductList(List<MLProductVisionSearch> productVisionSearchList) throws Exception
 
 |Method|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public abstract List\<T\> getProductList(List\<[MLProductVisionSearch](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlproductvisionsearch-0000001050169505)\> productVisionSearchList) throws Exception 返回商品详情信息集（同步请求返回），\<T\> 为自定义的商品结果Bean文件。|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public abstract List<T> getProductList(List<[MLProductVisionSearch](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlproductvisionsearch-0000001050169505)> productVisionSearchList) throws Exception 返回商品详情信息集（同步请求返回），<T> 为自定义的商品结果Bean文件。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |productVisionSearchList|商品基本信息集（参见[拍照购商品类别清单](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230822150312.02704414394557671034110995477311:50001231000000:2800:37D1B096F3A16345102E572392EE1D84CC7FE4A2D25808D5E2901D236BC3FB99.xlsx?needInitFileName=true)）。|
 
-Returns  
+**Returns**
 
 |Type|Description|
-|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|List\<T\>|商品详情信息集（参见[拍照购商品类别清单](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230822150312.93046911408302713621737125215207:50001231000000:2800:7369476263C60EF2CE9BB14ADB38265291C84EECEAAE7A78AE3C35612F061A39.xlsx?needInitFileName=true)）。|
+|:------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|List<T>|商品详情信息集（参见[拍照购商品类别清单](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230822150312.93046911408302713621737125215207:50001231000000:2800:7369476263C60EF2CE9BB14ADB38265291C84EECEAAE7A78AE3C35612F061A39.xlsx?needInitFileName=true)）。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:--------|:----------|
 |Exception|请求异常。|
 
-#### onError(Exception e)
+### onError(Exception e)
 
 |Method|
 |:---------------------------------------------------|
 |public abstract boolean onError(Exception e) 返回异常信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------------------------------------------------------------------------------------------------------------------------|
 |e|异常信息，请参见[MLException](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlexception-0000001050169383)。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------|:----------|
 |boolean|是否自处理异常。|
 
-#### onResult(List\<T\> productList)
+### onResult(List<T> productList)
 
 |Method|
-|:------------------------------------------------------------------------------------|
-|public abstract void onResult(List\<T\> productList) 返回商品详情信息集，\<T\> 为自定义的商品结果Bean文件。|
+|:--------------------------------------------------------------------------------|
+|public abstract void onResult(List<T> productList) 返回商品详情信息集，<T> 为自定义的商品结果Bean文件。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----------|:------------------|

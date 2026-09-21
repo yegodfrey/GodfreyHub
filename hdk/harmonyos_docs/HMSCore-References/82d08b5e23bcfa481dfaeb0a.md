@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plu
 
 # Location
 
-包含位置相关属性的对象。  
+包含位置相关属性的对象。
 
-#### Properties
+## Properties
 
 |名称|类型|描述|
 |:---------------------------|:------|:----------------------------|
@@ -24,17 +24,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plu
 |time|int?|自1970年1月1日以来的时间（毫秒数）。|
 |fromMockProvider|bool?|位置提供者状态。|
 
-#### Constructor Summary
+## Constructor Summary
 
 |构造函数|定义|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|
 |[Location({double? latitude, double? longitude, double? altitude, double? speed, double? bearing, double? accuracy, double? verticalAccuracyMeters, double? bearingAccuracyDegrees, double? sppedAccuracyMetersPerSecond, int? time, bool? fromMockProvider})](#section4952mcpsimp)|创建Location对象。|
 
-#### Constructors
+## Constructors
 
-#### Location
+### Location
 
-创建Location对象。  
+创建Location对象。
 
 |参数|类型|描述|
 |:---------------------------|:------|:----------------------------|

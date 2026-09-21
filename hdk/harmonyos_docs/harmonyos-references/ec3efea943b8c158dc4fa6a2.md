@@ -6,7 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/avsession
 
 # AVSession Kit（音视频播控服务）
 
-* [ArkTS API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/avsession-arkts)  
-* [ArkTS组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/avsession-comp)  
-* [C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/avsession-c)  
-* [错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/avsession-arkts-errcode)  
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
+* **[ArkTS API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/avsession-arkts)**   
+* **[ArkTS组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/avsession-comp)**   
+* **[C API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/avsession-c)**   
+* **[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/avsession-arkts-errcode)**   

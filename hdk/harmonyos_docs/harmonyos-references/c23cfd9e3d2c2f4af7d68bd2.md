@@ -6,51 +6,54 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-a
 
 # @ohos.app.ability.contextConstant (Context相关常量)
 
-ContextConstant提供Context相关的枚举，包含文件加密分区等级、进程模式等。其中，文件加密分区等级用于保护应用数据安全，开发者可根据应用需求选择合适的加密等级；进程模式用于控制UIAbility的启动方式和进程行为。这些枚举帮助开发者实现更灵活的应用架构和更安全的数据管理。  
-![](https://media:401788445288016455)  
-本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-本模块接口仅可在Stage模型下使用。  
+ContextConstant提供Context相关的枚举，包含文件加密分区等级、进程模式等。其中，文件加密分区等级用于保护应用数据安全，开发者可根据应用需求选择合适的加密等级；进程模式用于控制UIAbility的启动方式和进程行为。这些枚举帮助开发者实现更灵活的应用架构和更安全的数据管理。
+> 说明
+>
+> 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> 本模块接口仅可在Stage模型下使用。
 
-#### 导入模块
+## 导入模块
 
-```
+```ts
 import { contextConstant } from '@kit.AbilityKit';
 ```
 
-#### AreaMode
+## AreaMode
 
 文件加密分区等级，保证应用在不同场景下的数据安全。开发者可根据应用需求选择合适的加密等级。
 
-系统能力：SystemCapability.Ability.AbilityRuntime.Core  
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 |名称|值|说明|
-|:-------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|EL1|0|设备级加密区，设备开机后可访问的数据区。 元服务API：从API version 11开始，该接口支持在元服务中使用。|
-|EL2|1|用户级加密区，设备开机，首次输入密码后才能够访问的数据区。 元服务API：从API version 11开始，该接口支持在元服务中使用。|
-|EL3^11+^|2|用户级加密区，不同场景的文件权限如下： 已打开文件：锁屏时，可读写；解锁后，可读写。 未打开文件：锁屏时，不可打开、不可读写；解锁后，可打开、可读写。 创建新文件：锁屏时，可创建、可打开、可写不可读；解锁后，可创建、可打开、可读写。 元服务API：从API version 11开始，该接口支持在元服务中使用。|
-|EL4^11+^|3|用户级加密区，不同场景的文件权限如下： 已打开文件：锁屏时，不可读写；解锁后，可读写。 未打开文件：锁屏时，不可打开、不可读写；解锁后，可打开、可读写。 创建新文件：锁屏时，不可创建；解锁后，可创建、可打开、可读写。 元服务API：从API version 11开始，该接口支持在元服务中使用。|
-|EL5^12+^|4|应用级加密区，不同场景的文件权限如下： 已打开文件：锁屏时，可读写；解锁后，可读写。 未打开文件：锁屏时，调用[Access](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-screenlockfilemanager#screenlockfilemanageracquireaccess)接口获取保留密钥后，可打开、可读写，否则不可打开、不可读写；解锁后，可打开、可读写。 创建新文件：锁屏时，可创建、可打开、可读写；解锁后，可创建、可打开、可读写。 元服务API：从API version 12开始，该接口支持在元服务中使用。|
+|:-------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|EL1|0|设备级加密区，设备开机后可访问的数据区。 **元服务API**：从API version 11开始，该接口支持在元服务中使用。|
+|EL2|1|用户级加密区，设备开机，首次输入密码后才能够访问的数据区。 **元服务API**：从API version 11开始，该接口支持在元服务中使用。|
+|EL3^11+^|2|用户级加密区，不同场景的文件权限如下： 已打开文件：锁屏时，可读写；解锁后，可读写。 未打开文件：锁屏时，不可打开、不可读写；解锁后，可打开、可读写。 创建新文件：锁屏时，可创建、可打开、可写不可读；解锁后，可创建、可打开、可读写。 **元服务API**：从API version 11开始，该接口支持在元服务中使用。|
+|EL4^11+^|3|用户级加密区，不同场景的文件权限如下： 已打开文件：锁屏时，不可读写；解锁后，可读写。 未打开文件：锁屏时，不可打开、不可读写；解锁后，可打开、可读写。 创建新文件：锁屏时，不可创建；解锁后，可创建、可打开、可读写。 **元服务API**：从API version 11开始，该接口支持在元服务中使用。|
+|EL5^12+^|4|应用级加密区，不同场景的文件权限如下： 已打开文件：锁屏时，可读写；解锁后，可读写。 未打开文件：锁屏时，调用[Access](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-screenlockfilemanager#screenlockfilemanageracquireaccess)接口获取保留密钥后，可打开、可读写，否则不可打开、不可读写；解锁后，可打开、可读写。 创建新文件：锁屏时，可创建、可打开、可读写；解锁后，可创建、可打开、可读写。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。|
 
-#### ProcessMode^12+^
+## ProcessMode^12+^
 
 UIAbility启动后的进程模式。
 
 ProcessMode作为[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)的一个属性，仅在[UIAbilityContext.startAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability-1)中生效，用来指定目标UIAbility的进程模式。
 
-系统能力：SystemCapability.Ability.AbilityRuntime.Core
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
-设备行为差异：该功能仅在PC/2in1和Tablet设备上生效，在其他设备中返回801错误码。  
+**设备行为差异**：该功能仅在PC/2in1和Tablet设备上生效，在其他设备中返回801错误码。
 
 |名称|值|说明|
-|:------------------------------------|:-|:----------------------------------------------------------------------------------------------------|
-|NEW_PROCESS_ATTACH_TO_PARENT|1|创建一个新进程，并在该进程上启动UIAbility。该进程会跟随父进程（调用方进程）退出，即当父进程退出时，此进程也会自动退出。 约束： 使用此模式时，要求目标UIAbility跟调用方是在同一个应用。|
-|NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM|2|创建一个新进程，在该进程上启动UIAbility，并绑定该进程到状态栏图标上。 约束： 使用此模式时，要求目标UIAbility跟调用方是在同一个应用，并且应用要在状态栏中有图标。|
-|ATTACH_TO_STATUS_BAR_ITEM|3|启动UIAbility，并绑定该UIAbility所在进程到状态栏图标上。 约束： 使用此模式时，要求目标UIAbility跟调用方是在同一个应用，并且应用要在状态栏中有图标。|
+|:------------------------------------|:-|:--------------------------------------------------------------------------------------------------------|
+|NEW_PROCESS_ATTACH_TO_PARENT|1|创建一个新进程，并在该进程上启动UIAbility。该进程会跟随父进程（调用方进程）退出，即当父进程退出时，此进程也会自动退出。 **约束：** 使用此模式时，要求目标UIAbility跟调用方是在同一个应用。|
+|NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM|2|创建一个新进程，在该进程上启动UIAbility，并绑定该进程到状态栏图标上。 **约束：** 使用此模式时，要求目标UIAbility跟调用方是在同一个应用，并且应用要在状态栏中有图标。|
+|ATTACH_TO_STATUS_BAR_ITEM|3|启动UIAbility，并绑定该UIAbility所在进程到状态栏图标上。 **约束：** 使用此模式时，要求目标UIAbility跟调用方是在同一个应用，并且应用要在状态栏中有图标。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { UIAbility, Want, StartOptions, contextConstant } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -88,7 +91,7 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-#### StartupVisibility^12+^
+## StartupVisibility^12+^
 
 UIAbility启动后是否可见。
 
@@ -96,26 +99,26 @@ UIAbility启动后是否可见。
 
 StartupVisibility作为[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)的一个属性，仅在[UIAbilityContext.startAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability-1)中生效，用来指定目标UIAbility启动后的可见性。
 
-系统能力：SystemCapability.Ability.AbilityRuntime.Core
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
-设备行为差异：该功能仅在PC/2in1和Tablet设备上生效，在其他设备中返回801错误码。  
+**设备行为差异**：该功能仅在PC/2in1和Tablet设备上生效，在其他设备中返回801错误码。
 
 |名称|值|说明|
 |:-----------|:-|:----------------------------------------------------|
 |STARTUP_HIDE|0|目标UIAbility启动后，进入隐藏状态。不会调用UIAbility的onForeground生命周期。|
 |STARTUP_SHOW|1|目标UIAbility启动后，正常显示。|
 
-示例：
+**示例：**
 
-参见[ContextConstant.ProcessMode](#processmode12)。  
+参见[ContextConstant.ProcessMode](#processmode12)。
 
-#### Scenarios^20+^
+## Scenarios^20+^
 
 表示不触发[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)生命周期回调场景的枚举，用于[setOnNewWantSkipScenarios](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#setonnewwantskipscenarios20)接口。
 
-元服务API：从API version 20开始，该接口支持在元服务中使用。
+**元服务API**：从API version 20开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Ability.AbilityRuntime.Core  
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 |名称|值|说明|
 |:------------------------------------------|:---------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,9 +126,9 @@ StartupVisibility作为[StartOptions](https://developer.huawei.com/consumer/cn/d
 |SCENARIO_SHOW_ABILITY|0x00000002|[showAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#showability12)接口触发的UIAbility到前台场景。|
 |SCENARIO_BACK_TO_CALLER_ABILITY_WITH_RESULT|0x00000004|[backToCallerAbilityWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#backtocallerabilitywithresult12)接口触发的UIAbility到前台场景。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { AbilityConstant, contextConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -155,15 +158,15 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-#### ContextType
+## ContextType
 
 表示常见Context类型的枚举，用于[isContextOf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#iscontextof)接口。
 
-起始版本：26.0.0
+**起始版本**：26.0.0
 
-元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Ability.AbilityRuntime.Core  
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 |名称|值|说明|
 |:----------------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -173,9 +176,9 @@ export default class EntryAbility extends UIAbility {
 |FORM_EXTENSION_CONTEXT|3|[FormExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-formextensioncontext)类型。|
 |APP_SERVICE_EXTENSION_CONTEXT|4|[AppServiceExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-appserviceextensioncontext)类型。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { UIAbility, contextConstant } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 

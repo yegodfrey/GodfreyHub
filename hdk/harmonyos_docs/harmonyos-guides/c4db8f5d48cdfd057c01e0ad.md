@@ -14,13 +14,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-faq-12
   您需要更换回执服务器上的证书，并登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站同步修改回执配置。此操作过程中回执服务不会中断。
 
   修改回执配置操作：
-  1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站，点击"开发与服务"，在项目列表中找到您的项目，通过"增长 \> 推送服务 \> 配置"导航到"配置"页签。
+  1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站，点击"开发与服务"，在项目列表中找到您的项目，通过"增长 > 推送服务 > 配置"导航到"配置"页签。
 
   2. 选择需要修改回执的应用，点击"修改"应用回执状态。
 
   3. 在"选择回执"页面，选择需要更换证书的回执，点击"修改"。
 
-     ![](https://media:401788444373782549)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/s7kDL_T9SfyyKdNsqBBsLQ/zh-cn_image_0000002762835085.png?HW-CC-KV=V1&HW-CC-Date=20260917T084549Z&HW-CC-Expire=31536000000&HW-CC-Sign=0168EA820C92497ECC2E9346782974B7D2415A30E8D34C662C3B897C98FE9949)
   4. 在"回执配置"页面，回执服务会检测最新的证书信息，您无需做任何修改。
 
   5. 点击"提交"，保存回执信息。
@@ -38,16 +38,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-faq-12
 
   2. 在"回执配置"页面，点击"设置备用证书"，填入新证书信息。
 
-     ![](https://media:401788444373815550)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/6bnSEwh3ReCcK5-tVJDBTA/zh-cn_image_0000002733275570.png?HW-CC-KV=V1&HW-CC-Date=20260917T084549Z&HW-CC-Expire=31536000000&HW-CC-Sign=CBABACA8C95E5913D77D72E90210E439421A3AD813C7F0B54EAC58AF5420076D)
   3. 点击"提交"，保存回执信息。
 
   4. 点击"确定"，返回"配置"页面。
 
-![](https://media:401788444373840551)  
-如何获取回执服务器证书的CA信息？
+> 说明
+>
+> 如何获取回执服务器证书的CA信息？
+>
+> * 若证书已安装到回执服务器且回执服务器可访问，您可以新建一个回执配置，输入回调地址后会显示当前证书的CA信息。
+>
+> * 若证书未安装到回执服务器，您可以从证书中获取CA信息。
+>
+> 回执服务会保留证书的CA信息，通过校验证书的CA信息来确保回执消息正确发送到您配置的回执地址。
 
-* 若证书已安装到回执服务器且回执服务器可访问，您可以新建一个回执配置，输入回调地址后会显示当前证书的CA信息。
-
-* 若证书未安装到回执服务器，您可以从证书中获取CA信息。
-
-回执服务会保留证书的CA信息，通过校验证书的CA信息来确保回执消息正确发送到您配置的回执地址。  

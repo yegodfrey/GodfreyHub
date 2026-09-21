@@ -6,18 +6,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/faqs-permissi
 
 # 抓包/调试权限常见问题
 
-#### ohos.permission.kernel.NET_RAW权限使用说明
+## ohos.permission.kernel.NET_RAW权限使用说明
 
-约束与限制：
+**约束与限制：**
 
 * 仅支持在PC/2in1设备上申请使用。
 * 在PC/2in1设备上，二进制程序可以申请ohos.permission.kernel.NET_RAW权限进行网络抓包，使用时需要sudo提权使权限生效。
 
-使用说明：
+**使用说明：**
 
 以[tcpdump工具](https://gitcode.host/OpenHarmonyToolkitsPlaza/tcpdump)为例，使用[二进制签名工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/binary-sign-tool)签名时在module.json文件中配置ohos.permission.kernel.NET_RAW权限。
 
-```
+```json
 {
     "requestPermissions": [
         {
@@ -32,14 +32,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/faqs-permissi
 * 支持通过PF_PACKET协议族创建PACKET类型套接字，在数据链路层直接捕获原始网络帧。
 * 支持通过NETLINK_ROUTE和NETLINK_GENERIC类型的netlink套接字与内核通信，可以查询和管理网络接口。
 
-```
+```shell
 # 示例
 sudo ./tcpdump
 ```
 
-#### ohos.permission.kernel.DEBUGGER权限使用说明
+## ohos.permission.kernel.DEBUGGER权限使用说明
 
-约束与限制：
+**约束与限制：**
 
 * 仅支持在PC/2in1设备上申请使用。
 
@@ -51,11 +51,11 @@ sudo ./tcpdump
   2. 调试证书签名的应用/二进制程序。
   3. 由发布证书签名且具备 ohos.permission.kernel.ALLOW_DEBUG 权限的应用/二进制程序。
 
-使用说明：
+**使用说明：**
 
 以[lldb高性能调试器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/debug-lldb)为例，使用[二进制签名工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/binary-sign-tool)签名时在module.json文件中配置ohos.permission.kernel.DEBUGGER权限。
 
-```
+```json
 {
     "requestPermissions": [
         {
@@ -67,7 +67,7 @@ sudo ./tcpdump
 
 在hishell终端中，使用携带ohos.permission.kernel.DEBUGGER权限的lldb工具，以ATTACH模式附加到调试证书签名的debug_bin进行调试。
 
-```
+```shell
 # 示例：
 # 确认UID一致
 UID            PID  PPID C STIME TTY          TIME CMD
@@ -79,9 +79,9 @@ UID            PID  PPID C STIME TTY          TIME CMD
 (lldb) process attach --name debug_bin
 ```
 
-#### ohos.permission.kernel.ALLOW_DEBUG使用说明
+## ohos.permission.kernel.ALLOW_DEBUG使用说明
 
-约束与限制：
+**约束与限制：**
 
 * 仅支持在PC/2in1设备上申请使用。
 
@@ -89,11 +89,11 @@ UID            PID  PPID C STIME TTY          TIME CMD
 
   此外，Deveco Studio在使用真机设备调试时，如果PC/2in1设备上的应用使用了release签名并且配置了ohos.permission.kernel.ALLOW_DEBUG权限，也支持被attach调试。
 
-使用说明：
+**使用说明：**
 
 以DevEco Studio真机设备调试PC应用为例，在应用的module.json5文件中配置ohos.permission.kernel.ALLOW_DEBUG权限。
 
-```
+```json5
 {
     "requestPermissions": [
         {
@@ -103,4 +103,5 @@ UID            PID  PPID C STIME TTY          TIME CMD
 }
 ```
 
-在DecEco Studio调试器的进程列表中可以查看到携带ohos.permission.kernel.ALLOW_DEBUG权限的发布应用进程，选择目标进程后即可进行附加并调试，具体可参考[应用调试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-app)。  
+在DecEco Studio调试器的进程列表中可以查看到携带ohos.permission.kernel.ALLOW_DEBUG权限的发布应用进程，选择目标进程后即可进行附加并调试，具体可参考[应用调试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-app)。
+

@@ -1,0 +1,79 @@
+---
+name: document/cn/AppGallery-connect-References/uploadtask-0000001054975317
+title: UploadTask
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/uploadtask-0000001054975317
+---
+
+# UploadTask
+
+|Interface Info|
+|:-----------------------------------|
+|export interface UploadTask 上传文件的任务。|
+
+## Property Summary
+
+|Name|Type|Description|
+|:-----------|:-----------|:----------|
+|uploadResult|UploadResult|上传文件的结果信息。|
+
+## Method Summary
+
+|Qualifier and Type|Method Name and Description|
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|boolean|[cancel](#section142543812159)() 取消任务并返回结果。|
+|Promise<any>|[catch](#section18762102326)(onRejected: (a: Error) => any) 捕获的上传过程中的异常信息。|
+|Function|[on](#section14770136133418)(event: TaskEvent, nextOrObserver ?: Observer<UploadResult> | null | ((a: UploadResult) => any), error ?: ((a: Error) => any) | null, complete ?: Unsubscribe | null) 上传任务的回调函数。|
+
+## Methods
+
+### cancel
+
+|Method|
+|:---------------------------|
+|cancel(): boolean 取消任务并返回结果。|
+
+**Return**
+
+|Type|**Description**|
+|:------|:--------------|
+|boolean|取消任务是否成功。|
+
+### catch
+
+|Method|
+|:------------------------------------------------------------------|
+|catch(onRejected: (a: Error) => any): Promise<any> 捕获的上传任务过程中的异常信息。|
+
+**Parameters**
+
+|Name|**Description**|
+|:---------|:--------------|
+|onRejected|处理上传任务异常的回调函数。|
+
+**Return**
+
+|Type|**Description**|
+|:-----------|:--------------|
+|Promise<any>|捕获的上传过程中的异常信息。|
+
+### on
+
+|Method|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|on(event: TaskEvent, nextOrObserver ?: Observer<UploadResult> | null | ((a: UploadResult) => any), error ?: ((a: Error) => any) | null, complete ?: Unsubscribe | null): Function 上传任务的回调函数。|
+
+**Parameters**
+
+|Name|**Description**|
+|:-------------|:---------------|
+|event|上传任务的事件。|
+|nextOrObserver|上传任务的上传结果的观察者事件。|
+|error|上传任务产生错误后的回调事件。|
+|complete|上传任务正常完成后的回调事件。|
+
+**Return**
+
+|Type|**Description**|
+|:-------|:--------------|
+|Function|函数。|
+

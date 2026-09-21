@@ -1,0 +1,18 @@
+---
+name: document/cn/hiai-References/langdetectcloud-overview-0000001050167538
+title: Overview
+uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/langdetectcloud-overview-0000001050167538
+---
+
+# Overview
+
+语种检测云端调用API接口。
+
+## Class Summary
+
+|Class|Description|
+|:----------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|
+|[MLRemoteLangDetector](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/remotelangdetector-0000001050167540)|语种检测器，用于根据提供的文本，进行语种检测。调用云端API，检测模型在云端运行。创建语种检测器有两种方式，根据实际情况二选一。|
+|[MLRemoteLangDetectorSetting](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/remotelangdetectors-0000001050169495)|云端语种检测器的配置器。|
+|[MLRemoteLangDetectorSetting.Factory](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/remotelangdetectorsf-0000001050167542)|创建云端语种检测器的配置器的实例。|
+

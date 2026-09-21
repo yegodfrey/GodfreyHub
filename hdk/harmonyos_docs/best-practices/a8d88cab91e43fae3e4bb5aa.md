@@ -6,27 +6,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-devi
 
 # 窗口模式
 
-#### 概述
+## 概述
 
 应用窗口模式指应用主窗口启动时的显示方式。HarmonyOS目前支持全屏、分屏、自由悬浮多窗三种应用窗口模式。这种对多种应用窗口模式的支持能力，也称为操作系统的"多窗口能力"。
 
-* 全屏：应用主窗口启动时铺满整个屏幕。
-* 分屏：应用主窗口启动时占据屏幕的某个部分，当前支持二分屏。两个分屏窗口之间具有分界线，可通过拖拽分界线调整两个部分的窗口尺寸。
+* **全屏**：应用主窗口启动时铺满整个屏幕。
+* **分屏**：应用主窗口启动时占据屏幕的某个部分，当前支持二分屏。两个分屏窗口之间具有分界线，可通过拖拽分界线调整两个部分的窗口尺寸。
 
-自由悬浮多窗分为自由多窗和悬浮窗。
+**自由悬浮多窗**分为自由多窗和悬浮窗。
 
-* 自由多窗：自由窗口的大小和位置可自由调整。同一个屏幕上可同时显示多个自由窗口，这些自由窗口按照打开或者获取焦点的顺序在Z轴排布。当自由窗口被点击或触摸时，其Z轴高度提升，并获取焦点。
-* 悬浮窗：悬浮窗是一种在设备屏幕上悬浮的非全屏应用窗口。一般用于在已有全屏任务运行的基础上，临时处理另一个任务，或短时间多任务并行使用。如浏览网页的同时回复消息。
+* **自由多窗**：自由窗口的大小和位置可自由调整。同一个屏幕上可同时显示多个自由窗口，这些自由窗口按照打开或者获取焦点的顺序在Z轴排布。当自由窗口被点击或触摸时，其Z轴高度提升，并获取焦点。
+* **悬浮窗**：悬浮窗是一种在设备屏幕上悬浮的非全屏应用窗口。一般用于在已有全屏任务运行的基础上，临时处理另一个任务，或短时间多任务并行使用。如浏览网页的同时回复消息。
 
-![](https://media:201788187376871473 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/1UmlevG0RmKMQgzP64GEyA/zh-cn_image_0000002355145613.png?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=8893FFCEFC2D52009E6B0873D1E7FCF3C06E804710698DA03B1D37AC23B20D48 "点击放大")
 
-#### 实现窗口模式
+### 实现窗口模式
 
 窗口模式是由系统提供的能力，不需要开发者单独开发功能，所以开发者只需要考虑悬浮或者分屏之后应用界面的适配问题。
 
-当应用需要配置是否支持悬浮窗/分屏能力时，可以通过在module.json5配置文件中[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)下添加supportWindowMode字段来实现。supportWindowMode属性主要标识当前UIAbility所支持的窗口模式，详细请参见[应用声明支持智慧多窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-support)。
+当应用需要配置是否支持悬浮窗/分屏能力时，可以通过在module.json5配置文件中[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)下添加**supportWindowMode** 字段来实现。**supportWindowMode** 属性主要标识当前UIAbility所支持的窗口模式，详细请参见[应用声明支持智慧多窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-support)。
 
-supportWindowMode属性默认值为\["fullscreen", "split", "floating"\]，即全屏、分屏、悬浮窗全部支持。开发者可以通过配置supportWindowMode属性来定制支持的窗口模式。支持的字段及含义如下表所示。  
+**supportWindowMode** 属性默认值为["fullscreen", "split", "floating"]，即全屏、分屏、悬浮窗全部支持。开发者可以通过配置**supportWindowMode**属性来定制支持的窗口模式。支持的字段及含义如下表所示。
 
 |字段|说明|
 |:---------|:-------------------------------------------------------|
@@ -34,15 +34,16 @@ supportWindowMode属性默认值为\["fullscreen", "split", "floating"\]，即�
 |split|窗口支持分屏显示。|
 |floating|手机/折叠屏表示窗口支持悬浮窗显示，平板设备中表示窗口支持悬浮窗和自由多窗显示，pc设备中表示支持自由多窗显示。|
 
-![](https://media:201788187376971474)  
-1. 如果当前窗口处于自由多窗模式，应用可通过调用 [setSupportedWindowModes()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#setsupportedwindowmodes15)方法来动态修改其支持的窗口模式，仅在2in1和tablet上可正常调用。
-2. 智慧多窗详情，开发者可参考[智慧多窗应用开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-guide)。  
+> 说明
+>
+> 1. 如果当前窗口处于自由多窗模式，应用可通过调用 [setSupportedWindowModes()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#setsupportedwindowmodes15)方法来动态修改其支持的窗口模式，仅在2in1和tablet上可正常调用。
+> 2. 智慧多窗详情，开发者可参考[智慧多窗应用开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-guide)。
 
-#### 获取窗口模式
+### 获取窗口模式
 
 开发者可以通过获取[windowStatusType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)的值来判断设备目前的窗口模式。
 
-```
+```screen
 public onStatusTypeChange: (statusType: window.WindowStatusType) => void = (statusType: window.WindowStatusType) => {
   this.mainWindowInfo.windowStatusType = statusType;
 }
@@ -60,52 +61,52 @@ updateWindowInfo(): void {
 }
 ```
 
-#### 不同设备支持哪些窗口模式
+### 不同设备支持哪些窗口模式
 
-窗口模式与产品设计强相关，不同产品支持的窗口模式不同。  
+窗口模式与产品设计强相关，不同产品支持的窗口模式不同。
 
-|设备|全屏|分屏|自由多窗|悬浮窗|
-|:--|:-----|:-|:--------------|:--|
+|设备|**全屏**|分屏|自由多窗|悬浮窗|
+|:--|:-----|:-|:------------------------|:--|
 |手机|支持（默认）|支持|不支持|支持|
 |双折叠|支持（默认）|支持|不支持|支持|
-|三折叠|支持（默认）|支持|不支持（Mate XTs支持）|支持|
+|三折叠|支持（默认）|支持|不支持（Mate XTs、Mate XT 2支持）|支持|
 |阔折叠|支持（默认）|支持|不支持|支持|
 |平板|支持（默认）|支持|支持|支持|
 |电脑|支持|支持|支持（默认）|支持|
 
-![](https://media:201788187377048475)  
-同时支持自由多窗和悬浮窗的设备，开启自由多窗模式，FLOATING代表自由多窗模式；关闭自由多窗模式，FLOATING代表悬浮窗模式。  
+> 说明
+>
+> 同时支持自由多窗和悬浮窗的设备，开启自由多窗模式，FLOATING代表自由多窗模式；关闭自由多窗模式，FLOATING代表悬浮窗模式。
 
-#### WindowType和WindowStatusType的使用区别
+### WindowType和WindowStatusType的使用区别
 
 * [WindowType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowtype7)表示窗口的类型枚举。
 
   HarmonyOS的窗口模块将窗口界面分为系统窗口、应用窗口两种基本类型。
-  * 系统窗口：系统窗口指完成系统特定功能的窗口。如音量条、壁纸、通知栏、状态栏、导航栏等。
-  * 应用窗口：应用窗口区别于系统窗口，指与应用显示相关的窗口。根据显示内容的不同，应用窗口又分为应用主窗口、应用子窗口两种类型。
+  * **系统窗口**：系统窗口指完成系统特定功能的窗口。如音量条、壁纸、通知栏、状态栏、导航栏等。
+  * **应用窗口** ：应用窗口区别于系统窗口，指与应用显示相关的窗口。根据显示内容的不同，应用窗口又分为应用主窗口、应用子窗口两种类型。
     * 应用主窗口：应用主窗口用于显示应用界面，会在"任务管理界面"显示。
     * 应用子窗口：应用子窗口用于显示应用的弹窗、悬浮窗等辅助窗口，不会在"任务管理界面"显示。应用子窗口的生命周期跟随应用主窗口。
 
-<!-- -->
 
 * [WindowStatusType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)表示窗口模式枚举。
 
   应用窗口模式指应用主窗口启动时的显示方式。HarmonyOS目前支持全屏、分屏、自由窗口三种应用窗口模式。这种对多种应用窗口模式的支持能力，也称为操作系统的"多窗口能力"。
-  * 全屏：应用主窗口启动时铺满整个屏幕。
-  * 分屏：应用主窗口启动时占据屏幕的某个部分，当前支持二分屏。两个分屏窗口之间具有分界线，可通过拖拽分界线调整两个部分的窗口尺寸。
-  * 自由悬浮多窗：分为自由多窗和悬浮窗。
-    * 自由多窗：自由窗口的大小和位置可自由调整。同一个屏幕上可同时显示多个自由窗口，这些自由窗口按照打开或者获取焦点的顺序在Z轴排布。当自由窗口被点击或触摸时，其Z轴高度提升，并获取焦点。
-* 悬浮窗：悬浮窗是一种在设备屏幕上悬浮的非全屏应用窗口。一般用于在已有全屏任务运行的基础上，临时处理另一个任务，或短时间多任务并行使用。如浏览网页的同时回复消息。  
+  * **全屏**：应用主窗口启动时铺满整个屏幕。
+  * **分屏**：应用主窗口启动时占据屏幕的某个部分，当前支持二分屏。两个分屏窗口之间具有分界线，可通过拖拽分界线调整两个部分的窗口尺寸。
+  * **自由悬浮多窗** ：分为自由多窗和悬浮窗。
+    * **自由多窗**：自由窗口的大小和位置可自由调整。同一个屏幕上可同时显示多个自由窗口，这些自由窗口按照打开或者获取焦点的顺序在Z轴排布。当自由窗口被点击或触摸时，其Z轴高度提升，并获取焦点。
+    * **悬浮窗**：悬浮窗是一种在设备屏幕上悬浮的非全屏应用窗口。一般用于在已有全屏任务运行的基础上，临时处理另一个任务，或短时间多任务并行使用。如浏览网页的同时回复消息。
 
-#### 窗口模式开发场景
+## 窗口模式开发场景
 
-在应用窗口模式变化时，通常伴随窗口尺寸变化，以及页面布局或功能差异。开发者适配多设备上不同窗口模式时，按需对窗口的不同变化做出响应。  
+在应用窗口模式变化时，通常伴随窗口尺寸变化，以及页面布局或功能差异。开发者适配多设备上不同窗口模式时，按需对窗口的不同变化做出响应。
 
-#### 监听窗口模式变化
+### 监听窗口模式变化
 
 开发者可通过[on('windowStatusChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowstatuschange11)开启窗口模式变化的监听，当窗口windowStatusType发生变化时进行通知。
 
-```
+```screen
 public onStatusTypeChange: (statusType: window.WindowStatusType) => void = (statusType: window.WindowStatusType) => {
   this.mainWindowInfo.windowStatusType = statusType;
 }
@@ -123,14 +124,15 @@ updateWindowInfo(): void {
 }
 ```
 
-![](https://media:201788187377074476)  
-在窗口模式变化时，系统内窗口尺寸还未刷新，如果开发者需要获取新窗口尺寸，应该在[on('windowSizeChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowsizechange7)事件回调中获取。  
+> 说明
+>
+> 在窗口模式变化时，系统内窗口尺寸还未刷新，如果开发者需要获取新窗口尺寸，应该在[on('windowSizeChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowsizechange7)事件回调中获取。
 
-#### 获取窗口尺寸
+### 获取窗口尺寸
 
 开发者获取指定窗口对象Window后，在该对象上使用[getWindowProperties()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowproperties9)获取窗口各个属性，在属性windowRect中获取窗口宽高信息。如果要在页面中获取窗口宽高信息，需要注意获取的正确时机。参考代码如下：
 
-```
+```screen
 // First time get window size.
 let width: number = this.mainWindow.getWindowProperties().windowRect.width;
 let height: number = this.mainWindow.getWindowProperties().windowRect.height;
@@ -141,21 +143,22 @@ let windowSize: window.Size = {
 this.mainWindowInfo.windowSize = windowSize;
 ```
 
-![](https://media:201788187377119477)  
-1. 页面生命周期[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)阶段，不代表此时窗口可见，仅代表当前组件已创建，此时获取到的窗口尺寸信息（windowRect）可能有误。建议在页面生命周期[onPageShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpageshow)阶段获取，该阶段会在窗口可见后调用，此时可以拿到窗口正确的宽高信息。
-2. 获取到的windowRect是实际上的窗口大小，如果应用在小窗模式下，则实际展示效果是根据scale进行缩放后的。  
+> 说明
+>
+> 1. 页面生命周期[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)阶段，不代表此时窗口可见，仅代表当前组件已创建，此时获取到的窗口尺寸信息（windowRect）可能有误。建议在页面生命周期[onPageShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpageshow)阶段获取，该阶段会在窗口可见后调用，此时可以拿到窗口正确的宽高信息。
+> 2. 获取到的windowRect是实际上的窗口大小，如果应用在小窗模式下，则实际展示效果是根据scale进行缩放后的。
 
-#### 监听窗口尺寸变化
+### 监听窗口尺寸变化
 
-获取窗口实例对象后，可以通过[window.on('windowSizeChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowsizechange7)方法实现对窗口尺寸大小变化的监听。
+获取窗口实例对象后，可以通过window.[on('windowSizeChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowsizechange7)方法实现对窗口尺寸大小变化的监听。
 
-```
+```screen
 public onWindowSizeChange: (windowSize: window.Size) => void = (windowSize: window.Size) => {
   this.mainWindowInfo.windowSize = windowSize;
-  this.mainWindowInfo.widthBp = this.uiContext!.getWindowWidthBreakpoint();
-  this.mainWindowInfo.heightBp = this.uiContext!.getWindowHeightBreakpoint();
-};
-// ...
+  this.mainWindowInfo.widthBp = this.uiContext?.getWindowWidthBreakpoint() ?? WidthBreakpoint.WIDTH_XS;
+  this.mainWindowInfo.heightBp = this.uiContext?.getWindowHeightBreakpoint() ?? HeightBreakpoint.HEIGHT_SM;
+  let screenRatio: number = 0;
+  // ...
 updateWindowInfo(): void {
   try {
     // ...
@@ -169,25 +172,28 @@ updateWindowInfo(): void {
 }
 ```
 
-![](https://media:201788187377145478)  
-需要注意的是，在window侧如果窗口大小没发生变化，此监听不会被触发。如直接旋转180度的情况下，窗口大小并没有改变，此时不会通知回调。在这种情况下，应用可以通过监听[display.on('change')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#displayonaddremovechange)事件，感知屏幕显示方向变化。
+> 说明
+>
+> 需要注意的是，在window侧如果窗口大小没发生变化，此监听不会被触发。如直接旋转180度的情况下，窗口大小并没有改变，此时不会通知回调。在这种情况下，应用可以通过监听[display.on('add' | 'remove' | 'change')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#displayonadd--remove--change)事件，感知屏幕显示方向变化。
 
 在使用多窗口功能时，窗口的尺寸会发生变化，可能影响布局。以下是两种情况的具体描述：
 
-* 进入分屏模式：当手机设备进入分屏模式时，窗口高度缩小为原来的1/2或1/3，宽度保持不变。由于内容页面大小未作相应调整，垂直方向的内容可能被截断，且页面无法滚动查看完整内容。开发者可参考[窗口模式变化常见问题](#section2763122110135)。
-* 进入竖向悬浮窗模式：在这种模式中，窗口内容会根据窗口大小进行等比缩放。但是，窗口的高宽比变为3:4.575，这与全屏模式（通常为16:9或4:3）的比例不同。纵向比例相对于横向较小，这也可能导致内容截断现象。开发者可参考[窗口模式变化常见问题](#section2763122110135)。  
+* **进入分屏模式** **：** 当手机设备进入分屏模式时，窗口高度缩小为原来的1/2或1/3，宽度保持不变。由于内容页面大小未作相应调整，垂直方向的内容可能被截断，且页面无法滚动查看完整内容。开发者可参考[窗口模式变化常见问题](#section2763122110135)。
+* **进入竖向悬浮窗模式** ：在这种模式中，窗口内容会根据窗口大小进行等比缩放。但是，窗口的高宽比变为3:4.575，这与全屏模式（通常为16:9或4:3）的比例不同。纵向比例相对于横向较小，这也可能导致内容截断现象。开发者可参考[窗口模式变化常见问题](#section2763122110135)。
 
-#### 定制窗口模式支持策略
+### 定制窗口模式支持策略
 
 如果开发者希望在不同的设备上支持不同的窗口模式，可通过[多HAP工程](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-modular-design#section1260019161216)实现。
 
-在单HAP工程下，开发者只能在module.json5中定制一种窗口支持策略。在不同的HAP工程下，开发者可以通过在module.json5配置文件[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)下添加supportWindowMode字段，为每个HAP定制一种窗口支持策略。  
-![](https://media:201788187377173479)  
-建立多HAP工程示例代码，可参考[多HAP构建功能](https://gitcode.com/harmonyos_samples/multi-hap)。  
+在单HAP工程下，开发者只能在module.json5中定制一种窗口支持策略。在不同的HAP工程下，开发者可以通过在module.json5配置文件[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)下添加supportWindowMode字段，为每个HAP定制一种窗口支持策略。
 
-#### 折叠开合场景下状态监听建议
+> 说明
+>
+> 建立多HAP工程示例代码，可参考[实现多Hap构建功能](https://gitcode.com/harmonyos_samples/multi-hap)。
 
-折叠展开过程中应用可感知的部分回调  
+### 折叠开合场景下状态监听建议
+
+**折叠展开过程中应用可感知的部分回调**
 
 |监听方法|功能|
 |:----------------------------------|:---------------------------------------------|
@@ -199,55 +205,55 @@ updateWindowInfo(): void {
 
 屏幕管理的生命周期如下图
 
-<br />
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/GthSIyw1Q4-gP_zM0K-tiA/zh-cn_image_0000002463652522.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=B260D04293794A51AF9048ECC02A72E47280256A29561091E1BD53FBEFA50B3A "点击放大")
+> 说明
+>
+> 1. 折叠开合过程中，窗口尺寸和断点的刷新，建议只监听window.on('windowSizeChange')。
+> 2. 建议与窗口内容布局相关的逻辑放在对应监听接口中实现，不要在屏幕状态变化回调中主动获取窗口状态数据（rect、displayId、avoidArea、density），换用对应的信息变化监听接口。
+> 3. 建议在每种监听接口中只处理该接口返回的数据，不要默认在接口A中查询到的接口B中的数据始终是正确的，如windowRectChange回调中不要使用getWindowAvoidArea接口主动查询避让区域，换用on('avoidAreaChange')监听接口。
+> 4. 建议布局数据相关的回调中只做UI刷新逻辑，不要在其中做IO等耗时逻辑。
 
-![](https://media:201788187377461480 "点击放大")  
-![](https://media:201788187377489481)  
-1. 折叠开合过程中，窗口尺寸和断点的刷新，建议只监听window.on('windowSizeChange')。
-2. 建议与窗口内容布局相关的逻辑放在对应监听接口中实现，不要在屏幕状态变化回调中主动获取窗口状态数据（rect、displayId、avoidArea、density），换用对应的信息变化监听接口。
-3. 建议在每种监听接口中只处理该接口返回的数据，不要默认在接口A中查询到的接口B中的数据始终是正确的，如windowRectChange回调中不要使用getWindowAvoidArea接口主动查询避让区域，换用on('avoidAreaChange')监听接口。
-4. 建议布局数据相关的回调中只做UI刷新逻辑，不要在其中做IO等耗时逻辑。  
+## 分屏窗口模式适配
 
-#### 分屏窗口模式适配
-
-#### 分屏布局适配
+### 分屏布局适配
 
 目前支持两种分屏样式："上下分屏"和"左右分屏"。
 
-![](https://media:201788187377684482 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/PAInicABQVqG8cRel3LtsQ/zh-cn_image_0000002355265437.png?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=209819F9689A30BF6539FB2509720FD0626C962515E90CC1BDF54423F0657D3C "点击放大")
 
 分屏比例指的是分屏下两应用间尺寸的比例，调整分屏比例会调整应用窗口的大小。
 
-分屏模式的分屏比例是由产品定义，开发者无法控制。常见产品的分屏比例，可参考下表。  
+分屏模式的分屏比例是由产品定义，开发者无法控制。常见产品的分屏比例，可参考下表。
 
 |设备|默认分屏比例|分屏可调节档位|
-|:--------------------|:-----|:----------------------------------------------------------------------------------|
-|手机、平板、Pura X展开态、三折叠F态|1:1|"上下分屏"（竖屏）: 1:1, 1:2, 2:1 "左右分屏"（横屏）: 1:1|
-|双折叠展开态、三折叠M态|1:1|"上下分屏"和 "左右分屏": 1:1|
-|三折叠G态|1:1|当三折叠横屏： "上下分屏"：不支持 "左右分屏" : 1:1, 1:2, 2:1 当三折叠竖屏： "上下分屏"：1:1, 1:2, 2:1 "左右分屏" : 不支持|
+|:---------------------|:-----|:----------------------------------------------------------------------------------|
+|手机、平板、Pura X展开态、三折叠单屏态|1:1|"上下分屏"（竖屏）: 1:1, 1:2, 2:1 "左右分屏"（横屏）: 1:1|
+|双折叠展开态、三折叠双屏态|1:1|"上下分屏"和 "左右分屏": 1:1|
+|三折叠三屏态|1:1|当三折叠横屏： "上下分屏"：不支持 "左右分屏" : 1:1, 1:2, 2:1 当三折叠竖屏： "上下分屏"：1:1, 1:2, 2:1 "左右分屏" : 不支持|
 
-![](https://media:201788187377709483)  
-* 手机上下分屏开发实践，开发者可参考链接：[小方形屏](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-screen-layout#section1395830175918)。
+> 说明
+>
+> * 手机上下分屏开发实践，开发者可参考链接：[小方形屏](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-screen-layout#section1395830175918)。
 
-当手机设备进入分屏模式时，窗口高度缩小为原来的1/2或1/3，宽度保持不变。由于内容页面大小未作相应调整，垂直方向的内容可能被截断，且页面无法滚动查看完整内容，开发者可参考[窗口模式变化常见问题](#section2763122110135)。  
+当手机设备进入分屏模式时，窗口高度缩小为原来的1/2或1/3，宽度保持不变。由于内容页面大小未作相应调整，垂直方向的内容可能被截断，且页面无法滚动查看完整内容，开发者可参考[窗口模式变化常见问题](#section2763122110135)。
 
-#### 实现应用内分屏
+### 实现应用内分屏
 
 分屏一般用于两个应用长时间并行使用的场景。例如：边看购物攻略边浏览商品；边看视频边玩游戏；看学习类视频的同时做笔记等。除了通过手势触发分屏之外，应用可以自主选择启动分屏。
 
 应用内分屏功能允许[声明支持分屏](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-support#声明支持分屏)的应用在全屏显示模式下，通过调用startAbility方法启动UIAbility并形成分屏。该功能能够增强应用的多任务处理能力，提升用户的操作体验。
 
-开发步骤：
+**开发步骤：**
 
 1. 在应用中获取UIAbilityContext 对象，这是启动分屏所必需的上下文对象，用于后续调用startAbility接口。
 
-   ```
+   ```screen
    let context = this.uiContext?.getHostContext() as common.UIAbilityContext;
    ```
 
 2. 调用startAbility接口启动UIAbility，形成分屏。调用startAbility接口时，设置StartOptions对象，需要指定窗口模式[windowMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilityconstant#windowmode12)（需设置为WINDOW_MODE_SPLIT_PRIMARY或者WINDOW_MODE_SPLIT_SECONDARY），并可根据需要设置其他StartOptions属性或startAbility参数，如Want对象。
 
-   ```
+   ```screen
    setSplitScreen(bundleName: string, abilityName: string, moduleName: string): void {
      // ...
      // Create StartOptions and set them to the main window mode.
@@ -262,7 +268,7 @@ updateWindowInfo(): void {
 3. 若继续执行上述步骤，可继续启动其他UIAbility窗口，呈现左右分屏或替换一侧的分屏窗口。
 4. 如果想结束应用内分屏，则执行terminateSelf()方法。
 
-   ```
+   ```screen
    cancelSplitScreen(): void {
      let context = this.uiContext?.getHostContext() as common.UIAbilityContext;
      context.terminateSelf().catch((err: BusinessError) => {
@@ -273,23 +279,24 @@ updateWindowInfo(): void {
 
 5. 应用内分屏只支持左右分屏，双折叠折叠态以及直板机由于只支持上下分屏，所以不进入分屏，双折叠展开态等大屏下会进入分屏。开发者可参考[应用声明支持智慧多窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-support)。
 
-![](https://media:201788187377782484)  
-应用分屏完整代码，开发者请参考[应用内分屏](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-support#应用内分屏)。  
+> 说明
+>
+> 应用分屏完整代码，开发者请参考[应用内分屏](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-support#应用内分屏)。
 
-#### 自由窗口模式适配
+## 自由窗口模式适配
 
 自由多窗是一种多窗口显示模式，它允许用户在同一屏幕上同时运行多个应用窗口。自由窗口是默认居中启动并向右下方层叠排布，支持无极缩放的窗口。启动后，窗口的大小和位置可自由调整。同一个屏幕上可同时显示多个自由窗口，这些自由窗口按照打开或者获取焦点的顺序在Z轴排布。当自由窗口被点击或触摸时，将导致其Z轴高度提升，并获取焦点。自由窗口下默认显示标题栏，标题栏左侧显示应用图标，右侧显示三键：放大、缩小和关闭，长按或鼠标hover可显示切换至分屏菜单。
 
-![](https://media:201788187378074485 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/rfP2UdM3QeG3N9xws1CO9w/zh-cn_image_0000002321306750.png?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A06E968D4D76291B19A1828B329F411CA65335717AF86CFCAB01B1C71BF0B1A "点击放大")
 
 * 在电脑设备上，应用启动时默认应为自由窗口模式，而非全屏模式。在适配电脑设备时，存在拖动自由窗口导致尺寸过小而引起页面布局异常的问题，开发者可参考[如何限制自由窗窗口尺寸](#section6754152523715)，确保页面正常显示。
-* 在平板设备上，用户需要下拉控制中心，点击自由多窗按钮，切换至自由多窗模式，窗口默认以自由窗口层叠显示。进入自由多窗模式后设备强制横屏，不支持切换竖屏。为优化窗口显示内容，DPI默认调整为最小档，并记忆调整前的DPI，用户可在设置-显示和亮度-字体大小和界面缩放中按需调整。退出自由多窗时恢复到记忆的DPI，如果用户在自由多窗模式下主动调整过DPI，则保持当前值不恢复记忆。  
+* 在平板设备上，用户需要下拉控制中心，点击自由多窗按钮，切换至自由多窗模式，窗口默认以自由窗口层叠显示。进入自由多窗模式后设备强制横屏，不支持切换竖屏。为优化窗口显示内容，DPI默认调整为最小档，并记忆调整前的DPI，用户可在设置-显示和亮度-字体大小和界面缩放中按需调整。退出自由多窗时恢复到记忆的DPI，如果用户在自由多窗模式下主动调整过DPI，则保持当前值不恢复记忆。
 
-#### 如何限制自由窗窗口尺寸
+### 如何限制自由窗窗口尺寸
 
 自适应布局可以保证窗口尺寸在一定范围内变化时，页面的显示是正常的。当窗口尺寸变化较大时，就需要额外借助响应式布局能力（如断点等）调整页面结构以保证显示正常。通常每个断点都需要开发者精心适配，以获得最佳的显示效果，考虑到设计及开发成本等实际因素的限制，应用不可能适配从零到正无穷的所有窗口宽度。
 
-不同设备或不同设备状态，系统默认的自由窗口尺寸的调节范围可能不同。开发者可以在module.json5配置文件的[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)中限制应用中各个Ability的自由窗口尺寸调节范围。配置文件中影响自由窗口尺寸调节范围的字段如下表所示。  
+不同设备或不同设备状态，系统默认的自由窗口尺寸的调节范围可能不同。开发者可以在module.json5配置文件的[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)中限制应用中各个Ability的自由窗口尺寸调节范围。配置文件中影响自由窗口尺寸调节范围的字段如下表所示。
 
 |配置文件字段|数据类型|描述|
 |:--------------|:---|:----------------------------|
@@ -304,7 +311,7 @@ updateWindowInfo(): void {
 
 * 通过配置文件分别限制自由窗口的最大和最小尺寸。
 
-  ```
+  ```screen
   {
     "module": {
       // ...
@@ -326,7 +333,7 @@ updateWindowInfo(): void {
 
 * 通过[setWindowLimits()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowlimits11)接口设置当前应用窗口的尺寸限制。
 
-  ```
+  ```screen
   setWindowLimits(maxWidth: number, maxHeight: number, minWidth: number, minHeight: number): void {
     let windowLimits: window.WindowLimits = {
       maxWidth: maxWidth,
@@ -343,25 +350,26 @@ updateWindowInfo(): void {
   }
   ```
 
-![](https://media:201788187378131486)  
-如果开发者希望针对不同设备类型配置不同的最小值，可通过[多HAP工程](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-modular-design#section1260019161216)实现。  
+> 说明
+>
+> 如果开发者希望针对不同设备类型配置不同的最小值，可通过[多HAP工程](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-modular-design#section1260019161216)实现。
 
-#### 主动调节窗口大小
+### 主动调节窗口大小
 
 改变窗口大小有以下两种方式：
 
 1. 通过窗口热区拖拽进行窗口缩放。 应用窗口拖拽缩放是在电脑和平板设备上使用自由多窗模式时常见的操作，指鼠标点击或手指触控应用窗口边缘，使得应用窗口跟随鼠标或手指位置移动而变化大小的现象，如下图所示。
 
-
    对于窗口拖拽缩放有两种限制方式：
    * [setWindowLimits()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowlimits15)限制窗口大小；
    * [setResizeByDragEnabled()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setresizebydragenabled14)禁止/使能通过拖拽方式缩放主窗口或启用装饰的子窗口的功能。
 
-   ![](https://media:201788187378161487)  
-   主窗口和带标题栏的子窗口默认可以通过热区拖拽进行窗口大小缩放，不带标题栏的子窗口和悬浮窗不可以通过热区拖拽进行窗口大小缩放。
+   > 说明
+   >
+   > 主窗口和带标题栏的子窗口默认可以通过热区拖拽进行窗口大小缩放，不带标题栏的子窗口和悬浮窗不可以通过热区拖拽进行窗口大小缩放。
 2. 通过[resize()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#resize9)方法修改窗口大小。
 
-   ```
+   ```screen
    resize(width: number, height: number): void {
      this.mainWindow.resize(width, height, (err: BusinessError) => {
        const errCode: number = err.code;
@@ -375,34 +383,32 @@ updateWindowInfo(): void {
    }
    ```
 
-根据组件内容大小修改浮动窗口
+**根据组件内容大小修改浮动窗口**
 
-可以通过组件的[onAreaChange()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)方法监听组件区域变化并根据返回的内容大小修改浮动窗口大小。  
+可以通过组件的[onAreaChange()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)方法监听组件区域变化并根据返回的内容大小修改浮动窗口大小。
 
-#### 如何设置窗口拖拽热区
+### 如何设置窗口拖拽热区
 
 应用窗口拖动是在电脑和平板设备上使用自由多窗时常见的操作，指鼠标点击或手指触控应用窗口在屏幕区域内拖动，应用窗口跟随鼠标或手指位置移动的现象，如下图所示。对于使用默认标题栏的窗口，系统提供了高性能的应用窗口拖动能力。而对于没有标题栏或需要自定义标题栏的窗口，需要开发者调用系统提供的拖动能力来实现。本章节将重点探讨这一类窗口拖动场景的高性能开发方法。
 
-![](https://media:201788187378199488 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/FDLF_f6OTvqwYtgEHj_pxA/zh-cn_image_0000002355145629.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=04623B62A9B6D927BC8E06A3E35B39223568533FF60A37EACA420A47D69F711A "点击放大")
 
-实现方案
+**实现方案**
 
-由于使用[moveWindowTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#movewindowto9)来进行窗口移动，会导致不跟手的问题，且在扩展屏场景下不支持跨屏移动。因此，对于采用方舟UI框架（ArkUI）开发应用程序的开发者，推荐使用startMoving()接口实现高性能应用窗口拖动。开发者可以在任意组件的[onTouch()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#ontouch)方法中注册自定义回调函数，当收到TouchType.Down类型事件时，调用startMoving()接口实现窗口拖动。  
+由于使用[moveWindowTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#movewindowto9)来进行窗口移动，会导致不跟手的问题，且在扩展屏场景下不支持跨屏移动。因此，对于采用方舟UI框架（ArkUI）开发应用程序的开发者，推荐使用startMoving()接口实现高性能应用窗口拖动。开发者可以在任意组件的[onTouch()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#ontouch)方法中注册自定义回调函数，当收到TouchType.Down类型事件时，调用startMoving()接口实现窗口拖动。
 
 |接口|说明|使用场景|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|:-------------------------------------------------------------------------|
 |[moveWindowTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#movewindowto9)|移动窗口位置。|在自由窗口状态下，窗口相对于屏幕移动；在非自由窗口状态下，窗口相对于父窗口移动，也可用于设置子窗启动位置。|
 |[startMoving()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#startmoving14)|开始移动窗口。|窗口将跟随鼠标移动，抬手终止移动，且窗口类型无限制。|
-|[startMoving(offsetX: number, offsetY: number)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#startmoving15)|指定鼠标在窗口内的位置并移动窗口。|若鼠标快速移动，窗口移动时鼠标可能会在窗口外，这时，可指定窗口移动时鼠标在窗口内相对窗口左上角的偏移量，先移动窗口到预期鼠标位置后，再开始移动窗口。|
+|[startMoving](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#startmoving15)(offsetX: number, offsetY: number)|指定鼠标在窗口内的位置并移动窗口。|若鼠标快速移动，窗口移动时鼠标可能会在窗口外，这时，可指定窗口移动时鼠标在窗口内相对窗口左上角的偏移量，先移动窗口到预期鼠标位置后，再开始移动窗口。|
 |[stopMoving()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#stopmoving15)|停止窗口移动。|用于在窗口拖拽移动过程中，通过此接口来停止窗口移动，可绑定快捷键或删除拖拽事件时使用。|
 
-<br />
-
-示例代码
+**示例代码**
 
 对于采用方舟UI框架（ArkUI）开发应用程序的开发者，如下代码展示窗口跟随标题栏组件拖动的实现。当该标题栏组件收到点击事件，开发者可通过getMainWindowSync()方法获取该标题栏组件对应的窗口对象，进而对该窗口对象调用startMoving()接口进入窗口拖动逻辑。
 
-```
+```screen
 import { BusinessError } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
 
@@ -441,19 +447,19 @@ struct Index {
 }
 ```
 
-#### 设置应用启动时的窗口模式、大小与位置
+### 设置应用启动时的窗口模式、大小与位置
 
 电脑上启动应用窗口有两种方式：
 
 1. 通过双击桌面应用图片或点击应用中心图标启动应用。
-2. 通过[UIAbilityContext.startAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability-1)接口启动，其中startOption参数设置启动时的窗口模式、所处屏幕id、窗口位置、窗口大小等信息。
+2. 通过UIAbilityContext.[startAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability-1)接口启动，其中startOption参数设置启动时的窗口模式、所处屏幕id、窗口位置、窗口大小等信息。
 
-应用启动自由窗口时设置主窗口的位置和大小有多种方式，按照生效优先级由高到低排序为：全屏显示 \> 使用[startOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)参数指定启动窗口的大小和位置 \> 使用[setWindowRectAutoSave()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#setwindowrectautosave14)方法开启窗口尺寸记忆 \> 使用[metadata标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-config-m#metadata标签)配置最大化 \> 使用metadata标签配置大小和位置。
+应用启动自由窗口时设置主窗口的位置和大小有多种方式，按照生效优先级由高到低排序为：全屏显示 > 使用[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions#startoptions)参数指定启动窗口的大小和位置 > 使用[setWindowRectAutoSave()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#setwindowrectautosave14)方法开启窗口尺寸记忆 > 使用[metadata标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-config-m#metadata标签)配置最大化 > 使用metadata标签配置大小和位置。
 
 * 全屏显示
-  1. 在[module.json5配置文件](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/quick-start/module-configuration-file.md)中的[abilities标签](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/quick-start/module-configuration-file.md#abilities标签)下，取消supportWindowMode字段支持的floating，仅配置\[fullscreen\]或\[fullscreen, split\]。
+  1. 在[module.json5配置文件](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/quick-start/module-configuration-file.md)中的[abilities标签](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/quick-start/module-configuration-file.md#abilities标签)下，取消supportWindowMode字段支持的floating，仅配置[fullscreen]或[fullscreen, split]。
 
-     ```
+     ```screen
      "abilities": [
        {
          "name": "EntryAbility",
@@ -509,7 +515,7 @@ struct Index {
 
   2. 将[startAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability-1)接口的入参StartOptions选项中的windowMode参数设置为WINDOW_MODE_FULLSCREEN。
 
-     ```
+     ```screen
      let want: Want = {
        bundleName: 'com.example.pcproject',
        abilityName: 'SubEntryAbility'
@@ -535,9 +541,9 @@ struct Index {
      }
      ```
 
-  3. 将startAbility()接口的入参StartOptions选项中的supportWindowModes参数设置为\[bundleManager.SupportWindowMode.FULL_SCREEN\]或\[bundleManager.SupportWindowMode.FULL_SCREEN, bundleManager.SupportWindowMode.SPLIT\]。
+  3. 将startAbility()接口的入参StartOptions选项中的supportWindowModes参数设置为[bundleManager.SupportWindowMode.FULL_SCREEN]或[bundleManager.SupportWindowMode.FULL_SCREEN, bundleManager.SupportWindowMode.SPLIT]。
 
-     ```
+     ```screen
      let want: Want = {
        bundleName: 'com.example.pcproject',
        abilityName: 'SubEntryAbility'
@@ -562,11 +568,12 @@ struct Index {
      }
      ```
 
-     ![](https://media:201788187378226489)  
-     在UIAbility启动模式为specified模式时，设置StartOptions选项中的supportWindowModes参数不生效。
+     > 说明
+     >
+     > 在UIAbility启动模式为specified模式时，设置StartOptions选项中的supportWindowModes参数不生效。
 * StartOptions指定大小位置 可通过StartOptions选项的windowLeft、windowTop、windowWidth、windowHeight设置窗口的位置和大小。
 
-  ```
+  ```screen
   let want: Want = {
     bundleName: 'com.example.pcproject',
     abilityName: 'SubEntryAbility'
@@ -600,20 +607,21 @@ struct Index {
 
   在同一个UIAbility下，也可以通过setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean) 接口，针对每个主窗口尺寸单独进行记忆，只有在UIAbility启动模式为specified模式，且isSaveBySpecifiedFlag设置为true时，才能针对每个主窗口尺寸进行单独记忆。
 
-  窗口记忆规则及示例代码可参考[setWindowRectAutoSave()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#setwindowrectautosave14) 和[setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#setwindowrectautosave17) 。
+  窗口记忆规则及示例代码可参考[setWindowRectAutoSave()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#setwindowrectautosave14) 和[setWindowRectAutoSave](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#setwindowrectautosave17)(enabled: boolean, isSaveBySpecifiedFlag: boolean)。
 * metadata标签配置大小和位置 配置主窗启动时是否以最大化状态显示，可以在module.json5的[metadata标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-config-m#metadata标签)属性字段中添加name为ohos.ability.window.isMaximize，value取值为true的配置项。其中，value的取值为true或false，取值为true表示最大化启动，取值为false表示不以最大化状态启动，未配置时默认为false。该方案可以避免在onWindowStageCreate里调用maximize出现闪烁的现象。
 
-  也可以在metadata标签中配置窗口启动时的大小和位置，具体属性字段和使用方式可参考[窗口元数据配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-config-m)。  
-  ![](https://media:201788187378257490)  
-  主窗最大化显示需满足supportWindowMode字段配置中必须包含fullscreen和floating选项。
+  也可以在metadata标签中配置窗口启动时的大小和位置，具体属性字段和使用方式可参考[窗口元数据配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-config-m)。
+  > 说明
+  >
+  > 主窗最大化显示需满足supportWindowMode字段配置中必须包含fullscreen和floating选项。
+  >
+  > 如果窗口设置的大小和位置超出屏幕之外，会自动调整至当前屏幕内。
+  >
+  > 当left和top都不配置或配置不生效时，按照系统层叠规则显示。
+* 窗口层叠规格
 
-  如果窗口设置的大小和位置超出屏幕之外，会自动调整至当前屏幕内。
-
-  当left和top都不配置或配置不生效时，按照系统层叠规则显示。
-* 窗口层叠规格  
-
-  |规格名称|规格描述|
-  |:-----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  |**规格名称**|**规格描述**|
+  |:-------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   |窗口默认大小|应用首次启动窗口默认大小：宽高各占屏幕尺寸的67%，在工作区（去除Dock和状态栏的屏幕区域）居中显示。|
   |系统尺寸限制|自由窗口的系统默认最小宽度为320vp，最小高度为72vp，最大宽度和高度都为3840vp；应用未设置windowLimits时，通过window.[getWindowLimits()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowlimits11)接口会默认返回前面系统的尺寸限制。|
   |默认窗口模式|支持floating模式的窗口，默认以自由窗口方式打开。|
@@ -621,29 +629,29 @@ struct Index {
   多自由窗口层叠规则：
   1. 找到除了置顶窗口外的最上层窗口(包括后台窗口)，作为基准，进行层叠显示(分别向右和向下偏移)；
   2. 如果偏移后的窗口位置有部分超出了工作区，则将超出方向的坐标位置修改为工作区的起点位置；
-3. 支持多实例的应用，打开第二个窗口时，参考上一个多实例窗口的位置进行层叠。  
+  3. 支持多实例的应用，打开第二个窗口时，参考上一个多实例窗口的位置进行层叠。
 
-#### 悬浮窗口模式适配
+## 悬浮窗口模式适配
 
 针对应用进入悬浮窗出现的页面内容截断、挤压、堆叠等问题，开发者可以参考多设备界面开发中的[界面布局响应式变化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive)和[界面元素自适应变化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-adaptive)内容，使应用可以自适应窗口的大小变化。
 
 常见悬浮布局适配问题分为以下三类
 
-* [布局适配问题](#section1611382919595)：这类问题一般是由于进入分屏/悬浮窗时，由于窗口高度缩小，导致的布局混乱、被截断等问题。
+* 布局适配问题：这类问题一般是由于进入分屏/悬浮窗时，由于窗口高度缩小，导致的布局混乱、被截断等问题。详情参见[界面被截断，无法上下滑动，应用分屏后内容显示不全，无法通过上下滑动展示未显示的内容](#section1611382919595)。
 * [沉浸模式下顶部窗口控制条避让问题](#section561523134011)：在沉浸模式下，应用分屏后视图和悬浮窗顶部重合的区域无法响应操作的问题。
-* [横屏悬浮窗适配问题](#section16977171113215)：对于横向游戏和视频应用横向的悬浮窗适配问题。  
+* 横屏悬浮窗适配问题：对于横向游戏和视频应用横向的悬浮窗适配问题。详情参见[视频或游戏类应用在横屏模式下开启悬浮窗，若应用未适配横屏悬浮窗，可能会导致内容显示不全，影响用户体验](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-mode#section16977171113215)。
 
-#### 窗口模式变化常见问题
+## 窗口模式变化常见问题
 
-#### 界面被截断，无法上下滑动，应用分屏后内容显示不全，无法通过上下滑动展示未显示的内容
+### 界面被截断，无法上下滑动，应用分屏后内容显示不全，无法通过上下滑动展示未显示的内容
 
-![](https://media:201788187378565491 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/uq70DShDRHiyyCxG6Nxx-g/zh-cn_image_0000002321146966.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=A4135E76D86AAF93FA7BE7CFA8A10909909E6E6D12A673F1E1ED5D2B3D79B316 "点击放大")
 
-原因
+**原因**
 
 应用只适配了全屏大小，当应用分屏/悬浮窗后，窗口会变小，导致页面显示不全，超出窗口的区域无法显示。
 
-```
+```screen
 @Component
 export struct Question1Incorrect {
   build() {
@@ -670,11 +678,11 @@ export struct Question1Incorrect {
 }
 ```
 
-解决措施
+**解决措施**
 
 使用一多的[延伸能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-adaptive-layout#延伸能力)，增加Scroll组件，让列表或者文字区域可以按照指定方向滑动。示例代码如下：
 
-```
+```typescript
 @Component
 export struct Question1Correct {
   build() {
@@ -705,17 +713,17 @@ export struct Question1Correct {
 
 优化后效果如下图所示。
 
-![](https://media:201788187378877492 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/UbtGxh7HQWSY_q8tY9J8TQ/zh-cn_image_0000002355265493.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=2858A171D808FAF300D6EBFC73659CC2B5F20DA3F46FBE9D616DEF36219C5644 "点击放大")
 
-#### XComponent视频画面在分屏页面显示不全，视频播放界面分屏后，视频被截断显示不全
+### XComponent视频画面在分屏页面显示不全，视频播放界面分屏后，视频被截断显示不全
 
-![](https://media:201788187379192493 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/OGjQC4xzSvGziAzlkjNENg/zh-cn_image_0000002321306822.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=A2E47B1D5641E45BC71A7F1903D498D884F4D7988D33B665AECB305858FBF6DB "点击放大")
 
-原因
+**原因**
 
 在进入分屏页面，窗口的height变成了屏幕的1/2，应用没有对这种情况进适配，导致XComponent宽度没变为之前的1/2导致视频形变。
 
-```
+```screen
 @Component
 export struct Question2Incorrect {
   @State aspect: number = 9 / 16; // default video height/width ratio value
@@ -740,11 +748,11 @@ export struct Question2Incorrect {
 }
 ```
 
-解决措施
+**解决措施**
 
 使用[aspectRatio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-layout-constraints#aspectratio)属性指定XComponent组件的宽高比。设置aspectRatio属性后，组件宽高会受父组件内容区大小限制。
 
-```
+```screen
 @Component
 export struct Question2Correct {
   @State aspect: number = 9 / 16; // default video width/height ratio value
@@ -768,17 +776,17 @@ export struct Question2Correct {
 
 优化后效果如下图所示。
 
-![](https://media:201788187379397494 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/8BBSj_SrT2-vEr5UbzSF0g/zh-cn_image_0000002355145693.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=9E19CF88735FB055C85A50E667C0FF7A3B2A9C74F1A67F9352E7B60EC125D884 "点击放大")
 
-#### Video组件在分屏状态下截断，Video组件在分屏状态下，视频播放界面被截断显示不全
+### Video组件在分屏状态下截断，Video组件在分屏状态下，视频播放界面被截断显示不全
 
-![](https://media:201788187379650495 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/279WVUMBR3y3nZYA13Kmaw/zh-cn_image_0000002321146986.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=18CC4D8C823DD44ACBFA87FC81E02CDB6A398EE1AAD0A817B7A188794D6760A0 "点击放大")
 
-原因
+**原因**
 
 给Video组件宽高设置的均为100%，Video组件默认保持宽高比进行缩小或者放大，使得视频铺满屏幕。当应用分屏后，由于窗口宽度不变，高度变为原来的1/2，Video组件的高度会超出窗口高度，导致视频显示不全。
 
-```
+```screen
 @Component
 export struct Question3Incorrect {
   build() {
@@ -798,11 +806,11 @@ export struct Question3Incorrect {
 }
 ```
 
-解决措施
+**解决措施**
 
 给Video组件设置.objectFit(ImageFit.Contain)属性，使视频保持宽高进行缩小或者放大，使得视频完全显示在Video组件边界内。
 
-```
+```screen
 @Component
 export struct Question3Correct {
   build() {
@@ -822,17 +830,17 @@ export struct Question3Correct {
 
 优化后效果如下图所示。
 
-![](https://media:201788187379889496 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/c8Ni_FH4So6nS5E6zrhXdg/zh-cn_image_0000002355265517.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=F7F8F02D55F358D380CA6E4EA8067C9368AE406F1D6F4FD9598A3D3EC4B9CECA "点击放大")
 
-#### 子组件超出父组件的范围，子组件显示超出了父组件范围，无法通过上下滑动显示完全
+### 子组件超出父组件的范围，子组件显示超出了父组件范围，无法通过上下滑动显示完全
 
-![](https://media:201788187380078497 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/XQ8qLxnXTNeVtxkYg2lkwQ/zh-cn_image_0000002321306858.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=C70668C43BD6AD59A42C5D3B785F7FA80EABA89F4DE8F1DD7E1005A425196A1B "点击放大")
 
-原因
+**原因**
 
 子组件设置为了固定值，当应用分屏的时候，屏幕高度变为原来的1/2，父组件高度会随之变小。如果此时子组件高度大于父组件，就会导致子组件无法完全显示。
 
-```
+```screen
 @Component
 export struct Question4Incorrect {
 
@@ -861,11 +869,11 @@ export struct Question4Incorrect {
 }
 ```
 
-解决措施
+**解决措施**
 
 子组件使用constraintSize约束子组件跟随父容器的大小。建议用子组件占用父组件的高度百分比，而不是绝对值。
 
-```
+```screen
 @Builder
 customDialogComp() {
   Column() {
@@ -891,17 +899,17 @@ customDialogComp() {
 
 优化后效果如下图所示。
 
-![](https://media:201788187380192498 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/AyYt0R2uT6mKcX8FF6syFw/zh-cn_image_0000002355145773.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=F3755E81C8C8053F66FD7C60C2BBB8AF0ECE0EC08878223049F8010568D30051 "点击放大")
 
-#### Image组件在分屏状态下显示异常，应用进入分屏后，随着窗口变小，Image组件显示不全，页面布局显示异常
+### Image组件在分屏状态下显示异常，应用进入分屏后，随着窗口变小，Image组件显示不全，页面布局显示异常
 
-![](https://media:201788187380482499 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/-qfKkzdjQ4iF-2GynKhw8A/zh-cn_image_0000002321147090.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=64C0BF355E87CA5D785B1A160C6DBBFF8F3653C467275DFC75AF3DDEF5EA62CD "点击放大")
 
-原因
+**原因**
 
 在进入分屏页面，窗口的height变成了屏幕的1/2，导致image组件的height变小，image图片形变。
 
-```
+```screen
 @Component
 export struct Question5Incorrect {
   build() {
@@ -934,11 +942,11 @@ export struct Question5Incorrect {
 }
 ```
 
-解决措施
+**解决措施**
 
 推荐开发者通过一多的[隐藏能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-adaptive-layout#隐藏能力)来实现，按照其预设的显示优先级，随容器组件尺寸变化显示或隐藏，通过设置布局优先级（displayPriority属性）来控制显隐。
 
-```
+```screen
 @Component
 export struct Question5Correct {
   build() {
@@ -979,17 +987,17 @@ export struct Question5Correct {
 
 优化后效果如下图所示。
 
-![](https://media:201788187380595500 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/uJuIENPFRmKlhvRHT7VAkw/zh-cn_image_0000002355265609.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=7FA88C82B3C31DF8CF65319E48003D7F90DC393BACEB3D1AF9685439540ADAB0 "点击放大")
 
-#### 弹窗布局错乱，进入分屏后弹窗页面内容显示错乱，底部按钮挡住弹窗内容
+### 弹窗布局错乱，进入分屏后弹窗页面内容显示错乱，底部按钮挡住弹窗内容
 
-![](https://media:201788187380701501 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/ru-tLP5uRqqREKxz4EB4JQ/zh-cn_image_0000002321306938.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=2F9E96C85C8855F759FE4F114D364FE7BF881FA40F56BAA2F5D03B87F191BC7D "点击放大")
 
-原因
+**原因**
 
 应用未考虑分屏窗口尺寸变小的情况，弹窗高度设置为固定值，且底部按钮使用position属性设置了固定位置，导致整体布局错乱。
 
-```
+```screen
 @CustomDialog
 struct CustomDialogComp1 {
   controller: CustomDialogController = new CustomDialogController({ 'builder': '' });
@@ -1027,11 +1035,11 @@ struct CustomDialogComp1 {
 }
 ```
 
-解决措施
+**解决措施**
 
 使用constraintSize属性给弹窗高度限定最大值，同时使用Scroll组件包裹弹窗内容区域（一多的[延伸能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-adaptive-layout#延伸能力)），通过给内容区域的Column组件设置layoutWeight（一多的[占比能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-adaptive-layout#占比能力)）属性，使其占据剩余空间，使操作按钮居于底部显示。当内容高度超过内容区域高度的时候可以滚动进行查看。
 
-```
+```screen
 @CustomDialog
 struct CustomDialogComp {
   controller: CustomDialogController = new CustomDialogController({ 'builder': '' });
@@ -1069,19 +1077,19 @@ struct CustomDialogComp {
 
 优化后效果如下图所示。
 
-![](https://media:201788187380886502 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/AYBOtv9MTbK-bkhDOQvD2g/zh-cn_image_0000002355145833.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=435676D191B9C85A84832CC439B16D2D4603A4E5B04BFC49BF74AED1A2F5C9FD "点击放大")
 
-#### 沉浸模式下顶部窗口控制条避让问题
+### 沉浸模式下顶部窗口控制条避让问题
 
 沉浸式应用在悬浮窗场景下，顶部操作栏无法操作，应用分屏后，视图和悬浮窗顶部重合的区域无法响应操作。
 
-![](https://media:201788187381116503 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/wXvwJYz_TiKUz9_YNhDzAA/zh-cn_image_0000002321147162.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=0DCACE02021C84A298FC74227AB3E7C19114AE69AB5CC9A7918D54812F7DAB21 "点击放大")
 
-原因
+**原因**
 
 沉浸式应用顶部没有避让，导致悬浮窗顶部bar与应用的顶部区域重叠，重叠区域中的按钮无法响应点击事件。
 
-```
+```screen
 @Component
 export struct Question7Incorrect {
   private windowClass: window.Window | undefined = undefined;
@@ -1090,17 +1098,17 @@ export struct Question7Incorrect {
     try {
       this.windowClass=(this.getUIContext().getHostContext() as common.UIAbilityContext).windowStage.getMainWindowSync();
       this.windowClass.setSpecificSystemBarEnabled('status', false).catch((error:BusinessError) => {
-        Logger.error(TAG, `setSpecificSystemBarEnabled err, code: ${error.code}, mesage: ${error.message}`);
+        Logger.error(TAG, `setSpecificSystemBarEnabled err, code: ${error.code}, message: ${error.message}`);
       });
     } catch (err) {
       let error = err as BusinessError;
-      Logger.error(TAG, `aboutToAppear err, code: ${error.code}, mesage: ${error.message}`);
+      Logger.error(TAG, `aboutToAppear err, code: ${error.code}, message: ${error.message}`);
     }
   }
 
   aboutToDisappear(): void {
     this.windowClass?.setSpecificSystemBarEnabled('status', true).catch((error:BusinessError) => {
-      Logger.error(TAG, `setSpecificSystemBarEnabled err, code: ${error.code}, mesage: ${error.message}`);
+      Logger.error(TAG, `setSpecificSystemBarEnabled err, code: ${error.code}, message: ${error.message}`);
     });
   }
 
@@ -1119,7 +1127,7 @@ export struct Question7Incorrect {
                 });
               } catch (err) {
                 let error = err as BusinessError;
-                Logger.error(TAG, `showToast err, code: ${error.code}, mesage: ${error.message}`);
+                Logger.error(TAG, `showToast err, code: ${error.code}, message: ${error.message}`);
               }
             })
         }
@@ -1134,11 +1142,11 @@ export struct Question7Incorrect {
 }
 ```
 
-解决措施
+**解决措施**
 
 通过[getWindowAvoidArea()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowavoidarea9)可获取屏幕顶部需要规避的矩阵区域topRect，获取到该值后应用可对应做布局避让。同时，可通过[on('avoidAreaChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onavoidareachange9)监听系统规避区域变化以进行布局的动态调整。具体可以参考[顶部窗口控制条避让适配智慧多窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-controlbar-adapt)。
 
-```
+```screen
 @Component
 export struct Question7Correct {
   private windowClass: window.Window | undefined = undefined;
@@ -1149,7 +1157,7 @@ export struct Question7Correct {
     try {
       this.windowClass=(this.getUIContext().getHostContext() as common.UIAbilityContext).windowStage.getMainWindowSync();
       this.windowClass.setSpecificSystemBarEnabled('status', false).catch((error:BusinessError) => {
-        Logger.error(TAG, `setSpecificSystemBarEnabled err, code: ${error.code}, mesage: ${error.message}`);
+        Logger.error(TAG, `setSpecificSystemBarEnabled err, code: ${error.code}, message: ${error.message}`);
       });
       this.windowStatus = this.windowClass.getWindowStatus();
 
@@ -1169,13 +1177,13 @@ export struct Question7Correct {
       })
     } catch (err) {
       let error = err as BusinessError;
-      Logger.error(TAG, `aboutToAppear err, code: ${error.code}, mesage: ${error.message}`);
+      Logger.error(TAG, `aboutToAppear err, code: ${error.code}, message: ${error.message}`);
     }
   }
 
   aboutToDisappear(): void {
     this.windowClass?.setSpecificSystemBarEnabled('status', true).catch((error:BusinessError) => {
-      Logger.error(TAG, `setSpecificSystemBarEnabled err, code: ${error.code}, mesage: ${error.message}`);
+      Logger.error(TAG, `setSpecificSystemBarEnabled err, code: ${error.code}, message: ${error.message}`);
     });
   }
 
@@ -1187,17 +1195,17 @@ export struct Question7Correct {
 
 优化后效果如下图所示。
 
-![](https://media:201788187381446504 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/CnbXbOTSTracCxz9zaXvMA/zh-cn_image_0000002355265705.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=321D91E6D2C88D5B57B1D5832FAFEE2DD2D6FB8521E14275FF8719D5E4494291 "点击放大")
 
-#### 视频或游戏类应用在横屏模式下开启悬浮窗，若应用未适配横屏悬浮窗，可能会导致内容显示不全，影响用户体验
+### 视频或游戏类应用在横屏模式下开启悬浮窗，若应用未适配横屏悬浮窗，可能会导致内容显示不全，影响用户体验
 
-![](https://media:201788187381569505 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/FARvGg0aR2KbHnOF8SPjOg/zh-cn_image_0000002321307050.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=80F3E32F393CDA0F27E9D0F5AB09A0E33A4E5DE96D22273782F590F2017EE9EB "点击放大")
 
-原因
+**原因**
 
 悬浮窗默认是竖屏，需要应用主动适配横屏的属性值。
 
-```
+```screen
 @Component
 export struct Question8Incorrect {
   build() {
@@ -1218,11 +1226,11 @@ export struct Question8Incorrect {
 }
 ```
 
-解决措施
+**解决措施**
 
 开发者可以通过在module.json5配置文件中abilities标签下的preferMultiWindowOrientation属性增加"landscape_auto"。
 
-```
+```screen
 {
   "module": {
     // ...
@@ -1241,7 +1249,7 @@ export struct Question8Incorrect {
 
 该场景下多窗布局动态可变为横向，需要配合API（[enableLandscapeMultiWindow()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#enablelandscapemultiwindow12)/[disableLandscapeMultiWindow()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#disablelandscapemultiwindow12)）使用。
 
-```
+```screen
 @Component
 export struct Question8Correct {
   private windowClass: window.Window | undefined = undefined;
@@ -1250,11 +1258,11 @@ export struct Question8Correct {
     try {
       this.windowClass=(this.getUIContext().getHostContext() as common.UIAbilityContext).windowStage.getMainWindowSync();
       this.windowClass.enableLandscapeMultiWindow().catch((error:BusinessError) => {
-        Logger.error(TAG, `enableLandscapeMultiWindow err, code: ${error.code}, mesage: ${error.message}`);
+        Logger.error(TAG, `enableLandscapeMultiWindow err, code: ${error.code}, message: ${error.message}`);
       });
     } catch (err) {
       let error = err as BusinessError;
-      Logger.error(TAG, `aboutToAppear err, code: ${error.code}, mesage: ${error.message}`);
+      Logger.error(TAG, `aboutToAppear err, code: ${error.code}, message: ${error.message}`);
     }
 
 
@@ -1262,7 +1270,7 @@ export struct Question8Correct {
 
   aboutToDisappear(): void {
     this.windowClass?.disableLandscapeMultiWindow().catch((error:BusinessError) => {
-      Logger.error(TAG, `disableLandscapeMultiWindow err, code: ${error.code}, mesage: ${error.message}`);
+      Logger.error(TAG, `disableLandscapeMultiWindow err, code: ${error.code}, message: ${error.message}`);
     });
   }
 
@@ -1274,4 +1282,5 @@ export struct Question8Correct {
 
 优化后效果如下图所示。
 
-![](https://media:201788187381813506 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/wMKXP5CvQgCV_FTJBKTKOw/zh-cn_image_0000002355145941.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024933Z&HW-CC-Expire=31536000000&HW-CC-Sign=11AA357B7AD1D0C0508AC2E536E9B1B459A76BCFED2C3E1DC4F1CDC9D3AB7C54 "点击放大")
+

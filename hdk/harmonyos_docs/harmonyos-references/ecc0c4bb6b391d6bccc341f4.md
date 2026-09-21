@@ -6,62 +6,65 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-compon
 
 # ImageData
 
-ImageData对象用于存储Canvas渲染的像素数据，支持对像素进行读取、修改和操作，适用于图像处理、像素级编辑、特效滤镜等场景。通过ImageData可以精确控制图像的每个像素点，实现自定义图像处理算法，为Canvas绘图提供灵活的像素级数据访问能力。  
-![](https://media:401788445196789160)  
-本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-创建ImageData时，宽高不超过16384px，面积不超过16000px\*16000px。超过该面积限制时无法正常绘制；当创建面积超过536870911平方像素时，返回值的width和height均为0px，data为undefined。  
+ImageData对象用于存储Canvas渲染的像素数据，支持对像素进行读取、修改和操作，适用于图像处理、像素级编辑、特效滤镜等场景。通过ImageData可以精确控制图像的每个像素点，实现自定义图像处理算法，为Canvas绘图提供灵活的像素级数据访问能力。
+> 说明
+>
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> 创建ImageData时，宽高不超过16384px，面积不超过16000px*16000px。超过该面积限制时无法正常绘制；当创建面积超过536870911平方像素时，返回值的width和height均为0px，data为undefined。
 
-#### constructor
+## constructor
 
 constructor(width: number, height: number, data?: Uint8ClampedArray)
 
-创建宽为width，高为height，像素数据为data的ImageData，如果data未定义，则填充值全为0的一维数组。创建时宽高不超过16384px，最大面积不超过16000px\*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回值的width和height均为0px，data为undefined。
+创建宽为width，高为height，像素数据为data的ImageData，如果data未定义，则填充值全为0的一维数组。创建时宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回值的width和height均为0px，data为undefined。
 
-卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|width|number|是|矩形区域宽度，单位为vp。宽高不超过16384px，最大面积不超过16000px\*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。 异常值NaN、Infinity、负数和0按0处理。|
-|height|number|是|矩形区域高度，单位为vp。宽高不超过16384px，最大面积不超过16000px\*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。 异常值NaN、Infinity、负数和0按0处理。|
+|width|number|是|矩形区域宽度，单位为vp。宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。 异常值NaN、Infinity、负数和0按0处理。|
+|height|number|是|矩形区域高度，单位为vp。宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。 异常值NaN、Infinity、负数和0按0处理。|
 |data|[Uint8ClampedArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-uint8clampedarray)|否|一维数组，保存了RGBA格式的像素数据，每个像素占4字节，依次为R、G、B、A，数据值范围为0到255。数组长度必须为width × height × 4。当需要自定义ImageData的像素数据时传入此参数，如需要对图像进行像素级的处理或修改。传入异常值undefined时，data为undefined。 默认值：值全为0的一维数组|
 
-#### constructor^12+^
+## constructor^12+^
 
 constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: LengthMetricsUnit)
 
-创建宽为width，高为height，像素数据为data的ImageData，如果data未定义，则填充值全为0的一维数组，支持使用unit配置ImageData对象的单位模式。创建时宽高不超过16384px，最大面积不超过16000px\*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回值的width和height均为0px，data为undefined。异常值NaN、Infinity、负数和0按0处理。当需要使用vp单位实现响应式布局或适配不同屏幕密度时，可通过unit参数指定单位模式。
+创建宽为width，高为height，像素数据为data的ImageData，如果data未定义，则填充值全为0的一维数组，支持使用unit配置ImageData对象的单位模式。创建时宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回值的width和height均为0px，data为undefined。异常值NaN、Infinity、负数和0按0处理。当需要使用vp单位实现响应式布局或适配不同屏幕密度时，可通过unit参数指定单位模式。
 
-卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。
+**卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|width|number|是|矩形区域宽度，单位由unit参数决定，默认单位为vp。宽高不超过16384px，最大面积不超过16000px\*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。 异常值NaN、Infinity、负数和0按0处理。|
-|height|number|是|矩形区域高度，单位由unit参数决定，默认单位为vp。宽高不超过16384px，最大面积不超过16000px\*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。 异常值NaN、Infinity、负数和0按0处理。|
+|width|number|是|矩形区域宽度，单位由unit参数决定，默认单位为vp。宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。 异常值NaN、Infinity、负数和0按0处理。|
+|height|number|是|矩形区域高度，单位由unit参数决定，默认单位为vp。宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。 异常值NaN、Infinity、负数和0按0处理。|
 |data|[Uint8ClampedArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-uint8clampedarray)|否|一维数组，保存了RGBA格式的像素数据，每个像素占4字节，依次为R、G、B、A，数据值范围为0到255。当需要自定义ImageData的像素数据时传入此参数，如需要对图像进行像素级别的处理或修改。 传入异常值undefined时，data为undefined。 默认值：值全为0的一维数组。|
 |unit|[LengthMetricsUnit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetricsunit12)|否|用来配置ImageData对象的单位模式，配置后无法动态更改，配置方法同[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)。当需要使用vp单位实现响应式布局或适配不同屏幕密度时传入此参数。 异常值undefined、NaN和Infinity按默认值处理。 默认值：DEFAULT。|
 
-#### 属性
+## 属性
 
-卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
 |:-----|:------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:---------------------------------------------------|
@@ -69,14 +72,15 @@ constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: Leng
 |height|number|是|否|矩形区域实际像素高度。 单位为px。|
 |data|[Uint8ClampedArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-uint8clampedarray)|是|否|一维数组，保存了RGBA格式的像素数据，每个像素占4字节，依次为R、G、B、A，数据值范围为0到255。|
 
-![](https://media:401788445196812161)  
-可使用[px2vp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#px2vp12)接口进行单位转换。  
+> 说明
+>
+> 可使用[px2vp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#px2vp12)接口进行单位转换。
 
-#### 示例
+## 示例
 
 使用drawImage绘制图像，通过getImageData接口获取ImageData对象，再使用putImageData接口将图像数据绘制到Canvas上。
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -104,4 +108,5 @@ struct Translate {
 }
 ```
 
-![](https://media:401788445196840162)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/whTeLHpFQA2RmuqFeLlm2Q/zh-cn_image_0000002762995933.png?HW-CC-KV=V1&HW-CC-Date=20260917T084641Z&HW-CC-Expire=31536000000&HW-CC-Sign=7C67F60254C7A33B64B9179728968B5D8E22FEFAF8735DBD8F39E514BD95ACA7)
+

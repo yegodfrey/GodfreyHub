@@ -6,18 +6,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 # AIPageResult
 
-AIPageResult定义[executeAIPageCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#executeaipagecommand)返回结果的通用格式与结果码取值，供[AIPageCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipagecommand)和[AIPageInteraction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipageinteraction)中的命令共享。  
+> phone | 2in1 | tablet | tv | wearable
 
-#### CommandResult
+AIPageResult定义[executeAIPageCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#executeaipagecommand)返回结果的通用格式与结果码取值，供[AIPageCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipagecommand)和[AIPageInteraction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipageinteraction)中的命令共享。
 
-[AIPageInteraction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipageinteraction)中的scroll、select、uploadFile、setZoomLevel等命令返回如下JSON格式；[AIPageCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipagecommand)中getZoomLevel的返回结果同样包含code和message字段，并追加zoomLevel字段。  
+## CommandResult
+
+[AIPageInteraction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipageinteraction)中的scroll、select、uploadFile、setZoomLevel等命令返回如下JSON格式；[AIPageCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipagecommand)中getZoomLevel的返回结果同样包含code和message字段，并追加zoomLevel字段。
 
 |字段|类型|说明|
-|:------|:-----|:-------------------------------------------------------------------------------------------------------------------------------------|
+|:------|:-----|:-----------------------------------------------------------------------------------------------------------------------------|
 |code|number|执行结果码。取值请参见[命令执行结果码说明](#命令执行结果码说明)。|
-|message|string|执行结果描述。成功时为"success"；存在非阻塞警告时，追加"; warnings: "前缀及警告信息，格式为"success; warnings: \<path1\>: \<reason1\>, \<path2\>: \<reason2\>"；失败时为错误描述。|
+|message|string|执行结果描述。成功时为"success"；存在非阻塞警告时，追加"; warnings: "前缀及警告信息，格式为"success; warnings: <path1>: <reason1>, <path2>: <reason2>"；失败时为错误描述。|
 
-#### 命令执行结果码说明
+## 命令执行结果码说明
 
 |取值|说明|
 |:--|:----------------------------------|
@@ -81,6 +83,8 @@ AIPageResult定义[executeAIPageCommand](https://developer.huawei.com/consumer/c
 |481|zoomLevel取值非法（负数或零）。|
 |482|缩放控制已被应用禁用。|
 
-![](https://media:401788445283765398)  
-* 元素定位字段缺失与为空的区分：未提供定位字段、或其值为空字符串，均返回对应命令的\*_NODEID_MISSING（如421/441）；提供了xpath但值为空，返回\*_XPATH_EMPTY（如443）。
-* send_keys的key字段：未提供key字段返回461；key为空字符串返回462；key值无法识别返回463。  
+> 说明
+>
+> * 元素定位字段缺失与为空的区分：未提供定位字段、或其值为空字符串，均返回对应命令的*_NODEID_MISSING（如421/441）；提供了xpath但值为空，返回*_XPATH_EMPTY（如443）。
+> * send_keys的key字段：未提供key字段返回461；key为空字符串返回462；key值无法识别返回463。
+

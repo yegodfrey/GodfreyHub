@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-601
 
 # Scroll组件如何自动滚动到指定位置
 
-#### 问题现象
+## 问题现象
 
-在Scroll组件中数据量较大时，滑动到指定页面效率较低，如何实现在进入Scroll列表后，能够自动滚动到指定位置？  
+在Scroll组件中数据量较大时，滑动到指定页面效率较低，如何实现在进入Scroll列表后，能够自动滚动到指定位置？
 
-#### 背景知识
+## 背景知识
 
 [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)是滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。
 
@@ -19,14 +19,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-601
 * [scrollToIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrolltoindex)：滑动到指定Index，支持设置滑动额外偏移量。
 * [scrollToItemInGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#scrolltoitemingroup11)：滑动到指定的ListItemGroup中指定的ListItem。
 
-scrollTo、scrollBy和scrollToIndex可实现通用滚动控制，scrollToItemInGroup适用于多层级分组结构定位场景。  
+scrollTo、scrollBy和scrollToIndex可实现通用滚动控制，scrollToItemInGroup适用于多层级分组结构定位场景。
 
-#### 解决方案
+## 解决方案
 
-* 场景一：单层列表的快速定位。
+* **场景一** ：单层列表的快速定位。
   * 使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。
 
-    ```
+    ```ts
     // scene1:使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。
     sceneOne() {
       this.scroller.scrollTo({ xOffset: 700, yOffset: 700 });
@@ -35,34 +35,34 @@ scrollTo、scrollBy和scrollToIndex可实现通用滚动控制，scrollToItemInG
 
   * 使用scrollBy，设置dx，dy滑动指定距离。
 
-    ```
+    ```ts
     // scene2:使用scrollBy，设置dx，dy滑动指定距离。
     sceneTwo() {
-      this.scroller.scrollBy(700, 700); // dx=700,dy=700
+      this.scroller.scrollBy(700, 700);// dx=700,dy=700
     }
     ```
 
   * 使用scrollToIndex，通过设置其中的参数value，options来实现滑动到指定位置的效果。
 
-    ```
+    ```ts
     // scene3:使用scrollToIndex，通过设置其中的参数value，options来实现。
     sceneThree() {
       this.scroller.scrollToIndex(1, false, ScrollAlign.START, {
-        extraOffset: { value: 80, unit: 0 } // 设置额外偏移量
+        extraOffset: { value: 80, unit: 0 }// 设置额外偏移量
       });
     }
     ```
 
   使用scrollTo完整示例参考如下：
 
-  ```
+  ```ts
   @Entry
   @Component
   struct ListExample {
     private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     private scroller: Scroller = new Scroller();
 
-    // scene1:使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。
+   // scene1:使用scrollTo，通过设置xOffset，yOffset的值来实现滑动到指定位置。
     sceneOne() {
       this.scroller.scrollTo({ xOffset: 700, yOffset: 700 });
     }
@@ -72,7 +72,7 @@ scrollTo、scrollBy和scrollToIndex可实现通用滚动控制，scrollToItemInG
       this.scroller.scrollBy(700, 700); // dx=700,dy=700
     }
 
-    // scene3:使用scrollToIndex，通过设置其中的参数value，options来实现。
+   // scene3:使用scrollToIndex，通过设置其中的参数value，options来实现。
     sceneThree() {
       this.scroller.scrollToIndex(1, false, ScrollAlign.START, {
         extraOffset: { value: 80, unit: 0 } // 设置额外偏移量
@@ -124,15 +124,17 @@ scrollTo、scrollBy和scrollToIndex可实现通用滚动控制，scrollToItemInG
 
   效果预览：
 
-  ![](https://media:101782454313564316 "点击放大")
-* 场景二：多层级分组结构，精准跳转至某个特定的分组中的某一项。 使用scrollToItemInGroup定位到分组列表中指定分组内的目标项。
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/7Kslhxg7RKOxzjWntOQ1xQ/zh-cn_image_0000002658911917.png?HW-CC-KV=V1&HW-CC-Date=20260920T114741Z&HW-CC-Expire=31536000000&HW-CC-Sign=DC2F484A0CF5E5DAC154937EBD231821EE6EB06E862F923D87E7EDB98767262B "点击放大")
+* **场景二** ：多层级分组结构，精准跳转至某个特定的分组中的某一项。
 
-  ```
+  使用scrollToItemInGroup定位到分组列表中指定分组内的目标项。
+
+  ```ts
   @Entry
   @Component
   struct ListItemGroupExample {
     listScroller: ListScroller = new ListScroller();
-    //列表数据
+  //列表数据
     private timeTable: TimeTable[] = [
       {
         title: '星期一',
@@ -213,7 +215,7 @@ scrollTo、scrollBy和scrollToIndex可实现通用滚动控制，scrollToItemInG
           })
           .onClick(() => {
             try {
-              //使用scrollToItemInGroup定位到分组列表中指定分组内的目标项
+         //使用scrollToItemInGroup定位到分组列表中指定分组内的目标项
               this.listScroller.scrollToItemInGroup(2, 1);
             } catch (error) {
               console.error(`error: ${error}`);
@@ -237,9 +239,9 @@ scrollTo、scrollBy和scrollToIndex可实现通用滚动控制，scrollToItemInG
 
   效果预览：
 
-![](https://media:101782454313665317 "点击放大")  
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/6pbb4W2BTAqjQLwRo5ikfA/zh-cn_image_0000002628392708.png?HW-CC-KV=V1&HW-CC-Date=20260920T114741Z&HW-CC-Expire=31536000000&HW-CC-Sign=23A8706C298596A1F19063E13A2C5FF0F5B3977933D08234420A29D917684D49 "点击放大")
 
-#### 总结
+## 总结
 
 |方法名称|适用场景|核心特点|
 |:------------------|:----------------------|:---------------------------------------------|

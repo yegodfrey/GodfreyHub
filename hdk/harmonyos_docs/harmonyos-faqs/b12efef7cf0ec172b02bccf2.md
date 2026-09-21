@@ -6,4 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-tes
 
 # 是否支持DevEco Emulator模拟器
 
-DevEco Testing 6.0 windows 版本支持模拟器。Mac 版本当前版本仅支持手机、PC等硬件设备。  
+DevEco Testing 6.0 windows 版本支持模拟器。Mac 版本当前版本仅支持手机、PC等硬件设备。
+

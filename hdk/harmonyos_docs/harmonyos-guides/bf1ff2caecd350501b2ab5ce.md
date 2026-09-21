@@ -6,33 +6,33 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-compi
 
 # SetStorageFormat
 
-#### 函数功能
+## 函数功能
 
-向CompileTimeTensorDesc中设置运行时Tensor的数据排布格式。  
+向CompileTimeTensorDesc中设置运行时Tensor的数据排布格式。
 
-#### 函数原型
+## 函数原型
 
-```
+```cpp
 void SetStorageFormat(const ge::Format format)
 ```
 
-#### 参数说明
+## 参数说明
 
 |参数|输入/输出|说明|
 |:-----|:----|:------------------------------------------------------------------------------------------------------------------------------|
 |format|输入|需要设置的运行时数据排布格式信息。 关于ge::Format的定义，请参见[Format](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ge-format)。|
 
-#### 返回值
+## 返回值
 
-无  
+无
 
-#### 约束说明
+## 约束说明
 
-无  
+无
 
-#### 调用示例
+## 调用示例
 
-```
+```cpp
 auto dtype_ = ge::DataType::DT_INT32;
 StorageFormat fmt_(ge::Format::FORMAT_NC, ge::FORMAT_NCHW, {});
 ExpandDimsType type_("1001");

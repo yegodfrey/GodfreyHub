@@ -6,25 +6,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
 
 # 应用使用时卡死无响应
 
-#### 问题现象
+## 问题现象
 
-应用在使用过程中卡死无响应，随后出现闪退。  
+应用在使用过程中卡死无响应，随后出现闪退。
 
-#### 背景知识
+## 背景知识
 
 * 用户在使用应用时，如果出现点击无反应或应用无响应等情况，并且持续时间超过一定限制，就会被定义为应用无响应，详情参考[AppFreeze（应用冻屏）检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines)。
-* AppFreeze日志规格说明可以参考[日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#日志规格)。  
+* AppFreeze日志规格说明可以参考[日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#日志规格)。
 
-#### 问题定位
+## 问题定位
 
-#### 场景一
+### 场景一
 
 1. 从faultlogger目录下获取到应用的AppFreeze，首先查看主线程任务队列的当前任务，搜索关键字mainHandler dump，观察到大于检测时间，说明当前任务执行超时。
 2. 查看堆栈日志，排查耗时原因，搜索关键字Tid:应用pid, Name:应用包名，分析当前任务的执行情况。 观察栈顶可知应用进程发起了IPC通信，但对端进程长时间未返回结果，导致卡死。
 
-   IPC栈帧下面的业务栈帧#07-#015，getPhotoList -\> OpenFileByDatashare -\> OpenFile，可知应用应该在读取媒体库中的photo资源。
+   IPC栈帧下面的业务栈帧#07-#015，getPhotoList -> OpenFileByDatashare -> OpenFile，可知应用应该在读取媒体库中的photo资源。
 
-   ```
+   ```txt
    Tid:11654, Name:com.hx.example
    #00 pc 00000000001735b8 /system/lib/ld-musl-aarch64.so.1(ioctl+176)(e9ff207f4340aee156e36fdd8af0ab22)
    #01 pc 0000000000007600 /system/lib64/chipset-pub-sdk/libipc_common.z.so(OHOS::BinderConnector::WriteBinder(unsigned long, void*)+108)(bfa15156db8c2784e1ff199feedbdf3a)
@@ -46,7 +46,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
 
 3. 找到对端进程，搜索关键字BinderCatcher，从BinderCatcher中查看与当前故障进程通信的进程信息。 观察到应用进程11654在和12198进程的12321线程通信。
 
-   ```
+   ```txt
    BinderCatcher --
 
    	11654:11654 to 12198:12321 code 2 wait:0.906698281 s frz_state:3, debug:11654:11654 to 12198:12321
@@ -54,7 +54,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
 
 4. 找到对端进程堆栈，搜索关键字PeerBinder Stacktrace，排查对端进程的执行情况。 对端进程pid:12198为媒体库数据管理进程，根据应用业务堆栈可知应用在同步读取媒体库资源，对端堆栈分析出是在正常执行相关逻辑，得出原因为此业务场景耗时较长，应用选择的同步方式造成主线程阻塞。
 
-   ```
+   ```txt
    PeerBinder Stacktrace --
 
    PeerBinder catcher stacktrace for pid : 12198
@@ -74,12 +74,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
    #25 pc 00000000000a305c /system/lib/ld-musl-aarch64.so.1
    ```
 
-#### 场景二
+### 场景二
 
 1. 从faultlogger目录下获取到应用的AppFreeze，首先查看主线程任务队列的当前任务，搜索关键字mainHandler dump，观察到大于检测时间，说明当前任务执行超时。
 2. 查看堆栈日志，排查耗时原因，搜索关键字Tid:应用pid, Name:应用包名，分析当前任务的执行情况。 观察到__pthread_cond_timedwait主线程长时间等待互斥锁的释放。
 
-   ```
+   ```txt
    Tid:11600, Name: com.hx.example
    #00 pc 00000000001bb294 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+192)(f63a7cd1d872195c667e79e5cf905476)
    #01 pc 00000000001bd3e8 /system/lib/ld-musl-aarch64.so.1(__pthread_cond_timedwait+188)(f63a7cd1d872195c667e79e5cf905476)
@@ -88,14 +88,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
    #04 pc 0000000000c9df74 /data/storage/el1/bundle/libs/arm64/libcutil.so(tbusiness::device::DeviceRequestSyncImpl::sendPrivateSync(std::__n1::basic_string<char, std::__n1::char_traits<char>, std::__n1::allocator<char>> const&, tnet::gateway::RequestPriority, int)+560)(c6a156572318e195d730824137ae3fe726196f11)
    ```
 
-3. 需要获取锁的so库解析代码后，排查代码上下文锁的使用情况。  
+3. 需要获取锁的so库解析代码后，排查代码上下文锁的使用情况。
 
-#### 场景三
+### 场景三
 
 1. 从faultlogger目录下获取到应用的AppFreeze，首先查看主线程任务队列的当前任务，搜索关键字mainHandler dump，观察到大于检测时间，说明当前任务执行超时。
 2. 查看堆栈日志，排查耗时原因，搜索关键字Tid:应用pid, Name:应用包名，分析当前任务的执行情况。 观察到应用栈信息都卡死在应用的同一个函数中。
 
-   ```
+   ```txt
    Timestamp:2025-02-06 21:12:20:623
    Tid:29599, Name:com.hx.example
    #00 pc 00000000004e06d8 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::JSThread::GetCurrentThreadId()+0)(034d9f294a567760a27036182ab1685c)
@@ -113,7 +113,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
    #12 at anonymous (app|recordstudio|1.0.0|src/main/ets/component/lyric/RecordLyricDrawManager.ts:55:1)
    ```
 
-   ```
+   ```txt
    Timestamp:2025-02-06 21:12:23:575
    Tid:29599, Name:com.hx.example
    #00 pc 00000000000a3c2c /system/lib/ld-musl-aarch64.so.1(40aa37b764b946f897e55516b5d6eb9c)
@@ -131,14 +131,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
    #12 at anonymous (app|recordstudio|1.0.0|src/main/ets/component/lyric/RecordLyricDrawManager.ts:55:1)
    ```
 
-3. 结合代码排查函数内部逻辑是否合理。  
+3. 结合代码排查函数内部逻辑是否合理。
 
-#### 场景四
+### 场景四
 
 1. 从faultlogger目录下获取到应用的AppFreeze，首先查看主线程任务队列的当前任务，搜索关键字mainHandler dump，观察到大于检测时间，说明当前任务执行超时。
 2. 查看堆栈日志，排查耗时原因，搜索关键字Tid:应用pid, Name:应用包名，分析当前任务的执行情况。 观察到栈顶libhilog.so(WriteV)是打印日志操作，不是耗时业务。
 
-   ```
+   ```txt
    Tid:58538, Name:com.hx.example
    #00 pc 00000000001c9074 /system/lib/ld-musl-aarch64.so.1(writev+64)(e9ff207f4340aee156e36fdd8af0ab22)
    #01 pc 0000000000020054 /system/lib64/chipset-pub-sdk/libhilog.so(OHOS::HiviewDFX::Socket::WriteV(iovec const*, unsigned int)+44)(14405333e2409816091bcc89cce6534c)
@@ -156,7 +156,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
 
 3. 查看hilog日志，搜索关键字catcher cmd: hilog -z 1000 -P ，分析业务执行情况。 观察到应用中有大量重复打印，说明发生了死循环或重复调用。
 
-   ```
+   ```txt
    catcher cmd: hilog -z 1000 -P 
    04-15 17:22:05.130 58538 58538 I A03D00/m.example.xxx/JSAPP: 阻塞
    04-15 17:22:05.130 58538 58538 I A03D00/m.example.xxx/JSAPP: 阻塞
@@ -170,11 +170,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
    04-15 17:22:05.131 58538 58538 I A03D00/m.example.xxx/JSAPP: 阻塞
    ```
 
-#### 场景五
+### 场景五
 
 1. 从faultlogger目录下获取到应用的AppFreeze，首先查看主线程任务队列的当前任务，搜索关键字mainHandler dump，观察到远小于检测时间，说明当前任务并未长时间阻塞主线程，需要关注待处理队列中任务的情况。
 
-   ```
+   ```txt
    mainHandler dump is:
     EventHandler dump begin curTime: 2025-11-14 09:14:49.947
     Event runner (Thread name = , Thread ID = 32144) is running
@@ -183,7 +183,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
 
 2. 查看优先队列，搜索关键字Total event size，查看VIP、Immediate、High事件数量是否过多，这可能会让位于VIP队列中的watchdog任务未被及时调度执行，导致上报故障。观察到High队列任务数量25347，存在大量重复的任务。
 
-   ```
+   ```txt
    History event queue information:
    VIP priority event queue information:
    Total size of VIP events : 182
@@ -201,14 +201,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
    Total event size : 25626
    ```
 
-3. 查看堆栈日志，结合当前业务场景，分析此任务大量提交到任务队列中是否合理。  
+3. 查看堆栈日志，结合当前业务场景，分析此任务大量提交到任务队列中是否合理。
 
-#### 场景六
+### 场景六
 
 1. 从faultlogger目录下获取到应用的AppFreeze，首先查看主线程任务队列的当前任务，搜索关键字mainHandler dump，观察到大于检测时间，说明当前任务执行超时。
-2. 查看堆栈日志，排查耗时原因，搜索关键字Tid:应用pid, Name:应用包名，分析当前任务的执行情况。观察堆栈中的函数调用，loadDocumentNotPwd -\> LoadDocument，可知当前操作应该为同步读取文档。
+2. 查看堆栈日志，排查耗时原因，搜索关键字Tid:应用pid, Name:应用包名，分析当前任务的执行情况。观察堆栈中的函数调用，loadDocumentNotPwd -> LoadDocument，可知当前操作应该为同步读取文档。
 
-   ```
+   ```txt
    Tid:53862, Name:com.hx.example
    #00 pc 00000000001c7dc0 /system/lib/ld-musl-aarch64.so.1(read+64)(6b9883f518515f73e093bce9a89a2548)
    #01 pc 000000000044e350 /system/lib64/platformsdk/libpdf_framework.so
@@ -235,14 +235,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
 
 3. 使用[HiSmartPerf](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smartperf-tool-0000001873208929)工具抓取该过程的Trace信息，观察该操作的执行耗时。
 
-当前任务运行时间Duration已达到7s，长时间占用主线程。![](https://media:201786499320246509 "点击放大")  
+   当前任务运行时间Duration已达到7s，长时间占用主线程。![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/6j0tXs_XQGuWAKWQbIGr5w/zh-cn_image_0000002658555527.png?HW-CC-KV=V1&HW-CC-Date=20260920T112701Z&HW-CC-Expire=31536000000&HW-CC-Sign=7C454EB00B7FABFD89DBCEF4FDD7ACABB95C8938586077568BEB2F96AE658C1C "点击放大")
 
-#### 场景七
+### 场景七
 
 1. 从faultlogger目录下获取到应用的AppFreeze，首先查看主线程任务队列的当前任务，搜索关键字mainHandler dump，观察到大于检测时间，说明当前任务执行超时。
-2. 查看堆栈日志，排查耗时原因，搜索关键字Tid:应用pid, Name:应用包名，分析当前任务的执行情况。观察堆栈中的函数调用，writeToPersistentStorage -\> JSPersistent::Set -\> JsonStringifier::SerializeJSONProperty，可知当前栈顶操作是在执行JSON序列化，不是耗时操作或等锁情况。
+2. 查看堆栈日志，排查耗时原因，搜索关键字Tid:应用pid, Name:应用包名，分析当前任务的执行情况。观察堆栈中的函数调用，writeToPersistentStorage -> JSPersistent::Set -> JsonStringifier::SerializeJSONProperty，可知当前栈顶操作是在执行JSON序列化，不是耗时操作或等锁情况。
 
-   ```
+   ```txt
    Tid:50688, Name:com.hx.example
    #00 pc 00000000003456d0 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::base::JsonStringifier::SerializeKeys(panda::ecmascript::JSHandle<panda::ecmascript::JSObject> const&, panda::ecmascript::JSHandle<panda::ecmascript::JSTaggedValue> const&, bool)+16676)(d44b73a6fb001d62b07fc7332e9c9cf7)
    #01 pc 000000000034726c /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::base::JsonStringifier::SerializeJSONProperty(panda::ecmascript::JSHandle<panda::ecmascript::JSTaggedValue> const&, panda::ecmascript::JSHandle<panda::ecmascript::JSTaggedValue> const&)+4976)(d44b73a6fb001d62b07fc7332e9c9cf7)
@@ -263,7 +263,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
 
 3. 观察整个堆栈，发现应用在大量更新视图数据，导致耗时过长。 可以看到GestureRecognizer识别到手势事件后，应用开始更新StockGroups，与视图BottomToolBarView有关，在#40栈帧有viewPropertyHasChanged视图属性变化的处理函数，并且整个GroupList数据都在更新，当需要更新的数据越多，主线程耗时就越长，最终可能发生卡死。
 
-   ```
+   ```txt
    Tid:50688, Name:com.hx.example
    #00 pc 00000000003456d0 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::base::JsonStringifier::SerializeKeys(panda::ecmascript::JSHandle<panda::ecmascript::JSObject> const&, panda::ecmascript::JSHandle<panda::ecmascript::JSTaggedValue> const&, bool)+16676)(d44b73a6fb001d62b07fc7332e9c9cf7)
    #01 pc 000000000034726c /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::base::JsonStringifier::SerializeJSONProperty(panda::ecmascript::JSHandle<panda::ecmascript::JSTaggedValue> const&, panda::ecmascript::JSHandle<panda::ecmascript::JSTaggedValue> const&)+4976)(d44b73a6fb001d62b07fc7332e9c9cf7)
@@ -298,11 +298,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
    // ...
    ```
 
-#### 场景八
+### 场景八
 
 1. 从faultlogger目录下获取到应用的AppFreeze，首先查看主线程任务队列的当前任务，搜索关键字mainHandler dump，观察到远小于检测时间，说明当前任务并未长时间阻塞主线程，需要关注待处理队列中任务的情况。
 
-   ```
+   ```txt
    mainHandler dump is:
     EventHandler dump begin curTime: 2026-01-07 15:38:35.435
     Event runner (Thread name = , Thread ID = 15805) is running
@@ -311,7 +311,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
 
 2. 查看历史任务队列，搜索关键字History event queue information，观察到存在多个短耗时任务，一直占用主线程，导致位于高优先队列的watchdog任务未被及时调度执行，上报AppFreeze。
 
-   ```
+   ```txt
    History event queue information:
    No. 0 : Event { send thread = 16272, send time = 2026-01-07 15:38:25.936, handle time = 2026-01-07 15:38:25.936, trigger time = 2026-01-07 15:38:26.370, completeTime time = 2026-01-07 15:38:26.790, priority = Low, task name = 25779, caller = [event_handler.cpp(PostTaskByFFRT:682sq_main_queue_8_25779)] }
    No. 2 : Event { send thread = 16272, send time = 2026-01-07 15:38:25.936, handle time = 2026-01-07 15:38:25.936, trigger time = 2026-01-07 15:38:26.791, completeTime time = 2026-01-07 15:38:27.450, priority = Low, task name = 25780, caller = [event_handler.cpp(PostTaskByFFRT:682sq_main_queue_8_25780)] }
@@ -336,7 +336,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
 
 3. 查看堆栈日志，搜索关键字Tid:应用pid, Name:应用包名，使用[堆栈解析工具（hstack）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-command-line-hstack)解析到对应代码，排查此业务频繁执行是否合理，并分析当前任务短耗时情况是否正常。
 
-   ```
+   ```txt
    Tid:15805, Name:com.hx.example
    #00 pc 000000000014dcc0 /system/lib/ld-musl-aarch64.so.1(memcpy+0)(aa868b6787bcddfd90eb4e8cb2aaea84)
    #01 pc 0000000000023044 /data/storage/el1/bundle/libs/arm64/libcrash_reporter.so(0621db87af80730734b6140844c7443776429244)
@@ -348,82 +348,82 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
    #07 pc 0000000000056174 /data/storage/el1/bundle/libs/arm64/libWind.Cosmos.DataClient.so(wedb::CQueryEngine::OnDataChanged()+1392)(539aa42b7bbd13db543337890cdd7151424e516f)
    ```
 
-#### 分析结论
+## 分析结论
 
-#### 场景一
+### 场景一
 
-应用进程IPC通信超时，对端进程业务所需耗时过长，但应用使用同步方式导致主线程阻塞。  
+应用进程IPC通信超时，对端进程业务所需耗时过长，但应用使用同步方式导致主线程阻塞。
 
-#### 场景二
+### 场景二
 
-锁使用异常导致应用进程等锁卡死。  
+锁使用异常导致应用进程等锁卡死。
 
-#### 场景三
+### 场景三
 
-函数执行时间过长，导致主线程阻塞。  
+函数执行时间过长，导致主线程阻塞。
 
-#### 场景四
+### 场景四
 
-应用业务死循环或重复调用，导致耗时过长阻塞主线程。  
+应用业务死循环或重复调用，导致耗时过长阻塞主线程。
 
-#### 场景五
+### 场景五
 
-高优先级任务过多导致应用卡死。  
+高优先级任务过多导致应用卡死。
 
-#### 场景六
+### 场景六
 
-大文件导入业务执行时间过长，主线程阻塞导致卡死闪退。  
+大文件导入业务执行时间过长，主线程阻塞导致卡死闪退。
 
-#### 场景七
+### 场景七
 
-应用视图数据更新过多，状态变量的更新会导致视图的重新渲染，如果更新的内容越多，遍历和渲染的时间会相应增加，导致主线程耗时过长。  
+应用视图数据更新过多，状态变量的更新会导致视图的重新渲染，如果更新的内容越多，遍历和渲染的时间会相应增加，导致主线程耗时过长。
 
-#### 场景八
+### 场景八
 
-多个短耗时任务一直占用主线程，导致卡死无响应。  
+多个短耗时任务一直占用主线程，导致卡死无响应。
 
-#### 修改建议
+## 修改建议
 
-#### 场景一
-
-参考文档[主线程耗时操作优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread)，当主线程中遇到一些难以避免的耗时操作时，例如同步网络请求、大文件读写、复杂计算、音频处理、数据传输等，可以从以下角度进行性能优化：
-
-* [避免使用耗时接口](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section193673511440)，同一接口的不同使用方式存在性能差异，选择耗时更少，性能更优的接口。
-* [使用多线程能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section32971936174416)，可以使用系统自带的Taskpool多线程能力，将耗时任务交由子线程执行，避免主线程的长时间阻塞。  
-
-#### 场景二
-
-lock()和unlock()需要成对使用，以确保锁得到正确的管理，在异常分支提前返回时释放互斥锁，修复方式可参考案例[ThreadBlock类问题案例-未正确使用锁](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-scenario-stability-app-freeze#section7412134135816)。  
-
-#### 场景三
+### 场景一
 
 参考文档[主线程耗时操作优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread)，当主线程中遇到一些难以避免的耗时操作时，例如同步网络请求、大文件读写、复杂计算、音频处理、数据传输等，可以从以下角度进行性能优化：
 
 * [避免使用耗时接口](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section193673511440)，同一接口的不同使用方式存在性能差异，选择耗时更少，性能更优的接口。
-* [使用多线程能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section32971936174416)，可以使用系统自带的Taskpool多线程能力，将耗时任务交由子线程执行，避免主线程的长时间阻塞。  
+* [使用多线程能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section32971936174416)，可以使用系统自带的Taskpool多线程能力，将耗时任务交由子线程执行，避免主线程的长时间阻塞。
 
-#### 场景四
+### 场景二
+
+lock()和unlock()需要成对使用，以确保锁得到正确的管理，在异常分支提前返回时释放互斥锁，修复方式可参考案例[ThreadBlock类问题案例-未正确使用锁](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-scenario-stability-app-freeze#section7412134135816)。
+
+### 场景三
+
+参考文档[主线程耗时操作优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread)，当主线程中遇到一些难以避免的耗时操作时，例如同步网络请求、大文件读写、复杂计算、音频处理、数据传输等，可以从以下角度进行性能优化：
+
+* [避免使用耗时接口](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section193673511440)，同一接口的不同使用方式存在性能差异，选择耗时更少，性能更优的接口。
+* [使用多线程能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section32971936174416)，可以使用系统自带的Taskpool多线程能力，将耗时任务交由子线程执行，避免主线程的长时间阻塞。
+
+### 场景四
 
 确保循环条件正常，避免死循环。
 
-降低业务执行频次，或将其放到子线程执行，参考文档[使用多线程能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section32971936174416)。  
+降低业务执行频次，或将其放到子线程执行，参考文档[使用多线程能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section32971936174416)。
 
-#### 场景五
+### 场景五
 
-调整代码逻辑，减少高优先级任务数量，或分散任务，避免在一段时间内集中执行。  
+调整代码逻辑，减少高优先级任务数量，或分散任务，避免在一段时间内集中执行。
 
-#### 场景六
+### 场景六
 
 参考文档[主线程耗时操作优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread)，当主线程中遇到一些难以避免的耗时操作时，例如同步网络请求、大文件读写、复杂计算、音频处理、数据传输等，可以从以下角度进行性能优化：
 
 * [避免使用耗时接口](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section193673511440)，同一接口的不同使用方式存在性能差异，选择耗时更少，性能更优的接口。
-* [使用多线程能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section32971936174416)，可以使用系统自带的Taskpool多线程能力，将耗时任务交由子线程执行，避免主线程的长时间阻塞。  
+* [使用多线程能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section32971936174416)，可以使用系统自带的Taskpool多线程能力，将耗时任务交由子线程执行，避免主线程的长时间阻塞。
 
-#### 场景七
+### 场景七
 
-控制页面渲染的逻辑，考虑大量组件、频繁刷新等场景，简化布局、异步处理、批量更新，避免组件渲染时间过长，详情参考[性能优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-performance-optimization)。  
+控制页面渲染的逻辑，考虑大量组件、频繁刷新等场景，简化布局、异步处理、批量更新，避免组件渲染时间过长，详情参考[性能优化](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-performance-optimization)。
 
-#### 场景八
+### 场景八
 
 优化耗时，当主线程中遇到一些难以避免的耗时操作时，例如同步网络请求、大文件读写、复杂计算、音频处理、数据传输等，可以从以下角度进行性能优化：
 
@@ -434,9 +434,9 @@ lock()和unlock()需要成对使用，以确保锁得到正确的管理，在异
 
 * 限制执行次数，通过计数变量限制业务执行次数。
 * 节流，固定时间间隔内只允许触发一次操作，忽略中间频繁触发。
-* 防抖，事件停止触发后延迟一段时间再执行操作，仅响应最后一次触发。  
+* 防抖，事件停止触发后延迟一段时间再执行操作，仅响应最后一次触发。
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：THREAD_BLOCK_6S是检测的是否只有主线程？还是任意一个线程阻塞都会导致THREAD_BLOCK_6S问题并闪退？
 
@@ -448,4 +448,5 @@ A：async不会启动新的线程，所以耗时很长时，可能会导致THREA
 
 Q：后台的耗时处理应该使用什么方案才能避免THREAD_BLOCK_6S闪退？
 
-A：可以根据场景参考下：1.[使用多线程能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-concurrency-capability#section1912142113263)。2.[长时任务(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task)。  
+A：可以根据场景参考下：1.[使用多线程能力](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-concurrency-capability#section1912142113263)。2.[长时任务(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task)。
+

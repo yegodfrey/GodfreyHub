@@ -6,45 +6,48 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 # Interface (ApertureQuery)
 
-物理光圈查询对象。  
-![](https://media:401788444825957560)  
-* 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-* 本Interface首批接口从API version 24开始支持。  
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
-#### 导入模块
+物理光圈查询对象。
+> 说明
+>
+> * 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> * 本Interface首批接口从API version 24开始支持。
 
-```
+## 导入模块
+
+```ts
 import { camera } from '@kit.CameraKit';
 ```
 
-#### getSupportedPhysicalApertures^24+^
+## getSupportedPhysicalApertures^24+^
 
-getSupportedPhysicalApertures(): Array\<PhysicalAperture\>
+getSupportedPhysicalApertures(): Array<PhysicalAperture>
 
 获取支持的物理光圈。
 
-元服务API： 从API version 24开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 24开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Multimedia.Camera.Core
+**系统能力：** SystemCapability.Multimedia.Camera.Core
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:------------------------------------------------------------------------------------------------------------------------------------|:---------|
-|Array\<[PhysicalAperture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#physicalaperture24)\>|支持的物理光圈数组。|
+|:----------------------------------------------------------------------------------------------------------------------------------|:---------|
+|Array<[PhysicalAperture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#physicalaperture24)>|支持的物理光圈数组。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。  
+以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------|
 |7400102|Operation not allowed, the inputDevice or the session is abnormal.|
 |7400103|Session not config.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function getSupportedPhysicalApertures(photoSession: camera.PhotoSession): Array<camera.PhysicalAperture> {

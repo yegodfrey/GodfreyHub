@@ -6,4 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-faq-7
 
 # 用户领取了同一商户的多张卡券，但是打开华为钱包后只显示一张卡券？
 
-请检查申请钥匙卡片的请求参数的serialNumber和organizationPassId字段是否都是唯一的。  
+请检查申请钥匙卡片的请求参数的serialNumber和organizationPassId字段是否都是唯一的。
+

@@ -6,48 +6,52 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i
 
 # UIServiceProxy
 
-UIServiceProxy提供代理能力，可以从UIServiceExtension客户端发送数据到服务端。  
-![](https://media:401788445441605616)  
-* 本模块首批接口从API version 14开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-* 本模块接口仅可在Stage模型下使用。
-* 本模块接口需要在主线程中使用，不要在Worker、TaskPool等子线程中使用。  
+> 2in1 14+
 
-#### 导入模块
+UIServiceProxy提供代理能力，可以从UIServiceExtension客户端发送数据到服务端。
+> 说明
+>
+> * 本模块首批接口从API version 14开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> * 本模块接口仅可在Stage模型下使用。
+> * 本模块接口需要在主线程中使用，不要在Worker、TaskPool等子线程中使用。
 
-```
+## 导入模块
+
+```ts
 import { common } from '@kit.AbilityKit';
 ```
 
-#### UIServiceProxy.sendData
+## UIServiceProxy.sendData
 
-sendData(data: Record\<string, Object\>): void
+sendData(data: Record<string, Object>): void
 
-给UIServiceExtension服务端发送数据。  
-![](https://media:401788445441629617)  
-组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+给UIServiceExtension服务端发送数据。
+> 说明
+>
+> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
 
-元服务API：从 API version 14开始，该接口支持在元服务中使用。
+**元服务API**：从 API version 14开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Ability.AbilityRuntime.Core
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:---|:-----------------------|:-|:----------------------------|
-|data|Record\<string, Object\>|是|待发送给UIServiceExtension服务端的数据。|
+|:---|:---------------------|:-|:----------------------------|
+|data|Record<string, Object>|是|待发送给UIServiceExtension服务端的数据。|
 
-错误码：
+**错误码：**
 
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。  
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
 |错误码ID|错误信息|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 |16000050|Internal error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { common, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 

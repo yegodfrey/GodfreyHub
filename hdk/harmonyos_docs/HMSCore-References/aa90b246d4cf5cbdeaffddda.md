@@ -10,21 +10,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/instreammed
 |:--------------------------------------------------------|
 |public interface InstreamMediaChangeListener 贴片广告媒体切换监听器。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |void|[onSegmentMediaChange](#section569517175201)([InstreamAd](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/instreamad-0000001057504229) ad) 当贴片广告媒体切换时调用的方法。|
 
-#### Public Methods
+## Public Methods
 
-#### onSegmentMediaChange
+### onSegmentMediaChange
 
 |Method|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void onSegmentMediaChange([InstreamAd](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/instreamad-0000001057504229) ad) 当贴片广告媒体切换时调用的方法。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|

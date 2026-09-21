@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/marketapi-appinfo-00
 
 # APP信息
 
-* [查询APP列表](https://developer.huawei.com/consumer/cn/doc/promotion/marketapi-queryappinfo-0000001181826439)  
+* **[查询APP列表](https://developer.huawei.com/consumer/cn/doc/promotion/marketapi-queryappinfo-0000001181826439)**   

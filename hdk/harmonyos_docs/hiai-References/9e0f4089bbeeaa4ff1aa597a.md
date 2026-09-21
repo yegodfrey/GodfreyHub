@@ -6,19 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/getmembufferda
 
 # GetMemBufferData
 
-#### 接口定义
+## 接口定义
 
-```
+```screen
 void* GetMemBufferData();
 ```
 
-#### 功能介绍
+## 功能介绍
 
-获取通用MemBuffer的内存地址。  
+获取通用MemBuffer的内存地址。
 
-#### 返回
+## 返回
 
 |类型|描述|
-|:-----|:--------------|
-|void\*|MemBuffer的内存地址。|
+|:----|:--------------|
+|void*|MemBuffer的内存地址。|
 

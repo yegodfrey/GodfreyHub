@@ -4,21 +4,21 @@ title: 视图组<Group>
 uri: https://developer.huawei.com/consumer/cn/doc/content/group2-0000001074157102
 ---
 
-# 视图组\<Group\>
+# 视图组<Group>
 
-#### 功能概述
+## 功能概述
 
-Group作为一个若干子控件元素的视图组，可以包含其他元素，子控件元素比如图片Image、按钮Button、文字Text、时间DateTime等元素。 视图组内可以调整坐标以及宽与高，亦可以调整多个元素的位置和大小；此外Group可以添加各种基础动效动画，比如位移PositionAnimation、旋转RotationAnimation、透明度AlphaAnimation、缩放SizeAnimation等。  
+Group作为一个若干子控件元素的视图组，可以包含其他元素，子控件元素比如图片Image、按钮Button、文字Text、时间DateTime等元素。 视图组内可以调整坐标以及宽与高，亦可以调整多个元素的位置和大小；此外Group可以添加各种基础动效动画，比如位移PositionAnimation、旋转RotationAnimation、透明度AlphaAnimation、缩放SizeAnimation等。
 
-#### 应用场景
+## 应用场景
 
 * 可以用于设置日期的显示。
 * 可以将两张图片组合到一起进行位移旋转动画。
-* 可用于游戏中的两个人物同时进行多种动画，实现打斗场景。  
+* 可用于游戏中的两个人物同时进行多种动画，实现打斗场景。
 
-#### XML规范
+## XML规范
 
-```
+```screen
 <Group name="" x="" y="" w="" h="" alpha="" angle="" visibility="" clip="" layered="">
     <Image/>
     <Time/>
@@ -31,7 +31,7 @@ Group作为一个若干子控件元素的视图组，可以包含其他元素，
 </Group>
 ```
 
-#### 参数说明
+## 参数说明
 
 |参 数|类 型|选 项|注 释|
 |:----------------|:--|:--|:-------------------------------------------------------------------------------------------------------------|
@@ -48,11 +48,11 @@ Group作为一个若干子控件元素的视图组，可以包含其他元素，
 |align|字符串|选填|水平方向对齐方式，默认为left，可选参数为left,center,right；使用时如果子view有自身的x坐标，则不会受Group设置的align参数影响，即子view的x坐标优先级大于Group的align参数。|
 |alignV|字符串|选填|垂直方向对齐方式，默认为top，可选参数为top,center,bottom；使用时如果子view有自身的Y坐标，则不会受Group设置的alignV参数影响，即子view的y坐标优先级大于Group的alignV参数。|
 
-#### 应用示例
+## 应用示例
 
-示例一：将多张图片组合在一起同时控制展示。
+**示例一：**将多张图片组合在一起同时控制展示。
 
-```
+```screen
 <Group x="520" y="120"> 
   <Image x="200" y="230" srcid="#year/1000" src="date.png"/> 
   <Image x="200+20" y="230" srcid="#year/100%10" src="date.png"/> 
@@ -68,11 +68,9 @@ Group作为一个若干子控件元素的视图组，可以包含其他元素，
 </Group>
 ```
 
-<br />
+**示例二：**将2张图片组合在一起进行位移和旋转的组合动画。
 
-示例二：将2张图片组合在一起进行位移和旋转的组合动画。
-
-```
+```screen
 <Text x="250" y="1800" align="left" alignV="top" color="#ffffff" size="40" text="组合动画：位移、旋转变化" />
 <Group x="0" y="200" w="160" h="1000" alpha="155" rotation="90" visibility="1" clip="true">
   <Image x="300" y="500" align="center" alignV="center" src="ty.png"/>
@@ -90,5 +88,5 @@ Group作为一个若干子控件元素的视图组，可以包含其他元素，
 </Group>
 ```
 
-#### 制作视频
+## 制作视频
 

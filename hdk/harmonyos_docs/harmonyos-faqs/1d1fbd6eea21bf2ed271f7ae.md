@@ -8,14 +8,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-12
 
 使用下列代码获取设备支持的宽和高，然后根据手机屏幕的宽高设置最合适的预览流分辨率，并使surface和XComponent的宽高一致。
 
-```
+```ts
 //The aspect ratio of the preview stream and the video output stream resolution should be consistent
 let previewProfilesArray: Array<camera.Profile> = cameraOutputCap.previewProfiles;
 
 let position: number = 0;
 if (previewProfilesArray != null) {
   previewProfilesArray.forEach((value: camera.Profile,index: number) => {
-    // View supported preview sizes
+   // View supported preview sizes
     console.info(TAG,
       `支持的预览尺寸: [${value.size.width},${value.size.height},${value.size.width / value.size.height}]`);
     if (value.size.width === 2592 && value.size.height === 1200) {

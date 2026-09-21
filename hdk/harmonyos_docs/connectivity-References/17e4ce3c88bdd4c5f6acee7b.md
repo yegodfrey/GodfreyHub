@@ -6,17 +6,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/estima
 
 # Overview
 
-包含Pencil Engine报点预测功能，集成之后提升手写跟手性。  
-![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210730095403.57156592046289059289762208477359:50520729084922:2800:32B610CF5CD8B47B9DA0D38D367EDD11CDB5EE2684CFCD49EC6C5061E8E6E390.png?needInitFileName=true?needInitFileName=true)  
-手写套件已默认开启报点预测，不用再单独集成报点预测功能。  
+包含Pencil Engine报点预测功能，集成之后提升手写跟手性。
+> 说明
+>
+> 手写套件已默认开启报点预测，不用再单独集成报点预测功能。
 
-#### Interface Summary
+## Interface Summary
 
 |Interface|Description|
 |:-----------------------------------------------------------------------------------------------------------------------------------|:--------------------|
 |[IHwRecycleQueue](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/ihwrecyclequeue-0000001059607593)|Pencil Engine事件队列接口类。|
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|

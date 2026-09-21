@@ -6,43 +6,46 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2
 
 # FIDO2_PublicKeyCredentialRpEntity
 
-#### 概述
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
+## 概述
 
 创建新凭据时依赖方的属性。
 
-起始版本： 6.0.0(20)
+**起始版本：** 6.0.0(20)
 
-相关模块： [FIDO2（通行密钥服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey)
+**相关模块：** [FIDO2（通行密钥服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey)
 
-所在头文件： [fido2_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication_capi_header_fido2)  
+**所在头文件：** [fido2_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication_capi_header_fido2)
 
-#### 汇总
+## 汇总
 
-#### 成员变量
+### 成员变量
 
 |名称|描述|
-|:--------------------|:----------------------|
-|char \* [id](#id)|依赖方标识符。默认值为空。长度限制0到512。|
-|char \* [name](#name)|依赖方名称。 长度限制0到512。|
+|:-------------------|:----------------------|
+|char * [id](#id)|依赖方标识符。默认值为空。长度限制0到512。|
+|char * [name](#name)|依赖方名称。 长度限制0到512。|
 
-#### 结构体成员变量说明
+## 结构体成员变量说明
 
-#### id
+### id
 
-```
+```cpp
 char* FIDO2_PublicKeyCredentialRpEntity::id
 ```
 
-描述
+**描述**
 
-依赖方标识符。  
+依赖方标识符。
 
-#### name
+### name
 
-```
+```cpp
 char* FIDO2_PublicKeyCredentialRpEntity::name
 ```
 
-描述
+**描述**
 
-依赖方名称。  
+依赖方名称。
+

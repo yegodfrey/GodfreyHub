@@ -10,96 +10,96 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/fgtexture-
 |:------------------------------------------------|
 |class FGTexture FGTexture类，FrameGraph对Texture的封装。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:---------------------------------------|
 |[FGTexture](#section20284403518)() 构造函数。|
 
-#### Public Destructor Summary
+## Public Destructor Summary
 
 |Destructor Name|
-|:------------------------------------------|
-|[\~FGTexture](#section152111051710)() 析构函数。|
+|:-----------------------------------------|
+|[~FGTexture](#section152111051710)() 析构函数。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
-|:-----------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|void|[SetGraphicsRenderer](#section956012214199)([GraphicsRenderer](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/graphicsrenderer-0000001296995761)\* graphicsRenderer) 设置图形渲染器。|
-|const [Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)\*|[GetBackendTexture](#section1073381211113)() const 返回[Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)。|
-|void|[ImportTexture](#section417315951217)([Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)\* texture) 导入外部Texture。|
-|void|[Create](#section124430171415)(const [Descriptor](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/descriptor-fgtexture-0000001411457653)\& descriptor, [ResourceUsage](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/resourceusage-0000001353778262) usage) 创建Texture。|
+|:----------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|void|[SetGraphicsRenderer](#section956012214199)([GraphicsRenderer](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/graphicsrenderer-0000001296995761)* graphicsRenderer) 设置图形渲染器。|
+|const [Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)*|[GetBackendTexture](#section1073381211113)() const 返回[Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)。|
+|void|[ImportTexture](#section417315951217)([Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)* texture) 导入外部Texture。|
+|void|[Create](#section124430171415)(const [Descriptor](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/descriptor-fgtexture-0000001411457653)& descriptor, [ResourceUsage](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/resourceusage-0000001353778262) usage) 创建Texture。|
 |void|[Destroy](#section656341861712)() 销毁纹理。|
 
-#### Public Constructors
+## Public Constructors
 
-#### FGTexture
+### FGTexture
 
 |Constructor|
 |:----------------|
 |FGTexture() 构造函数。|
 
-#### Public Destructors
+## Public Destructors
 
-#### \~FGTexture
+### ~FGTexture
 
 |Destructor|
-|:------------------|
-|\~FGTexture() 析构函数。|
+|:-----------------|
+|~FGTexture() 析构函数。|
 
-#### Public Methods
+## Public Methods
 
-#### SetGraphicsRenderer
+### SetGraphicsRenderer
 
 |Method|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|void SetGraphicsRenderer([GraphicsRenderer](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/graphicsrenderer-0000001296995761)\* graphicsRenderer) 设置图形渲染器。|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|void SetGraphicsRenderer([GraphicsRenderer](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/graphicsrenderer-0000001296995761)* graphicsRenderer) 设置图形渲染器。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------------|:----------|
 |graphicsRenderer|图形渲染器句柄。|
 
-#### GetBackendTexture
+### GetBackendTexture
 
 |Method|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|const [Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)\* GetBackendTexture() const 返回[Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)。|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|const [Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)* GetBackendTexture() const 返回[Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)。|
 
-Returns  
+**Returns**
 
 |Type|Description|
-|:-----------------------------------------------------------------------------------------------------------------------|:-----------|
-|const [Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)\*|返回纹理Texture。|
+|:----------------------------------------------------------------------------------------------------------------------|:-----------|
+|const [Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)*|返回纹理Texture。|
 
-#### ImportTexture
+### ImportTexture
 
 |Method|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
-|void ImportTexture([Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)\* texture) 导入外部Texture。|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
+|void ImportTexture([Texture](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/texture-0000001238732140)* texture) 导入外部Texture。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:-------------|
 |texture|外部纹理Texture句柄。|
 
-#### Create
+### Create
 
 |Method|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|void Create(const [Descriptor](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/descriptor-fgtexture-0000001411457653)\& descriptor, [ResourceUsage](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/resourceusage-0000001353778262) usage) 创建Texture。|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|void Create(const [Descriptor](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/descriptor-fgtexture-0000001411457653)& descriptor, [ResourceUsage](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/resourceusage-0000001353778262) usage) 创建Texture。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:----------|
 |descriptor|纹理的描述信息。|
 |usage|纹理的用途。|
 
-#### Destroy
+### Destroy
 
 |Method|
 |:-------------------|

@@ -6,17 +6,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/query-dyna
 
 # 查询动态血压测量报告
 
-穿戴设备提供动态血压测量能力，行业App可以通过本接口查询穿戴设备的动态血压测量报告。  
-![](https://media:301785133843057425)  
-此接口仅在支持动态血压测量的穿戴设备上可用，当前支持HUAWEI WATCH H9D20设备。
+穿戴设备提供动态血压测量能力，行业App可以通过本接口查询穿戴设备的动态血压测量报告。
+> 说明
+>
+> 此接口仅在支持动态血压测量的穿戴设备上可用，当前支持HUAWEI WATCH H9D20设备。
 
 1. 调用[IndustryWear](https://developer.huawei.com/consumer/cn/doc/health-References/industrywear-0000001434945524)中的[getDeviceManageClient](https://developer.huawei.com/consumer/cn/doc/health-References/industrywear-0000001434945524#ZH-CN_TOPIC_0000002678163945__getDeviceManageClient-android_content_Context-)方法，获取[DeviceManageClient](https://developer.huawei.com/consumer/cn/doc/health-References/devicemanageclient-0000001485104693)对象。
 2. 参见[获取设备列表](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/get-device-list-0000002372216449)章节，获取已配对的穿戴设备列表，并从设备列表中选定需要操作的设备，获取设备Id。
 3. 构造用于查询动态血压测量报告的JSON格式参数。
 
-   <br />
-
-   ```
+   ```screen
    {
      "item": "dynamicBloodPressureData",
      "value": {
@@ -30,23 +29,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/query-dyna
    |:--------|:-------------|:--------|
    |startTime|UTC时间戳，单位：秒（s）|查询数据开始时间。|
    |endTime|UTC时间戳，单位：秒（s）|查询数据结束时间。|
-   [表1 查询动态血压测量报告参数]
+   [**表1**查询动态血压测量报告参数]
 
-   ![](https://media:301785133843118426)  
-   * 接口要求查询开始时间和结束时间间隔不超过24小时。
-   * 查询开始时间和结束时间必须早于当前时间。
-
-   <br />
+   > 说明
+   > * 接口要求查询开始时间和结束时间间隔不超过24小时。
+   > * 查询开始时间和结束时间必须早于当前时间。
 
 4. 调用[query](https://developer.huawei.com/consumer/cn/doc/health-References/devicemanageclient-0000001485104693#ZH-CN_TOPIC_0000002648084250__query-java_lang_String-java_lang_String-com_huawei_health_industry_client_callback_ServiceCallback-)方法查询动态血压测量报告。
 
-   <br />
-
-   ```
+   ```screen
    // 获取DeviceManageClient对象
    DeviceManageClient deviceManageClient = IndustryWear.getDeviceManageClient(this);
 
-   // 参考获取设备列表获取设备列表后选择需要操作的设备，获取设备Id
+   // 参考https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/get-device-list-0000002372216449获取设备列表后选择需要操作的设备，获取设备Id
    String deviceId = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
    // 构造用于查询动态血压测量报告的JSON格式的入参数据
@@ -74,15 +69,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/query-dyna
    |:---------|:----------------|:---------------------------------------------------------------------------------------------------------------------|
    |statusCode|0、1、2、3、5、7、11、30|接口调用结果返回码，参见[返回码](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/errorcode-0000002372870401)中的通用返回码。|
    |result|-|接口调用成功时返回动态血压测量报告，失败时返回错误信息。|
-   [表2 ServiceCallback返回值]
-
-   <br />
+   [**表2**ServiceCallback返回值]
 
 5. 接口调用后返回的信息在ServiceCallback的onResult方法中处理，查询成功时返回result数据中包含动态血压测量报告。
 
-   <br />
-
-   ```
+   ```screen
    result样例：
    {
    	"dataType": "dynamicBloodPressureData",
@@ -212,7 +203,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/query-dyna
    |startTime|UTC时间，单位：秒|动态血压测量报告生成时间，单位：秒(s)。|
    |summaryData|-|动态血压测量报告概要数据。|
    |detailData|-|动态血压测量报告详情数据。|
-   [表3 result返回值]
+   [**表3**result返回值]
 
    |返回值|取值|含义|
    |:---------------------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -224,97 +215,97 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/query-dyna
    |gasBagType|int类型数据|袖带规格。|
    |sleepStartTime|long类型数据|睡眠开始时间，UTC时间，单位：秒。|
    |sleepEndTime|long类型数据|睡眠结束时间，UTC时间，单位：秒。|
-   |validCntAll|int类型数据|24小时血压有效数据个数，取值范围\[0, 1440\]，单位：次数。|
-   |validCntWake|int类型数据|清醒时段血压有效数据个数，取值范围\[0, 1440\]，单位：次数。|
-   |validCntSleep|int类型数据|睡眠时段血压有效数据个数，取值范围\[0, 1440\]，单位：次数。|
-   |validCntWakeTwo|int类型数据|起床后两小时血压有效数据个数，取值范围\[0, 1440\]，单位：次数。|
-   |cntAll|int类型数据|24小时血压数据总个数，取值范围\[0, 1440\]，单位：次数。|
-   |cntWake|int类型数据|清醒时段血压数据总个数，取值范围\[0, 1440\]，单位：次数。|
-   |cntSleep|int类型数据|睡眠时段血压数据总个数，取值范围\[0, 1440\]，单位：次数。|
-   |cntWakeTwo|int类型数据|起床后血压数据总个数，取值范围\[0, 1440\]，单位：次数。|
-   |maxSystolicBpAll|int类型数据|24小时收缩压最大值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |maxDiastolicBpAll|int类型数据|24小时舒张压最大值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |maxHeartRateAll|int类型数据|24小时脉搏最大值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |midSystolicBpAll|int类型数据|24小时收缩压中位数，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |midDiastolicBpAll|int类型数据|24小时舒张压中位数，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |midHeartRateAll|int类型数据|24小时脉搏中位数，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |minSystolicBpAll|int类型数据|24小时收缩压最小值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |minDiastolicBpAll|int类型数据|24小时舒张压最小值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |minHeartRateAll|int类型数据|24小时脉搏最小值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |avgSystolicBpAll|int类型数据|24小时收缩压均值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |avgDiastolicBpAll|int类型数据|24小时舒张压均值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |avgHeartRateAll|int类型数据|24小时脉搏均值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |stdSystolicBpAll|int类型数据|24小时收缩压标准差，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |stdDiastolicBpAll|int类型数据|24小时舒张压标准差，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |stdHeartRateAll|int类型数据|24小时脉搏标准差，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |coefSystolicBpAll|double类型数据|24小时收缩压变异系数，取值范围\[0,1\]。|
-   |coefDiastolicBpAll|double类型数据|24小时舒张压变异系数，取值范围\[0,1\]。|
-   |coefHeartRateAll|double类型数据|24小时脉搏变异系数，取值范围\[0,1\]。|
-   |loadSystolicBpAll|double类型数据|24小时收缩压血压负荷，取值范围\[0,1\]。|
-   |loadDiastolicBpAll|double类型数据|24小时舒张压血压负荷，取值范围\[0,1\]。|
-   |dropSystolicBpAll|double类型数据|24小时收缩压夜间下降率，取值范围\[-3,3\]，当计划状态字段为3、4、5时下降率为无效值。|
-   |dropDiastolicBpAll|double类型数据|24小时舒张压夜间下降率，取值范围\[-3,3\]，当计划状态字段为3、4、5时下降率为无效值。|
-   |peakSystolicBpAll|int类型数据|24小时收缩压血压晨峰，取值范围\[-300,300\]，300表示无结果，单位：毫米汞柱。|
-   |peakDiastolicBpAll|int类型数据|24小时舒张压血压晨峰，取值范围\[-300,300\]，300表示无结果，单位：毫米汞柱。|
-   |maxSystolicBpWake|int类型数据|清醒时段收缩压最大值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |maxDiastolicBpWake|int类型数据|清醒时段舒张压最大值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |maxHeartRateWake|int类型数据|清醒时段脉搏最大值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |midSystolicBpWake|int类型数据|清醒时段收缩压中位数，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |midDiastolicBpWake|int类型数据|清醒时段舒张压中位数，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |midHeartRateWake|int类型数据|清醒时段脉搏中位数，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |minSystolicBpWake|int类型数据|清醒时段收缩压最小值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |minDiastolicBpWake|int类型数据|清醒时段舒张压最小值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |minHeartRateWake|int类型数据|清醒时段脉搏最小值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |avgSystolicBpWake|int类型数据|清醒时段收缩压均值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |avgDiastolicBpWake|int类型数据|清醒时段舒张压均值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |avgHeartRateWake|int类型数据|清醒时段脉搏均值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |stdSystolicBpWake|int类型数据|清醒时段收缩压标准差，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |stdDiastolicBpWake|int类型数据|清醒时段舒张压标准差，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |stdHeartRateWake|int类型数据|清醒时段脉搏标准差，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |coefSystolicBpWake|double类型数据|清醒时段收缩压变异系数，取值范围\[0,1\]。|
-   |coefDiastolicBpWake|double类型数据|清醒时段舒张压变异系数，取值范围\[0,1\]。|
-   |coefHeartRateWake|double类型数据|清醒时段脉搏变异系数，取值范围\[0,1\]。|
-   |loadSystolicBpWake|double类型数据|清醒时段收缩压血压负荷，取值范围\[0,1\]。|
-   |loadDiastolicBpWake|double类型数据|清醒时段舒张压血压负荷，取值范围\[0,1\]。|
-   |maxSystolicBpSleep|int类型数据|睡眠时段收缩压最大值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |maxDiastolicBpSleep|int类型数据|睡眠时段舒张压最大值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |maxHeartRateSleep|int类型数据|睡眠时段脉搏最大值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |midSystolicBpSleep|int类型数据|睡眠时段收缩压中位数，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |midDiastolicBpSleep|int类型数据|睡眠时段舒张压中位数，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |midHeartRateSleep|int类型数据|睡眠时段脉搏中位数，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |minSystolicBpSleep|int类型数据|睡眠时段收缩压最小值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |minDiastolicBpSleep|int类型数据|睡眠时段舒张压最小值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |minHeartRateSleep|int类型数据|睡眠时段脉搏最小值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |avgSystolicBpSleep|int类型数据|睡眠时段收缩压均值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |avgDiastolicBpSleep|int类型数据|睡眠时段舒张压均值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |avgHeartRateSleep|int类型数据|睡眠时段脉搏均值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |stdSystolicBpSleep|int类型数据|睡眠时段收缩压标准差，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |stdDiastolicBpSleep|int类型数据|睡眠时段舒张压标准差，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |stdHeartRateSleep|int类型数据|睡眠时段脉搏标准差，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |coefSystolicBpSleep|double类型数据|睡眠时段收缩压变异系数，取值范围\[0,1\]，255表示无效值。|
-   |coefDiastolicBpSleep|double类型数据|睡眠时段舒张压变异系数，取值范围\[0,1\]，255表示无效值。|
-   |coefHeartRateSleep|double类型数据|睡眠时段脉搏变异系数，取值范围\[0,1\]，255表示无效值。|
-   |loadSystolicBpSleep|double类型数据|睡眠时段收缩压血压负荷，取值范围\[0,1\]，255表示无效值。|
-   |loadDiastolicBpSleep|double类型数据|睡眠时段舒张压血压负荷，取值范围\[0,1\]，255表示无效值。|
-   |maxSystolicBpWakeTwo|int类型数据|起床后两小时收缩压最大值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |maxDiastolicBpWakeTwo|int类型数据|起床后两小时舒张压最大值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |maxHeartRateWakeTwo|int类型数据|起床后两小时脉搏最大值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |midSystolicBpWakeTwo|int类型数据|起床后两小时收缩压中位数，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |midDiastolicBpWakeTwo|int类型数据|起床后两小时舒张压中位数，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |midHeartRateWakeTwo|int类型数据|起床后两小时脉搏中位数，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |minSystolicBpWakeTwo|int类型数据|起床后两小时收缩压最小值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |minDiastolicBpWakeTwo|int类型数据|起床后两小时舒张压最小值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |minHeartRateWakeTwo|int类型数据|起床后两小时脉搏最小值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |avgSystolicBpWakeTwo|int类型数据|起床后两小时收缩压均值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |avgDiastolicBpWakeTwo|int类型数据|起床后两小时舒张压均值，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |avgHeartRateWakeTwo|int类型数据|起床后两小时脉搏均值，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |stdSystolicBpWakeTwo|int类型数据|起床后两小时收缩压标准差，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |stdDiastolicBpWakeTwo|int类型数据|起床后两小时舒张压标准差，取值范围\[0,300\]，0表示无结果，单位：毫米汞柱。|
-   |stdHeartRateWakeTwo|int类型数据|起床后两小时脉搏标准差，取值范围\[0,300\]，0表示无结果，单位：次/分。|
-   |coefSystolicBpWakeTwo|double类型数据|起床后两小时收缩压变异系数，取值范围\[0,1\]。|
-   |coefDiastolicBpWakeTwo|double类型数据|起床后两小时舒张压变异系数，取值范围\[0,1\]。|
-   |coefHeartRateWakeTwo|double类型数据|起床后两小时脉搏变异系数，取值范围\[0,1\]。|
-   [表4 summaryData信息]
+   |validCntAll|int类型数据|24小时血压有效数据个数，取值范围[0, 1440]，单位：次数。|
+   |validCntWake|int类型数据|清醒时段血压有效数据个数，取值范围[0, 1440]，单位：次数。|
+   |validCntSleep|int类型数据|睡眠时段血压有效数据个数，取值范围[0, 1440]，单位：次数。|
+   |validCntWakeTwo|int类型数据|起床后两小时血压有效数据个数，取值范围[0, 1440]，单位：次数。|
+   |cntAll|int类型数据|24小时血压数据总个数，取值范围[0, 1440]，单位：次数。|
+   |cntWake|int类型数据|清醒时段血压数据总个数，取值范围[0, 1440]，单位：次数。|
+   |cntSleep|int类型数据|睡眠时段血压数据总个数，取值范围[0, 1440]，单位：次数。|
+   |cntWakeTwo|int类型数据|起床后血压数据总个数，取值范围[0, 1440]，单位：次数。|
+   |maxSystolicBpAll|int类型数据|24小时收缩压最大值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |maxDiastolicBpAll|int类型数据|24小时舒张压最大值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |maxHeartRateAll|int类型数据|24小时脉搏最大值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |midSystolicBpAll|int类型数据|24小时收缩压中位数，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |midDiastolicBpAll|int类型数据|24小时舒张压中位数，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |midHeartRateAll|int类型数据|24小时脉搏中位数，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |minSystolicBpAll|int类型数据|24小时收缩压最小值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |minDiastolicBpAll|int类型数据|24小时舒张压最小值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |minHeartRateAll|int类型数据|24小时脉搏最小值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |avgSystolicBpAll|int类型数据|24小时收缩压均值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |avgDiastolicBpAll|int类型数据|24小时舒张压均值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |avgHeartRateAll|int类型数据|24小时脉搏均值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |stdSystolicBpAll|int类型数据|24小时收缩压标准差，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |stdDiastolicBpAll|int类型数据|24小时舒张压标准差，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |stdHeartRateAll|int类型数据|24小时脉搏标准差，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |coefSystolicBpAll|double类型数据|24小时收缩压变异系数，取值范围[0,1]。|
+   |coefDiastolicBpAll|double类型数据|24小时舒张压变异系数，取值范围[0,1]。|
+   |coefHeartRateAll|double类型数据|24小时脉搏变异系数，取值范围[0,1]。|
+   |loadSystolicBpAll|double类型数据|24小时收缩压血压负荷，取值范围[0,1]。|
+   |loadDiastolicBpAll|double类型数据|24小时舒张压血压负荷，取值范围[0,1]。|
+   |dropSystolicBpAll|double类型数据|24小时收缩压夜间下降率，取值范围[-3,3]，当计划状态字段为3、4、5时下降率为无效值。|
+   |dropDiastolicBpAll|double类型数据|24小时舒张压夜间下降率，取值范围[-3,3]，当计划状态字段为3、4、5时下降率为无效值。|
+   |peakSystolicBpAll|int类型数据|24小时收缩压血压晨峰，取值范围[-300,300]，300表示无结果，单位：毫米汞柱。|
+   |peakDiastolicBpAll|int类型数据|24小时舒张压血压晨峰，取值范围[-300,300]，300表示无结果，单位：毫米汞柱。|
+   |maxSystolicBpWake|int类型数据|清醒时段收缩压最大值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |maxDiastolicBpWake|int类型数据|清醒时段舒张压最大值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |maxHeartRateWake|int类型数据|清醒时段脉搏最大值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |midSystolicBpWake|int类型数据|清醒时段收缩压中位数，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |midDiastolicBpWake|int类型数据|清醒时段舒张压中位数，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |midHeartRateWake|int类型数据|清醒时段脉搏中位数，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |minSystolicBpWake|int类型数据|清醒时段收缩压最小值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |minDiastolicBpWake|int类型数据|清醒时段舒张压最小值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |minHeartRateWake|int类型数据|清醒时段脉搏最小值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |avgSystolicBpWake|int类型数据|清醒时段收缩压均值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |avgDiastolicBpWake|int类型数据|清醒时段舒张压均值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |avgHeartRateWake|int类型数据|清醒时段脉搏均值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |stdSystolicBpWake|int类型数据|清醒时段收缩压标准差，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |stdDiastolicBpWake|int类型数据|清醒时段舒张压标准差，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |stdHeartRateWake|int类型数据|清醒时段脉搏标准差，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |coefSystolicBpWake|double类型数据|清醒时段收缩压变异系数，取值范围[0,1]。|
+   |coefDiastolicBpWake|double类型数据|清醒时段舒张压变异系数，取值范围[0,1]。|
+   |coefHeartRateWake|double类型数据|清醒时段脉搏变异系数，取值范围[0,1]。|
+   |loadSystolicBpWake|double类型数据|清醒时段收缩压血压负荷，取值范围[0,1]。|
+   |loadDiastolicBpWake|double类型数据|清醒时段舒张压血压负荷，取值范围[0,1]。|
+   |maxSystolicBpSleep|int类型数据|睡眠时段收缩压最大值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |maxDiastolicBpSleep|int类型数据|睡眠时段舒张压最大值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |maxHeartRateSleep|int类型数据|睡眠时段脉搏最大值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |midSystolicBpSleep|int类型数据|睡眠时段收缩压中位数，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |midDiastolicBpSleep|int类型数据|睡眠时段舒张压中位数，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |midHeartRateSleep|int类型数据|睡眠时段脉搏中位数，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |minSystolicBpSleep|int类型数据|睡眠时段收缩压最小值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |minDiastolicBpSleep|int类型数据|睡眠时段舒张压最小值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |minHeartRateSleep|int类型数据|睡眠时段脉搏最小值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |avgSystolicBpSleep|int类型数据|睡眠时段收缩压均值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |avgDiastolicBpSleep|int类型数据|睡眠时段舒张压均值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |avgHeartRateSleep|int类型数据|睡眠时段脉搏均值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |stdSystolicBpSleep|int类型数据|睡眠时段收缩压标准差，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |stdDiastolicBpSleep|int类型数据|睡眠时段舒张压标准差，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |stdHeartRateSleep|int类型数据|睡眠时段脉搏标准差，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |coefSystolicBpSleep|double类型数据|睡眠时段收缩压变异系数，取值范围[0,1]，255表示无效值。|
+   |coefDiastolicBpSleep|double类型数据|睡眠时段舒张压变异系数，取值范围[0,1]，255表示无效值。|
+   |coefHeartRateSleep|double类型数据|睡眠时段脉搏变异系数，取值范围[0,1]，255表示无效值。|
+   |loadSystolicBpSleep|double类型数据|睡眠时段收缩压血压负荷，取值范围[0,1]，255表示无效值。|
+   |loadDiastolicBpSleep|double类型数据|睡眠时段舒张压血压负荷，取值范围[0,1]，255表示无效值。|
+   |maxSystolicBpWakeTwo|int类型数据|起床后两小时收缩压最大值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |maxDiastolicBpWakeTwo|int类型数据|起床后两小时舒张压最大值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |maxHeartRateWakeTwo|int类型数据|起床后两小时脉搏最大值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |midSystolicBpWakeTwo|int类型数据|起床后两小时收缩压中位数，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |midDiastolicBpWakeTwo|int类型数据|起床后两小时舒张压中位数，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |midHeartRateWakeTwo|int类型数据|起床后两小时脉搏中位数，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |minSystolicBpWakeTwo|int类型数据|起床后两小时收缩压最小值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |minDiastolicBpWakeTwo|int类型数据|起床后两小时舒张压最小值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |minHeartRateWakeTwo|int类型数据|起床后两小时脉搏最小值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |avgSystolicBpWakeTwo|int类型数据|起床后两小时收缩压均值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |avgDiastolicBpWakeTwo|int类型数据|起床后两小时舒张压均值，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |avgHeartRateWakeTwo|int类型数据|起床后两小时脉搏均值，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |stdSystolicBpWakeTwo|int类型数据|起床后两小时收缩压标准差，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |stdDiastolicBpWakeTwo|int类型数据|起床后两小时舒张压标准差，取值范围[0,300]，0表示无结果，单位：毫米汞柱。|
+   |stdHeartRateWakeTwo|int类型数据|起床后两小时脉搏标准差，取值范围[0,300]，0表示无结果，单位：次/分。|
+   |coefSystolicBpWakeTwo|double类型数据|起床后两小时收缩压变异系数，取值范围[0,1]。|
+   |coefDiastolicBpWakeTwo|double类型数据|起床后两小时舒张压变异系数，取值范围[0,1]。|
+   |coefHeartRateWakeTwo|double类型数据|起床后两小时脉搏变异系数，取值范围[0,1]。|
+   [**表4**summaryData信息]
 
    |返回值|取值|含义|
    |:--------|:-------|:-----------------------------------|
@@ -323,11 +314,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/query-dyna
    |heartRate|int类型列表|血压测量时心率列表，列表元素单位：次/分钟。|
    |timestamp|long类型列表|血压测量时间列表，UTC时间，列表元素单位：秒。|
    |label|int类型列表|血压结果记录标签列表，列表元素取值 1：测量结果有效，0：测量结果无效。|
-   [表5 detailData信息]
+   [**表5**detailData信息]
 
-   ![](https://media:301785133843142427)  
-   * summaryData概要数据中睡眠时段的数据需要[开启科学睡眠开关](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/set-trusleep-switch-0000002338300784)才会出值。
-   * detailData详情数据是每个报告产生的血压测量数据，同个报告可以产生多个测量数据会分别存入列表中，每次测量产生的数据有：systolic、diastolic、heartRate、timestamp、label。
-
-   <br />
+   > 注意
+   > * summaryData概要数据中睡眠时段的数据需要[开启科学睡眠开关](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/set-trusleep-switch-0000002338300784)才会出值。
+   > * detailData详情数据是每个报告产生的血压测量数据，同个报告可以产生多个测量数据会分别存入列表中，每次测量产生的数据有：systolic、diastolic、heartRate、timestamp、label。
 

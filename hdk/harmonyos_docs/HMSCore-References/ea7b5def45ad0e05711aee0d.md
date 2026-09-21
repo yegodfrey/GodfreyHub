@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/bannerview-
 |:-------------------------------------------------------------------------|
 |public class BannerView extends FrameLayout implements IBannerView 横幅广告视图。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:-----------------------------------------------------------------------------------------------------|
@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/bannerview-
 |[BannerView](#section49311529205818)(Context context, AttributeSet attrs) BannerView构造函数。|
 |[BannerView](#section5950357195914)(Context context, AttributeSet attrs, int defStyle) BannerView构造函数。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,42 +34,42 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/bannerview-
 |void|[setAdListener](#section10638183311514)([AdListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adlistener-0000001050066825) listener) 为广告视图设置一个广告监听器。|
 |void|[setBannerAdSize](#section13312125211411)([BannerAdSize](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/banneradsize-0000001050066831) adSize) 设置广告尺寸。|
 |void|[setBannerRefresh](#section422214152416)(long time) 为横幅广告设置轮播时间间隔。|
-|[BiddingInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/biddinginfo-0000001920219376)|@Deprecated [getBiddingInfo](#section125718305413)() 获取返回给媒体实时bidding相关数据。 注意： 已废弃。|
+|[BiddingInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/biddinginfo-0000001920219376)|@Deprecated [getBiddingInfo](#section125718305413)() 获取返回给媒体实时bidding相关数据。 > 注意 > 已废弃。|
 
-#### Public Constructors
+## Public Constructors
 
-#### BannerView(Context context)
+### BannerView(Context context)
 
 |Constructor|
 |:-------------------------------------------------|
 |public BannerView(Context context) BannerView构造函数。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |context|上下文。|
 
-#### BannerView(Context context, AttributeSet attrs)
+### BannerView(Context context, AttributeSet attrs)
 
 |Constructor|
 |:---------------------------------------------------------------------|
 |public BannerView(Context context, AttributeSet attrs) BannerView构造函数。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |context|上下文。|
 |attrs|视图属性集合。|
 
-#### BannerView(Context context, AttributeSet attrs, int defStyle)
+### BannerView(Context context, AttributeSet attrs, int defStyle)
 
 |Constructor|
 |:----------------------------------------------------------------------------|
 |BannerView(Context context, AttributeSet attrs, int defStyle) BannerView构造函数。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------|
@@ -77,141 +77,141 @@ Parameters
 |attrs|视图属性集合。|
 |defStyle|基础样式值。|
 
-#### Public Methods
+## Public Methods
 
-#### destroy
+### destroy
 
 |Method|
 |:----------------------------|
 |public void destroy() 销毁广告视图。|
 
-#### getAdId
+### getAdId
 
 |Method|
 |:-------------------------------|
 |public String getAdId() 获取广告位ID。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:----------|
 |String|广告位ID。|
 
-#### getAdListener
+### getAdListener
 
 |Method|
 |:----------------------------------------------------------------------------------------------------------------------------------------|
 |public [AdListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adlistener-0000001050066825) getAdListener() 获取广告监听器。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------------------------------------------------------------------------------|:----------|
 |[AdListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adlistener-0000001050066825)|广告监听器。|
 
-#### getBannerAdSize
+### getBannerAdSize
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |public [BannerAdSize](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/banneradsize-0000001050066831) getBannerAdSize() 获取横幅广告尺寸。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------------------------------------------------------------------------------------------------------------|:----------|
 |[BannerAdSize](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/banneradsize-0000001050066831)|横幅广告尺寸。|
 
-#### isLoading
+### isLoading
 
 |Method|
 |:---------------------------------------|
 |public boolean isLoading() 返回广告是否处于加载状态。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------|:--------------------------------------|
 |boolean|返回广告是否处于加载状态： * true：正在加载。 * false：非加载。|
 
-#### loadAd
+### loadAd
 
 |Method|
 |:--------------------------------------------------------------------------------------------------------------------------------------|
 |public void loadAd([AdParam](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adparam-0000001050066827) adParam) 加载一个广告。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |adParam|广告请求对象。|
 
-#### pause
+### pause
 
 |Method|
 |:-----------------------------------|
 |public void pause() 暂停与此广告视图相关的额外处理。|
 
-#### resume
+### resume
 
 |Method|
 |:--------------------------------------------|
 |public void resume() 在上一次调用pause()之后恢复一个广告视图。|
 
-#### setAdId
+### setAdId
 
 |Method|
 |:----------------------------------------|
 |public void setAdId(String adId) 设置广告位ID。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|
 |adId|广告位ID。|
 
-#### setAdListener
+### setAdListener
 
 |Method|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setAdListener([AdListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adlistener-0000001050066825) listener) 为广告视图设置一个广告监听器。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------|
 |listener|广告监听器。|
 
-#### setBannerAdSize
+### setBannerAdSize
 
 |Method|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setBannerAdSize([BannerAdSize](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/banneradsize-0000001050066831) adSize) 为该横幅广告设置尺寸。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------|
 |adSize|横幅广告尺寸。|
 
-#### setBannerRefresh
+### setBannerRefresh
 
 |Method|
 |:-----------------------------------------------------|
 |public void setBannerRefresh(long time) 为横幅广告设置轮播时间间隔。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
-|:---|:-------------------------------------|
-|time|轮播时间间隔，单位：秒，取值范围：\[30, 120\]。 默认值：60秒。|
+|:---|:-----------------------------------|
+|time|轮播时间间隔，单位：秒，取值范围：[30, 120]。 默认值：60秒。|
 
-#### getBiddingInfo
+### getBiddingInfo
 
 |Method|
 |:--------------------------------------------------------------------|
 |@Deprecated public BiddingInfo getBiddingInfo() 获取返回给媒体实时bidding相关数据。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:----------------------------------------------------------------------------------------------------------|:-----------------------------|

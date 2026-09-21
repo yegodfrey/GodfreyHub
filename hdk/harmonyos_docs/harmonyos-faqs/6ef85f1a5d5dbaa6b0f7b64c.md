@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-61
 
 此处以testCb为例
 
-```
+```ts
 class testCb {
   testNum: number = 0;
   testString: string = "";
@@ -19,7 +19,7 @@ class testCb {
 
 在index.d.ts文件中使用object类型进行声明。
 
-```
+```ts
 export const modifyObject: (a: object) => object;
 ```
 
@@ -29,7 +29,7 @@ export const modifyObject: (a: object) => object;
 
 test.ts 导出类声明。
 
-```
+```ts
 export class testCa {
   testNum: number = 0;
   testString: string = "";
@@ -38,7 +38,7 @@ export class testCa {
 
 在index.d.ts中导入并使用。
 
-```
+```ts
 import { testCa } from "../../../ets/pages/interface/CustomObject"
 export const test1: (a: testCa) => void;
 ```

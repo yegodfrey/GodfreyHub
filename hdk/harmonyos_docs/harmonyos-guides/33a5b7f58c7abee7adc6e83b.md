@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-wa
 
 # 地址越界事件介绍
 
-#### 概述
+## 概述
 
 地址越界问题是指访问了不合法的地址，导致程序运行出现异常，通常表现为应用崩溃。
 
@@ -16,26 +16,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-wa
 
 * [订阅地址越界事件（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-address-sanitizer-events-ndk)
 
-![](https://media:401788444768430578)  
-地址越界事件支持在[应用分身](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-clone)场景下使用 HiAppEvent 进行订阅，从 API version 22 开始支持在[输入法应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/inputmethod-application-guide)场景下使用 HiAppEvent 进行订阅。不支持在元服务场景下使用 HiAppEvent 进行订阅。  
+> 说明
+>
+> 地址越界事件支持在[应用分身](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-clone)场景下使用 HiAppEvent 进行订阅，从 API version 22 开始支持在[输入法应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/inputmethod-application-guide)场景下使用 HiAppEvent 进行订阅。不支持在元服务场景下使用 HiAppEvent 进行订阅。
 
-#### 检测原理
+## 检测原理
 
-详见[地址越界类问题检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/address-sanitizer-guidelines)。  
+详见[地址越界类问题检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/address-sanitizer-guidelines)。
 
-#### 页面切换日志规格自定义参数
+## 页面切换日志规格自定义参数
 
-从API version 24开始支持页面切换日志配置。当应用发生地址越界故障时，系统可以收集并上报页面切换日志，帮助开发者定位问题。  
+从**API version 24**开始支持页面切换日志配置。当应用发生地址越界故障时，系统可以收集并上报页面切换日志，帮助开发者定位问题。
 
-#### configEventPolicy接口说明
+### configEventPolicy接口说明
 
 |接口名|描述|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|
-|[configEventPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#hiappeventconfigeventpolicy22) (policy: EventPolicy): Promise\<void\>|设置地址越界事件策略参数接口，支持开启地址越界事件的页面切换日志采集。|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|
+|[configEventPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#hiappeventconfigeventpolicy22) (policy: EventPolicy): Promise<void>|设置地址越界事件策略参数接口，支持开启地址越界事件的页面切换日志采集。|
 
-#### configEventPolicy接口参数设置说明
+### configEventPolicy接口参数设置说明
 
-开发者可以通过设置[EventPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#eventpolicy22) 的参数来开启地址越界事件的页面切换日志采集。  
+开发者可以通过设置[EventPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#eventpolicy22) 的参数来开启地址越界事件的页面切换日志采集。
 
 |名称|类型|只读|可选|说明|
 |:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:----------|
@@ -43,7 +44,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-wa
 
 参数配置示例：
 
-```
+```ts
 import { hilog, hiAppEvent } from '@kit.PerformanceAnalysisKit';
 import { deviceInfo, BusinessError } from '@kit.BasicServicesKit';
 
@@ -59,27 +60,27 @@ hiAppEvent.configEventPolicy(policy).then(() => {
 });
 ```
 
-#### 事件字段说明
+## 事件字段说明
 
-#### params字段说明
+### params字段说明
 
-地址越界事件信息中params属性的详细描述如下：  
+地址越界事件信息中params属性的详细描述如下：
 
 |名称|类型|说明|
-|:--------------|:---------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:--------------|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |time|number|事件触发时间，单位：ms。|
 |bundle_version|string|应用版本。|
 |bundle_name|string|应用名称。|
 |pid|number|应用的进程id。|
 |uid|number|应用的用户id。|
 |type|string|地址越界错误类型，取值范围详见[type字段说明](#type字段说明)。|
-|external_log|string\[\]|故障日志文件路径。为避免目录空间超限（限制参考log_over_limit），导致新生成的日志文件写入失败，日志文件处理完后请及时删除。|
+|external_log|string[]|故障日志文件路径。**为避免目录空间超限（限制参考log_over_limit），导致新生成的日志文件写入失败，日志文件处理完后请及时删除。**|
 |log_over_limit|boolean|生成的故障日志文件与已存在的日志文件总大小是否超过5MB上限。true表示超过上限，日志写入失败；false表示未超过上限。 启用[minidump](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-analysis-kit-terminology#minidump)时，上限调整至35MB；关闭minidump时，上限恢复到5MB。|
-|page_switch_log|string|页面切换日志路径，日志介绍详见[页面切换日志](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pageswitch-log)。 说明：从API version 24开始支持。|
+|page_switch_log|string|页面切换日志路径，日志介绍详见[页面切换日志](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pageswitch-log)。 **说明**：从API version 24开始支持。|
 
-#### type字段说明
+### type字段说明
 
-地址越界事件信息中type的详细描述如下：  
+地址越界事件信息中type的详细描述如下：
 
 |取值|说明|
 |:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|

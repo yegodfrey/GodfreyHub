@@ -6,13 +6,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interac
 
 # 支持键盘输入事件
 
-物理按键产生的按键事件为非指向性事件，与触摸等指向性事件不同，其事件并没有坐标位置信息，所以其会按照一定次序向获焦组件进行派发，大多数文字输入场景下，按键事件都会优先派发给输入法进行处理，以便其处理文字的联想和候选词，应用可以通过[onKeyPreIme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-key#onkeypreime12)提前感知事件。  
-![](https://media:401788444605198553)  
-一些系统按键产生的事件并不会传递给UI组件，如电源键。  
+物理按键产生的按键事件为非指向性事件，与触摸等指向性事件不同，其事件并没有坐标位置信息，所以其会按照一定次序向获焦组件进行派发，大多数文字输入场景下，按键事件都会优先派发给输入法进行处理，以便其处理文字的联想和候选词，应用可以通过[onKeyPreIme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-key#onkeypreime12)提前感知事件。
+> 说明
+>
+> 一些系统按键产生的事件并不会传递给UI组件，如电源键。
 
-#### 按键事件数据流
+## 按键事件数据流
 
-![](https://media:401788444605233554)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/BxDUxX7IQG2BeVEZmjWfoA/zh-cn_image_0000002762833639.png?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=C26129D03DC271ADBCCF969542CD36CE4045BA8F1FA4EA4FD21D9D2954430700)
 
 按键事件由外设键盘等设备触发，经驱动和多模处理转换后发送给当前获焦的窗口，窗口获取到事件后，会尝试分发三次事件。三次分发的优先顺序如下，一旦事件被消费，则跳过后续分发流程。
 
@@ -24,11 +25,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interac
 
 按键事件到ArkUI框架之后，会先找到完整的节点获焦链。从叶子节点到根节点，逐一发送按键事件，若有子组件可以处理则优先给子组件处理，若子组件无法处理，则进行冒泡寻找父组件进行处理。
 
-Web组件的KeyEvent流程与上述过程有所不同。在[onKeyPreIme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-key#onkeypreime12)返回false时，Web组件不会匹配快捷键。而在第三次按键派发过程中，Web组件会将未消费的[KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-key#keyevent对象说明)重新派发回ArkUI，在重新派发过程中再执行匹配快捷键等操作。  
+Web组件的KeyEvent流程与上述过程有所不同。在[onKeyPreIme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-key#onkeypreime12)返回false时，Web组件不会匹配快捷键。而在第三次按键派发过程中，Web组件会将未消费的[KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-key#keyevent对象说明)重新派发回ArkUI，在重新派发过程中再执行匹配快捷键等操作。
 
-#### onKeyEvent、onKeyPreIme和onKeyEventDispatch
+## onKeyEvent、onKeyPreIme和onKeyEventDispatch
 
-```
+```ts
 onKeyEvent(event: (event: KeyEvent) => void): T
 onKeyEvent(event: Callback<KeyEvent, boolean>): T
 onKeyPreIme(event: Callback<KeyEvent, boolean>): T
@@ -39,7 +40,7 @@ onKeyEventDispatch(event: Callback<KeyEvent, boolean>): T
 
 当绑定方法的组件处于获焦状态下，外设键盘的按键事件会触发该方法，回调参数为[KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-key#keyevent对象说明)，可由该参数获得当前按键事件的按键行为（[KeyType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#keytype)）、键码（[KeyCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode#keycode)）、按键英文名称（keyText）、事件来源设备类型（[KeySource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#keysource)）、事件来源设备id（deviceId）、元键按压状态（metaKey）、时间戳（timestamp）、阻止冒泡设置（stopPropagation）。
 
-```
+```TypeScript
 @Entry
 @Component
 struct KeyEventExample {
@@ -94,7 +95,7 @@ struct KeyEventExample {
 
 上述示例中给组件Button和其父容器Column绑定onKeyEvent。应用打开页面加载后，组件树上第一个可获焦的非容器组件自动获焦，设置Button为当前页面的默认焦点，由于Button是Column的子节点，Button获焦也同时意味着Column获焦。获焦机制见[支持焦点处理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-events-focus-event)。
 
-![](https://media:401788444605300555)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/O2siWT_ERrWazVNNFbDEOQ/zh-cn_image_0000002733274124.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=799C9A7638C80261440D1A229EF66FC71576EEB9FE7D051333A233DB6BB87BE5)
 
 打开应用后，依次在键盘上按这些按键：空格、回车、左Ctrl、左Shift、字母A、字母Z。
 
@@ -104,7 +105,7 @@ struct KeyEventExample {
 
 如果要阻止冒泡，即仅Button响应键盘事件，Column不响应，在Button的onKeyEvent回调中加入event.stopPropagation()方法即可，如下：
 
-```
+```TypeScript
 @Entry
 @Component
 struct KeyEventPreventBubble {
@@ -161,11 +162,11 @@ struct KeyEventPreventBubble {
 }
 ```
 
-![](https://media:401788444605364556)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/8IAZ6U0vS1S5mYXh-AqAAg/zh-cn_image_0000002733434008.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=CD36901C48A23B41F817F1956E2CF2A2F1BBCBFB53C46475451816836CEB543B)
 
 使用onKeyPreIme屏蔽在输入框中使用方向左键。
 
-```
+```TypeScript
 import { KeyCode } from '@kit.InputKit';
 
 @Entry
@@ -195,11 +196,11 @@ struct PreImeEventExample {
 }
 ```
 
-![](https://media:401788444605543557)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/9BZ25DcISousvexpVe7gSg/zh-cn_image_0000002762993529.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=DD8B1A9F9E17373900A4D96DDE611BC631F7AF5454AFCB68D8A27270AEFA596E)
 
 使用onKeyEventDispatch分发按键事件到子组件，子组件使用onKeyEvent。
 
-```
+```TypeScript
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const TAG = '[Sample_Eventproject]';
@@ -250,11 +251,11 @@ struct Index {
 }
 ```
 
-![](https://media:401788444605790558)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/iApR4u3BRm6-P7H1xhF6Wg/zh-cn_image_0000002762833641.png?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=F918C38174FD4A3496A5BD66A2240ED1C60AFF2293201D93F3B55E643B245C73)
 
 使用onKeyPreIme实现回车提交（建议使用物理键盘）。
 
-```
+```TypeScript
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { KeyCode } from '@kit.InputKit';
 
@@ -297,8 +298,9 @@ struct TextAreaDemo {
 }
 ```
 
-![](https://media:401788444605816559)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/dLnvE1e5T0C2nf5QC65RTA/zh-cn_image_0000002733274126.png?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=994C00FED57847646360DF6557EC347A69290DC88A2E24D7744A277774DBF13B)
 
 在输入框中输入内容后回车。
 
-![](https://media:401788444605847560)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/ZyONJ4dHSoWPYRzswRQmSw/zh-cn_image_0000002733434010.png?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=3BDD3888B452BBCCA2B36DE48052790A027461EAB8BEA7092263C6331E175BFD)
+

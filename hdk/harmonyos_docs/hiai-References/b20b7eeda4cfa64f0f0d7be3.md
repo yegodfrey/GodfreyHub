@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mlbcrcapture-c
 |:---------------------------------------------------------------|
 |com.huawei.hms.mlplugin.card.bcr.MLBcrCapture.Callback 检测结果回调接口。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -19,40 +19,40 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mlbcrcapture-c
 |void|[onFailure](#section1522523031913)(int retCode, android.graphics.Bitmap bitmap) 检测失败回调方法。|
 |void|[onSuccess](#section1573185910196)([MLBcrCaptureResult](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlbcrcaptureresult-0000001050167574) result) 检测成功回调方法。|
 
-#### Public Methods
+## Public Methods
 
-#### onCanceled
+### onCanceled
 
 |Method|
 |:-----------------------------|
 |public void onCanceled() 用户取消。|
 
-#### onDenied
+### onDenied
 
 |Method|
 |:----------------------------|
 |public void onDenied() 相机不支持。|
 
-#### onFailure(int retCode, android.graphics.Bitmap bitmap)
+### onFailure(int retCode, android.graphics.Bitmap bitmap)
 
 |Method|
 |:---------------------------------------------------------------------------|
 |public void onFailure(int retCode, android.graphics.Bitmap bitmap) 检测失败回调方法。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |retCode|错误码。|
 |bitmap|检测失败的银行卡图片。|
 
-#### onSuccess(MLBcrCaptureResult result)
+### onSuccess(MLBcrCaptureResult result)
 
 |Method|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void onSuccess([MLBcrCaptureResult](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlbcrcaptureresult-0000001050167574) result) 检测成功回调方法。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------|

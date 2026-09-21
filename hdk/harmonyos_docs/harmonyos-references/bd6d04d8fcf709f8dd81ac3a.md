@@ -6,28 +6,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 # 通用属性
 
-![](https://media:401788445344256126)  
-从API version 4开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。  
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
-#### 常规属性
+> 说明
+>
+> 从API version 4开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-常规属性是指组件普遍支持的用来设置组件基本标识和外观显示特征的属性。  
+## 常规属性
+
+常规属性是指组件普遍支持的用来设置组件基本标识和外观显示特征的属性。
 
 |名称|类型|默认值|必填|描述|
-|:---------------|:------|:----|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:---------------|:------|:----|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |id|string|-|否|组件的唯一标识。|
 |style|string|-|否|组件的样式声明。|
 |class|string|-|否|组件的样式类，用于引用样式表。|
 |ref|string|-|否|用来指定指向子元素或子组件的引用信息，该引用将注册到父组件的$refs 属性对象上。|
 |disabled|boolean|false|否|当前组件是否被禁用，在禁用场景下，组件将无法响应用户交互。设置为true时，组件不响应交互事件。设置为false时，组件响应交互事件。|
-|data|string|-|否|给当前组件设置data属性，进行相应的数据存储和读取。JS文件中： - 在事件回调中使用 e.target.attr.data 读取数据，e为事件回调函数入参。 - 使用$element或者$refs获取DOM元素后，通过attr.data 进行访问。 从API version 6 开始，建议使用data-\*。|
-|data-\*^6+^|string|-|否|给当前组件设置data-\*属性，进行相应的数据存储和读取。大小写不敏感，如data-A和data-a默认相同。JS文件中： - 在事件回调中使用 e.target.dataSet.a读取数据，e为事件回调函数入参。 - 使用$element或者$refs获取DOM元素后，通过dataSet.a进行访问。|
+|data|string|-|否|给当前组件设置data属性，进行相应的数据存储和读取。JS文件中： - 在事件回调中使用 e.target.attr.data 读取数据，e为事件回调函数入参。 - 使用$element或者$refs获取DOM元素后，通过attr.data 进行访问。 从API version 6 开始，建议使用data-*。|
+|data-*^6+^|string|-|否|给当前组件设置data-*属性，进行相应的数据存储和读取。大小写不敏感，如data-A和data-a默认相同。JS文件中： - 在事件回调中使用 e.target.dataSet.a读取数据，e为事件回调函数入参。 - 使用$element或者$refs获取DOM元素后，通过dataSet.a进行访问。|
 |click-effect^5+^|string|-|否|通过这个属性可以设置组件的弹性点击效果，当前支持如下三种效果： - spring-small：建议小面积组件设置，缩放(90%)。 - spring-medium：建议中面积组件设置，缩放(95%)。 - spring-large：建议大面积组件设置，缩放(95%)。|
 |dir^6+^|string|auto|否|设置元素布局模式，支持设置rtl、ltr和auto三种属性值： - rtl：使用从右往左布局模式。 - ltr：使用从左往右布局模式。 - auto：跟随系统语言环境。|
 
-#### 渲染属性
+## 渲染属性
 
-渲染属性是指组件普遍支持的用来设置组件是否渲染的属性。  
+渲染属性是指组件普遍支持的用来设置组件是否渲染的属性。
 
 |名称|类型|默认值|描述|
 |:---|:------|:--|:--------------------------------------------------|
@@ -35,14 +38,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 |if|boolean|-|根据设置的boolean值，添加或移除当前元素。true表示添加当前元素，false表示移除当前元素。|
 |show|boolean|-|根据设置的boolean值，显示或隐藏当前元素。true表示显示当前元素，false表示隐藏当前元素。|
 
-![](https://media:401788445344323127)  
-属性和样式不能混用，不能在属性字段中进行样式设置。  
+> 说明
+>
+> 属性和样式不能混用，不能在属性字段中进行样式设置。
 
-#### 示例
+## 示例
 
-#### 示例1
+### 示例1
 
-```
+```html
 <!-- xxx.hml -->
 <div id="container">
     <button class="btn" type="capsule" value="toggleDisplay" onclick="toggleDisplay"></button>
@@ -55,7 +59,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 </div>
 ```
 
-```
+```css
 /* xxx.css */
 #container {
     flex-direction: column;
@@ -81,7 +85,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 }
 ```
 
-```
+```js
 // xxx.js
 export default {
     data: {
@@ -106,11 +110,11 @@ export default {
 }
 ```
 
-![](https://media:401788445344561128)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/I6_YIw19SHOg1BdMR-On8A/zh-cn_image_0000002762996183.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084644Z&HW-CC-Expire=31536000000&HW-CC-Sign=9B5C4B62FABF1598E02C8F224520B984381BA75DB3537CC5E5C010E77BB87E9A)
 
-#### 示例2
+### 示例2
 
-```
+```html
 <!-- xxx.hml -->
 <div class="container">
     <div>
@@ -122,7 +126,7 @@ export default {
 </div>
 ```
 
-```
+```css
 /* xxx.css */
 .container {
     display: flex;
@@ -144,4 +148,5 @@ export default {
 }
 ```
 
-![](https://media:401788445344603129)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/7bWofGNERGSPEFD3GT7e5w/zh-cn_image_0000002762836299.png?HW-CC-KV=V1&HW-CC-Date=20260917T084644Z&HW-CC-Expire=31536000000&HW-CC-Sign=BD6448A4E136A81EE9D7A69C881B60CFA2CE58029005AD4D3B5804EF7F300A6B)
+

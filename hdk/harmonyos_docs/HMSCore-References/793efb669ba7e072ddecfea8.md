@@ -10,34 +10,34 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hms-common-
 |:----------------------------------------------------|
 |public class ApiException extends Exception SDK抛出的异常。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:----------------------------------------------------|
 |int|[getStatusCode](#section1522014320326)() 获取错误码。|
 |String|[getStatusMessage](#section1475373813335)() 获取错误描述信息。|
 
-#### Public Methods
+## Public Methods
 
-#### getStatusCode
+### getStatusCode
 
 |Method|
 |:--------------------------------|
 |public int getStatusCode() 获取错误码。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-------------------------------------------------------------------------------------------------------------------------------|
 |int|错误码，含义请参见[错误码](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/error-code-harmony-0000001251809575)。|
 
-#### getStatusMessage
+### getStatusMessage
 
 |Method|
 |:-----------------------------------------|
 |public String getStatusMessage() 获取错误描述信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:----------|

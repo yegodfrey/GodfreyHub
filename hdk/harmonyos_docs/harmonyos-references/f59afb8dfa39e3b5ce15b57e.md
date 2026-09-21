@@ -6,74 +6,77 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-univer
 
 # 点击回弹效果
 
-设置组件的点击回弹效果。  
-![](https://media:401788445423727379)  
-* 从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-* 本模块接口仅可在Stage模型下使用。
+设置组件的点击回弹效果。
+> 说明
+>
+> * 从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+>
+> * 本模块接口仅可在Stage模型下使用。
 
-#### clickEffect
+## clickEffect
 
-clickEffect(value: ClickEffect \| null): T
+clickEffect(value: ClickEffect | null): T
 
 设置当前组件的点击回弹效果。点击回弹效果的强度等级决定回弹时的缩放幅度。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:--------------------------------------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|value|[ClickEffect](#clickeffect对象说明) \| null|是|设置当前组件点击回弹效果。 说明： 可通过null取消点击回弹效果。 不建议在组件大小动态变化的场景中使用该功能，可能导致回弹效果异常。 当组件无法触发通用事件（如[点击事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click)等事件）时，不支持该属性。 回弹触发缩放后可能造成触摸点不在组件上，组件上无法响应手势事件。|
+|:----|:-------------------------------------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|value|[ClickEffect](#clickeffect对象说明) | null|是|设置当前组件点击回弹效果。 **说明：** 可通过null取消点击回弹效果。 不建议在组件大小动态变化的场景中使用该功能，可能导致回弹效果异常。 当组件无法触发通用事件（如[点击事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click)等事件）时，不支持该属性。 回弹触发缩放后可能造成触摸点不在组件上，组件上无法响应手势事件。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:-------------|
 |T|返回当前组件，用于链式调用。|
 
-#### clickEffect^18+^
+## clickEffect^18+^
 
-clickEffect(effect: Optional\<ClickEffect \| null\>): T
+clickEffect(effect: Optional<ClickEffect | null>): T
 
 设置当前组件的点击回弹效果。与[clickEffect](#clickeffect)相比，新增了对undefined类型的支持。点击回弹效果的等级级别决定回弹时的缩放幅度。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|effect|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[ClickEffect](#clickeffect对象说明) \| null\>|是|点击回弹效果的级别，用于控制回弹的强度程度。 说明： 可通过undefined或者null取消点击回弹效果。 不建议在组件大小动态变化的场景中使用该功能。 当组件无法触发通用事件（如[点击事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click)等事件）时，不支持该属性。具体包括：组件被设置为disabled状态、组件不可见、组件被其他组件遮挡等场景下，无法触发通用事件，此时clickEffect属性不生效。 回弹触发缩放后可能造成触摸点不在组件上，组件上无法响应手势事件。|
+|:-----|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|effect|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ClickEffect](#clickeffect对象说明) | null>|是|点击回弹效果的级别，用于控制回弹的强度程度。 **说明：** 可通过undefined或者null取消点击回弹效果。 不建议在组件大小动态变化的场景中使用该功能。 当组件无法触发通用事件（如[点击事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click)等事件）时，不支持该属性。具体包括：组件被设置为disabled状态、组件不可见、组件被其他组件遮挡等场景下，无法触发通用事件，此时clickEffect属性不生效。 回弹触发缩放后可能造成触摸点不在组件上，组件上无法响应手势事件。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:-------------|
 |T|返回当前组件，用于链式调用。|
 
-#### ClickEffect对象说明
+## ClickEffect对象说明
 
 定义点击回弹效果。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:----|:-------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|level|[ClickEffectLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#clickeffectlevel10)|否|否|点击回弹效果级别，其取值影响scale的默认缩放比例。 默认值：ClickEffectLevel.LIGHT 说明： 当level为undefined或者null时， ClickEffect采用ClickEffectLevel.LIGHT对应的回弹效果，缩放比的具体默认值请参见下方scale属性说明。|
-|scale|number|否|是|回弹缩放比例，取值范围(0, 1\]，支持在设置ClickEffectLevel的基础上微调。超出取值范围时，使用当前level对应的默认缩放比例。 说明： 当level为ClickEffectLevel.LIGHT时，默认值：0.90 当level为ClickEffectLevel.MIDDLE或者ClickEffectLevel.HEAVY时，默认值：0.95 当level为undefined或者null时，level为ClickEffectLevel.LIGHT，默认值：0.90 当scale为undefined或者null时，使用当前level对应的默认缩放比例。|
+|:----|:-------------------------------------------------------------------------------------------------------------------------|:-|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|level|[ClickEffectLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#clickeffectlevel10)|否|否|点击回弹效果级别，其取值影响scale的默认缩放比例。 默认值：ClickEffectLevel.LIGHT **说明：** 当level为undefined或者null时， ClickEffect采用ClickEffectLevel.LIGHT对应的回弹效果，缩放比的具体默认值请参见下方scale属性说明。|
+|scale|number|否|是|回弹缩放比例，取值范围(0, 1]，支持在设置ClickEffectLevel的基础上微调。超出取值范围时，使用当前level对应的默认缩放比例。 **说明：** 当level为ClickEffectLevel.LIGHT时，默认值：0.90 当level为ClickEffectLevel.MIDDLE或者ClickEffectLevel.HEAVY时，默认值：0.95 当level为undefined或者null时，level为ClickEffectLevel.LIGHT，默认值：0.90 当scale为undefined或者null时，使用当前level对应的默认缩放比例。|
 
-#### 示例
+## 示例
 
 该示例主要演示不同组件的点击回弹效果。
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -143,4 +146,5 @@ struct ToggleExample {
 }
 ```
 
-![](https://media:401788445423762380)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/SscyutN6TfaD9ACze5iQNA/zh-cn_image_0000002733276074.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084650Z&HW-CC-Expire=31536000000&HW-CC-Sign=1FFFE1ACA235811A556256AA76B6C96053D82EED6E6321203EF9B4DA619224B7)
+

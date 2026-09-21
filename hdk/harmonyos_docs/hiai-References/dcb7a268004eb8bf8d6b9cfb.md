@@ -10,36 +10,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mldocumenline-
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |com.huawei.hms.mlsdk.document.MLDocument.Line 用来表示检测出的行，继承自Base，包含7个属性： * [getLanguageList](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mldocmentbase-0000001050169421#section861801415211)()：检测出行的语种。 * [getInterval](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mldocmentbase-0000001050169421#section1223410411215)()：行的间隔类型。 * [getBorder](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mldocmentbase-0000001050169421#section1921353213)()：行的边框。 * [getPoints](#section85150579412)()：行的边界顶点。 * [getStringValue](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mldocmentbase-0000001050169421#section111453411425)()：行的文本内容。 * [getPossibility](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mldocmentbase-0000001050169421#section774542919216)()：检测结果置信度。 * [getWordList](#section178821101859)()：行中包含的所有词。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
-|:----------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
-|List\<Point\>|[getPoints](#section85150579412)() 获取行的边界顶点。|
-|List\<[MLDocument.Word](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mldocumentword-0000001050169427)\>|[getWordList](#section178821101859)() 获取行中的所有词。|
+|:--------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+|List<Point>|[getPoints](#section85150579412)() 获取行的边界顶点。|
+|List<[MLDocument.Word](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mldocumentword-0000001050169427)>|[getWordList](#section178821101859)() 获取行中的所有词。|
 
-#### Public Methods
+## Public Methods
 
-#### getPoints()
-
-|Method|
-|:----------------------------------------------------------|
-|public List\<android.graphics.Point\> getPoints() 获取行的边界顶点。|
-
-Returns  
-
-|Type|Description|
-|:-----------------------------|:----------|
-|List\<android.graphics.Point\>|返回顶点列表。|
-
-#### getWordList()
+### getPoints()
 
 |Method|
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public List\<[MLDocument.Word](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mldocumentword-0000001050169427)\> getWordList() 获取行中的所有词。|
+|:--------------------------------------------------------|
+|public List<android.graphics.Point> getPoints() 获取行的边界顶点。|
 
-Returns  
+**Returns**
 
 |Type|Description|
-|:----------------------------------------------------------------------------------------------------------------------------------|:----------|
-|List\<[MLDocument.Word](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mldocumentword-0000001050169427)\>|返回词列表。|
+|:---------------------------|:----------|
+|List<android.graphics.Point>|返回顶点列表。|
+
+### getWordList()
+
+|Method|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public List<[MLDocument.Word](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mldocumentword-0000001050169427)> getWordList() 获取行中的所有词。|
+
+**Returns**
+
+|Type|Description|
+|:--------------------------------------------------------------------------------------------------------------------------------|:----------|
+|List<[MLDocument.Word](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mldocumentword-0000001050169427)>|返回词列表。|
 

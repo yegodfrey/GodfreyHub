@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/serverinfo-cs
 
 # 实时消息对象
 
-* [SendToServerInfo](https://developer.huawei.com/consumer/cn/doc/games-references/gameobe-sendtoserverinfo-csharp-0000002395196129)  
-* [RecvFromServerInfo](https://developer.huawei.com/consumer/cn/doc/games-references/gameobe-recvfromserverinfo-csharp-0000002361676072)  
+* **[SendToServerInfo](https://developer.huawei.com/consumer/cn/doc/games-references/gameobe-sendtoserverinfo-csharp-0000002395196129)**   
+* **[RecvFromServerInfo](https://developer.huawei.com/consumer/cn/doc/games-references/gameobe-recvfromserverinfo-csharp-0000002361676072)**   

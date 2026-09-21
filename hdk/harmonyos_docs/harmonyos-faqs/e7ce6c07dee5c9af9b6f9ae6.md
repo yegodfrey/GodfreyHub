@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-238
 
 # 在屏幕底部的组件的响应区域是否存在遮挡
 
-问题现象
+**问题现象**
 
 创建窗口并加载自定义键盘后，发现底部按钮下半部分无法响应点击事件。
 
-解决措施
+**解决措施**
 
 底部遮挡区域的高度为20像素，可以通过on('avoidAreaChange')事件获取。开发者可以定义一个点击区域来测试点击事件是否能够触发。以下为代码示例：
 
-```
+```ts
 @Entry
 @Component
 struct Index {
@@ -23,7 +23,7 @@ struct Index {
       Column() {
       }
       .width('100%')
-      .height(5) // 5px click range
+      .height(5)// 5px click range
       .backgroundColor(Color.Red)
       .onClick(() => {
         console.log("Trigger click event")
@@ -36,6 +36,7 @@ struct Index {
 }
 ```
 
-参考链接
+**参考链接**
 
-[on('avoidAreaChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onavoidareachange9)  
+[on('avoidAreaChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onavoidareachange9)
+

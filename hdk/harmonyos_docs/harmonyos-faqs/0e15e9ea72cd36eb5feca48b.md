@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1063
 
 # 使用Swiper实现图片的一镜到底转场效果
 
-#### 问题现象
+## 问题现象
 
 如下代码中，oneBuilder和twoBuilder的图片元素如何在Swiper组件实现一镜到底的过渡效果？
 
-```
+```ts
 @Entry
 @Component
 struct Demo {
@@ -70,19 +70,19 @@ struct Demo {
 }
 ```
 
-#### 背景知识
+## 背景知识
 
 * [Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)：滑块视图容器，提供子组件滑动轮播显示的能力。
 * [NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)：基础组件，用于挂载自定义节点（如FrameNode或BuilderNode），并通过[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)动态控制节点的上树和下树。
-* [translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#translate)：根据Swiper的实时偏移量，设置组件的平移属性，以实现组件的同步移动。  
+* [translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#translate)：根据Swiper的实时偏移量，设置组件的平移属性，以实现组件的同步移动。
 
-#### 解决方案
+## 解决方案
 
 该转场动效为交互式动画，需在Swiper滑动过程中实时绘制动画效果。实现方案如下：通过NodeContainer的节点迁移机制管理动画元素。监听Swiper的onContentDidScroll事件，获取实时偏移量。根据滑动位置position动态设置容器的平移量，以规避因状态变量更新导致的动画延迟。
 
 1. 通过继承并实现NodeController类，以管理图片节点的自定义创建和显示等操作。同时需要重写NodeController的makeNode()方法。该方法会在NodeController实例绑定到NodeContainer时被调用，并将返回的节点挂载到NodeContainer上。
 
-   ```
+   ```ts
    class TransNodeController extends NodeController {
      private node?: BuilderNode<[Object]>;
      private listener: TransListener;
@@ -104,7 +104,7 @@ struct Demo {
      }
 
 
-     // 移动节点
+    // 移动节点
      moveTo(target: TransNodeController) {
        this.detach();
        target.attach();
@@ -142,7 +142,7 @@ struct Demo {
 
 2. 监听Swiper页面的滑动事件，获取实时偏移量，并结合NodeContainer的节点迁移与绘制动画，实现NodeContainer中图片节点的"一镜到底"式动态转场效果。
 
-   ```
+   ```ts
    .onContentDidScroll((selectedIndex, index, position) => {
      if (this.lastPositionToWindowX == 0) {
        this.lastPositionToWindowX = this.swiperInfos[selectedIndex].controller.getPositionToWindow()?.x ?? 0;
@@ -171,7 +171,7 @@ struct Demo {
 
    完整代码示例参考：
 
-   ```
+   ```ts
    import { BuilderNode, NodeController } from '@kit.ArkUI';
 
 
@@ -284,7 +284,7 @@ struct Demo {
      }
 
 
-     // UI属性
+    // UI属性
      @Trace translate: number = 0;
      @Trace transNodeTranslate: number = 0;
    }
@@ -293,14 +293,14 @@ struct Demo {
    @Entry
    @Component
    struct SwiperTransitionDemo {
-     // 图片大小原始比例
+    // 图片大小原始比例
      @State imageWidth: number = 1;
      // 最大宽度比和最小宽度比
      private max_width: number = 1;
      private min_width: number = 0.3;
-     // 图片位置
+    // 图片位置
      private lastPositionToWindowX: number = 0;
-     // 共享图片builder node对象
+   // 共享图片builder node对象
      private transNode = new BuilderNode<[TransNodeContent]>(this.getUIContext());
      // node controller对象
      private swiperInfos: SwiperItemInfo[] = [
@@ -310,7 +310,7 @@ struct Demo {
 
 
      aboutToAppear(): void {
-       // 提前创建组件，提升页面响应速度
+      // 提前创建组件，提升页面响应速度
        this.transNode.build(wrapBuilder<[TransNodeInfo]>(TransNodeContentBuilder), new TransNodeInfo(() => {
          this.imageBuilder();
        }));
@@ -338,7 +338,7 @@ struct Demo {
 
      @Builder
      oneBuilder(info: SwiperItemInfo, index: number) {
-       // 使用堆叠容器，转场图片放到页面之上
+      // 使用堆叠容器，转场图片放到页面之上
        Stack() {
          Column() {
            // 内容区域
@@ -352,7 +352,7 @@ struct Demo {
          .translate({ x: `${info.translate}%` })
 
 
-         // 使用NodeContainer显示自定义节点
+        // 使用NodeContainer显示自定义节点
          NodeContainer(info.controller)
            .width('100%')
            .position({ x: 8, y: 8 })
@@ -385,7 +385,7 @@ struct Demo {
          .height('100%')
          .effectMode(EdgeEffect.None)
          .hitTestBehavior(HitTestMode.Transparent)
-         // 监听Swiper页面滑动事件，获取实时偏移量绘制动画。
+        // 监听Swiper页面滑动事件，获取实时偏移量绘制动画。
          .onContentDidScroll((selectedIndex, index, position) => {
            if (this.lastPositionToWindowX == 0) {
              this.lastPositionToWindowX = this.swiperInfos[selectedIndex].controller.getPositionToWindow()?.x ?? 0;

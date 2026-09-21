@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/audioeditorsd
 
 # Overview
 
-#### Interface Summary
+## Interface Summary
 
 |Interface|Description|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|
@@ -22,7 +22,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/audioeditorsd
 |[LaunchCallback](https://developer.huawei.com/consumer/cn/doc/development/Media-References/launchcallback-0000001379024392)|启动编辑界面的回调。|
 |[OnTransformCallBack](https://developer.huawei.com/consumer/cn/doc/development/Media-References/ontransformcallback-0000001156926717)|音频格式转换回调接口。|
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|
@@ -59,7 +59,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/audioeditorsd
 |[SpaceRenderPositionParams](https://developer.huawei.com/consumer/cn/doc/development/Media-References/spacerenderpositionparams-0000001210853057)|3D动态渲染固定摆位模式参数类。|
 |[SpaceRenderRotationParams](https://developer.huawei.com/consumer/cn/doc/development/Media-References/spacerenderrotationparams-0000001165573088)|3D动态渲染模式参数类。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum|Description|
 |:------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|

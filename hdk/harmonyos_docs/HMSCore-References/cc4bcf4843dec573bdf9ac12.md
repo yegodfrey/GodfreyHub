@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/restriction
 |:---------------------------------------|
 |public class RestrictionInfoDTO 限行参数信息类。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:--------------------------------------------------------------------------|
@@ -23,99 +23,99 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/restriction
 |void|[setSeatNum](#section13369191082512)(int seatNum) 设置座位数，默认2座。|
 |void|[setTempPlate](#section1763291942711)(boolean tempPlate) 设置是否为临时牌照。|
 
-#### Public Methods
+## Public Methods
 
-#### setEnergyType
+### setEnergyType
 
 |Method|
 |:----------------------------------------------------------------|
 |public void setEnergyType(int energyType) 您调用此API可以设置能源类型，默认为汽油车。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:-----------|
 |energyType|能源类型，默认为汽油车。|
 
-#### setHasCredentials
+### setHasCredentials
 
 |Method|
 |:-----------------------------------------------------------------------|
 |public void setHasCredentials(boolean hasCredentials) 您调用此API可以设置是否有通行证。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------------|:------------------------|
 |hasCredentials|是否有通行证 * true：是 * false：否|
 
-#### setMisStand
+### setMisStand
 
 |Method|
 |:-------------------------------------------------------------|
 |public void setMisStand(int misStand) 您调用此API可以设置油气排放标准，默认国标6。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:------------|
 |misStand|油气排放标准，默认国标6。|
 
-#### setPlaceCode
+### setPlaceCode
 
 |Method|
 |:---------------------------------------------------------------|
 |public void setPlaceCode(int placeCode) 您调用此API可以设置归属地信息，国内为城市码。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------|:------------|
 |placeCode|归属地信息，国内为城市码。|
 
-#### setPlateColor
+### setPlateColor
 
 |Method|
 |:--------------------------------------------------------------|
 |public void setPlateColor(int plateColor) 您调用此API可以设置车牌颜色，默认蓝牌。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:----------|
 |plateColor|车牌颜色，默认蓝牌。|
 
-#### setPlateNum
+### setPlateNum
 
 |Method|
 |:----------------------------------------------------------|
 |public void setPlateNum(String plateNum) 您调用此API可以设置字母数字信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------|
 |plateNum|字母数字信息。|
 
-#### setSeatNum
+### setSeatNum
 
 |Method|
 |:-------------------------------------------------------|
 |public void setSeatNum(int seatNum) 您调用此API可以设置座位数，默认2座。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |seatNum|座位数，默认2座。|
 
-#### setTempPlate
+### setTempPlate
 
 |Method|
 |:--------------------------------------------------------------|
 |public void setTempPlate(boolean tempPlate) 您调用此API可以设置是否为临时牌照。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------|:-------------------------|

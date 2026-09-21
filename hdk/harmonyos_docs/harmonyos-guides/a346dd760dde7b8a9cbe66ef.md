@@ -15,9 +15,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-call-ov
 
   蜂窝通话是指传统的电话功能，由运营商提供服务，目前仅对系统应用开放，未向第三方应用提供开发接口。
 
-在开发音频通话相关功能时，开发者可以根据实际情况，检查当前的[音频场景模式](#音频场景模式)和[铃声模式](#铃声模式)，以使用相应的音频处理策略。  
+在开发音频通话相关功能时，开发者可以根据实际情况，检查当前的[音频场景模式](#音频场景模式)和[铃声模式](#铃声模式)，以使用相应的音频处理策略。
 
-#### 音频场景模式
+## 音频场景模式
 
 应用使用音频通话相关功能时，系统会切换至与通话相关的音频场景模式（[AudioScene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioscene8)），当前预置了多种音频场景，包括响铃、通话、语音聊天等，在不同的场景下，系统会采用不同的策略来处理音频。
 
@@ -29,9 +29,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-call-ov
 
 * AUDIO_SCENE_VOICE_CHAT：语音聊天音频场景，VoIP通话时使用。
 
-应用可通过[AudioManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiomanager)的getAudioScene来获取当前的音频场景模式。当应用开始或结束使用音频通话相关功能时，可通过此方法检查系统是否已切换为合适的音频场景模式。  
+应用可通过[AudioManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiomanager)的getAudioScene来获取当前的音频场景模式。当应用开始或结束使用音频通话相关功能时，可通过此方法检查系统是否已切换为合适的音频场景模式。
 
-#### 铃声模式
+## 铃声模式
 
 在用户进入到音频通话时，应用可以使用铃声或振动来提示用户。系统通过调整铃声模式（[AudioRingMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioringmode)），便捷地管理铃声音量，并调整设备的振动模式。
 
@@ -45,10 +45,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-call-ov
 
 应用可以调用[AudioVolumeGroupManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiovolumegroupmanager)中的getRingerMode获取当前的铃声模式，以便采取合适的提示策略。
 
-如果应用希望及时获取铃声模式的变化情况，可以通过AudioVolumeGroupManager中的on('ringerModeChange')监听铃声模式变化事件，使应用在铃声模式发生变化时及时收到通知，方便应用做出相应的调整。  
+如果应用希望及时获取铃声模式的变化情况，可以通过AudioVolumeGroupManager中的on('ringerModeChange')监听铃声模式变化事件，使应用在铃声模式发生变化时及时收到通知，方便应用做出相应的调整。
 
-#### 通话场景音频设备切换
+## 通话场景音频设备切换
 
 在通话场景下，系统会根据默认优先级选择合适的音频设备。应用可以根据需要，切换音频设备。
 
-切换方式可参考[AVSession Kit使用通话设备切换组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-switch-call-devices)。  
+切换方式可参考[AVSession Kit使用通话设备切换组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-switch-call-devices)。
+

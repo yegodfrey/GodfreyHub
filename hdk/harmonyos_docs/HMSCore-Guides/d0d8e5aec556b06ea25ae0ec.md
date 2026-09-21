@@ -12,11 +12,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/harmonyos-write
 4. 构建健康记录。
 5. 调用[addHealthRecord](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/harmonyos-manage-health-records-0000001232134027#section13164153916570)接口添加睡眠健康记录。
 
-   <br />
-
    写入睡眠健康记录示例代码如下：
 
-   ```
+   ```screen
    import {HMSHealthKit, HMSHealthKitDataType, HMSHealthKitDeviceType, DeviceInfo, DataCollector, Value, SamplePoint, SampleSet, HealthRecord, HealthRecordInsertOptions} from '@hw-hmscore/hms-js-health'
    // 根据设备生产商、设备模型编号、设备uuid、设备类型构造设备信息
    let deviceInfo = new DeviceInfo("manufacturer", "modelName", "uuid", HMSHealthKitDeviceType.TYPE_PHONE);
@@ -63,6 +61,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/harmonyos-write
        console.error("addHealthRecord fail: " + JSON.stringify(error));
    })
    ```
-
-   <br />
 

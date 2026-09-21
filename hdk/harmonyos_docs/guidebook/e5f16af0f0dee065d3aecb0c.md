@@ -6,71 +6,69 @@ uri: https://developer.huawei.com/consumer/cn/doc/guidebook/develop-once-deploy-
 
 # 自由窗口适配
 
-在手机设备上，用户可根据自己的喜好，同时配合应用已实现的能力，选择在分屏、全景多窗、悬浮窗等场景下使用应用。不同于直板手机，部分设备可通过窗口模式打开应用。如PC设备，应用默认在窗口模式下打开；再如平板或三折叠设备，用户可通过打开控制中心中的自由多窗开关使设备进入自由窗口模式。因此应用适配窗口模式，不仅可以减少跨端适配的工作量，同时也能够满足用户更多样化的场景使用选择。  
+在手机设备上，用户可根据自己的喜好，同时配合应用已实现的能力，选择在分屏、全景多窗、悬浮窗等场景下使用应用。不同于直板手机，部分设备可通过窗口模式打开应用。如PC设备，应用默认在窗口模式下打开；再如平板或三折叠设备，用户可通过打开控制中心中的自由多窗开关使设备进入自由窗口模式。因此应用适配窗口模式，不仅可以减少跨端适配的工作量，同时也能够满足用户更多样化的场景使用选择。
 
-#### 5.1.1窗口生命周期适配
+## 5.1.1窗口生命周期适配
 
 用户使用手机和PC的场景天然存在不同：手机主要用于内容消费、生活购物、社交等活动，应用程序默认全屏运行，强调沉浸式体验；PC则主要用于创作、编程、视频剪辑等生产力活动，支持多窗口堆叠、自由拖拽等能力。典型效果如下：
 
-![](https://media:801788430174437206 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/zezPRdYDT4eAYatqkLT_tA/zh-cn_image_0000002625192429.png?HW-CC-KV=V1&HW-CC-Date=20260909T145835Z&HW-CC-Expire=31536000000&HW-CC-Sign=8BDB1A37143A5305124A3F773BD70569ADD499D31107C357B6B65079F18E5FE5 "点击放大")
 
-#### 5.1.1.1 生命周期差异
+### 5.1.1.1 生命周期差异
 
 无论是在手机还是PC上开发带界面应用，都需要使用到UIAbility组件。系统在启动应用创建UIAbility时，会默认创建一个主窗口。在不同设备上，UIAbility和窗口生命周期是一致的，但是触发时机存在一定差异，开发者需要关注这方面的差异：
 
-* Phone类型设备上：窗口从前台进入后台状态，会驱动UIAbility到后台状态。
-* Tablet类型设备上：
+* **Phone类型设备上**：窗口从前台进入后台状态，会驱动UIAbility到后台状态。
+* **Tablet类型设备上：**
   * 针对不支持在2in1设备上运行的应用，或可同时支持在phone和2in1上运行的应用，窗口从前台进入后台状态，会驱动UIAbility为后台状态。
 
-  <!-- -->
 
   * 针对不支持在phone设备上运行且支持在2in1设备上运行的应用，窗口从前台进入后台状态，不会驱动UIAbility为后台状态。
 
-<!-- -->
 
-* 2in1类型设备上：
+* **2in1类型设备上：**
   * 针对支持在phone设备运行的应用，窗口从前台进入后台状态，会驱动UIAbility为后台状态。
   * 针对不支持在phone设备运行的应用，窗口从前台进入后台状态，不会驱动UIAbility为后台状态。
 
-之所以存在这种差异，主要在于手机应用更关注前台焦点应用，停止后台应用以提升性能和续航；PC应用更多是生产任务，窗口不可见时应用依然要保持持续运行。开发者应根据以上规则，在不同设备上根据自身诉求做不同能力的事件处理。  
+之所以存在这种差异，主要在于手机应用更关注前台焦点应用，停止后台应用以提升性能和续航；PC应用更多是生产任务，窗口不可见时应用依然要保持持续运行。开发者应根据以上规则，在不同设备上根据自身诉求做不同能力的事件处理。
 
-#### 5.1.1.2 UIAbility和WindowStage生命周期
+### 5.1.1.2 UIAbility和WindowStage生命周期
 
 当用户打开、切换、最小化、返回到对应应用时，应用中的UIAbility实例会在其生命周期的不同状态之间转换。UIAbility类提供了一系列生命周期回调，通过这些回调可以知道当前UIAbility实例的某个状态发生改变。UIAbility生命周期包括Create、Foreground、Background、Destroy等多个状态，同时穿插对应着多个WindowStage的回调事件和监听，具体如下图所示。
 
-![](https://media:801788430174467207 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/nOp728ZAQ9aIHCg73-u-qA/zh-cn_image_0000002594673060.png?HW-CC-KV=V1&HW-CC-Date=20260909T145835Z&HW-CC-Expire=31536000000&HW-CC-Sign=AAB8741CC0982FFD9FE0E70F67B1475329F3DCD970E799F61585B647E697D676 "点击放大")
 
-开发者需要继承UIAbility，通过UIAbility的生命周期回调感知应用创建、进入前台、后台、销毁。同时通过WindowStage的WindowStageEvent事件感知窗口状态变化。  
+开发者需要继承UIAbility，通过UIAbility的生命周期回调感知应用创建、进入前台、后台、销毁。同时通过WindowStage的WindowStageEvent事件感知窗口状态变化。
 
-#### 5.1.2应用窗口化开发
+## 5.1.2应用窗口化开发
 
-自由窗口模式下，应用正常启动推荐使用自由窗口模式而非全屏。由于自由窗口模式的设备无状态栏和导航栏的干扰，因此开发者无需考虑相关场景的避让。但是开发者应关注应用可支持的最大、最小尺寸，以及应用的宽高比范围，防止应用窗口太小导致布局发生意想不到的变化。这部分数据在module.json5文件的abilities标签中进行配置。  
+自由窗口模式下，应用正常启动推荐使用自由窗口模式而非全屏。由于自由窗口模式的设备无状态栏和导航栏的干扰，因此开发者无需考虑相关场景的避让。但是开发者应关注应用可支持的最大、最小尺寸，以及应用的宽高比范围，防止应用窗口太小导致布局发生意想不到的变化。这部分数据在module.json5文件的abilities标签中进行配置。
 
-#### 5.1.3标题栏沉浸式
+## 5.1.3标题栏沉浸式
 
 在自由窗口模式下，应用的标题栏默认支持移动、缩小、放大、关闭窗口的能力。开发者可通过设置应用窗口的标题栏不可见，将应用页面拓展至原标题栏区域，实现窗口沉浸式。效果图如下：
 
-![](https://media:801788430174501208 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/RexEetM8SkCDrDiAa67qGQ/zh-cn_image_0000002625112573.png?HW-CC-KV=V1&HW-CC-Date=20260909T145835Z&HW-CC-Expire=31536000000&HW-CC-Sign=3AC8D7DC4B7566FB2A2DC8D7621B581B5680E93510BC63178546D2E2A507006C "点击放大")
 
 自由窗口标题栏包含应用图标、应用名称以及三键（全屏/还原、最小化、关闭）。通过设置标题栏不可见，隐藏应用图标及应用名称保留三键区的方式实现窗口沉浸式。
 
-实现原理
+**实现原理**
 
 1. 开发者通过isInFreeWindowMode()判断或on('freeWindowModeChange')监听当前是否处于自由窗口模式
 2. 使用setWindowDecorVisible(false)设置窗口标题栏不可见，此时应用页面拓展至标题栏区域
-3. 使用setWindowDecorHeight()接口设置导航栏高度，控制右上角三键区显示以及显示高度。  
+3. 使用setWindowDecorHeight()接口设置导航栏高度，控制右上角三键区显示以及显示高度。
 
-#### 5.1.4自由窗口的全屏沉浸式
+## 5.1.4自由窗口的全屏沉浸式
 
 视频类应用在自由窗口模式下，需要实现视频播放页在自由窗口与全屏沉浸式切换功能。
 
-![](https://media:801788430174560209 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/4BMoh0mQQ-iDaioibrNroA/zh-cn_image_0000002594832984.png?HW-CC-KV=V1&HW-CC-Date=20260909T145835Z&HW-CC-Expire=31536000000&HW-CC-Sign=028BDA14E3BE2ABF8FD60497254DA757B8FE8399A2B45B70F0DEACF957B5B2E6 "点击放大")
 
-实现原理
+**实现原理**
 
-通过调用窗口状态操作的接口，实现应用全屏沉浸式与自由窗口的切换。以长视频应用为例，视频播放需要支持沉浸式体验，例如用户双击视频或点击最大化按钮时，可调用window.maximize()，接口默认传入参数为ENTER_IMMERSIVE，以此实现最大化时进入沉浸式布局效果；例如用户再次双击视频或点击退出全屏按钮时，可调用window. recover()用以还原为浮动窗口，恢复为进入全屏前的大小和位置。  
+通过调用窗口状态操作的接口，实现应用全屏沉浸式与自由窗口的切换。以长视频应用为例，视频播放需要支持沉浸式体验，例如用户双击视频或点击最大化按钮时，可调用window.maximize()，接口默认传入参数为ENTER_IMMERSIVE，以此实现最大化时进入沉浸式布局效果；例如用户再次双击视频或点击退出全屏按钮时，可调用window. recover()用以还原为浮动窗口，恢复为进入全屏前的大小和位置。
 
-#### 5.1.5外接显示器
+## 5.1.5外接显示器
 
 通常，PC设备可支持外接显示器，以实现可用屏幕区域的扩展，鸿蒙PC同样支持。例如，在办公类应用在线会议使用屏幕共享功能时，应用应为用户提供选择共享哪块屏幕的能力。
 
@@ -81,4 +79,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/guidebook/develop-once-deploy-
 * 在半折叠态（关闭全尺寸键盘）下，设备拥有上下两个屏幕，其中上屏的displayId为0，下屏的displayId为999。而在半折叠态（唤起全尺寸键盘）和展开态下，仅显示displayId为0的屏幕。
 * 折叠PC外接显示器时，会自动进入横向展开态布局，且屏幕方向为反向横屏，此时折叠PC默认作为主显示器（displayId为0），外接屏幕作为副显示器（displayId与接入的端口有关）。可使用getWindowProperties()方法获取当前窗口的属性WindowProperties，其中displayId为当前窗口所在屏幕的ID，从而可判断当前窗口所在的显示器。
 
-![](https://media:801788430174615210 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/tVXyRUIoQmKoUqgk4VpKJg/zh-cn_image_0000002625192431.png?HW-CC-KV=V1&HW-CC-Date=20260909T145835Z&HW-CC-Expire=31536000000&HW-CC-Sign=49BDDD96D71369675AD6F435ADBDA4E81CAAA0A7395FCC9DA24CB10FD30E28F3 "点击放大")
+

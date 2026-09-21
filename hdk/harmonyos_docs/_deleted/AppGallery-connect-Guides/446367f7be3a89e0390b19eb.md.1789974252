@@ -1,0 +1,51 @@
+---
+name: document/cn/AppGallery-connect-Guides/agc-auth-server-obtainjwt-0000001054048961
+title: 生成自有账号凭据
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-server-obtainjwt-0000001054048961
+---
+
+# 生成自有账号凭据
+
+开发者在接入AppGalleryConnect（简称AGC）认证服务时，除了需要对接非托管第三方账户，还可能需要对接开发者自己的自有账户，认证服务的Server SDK提供了将开发者的自建账户快速对接AGC认证服务的能力。
+
+自有账户对接AGC认证服务，需要提供自有账号凭据JWT(Json Web Token)。
+
+## 前提条件
+
+您需要在您的开发工程中集成认证服务的Server SDK以及完成初始化，请参见[集成SDK](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-server-integration-sdk-0000001333298505)。
+
+## 开发步骤
+
+1. 调用[AGCAuth.generateKey](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/auth-serversdk-agcauth-0000001055003341#section178115201893)生成公私钥。 注意
+   >
+   > 公私钥仅需要生成一次保存好即可，无需多次调用。
+
+   ```screen
+   RSAKeyPair rsaKeyPair = agcAuth.generateKey();
+   ```
+
+   其中:
+   * 私钥为[rsaKeyPair.getPrivateKey()](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/auth-serversdk-rsakeypair-0000001055763280#section107961446101911)，在生成JWT时使用。
+   * 公钥为[rsaKeyPair.getPublicKey()](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/auth-serversdk-rsakeypair-0000001055763280#section16471141391915)，需要配置到自有账号页面中，参见[2](#ZH-CN_TOPIC_0000001054048961__li9994755191615)。
+2. 登录AppGallery Connect，在"开发与服务"下"云开发（Serverless）> 认证服务"页面中点击"自有账号"后的"启用"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/H3mLpxv8Q8mJ3mP4mvEOBQ/zh-cn_image_0000001215083569.png?HW-CC-KV=V1&HW-CC-Date=20260916T034031Z&HW-CC-Expire=31536000000&HW-CC-Sign=D5F630D10DEFED7DD9D210AEA34BEB3AF4F79A1F15FC82722D2DD4C25A70AE66 "点击放大")
+
+   在输入框中配置上一步生成的公钥：
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/v7hIhXb7Sw2DG6pQgsNi_Q/zh-cn_image_0000001217901979.png?HW-CC-KV=V1&HW-CC-Date=20260916T034031Z&HW-CC-Expire=31536000000&HW-CC-Sign=D632D1FC6B659E3CFD142F6F975E9D98F4278E00750D49995E7ADA0BB4BEAA3B)
+3. 调用[AGCAuth.sign](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/auth-serversdk-agcauth-0000001055003341#section16263156912)生成JWT。
+
+   ```screen
+   AGCAuthJwtToken token = agcAuth.sign(UID, DISPLAYNAME, PHOTOURL, privateKey);
+   ```
+
+   参数说明：
+
+   |参数|必选(M)/可选(O)|类型|说明|
+   |:----------|:----------|:-----------|:---------|
+   |UID|M|String(1024)|用户ID，唯一标识。|
+   |DISPLAYNAME|O|String(1024)|用户昵称。|
+   |PHOTOURL|O|String(2048)|头像地址。|
+   |privateKey|M|String|私钥。|
+
+4. 生成JWT后，传递给应用客户端对接AGC认证服务。
+

@@ -1,0 +1,15 @@
+---
+name: document/cn/HMSCore-References/package-summary-0000001215855908
+title: Package Summary
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/package-summary-0000001215855908
+---
+
+# Package Summary
+
+|Package Name|Description|
+|:-----------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+|[com.huawei.hms.hihealth](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealth_overview-0000001050091291)|Health Service Kit的功能类集合。|
+|[com.huawei.hms.hihealth.data](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/data_overview-0000001050091637)|包含Health Service Kit的data数据集合。|
+|[com.huawei.hms.hihealth.options](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/options_overview-0000001050091102)|Health Service Kit的请求对象类。|
+|[com.huawei.hms.hihealth.result](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/result_overview-0000001050093241)|调用Health Service Kit接口的返回类，开发者可以在调用API接口的回调中使用。|
+

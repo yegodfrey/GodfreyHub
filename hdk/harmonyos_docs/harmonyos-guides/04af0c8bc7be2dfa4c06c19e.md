@@ -8,11 +8,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-multi-ass
 
 多个组件关联同一数据时，建议在组件中使用@Watch装饰器添加更新条件，避免不必要的组件更新。
 
-[通用丢帧场景](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management#section117631443131915)下，建议优先修改。  
+[通用丢帧场景](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management#section117631443131915)下，建议优先修改。
 
-#### 规则配置
+## 规则配置
 
-```
+```screen
 // code-linter.json5
 {
   "rules": {
@@ -21,13 +21,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-multi-ass
 }
 ```
 
-#### 选项
+## 选项
 
-该规则无需配置选项。  
+该规则无需配置选项。
 
-#### 正例
+## 正例
 
-```
+```screen
 @Observed
 class UIStyle {
   fontSize: number = 0;
@@ -128,9 +128,9 @@ struct CompC {
 }
 ```
 
-#### 反例
+## 反例
 
-```
+```screen
 @Observed
 class UIStyle {
   fontSize: number = 0;
@@ -222,10 +222,11 @@ struct CompC {
 }
 ```
 
-#### 规则集
+## 规则集
 
-```
+```screen
 plugin:@performance/all
 ```
 
-Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。  
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+

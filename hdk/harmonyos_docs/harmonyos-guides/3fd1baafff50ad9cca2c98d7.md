@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-syste
 
 # 系统变量访问
 
-* [GetBlockNum](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getblocknum)  
-* [GetBlockIdx](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getblockidx)  
+* **[GetBlockNum](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getblocknum)**   
+* **[GetBlockIdx](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getblockidx)**   

@@ -6,23 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-o
 
 # ONNX模型转换CANN模型
 
-开发者需利用CANN提供的tools工具完成从ONNX模型到CANN模型的转换，模型转换完成后，即可开始集成。  
+开发者需利用CANN提供的tools工具完成从ONNX模型到CANN模型的转换，模型转换完成后，即可开始集成。
 
-#### 配置CANN LLM模型NPU亲和适配文件
+## 配置CANN LLM模型NPU亲和适配文件
 
 NPU亲和改造的脚本文件已默认在/CANN_LLM_Engine_Model/npu_tuned_export/npu_tuned_model下各个模型文件夹中，如果需要定制，请参见[CANN LLM模型NPU亲和适配说明](https://gitcode.com/HarmonyOS_Samples/cannkit_samplecode_lm_engine_cpp/blob/master/CANN_LLM/CANN_LLM_Engine_Model/npu_tuned_export/npu_tuned_model/qwen2/README.md)。
 
-开发者只需要按照下文模型转换流程执行对应的脚本，即可完成亲和化改造。  
+开发者只需要按照下文模型转换流程执行对应的脚本，即可完成亲和化改造。
 
-#### 环境准备
+## 环境准备
 
-模型转换需要使用tools/tools_omg/omg工具，继承量化环节的[DDK工具环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-usage-environmental-preparation)。  
+模型转换需要使用tools/tools_omg/omg工具，继承量化环节的[DDK工具环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-usage-environmental-preparation)。
 
-#### 模型转换
+## 模型转换
 
 1. 修改CANN_LLM/CANN_LLM_Engine_Model/scripts_for_omc/to_omc.sh脚本，配置相应的omg_type、模型文件路径modelpath和量化文件路径compress_path，示例：
 
-   ```
+   ```shell
    omg_type=xxxxxx
    modelpath=./model.onnx
    compress_path=./quant_params_file
@@ -54,4 +54,5 @@ NPU亲和改造的脚本文件已默认在/CANN_LLM_Engine_Model/npu_tuned_expor
 
    输出：CANN格式的模型。
 
-模型转换完成后，即可开始集成。  
+   模型转换完成后，即可开始集成。
+

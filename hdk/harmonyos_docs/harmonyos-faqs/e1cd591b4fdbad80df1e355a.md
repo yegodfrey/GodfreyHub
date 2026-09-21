@@ -6,39 +6,39 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-device-cer
 
 # 如何解决createX509Cert读取证书文件获取的PublicKey使用报错问题
 
-#### 问题现象
+## 问题现象
 
 使用certFramework的createX509Cert读取证书文件，使用getPublicKey方法可以成功获取到公钥，但使用此公钥进行初始化报错。
 
-```
+```screen
 let publicKey = x509Cert.getPublicKey().getEncoded()
-// 创建实例化对象
+//创建实例化对象
 let cipher = cryptoFramework.createCipher('RSA1024|PKCS1')
-// 初始化加解密对象
+//初始化加解密对象
 cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, publicKey, null)
 ```
 
-#### 背景知识
+## 背景知识
 
 * 创建X509证书对象：[cert.createX509Cert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certcreatex509cert)。
 * 获取X509证书公钥：[x509Cert.getPublicKey()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#getpublickey)。
 * 同步获取指定数据生成非对称密钥：[AsyKeyGenerator.convertKeySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkeysync12-1)。
-* 初始化加解密的cipher对象：[cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)。  
+* 初始化加解密的cipher对象：[cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)。
 
-#### 问题定位
+## 问题定位
 
 1. 确认获取的公钥是否满足RSA公钥格式。
-2. 获取到的公钥有没有加载到RSA密钥对象中。  
+2. 获取到的公钥有没有加载到RSA密钥对象中。
 
-#### 分析结论
+## 分析结论
 
-虽然成功获取到证书中的公钥，但没有将公钥数据通过convertKey方法生成RSA公钥进而加载到密钥对象中，就直接使用此公钥进行初始化操作，导致公钥参数错误引发初始化报错。  
+虽然成功获取到证书中的公钥，但没有将公钥数据通过convertKey方法生成RSA公钥进而加载到密钥对象中，就直接使用此公钥进行初始化操作，导致公钥参数错误引发初始化报错。
 
-#### 修改建议
+## 修改建议
 
 将读取证书获取的公钥数据，通过convertKey方法生成RSA公钥，然后再使用此公钥进行初始化、加密数据等操作。
 
-```
+```screen
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import certFramework from '@ohos.security.cert';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -58,12 +58,12 @@ function create509(encodingBlob: certFramework.EncodingBlob, cb: (s: string) => 
   certFramework.createX509Cert(encodingBlob).then(async x509Cert => {
     let publicKey = x509Cert.getPublicKey().getEncoded().data.toString();
     console.info('createX509Cert success: publicKey = ' + publicKey);
-    // 进行密钥转换
+  // 进行密钥转换
     let rsaGenerator = cryptoFramework.createAsyKeyGenerator('RSA1024');
     let keyPair = rsaGenerator.convertKeySync(x509Cert.getPublicKey().getEncoded(), null);
-    // 创建实例化对象
+  // 创建实例化对象
     let cipher = cryptoFramework.createCipher('RSA1024|PKCS1');
-    // 初始化加解密对象
+   // 初始化加解密对象
     await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, keyPair.pubKey, null);
 
     let sha1 = '32**************d7';
@@ -89,7 +89,7 @@ struct CreateX509Cert {
   message: string = '';
 
   aboutToAppear(): void {
-    // 证书二进制数据，需业务自行赋值。
+    //证书二进制数据，需业务自行赋值。
     let certData = '-----BEGIN CERTIFICATE-----\r\n' +
       'MIIDTjCCAjagAwIBAgIBBDANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdSb290\n' +
       'IENBMB4XDTI0MDMxOTAyMDQwMVoXDTM0MDMxNzAyMDQwMVowEjEQMA4GA1UEAwwH\n' +
@@ -113,7 +113,7 @@ struct CreateX509Cert {
 
     let encodingBlob: cert.EncodingBlob = {
       data: stringToUint8Array(certData),
-      // 根据encodingData的格式进行赋值，支持FORMAT_PEM和FORMAT_DER。
+     // 根据encodingData的格式进行赋值，支持FORMAT_PEM和FORMAT_DER。
       encodingFormat: cert.EncodingFormat.FORMAT_PEM
     };
     create509(encodingBlob, () => {
@@ -133,6 +133,7 @@ struct CreateX509Cert {
 }
 ```
 
-#### 总结
+## 总结
 
-使用证书中的公钥数据进行加解密相关操作，需要注意中间流程的公钥数据流转与转换，避免使用错误的公钥数据进行相关操作，相关API的使用需要满足其使用条件。  
+使用证书中的公钥数据进行加解密相关操作，需要注意中间流程的公钥数据流转与转换，避免使用错误的公钥数据进行相关操作，相关API的使用需要满足其使用条件。
+

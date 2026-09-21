@@ -11,7 +11,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-creator-run
 3. 在手机上对游戏进行测试，例如界面布局、游戏功能是否异常。详情请参见[应用调试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-app)。
 4. 若在调试过程中出现问题，可输入如下命令，导出日志进行定位和分析。
 
-   ```
+   ```screen
    hdc hilog >E:\DevEcoStudioProjects\LOG\log.txt
    ```
 

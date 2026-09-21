@@ -6,19 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1262
 
 # RichEditor自定义菜单文本复制
 
-#### 问题现象
+## 问题现象
 
-RichEditor自定义菜单中如何实现复制功能？  
+RichEditor自定义菜单中如何实现复制功能？
 
-#### 背景知识
+## 背景知识
 
 * [RichEditor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor)：支持图文混排和文本交互式编辑的组件。
 * [bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#bindselectionmenu)：设置自定义选择菜单。
 * [onSelect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#onselect)：鼠标左键双击选中内容时，会触发回调；松开鼠标左键后，会再次触发回调。手指长按选中内容时，会触发回调；松开手指后，会再次触发回调。
 * [getSpans](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#getspans)：获取span信息。
-* [@ohos.pasteboard (剪贴板)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pasteboard)：本模块提供管理系统剪贴板的能力，支持系统复制、粘贴功能。  
+* [@ohos.pasteboard (剪贴板)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pasteboard)：本模块提供管理系统剪贴板的能力，支持系统复制、粘贴功能。
 
-#### 解决方案
+## 解决方案
 
 实现步骤如下：
 
@@ -29,7 +29,7 @@ RichEditor自定义菜单中如何实现复制功能？
 
 代码如下：
 
-```
+```typescript
 import { pasteboard } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
 
@@ -81,7 +81,7 @@ struct RichEditorExample {
                 }
               });
               let pasteboardData = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, this.textContent);
-              // 获取系统剪贴板对象
+            // 获取系统剪贴板对象
               let systemPasteboard = pasteboard.getSystemPasteboard();
               systemPasteboard.setData(pasteboardData); // 将数据放入剪贴板
               systemPasteboard.getData().then((data) => { // 读取剪贴板内容
@@ -98,7 +98,7 @@ struct RichEditorExample {
             // 关闭自定义菜单
             this.controller.closeSelectionMenu();
           });
-        // 设置间隔
+     // 设置间隔
         if (index < this.optionsPopup.length - 1) {
           Divider().height(10).vertical(true);
         }
@@ -139,7 +139,7 @@ struct RichEditorExample {
                 fontSize: 30
               }
             });
-          // 在实际使用时可替换为需要的图片
+         // 在实际使用时可替换为需要的图片
           this.controller.addImageSpan($r('app.media.startIcon'),
             {
               imageStyle:
@@ -159,4 +159,5 @@ struct RichEditorExample {
 
 效果如下：
 
-![](https://media:101782461558534267 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/KGP7XVAtR-aIqAMM7n2BCQ/zh-cn_image_0000002658955327.png?HW-CC-KV=V1&HW-CC-Date=20260920T114736Z&HW-CC-Expire=31536000000&HW-CC-Sign=E72E319DD1281A75E114C6A10EB50D6F1BA7C5E3C069E876C4BBB57A8AB598E6 "点击放大")
+

@@ -6,19 +6,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
 
 # 自定义绘制
 
-#### 概述
+## 概述
 
-当某些组件本身的绘制内容不满足需求时，可使用组件自定义绘制功能，在原有组件基础上部分绘制、或者全部自行绘制，以达到预期效果。例如：独特的按钮形状、文字和图像混合的图标等。NDK提供了自定义绘制节点的能力，通过自定义绘制事件，开发者可以实现基于NDK侧[ArkUI_NodeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodetype)中ARKUI_NODE_CUSTOM类型节点的自绘制能力。  
-![](https://media:401788444483379010)  
-* ArkTS的自定义绘制能力和示例请参考[自定义绘制修改器 (DrawModifier)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-drawmodifier)。  
+当某些组件本身的绘制内容不满足需求时，可使用组件自定义绘制功能，在原有组件基础上部分绘制、或者全部自行绘制，以达到预期效果。例如：独特的按钮形状、文字和图像混合的图标等。NDK提供了自定义绘制节点的能力，通过自定义绘制事件，开发者可以实现基于NDK侧[ArkUI_NodeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodetype)中ARKUI_NODE_CUSTOM类型节点的自绘制能力。
+> 说明
+>
+> * ArkTS的自定义绘制能力和示例请参考[自定义绘制修改器 (DrawModifier)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-drawmodifier)。
 
-#### 自定义绘制层级
+## 自定义绘制层级
 
 自定义绘制提供了五个绘制层级，从低到高依次为：内容背景层（drawBehind）、内容层（drawContent）、内容前景层（drawFront）、前景层（drawForeground）和浮层（drawOverlay）。开发者可以根据需求选择合适的层级进行绘制。自定义绘制层级图如下所示。
 
-![](https://media:401788444483429011)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/5h3H11hMSV60G1rzqtSB9Q/zh-cn_image_0000002733434114.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=6FEC5CD1B2B13379A1628ECFB65E6E0AFF64AD6D589691661CCD45B03B2F0DFC)
 
-开发者可以通过注册相应的事件类型来实现不同层级的自定义绘制，不同层级对应的枚举如下，NDK接口支持的事件类型范围请参考[ArkUI_NodeCustomEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-node-attributes-custom-attributes-h#arkui_nodecustomeventtype)枚举值。  
+开发者可以通过注册相应的事件类型来实现不同层级的自定义绘制，不同层级对应的枚举如下，NDK接口支持的事件类型范围请参考[ArkUI_NodeCustomEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-node-attributes-custom-attributes-h#arkui_nodecustomeventtype)枚举值。
 
 |事件类型|说明|
 |:-----------------------------------------|:--------------------------------|
@@ -28,23 +29,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
 |ARKUI_NODE_CUSTOM_EVENT_ON_FOREGROUND_DRAW|自定义前景层绘制类型。|
 |ARKUI_NODE_CUSTOM_EVENT_ON_OVERLAY_DRAW|自定义浮层绘制类型。|
 
-#### 内容层自定义绘制示例
+### 内容层自定义绘制示例
 
 本示例通过注册内容层绘制事件ARKUI_NODE_CUSTOM_EVENT_ON_DRAW在节点内容层绘制一条从左上区域到右下区域的对角线段，效果图如下。
 
 以下场景基于[接入ArkTS页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page)章节，创建前置工程。内容绘制的完整示例请参考[NativeDrawPageSample](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NativeType/NativeDrawPageSample)。
 
-![](https://media:401788444483472012)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/VMdVa6PdQiOsGir6Hxx_tw/zh-cn_image_0000002733434168.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C041FFDEF1C531924EDAFA6CA40C8FE8B95F70DA0B1058EB0D70A364625AC93)
 
 1. 通过[ArkUI_NativeNodeAPI_1](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1)的[createNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#createnode)接口，传入[ArkUI_NodeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodetype)中的ARKUI_NODE_CUSTOM枚举值创建自定义节点。
 
-   ```
+   ```C
    auto customNode = nodeAPI->createNode(ARKUI_NODE_CUSTOM);
    ```
 
 2. 事件注册时将自定义节点、事件类型、事件ID和UserData作为参数传入。
 
-   ```
+   ```C
    // UserData
    struct A {
        int32_t a = 6;
@@ -64,7 +65,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
 
 3. 在回调函数中，通过[OH_ArkUI_NodeCustomEvent_GetEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecustomevent_geteventtype)获取自定义事件的事件类型，通过[OH_ArkUI_NodeCustomEvent_GetEventTargetId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecustomevent_geteventtargetid)获取事件ID，通过[OH_ArkUI_NodeCustomEvent_GetUserData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecustomevent_getuserdata)获取UserData，再根据事件类型和事件ID判断当前触发的是哪个绘制事件，从而执行对应的逻辑。
 
-   ```
+   ```C
    auto type = OH_ArkUI_NodeCustomEvent_GetEventType(event);
    auto targetId = OH_ArkUI_NodeCustomEvent_GetEventTargetId(event);
    auto userData = reinterpret_cast<A *>(OH_ArkUI_NodeCustomEvent_GetUserData(event));
@@ -72,7 +73,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
 
 4. [OH_ArkUI_NodeCustomEvent_GetDrawContextInDraw](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecustomevent_getdrawcontextindraw)通过自定义组件事件获取绘制上下文，并将其传入[OH_ArkUI_DrawContext_GetCanvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_drawcontext_getcanvas)以获取Canvas画布指针，该指针随后将转换为[OH_Drawing_Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-canvas)指针进行绘制。
 
-   ```
+   ```C
    // 获取自定义事件绘制的上下文。
    auto *drawContext = OH_ArkUI_NodeCustomEvent_GetDrawContextInDraw(event);
    // 获取Canvas指针。
@@ -93,11 +94,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
    OH_Drawing_CanvasDrawPath(canvas, path);
    ```
 
-#### 多层级绘制示例
+### 多层级绘制示例
 
 以下示例创建了一个自定义绘制组件，实现自定义矩形绘制、自定义绘制内容前景层和内容背景层，并支持使用[自定义布局容器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-build-custom-components#自定义布局容器)进行布局排布。完整示例请参考[NativeNodeUtilsSample](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NativeType/NativeNodeUtilsSample)。
 
-![](https://media:401788444483518013)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/58mHivq9SCGQlqRRvMw1mA/zh-cn_image_0000002762993689.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=969560E040F5376BA5D9A31AF05983CDFB60CC11D3A73D813304A529CA8EBBE0)
 
 图中深蓝矩形为drawFront内容前景层，浅蓝色矩形为drawContent内容层，白色矩形为drawBehind内容背景层。三层的叠加关系用于验证多层级绘制顺序是否符合预期。
 
@@ -105,7 +106,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
 
 2. 创建自定义绘制组件封装对象。
 
-   ```
+   ```C
    #ifndef MYAPPLICATION_ARKUICUSTOMNODE_H
    #define MYAPPLICATION_ARKUICUSTOMNODE_H
 
@@ -253,150 +254,148 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
 
 3. 使用自定义绘制组件和自定义容器创建示例界面。
 
-   ```
-   #include <arkui/native_node_napi.h>
-   #include <arkui/native_type.h>
-   #include <js_native_api.h>
+       #include <arkui/native_node_napi.h>
+       #include <arkui/native_type.h>
+       #include <js_native_api.h>
 
-   #include "NativeEntry.h"
-   #include "ArkUICustomContainerNode.h"
-   #include "ArkUICustomNode.h"
-   #include "ArkUIMessageMaskNode.h"
+       #include "NativeEntry.h"
+       #include "ArkUICustomContainerNode.h"
+       #include "ArkUICustomNode.h"
+       #include "ArkUIMessageMaskNode.h"
 
-   // 全局环境变量声明
-   static napi_env g_env = nullptr;
-   // ...
-   namespace NativeModule {
-   // ...
-   #define SIZE_150 150
-   // ...
-   napi_value CreateNativeRoot(napi_env env, napi_callback_info info)
-   {
-       size_t argc = 1;
-       napi_value args[1] = {nullptr};
+       // 全局环境变量声明
+       static napi_env g_env = nullptr;
+       // ...
+       namespace NativeModule {
+       // ...
+       #define SIZE_150 150
+       // ...
+       napi_value CreateNativeRoot(napi_env env, napi_callback_info info)
+       {
+           size_t argc = 1;
+           napi_value args[1] = {nullptr};
 
-       napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+           napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-       // 获取NodeContent。
-       ArkUI_NodeContentHandle contentHandle;
-       OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
-       NativeEntry::GetInstance()->SetContentHandle(contentHandle);
+           // 获取NodeContent。
+           ArkUI_NodeContentHandle contentHandle;
+           OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
+           NativeEntry::GetInstance()->SetContentHandle(contentHandle);
 
-       // 创建自定义容器和自定义绘制组件。
-       auto node = std::make_shared<ArkUICustomContainerNode>();
-       node->SetBackgroundColor(0xFFD5D5D5); // 浅灰色。
-       auto customNode = std::make_shared<ArkUICustomNode>();
-       customNode->SetBackgroundColor(0xFF707070); // 深灰色。
-       customNode->SetWidth(SIZE_150);
-       customNode->SetHeight(SIZE_150);
-       node->AddChild(customNode);
+           // 创建自定义容器和自定义绘制组件。
+           auto node = std::make_shared<ArkUICustomContainerNode>();
+           node->SetBackgroundColor(0xFFD5D5D5); // 浅灰色。
+           auto customNode = std::make_shared<ArkUICustomNode>();
+           customNode->SetBackgroundColor(0xFF707070); // 深灰色。
+           customNode->SetWidth(SIZE_150);
+           customNode->SetHeight(SIZE_150);
+           node->AddChild(customNode);
 
-       // 保持Native侧对象到管理类中，维护生命周期。
-       NativeEntry::GetInstance()->SetRootNode(node);
-       g_env = env;
-       return nullptr;
-   }
-   napi_value CreateNativeMessageRoot(napi_env env, napi_callback_info info)
-   {
-       constexpr int32_t messageMaskWidth = 400;
-       constexpr int32_t messageMaskHeight = 200;
+           // 保持Native侧对象到管理类中，维护生命周期。
+           NativeEntry::GetInstance()->SetRootNode(node);
+           g_env = env;
+           return nullptr;
+       }
+       napi_value CreateNativeMessageRoot(napi_env env, napi_callback_info info)
+       {
+           constexpr int32_t messageMaskWidth = 400;
+           constexpr int32_t messageMaskHeight = 200;
 
-       size_t argc = 1;
-       napi_value args[1] = {nullptr};
+           size_t argc = 1;
+           napi_value args[1] = {nullptr};
 
-       napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+           napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-       // 避免重复创建导致的重复挂载
-       NativeEntry::GetInstance()->DisposeRootNode();
+           // 避免重复创建导致的重复挂载
+           NativeEntry::GetInstance()->DisposeRootNode();
 
-       // 获取NodeContent
-       ArkUI_NodeContentHandle contentHandle;
-       OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
-       NativeEntry::GetInstance()->SetContentHandle(contentHandle);
+           // 获取NodeContent
+           ArkUI_NodeContentHandle contentHandle;
+           OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
+           NativeEntry::GetInstance()->SetContentHandle(contentHandle);
 
-       auto nodeAPI = NativeModuleInstance::GetInstance()->GetNativeNodeAPI();
-       auto rootColumn = std::make_shared<ArkUIColumnNode>();
-       auto rootColumnHandle = rootColumn->GetHandle();
-       
-       // 设置根容器样式
-       ArkUI_NumberValue paddingValue[] = {{.f32 = 20.0f}};
-       ArkUI_AttributeItem paddingItem = {paddingValue, 1};
-       nodeAPI->setAttribute(rootColumnHandle, NODE_PADDING, &paddingItem);
+           auto nodeAPI = NativeModuleInstance::GetInstance()->GetNativeNodeAPI();
+           auto rootColumn = std::make_shared<ArkUIColumnNode>();
+           auto rootColumnHandle = rootColumn->GetHandle();
+           
+           // 设置根容器样式
+           ArkUI_NumberValue paddingValue[] = {{.f32 = 20.0f}};
+           ArkUI_AttributeItem paddingItem = {paddingValue, 1};
+           nodeAPI->setAttribute(rootColumnHandle, NODE_PADDING, &paddingItem);
 
-       ArkUI_NumberValue bgColorValue[] = {{.u32 = 0xFFFFFFFF}};
-       ArkUI_AttributeItem bgColorItem = {bgColorValue, 1};
-       nodeAPI->setAttribute(rootColumnHandle, NODE_BACKGROUND_COLOR, &bgColorItem);
-       
-       // 创建消息气泡组件
-       auto maskNode = std::make_shared<ArkUIMessageMaskNode>();
-       maskNode->SetWidth(messageMaskWidth);
-       maskNode->SetHeight(messageMaskHeight);
-       maskNode->SetMessage("您有一条新消息");
-       maskNode->SetMaskVisible(false);  // 初始不显示蒙层
-       
-       // 创建按钮用于切换蒙层效果
-       auto buttonNode = std::make_shared<ArkUINode>(nodeAPI->createNode(ARKUI_NODE_BUTTON));
-       auto buttonHandle = buttonNode->GetHandle();
-       
-       // 设置按钮文本
-       ArkUI_AttributeItem labelItem;
-       const char* buttonLabel = "切换蒙层效果";
-       labelItem.string = buttonLabel;
-       nodeAPI->setAttribute(buttonHandle, NODE_BUTTON_LABEL, &labelItem);
-       
-       // 设置按钮样式
-       ArkUI_NumberValue marginValue[] = {{.f32 = 20.0f}};
-       ArkUI_AttributeItem marginItem = {marginValue, 1};
-       nodeAPI->setAttribute(buttonHandle, NODE_MARGIN, &marginItem);
-       
-       ArkUI_NumberValue btnBgColorValue[] = {{.u32 = 0xFF2787D9}};
-       ArkUI_AttributeItem btnBgColorItem = {btnBgColorValue, 1};
-       nodeAPI->setAttribute(buttonHandle, NODE_BACKGROUND_COLOR, &btnBgColorItem);
+           ArkUI_NumberValue bgColorValue[] = {{.u32 = 0xFFFFFFFF}};
+           ArkUI_AttributeItem bgColorItem = {bgColorValue, 1};
+           nodeAPI->setAttribute(rootColumnHandle, NODE_BACKGROUND_COLOR, &bgColorItem);
+           
+           // 创建消息气泡组件
+           auto maskNode = std::make_shared<ArkUIMessageMaskNode>();
+           maskNode->SetWidth(messageMaskWidth);
+           maskNode->SetHeight(messageMaskHeight);
+           maskNode->SetMessage("您有一条新消息");
+           maskNode->SetMaskVisible(false);  // 初始不显示蒙层
+           
+           // 创建按钮用于切换蒙层效果
+           auto buttonNode = std::make_shared<ArkUINode>(nodeAPI->createNode(ARKUI_NODE_BUTTON));
+           auto buttonHandle = buttonNode->GetHandle();
+           
+           // 设置按钮文本
+           ArkUI_AttributeItem labelItem;
+           const char* buttonLabel = "切换蒙层效果";
+           labelItem.string = buttonLabel;
+           nodeAPI->setAttribute(buttonHandle, NODE_BUTTON_LABEL, &labelItem);
+           
+           // 设置按钮样式
+           ArkUI_NumberValue marginValue[] = {{.f32 = 20.0f}};
+           ArkUI_AttributeItem marginItem = {marginValue, 1};
+           nodeAPI->setAttribute(buttonHandle, NODE_MARGIN, &marginItem);
+           
+           ArkUI_NumberValue btnBgColorValue[] = {{.u32 = 0xFF2787D9}};
+           ArkUI_AttributeItem btnBgColorItem = {btnBgColorValue, 1};
+           nodeAPI->setAttribute(buttonHandle, NODE_BACKGROUND_COLOR, &btnBgColorItem);
 
-       // 设置按钮点击事件
-       auto onClick = [](ArkUI_NodeEvent *event) {
-           auto maskNode = (ArkUIMessageMaskNode *)OH_ArkUI_NodeEvent_GetUserData(event);
-           static bool highlighted = false;
-           highlighted = !highlighted;
-           maskNode->SetMaskVisible(highlighted);
-       };
-       buttonNode->RegisterOnClick(onClick, maskNode.get());
-       
-       // 将组件添加到根容器
-       rootColumn->AddChild(buttonNode);
-       rootColumn->AddChild(maskNode);
+           // 设置按钮点击事件
+           auto onClick = [](ArkUI_NodeEvent *event) {
+               auto maskNode = (ArkUIMessageMaskNode *)OH_ArkUI_NodeEvent_GetUserData(event);
+               static bool highlighted = false;
+               highlighted = !highlighted;
+               maskNode->SetMaskVisible(highlighted);
+           };
+           buttonNode->RegisterOnClick(onClick, maskNode.get());
+           
+           // 将组件添加到根容器
+           rootColumn->AddChild(buttonNode);
+           rootColumn->AddChild(maskNode);
 
-       // 保持Native侧对象到管理类中，维护生命周期
-       NativeEntry::GetInstance()->SetRootNode(rootColumn);
-       return nullptr;
-   }
+           // 保持Native侧对象到管理类中，维护生命周期
+           NativeEntry::GetInstance()->SetRootNode(rootColumn);
+           return nullptr;
+       }
 
-   napi_value DestroyNativeRoot(napi_env env, napi_callback_info info)
-   {
-       // 从管理类中释放Native侧对象。
-       NativeEntry::GetInstance()->DisposeRootNode();
-       return nullptr;
-   }
-   } // namespace NativeModule
-   ```
+       napi_value DestroyNativeRoot(napi_env env, napi_callback_info info)
+       {
+           // 从管理类中释放Native侧对象。
+           NativeEntry::GetInstance()->DisposeRootNode();
+           return nullptr;
+       }
+       } // namespace NativeModule
 
-#### 通过前景绘制实现消息蒙层
+## 通过前景绘制实现消息蒙层
 
 以下示例创建了一个消息提示组件，通过内容层绘制消息气泡与文本，并在前景层叠加星标装饰，实现消息高亮提示效果，常用于消息提醒和引导标记等场景。完整示例请参考[NativeNodeUtilsSample](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NativeType/NativeNodeUtilsSample)。
 
 未添加消息蒙层，没有前景层叠加星标装饰效果：
 
-![](https://media:401788444483601014)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/njJZyCqBQJC-BO9yuyjC1Q/zh-cn_image_0000002762833805.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=D0ED1FC49A68F003C725D7137694CFEADAB7A064EA4FBDD9E7B2682E2DC270A8)
 
 添加消息蒙层，添加后有前景层叠加星标装饰效果：
 
-![](https://media:401788444483656015)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/WeIMzzZRR2uMnZhf1s7G6A/zh-cn_image_0000002733274286.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=C19DCAEC818EC06F11736B53BE21528A8FCAA20BEE7CDC1432941623C813FEBD)
 
 1. 按照[多层级绘制示例](#多层级绘制示例)章节准备前置工程。
 
 2. 创建消息蒙层组件封装对象。
 
-   ```
+   ```C
    #ifndef MYAPPLICATION_ARKUIMESSAGEMASKNODE_H
    #define MYAPPLICATION_ARKUIMESSAGEMASKNODE_H
 
@@ -668,102 +667,100 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
 
 3. 使用消息蒙层组件创建示例界面。
 
-   ```
-   #include <arkui/native_node_napi.h>
-   #include <arkui/native_type.h>
-   #include <js_native_api.h>
+       #include <arkui/native_node_napi.h>
+       #include <arkui/native_type.h>
+       #include <js_native_api.h>
 
-   #include "NativeEntry.h"
-   #include "ArkUICustomContainerNode.h"
-   #include "ArkUICustomNode.h"
-   #include "ArkUIMessageMaskNode.h"
+       #include "NativeEntry.h"
+       #include "ArkUICustomContainerNode.h"
+       #include "ArkUICustomNode.h"
+       #include "ArkUIMessageMaskNode.h"
 
-   // 全局环境变量声明
-   static napi_env g_env = nullptr;
-   // ...
-   namespace NativeModule {
-   // ...
-   napi_value CreateNativeMessageRoot(napi_env env, napi_callback_info info)
-   {
-       constexpr int32_t messageMaskWidth = 400;
-       constexpr int32_t messageMaskHeight = 200;
+       // 全局环境变量声明
+       static napi_env g_env = nullptr;
+       // ...
+       namespace NativeModule {
+       // ...
+       napi_value CreateNativeMessageRoot(napi_env env, napi_callback_info info)
+       {
+           constexpr int32_t messageMaskWidth = 400;
+           constexpr int32_t messageMaskHeight = 200;
 
-       size_t argc = 1;
-       napi_value args[1] = {nullptr};
+           size_t argc = 1;
+           napi_value args[1] = {nullptr};
 
-       napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+           napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-       // 避免重复创建导致的重复挂载
-       NativeEntry::GetInstance()->DisposeRootNode();
+           // 避免重复创建导致的重复挂载
+           NativeEntry::GetInstance()->DisposeRootNode();
 
-       // 获取NodeContent
-       ArkUI_NodeContentHandle contentHandle;
-       OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
-       NativeEntry::GetInstance()->SetContentHandle(contentHandle);
+           // 获取NodeContent
+           ArkUI_NodeContentHandle contentHandle;
+           OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
+           NativeEntry::GetInstance()->SetContentHandle(contentHandle);
 
-       auto nodeAPI = NativeModuleInstance::GetInstance()->GetNativeNodeAPI();
-       auto rootColumn = std::make_shared<ArkUIColumnNode>();
-       auto rootColumnHandle = rootColumn->GetHandle();
-       
-       // 设置根容器样式
-       ArkUI_NumberValue paddingValue[] = {{.f32 = 20.0f}};
-       ArkUI_AttributeItem paddingItem = {paddingValue, 1};
-       nodeAPI->setAttribute(rootColumnHandle, NODE_PADDING, &paddingItem);
+           auto nodeAPI = NativeModuleInstance::GetInstance()->GetNativeNodeAPI();
+           auto rootColumn = std::make_shared<ArkUIColumnNode>();
+           auto rootColumnHandle = rootColumn->GetHandle();
+           
+           // 设置根容器样式
+           ArkUI_NumberValue paddingValue[] = {{.f32 = 20.0f}};
+           ArkUI_AttributeItem paddingItem = {paddingValue, 1};
+           nodeAPI->setAttribute(rootColumnHandle, NODE_PADDING, &paddingItem);
 
-       ArkUI_NumberValue bgColorValue[] = {{.u32 = 0xFFFFFFFF}};
-       ArkUI_AttributeItem bgColorItem = {bgColorValue, 1};
-       nodeAPI->setAttribute(rootColumnHandle, NODE_BACKGROUND_COLOR, &bgColorItem);
-       
-       // 创建消息气泡组件
-       auto maskNode = std::make_shared<ArkUIMessageMaskNode>();
-       maskNode->SetWidth(messageMaskWidth);
-       maskNode->SetHeight(messageMaskHeight);
-       maskNode->SetMessage("您有一条新消息");
-       maskNode->SetMaskVisible(false);  // 初始不显示蒙层
-       
-       // 创建按钮用于切换蒙层效果
-       auto buttonNode = std::make_shared<ArkUINode>(nodeAPI->createNode(ARKUI_NODE_BUTTON));
-       auto buttonHandle = buttonNode->GetHandle();
-       
-       // 设置按钮文本
-       ArkUI_AttributeItem labelItem;
-       const char* buttonLabel = "切换蒙层效果";
-       labelItem.string = buttonLabel;
-       nodeAPI->setAttribute(buttonHandle, NODE_BUTTON_LABEL, &labelItem);
-       
-       // 设置按钮样式
-       ArkUI_NumberValue marginValue[] = {{.f32 = 20.0f}};
-       ArkUI_AttributeItem marginItem = {marginValue, 1};
-       nodeAPI->setAttribute(buttonHandle, NODE_MARGIN, &marginItem);
-       
-       ArkUI_NumberValue btnBgColorValue[] = {{.u32 = 0xFF2787D9}};
-       ArkUI_AttributeItem btnBgColorItem = {btnBgColorValue, 1};
-       nodeAPI->setAttribute(buttonHandle, NODE_BACKGROUND_COLOR, &btnBgColorItem);
+           ArkUI_NumberValue bgColorValue[] = {{.u32 = 0xFFFFFFFF}};
+           ArkUI_AttributeItem bgColorItem = {bgColorValue, 1};
+           nodeAPI->setAttribute(rootColumnHandle, NODE_BACKGROUND_COLOR, &bgColorItem);
+           
+           // 创建消息气泡组件
+           auto maskNode = std::make_shared<ArkUIMessageMaskNode>();
+           maskNode->SetWidth(messageMaskWidth);
+           maskNode->SetHeight(messageMaskHeight);
+           maskNode->SetMessage("您有一条新消息");
+           maskNode->SetMaskVisible(false);  // 初始不显示蒙层
+           
+           // 创建按钮用于切换蒙层效果
+           auto buttonNode = std::make_shared<ArkUINode>(nodeAPI->createNode(ARKUI_NODE_BUTTON));
+           auto buttonHandle = buttonNode->GetHandle();
+           
+           // 设置按钮文本
+           ArkUI_AttributeItem labelItem;
+           const char* buttonLabel = "切换蒙层效果";
+           labelItem.string = buttonLabel;
+           nodeAPI->setAttribute(buttonHandle, NODE_BUTTON_LABEL, &labelItem);
+           
+           // 设置按钮样式
+           ArkUI_NumberValue marginValue[] = {{.f32 = 20.0f}};
+           ArkUI_AttributeItem marginItem = {marginValue, 1};
+           nodeAPI->setAttribute(buttonHandle, NODE_MARGIN, &marginItem);
+           
+           ArkUI_NumberValue btnBgColorValue[] = {{.u32 = 0xFF2787D9}};
+           ArkUI_AttributeItem btnBgColorItem = {btnBgColorValue, 1};
+           nodeAPI->setAttribute(buttonHandle, NODE_BACKGROUND_COLOR, &btnBgColorItem);
 
-       // 设置按钮点击事件
-       auto onClick = [](ArkUI_NodeEvent *event) {
-           auto maskNode = (ArkUIMessageMaskNode *)OH_ArkUI_NodeEvent_GetUserData(event);
-           static bool highlighted = false;
-           highlighted = !highlighted;
-           maskNode->SetMaskVisible(highlighted);
-       };
-       buttonNode->RegisterOnClick(onClick, maskNode.get());
-       
-       // 将组件添加到根容器
-       rootColumn->AddChild(buttonNode);
-       rootColumn->AddChild(maskNode);
+           // 设置按钮点击事件
+           auto onClick = [](ArkUI_NodeEvent *event) {
+               auto maskNode = (ArkUIMessageMaskNode *)OH_ArkUI_NodeEvent_GetUserData(event);
+               static bool highlighted = false;
+               highlighted = !highlighted;
+               maskNode->SetMaskVisible(highlighted);
+           };
+           buttonNode->RegisterOnClick(onClick, maskNode.get());
+           
+           // 将组件添加到根容器
+           rootColumn->AddChild(buttonNode);
+           rootColumn->AddChild(maskNode);
 
-       // 保持Native侧对象到管理类中，维护生命周期
-       NativeEntry::GetInstance()->SetRootNode(rootColumn);
-       return nullptr;
-   }
+           // 保持Native侧对象到管理类中，维护生命周期
+           NativeEntry::GetInstance()->SetRootNode(rootColumn);
+           return nullptr;
+       }
 
-   napi_value DestroyNativeRoot(napi_env env, napi_callback_info info)
-   {
-       // 从管理类中释放Native侧对象。
-       NativeEntry::GetInstance()->DisposeRootNode();
-       return nullptr;
-   }
-   } // namespace NativeModule
-   ```
+       napi_value DestroyNativeRoot(napi_env env, napi_callback_info info)
+       {
+           // 从管理类中释放Native侧对象。
+           NativeEntry::GetInstance()->DisposeRootNode();
+           return nullptr;
+       }
+       } // namespace NativeModule
 

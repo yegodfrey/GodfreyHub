@@ -6,16 +6,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-game-copy
 
 # 配置版权信息
 
-根据法律法规，要求游戏上架时提供对应的游戏版权材料。  
+根据法律法规，要求游戏上架时提供对应的游戏版权材料。
 
-#### 前提条件
+## 前提条件
 
-已根据[游戏版权、版号要求](https://developer.huawei.com/consumer/cn/doc/80301#section13192864208)提前准备游戏版权材料。  
+已根据[游戏版权、版号要求](https://developer.huawei.com/consumer/cn/doc/80301#section13192864208)提前准备游戏版权材料。
 
-#### 操作步骤
+## 操作步骤
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"APP与元服务"，选择待上架的游戏。
-2. 左侧导航栏选择"应用上架 \> 版本信息"下待发布的版本.
+2. 左侧导航栏选择"应用上架 > 版本信息"下待发布的版本.
 3. 进入右侧页面的"版权信息"区域，根据提示上传提前准备好的版权材料。若您的版权资质图片超过了最大支持数量，建议将图片拼接后再上传。 版权资质文件根据发布区域和设备类型要求略有不同。
 
    |发布区域|电子版权证书|应用版权证书或代理证书|
@@ -23,17 +23,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-game-copy
    |包含中国大陆|可选。 可上传PDF格式"电子版权证书"，大小不超过5MB。如果您上传了非PDF格式的文件或是将非PDF格式的文件的扩展名改为PDF，均会弹出错误提示。|分发设备包含手机或平板或智慧屏设备时，必选。 支持JPG、PNG、BMP格式，默认展示五个图片上传框，您可点击虚线框内的"+"号继续添加。最多添加10张图片，每张图片不超过15MB。|
    |不包含中国大陆|可选。 可上传PDF格式"电子版权证书"，大小不超过5MB。如果您上传了非PDF格式的文件或是将非PDF格式的文件的扩展名改为PDF，均会弹出错误提示。|可选。 支持JPG、PNG、BMP格式，默认展示五个图片上传框，您可点击虚线框内的"+"号继续添加。最多添加10张图片，每张图片不超过15MB。|
 
-   ![](https://media:101782378015647479)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/guuK0aP6R7mD3yXRrFiH1A/zh-cn_image_0000002477528332.png?HW-CC-KV=V1&HW-CC-Date=20260916T032631Z&HW-CC-Expire=31536000000&HW-CC-Sign=999CFDF4DA9222B50E8706FE93F4CF14ECA478057395B92A18C925E00F5FB225)
 
-   <br />
-
-4. 如果还提供授权书或其他资质文件，可以在"授权书及其他材料"上传。 ![](https://media:101782378015673480 "点击放大")
+4. 如果还提供授权书或其他资质文件，可以在"授权书及其他材料"上传。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/R1K2Oo61TDCkb6UH7rAI8A/zh-cn_image_0000002658533767.png?HW-CC-KV=V1&HW-CC-Date=20260916T032631Z&HW-CC-Expire=31536000000&HW-CC-Sign=986A90F586DC2C87E63E9E9C21FF1050651C047DBA97B8182EC9B8E6A9C65B0A "点击放大")
 
    上传包要求如下：
    * 仅支持上传zip格式的压缩包文件，包大小不能超过200MB。
    * 压缩包只能包含JPG、JPEG、BMP格式图片和PDF格式的文件，文件夹层级最多三层，累计不能超过200张图片。
 
-   压缩包文件上传后会进行文件安全校验，请耐心等待1-3分钟至文件校验完毕。如校验过程中出现如下错误提示，请参考对应解决方案修改文件后重新上传。  
+   压缩包文件上传后会进行文件安全校验，请耐心等待1-3分钟至文件校验完毕。如校验过程中出现如下错误提示，请参考对应解决方案修改文件后重新上传。
 
    |错误提示|解决方案|
    |:--------------|:-------------------------------------------------------------|

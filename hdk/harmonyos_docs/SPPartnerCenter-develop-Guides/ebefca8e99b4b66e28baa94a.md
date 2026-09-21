@@ -6,34 +6,33 @@ uri: https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides
 
 # 创建第三方平台
 
-#### 前提条件
+## 前提条件
 
-已具备[HarmonyOS开发服务商资质](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/quick-start-0000002523235518#section1790383113418)。  
+已具备[HarmonyOS开发服务商资质](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/quick-start-0000002523235518#section1790383113418)。
 
-#### 准备材料
+## 准备材料
 
 * 平台网站：准备服务商官方的介绍网站，方便用户了解业务情况。
-* 平台图标：建议使用能够展示品牌信息的图片，仅支持jpg、jpeg和png格式，尺寸要求为256\*256像素，不能超过500KB。
-* 消息与事件接收URL：用于接收华为平台推送的消息与事件通知的URL。当商家授权变更、元服务构建有结果、元服务上架/下架审核后，华为平台将向服务商发送通知。  
+* 平台图标：建议使用能够展示品牌信息的图片，仅支持jpg、jpeg和png格式，尺寸要求为256*256像素，不能超过500KB。
+* 消息与事件接收URL：用于接收华为平台推送的消息与事件通知的URL。当商家授权变更、元服务构建有结果、元服务上架/下架审核后，华为平台将向服务商发送通知。
 
-#### 进入第三方管理平台
+## 进入第三方管理平台
 
 1. 使用已认证的服务商帐号登录[服务商合作伙伴中心](https://developer.huawei.com/consumer/cn/partner/)网站，点击"管理中心"进入服务商管理中心。
-2. 左侧导航选择"第三方管理平台"，即可进入第三方管理平台。 ![](https://media:201775033406831576)
+2. 左侧导航选择"第三方管理平台"，即可进入第三方管理平台。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/avd5GcjeRDWDMefeqxRPug/zh-cn_image_0000002554244607.png?HW-CC-KV=V1&HW-CC-Date=20260914T111900Z&HW-CC-Expire=31536000000&HW-CC-Sign=B80CC7B625040C658B8779C4330E8F0857604E5CB588FD517EA8F43211B86F1B)
 
-#### 创建第三方平台
+## 创建第三方平台
 
 1. [进入第三方管理平台](#section1477842413344)，点击页面的"创建第三方平台"，进入创建第三方平台"基本信息"设置页面。
 
-   ![](https://media:201775033406862577 "点击放大")
-2. 按照页面提示填写第三方平台相关信息。  
-   ![](https://media:201775033406888578)  
-   * 最多可创建10个第三方平台。
-   * 平台名称、行业标签、平台简介、平台图标、平台网站的信息，创建完毕后续可以修改，修改后重新提交审核即可。
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/bK6a1TK7S2C8utg5Y2yUJQ/zh-cn_image_0000002523084774.png?HW-CC-KV=V1&HW-CC-Date=20260914T111900Z&HW-CC-Expire=31536000000&HW-CC-Sign=284C95AB2024DDFF3A88431844662C5ABF7D48FDBC211CDD488E6FBDB56BA5D1 "点击放大")
+2. 按照页面提示填写第三方平台相关信息。 说明
+   > * 最多可创建10个第三方平台。
+   > * 平台名称、行业标签、平台简介、平台图标、平台网站的信息，创建完毕后续可以修改，修改后重新提交审核即可。
 
-   ![](https://media:201775033406923579 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/vptED4kIQeaZFuhvnXCVDQ/zh-cn_image_0000002554244657.png?HW-CC-KV=V1&HW-CC-Date=20260914T111900Z&HW-CC-Expire=31536000000&HW-CC-Sign=2C122A999215085495C429516AA5C6EE21BF85DBCFE68ACE5D1FA44F6104A2EA "点击放大")
 
-   具体参数说明如下所示：  
+   具体参数说明如下所示：
 
    |参数|说明|
    |:---|:----------------------------------------------------------------------------------------------------|
@@ -41,32 +40,34 @@ uri: https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides
    |平台简介|平台简介需在5-200个字符之间。|
    |您的官网|请确保用户可以正常访问该网站，并且在官方网站了解您的业务和功能。|
    |行业标签|请至少选择1个标签，最多可选择4个标签。 行业标签包括：生活服务、教育、鞋服运动、出行交通、食品饮料、家具、奢侈品/配饰、美妆、母婴玩具、家电数码、日化、医疗、汽车、金融、体育、房地产、游戏、商场百货。|
-   |平台图标|请上传高清图片作为普通图标，要求256\*256像素，仅支持jpg、png和jpeg格式，单个文件不能超过500KB。|
+   |平台图标|请上传高清图片作为普通图标，要求256*256像素，仅支持jpg、png和jpeg格式，单个文件不能超过500KB。|
 
-3. 点击"下一步"，进入"选择权限"页面，选择需要商家授权的权限。  
-   具体权限说明请参考[权限集说明](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/permission-description-0000002523249702)。  
-   ![](https://media:201775033406947580)  
-   * 选择的权限会展示在商家授权页面上，商家同意后即可建立授权关系。
-   * 权限集默认都勾选，如果需要代商家备案，则务必勾选"应用备案"。
+3. 点击"下一步"，进入"选择权限"页面，选择需要商家授权的权限。
 
-   ![](https://media:201775033406985581 "点击放大")
-4. 点击"下一步"，进入"开发资料"页面，填写相关信息。 ![](https://media:201775033407037582 "点击放大")
+   具体权限说明请参考[权限集说明](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/permission-description-0000002523249702)。 说明
+   > * 选择的权限会展示在商家授权页面上，商家同意后即可建立授权关系。
+   > * 权限集默认都勾选，**如果需要代商家备案，则务必勾选"应用备案"**。
 
-   具体参数说明如下所示：  
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/17G-ewO8SaK6KYckpJ5-Fw/zh-cn_image_0000002523244760.png?HW-CC-KV=V1&HW-CC-Date=20260914T111900Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A57BE8DAFBC10771981846024CCA29B1ABAECABA09543E17F9AE5E9CC6C0BFC "点击放大")
+4. 点击"下一步"，进入"开发资料"页面，填写相关信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/jELdSgJGQsGdiAfhtO0Oqw/zh-cn_image_0000002554284689.png?HW-CC-KV=V1&HW-CC-Date=20260914T111900Z&HW-CC-Expire=31536000000&HW-CC-Sign=480B64EC87D0A0090EEED3DDC9ECFE1C4C4530FBC7790928D3C8878376100F1E "点击放大")
+
+   具体参数说明如下所示：
 
    |参数|说明|
    |:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    |消息与事件接收URL|服务商接收消息与事件的URL。用于接收华为平台推送的消息与事件通知，如商家权限变更通知、元服务构建结果通知应用上架审核结果通知等。 如果服务商需要使用华为平台的推送消息与事件通知功能，则可以配置此参数。 华为平台向服务商推送通知的场景包括： * [商家权限变更通知](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/get-authorization-link-0000001501257708#section6832673418)（商家确认授权、更新授权或取消授权时） * [元服务构建结果通知](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/build-application-0000001552057365#section6832673418) * [应用上架审核结果通知](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/app-submit-0000002021703178#section1721114421241) * [应用下架审核结果通知](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/remove-app-0000002057663441#section06610203579) * [应用上架自检结果通知](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/get-detect-task-0000002536833565#section1721114421241)|
-   |授权回调域名|如果需要商家授权后跳转到指定页面，则可以配置此参数。 实现方法：在给商家进行授权的链接后加上\&redirectUri=https://等协议内容+此处配置的域名。 例如：此处配置a.b.com，那么提供的链接为：授权链接\&redirectUri=https://a.b.com，商家授权后即可访问https://a.b.com页面。|
+   |授权回调域名|如果需要商家授权后跳转到指定页面，则可以配置此参数。 实现方法：在给商家进行授权的链接后加上&redirectUri=*https://等协议内容* +*此处配置的域名*。 例如：此处配置a.b.com，那么提供的链接为：授权链接&redirectUri=https://a.b.com，商家授权后即可访问https://a.b.com页面。|
 
-5. 点击"保存并创建凭证"，在"应用访问凭据"区域创建并下载凭据文件。 ![](https://media:201775033407073583 "点击放大")
+5. 点击"保存并创建凭证"，在"应用访问凭据"区域创建并下载凭据文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/_Wl8Zb8XREOG3IIWVG16iQ/zh-cn_image_0000002523084776.png?HW-CC-KV=V1&HW-CC-Date=20260914T111900Z&HW-CC-Expire=31536000000&HW-CC-Sign=76644CCF0C5DC6BD4E38D9F3B062DC26D914E18311508EAFB1686F131F2EE14A "点击放大")
 
    1. 点击"一键生成公私钥"，自动生成公私钥。
-   2. 点击"创建并下载凭据文件"，生成"xxxxxxprivate.json"格式的凭据文件。 "xxxxxxprivate.json"文件中信息请妥善保存。后续调用[获取用户级Token](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/get-token-user-0000001622722589#ZH-CN_TOPIC_0000002095034928__p1334817481602)和[获取应用级Token](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/get-token-application-0000001572218932#ZH-CN_TOPIC_0000002130474541__p975043213111)接口均需要此凭据文件中的信息。
+   2. 点击"创建并下载凭据文件"，生成"*xxxxxx* private.json"格式的凭据文件。
+
+      "*xxxxxx* private.json"文件中信息请妥善保存。后续调用[获取用户级Token](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/get-token-user-0000001622722589#ZH-CN_TOPIC_0000002095034928__p1334817481602)和[获取应用级Token](https://developer.huawei.com/consumer/cn/doc/FASP-by-Template-develop-References/get-token-application-0000001572218932#ZH-CN_TOPIC_0000002130474541__p975043213111)接口均需要此凭据文件中的信息。
 
       凭据文件中信息如下：
 
-      ```
+      ```screen
       {
           "project_id": "2443****7386",
           "key_id": "3a19******a29cd",
@@ -79,10 +80,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides
       }
       ```
 
-      ![](https://media:201775033407106584)  
-      key_id和private_key为一一对应，使用时请确保来自下载的同一文件。
+      > 说明
+      >
+      > key_id和private_key为一一对应，使用时请确保来自下载的同一文件。
 
-      文件中各参数描述具体如下：  
+      文件中各参数描述具体如下：
 
       |参数|说明|
       |:----------|:----------------------------------------------------------|
@@ -91,9 +93,33 @@ uri: https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides
       |private_key|私钥文件。 获取用户级或应用级的Access Token时，使用该私钥进行签名生成JWT。|
       |sub_account|服务账号ID，即服务商的client_id。 获取用户级或应用级的Access Token时，该ID将用于生成JWT。|
 
-6. 点击"完成"，创建成功后默认展示该第三方平台详情页面。
-7. 点击详情页左上角![](https://media:201775033407131585 "点击放大")，可返回到第三方管理平台首页。
+6. 点击"完成"，创建成功后默认展示该第三方平台详情页面。 说明
+   >
+   > 16.8.1版本新增"代开发流程指引"功能，服务商可直接在"步骤1：搭建第三方平台"页面完成"设置权限集"、"开发资料设置"和"发布第三方平台"操作。
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/FRmF3V75T5O9nc6miz2Dqw/zh-cn_image_0000002723232813.png?HW-CC-KV=V1&HW-CC-Date=20260914T111900Z&HW-CC-Expire=31536000000&HW-CC-Sign=2020C0E06ED092AD0B1D514705C41C0DC269C1077CCF44D62E5E40234960975B "点击放大")
+
+   后续，服务商可通过"步骤2：获取商家授权"、"步骤3：构建模板"等页面，便捷地跳转至"获取授权链接"、"行业模板管理"等配置页面，无需再从左侧导航栏搜索进入对应模块。
+
+   完成所有步骤后，即可成功代商家发布元服务。
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/Cm9Ahe9KQ7ysFyiU1-Nlag/zh-cn_image_0000002723352731.png?HW-CC-KV=V1&HW-CC-Date=20260914T111900Z&HW-CC-Expire=31536000000&HW-CC-Sign=D6FF17F8062237C1488C4F5AC5E912540E8178DBD8820B46661EF6821053E411 "点击放大")
+
+   "代开发流程指引"操作步骤对应的配置页面参考表。
+
+   |"代开发流程指引"操作步骤|配置页面|
+   |:---------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+   |步骤1：搭建第三方平台 > 设置权限集 > 去设置|[开发配置 > 权限设置](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/obtain-development-infor-0000002523235520#section109408011447)|
+   |步骤1：搭建第三方平台 > 开发资料设置 > 去设置|[开发配置 > 开发资料设置](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/obtain-development-infor-0000002523235520#section3986829135420)|
+   |步骤1：搭建第三方平台 > 发布第三方平台 > 去发布|[概览 > 申请发布](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/release-platform-0000002554235415)|
+   |步骤2：获取商家授权 > 通过页面获取授权链接 > 去获取|[授权信息 > 服务商授权管理 > 获取授权链接](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/obtain-authorization-link-0000002523075602#section119199595462)|
+   |步骤3：构建模板 > 草稿箱 > 去上传|[行业模板管理 > 草稿箱](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/upload-template-0000002554287879)|
+   |步骤3：构建模板 > 模板库 > 去添加|[行业模板管理 > 模板库](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/add-template-to-library-0000002523247958)|
+   |步骤4：元服务测试 > 配置平台级域名 > 去配置|[域名配置](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/manage-platform-domain-0000002554247847#section58734371088)|
+
+7. 点击详情页左上角![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/t-nuAmzcRtKV1-Epa15KiA/zh-cn_image_0000002554244661.png?HW-CC-KV=V1&HW-CC-Date=20260914T111900Z&HW-CC-Expire=31536000000&HW-CC-Sign=411C6607D097AE68D17D0B86F612E397C4B581E058011A95A81598DBBEB06D3F "点击放大")，可返回到第三方管理平台首页。
 
    在首页列表中可查看新创建的第三方平台信息，包括平台名称、平台ID。
 
-![](https://media:201775033407162586 "点击放大")  
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/tWn16jVOQYWt6gpfndHiYA/zh-cn_image_0000002523244762.png?HW-CC-KV=V1&HW-CC-Date=20260914T111900Z&HW-CC-Expire=31536000000&HW-CC-Sign=5EE71F87FDA6F7398FD5D79C92FE19006D055D1CA39C19215347F29CFEC39B8B "点击放大")
+

@@ -6,21 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-image
 
 # HMS_GCP_Color
 
-#### 概述
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
+
+## 概述
 
 定义颜色值的结构体，用于显示全局取色提取的颜色值。
 
-系统能力： SystemCapability.Stylus.ColorPicker
+**系统能力：** SystemCapability.Stylus.ColorPicker
 
-起始版本： 5.0.0(12)
+**起始版本：** 5.0.0(12)
 
-相关模块： [GlobalColorPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-imagefeaturepicker-c)
+**相关模块：** [GlobalColorPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-imagefeaturepicker-c)
 
-所在头文件： [native_gcp_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-headerfile-declare)  
+**所在头文件：** [native_gcp_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-headerfile-declare)
 
-#### 汇总
+## 汇总
 
-#### 成员变量
+### 成员变量
 
 |名称|描述|
 |:----------------------|:---|
@@ -29,44 +31,45 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-image
 |int32_t [blue](#blue)|蓝色域。|
 |int32_t [alpha](#alpha)|透明度。|
 
-#### 结构体成员变量说明
+## 结构体成员变量说明
 
-#### alpha
+### alpha
 
-```
+```c
 int32_t HMS_GCP_Color::alpha
 ```
 
-描述
+**描述**
 
-透明度。  
+透明度。
 
-#### blue
+### blue
 
-```
+```c
 int32_t HMS_GCP_Color::blue
 ```
 
-描述
+**描述**
 
-蓝色域。  
+蓝色域。
 
-#### green
+### green
 
-```
+```c
 int32_t HMS_GCP_Color::green
 ```
 
-描述
+**描述**
 
-绿色域。  
+绿色域。
 
-#### red
+### red
 
-```
+```c
 int32_t HMS_GCP_Color::red
 ```
 
-描述
+**描述**
 
-红色域。  
+红色域。
+

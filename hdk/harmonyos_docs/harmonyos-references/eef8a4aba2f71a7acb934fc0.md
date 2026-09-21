@@ -6,45 +6,48 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-order
 
 # 应用购买记录相关支付订单查询
 
-#### 功能介绍
+> phone | 2in1 | tablet | tv | wearable
 
-此接口用于查询指定时间范围内的付款和退款订单。  
+## 功能介绍
 
-#### 场景描述
+此接口用于查询指定时间范围内的付款和退款订单。
 
-例如：当开发者需要查看前一天的付款和退款订单时，可以将开始时间设为前一天的零点，结束时间设为当天的零点，然后调用此接口查询相关的订单记录。  
-![](https://media:401788444918535176)  
-* 由于当天的订单信息可能还会发生变动，因此不建议使用此接口查询当天的实时订单数据，建议延迟一天查询。
+## 场景描述
 
-* 当前仅支持查询180天内的订单数据。
+例如：当开发者需要查看前一天的付款和退款订单时，可以将开始时间设为前一天的零点，结束时间设为当天的零点，然后调用此接口查询相关的订单记录。
+> 说明
+>
+> * 由于当天的订单信息可能还会发生变动，因此不建议使用此接口查询当天的实时订单数据，建议延迟一天查询。
+>
+> * 当前仅支持查询180天内的订单数据。
+>
+> * 当前不支持查询沙盒订单和0元订单。
 
-* 当前不支持查询沙盒订单和0元订单。
+## 接口原型
 
-#### 接口原型
+* **承载协议：** HTTPS POST
 
-* 承载协议： HTTPS POST
+* **接口方向：** 开发者服务器 -> IAP服务器
 
-* 接口方向： 开发者服务器 -\> IAP服务器
-
-* 接口URL： {rootUrl}/order/harmony/v1/application/trade/orders/query
+* **接口URL：** {rootUrl}/order/harmony/v1/application/trade/orders/query
 
   说明：rootUrl具体请参见[站点信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-rest-common-statement#站点信息)。
-* 数据格式：
+* **数据格式：**
 
   请求消息：Content-Type: application/json; charset=UTF-8
 
-响应消息：Content-Type: application/json; charset=UTF-8  
+  响应消息：Content-Type: application/json; charset=UTF-8
 
-#### 请求参数
+## 请求参数
 
-#### Request Header
+### Request Header
 
 |参数|是否必选|参数类型|描述|
 |:------------|:---|:-----|:--------------------------------------------------------------------------------------------------------------------------------------------|
 |Content-Type|是|String|取值为：application/json;charset=UTF-8|
 |Authorization|是|String|认证信息，使用JWT进行鉴权，具体请参见[Authorization说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-jwt-description#authorization说明)。|
 
-#### Request Body
+### Request Body
 
 |参数|是否必选|参数类型|描述|
 |:----------------|:---|:-----|:------------------------------------------------------------------------------------------------------|
@@ -52,9 +55,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-order
 |endTime|是|Long|指定查询范围的结束时间，UTC时间戳，以毫秒为单位。 - 结束时间endTime与开始时间startTime的时间差为48小时或者48小时内。 - 结束时间endTime必须大于开始时间startTime。|
 |continuationToken|否|String|支持分页查询的数据定位标志。 - 初始请求时无需输入，当响应结果返回continuationToken时，下一次查询时需要输入上次查询返回的continuationToken才可以查询下一页数据。|
 
-#### 请求示例
+## 请求示例
 
-```
+```javascript
 POST /order/harmony/v1/application/trade/orders/query
 Content-Type: application/json; charset=UTF-8
 Authorization: Bearer ***.***.***
@@ -65,26 +68,26 @@ Accept: application/json
 }
 ```
 
-#### 响应参数
+## 响应参数
 
-#### Response Header
+### Response Header
 
 |参数|是否必选|参数类型|描述|
 |:-----------|:---|:-----|:---------------------------------|
 |Content-Type|是|String|取值为：application/json;charset=UTF-8|
 
-#### Response Body
+### Response Body
 
 |参数|是否必选|参数类型|描述|
-|:----------------|:---|:-------------|:--------------------------------------------------------------------------------------------------------------------|
+|:----------------|:---|:-----------|:--------------------------------------------------------------------------------------------------------------------|
 |responseCode|是|String|返回码。 0：成功。 其他：失败，具体请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-server-error-code)。|
 |responseMessage|否|String|响应描述。|
-|orderInfoList|否|List\<Object\>|订单信息列表，其中每个JSONObject表示一个订单信息，订单信息格式参见[OrderInfo](#orderinfo)。|
+|orderInfoList|否|List<Object>|订单信息列表，其中每个JSONObject表示一个订单信息，订单信息格式参见[OrderInfo](#orderinfo)。|
 |continuationToken|否|String|支持分页查询的数据定位标志。如果返回，下一次查询请求时需要输入，以此查询下一页数据。|
 
-#### 响应示例
+## 响应示例
 
-```
+```json
 HTTP/1.2 200 OK
 Content-Type: application/json; charset=UTF-8
 {
@@ -126,7 +129,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-#### OrderInfo
+### OrderInfo
 
 |参数|是否必选|参数类型|描述|
 |:------------|:---|:------|:-----------------------------------------------------------------------------------|
@@ -135,7 +138,7 @@ Content-Type: application/json; charset=UTF-8
 |merchantId|是|String|商户ID。|
 |applicationId|是|String|应用ID。|
 |orderTime|是|Long|下单时间，UTC时间戳，以毫秒为单位。|
-|tradeTime|是|Long|支付时间，UTC时间戳，以毫秒为单位。 说明： 支付时间（tradeTime）在\[startTime,endTime)范围内的订单将被查询出来。|
+|tradeTime|是|Long|支付时间，UTC时间戳，以毫秒为单位。 **说明：** 支付时间（tradeTime）在[startTime,endTime)范围内的订单将被查询出来。|
 |productId|是|String|商品ID。|
 |productName|是|String|商品名称。|
 |payMoney|是|String|支付金额，单位为元。|

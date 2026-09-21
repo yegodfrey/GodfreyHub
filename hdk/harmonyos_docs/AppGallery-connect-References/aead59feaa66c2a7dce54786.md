@@ -6,25 +6,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # 创建站点
 
-#### 功能介绍
+## 功能介绍
 
-此接口用于创建泛域名站点。  
+此接口用于创建泛域名站点。
 
-#### 使用约束
+## 使用约束
 
-无  
+无
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS POST|
-|接口方向|开发者服务器 -\> 华为服务器|
-|接口URL|https://{domain}/api/cloudhosting/web/v1/site/create 其中{domain}依站点区分： * 中国：connect-api.cloud.huawei.com * 德国：connect-api-dre.cloud.huawei.com * 新加坡：connect-api-dra.cloud.huawei.com * 俄罗斯：connect-api-drru.cloud.huawei.com 注意： 调用[获取Token](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043)接口时使用的域名必须与本接口域名保持一致，例如欧洲站点使用"connect-api-dre.cloud.huawei.com"，则调用[获取Token](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043)接口必须使用"https://connect-api-dre.cloud.huawei.com/api/oauth2/v1/token"。|
+|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|接口方向|开发者服务器 -> 华为服务器|
+|接口URL|https://{domain}/api/cloudhosting/web/v1/site/create 其中{domain}依站点区分： * 中国：connect-api.cloud.huawei.com * 德国：connect-api-dre.cloud.huawei.com * 新加坡：connect-api-dra.cloud.huawei.com * 俄罗斯：connect-api-drru.cloud.huawei.com 注意 > 调用[获取Token](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043)接口时使用的域名必须与本接口域名保持一致，例如欧洲站点使用"connect-api-dre.cloud.huawei.com"，则调用[获取Token](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043)接口必须使用"https://connect-api-dre.cloud.huawei.com/api/oauth2/v1/token"。|
 |数据格式|请求：Content-Type: application/json 响应：Content-Type: application/json|
-|-----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-#### Header
+### Header
 
 |参数名称|必选(M)/可选(O)|类型|参数说明|
 |:------------|:----------|:-----|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,16 +34,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |client_id|M|String|客户端ID，获取方法参考[创建API客户端](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-cloudhost-getstarted-0000001166760172#section59981526588)。|
 |service|M|String|API业务标识。固定值：hosting。|
 
-#### Body
+### Body
 
 |参数名称|必选(M)/可选(O)|类型|参数说明|
 |:----------|:----------|:-----------|:------|
 |siteName|M|String(30)|站点名。|
 |description|O|String(1000)|站点描述信息。|
 
-#### 请求示例
+## 请求示例
 
-```
+```screen
 curl --location --request POST 'https://{domain}/api/cloudhosting/web/v1/site/create' \
 --header 'productId: 4016977****9908702' \
 --header 'requestid: test' \
@@ -57,17 +57,17 @@ curl --location --request POST 'https://{domain}/api/cloudhosting/web/v1/site/cr
 }'
 ```
 
-#### 响应参数
+## 响应参数
 
 |参数名称|必选(M)/可选(O)|类型|参数说明|
-|:--------------------------|:----------|:-------------------------------------------------------------|:--------------------------------------------------------------------------------------------|
-|ret|O|String|包含返回码及描述信息的JSON字符串，格式为{"code":retcode, "msg": "description"}，retcode为返回码，description为返回码描述信息。|
+|:--------------------------|:----------|:-------------------------------------------------------------|:-------------------------------------------------------------------------------------------------|
+|ret|O|String|包含返回码及描述信息的JSON字符串，格式为{"code":*retcode* , "msg": "*description*"}，retcode为返回码，description为返回码描述信息。|
 |site|O|[Site](#ZH-CN_TOPIC_0000001216061466__table1381252211130)|站点信息。|
 |siteDomains|O|[siteDomain](#ZH-CN_TOPIC_0000001216061466__table381622281316)|域名模型。|
 |rejected|O|Boolean|创建站点是否被拒绝。|
 |secondLevelDomainSitesCount|O|Integer|二级域名下子域名数量（泛域名忽略此字段）。|
 
-Site  
+Site
 
 |参数名称|必选(M)/可选(O)|类型|参数说明|
 |:-----------|:----------|:------|:------------|
@@ -82,7 +82,7 @@ Site
 |modifyDate|M|Long|修改时间。|
 |businessType|M|Integer|托管类型：0-网站托管。|
 
-siteDomain  
+siteDomain
 
 |参数名称|必选(M)/可选(O)|类型|参数说明|
 |:-------------|:----------|:------|:------------|
@@ -96,11 +96,11 @@ siteDomain
 |certExpireTime|M|Long|域名证书过期时间。|
 |businessType|M|Integer|托管类型：0-网站托管。|
 
-#### 响应示例
+## 响应示例
 
-#### 成功示例
+### 成功示例
 
-```
+```screen
 {
     "site": {
         "siteId": "7HfJOkoUSIm_RYsfHkljpg",
@@ -134,9 +134,9 @@ siteDomain
 }
 ```
 
-#### 鉴权失败示例
+### 鉴权失败示例
 
-```
+```screen
 {
     "ret": {
         "code": 205524993,

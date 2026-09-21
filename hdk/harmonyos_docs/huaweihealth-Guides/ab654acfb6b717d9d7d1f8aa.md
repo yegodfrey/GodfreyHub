@@ -11,9 +11,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/delete-cer
 1. 导入相关模块。
 2. 调用[IndustryService](https://developer.huawei.com/consumer/cn/doc/health-References/industry_service_ios-0000002624668977)的[deleteCertPath](https://developer.huawei.com/consumer/cn/doc/health-References/industry_service_ios-0000002624668977#section1861714117295)方法删除证书路径。
 
-   <br />
-
-   ```
+   ```screen
    // 导入相关模块
    import IndustrySDK
 
@@ -30,6 +28,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/delete-cer
        }
    }
    ```
-
-   <br />
 

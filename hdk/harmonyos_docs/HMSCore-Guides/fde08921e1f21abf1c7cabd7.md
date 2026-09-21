@@ -6,28 +6,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/extended-obtain
 
 # 获取实时心率数据
 
-使用华为穿戴设备或来自华为运动健康App"设备 \> 添加设备"中支持的心率设备测量心率，对正在测量的数据实时监控。回调频率：约5秒一次（以返回结果中携带的时间采样点为准）。  
-![](https://media:901788166652549172)  
-华为穿戴设备及心率设备已连接华为运动健康App，设备上的实时数据会自动同步到华为运动健康App，应用可以实时读取该数据，长时间使用可能导致设备功耗过高，请及时关闭
+使用华为穿戴设备或来自华为运动健康App"设备 > 添加设备"中支持的心率设备测量心率，对正在测量的数据实时监控。回调频率：约5秒一次（以返回结果中携带的时间采样点为准）。
+> 说明
+>
+> 华为穿戴设备及心率设备已连接华为运动健康App，设备上的实时数据会自动同步到华为运动健康App，应用可以实时读取该数据，长时间使用可能导致设备功耗过高，请及时关闭
 
-查询这些数据前，需要向华为申请开通权限，并获取用户授权，否则接口将调用失败。  
+查询这些数据前，需要向华为申请开通权限，并获取用户授权，否则接口将调用失败。
 
 |数据开放类型|API 接口|需[获取用户授权](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/extended-requesting-user-authorization-0000001071733944)的权限|需向华为申请开通的权限 （参见[申请 Health Service Kit 服务](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/extended-apply-kitservice-0000001211703555)）|
 |:---------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
 |开始获取实时心率数据|[startReadingHeartRate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealthdatastore-0000001071549459#ZH-CN_TOPIC_0000002547961909__startReadingHeartRate-android_content_Context-com_huawei_hihealthkit_data_store_HiRealTimeListener-)|[HEALTHKIT_EXTEND_REALTIME_HEART_READ](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealthextendscope-0000001071609519#ZH-CN_TOPIC_0000002516362106__HEALTHKIT_EXTEND_REALTIME_HEART_READ)|实时心脏数据读权限|
 |停止获取实时心率数据|[stopReadingHeartRate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealthdatastore-0000001071549459#ZH-CN_TOPIC_0000002547961909__stopReadingHeartRate-android_content_Context-com_huawei_hihealthkit_data_store_HiRealTimeListener-)|[HEALTHKIT_EXTEND_REALTIME_HEART_READ](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealthextendscope-0000001071609519#ZH-CN_TOPIC_0000002516362106__HEALTHKIT_EXTEND_REALTIME_HEART_READ)|实时心脏数据读权限|
-[表1 获取实时心率数据所需权限]
+[**表1**获取实时心率数据所需权限]
 
-#### 开始获取实时心率数据
+## 开始获取实时心率数据
 
 1. 调用 [HiHealthDataStore](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealthdatastore-0000001071549459) 对象的 [startReadingHeartRate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealthdatastore-0000001071549459#ZH-CN_TOPIC_0000002547961909__startReadingHeartRate-android_content_Context-com_huawei_hihealthkit_data_store_HiRealTimeListener-) 方法，开始获取实时心率数据。
 2. 通过请求参数 [HiRealTimeListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hirealtimelistener-0000001072307792) 对象，返回查询结果 。
 
-   <br />
+   **示例代码**
 
-   示例代码
-
-   ```
+   ```screen
    HiHealthDataStore.startReadingHeartRate(context, new HiRealTimeListener() {
        @Override  
        public void onResult(int state) { 
@@ -87,25 +86,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/extended-obtain
    |参数名称|参数类型|参数描述|可选选项|
    |:-----------------|:-----------------|:--------|:----|
    |hiRealTimeListener|HiRealTimeListener|实时心率数据获取器|必选(M)|
-   [表2 请求参数]
+   [**表2**请求参数]
 
    |参数名称|参数类型|参数描述|可选选项|
    |:---------|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----|
    |resultCode|int|处理结果码 * 0：成功 * 其他：参见[错误码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/extended-errocode-0000001053256958)|必选(M)|
    |state|int|开启获取结果 * 0：成功 * 其他失败|必选(M)|
    |value|String|实时心率数据JSON字符串 * int hri_info(信号质量指数， 已废弃，不建议使用) * int hrsqi_info(心率间隔，已废弃，不建议使用) * int hr_info(心率，单位为bpm) * int time_info(该次心率值测量时对应的时间) * int heartRateCredibility(心率置信度)：取值范围：-3，-1，0，1，2，3 * 3：心率置信度高 * 2：心率置信度一般 * 1：心率置信度较差 * 0：心率置信度差 * -1：心率置信度极差不可用 * -3：设备不支持心率置信度 举例：{"heartRateCredibility":0,"hri_info":0,"hr_info":69,"hrsqi_info":0,"time_info":1591361991000}|必选(M)|
-   [表3 响应参数]
+   [**表3**响应参数]
 
-   <br />
-
-#### 停止获取实时心率数据
+## 停止获取实时心率数据
 
 1. 调用 [HiHealthDataStore](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealthdatastore-0000001071549459) 对象的 [stopReadingHeartRate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealthdatastore-0000001071549459#ZH-CN_TOPIC_0000002547961909__stopReadingHeartRate-android_content_Context-com_huawei_hihealthkit_data_store_HiRealTimeListener-) 方法，停止获取实时心率数据。
 2. 通过请求参数 [HiRealTimeListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hirealtimelistener-0000001072307792) 对象，返回查询结果。
 
-   <br />
-
-   ```
+   ```screen
    HiHealthDataStore.stopReadingHeartRate(context, new HiRealTimeListener() {
        @Override  
        public void onResult(int state) { 
@@ -136,12 +131,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/extended-obtain
    |参数名称|参数类型|参数描述|可选选项|
    |:-----------------|:-----------------|:--------|:----|
    |hiRealTimeListener|HiRealTimeListener|实时心率数据获取器|必选(M)|
-   [表4 请求参数]
+   [**表4**请求参数]
 
    |参数名称|参数类型|参数描述|可选选项|
    |:----|:---|:-------------------|:----|
    |state|int|停止获取结果 * 0：成功 * 其他失败|必选(M)|
-   [表5 响应参数]
-
-   <br />
+   [**表5**响应参数]
 

@@ -18,19 +18,19 @@ Share Kit（分享服务）为应用提供文本、图片、视频等内容跨�
 
 Share Kit提供的[SampleCode示例工程](https://gitcode.com/harmonyos_samples/share-kit_-sample-code_-clientdemo_-arkts)体现了系统分享接入模式、文本/图片等分享示例、碰一碰分享示例及卡片模板，可参考该工程进行应用的相关内容开发。
 
-图1 手机分享面板效果图
+**图1** 手机分享面板效果图
 
-![](https://media:401788444226798146)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/NpBPjhbRTU2-9ALoR6Pfvw/zh-cn_image_0000002733275604.png?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=73FC6DC9EE02F892D1131BB0A363FA698BF6018194B061C0F9B650E39B204789)
 
-图2 手机碰一碰跨端发起华为分享效果图
+**图2** 手机碰一碰跨端发起华为分享效果图
 
-![](https://media:401788444227392147)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/v_NiM4wBQi29ybiaOp3RHA/zh-cn_image_0000002733435486.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=9F0CA8BB80BA68BBEF87EA52A08BEB21AE86B5BF874EFDE980911E84C207AC6E)
 
-图3 手机与PC/2in1设备碰一碰分享效果图
+**图3** 手机与PC/2in1设备碰一碰分享效果图
 
-![](https://media:401788444227634148)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/llHQsdMaT4-cBns_-E2o_g/zh-cn_image_0000002762995009.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=2F4378800C907F90E203B7E1D8C578B152F1249FF391430C840F83D63E46894E)
 
-#### 基本概念
+## 基本概念
 
 * 宿主应用
 
@@ -55,20 +55,20 @@ Share Kit提供的[SampleCode示例工程](https://gitcode.com/harmonyos_samples
   应用组件需通过在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中配置UIAbility组件和ExtensionAbility组件的描述信息，以声明支持分享的能力。
 * 操作区
 
-内容相关的操作，由系统提供的复制、保存、另存为、打印等能力。  
+  内容相关的操作，由系统提供的复制、保存、另存为、打印等能力。
 
-#### 运行机制
+## 运行机制
 
-图4 分享运行机制
+**图4** 分享运行机制
 
-![](https://media:401788444227664149)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/uokdJjfWQiW_0HgqS0gNlA/zh-cn_image_0000002762835121.png?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A8F8CA8E8A39237E0EF0656740F7BB8441F38D594455B3E5116B77F0164FA85)
 
 |应用类型|相关逻辑|
 |:---|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |宿主应用|宿主应用需要对可分享的内容提供分享入口，在用户点击分享时，配置分享内容到分享，拉起系统分享面板。 - [通过分享面板发起分享](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-mobilephone-app-share) - [碰一碰分享](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/knock-share-between-phones-overview)|
 |目标应用|1. 需要在应用中构建具有数据处理能力组件，包括以下两种分享方式。 - [应用内处理分享内容](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-interface-description) - [分享详情页处理分享内容](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-sec-panel) 2. （可选）社交类应用可遵照[意图框架](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-introduction)接入规范把最近分享行为联系人相关信息捐献到[意图框架](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-introduction)，Share Kit可从[意图框架](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-introduction)获取推荐信息，当用户选择推荐的联系人时，会把联系人信息随分享数据一起给到目标应用，目标应用可以根据联系人信息直接一步发送内容给指定用户。|
 
-#### 约束与限制
+## 约束与限制
 
 * 设备限制
 
@@ -81,10 +81,11 @@ Share Kit提供的[SampleCode示例工程](https://gitcode.com/harmonyos_samples
 * 使用限制
 
   * 宿主应用和目标应用定义数据类型须遵照[UDMF](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/unified-data-definition-overview)（统一数据管理框架）定义的[UTD](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uniform-data-type-descriptors)（统一类型描述符）规范。目标应用需要在应用配置文件中，配置支持的类型。如支持全部图片类型，可声明为：general.image。
-* 宿主应用单次分享可配置[分享数据描述信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-system-share#shareddata)总量不能超过200KB，且分享条目总量不能超过500条。  
+  * 宿主应用单次分享可配置[分享数据描述信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-system-share#shareddata)总量不能超过200KB，且分享条目总量不能超过500条。
 
-#### 模拟器支持情况
+## 模拟器支持情况
 
 本Kit支持模拟器。
 
-模拟器与真机存在通用差异，详情请参见"[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification)"。  
+模拟器与真机存在通用差异，详情请参见"[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification)"。
+

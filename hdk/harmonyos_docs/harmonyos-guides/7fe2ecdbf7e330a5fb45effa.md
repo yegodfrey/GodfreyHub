@@ -6,35 +6,35 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-fusio
 
 # FusionParseParamsFn
 
-#### 函数功能
+## 函数功能
 
-注册解析融合算子属性的函数。  
+注册解析融合算子属性的函数。
 
-#### 函数原型
+## 函数原型
 
-```
+```cpp
 OpRegistrationData &FusionParseParamsFn(const FusionParseParamFunc &fusionParseParamFn)
 ```
 
-#### 参数说明
+## 参数说明
 
 |参数|输入/输出|说明|
 |:-----------------|:----|:--------------------------------------------------------------------|
 |fusionParseParamFn|输入|解析融合算子属性的函数，请参见[回调函数FusionParseParamFunc](#回调函数fusionparseparamfunc)。|
 
-#### 约束说明
+## 约束说明
 
-对于融合算子插件，FusionParseParamsFn接口后续版本将会废弃，请使用[FusionParseParamsFn（Overload）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-fusionparseparamsfn-overload)接口进行融合算子属性的解析。  
+对于融合算子插件，FusionParseParamsFn接口后续版本将会废弃，请使用[FusionParseParamsFn（Overload）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-fusionparseparamsfn-overload)接口进行融合算子属性的解析。
 
-#### 回调函数FusionParseParamFunc
+## 回调函数FusionParseParamFunc
 
 开发者自定义并实现FusionParseParamFunc类函数，完成原始模型中属性到适配AI处理器的模型中属性的映射，将结果填入Operator类中。
 
-```
+```cpp
 Status FusionParseParamFunc(const  vector<const google::protobuf::Message *> &v_op_origin, ge::Operator  &op_dest)
 ```
 
-表1 参数说明  
+**表1** 参数说明
 
 |参数|输入/输出|说明|
 |:----------|:----|:--------------------------------------------------------------------------------------------------------------------------------------------------------|

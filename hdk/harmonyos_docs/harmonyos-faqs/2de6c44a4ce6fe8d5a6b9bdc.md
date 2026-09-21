@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
 
 # 如何在子窗口为主窗口打开半模态弹窗
 
-#### 问题现象
+## 问题现象
 
-通过windowStage.createSubWindow创建应用子窗口，在该子窗口中给组件绑定bindSheet，点击该组件主窗口没有显示半模态窗口。如何在子窗口为主窗口打开半模态弹窗？  
+通过windowStage.createSubWindow创建应用子窗口，在该子窗口中给组件绑定bindSheet，点击该组件主窗口没有显示半模态窗口。如何在子窗口为主窗口打开半模态弹窗？
 
-#### 背景知识
+## 背景知识
 
-[openBindSheet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#openbindsheet12)创建并弹出以bindSheetContent作为内容的半模态页面。通过该接口弹出的半模态页面样式完全按照bindSheetContent中设置的样式显示。  
+[openBindSheet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#openbindsheet12)创建并弹出以bindSheetContent作为内容的半模态页面。通过该接口弹出的半模态页面样式完全按照bindSheetContent中设置的样式显示。
 
-#### 解决方案
+## 解决方案
 
 出现问题现象所示的效果，是由于bindSheet绑定在了子窗口的组件，因此半模态弹窗只会出现在子窗口中。为了解决该问题，有如下两种方案：
 
@@ -24,7 +24,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
 
 1. 通过[AppStorage.setOrCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management#setorcreate10)存储WindowStage后在使用处获取到WindowStage实例，然后创建子窗口：
 
-   ```
+   ```ts
    // Index.ets文件
    import { window } from '@kit.ArkUI';
    import { BusinessError } from '@kit.BasicServicesKit';
@@ -36,7 +36,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
    @Component
    struct Index {
      private CreateSubWindow() {
-       // 获取windowStage
+     // 获取windowStage
        windowStage_ = AppStorage.get('windowStage');
        // 创建应用子窗口。
        if (windowStage_ == null) {
@@ -67,7 +67,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
              }
              console.info('Succeeded in changing the window size.');
            });
-           // 为子窗口加载对应的目标页面。
+         // 为子窗口加载对应的目标页面。
            sub_windowClass.setUIContent('pages/Page', (err: BusinessError) => {
              let errCode: number = err.code;
              if (errCode) {
@@ -75,7 +75,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
                return;
              }
              console.info('Succeeded in loading the content.');
-             // 显示子窗口。
+         // 显示子窗口。
              (sub_windowClass as window.Window).showWindow((err: BusinessError) => {
                let errCode: number = err.code;
                if (errCode) {
@@ -94,7 +94,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
      }
 
      private destroySubWindow() {
-       // 销毁子窗口。当不再需要子窗口时，可根据具体实现逻辑，使用destroy对其进行销毁。
+      // 销毁子窗口。当不再需要子窗口时，可根据具体实现逻辑，使用destroy对其进行销毁。
        (sub_windowClass as window.Window).destroyWindow((err: BusinessError) => {
          let errCode: number = err.code;
          if (errCode) {
@@ -136,7 +136,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
 
 2. 子窗口中通过windowStage.getMainWindowSync().getUIContext().openBindSheet弹出半模态弹窗：
 
-   ```
+   ```ts
    // Page.ets文件
    import { ComponentContent, window } from '@kit.ArkUI';
    import { BusinessError } from '@kit.BasicServicesKit';
@@ -222,7 +222,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
 
 1. 子窗口需要在主窗口打开半模态弹窗时发送事件。
 
-   ```
+   ```ts
    // subwindow2.ets文件
    import { emitter } from '@kit.BasicServicesKit';
 
@@ -238,7 +238,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
            .padding(10)
            .margin({top: 15})
            .onClick(() => {
-             // 发送事件，在主窗口打开半模态弹窗
+        // 发送事件，在主窗口打开半模态弹窗
              emitter.emit('OpenBindSheet');
            });
        }
@@ -252,7 +252,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
 
 2. 主窗口响应事件，通过this.getUIContext().openBindSheet打开半模态弹窗。
 
-   ```
+   ```ts
    // mainwindow.ets文件
    import { ComponentContent, window } from '@kit.ArkUI';
    import { BusinessError, emitter } from '@kit.BasicServicesKit';
@@ -298,9 +298,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
    @Component
    struct Index {
      private CreateSubWindow() {
-       // 获取windowStage
+     // 获取windowStage
        windowStage_ = AppStorage.get('windowStage');
-       // 1.创建应用子窗口
+    // 1.创建应用子窗口
        if (windowStage_ == null) {
          console.error('Failed to create the subwindow. Cause: windowStage_ is null');
        } else {
@@ -312,7 +312,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
            }
            sub_windowClass = data;
            console.info(`Succeeded in creating the subwindow. Data: ${data}`);
-           // 2.子窗口创建成功后，设置子窗口的位置、大小及相关属性等
+          // 2.子窗口创建成功后，设置子窗口的位置、大小及相关属性等
            sub_windowClass.moveWindowTo(55, 300, (err: BusinessError) => {
              let errCode: number = err.code;
              if (errCode) {
@@ -329,7 +329,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
              }
              console.info('Succeeded in changing the window size.');
            });
-           // 3.为子窗口加载对应的目标页面
+         // 3.为子窗口加载对应的目标页面
            sub_windowClass.setUIContent('pages/subwindow2', (err: BusinessError) => {
              let errCode: number = err.code;
              if (errCode) {
@@ -337,7 +337,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
                return;
              }
              console.info('Succeeded in loading the content.');
-             // 4.显示子窗口
+           // 4.显示子窗口
              (sub_windowClass as window.Window).showWindow((err: BusinessError) => {
                let errCode: number = err.code;
                if (errCode) {
@@ -356,7 +356,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1631
      }
 
      private destroySubWindow() {
-       // 5.销毁子窗口，当不再需要子窗口时，可根据具体实现逻辑，使用destroy对其进行销毁
+     // 5.销毁子窗口，当不再需要子窗口时，可根据具体实现逻辑，使用destroy对其进行销毁
        (sub_windowClass as window.Window).destroyWindow((err: BusinessError) => {
          let errCode: number = err.code;
          if (errCode) {

@@ -6,23 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
 # 如何在服务卡片与主应用之间共享持久化数据
 
-#### 问题现象
+## 问题现象
 
-在主应用和卡片中需要分别持久化存储数据，如何在服务卡片与主应用之间共享这些数据？  
+在主应用和卡片中需要分别持久化存储数据，如何在服务卡片与主应用之间共享这些数据？
 
-#### 背景知识
+## 背景知识
 
 * [Form Kit（卡片开发服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/formkit-overview)提供了一种在桌面、锁屏等系统应用上嵌入显示应用信息的开发框架和API，可以将应用内用户关注的重要信息或常用操作抽取到服务卡片（简称"卡片"）上，通过将卡片添加到桌面、锁屏等系统应用上，以达到信息展示、服务直达的便捷体验效果。
 * [用户首选项(Preferences)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences)为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。当用户有轻量级的键值型数据需要存储时，可以采用Preferences来进行存储。
-* [关系型数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-rdb-store)基于SQLite组件，适用于存储包含复杂关系数据的场景，比如一个班级的学生信息，需要包括姓名、学号、各科成绩等，又或者公司的雇员信息，需要包括姓名、工号、职位等，由于数据之间有较强的对应关系，复杂程度比键值型数据更高，此时需要使用关系型数据库来持久化保存数据。  
+* [关系型数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-rdb-store)基于SQLite组件，适用于存储包含复杂关系数据的场景，比如一个班级的学生信息，需要包括姓名、学号、各科成绩等，又或者公司的雇员信息，需要包括姓名、工号、职位等，由于数据之间有较强的对应关系，复杂程度比键值型数据更高，此时需要使用关系型数据库来持久化保存数据。
 
-#### 解决方案
+## 解决方案
 
-* 解决方案一：在服务卡片与主应用之间使用用户首选项共享持久化数据。
+* **解决方案一** ：在服务卡片与主应用之间使用用户首选项共享持久化数据。
   1. [创建动态卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)。
   2. 创建用户首选项操作类PreferencesHelper，该类旨在封装用户首选项（Preferences）的核心操作。为确保全局唯一性，类中定义了静态方法getInstance，以对外提供单一的PreferencesHelper实例。需要注意的是，在getPreferences函数被调用时，应先调用removePreferencesFromCacheSync方法。此操作能够主动清除已缓存的实例，强制系统从持久化文件中重新加载数据，从而保证在多线程并发访问场景下，每次获取的都是最新的首选项数据。
 
-     ```
+     ```ts
      import { preferences } from '@kit.ArkData';
 
      export class PreferencesHelper {
@@ -69,7 +69,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
   3. 在应用主页面中，定义刷新和修改操作，从首选项获取并同步最新数据。
 
-     ```
+     ```ts
      import { PreferencesHelper } from '../utils/PreferencesHelper';
 
      @Entry
@@ -82,7 +82,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
          Column({ space: 15 }) {
            Text(`当前用户首选项中数据为：${this.curNum}`);
            Button('刷新数据').onClick(() => {
-             // 查询最新的数据
+        // 查询最新的数据
              this.operate(0);
            })
              .width(200);
@@ -102,7 +102,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
          .width('100%');
        }
 
-       // 操作首选项
+      // 操作首选项
        operate(value: number) {
          let utilHelper = PreferencesHelper.getInstance();
          let myPreferences =
@@ -119,7 +119,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
   4. 编写卡片EntryFormAbility生命周期文件。定义operate函数实现卡片端对首选项的操作，分别在onAddForm、onUpdateForm及onFormEvent中调用该操作。
 
-     ```
+     ```ts
      import { formBindingData, FormExtensionAbility, formInfo, formProvider } from '@kit.FormKit';
      import { PreferencesHelper } from '../utils/PreferencesHelper';
 
@@ -139,19 +139,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
        }
 
        onAddForm() {
-         // Called to return a FormBindingData object.
-         // 取值
+        // Called to return a FormBindingData object.
+     // 取值
          let curNum = this.operate(0);
-         // 传递至卡片页面
+        // 传递至卡片页面
          return formBindingData.createFormBindingData({
            curNum: curNum
          });
        }
 
        onUpdateForm(formId: string) {
-         // 也可取最新数据传递给卡片页面，用于定时/定点刷新等
+        // 也可取最新数据传递给卡片页面，用于定时/定点刷新等
          let curNum = this.operate(0);
-         // 更新
+       // 更新
          formProvider.updateForm(formId, formBindingData.createFormBindingData({
            curNum: curNum
          }));
@@ -159,17 +159,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
        onFormEvent(formId: string, message: string) {
          console.info('--onFormEvent--', formId, message);
-         // 计算
+       // 计算
          let preNum: number = JSON.parse(message)['curNum'];
          let curNum = this.operate(preNum);
-         // 更新
+        // 更新
          formProvider.updateForm(formId, formBindingData.createFormBindingData({
            curNum: curNum
          }));
        }
 
        onAcquireFormState() {
-         // Called to return a {@link FormState} object.
+        // Called to return a {@link FormState} object.
          return formInfo.FormState.READY;
        }
      };
@@ -177,7 +177,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
   5. 在卡片页面中，创建刷新和修改按钮，使用postCardAction发起修改操作。
 
-     ```
+     ```ts
      @Entry
      @Component
      struct WidgetCard {
@@ -219,11 +219,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
      }
      ```
 
-* 解决方案二：在服务卡片与主应用之间使用关系型数据库共享持久化数据。
+* **解决方案二** ：在服务卡片与主应用之间使用关系型数据库共享持久化数据。
   1. [创建动态卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)。
   2. 创建关系型数据库的工具类RdbUtils，定义获取数据库连接、对数据库的增、删、改、查操作。接着定义Person实体类，将其作为关系型数据库操作的实体。最后，定义PersonRdbHelper类实现对Person对象在关系型数据库的操作。 utils/RdbUtils.ets为：
 
-     ```
+     ```ts
      import { relationalStore } from '@kit.ArkData';
      import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -354,7 +354,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
      viewmodel/Person.ets为：
 
-     ```
+     ```ts
      export class Person {
        pId: string = '';
        pName: string = '';
@@ -364,7 +364,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
      utils/FormRdbHelper.ets为：
 
-     ```
+     ```ts
      import { relationalStore } from '@kit.ArkData';
      import { Person } from '../viewmodel/Person';
      import { RdbUtils } from './RdbUtils';
@@ -469,7 +469,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
   3. 在应用的主页面中，创建刷新和保存按钮，从数据库获取并同步刷新最新数据。
 
-     ```
+     ```ts
      import { PersonRdbHelper } from '../utils/FormRdbHelper';
      import { Person } from '../viewmodel/Person';
      import { promptAction } from '@kit.ArkUI';
@@ -487,10 +487,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
          this.calCount();
        }
 
-       // 计算数据库总人数
+      // 计算数据库总人数
        calCount() {
          let personRdbHelper = PersonRdbHelper.getInstance(this.context);
-         //
+        //
          personRdbHelper.queryAllPerson().then((persons) => {
            this.num = persons.length;
          });
@@ -545,7 +545,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
                } else {
                  promptAction.openToast({ message: '添加失败' });
                }
-               // 重新计算总数
+             // 重新计算总数
                this.calCount();
              }).width('100%');
            }.width(250);
@@ -558,7 +558,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
   4. 编写卡片EntryFormAbility生命周期文件。定义calCount函数计算数据库总人数并查询最后一个人信息，刷新卡片。
 
-     ```
+     ```ts
      import { formBindingData, FormExtensionAbility, formInfo, formProvider } from '@kit.FormKit';
      import { Want } from '@kit.AbilityKit';
      import { PersonRdbHelper } from '../utils/FormRdbHelper';
@@ -569,7 +569,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
          let personRdbHelper = PersonRdbHelper.getInstance(this.context.getApplicationContext());
          personRdbHelper.queryAllPerson().then(persons => {
            let num = persons.length;
-           // 封装数据
+          // 封装数据
            if (num > 0) {
              let formInfo = formBindingData.createFormBindingData({
                num: num,
@@ -577,7 +577,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
                pName: persons[num - 1].pName,
                pAge: persons[num - 1].pAge
              });
-             // 调用updateForm更新form
+          // 调用updateForm更新form
              formProvider.updateForm(formId, formInfo);
            }
          });
@@ -607,7 +607,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
   5. 在卡片页面中，渲染查询数据库的信息。创建刷新按钮，通过postCardAction完成刷新。
 
-     ```
+     ```ts
      @Entry
      @Component
      struct WidgetCard {
@@ -654,7 +654,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
      }
      ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：是否可以使用PersistentStorage和AppStorage在应用和卡片之间进行共享持久化数据？
 
@@ -666,9 +666,9 @@ A：不同进程的内存不共享，同一进程中getPreferences只有首次�
 
 Q：为什么调用getPreferencesSync获取首选项实例时，传入的context对象为应用级的？
 
-A：主应用和卡片属于不同的进程，不同进程的context不同。为了保证主应用和卡片获取同一个首选项实例，传入的参数应该为应用级context。  
+A：主应用和卡片属于不同的进程，不同进程的context不同。为了保证主应用和卡片获取同一个首选项实例，传入的参数应该为应用级context。
 
-#### 总结
+## 总结
 
 |方案|说明|
 |:--------------|:-------------------|

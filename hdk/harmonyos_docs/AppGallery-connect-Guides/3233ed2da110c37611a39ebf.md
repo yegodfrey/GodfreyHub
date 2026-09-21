@@ -6,10 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 # 创建项目与应用
 
-#### 创建项目
+## 创建项目
 
-项目是您在AGC资源的组织实体，您可以将一个应用的不同平台版本添加到同一个项目中。如果您在使用AGC的服务时在AGC中还没有项目，则需要先创建项目，具体操作请参见[创建项目](https://developer.huawei.com/consumer/cn/doc/app/agc-help-createproject-0000001100334664)。  
+项目是您在AGC资源的组织实体，您可以将一个应用的不同平台版本添加到同一个项目中。如果您在使用AGC的服务时在AGC中还没有项目，则需要先创建项目，具体操作请参见[创建项目](https://developer.huawei.com/consumer/cn/doc/app/agc-help-createproject-0000001100334664)。
 
-#### 创建应用
+## 创建应用
 
-如果您需要在华为应用市场发布您的应用，或者使用AGC提供的各类服务，则您需要先在AGC中[创建应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-createapp-0000001146718717)。  
+如果您需要在华为应用市场发布您的应用，或者使用AGC提供的各类服务，则您需要先在AGC中[创建应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-createapp-0000001146718717)。
+

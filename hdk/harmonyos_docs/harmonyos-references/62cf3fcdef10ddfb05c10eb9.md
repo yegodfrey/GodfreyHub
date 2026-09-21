@@ -6,19 +6,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-a
 
 # @ohos.advertising.AutoAdComponent (轮播广告展示组件)
 
-本模块提供展示轮播广告的能力。  
-![](https://media:401788444910337048)  
-本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。  
+> phone 12+ | 2in1 13+ | tablet 12+
 
-#### 导入模块
+本模块提供展示轮播广告的能力。
+> 说明
+>
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-```
+## 导入模块
+
+```typescript
 import { AutoAdComponent } from '@kit.AdsKit';
 ```
 
-#### AutoAdComponent
+## AutoAdComponent
 
-```
+```typescript
 AutoAdComponent({
   adParam: advertising.AdRequestParams,
   adOptions: advertising.AdOptions,
@@ -29,24 +32,34 @@ AutoAdComponent({
 
 用于展示轮播广告的组件。
 
-装饰器类型：@Component
+**装饰器类型：**@Component
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Advertising.Ads
+**系统能力：** SystemCapability.Advertising.Ads
 
-参数：  
+**参数：**
 
-|名称|类型|必填|装饰器类型|说明|
-|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:-|:----|:--------|
+|**名称**|**类型**|必填|**装饰器类型**|说明|
+|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------|:--------|
 |adParam|advertising.[AdRequestParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adrequestparams)|是|-|广告请求参数。|
 |adOptions|advertising.[AdOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adoptions)|是|-|广告配置参数。|
 |displayOptions|advertising.[AdDisplayOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#addisplayoptions)|是|-|广告展示参数。|
 |interactionListener|advertising.[AdInteractionListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adinteractionlistener)|是|-|广告状态变化回调。|
 
-示例：
+### build
 
-```
+build(): void
+
+用于创建AutoAdComponent对象的构造函数。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Advertising.Ads
+
+## 示例
+
+```typescript
 import { advertising, AutoAdComponent } from '@kit.AdsKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -110,12 +123,3 @@ struct Index {
 }
 ```
 
-#### build
-
-build(): void
-
-用于创建AutoAdComponent对象的构造函数。
-
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
-
-系统能力： SystemCapability.Advertising.Ads  

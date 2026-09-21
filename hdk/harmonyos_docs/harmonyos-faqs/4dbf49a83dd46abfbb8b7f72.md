@@ -8,19 +8,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-202
 
 获取系统状态栏和导航栏等规避区域。使用系统提供的 getWindowAvoidArea 获取系统规避区域。返回值中的 topRect.height 即为系统状态栏的高度，单位为 px。参考代码如下：
 
-```
+```ts
 // MainAbility.ets
 import { common, UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 
 /**
- * Get the height of the system status bar and navigation bar
- * @param context
- * @returns
- */
+* Get the height of the system status bar and navigation bar
+* @param context
+* @returns
+*/
 async function getWindowAvoidArea(context: common.UIAbilityContext): Promise<window.AvoidArea | null> {
   try {
-    // The default area of the system includes the status bar and navigation bar
+   // The default area of the system includes the status bar and navigation bar
     const mainWindow = await window.getLastWindow(context);
     const avoidAreaType = window.AvoidAreaType.TYPE_SYSTEM;
     const avoidArea = mainWindow.getWindowAvoidArea(avoidAreaType);
@@ -36,16 +36,17 @@ async function getWindowAvoidArea(context: common.UIAbilityContext): Promise<win
 }
 
 export default class MainAbility extends UIAbility {
-  // do something
+// do something
   async onWindowStageCreate(windowStage: window.WindowStage) {
     getWindowAvoidArea(this.context);
     windowStage.loadContent('pages/index');
   }
 
-  // do something
+ // do something
 }
 ```
 
-参考链接
+**参考链接**
 
-[getWindowAvoidArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-uiextension#getwindowavoidarea)  
+[getWindowAvoidArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-uiextension#getwindowavoidarea)
+

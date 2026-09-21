@@ -6,52 +6,52 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/server-api-
 
 # Files:delete
 
-#### 功能介绍
+## 功能介绍
 
-删除文件。  
+删除文件。
 
-#### 场景描述
+## 场景描述
 
-您的应用可以通过Files.delete接口删除文件。  
+您的应用可以通过Files.delete接口删除文件。
 
-#### 使用约束
+## 使用约束
 
 * 只能删除普通目录，并且是递归删除，不包括根目录。
 * Scope至少包含下面其中一个：
   * https://www.huawei.com/auth/drive.appdata
   * https://www.huawei.com/auth/drive.file
-* https://www.huawei.com/auth/drive  
+  * https://www.huawei.com/auth/drive
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTP DELETE|
-|接口方向|开发者服务器-\>华为云空间服务器|
+|-----|-----------------------------------------------------------------------|
+|接口方向|开发者服务器->华为云空间服务器|
 |接口URL|https://driveapis.cloud.huawei.com.cn/drive/v1/files/{fileId}|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|-----|-----------------------------------------------------------------------|
 
-#### 路径参数
+## 路径参数
 
 |参数|是否必选|参数类型|描述|
 |:-----|:---|:-----|:----|
 |fileId|是|string|文件ID。|
 
-#### 查询参数
+## 查询参数
 
 |参数|是否必选|参数类型|描述|
-|:----------|:---|:------|:----------------------------------|
-|fields|否|string|采用\[Partial-response格式\]，具体使用见公共说明。|
+|:----------|:---|:------|:--------------------------------|
+|fields|否|string|采用[Partial-response格式]，具体使用见公共说明。|
 |form|否|string|媒体格式。|
 |prettyPrint|否|boolean|是否以美观格式输出。|
 |quotaId|否|string|用户标识，小于40个字符。用于限制单个用户的API访问数量。|
 |callback|否|string|JSONP的callback函数。|
 
-#### 请求参数
+## 请求参数
 
-Request Header  
+**Request Header**
 
 |参数|是否必选|参数类型|描述|
-|:------------------|:---|:-----|:-----------------------------------|
+|:------------------|:---|:-----|:---------------------------------|
 |Authorization|是|string|用户鉴权信息 AccessToken（即AT）|
 |x-hw-trace-id|否|string|业务跟踪id。|
 |x-hw-app-id|否|string|应用的appid。|
@@ -63,34 +63,32 @@ Request Header
 |x-hw-deviceUUID|否|string|设备UUID。|
 |x-hw-deviceUDID|否|string|设备UDID。|
 |x-hw-appPackageName|否|string|应用包名。|
-|x-hw-network|否|string|网络类型，\[WiFi, 2G, 3G, 4G, 5G, wire\]。|
+|x-hw-network|否|string|网络类型，[WiFi, 2G, 3G, 4G, 5G, wire]。|
 
-Request Body
+**Request Body**
 
 无
 
-<br />
+## 请求示例
 
-#### 请求示例
-
-```
+```screen
 DELETE https://driveapis.cloud.huawei.com.cn/drive/v1/files/{fileId} HTTP/1.1 
 Accept: application/json 
 Cache-Control: no-cache 
 Authorization: Bearer CF3NTYZSs7MRmxWyj8ssonQQxDgSPAjnDvrf+91NrpN22LdUrMA30A5Kzz0mf55sWao7e7VeLrmjQ0z2OmwPWlt3S00/L1BJppbTFhIgWb74ZBK8CFImUA==
 ```
 
-#### 响应参数
+## 响应参数
 
-返回状态码为204，无返回体。  
+**返回状态码为204，无返回体。**
 
-#### 响应示例
+## 响应示例
 
-无  
+无
 
-#### 常见错误码
+## 常见错误码
 
-错误码后4位为业务错误码，用于区分错误场景，其他业务错误码见[状态码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/status-code-0000001050992633)章节。  
+**错误码后4位为业务错误码，用于区分错误场景，其他业务错误码见[状态码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/status-code-0000001050992633)章节**。
 
 |状态码|错误码|响应代码|描述|
 |:--|:-------|:------------------------|:---------------------------|
@@ -106,9 +104,9 @@ Authorization: Bearer CF3NTYZSs7MRmxWyj8ssonQQxDgSPAjnDvrf+91NrpN22LdUrMA30A5Kzz
 |500|21085002|OUTER_SERVICE_UNAVAILABLE|服务器异常。|
 |500|21085006|SERVER_TEMP_ERROR|服务器异常。|
 
-#### 调用示例
+## 调用示例
 
-```
+```screen
     public static void main(String[] args) throws IOException {
         // 设置请求地址，文件ID和用户认证令牌
         String url = "https://driveapis.cloud.huawei.com.cn/drive/v1/files";

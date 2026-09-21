@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-
 
 # 资源泄漏类问题优化建议
 
-#### 内存泄漏问题优化建议
+## 内存泄漏问题优化建议
 
-#### 优化建议1：使用定时器组件销毁时一定要调用clearTimeout和clearInterval，否则对象无法析构
+### 优化建议1：使用定时器组件销毁时一定要调用clearTimeout和clearInterval，否则对象无法析构
 
 定时器未清理导致组件一直没有析构。
 
-```
+```typescript
 export default class test {
   private timer: number | null = null; // 正确声明类属性
 
@@ -28,11 +28,11 @@ export default class test {
 }
 ```
 
-优化建议：
+**优化建议：**
 
 使用定时器组件销毁时一定要调用clearTimeout和clearInterval，否则对象无法析构。
 
-```
+```typescript
 export default class test {
   private timer: number | null = null; // 正确声明类属性
 
@@ -55,11 +55,11 @@ export default class test {
 }
 ```
 
-#### 优化建议2：异常分支需要关注释放申请的内存
+### 优化建议2：异常分支需要关注释放申请的内存
 
 申请堆内存但是没有在异常分支进行释放。
 
-```
+```cpp
 static bool InjectNativeLeak1()
 {
     char* p = (char*)malloc(g_cmdLen + 1);
@@ -76,7 +76,7 @@ static bool InjectNativeLeak1()
 }
 ```
 
-优化建议：
+**优化建议：**
 
 在代码开发中需要特别注意以下场景：
 
@@ -85,7 +85,7 @@ static bool InjectNativeLeak1()
 3. 资源申请释放有配对，但配对函数或变量不匹配。
 4. 指针地址偏移等原因导致申请的内存地址丢失。
 
-```
+```cpp
 static bool InjectNativeLeak2()
 {
     char* p = (char*)malloc(g_cmdLen + 1);
@@ -102,13 +102,13 @@ static bool InjectNativeLeak2()
 }
 ```
 
-#### ashmem/ION泄漏问题优化建议
+## ashmem/ION泄漏问题优化建议
 
-#### 优化建议1：调用命名API接口，设定ashmem和ION的名字，与pixmap绑定，来提高这类内存泄漏的定位效率
+### 优化建议1：调用命名API接口，设定ashmem和ION的名字，与pixmap绑定，来提高这类内存泄漏的定位效率
 
 未释放的共享内存映射。
 
-```
+```cpp
 void processWithLeak1(int fd, size_t size) {
     void* ptr = mmap(nullptr, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
     if (ptr == MAP_FAILED) {
@@ -121,11 +121,11 @@ void processWithLeak1(int fd, size_t size) {
 }
 ```
 
-优化建议：
+**优化建议：**
 
 及时释放内存映射。
 
-```
+```cpp
 void processWithLeak2(int fd, size_t size) {
     void* ptr = mmap(nullptr, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
     if (ptr == MAP_FAILED) {
@@ -141,31 +141,31 @@ void processWithLeak2(int fd, size_t size) {
 
 提供的API接口使用方法可参考：
 
-JS层API：[setMemoryNameSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#setmemorynamesync13)
+JS层API：**[setMemoryNameSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#setmemorynamesync13)**
 
-NATIVE层API：[OH_PixelmapNative_SetMemoryName()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_setmemoryname)
+NATIVE层API：**[OH_PixelmapNative_SetMemoryName()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_setmemoryname)**
 
 建议Name按照窗口+组件+图片序号自定义，如果出现批量组件图片内存未释放，可快速定位。
 
-修改方法示例：
+修改方法示例**：**
 
-![](https://media:801788339689315134 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/fmAULwkNTEaR5uzHt18C6w/zh-cn_image_0000002370405688.png?HW-CC-KV=V1&HW-CC-Date=20260920T024937Z&HW-CC-Expire=31536000000&HW-CC-Sign=CF07381C2BC55791D3235287DB4849E4FBB708C20F65C7DF05BE759EDE729F67 "点击放大")
 
 ashmem日志结果示例展示：
 
-![](https://media:801788339689363135 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/oCPUVIv6SPmsttLmwgkfww/zh-cn_image_0000002404045417.png?HW-CC-KV=V1&HW-CC-Date=20260920T024937Z&HW-CC-Expire=31536000000&HW-CC-Sign=A39A191E0F9B5A7E173F15905CBC643FD8FD6D8099898D7E4FF8D630A180AA43 "点击放大")
 
 ION日志结果示例展示：
 
-![](https://media:801788339689405136 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/s2DqxoNARzCqQGzcqscjiQ/zh-cn_image_0000002370565600.png?HW-CC-KV=V1&HW-CC-Date=20260920T024937Z&HW-CC-Expire=31536000000&HW-CC-Sign=81F76B7C31C78E7EC6396E08D8A702275EC4F7DF6D6621877C801A3579A88147 "点击放大")
 
-#### 句柄泄漏问题优化建议
+## 句柄泄漏问题优化建议
 
-#### 优化建议1：函数各个异常分支及时增加关闭句柄的操作
+### 优化建议1：函数各个异常分支及时增加关闭句柄的操作
 
 代码打开文件句柄，但是没有释放造成句柄泄漏。
 
-```
+```cpp
 void InjectContinuingFileFdLeak1(std::string path) {
     mode_t fileMode = 0644;
     int fd = open(path.c_str(), O_CREAT | O_RDWR, fileMode);
@@ -183,7 +183,7 @@ void InjectContinuingFileFdLeak1(std::string path) {
 
 优化建议：在创建文件句柄的同时在函数出口（含函数各个异常分支）及时增加关闭句柄的操作，防止句柄未正常关闭导致的泄漏。
 
-```
+```cpp
 void InjectContinuingFileFdLeak2(std::string path) {
     mode_t fileMode = 0644;
     int fd = open(path.c_str(), O_CREAT | O_RDWR, fileMode);
@@ -199,13 +199,13 @@ void InjectContinuingFileFdLeak2(std::string path) {
 }
 ```
 
-#### 线程泄漏问题优化建议
+## 线程泄漏问题优化建议
 
-#### 优化建议1：严格控制线程生命周期
+### 优化建议1：严格控制线程生命周期
 
 未正确管理线程对象，无法知道线程何时结束，可能导致资源泄漏。
 
-```
+```cpp
 void riskyThreadFunction(int num) {
     for (int i = 0; i < num; i++) { // 创建 Num 个线程
         pthread_t thread;
@@ -224,7 +224,7 @@ void riskyThreadFunction(int num) {
 3. 创建线程时为线程取名（默认继承父进程名，导致大量同名线程），便于出现线程泄漏后的快速定位；
 4. pthread_create后需要调用pthread_join或者pthread_detach确保线程资源能回收掉。
 
-```
+```cpp
 class ThreadPool { // 线程池实现，支持线程生命周期管理和回收
 public:
     // ...

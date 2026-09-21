@@ -6,24 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/ep-integration-
 
 # 在Eclipse项目中集成HMS Core SDK
 
-针对Eclipse开发环境，华为提供了下载HMS Core SDK包本地集成的方式。在开始开发前，您需要将HMS Core SDK集成到您的Eclipse开发环境中。  
+针对Eclipse开发环境，华为提供了下载HMS Core SDK包本地集成的方式。在开始开发前，您需要将HMS Core SDK集成到您的Eclipse开发环境中。
 
-#### 下载SDK
+## 下载SDK
 
 1. 下载HMS Base SDK和要集成的服务SDK，并解压zip包。
 
    下载地址请参见：[Eclipse SDK下载](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Library/eclipse-sdk-download-0000001050161556)
 2. 将所有SDK工程导入到您的工作空间。
-   1. 选择菜单"File \> Import"，再选择"Android \> Existing Android Code Into Workspace"，点击"Next"。
+   1. 选择菜单"File > Import"，再选择"Android > Existing Android Code Into Workspace"，点击"Next"。
 
       ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220518105506.00904607749906907583539615992295:50001231000000:2800:A826E4ED8DF29D65F82BFE82F7C016A95E53455B79B5AF9C33915114EADD9C3A.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)
-   2. 点击"Browse"，选择工程所在的文件夹。在"Projects"下显示待导入的工程，默认全部勾选，点击"Finish"。  
-      ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220518105506.38998334402561326581941502143814:50001231000000:2800:4764E2F2D69206B144A5B3E5EDE74902A97DFDB2E27CBEB5397EC7E9E84238BA.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-      待导入的工程必须和工作空间在相同的磁盘空间里，例如都在"D:\\"。如果不在，您可以选择"Copy projects into workspace"，将工程文件复制到工作空间。
+   2. 点击"Browse"，选择工程所在的文件夹。在"Projects"下显示待导入的工程，默认全部勾选，点击"Finish"。 说明
+      >
+      > 待导入的工程必须和工作空间在相同的磁盘空间里，例如都在"D:\"。如果不在，您可以选择"Copy projects into workspace"，将工程文件复制到工作空间。
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220518105506.81231317743449455193859977257316:50001231000000:2800:8EC2693655119920B39144E39895D491B78DA5169A6C1C08E2F59BB97EDEEC1C.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
+      ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220518105506.81231317743449455193859977257316:50001231000000:2800:8EC2693655119920B39144E39895D491B78DA5169A6C1C08E2F59BB97EDEEC1C.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)
 
-#### 添加工程依赖关系
+## 添加工程依赖关系
 
 1. 右键点击您的工程，选择"Properties"。
 2. 在左侧选择"Android"，点击"Add"，选择已导入空间的工程，点击"Apply and Close"。
@@ -35,7 +35,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/ep-integration-
    ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220518105506.94042531760046951851529828934762:50001231000000:2800:2E3F4F505C27045F5EA2A37E84BBBA3F251AD2724B6FE25DA899E7C2AA4BDDDF.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")
 5. 由于Eclipse的xml文件不支持$符号，将Agconnect-core、HMSSdkAvaliableUpdate、HMSSdkDevice和Update工程下AndroidManifest.xml文件中的"${applicationId}"替换成您的应用包名。
 
-   ```
+   ```screen
    <application>
        <provider
            android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider"
@@ -47,33 +47,35 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/ep-integration-
    </application>
    ```
 
-#### 拷贝HMSSdkStats资源文件到您的工程目录
+## 拷贝HMSSdkStats资源文件到您的工程目录
 
-将HMSSdkStats工程中assets目录下的资源文件拷贝到您的工程中assets目录下。  
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220518105506.56364693507966479389954118622058:50001231000000:2800:2DDE86A93DE2522F26AABDD015AFE8953FCB5786B4C3B1C5EC0045F5FAB0C269.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-如果依赖其他的Kit资源，还需要复制对应Kit的资源文件到您的工程目录下。
+将HMSSdkStats工程中assets目录下的资源文件拷贝到您的工程中assets目录下。
+> 说明
+>
+> 如果依赖其他的Kit资源，还需要复制对应Kit的资源文件到您的工程目录下。
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220518105506.40581207590909164230885871946063:50001231000000:2800:22642A1A55688039B3ACC5827E0F19A77B9C4DFB3577ABDE64AE8C61367C96C5.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
+![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220518105506.40581207590909164230885871946063:50001231000000:2800:22642A1A55688039B3ACC5827E0F19A77B9C4DFB3577ABDE64AE8C61367C96C5.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)
 
-#### 配置工程project.properties文件
+## 配置工程project.properties文件
 
 打开您的工程的"project.properties"文件，添加如下代码，用于合并子工程中的"Manifest"文件。
 
-```
+```screen
 manifestmerger.enabled=true
 ```
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220518105506.56890772926855375433642734249811:50001231000000:2800:04EA82CD0B190B600FB288C69BDE65AE4191B343F3619BFBFF679D0314CFCA4B.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-ADT必须是17以上版本。  
+> 说明
+>
+> ADT必须是17以上版本。
 
-#### 添加当前应用的AppGallery Connect配置文件
+## 添加当前应用的AppGallery Connect配置文件
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站，点击"我的项目"。
 2. 在项目列表中找到您的项目，在项目中点击需要集成HMS Core SDK的应用。
-3. 在"项目设置 \> 常规"页面的"应用"区域，点击"agconnect-services.json"下载配置文件。
+3. 在"项目设置 > 常规"页面的"应用"区域，点击"agconnect-services.json"下载配置文件。
 4. 由于Eclipse不支持agcp插件，您需要将"agconnect-services.json"文件放置到您的工程assets目录下，并且在工程的Application子类中添加如下代码。如果工程没有Application子类，则需要您新建一个从Application继承的子类，例如新建MyApplication类。
 
-   ```
+   ```screen
    // TODO: Import the following classes:
    import java.io.IOException;
    import java.io.InputStream;
@@ -109,7 +111,7 @@ ADT必须是17以上版本。
 
 5. 打开您的工程"AndroidManifest.xml"文件，在"application"模块中添加Application子类名称，如果已经添加，则跳过此步骤。例如，添加MyApplication类名称。
 
-   ```
+   ```screen
    <application
        android:name=".MyApplication"
        ...
@@ -117,14 +119,15 @@ ADT必须是17以上版本。
    ...
    ```
 
-6. 在Eclipse菜单栏中点击"Project"，执行"Clean"操作，即完成SDK集成。  
+6. 在Eclipse菜单栏中点击"Project"，执行"Clean"操作，即完成SDK集成。
 
-#### 配置混淆脚本
+## 配置混淆脚本
 
-您编译APK前需要配置混淆配置文件，避免混淆HMS Core SDK导致功能异常。  
+您编译APK前需要配置混淆配置文件，避免混淆HMS Core SDK导致功能异常。
+
 打开混淆配置文件"proguard-project.txt"，加入排除HMS Core SDK的混淆配置脚本。
 
-```
+```screen
 -ignorewarnings
 -keepattributes *Annotation*
 -keepattributes Exceptions

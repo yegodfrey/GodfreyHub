@@ -6,32 +6,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/reporturlli
 
 # ReportUrlListener
 
-|Interface Info|
+|**Interface Info**|
 |:---------------------------------------------------|
 |public interface ReportUrlListener Bidding竞价结果上报监听器。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:--------------------------------------------------------------------------|
 |void|[reportSuccess](#section9447132322113)() 竞价结果上报成功回调。|
 |void|[reportFailed](#section124533411224)(String url, int errorCode) 竞价结果上报失败回调。|
 
-#### Public Methods
+## Public Methods
 
-#### reportSuccess
+### reportSuccess
 
 |Method|
 |:-------------------------------|
 |void reportSuccess() 竞价结果上报成功回调。|
 
-#### reportFailed
+### reportFailed
 
 |Method|
 |:-------------------------------------------------------|
 |void reportFailed(String url, int errorCode) 竞价结果上报失败回调。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------|:--------------------------------------------------------------|

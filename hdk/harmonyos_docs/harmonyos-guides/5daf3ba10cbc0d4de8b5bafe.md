@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-commun
 
 # 实现流式请求
 
-* [流式传输](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-syncstreamreq)  
+* **[流式传输](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-syncstreamreq)**   

@@ -7,8 +7,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Examples/ag
 # 总览
 
 |平台|Gitee|GitHub|
-|:------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|Android|[Java](https://gitee.com/appgallery_connect/agc-android-demos/tree/master/clouddb-java) \| [Kotlin](https://gitee.com/appgallery_connect/agc-android-demos/tree/master/clouddb-kotlin)|[Java](https://github.com/AppGalleryConnect/agc-android-demos/tree/master/clouddb-java) \| [Kotlin](https://github.com/AppGalleryConnect/agc-android-demos/tree/master/clouddb-kotlin)|
+|:------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Android|[Java](https://gitee.com/appgallery_connect/agc-android-demos/tree/master/clouddb-java) | [Kotlin](https://gitee.com/appgallery_connect/agc-android-demos/tree/master/clouddb-kotlin)|[Java](https://github.com/AppGalleryConnect/agc-android-demos/tree/master/clouddb-java) | [Kotlin](https://github.com/AppGalleryConnect/agc-android-demos/tree/master/clouddb-kotlin)|
 |iOS|[Objective-C](https://gitee.com/appgallery_connect/agc-ios-demos/tree/master/clouddb)|[Objective-C](https://github.com/AppGalleryConnect/agc-ios-demos/tree/master/clouddb)|
 |Web|[JavaScript](https://gitee.com/appgallery_connect/agc-web-demos/tree/master/clouddb)|[JavaScript](https://github.com/AppGalleryConnect/agc-web-demos/tree/master/clouddb)|
 |快应用|[快应用](https://gitee.com/appgallery_connect/agc-quickapp-demos/tree/main/clouddb)|[快应用](https://github.com/AppGalleryConnect/agc-quickapp-demos/tree/main/clouddb)|

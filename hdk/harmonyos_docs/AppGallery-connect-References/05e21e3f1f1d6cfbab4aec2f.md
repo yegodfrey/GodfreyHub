@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # 语音转文本
 
-* [VoiceParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gamemme-voiceparam-ios-0000001405258528)  
+* **[VoiceParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gamemme-voiceparam-ios-0000001405258528)**   

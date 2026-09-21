@@ -8,24 +8,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-dialog-
 
 ArkUI的弹出框控制器在绑定弹出框后，可提供对弹出框的操作能力，当前支持关闭功能。可以将控制器传入弹出框内容区域后进行操作。
 
-从API version 18开始，可设置controller参数以绑定[DialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#dialogcontroller18)控制器，通过控制器能够操作弹出框。  
+从API version 18开始，可设置controller参数以绑定[DialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#dialogcontroller18)控制器，通过控制器能够操作弹出框。
 
-#### 使用约束
+## 使用约束
 
-目前[openCustomDialogWithController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opencustomdialogwithcontroller18)和[presentCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#presentcustomdialog18)支持通过controller参数来绑定弹出框进行操作，[getDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#getdialogcontroller18)支持获取自定义组件所在的弹出框的控制器。  
-![](https://media:401788444621121788)  
-一个弹出框控制器只能绑定一个弹出框，且操作只对该弹出框生效。
+目前[openCustomDialogWithController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opencustomdialogwithcontroller18)和[presentCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#presentcustomdialog18)支持通过controller参数来绑定弹出框进行操作，[getDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#getdialogcontroller18)支持获取自定义组件所在的弹出框的控制器。
+> 说明
+>
+> 一个弹出框控制器只能绑定一个弹出框，且操作只对该弹出框生效。
+>
+> 使用[getDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#getdialogcontroller18)获取弹出框控制器时，如果当前自定义组件不在弹出框中显示则获取为undefined。
 
-使用[getDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#getdialogcontroller18)获取弹出框控制器时，如果当前自定义组件不在弹出框中显示则获取为undefined。  
+## 创建自定义内容为ComponentContent的弹出框控制器
 
-#### 创建自定义内容为ComponentContent的弹出框控制器
-
-![](https://media:401788444621147789)  
-详细变量定义请参考[完整示例](#完整示例)。
+> 说明
+>
+> 详细变量定义请参考[完整示例](#完整示例)。
 
 1. 初始化一个自定义弹出框内容区的入参类，内部包含弹出框控制器。
 
-   ```
+   ```TypeScript
    class Params {
      public text: string = '';
      public dialogController: promptAction.CommonController = new promptAction.DialogController();
@@ -39,7 +41,7 @@ ArkUI的弹出框控制器在绑定弹出框后，可提供对弹出框的操作
 
 2. 初始化一个自定义的弹出框内容区，内部包含一个按钮，该按钮通过该自定义组件自带的弹出框控制器实现关闭功能。
 
-   ```
+   ```TypeScript
    @Component
    struct MyComponent {
      build() {
@@ -58,7 +60,7 @@ ArkUI的弹出框控制器在绑定弹出框后，可提供对弹出框的操作
 
 3. 初始化另一自定义弹出框内容区，其中包含一个Text组件和一个按钮，该按钮通过外部传递的弹出框控制器用于关闭弹出框，并且该内容区还包含前一个自定义弹出框内容区。
 
-   ```
+   ```TypeScript
    @Builder
    function buildText(params: Params) {
      Column({ space: 5 }) {
@@ -80,7 +82,7 @@ ArkUI的弹出框控制器在绑定弹出框后，可提供对弹出框的操作
 
 4. 初始化一个弹出框控制器，并通过设置控制器参数来初始化一个弹出框内容实体对象。最后，通过调用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getPromptAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getpromptaction)方法获取[PromptAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction)对象，再通过该对象调用[openCustomDialogWithController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opencustomdialogwithcontroller18)接口，并且设置初始化的内容实体对象和控制器参数以创建弹出框。
 
-   ```
+   ```TypeScript
    let dialogController: promptAction.CommonController = new promptAction.DialogController();
    let contentNode: ComponentContent<Object> =
      new ComponentContent(this.getUIContext(), wrapBuilder(buildText),
@@ -92,14 +94,15 @@ ArkUI的弹出框控制器在绑定弹出框后，可提供对弹出框的操作
    });
    ```
 
-#### 创建自定义内容为CustomBuilder的弹出框控制器
+## 创建自定义内容为CustomBuilder的弹出框控制器
 
-![](https://media:401788444621192790)  
-详细变量定义请参考[完整示例](#完整示例)。
+> 说明
+>
+> 详细变量定义请参考[完整示例](#完整示例)。
 
 1. 初始化一个自定义弹出框内容区，内部包含一个Text组件和一个按钮，该按钮通过外部传递的弹出框控制器实现关闭功能。
 
-   ```
+   ```TypeScript
    @Builder
    customDialogComponent(dialogController: promptAction.DialogController) {
      Column({ space: 5 }) {
@@ -121,7 +124,7 @@ ArkUI的弹出框控制器在绑定弹出框后，可提供对弹出框的操作
 
 2. 初始化一个弹出框控制器，并通过调用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getPromptAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getpromptaction)方法获取[PromptAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction)对象，再通过该对象调用[presentCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#presentcustomdialog18)接口，设置初始化的内容实体对象和控制器参数以创建弹出框。
 
-   ```
+   ```TypeScript
    let dialogController: promptAction.CommonController = new promptAction.DialogController();
    this.getUIContext().getPromptAction().presentCustomDialog(() => {
      this.customDialogComponent(dialogController);
@@ -130,14 +133,15 @@ ArkUI的弹出框控制器在绑定弹出框后，可提供对弹出框的操作
    });
    ```
 
-#### 创建自定义内容为CustomBuilderWithId的弹出框控制器
+## 创建自定义内容为CustomBuilderWithId的弹出框控制器
 
-![](https://media:401788444621220791)  
-详细变量定义请参考[完整示例](#完整示例)。
+> 说明
+>
+> 详细变量定义请参考[完整示例](#完整示例)。
 
 1. 初始化一个弹出框内容区，内部包含一个Text组件、一个通过外部传递的弹出框ID用于关闭弹出框的按钮和一个通过外部传递的弹出框控制器用于关闭弹出框的按钮。
 
-   ```
+   ```TypeScript
    @Builder
    customDialogComponentWithId(dialogId: number, dialogController: promptAction.DialogController) {
      Column({ space: 5 }) {
@@ -165,7 +169,7 @@ ArkUI的弹出框控制器在绑定弹出框后，可提供对弹出框的操作
 
 2. 初始化一个弹出框控制器，并通过调用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getPromptAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getpromptaction)方法获取[PromptAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction)对象，再通过该对象调用[presentCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#presentcustomdialog18)接口，设置初始化的内容实体对象和控制器参数以创建弹出框。
 
-   ```
+   ```TypeScript
    let dialogController: promptAction.CommonController = new promptAction.DialogController();
    this.getUIContext().getPromptAction().presentCustomDialog((dialogId: number) => {
      this.customDialogComponentWithId(dialogId, dialogController);
@@ -174,14 +178,15 @@ ArkUI的弹出框控制器在绑定弹出框后，可提供对弹出框的操作
    });
    ```
 
-#### 在CustomDialogController内容区直接获取弹出框控制器
+## 在CustomDialogController内容区直接获取弹出框控制器
 
-![](https://media:401788444621254792)  
-详细变量定义请参考[完整示例](#完整示例)。
+> 说明
+>
+> 详细变量定义请参考[完整示例](#完整示例)。
 
 1. 初始化一个自定义弹出框内容区，内部包含一个Text组件和一个按钮，该按钮通过弹出框控制器关闭弹出框。
 
-   ```
+   ```TypeScript
    @CustomDialog
    @Component
    struct CustomDialogExample {
@@ -207,7 +212,7 @@ ArkUI的弹出框控制器在绑定弹出框后，可提供对弹出框的操作
 
 2. 初始化一个自定义弹出框构造器，关联自定义弹出框内容区。
 
-   ```
+   ```TypeScript
    let customDialogController: CustomDialogController = new CustomDialogController({
      builder: CustomDialogExample(),
      offset: {
@@ -218,15 +223,16 @@ ArkUI的弹出框控制器在绑定弹出框后，可提供对弹出框的操作
    customDialogController.open();
    ```
 
-#### 使用控制器获取弹出框的状态
+## 使用控制器获取弹出框的状态
 
-在自定义弹出框场景中，从API version 20 开始，可以通过控制器调用[getState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#getstate20)接口获取弹出框状态。  
-![](https://media:401788444621276793)  
-详细变量定义请参考[完整示例](#完整示例)。
+在自定义弹出框场景中，从API version 20 开始，可以通过控制器调用[getState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#getstate20)接口获取弹出框状态。
+> 说明
+>
+> 详细变量定义请参考[完整示例](#完整示例)。
 
 初始化一个自定义弹出框内容区，内部包含一个Text组件和两个按钮，一个按钮通过调用getState获取当前弹出框状态，另一个按钮通过弹出框控制器关闭弹出框。
 
-```
+```TypeScript
 @Builder
 customDialogComponentGetState(dialogController: promptAction.DialogController) {
   Column({ space: 5 }) {
@@ -250,11 +256,11 @@ customDialogComponentGetState(dialogController: promptAction.DialogController) {
 }
 ```
 
-#### 完整示例
+## 完整示例
 
 通过外部传递的弹出框控制器和自定义组件自带的弹出框控制器，在自定义弹出框内容区域内实现关闭功能。
 
-```
+```TypeScript
 import { ComponentContent, promptAction } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -478,4 +484,5 @@ export struct DialogController {
 }
 ```
 
-![](https://media:401788444621332794)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/e10iKyXFSDy1MTq72dI96g/zh-cn_image_0000002733274068.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=BFFB110E62D7FF518CF71A01E76CD5C1C550F36E5857A2A0218A3D33BE0A264F)
+

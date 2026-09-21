@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-appear
 
 # 控制窗口外观 (ArkTS)
 
-#### 场景介绍
+## 场景介绍
 
 窗口外观用于描述窗口在屏幕上的显示形态和视觉效果，目前支持通过设置异形窗口、窗口阴影、窗口圆角以及窗口背景色实现窗口外观设置。
 
@@ -20,7 +20,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-appear
 
 * 通过设置窗口背景色，使窗口背景与应用页面或主题样式保持一致。
 
-#### 异形窗口
+## 异形窗口
 
 异形窗口为非常规形状的窗口，掩码用于描述异形窗口的形状。仅应用子窗和全局悬浮窗可设置为异形窗口。
 
@@ -32,12 +32,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-appear
 
   掩码仅支持取值为整数0和整数1的二维数组输入，数组行数对应窗口高度，列数对应窗口宽度。整数0代表对应像素透明且不可交互，整数1代表对应像素不透明且可交互。
 
-  ![](https://media:401788444515081430)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/k8BRIxPLTJmjzwxpXZc42A/zh-cn_image_0000002733434308.png?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=0A5F0D0900DF59079E09865DA195B640FD47D187250B2A0CFAEF5F26E696FD38)
 * 从API版本26.0.0开始，支持使用[setWindowMaskWithAlpha()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowmaskwithalpha)接口设置异形窗口的掩码。
 
-  掩码支持取值在\[0, 255\]范围的数组输入，数组长度等于窗口宽度乘以窗口高度。整数0代表对应像素透明且不可交互，整数255代表对应像素不透明且可交互，0\~255之间代表对应像素部分透明且可交互。此接口性能优于[setWindowMask()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowmask12)，推荐使用。
+  掩码支持取值在[0, 255]范围的数组输入，数组长度等于窗口宽度乘以窗口高度。整数0代表对应像素透明且不可交互，整数255代表对应像素不透明且可交互，0~255之间代表对应像素部分透明且可交互。此接口性能优于[setWindowMask()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowmask12)，推荐使用。
 
-  ![](https://media:401788444515111431)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/M0gKNadFTyKQtziAbFx2oQ/zh-cn_image_0000002762993833.png?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=2129AF6A2C271D825472F786CBB2C5A6C153EBFCA947F12D823FF7574AA39468)
 
 此处以设置子窗的异形窗口为例。此例主要实现以下效果：
 
@@ -49,7 +49,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-appear
    * 子窗的阴影和圆角消失。
    * 子窗矩形区域的左上部分变为透明不可交互，通过点击"Create Test Window"按钮，事件透传到该按钮，创建出绿色的测试窗口。
 
-```
+```TypeScript
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -102,9 +102,9 @@ struct Index {
 }
 ```
 
-![](https://media:401788444515269432)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/SZPPbO3bSte-cpaPhpIIxw/zh-cn_image_0000002762833947.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=028F3FABEFEE00B784E7BEAB881415E6FBCF172E3C731C4D3C4128E1226F1246)
 
-#### 窗口阴影
+## 窗口阴影
 
 窗口阴影是显示在窗口边缘的投影效果，可以增强窗口与背景之间的层次感，使窗口呈现悬浮于背景之上的视觉效果。
 
@@ -112,7 +112,7 @@ struct Index {
 
   此处以全局悬浮窗为例，设置其窗口边缘阴影的模糊半径。
 
-  ```
+  ```TypeScript
   // pages/page1.ets
   import { window } from '@kit.ArkUI';
 
@@ -133,15 +133,15 @@ struct Index {
   }
   ```
 
-![](https://media:401788444515370433)  
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/m0pUL7rdQImNRZKmRr6gWg/zh-cn_image_0000002733274430.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E18BA83A3C091825A2C94551C0EFE7E3E53706A43159A6250E4553BDF1E9891)
 
-#### 设置窗口圆角
+## 设置窗口圆角
 
 * 可通过[setWindowCornerRadius()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowcornerradius17)接口设置窗口的圆角半径，仅支持子窗和全局悬浮窗使用。
 
   此处以全局悬浮窗为例，设置其窗口圆角。
 
-  ```
+  ```TypeScript
   // pages/page1.ets
   import { window } from '@kit.ArkUI';
 
@@ -162,9 +162,9 @@ struct Index {
   }
   ```
 
-![](https://media:401788444515406434)  
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/0SFm-rAxR0m-0HHjSiD5vw/zh-cn_image_0000002733434312.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=FB2910CF6E9CCFEF5B635084A2BC8AA1AAB1958F69844EB1B22C41277684D588)
 
-#### 窗口背景色
+## 窗口背景色
 
 窗口背景色用于控制窗口内容区域或窗口容器区域的背景显示效果。
 
@@ -178,16 +178,17 @@ struct Index {
 
 * 从API版本26.0.0开始，支持使用[setWindowContainerModalColor()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowcontainermodalcolor)接口设置PC/2in1设备上的主窗口容器区域的背景色，以适配不同UI设计需求。通过该接口设置的背景色会作用于整个窗口容器区域，包括标题栏和内容区域。该接口支持将非焦点态下的主窗口背景设置为透明。
 
-![](https://media:401788444515435435)  
-* 未调用[setWindowContainerColor()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowcontainercolor20)或[setWindowContainerModalColor()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowcontainermodalcolor)接口设置窗口容器区域背景色时，容器区域背景色默认跟随系统颜色模式：浅色模式下为'#FFF0F0F0'，深色模式下为'#FF1A1A1A'。
+> 说明
+>
+> * 未调用[setWindowContainerColor()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowcontainercolor20)或[setWindowContainerModalColor()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowcontainermodalcolor)接口设置窗口容器区域背景色时，容器区域背景色默认跟随系统颜色模式：浅色模式下为'#FFF0F0F0'，深色模式下为'#FF1A1A1A'。
+>
+> * 需要在[loadContent()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#loadcontent9-1)或[setUIContent()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setuicontent9-1)调用生效后才能设置背景色。
 
-* 需要在[loadContent()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#loadcontent9-1)或[setUIContent()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setuicontent9-1)调用生效后才能设置背景色。
-
-![](https://media:401788444515501436)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/Tm4f544zTX-tZsx2y9DanA/zh-cn_image_0000002762993835.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=2CCF7425CD5343DD600A3C4A4F4CF052CBA1CBD9EF53DA49EE2D7BFD0443C96C)
 
 示例代码如下：
 
-```
+```TypeScript
 import { ColorMetrics, window } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 

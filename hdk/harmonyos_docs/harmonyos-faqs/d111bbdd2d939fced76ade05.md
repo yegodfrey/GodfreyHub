@@ -6,37 +6,41 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-com
 
 # 如何实现rcp网络请求时忽略csr证书校验
 
-#### 问题现象
+## 问题现象
 
-在开发测试阶段，连接自签证书服务器或测试环境时，因无法通过系统默认的证书链校验导致请求失败。开发者需要在使用[rcp 数据请求](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp)时，临时忽略或跳过服务端的证书校验。  
+在开发测试阶段，连接自签证书服务器或测试环境时，因无法通过系统默认的证书链校验导致请求失败。开发者需要在使用[rcp 数据请求](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp)时，临时忽略或跳过服务端的证书校验。
 
-#### 背景知识
+## 背景知识
 
 [Remote Communication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-api)提供了网络数据请求功能。相较于传统HTTP请求能力，它拥有更优的性能表现与更丰富的配置项。
 
 针对证书校验，Remote Communication Kit提供了两种灵活的规避/自定义校验机制：
 
 1. 自定义配置 [ValidationCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#validationcallback)：通过重写验证回调，手动控制校验逻辑。
-2. 直接显式跳过（Skip）：将[SecurityConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#securityconfiguration)中的安全配置项remoteValidation设为 'skip'，由底座直接放行。  
+2. 直接显式跳过（Skip）：将[SecurityConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#securityconfiguration)中的安全配置项remoteValidation设为 'skip'，由底座直接放行。
 
-#### 解决方案
+## 解决方案
 
-* 方案一： 自定义requestConfig对象，重写[ValidationCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#validationcallback)。remoteValidation在实际的证书验证中，这个函数会检查证书的有效性等信息，这里返回true来忽略证书校验，样例代码如下：
+* **方案一：**
 
-  ```
+  自定义requestConfig对象，重写[ValidationCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#validationcallback)。remoteValidation在实际的证书验证中，这个函数会检查证书的有效性等信息，这里返回true来忽略证书校验，样例代码如下：
+
+  ```ts
   const requestConfig: rcp.Configuration = {
     security: {
       remoteValidation: () => {
-        // 重写ValidationCallback，直接返回true表示验证通过
+      // 重写ValidationCallback，直接返回true表示验证通过
         console.info('[index]证书验证');
         return true;
       }
     }
   ```
 
-* 方案二： 设置remoteValidation参数为skip，用于跳过证书验证，样例代码如下：
+* **方案二：**
 
-  ```
+  设置remoteValidation参数为skip，用于跳过证书验证，样例代码如下：
+
+  ```ts
   const securityConfig: rcp.SecurityConfiguration = {
     remoteValidation: 'skip'
   };
@@ -44,7 +48,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-com
 
   完整示例代码集成了两种方案处理证书校验，代码如下：
 
-  ```
+  ```ts
   import { BusinessError } from '@ohos.base';
   import promptAction from '@ohos.promptAction';
   import { rcp } from '@kit.RemoteCommunicationKit';
@@ -105,23 +109,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-com
         const requestConfig: rcp.Configuration = {
           security: {
             remoteValidation: () => {
-              // 重写ValidationCallback，直接返回true表示验证通过
+           // 重写ValidationCallback，直接返回true表示验证通过
               console.info('[index]证书验证');
               return true;
             }
           }
         };
 
-        // 服务器地址
+     // 服务器地址
         const kHttpServerAddress = 'xx.xx.xx';
-        // 创建一个get请求对象
+     // 创建一个get请求对象
         const request = new rcp.Request(kHttpServerAddress, 'GET');
-        // 传入自定义的配置项，处理请求
+      // 传入自定义的配置项，处理请求
         const session = rcp.createSession({ requestConfiguration: requestConfig });
         const resp = await session.fetch(request);
         let decoder: util.TextDecoder = util.TextDecoder.create('utf-8');
         let body: string = decoder.decodeToString(new Uint8Array(resp.body));
-        // 显示提示信息，包含响应成功的消息和响应体内容
+     // 显示提示信息，包含响应成功的消息和响应体内容
         promptAction.openToast({ message: '连接成功' });
         console.info('连接成功: ' + body);
       } catch (error) {
@@ -138,16 +142,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-com
           remoteValidation: 'skip'
         };
 
-        // 服务器地址
+     // 服务器地址
         const kHttpServerAddress = 'xx.xx.xx';
-        // 创建一个get请求对象
+     // 创建一个get请求对象
         const request = new rcp.Request(kHttpServerAddress, 'GET');
         // 传入自定义的配置项，处理请求
         const sessionWithSecurityConfig = rcp.createSession({ requestConfiguration: { security: securityConfig } });
         const resp = await sessionWithSecurityConfig.fetch(request);
         let decoder: util.TextDecoder = util.TextDecoder.create('utf-8');
         let body: string = decoder.decodeToString(new Uint8Array(resp.body));
-        // 显示提示信息，包含响应成功的消息和响应体内容
+       // 显示提示信息，包含响应成功的消息和响应体内容
         promptAction.openToast({ message: '连接成功' });
         console.info('连接成功: ' + body);
       } catch (error) {

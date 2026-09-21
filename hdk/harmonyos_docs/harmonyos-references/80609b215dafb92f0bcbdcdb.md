@@ -6,198 +6,205 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-contai
 
 # LazyColumnLayout
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 该组件用于实现支持懒加载的垂直线性布局，其父组件仅限于[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)或[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)，并支持使用自定义组件或[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)组件封装后应用在上述组件中。
 
 该组件支持嵌套懒加载容器[LazyVGridLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout)、[LazyVWaterFlowLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvwaterflowlayout)及其自身LazyColumnLayout。
 
-更多关于懒加载布局的使用场景和完整示例，可参考[创建懒加载布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-lazy-layout)。  
-![](https://media:401788445262119181)  
-* LazyColumnLayout组件高度默认自适应内容，不建议设置会固定或约束组件垂直方向尺寸的属性，设置后会导致显示异常或无法正常滚动。涉及的属性包括[height](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#height)、[size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#size)中的height、[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)中的minHeight/maxHeight、[aspectRatio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-layout-constraints#aspectratio)、[layoutWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutweight)，以及[height](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#height15)取[LayoutPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutpolicy15)值的场景。
-* 当父组件设置主轴方向尺寸时，LazyColumnLayout按照父组件可视区域进行懒加载；当父组件未设置主轴方向尺寸时，LazyColumnLayout会被内容撑开，导致所有子组件都会被加载布局。
-* 该组件在不同父组件下的懒加载支持条件如下：
-  1. 在List组件下，要求List组件布局方向必须是竖直方向（即[listDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#listdirection)属性设置为Axis.Vertical），在非竖直方向的List中使用该组件会导致应用崩溃。当List设置了[lanes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#lanes9)、[chainAnimation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#chainanimation)、[scrollSnapAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#scrollsnapalign10)属性中的任意一个或多个时，该组件的懒加载功能会失效。
-  2. 在Scroll组件下，要求Scroll组件布局方向必须是竖直方向（即[scrollable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollable)属性设置为ScrollDirection.Vertical），在非竖直方向的Scroll中使用该组件会导致应用崩溃。
-  3. 在WaterFlow组件下，要求WaterFlow组件布局方向必须是竖直方向（即[layoutDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow#layoutdirection)属性设置为FlexDirection.Column），在非竖直方向的WaterFlow中使用该组件会导致应用崩溃。当WaterFlow为多列模式或布局方向为FlexDirection.Row、FlexDirection.RowReverse时，该组件的懒加载功能会失效。此外，在布局方向为FlexDirection.ColumnReverse的WaterFlow组件下使用该组件会导致显示异常。
-* 当懒加载功能生效时，该组件仅加载父组件可视区域内的子组件，并在帧间空闲时隙预加载可视区域上方和下方各半屏的内容。
-* 此处的父组件指最靠近当前组件的上层滚动组件，其他文档下的具体含义请参考对应内容。
+更多关于懒加载布局的使用场景和完整示例，可参考[创建懒加载布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-lazy-layout)。
+> 说明
+>
+> * LazyColumnLayout组件高度默认自适应内容，不建议设置会固定或约束组件垂直方向尺寸的属性，设置后会导致显示异常或无法正常滚动。涉及的属性包括[height](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#height)、[size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#size)中的height、[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)中的minHeight/maxHeight、[aspectRatio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-layout-constraints#aspectratio)、[layoutWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutweight)，以及[height](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#height15)取[LayoutPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutpolicy15)值的场景。
+> * 当父组件设置主轴方向尺寸时，LazyColumnLayout按照父组件可视区域进行懒加载；当父组件未设置主轴方向尺寸时，LazyColumnLayout会被内容撑开，导致所有子组件都会被加载布局。
+> * 该组件在不同父组件下的懒加载支持条件如下：
+>   1. 在List组件下，要求List组件布局方向必须是竖直方向（即[listDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#listdirection)属性设置为Axis.Vertical），在非竖直方向的List中使用该组件会导致应用崩溃。当List设置了[lanes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#lanes9)、[chainAnimation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#chainanimation)、[scrollSnapAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#scrollsnapalign10)属性中的任意一个或多个时，该组件的懒加载功能会失效。
+>   2. 在Scroll组件下，要求Scroll组件布局方向必须是竖直方向（即[scrollable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollable)属性设置为ScrollDirection.Vertical），在非竖直方向的Scroll中使用该组件会导致应用崩溃。
+>   3. 在WaterFlow组件下，要求WaterFlow组件布局方向必须是竖直方向（即[layoutDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow#layoutdirection)属性设置为FlexDirection.Column），在非竖直方向的WaterFlow中使用该组件会导致应用崩溃。当WaterFlow为多列模式或布局方向为FlexDirection.Row、FlexDirection.RowReverse时，该组件的懒加载功能会失效。此外，在布局方向为FlexDirection.ColumnReverse的WaterFlow组件下使用该组件会导致显示异常。
+> * 当懒加载功能生效时，该组件仅加载父组件可视区域内的子组件，并在帧间空闲时隙预加载可视区域上方和下方各半屏的内容。
+> * 此处的父组件指最靠近当前组件的上层滚动组件，其他文档下的具体含义请参考对应内容。
 
-起始版本： 26.0.0  
+**起始版本：** 26.0.0
 
-#### 导入模块
+## 导入模块
 
-```
+```ts
 import { LazyColumnLayout } from '@kit.ArkUI';
 ```
 
-#### 接口
+## 接口
 
 LazyColumnLayout()
 
 创建垂直方向懒加载线性布局容器。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-#### 属性
+## 属性
 
-除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：  
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
-#### space
+### space
 
-space(space: LengthMetrics \| undefined)
+space(space: LengthMetrics | undefined)
 
 设置子组件在垂直方向上的间距。未通过该接口设置时，间距默认值为0vp。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:-------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------|
-|space|[LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12) \| undefined|是|子组件在垂直方向上的间距。 取值范围：\[0, +∞) 设置为小于0的值时，按0vp显示。 方法入参为undefined时，恢复为0vp。|
+|:----|:------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------|
+|space|[LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12) | undefined|是|子组件在垂直方向上的间距。 取值范围：[0, +∞) 设置为小于0的值时，按0vp显示。 方法入参为undefined时，恢复为0vp。|
 
-#### alignItems
+### alignItems
 
-alignItems(value: HorizontalAlign \| undefined)
+alignItems(value: HorizontalAlign | undefined)
 
 设置子组件在水平方向上的对齐格式。未通过该接口设置时，对齐格式默认值为HorizontalAlign.Center。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
-
-|参数名|类型|必填|说明|
-|:----|:----------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------|
-|value|[HorizontalAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#horizontalalign) \| undefined|是|子组件在水平方向上的对齐格式。 方法入参为undefined时，恢复为HorizontalAlign.Center。|
-
-#### header
-
-header(builder: CustomBuilder \| undefined)
-
-设置当前LazyColumnLayout的头部组件。未通过该接口设置时，默认不设置头部组件。  
-![](https://media:401788445262144182)  
-头部组件位于容器顶部区域，通常用于展示标题、分组说明或其他固定在内容前方的元素。
-
-当本组件随滚动容器滚动至可视区域内，且通过[sticky](#sticky)设置了header吸顶模式时，header会吸附在滚动容器可视区域顶部。
-
-起始版本： 26.0.0
-
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
-
-模型约束： 此接口仅可在Stage模型下使用。
-
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:----------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------|
-|builder|[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) \| undefined|是|头部组件构造函数。 方法入参为undefined时，当前LazyColumnLayout不设置头部组件，如果已有头部组件，也会被移除。|
+|:----|:---------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------|
+|value|[HorizontalAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#horizontalalign) | undefined|是|子组件在水平方向上的对齐格式。 方法入参为undefined时，恢复为HorizontalAlign.Center。|
 
-#### footer
+### header
 
-footer(builder: CustomBuilder \| undefined)
+header(builder: CustomBuilder | undefined)
 
-设置当前LazyColumnLayout的尾部组件。未通过该接口设置时，默认不设置尾部组件。  
-![](https://media:401788445262168183)  
-尾部组件位于容器底部区域，通常用于展示补充信息、加载状态或其他固定在内容后方的元素。
+设置当前LazyColumnLayout的头部组件。未通过该接口设置时，默认不设置头部组件。
+> 说明
+>
+> 头部组件位于容器顶部区域，通常用于展示标题、分组说明或其他固定在内容前方的元素。
+>
+> 当本组件随滚动容器滚动至可视区域内，且通过[sticky](#sticky)设置了header吸顶模式时，header会吸附在滚动容器可视区域顶部。
 
-当本组件随滚动容器滚动至可视区域内，且通过[sticky](#sticky)设置了footer吸底模式时，footer会吸附在滚动容器可视区域底部。
+**起始版本：** 26.0.0
 
-起始版本： 26.0.0
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:----------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------|
-|builder|[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) \| undefined|是|尾部组件构造函数。 方法入参为undefined时，当前LazyColumnLayout不设置尾部组件，如果已有尾部组件，也会被移除。|
+|:------|:---------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------|
+|builder|[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | undefined|是|头部组件构造函数。 方法入参为undefined时，当前LazyColumnLayout不设置头部组件，如果已有头部组件，也会被移除。|
 
-#### sticky
+### footer
 
-sticky(sticky: StickyStyle \| undefined)
+footer(builder: CustomBuilder | undefined)
+
+设置当前LazyColumnLayout的尾部组件。未通过该接口设置时，默认不设置尾部组件。
+> 说明
+>
+> 尾部组件位于容器底部区域，通常用于展示补充信息、加载状态或其他固定在内容后方的元素。
+>
+> 当本组件随滚动容器滚动至可视区域内，且通过[sticky](#sticky)设置了footer吸底模式时，footer会吸附在滚动容器可视区域底部。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+|参数名|类型|必填|说明|
+|:------|:---------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------|
+|builder|[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | undefined|是|尾部组件构造函数。 方法入参为undefined时，当前LazyColumnLayout不设置尾部组件，如果已有尾部组件，也会被移除。|
+
+### sticky
+
+sticky(sticky: StickyStyle | undefined)
 
 设置[header](#header)和[footer](#footer)的吸附效果。
 
-当本组件随滚动容器滚动至可视区域内，且通过sticky设置header吸顶或footer吸底时，header会吸附在滚动容器可视区域顶部，footer会吸附在滚动容器可视区域底部。  
-![](https://media:401788445262199184)  
-由于浮点数计算精度，设置sticky后，在滚动过程中小概率产生缝隙，可以通过[pixelRound](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-pixelroundforcomponent#pixelround)指定当前组件向下像素取整解决该问题。
+当本组件随滚动容器滚动至可视区域内，且通过sticky设置header吸顶或footer吸底时，header会吸附在滚动容器可视区域顶部，footer会吸附在滚动容器可视区域底部。
+> 说明
+>
+> 由于浮点数计算精度，设置sticky后，在滚动过程中小概率产生缝隙，可以通过[pixelRound](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-pixelroundforcomponent#pixelround)指定当前组件向下像素取整解决该问题。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
-
-|参数名|类型|必填|说明|
-|:-----|:-------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|sticky|[StickyStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#stickystyle9枚举说明) \| undefined|是|头部组件和尾部组件的吸附模式。sticky属性可以设置为StickyStyle.Header或StickyStyle.Footer，也可以设置为StickyStyle.BOTH，以同时支持头部组件吸顶和尾部组件吸底。 方法入参为undefined时，恢复为默认值StickyStyle.None。 未通过该接口设置时，默认头部组件不吸顶、尾部组件不吸底。|
-
-#### 事件
-
-除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：  
-
-#### onVisibleIndexesChange
-
-onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback \| undefined)
-
-设置onVisibleIndexesChange回调函数。当LazyColumnLayout在可视区域内的子组件的索引值发生变化时触发回调，返回可视区域内子组件的起始索引值和结束索引值。未通过该接口设置时，默认不监听可视区域索引变化。  
-![](https://media:401788445262257185)  
-当父组件设置主轴方向尺寸且懒加载功能生效时，LazyColumnLayout按照父组件可视区域进行懒加载。此时onVisibleIndexesChange回调中start返回当前可视区域起始位置子组件的索引值，end返回当前可视区域结束位置子组件的索引值。
-
-当父组件未设置主轴方向尺寸时，LazyColumnLayout会被内容撑开，导致所有子组件都会被加载布局。此时onVisibleIndexesChange回调中start返回0，end返回数据源最后一个子组件的索引值。
-
-此处的父组件指最靠近当前组件的上层滚动组件，其他文档下的具体含义请参考对应内容。
-
-起始版本： 26.0.0
-
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
-
-模型约束： 此接口仅可在Stage模型下使用。
-
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------|
-|callback|[OnVisibleIndexesChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#onvisibleindexeschangecallback) \| undefined|是|回调函数，用于接收可视区域内子组件起始索引值和结束索引值的变化通知。 方法入参为undefined时，取消监听。|
+|:-----|:------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|sticky|[StickyStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#stickystyle9枚举说明) | undefined|是|头部组件和尾部组件的吸附模式。sticky属性可以设置为StickyStyle.Header或StickyStyle.Footer，也可以设置为StickyStyle.BOTH，以同时支持头部组件吸顶和尾部组件吸底。 方法入参为undefined时，恢复为默认值StickyStyle.None。 未通过该接口设置时，默认头部组件不吸顶、尾部组件不吸底。|
 
-#### 示例
+## 事件
 
-#### 示例1（实现懒加载线性布局）
+除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
+
+### onVisibleIndexesChange
+
+onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined)
+
+设置onVisibleIndexesChange回调函数。当LazyColumnLayout在可视区域内的子组件的索引值发生变化时触发回调，返回可视区域内子组件的起始索引值和结束索引值。未通过该接口设置时，默认不监听可视区域索引变化。
+> 说明
+>
+> 当父组件设置主轴方向尺寸且懒加载功能生效时，LazyColumnLayout按照父组件可视区域进行懒加载。此时onVisibleIndexesChange回调中start返回当前可视区域起始位置子组件的索引值，end返回当前可视区域结束位置子组件的索引值。
+>
+> 当父组件未设置主轴方向尺寸时，LazyColumnLayout会被内容撑开，导致所有子组件都会被加载布局。此时onVisibleIndexesChange回调中start返回0，end返回数据源最后一个子组件的索引值。
+>
+> 此处的父组件指最靠近当前组件的上层滚动组件，其他文档下的具体含义请参考对应内容。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+|参数名|类型|必填|说明|
+|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------|
+|callback|[OnVisibleIndexesChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#onvisibleindexeschangecallback) | undefined|是|回调函数，用于接收可视区域内子组件起始索引值和结束索引值的变化通知。 方法入参为undefined时，取消监听。|
+
+## 示例
+
+### 示例1（实现懒加载线性布局）
 
 通过[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)和LazyColumnLayout组件实现懒加载线性布局，并通过[onVisibleIndexesChange](#onvisibleindexeschange)在可视区域发生变化时回调起始和结束索引值。
 
 从API版本26.0.0开始，新增支持LazyColumnLayout组件和onVisibleIndexesChange事件。
 
-```
+```ts
 import { LengthMetrics, LazyColumnLayout, LazyColumnLayoutAttribute } from '@kit.ArkUI';
 
 // 关注列表数据结构
@@ -329,15 +336,15 @@ struct LazyColumnLayoutSample1 {
 }
 ```
 
-![](https://media:401788445262289186)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/uU3ufVWLQcGQZhFqNWf8gw/zh-cn_image_0000002762835733.png?HW-CC-KV=V1&HW-CC-Date=20260917T084628Z&HW-CC-Expire=31536000000&HW-CC-Sign=2DBE602A3FC5EE5DCE380E064E1FA46F9DCA02B29CFF045B4AFB376A1BEA0010)
 
-#### 示例2（设置头部组件或尾部组件及吸附效果）
+### 示例2（设置头部组件或尾部组件及吸附效果）
 
 该示例通过[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)嵌套LazyColumnLayout，并通过[header](#header)、[footer](#footer)、[sticky](#sticky)实现顶部和底部吸附效果。滚动过程中header吸附在可视区域顶部，footer吸附在可视区域底部。
 
 从API版本26.0.0开始，新增支持header、footer和sticky属性。
 
-```
+```ts
 import { LazyColumnLayout, LazyColumnLayoutAttribute } from '@kit.ArkUI';
 // MyDataSource是自定义数据源类，实现了LazyForEach所需的IDataSource接口
 import { MyDataSource } from './MyDataSource';
@@ -408,7 +415,7 @@ struct LazyColumnLayoutStickyDemo {
 }
 ```
 
-```
+```ts
 // MyDataSource.ets
 export class BasicDataSource<T> implements IDataSource {
   private listeners: DataChangeListener[] = [];
@@ -500,4 +507,5 @@ export class MyDataSource<T> extends BasicDataSource<T> {
 }
 ```
 
-![](https://media:401788445262367187)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/8UusStlGQ7GzDbWtSwM2bQ/zh-cn_image_0000002733276222.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084628Z&HW-CC-Expire=31536000000&HW-CC-Sign=CD354AA89D26CA18B868521D8B323E512593E880411B7B21EDEA2F99E2BFC8AC)
+

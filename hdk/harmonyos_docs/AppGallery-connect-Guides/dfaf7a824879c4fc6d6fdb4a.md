@@ -7,27 +7,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 # SDK版本更新说明
 
 |版本号|发布时间|更新说明|
-|:--------|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|1.9.4.300|2026-06-08|![](https://media:301784775009918426) 修复已知问题。|
-|1.9.3.301|2026-04-07|![](https://media:301784775009947427) 修复已知问题。|
-|1.9.3.300|2025-04-30|![](https://media:301784775009973428) 修复已知问题。|
-|1.9.0.302|2023-12-23|![](https://media:301784775009998429) 增加[-enableCollectionUserPrivacy](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcappmessaging-ios-0000001058729698#section156816194816)方法。|
-|1.9.0.301|2023-07-04|![](https://media:301784775010024430) 修复已知问题。|
-|1.9.0.300|2023-04-26|![](https://media:301784775010052431) 修复已知问题。|
-|1.8.1.300|2023-02-27|![](https://media:301784775010110432) 修复已知问题。|
-|1.8.0.300|2023-01-10|![](https://media:301784775010412433) 修复已知问题。|
-|1.7.2.300|2022-09-20|![](https://media:301784775010442434) 修复已知问题。|
-|1.7.1.300|2022-08-02|![](https://media:301784775010559435) 修复已知问题。|
-|1.7.0.300|2022-06-16|![](https://media:301784775010591436) 修复已知问题。|
-|1.6.1.300|2022-04-13|![](https://media:301784775010625437) * 支持GIF动态图片展示。 * 支持每天在第一次启动应用时更新数据。|
-|1.6.0.300|2022-02-23|![](https://media:301784775010650438) 修复已知问题。|
-|1.5.1.300|2022-01-12|![](https://media:301784775010688439) 修复已知问题。|
-|1.5.0.300|2021-12-10|![](https://media:301784775010716440) * 优化自定义布局。|
-|1.4.2.300|2021-10-30|![](https://media:301784775010749441) * 适配A/B测试功能。|
-|1.4.1.300|2021-09-23|![](https://media:301784775010777442) 修复已知问题。|
-|1.4.0.300|2021-08-19|![](https://media:301784775010805443) 修复已知问题。|
-|1.3.2.301|2021-05-29|![](https://media:301784775010833444) 修复已知问题。|
-|1.3.1.300|2021-04-12|![](https://media:301784775010864445) 修复已知问题。|
-|1.3.0.300|2021-02-09|![](https://media:301784775010897446) * 优化拉取展示消息流程。|
+|:--------|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|1.9.4.300|2026-06-08|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/aal-HoHWRpePMpLBjoESCQ/zh-cn_image_0000002680326055.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=E5BF40CFA628B4558AA3ED62E0EBBDAA87C5AF5B98EBBA9E8EE0B7FD94737D66) 修复已知问题。|
+|1.9.3.301|2026-04-07|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/3pgkPj0ARti7RvozKZ8q9g/zh-cn_image_0000002680166229.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=E8F544C303A625502377387DFCD12D72DF29C622A875B4E15D85216252338463) 修复已知问题。|
+|1.9.3.300|2025-04-30|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/pAZzUrP-QBeSMeFWw0rpPA/zh-cn_image_0000002650086500.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=98F815CE1230EFD988F1A741F46FD0A58C33250130F51200AABCFAAAF279EF65) 修复已知问题。|
+|1.9.0.302|2023-12-23|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/7QqmDdMjQy-qIYre6fnYUg/zh-cn_image_0000002298653693.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=A79B8F4045683D5CC2DF49FA8BD68A87325ABD8811A24C6E6891ED77143AA174) 增加[-enableCollectionUserPrivacy](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcappmessaging-ios-0000001058729698#section156816194816)方法。|
+|1.9.0.301|2023-07-04|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/3_BI0lnNSpWyQEX6vM4gsA/zh-cn_image_0000002650246404.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=8784303812A93B0C44B43465A9315904B487DBE80462F18F0C4E760557F1EE82) 修复已知问题。|
+|1.9.0.300|2023-04-26|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/lFXD-atiSlKMwGgyMQIEbQ/zh-cn_image_0000002680326053.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=BC6B278B1A6F56BD2632AFA89160FBAC6EDCFB3688DCB020533CCC480B7C69C0) 修复已知问题。|
+|1.8.1.300|2023-02-27|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/ipjf0MagS2qhfqZ1mbHF2g/zh-cn_image_0000002680166227.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F810AA2EB46C0215CA5FE46BB87F19D4D76B3734763604534F5D5D2638B62B90) 修复已知问题。|
+|1.8.0.300|2023-01-10|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/McFK1V7WRZ-l5dq-drFTTw/zh-cn_image_0000002650086498.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=766DC28F1401A8ABAF8201DD5A490F7F0E917CB7DED7FB3E0AED40A9EE0A406F) 修复已知问题。|
+|1.7.2.300|2022-09-20|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/-TurKg0hQOiQxB1gv31cNQ/zh-cn_image_0000002650246400.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=70778B60D9EFAD1A457E66BE257DD07DFFD96EA6C076239320EA9ED98E5AB8E5) 修复已知问题。|
+|1.7.1.300|2022-08-02|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/B3fdWSf6SWGqvjjHzvcE6g/zh-cn_image_0000002680326051.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=6F49871911613F3625983628BD1FC54C89891D0F019EAF561D71F00941B1EC05) 修复已知问题。|
+|1.7.0.300|2022-06-16|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/I5XkTNzkQUy7b4rN8a3C0g/zh-cn_image_0000002680166225.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=207476454B7451385F08AD780DC11A5D4286ECFCDC7DDB091C3C80E40675F63D) 修复已知问题。|
+|1.6.1.300|2022-04-13|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/HQTrjP-qQGGbcmlPZ-96kw/zh-cn_image_0000001222865536.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F1D679B65F18DCD9F5C31EB62AEF191D50FCE8C511B3A108B82BAFBD58338A9E) * 支持GIF动态图片展示。 * 支持每天在第一次启动应用时更新数据。|
+|1.6.0.300|2022-02-23|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/4Uu1uvrlTCudEwngdXqhUw/zh-cn_image_0000002650086496.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=5791D6F5D8E8CE8066976C5D56251F0823AE95AE7F93417D59C5E23954CC424F) 修复已知问题。|
+|1.5.1.300|2022-01-12|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/DUj_PuTJRDC1ILq4pQHsdg/zh-cn_image_0000002650246398.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=55D05E7B12E7F29D5FE3F1A5A7675BAA68A9C958DD46B2830653A8205A5825A8) 修复已知问题。|
+|1.5.0.300|2021-12-10|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/7-EQV-TTTRi2wJiFXLUkYg/zh-cn_image_0000001178046650.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=AD779FA936C4D03D5CE0FE5CFECA0045B01E564441F99CF850D3B7E9FA83F3F5) * 优化自定义布局。|
+|1.4.2.300|2021-10-30|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/JkFqc9WeSqmZ0rHxyui3NQ/zh-cn_image_0000001177735524.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE875481FCA580D137E38CE115C79449791C5F1A0C8227EEFA0C2331B05FD3C7) * 适配A/B测试功能。|
+|1.4.1.300|2021-09-23|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/uNH2_dDbSSSJNhCUD3BZuQ/zh-cn_image_0000002680326049.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=FB014BE209597E88E4811D55448299D298471BCAD74C360A3DF3F7AAAC56E5DB) 修复已知问题。|
+|1.4.0.300|2021-08-19|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/pAdhIJluS3WmleMfDaTZsA/zh-cn_image_0000002650086764.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=8267AE148E45A764B3F3BE9F1EB989018E4C8A2017ECDB11314E8F8081FC204E) 修复已知问题。|
+|1.3.2.301|2021-05-29|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/h4SMrlMcRKmgygq_C0jWNQ/zh-cn_image_0000002650246658.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=9AE6F750136774F514B211B33E6773345CCFA0C1F1EA4AC044F54A7B5167B02A) 修复已知问题。|
+|1.3.1.300|2021-04-12|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/WdUSHxtdTCuBcpBGPLenbQ/zh-cn_image_0000002650086768.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=0DA152792163B3F9C303AABEA7C2CFE5619C83FC6B555CAE0162D36188A2F6BE) 修复已知问题。|
+|1.3.0.300|2021-02-09|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/sn6nmhU5RY-maBtBjpRUPA/zh-cn_image_0000001127410451.png?HW-CC-KV=V1&HW-CC-Date=20260916T020830Z&HW-CC-Expire=31536000000&HW-CC-Sign=37B1958F49F2335A11F291B08CC119E046692623D72ACB12CF76416EAA5B9646) * 优化拉取展示消息流程。|
 |1.2.1.300|2020-11-23|首次发布应用内消息SDK。|
 

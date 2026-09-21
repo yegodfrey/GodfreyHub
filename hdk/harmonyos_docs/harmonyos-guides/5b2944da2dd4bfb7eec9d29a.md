@@ -6,34 +6,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interac
 
 # 支持鼠标输入事件
 
-![](https://media:401788444585248236)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/-KspDPMxRb2E5wztZ98hNQ/zh-cn_image_0000002733274118.png?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=E4DB3FBFE08DDFD37E60D5DC82A42CF2DFCEBFD4DB91D3C2A0A84BA5C736FB03)
 
-鼠标设备是PC/2in1、Tablet类型设备必不可少的输入设备，其特点是可以通过按键达成点击或滑动操作，也可以通过滚轮触发滑动，另外还有一些按键，这些分别通过[MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-mouse-key#mouseevent对象说明)及[AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-axis#axisevent)上报给应用。  
-![](https://media:401788444585276237)  
-所有单指可响应的触摸事件/手势事件，均可通过鼠标左键来操作和响应。
+鼠标设备是PC/2in1、Tablet类型设备必不可少的输入设备，其特点是可以通过按键达成点击或滑动操作，也可以通过滚轮触发滑动，另外还有一些按键，这些分别通过[MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-mouse-key#mouseevent对象说明)及[AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-axis#axisevent)上报给应用。
+> 说明
+>
+> 所有单指可响应的触摸事件/手势事件，均可通过鼠标左键来操作和响应。
+>
+> * 例如当我们需要开发单击[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)跳转页面的功能、且需要支持手指点击和鼠标左键点击，那么只绑定一个点击事件（[onClick](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#onclick)）就可以实现该效果；
+> * 若需要针对手指和鼠标左键的点击实现不一样的效果，可以在onClick回调中，使用回调参数中的source字段判断当前触发事件的来源是手指还是鼠标。
 
-* 例如当我们需要开发单击[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)跳转页面的功能、且需要支持手指点击和鼠标左键点击，那么只绑定一个点击事件（[onClick](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#onclick)）就可以实现该效果；
-* 若需要针对手指和鼠标左键的点击实现不一样的效果，可以在onClick回调中，使用回调参数中的source字段判断当前触发事件的来源是手指还是鼠标。
+此外，对PC/2in1、Tablet类型设备上没有针对鼠标操作适配的应用，系统会提供兜底方案，将鼠标左键的点击和滑动，以及滚轮事件转换为触摸事件。并且对开发者开放了通过配置文件自行控制是否转换事件的能力。
 
-此外，对PC/2in1、Tablet类型设备上没有针对鼠标操作适配的应用，系统会提供兜底方案，将鼠标左键的点击和滑动，以及滚轮事件转换为触摸事件。并且对开发者开放了通过配置文件自行控制是否转换事件的能力。  
+## 处理鼠标移动
 
-#### 处理鼠标移动
+鼠标事件通过[onMouse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-mouse-key#onmouse)接口注册一个回调来接收，当鼠标事件发生时，会按照鼠标光标所在位置下的组件进行派发，派发过程同样遵循事件冒泡机制。
 
-鼠标事件通过[onMouse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-mouse-key#onmouse)接口注册一个回调来接收，当鼠标事件发生时，会按照鼠标光标所在位置下的组件进行派发，派发过程同样遵循事件冒泡机制。  
+### onMouse
 
-#### onMouse
-
-```
+```ts
 onMouse(event: (event?: MouseEvent) => void)
 ```
 
 鼠标事件回调。每当鼠标指针在绑定该API的组件内产生行为（MouseAction）时，触发事件回调，参数为[MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-mouse-key#mouseevent对象说明)对象，表示触发此次的鼠标事件。该事件支持自定义冒泡设置，默认父子冒泡。常用于开发者自定义的鼠标行为逻辑处理。
 
-开发者可以通过回调中的MouseEvent对象获取触发事件的坐标（displayX/displayY/windowX/windowY/x/y）、按键（[MouseButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#mousebutton8)）、行为（[MouseAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#mouseaction8)）、时间戳（[BaseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#baseevent8)的timestamp属性）、交互组件的区域（[EventTarget](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#eventtarget8)）、事件来源（[SourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings#sourcetype枚举说明8)）等。MouseEvent的回调函数stopPropagation用于设置当前事件是否阻止冒泡。  
-![](https://media:401788444585307238)  
-按键（MouseButton）的值：Left/Right/Middle/Back/Forward均对应鼠标上的实体按键，当这些按键被按下或松开时触发这些按键的事件。None表示没有鼠标按键按下或松开的状态下，仅移动鼠标所触发的事件。
+开发者可以通过回调中的MouseEvent对象获取触发事件的坐标（displayX/displayY/windowX/windowY/x/y）、按键（[MouseButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#mousebutton8)）、行为（[MouseAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#mouseaction8)）、时间戳（[BaseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#baseevent8)的timestamp属性）、交互组件的区域（[EventTarget](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#eventtarget8)）、事件来源（[SourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings#sourcetype枚举说明8)）等。MouseEvent的回调函数stopPropagation用于设置当前事件是否阻止冒泡。
+> 说明
+>
+> 按键（MouseButton）的值：Left/Right/Middle/Back/Forward均对应鼠标上的实体按键，当这些按键被按下或松开时触发这些按键的事件。None表示没有鼠标按键按下或松开的状态下，仅移动鼠标所触发的事件。
 
-```
+```TypeScript
 @Entry
 @Component
 struct MouseMove {
@@ -94,11 +96,11 @@ struct MouseMove {
 
    右键点击时：button = 2（MouseButton.Right的枚举值），按下时：action = 1（MouseAction.Press的枚举值），抬起时：action = 2（MouseAction.Release的枚举值）。
 
-![](https://media:401788444585347239)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/JDwwMJSdRaqca-6tH__3CQ/zh-cn_image_0000002733434002.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=2F5E7E628A59F205B8E481EC8AC055BE45137F2281E423B246B13EFA19F11305)
 
 如果需要阻止鼠标事件冒泡，可以通过调用stopPropagation方法进行设置。
 
-```
+```TypeScript
 @Entry
 @Component
 struct StopPropagation {
@@ -150,15 +152,15 @@ struct StopPropagation {
 }
 ```
 
-![](https://media:401788444585380240)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/ULm4DOwhQOWzR-xzObpM3g/zh-cn_image_0000002762993523.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=E01E36346FD6A052988BD2B4FB510E9DFA9F7737127A0C42247528BF2E226DCC)
 
-在子组件（Button）的onMouse中，通过回调参数event调用stopPropagation回调方法（如上）即可阻止Button子组件的鼠标事件冒泡到父组件Column上。  
+在子组件（Button）的onMouse中，通过回调参数event调用stopPropagation回调方法（如上）即可阻止Button子组件的鼠标事件冒泡到父组件Column上。
 
-#### onHover
+### onHover
 
 如果需要感知鼠标移入或移出控件范围，建议直接使用高级事件[onHover](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-hover#onhover)，建议避免直接处理鼠标move事件，以保持代码简洁。
 
-```
+```ts
 onHover(event: (isHover: boolean) => void)
 ```
 
@@ -166,7 +168,7 @@ onHover(event: (isHover: boolean) => void)
 
 若组件绑定了该接口，当鼠标指针从组件外部进入到该组件的瞬间会触发事件回调，参数isHover等于true；鼠标指针离开组件的瞬间也会触发该事件回调，参数isHover等于false。
 
-```
+```TypeScript
 @Entry
 @Component
 struct OnHover {
@@ -198,15 +200,15 @@ struct OnHover {
 
 当鼠标从Button内移动到Button外的瞬间，回调响应，isHover值等于false，又将组件变成了初始的样式。
 
-![](https://media:401788444585405241)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/OgnauNdLSbOolVgwqNcKmA/zh-cn_image_0000002762833635.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A9D3EB2110CFF3A3BF199DCDE96A879675B025C266FE34184C17F7264A75644)
 
-#### 处理鼠标按键
+## 处理鼠标按键
 
-当用户按下鼠标上的按键时，会产生鼠标按下事件，可以通过[MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-mouse-key#mouseevent对象说明)访问事件的一些重要信息，如发生时间，鼠标按键（MouseButton：左键/右键等），也可以通过[getModifierKeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#getmodifierkeystate12)接口获取到用户在使用鼠标时，物理键盘上的ctrl/alt/shift这几个修饰键的按下状态，可以通过组合判断它们的状态来实现一些便捷操作。
+当用户按下鼠标上的按键时，会产生鼠标按下事件，可以通过[MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-mouse-key#mouseevent对象说明)访问事件的一些重要信息，如发生时间，鼠标按键（MouseButton：左键/右键等），也可以通过[getModifierKeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#getmodifierkeystate12)接口获取到用户在使用鼠标时，物理键盘上的**ctrl/alt/shift**这几个修饰键的按下状态，可以通过组合判断它们的状态来实现一些便捷操作。
 
 以下是一个通过处理鼠标按键实现快速多选的示例：
 
-```
+```TypeScript
 class ListDataSource implements IDataSource {
   private list: number[] = [];
   private listeners: DataChangeListener[] = [];
@@ -338,9 +340,9 @@ struct ListExample {
 }
 ```
 
-![](https://media:401788444585435242)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/7JEmncLnQg6k5gq6Kvk7hw/zh-cn_image_0000002733274120.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=451DB85351F819A4DA6D1E2DE07ED099487C737B689C231AE12C91DF24778E1E)
 
-#### 处理滚轮
+## 处理滚轮
 
 鼠标的滚轮是一种可以产生纵向滚动量的输入设备，当用户滚动鼠标滚轮时，系统会产生纵向[轴事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-axis)上报，应用可在组件上通过[onAxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-axis#onaxisevent)接口接收轴事件，轴事件中上报的坐标，为鼠标光标所在的位置，而滚轮上报的角度变化可从[BaseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#baseevent8)的axisVertical获得。
 
@@ -353,15 +355,16 @@ struct ListExample {
 
 如果使用滚动类组件，对于滚轮的响应，系统内部已实现，不需要额外处理。
 
-如果使用[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)，对于滚轮的响应，此时向前滚动，offsetY的上报数值为正，向后滚动，offsetY的上报数值为负。  
-![](https://media:401788444585460243)  
-1. 滚轮产生的纵向轴值，一般情况下只能触发纵向滚动手势，无法触发横向滚动。
-2. 系统会在发现鼠标指针下只有能够响应横向滚动的组件时，也可以触发横向滚动。
-3. 但只要指针下有一个可以响应纵向滚动，则会优先处理纵向，不再处理横向。
+如果使用[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)，对于滚轮的响应，此时向前滚动，offsetY的上报数值为正，向后滚动，offsetY的上报数值为负。
+> 说明
+>
+> 1. 滚轮产生的纵向轴值，一般情况下只能触发纵向滚动手势，无法触发横向滚动。
+> 2. 系统会在发现鼠标指针下只有能够响应横向滚动的组件时，也可以触发横向滚动。
+> 3. 但只要指针下有一个可以响应纵向滚动，则会优先处理纵向，不再处理横向。
 
 以下是纵向和横向的List响应滚轮的示例：
 
-```
+```TypeScript
 export class ListDataSource implements IDataSource {
   private list: number[] = [];
   private listeners: DataChangeListener[] = [];
@@ -419,7 +422,7 @@ export class ListDataSource implements IDataSource {
 }
 ```
 
-```
+```TypeScript
 import { ListDataSource } from './ListDataSource';
 
 @Entry
@@ -480,35 +483,35 @@ struct MouseWheel {
 }
 ```
 
-![](https://media:401788444585537244)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/9iNSNtzPTqmr9mJ0wlJLOA/zh-cn_image_0000002733434004.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=670A00EB670D1F95414CB8A99EDF0406AE9BE5B1111F4505C8569BF4040B0EAD)
 
-#### 鼠标事件转换
+## 鼠标事件转换
 
 如果开发者在开发应用时，只考虑实现了触控操作场景，没有针对PC/2in1、Tablet设备使用鼠标操作的场景做适配，会导致出现应用在使用鼠标操作时发生实际行为与预期不一致、甚至无法操作的情况。针对该场景，系统提供兜底方案，会默认将鼠标左键事件、轴事件转换成触摸事件发送给应用，从而达到类似手机上的操作体验。
 
-此外，如果开发者期望控制上述转换行为，系统开放了自定义配置能力，开发者可以通过在应用中新增配置文件的方式来控制是否将鼠标事件转换成触摸事件。  
+此外，如果开发者期望控制上述转换行为，系统开放了自定义配置能力，开发者可以通过在应用中新增配置文件的方式来控制是否将鼠标事件转换成触摸事件。
 
-#### 开发步骤
+### 开发步骤
 
-1. 增加配置文件
+**1. 增加配置文件**
 
 在应用的entry/src/main/resources/base/profile目录下创建配置文件easy_go.json（示例文件名，可自行命名）。在[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)配置文件中添加easyGo字段，并指向引用的easy_go.json配置文件。
 
-![](https://media:401788444585808245)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/vhUrKb_VQcucfV3QYOjPOQ/zh-cn_image_0000002762993525.png?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=0B7CD84C18276CD56BDED557EBA39AF58B9F395B8C3CA761FD137BE8BECCA73A)
 
-2. 增加事件转换配置
+**2. 增加事件转换配置**
 
-在easy_go.json配置文件中，配置事件转换的相关属性。  
+在easy_go.json配置文件中，配置事件转换的相关属性。
 
-#### 配置内容说明
+### 配置内容说明
 
 easy_go.json是一个标准的Object类型JSON文件，整体结构分为两层。第一层配置设备类型；第二层配置对应设备类型下的鼠标事件转换模式。
 
-1. 设备类型
+**1. 设备类型**
 
 第一层配置，设置鼠标事件转换在不同设备类型下的表现。
 
-```
+```json
 {
   "common": {},
   "phone": {},
@@ -524,15 +527,15 @@ easy_go.json是一个标准的Object类型JSON文件，整体结构分为两层�
 |2in1|PC/2in1类型设备上生效的配置，配置后common配置在PC/2in1类型设备上不再生效。|是|
 |tablet|Tablet类型设备上生效的配置，配置后common配置在Tablet类型设备上不再生效。|是|
 
-2. 多模态输入选项
+**2. 多模态输入选项**
 
-第二层配置multiModalInputOptions字段，设置事件输入选项。内部字段说明如下：  
+第二层配置multiModalInputOptions字段，设置事件输入选项。内部字段说明如下：
 
 |字段名|说明|可选|
 |:-------------------|:-------------|:-|
 |mouse2TouchEventMode|配置鼠标事件转触摸事件模式。|是|
 
-mouse2TouchEventMode可配置字段说明：  
+mouse2TouchEventMode可配置字段说明：
 
 |枚举值|说明|
 |:-------------------|:---------------------------------|
@@ -540,11 +543,11 @@ mouse2TouchEventMode可配置字段说明：
 |xcomponentAndWebOnly|表示鼠标事件在XComponent和Web组件里需要转换成触摸事件。|
 |disabled|表示鼠标事件全部都不转换成触摸事件。|
 
-3. 配置示例
+**3. 配置示例**
 
 在PC/2in1设备上，配置为鼠标事件不转换成触摸事件，示例如下：
 
-```
+```json
 {
   "common": {},
   "2in1": {

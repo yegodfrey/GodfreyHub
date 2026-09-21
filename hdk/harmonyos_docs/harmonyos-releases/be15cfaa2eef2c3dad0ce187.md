@@ -7,7 +7,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-
 # Online Authentication Kit
 
 |操作|旧版本|新版本|d.ts文件|
-|:----|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|
+|:----|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|
 |新增API|NA|类名：global； API声明：declare namespace fido2 差异内容：declare namespace fido2|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：fido2； API声明：interface AuthenticatorAttestationResponse 差异内容：interface AuthenticatorAttestationResponse|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：AuthenticatorAttestationResponse； API声明：readonly attestationObject: Uint8Array; 差异内容：readonly attestationObject: Uint8Array;|api/@hms.security.fido2.d.ts|
@@ -15,11 +15,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-
 |新增API|NA|类名：AuthenticatorAttestationResponse； API声明：publicKeyAlgorithm: Algorithm; 差异内容：publicKeyAlgorithm: Algorithm;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：AuthenticatorAttestationResponse； API声明：publicKey?: Uint8Array; 差异内容：publicKey?: Uint8Array;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：AuthenticatorAttestationResponse； API声明：authenticatorData: Uint8Array; 差异内容：authenticatorData: Uint8Array;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：AuthenticatorAttestationResponse； API声明：transports: string\[\]; 差异内容：transports: string\[\];|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：AuthenticatorAttestationResponse； API声明：transports: string[]; 差异内容：transports: string[];|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：fido2； API声明：interface AuthenticatorAttestationResponseJson 差异内容：interface AuthenticatorAttestationResponseJson|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：AuthenticatorAttestationResponseJson； API声明：clientDataJson: string; 差异内容：clientDataJson: string;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：AuthenticatorAttestationResponseJson； API声明：authenticatorData: string; 差异内容：authenticatorData: string;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：AuthenticatorAttestationResponseJson； API声明：transports: Array\<string\>; 差异内容：transports: Array\<string\>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：AuthenticatorAttestationResponseJson； API声明：transports: Array<string>; 差异内容：transports: Array<string>;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：AuthenticatorAttestationResponseJson； API声明：publicKey?: string; 差异内容：publicKey?: string;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：AuthenticatorAttestationResponseJson； API声明：publicKeyAlgorithm: Algorithm; 差异内容：publicKeyAlgorithm: Algorithm;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：AuthenticatorAttestationResponseJson； API声明：attestationObject: string; 差异内容：attestationObject: string;|api/@hms.security.fido2.d.ts|
@@ -54,10 +54,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-
 |新增API|NA|类名：PublicKeyCredentialRequestOptions； API声明：challenge: Uint8Array; 差异内容：challenge: Uint8Array;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyCredentialRequestOptions； API声明：timeout?: number; 差异内容：timeout?: number;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyCredentialRequestOptions； API声明：rpId?: string; 差异内容：rpId?: string;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：PublicKeyCredentialRequestOptions； API声明：allowCredentials?: Array\<PublicKeyCredentialDescriptor\>; 差异内容：allowCredentials?: Array\<PublicKeyCredentialDescriptor\>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：PublicKeyCredentialRequestOptions； API声明：allowCredentials?: Array<PublicKeyCredentialDescriptor>; 差异内容：allowCredentials?: Array<PublicKeyCredentialDescriptor>;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyCredentialRequestOptions； API声明：userVerification?: UserVerificationRequirement; 差异内容：userVerification?: UserVerificationRequirement;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：PublicKeyCredentialRequestOptions； API声明：hints?: Array\<PublicKeyCredentialHint\>; 差异内容：hints?: Array\<PublicKeyCredentialHint\>;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：PublicKeyCredentialRequestOptions； API声明：extensions?: Map\<string, Object\>; 差异内容：extensions?: Map\<string, Object\>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：PublicKeyCredentialRequestOptions； API声明：hints?: Array<PublicKeyCredentialHint>; 差异内容：hints?: Array<PublicKeyCredentialHint>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：PublicKeyCredentialRequestOptions； API声明：extensions?: Map<string, Object>; 差异内容：extensions?: Map<string, Object>;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：fido2； API声明：interface PublicKeyAssertionCredential 差异内容：interface PublicKeyAssertionCredential|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyAssertionCredential； API声明：readonly rawId: Uint8Array; 差异内容：readonly rawId: Uint8Array;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyAssertionCredential； API声明：readonly response: AuthenticatorAssertionResponse; 差异内容：readonly response: AuthenticatorAssertionResponse;|api/@hms.security.fido2.d.ts|
@@ -121,7 +121,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-
 |新增API|NA|类名：fido2； API声明：interface PublicKeyCredentialDescriptor 差异内容：interface PublicKeyCredentialDescriptor|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyCredentialDescriptor； API声明：type: PublicKeyCredentialType; 差异内容：type: PublicKeyCredentialType;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyCredentialDescriptor； API声明：id: Uint8Array; 差异内容：id: Uint8Array;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：PublicKeyCredentialDescriptor； API声明：transports?: Array\<AuthenticatorTransport\>; 差异内容：transports?: Array\<AuthenticatorTransport\>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：PublicKeyCredentialDescriptor； API声明：transports?: Array<AuthenticatorTransport>; 差异内容：transports?: Array<AuthenticatorTransport>;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：fido2； API声明：enum Algorithm 差异内容：enum Algorithm|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：Algorithm； API声明：ES256 = -7 差异内容：ES256 = -7|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：Algorithm； API声明：ES384 = -35 差异内容：ES384 = -35|api/@hms.security.fido2.d.ts|
@@ -152,14 +152,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-
 |新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：rp: PublicKeyCredentialRpEntity; 差异内容：rp: PublicKeyCredentialRpEntity;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：user: PublicKeyCredentialUserEntity; 差异内容：user: PublicKeyCredentialUserEntity;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：challenge: Uint8Array; 差异内容：challenge: Uint8Array;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：pubKeyCredParams: Array\<PublicKeyCredentialParameters\>; 差异内容：pubKeyCredParams: Array\<PublicKeyCredentialParameters\>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：pubKeyCredParams: Array<PublicKeyCredentialParameters>; 差异内容：pubKeyCredParams: Array<PublicKeyCredentialParameters>;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：timeout?: number; 差异内容：timeout?: number;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：excludeCredentials?: Array\<PublicKeyCredentialDescriptor\>; 差异内容：excludeCredentials?: Array\<PublicKeyCredentialDescriptor\>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：excludeCredentials?: Array<PublicKeyCredentialDescriptor>; 差异内容：excludeCredentials?: Array<PublicKeyCredentialDescriptor>;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：authenticatorSelection?: AuthenticatorSelectionCriteria; 差异内容：authenticatorSelection?: AuthenticatorSelectionCriteria;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：hints?: Array\<PublicKeyCredentialHint\>; 差异内容：hints?: Array\<PublicKeyCredentialHint\>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：hints?: Array<PublicKeyCredentialHint>; 差异内容：hints?: Array<PublicKeyCredentialHint>;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：attestation?: AttestationConveyancePreference; 差异内容：attestation?: AttestationConveyancePreference;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：attestationFormats?: Array\<string\>; 差异内容：attestationFormats?: Array\<string\>;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：extensions?: Map\<string, Object\>; 差异内容：extensions?: Map\<string, Object\>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：attestationFormats?: Array<string>; 差异内容：attestationFormats?: Array<string>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：PublicKeyCredentialCreationOptions； API声明：extensions?: Map<string, Object>; 差异内容：extensions?: Map<string, Object>;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：fido2； API声明：enum Uvm 差异内容：enum Uvm|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：Uvm； API声明：UVM_FINGERPRINT = 2 差异内容：UVM_FINGERPRINT = 2|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：Uvm； API声明：UVM_PIN = 4 差异内容：UVM_PIN = 4|api/@hms.security.fido2.d.ts|
@@ -178,9 +178,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-
 |新增API|NA|类名：AuthenticatorMetadata； API声明：readonly aaguid: string; 差异内容：readonly aaguid: string;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：AuthenticatorMetadata； API声明：readonly uvm: Uvm; 差异内容：readonly uvm: Uvm;|api/@hms.security.fido2.d.ts|
 |新增API|NA|类名：AuthenticatorMetadata； API声明：readonly isAvailable: boolean; 差异内容：readonly isAvailable: boolean;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：fido2； API声明：function getClientCapabilities(context: common.Context): Promise\<Map\<ClientCapability, boolean\>\>; 差异内容：function getClientCapabilities(context: common.Context): Promise\<Map\<ClientCapability, boolean\>\>;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：fido2； API声明：function getPlatformAuthenticators(context: common.Context): Promise\<Array\<AuthenticatorMetadata\>\>; 差异内容：function getPlatformAuthenticators(context: common.Context): Promise\<Array\<AuthenticatorMetadata\>\>;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：fido2； API声明：function register(context: common.Context, options: CredentialCreationOptions, tokenBinding?: TokenBinding): Promise\<PublicKeyAttestationCredential\>; 差异内容：function register(context: common.Context, options: CredentialCreationOptions, tokenBinding?: TokenBinding): Promise\<PublicKeyAttestationCredential\>;|api/@hms.security.fido2.d.ts|
-|新增API|NA|类名：fido2； API声明：function authenticate(context: common.Context, options: CredentialRequestOptions, tokenBinding?: TokenBinding): Promise\<PublicKeyAssertionCredential\>; 差异内容：function authenticate(context: common.Context, options: CredentialRequestOptions, tokenBinding?: TokenBinding): Promise\<PublicKeyAssertionCredential\>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：fido2； API声明：function getClientCapabilities(context: common.Context): Promise<Map<ClientCapability, boolean>>; 差异内容：function getClientCapabilities(context: common.Context): Promise<Map<ClientCapability, boolean>>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：fido2； API声明：function getPlatformAuthenticators(context: common.Context): Promise<Array<AuthenticatorMetadata>>; 差异内容：function getPlatformAuthenticators(context: common.Context): Promise<Array<AuthenticatorMetadata>>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：fido2； API声明：function register(context: common.Context, options: CredentialCreationOptions, tokenBinding?: TokenBinding): Promise<PublicKeyAttestationCredential>; 差异内容：function register(context: common.Context, options: CredentialCreationOptions, tokenBinding?: TokenBinding): Promise<PublicKeyAttestationCredential>;|api/@hms.security.fido2.d.ts|
+|新增API|NA|类名：fido2； API声明：function authenticate(context: common.Context, options: CredentialRequestOptions, tokenBinding?: TokenBinding): Promise<PublicKeyAssertionCredential>; 差异内容：function authenticate(context: common.Context, options: CredentialRequestOptions, tokenBinding?: TokenBinding): Promise<PublicKeyAssertionCredential>;|api/@hms.security.fido2.d.ts|
 |新增kit|类名：global； API声明： 差异内容：NA|类名：global； API声明：api@hms.security.fido2.d.ts 差异内容：OnlineAuthenticationKit|api/@hms.security.fido2.d.ts|
 

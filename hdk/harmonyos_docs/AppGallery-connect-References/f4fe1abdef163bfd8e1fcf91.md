@@ -6,36 +6,37 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # 查询商品促销详情
 
-#### 功能介绍
+## 功能介绍
 
-此接口用于查询商品促销信息。  
+此接口用于查询商品促销信息。
 
-#### 使用约束
+## 使用约束
 
-接口调用者的角色：账号持有者、管理员、APP管理员、运营。  
+接口调用者的角色：账号持有者、管理员、APP管理员、运营。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS GET|
-|接口方向|开发者服务器-\>数字商品服务器|
+|-----|------------------------------------------------------------------------------------------------------------------------|
+|接口方向|开发者服务器->数字商品服务器|
 |接口URL|https://connect-api.cloud.huawei.com/api/pms/product-price-service/v2/manage/product/promotion?promotionId={promotionId}|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|-----|------------------------------------------------------------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-#### Query
+### Query
 
-|参数|必选(M)/可选(O)|参数类型|描述|
-|:----------|:----------|:-----|:-------------------------------------------------------------------------------|
+|参数|**必选(M)/可选(O)**|**参数类型**|**描述**|
+|:----------|:--------------|:-------|:-------------------------------------------------------------------------------|
 |promotionId|M|String|促销优惠活动唯一ID。 获取来源： * 调用创建商品促销信息接口，返回promotionId。 * 调用按条件查询商品促销信息接口，返回promotionId。|
 
-#### Header
+### Header
 
-![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250806180217.05379059835979044180482309335623:50001231000000:2800:0E24050F3BF9C665C923A5649435EBDC3379F93AD9F1AEEBAF8C2C58C8EFAACE.png)  
-API Client和OAuth Client区别参见[使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114)。
+> 说明
+>
+> API Client和OAuth Client区别参见[使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114)。
 
-API Client方式  
+**API Client方式**
 
 |参数|必选(M)/可选(O)|类型|描述|
 |:------------|:----------|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,18 +44,18 @@ API Client方式
 |Authorization|M|String|认证信息，格式为"Authorization: Bearer ${access_token}"。access_token为[获取Token](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043)中获取的access_token。|
 |appId|M|String|应用ID，获取方法参考[查询应用信息](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo)。|
 
-OAuth Client方式  
+**OAuth Client方式**
 
 |参数名称|必选(M)/可选(O)|类型|参数说明|
 |:----------|:----------|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |oauth2Token|M|String|认证信息，传入[获取用户授权码](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392)中获取的Access Token。|
 |appId|M|String|应用ID，获取方法参考[查询应用信息](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo)。|
 
-#### 请求示例
+## 请求示例
 
 以API Client为例：
 
-```
+```screen
 GET https://connect-api.cloud.huawei.com/api/pms/product-price-service/v2/manage/product/promotion?promotionId=26881C5204E7285EFE6E8A7CF955AAA2
 Content-Type: application/json
 client_id: ***
@@ -62,16 +63,16 @@ Authorization: Bearer ***
 appId: 1000001
 ```
 
-#### 响应参数
+## 响应参数
 
 |参数名称|必选(M)/可选(O)|类型|参数说明|
 |:--------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|
 |error|M|[ErrorResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-errorresult-harmonyosnext-0000002131350724)|包含返回码及描述信息的JSON字符串。|
 |promotion|O|[ProductPromotionDetailInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-ppdetailinfo-harmonyosnext-0000002131350732)|促销详情信息。|
 
-#### 响应示例
+## 响应示例
 
-```
+```screen
 { 
     "error": { 
         "errorCode": 0, 
@@ -108,9 +109,9 @@ appId: 1000001
 }
 ```
 
-#### 调用示例
+## 调用示例
 
-```
+```screen
 "Java"
 public static ProductPromotionDetailQueryResp getPromotionDetail(String domain, String clientId, 
     String authorization, String appId, String promotionId) { 

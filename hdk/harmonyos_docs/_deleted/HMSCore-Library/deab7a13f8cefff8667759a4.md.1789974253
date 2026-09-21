@@ -1,0 +1,14 @@
+---
+name: document/cn/HMSCore-Library/android-sdk-download-0000001050169215
+title: Android SDK下载
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Library/android-sdk-download-0000001050169215
+---
+
+# Android SDK下载
+
+针对Android Studio开发环境，华为提供了Maven仓集成方式的 Wallet SDK包。集成方式请参考[在Android Studio项目中集成 Wallet SDK](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/integrate-as-sdk-0000001050303290)。
+
+|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+|SDK名称|SDK包|开发者|版本号|主要功能|个人信息处理规则|合规使用说明|校验码|
+|Wallet SDK|[walletsdk-maven-5.0.1.304.zip](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_package_901_9/c8/v3/IWdOCbteRn6kx9SPECsN0g/walletsdk-maven-5.0.1.304.zip?HW-CC-KV=V1&HW-CC-Date=20230928T021800Z&HW-CC-Expire=315360000&HW-CC-Sign=AAF26E2A22282CBF2A84A450EF534FC574982E27870BEB979C302D006920E3A9)|华为软件技术有限公司|最新版本：5.0.1.304|Wallet SDK 的主要功能介绍请参见[业务介绍](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050042318)。|SDK如何处理个人信息请参见[SDK隐私声明](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/sdk-data-security-0000001050042392)。|您集成和使用我们的SDK时需要遵从个人信息保护基本要求，详情请参加[SDK合规使用指南](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/sdk-compliance-usage-guide-0000001667946890)|SHA256：b0a357036b17ad35ae9728570f38a60fcc468a89536bf6a226062904b0e90bd9|
+

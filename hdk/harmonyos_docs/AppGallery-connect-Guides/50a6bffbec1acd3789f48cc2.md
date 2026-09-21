@@ -6,6 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/game
 
 # 典型应用场景
 
-#### 记录高光时刻
+## 记录高光时刻
 
-提供了视频录制和模板剪辑能力，支持游戏录屏和视频剪辑导出，适用于游戏内高光时刻录制等场景。  
+提供了视频录制和模板剪辑能力，支持游戏录屏和视频剪辑导出，适用于游戏内高光时刻录制等场景。
+

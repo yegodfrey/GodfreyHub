@@ -6,29 +6,30 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
 # 低版本引擎开发快游戏
 
-#### 使用低于2.8.0版本的LayaAir开发快游戏
+## 使用低于2.8.0版本的LayaAir开发快游戏
 
-![](https://media:401781143543943236)  
-此处以LayaAir 2.2.0版本打包2D示例项目为例，对LayaAir 1.7.18\~2.7.0 Beta版本均适用。
+> 说明
+>
+> 此处以**LayaAir 2.2.0** 版本打包**2D示例项目**为例，对LayaAir 1.7.18~2.7.0 Beta版本均适用。
 
-1. 在LayaAir IDE菜单栏选择"项目 \> 发布"，在"发布项目"界面采用默认设置，点击"发布"。 ![](https://media:401781143543991237)
+1. 在LayaAir IDE菜单栏选择"项目 > 发布"，在"发布项目"界面采用默认设置，点击"发布"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/vN88L_p4SPetdyhzp_mgyw/zh-cn_image_0000002366338130.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=3AA834C2561BBB92E59124C3907EC2D83E47132740D92210D4A90F4E2D7FA2F4)
 
-   ![](https://media:401781143544032238)
-2. 快游戏打包成功后，文件目录如下图所示，不同版本发布内容略有差异。 ![](https://media:401781143544061239)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/Vw37K4ywSQ-WnlRzS4oLqw/zh-cn_image_0000002399698037.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=9E4D25DBAFA790989B6985EA2AE850F993DEFCF50FB2D76ED147B361F6E54F3E)
+2. 快游戏打包成功后，文件目录如下图所示，不同版本发布内容略有差异。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/LKbJB_J2Tf-JVC8An-L9ag/zh-cn_image_0000002366178238.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A1EF0EEBB1CE09E07C02331681598A3E46B0E7FF706B36156494CE1A4091D2C)
 
-3. 新建自定义的内容。  
-   ![](https://media:401781143544093240)  
-   Windows创建的文件保存时，请使用utf-8格式保存。
+3. 新建自定义的内容。 注意
+   >
+   > Windows创建的文件保存时，请使用utf-8格式保存。
    1. 新建game.js和manifest.json文件，这两个文件是必须的。
-   2. 新建Common文件夹，存放游戏的logo图片，此目录对应manifest.json文件中的icon配置。 ![](https://media:401781143544128241)
+   2. 新建Common文件夹，存放游戏的logo图片，此目录对应manifest.json文件中的icon配置。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/0t_EQuSkQail0CcnRrRsVA/zh-cn_image_0000002399817905.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=8E62BD44B352BDAB5CB157634A6DEC09FB5FF56DE9DD264E64EDBF0A2BD5F265)
 
       最终发布的包结构如下：
 
-      ![](https://media:401781143544152242)
+      ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/1P3SC4Z_Tb-YivofT8_gmg/zh-cn_image_0000002366338134.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=8E104BDE848F88963807F9BAD2428315C40AA62BBF2A472648F19C49890C3C84)
 4. 由于快游戏平台实现的XMLHttpRequest不支持读取本地文件，因此需要添加适配来读取本地文件。以下是对不同 Laya 版本的适配。
    * 在 Laya 1.x 版本修改 src 目录下的 code.js，修改 load 方法，用于截获读取本地文件的请求进行处理（需要进行两处适配）。
 
-     ```
+     ```screen
      __proto.load=function(url,type,cache,group,ignoreCache){
          (cache===void 0)&& (cache=true);
          (ignoreCache===void 0)&& (ignoreCache=false);
@@ -123,7 +124,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
    * 在 LayaAir IDE 2.0.0+ 和 LayaAir IDE 2.1.0+ 修改 laya.core.js 的 load 方法，用于截获读取本地文件的请求进行处理（需要进行两处适配）。
 
-     ```
+     ```screen
      __proto.load=function(url,type,cache,group,ignoreCache,useWorkerLoader){
          (cache===void 0)&& (cache=true);
          (ignoreCache===void 0)&& (ignoreCache=false);
@@ -221,7 +222,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
    * 在 LayaAir IDE 2.2.0+ , LayaAir IDE 2.3.0+ , LayaAir IDE 2.4.0 , LayaAir IDE 2.5.0 beta，LayaAir IDE 2.6.0 beta，LayaAir IDE 2.7.0 beta 修改 laya.core.js 的 _loadHttpRequestWhat 方法，用于截获读取本地文件的请求进行处理（需要进行两处适配）。
 
-     ```
+     ```screen
      _loadHttpRequestWhat(url, contentType) {
          // 第一处适配代码在这里，插入添加适配读取本地资源
      if (typeof loadRuntime !== 'undefined' && !url.startsWith("http")) {
@@ -255,7 +256,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
      以下是第二处适配代码，寻找 _loadHttpRequest 进行适配。
 
-     ```
+     ```screen
      _loadHttpRequest(url, contentType, onLoadCaller, onLoad, onProcessCaller, onProcess, onErrorCaller, onError) {
          //第二处适配代码
          if (Browser.onVVMiniGame || typeof qg !== "undefined") {
@@ -282,11 +283,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
      }
      ```
 
-5. 将[laya_js_adapter_sample](https://media:401781143544579253)中 huawei-adapter.js拷贝至src目录。
+5. 将[laya_js_adapter_sample](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260611100544.10913879291233292149270443050933:50001231000000:2800:D13BAA503BA7F03A3C25A6A80E7022BCFB21024921F4ECB0E1708E7777348031.zip?needInitFileName=true)中 huawei-adapter.js拷贝至src目录。
 6. 打开game.js，输入下面内容。
    * laya 1.x 的适配
 
-     ```
+     ```screen
      //注意：require的路径必须根据 huawei-adapter.js 和 code.js 存放路径填写
      //添加适配文件
      require("src/huawei-adapter.js");
@@ -294,9 +295,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
      require("src/code.js");
      ```
 
-   * laya.2.0 \~ laya2.7.0 beta 的适配
+   * laya.2.0 ~ laya2.7.0 beta 的适配
 
-     ```
+     ```screen
      //注意： require的路径必须根据 huawei-adapter.js 和 index.js 存放路径填写
      //添加适配文件
      window.loadLib=window.require;
@@ -307,7 +308,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
 7. 配置manifest.json文件，详细说明请参见[manifest.json](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-mainfest-0000001798921053)。
 
-   ```
+   ```screen
    {
        "package": "com.mylaya.huawei",
        "name": "mylaya",
@@ -336,13 +337,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
    * [广告](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runtime-ad-kit-0000001159778259)
    * [分享](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runtime-share-0000001113458342)
 
-【补充说明】
+**【补充说明】**
 
 * 文件加载本地资源请使用文件接口的 readFile 读取，如果有远程资源请按照原 laya 加载资源流程处理。
 * 屏幕适配
   * laya.1.x 的适配：在 code.js 文件中 Laya.init 后面添加屏幕适配代码。
 
-    ```
+    ```screen
     //程序入口
     Laya.init(600, 400, WebGL);// 600 400 需要修改成游戏的设计尺寸
     Laya.stage.scaleMode = "exactfit";//exactfit 修改为游戏中的值
@@ -359,9 +360,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
     //屏幕适配结束
     ```
 
-  * laya.2.0 \~ laya2.7.0 beta 的适配：在 bundle.js 文件中程序入口后面添加屏幕适配代码。
+  * laya.2.0 ~ laya2.7.0 beta 的适配：在 bundle.js 文件中程序入口后面添加屏幕适配代码。
 
-    ```
+    ```screen
     //程序入口
     //根据IDE设置初始化引擎
     if (window["Laya3D"]) Laya3D.init(GameConfig.width, GameConfig.height);
@@ -390,7 +391,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
   1. load 资源的时候，删除相关的 mp3 文件配置。
   2. 需要播放 mp3 文件时，使用快游戏的加载资源方式。
 
-     ```
+     ```screen
      //示例代码
      if(qg){
          var audioContext = qg.createInnerAudioContext();
@@ -401,31 +402,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
      }
      ```
 
-#### 使用其它版本的Egret引擎开发快游戏
+## 使用其它版本的Egret引擎开发快游戏
 
 当EgretLauncher版本大于等于1.2.1且引擎版本大于等于5.3.9 ，支持一键发布华为快游戏，否则按如下步骤开发（以下操作以EgretLauncher 5.2.20版本为例）。
 
-1. 打开 EgretLauncher，新建JS空项目。 ![](https://media:401781143544199243)
+1. 打开 EgretLauncher，新建JS空项目。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/tm1LaEOORKSV7lpCSBT_1w/zh-cn_image_0000002366178242.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=739B8E665341B66DB36A766B12EECB2D6CB0DE353A65683124017265D792C1E3)
 
-2. 点击"发布"图标，在弹出的界面中选择HTML5，版本号填写"build"，方便打包使用。点击"确定"。 ![](https://media:401781143544238244)
+2. 点击"发布"图标，在弹出的界面中选择HTML5，版本号填写"build"，方便打包使用。点击"确定"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/pkFCHPOGRdeIhpYCv-VDxg/zh-cn_image_0000002399817909.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=B974D425D6B4F331B355412140FC2D9DBA347BF63E2757274F7617949BC7B04F)
 
-3. 发布成功后，在工程bin-release \> web目录下生成build目录，build目录结构如下。 ![](https://media:401781143544268245)
+3. 发布成功后，在工程bin-release > web目录下生成build目录，build目录结构如下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/jihZd5daSbe7P2XscDS_PQ/zh-cn_image_0000002366338138.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=057F1CAF8A3E044B03C7E280BAC5F487E6E9C717A50935E3AAF63C6ACFA66AC6)
 
-4. 将项目中libs \> modules \> egret目录下的 egret.js、egret.web.js 文件复制到发布目录build下的js文件夹中，并且重命名egret.js名称为egret.min.js、重命名egret.web.js名称为egret.web.min.js。  
-   ![](https://media:401781143544295246)  
-   egret.min_\*.js和egret.web.min_\*.js可以删除（例如下图中的egret.min_aafb8d1f.js和egret.web.min_c5c1b875.js），后续使用egret.min.js、egret.web.min.js两个文件。
+4. 将项目中libs > modules > egret目录下的 egret.js、egret.web.js 文件复制到发布目录build下的js文件夹中，并且重命名egret.js名称为egret.min.js、重命名egret.web.js名称为egret.web.min.js。 说明
+   >
+   > egret.min_*.js和egret.web.min_*.js可以删除（例如下图中的egret.min_aafb8d1f.js和egret.web.min_c5c1b875.js），后续使用egret.min.js、egret.web.min.js两个文件。
 
    重命名前文件结构：
 
-   ![](https://media:401781143544321247)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/06RSz0j_QEa6UINWUI5ATQ/zh-cn_image_0000002399698045.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=7224FF06FBC0462AA528A8FED073B42942A9EE08D345A7F21E6D630725FBCDB5)
 
    重命名后文件结构：
 
-   ![](https://media:401781143544355248)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/x2vjfwZlQSydn8AxEL3Rbg/zh-cn_image_0000002366178246.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=3FE2695EAAF60B112F0532EEF2B910EA6BBA9AA61981C5C0D2A054966C7F03F0)
 5. 增加本地资源加载逻辑。
    1. 在egret.web.min.js搜索WebHttpRequest.prototype.open，添加如下适配代码，判断资源文件是否为本地资源，如果是则不执行ajax获取资源。本地资源接口参见[文件系统](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-file-system-0000001113298440)。
 
-      ```
+      ```screen
       WebHttpRequest.prototype.open = function (url, method) {
           if (method === void 0) { method = "GET"; }
                       this._url = url;
@@ -474,7 +475,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
    2. 在egret.web.min.js搜索Object.defineProperty(WebHttpRequest.prototype, "response"，添加如下适配代码，添加本地读取方式。
 
-      ```
+      ```screen
       Object.defineProperty(WebHttpRequest.prototype, "response", {
           /**
            * @private
@@ -517,10 +518,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
 6. 修改音频配置。 在egret.web.min.js文件中搜索HtmlSound.prototype.load添加如下音频适配代码。
 
-   ![](https://media:401781143544410249)  
-   添加适配代码时，由于版本不同，可能需要根据当前方法代码修改相关变量名称。
+   > 注意
+   >
+   > 添加适配代码时，由于版本不同，可能需要根据当前方法代码修改相关变量名称。
 
-   ```
+   ```screen
    HtmlSound.prototype.load = function (url) {
        var self = this;
        this.url = url;
@@ -612,19 +614,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
    };
    ```
 
-7. 在build目录下新建目录和文件。  
-   ![](https://media:401781143544436250)  
-   Windows创建的文件保存时，请使用utf-8格式保存。
+7. 在build目录下新建目录和文件。 注意
+   >
+   > Windows创建的文件保存时，请使用utf-8格式保存。
    1. 备份原先HTML5的manifest.json（后续适配需要参考，请必须做好备份）。
    2. 新建game.js和manifest.json文件，该两个文件必须存在。
-   3. 新建Common文件夹，存放快游戏的logo图片，此目录对应manifest.json文件中icon的配置。 ![](https://media:401781143544470251)
+   3. 新建Common文件夹，存放快游戏的logo图片，此目录对应manifest.json文件中icon的配置。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/TNa48c8TSCeG5IJhuD-nDw/zh-cn_image_0000002399817913.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=68B467224C4A31E9880F8EFA01F9554628F234732E33D244397E260B1E6899EB)
 
       最终发布的包结构如下：
 
-      ![](https://media:401781143544529252)
+      ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/G15O3jUjRMSc8VR86hcPmw/zh-cn_image_0000002366338142.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=A72E5DA37BFD3173DA81B05950F6A4F75A76B213FD7810690C862BFBF1B84CF1)
 8. 打开game.js，添加如下的适配代码。
 
-   ```
+   ```screen
    //添加适配代码
    // 以下内容请复制------------------------
    window.self = window
@@ -702,7 +704,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 9. 对发布工程build里index.html内容进行适配修改。
    1. 将html游戏入口文件class为egret-player的div的属性添加到game.js中。 class为egret-player的div如下所示：
 
-      ```
+      ```screen
       <div style="margin: auto;width: 100%;height: 100%;"
                data-entry-class="Main"
                data-orientation="auto"
@@ -719,7 +721,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
       将div的属性以如下形式添加到game.js中：
 
-      ```
+      ```screen
       (function (target) {
           target['data-entry-class'] = 'Main'
           target['data-orientation'] = 'auto'
@@ -737,7 +739,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
    2. 将html文件中编写的js代码拷贝到game.js文件。 html文件中编写的js代码如下所示：
 
-      ```
+      ```screen
       //require("./xx/xx.js"); // game.js文件中对应引用, <script src="xx/xx.js"><script> 修改为 require("./xx/xx.js");的方式，当前示例里无这种引用   
       // html文件中编写的js代码复制到这里适配修改
           var loadScript = function (list, callback) {
@@ -796,9 +798,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
           });
       ```
 
-   3. 如果在index.html里的\<script\>有用到shader代码，需要将特殊适配添加到game.js，示例代码如下：
+   3. 如果在index.html里的<script>有用到shader代码，需要将特殊适配添加到game.js，示例代码如下：
 
-      ```
+      ```screen
       <script type="x-shader/x-vertex" id="vertexshader">
           uniform float amplitude;
           attribute vec3 displacement;
@@ -814,7 +816,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
       需要将脚本适配修改添加到game.js。
 
-      ```
+      ```screen
       vertexShader = "uniform float amplitude;\n" +
               "\n" +
               "                attribute vec3 displacement;\n" +
@@ -836,7 +838,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
 10. 在egret.min.js找到Event.create定义的地方。在代码里增加判断eventPool.pop();出来的event是否属于EventClass（即event instanceof EventClass结果为true），如果不属于这个EventClass必须重新创建，修改示例如下：
 
-    ```
+    ```screen
     Event.create = function (EventClass, type, bubbles, cancelable) {
         var eventPool;
         var hasEventPool = EventClass.hasOwnProperty("eventPool");
@@ -867,7 +869,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
     };
     ```
 
-11. 修改游戏代码，如果游戏代码里有用到鼠标事件需要修改为触摸事件（需要修改点可能出现game.js中，也可能出现在引用js文件中）。  
+11. 修改游戏代码，如果游戏代码里有用到鼠标事件需要修改为触摸事件（需要修改点可能出现game.js中，也可能出现在引用js文件中）。
+
     将游戏代码中如下鼠标事件修改为触摸事件：
     * mousedown 修改为 touchstart
     * mousemove 修改为 touchmove
@@ -880,11 +883,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
     修改回调函数中event调用的值，参照如下：
     * mouse_event获取点击x坐标：mouse_event.clientX
-    * touch_event获取点击x坐标：touch_event.changedTouches\[0\].clientX
+    * touch_event获取点击x坐标：touch_event.changedTouches[0].clientX
 
     具体请参考[MouseEvent](https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent)、 [TouchEvent](https://developer.mozilla.org/zh-CN/docs/Web/API/Touch_events)以及[Touch](https://developer.mozilla.org/zh-CN/docs/Web/API/Touch)。华为快游戏不支持window.onload = function() {...};以及window.addEventListener("load", function() {...});如果需要使用，需要修改成如下形式：
 
-    ```
+    ```screen
     setTimeout(function() {...});
     ```
 
@@ -898,14 +901,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
     * [广告](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runtime-ad-kit-0000001159778259)
     * [分享](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runtime-share-0000001113458342)
 
-【补充说明】
+**【补充说明】**
 
 * 目前文件读取只支持本地资源，如有远程资源需要先下载再读取。
 * 如果需要加载mp3资源，由于 HTMLAudioElement.load() 功能还未实现，需要做如下修改（不同游戏修改会有所差异，请根据快游戏文档做适配）。
   1. 删除default.res.json里面有关的mp3文件的配置。
   2. 在需要加载mp3文件的地方，使用快游戏的加载资源方式。
 
-  ```
+  ```screen
   //示例代码
   if(qg){
       var audioContext = qg.createInnerAudioContext();

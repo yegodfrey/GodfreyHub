@@ -10,9 +10,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performanc
 
 在代码中查询：
 
-可以使用 \`hidebug.getCpuUsage\` 接口查询 CPU 占用。参考代码如下：
+可以使用 `hidebug.getCpuUsage` 接口查询 CPU 占用。参考代码如下：
 
-```
+```typescript
 let cpuUsage: number = hidebug.getCpuUsage();
 ```
 
@@ -21,16 +21,14 @@ let cpuUsage: number = hidebug.getCpuUsage();
 * 根据hdc命令行工具指导，完成[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V14/hdc-V14#环境准备)。
 * 正常连接设备。
 
-  ```
+  ```powershell
   hidumper --cpuusage <pid>
   hidumper --cpuusage
   ```
 
-参考链接
+**参考链接**
 
 [hidebug.getCpuUsage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug#hidebuggetcpuusage9)
 
 [hidumper](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidumper)
-
-<br />
 

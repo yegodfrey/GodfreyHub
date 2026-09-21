@@ -6,26 +6,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 # OH_PictureNative_MetadataCopyItem
 
-```
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
+```c
 typedef struct OH_PictureNative_MetadataCopyItem {...} OH_PictureNative_MetadataCopyItem
 ```
 
-#### 概述
+## 概述
 
 此结构体用于在创建PictureNative对象的深拷贝时指定元数据的拷贝规则。描述如何将元数据从一种类型拷贝到另一种类型。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-相关模块： [Image_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule)
+**相关模块：** [Image_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule)
 
-所在头文件： [picture_native.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-picture-native-h)  
+**所在头文件：** [picture_native.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-picture-native-h)
 
-#### 汇总
+## 汇总
 
-#### 成员变量
+### 成员变量
 
 |名称|描述|
-|:-------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
-|[Image_MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_metadatatype) srcType|源元数据类型，指定要从源图片中拷贝的元数据类型。 起始版本： 26.0.0|
-|[Image_MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_metadatatype) dstType|目标元数据类型，指定拷贝的元数据在目标图片中存储的类型。 起始版本： 26.0.0|
+|:-------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|
+|[Image_MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_metadatatype) srcType|源元数据类型，指定要从源图片中拷贝的元数据类型。 **起始版本：** 26.0.0|
+|[Image_MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_metadatatype) dstType|目标元数据类型，指定拷贝的元数据在目标图片中存储的类型。 **起始版本：** 26.0.0|
 

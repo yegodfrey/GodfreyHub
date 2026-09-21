@@ -1,0 +1,12 @@
+---
+name: document/cn/AppGallery-connect-References/clouddb-fieldmapping-0000001409344356
+title: FieldMapping
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/clouddb-fieldmapping-0000001409344356
+---
+
+# FieldMapping
+
+|interface info|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public @interface FieldMapping 定义对象类型中字段的映射名。 您可以调用该方法映射java格式文件中不符合Java语言规范的字段名称。 您在AppGallery Connect控制台创建对象类型后，导出用于Android SDK应用开发的java类型文件，如果java格式的对象类型文件中有不符合Java语言规范的字段名称，您可以修改属性名（即字段名称），并通过添加注解的方式建立云侧与本地开发环境中字段名称的映射关系，并在后续的开发中使用映射后的字段名称，使其适配语言规范格式。|
+

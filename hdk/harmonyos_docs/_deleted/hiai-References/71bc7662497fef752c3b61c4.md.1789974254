@@ -1,0 +1,34 @@
+---
+name: document/cn/hiai-References/savetofile-0000001138810193
+title: SaveToFile
+uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/savetofile-0000001138810193
+---
+
+# SaveToFile
+
+> 说明
+>
+> 此接口从DDK 5.0.1.0版本起废弃，请使用模型管家V1接口[MemBufferExportFile](https://developer.huawei.com/consumer/cn/doc/hiai-References/membufferexportfile-0000001051809426)替代。
+
+## 接口定义
+
+```screen
+virtual Status SaveToFile(const char* file) const = 0;
+```
+
+## 功能介绍
+
+保存模型到指定的文件。
+
+## 参数
+
+|名称|类型|描述|
+|:---|:----------|:------------------|
+|file|const char*|用户指定的保存模型的文件名，包含路径。|
+
+## 返回
+
+|类型|描述|
+|:-----|:-------------------------|
+|Status|* SUCCESS：成功。 * Others：失败。|
+

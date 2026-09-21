@@ -14,10 +14,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-45
 
 以屏幕相对像素为单位，表示设备针对应用的虚拟尺寸（与屏幕硬件本身的像素单位不同）。该单位提供了一种灵活的方法来适应不同屏幕密度的显示效果，通过使用虚拟像素，确保元素在不同密度的设备上具有一致的视觉效果。
 
-[字体像素单位](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#fp10)：fp。字体像素大小默认情况下与 vp 相同，即默认情况下 1 fp = 1 vp。如果用户在设置中选择了更大的字体，字体的实际显示大小就会在vp的基础上乘以scale系数，即 1 fp = 1 vp \* scale。
+[字体像素单位](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#fp10)：fp。字体像素大小默认情况下与 vp 相同，即默认情况下 1 fp = 1 vp。如果用户在设置中选择了更大的字体，字体的实际显示大小就会在vp的基础上乘以scale系数，即 1 fp = 1 vp * scale。
 
 [Percentage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#percentage10) - 用于描述以%像素单位为单位的长度，如'10%'。
 
 [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) - 资源引用类型，用于设置组件属性的值。
 
-可以通过$r或者$rawfile创建Resource类型对象，不可以修改Resource中的各属性的值。  
+可以通过$r或者$rawfile创建Resource类型对象，不可以修改Resource中的各属性的值。
+

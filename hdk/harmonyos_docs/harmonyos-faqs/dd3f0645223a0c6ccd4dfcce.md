@@ -6,27 +6,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-arc
 
 # AES加解密CBC模式解密失败
 
-#### 问题现象
+## 问题现象
 
-使用AES加解密算法CBC模式进行解密，密文解密后的明文前一部分出现乱码，后一部分成功解密。  
+使用AES加解密算法CBC模式进行解密，密文解密后的明文前一部分出现乱码，后一部分成功解密。
 
-#### 背景知识
+## 背景知识
 
 AES加解密为常见的对称加解密算法，AES加解密相关信息可以参考以下链接文档：
 
 * [AES密钥规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#aes)。
 * [随机生成AES密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-sym-key-randomly#随机生成aes密钥)。
 * [AES加解密算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#aes)。
-* [AES对称密钥（CBC模式）加解密](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-aes-sym-encrypt-decrypt-cbc)。  
+* [AES对称密钥（CBC模式）加解密](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-aes-sym-encrypt-decrypt-cbc)。
 
-#### 问题定位
+## 问题定位
 
 1. 检查文本编码格式是否是UTF-8格式，不是则修改为UTF-8格式。
 2. 检查密文是否经过移位、替换等操作，是则进行对应反向操作。
 3. 检查iv值生成方式。
 4. 检查加密和解密时的iv值是否一致，不一致则修改为一致。
 
-   ```
+   ```ets
    // 生成随机iv
    function genRandomIv() {
      let rand = cryptoFramework.createRandom();
@@ -54,7 +54,7 @@ AES加解密为常见的对称加解密算法，AES加解密相关信息可以�
    function decryptMessage(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
      let decoder = cryptoFramework.createCipher('AES128|CBC|PKCS7');
      let iv = genRandomIv();
-     // 解密初始化
+    // 解密初始化
      let decryptData: cryptoFramework.DataBlob = cipherText;
      decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, iv);
      try {
@@ -67,20 +67,20 @@ AES加解密为常见的对称加解密算法，AES加解密相关信息可以�
 
    ```
 
-#### 分析结论
+## 分析结论
 
-AES加解密算法CBC模式需要有偏移向量iv值，由于加密和解密时各自生成了iv值，使得使用的偏移向量iv值不一致，导致密文解密后的明文前一部分出现乱码，后一部分成功解密。  
+AES加解密算法CBC模式需要有偏移向量iv值，由于加密和解密时各自生成了iv值，使得使用的偏移向量iv值不一致，导致密文解密后的明文前一部分出现乱码，后一部分成功解密。
 
-#### 修改建议
+## 修改建议
 
 将AES加密和解密的偏移向量iv值修改一致后问题解决，使用安全随机数生成方法生成一次iv，加密与解密共用此iv值。
 
-```
+```ets
 // 加密消息
 function encryptMessageNew(symKey: cryptoFramework.SymKey, iv: cryptoFramework.IvParamsSpec,
   plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('AES128|CBC|PKCS7');
-  // 加密初始化
+// 加密初始化
   cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, iv);
   let cipherData = cipher.doFinalSync(plainText);
   return cipherData;
@@ -101,7 +101,7 @@ function decryptMessageNew(symKey: cryptoFramework.SymKey, iv: cryptoFramework.I
 
 完整代码如下：
 
-```
+```ets
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer, util } from '@kit.ArkTS';
 
@@ -132,7 +132,7 @@ function genRandomIv() {
 function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
   let cipher = cryptoFramework.createCipher('AES128|CBC|PKCS7');
   let iv = genRandomIv();
-  // 加密初始化
+// 加密初始化
   cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, iv);
   let cipherData = cipher.doFinalSync(plainText);
   return cipherData;
@@ -143,7 +143,7 @@ function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramewo
 function decryptMessage(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('AES128|CBC|PKCS7');
   let iv = genRandomIv();
-  // 解密初始化
+// 解密初始化
   let decryptData: cryptoFramework.DataBlob = cipherText;
   decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, iv);
   try {
@@ -172,7 +172,7 @@ function encryptMessageNew(symKey: cryptoFramework.SymKey, iv: cryptoFramework.I
 function decryptMessageNew(symKey: cryptoFramework.SymKey, iv: cryptoFramework.IvParamsSpec,
   cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('AES128|CBC|PKCS7');
-  // 解密初始化
+ // 解密初始化
   decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, iv);
   let decryptData = decoder.doFinalSync(cipherText);
   return decryptData;
@@ -183,7 +183,7 @@ function decryptMessageNew(symKey: cryptoFramework.SymKey, iv: cryptoFramework.I
 
 function question() {
   let message = 'This is a test';
-  // 必须是16字节
+ // 必须是16字节
   let keyData = new Uint8Array([83, 217, 231, 76, 28, 113, 23, 219, 250, 71, 209, 210, 205, 97, 32, 159]);
   let symKey = genSymKeyByData(keyData);
   let plainText: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from(message, 'utf-8').buffer) };
@@ -250,12 +250,13 @@ struct Index {
 
 ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：使用axios post请求到的数据直接乱码解密失败怎么办？
 
 A：需要确认请求数据的编码格式是否前后端不一致。
 
-Q：使用AES128\|CBC\|PKCS7进行解密，公钥是后端固定分配的，iv为密文base64.decode后的前16位，16位以后的内容为解密内容。解密后通过Uint8Array转string获得的字符串是乱码该如何解决？
+Q：使用AES128|CBC|PKCS7进行解密，公钥是后端固定分配的，iv为密文base64.decode后的前16位，16位以后的内容为解密内容。解密后通过Uint8Array转string获得的字符串是乱码该如何解决？
 
-A：后端提供的密钥长度为24字节，需要将算法标识由AES128调整为AES192，确保密钥长度与算法规格匹配，并将buffer.from方法的公钥字符串转成24位的Uint8Array。iv提取需确保前16字节与加密端完全一致，且Base64解码时需要指定MIME编码类型：base64.decode(ref, util.Type.MIME)。  
+A：后端提供的密钥长度为24字节，需要将算法标识由AES128调整为AES192，确保密钥长度与算法规格匹配，并将buffer.from方法的公钥字符串转成24位的Uint8Array。iv提取需确保前16字节与加密端完全一致，且Base64解码时需要指定MIME编码类型：base64.decode(ref, util.Type.MIME)。
+

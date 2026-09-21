@@ -1,40 +1,44 @@
 ---
 name: document/cn/harmonyos-references/js-apis-enterprise-accountmanager
-title: @ohos.enterprise.accountManager（账号管理）
+title: @ohos.enterprise.accountManager (账号管理)
 uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-accountmanager
 ---
 
-# @ohos.enterprise.accountManager（账号管理）
+# @ohos.enterprise.accountManager (账号管理)
 
-本模块提供设备账号管理能力，包括禁止创建本地账号等。  
-![](https://media:401788445476413964)  
-本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+
 
-本模块接口仅可在Stage模型下使用。
+本模块提供设备账号管理能力，包括禁止创建本地账号等。
+> 说明
+>
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> 本模块接口仅可在Stage模型下使用。
+>
+> 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide)。
 
-本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide)。  
+## 导入模块
 
-#### 导入模块
-
-```
+```ts
 import { accountManager } from '@kit.MDMKit';
 ```
 
-#### accountManager.disallowOsAccountAddition
+## accountManager.disallowOsAccountAddition
 
 disallowOsAccountAddition(admin: Want, disallow: boolean, accountId?: number): void
 
 禁止用户添加账号。调用成功后，系统将禁止指定用户或所有用户添加新账号。适用于企业设备管理场景，如防止员工随意创建本地账号、加强设备安全管理等。
+> 说明
+>
+> 在多个MDM应用场景下，遵循[从严管控](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则1从严管控)规则。
 
-需要权限： ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
+**需要权限：** ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-冲突规则： [从严管控](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则1从严管控)。
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:-------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,9 +46,9 @@ disallowOsAccountAddition(admin: Want, disallow: boolean, accountId?: number): v
 |disallow|boolean|是|是否禁止创建本地账号，true表示禁止创建，false表示允许创建。|
 |accountId|number|否|用户ID，指定具体用户。当不传入此参数时，表示禁止所有用户添加账号；当传入此参数时，表示禁止指定用户添加账号。取值范围：大于等于0。 accountId可以通过[getOsAccountLocalId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#getosaccountlocalid9-1)等接口来获取。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,9 +57,9 @@ disallowOsAccountAddition(admin: Want, disallow: boolean, accountId?: number): v
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { accountManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -74,7 +78,7 @@ try {
 }
 ```
 
-#### accountManager.isOsAccountAdditionDisallowed
+## accountManager.isOsAccountAdditionDisallowed
 
 isOsAccountAdditionDisallowed(admin: Want, accountId?: number): boolean
 
@@ -82,28 +86,28 @@ isOsAccountAdditionDisallowed(admin: Want, accountId?: number): boolean
 
 本接口通过传入Want查询对应企业设备管理应用设置的策略，如需查询实际生效的策略，请使用[accountManager.isOsAccountAdditionDisallowed](#accountmanagerisosaccountadditiondisallowed-1)接口。
 
-需要权限： ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
+**需要权限：** ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:-------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
 |accountId|number|否|用户ID，指定具体用户。当不传入此参数时，表示查询所有用户是否禁止添加账号；当传入此参数时，表示查询指定用户是否禁止添加账号。取值范围：大于等于0。 accountId可以通过[getOsAccountLocalId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#getosaccountlocalid9-1)等接口来获取。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------|:-------------------------------|
 |boolean|返回true表示禁止添加账号。 返回false表示允许添加账号。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -112,9 +116,9 @@ isOsAccountAdditionDisallowed(admin: Want, accountId?: number): boolean
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { accountManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -133,36 +137,36 @@ try {
 }
 ```
 
-#### accountManager.isOsAccountAdditionDisallowed
+## accountManager.isOsAccountAdditionDisallowed
 
-isOsAccountAdditionDisallowed(admin: Want \| null, accountId?: number): boolean
+isOsAccountAdditionDisallowed(admin: Want | null, accountId?: number): boolean
 
 查询是否禁止用户添加账号。适用于企业审计和合规检查场景，帮助管理员确认账号策略执行情况。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-需要权限： ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
+**需要权限：** ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:--------|:---------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) \| null|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。|
+|:--------|:--------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | null|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。|
 |accountId|number|否|用户ID，指定具体用户。当不传入此参数时，表示查询所有用户是否禁止添加账号；当传入此参数时，表示查询指定用户是否禁止添加账号。取值范围：大于等于0。 accountId可以通过[getOsAccountLocalId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#getosaccountlocalid9-1)等接口来获取。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------|:----------------------------------------|
 |boolean|是否禁止添加账号。返回true表示禁止添加账号。 返回false表示允许添加账号。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -171,9 +175,9 @@ isOsAccountAdditionDisallowed(admin: Want \| null, accountId?: number): boolean
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { accountManager } from '@kit.MDMKit';
 
 try {
@@ -185,23 +189,24 @@ try {
 }
 ```
 
-#### accountManager.addOsAccountAsync
+## accountManager.addOsAccountAsync
 
-addOsAccountAsync(admin: Want, name: string, type: osAccount.OsAccountType): Promise\<osAccount.OsAccountInfo\>
+addOsAccountAsync(admin: Want, name: string, type: osAccount.OsAccountType): Promise<osAccount.OsAccountInfo>
 
-后台添加账号。使用Promise异步回调。适用于企业批量创建账号或远程管理场景，无需用户交互即可完成账号创建，提升管理效率。  
-![](https://media:401788445476437965)  
-创建账号的流程比较耗时，当调用此接口后，后续如果在应用主线程调用其他同步接口时需要等待该接口异步返回。
+后台添加账号。使用Promise异步回调。适用于企业批量创建账号或远程管理场景，无需用户交互即可完成账号创建，提升管理效率。
+> 说明
+>
+> 创建账号的流程比较耗时，当调用此接口后，后续如果在应用主线程调用其他同步接口时需要等待该接口异步返回。
+>
+> 在多个MDM应用场景下，遵循[配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)规则。
 
-需要权限： ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
+**需要权限：** ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-冲突规则： [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:---------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------|
@@ -209,15 +214,15 @@ addOsAccountAsync(admin: Want, name: string, type: osAccount.OsAccountType): Pro
 |name|string|是|账号名，指要添加的账号的名称。无法创建同名、名称为空的账号，创建同名账号时会报错误码9201003，创建名称为空的账号时会报错误码401。|
 |type|[osAccount.OsAccountType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#osaccounttype)|是|要添加的账号的类型。 取值范围：ADMIN、NORMAL、GUEST。 · ADMIN：管理员账号。 · NORMAL：普通账号。 · GUEST：访客账号。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
-|Promise\<[osAccount.OsAccountInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#osaccountinfo)\>|Promise对象，返回添加的账号信息。|
+|:------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
+|Promise<[osAccount.OsAccountInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#osaccountinfo)>|Promise对象，返回添加的账号信息。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -227,9 +232,9 @@ addOsAccountAsync(admin: Want, name: string, type: osAccount.OsAccountType): Pro
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例**：
 
-```
+```ts
 import { accountManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 import { BusinessError, osAccount } from '@kit.BasicServicesKit';
@@ -248,33 +253,34 @@ accountManager.addOsAccountAsync(wantTemp, "TestAccountName", osAccount.OsAccoun
 });
 ```
 
-#### accountManager.setDomainAccountPolicy^19+^
+## accountManager.setDomainAccountPolicy^19+^
 
 setDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo, policy: DomainAccountPolicy): void
 
 设置域账号策略。
+> 说明
+>
+> 在多个MDM应用场景下，遵循[配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)规则。
 
-需要权限： ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
+**需要权限：** ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-设备行为差异： 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-冲突规则： [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------------|:------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
-|domainAccountInfo|[osAccount.DomainAccountInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#domainaccountinfo8)|是|域账号信息。 若传入的domainAccountInfo内部属性均为空，则会设置为全局域账号策略。全局策略对所有的域账号生效。 若传入的domainAccountInfo内部属性不为空，则为指定域账号设置策略。 指定域账号策略的优先级高于全局策略，若指定域账号已有域账号策略，则全局策略对其不生效。 \*\*说明：\*\*若为指定域账号设置策略，DomainAccountInfo的serverConfigId字段必填。|
-|policy|[DomainAccountPolicy](#domainaccountpolicy19)|是|域账号策略。 \*\*说明：\*\*设置域账号策略后须在设备侧修改域账号密码，若未修改密码，则DomainAccountPolicy中的passwordValidityPeriod、passwordExpirationNotification配置不生效。|
+|domainAccountInfo|[osAccount.DomainAccountInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#domainaccountinfo8)|是|域账号信息。 若传入的domainAccountInfo内部属性均为空，则会设置为全局域账号策略。全局策略对所有的域账号生效。 若传入的domainAccountInfo内部属性不为空，则为指定域账号设置策略。 指定域账号策略的优先级高于全局策略，若指定域账号已有域账号策略，则全局策略对其不生效。 **说明：**若为指定域账号设置策略，DomainAccountInfo的serverConfigId字段必填。|
+|policy|[DomainAccountPolicy](#domainaccountpolicy19)|是|域账号策略。 **说明：**设置域账号策略后须在设备侧修改域账号密码，若未修改密码，则DomainAccountPolicy中的passwordValidityPeriod、passwordExpirationNotification配置不生效。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -283,9 +289,9 @@ setDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountIn
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 |801|Capability not supported. Failed to call the API due to limited device capabilities.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { accountManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 import { BusinessError, osAccount } from '@kit.BasicServicesKit';
@@ -337,36 +343,36 @@ async function setDomainAccountPolicy() {
 }
 ```
 
-#### accountManager.getDomainAccountPolicy^19+^
+## accountManager.getDomainAccountPolicy^19+^
 
 getDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo): DomainAccountPolicy
 
 获取域账号策略。适用于企业管理场景，如查询当前域账号策略配置、策略合规性审计等。
 
-需要权限： ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
+**需要权限：** ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-设备行为差异： 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------------|:------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
-|domainAccountInfo|[osAccount.DomainAccountInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#domainaccountinfo8)|是|域账号信息。 若传入的domainAccountInfo内部属性均为空，则查询全局域账号策略。 若传入的domainAccountInfo内部属性不为空，则查询指定域账号策略。 \*\*说明：\*\*若查询指定域账号策略，DomainAccountInfo的serverConfigId字段必填。|
+|domainAccountInfo|[osAccount.DomainAccountInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#domainaccountinfo8)|是|域账号信息。 若传入的domainAccountInfo内部属性均为空，则查询全局域账号策略。 若传入的domainAccountInfo内部属性不为空，则查询指定域账号策略。 **说明：**若查询指定域账号策略，DomainAccountInfo的serverConfigId字段必填。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------------------|:-----|
 |[DomainAccountPolicy](#domainaccountpolicy19)|域账号策略。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -375,9 +381,9 @@ getDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountIn
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 |801|Capability not supported. Failed to call the API due to limited device capabilities.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { accountManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 import { BusinessError, osAccount } from '@kit.BasicServicesKit';
@@ -426,54 +432,55 @@ async function getDomainAccountPolicy() {
 }
 ```
 
-#### DomainAccountPolicy^19+^
+## DomainAccountPolicy^19+^
 
 域账号策略。
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。  
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 |名称|类型|只读|可选|说明|
-|:-----------------------------|:-----|:-|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|authenticationValidityPeriod|number|否|是|表示域账号认证Token的有效期（单位：s），用于控制用户在Token有效期内无需重复认证即可访问系统资源。取值范围是\[-1, 2147483647\]。有效期起始时间为最后一次域账号的认证时间点，如登录、锁屏后解锁等。 默认值为-1，表示Token永久有效。取值为0，表示Token立即失效。Token过期/失效后，用户进入系统时必须进行域账号认证，验证域账号和密码。|
-|passwordValidityPeriod|number|否|是|表示域账号密码有效期（单位：s），用于用户定期修改密码以提升账号安全性。取值范围是\[-1, 2147483647\]，有效期起始时间为设备侧最后一次修改密码的时间点。 默认值为-1，表示域账号密码永久有效。|
-|passwordExpirationNotification|number|否|是|表示域账号密码过期前提示时间（单位：s），取值范围是\[0, 2147483647\]。 默认值为0，表示域账号密码过期不提示。 \*\*说明：\*\*passwordExpirationNotification需与passwordValidityPeriod配合使用，当系统时间大于或等于（设备侧最后一次修改域账号密码时间 + passwordValidityPeriod - passwordExpirationNotification）时，会发页面通知提示密码即将过期。|
+|:-----------------------------|:-----|:-|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|authenticationValidityPeriod|number|否|是|表示域账号认证Token的有效期（单位：s），用于控制用户在Token有效期内无需重复认证即可访问系统资源。取值范围是[-1, 2147483647]。有效期起始时间为最后一次域账号的认证时间点，如登录、锁屏后解锁等。 默认值为-1，表示Token永久有效。取值为0，表示Token立即失效。Token过期/失效后，用户进入系统时必须进行域账号认证，验证域账号和密码。|
+|passwordValidityPeriod|number|否|是|表示域账号密码有效期（单位：s），用于用户定期修改密码以提升账号安全性。取值范围是[-1, 2147483647]，有效期起始时间为设备侧最后一次修改密码的时间点。 默认值为-1，表示域账号密码永久有效。|
+|passwordExpirationNotification|number|否|是|表示域账号密码过期前提示时间（单位：s），取值范围是[0, 2147483647]。 默认值为0，表示域账号密码过期不提示。 **说明：**passwordExpirationNotification需与passwordValidityPeriod配合使用，当系统时间大于或等于（设备侧最后一次修改域账号密码时间 + passwordValidityPeriod - passwordExpirationNotification）时，会发页面通知提示密码即将过期。|
 
-#### accountManager.createNormalOsAccount
+## accountManager.createNormalOsAccount
 
-createNormalOsAccount(admin: Want, name: string): Promise\<osAccount.OsAccountInfo\>
+createNormalOsAccount(admin: Want, name: string): Promise<osAccount.OsAccountInfo>
 
-创建普通系统账号。使用Promise异步回调。最多可以创建2个normal类型的系统账号 ([osAccount.OsAccountType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#osaccounttype)) 。  
-![](https://media:401788445476464966)  
-创建账号的流程比较耗时，当调用此接口后，后续如果在应用主线程调用其他同步接口时需要等待该接口异步返回。
+创建普通系统账号。使用Promise异步回调。最多可以创建2个normal类型的系统账号 ([osAccount.OsAccountType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#osaccounttype)) 。
+> 说明
+>
+> 创建账号的流程比较耗时，当调用此接口后，后续如果在应用主线程调用其他同步接口时需要等待该接口异步返回。
+>
+> 创建系统账号对设备的性能影响较大，此接口仅支持12GB及以上运行内存的手机、平板设备使用。
 
-创建系统账号对设备的性能影响较大，此接口仅支持12GB及以上运行内存的手机、平板设备使用。
+**起始版本：** 26.0.0
 
-起始版本： 26.0.0
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
 |name|string|是|系统账号名称。系统账号名称不能重复且不能为空，会报错误码9200012。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
-|Promise\<[osAccount.OsAccountInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#osaccountinfo)\>|Promise对象，返回创建的系统账号信息。|
+|:------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
+|Promise<[osAccount.OsAccountInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#osaccountinfo)>|Promise对象，返回创建的系统账号信息。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -486,9 +493,9 @@ createNormalOsAccount(admin: Want, name: string): Promise\<osAccount.OsAccountIn
 |204|Access denied due to user access control policy. Possible causes: 1. The operation is restricted by the OS-account constraint; 2. The required privilege for the operation has not been granted.|
 |801|Capability not supported. Failed to call the API due to limited device capabilities.|
 
-示例：
+**示例**：
 
-```
+```ts
 import { accountManager } from '@kit.MDMKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { osAccount } from '@kit.BasicServicesKit';
@@ -508,36 +515,36 @@ accountManager.createNormalOsAccount(wantTemp, "TestAccountName").then((accountI
 });
 ```
 
-#### accountManager.removeOsAccount
+## accountManager.removeOsAccount
 
-removeOsAccount(admin: Want, accountId: number): Promise\<void\>
+removeOsAccount(admin: Want, accountId: number): Promise<void>
 
 移除系统账号。使用Promise异步回调。当前仅支持手机、平板设备使用，可以移除使用[createNormalOsAccount](#accountmanagercreatenormalosaccount)创建的普通系统账号（normal类型）和[addOsAccountAsync](#accountmanageraddosaccountasync)创建的系统账号（admin、normal、guest类型），不可移除默认系统账号（ID为100）。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:-------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
 |accountId|number|是|系统账号ID，指将被移除系统账号的ID。不可移除默认系统账号 (ID为100) ，会报错误码9201041。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:----------------------------------|
-|Promise\<void\>|无返回结果的Promise对象。当移除系统账号失败时，会抛出错误对象。|
+|:------------|:----------------------------------|
+|Promise<void>|无返回结果的Promise对象。当移除系统账号失败时，会抛出错误对象。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -550,9 +557,9 @@ removeOsAccount(admin: Want, accountId: number): Promise\<void\>
 |204|Access denied due to user access control policy. Possible causes: 1. The operation is restricted by the OS-account constraint; 2. The required privilege for the operation has not been granted.|
 |801|Capability not supported. Failed to call the API due to limited device capabilities.|
 
-示例：
+**示例**：
 
-```
+```ts
 import { accountManager } from '@kit.MDMKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { osAccount } from '@kit.BasicServicesKit';
@@ -577,36 +584,36 @@ accountManager.createNormalOsAccount(wantTemp, "TestAccountName").then((accountI
 });
 ```
 
-#### accountManager.activateOsAccount
+## accountManager.activateOsAccount
 
-activateOsAccount(admin: Want, accountId: number): Promise\<void\>
+activateOsAccount(admin: Want, accountId: number): Promise<void>
 
 切换系统账号。使用Promise异步回调。当前仅支持手机、平板设备使用，只能在[createNormalOsAccount](#accountmanagercreatenormalosaccount)创建的普通系统账号和默认系统账号 (ID为100) 之间切换。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-需要权限： ohos.permission.ENTERPRISE_INTERACT_ACROSS_LOCAL_ACCOUNTS
+**需要权限：** ohos.permission.ENTERPRISE_INTERACT_ACROSS_LOCAL_ACCOUNTS
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:-------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
 |accountId|number|是|系统账号ID。切换不存在的系统账号，会报错误码9200012。切换受限制的系统账号，例如使用[addOsAccountAsync](#accountmanageraddosaccountasync)创建的系统账号，会报错误码9201041。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:----------------------------------|
-|Promise\<void\>|无返回结果的Promise对象。当切换系统账号失败时，会抛出错误对象。|
+|:------------|:----------------------------------|
+|Promise<void>|无返回结果的Promise对象。当切换系统账号失败时，会抛出错误对象。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -619,9 +626,9 @@ activateOsAccount(admin: Want, accountId: number): Promise\<void\>
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 |801|Capability not supported. Failed to call the API due to limited device capabilities.|
 
-示例：
+**示例**：
 
-```
+```ts
 import { accountManager } from '@kit.MDMKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { osAccount } from '@kit.BasicServicesKit';

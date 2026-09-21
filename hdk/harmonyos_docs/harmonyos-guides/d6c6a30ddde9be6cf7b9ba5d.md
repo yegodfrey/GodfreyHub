@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics2d
 
 # ArkGraphics 2D简介
 
-ArkGraphics 2D（方舟2D图形服务 ）主要提供图形绘制与显示相关的能力。开发者可以基于一套统一的图形接口进行应用开发，使应用开发更简单、高效。  
+ArkGraphics 2D（方舟2D图形服务 ）主要提供图形绘制与显示相关的能力。开发者可以基于一套统一的图形接口进行应用开发，使应用开发更简单、高效。
 
-#### 能力范围
+## 能力范围
 
 * 提供图像处理的一些基本能力，包括对当前图像的亮度调节、模糊化、灰度调节、智能取色等。具体可见[@ohos.effectKit (图像效果)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit)。
 
@@ -22,7 +22,7 @@ ArkGraphics 2D（方舟2D图形服务 ）主要提供图形绘制与显示相关
 
 * 提供图形绘制与显示相关的Native能力，包括[NativeWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativewindow)、[NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer)、[NativeImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativeimage)、[NativeVsync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativevsync)、[Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)等模块。
 
-#### 使用场景
+## 使用场景
 
 * 图像效果处理：开发者可根据不同的UI效果需要，使用[@ohos.effectKit (图像效果)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit)实现图像的效果处理，以提升用户浏览体验。
 
@@ -32,7 +32,7 @@ ArkGraphics 2D（方舟2D图形服务 ）主要提供图形绘制与显示相关
 
 * 自绘制场景：开发者可根据不同的UI效果和场景需要，使用Drawing等模块实现除ArkUI组件外的自定义组件或者自定义UI效果的绘制和显示。
 
-#### 亮点特征
+## 亮点特征
 
 * 同个窗口支持多个帧率：支持为同个窗口的不同内容，比如动画或自绘制UI，定制不同的绘制帧率，不同内容之间独立运行。
 
@@ -42,7 +42,7 @@ ArkGraphics 2D（方舟2D图形服务 ）主要提供图形绘制与显示相关
 
 * 支持多种渲染后端：一次开发，支持多种渲染绘制后端，以降低多端适配成本，并满足应用的差异化需求。
 
-#### 模拟器支持情况
+## 模拟器支持情况
 
 本Kit部分能力支持模拟器，且与真机存在能力差异，具体如下。
 
@@ -50,4 +50,5 @@ ArkGraphics 2D（方舟2D图形服务 ）主要提供图形绘制与显示相关
 * 模拟器上不支持HDR效果显示。
 * 模拟器上可变帧率的setExpectedFrameRateRange接口可能无法设置预期帧率。
 * 因模拟器与真机的绘制引擎不同，@ohos.graphics.drawing、NativeWindow、NativeBuffer、NativeImage、NativeVsync以及Drawing等模块的部分接口在模拟器与真机上会有显示效果差异。
-* 通用差异：请参见[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification#section1227613205203)。  
+* 通用差异：请参见[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification#section1227613205203)。
+

@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-timezone-
 
 # @performance/timezone-interface-check
 
-在获取非本地时间时，建议使用统一标准的i18n.Calendar接口获取时间时区相关信息。  
+在获取非本地时间时，建议使用统一标准的i18n.Calendar接口获取时间时区相关信息。
 
-#### 规则配置
+## 规则配置
 
-```
+```screen
 // code-linter.json5
 {
   "rules": {
@@ -19,22 +19,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-timezone-
 }
 ```
 
-#### 选项
+## 选项
 
-该规则无需配置选项。  
+该规则无需配置选项。
 
-#### 正例1
+## 正例1
 
-```
+```screen
 import i18n from '@ohos.i18n';
 
 let calendar = i18n.getCalendar(i18n.getSystemLocale());
 calendar.setTimeZone(i18n.getTimeZone().getID()); 
 ```
 
-#### 正例2
+## 正例2
 
-```
+```screen
 import i18n from '@ohos.i18n';
 
 let timeZone1 = '123';
@@ -44,9 +44,9 @@ calendar1.get('zone_offset');
 calendar1.get('dst_offset');
 ```
 
-#### 反例1
+## 反例1
 
-```
+```screen
 import i18n from '@ohos.i18n';
 
 let timeZone1 = '123';
@@ -57,9 +57,9 @@ calendar1.get('zone_offset');
 //calendar1.get('dst_offset');
 ```
 
-#### 反例2
+## 反例2
 
-```
+```screen
 import moment from '@hview/moment';
 //告警
 moment().utcOffset();
@@ -71,10 +71,11 @@ moment().utcOffset("+08:00");
 moment().utcOffset(-5, true);
 ```
 
-#### 规则集
+## 规则集
 
-```
+```screen
 plugin:@performance/all
 ```
 
-Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。  
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+

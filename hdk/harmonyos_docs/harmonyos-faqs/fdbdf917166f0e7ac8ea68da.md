@@ -6,26 +6,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-705
 
 # LazyForEach实现骨架屏预加载效果
 
-#### 问题现象
+## 问题现象
 
-如何实现骨架屏预加载效果？  
+如何实现骨架屏预加载效果？
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782461548315087 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/hAvegf_SSiuumkuMhGG5pw/zh-cn_image_0000002658914207.png?HW-CC-KV=V1&HW-CC-Date=20260920T114736Z&HW-CC-Expire=31536000000&HW-CC-Sign=28439A706417F6A1BF9DE2F99F5E857990EB0E426D616F66B222A09E828AE5D6 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach)为开发者提供了基于数据源渲染出一系列子组件的能力。当在滚动容器中使用了LazyForEach，框架会根据滚动容器可视区域按需创建组件，当组件滑出可视区域外时，框架会销毁并回收组件以降低内存占用。
-* 骨架屏通过显示简单的灰色块和线条，让用户在等待内容加载时获得视觉反馈。  
+* 骨架屏通过显示简单的灰色块和线条，让用户在等待内容加载时获得视觉反馈。
 
-#### 解决方案
+## 解决方案
 
 1. 使用LazyForEach对数据源中的每个数据进行预加载。
 2. 在Stack组件中，首先设置背景色为rgba(0,0,0,0.1)，然后通过linearGradient设置组件的颜色渐变效果，并结合animation方法设置动画的持续时间和循环次数。
 
-```
-// 用户自定义数据源
+```ts
+//用户自定义数据源
 class MyDataSourceLOne implements IDataSource {
   private list: number[] = [];
 
@@ -69,7 +69,7 @@ struct BackGroundColorGradualChange {
         LazyForEach(this.arr, () => {
           ListItem() {
             Stack() {
-              // 设置组件的背景色
+           // 设置组件的背景色
               Text()
                 .width('100%')
                 .height(100)
@@ -82,12 +82,12 @@ struct BackGroundColorGradualChange {
                 .onAppear(() => {
                   this.translateX = '100%';
                 })
-                // 设置动画的持续时间和循环次数
+             // 设置动画的持续时间和循环次数
                 .animation({
                   duration: 1500,
                   iterations: -1
                 })
-                // 设置颜色渐变效果
+              // 设置颜色渐变效果
                 .linearGradient({
                   angle: 90,
                   colors: [
@@ -118,6 +118,7 @@ struct BackGroundColorGradualChange {
 }
 ```
 
-#### 总结
+## 总结
 
-使用linearGradient设置骨架屏的渐变效果，可增强用户体验，提升用户停留时长。  
+使用linearGradient设置骨架屏的渐变效果，可增强用户体验，提升用户停留时长。
+

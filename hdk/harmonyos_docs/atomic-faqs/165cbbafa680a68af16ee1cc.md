@@ -6,27 +6,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-technology-72
 
 # Payment Kit和IAP Kit的区别
 
-#### 问题现象
+## 问题现象
 
-HarmonyOS应用/元服务需要接入支付服务，Payment Kit和IAP Kit应该如何选择？  
+HarmonyOS应用/元服务需要接入支付服务，Payment Kit和IAP Kit应该如何选择？
 
-#### 背景知识
+## 背景知识
 
 [Payment Kit（华为支付服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-introduction)提供了方便、安全和快捷的支付方式，开发者在开发的商户APP应用/元服务中接入华为支付服务便捷且快速。
 
-[IAP Kit（应用内支付服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-introduction)为开发者提供便捷的应用内支付体验和简便的接入流程，让开发者聚焦应用本身的业务能力，助力开发者商业变现。开发者应用可通过使用IAP Kit提供的系统级支付API快速启动IAP收银台，即可实现应用内支付。  
+[IAP Kit（应用内支付服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-introduction)为开发者提供便捷的应用内支付体验和简便的接入流程，让开发者聚焦应用本身的业务能力，助力开发者商业变现。开发者应用可通过使用IAP Kit提供的系统级支付API快速启动IAP收银台，即可实现应用内支付。
 
-#### 解决方案
+## 解决方案
 
 Payment Kit和IAP Kit两者的区别可以从如下几个方面来进行区分：购买的商品和服务类型、支持的支付方式、支付的场景、支持的设备和地区和支付分成比例。
 
 1. 购买的商品和服务类型：Payment Kit是对实体商品或服务（例如酒店服务、出行服务、充值缴费服务等）的购买，暂不支持如电子虚拟人物形象，游戏中的关卡、货币及道具等虚拟商品的支付，IAP Kit则是在应用内购买各种类型的数字商品（虚拟商品），包括消耗型商品、非消耗型商品、自动续期订阅商品和非续期订阅商品。
 2. 支持的支付方式：拉起收银台后，除了支持华为支付外，两者都支持支付宝支付和微信支付，Payment Kit的三方支付是需要选择[混合支付场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-common-pay-mix)并完成[产品开通与配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-common-pay-introduction#产品开通与配置)申请后才能实现三方支付，IAP Kit的支付宝支付和微信支付则是在华为账号-付款与账单-付款方式中添加后即可使用。
 3. 支付的场景：Payment Kit的场景主要是用于商城购物、免密代扣、数字人民币支付和用户身份验证服务，IAP Kit则是游戏中的会员、货币或者道具购买以及关卡的解锁，应用中则是连续包月类的会员，单次购买就解锁的虚拟商品。
-4. 支持的设备和地区：Payment Kit目前仅支持中国境内，支持的设备是Phone \| Tablet \| PC/2in1，IAP Kit在全球共支持183个国家或地区，具体可参考[华为IAP范围覆盖](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-appendix-coverage)，中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）支持的设备是Phone \| PC/2in1 \| Tablet \| TV，其他国家或者地区支持的设备则是Wearable设备。
-5. 支付分成比例：Payment Kit是按应用所属行业分类及单笔订单费率的形式来收费的，具体可参考[华为支付业务收费标准](https://developer.huawei.com/consumer/cn/doc/pay-docs/hwzf-yewushoufei-0000001282367198)；IAP Kit同样也是按照行业分类进行收费，教育类分成比例是20%:80%，游戏类分成比例是50%:50%，其他行业的分成比例是30%:70%，具体可参考华为应用市场联运服务协议的[结算](https://developer.huawei.com/consumer/cn/doc/20204#section79015131190)章节说明。  
+4. 支持的设备和地区：Payment Kit目前仅支持中国境内，支持的设备是Phone | Tablet | PC/2in1，IAP Kit在全球共支持183个国家或地区，具体可参考[华为IAP范围覆盖](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-appendix-coverage)，中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）支持的设备是Phone | PC/2in1 | Tablet | TV，其他国家或者地区支持的设备则是Wearable设备。
+5. 支付分成比例：Payment Kit是按应用所属行业分类及单笔订单费率的形式来收费的，具体可参考[华为支付业务收费标准](https://developer.huawei.com/consumer/cn/doc/pay-docs/hwzf-yewushoufei-0000001282367198)；IAP Kit同样也是按照行业分类进行收费，教育类分成比例是20%:80%，游戏类分成比例是50%:50%，其他行业的分成比例是30%:70%，具体可参考华为应用市场联运服务协议的[结算](https://developer.huawei.com/consumer/cn/doc/20204#section79015131190)章节说明。
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：非游戏应用内的虚拟商品，类似于会员，金币的虚拟货币是否必须要接入华为应用内支付方式？
 
@@ -56,4 +56,5 @@ A：Payment Kit的限制是针对支付行为发生地，即支付行为发生�
 
 Q：元服务中数字商品能否开通纯外部支付模式？
 
-A：数字商品无法开通纯外部支付，需要接入IAP Kit（应用内支付服务）实现支付。数字商品接入请参考[文档](https://developer.huawei.com/consumer/cn/doc/app/guidance-document-0000001933094208)，IAP Kit开发指导请参考[IAP Kit指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-kit-guide)。  
+A：数字商品无法开通纯外部支付，需要接入IAP Kit（应用内支付服务）实现支付。数字商品接入请参考[文档](https://developer.huawei.com/consumer/cn/doc/app/guidance-document-0000001933094208)，IAP Kit开发指导请参考[IAP Kit指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-kit-guide)。
+

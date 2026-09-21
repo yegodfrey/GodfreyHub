@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1399
 
 # Navigation如何获取页面名称
 
-#### 问题现象
+## 问题现象
 
-Navigation路由跳转场景下，如何获取当前所在页面的页面名称或者信息？  
+Navigation路由跳转场景下，如何获取当前所在页面的页面名称或者信息？
 
-#### 背景知识
+## 背景知识
 
 * NavPathStack页面路由栈，此对象下保存了当前的路由过程，其中[getAllPathName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#getallpathname10)返回路由栈中所有NavDestination页面名称的数组，最后一项即为当前页面名称。
 * NavDestination：进行路由跳转的时候，NavDestination会响应[onReady](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onready11)方法，其响应参数为NavDestinationContext，其包含了页面名称等信息。
-* setInterception：Navigation提供的页面跳转拦截回调方法，可以在[setInterception](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#setinterception12)中拦截页面跳转操作，也可以获取到NavDestinationContext的内容。  
+* setInterception：Navigation提供的页面跳转拦截回调方法，可以在[setInterception](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#setinterception12)中拦截页面跳转操作，也可以获取到NavDestinationContext的内容。
 
-#### 解决方案
+## 解决方案
 
 获取页面名称的方案有三种：
 
@@ -26,7 +26,7 @@ Navigation路由跳转场景下，如何获取当前所在页面的页面名称�
 
 Navigation页面：
 
-```
+```screen
 import { NaviDesPagBuilder } from './SubPage';
 
 @Entry
@@ -35,7 +35,7 @@ struct Index {
   navPathStack: NavPathStack = new NavPathStack();
 
   aboutToAppear(): void {
-    // 通过setInterception跳转拦截获取目标页面名称
+   // 通过setInterception跳转拦截获取目标页面名称
     this.navPathStack.setInterception({
       willShow: (from: NavDestinationContext | 'navBar', to: NavDestinationContext | 'navBar') => {
         if (typeof from === 'string') {
@@ -75,7 +75,7 @@ struct Index {
 
 NavDestination页面：
 
-```
+```screen
 @Builder
 export function NaviDesPagBuilder() {
   GetNaviPageName_NaviDesPage();
@@ -90,14 +90,14 @@ struct GetNaviPageName_NaviDesPage {
     NavDestination() {
       Button('GetName')
         .onClick(() => {
-          // 调用getAllPageName，拿到所有页面名字，最后一项即为当前页面名称
+         // 调用getAllPageName，拿到所有页面名字，最后一项即为当前页面名称
           let names = this.navPathStack.getAllPathName();
           let pageName = names[names.length-1];
           console.info(`last page of getAllPathName: ${pageName}`);
         });
     }
     .onReady((ctx: NavDestinationContext) => {
-      // 通过onReady回调的NavDestinationContext获取当前页面名称
+    // 通过onReady回调的NavDestinationContext获取当前页面名称
       this.navPathStack = ctx.pathStack;
       console.info(`onReady: ${ctx.pathInfo.name}`);
     }).height('100%').width('100%');
@@ -105,8 +105,9 @@ struct GetNaviPageName_NaviDesPage {
 }
 ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：Navigation获取页面参数getParamByName获取的返回值为什么是Array？
 
-A：getParamByName是路由栈NavPathStack的实例方法，路由栈中一个页面可以入栈多次。例如在页面A中push一个页面A，此时路由栈中就有两个页面A，每次跳转到页面A可能携带不同的参数，所以getParamByName方法的返回值是数组。  
+A：getParamByName是路由栈NavPathStack的实例方法，路由栈中一个页面可以入栈多次。例如在页面A中push一个页面A，此时路由栈中就有两个页面A，每次跳转到页面A可能携带不同的参数，所以getParamByName方法的返回值是数组。
+

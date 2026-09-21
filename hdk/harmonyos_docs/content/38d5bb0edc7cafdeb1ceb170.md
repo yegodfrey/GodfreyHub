@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/wallpaper-000000105469
 
 # 壁纸
 
-* [壁纸设计指导及规范](https://developer.huawei.com/consumer/cn/doc/content/wallpaper-specifications-0000001054789797)  
+* **[壁纸设计指导及规范](https://developer.huawei.com/consumer/cn/doc/content/wallpaper-specifications-0000001054789797)**   

@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/guide-enter-000
 
 # 使用入门
 
-#### 快速上手
+## 快速上手
 
-在您正式开发应用之前，可以通过[codelab](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/HMSWalletKit)快速体验一个应用的开发过程。  
+在您正式开发应用之前，可以通过[codelab](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/HMSWalletKit)快速体验一个应用的开发过程。
 
-#### 开发环境
+## 开发环境
 
 * JDK 1.8.211及以上
 
@@ -23,9 +23,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/guide-enter-000
   * Gradle 4.6及以上（推荐）
 * 测试应用的设备：EMUI 3.0及以上的华为手机或Android 4.4及以上的非华为手机
 
-#### 开发流程
+## 开发流程
 
-您需要按照如下流程完成应用的开发工作。  
+您需要按照如下流程完成应用的开发工作。
 
 |步骤|操作|说明|
 |:-|:---------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|
@@ -35,5 +35,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/guide-enter-000
 |4|[更新卡券](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/access-overa-update-0000001050042360)|可选操作，仅用户有更新需求时（如更新用户卡券级别、界面素材）才涉及。|
 |5|[集成NFC刷卡能力](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/access-overa-nfc-0000001050042374)|可选操作，当商户卡券有刷卡需求时（如活动门禁刷闸机集成、园区门禁卡、智能门锁接入）才涉及。|
 |6|[开发后自检](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/pre-release-check-0000001050185661)|使用华为自检工具在线对应用进行自检，并按照华为提供的自检Checklist进行开发自检。|
-|7|[上架申请](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/app-release-0000001050183124)|将完成的应用提交华为方进行审核，审核时间一般为1\~2个工作日。|
+|7|[上架申请](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/app-release-0000001050183124)|将完成的应用提交华为方进行审核，审核时间一般为1~2个工作日。|
 

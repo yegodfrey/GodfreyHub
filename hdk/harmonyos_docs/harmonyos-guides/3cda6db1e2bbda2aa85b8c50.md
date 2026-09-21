@@ -6,13 +6,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-introduc
 
 # Node-API简介
 
-#### 场景介绍
+## 场景介绍
 
 HarmonyOS Node-API是基于Node.js 18.x LTS的[Node-API](https://nodejs.org/docs/latest-v18.x/api/n-api.html)规范扩展开发的机制，为开发者提供了ArkTS/JS与C/C++模块之间的交互能力。它提供了一组稳定的、跨平台的API，可以在不同的操作系统上使用。
 
-本文中如无特别说明，后续均使用Node-API指代HarmonyOS Node-API能力。  
-![](https://media:401788444126833056)  
-HarmonyOS Node-API与Node.js 18.x LTS的Node-API规范的接口异同点，详见[Node-API参考文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi)
+本文中如无特别说明，后续均使用Node-API指代HarmonyOS Node-API能力。
+> 说明
+>
+> HarmonyOS Node-API与Node.js 18.x LTS的Node-API规范的接口异同点，详见[Node-API参考文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi)
 
 一般情况下HarmonyOS应用开发使用ArkTS/JS语言，但部分场景由于性能、效率等要求，比如游戏、物理模拟等，需要依赖使用现有的C/C++库。Node-API规范封装了I/O、CPU密集型、OS底层等能力并对外暴露C接口，使用C/C++模块的注册机制，向ArkTS/JS对象上挂载属性和方法的方式来实现ArkTS/JS和C/C++的交互。主要场景如下：
 
@@ -20,13 +21,11 @@ HarmonyOS Node-API与Node.js 18.x LTS的Node-API规范的接口异同点，详�
 
 * 应用开发者也可以选择将一些对性能、底层系统调用有要求的核心功能用C/C++封装实现，再通过ArkTS/JS接口使用，提高应用本身的执行效率。
 
-#### Node-API的组成架构
+## Node-API的组成架构
 
-图1 Node-API的组成架构
+**图1** Node-API的组成架构
 
-<br />
-
-![](https://media:401788444126866057)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/ojXmaap2RA-58s1qHKUVTg/zh-cn_image_0000002762835369.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=592C2A8AD8CD77A43927B331A7C3BC38D55E5F2CF8402986A19715973C3F17D6)
 
 * Native Module：开发者使用Node-API开发的模块，用于在ArkTS侧导入使用。
 
@@ -42,17 +41,15 @@ HarmonyOS Node-API与Node.js 18.x LTS的Node-API规范的接口异同点，详�
 
 * ArkCompiler ArkTS Runtime：ArkTS运行时。
 
-#### Node-API的关键交互流程
+## Node-API的关键交互流程
 
-图2 Node-API的关键交互流程
+**图2** Node-API的关键交互流程
 
-<br />
-
-![](https://media:401788444126910058)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/gIieLj1_Re6KcsLrl7YMGg/zh-cn_image_0000002733275854.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=9C10ABF49A049CD3E842947535CF74AF1470CE395357A7404C2C854F6277515D)
 
 ArkTS和C++之间的交互流程，主要分为以下两步：
 
-1. 初始化阶段：当ArkTS侧在import一个Native模块时，ArkTS引擎会调用ModuleManager加载模块对应的so及其依赖。首次加载时会触发模块的注册，将模块定义的方法属性挂载到exports对象上并返回该对象。
+1. **初始化阶段**：当ArkTS侧在import一个Native模块时，ArkTS引擎会调用ModuleManager加载模块对应的so及其依赖。首次加载时会触发模块的注册，将模块定义的方法属性挂载到exports对象上并返回该对象。
 
-2. 调用阶段：当ArkTS侧通过上述import返回的对象调用方法时，ArkTS引擎会找到并调用对应的C/C++方法。
+2. **调用阶段**：当ArkTS侧通过上述import返回的对象调用方法时，ArkTS引擎会找到并调用对应的C/C++方法。
 

@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-main-t
 
 # 应用主线程繁忙故障模式说明
 
-#### 概述
+## 概述
 
 本文旨在指导HarmonyOS应用开发者如何定位主线程繁忙类型的应用冻屏（AppFreeze）问题。通过分析应用冻屏故障日志中的主线程堆栈，将主线程繁忙类型的应用冻屏问题分为以下故障根因：
 
@@ -17,12 +17,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-main-t
 * [频繁执行特定业务](#section5769184718215)
 * [执行耗时操作](#section9745134227)
 
-![](https://media:801788339729604555)  
-开发者可通过阅读[AppFreeze（应用冻屏）检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines)了解关于应用冻屏（AppFreeze）问题的检测原理和日志说明。
+> 说明
+>
+> 开发者可通过阅读[AppFreeze（应用冻屏）检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines)了解关于应用冻屏（AppFreeze）问题的检测原理和日志说明。
 
-<br />
-
-#### 确认问题类型
+## 确认问题类型
 
 对于一个应用冻屏（AppFreeze）问题，可通过AppFreeze日志和其增强日志确认是否为主线程繁忙类型：
 
@@ -34,27 +33,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-main-t
 
 对比AppFreeze日志中的主线程堆栈以及增强日志中的主线程采样栈是否一致，不一致则表明是主线程繁忙类型。
 
-<br />
+## 根因分类
 
-#### 根因分类
+### 频繁等锁
 
-#### 频繁等锁
-
-根因描述
+**根因描述**
 
 应用主线程连续多次等锁，累计耗时长造成主线程繁忙。
 
-<br />
-
-问题分析思路
+**问题分析思路**
 
 1. 对增强日志中主线程采样栈按照阻塞类别下的根因进行分析聚类；
 2. 占比最高的根因是等锁；
 3. 从等锁的主线程采样栈中获取应用侧业务。
 
-<br />
-
-关键字
+**关键字**
 
 关注增强日志主线程采样栈栈顶共享库和符号是否匹配如下关键字。
 
@@ -67,27 +60,23 @@ ld-musl-aarch64.so.1
 * __timedwait_cp
 * pthread_join
 
-<br />
+**案例分析**
 
-案例分析
+**案例：子线程循环竞争锁资源导致主线程繁忙**
 
-案例：子线程循环竞争锁资源导致主线程繁忙
-
-问题现象
+**问题现象**
 
 当用户触发业务代码调用后，应用进入无响应状态，一段时间后应用退出，并生成冻屏日志文件。
 
-问题分析
+**问题分析**
 
 1. 查看AppFreeze中THREAD_BLOCK_3S和THREAD_BLOCK_6S两部分的主线程堆栈，确认不一致。
-
-   <br />
 
    证据1：主线程堆栈关键栈帧
 
    THREAD_BLOCK_3S部分
 
-   ```
+   ```screen
    Tid:58244, Name:pfreezeanalysis
    state=R, utime=597, stime=24, priority=-54, nice=-10, clk=100
    #00 pc 00000000000018a4 [shmm](__kernel_gettimeofday+68)
@@ -100,7 +89,7 @@ ld-musl-aarch64.so.1
 
    THREAD_BLOCK_6S部分
 
-   ```
+   ```screen
    Tid:58244, Name:pfreezeanalysis
    state=S, utime=741, stime=24, priority=-54, nice=-10, clk=100
    #00 pc 00000000001f6bf8 /system/lib/ld-musl-aarch64.so.1(pthread_join+132)(0fd6c257b7c8566c76aa08c474be61aa)
@@ -114,15 +103,11 @@ ld-musl-aarch64.so.1
 
    两次主线程堆栈不一致，表明主线程没有阻塞，是处于繁忙状态。需要通过增强日志查看更多时间点的主线程堆栈切片来确认繁忙的原因。
 
-   <br />
-
 2. 查看增强日志中的主线程采样栈。
-
-   <br />
 
    证据2：主线程采样栈出现次数最多的关键栈帧
 
-   ```
+   ```screen
    #00 pc 00000000001f6bf4 /system/lib/ld-musl-aarch64.so.1(pthread_join+128)(0fd6c257b7c8566c76aa08c474be61aa)
    #01 pc 00000000000d3d34 /data/storage/el1/bundle/libs/arm64/libc++_shared.so(std::__n1::thread::join()+28)(d6ecfba39e9497d96d44a304084a03488c99ebb0)
    #02 pc 00000000000be8fc /data/storage/el1/bundle/libs/arm64/libentry.so(WaitThread(napi_env__*, napi_callback_info__*)+400)(6264c42063cc3206ff41b971f2f20e61257fba21)
@@ -134,45 +119,31 @@ ld-musl-aarch64.so.1
 
    采样栈聚合后根因主要为等锁。#02栈帧表明业务方是libentry.so(WaitThread)，结合代码继续分析等锁原因。
 
-   <br />
-
 3. 开发调试场景下可直接在DevEco Studio中单击libentry.so所在的栈帧跳转到对应代码行；运维场景下使用[llvm-addr2line](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-app-crash-cpp-way#li186453444512)解析找到对应代码行。
-
-   <br />
 
    证据3：故障栈帧所在的代码
 
-   ![](https://media:801788339729651556 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/y9yROH_SSnumfh4FX5R-OA/zh-cn_image_0000002673735603.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=185F4D59F176175A2642445179CB824E694DBC1676FB04886E1849043962D5E5 "点击放大")
 
    代码中创建了多个子线程，并且子线程中循环竞争锁资源，导致主线程繁忙。
 
-   <br />
-
-<br />
-
-预防建议
+**预防建议**
 
 缩小锁粒度，使用无锁数据结构。
 
-<br />
+### 频繁调用Binder接口
 
-#### 频繁调用Binder接口
-
-根因描述
+**根因描述**
 
 应用主线程业务连续多次向系统服务或其他进程发起Binder接口调用，累计耗时长造成主线程繁忙。
 
-<br />
-
-问题分析思路
+**问题分析思路**
 
 1. 对增强日志中主线程采样栈按照阻塞类别下的根因进行分析聚类；
 2. 占比最高的根因是同步Binder接口调用阻塞；
 3. 从Binder接口调用阻塞的主线程采样栈中获取应用侧业务。
 
-<br />
-
-关键字
+**关键字**
 
 关注增强日志主线程采样栈共享库和符号是否匹配如下关键字。
 
@@ -184,27 +155,23 @@ libipc_common.z.so
 
 WriteBinder
 
-<br />
+**案例分析**
 
-案例分析
+**案例：循环调用系统音频服务接口导致主线程繁忙**
 
-案例：循环调用系统音频服务接口导致主线程繁忙
-
-问题现象
+**问题现象**
 
 当用户触发业务代码调用后，应用进入无响应状态，一段时间后应用退出，并生成冻屏日志文件。
 
-问题分析
+**问题分析**
 
 1. 查看AppFreeze中THREAD_BLOCK_3S和THREAD_BLOCK_6S两部分的主线程堆栈，确认不一致。
-
-   <br />
 
    证据1：主线程堆栈关键栈帧
 
    THREAD_BLOCK_3S部分
 
-   ```
+   ```screen
    Tid:11480, Name:pfreezeanalysis
    state=S, utime=507, stime=48, priority=-54, nice=-10, clk=100
    #00 pc 000000000001c51c /system/lib64/libhilog_inner.so(OHOS::HiviewDFX::GetGlobalLevel() (.cfi)+92)(6354f07a703d8f245d82889f0cf8c14d)
@@ -222,7 +189,7 @@ WriteBinder
 
    THREAD_BLOCK_6S部分
 
-   ```
+   ```screen
    Tid:11480, Name:pfreezeanalysis
    state=S, utime=570, stime=127, priority=-54, nice=-10, clk=100
    #00 pc 000000000019c674 /system/lib/ld-musl-aarch64.so.1(ioctl+184)(58b5bc0b32f5d8462c0e616fbc5ee53a)
@@ -243,15 +210,11 @@ WriteBinder
 
    两次主线程堆栈不一致，表明主线程没有阻塞，是处于繁忙状态。需要通过增强日志查看更多时间点的主线程堆栈切片来确认繁忙的原因。
 
-   <br />
-
 2. 查看增强日志中的主线程采样栈。
-
-   <br />
 
    证据2：主线程采样栈出现次数最多的关键栈帧
 
-   ```
+   ```screen
    #00 pc 000000000019c674 /system/lib/ld-musl-aarch64.so.1(ioctl+184)(58b5bc0b32f5d8462c0e616fbc5ee53a)
    #01 pc 00000000000102e8 /system/lib64/platformsdk/libipc_common.z.so(OHOS::BinderConnector::WriteBinder(unsigned long, void*)+108)(79d15a46e94dbb151b338b9b4d955e09)
    #02 pc 00000000000779e0 /system/lib64/platformsdk/libipc_single.z.so(OHOS::BinderInvoker::TransactWithDriver(bool)+284)(fd75264c3da5d3ad49399e757c1fcd72)
@@ -272,45 +235,31 @@ WriteBinder
 
    堆栈表明主线程耗时最多的业务是调用Binder接口。#15栈帧表明应用侧业务是triggerFrequentBinderCalls，结合代码进一步分析。
 
-   <br />
-
 3. 查看triggerFrequentBinderCalls的代码。
-
-   <br />
 
    证据3：故障栈帧所在的代码
 
-   ![](https://media:801788339729687557 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/-bPi1tNNSLuv4c1unQsbsg/zh-cn_image_0000002643575820.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=19707631C1E2BEA83B7BE8AB6162FAA804ABAC02895B9A51CE0251516466D4D1 "点击放大")
 
    业务中循环调用系统音频服务接口导致主线程繁忙。
 
-   <br />
-
-<br />
-
-预防建议
+**预防建议**
 
 优化Binder调用频率，考虑批量处理或缓存结果。
 
-<br />
+### 频繁执行I/O操作
 
-#### 频繁执行I/O操作
-
-根因描述
+**根因描述**
 
 应用主线程业务连续多次进行同步I/O操作，累计耗时长造成主线程繁忙。
 
-<br />
-
-问题分析思路
+**问题分析思路**
 
 1. 对增强日志中主线程采样栈按照阻塞类别下的根因进行分析聚类；
 2. 占比最高的根因是进行阻塞I/O操作；
 3. 从进行阻塞I/O操作的主线程采样栈中获取应用侧业务。
 
-<br />
-
-关键字
+**关键字**
 
 关注增强日志主线程采样栈栈顶共享库和符号是否匹配如下关键字。
 
@@ -328,27 +277,23 @@ ld-musl-aarch64.so.1
 * pwrite64
 * dlopen_impl
 
-<br />
+**案例分析**
 
-案例分析
+**案例：频繁写入文件导致主线程繁忙**
 
-案例：频繁写入文件导致主线程繁忙
-
-问题现象
+**问题现象**
 
 当用户触发业务代码调用后，应用进入无响应状态，一段时间后应用退出，并生成冻屏日志文件。
 
-问题分析
+**问题分析**
 
 1. 查看AppFreeze中THREAD_BLOCK_3S和THREAD_BLOCK_6S两部分的主线程堆栈，确认不一致。
-
-   <br />
 
    证据1：主线程堆栈关键栈帧
 
    THREAD_BLOCK_3S部分
 
-   ```
+   ```screen
    Tid:45449, Name:pfreezeanalysis
    state=R, utime=419, stime=23, priority=-54, nice=-10, clk=100
    #00 pc 0000000000623aec /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::JSThread::Iterate(panda::ecmascript::RootVisitor&, panda::ecmascript::GlobalVisitType)+524)(528445894c7c84ccb26a5e5f1d8f925b)
@@ -368,7 +313,7 @@ ld-musl-aarch64.so.1
 
    THREAD_BLOCK_6S部分
 
-   ```
+   ```screen
    Tid:45449, Name:pfreezeanalysis
    state=R, utime=677, stime=57, priority=-54, nice=-10, clk=100
    #00 pc 00000000001f474c /system/lib/ld-musl-aarch64.so.1(write+64)(58b5bc0b32f5d8462c0e616fbc5ee53a)
@@ -384,15 +329,11 @@ ld-musl-aarch64.so.1
 
    两次主线程堆栈不一致，表明主线程没有阻塞，是处于繁忙状态。需要通过增强日志查看更多时间点的主线程堆栈切片来确认繁忙的原因。
 
-   <br />
-
 2. 查看增强日志中的主线程采样栈。
-
-   <br />
 
    证据2：主线程采样栈出现次数最多的关键栈帧
 
-   ```
+   ```screen
    #00 pc 00000000001f474c /system/lib/ld-musl-aarch64.so.1(write+64)(58b5bc0b32f5d8462c0e616fbc5ee53a)
    #01 pc 000000000001c408 /system/lib64/platformsdk/libuv.so(uv__fs_work+2564)(5c9b6391b25c71005320ce5b0e68e238)
    #02 pc 000000000001ec1c /system/lib64/platformsdk/libuv.so(uv_fs_write+300)(5c9b6391b25c71005320ce5b0e68e238)
@@ -406,71 +347,53 @@ ld-musl-aarch64.so.1
 
    堆栈表明主线程耗时最多的业务是I/O操作。#08栈帧表明应用侧业务是triggerHighFrequentIO，结合代码进一步分析。
 
-   <br />
-
 3. 查看triggerHighFrequentIO的代码。
-
-   <br />
 
    证据3：故障栈帧所在的代码
 
-   ![](https://media:801788339729729558 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/yqXi5NBQSoqzsTvud8TJdw/zh-cn_image_0000002643415866.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=287D183881B689139DC546566572EF00A9B7FF099C25F4CB9B47DE7D84F0A4CB "点击放大")
 
    业务中循环进行文件读写操作导致主线程繁忙。
 
-   <br />
-
-<br />
-
-预防建议
+**预防建议**
 
 优化I/O读写策略，使用TaskPool或者Worker进行异步I/O操作。
 
-<br />
+### 频繁执行UI操作
 
-#### 频繁执行UI操作
-
-根因描述
+**根因描述**
 
 应用主线程UI渲染负载过重，累计耗时长造成主线程繁忙。
 
-<br />
-
-问题分析思路
+**问题分析思路**
 
 1. 对增强日志中主线程采样栈进行分析聚类；
 2. 主线程采样栈聚类后的根因中占比最高的是在进行UI组件操作；
 3. 从进行UI组件操作的主线程采样栈中获取应用侧业务。
 
-<br />
-
-关键字
+**关键字**
 
 关注增强日志主线程采样栈共享库是否匹配如下关键字：
 
 libace_compatible.z.so
 
-<br />
+**案例分析**
 
-案例分析
+**案例：频繁刷新文本组件导致主线程繁忙**
 
-案例：频繁刷新文本组件导致主线程繁忙
-
-问题现象
+**问题现象**
 
 当用户触发业务代码调用后，应用进入无响应状态，一段时间后应用退出，并生成冻屏日志文件。
 
-问题分析
+**问题分析**
 
 1. 查看AppFreeze中THREAD_BLOCK_3S和THREAD_BLOCK_6S两部分的主线程堆栈，确认不一致。
-
-   <br />
 
    证据1：主线程堆栈关键栈帧
 
    THREAD_BLOCK_3S部分
 
-   ```
+   ```screen
    Tid:62838, Name:pfreezeanalysis
    state=R, utime=802, stime=42, priority=-54, nice=-10, clk=100
    #00 pc 00000000000df550 /system/lib/ld-musl-aarch64.so.1(arena_slab_reg_alloc_batch+316)(58b5bc0b32f5d8462c0e616fbc5ee53a)
@@ -492,7 +415,7 @@ libace_compatible.z.so
 
    THREAD_BLOCK_6S部分
 
-   ```
+   ```screen
    Tid:62838, Name:pfreezeanalysis
    state=R, utime=1024, stime=102, priority=-54, nice=-10, clk=100
    #00 pc 0000000000adee1c /system/lib64/platformsdk/libace_compatible.z.so(OHOS::Ace::NG::TextPattern::RecoverCopyOption()+212)(37cb86795b559fcddf104355c179fdbc)
@@ -513,15 +436,11 @@ libace_compatible.z.so
 
    两次主线程堆栈不一致，表明主线程没有阻塞，是处于繁忙状态。需要通过增强日志查看更多时间点的主线程堆栈切片来确认繁忙的原因。
 
-   <br />
-
 2. 查看增强日志中的主线程采样栈。
-
-   <br />
 
    证据2：主线程采样栈出现次数最多的关键栈帧
 
-   ```
+   ```screen
    #00 pc 0000000000adee1c /system/lib64/platformsdk/libace_compatible.z.so(OHOS::Ace::NG::TextPattern::RecoverCopyOption()+212)(37cb86795b559fcddf104355c179fdbc)
    #01 pc 000000000285acd4 /system/lib64/platformsdk/libace_compatible.z.so(OHOS::Ace::NG::TextPattern::OnModifyDone()+1012)(37cb86795b559fcddf104355c179fdbc)
    #02 pc 0000000000aaafd4 /system/lib64/platformsdk/libace_compatible.z.so(OHOS::Ace::NG::FrameNode::MarkModifyDone()+224)(37cb86795b559fcddf104355c179fdbc)
@@ -540,80 +459,62 @@ libace_compatible.z.so
 
    堆栈表明主线程耗时最多的业务是刷新UI组件。结合代码进一步分析。
 
-   <br />
-
 3. 查看UI操作业务代码。
-
-   <br />
 
    证据3：故障栈帧关联的代码
 
-   ![](https://media:801788339729759559 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/F96UMO_cSq-lVeCrjo6CfQ/zh-cn_image_0000002673575733.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=49BA1322D59695EC1F8042822D47992191608D8D9833B48A4BC2B16D698DC650 "点击放大")
 
    业务中循环刷新Text组件导致主线程繁忙。
 
-   <br />
-
-<br />
-
-预防建议
+**预防建议**
 
 简化UI渲染逻辑，减少过度绘制，使用虚拟化列表。
 
-<br />
+### 频繁执行特定业务
 
-#### 频繁执行特定业务
-
-根因描述
+**根因描述**
 
 应用主线程连续多次进行某项业务，累计耗时长造成主线程繁忙。
 
-<br />
-
-问题分析思路
+**问题分析思路**
 
 1. 对增强日志中主线程采样栈进行分析聚类；
 2. 从占比最高的主线程采样栈中获取应用侧业务。
 
-<br />
-
-关键字
+**关键字**
 
 关注增强日志主线程采样栈中的应用侧业务栈帧：
 
 * at开头的栈帧，如下所示：
 
-  ```
+  ```screen
   #13 at triggerBinderInterfaceBlockSync (entry|entry|1.0.0|src/main/ets/pages/page_second/page_third_appfreeze/appfreeze_threadblock.ts:147:43)
   ```
 
 * /data/storage目录下的共享库的栈帧，如下所示：
 
-  ```
+  ```screen
   #01 pc 000000000007a638 /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerLongTimeOp(napi_env__*, napi_callback_info__*)+44)(f9377ecb68078186ec50cb9740a6a4c259058746)
   ```
 
-<br />
+**案例分析**
 
-案例分析
+**案例：循环处理计算任务导致主线程繁忙**
 
-案例：循环处理计算任务导致主线程繁忙
-
-问题现象
+**问题现象**
 
 当用户触发业务代码调用后，应用进入无响应状态，一段时间后应用退出，并生成冻屏日志文件。
 
-问题分析
+**问题分析**
 
 1. 查看AppFreeze中THREAD_BLOCK_3S和THREAD_BLOCK_6S两部分的主线程堆栈，确认不一致。
-
-   <br />
 
    证据1：主线程堆栈关键栈帧
 
    THREAD_BLOCK_3S部分
 
-   ```
+   ```screen
    Tid:13354, Name:pfreezeanalysis
    state=R, utime=751, stime=23, priority=-54, nice=-10, clk=100
    #00 pc 00000000000b6e88 /system/lib/ld-musl-aarch64.so.1(sin+12)(0fd6c257b7c8566c76aa08c474be61aa)
@@ -627,7 +528,7 @@ libace_compatible.z.so
 
    THREAD_BLOCK_6S部分
 
-   ```
+   ```screen
    Tid:13354, Name:pfreezeanalysis
    state=R, utime=942, stime=23, priority=-54, nice=-10, clk=100
    #00 pc 0000000000199a00 /system/lib/ld-musl-aarch64.so.1(__rem_pio2_large+0)(0fd6c257b7c8566c76aa08c474be61aa)
@@ -643,15 +544,11 @@ libace_compatible.z.so
 
    两次主线程堆栈不一致，表明主线程没有阻塞，是处于繁忙状态。需要通过增强日志查看更多时间点的主线程堆栈切片来确认繁忙的原因。
 
-   <br />
-
 2. 查看增强日志中的主线程采样栈。
-
-   <br />
 
    证据2：主线程采样栈出现次数最多的关键栈帧
 
-   ```
+   ```screen
    #02 pc 00000000001e46c0 /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerBusinessBusySync(napi_env__*, napi_callback_info__*)+212)(e57aefaa6cf62773d5dccf7a4e2f403def474600)
    #03 pc 000000000005f6b8 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+240)(cbac5c2cdec75704b84a9ddba0333eb9)
    #04 pc 0000000000e8b488 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
@@ -661,80 +558,62 @@ libace_compatible.z.so
 
    堆栈表明主线程耗时最多的业务是libentry.so(TriggerBusinessBusySync)。结合代码进一步分析。
 
-   <br />
-
 3. 开发调试场景下可直接在DevEco Studio中单击libentry.so所在的栈帧跳转到对应代码行；运维场景下使用[llvm-addr2line](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-app-crash-cpp-way#li186453444512)解析找到对应代码行。
-
-   <br />
 
    证据3：故障栈帧所在的代码
 
-   ![](https://media:801788339729797560 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/IuItchguRQOR22-rOwdUuQ/zh-cn_image_0000002673735605.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=A9DD75EC7991B9F04399DB2A5A15735BB84CC3C8EA92CC32988A57CB3EEA2785 "点击放大")
 
    业务中循环处理计算任务导致主线程繁忙。
 
-   <br />
-
-<br />
-
-预防建议
+**预防建议**
 
 优化业务逻辑，减少主线程工作量，使用延迟加载。
 
-<br />
+### 执行耗时操作
 
-#### 执行耗时操作
-
-根因描述
+**根因描述**
 
 应用主线程连续多次进行耗时操作，累计耗时长造成主线程繁忙。
 
-<br />
-
-问题分析思路
+**问题分析思路**
 
 1. 获取故障日志中告警部分和卡死部分的主线程堆栈中的应用侧业务信息；
 2. 结合代码分析业务耗时原因。
 
-<br />
-
-关键字
+**关键字**
 
 关注主线程堆栈中的应用侧业务栈帧：
 
 * at开头的栈帧，如下所示：
 
-  ```
+  ```screen
   #13 at triggerBinderInterfaceBlockSync (entry|entry|1.0.0|src/main/ets/pages/page_second/page_third_appfreeze/appfreeze_threadblock.ts:147:43)
   ```
 
 * /data/storage目录下的共享库的栈帧，如下所示：
 
-  ```
+  ```screen
   #01 pc 000000000007a638 /data/storage/el1/bundle/libs/arm64/libentry.so(TriggerLongTimeOp(napi_env__*, napi_callback_info__*)+44)(f9377ecb68078186ec50cb9740a6a4c259058746)
   ```
 
-<br />
+**案例分析**
 
-案例分析
+**案例：循环处理多种耗时任务导致主线程繁忙**
 
-案例：循环处理多种耗时任务导致主线程繁忙
-
-问题现象
+**问题现象**
 
 当用户触发业务代码调用后，应用进入无响应状态，一段时间后应用退出，并生成冻屏日志文件。
 
-问题分析
+**问题分析**
 
 1. 查看AppFreeze中THREAD_BLOCK_3S和THREAD_BLOCK_6S两部分的主线程堆栈，确认不一致。
-
-   <br />
 
    证据1：主线程堆栈关键栈帧
 
    THREAD_BLOCK_3S部分
 
-   ```
+   ```screen
    Tid:22780, Name:pfreezeanalysis
    state=R, utime=1239, stime=92, priority=-54, nice=-10, clk=100
    #00 pc 0000000000240030 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::JSDate::Now()+52)(a0191e40080d8d657554ee4036a515b0)
@@ -748,7 +627,7 @@ libace_compatible.z.so
 
    THREAD_BLOCK_6S部分
 
-   ```
+   ```screen
    Tid:22780, Name:pfreezeanalysis
    state=R, utime=1529, stime=92, priority=-54, nice=-10, clk=100
    #00 pc 0000000000497270 /system/lib64/module/arkcompiler/stub.an(BCStub_HandleLdobjbynameImm8Id16StwCopy+48)
@@ -760,22 +639,15 @@ libace_compatible.z.so
 
    两次主线程堆栈不一致，表明主线程没有阻塞，是处于繁忙状态。
 
-   <br />
-
 2. 无增强日志，根据两次主线程堆栈提取热点业务函数为triggerComplexOperations。结合代码进一步分析。
-
-   <br />
 
    证据2：故障栈帧所在的代码
 
-   ![](https://media:801788339729831561 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/dq5Qm6V1Qsywv--CzkEOiA/zh-cn_image_0000002643575824.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=63D523B7D6DF3286B7F1FF27DDD4938779B43C9564792799B0DCFC6F772AAF7C "点击放大")
 
    业务中循环处理多个不同类型的耗时子任务导致主线程繁忙。
 
-   <br />
+**预防建议**
 
-<br />
+将耗时操作移至子线程，使用异步任务处理。
 
-预防建议
-
-将耗时操作移至子线程，使用异步任务处理。  

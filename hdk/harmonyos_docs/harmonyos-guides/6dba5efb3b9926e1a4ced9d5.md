@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-compone
 
 # input开发指导
 
-input是交互式组件，用于接收用户数据。其类型可设置为日期、多选框和按钮等。具体用法请参考[input API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-input)。  
+input是交互式组件，用于接收用户数据。其类型可设置为日期、多选框和按钮等。具体用法请参考[input API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-input)。
 
-#### 创建input组件
+## 创建input组件
 
 在pages/index目录下的hml文件中创建一个input组件。
 
-```
+```html
 <!-- xxx.hml -->
 <div class="container">       
   <input type="text">             
@@ -21,7 +21,7 @@ input是交互式组件，用于接收用户数据。其类型可设置为日期
 </div>
 ```
 
-```
+```css
 /* xxx.css */
 .container {
   width: 100%;
@@ -33,13 +33,13 @@ input是交互式组件，用于接收用户数据。其类型可设置为日期
 }
 ```
 
-![](https://media:401788444587381284)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/IV3-RTAPTg68Y7hlqf6sZg/zh-cn_image_0000002762993719.png?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=FDB04F8AF4833FC5463D24B842355D585507B7592B04EF1973455FBCA72F2B0D)
 
-#### 设置input类型
+## 设置input类型
 
 通过设置type属性来定义input类型，如将input设置为button、date等。
 
-```
+```html
 <!-- xxx.hml -->
 <div class="container">
   <div class="div-button">
@@ -59,7 +59,7 @@ input是交互式组件，用于接收用户数据。其类型可设置为日期
 </div>
 ```
 
-```
+```css
 /* xxx.css */
 .container {
   width: 100%;
@@ -93,7 +93,7 @@ input是交互式组件，用于接收用户数据。其类型可设置为日期
 }
 ```
 
-```
+```js
 // xxx.js
 export default {
   btnclick(){
@@ -102,15 +102,16 @@ export default {
 }
 ```
 
-![](https://media:401788444587545285)  
-![](https://media:401788444587781286)  
-仅当input类型为checkbox或radio时，当前组件选中的属性是checked才生效，默认值为false。  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/NokpXZsvTzW84wdRHfJkMw/zh-cn_image_0000002762833835.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=1C22AEAF135B45B89CCFC7B1094E48B6FA7581D283A0DA567258ABE52FB002DC)
+> 说明
+>
+> 仅当input类型为checkbox或radio时，当前组件选中的属性是checked才生效，默认值为false。
 
-#### 事件绑定
+## 事件绑定
 
 向input组件添加translate事件。
 
-```
+```html
 <!-- xxx.hml -->
 <div class="content">
     <text style="margin-left: -7px;">
@@ -120,7 +121,7 @@ export default {
 </div>
 ```
 
-```
+```css
 /* xxx.css */
 .content {
   width: 100%;
@@ -142,7 +143,7 @@ text{
 }
 ```
 
-```
+```js
 // xxx.js
 import promptAction from '@ohos.promptAction'
 
@@ -156,13 +157,13 @@ export default {
 }
 ```
 
-![](https://media:401788444587845287)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/Qh4FDDypSaCVkA6mh5FCkA/zh-cn_image_0000002733274318.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=EF8426FAA1DEAD633E1BC7E2E477522FD83B2CDC1F0D039F582AFFCB7F40B352)
 
-#### 设置输入提示
+## 设置输入提示
 
 通过对input组件添加showError方法来提示输入的错误原因。
 
-```
+```html
 <!-- xxx.hml -->
 <div class="content">
   <input id="input" class="input" type="text"  maxlength="20" placeholder="Please input text" onchange="change">
@@ -171,7 +172,7 @@ export default {
 </div>
 ```
 
-```
+```css
 /* xxx.css */
 .content {
   width: 100%;
@@ -191,7 +192,7 @@ export default {
 }
 ```
 
-```
+```js
 // xxx.js
 import promptAction from '@ohos.promptAction'
  export default {
@@ -223,15 +224,16 @@ import promptAction from '@ohos.promptAction'
  }
 ```
 
-![](https://media:401788444587903288)  
-![](https://media:401788444587943289)  
-showError方法仅在input类型为text、email、date、time、number和password时生效。  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/jLeOYgbNSWyf-pyS3BMBTA/zh-cn_image_0000002733434200.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=A2FBEF2D35449C8C65E442415AA569EB0040CAB88C3414129442B92AE5FA120B)
+> 说明
+>
+> showError方法仅在input类型为text、email、date、time、number和password时生效。
 
-#### 场景示例
+## 场景示例
 
 根据场景选择不同类型的input输入框，完成信息录入。
 
-```
+```html
 <!-- xxx.hml -->
 <div class="container">    
   <div class="label-item"> 
@@ -259,7 +261,7 @@ showError方法仅在input类型为text、email、date、time、number和passwor
 </div>
 ```
 
-```
+```css
 /* xxx.css */
 .container {
   flex-direction: column;
@@ -287,7 +289,7 @@ label {
 }
 ```
 
-```
+```js
 // xxx.js
 import promptAction from '@ohos.promptAction';
 export default {
@@ -303,4 +305,5 @@ export default {
 }
 ```
 
-![](https://media:401788444587987290)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/xrF4nMCkSUK5mBDR-sExmQ/zh-cn_image_0000002762993721.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=26AC523592347C0CC9EA13AFC3C34AB050BAB59CB3E4F085BB609A6A9EB1FF24)
+

@@ -6,23 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/settuningstrat
 
 # SetTuningStrategy
 
-#### 接口定义
+## 接口定义
 
-```
+```screen
 AIStatus SetTuningStrategy(const TuningStrategy& tuningStrategy);
 ```
 
-#### 功能介绍
+## 功能介绍
 
-设置模型优化策略。  
+设置模型优化策略。
 
-#### 参数
+## 参数
 
 |名称|类型|描述|
-|:-------------|:---------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
-|tuningStrategy|const [TuningStrategy](https://developer.huawei.com/consumer/cn/doc/hiai-References/tuningstrategy-0000001333619929)\&|输入参数，设置模型优化策略。 ``` enum class TuningStrategy { OFF = 0, ON_DEVICE_TUNING, ON_DEVICE_PREPROCESS_TUNING, ON_CLOUD_TUNING }; ```|
+|:-------------|:--------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
+|tuningStrategy|const [TuningStrategy](https://developer.huawei.com/consumer/cn/doc/hiai-References/tuningstrategy-0000001333619929)&|输入参数，设置模型优化策略。 ```screen enum class TuningStrategy { OFF = 0, ON_DEVICE_TUNING, ON_DEVICE_PREPROCESS_TUNING, ON_CLOUD_TUNING }; ```|
 
-#### 返回
+## 返回
 
 |类型|描述|
 |:-------|:-----------------------------|

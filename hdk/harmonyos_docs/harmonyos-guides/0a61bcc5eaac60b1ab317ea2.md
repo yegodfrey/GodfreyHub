@@ -8,9 +8,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-k
 
 为保证数据安全性，当不需要使用该密钥时，应该删除密钥。
 
-从API 23开始支持[群组密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-group-key-overview)特性。  
+从API 23开始支持[群组密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-group-key-overview)特性。
 
-#### 开发步骤
+## 开发步骤
 
 以删除DH密钥为例。
 
@@ -20,7 +20,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-k
 
 3. 调用接口[deleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksdeletekeyitem9)，删除密钥。
 
-```
+```TypeScript
 /*
  * 以下以DH密钥的Promise操作使用为例
  */

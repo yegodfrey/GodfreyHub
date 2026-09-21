@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-arc
 
 # 加解密、证书解析与电子签名相关能力的实现方式
 
-#### 问题现象
+## 问题现象
 
-应用开发中需要实现ASN.1/DER、X.509证书、PKCS#1、PKCS#7/CMS、PKCS#10等结构解析与封装能力，并支持RSA、ECC、SM2、SM3、SM4、SHA系列摘要算法，以及电子签名所需的摘要、签名、验签、证书解析、签名容器构造等基础能力，在HarmonyOS中如何实现？  
+应用开发中需要实现ASN.1/DER、X.509证书、PKCS#1、PKCS#7/CMS、PKCS#10等结构解析与封装能力，并支持RSA、ECC、SM2、SM3、SM4、SHA系列摘要算法，以及电子签名所需的摘要、签名、验签、证书解析、签名容器构造等基础能力，在HarmonyOS中如何实现？
 
-#### 背景知识
+## 背景知识
 
-HarmonyOS系统提供了Crypto Architecture Kit（加解密算法库）和Certificate Framework（证书框架）用于支持常用的加解密算法和证书解析能力。对于系统未直接提供的能力，可以通过引入OpenSSL等三方C库来实现。  
+HarmonyOS系统提供了Crypto Architecture Kit（加解密算法库）和Certificate Framework（证书框架）用于支持常用的加解密算法和证书解析能力。对于系统未直接提供的能力，可以通过引入OpenSSL等三方C库来实现。
 
-#### 解决方案
+## 解决方案
 
 针对上述需求，HarmonyOS一方库支持部分能力，剩余能力需要引入OpenSSL三方库实现。
 

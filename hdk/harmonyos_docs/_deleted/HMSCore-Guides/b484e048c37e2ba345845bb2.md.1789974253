@@ -1,0 +1,140 @@
+---
+name: document/cn/HMSCore-Guides/eclipse-integrating-sdk-0000001055454554
+title: 在Eclipse项目中集成HMS Core SDK
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/eclipse-integrating-sdk-0000001055454554
+---
+
+# 在Eclipse项目中集成HMS Core SDK
+
+针对Eclipse开发环境，华为提供了下载HMS Core SDK包本地集成的方式。在开始开发前，您需要将HMS Core SDK集成到您的Eclipse开发环境中。
+
+## 下载SDK
+
+1. 下载HMS Base SDK和要集成的服务SDK，并解压zip包。下载地址请参见[Eclipse SDK下载](https://developer.huawei.com/consumer/cn/doc/HMSCore-Library/eclipse-sdk-download-0000001064192390)。
+2. 将所有SDK工程导入到您的工作空间。
+
+   1. 选择菜单"File > Import"，再选择"Android > Existing Android Code Into Workspace"，点击"Next"。
+
+      ![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260206135206.13596094721907074037762433924796:50001231000000:2800:BC27B7DFFB6A860CF5808FE21F17F147F23025D5F630908B84F4846974CC064C.png)
+   2. 点击"Browse"，选择工程所在的文件夹。在"Projects"下显示待导入的工程，默认全部勾选，点击"Finish"。 说明
+      >
+      > 待导入的工程必须和工作空间在相同的磁盘空间里，例如都在"D:\"。如果不在，您可以选择"Copy projects into workspace"，将工程文件复制到工作空间。
+
+      ![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260206135206.73767592088856963734694143951667:50001231000000:2800:29E767A6AC6416C1D57989F6C9B055F18E83B1F75CD707BE5A35552A1F30108B.png)
+
+## 添加工程依赖关系
+
+1. 右键点击您的工程，选择"Properties"。
+2. 在左侧选择"Android"，点击"Add"，选择已导入空间的工程，点击"Apply and Close"。
+
+   ![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260206135206.18988228554106577056269404245000:50001231000000:2800:980C3879ED9766548DE0A192D75D217F25221976CD37DEF5CA5402823629A328.png "点击放大")
+
+3. 右键点击HMSSdkAvailableUpdate工程，选择"Properties"。
+4. 在左侧选择"Android"，点击"Add"，选择HMSSdkUI工程，点击"Apply and Close"。
+
+   ![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260206135207.20615334318665233744941792997926:50001231000000:2800:ABE4FD474ADAB7E56C78EA454C617E5060E950A644A6346E831E1C919A917C57.png "点击放大")
+
+5. 由于Eclipse的xml文件不支持$符号，将Agconnect-core、HMSSdkAvaliableUpdate、HMSSdkDevice和Update工程下AndroidManifest.xml文件中的"${applicationId}"替换成您的应用包名。
+
+   ```screen
+   <application>
+       <provider
+           android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider"
+           android:authorities="${applicationId}.AGCInitializeProvider"
+           android:exported="false" />
+       <service
+           android:name="com.huawei.agconnect.core.ServiceDiscovery"
+           android:exported="false" />
+   </application>
+   ```
+
+## 拷贝HMSSdkStats资源文件到您的工程目录
+
+将HMSSdkStats工程中assets目录下的资源文件拷贝到您的工程中assets目录下。
+> 说明
+>
+> 如果依赖其他的Kit资源，还需要复制对应Kit的资源文件到您的工程目录下。
+
+## 修改工程project.properties文件
+
+打开您的工程的"project.properties"文件，添加如下代码，用于合并子工程中的"Manifest"文件。
+
+```screen
+manifestmerger.enabled=true
+```
+
+> 说明
+>
+> ADT必须是17以上版本。
+
+## 添加当前应用的AppGallery Connect配置文件
+
+1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站，点击"我的项目"。
+2. 在项目列表中找到您的项目，在项目中点击需要集成HMS Core SDK的应用。
+3. 在"项目设置 > 常规"页面的"应用"区域，点击"agconnect-services.json"下载配置文件。
+4. 由于Eclipse不支持AGC插件，您需要将"agconnect-services.json"文件放置到您的工程assets目录下，并且在工程的Application子类中添加如下代码。如果工程没有Application子类，则需要您新建一个从Application继承的子类，例如新建MyApplication类。
+
+   ```screen
+   // TODO: Import the following classes:
+   import java.io.IOException;
+   import java.io.InputStream;
+   import com.huawei.agconnect.config.AGConnectServicesConfig;
+   import com.huawei.agconnect.config.LazyInputStream;
+   import android.app.Application;
+   import android.content.Context;
+   import android.util.Log;
+
+   public class MyApplication extends Application{
+       @Override
+       public void onCreate() {
+           super.onCreate();
+       }
+       // TODO: Add the following code:
+       @Override
+       protected void attachBaseContext(Context context) {
+           super.attachBaseContext(context);
+           AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(context);
+           config.overlayWith(new LazyInputStream(context) {
+               public InputStream get(Context context) {
+                   try {
+                       return context.getAssets().open("agconnect-services.json");
+                   } catch (IOException e) {
+                       return null;
+                   }
+               }
+           });
+       }
+       // TODO: End
+   }
+   ```
+
+5. 打开您的工程"AndroidManifest.xml"文件，在"application"模块中添加Application子类名称，如果已经添加，则跳过此步骤。例如，添加MyApplication类名称。
+
+   ```screen
+   <application
+       android:name=".MyApplication"
+       ...
+       >
+   ...
+   ```
+
+6. 在Eclipse菜单栏中点击"Project"，执行"Clean"操作，即完成SDK集成。
+
+## 配置混淆脚本
+
+您编译APK前需要配置混淆配置文件，避免混淆HMS Core SDK导致功能异常。
+
+打开混淆配置文件"proguard-project.txt"，加入排除HMS Core SDK的混淆配置脚本。
+
+```screen
+-ignorewarnings
+-keepattributes *Annotation*
+-keepattributes Exceptions
+-keepattributes InnerClasses
+-keepattributes Signature
+-keepattributes SourceFile,LineNumberTable
+-keep class com.huawei.hianalytics.**{*;}
+-keep class com.huawei.updatesdk.**{*;}
+-keep class com.huawei.hms.**{*;}
+```
+

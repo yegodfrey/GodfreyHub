@@ -6,44 +6,44 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # Auth
 
-AGC认证服务接口，使用cloud.auth()方式获取服务。  
+AGC认证服务接口，使用cloud.auth()方式获取服务。
 
-#### Method Summary
+## Method Summary
 
 |Qualifier and Type|Method Name and Description|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|Promise\<[VerifyCodeResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-verifycoderesult-0000001632060376)\>|[requestVerifyCode](#section9850751813)(verifyCodeParam: [VerifyCodeParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-verifycodeparam-0000001632060372)) 申请验证码。|
-|Promise\<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)\>|[createUser](#section19861514132515)(credentialInfo: [CredentialInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-credentialinfo-0000001680787821)) 创建账户。|
-|Promise\<void\>|[resetPassword](#section184671244192916)(credentialInfo: [CredentialInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-credentialinfo-0000001680787821)) 重置密码。|
-|Promise\<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)\>|[signIn](#section136957141012)(signInParam: [SignInParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinparam-0000001631900440)) 登录接口，通过第三方认证来登录AGC平台。|
-|Promise\<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)\>|[signInAnonymously](#section1394015509369)() 匿名登录。|
-|Promise\<void\>|[deleteUser](#section197703751114)() 在AGC服务器侧删除当前用户信息，并清除缓存信息。|
-|Promise\<void\>|[signOut](#section4122193119119)() 登出接口。|
-|Promise\<[AuthUser](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-authuser-0000001680210801) \| null\>|[getCurrentUser](#section87068861218)() 获取当前登录的用户信息。|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Promise<[VerifyCodeResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-verifycoderesult-0000001632060376)>|[requestVerifyCode](#section9850751813)(verifyCodeParam: [VerifyCodeParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-verifycodeparam-0000001632060372)) 申请验证码。|
+|Promise<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)>|[createUser](#section19861514132515)(credentialInfo: [CredentialInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-credentialinfo-0000001680787821)) 创建账户。|
+|Promise<void>|[resetPassword](#section184671244192916)(credentialInfo: [CredentialInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-credentialinfo-0000001680787821)) 重置密码。|
+|Promise<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)>|[signIn](#section136957141012)(signInParam: [SignInParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinparam-0000001631900440)) 登录接口，通过第三方认证来登录AGC平台。|
+|Promise<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)>|[signInAnonymously](#section1394015509369)() 匿名登录。|
+|Promise<void>|[deleteUser](#section197703751114)() 在AGC服务器侧删除当前用户信息，并清除缓存信息。|
+|Promise<void>|[signOut](#section4122193119119)() 登出接口。|
+|Promise<[AuthUser](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-authuser-0000001680210801) | null>|[getCurrentUser](#section87068861218)() 获取当前登录的用户信息。|
 
-#### Methods
+## Methods
 
-#### requestVerifyCode
+### requestVerifyCode
 
 |Method|
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|requestVerifyCode(verifyCodeParam: [VerifyCodeParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-verifycodeparam-0000001632060372)): Promise\<[VerifyCodeResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-verifycoderesult-0000001632060376)\> 申请验证码。|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|requestVerifyCode(verifyCodeParam: [VerifyCodeParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-verifycodeparam-0000001632060372)): Promise<[VerifyCodeResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-verifycoderesult-0000001632060376)> 申请验证码。|
 
-Parameters  
+**Parameters**
 
 |Name|Type|Description|
 |:--------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------|
 |verifyCodeParam|[VerifyCodeParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-verifycodeparam-0000001632060372)|申请验证码的相关参数类。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|
-|Promise\<[VerifyCodeResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-verifycoderesult-0000001632060376)\>|验证码结果的Promise对象。|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|
+|Promise<[VerifyCodeResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-verifycoderesult-0000001632060376)>|验证码结果的Promise对象。|
 
-Sample Code
+**Sample Code**
 
-```
+```screen
 import { Auth, VerifyCodeAction } from '@hw-agconnect/cloud';
 import cloud from '@hw-agconnect/cloud';
 // 申请手机验证码
@@ -78,27 +78,27 @@ cloud.auth().requestVerifyCode({
 });
 ```
 
-#### createUser
+### createUser
 
 |Method|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|createUser(credentialInfo: [CredentialInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-credentialinfo-0000001680787821)): Promise\<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)\> 创建账户。|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|createUser(credentialInfo: [CredentialInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-credentialinfo-0000001680787821)): Promise<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)> 创建账户。|
 
-Parameters  
+**Parameter** **s**
 
 |Name|Type|Description|
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------|
 |credentialInfo|[CredentialInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-credentialinfo-0000001680787821)|凭证信息。编译器会根据其中kind自动推断类型，例如其内部kind填为：'phone'，则类型被推断为"PhoneCredentialInfo"。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|
-|Promise\<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)\>|登录结果信息的Promise对象。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|
+|Promise<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)>|登录结果信息的Promise对象。|
 
-Sample Code
+**Sample Code**
 
-```
+```screen
 // 创建手机用户
 cloud.auth().createUser({
     kind: 'phone',
@@ -124,27 +124,27 @@ cloud.auth().createUser({
 })
 ```
 
-#### resetPassword
+### resetPassword
 
 |Method|
-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|resetPassword(credentialInfo: [CredentialInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-credentialinfo-0000001680787821)): Promise\<void\> 重置密码。|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|resetPassword(credentialInfo: [CredentialInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-credentialinfo-0000001680787821)): Promise<void> 重置密码。|
 
-Parameters  
+**Parameter** **s**
 
 |Name|Type|Description|
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------|
 |credentialInfo|[CredentialInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-credentialinfo-0000001680787821)|凭证信息。编译器会根据其中kind自动推断类型，例如其内部kind填为：'phone'，则类型被推断为"PhoneCredentialInfo"。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:--------------|:----------------|
-|Promise\<void\>|void类型的Promise对象。|
+|:------------|:----------------|
+|Promise<void>|void类型的Promise对象。|
 
-Sample Code
+**Sample Code**
 
-```
+```screen
 // 重置手机账户密码
 cloud.auth().resetPassword({
     kind: 'phone',
@@ -162,27 +162,27 @@ cloud.auth().resetPassword({
 })
 ```
 
-#### signIn
+### signIn
 
 |Method|
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|signIn(signInParam: [SignInParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinparam-0000001631900440)):Promise\<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)\> 登录接口，通过第三方认证来登录AGC平台。|
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|signIn(signInParam: [SignInParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinparam-0000001631900440)):Promise<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)> 登录接口，通过第三方认证来登录AGC平台。|
 
-Parameters  
+**Parameters**
 
 |Name|Type|Parameter desc|
 |:----------|:-------------------------------------------------------------------------------------------------------------------------------------|:-------------|
 |signInParam|[SignInParam](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinparam-0000001631900440)|登录操作的参数类。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|
-|Promise\<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)\>|登录结果信息的Promise对象。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|
+|Promise<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)>|登录结果信息的Promise对象。|
 
-Sample Code
+**Sample Code**
 
-```
+```screen
 // 手机账户登录
 cloud.auth().signIn({
     credentialInfo: {
@@ -210,21 +210,21 @@ cloud.auth().signIn({
 });
 ```
 
-#### signInAnonymously
+### signInAnonymously
 
 |Method|
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|signInAnonymously(): Promise\<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)\> 匿名登录。|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|signInAnonymously(): Promise<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)> 匿名登录。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|
-|Promise\<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)\>|登录结果信息的Promise对象。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|
+|Promise<[SignInResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-signinresult-0000001680900101)>|登录结果信息的Promise对象。|
 
-Sample Code
+**Sample Code**
 
-```
+```screen
 cloud.auth().signInAnonymously().then(() => {
    // 登录成功
 }).catch(error => {
@@ -232,21 +232,21 @@ cloud.auth().signInAnonymously().then(() => {
 })
 ```
 
-#### deleteUser
+### deleteUser
 
 |Method|
-|:-----------------------------------------------------|
-|deleteUser():Promise\<void\> 在AGC服务器侧删除当前用户信息，并清除缓存信息。|
+|:---------------------------------------------------|
+|deleteUser():Promise<void> 在AGC服务器侧删除当前用户信息，并清除缓存信息。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:--------------|:----------------|
-|Promise\<void\>|void类型的Promise对象。|
+|:------------|:----------------|
+|Promise<void>|void类型的Promise对象。|
 
-Sample Code
+**Sample Code**
 
-```
+```screen
 cloud.auth().deleteUser().then(() => {
   // 销户成功
 }).catch(error => {
@@ -254,21 +254,21 @@ cloud.auth().deleteUser().then(() => {
 })
 ```
 
-#### signOut
+### signOut
 
 |Method|
-|:--------------------------------------------|
-|signOut():Promise\<void\> 登出接口。退出登录状态，删除缓存数据。|
+|:------------------------------------------|
+|signOut():Promise<void> 登出接口。退出登录状态，删除缓存数据。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:--------------|:----------------|
-|Promise\<void\>|void类型的Promise对象。|
+|:------------|:----------------|
+|Promise<void>|void类型的Promise对象。|
 
-Sample Code
+**Sample Code**
 
-```
+```screen
 cloud.auth().signOut().then(() => {
   // 登出成功
 }).catch(error => {
@@ -276,21 +276,21 @@ cloud.auth().signOut().then(() => {
 })
 ```
 
-#### getCurrentUser
+### getCurrentUser
 
 |Method|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|getCurrentUser():Promise\<[AuthUser](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-authuser-0000001680210801) \| null\> 获取当前登录的用户信息，如果未登录则返回null。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|getCurrentUser():Promise<[AuthUser](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-authuser-0000001680210801) | null> 获取当前登录的用户信息，如果未登录则返回null。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|
-|Promise\<[AuthUser](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-authuser-0000001680210801) \| null\>|用户信息的Promise对象。|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------|:--------------|
+|Promise<[AuthUser](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-arkts-authuser-0000001680210801) | null>|用户信息的Promise对象。|
 
-Sample Code
+**Sample Code**
 
-```
+```screen
 cloud.auth().getCurrentUser().then(user=>{
     if(user){
         // 业务逻辑

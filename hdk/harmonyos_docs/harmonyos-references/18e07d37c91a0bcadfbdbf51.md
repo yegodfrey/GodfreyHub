@@ -6,6 +6,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/function-
 
 # C API
 
-* [模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/function-flow-runtime-module)  
-* [头文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/function-flow-runtime-headerfile)  
-* [结构体](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/function-flow-runtime-struct)  
+* **[模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/function-flow-runtime-module)**   
+* **[头文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/function-flow-runtime-headerfile)**   
+* **[结构体](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/function-flow-runtime-struct)**   

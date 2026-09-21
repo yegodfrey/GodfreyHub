@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/opendevice-
 
 # com.huawei.hms.support.api.opendevice
 
-* [Overview](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/opendevice-entity-pkg-overview-0000001051071639)  
-* [Class Summary](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/opendevice-entity-pkg-class-summary-0000001051151562)  
+* **[Overview](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/opendevice-entity-pkg-overview-0000001051071639)**   
+* **[Class Summary](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/opendevice-entity-pkg-class-summary-0000001051151562)**   

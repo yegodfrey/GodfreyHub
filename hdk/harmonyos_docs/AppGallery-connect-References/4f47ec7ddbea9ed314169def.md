@@ -10,10 +10,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:----------------------------------------|
 |export interface UpdateRoomInfo 可更新的房间信息。|
 
-#### Property Summary
+## Property Summary
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241128105404.68237212542344989281324601523869:50001231000000:2800:EFF1E6E8934DE2AEB9AE5C2F4FB412B16199F4B25A2B011CC45318166B82862F.png?needInitFileName=true?needInitFileName=true)  
-以下字段均为非必填字段，为空时则不修改该项属性。  
+> 说明
+>
+> 以下字段均为非必填字段，为空时则不修改该项属性。
 
 |Name|Type|Mandatory/Optional|Description|
 |:-------------------|:-----|:-----------------|:---------------------------------|

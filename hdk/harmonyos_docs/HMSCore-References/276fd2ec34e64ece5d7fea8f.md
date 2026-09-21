@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/ads-consent
 
 # com.huawei.hms.ads.consent.bean
 
-* [Overview](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/overview-0000001058002756)  
-* [Class Summary](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/classes-0000001057404986)  
+* **[Overview](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/overview-0000001058002756)**   
+* **[Class Summary](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/classes-0000001057404986)**   

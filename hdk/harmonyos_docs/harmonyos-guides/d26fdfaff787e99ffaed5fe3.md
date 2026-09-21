@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-advent
 
 # 户外探险
 
-户外探险相关锻炼记录类型如下：  
+户外探险相关锻炼记录类型如下：
 
-|锻炼记录子类型常量|描述|数据来源|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---|:-----|
+|**锻炼记录子类型常量**|**描述**|数据来源|
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|:-----|
 |[exerciseSequenceHelper.adventures.EXERCISE_TYPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-exercisesequencehelper#常量-1)|户外探险|部分专业手表|
 
-#### 关联的统计数据说明
+## 关联的统计数据说明
 
 * 字段定义：[exerciseSequenceHelper.adventures.SummaryFields](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-exercisesequencehelper#summaryfields)
 
-|字段列表|描述|类型|可选/必选|
+|**字段**列表|描述|**类型**|可选/必选|
 |:-------|:---|:---------------------------------------------------------------------------------------------------------------------------|:----|
 |calorie|热量统计|[CalorieSummary](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields#caloriesummary)|M|
 |distance|距离统计|[DistanceSummary](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields#distancesummary)|M|
@@ -24,12 +24,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-advent
 |cadence|步频统计|[CadenceSummary](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields#cadencesummary)|O|
 |altitude|海拔统计|[AltitudeSummary](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields#altitudesummary)|O|
 
-#### 关联的明细数据说明
+## 关联的明细数据说明
 
 * 字段定义：[exerciseSequenceHelper.adventures.DetailFields](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-exercisesequencehelper#detailfields)
 
-|字段列表|描述|类型|可选/必选|
-|:--------|:------|:-------------------------------------------------------------------------------------------------------------------|:----|
-|markPoint|标记点采样详情|[MarkPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields#markpoint)\[\]|O|
-|altitude|海拔详情|[Altitude](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields#altitude)\[\]|O|
+|**字段**列表|描述|**类型**|可选/必选|
+|:--------|:------|:-----------------------------------------------------------------------------------------------------------------|:----|
+|markPoint|标记点采样详情|[MarkPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields#markpoint)[]|O|
+|altitude|海拔详情|[Altitude](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields#altitude)[]|O|
 

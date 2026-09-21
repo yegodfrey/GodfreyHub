@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 # 最佳实践
 
-* [将传统微服务快速转化成Serverless云函数](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-microservice-conversion-0000001460687950)  
-* [将SpringBoot工程快速迁移至基于Custom Runtime运行的云函数](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-springboot-cloudfunction-0000001502518310)  
+* **[将传统微服务快速转化成Serverless云函数](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-microservice-conversion-0000001460687950)**   
+* **[将SpringBoot工程快速迁移至基于Custom Runtime运行的云函数](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-serverless-springboot-cloudfunction-0000001502518310)**   

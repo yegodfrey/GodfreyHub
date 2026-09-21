@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-r
 
 # 礼包
 
-* [直达礼包](https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-runtime-direct-gifts-kit-0000002318054684)  
+* **[直达礼包](https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-runtime-direct-gifts-kit-0000002318054684)**   

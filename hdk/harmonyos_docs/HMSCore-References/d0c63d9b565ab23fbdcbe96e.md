@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/navittstype
 |:----------------------------------------------|
 |public class NaviTTSType 导航播报优先级类型，标识值越小，优先级越高。|
 
-#### Public Field Summary
+## Public Field Summary
 
 |Qualifier and Type|Field and Description|Value|
 |:----------------------|:------------------------------------------------------------------------------------|:----|
@@ -55,243 +55,243 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/navittstype
 |public static final int|[NAVIINFO_PRIORITY_LEVEL_BUS_LANE](#section2940565409) 优先级BUS_LANE:公交车道诱导点。|220|
 |public static final int|[NAVIINFO_PRIORITY_LEVEL_NULL](#section84361019126) 最低优先级。|1000|
 
-#### Public Fields
+## Public Fields
 
-#### NAVIINFO_PRIORITY_LEVEL_E0_TURNING
+### NAVIINFO_PRIORITY_LEVEL_E0_TURNING
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_E0_TURNING 机动点前E0播报（不满足E1距离）。 NAVIINFO_PRIORITY_LEVEL_E0_TURNING：0，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_TURNING
+### NAVIINFO_PRIORITY_LEVEL_TURNING
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_TURNING 机动点前最后一个转向播报即E1播报。 NAVIINFO_PRIORITY_LEVEL_TURNING：1，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_TWO_TURNING
+### NAVIINFO_PRIORITY_LEVEL_TWO_TURNING
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_TWO_TURNING 机动点前两次转向播报即E2播报。 NAVIINFO_PRIORITY_LEVEL_TWO_TURNING：2，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_THREE_TURNING
+### NAVIINFO_PRIORITY_LEVEL_THREE_TURNING
 
 |Fields|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_THREE_TURNING 机动点前三次转向播报即E3播报。 NAVIINFO_PRIORITY_LEVEL_THREE_TURNING：3，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_FIRST
+### NAVIINFO_PRIORITY_LEVEL_FIRST
 
 |Fields|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_FIRST 机动点前第一个转向播报即B1播报。 NAVIINFO_PRIORITY_LEVEL_FIRST：4，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_STRONG_FORWARD
+### NAVIINFO_PRIORITY_LEVEL_STRONG_FORWARD
 
 |Fields|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_STRONG_FORWARD 强顺行播报。 NAVIINFO_PRIORITY_LEVEL_STRONG_FORWARD：5，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_START
+### NAVIINFO_PRIORITY_LEVEL_START
 
 |Fields|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_START 开始导航。 NAVIINFO_PRIORITY_LEVEL_START：6，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_END
+### NAVIINFO_PRIORITY_LEVEL_END
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_END 结束导航。 NAVIINFO_PRIORITY_LEVEL_END：7，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_ROUTE_RECOMMEND
+### NAVIINFO_PRIORITY_LEVEL_ROUTE_RECOMMEND
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_ROUTE_RECOMMEND 更优路线。 NAVIINFO_PRIORITY_LEVEL_ROUTE_RECOMMEND：8，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### GUIDE_PRIORITY_LEVEL_OVER_SPEED_NOTICE
+### GUIDE_PRIORITY_LEVEL_OVER_SPEED_NOTICE
 
 |Fields|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int GUIDE_PRIORITY_LEVEL_OVER_SPEED_NOTICE 超速播报。 GUIDE_PRIORITY_LEVEL_OVER_SPEED_NOTICE：9，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_PASSIVE_YAW
+### NAVIINFO_PRIORITY_LEVEL_PASSIVE_YAW
 
 |Fields|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_PASSIVE_YAW 偏航播报。 NAVIINFO_PRIORITY_LEVEL_PASSIVE_YAW：10，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_INNER_TUNNEL_FORK
+### NAVIINFO_PRIORITY_LEVEL_INNER_TUNNEL_FORK
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_INNER_TUNNEL_FORK 隧道内分歧。 NAVIINFO_PRIORITY_LEVEL_INNER_TUNNEL_FORK：11，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_AFTER_TUNNEL
+### NAVIINFO_PRIORITY_LEVEL_AFTER_TUNNEL
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_AFTER_TUNNEL 隧道后分歧或八方向。 NAVIINFO_PRIORITY_LEVEL_AFTER_TUNNEL：12，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_MANUALLY_REFRESH_REMIND
+### NAVIINFO_PRIORITY_LEVEL_MANUALLY_REFRESH_REMIND
 
 |Fields|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_MANUALLY_REFRESH_REMIND 提醒用户手动刷新路线。 NAVIINFO_PRIORITY_LEVEL_MANUALLY_REFRESH_REMIND：13，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_SELF_IMPORT_ROAD
+### NAVIINFO_PRIORITY_LEVEL_SELF_IMPORT_ROAD
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_SELF_IMPORT_ROAD 汇入提示点：汇入主路。 NAVIINFO_PRIORITY_LEVEL_SELF_IMPORT_ROAD：98，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_OTHER_IMPORT_ROAD
+### NAVIINFO_PRIORITY_LEVEL_OTHER_IMPORT_ROAD
 
 |Fields|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_OTHER_IMPORT_ROAD 汇入提示点：有车辆汇入主路。 NAVIINFO_PRIORITY_LEVEL_OTHER_IMPORT_ROAD：99，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_GPS_WEAK
+### NAVIINFO_PRIORITY_LEVEL_GPS_WEAK
 
 |Fields|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_GPS_WEAK GPS信号弱。 NAVIINFO_PRIORITY_LEVEL_GPS_WEAK：100，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_TRAFFIC_JAM
+### NAVIINFO_PRIORITY_LEVEL_TRAFFIC_JAM
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_TRAFFIC_JAM 事件点拥堵播报。 NAVIINFO_PRIORITY_LEVEL_TRAFFIC_JAM：101，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_TRAFFIC_INCIDENT
+### NAVIINFO_PRIORITY_LEVEL_TRAFFIC_INCIDENT
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_TRAFFIC_INCIDENT 路况事件播报。 NAVIINFO_PRIORITY_LEVEL_TRAFFIC_INCIDENT：102，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_SD_PLUS_GUIDE
+### NAVIINFO_PRIORITY_LEVEL_SD_PLUS_GUIDE
 
 |Fields|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_SD_PLUS_GUIDE 进入车道级引导大图事件播报。 NAVIINFO_PRIORITY_LEVEL_SD_PLUS_GUIDE：103，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_INDUCE_RAILWAY
+### NAVIINFO_PRIORITY_LEVEL_INDUCE_RAILWAY
 
 |Fields|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_INDUCE_RAILWAY 铁道口诱导点。 NAVIINFO_PRIORITY_LEVEL_INDUCE_RAILWAY：190，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_SPEED_BUMP
+### NAVIINFO_PRIORITY_LEVEL_SPEED_BUMP
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_SPEED_BUMP 减速带。 NAVIINFO_PRIORITY_LEVEL_SPEED_BUMP：199，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_TOLL_STATION
+### NAVIINFO_PRIORITY_LEVEL_TOLL_STATION
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_TOLL_STATION 诱导点收费站播报。 NAVIINFO_PRIORITY_LEVEL_TOLL_STATION：200，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_TUNNEL
+### NAVIINFO_PRIORITY_LEVEL_TUNNEL
 
 |Fields|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_TUNNEL 诱导点隧道播报。 NAVIINFO_PRIORITY_LEVEL_TUNNEL：201，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_SERVICE_AREA
+### NAVIINFO_PRIORITY_LEVEL_SERVICE_AREA
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_SERVICE_AREA 诱导点服务区播报。 NAVIINFO_PRIORITY_LEVEL_SERVICE_AREA：202，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_SPEED_LIMIT
+### NAVIINFO_PRIORITY_LEVEL_SPEED_LIMIT
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_SPEED_LIMIT 诱导点限速播报。 NAVIINFO_PRIORITY_LEVEL_SPEED_LIMIT：203，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_SHARP_TURN
+### NAVIINFO_PRIORITY_LEVEL_SHARP_TURN
 
 |Fields|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_SHARP_TURN 诱导点急转弯播报。 NAVIINFO_PRIORITY_LEVEL_SHARP_TURN：204，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_LONG_LINE
+### NAVIINFO_PRIORITY_LEVEL_LONG_LINE
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_LONG_LINE 长实线诱导点播报。 NAVIINFO_PRIORITY_LEVEL_LONG_LINE：205，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_RED_LIGHT_CAM
+### NAVIINFO_PRIORITY_LEVEL_RED_LIGHT_CAM
 
 |Fields|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_RED_LIGHT_CAM 闯红灯拍照。 NAVIINFO_PRIORITY_LEVEL_RED_LIGHT_CAM：206，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_RESTRICTION_CAM
+### NAVIINFO_PRIORITY_LEVEL_RESTRICTION_CAM
 
 |Fields|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_RESTRICTION_CAM 违章拍照。 NAVIINFO_PRIORITY_LEVEL_RESTRICTION_CAM：207，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_DANGER_ZONE
+### NAVIINFO_PRIORITY_LEVEL_DANGER_ZONE
 
 |Fields|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_DANGER_ZONE 事故多发地段诱导点播报。 NAVIINFO_PRIORITY_LEVEL_DANGER_ZONE：208，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_MERGE_CAM
+### NAVIINFO_PRIORITY_LEVEL_MERGE_CAM
 
 |Fields|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_MERGE_CAM 违章拍照合并。 NAVIINFO_PRIORITY_LEVEL_MERGE_CAM：209，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_INDUCE_BRIDGE
+### NAVIINFO_PRIORITY_LEVEL_INDUCE_BRIDGE
 
 |Fields|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_INDUCE_BRIDGE 桥梁诱导点。 NAVIINFO_PRIORITY_LEVEL_INDUCE_BRIDGE：210，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_LONG_DOWNHILL
+### NAVIINFO_PRIORITY_LEVEL_LONG_DOWNHILL
 
 |Fields|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_LONG_DOWNHILL 长下坡诱导点播报。 NAVIINFO_PRIORITY_LEVEL_LONG_DOWNHILL：211，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_CONTINUOUS_DOWNHILL
+### NAVIINFO_PRIORITY_LEVEL_CONTINUOUS_DOWNHILL
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_CONTINUOUS_DOWNHILL 连续下坡诱导点播报。 NAVIINFO_PRIORITY_LEVEL_CONTINUOUS_DOWNHILL：212，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_NARROW
+### NAVIINFO_PRIORITY_LEVEL_NARROW
 
 |Fields|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_NARROW 道路变窄或窄桥。 NAVIINFO_PRIORITY_LEVEL_NARROW：213，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_INDUCE_AREA_BOUNDARY
+### NAVIINFO_PRIORITY_LEVEL_INDUCE_AREA_BOUNDARY
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_INDUCE_AREA_BOUNDARY 行政边界。 NAVIINFO_PRIORITY_LEVEL_INDUCE_AREA_BOUNDARY：215，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_EIGHT_DIR_GUIDE
+### NAVIINFO_PRIORITY_LEVEL_EIGHT_DIR_GUIDE
 
 |Fields|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_EIGHT_DIR_GUIDE 八方向诱导点。 NAVIINFO_PRIORITY_LEVEL_EIGHT_DIR_GUIDE：216，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_BUS_LANE
+### NAVIINFO_PRIORITY_LEVEL_BUS_LANE
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int NAVIINFO_PRIORITY_LEVEL_BUS_LANE 公交车道诱导点。 NAVIINFO_PRIORITY_LEVEL_BUS_LANE：220，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section2301925101316)。|
 
-#### NAVIINFO_PRIORITY_LEVEL_NULL
+### NAVIINFO_PRIORITY_LEVEL_NULL
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

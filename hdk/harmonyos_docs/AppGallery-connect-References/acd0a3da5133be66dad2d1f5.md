@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:-----------------------------------------------------------|
 |export interface RtmConnectionChangedNotify RTM连接状态变化回调通知对象。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Description|
 |:-----|:-----|:-----------------------|

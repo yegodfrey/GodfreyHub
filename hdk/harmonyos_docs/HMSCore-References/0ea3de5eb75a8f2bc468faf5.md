@@ -10,13 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/handlerinfo
 |:----------------------------------|
 |public class HandlerInfo 路线规划上下文信息。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:-----------------------------------------------------------|
 |[HandlerInfo](#section33770915211)() HandlerInfo类初始化数据的构造方法。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -31,131 +31,131 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/handlerinfo
 |void|[setRoutingRequestFavoriteParam](#section9852205219184)([RoutingRequestFavoriteParam](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/routingrequestfavoriteparam-0000001258098839) routeRequestFavoriteParam) 设置收藏路线信息。|
 |void|[setMapNaviRoutingTip](#section20333144184012)([MapNaviRoutingTip](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/mapnavroutingtip-0000001257195647) mapNaviRoutingTip) 设置路线规划成功后的提示信息。|
 
-#### Public Constructors
+## Public Constructors
 
-#### HandlerInfo
+### HandlerInfo
 
 |Constructor|
 |:--------------------------------------|
 |public HandlerInfo() 构建一个HandlerInfo实例。|
 
-#### Public Methods
+## Public Methods
 
-#### setTaskId
+### setTaskId
 
 |Method|
 |:---------------------------------------------------|
 |public void setTaskId(String taskId) 设置路线规划上下文信息的Id。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------|
 |taskId|路线规划的Id。|
 
-#### setStartTime
+### setStartTime
 
 |Method|
 |:---------------------------------------------------|
 |public void setStartTime(long startTime) 设置路线规划开始时间。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------|:----------|
 |startTime|开始时间。|
 
-#### setRouteChange
+### setRouteChange
 
 |Method|
 |:-------------------------------------------------------------------------------|
 |public void setRouteChange(boolean routeChange) 路线切换参数，请求引导数据时使用，路线切换的时候设置成true。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----------|:---------------------|
 |routeChange|路线切换参数，路线切换的时候设置成true。|
 
-#### setResult
+### setResult
 
 |Method|
 |:-----------------------------------------------|
 |public void setResult(Object result) 设置路线规划信息结果。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------|
 |result|设置路线规划信息结果。|
 
-#### setErrorCode
+### setErrorCode
 
 |Method|
 |:---------------------------------------------------|
 |public void setErrorCode(int errorCode) 设置路线规划信息错误码。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------|:----------|
 |errorCode|路线规划信息错误码。|
 
-#### setErrorInfo
+### setErrorInfo
 
 |Method|
 |:-----------------------------------------------------|
 |public void setErrorInfo(String errorInfo) 设置路线规划错误信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------|:----------|
 |errorInfo|设置路线规划错误信息。|
 
-#### setRequestId
+### setRequestId
 
 |Method|
 |:-------------------------------------------------------|
 |public void setRequestId(String requestId) 设置路线规划信息请求Id。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------|:----------|
 |requestId|路线规划信息请求Id。|
 
-#### setRoutePlanOptSrc
+### setRoutePlanOptSrc
 
 |Method|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setRoutePlanOptSrc([RoutePlanOptSrc](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/routeplanoptsrc-0000001213657930) routePlanOptSrc) 设置路线规划信息来源。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------------|:----------|
 |routePlanOptSrc|路线规划信息来源。|
 
-#### setRoutingRequestFavoriteParam
+### setRoutingRequestFavoriteParam
 
 |Method|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setRoutingRequestFavoriteParam([RoutingRequestFavoriteParam](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/routingrequestfavoriteparam-0000001258098839) routeRequestFavoriteParam) 设置收藏路线信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------------------------|:----------|
 |routeRequestFavoriteParam|收藏路线信息。|
 
-#### setMapNaviRoutingTip
+### setMapNaviRoutingTip
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setMapNaviRoutingTip([MapNaviRoutingTip](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/mapnavroutingtip-0000001257195647) mapNaviRoutingTip) 设置路线规划成功后的提示信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----------------|:------------|

@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-
 
 # 专用RangeLookup
 
-#### RangeLookup声明
+## RangeLookup声明
 
 ValueLookup提供了范围查询的接口，但是面对频繁查询的场景，PGD提供了更高效的RangeLookup组件。
 
-默认情况下，实现ILookup\<T\>的组件使用标准的ValueLookup，但对于需要频繁进行范围查询的组件，可以通过ComponentLookupAttribute指定专用的RangeLookup。
+默认情况下，实现ILookup<T>的组件使用标准的ValueLookup，但对于需要频繁进行范围查询的组件，可以通过ComponentLookupAttribute指定专用的RangeLookup。
 
-```
+```screen
 using Pgd;
 using Pgd.Lookup;
 
@@ -56,7 +56,7 @@ public struct Score : ILookup<float>
 }
 ```
 
-#### RangeLookup vs ValueLookup对比
+## RangeLookup vs ValueLookup对比
 
 |特性|ValueLookup|RangeLookup|
 |:-------------|:-----------------|:---------------|
@@ -68,18 +68,18 @@ public struct Score : ILookup<float>
 |内存开销|中等(需排序缓冲区)|较高|
 |适用场景|偶尔范围查询|频繁范围查询|
 
-#### ValueLookup范围查询机制
+### ValueLookup范围查询机制
 
-* 首次查询：将Dictionary的键复制到缓冲区并排序(O(n log n))，然后执行二分查找
-* 后续查询：如果索引未修改，直接使用已排序的缓冲区执行二分查找(O(log n + k))
-* 索引修改后：重新标记modified = true，下次查询时重新排序  
+* **首次查询**：将Dictionary的键复制到缓冲区并排序(O(n log n))，然后执行二分查找
+* **后续查询**：如果索引未修改，直接使用已排序的缓冲区执行二分查找(O(log n + k))
+* **索引修改后**：重新标记modified = true，下次查询时重新排序
 
-#### 选择RangeLookup或ValueLookup
+### 选择RangeLookup或ValueLookup
 
-* ValueLookup：适合偶尔进行范围查询的场景，首次查询有排序成本，但后续查询很快。
-* RangeLookup：适合频繁范围查询的场景，始终保持有序状态，避免重复排序开销。
+* **ValueLookup**：适合偶尔进行范围查询的场景，首次查询有排序成本，但后续查询很快。
+* **RangeLookup**：适合频繁范围查询的场景，始终保持有序状态，避免重复排序开销。
 
-```
+```screen
 // 性能对比示例
 public void LookupPerformanceComparison(IECSWorld world)
 {
@@ -111,11 +111,11 @@ public void LookupPerformanceComparison(IECSWorld world)
 }
 ```
 
-#### 自定义比较类型
+## 自定义比较类型
 
 自定义类型需要实现IComparable接口才能使用范围查询功能。
 
-```
+```screen
 // 自定义可比较的版本号结构
 public struct Version : IComparable<Version>
 {

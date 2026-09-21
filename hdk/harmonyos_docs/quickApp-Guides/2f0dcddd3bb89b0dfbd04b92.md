@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 # 超链接组件
 
-#### 简介
+## 简介
 
 超链接组件，主要用于在快应用内复制url，打开新网页。
 
@@ -22,7 +22,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 基本布局代码如下：
 
-```
+```screen
 <import name="link" src="./Link/link.ux"></import>
 <template>
   <div class="container">
@@ -35,13 +35,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 </template>
 ```
 
-#### 开发指引
+## 开发指引
 
-#### 自定义子组件
+### 自定义子组件
 
 1. 定义布局样式。 链接内容部分由text+a组件嵌套实现。
 
-   ```
+   ```screen
    <template>
      <text class="text" style="color: {{textcolor}};font-size:{{fontsize}};" onlongpress="onlongpress()">
        <a href="{{href}}" style="text-decoration:{{showunderline?'underline':''}};" value="{{text}}"></a>
@@ -59,18 +59,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
    |textcolor|String|-|链接文字颜色。|
    |fontsize|String|50|链接文字大小。|
 
-   支持的事件：  
+   支持的事件：
 
    |事件名称|参数|描述|
    |:----------|:-|:-----------|
    |onlongpress|-|长按超链接时触发的事件。|
 
-#### 父子组件通信
+### 父子组件通信
 
 1. 父组件给子组件传递数据：
    1. 子组件通过在props定义参数，接收来自父组件的传值数据。
 
-      ```
+      ```screen
       props: {
           href: {
               type: String,
@@ -97,7 +97,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
    2. 父组件给子组件传值，如果是布尔值，需要在data中定义，而不能直接在组件中定义。
 
-      ```
+      ```screen
       data: {
         textcolor:'red',
         showunderline: true,
@@ -110,7 +110,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 2. 子组件给父组件传递数据和方法。
    1. 子组件中定义超链接长按事件onlongpress()，通过this.$emit方法携带handlelongclick事件及参数通知父组件，处理是否已经复制链接的逻辑。
 
-      ```
+      ```screen
       onlongpress() {
           var that = this
           let copytext = this.href
@@ -136,13 +136,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
    2. 父组件中绑定handlelongclick事件，接收子组件传入的参数。
 
-      ```
+      ```screen
       <div class="link-view">
          <link href="https://huawei.com"  text={{text}} @handlelongclick="handlelongclick"> </link>
       </div>
       ```
 
-      ```
+      ```screen
       handlelongclick(e) {
         console.log(JSON.stringify(e));
         let checked = e.detail.checked;
@@ -159,11 +159,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
       }
       ```
 
-#### 示例代码
+## 示例代码
 
 超链接link.ux代码：
 
-```
+```screen
 <template>
   <text class="text" style="color: {{textcolor}};font-size:{{fontsize}};" onlongpress="onlongpress()">
     <a href="{{href}}" style="text-decoration:{{showunderline?'underline':''}};" value="{{text}}"></a>
@@ -234,7 +234,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 页面hello.ux代码：
 
-```
+```screen
 <import name="link" src="./Link/link.ux"></import>
 <template>
   <div class="container">

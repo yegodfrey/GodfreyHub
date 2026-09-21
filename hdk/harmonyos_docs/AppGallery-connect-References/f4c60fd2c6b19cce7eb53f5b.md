@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:------------------------------------|
 |export enum ConnectionStatus RTM连接状态。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum Value and Description|
 |:-------------------------|

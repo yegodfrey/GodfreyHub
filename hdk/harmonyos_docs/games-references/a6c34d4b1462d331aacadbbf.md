@@ -6,31 +6,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/gamemme-obtai
 
 # 获取Token（团队级）
 
-#### 功能介绍
+## 功能介绍
 
-创建完API客户端后，您需要在您的服务器中编写一段调用此接口的代码来获取Access Token，然后在调用服务端相关API时可携带该Access Token进行身份验证。  
+创建完API客户端后，您需要在您的服务器中编写一段调用此接口的代码来获取Access Token，然后在调用服务端相关API时可携带该Access Token进行身份验证。
 
-#### 使用约束
+## 使用约束
 
-请参见[创建API客户端](https://developer.huawei.com/consumer/cn/doc/games-guides/games-appendix-api-client-0000002304729552)提前获取用于生成Token的客户端ID和密钥。  
+请参见[创建API客户端](https://developer.huawei.com/consumer/cn/doc/games-guides/games-appendix-api-client-0000002304729552)提前获取用于生成Token的客户端ID和密钥。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS POST|
-|接口方向|开发者服务器 -\> 华为服务器|
+|-----|-------------------------------------------------------------------|
+|接口方向|开发者服务器 -> 华为服务器|
 |接口URL|https://connect-api.cloud.huawei.com/api/oauth2/v1/token|
 |数据格式|请求：Content-Type: application/json 响应：Content-Type: application/json|
-|-----|-------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-#### Request Header
+### Request Header
 
 |参数名称|必选（M）/可选（O）|类型|参数说明|
 |:-----------|:----------|:-----|:--------------------|
 |Content-Type|M|String|取值为：application/json。|
 
-#### Request Body
+### Request Body
 
 |参数名称|必选(M)/可选(O)|数据类型|参数说明|
 |:------------|:----------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------|
@@ -38,9 +38,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/gamemme-obtai
 |client_id|M|String(256)|客户端ID，即[创建API客户端](https://developer.huawei.com/consumer/cn/doc/games-guides/games-appendix-api-client-0000002304729552)中生成的"客户端ID"。|
 |client_secret|M|String(2048)|客户端密钥，即[创建API客户端](https://developer.huawei.com/consumer/cn/doc/games-guides/games-appendix-api-client-0000002304729552)中生成的"密钥"。|
 
-#### 请求示例
+## 请求示例
 
-```
+```screen
 POST https://connect-api.cloud.huawei.com/api/oauth2/v1/token
 Content-Type: application/json
 
@@ -51,26 +51,26 @@ Content-Type: application/json
 }
 ```
 
-#### 响应参数
+## 响应参数
 
-返回值为JSON格式的字符串，包含参数如下。  
+返回值为JSON格式的字符串，包含参数如下。
 
 |参数名称|必选(M)/可选(O)|数据类型|参数说明|
-|:---------------------------------------------------|:----------|:----------|:-------------------------------------------------------------------------------------------------------------------------------|
+|:---------------------------------------------------|:----------|:----------|:----------------------------------------------------------------------------------------------------------------------------------|
 |access_token|O|String|认证Token，用于AppGallery Connect API接口调用。此参数只在获取成功时返回。|
-|expires_in|O|Long|access_token的有效期，单位：秒。此参数只在获取成功时返回。 说明： 有效期最长为48小时，如果在有效期内再次调用接口获取access_token时，新老access_token都是有效的。过期后需重新调用本接口获取新的access_token。|
-|[ret](#ZH-CN_TOPIC_0000002358963836__p1170913233715)|O|String(100)|包含错误码及描述信息的JSON字符串，格式为{"code":retcode, "msg": "description"}。|
+|expires_in|O|Long|access_token的有效期，单位：秒。此参数只在获取成功时返回。 > 说明 > 有效期最长为48小时，如果在有效期内再次调用接口获取access_token时，新老access_token都是有效的。过期后需重新调用本接口获取新的access_token。|
+|[ret](#ZH-CN_TOPIC_0000002358963836__p1170913233715)|O|String(100)|包含错误码及描述信息的JSON字符串，格式为{"code":*retcode* , "msg": "*description*"}。|
 
-ret参数说明  
+**ret参数说明**
 
 |参数名称|必选（M）/可选（O）|类型|参数说明|
 |:---|:----------|:------|:-------------------------------------------------------------------------------------------------------------|
 |code|M|Integer|错误码。 * 203886599：客户端ID的类型不匹配。 * 203890688：客户端ID或密钥错误。 * 203890729：非法服务代码。 * 203890736：服务已过期。 * 203890740：未知错误。|
 |msg|O|String|描述信息。|
 
-#### 响应示例
+## 响应示例
 
-```
+```screen
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 {
@@ -79,9 +79,9 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-#### 调用示例
+## 调用示例
 
-```
+```screen
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;

@@ -6,33 +6,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-t
 
 # @ohos.telephony.data (蜂窝数据)
 
-蜂窝数据提供了移动数据管理能力，包括获取默认移动数据的SIM卡、获取蜂窝数据业务的上下行数据流状态、蜂窝数据业务链路连接状态，以及检查蜂窝数据业务和漫游是否启用等。  
-![](https://media:401788445505217299)  
-本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。  
+> phone 12+ | tablet 12+ | wearable 18+
 
-#### 导入模块
+蜂窝数据提供了移动数据管理能力，包括获取默认移动数据的SIM卡、获取蜂窝数据业务的上下行数据流状态、蜂窝数据业务链路连接状态，以及检查蜂窝数据业务和漫游是否启用等。
+> 说明
+>
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-```
+## 导入模块
+
+```ts
 import { data } from '@kit.TelephonyKit';
 ```
 
-#### data.getDefaultCellularDataSlotId
+## data.getDefaultCellularDataSlotId
 
-getDefaultCellularDataSlotId(callback: AsyncCallback\<number\>): void
+getDefaultCellularDataSlotId(callback: AsyncCallback<number>): void
 
 获取默认移动数据的SIM卡，使用callback方式作为异步方法。
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------|:-|:--------------------------------------------------------------------|
-|callback|AsyncCallback\<number\>|是|以callback形式异步返回结果。 - 0：卡槽1。 - 1：卡槽2。 - 2：esim和天际通场景下，默认移动数据的slotId为2。|
+|:-------|:--------------------|:-|:--------------------------------------------------------------------|
+|callback|AsyncCallback<number>|是|以callback形式异步返回结果。 - 0：卡槽1。 - 1：卡槽2。 - 2：esim和天际通场景下，默认移动数据的slotId为2。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -45,23 +48,23 @@ data.getDefaultCellularDataSlotId((err: BusinessError, contextData: number) => {
 });
 ```
 
-#### data.getDefaultCellularDataSlotId
+## data.getDefaultCellularDataSlotId
 
-getDefaultCellularDataSlotId(): Promise\<number\>
+getDefaultCellularDataSlotId(): Promise<number>
 
 获取默认移动数据的SIM卡，使用Promise方式作为异步方法。
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:----------------------------------------------------------------------------|
-|Promise\<number\>|以Promise形式返回获取默认移动数据的SIM卡。 - 0：卡槽1。 - 1：卡槽2。 - 2：esim和天际通场景下，默认移动数据的slotId为2。|
+|:--------------|:----------------------------------------------------------------------------|
+|Promise<number>|以Promise形式返回获取默认移动数据的SIM卡。 - 0：卡槽1。 - 1：卡槽2。 - 2：esim和天际通场景下，默认移动数据的slotId为2。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -72,55 +75,55 @@ data.getDefaultCellularDataSlotId().then((contextData: number) => {
 });
 ```
 
-#### data.getDefaultCellularDataSlotIdSync^9+^
+## data.getDefaultCellularDataSlotIdSync^9+^
 
 getDefaultCellularDataSlotIdSync(): number
 
 获取默认移动数据的SIM卡。
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:----------------------------------------------------------------|
 |number|获取默认移动数据的SIM卡。 - 0：卡槽1。 - 1：卡槽2。 - 2：esim和天际通场景下，默认移动数据的slotId为2。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 
 console.info("Result: "+ data.getDefaultCellularDataSlotIdSync())
 ```
 
-#### data.getCellularDataFlowType
+## data.getCellularDataFlowType
 
-getCellularDataFlowType(callback: AsyncCallback\<DataFlowType\>): void
+getCellularDataFlowType(callback: AsyncCallback<DataFlowType>): void
 
 获取蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头），使用callback方式作为异步方法。
 
-需要权限：ohos.permission.GET_NETWORK_INFO
+**需要权限**：ohos.permission.GET_NETWORK_INFO
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------------------------------------|:-|:-----------------|
-|callback|AsyncCallback\<[DataFlowType](#dataflowtype)\>|是|以callback形式异步返回结果。|
+|:-------|:-------------------------------------------|:-|:-----------------|
+|callback|AsyncCallback<[DataFlowType](#dataflowtype)>|是|以callback形式异步返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
 |错误码ID|错误信息|
 |:----|:--------------------------|
 |201|Permission denied. 适用版本：22+|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -133,33 +136,33 @@ data.getCellularDataFlowType((err: BusinessError, contextData: data.DataFlowType
 });
 ```
 
-#### data.getCellularDataFlowType
+## data.getCellularDataFlowType
 
-getCellularDataFlowType(): Promise\<DataFlowType\>
+getCellularDataFlowType(): Promise<DataFlowType>
 
 获取蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头），使用Promise方式作为异步方法。
 
-需要权限：ohos.permission.GET_NETWORK_INFO
+**需要权限**：ohos.permission.GET_NETWORK_INFO
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:---------------------------------------|:-------------------------------------|
-|Promise\<[DataFlowType](#dataflowtype)\>|以Promise形式返回蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头）。|
+|:-------------------------------------|:-------------------------------------|
+|Promise<[DataFlowType](#dataflowtype)>|以Promise形式返回蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头）。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
 |错误码ID|错误信息|
 |:----|:--------------------------|
 |201|Permission denied. 适用版本：22+|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -170,36 +173,36 @@ data.getCellularDataFlowType().then((contextData: data.DataFlowType) => {
 });
 ```
 
-#### data.getCellularDataState
+## data.getCellularDataState
 
-getCellularDataState(callback: AsyncCallback\<DataConnectState\>): void
+getCellularDataState(callback: AsyncCallback<DataConnectState>): void
 
 获取蜂窝数据业务的连接状态，使用callback方式作为异步方法。
 
-需要权限：
+**需要权限**：
 
 * API版本22之前：N/A
 * API版本22+：ohos.permission.GET_NETWORK_INFO
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------------------------|:-|:-----------------|
-|callback|AsyncCallback\<[DataConnectState](#dataconnectstate)\>|是|以callback形式异步返回结果。|
+|:-------|:---------------------------------------------------|:-|:-----------------|
+|callback|AsyncCallback<[DataConnectState](#dataconnectstate)>|是|以callback形式异步返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
 |错误码ID|错误信息|
 |:----|:--------------------------|
 |201|Permission denied. 适用版本：22+|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -212,36 +215,36 @@ data.getCellularDataState((err: BusinessError, contextData: data.DataConnectStat
 });
 ```
 
-#### data.getCellularDataState
+## data.getCellularDataState
 
-getCellularDataState(): Promise\<DataConnectState\>
+getCellularDataState(): Promise<DataConnectState>
 
 获取蜂窝数据业务的连接状态，使用Promise方式作为异步方法。
 
-需要权限：
+**需要权限**：
 
 * API版本22之前：N/A
 * API版本22+：ohos.permission.GET_NETWORK_INFO
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------------------------------------|:----------------------|
-|Promise\<[DataConnectState](#dataconnectstate)\>|以Promise形式返回获取PS域的连接状态。|
+|:---------------------------------------------|:----------------------|
+|Promise<[DataConnectState](#dataconnectstate)>|以Promise形式返回获取PS域的连接状态。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
 |错误码ID|错误信息|
 |:----|:--------------------------|
 |201|Permission denied. 适用版本：22+|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -252,25 +255,25 @@ data.getCellularDataState().then((contextData: data.DataConnectState) => {
 });
 ```
 
-#### data.isCellularDataEnabled
+## data.isCellularDataEnabled
 
-isCellularDataEnabled(callback: AsyncCallback\<boolean\>): void
+isCellularDataEnabled(callback: AsyncCallback<boolean>): void
 
 检查蜂窝数据业务是否启用，使用callback方式作为异步方法。
 
-需要权限：ohos.permission.GET_NETWORK_INFO
+**需要权限**：ohos.permission.GET_NETWORK_INFO
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:--------------------------------------------------|
-|callback|AsyncCallback\<boolean\>|是|以callback形式异步返回结果。 true：蜂窝数据业务已启用。 false：蜂窝数据业务已禁用。|
+|:-------|:---------------------|:-|:--------------------------------------------------|
+|callback|AsyncCallback<boolean>|是|以callback形式异步返回结果。 true：蜂窝数据业务已启用。 false：蜂窝数据业务已禁用。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
 |错误码ID|错误信息|
 |:------|:------------------------------------------------------------------------------------------------------------|
@@ -281,9 +284,9 @@ isCellularDataEnabled(callback: AsyncCallback\<boolean\>): void
 |8300003|System internal error.|
 |8300999|Unknown error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -296,25 +299,25 @@ data.isCellularDataEnabled((err: BusinessError, contextData: boolean) => {
 });
 ```
 
-#### data.isCellularDataEnabled
+## data.isCellularDataEnabled
 
-isCellularDataEnabled(): Promise\<boolean\>
+isCellularDataEnabled(): Promise<boolean>
 
 检查蜂窝数据业务是否启用，使用Promise方式作为异步方法。
 
-需要权限：ohos.permission.GET_NETWORK_INFO
+**需要权限**：ohos.permission.GET_NETWORK_INFO
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:---------------------------------------------------------|
-|Promise\<boolean\>|以Promise形式返回检查蜂窝数据业务是否启用。 true：蜂窝数据业务已启用。 false：蜂窝数据业务已禁用。|
+|:---------------|:---------------------------------------------------------|
+|Promise<boolean>|以Promise形式返回检查蜂窝数据业务是否启用。 true：蜂窝数据业务已启用。 false：蜂窝数据业务已禁用。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
 |错误码ID|错误信息|
 |:------|:-------------------------|
@@ -323,9 +326,9 @@ isCellularDataEnabled(): Promise\<boolean\>
 |8300003|System internal error.|
 |8300999|Unknown error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -336,25 +339,25 @@ data.isCellularDataEnabled().then((contextData: boolean) => {
 });
 ```
 
-#### data.isCellularDataEnabledSync^12+^
+## data.isCellularDataEnabledSync^12+^
 
 isCellularDataEnabledSync(): boolean
 
 检查蜂窝数据业务是否启用，调用此API返回结果。
 
-需要权限：ohos.permission.GET_NETWORK_INFO
+**需要权限**：ohos.permission.GET_NETWORK_INFO
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------|:-------------------------------------------------|
 |boolean|用来返回检查蜂窝数据业务是否启用。 true：蜂窝数据业务已启用。 false：蜂窝数据业务已禁用。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
 |错误码ID|错误信息|
 |:------|:-------------------------------------------|
@@ -363,9 +366,9 @@ isCellularDataEnabledSync(): boolean
 |8300003|System internal error.|
 |8300999|Unknown error code.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 
 try {
@@ -376,26 +379,26 @@ try {
 }
 ```
 
-#### data.isCellularDataRoamingEnabled
+## data.isCellularDataRoamingEnabled
 
-isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback\<boolean\>): void
+isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback<boolean>): void
 
 检查蜂窝数据业务是否启用漫游，使用callback方式作为异步方法。
 
-需要权限：ohos.permission.GET_NETWORK_INFO
+**需要权限**：ohos.permission.GET_NETWORK_INFO
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------|:-|:------------------------------------------------------|
+|:-------|:---------------------|:-|:------------------------------------------------------|
 |slotId|number|是|卡槽ID。 - 0：卡槽1。 - 1：卡槽2。|
-|callback|AsyncCallback\<boolean\>|是|以callback形式异步返回结果。 true：蜂窝数据业务已启用漫游。 false：蜂窝数据业务已禁用漫游。|
+|callback|AsyncCallback<boolean>|是|以callback形式异步返回结果。 true：蜂窝数据业务已启用漫游。 false：蜂窝数据业务已禁用漫游。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
 |错误码ID|错误信息|
 |:------|:------------------------------------------------------------------------------------------------------------|
@@ -406,9 +409,9 @@ isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback\<boolean\>)
 |8300003|System internal error.|
 |8300999|Unknown error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -421,31 +424,31 @@ data.isCellularDataRoamingEnabled(0, (err: BusinessError, contextData: boolean) 
 });
 ```
 
-#### data.isCellularDataRoamingEnabled
+## data.isCellularDataRoamingEnabled
 
-isCellularDataRoamingEnabled(slotId: number): Promise\<boolean\>
+isCellularDataRoamingEnabled(slotId: number): Promise<boolean>
 
 检查蜂窝数据业务是否启用漫游，使用Promise方式作为异步方法。
 
-需要权限：ohos.permission.GET_NETWORK_INFO
+**需要权限**：ohos.permission.GET_NETWORK_INFO
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------------------|
 |slotId|number|是|卡槽ID。 - 0：卡槽1。 - 1：卡槽2。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:---------------------------------------------------------------|
-|Promise\<boolean\>|以Promise形式返回检查蜂窝数据业务是否启用漫游。 true：蜂窝数据业务已启用漫游。 false：蜂窝数据业务已禁用漫游。|
+|:---------------|:---------------------------------------------------------------|
+|Promise<boolean>|以Promise形式返回检查蜂窝数据业务是否启用漫游。 true：蜂窝数据业务已启用漫游。 false：蜂窝数据业务已禁用漫游。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
 |错误码ID|错误信息|
 |:------|:------------------------------------------------------------------------------------------------------------|
@@ -456,9 +459,9 @@ isCellularDataRoamingEnabled(slotId: number): Promise\<boolean\>
 |8300003|System internal error.|
 |8300999|Unknown error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -469,31 +472,31 @@ data.isCellularDataRoamingEnabled(0).then((contextData: boolean) => {
 });
 ```
 
-#### data.isCellularDataRoamingEnabledSync^12+^
+## data.isCellularDataRoamingEnabledSync^12+^
 
 isCellularDataRoamingEnabledSync(slotId: number): boolean
 
 检查蜂窝数据业务是否启用漫游，调用此API返回结果。
 
-需要权限：ohos.permission.GET_NETWORK_INFO
+**需要权限**：ohos.permission.GET_NETWORK_INFO
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:----------------------|
 |slotId|number|是|卡槽ID。 - 0：卡槽1。 - 1：卡槽2。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------|:-------------------------------------------------------|
 |boolean|用来返回检查蜂窝数据业务是否启用漫游。 true：蜂窝数据业务已启用漫游。 false：蜂窝数据业务已禁用漫游。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
 |错误码ID|错误信息|
 |:------|:------------------------------------------------------------------------------------------------------------|
@@ -504,9 +507,9 @@ isCellularDataRoamingEnabledSync(slotId: number): boolean
 |8300003|System internal error.|
 |8300999|Unknown error code.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 
 try {
@@ -517,55 +520,55 @@ try {
 }
 ```
 
-#### data.getDefaultCellularDataSimId^10+^
+## data.getDefaultCellularDataSimId^10+^
 
 getDefaultCellularDataSimId(): number
 
 获取默认移动数据的SIM卡ID。
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:-----------------------------------------------------------------------------------------------------------------|
 |number|获取默认移动数据的SIM卡ID。 与SIM卡绑定，从1开始递增。 - 0：无SIM卡。 - 9999：esim场景下，默认移动数据的SIM卡ID为9999。 - 99999：天际通场景下，默认移动数据的SIM卡ID为99999。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 
 console.info("Result: "+ data.getDefaultCellularDataSimId());
 ```
 
-#### data.queryAllApns^16+^
+## data.queryAllApns^16+^
 
-queryAllApns(): Promise\<Array\<ApnInfo\>\>
+queryAllApns(): Promise<Array<ApnInfo>>
 
 异步获取默认移动数据的SIM卡的APN（access point name，接入点名称）信息。
 
-需要权限：ohos.permission.MANAGE_APN_SETTING（该权限是受限开放权限，仅需要连接移动数据专网进行办公时可以申请该权限，权限介绍参见[权限定义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionmanage_apn_setting)）
+**需要权限** ：ohos.permission.MANAGE_APN_SETTING（该权限是受限开放权限，仅需要连接移动数据专网进行办公时可以申请该权限，权限介绍参见[权限定义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionmanage_apn_setting)）
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------------------------------|:-------------------------------|
-|Promise\<Array\<[ApnInfo](#apninfo16)\>\>|Promise对象，返回默认移动数据的SIM卡的APN信息列表。|
+|:------------------------------------|:-------------------------------|
+|Promise<Array<[ApnInfo](#apninfo16)>>|Promise对象，返回默认移动数据的SIM卡的APN信息列表。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
 |错误码ID|错误信息|
 |:----|:-----------------|
 |201|Permission denied.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -576,39 +579,39 @@ data.queryAllApns().then((apnInfos: Array<data.ApnInfo>) => {
 });
 ```
 
-#### data.queryApnIds^16+^
+## data.queryApnIds^16+^
 
-queryApnIds(apnInfo: ApnInfo): Promise\<Array\<number\>\>
+queryApnIds(apnInfo: ApnInfo): Promise<Array<number>>
 
 异步获取传入的ApnInfo对应的ApnId信息。
 
-需要权限：ohos.permission.MANAGE_APN_SETTING（该权限是受限开放权限，仅需要连接移动数据专网进行办公室可以申请该权限，权限介绍参见[权限定义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionmanage_apn_setting)）
+**需要权限** ：ohos.permission.MANAGE_APN_SETTING（该权限是受限开放权限，仅需要连接移动数据专网进行办公室可以申请该权限，权限介绍参见[权限定义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionmanage_apn_setting)）
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------|:-|:---------|
 |apnInfo|[ApnInfo](#apninfo16)|是|要查询的APN参数。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------|:----------------------------------|
-|Promise\<Array\<number\>\>|Promise对象，返回传入的ApnInfo对应的ApnId信息列表。|
+|:---------------------|:----------------------------------|
+|Promise<Array<number>>|Promise对象，返回传入的ApnInfo对应的ApnId信息列表。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
 |错误码ID|错误信息|
 |:----|:-----------------|
 |201|Permission denied.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -627,9 +630,9 @@ data.queryApnIds(apnInfo).then((apnIds: Array<number>) => {
 });
 ```
 
-#### data.setPreferredApn^16+^
+## data.setPreferredApn^16+^
 
-setPreferredApn(apnId: number): Promise\<boolean\>
+setPreferredApn(apnId: number): Promise<boolean>
 
 异步设置apnId对应的APN为首选APN。
 
@@ -637,33 +640,33 @@ setPreferredApn(apnId: number): Promise\<boolean\>
 
 如果传入的apnId为无效的apnId，切回运营商默认配置的优选Apn。
 
-需要权限：ohos.permission.MANAGE_APN_SETTING（该权限是受限开放权限，仅需要连接移动数据专网进行办公室可以申请该权限，权限介绍参见[权限定义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionmanage_apn_setting)）
+**需要权限** ：ohos.permission.MANAGE_APN_SETTING（该权限是受限开放权限，仅需要连接移动数据专网进行办公室可以申请该权限，权限介绍参见[权限定义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionmanage_apn_setting)）
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-----|:-|:-------------------------------------------------|
 |apnId|number|是|要设置的apnId，可以通过[queryApnIds](#dataqueryapnids16)查询。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:-------------------------------|
-|Promise\<boolean\>|Promise对象，返回设置的结果，在未插卡时会返回false。|
+|:---------------|:-------------------------------|
+|Promise<boolean>|Promise对象，返回设置的结果，在未插卡时会返回false。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
 |错误码ID|错误信息|
 |:----|:-----------------|
 |201|Permission denied.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -675,33 +678,33 @@ data.setPreferredApn(apnId).then((result: boolean) => {
 });
 ```
 
-#### data.getActiveApnName^20+^
+## data.getActiveApnName^20+^
 
-getActiveApnName(): Promise\<string\>
+getActiveApnName(): Promise<string>
 
 异步获取默认移动数据SIM卡对应的处于激活状态的数据业务APN（access point name，接入点名称）name信息，若不处于激活状态，返回为空字符串。
 
-需要权限：ohos.permission.GET_NETWORK_INFO
+**需要权限**：ohos.permission.GET_NETWORK_INFO
 
-系统能力：SystemCapability.Telephony.CellularData
+**系统能力**：SystemCapability.Telephony.CellularData
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:----------------------------------------------|
-|Promise\<string\>|Promise对象，返回默认移动数据SIM卡对应的处于激活状态的数据业务APN name信息。|
+|:--------------|:----------------------------------------------|
+|Promise<string>|Promise对象，返回默认移动数据SIM卡对应的处于激活状态的数据业务APN name信息。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
 |错误码ID|错误信息|
 |:----|:-----------------|
 |201|Permission denied.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -712,41 +715,43 @@ data.getActiveApnName().then((apn: string) => {
 });
 ```
 
-#### data.showSystemApnSettings
+## data.showSystemApnSettings
 
-showSystemApnSettings(context: Context): Promise\<void\>
+showSystemApnSettings(context: Context): Promise<void>
 
-打开当前默认移动数据卡对应的APN配置界面。使用Promise异步回调。  
-![](https://media:401788445505351300)  
-* 该接口仅支持查看和选择当前已添加的通用APN，不支持新建或修改。
+打开当前默认移动数据卡对应的APN配置界面。使用Promise异步回调。
+> 说明
+>
+> * 该接口仅支持查看和选择当前已添加的通用APN，不支持新建或修改。
+>
+> * 若未插入SIM卡或设备不支持APN配置，将无法打开该配置界面。
 
-* 若未插入SIM卡或设备不支持APN配置，将无法打开该配置界面。
+**起始版本**：26.0.0
 
-起始版本：26.0.0
+**系统能力**：SystemCapability.Telephony.CellularData
 
-系统能力：SystemCapability.Telephony.CellularData
+**模型约束**：此接口仅可在Stage模型下使用。
 
-模型约束：此接口仅可在Stage模型下使用。
+**设备行为差异**：该接口在Phone、Tablet中可正常调用，在其他设备类型中调用不生效。
 
-设备行为差异：该接口在Phone、Tablet中可正常调用，在其他设备类型中调用不生效。
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:-------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------|
 |context|[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)|是|Stage模型的应用上下文（仅支持UIAbilityContext和ExtensionContext）。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:-------------------------|
-|Promise\<void\>|Promise对象。无返回结果的Promise对象。|
+|:------------|:-------------------------|
+|Promise<void>|Promise对象。无返回结果的Promise对象。|
 
-示例：  
-![](https://media:401788445505387301)  
-在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需在页面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+**示例：**
+> 说明
+>
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需在页面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 
-```
+```ts
 import { data } from '@kit.TelephonyKit';
 import { common } from '@kit.AbilityKit';
 
@@ -758,11 +763,11 @@ data.showSystemApnSettings(context).then(() => {
 });
 ```
 
-#### DataFlowType
+## DataFlowType
 
 描述蜂窝数据流类型。
 
-系统能力：SystemCapability.Telephony.CellularData  
+**系统能力**：SystemCapability.Telephony.CellularData
 
 |名称|值|说明|
 |:---------------------|:-|:--------------------|
@@ -772,11 +777,11 @@ data.showSystemApnSettings(context).then(() => {
 |DATA_FLOW_TYPE_UP_DOWN|3|表示有上下行数据。|
 |DATA_FLOW_TYPE_DORMANT|4|表示没有上下行数据，底层链路处于休眠状态。|
 
-#### DataConnectState
+## DataConnectState
 
 描述蜂窝数据链路连接状态。
 
-系统能力：SystemCapability.Telephony.CellularData  
+**系统能力**：SystemCapability.Telephony.CellularData
 
 |名称|值|说明|
 |:----------------------|:-|:------------|
@@ -786,11 +791,11 @@ data.showSystemApnSettings(context).then(() => {
 |DATA_STATE_CONNECTED|2|表示蜂窝数据链路已连接。|
 |DATA_STATE_SUSPENDED|3|表示蜂窝数据链路被挂起。|
 
-#### ApnInfo^16+^
+## ApnInfo^16+^
 
 APN信息。
 
-系统能力：SystemCapability.Telephony.CellularData  
+**系统能力**：SystemCapability.Telephony.CellularData
 
 |名称|类型|只读|可选|说明|
 |:-------|:-----|:-|:-|:--------|

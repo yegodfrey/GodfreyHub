@@ -6,59 +6,57 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/apidiff-600
 
 # 6.0.0(20) Beta3引入的API
 
-<br />
-
-* [Ability Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-abilitykit-6003)  
-* [Accessibility Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-accessibilitykit-6003)  
-* [Account Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-accountkit-6003)  
-* [Agent Framework Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-agentframeworkkit-6003)  
-* [AppGallery Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-appgallerykit-6003)  
-* [ArkData](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkdata-6003)  
-* [ArkGraphics 2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkgraphics2d-6003)  
-* [ArkGraphics 3D](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkgraphics3d-6003)  
-* [ArkTS](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkts-6003)  
-* [ArkUI](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkui-6003)  
-* [ArkWeb](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkweb-6003)  
-* [Audio Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-audiokit-6003)  
-* [AVSession Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-avsessionkit-6003)  
-* [Background Tasks Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-backgroundtaskskit-6003)  
-* [Basic Services Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-basicserviceskit-6003)  
-* [Calendar Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-calendarkit-6003)  
-* [Camera Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-camerakit-6003)  
-* [Connectivity Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-connectivitykit-6003)  
-* [Core File Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-corefilekit-6003)  
-* [Data Augmentation Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-dataaugmentationkit-6003)  
-* [Desktop Extension Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-desktopextensionkit-6003)  
-* [Device Certificate Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-devicecertificatekit-6003)  
-* [Device Security Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-devicesecuritykit-6003)  
-* [Distributed Service Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-distributedservicekit-6003)  
-* [Enterprise Data Guard Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-enterprisedataguardkit-6003)  
-* [Enterprise Space Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-enterprisespacekit-6003)  
-* [Form Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-formkit-6003)  
-* [Game Service Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-gameservicekit-6003)  
-* [IAP Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-iapkit-6003)  
-* [Image Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-imagekit-6003)  
-* [IME Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-imekit-6003)  
-* [Input Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-inputkit-6003)  
-* [Live View Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-liveviewkit-6003)  
-* [Localization Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-localizationkit-6003)  
-* [Location Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-locationkit-6003)  
-* [Map Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mapkit-6003)  
-* [MDM Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mdmkit-6003)  
-* [Media Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mediakit-6003)  
-* [Media Library Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-medialibrarykit-6003)  
-* [Network Boost Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-networkboostkit-6003)  
-* [Network Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-networkkit-6003)  
-* [Notification Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-notificationkit-6003)  
-* [Online Authentication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-onlineauthenticationkit-6003)  
-* [Payment Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-paymentkit-6003)  
-* [Performance Analysis Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-performanceanalysiskit-6003)  
-* [Push Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-pushkit-6003)  
-* [Remote Communication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-remotecommunicationkit-6003)  
-* [Scenario Fusion Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-scenariofusionkit-6003)  
-* [Service Collaboration Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-servicecollaborationkit-6003)  
-* [Share Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-sharekit-6003)  
-* [Test Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-testkit-6003)  
-* [UI Design Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-uidesignkit-6003)  
-* [Universal Keystore Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-universalkeystorekit-6003)  
-* [User Authentication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-userauthenticationkit-6003)  
+* **[Ability Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-abilitykit-6003)**   
+* **[Accessibility Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-accessibilitykit-6003)**   
+* **[Account Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-accountkit-6003)**   
+* **[Agent Framework Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-agentframeworkkit-6003)**   
+* **[AppGallery Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-appgallerykit-6003)**   
+* **[ArkData](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkdata-6003)**   
+* **[ArkGraphics 2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkgraphics2d-6003)**   
+* **[ArkGraphics 3D](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkgraphics3d-6003)**   
+* **[ArkTS](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkts-6003)**   
+* **[ArkUI](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkui-6003)**   
+* **[ArkWeb](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkweb-6003)**   
+* **[Audio Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-audiokit-6003)**   
+* **[AVSession Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-avsessionkit-6003)**   
+* **[Background Tasks Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-backgroundtaskskit-6003)**   
+* **[Basic Services Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-basicserviceskit-6003)**   
+* **[Calendar Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-calendarkit-6003)**   
+* **[Camera Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-camerakit-6003)**   
+* **[Connectivity Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-connectivitykit-6003)**   
+* **[Core File Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-corefilekit-6003)**   
+* **[Data Augmentation Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-dataaugmentationkit-6003)**   
+* **[Desktop Extension Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-desktopextensionkit-6003)**   
+* **[Device Certificate Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-devicecertificatekit-6003)**   
+* **[Device Security Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-devicesecuritykit-6003)**   
+* **[Distributed Service Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-distributedservicekit-6003)**   
+* **[Enterprise Data Guard Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-enterprisedataguardkit-6003)**   
+* **[Enterprise Space Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-enterprisespacekit-6003)**   
+* **[Form Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-formkit-6003)**   
+* **[Game Service Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-gameservicekit-6003)**   
+* **[IAP Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-iapkit-6003)**   
+* **[Image Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-imagekit-6003)**   
+* **[IME Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-imekit-6003)**   
+* **[Input Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-inputkit-6003)**   
+* **[Live View Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-liveviewkit-6003)**   
+* **[Localization Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-localizationkit-6003)**   
+* **[Location Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-locationkit-6003)**   
+* **[Map Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mapkit-6003)**   
+* **[MDM Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mdmkit-6003)**   
+* **[Media Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mediakit-6003)**   
+* **[Media Library Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-medialibrarykit-6003)**   
+* **[Network Boost Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-networkboostkit-6003)**   
+* **[Network Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-networkkit-6003)**   
+* **[Notification Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-notificationkit-6003)**   
+* **[Online Authentication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-onlineauthenticationkit-6003)**   
+* **[Payment Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-paymentkit-6003)**   
+* **[Performance Analysis Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-performanceanalysiskit-6003)**   
+* **[Push Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-pushkit-6003)**   
+* **[Remote Communication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-remotecommunicationkit-6003)**   
+* **[Scenario Fusion Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-scenariofusionkit-6003)**   
+* **[Service Collaboration Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-servicecollaborationkit-6003)**   
+* **[Share Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-sharekit-6003)**   
+* **[Test Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-testkit-6003)**   
+* **[UI Design Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-uidesignkit-6003)**   
+* **[Universal Keystore Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-universalkeystorekit-6003)**   
+* **[User Authentication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-userauthenticationkit-6003)**   

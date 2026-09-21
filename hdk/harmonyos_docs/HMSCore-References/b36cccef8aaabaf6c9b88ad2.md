@@ -6,6 +6,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/client-api-
 
 # Android
 
-* [com.huawei.hms.location](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/com-huawei-hms-location-0000001050986177)  
-* [Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001050746179)  
-* [错误码](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/error-code-0000001050992067)  
+* **[com.huawei.hms.location](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/com-huawei-hms-location-0000001050986177)**   
+* **[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001050746179)**   
+* **[错误码](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/error-code-0000001050992067)**   

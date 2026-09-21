@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/pathtype-00
 |:-----------------------------|
 |public class PathType 路线解释常量类。|
 
-#### Public Field Summary
+## Public Field Summary
 
 |Qualifier and Type|Field and Description|Value|
 |:----------------------|:-------------------------------------------------------------------------|:-----|
@@ -32,105 +32,105 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/pathtype-00
 |public static final int|[ROUTE_CROSS_PASS_AREA](#section1016418422358) 需要通行证。|131072|
 |public static final int|[ROUTE_AVOID_RESTRICTION](#section12219327364) 已为您避开限行。|262144|
 
-#### Public Fields
+## Public Fields
 
-#### ROUTE_CROSS_RESTRICTROAD
+### ROUTE_CROSS_RESTRICTROAD
 
 |Fields|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_CROSS_RESTRICTROAD 此路段包含私家/限制用途。 ROUTE_CROSS_RESTRICTROAD：1，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_DST_INRESTRICTAREA
+### ROUTE_DST_INRESTRICTAREA
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_DST_INRESTRICTAREA 终点在限制区域。 ROUTE_DST_INRESTRICTAREA：2，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_CROSS_COUNTRY
+### ROUTE_CROSS_COUNTRY
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_CROSS_COUNTRY 跨越国境线。 ROUTE_CROSS_COUNTRY：4，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_CROSS_MULTICOUNTRY
+### ROUTE_CROSS_MULTICOUNTRY
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_CROSS_MULTICOUNTRY 跨越多条国境线。 ROUTE_CROSS_MULTICOUNTRY：8，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_CROSS_ROUGHROAD
+### ROUTE_CROSS_ROUGHROAD
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_CROSS_ROUGHROAD 此路段经过崎岖道路。 ROUTE_CROSS_ROUGHROAD：16，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_CROSS_DIFFTIMEZONE
+### ROUTE_CROSS_DIFFTIMEZONE
 
 |Fields|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_CROSS_DIFFTIMEZONE 目的地在不同时区。 ROUTE_CROSS_DIFFTIMEZONE：32，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_CROSS_FERRY
+### ROUTE_CROSS_FERRY
 
 |Fields|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_CROSS_FERRY 途径轮渡。 ROUTE_CROSS_FERRY：64，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_CROSS_TRAFFICLIGHT
+### ROUTE_CROSS_TRAFFICLIGHT
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_CROSS_TRAFFICLIGHT 包含红绿灯。 ROUTE_CROSS_TRAFFICLIGHT：128，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_CROSS_TOLLGATE
+### ROUTE_CROSS_TOLLGATE
 
 |Fields|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_CROSS_TOLLGATE 此路段含有收费站。 ROUTE_CROSS_TOLLGATE：256，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_CROSS_STAIRS
+### ROUTE_CROSS_STAIRS
 
 |Fields|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_CROSS_STAIRS 此路段包含楼梯。 ROUTE_CROSS_STAIRS：512，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_LINK_RESTRICTION
+### ROUTE_LINK_RESTRICTION
 
 |Fields|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_LINK_RESTRICTION 此路段包含link_restriction。 ROUTE_LINK_RESTRICTION：1024，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_BLOCK_RESTRICTION
+### ROUTE_BLOCK_RESTRICTION
 
 |Fields|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_BLOCK_RESTRICTION 此路段包含包含block_restriction。 ROUTE_BLOCK_RESTRICTION：2048，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_MANEUVER_RESTRICTION
+### ROUTE_MANEUVER_RESTRICTION
 
 |Fields|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_MANEUVER_RESTRICTION 此路段包含maneuver_restriction。 ROUTE_MANEUVER_RESTRICTION：4096，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_RESTRICTION
+### ROUTE_RESTRICTION
 
 |Fields|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_RESTRICTION 此路段包含限行。 ROUTE_RESTRICTION：8192，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_CROSS_RESIDENT
+### ROUTE_CROSS_RESIDENT
 
 |Fields|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_CROSS_RESIDENT 此路段仅居民车通行。 ROUTE_CROSS_RESIDENT：65536，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_CROSS_PASS_AREA
+### ROUTE_CROSS_PASS_AREA
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static final int ROUTE_CROSS_PASS_AREA 需要通行证。 ROUTE_CROSS_PASS_AREA：131072，其余常量值参阅：[Constant-values](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001280465745#section4943154465210)。|
 
-#### ROUTE_AVOID_RESTRICTION
+### ROUTE_AVOID_RESTRICTION
 
 |Fields|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

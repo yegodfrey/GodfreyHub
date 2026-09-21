@@ -6,25 +6,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avsc
 
 # OH_VideoInfo
 
-```
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
+```c
 typedef struct OH_VideoInfo {...} OH_VideoInfo
 ```
 
-#### 概述
+## 概述
 
 视频信息。
 
 用于配置屏幕录制时的视频采集参数和编码参数。该结构体包含视频采集参数（如分辨率、采集格式等）和视频编码参数，适用于需要自定义屏幕录制视频输出参数的场景。开发者根据实际需求配置相关参数后，在调用屏幕录制相关接口时使用。
 
-起始版本： 10
+**起始版本：** 10
 
-相关模块： [AVScreenCapture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture)
+**相关模块：** [AVScreenCapture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture)
 
-所在头文件： [native_avscreen_capture_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-base-h)  
+**所在头文件：** [native_avscreen_capture_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-base-h)
 
-#### 汇总
+## 汇总
 
-#### 成员变量
+### 成员变量
 
 |名称|描述|
 |:---------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|

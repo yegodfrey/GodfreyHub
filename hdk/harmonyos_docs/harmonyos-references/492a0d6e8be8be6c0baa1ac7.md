@@ -6,33 +6,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 # circle
 
-![](https://media:401788445398471963)  
-该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-圆形形状。  
+> 说明
+>
+> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-#### 权限列表
+圆形形状。
 
-无  
+## 权限列表
 
-#### 子组件
+无
 
-支持[animate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animate)、[animateMotion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatemotion)、[animateTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatetransform)。  
+## 子组件
 
-#### 属性
+支持[animate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animate)、[animateMotion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatemotion)、[animateTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatetransform)。
 
-支持Svg组件[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-common-attributes)和以下属性。  
+## 属性
+
+支持Svg组件[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-common-attributes)和以下属性。
 
 |名称|类型|默认值|必填|描述|
-|:-|:-------------------------|:--|:-|:----------------|
+|:-|:--------------------|:--|:-|:----------------|
 |id|string|-|否|组件的唯一标识。|
-|cx|\<length\>\|\<percentage\>|0|否|设置圆心的x轴坐标。支持属性动画。|
-|cy|\<length\>\|\<percentage\>|0|否|设置圆心的y轴坐标。支持属性动画。|
-|r|\<length\>\|\<percentage\>|0|否|设置圆的半径。支持属性动画。|
+|cx|<length>|<percentage>|0|否|设置圆心的x轴坐标。支持属性动画。|
+|cy|<length>|<percentage>|0|否|设置圆心的y轴坐标。支持属性动画。|
+|r|<length>|<percentage>|0|否|设置圆的半径。支持属性动画。|
 
-#### 示例
+## 示例
 
-```
+```html
 <!-- xxx.hml -->
 <div class="container">
   <svg fill="white" width="400" height="400">
@@ -42,4 +45,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 </div>
 ```
 
-![](https://media:401788445398574964)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/Gs2a6I2bQG-mI0dXNX0BMw/zh-cn_image_0000002762996257.png?HW-CC-KV=V1&HW-CC-Date=20260917T084648Z&HW-CC-Expire=31536000000&HW-CC-Sign=CEFF3618C267D02782887A687917354BA1CE0970AB2A8742999B50434E234FCC)
+

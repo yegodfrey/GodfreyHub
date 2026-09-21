@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/js-framework-
 
 # 文件组织
 
-#### 目录结构
+## 目录结构
 
 JS FA应用的JS模块（entry/src/main/js/module）的典型开发目录结构如下：
 
-图1 目录结构
+**图1** 目录结构
 
-![](https://media:401788444458446603)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/zZ56cNd2RHWfaxwxEGP8HQ/zh-cn_image_0000002733434172.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=E8EB899C00986EDD572ABAFF6EE0F0A095DE480375E97C61B6B55A55A230CB89)
 
-图2 [多实例](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/pageability-launch-type)资源共享目录结构
+**图2** [多实例](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/pageability-launch-type)资源共享目录结构
 
-![](https://media:401788444458473604)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/yiht4WFvSOGQA938Pm9mEA/zh-cn_image_0000002762993693.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=C4C97062160BAC8F6E788A1ABA0962FD65E4A1AED4A366961F731212E9832306)
 
 目录结构中文件分类如下：
 
@@ -38,16 +38,17 @@ JS FA应用的JS模块（entry/src/main/js/module）的典型开发目录结构�
 
 * share目录用于配置多个实例共享的资源内容，比如：share中的图片和JSON文件可被default1和default2实例共享。
 
-![](https://media:401788444458503605)  
-* i18n和resources文件夹不可重命名。
+> 说明
+>
+> * i18n和resources文件夹不可重命名。
+>
+> * 如果share目录中的资源和实例(default)中的资源文件同名且目录一致时，实例中资源的优先级高于share中资源的优先级。
+>
+> * share目录当前不支持i18n。
+>
+> * 在使用DevEco Studio进行应用开发时，目录结构中的可选文件夹需要开发者根据实际情况自行创建。
 
-* 如果share目录中的资源和实例(default)中的资源文件同名且目录一致时，实例中资源的优先级高于share中资源的优先级。
-
-* share目录当前不支持i18n。
-
-* 在使用DevEco Studio进行应用开发时，目录结构中的可选文件夹需要开发者根据实际情况自行创建。
-
-#### 文件访问规则
+## 文件访问规则
 
 应用资源可通过绝对路径或相对路径的方式进行访问，绝对路径以"/"开头，相对路径以"./"或"../"。具体访问规则如下：
 
@@ -57,20 +58,21 @@ JS FA应用的JS模块（entry/src/main/js/module）的典型开发目录结构�
 
 * 公共代码文件和资源文件推荐放在common下，通过以上两条规则进行访问。
 
-* CSS样式文件中通过url()函数创建\<url\>数据类型，如：url(/common/xxx.png)。
+* CSS样式文件中通过url()函数创建<url>数据类型，如：url(/common/xxx.png)。
 
-![](https://media:401788444458730606)  
-当代码文件A需要引用代码文件B时：
+> 说明
+>
+> 当代码文件A需要引用代码文件B时：
+>
+> * 如果代码文件A和文件B位于同一目录，则代码文件B引用资源文件时可使用相对路径，也可使用绝对路径。
+>
+> * 如果代码文件A和文件B位于不同目录，则代码文件B引用资源文件时必须使用绝对路径。因为Webpack打包时，代码文件B的目录会发生变化。
+>
+> * 在js文件中通过数据绑定的方式指定资源文件路径时，必须使用绝对路径。
 
-* 如果代码文件A和文件B位于同一目录，则代码文件B引用资源文件时可使用相对路径，也可使用绝对路径。
+## 媒体文件格式
 
-* 如果代码文件A和文件B位于不同目录，则代码文件B引用资源文件时必须使用绝对路径。因为Webpack打包时，代码文件B的目录会发生变化。
-
-* 在js文件中通过数据绑定的方式指定资源文件路径时，必须使用绝对路径。
-
-#### 媒体文件格式
-
-表1 支持的图片格式  
+**表1** 支持的图片格式
 
 |格式|支持的文件类型|
 |:---|:------|
@@ -80,7 +82,7 @@ JS FA应用的JS模块（entry/src/main/js/module）的典型开发目录结构�
 |PNG|.png|
 |WebP|.webp|
 
-表2 支持的视频格式  
+**表2** 支持的视频格式
 
 |格式|支持的文件类型|
 |:--------------------|:------|

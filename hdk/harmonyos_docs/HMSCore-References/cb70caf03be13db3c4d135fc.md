@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/harmonyos-m
 
 # Overview
 
-地图服务SDK的模型类。  
+地图服务SDK的模型类。
 
-#### Interface Summary
+## Interface Summary
 
 |Interface|Description|
 |:----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[TileProvider](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/harmonyos-tileprovider-0000001206790328)|为[TileOverlay](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/harmonyos-tileoverlay-0000001207110294)提供瓦片图像。 调用这个接口的方法可能会存在多线程，所以实现时注意线程安全。|
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:----------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -6,6 +6,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securi
 
 # 安全控件通用属性
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 安全控件通用属性模块，提供安全控件的布局、尺寸、文字、图标、颜色、边框和交互等通用属性的统一配置能力。
 
 该模块主要用于以下场景：
@@ -14,351 +16,352 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securi
 * 在满足安全控件规范的前提下，调整安全控件显示效果和交互体验。具体约束请参见[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。
 * 通过链式调用方式复用安全控件通用属性能力。
 
-![](https://media:401788445066143242)  
-该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。  
+> 说明
+>
+> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-#### 关键Class/Interface介绍
+## 关键Class/Interface介绍
 
-#### 核心枚举类型
+### 核心枚举类型
 
-* [SecurityComponentLayoutDirection](#securitycomponentlayoutdirection)： 安全控件图标和文字排列方向枚举，用于指定横向或纵向布局。
-* [ButtonType](#buttontype)： 安全控件按钮样式枚举，用于指定胶囊、圆形、圆角矩形或普通按钮样式。  
+* **[SecurityComponentLayoutDirection](#securitycomponentlayoutdirection)：** 安全控件图标和文字排列方向枚举，用于指定横向或纵向布局。
+* **[ButtonType](#buttontype)：** 安全控件按钮样式枚举，用于指定胶囊、圆形、圆角矩形或普通按钮样式。
 
-#### 核心接口类型
+### 核心接口类型
 
-* SecurityComponentMethod\<T\>： 安全控件通用属性方法集合，用于为具体安全控件配置布局、尺寸、文字、图标、颜色、边框和交互属性。  
+* **SecurityComponentMethod<T>：** 安全控件通用属性方法集合，用于为具体安全控件配置布局、尺寸、文字、图标、颜色、边框和交互属性。
 
-#### iconSize
+## iconSize
 
 iconSize(value: Dimension): T
 
 设置安全控件图标的尺寸。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------|
 |value|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)|是|安全控件上图标的尺寸。未显式指定单位时，单位为vp。 默认值：16vp。 该参数不支持百分比字符串。 若传入异常值或无效单位，属性不生效，控件按照默认值显示。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### layoutDirection
+## layoutDirection
 
 layoutDirection(value: SecurityComponentLayoutDirection): T
 
 设置安全控件图标和文字分布的方向。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------|:-|:----------------------------------------------------------------|
 |value|[SecurityComponentLayoutDirection](#securitycomponentlayoutdirection)|是|安全控件上图标和文字分布的方向。 默认值：SecurityComponentLayoutDirection.HORIZONTAL。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### position
+## position
 
 position(value: Position): T
 
 设置绝对定位，即安全控件的左上角相对于父容器左上角的偏移位置。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:----------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------------------------------|
 |value|[Position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#position)|是|安全控件左上角相对于父容器左上角的偏移位置。适用于通过绝对定位将安全控件放置到页面固定区域的场景。 未显式指定单位时，单位为vp。 x和y建议均传入数值型坐标。 若参数为undefined、null，或x、y为非数字类型时，该属性不生效，异常坐标会按0处理。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### markAnchor
+## markAnchor
 
 markAnchor(value: Position): T
 
 设置安全控件在位置定位时的锚点，以控件左上角作为基准点进行偏移。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:----------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------|
 |value|[Position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#position)|是|安全控件在位置定位时的锚点，以控件左上角作为基准点进行偏移。通常与position()、offset()配合使用，用于更精细地设置控件展示位置。 未显式指定单位时，单位为vp。 无默认值。 传入异常值时该属性不生效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### offset
+## offset
 
-offset(value: Position \| Edges \| LocalizedEdges): T
+offset(value: Position | Edges | LocalizedEdges): T
 
 设置安全控件相对于自身布局位置的坐标偏移。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------|
-|value|[Position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#position) \| [Edges^12+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#edges12) \| [LocalizedEdges^12+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#localizededges12)|是|安全控件相对于自身布局位置的坐标偏移。设置后不会影响父容器布局，仅在绘制阶段调整控件显示位置。 未显式指定单位时，单位为vp。 无默认值。 当入参异常时，该属性不生效。|
+|:----|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------|
+|value|[Position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#position) | [Edges^12+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#edges12) | [LocalizedEdges^12+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#localizededges12)|是|安全控件相对于自身布局位置的坐标偏移。设置后不会影响父容器布局，仅在绘制阶段调整控件显示位置。 未显式指定单位时，单位为vp。 无默认值。 当入参异常时，该属性不生效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### fontSize
+## fontSize
 
 fontSize(value: Dimension): T
 
 设置安全控件文字的尺寸。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:--------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|value|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)|是|安全控件上文字的尺寸。未显式指定单位时，单位为fp。 默认值：$r('sys.float.ohos_id_text_size_button1')。 该参数不支持百分比字符串。 设置异常值时该属性不生效。 说明： 安全控件文本未完全显示时，点击不授权。fontSize的设置会影响文本是否能完整显示，进而影响安全控件的授权行为。|
+|:----|:--------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|value|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)|是|安全控件上文字的尺寸。未显式指定单位时，单位为fp。 默认值：$r('sys.float.ohos_id_text_size_button1')。 该参数不支持百分比字符串。 设置异常值时该属性不生效。 **说明：** 安全控件文本未完全显示时，点击不授权。fontSize的设置会影响文本是否能完整显示，进而影响安全控件的授权行为。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### fontStyle
+## fontStyle
 
 fontStyle(value: FontStyle): T
 
 设置安全控件文字的样式。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:---------------------------------------------------------------------------------------------------------|:-|:--------------------------------|
 |value|[FontStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontstyle)|是|安全控件上文字的样式。 默认值：FontStyle.Normal。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### fontWeight
+## fontWeight
 
-fontWeight(value: number \| FontWeight \| string \| Resource): T
+fontWeight(value: number | FontWeight | string | Resource): T
 
 设置安全控件文字的粗细。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|value|number \| [FontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontweight) \| string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)^20+^|是|安全控件上文字粗细。 number类型取值\[100, 900\]，取值间隔为100，取值越大，字体越粗。 string类型支持使用数字字符串（如'400'），以及FontWeight中的枚举值对应的字符串（如'bold'、'bolder'、'lighter'、'regular'、'medium'）。 从API version 20开始，支持Resource类型。Resource类型仅支持'integer'和'string'。类型为'integer'时，取值参考前述number类型；类型为'string'时，取值参考前述string类型。 如果控件未设置fontWeight，文字粗细将默认设置为FontWeight.Medium。value入参为undefined、null，或number类型不在\[100, 900\]范围内，或string类型不符合FontWeight枚举值对应的字符串格式时，文字粗细将被设置为FontWeight.Normal。|
+|:----|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|value|number | [FontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontweight) | string | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)^20+^|是|安全控件上文字粗细。 number类型取值[100, 900]，取值间隔为100，取值越大，字体越粗。 string类型支持使用数字字符串（如'400'），以及FontWeight中的枚举值对应的字符串（如'bold'、'bolder'、'lighter'、'regular'、'medium'）。 从API version 20开始，支持Resource类型。Resource类型仅支持'integer'和'string'。类型为'integer'时，取值参考前述number类型；类型为'string'时，取值参考前述string类型。 如果控件未设置fontWeight，文字粗细将默认设置为FontWeight.Medium。value入参为undefined、null，或number类型不在[100, 900]范围内，或string类型不符合FontWeight枚举值对应的字符串格式时，文字粗细将被设置为FontWeight.Normal。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### fontFamily
+## fontFamily
 
-fontFamily(value: string \| Resource): T
+fontFamily(value: string | Resource): T
 
 设置安全控件文字的字体。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:--------------------------------------------------------------------------------------------------------|:-|:---------------------------------|
-|value|string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|安全控件上文字的字体。 默认字体：'HarmonyOS Sans'。|
+|:----|:-------------------------------------------------------------------------------------------------------|:-|:---------------------------------|
+|value|string | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|安全控件上文字的字体。 默认字体：'HarmonyOS Sans'。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### fontColor
+## fontColor
 
 fontColor(value: ResourceColor): T
 
 设置安全控件文字的颜色。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------|
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|安全控件上文字的颜色。 默认值：$r('sys.color.font_on_primary')。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### iconColor
+## iconColor
 
 iconColor(value: ResourceColor): T
 
 设置安全控件图标的颜色。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------|
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|安全控件上图标的颜色。 默认值：$r('sys.color.icon_on_primary')。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### backgroundColor
+## backgroundColor
 
 backgroundColor(value: ResourceColor): T
 
 设置安全控件的背景颜色。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------|
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|安全控件的背景颜色。安全控件按钮背景色高八位的α值低于0x1a（例如0x1800ff00）时，会被系统强制调整为0xff，以确保安全控件具有足够的可见性，防止因控件过于透明导致用户在不知情的情况下触发授权。 默认值：$r('sys.color.icon_emphasize')。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### borderStyle
+## borderStyle
 
 borderStyle(value: BorderStyle): T
 
 设置安全控件边框的样式。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-------------------------------------------------------------------------------------------------------------|:-|:--------------------|
 |value|[BorderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#borderstyle)|是|安全控件边框的样式。 默认不设置边框样式。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### borderWidth
+## borderWidth
 
 borderWidth(value: Dimension): T
 
 设置安全控件的边框宽度。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------|
 |value|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)|是|安全控件的边框宽度。 默认值：0vp。未显式指定单位时，单位为vp。 不支持设置百分比字符串。设置异常值时该属性不生效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### borderColor
+## borderColor
 
 borderColor(value: ResourceColor): T
 
 设置安全控件的边框颜色。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------------|:-|:--------------------|
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|安全控件的边框颜色。 默认不设置边框颜色。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### borderRadius
+## borderRadius
 
 borderRadius(value: Dimension): T
 
@@ -366,340 +369,340 @@ borderRadius(value: Dimension): T
 
 borderRadius的设置效果受ButtonType影响。当按钮类型为Capsule或Circle时，borderRadius设置不生效，按钮圆角半径由按钮类型自动确定；当按钮类型为Normal或ROUNDED_RECTANGLE时，borderRadius设置生效。具体影响请参见[ButtonType](#buttontype)。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------|
 |value|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)|是|安全控件的边框圆角半径。未显式指定单位时，单位为vp。 默认值：0vp。 不支持设置百分比字符串。圆角半径受组件尺寸限制，最小值为0，最大值为宽高中较小值的一半。设置异常值时该属性不生效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### borderRadius^15+^
+## borderRadius^15+^
 
-borderRadius(radius: Dimension \| BorderRadiuses): T
+borderRadius(radius: Dimension | BorderRadiuses): T
 
 设置安全控件的边框圆角半径，支持分别设置四个圆角的半径。
 
 borderRadius的设置效果受ButtonType影响。当按钮类型为Capsule或Circle时，borderRadius设置不生效，按钮圆角半径由按钮类型自动确定；当按钮类型为Normal或ROUNDED_RECTANGLE时，borderRadius设置生效。具体影响请参见[ButtonType](#buttontype)。
 
-元服务API： 从API version 15开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-----|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------|
-|radius|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) \| [BorderRadiuses](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#borderradiuses9)|是|安全控件的边框圆角半径。未显式指定单位时，单位为vp。 默认值：0vp。 Dimension类型不支持设置百分比字符串。圆角半径受组件尺寸限制，最小值为0，最大值为宽高中较小值的一半。设置异常值时该属性不生效。|
+|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------|
+|radius|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | [BorderRadiuses](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#borderradiuses9)|是|安全控件的边框圆角半径。未显式指定单位时，单位为vp。 默认值：0vp。 Dimension类型不支持设置百分比字符串。圆角半径受组件尺寸限制，最小值为0，最大值为宽高中较小值的一半。设置异常值时该属性不生效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### padding
+## padding
 
-padding(value: Padding \| Dimension): T
+padding(value: Padding | Dimension): T
 
 设置安全控件的内边距。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------|
-|value|[Padding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#padding) \| [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)|是|安全控件的内边距。未显式指定单位时，单位为vp。 默认值：上下8vp，左右16vp。 说明： 本参数不支持设置百分比字符串数据类型。若设置百分比字符串，则对应内边距显示为0。|
+|:----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------|
+|value|[Padding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#padding) | [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)|是|安全控件的内边距。未显式指定单位时，单位为vp。 默认值：上下8vp，左右16vp。 **说明：** 本参数不支持设置百分比字符串数据类型。若设置百分比字符串，则对应内边距显示为0。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### align^15+^
+## align^15+^
 
 align(alignType: Alignment): T
 
 设置安全控件图标文本的对齐方式。
 
-元服务API： 从API version 15开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:---------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |alignType|[Alignment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#alignment)|是|安全控件图标文本的对齐方式。图标文本作为整体在控件背景范围内进行对齐，显示效果受[padding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securitycomponent-attributes#padding)影响，在padding生效的基础上按照alignType参数指定的对齐方式进行对齐。 默认值：Alignment.Center。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### textIconSpace
+## textIconSpace
 
 textIconSpace(value: Dimension): T
 
 设置安全控件中图标和文字的间距。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:--------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------------------------------|
-|value|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)|是|安全控件中图标和文字的间距。未显式指定单位时，单位为vp。 默认值：4vp。 说明： 本参数不支持设置百分比字符串数据类型，若设置百分比字符串，则图标和文字的间距显示为0；从API version 14开始，若设置值为负值，则使用默认值。|
+|:----|:--------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------------------------|
+|value|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)|是|安全控件中图标和文字的间距。未显式指定单位时，单位为vp。 默认值：4vp。 **说明：** 本参数不支持设置百分比字符串数据类型，若设置百分比字符串，则图标和文字的间距显示为0；从API version 14开始，若设置值为负值，则使用默认值。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### width^11+^
+## width^11+^
 
 width(value: Length): T
 
 设置安全控件自身的宽度，缺省时将根据元素内容自适配宽度。配合自适应字号相关属性使用时，width的设置会影响文本是否能完整显示。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |value|[Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length)|是|安全控件自身的宽度，缺省时将根据元素内容自适配宽度。未显式指定单位时，单位为vp。 配合[minFontSize](#minfontsize18)、[maxFontSize](#maxfontsize18)、[maxLines](#maxlines18)以及[heightAdaptivePolicy](#heightadaptivepolicy18)使用实现自适应字号时，安全控件文本未完全显示将导致点击不授权。设置异常值时该属性不生效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### height^11+^
+## height^11+^
 
 height(value: Length): T
 
 设置安全控件自身的高度，缺省时将根据元素内容自适配高度。配合自适应字号相关属性使用时，height的设置会影响文本是否能完整显示。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |value|[Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length)|是|安全控件自身的高度，缺省时将根据元素内容自适配高度。未显式指定单位时，单位为vp。 配合[minFontSize](#minfontsize18)、[maxFontSize](#maxfontsize18)、[maxLines](#maxlines18)以及[heightAdaptivePolicy](#heightadaptivepolicy18)使用实现自适应字号时，安全控件文本未完全显示将导致点击不授权。设置异常值时该属性不生效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### size^11+^
+## size^11+^
 
 size(value: SizeOptions): T
 
 设置宽度和高度，缺省时将根据元素内容自适配宽高尺寸。size方法用于同时设置宽度和高度，如需单独设置宽度或高度，可使用[width](#width11)或[height](#height11)方法。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:----------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |value|[SizeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#sizeoptions)|是|宽度和高度，缺省时将根据元素内容自适配宽高尺寸。未显式指定单位时，单位为vp。 配合[minFontSize](#minfontsize18)、[maxFontSize](#maxfontsize18)、[maxLines](#maxlines18)以及[heightAdaptivePolicy](#heightadaptivepolicy18)使用实现自适应字号时，安全控件文本未完全显示将导致点击不授权。size的设置会影响文本是否能完整显示。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### constraintSize^11+^
+## constraintSize^11+^
 
 constraintSize(value: ConstraintSizeOptions): T
 
 设置约束尺寸，组件布局时限制尺寸范围。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |value|[ConstraintSizeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#constraintsizeoptions)|是|约束尺寸，组件布局时进行尺寸范围限制。未显式指定单位时，单位为vp。 constraintSize的优先级高于width和height。 使用自适应字号相关属性时，安全控件文本未完全显示将导致点击不授权。constraintSize的设置会影响文本是否能完整显示。 取值结果参考[constraintSize取值对width/height影响](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)。 默认值： { minWidth: 0, maxWidth: Infinity, minHeight: 0, maxHeight: Infinity }。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### alignRules^15+^
+## alignRules^15+^
 
 alignRules(alignRule: AlignRuleOption): T
 
 设置在相对容器中子组件的对齐规则，仅当父容器为[RelativeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer)时生效。
 
-元服务API： 从API version 15开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |alignRule|[AlignRuleOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#alignruleoption9对象说明)|是|对齐规则配置对象，包含top、bottom、left、right、center等锚点对齐配置，用于指定安全控件在[RelativeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer)中的对齐位置和方式。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### alignRules^15+^
+## alignRules^15+^
 
 alignRules(alignRule: LocalizedAlignRuleOptions): T
 
 设置在相对容器中子组件的对齐规则，仅当父容器为[RelativeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer)时生效。该方法水平方向上以start和end分别替代上述[alignRules](#alignrules15)的left和right，以便在RTL模式下能镜像显示，建议优先使用该方法。
 
-元服务API： 从API version 15开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |alignRule|[LocalizedAlignRuleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#localizedalignruleoptions12对象说明)|是|对齐规则配置对象，使用start/end替代left/right以支持RTL布局镜像。包含top、bottom、start、end、center等锚点对齐配置，用于指定安全控件在[RelativeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer)中的对齐位置和方式。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### id^15+^
+## id^15+^
 
 id(id: string): T
 
 组件的唯一标识，唯一性由使用者保证。
 
-元服务API： 从API version 15开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--|:-----|:-|:-------------------------|
 |id|string|是|组件的唯一标识，唯一性由使用者保证。 默认值：''。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### chainMode^15+^
+## chainMode^15+^
 
 chainMode(direction: Axis, style: ChainStyle): T
 
 设置以该组件为链头所构成的链式布局的参数（包括链的方向和样式），仅当父容器为[RelativeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer)时生效。
 
-元服务API： 从API version 15开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:----------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |direction|[Axis](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#axis)|是|链式布局的方向，用于指定以该组件为链头的链在[RelativeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer)中的排列方向。|
 |style|[ChainStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#chainstyle12)|是|链式布局的样式，用于控制链内子组件的分布方式，如均匀分布、两端对齐或紧凑排列等，具体取值及效果请参考[ChainStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#chainstyle12)。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### minFontScale^18+^
+## minFontScale^18+^
 
-minFontScale(scale: number \| Resource): T
+minFontScale(scale: number | Resource): T
 
 设置文本最小的字体缩小倍数。调用后，当系统字体缩放使文本缩小时，文本缩小倍数不会低于设定的最小缩小倍数。
 
 与[maxFontScale](#maxfontscale18)可配合使用，minFontScale控制缩小倍数的下限，maxFontScale控制放大倍数的上限。两者可独立设置，也可同时设置以精确控制字体缩放范围。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:--------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------|
-|scale|number \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|文本最小的字体缩小倍数。 取值范围：\[0, 1\]。 说明： 设置的值小于0时，按值为0处理，即允许缩小到任意倍数；设置的值大于1时，按值为1处理，即不允许缩小字体；设置的值为undefined或null等非法值时，属性不生效。|
+|:----|:-------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------------------|
+|scale|number | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|文本最小的字体缩小倍数。 取值范围：[0, 1]。 **说明：** 设置的值小于0时，按值为0处理，即允许缩小到任意倍数；设置的值大于1时，按值为1处理，即不允许缩小字体；设置的值为undefined或null等非法值时，属性不生效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### maxFontScale^18+^
+## maxFontScale^18+^
 
-maxFontScale(scale: number \| Resource): T
+maxFontScale(scale: number | Resource): T
 
 设置文本最大的字体放大倍数。调用后，当系统字体缩放使文本放大时，文本放大倍数不会超过设定的最大放大倍数。
 
 与[minFontScale](#minfontscale18)可配合使用，maxFontScale控制放大倍数的上限，minFontScale控制缩小倍数的下限。两者可独立设置，也可同时设置以精确控制字体缩放范围。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:--------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------|
-|scale|number \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|文本最大的字体放大倍数。 取值范围：\[1, +∞)。 说明： 设置的值小于1时，按值为1处理；设置的值为undefined或null等非法值时，属性不生效。|
+|:----|:-------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------|
+|scale|number | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|文本最大的字体放大倍数。 取值范围：[1, +∞)。 **说明：** 设置的值小于1时，按值为1处理；设置的值为undefined或null等非法值时，属性不生效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### minFontSize^18+^
+## minFontSize^18+^
 
-minFontSize(minSize: number \| string \| Resource): T
+minFontSize(minSize: number | string | Resource): T
 
 设置文本最小显示字号。
 
@@ -709,25 +712,25 @@ minFontSize(minSize: number \| string \| Resource): T
 * 自适应字号生效时，fontSize设置不生效。
 * 安全控件文本未完全显示时，点击不授权。minFontSize的设置会影响文本是否能完整显示，进而影响安全控件的授权行为。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------|
-|minSize|number \| string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|文本最小显示字号。未显式指定单位时，单位为fp。 取值范围：(0, +∞)。minFontSize应小于maxFontSize，若设置值大于maxFontSize，将按maxFontSize处理；小于或等于0时，自适应字号不生效。|
+|:------|:----------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------|
+|minSize|number | string | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|文本最小显示字号。未显式指定单位时，单位为fp。 取值范围：(0, +∞)。minFontSize应小于maxFontSize，若设置值大于maxFontSize，将按maxFontSize处理；小于或等于0时，自适应字号不生效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### maxFontSize^18+^
+## maxFontSize^18+^
 
-maxFontSize(maxSize: number \| string \| Resource): T
+maxFontSize(maxSize: number | string | Resource): T
 
 设置文本最大显示字号。
 
@@ -736,45 +739,45 @@ maxFontSize(maxSize: number \| string \| Resource): T
 * 当自适应字号生效时，设置的fontSize将不生效。
 * 安全控件文本未完全显示时，点击不授权。maxFontSize的设置会影响文本是否能完整显示，进而影响安全控件的授权行为。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------|
-|maxSize|number \| string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|文本最大显示字号。未显式指定单位时，单位为fp。 取值范围：(0, +∞)。 说明： 设置的值小于或等于0时，自适应字号不生效；设置异常值时该属性不生效。|
+|:------|:----------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------|
+|maxSize|number | string | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|文本最大显示字号。未显式指定单位时，单位为fp。 取值范围：(0, +∞)。 **说明：** 设置的值小于或等于0时，自适应字号不生效；设置异常值时该属性不生效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### maxLines^18+^
+## maxLines^18+^
 
-maxLines(line: number \| Resource): T
+maxLines(line: number | Resource): T
 
 设置文本的最大行数。默认情况下，文本自动换行，指定此属性后，文本的最大显示行数不会超过指定值。可独立使用限制文本行数，也可配合[minFontSize](#minfontsize18)、[maxFontSize](#maxfontsize18)以及[heightAdaptivePolicy](#heightadaptivepolicy18)使用。配合自适应字号相关属性使用时，安全控件文本未完全显示将导致点击不授权。maxLines的设置会影响文本是否能完整显示，进而影响安全控件的授权行为。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:---|:-------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------|
-|line|number \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)^20+^|是|文本的最大行数。 number类型入参的取值范围：\[1, +∞)。从API version 20开始，支持Resource类型。Resource类型仅支持'integer'，取值范围为\[1, +∞)。 说明： 设置的值小于1时，按默认值1000000处理。|
+|:---|:------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------|
+|line|number | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)^20+^|是|文本的最大行数。 number类型入参的取值范围：[1, +∞)。从API version 20开始，支持Resource类型。Resource类型仅支持'integer'，取值范围为[1, +∞)。 **说明：** 设置的值小于1时，按默认值1000000处理。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### heightAdaptivePolicy^18+^
+## heightAdaptivePolicy^18+^
 
 heightAdaptivePolicy(policy: TextHeightAdaptivePolicy): T
 
@@ -792,67 +795,67 @@ heightAdaptivePolicy(policy: TextHeightAdaptivePolicy): T
 
 具体效果请见[示例](#示例3)。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------|
 |policy|[TextHeightAdaptivePolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#textheightadaptivepolicy10)|是|文本自适应高度的方式。 默认值：TextHeightAdaptivePolicy.MAX_LINES_FIRST。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### enabled^18+^
+## enabled^18+^
 
 enabled(respond: boolean): T
 
 设置安全控件是否可交互。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------|:-|:---------------------------------------------------------|
 |respond|boolean|是|值为true表示组件可交互，响应点击等操作。 值为false表示组件不可交互，不响应点击等操作。 默认值：true。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### focusBox^22+^
+## focusBox^22+^
 
 focusBox(style: FocusBoxStyle): T
 
 设置安全控件系统焦点框样式。
 
-元服务API： 从API version 22开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-----------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------|
 |style|[FocusBoxStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-focus#focusboxstyle12对象说明)|是|焦点框样式配置对象，包含margin（焦点框与控件的间距）和strokeColor（焦点框边框颜色）等属性，用于自定义系统焦点框的外观样式。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### fallbackLineSpacing
+## fallbackLineSpacing
 
 fallbackLineSpacing(enabled: boolean): T
 
@@ -860,144 +863,144 @@ fallbackLineSpacing(enabled: boolean): T
 
 fallbackLineSpacing属性和[RichEditorTextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-richeditor#richeditortextstyle)的lineHeight属性强相关。当设置的 lineHeight 值小于文本在当前字号下的实际渲染高度时，将根据fallbackLineSpacing 属性值来确定行高是否要基于文字实际高度自适应。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------|:-|:----------------------------------------------------------|
 |enabled|boolean|是|行高是否基于文字实际高度自适应。 true表示行高基于文字实际高度自适应；false表示行高不基于文字实际高度自适应。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:---------|
 |T|返回安全控件的属性。|
 
-#### accessibilityRole
+## accessibilityRole
 
 accessibilityRole(role: SecurityComponentRoleType): T
 
 设置无障碍组件类型，特定组件类型有特定的朗读方式，可以根据应用诉求，修改组件类型，用于控制无障碍模式下对组件的朗读方式和朗读内容。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:------------------------------------------------------|:-|:-------------------------------|
 |role|[SecurityComponentRoleType](#securitycomponentroletype)|是|屏幕朗读播报的组件类型，如按钮、图表。具体类型可由开发者自定义。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:------|
 |T|返回当前对象。|
 
-#### accessibilityDefaultFocus
+## accessibilityDefaultFocus
 
 accessibilityDefaultFocus(focus: boolean): T
 
 设置页面的屏幕朗读初始焦点，用于指定页面加载后屏幕朗读首次播报的焦点组件。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:------|:-|:-------------------------------------------------|
 |focus|boolean|是|为页面设置屏幕朗读初始焦点。值为true则表示该组件为当前页默认首焦点，值为false或其他值无效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:------|
 |T|返回当前对象。|
 
-#### accessibilityNextFocusId
+## accessibilityNextFocusId
 
 accessibilityNextFocusId(nextId: string): T
 
 支持在屏幕朗读过程中，指定朗读的下一个焦点组件。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------|
 |nextId|string|是|下一个被指定聚焦组件的[唯一标识id](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id#id)。若唯一标识id无对应组件，则设置无效。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:------|
 |T|返回当前对象。|
 
-#### accessibilityDescription
+## accessibilityDescription
 
-accessibilityDescription(description: string \| Resource): T
+accessibilityDescription(description: string | Resource): T
 
 该属性用于为控件提供无障碍描述。开发人员可通过设置详细的文字说明，帮助用户理解组件的功能及即将执行的操作。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:--------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------------|
-|description|string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|控件的无障碍说明。用于补充组件的详细操作解释，帮助用户理解当前操作的具体内容及其潜在后果。控件被选中时，若组件同时包含文本属性和无障碍说明，优先播报文本内容，再播报无障碍说明。该参数的默认值为空字符串。|
+|:----------|:-------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------------|
+|description|string | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|控件的无障碍说明。用于补充组件的详细操作解释，帮助用户理解当前操作的具体内容及其潜在后果。控件被选中时，若组件同时包含文本属性和无障碍说明，优先播报文本内容，再播报无障碍说明。该参数的默认值为空字符串。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:------|
 |T|返回当前对象。|
 
-#### SecurityComponentLayoutDirection
+## SecurityComponentLayoutDirection
 
 安全控件上图标和文字的排列方向。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
 |:---------|:-|:--------------------|
 |HORIZONTAL|0|安全控件上图标和文字分布的方向为水平排列。|
 |VERTICAL|1|安全控件上图标和文字分布的方向为垂直排列。|
 
-#### ButtonType
+## ButtonType
 
 按钮类型。
 
@@ -1011,9 +1014,9 @@ accessibilityDescription(description: string \| Resource): T
 * 当按钮类型为Normal时，按钮圆角半径可通过borderRadius设置，圆角大小受组件尺寸限制，最小值为0，最大值为组件宽高中较小值的一半。适用于需要自定义圆角大小或保持直角的按钮场景。
 * 当按钮类型为ROUNDED_RECTANGLE时，若不设置borderRadius，圆角矩形按钮的圆角半径大小保持默认值20vp不变，不随按钮高度变化而变化。适用于需要统一圆角风格的按钮场景。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
 |:---------------------|:-|:----------------------|
@@ -1022,33 +1025,34 @@ accessibilityDescription(description: string \| Resource): T
 |Circle|2|圆形按钮。|
 |ROUNDED_RECTANGLE^16+^|8|圆角矩形按钮（默认值：圆角半径大小20vp）。|
 
-#### SecurityComponentRoleType
+## SecurityComponentRoleType
 
 定义组件的屏幕朗读功能角色类型。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
 |:--------|:-|:----|
 |ROLE_NONE|0|NULL。|
 |BUTTON|1|按钮。|
 
-#### 示例
+## 示例
 
-![](https://media:401788445066174243)  
-为避免控件样式不合法导致授权失败，请开发者先了解安全控件样式的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。  
+> 说明
+>
+> 为避免控件样式不合法导致授权失败，请开发者先了解安全控件样式的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。
 
-#### 示例1
+### 示例1
 
 设置SecurityComponent的基础属性，生成一个保存控件。
 
-```
+```ts
 @Entry
 @Component
 struct Index {
@@ -1098,13 +1102,13 @@ struct Index {
 }
 ```
 
-![](https://media:401788445066205244)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/PtuNImdxTNizKn8Vr4Xz_A/zh-cn_image_0000002733276662.png?HW-CC-KV=V1&HW-CC-Date=20260917T084635Z&HW-CC-Expire=31536000000&HW-CC-Sign=7C1EFBDD10B902B3B8C036299752C2D65BE7DDFD8B9B2E94AD230FDEBA83F359)
 
-#### 示例2
+### 示例2
 
 以容器和容器内组件作为锚点进行布局。
 
-```
+```ts
 @Entry
 @Component
 struct Index {
@@ -1175,13 +1179,13 @@ struct Index {
 }
 ```
 
-![](https://media:401788445066234245)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/O8BKAkdqSymWoXI_KM2JbQ/zh-cn_image_0000002733436538.png?HW-CC-KV=V1&HW-CC-Date=20260917T084635Z&HW-CC-Expire=31536000000&HW-CC-Sign=38BA128D653004C1B71E7E2CF2250C15B01547D97317D1A14FE7128444A8E222)
 
-#### 示例3
+### 示例3
 
 安全控件文本高度自适应。
 
-```
+```ts
 @Entry
 @Component
 struct Index {
@@ -1516,13 +1520,13 @@ struct Index {
 }
 ```
 
-![](https://media:401788445066270246)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/C-zgZDiETNy5Any04aD33g/zh-cn_image_0000002762996059.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084635Z&HW-CC-Expire=31536000000&HW-CC-Sign=1C9B7D6E4025474E9C0B8EF7EF251BFE3D2B56A6DB6BC26DAC4B6BBB985D1985)
 
-#### 示例4
+### 示例4
 
 设置安全控件系统焦点框样式。
 
-```
+```ts
 import { ColorMetrics, LengthMetrics } from '@kit.ArkUI';
 
 @Entry
@@ -1587,13 +1591,13 @@ struct Index {
 }
 ```
 
-![](https://media:401788445066309247)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/MlrZtEntQOKGOg8E5_HTxw/zh-cn_image_0000002762836177.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084635Z&HW-CC-Expire=31536000000&HW-CC-Sign=A33A03971A483F015844BA07B0FB2B524948F1F48CC98D708043DA4E3F0F3865)
 
-#### 示例5
+### 示例5
 
 设置安全控件是否支持文字实际高度自适应及屏幕朗读模式下相关表现。
 
-```
+```ts
 @Entry
 @Component
 struct Index {

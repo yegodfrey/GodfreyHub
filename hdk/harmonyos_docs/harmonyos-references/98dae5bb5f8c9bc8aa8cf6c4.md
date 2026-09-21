@@ -6,6 +6,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-file
 
 # C API
 
-* [模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-file-module)  
-* [头文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-file-headerfile)  
-* [结构体](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-file-struct)  
+* **[模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-file-module)**   
+* **[头文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-file-headerfile)**   
+* **[结构体](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-file-struct)**   

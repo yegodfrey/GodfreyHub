@@ -1,0 +1,63 @@
+---
+name: document/cn/ecosystem-Guides/04_05_01_02_filterconditions-0000001090539193
+title: 复合过滤条件
+uri: https://developer.huawei.com/consumer/cn/doc/ecosystem-Guides/04_05_01_02_filterconditions-0000001090539193
+---
+
+# 复合过滤条件
+
+样例代码：每页1000条数据，分页查询数据表t_0ee43ca9_nvblz8ww中符合条件age >= 20 and (gender != female or province = "江苏省")的uniqueid、healthid、province字段，查询结果按照healthid字段降序排列。
+
+```codeblock
+import com.google.common.collect.Lists;
+import com.huawei.hiresearch.client.model.table.FilterCondition;
+import com.huawei.hiresearch.client.model.table.SearchTableDataRequest;
+import com.huawei.hiresearch.client.model.table.SortCondition;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+public class SimpleQuery {
+    public static void main(String[] args) throws IOException {
+// 获取鉴权
+        HiResearchAuth hiResearchDemo = new HiResearchAuth();
+        // 获取最新accesstoken
+        String accessToken = hiResearchDemo.getAccessToken();
+        List<Map<String, Object>> resultRows = Lists.newArrayList();
+        // 构造过滤条件
+        List<FilterCondition> filterConditions = new ArrayList<>();
+        // 多个过滤条件: age >= 20 and (gender != female or province = "江苏省")
+        FilterCondition simpleCondition0 = new FilterCondition(FilterCondition.LOGIC_TYPE_AND,
+                FilterCondition.OPERATOR_TYPE_GREATER_EQUALS, "age", 20);
+        FilterCondition simpleCondition1 = new FilterCondition(FilterCondition.LOGIC_TYPE_AND,
+                FilterCondition.OPERATOR_TYPE_NOT_EQUALS, "gender", true);
+        FilterCondition simpleCondition2 = new FilterCondition(FilterCondition.LOGIC_TYPE_OR,
+                FilterCondition.OPERATOR_TYPE_EQUALS, "province", "江苏省");
+        FilterCondition compoundCondition0 = new FilterCondition(FilterCondition.LOGIC_TYPE_AND,
+                Lists.newArrayList(simpleCondition1, simpleCondition2));
+        filterConditions.add(simpleCondition0);
+        filterConditions.add(compoundCondition0);
+        // 构造排序字段：按照healthid降序排列
+        List<SortCondition> sortConditions = new ArrayList<>();
+        SortCondition sortCondition = new SortCondition("healthid", SortCondition.SORT_TYPE_DESC);
+        sortConditions.add(sortCondition);
+        // 构造查询请求
+        String tableID = "t_0ee43ca9_nvblz8ww";
+        SearchTableDataRequest searchTableDataRequest = new SearchTableDataRequest(
+                accessToken,
+                tableID,
+                filterConditions,
+                sortConditions,
+                1000,
+                Lists.newArrayList("uniqueid", "healthid", "province"),
+                null);
+        // 查询并打印结果集
+hiResearchDemo.getClient().getResearchDataProvider().queryTableData(searchTableDataRequest,
+                (rowsOfCurrentPage, totalCnt) -> {
+                    resultRows.addAll(rowsOfCurrentPage);
+                    System.out.printf("共命中%d条，当页返回%d条，数据为：%s /n", totalCnt, rowsOfCurrentPage.size(), rowsOfCurrentPage);
+                });
+    }
+}
+```
+

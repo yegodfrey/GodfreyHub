@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
 
 # 基于PixelMap实现图片编辑
 
-#### 概述
+## 概述
 
 在移动应用开发中，图片编辑功能是用户日常使用的高频场景，例如：相册的图片编辑、社交媒体中对图片的滤镜美化等。
 
@@ -14,43 +14,43 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
 
 相关功能场景描述及关键技术点如下表所示：
 
-1. 图片基础编辑功能。  
+1. 图片基础编辑功能。
 
-   |功能描述|场景描述|关键技术点|
+   |功能描述|**场景描述**|**关键技术点**|
    |:--------------------------------|:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
    |[图片信息展示](#section1729293110516)|查看图片元数据，包括图片尺寸、像素格式、HDR属性等信息，帮助用户在编辑图片前了解图片基础属性。|通过[getImageInfo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#getimageinfo-1)获取图片元数据。|
    |[图片按比例裁剪](#section13500103313513)|按比例裁剪图片，适配不同平台要求，例如：头像（1:1）、广告（4:3）、视频封面（16:9）。|计算图片裁剪宽高比，通过PixelMap.[crop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#crop9-1)裁剪。|
    |[图片平移](#section113871741115120)|沿水平/垂直方向调整图片位置，用于构图微调。|计算图片横纵方向偏移量，通过PixelMap.[translate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#translate9-1)执行图片在横纵方向上进行平移。|
    |[图片旋转](#section990884915118)|图片逆时针旋转，修正拍摄角度偏差，适配不同显示方向。|计算图片旋转角度，调用PixelMap.[rotate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#rotate9-1)对图片进行旋转。|
    |[图片镜像翻转](#section142018561516)|图片水平翻转，创建对称效果，用于创意设计、制作倒影效果。|通过变量控制翻转方向，调用PixelMap.[flipSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#flipsync12)翻转图片。|
-   |[图片等比缩放](#section15900114135212)|图片按照80%\~120%范围进行缩放，适配不同设备屏幕尺寸。|等比缩放比例计算，通过PixelMap.[scale()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#scale9-1)执行图片缩放。|
+   |[图片等比缩放](#section15900114135212)|图片按照80%~120%范围进行缩放，适配不同设备屏幕尺寸。|等比缩放比例计算，通过PixelMap.[scale()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#scale9-1)执行图片缩放。|
 
-2. 图片调节功能。  
+2. 图片调节功能。
 
-   |功能描述|场景描述|关键技术点|
+   |功能描述|**场景描述**|**关键技术点**|
    |:--------------------------------|:----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |[图片亮度调节](#section3308181519522)|通过滑块调节图片整体明暗程度，适用于光线不足或过强的图片。|像素级RGB数据处理，通过线性缩放算法RGB_new = RGB \* factor，结合Worker线程异步处理避免卡顿。|
+   |[图片亮度调节](#section3308181519522)|通过滑块调节图片整体明暗程度，适用于光线不足或过强的图片。|像素级RGB数据处理，通过线性缩放算法RGB_new = RGB * factor，结合Worker线程异步处理避免卡顿。|
    |[图片透明度调节](#section18203523145211)|通过滑块调节图片透明度，创建半透明叠加效果，用于UI遮罩或背景虚化。|通过PixelMap.[opacity()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#opacity9-1)接口，直接修改Alpha通道。|
    |[图片饱和度调节](#section8695327165213)|通过滑块调节图片饱和度，增强或降低色彩鲜艳程度，实现图片艺术风格调整。|像素级RGB数据处理，通过亮度公式结合饱和度算法，并结合Worker线程异步处理。|
    |[图片滤镜添加](#section2124103385214)|为图片添加预置滤镜效果，用于图片艺术创作、风格化处理。|通过[effectKit.createEffect()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#effectkitcreateeffect)创建filter图像效果对象，并结合对应接口实现滤镜效果添加。|
 
-#### 图片信息展示
+## 图片信息展示
 
-#### 场景描述
+### 场景描述
 
 获取图片信息展示在页面中。如下图所示：
 
-![](https://media:201788187549310789 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/czJb0Kc-RKCIkx6j05xm1g/zh-cn_image_0000002701095653.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=99EE656F0BEEDD4A802E107B4684A5C2E39CD07BF8D399443B71844DC0F812D9 "点击放大")
 
-#### 实现原理
+### 实现原理
 
-通过ImageSource的[getImageInfo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#getimageinfo-1)方法获取图片大小、像素格式、色彩空间、透明度、图片格式、是否为HDR等信息，并结合基础组件将图片信息展示在页面中。  
+通过ImageSource的[getImageInfo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#getimageinfo-1)方法获取图片大小、像素格式、色彩空间、透明度、图片格式、是否为HDR等信息，并结合基础组件将图片信息展示在页面中。
 
-#### 开发步骤
+### 开发步骤
 
 1. 通过[image.createImageSource()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagesource)创建ImageSource实例，并调用[getImageInfo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#getimageinfo-1)方法获取图片信息。
 
-   ```
+   ```typescript
    this.imageSource = await createImageSourceFromResource(this.getUIContext());
    // ...
    this.imageSource.getImageInfo((err, imageInfo) => {
@@ -78,7 +78,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
 
 2. 展示图片信息。
 
-   ```
+   ```typescript
    List() {
      ForEach(this.imageInfoArr, (item: ImageInfoItem) => {
        ListItem() {
@@ -106,27 +106,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    // ...
    ```
 
-#### 图片按比例裁剪
+## 图片按比例裁剪
 
-#### 场景描述
+### 场景描述
 
 在编辑图片时，将图片按照1:1、4:3或16:9进行裁剪。实现效果如下图：
 
-![](https://media:201788187549443790 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/QIgQL6qKQzaLXwGYEfxsWA/zh-cn_image_0000002701055737.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=69ECA569B08AA3210FF53AC103DCB6B4A476DE683789DC5508065646F0AFE584 "点击放大")
 
-#### 实现原理
+### 实现原理
 
-通过[crop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#crop9-1)方法，根据输入的尺寸对图片进行裁剪。  
-![](https://media:201788187549467791)  
-图片裁剪尺寸取值范围不能超过图片的宽高。  
+通过[crop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#crop9-1)方法，根据输入的尺寸对图片进行裁剪。
+> 说明
+>
+> 图片裁剪尺寸取值范围不能超过图片的宽高。
 
-#### 开发步骤
+### 开发步骤
 
 1. 自定义square()方法，按照1:1进行裁剪：
-   * width \< height（竖图）：裁剪宽高均为图片原始宽度；x = 0，y垂直居中。
-   * width \>= height（横图/正方形图片）：裁剪宽高均为图片原始高度；x水平居中，y = 0。
+   * width < height（竖图）：裁剪宽高均为图片原始宽度；x = 0，y垂直居中。
+   * width >= height（横图/正方形图片）：裁剪宽高均为图片原始高度；x水平居中，y = 0。
 
-   ```
+   ```typescript
    /**
     * Crop image to 1:1 square ratio. The crop region is centered.
     *
@@ -163,12 +164,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    ```
 
 2. 自定义banner()方法，按照4:3进行裁剪：
-   1. width \<= height（竖图）：裁剪宽度 = 图片宽度；裁剪高度 = width \* 3/4；x = 0，y垂直居中。
-   2. width \> height，且width \* 3/4 \>= height（横图但高度较小）：裁剪高度 = 图片高度；裁剪宽度 = height / (3/4)；y = 0，x水平居中。
-   3. width \> height，但width \* 3/4 \< height（横图但高度偏大）：同情况a，以图片宽度为基准进行裁剪。
+   1. width <= height（竖图）：裁剪宽度 = 图片宽度；裁剪高度 = width * 3/4；x = 0，y垂直居中。
+   2. width > height，且width * 3/4 >= height（横图但高度较小）：裁剪高度 = 图片高度；裁剪宽度 = height / (3/4)；y = 0，x水平居中。
+   3. width > height，但width * 3/4 < height（横图但高度偏大）：同情况a，以图片宽度为基准进行裁剪。
    4. 调用cropCommon()方法，执行pixelMap.crop()完成图片裁剪。
 
-   ```
+   ```typescript
    export async function cropCommon(pixelMap: PixelMap, cropWidth: number, cropHeight: number, cropPosition: RegionItem) {
      try {
        await pixelMap.crop({
@@ -186,7 +187,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    }
    ```
 
-   ```
+   ```typescript
    /**
     * Crop image to 4:3 ratio. The crop region is centered.
     *
@@ -219,7 +220,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
 
 3. 自定义rectangle()方法，按照16:9进行裁剪，实现方式同4:3。
 
-   ```
+   ```typescript
    /**
     * Crop image to 16:9 ratio. The crop region is centered.
     *
@@ -250,23 +251,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    }
    ```
 
-#### 图片平移
+## 图片平移
 
-#### 场景描述
+### 场景描述
 
 通过滑动Slider，在横向/纵向调节图片位置。实现效果如下图：
 
-![](https://media:201788187549737792 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/WOzPY1F_SvqIXB-BrNi60g/zh-cn_image_0000002671335926.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=773774BD7B13D5AB85B4BDD2A92650AA107151262B1DB6A6515434C6E47C8591 "点击放大")
 
-#### 实现原理
+### 实现原理
 
-通过[translate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#translate9-1)方法，根据输入的坐标对图片进行位置变换。  
+通过[translate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#translate9-1)方法，根据输入的坐标对图片进行位置变换。
 
-#### 开发步骤
+### 开发步骤
 
 1. 在Slider的onChange()事件中，传入Slider进度值及状态。
 
-   ```
+   ```typescript
    TabContent() {
      TranslateView({
        onTranslateChange: (value: number, mode: SliderChangeMode) => {
@@ -276,7 +277,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    }
    ```
 
-   ```
+   ```typescript
    Slider({
      value: this.editState.currentTranslateData[this.editState.currentTranslateMode],
      step: 1,
@@ -294,7 +295,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
 
 2. 在滑动结束时且值有变化时，计算偏移量moveValue，并更新状态。再根据平移方向（currentTranslateMode为0时为水平平移，否则为垂直平移），调用translateImage()传入偏移量moveValue执行平移。
 
-   ```
+   ```typescript
    async handleTranslateChange(value: number, mode: SliderChangeMode): Promise<void> {
      if (mode === SliderChangeMode.End &&
        value !== this.editState.currentTranslateData[this.editState.currentTranslateMode]) {
@@ -316,7 +317,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    1. 基于PixelMap起点：适用类型包括图片的裁剪、调节（亮度/透明度/饱和度）、滤镜（黑白/高亮/翻转/模糊等）、缩放，基于同一起点重新计算PixelMap。例如：图片亮度从50%调整至80%，均从原图计算。
    2. 基于PixelMap结果：适用类型包括图片的旋转、镜像、平移，基于上次编辑结果进行累加。例如：图片从90°旋转至180°，基于上次旋转后的结果再次旋转。
 
-   ```
+   ```typescript
    getStartEditPixelMap(mode: EditType): PixelMap | undefined {
      if (this.editMode !== mode) {
        this.editMode = mode;
@@ -356,7 +357,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    }
    ```
 
-   ```
+   ```typescript
    // Copy the current Pixelmap object.
    clonePixelMap(pixelMap: PixelMap): PixelMap {
      try {
@@ -371,7 +372,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
 
 4. 在translateImage()方法中获取PixelMap，调用[translate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#translate9-1)方法对图片进行横向/纵向平移，并保存平移结果，将编辑后的PixelMap传入notifyPreviewUpdate()，通知页面更新预览图片，实现图片在横向/纵向上位置的变换。
 
-   ```
+   ```typescript
    async translateImage(moveValue: TranslateValue) {
      const px = this.getStartEditPixelMap(EditType.TRANSLATION);
      if (px === null || px === undefined) {
@@ -393,23 +394,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    }
    ```
 
-#### 图片旋转
+## 图片旋转
 
-#### 场景描述
+### 场景描述
 
 单击图片旋转按钮，改变图片显示方向。实现效果如下图：
 
-![](https://media:201788187549925793 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/Hhgd5W41RIezrQCYAuvP5g/zh-cn_image_0000002671176072.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=03AC3CC4D63FEAE1DF9D8A60382488EF9EAE421B1A42824F1CA5B253D0348AE7 "点击放大")
 
-#### 实现原理
+### 实现原理
 
-通过[rotate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#rotate9-1)方法，根据输入的角度对图片进行旋转。  
+通过[rotate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#rotate9-1)方法，根据输入的角度对图片进行旋转。
 
-#### 开发步骤
+### 开发步骤
 
 1. 单击图片旋转图标时，调用rotateImage()方法更新图片旋转角度：旋转角度 = (当前角度 - 90 + 360) % 360，使图片每次逆时针旋转90°。
 
-   ```
+   ```typescript
    rotateImage(): void {
      this.editState.rotationAngle = (this.editState.rotationAngle - 90 + 360) % 360;
      this.pixelMapManager.cropImage(this.editState.currentCropMode, this.editState.rotationAngle,
@@ -419,7 +420,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
 
 2. 在cropImage()方法中，调用applyTransforms()执行[rotate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#rotate9-1)方法传入旋转角度对图片进行旋转，并更新预览图片。
 
-   ```
+   ```typescript
    async cropImage(proportion: CropType, rotationAngle: number, isMirrored: boolean) {
      // ...
 
@@ -429,7 +430,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    }
    ```
 
-   ```
+   ```typescript
    private async applyTransforms(px: PixelMap, rotationAngle: number, isMirrored: boolean): Promise<void> {
      if (rotationAngle !== 0) {
        try {
@@ -442,26 +443,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    }
    ```
 
-#### 图片镜像翻转
+## 图片镜像翻转
 
-#### 场景描述
+### 场景描述
 
 单击镜像翻转图标，使图片进行水平翻转。实现效果如下图：
 
-![](https://media:201788187550193794 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/_I6ntt2DR0-4vibsQvdW3w/zh-cn_image_0000002701095655.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=79633A55401BB3E66FC81466B556EC1ED7CE00A86DBEA43D121647F964707F9F "点击放大")
 
-#### 实现原理
+### 实现原理
 
 通过[flipSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#flipsync12)方法，根据输入的条件对图片进行翻转：
 
 * horizontal：true表示进行水平翻转；false表示不进行水平翻转。
-* vertical：true表示进行垂直翻转；false表示不进行垂直翻转。  
+* vertical：true表示进行垂直翻转；false表示不进行垂直翻转。
 
-#### 开发步骤
+### 开发步骤
 
 1. 单击图片翻转图标时，调用mirrorImage()方法修改图片翻转状态。
 
-   ```
+   ```screen
    mirrorImage(): void {
      this.editState.isMirrored = !this.editState.isMirrored;
      this.pixelMapManager.cropImage(this.editState.currentCropMode, this.editState.rotationAngle,
@@ -471,7 +472,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
 
 2. 在cropImage()方法中，调用applyTransforms()执行[flipSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#flipsync12)方法传入(true, false)水平翻转，并重新渲染图片。
 
-   ```
+   ```typescript
    async cropImage(proportion: CropType, rotationAngle: number, isMirrored: boolean) {
      if (this.originCropPixelMap !== null && this.originCropPixelMap !== undefined) {
        // ...
@@ -483,7 +484,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    }
    ```
 
-   ```
+   ```typescript
    private async applyTransforms(px: PixelMap, rotationAngle: number, isMirrored: boolean): Promise<void> {
      // ...
      if (isMirrored) {
@@ -496,23 +497,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    }
    ```
 
-#### 图片等比缩放
+## 图片等比缩放
 
-#### 场景描述
+### 场景描述
 
 滑动Slider，图片按照比例进行缩小或放大。实现效果如下图：
 
-![](https://media:201788187550461795 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/O44J1JsFSGGSeHI0lI7MbQ/zh-cn_image_0000002701055781.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=524560E06EE701A9F4E01B9DD04E3F43151CB648852885FDB1DA19F902E6DF15 "点击放大")
 
-#### 实现原理
+### 实现原理
 
-通过[scale()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#scale9-1)方法，根据输入宽高的缩放倍数对图片进行缩放。  
+通过[scale()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#scale9-1)方法，根据输入宽高的缩放倍数对图片进行缩放。
 
-#### 开发步骤
+### 开发步骤
 
 1. 滑动Slider时，调用handleZoomChange()方法，在滑动结束时且值发生变化后，将value除以100作为缩放系数传入editImageScale()中。
 
-   ```
+   ```typescript
    async handleZoomChange(value: number, mode: SliderChangeMode): Promise<void> {
      if (mode === SliderChangeMode.End && value !== this.editState.currentZoom) {
        await this.pixelMapManager.editImageScale(value / 100);
@@ -523,7 +524,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
 
 2. 执行[scale()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#scale9-1)方法对图片进行缩小/放大，并更新预览图片。
 
-   ```
+   ```typescript
    async editImageScale(scale: number) {
      const px = this.getStartEditPixelMap(EditType.SCALE);
      if (px === null || px === undefined) {
@@ -540,39 +541,39 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pixelmap-i
    }
    ```
 
-#### 图片亮度调节
+## 图片亮度调节
 
-#### 场景描述
+### 场景描述
 
 滑动Slider，调节图片显示亮度。实现效果如下图：
 
-![](https://media:201788187550828796 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/aEoG1J8TQYmPxrwLZw2yjw/zh-cn_image_0000002671335972.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=E70B79B697D8DDD7FA260154C9559DEC385FFAEB5FAF6AD63D8821E39F5EC420 "点击放大")
 
-#### 实现原理
+### 实现原理
 
 通过线性缩放每个像素的RGB分量来改变图像的整体明暗程度。
 
 对应公式：
 
-R_new = R_original \* factor
+R_new = R_original * factor
 
-G_new = G_original \* factor
+G_new = G_original * factor
 
-B_new = B_original \* factor
+B_new = B_original * factor
 
 factor = 当前调节值 / 100
 
 原理说明：
 
-* 当factor \> 1时，RGB值增大，图像变亮。
-* 当factor \< 1时，RGB值减小，图像变暗。
-* 当factor = 1时，保持原始亮度。  
+* 当factor > 1时，RGB值增大，图像变亮。
+* 当factor < 1时，RGB值减小，图像变暗。
+* 当factor = 1时，保持原始亮度。
 
-#### 开发步骤
+### 开发步骤
 
-1. 定义adjustBrightness()方法计算亮度值，结合Math.max(0, Math.min(255, Math.round(...)))确保RGB值在0\~255范围内。
+1. 定义adjustBrightness()方法计算亮度值，结合Math.max(0, Math.min(255, Math.round(...)))确保RGB值在0~255范围内。
 
-   ```
+   ```typescript
    function adjustBrightness(pixelData: Uint8ClampedArray, adjustedData: Uint8ClampedArray, i: number,
      factor: number): void {
      const r = pixelData[i] * factor;
@@ -587,7 +588,7 @@ factor = 当前调节值 / 100
 
 2. 定义execColorInfo()函数，遍历图片像素，根据调节类型调用adjustBrightness()计算亮度值。
 
-   ```
+   ```typescript
    export function execColorInfo(bufferArray: ArrayBuffer, last: number, cur: number, hsvIndex: number) {
      // ...
 
@@ -617,7 +618,7 @@ factor = 当前调节值 / 100
 
 3. 在Worker线程中处理像素操作，返回处理后的buffer。
 
-   ```
+   ```typescript
    workerPort.onmessage = (event: MessageEvents) => {
      // ...
      let bufferArray: ArrayBuffer = data.buf;
@@ -637,7 +638,7 @@ factor = 当前调节值 / 100
 4. 在PixelMapManager类中：
    * 定义processAdjustWorker()方法，获取像素buffer发送至Worker子线程，实现Worker通信。
 
-     ```
+     ```typescript
      private async processAdjustWorker(value: number, buffer: ArrayBuffer, adjustType: AdjustType): Promise<ArrayBuffer> {
        await this.adjustLock;
 
@@ -661,7 +662,7 @@ factor = 当前调节值 / 100
 
    * 定义adjustImage()方法，调用processAdjustWorker()并传入当前亮度滑块值、像素buffer、调节类型（亮度），将处理后的buffer写回PixelMap。
 
-     ```
+     ```typescript
      async adjustImage(currentAdjustData: number[]) {
        // Obtain the cloned baseline pixel image.
        const px = this.getStartEditPixelMap(EditType.ADJUST);
@@ -696,7 +697,7 @@ factor = 当前调节值 / 100
 
 5. 定义sliderChange()方法并执行adjustImage()。在Slider组件的onChange()事件中调用sliderChange()，当离手时触发，避免频繁计算，实现亮度调节。
 
-   ```
+   ```typescript
    async sliderChange(value: number, mode: SliderChangeMode) {
      if ((mode === SliderChangeMode.End) && (value !== this.editState.currentAdjustData[this.currentAdjustType])) {
        const roundedValue = Math.round(value);
@@ -715,7 +716,7 @@ factor = 当前调节值 / 100
    }
    ```
 
-   ```
+   ```typescript
    Slider({
      value: this.editState.currentAdjustData[this.currentAdjustType],
      step: CommonConstants.SLIDER_STEP,
@@ -729,23 +730,23 @@ factor = 当前调节值 / 100
      })
    ```
 
-#### 图片透明度调节
+## 图片透明度调节
 
-#### 场景描述
+### 场景描述
 
 滑动Slider，调节图片透明度。实现效果如下图：
 
-![](https://media:201788187551109797 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/eg-NYRiQTai0QIvUrsJE_g/zh-cn_image_0000002671176144.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=2204BB1D9955F7013EF65B6EE49E687A0C0854C00453C71F19B95C4BD20A2326 "点击放大")
 
-#### 实现原理
+### 实现原理
 
-通过[opacity()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#opacity9-1)设置PixelMap的透明度。透明度值通过滑块值归一化得到：opacity = sliderValue / 100。  
+通过[opacity()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#opacity9-1)设置PixelMap的透明度。透明度值通过滑块值归一化得到：opacity = sliderValue / 100。
 
-#### 开发步骤
+### 开发步骤
 
 1. 通过PixelMap的[opacity()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#opacity9-1)方法实现透明度调节，并更新预览。
 
-   ```
+   ```typescript
    async adjustImage(currentAdjustData: number[]) {
      // Obtain the cloned baseline pixel image.
      const px = this.getStartEditPixelMap(EditType.ADJUST);
@@ -776,43 +777,43 @@ factor = 当前调节值 / 100
    }
    ```
 
-2. 在Slider组件的onChange()事件中调用sliderChange()，实现透明度调节，参考：图片亮度调节[开发步骤](#li73171351133011)。  
+2. 在Slider组件的onChange()事件中调用sliderChange()，实现透明度调节，参考：图片亮度调节[开发步骤](#li73171351133011)。
 
-#### 图片饱和度调节
+## 图片饱和度调节
 
-#### 场景描述
+### 场景描述
 
 滑动Slider，调节图片饱和度。实现效果如下图：
 
-![](https://media:201788187551379798 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/gIZSI2c8ThCgx0kQFVs6jQ/zh-cn_image_0000002701095731.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=0DEF84557EF5A4B4D41625D40B68F83348AC14B6AA0E147C7F4FCA9EA79CBADE "点击放大")
 
-#### 实现原理
+### 实现原理
 
 通过调整像素与其灰度值的距离，改变色彩鲜艳程度。
 
 对应公式：
 
-1. 计算像素亮度： luminance = 0.2126 \* r + 0.7152 \* g + 0.0722 \* b
+1. 计算像素亮度： luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
 
-2. 调整RGB分量（factor = 滑块当前值 / 100）： adjustedR = luminance + (r - luminance) \* factor
+2. 调整RGB分量（factor = 滑块当前值 / 100）： adjustedR = luminance + (r - luminance) * factor
 
-   adjustedG = luminance + (g - luminance) \* factor
+   adjustedG = luminance + (g - luminance) * factor
 
-   adjustedB = luminance + (b - luminance) \* factor
+   adjustedB = luminance + (b - luminance) * factor
 
 原理说明：
 
 亮度系数：0.2126、0.7152、0.0722为ITU-R BT.709标准亮度转化系数。
 
-* 当factor \> 1时，颜色偏离灰度值更远，饱和度增加。
-* 当factor \< 1时，颜色向灰度值靠近，饱和度降低。
-* 当factor = 0时，所有颜色等于亮度值，图像变为灰度图。  
+* 当factor > 1时，颜色偏离灰度值更远，饱和度增加。
+* 当factor < 1时，颜色向灰度值靠近，饱和度降低。
+* 当factor = 0时，所有颜色等于亮度值，图像变为灰度图。
 
-#### 开发步骤
+### 开发步骤
 
-1. 定义adjustSaturation()方法，计算图片饱和度。将RGB值除以255归一化到\[0, 1\]区间进行计算。使用标准亮度公式，对亮度进行计算，将计算结果乘以255并四舍五入转回0\~255范围内。
+1. 定义adjustSaturation()方法，计算图片饱和度。将RGB值除以255归一化到[0, 1]区间进行计算。使用标准亮度公式，对亮度进行计算，将计算结果乘以255并四舍五入转回0~255范围内。
 
-   ```
+   ```typescript
    function adjustSaturation(pixelData: Uint8ClampedArray, adjustedData: Uint8ClampedArray, i: number,
      factor: number): void {
      const r = pixelData[i] / 255;
@@ -833,7 +834,7 @@ factor = 当前调节值 / 100
 
 2. 在execColorInfo()中，根据调节类型调用adjustSaturation()计算图片饱和度。
 
-   ```
+   ```typescript
    export function execColorInfo(bufferArray: ArrayBuffer, last: number, cur: number, hsvIndex: number) {
      // ...
 
@@ -864,7 +865,7 @@ factor = 当前调节值 / 100
 3. Worker线程处理及Worker通信，参考：图片亮度调节[开发步骤](#li7523135152515)。
 4. 在adjustImage()方法中，获取PixelMap的像素数据到Buffer，调用处理图片饱和度，并更新预览图像。
 
-   ```
+   ```typescript
    async adjustImage(currentAdjustData: number[]) {
      // Obtain the cloned baseline pixel image.
      const px = this.getStartEditPixelMap(EditType.ADJUST);
@@ -899,26 +900,27 @@ factor = 当前调节值 / 100
    }
    ```
 
-5. 在Slider组件的onChange()事件中调用sliderChange()，实现图片饱和度调节，参考：图片亮度调节[开发步骤](#section2758132011188)中的步骤5。  
+5. 在Slider组件的onChange()事件中调用sliderChange()，实现图片饱和度调节，参考：图片亮度调节[开发步骤](#section2758132011188)中的步骤5。
 
-#### 图片黑白滤镜
+## 图片黑白滤镜
 
-#### 场景描述
+### 场景描述
 
 选中黑白滤镜，图片显示黑白效果。实现效果如下图：
 
-![](https://media:201788187551478799 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/mbAthImJQiGzIbwXQM66sQ/zh-cn_image_0000002701055811.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=6030A93AF6A3C6556321D1892EEC7B9E81CF7368A89986A5F7A9D1B70173F035 "点击放大")
 
-#### 实现原理
+### 实现原理
 
-通过[effectKit.createEffect()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#effectkitcreateeffect)创建滤镜效果器，调用[grayscale()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#grayscale)方法为图片添加灰度效果。  
+通过[effectKit.createEffect()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#effectkitcreateeffect)创建滤镜效果器，调用[grayscale()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#grayscale)方法为图片添加灰度效果。
 
-#### 开发步骤
+### 开发步骤
 
-1. 获取编辑用的PixelMap，通过[effectKit.createEffect()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#effectkitcreateeffect)创建filter图像效果对象，根据传入的滤镜类型应用对应效果。  
+1. 获取编辑用的PixelMap，通过[effectKit.createEffect()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#effectkitcreateeffect)创建filter图像效果对象，根据传入的滤镜类型应用对应效果。
+
    当type为FilterType.GRAYSCALE时，调用[grayscale()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#grayscale)给图片添加灰度效果，通过getEffectPixelMap()获取处理后的PixelMap，再通过notifyPreviewUpdate()方法更新预览。
 
-   ```
+   ```typescript
    async handleFilter(type: FilterType) {
      // Obtain the cloned baseline pixel image.
      let startMap = this.getStartEditPixelMap(EditType.FILTER);
@@ -943,7 +945,7 @@ factor = 当前调节值 / 100
 
 2. 在点击事件中调用handleFilter()并传入当前点击item的索引，应用黑白滤镜效果。
 
-   ```
+   ```typescript
    ForEach(this.filterData, (item: filterDataType, index: number) => {
      Flex({
        direction: this.currentBreakpoint === 'lg' ? FlexDirection.Row : FlexDirection.Column,
@@ -963,23 +965,23 @@ factor = 当前调节值 / 100
    }, (item: filterDataType) => item.key)
    ```
 
-#### 图片高亮滤镜
+## 图片高亮滤镜
 
-#### 场景描述
+### 场景描述
 
 选中高亮滤镜，图片显示高亮效果。实现效果如下图：
 
-![](https://media:201788187551584800 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/FAYvAGMWQkmXbfEi_3mUDA/zh-cn_image_0000002671336002.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=8B54F712BA766538E26BC22C3E9CE8B6B453A75A5E0F5CF1EF574CB460128BC3 "点击放大")
 
-#### 实现原理
+### 实现原理
 
-通过effectKit效果器，调用[brightness()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#brightness)方法为图片添加高亮效果。  
+通过effectKit效果器，调用[brightness()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#brightness)方法为图片添加高亮效果。
 
-#### 开发步骤
+### 开发步骤
 
 1. 当type为FilterType.BRIGHTNESS时，调用[brightness()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#brightness)给图片添加高亮效果，再获取处理后的PixelMap，并更新预览图片。
 
-   ```
+   ```typescript
    async handleFilter(type: FilterType) {
      // Obtain the cloned baseline pixel image.
      let startMap = this.getStartEditPixelMap(EditType.FILTER);
@@ -1003,25 +1005,25 @@ factor = 当前调节值 / 100
    }
    ```
 
-2. 在点击事件中调用handleFilter()并传入当前点击item的索引，应用高亮滤镜效果，参考黑白滤镜[开发步骤](#section07091429161817)中的步骤2。  
+2. 在点击事件中调用handleFilter()并传入当前点击item的索引，应用高亮滤镜效果，参考黑白滤镜[开发步骤](#section07091429161817)中的步骤2。
 
-#### 图片反转滤镜
+## 图片反转滤镜
 
-#### 场景描述
+### 场景描述
 
 选中反转滤镜，图片显示反转效果。实现效果如下图：
 
-![](https://media:201788187551703801 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/vKiaVBkESuiOQTucz-Fmcw/zh-cn_image_0000002671176146.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=047FDE8D0F1588A057A64866AD03BC0E693BCFF081016EA97015C3BBF6200CF9 "点击放大")
 
-#### 实现原理
+### 实现原理
 
-通过effectKit效果器，调用[invert()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#invert12)方法为图片添加反转效果。  
+通过effectKit效果器，调用[invert()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#invert12)方法为图片添加反转效果。
 
-#### 开发步骤
+### 开发步骤
 
 1. 当type为FilterType.INVERT时，调用[invert()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#invert12)给图片添加反转效果，再获取处理后的PixelMap，并重新渲染图片。
 
-   ```
+   ```typescript
    async handleFilter(type: FilterType) {
      // Obtain the cloned baseline pixel image.
      let startMap = this.getStartEditPixelMap(EditType.FILTER);
@@ -1045,25 +1047,25 @@ factor = 当前调节值 / 100
    }
    ```
 
-2. 在点击事件中调用handleFilter()并传入当前点击item的索引，应用反转滤镜效果，参考黑白滤镜[开发步骤](#section07091429161817)中的步骤2。  
+2. 在点击事件中调用handleFilter()并传入当前点击item的索引，应用反转滤镜效果，参考黑白滤镜[开发步骤](#section07091429161817)中的步骤2。
 
-#### 图片模糊滤镜
+## 图片模糊滤镜
 
-#### 场景描述
+### 场景描述
 
 选中模糊滤镜，图片显示模糊效果。实现效果如下图：
 
-![](https://media:201788187551824802 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/x8wxhmc8SWKwI0E7RAbM_w/zh-cn_image_0000002701095733.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=D5A8EF22EC4A7F1DE981707BD8857E364F828D69B7DDE3C9EF116F11C060DD78 "点击放大")
 
-#### 实现原理
+### 实现原理
 
-通过effectKit效果器，调用[blur()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#blur)方法为图片添加模糊效果。  
+通过effectKit效果器，调用[blur()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#blur)方法为图片添加模糊效果。
 
-#### 开发步骤
+### 开发步骤
 
 1. 当type为FilterType.BLUR时，调用[blur()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit#blur)给图片添加模糊效果，再获取处理后的PixelMap，并重新渲染图片。
 
-   ```
+   ```typescript
    async handleFilter(type: FilterType) {
      // Obtain the cloned baseline pixel image.
      let startMap = this.getStartEditPixelMap(EditType.FILTER);
@@ -1086,8 +1088,9 @@ factor = 当前调节值 / 100
    }
    ```
 
-2. 在点击事件中调用handleFilter()并传入当前点击item的索引，应用模糊滤镜效果，参考黑白滤镜[开发步骤](#section07091429161817)中的步骤2。  
+2. 在点击事件中调用handleFilter()并传入当前点击item的索引，应用模糊滤镜效果，参考黑白滤镜[开发步骤](#section07091429161817)中的步骤2。
 
-#### 示例代码
+## 示例代码
 
-* [基于PixelMap编解码图片编辑功能](https://gitcode.com/HarmonyOS_Samples/PixelMapImageEdit)  
+* [基于PixelMap编解码图片编辑功能](https://gitcode.com/HarmonyOS_Samples/PixelMapImageEdit)
+

@@ -6,20 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/games-api-qui
 
 # 系统分享
 
-![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260226093542.77824406523627134413596784708963:50001231000000:2800:318749BC6B74E4A20F23BCF1A66CB9316FA53FC34441A6328177CCA90EA2B2D4.png)  
-从1078版本开始，接口前缀由hbs修改为qg，原hbs仍支持。  
+> 说明
+>
+> 从1078版本开始，接口前缀由hbs修改为qg，原hbs仍支持。
 
-#### 接口定义
+## 接口定义
 
 |接口|描述|
 |:------------------------------------------------------|:-----------------|
 |[qg.systemShare(Object object)](#section16201454172110)|通过系统分享，分享数据到其他app。|
 
-#### qg.systemShare(Object object)
+### qg.systemShare(Object object)
 
 * 描述 通过系统分享，分享数据到其他app。
 
-* 参数  
+* 参数
 
   |参数|类型|必填(M)/选填(O)|说明|
   |:-------|:-------|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -32,7 +33,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/games-api-qui
 
 * 示例代码
 
-  ```
+  ```screen
   qg.systemShare({
           type: 'text/html',
           data: 'System Share text/html',

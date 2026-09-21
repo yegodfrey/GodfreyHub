@@ -6,59 +6,62 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-contai
 
 # Hyperlink
 
-超链接组件，支持文本和图片两种展示形式，在组件宽高范围内点击可实现跳转到指定网页。适用于应用内打开外部网页链接的场景，该组件仅支持与系统浏览器配合使用。  
-![](https://media:401788445245476888)  
-* 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-* 该组件仅支持与系统浏览器配合使用。  
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-#### 需要权限
+超链接组件，支持文本和图片两种展示形式，在组件宽高范围内点击可实现跳转到指定网页。适用于应用内打开外部网页链接的场景，该组件仅支持与系统浏览器配合使用。
+> 说明
+>
+> * 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> * 该组件仅支持与系统浏览器配合使用。
 
-跳转到目标网页需要使用网络时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。  
+## 需要权限
 
-#### 子组件
+跳转到目标网页需要使用网络时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 
-可以包含[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)子组件。  
+## 子组件
 
-#### 接口
+可以包含[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)子组件。
 
-Hyperlink(address: string \| Resource, content?: string \| Resource)
+## 接口
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+Hyperlink(address: string | Resource, content?: string | Resource)
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-参数：  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:--------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------|
-|address|string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|Hyperlink组件跳转的网页地址。|
-|content|string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|否|Hyperlink组件显示的文本。 默认值：''。若不传该参数且组件内无子组件时，默认显示address参数值。 说明： 组件内有子组件时，不显示超链接文本。|
+|:------|:-------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------|
+|address|string | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|Hyperlink组件跳转的网页地址。|
+|content|string | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|否|Hyperlink组件显示的文本。 默认值：''。若不传该参数且组件内无子组件时，默认显示address参数值。 **说明：** 组件内有子组件时，不显示超链接文本。|
 
-#### 属性
+## 属性
 
-除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：  
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
-#### color
+### color
 
-color(value: Color \| number \| string \| Resource)
+color(value: Color | number | string | Resource)
 
 设置超链接文本的颜色。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------|
-|value|[Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#color) \| number \| string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|超链接文本的颜色。 phone默认值为'#ff007dff'，wearable设备默认值'#1F71FF'，tv设备默认值为'#266EFB'，均显示为蓝色。|
+|:----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------|
+|value|[Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#color) | number | string | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|超链接文本的颜色。 phone默认值为'#ff007dff'，wearable设备默认值'#1F71FF'，tv设备默认值为'#266EFB'，均显示为蓝色。|
 
-#### 示例
+## 示例
 
 该示例展示了超链接图片和文本跳转的效果。
 
-```
+```ts
 @Entry
 @Component
 struct HyperlinkExample {
@@ -82,4 +85,5 @@ struct HyperlinkExample {
 }
 ```
 
-![](https://media:401788445245511889)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/EqxYgBh4RLWpJZSmZsLyNA/zh-cn_image_0000002733436290.png?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D714A4FD2D8F4D5BE0805312FC4FEC9A99279CB91C1B8CCD3C0DE71EFCE461C)
+

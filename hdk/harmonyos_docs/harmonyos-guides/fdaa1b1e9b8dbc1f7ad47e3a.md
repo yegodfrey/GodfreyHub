@@ -10,9 +10,9 @@ Scan Kit（统一扫码服务）作为软硬协同的系统级扫码服务，创
 
 Scan Kit应用了多项计算机视觉技术和AI算法技术，不仅实现了远距离自动扫码，同时还针对多种复杂扫码场景（如暗光、污损、模糊、小角度、曲面码等）做了识别优化，提升扫码成功率与用户体验。
 
-为了方便开发者接入，我们提供了详细的样例工程供参考，推荐参考[示例工程](https://gitcode.com/HarmonyOS_Samples/scankit-samplecode-clientdemo-arkts)接入。  
+为了方便开发者接入，我们提供了详细的样例工程供参考，推荐参考[示例工程](https://gitcode.com/HarmonyOS_Samples/scankit-samplecode-clientdemo-arkts)接入。
 
-#### 场景介绍
+## 场景介绍
 
 Scan Kit提供了系统"扫码直达"、开发者应用内扫码等多种能力。优先接入"扫码直达"能力，通过少量的接入工作即可实现开发者应用服务的一步直达。
 
@@ -26,12 +26,13 @@ Scan Kit提供了系统"扫码直达"、开发者应用内扫码等多种能力�
 
 * 码图生成：通过文本或字节数组生成码图。
 
-![](https://media:401788444172719030)  
-Scan Kit支持十三种全球主流的码类型的识别和生成以及MULTIFUNCTIONAL CODE的识别。目前已支持的码类型包括QR Code、Data Matrix、PDF417、Aztec、EAN-8、EAN-13、UPC-A、UPC-E、Codabar、Code 39、Code 93、Code 128、 ITF-14。  
+> 说明
+>
+> Scan Kit支持十三种全球主流的码类型的识别和生成以及MULTIFUNCTIONAL CODE的识别。目前已支持的码类型包括QR Code、Data Matrix、PDF417、Aztec、EAN-8、EAN-13、UPC-A、UPC-E、Codabar、Code 39、Code 93、Code 128、 ITF-14。
 
-#### 约束与限制
+## 约束与限制
 
-#### 支持的设备
+### 支持的设备
 
 * 扫码直达能力仅支持Phone、Tablet。
 
@@ -41,7 +42,7 @@ Scan Kit支持十三种全球主流的码类型的识别和生成以及MULTIFUNC
 
 * 码图生成能力支持Phone、Tablet、Wearable、PC/2in1、TV（从API版本5.1.0(18)开始支持Wearable，从API版本5.1.1(19)开始支持PC/2in1、TV）。
 
-#### 功能使用限制
+### 功能使用限制
 
 |能力|限制条件|
 |:--------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -50,7 +51,7 @@ Scan Kit支持十三种全球主流的码类型的识别和生成以及MULTIFUNC
 |自定义界面扫码能力|从API版本26.0.0开始，支持使用[isCustomScanSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-scancore#iscustomscansupported)接口查询当前设备是否支持自定义界面扫码；需要授权使用相机权限；需要开发者自行实现扫码的人机交互界面。|
 |码图生成能力|通过字节数组生成码图时，若Scan Kit识别某码图内容显示内容为乱码，则该码图的字节数组需要通过专门的解码器解析，例如地铁闸机。|
 
-#### 模拟器支持情况
+## 模拟器支持情况
 
 本Kit支持模拟器，但与真机存在部分能力差异，具体差异如下：
 
@@ -62,10 +63,11 @@ Scan Kit支持十三种全球主流的码类型的识别和生成以及MULTIFUNC
 
   * 从API版本6.0.0(20)开始，模拟器支持部分自定义界面扫码接口开发（支持的接口包括[init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api#init)、[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api#start)、[stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api#stop)、[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api#release)、[rescan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api#rescan)），可实现自定义界面扫码能力的基本功能验证。
 
-  * 模拟器自定义界面扫码能力仅支持1280\*720分辨率，开发者传入其他分辨率会统一转换成1280\*720。
+  * 模拟器自定义界面扫码能力仅支持1280*720分辨率，开发者传入其他分辨率会统一转换成1280*720。
 
 * 模拟器不支持图像数据识别能力、码图生成能力。
 
-#### 示例代码
+## 示例代码
 
-Scan Kit提供的[示例工程](https://gitcode.com/HarmonyOS_Samples/scankit-samplecode-clientdemo-arkts)体现了Scan Kit的默认界面扫码、自定义界面扫码、图像识码、码图生成等特性，可参考该工程进行应用的相关内容开发。  
+Scan Kit提供的[示例工程](https://gitcode.com/HarmonyOS_Samples/scankit-samplecode-clientdemo-arkts)体现了Scan Kit的默认界面扫码、自定义界面扫码、图像识码、码图生成等特性，可参考该工程进行应用的相关内容开发。
+

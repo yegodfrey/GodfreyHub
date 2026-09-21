@@ -6,18 +6,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-
 
 # 游戏事件
 
-#### 接口定义
+## 接口定义
 
 |接口|描述|
 |:--------------------------------------------------------|:---------------------------------|
 |[qg.notifyGameEvent(Object object)](#section917310297396)|将游戏内的各种事件和对应数据上报给小游戏运行时。|
 |[qg.onRuntimeEvent(Object object)](#section1942616611537)|监听小游戏运行时通知给游戏的各种事件和数据，返回事件对应的数据格式。|
 
-#### qg.notifyGameEvent(Object object)
+### qg.notifyGameEvent(Object object)
 
 * 描述 将游戏内的各种事件和对应数据上报给小游戏运行时。
 
-* 参数object  
+* 参数object
 
   |参数|类型|必填(M)/选填(O)|说明|
   |:--------|:-----|:----------|:----------------------------------------------|
@@ -26,7 +26,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-
 
 * 示例代码
 
-  ```
+  ```screen
   if (qg.notifyGameEvent) {
       // 游戏加载完成后调用
       qg.notifyGameEvent({
@@ -36,18 +36,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-
   }
   ```
 
-#### qg.onRuntimeEvent(Object object)
+### qg.onRuntimeEvent(Object object)
 
 * 描述 监听小游戏运行时通知给游戏的各种事件和数据，返回事件对应的数据格式。
 
-* 参数object  
+* 参数object
 
   |参数|类型|必填(M)/选填(O)|说明|
   |:-------|:-------|:----------|:---------------------------------------------------|
   |eventKey|string|M|小游戏运行时通知给游戏的事件key。当前仅支持填写"startDirectPlay"，表示开始直玩事件。|
   |callback|function|M|小游戏运行时通知游戏事件的回调函数。|
 
-  * callback回调函数参数  
+  * callback回调函数参数
 
     |参数|类型|说明|
     |:--------|:-----|:---------------------------------------------------------------|
@@ -55,7 +55,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-
 
 * 示例代码
 
-  ```
+  ```screen
   if (qg.onRuntimeEvent) {
       qg.onRuntimeEvent({
           eventKey: 'startDirectPlay',

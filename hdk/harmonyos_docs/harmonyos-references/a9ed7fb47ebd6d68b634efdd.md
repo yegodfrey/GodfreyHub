@@ -6,17 +6,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 # badge
 
-应用中如果有需用户关注的新事件提醒，可以采用新事件标记来标识。  
-![](https://media:401788445348973162)  
-从API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。  
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-#### 子组件
+应用中如果有需用户关注的新事件提醒，可以采用新事件标记来标识。
+> 说明
+>
+> 从API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-仅支持单个子组件。  
+## 子组件
 
-#### 属性
+仅支持单个子组件。
 
-除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)外，还支持如下属性：  
+## 属性
+
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)外，还支持如下属性：
 
 |名称|类型|默认值|必填|描述|
 |:--------|:----------|:-------|:-|:--------------------------------------------------------------------------------------------------------------------------------------|
@@ -27,26 +30,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 |config|BadgeConfig|-|否|设置新事件标记相关配置属性。|
 |label|string|-|否|设置新事件提醒的文本值。 说明：使用该属性时，count和maxcount属性不生效。|
 
-#### BadgeConfig
+### BadgeConfig
 
 |名称|类型|默认值|必填|描述|
-|:---------|:---------|:------|:-|:-----------|
-|badgeColor|\<color\>|#fa2a2d|否|新事件标记背景色。|
-|textColor|\<color\>|#ffffff|否|数字标记的数字文本颜色。|
-|textSize|\<length\>|10px|否|数字标记的数字文本大小。|
-|badgeSize|\<length\>|6px|否|圆点标记的大小。|
+|:---------|:-------|:------|:-|:-----------|
+|badgeColor|<color>|#fa2a2d|否|新事件标记背景色。|
+|textColor|<color>|#ffffff|否|数字标记的数字文本颜色。|
+|textSize|<length>|10px|否|数字标记的数字文本大小。|
+|badgeSize|<length>|6px|否|圆点标记的大小。|
 
-#### 样式
+## 样式
 
-支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-styles)。  
+支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-styles)。
 
-#### 事件
+## 事件
 
-支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-events)。  
+支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-events)。
 
-#### 示例
+## 示例
 
-```
+```html
 <!-- xxx.hml -->
 <div class="container">
     <badge class="badge" config="{{ badgeConfig }}" visible="true" count="100" maxcount="99">
@@ -58,7 +61,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 </div>
 ```
 
-```
+```css
 /* xxx.css */
 .container {
     flex-direction: column;
@@ -83,7 +86,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 }
 ```
 
-```
+```js
 // xxx.js
 export default {
     data: {
@@ -95,4 +98,5 @@ export default {
 }
 ```
 
-![](https://media:401788445349012163)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/jzPugfSDT-qSQfKhyADFog/zh-cn_image_0000002762836557.png?HW-CC-KV=V1&HW-CC-Date=20260917T084644Z&HW-CC-Expire=31536000000&HW-CC-Sign=091F6868E17B86D51B2F13AF12CD64FF6C9A3B156F40B21871E92B0C0E4112F1)
+

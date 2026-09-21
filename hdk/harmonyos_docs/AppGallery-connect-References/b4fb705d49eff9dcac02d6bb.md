@@ -10,10 +10,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public class ReceiveRtmChannelMessageNotify : [RtmMessageNotify](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/rtmmessagenotify-csharp-0000001769668013) 接收RTM频道消息回调通知。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Description|
-|:------------|:-------|:---------------------------------------------------------------|
+|:------------|:-----|:---------------------------------------------------------------|
 |ChannelId|string|频道ID。|
 |ServerMsgId|string|全局发送消息唯一标识。|
 |ClientMsgId|string|客户端发送消息唯一标识。|
@@ -22,5 +22,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |FromOpenApi|bool|是否来自服务端接口发送。 * true：来自服务端接口发送 * false：来自客户端接口发送|
 |MessageType|int|消息类型。 * 1：文本 * 2：二进制|
 |MessageString|string|文本消息内容。|
-|MessageBytes|byte\[\]|二进制消息内容。|
+|MessageBytes|byte[]|二进制消息内容。|
 

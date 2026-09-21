@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1095
 
 # HarmonyOS下HdsNavigation与HdsTabs实现滚动模糊及沉浸光感材质效果的解决方案
 
-#### 问题现象
+## 问题现象
 
 场景一：如何实现HdsNavigation内容区延伸到工具栏区域并设置模糊效果？
 
 场景二：HdsNavigation嵌套HdsTabs出现滚动模糊效果丢失，问题代码如下所示：
 
-```
+```ts
 import {
   BlurStrategy,
   HdsNavigation,
@@ -59,7 +59,7 @@ struct Index {
       style: {
         scrollEffectOpts: {
           enableScrollEffect: true,
-          scrollEffectType: ScrollEffectType.COMMON_BLUR, // 设置模糊类型
+          scrollEffectType: ScrollEffectType.COMMON_BLUR,// 设置模糊类型
           blurEffectiveStartOffset: LengthMetrics.vp(0), // 动态样式线性过渡的起始位置
           blurEffectiveEndOffset: LengthMetrics.vp(20) // 动态样式线性过渡的终点位置
         },
@@ -81,11 +81,11 @@ struct Index {
 
 问题效果图如下所示：
 
-![](https://media:101783490844369317 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/eLHj9xotQh-Avc8kFyvm3Q/zh-cn_image_0000002633438810.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=765D46003F0F10027823E8582AF2D846FAD4DB8FE1BDB012D22913369E00B7FB "点击放大")
 
-场景三：如何为HdsNavigation的标题栏与HdsTabs的底部悬浮页签设置沉浸式光感材质效果（如颜色反射）？  
+场景三：如何为HdsNavigation的标题栏与HdsTabs的底部悬浮页签设置沉浸式光感材质效果（如颜色反射）？
 
-#### 背景知识
+## 背景知识
 
 * [HdsNavigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation)：路由导航的根视图容器，一般作为Page页面的根容器使用，其内部默认包含了标题栏、内容区和工具栏。
 * [bindToScrollable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#bindtoscrollable)：绑定导航组件和可滚动容器组件，动态显隐标题区域，状态栏及底部自定义区域。
@@ -95,17 +95,17 @@ struct Index {
 * [onWillHide](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent#onwillhide12)：TabContent即将隐藏时触发此回调。
 * [onAnimationStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#onanimationstart11)：切换动画开始时触发该回调。
 * [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)：可滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。
-* [Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)：可滚动容器组件的控制器，可以将此组件绑定至容器组件，然后通过它控制容器组件的滚动。  
+* [Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)：可滚动容器组件的控制器，可以将此组件绑定至容器组件，然后通过它控制容器组件的滚动。
 
-#### 解决方案
+## 解决方案
 
-* 场景一：实现HdsNavigation内容区延伸到工具栏区域并设置模糊效果。
+* **场景一：实现HdsNavigation内容区延伸到工具栏区域并设置模糊效果。**
   1. titleBar的[TitleBarStyleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#titlebarstyleoptions)存在scrollEffectOpts属性，可设置标题栏动态模糊效果。
   2. 工具栏区域的动态模糊效果，可将toolBar与内容区重叠，可通过设置[toolbarConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#toolbarconfiguration)的barStyle属性为BarStyle.STACK，并设置toolBar为透明模糊材质。
 
   参考代码如下所示：
 
-  ```
+  ```ts
   import { BlurStrategy, HdsNavigation, HdsNavigationTitleMode, ScrollEffectType } from '@kit.UIDesignKit';
   import { LengthMetrics } from '@kit.ArkUI';
 
@@ -156,7 +156,7 @@ struct Index {
         .height('100%')
         .width('100%');
       }
-      .bindToScrollable([this.scroller]) // 绑定导航组件和可滚动容器组件
+      .bindToScrollable([this.scroller])// 绑定导航组件和可滚动容器组件
       .height('100%')
       .width('100%')
       .hideBackButton(true)
@@ -193,19 +193,17 @@ struct Index {
   }
   ```
 
-  <br />
-
   效果图如下所示：
 
-  ![](https://media:101783490844471318 "点击放大")
-* 场景二：实现HdsNavigation嵌套HdsTabs滚动模糊效果正常显示。
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/Nt8KPoK6S3ik8R40Sw3j8Q/zh-cn_image_0000002633598796.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=5536FCB80255FDA2D5110B00457FF397F893EFA08965331186AC12D301475049 "点击放大")
+* **场景二：实现HdsNavigation嵌套HdsTabs滚动模糊效果正常显示。**
   1. 每个Tab单独创建独立的Scroller，互不共用，避免彼此干扰。
   2. bindToScrollable仅动态绑定当前Tab的Scroller。
   3. 通过onWillHide记录对应Tab的滚动偏移量，通过onAnimationStart恢复对应Tab的滚动位置。
 
   参考代码如下所示：
 
-  ```
+  ```ts
   import {
     BlurStrategy,
     HdsNavigation,
@@ -243,7 +241,7 @@ struct Index {
     ];
     @State currentIndex: number = 0;
 
-    // 只绑定当前显示的scroller
+  // 只绑定当前显示的scroller
     getCurScroll() {
       return this.tabList[this.currentIndex].scroller;
     }
@@ -266,14 +264,14 @@ struct Index {
               .height('100%');
             }
             .tabBar(item.name)
-            // 保存滚动量
+          // 保存滚动量
             .onWillHide(() => {
               const offset = item.scroller.currentOffset();
               item.offsetY = offset.yOffset;
             });
           });
         }
-        // 回复滚动量
+     // 回复滚动量
         .onAnimationStart((index: number, targetIndex: number) => {
           console.info(`Succeeded in getting info.Index:${index},targetIndex:${targetIndex}.`);
           this.currentIndex = targetIndex;
@@ -283,7 +281,7 @@ struct Index {
           });
         });
       }
-      // 只绑定当前页面的scroller，避免互相干扰
+     // 只绑定当前页面的scroller，避免互相干扰
       .bindToScrollable([this.getCurScroll()])
       .hideBackButton(true)
       .titleBar({
@@ -291,8 +289,8 @@ struct Index {
           scrollEffectOpts: {
             enableScrollEffect: true,
             scrollEffectType: ScrollEffectType.COMMON_BLUR, // 设置模糊类型
-            blurEffectiveStartOffset: LengthMetrics.vp(0), // 动态样式线性过渡的起始位置
-            blurEffectiveEndOffset: LengthMetrics.vp(20) // 动态样式线性过渡的终点位置
+            blurEffectiveStartOffset: LengthMetrics.vp(0),// 动态样式线性过渡的起始位置
+            blurEffectiveEndOffset: LengthMetrics.vp(20)// 动态样式线性过渡的终点位置
           },
           blurStrategy: BlurStrategy.ADAPTIVE,
           originalStyle: { backgroundStyle: { backgroundColor: '#00ffffff' } },
@@ -310,12 +308,12 @@ struct Index {
   }
   ```
 
-  <br />
-
   效果图如下所示：
 
-  ![](https://media:101783490844587319 "点击放大")
-* 场景三：为HdsNavigation的标题栏与HdsTabs的底部悬浮页签设置沉浸式材质效果。 1.在aboutToAppear生命周期中，调用hdsMaterial.getSystemMaterialTypes()获取当前设备支持的材质类型。若设备不支持hdsMaterial.MaterialType.IMMERSIVE沉浸式材质，则降级使用hdsMaterial.MaterialLevel.SMOOTH效果以优化性能。
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/hDtywFwmQQWVJgyFwJamAw/zh-cn_image_0000002633438926.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=FD86FBD222E298286ED2CA7DB25B21D85A6819E5DF318BC9358099737EEDCBE7 "点击放大")
+* **场景三：为HdsNavigation的标题栏与HdsTabs的底部悬浮页签设置沉浸式材质效果。**
+
+  1.在aboutToAppear生命周期中，调用hdsMaterial.getSystemMaterialTypes()获取当前设备支持的材质类型。若设备不支持hdsMaterial.MaterialType.IMMERSIVE沉浸式材质，则降级使用hdsMaterial.MaterialLevel.SMOOTH效果以优化性能。
 
   2.在HdsTabs组件的barFloatingStyle属性中，配置systemMaterialEffect，设置materialType为hdsMaterial.MaterialType.ADAPTIVE，并将materialLevel绑定为前序获取到的设备材质等级，为底部悬浮页签应用沉浸光感材质。
 
@@ -323,7 +321,7 @@ struct Index {
 
   参考代码如下所示：
 
-  ```
+  ```ts
   import {
     HdsNavigation,
     HdsNavigationTitleMode,
@@ -362,10 +360,10 @@ struct Index {
     };
 
     aboutToAppear(): void {
-      // 获取系统支持的材质类型，用于根据设备能力选择合适的材质等级
+     // 获取系统支持的材质类型，用于根据设备能力选择合适的材质等级
       let materialTypes: Array<hdsMaterial.MaterialType> = hdsMaterial.getSystemMaterialTypes();
       if (materialTypes.indexOf(hdsMaterial.MaterialType.IMMERSIVE) < 0) {
-        // 当前设备不支持IMMERSIVE材质类型，则使用SMOOTH效果以优化性能，降低卡顿和发热风险
+       // 当前设备不支持IMMERSIVE材质类型，则使用SMOOTH效果以优化性能，降低卡顿和发热风险
         this.customMaterialLevel = hdsMaterial.MaterialLevel.SMOOTH;
       }
     }
@@ -483,8 +481,9 @@ struct Index {
   ];
   ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：部分设备设置BlurStrategy.ADAPTIVE无法实现动态模糊，如何处理？
 
-A：可通过设置BlurStrategy参数为ENABLE，强制开启模糊效果。  
+A：可通过设置BlurStrategy参数为ENABLE，强制开启模糊效果。
+

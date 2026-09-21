@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivi
 
 # 蓝牙BLE广播是否支持自定义广播Type数据
 
-#### 问题现象
+## 问题现象
 
-使用BLE广播时，通过nRF Connect工具解析广播包数据，获取的数据类型Type均为0xFF（厂商私有数据），没有0x01（广告标记位）、0x09（设备名称）等其他类型数据。是否可以自定义广播Type数据？  
+使用BLE广播时，通过nRF Connect工具解析广播包数据，获取的数据类型Type均为0xFF（厂商私有数据），没有0x01（广告标记位）、0x09（设备名称）等其他类型数据。是否可以自定义广播Type数据？
 
-#### 解决方案
+## 解决方案
 
-当前API不支持直接设置任意的AD Type值，不同字段对应不同的AD Type，具体如下：  
+当前API不支持直接设置任意的AD Type值，不同字段对应不同的AD Type，具体如下：
 
 |字段|AD Type|
 |:-----------------------------------------------------------------------------------------------------------------------------------|:------------------|
@@ -23,4 +23,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivi
 
 可以通过[serviceData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#servicedata)（0x16）、includeDeviceName（0x09）等字段来使用蓝牙规范中定义的其他AD Type，而非所有数据都必须通过[manufactureData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#manufacturedata)（0xFF）发送。
 
-更多BLE广播相关内容可参考[BLE广播流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ble-development-guide#ble广播流程)。  
+更多BLE广播相关内容可参考[BLE广播流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ble-development-guide#ble广播流程)。
+

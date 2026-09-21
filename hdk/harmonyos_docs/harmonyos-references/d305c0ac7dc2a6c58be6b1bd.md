@@ -6,23 +6,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effe
 
 # effect_types.h
 
-#### 概述
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
+## 概述
 
 声明滤镜效果的数据类型。
 
-引用文件： \<native_effect/effect_types.h\>
+**引用文件：** <native_effect/effect_types.h>
 
-库： libnative_effect.so
+**库：** libnative_effect.so
 
-系统能力： SystemCapability.Multimedia.Image.Core
+**系统能力：** SystemCapability.Multimedia.Image.Core
 
-起始版本： 12
+**起始版本：** 12
 
-相关模块： [effectKit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effectkit)  
+**相关模块：** [effectKit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effectkit)
 
-#### 汇总
+## 汇总
 
-#### 结构体
+### 结构体
 
 |名称|typedef关键字|描述|
 |:------------------------------------------------------------------------------------------------------------------------------|:----------------|:---------------|
@@ -30,26 +32,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effe
 |[OH_Filter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effectkit-oh-filter)|OH_Filter|滤镜结构体，用来生成滤镜位图。|
 |[OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-pixelmapnative)|OH_PixelmapNative|定义一个位图。|
 
-#### 枚举
+### 枚举
 
 |名称|typedef关键字|描述|
 |:----------------------------------|:--------------|:--------------|
 |[EffectErrorCode](#effecterrorcode)|EffectErrorCode|定义滤镜效果的状态码。|
 |[EffectTileMode](#effecttilemode)|EffectTileMode|定义着色器效果平铺模式的枚举。|
 
-#### 枚举类型说明
+## 枚举类型说明
 
-#### EffectErrorCode
+### EffectErrorCode
 
-```
+```c
 enum EffectErrorCode
 ```
 
-描述
+**描述**
 
 定义滤镜效果的状态码。
 
-起始版本： 12  
+**起始版本：** 12
 
 |枚举项|描述|
 |:-------------------------------------|:------|
@@ -58,17 +60,17 @@ enum EffectErrorCode
 |EFFECT_UNSUPPORTED_OPERATION = 7600201|不支持的操作。|
 |EFFECT_UNKNOWN_ERROR = 7600901|未知错误。|
 
-#### EffectTileMode
+### EffectTileMode
 
-```
+```c
 enum EffectTileMode
 ```
 
-描述
+**描述**
 
 定义着色器效果平铺模式的枚举。
 
-起始版本： 14  
+**起始版本：** 14
 
 |枚举项|描述|
 |:--------|:----------------------------------|

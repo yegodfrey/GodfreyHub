@@ -6,23 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-map-31
 
 # 基于指定的经纬度坐标点，如何进行地图缩放
 
-#### 问题现象
+## 问题现象
 
-在不移动地图相机中心点的情况下，基于指定的经纬度坐标点，如何进行地图缩放（改变zoom级别）？  
+在不移动地图相机中心点的情况下，基于指定的经纬度坐标点，如何进行地图缩放（改变zoom级别）？
 
-#### 背景知识
+## 背景知识
 
 * 开发准备：使用地图服务，需要先[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)。
 * [zoomBy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-functions#zoomby)：根据给定增量并以给定的屏幕像素点为中心点缩放地图级别。
-* [toScreenLocation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-projection#toscreenlocation)：将经纬度转换为对应的屏幕上的点的坐标。屏幕上的点的坐标是以相对于地图左上角（而不是整个屏幕的左上角）的屏幕像素（而非显示像素）指定的。  
+* [toScreenLocation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-projection#toscreenlocation)：将经纬度转换为对应的屏幕上的点的坐标。屏幕上的点的坐标是以相对于地图左上角（而不是整个屏幕的左上角）的屏幕像素（而非显示像素）指定的。
 
-#### 解决方案
+## 解决方案
 
 方案逻辑：通过toScreenLocation将指定的经纬度坐标点转换为屏幕上的点的坐标，将此坐标点作为zoomBy的缩放中心点，进行指定级别的地图缩放。
 
 完整代码：
 
-```
+```ts
 import { map, mapCommon, MapComponent } from '@kit.MapKit';
 import { AsyncCallback } from '@kit.BasicServicesKit';
 import { display } from '@kit.ArkUI';
@@ -43,7 +43,7 @@ struct CustomScale {
   aboutToAppear(): void {
     let displayClass = display.getDefaultDisplaySync();
     this.mapHeight = this.getUIContext().px2vp(displayClass.height);
-    // 地图初始化参数
+   // 地图初始化参数
     this.mapOptions = {
       position: {
         target: {
@@ -82,7 +82,7 @@ struct CustomScale {
                 this.latitudeA = latLng?.latitude as number;
                 this.longitudeA = latLng?.longitude as number;
 
-                // 添加一个红色标记点
+             // 添加一个红色标记点
                 const markerOptions: mapCommon.MarkerOptions = {
                   position: {
                     latitude: this.latitudeA,
@@ -133,12 +133,13 @@ struct CustomScale {
 
 实现效果：
 
-![](https://media:201786500999194970 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/h1aYfZxUQ-2nO9EULRN3aA/zh-cn_image_0000002628394370.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=6DE9BE1D1B7307E690E6D02534EC998EE7BE25CF29A1683A2674085B5D8689D4 "点击放大")
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：如何实时获取当前地图的缩放级别（zoom）？
 
 A：Map Kit并没有直接提供获取当前地图的缩放级别的接口，可以通过获取相机的当前状态信息得到zoom的值。更准确地说，zoom实质上就是相机状态的缩放级别，即为屏幕中心附近的缩放级别。
 
-可通过[getCameraPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#getcameraposition)获取相机的当前状态信息，再从[CameraPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#cameraposition)获取缩放级别（zoom）。  
+可通过[getCameraPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#getcameraposition)获取相机的当前状态信息，再从[CameraPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#cameraposition)获取缩放级别（zoom）。
+

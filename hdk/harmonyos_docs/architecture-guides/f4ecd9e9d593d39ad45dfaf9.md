@@ -6,24 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/period_cha
 
 # 周期数据图表绘制
 
-#### 场景介绍
+## 场景介绍
 
 周期数据图表绘制是运动健康类应用中的典型场景之一，如向用户展示某一周期（年、月、周、日）心率、血压、血糖、体重、体温或热量消耗（千卡）等数据的变化趋势。
 
-本示例使用[@ohos/mpchart](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fmpchart)实现绘制折线图（走势图）、切换查看周期等功能，同时也适用于温度、湿度等数据可视化。  
+本示例使用[@ohos/mpchart](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fmpchart)实现绘制折线图（走势图）、切换查看周期等功能，同时也适用于温度、湿度等数据可视化。
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782462947473280 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/QmfqGhtfSzaV7OXkhCNQAQ/zh-cn_image_0000002517191406.gif?HW-CC-KV=V1&HW-CC-Date=20260921T035900Z&HW-CC-Expire=31536000000&HW-CC-Sign=4ECFAA35D641CB84E5B373A4E1E0BF865A3849161F4A5040AFFB668B1616DB40 "点击放大")
 
-#### 实现思路
+## 实现思路
 
 1. 使用[resourceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)读取模拟数据文件。
 2. 根据当前周期时间，处理需要展示的数据。
 3. 将需要展示的数据传入LineChartComponent组件，来绘制折线图。
 4. 使用[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)监听当前日期与展示周期，如有变化，则调用对应函数更新数据。
 
-   ```
+   ```ts
    // 1.读取模拟数据
    this.statistics = FileReaderUtils.readChartDataFromRawfile(this.context.resourceManager);
    // 2.处理需要展示的数据，并存入chartData和periodData
@@ -39,22 +39,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/period_cha
    @State @Watch('updateStats') timePeriod: IndicatorTimePeriod;
    ```
 
-#### 约束与限制
+## 约束与限制
 
 * 本示例支持API Version 20 Release及以上版本。
 * 本示例支持HarmonyOS 6.0.0 Release SDK及以上版本。
-* 本示例需要使用DevEco Studio 6.0.0 Release及以上版本进行编译运行。  
+* 本示例需要使用DevEco Studio 6.0.0 Release及以上版本进行编译运行。
 
-#### 工程目录
+## 工程目录
 
-```
-├──entry/src/main/ets               // 代码区
+```ts
+├──entry/src/main/ets// 代码区
 │  ├──common
-│  │  └──CommonConstants.ets        // 通用常量类
+│  │  └──CommonConstants.ets        //通用常量类
 │  ├──components
-│  │  ├──DateToolBar.ets            // 日期切换组件
-│  │  ├──HeaderBar.ets              // 头部工具栏组件
-│  │  ├──LineChartComponent.ets     // 折线图表组件
+│  │  ├──DateToolBar.ets            //日期切换组件
+│  │  ├──HeaderBar.ets              //头部工具栏组件
+│  │  ├──LineChartComponent.ets     //折线图表组件
 │  │  └──PeriodSelection.ets        // 周期切换组件
 │  ├──entryability
 │  │  └──EntryAbility.ets
@@ -63,22 +63,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/period_cha
 │  │  ├──LabelValueFormat.ets       // 标签数据格式类
 │  │  └──XAxisValueFormat.ets       // 横轴数据格式类
 │  ├──pages
-│  │  └──ChartPage.ets              // 图表展示页
+│  │  └──ChartPage.ets              //图表展示页
 │  └──utils
-│     ├──DateUtils.ets              // 日期工具类
+│     ├──DateUtils.ets              //日期工具类
 │     ├──FileReaderUtils.ets        // 文件读取工具类
 │     └──StatisticsUtils.ets        // 统计数据工具类
-└──entry/src/main/resources         // 应用资源目录
+└──entry/src/main/resources         //应用资源目录
 ```
 
-#### 参考文档
+## 参考文档
 
 [@ohos/mpchart](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fmpchart)
 
 [@ohos.resourceManager（资源管理）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)
 
-[@Watch装饰器：状态变量更改通知](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)  
+[@Watch装饰器：状态变量更改通知](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)
 
-#### 代码下载
+## 代码下载
 
-[周期数据图表绘制示例代码](https://media:101782462947558281)  
+[周期数据图表绘制示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626163547.05414949394302416538135557016820:50001231000000:2800:2BF360479CEADD5D9C72EF49FA2609063D4E230755D69D057A52ECD7C577EAD6.zip?needInitFileName=true)
+

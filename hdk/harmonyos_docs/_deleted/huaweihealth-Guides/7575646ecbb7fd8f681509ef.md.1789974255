@@ -1,0 +1,72 @@
+---
+name: document/cn/huaweihealth-Guides/set-blood-oxygen-alarm-0000002372218957
+title: 设置血氧异常告警开关和阈值
+uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/set-blood-oxygen-alarm-0000002372218957
+---
+
+# 设置血氧异常告警开关和阈值
+
+设置穿戴设备的血氧异常告警开关状态和告警阈值（单位：%）。开启血氧异常告警开关后，当穿戴设备连续三次检测到血氧值低于告警阈值时，将产生血氧异常的告警。关闭血氧异常告警开关后，穿戴设备不再产生血氧异常的告警。
+> 说明
+>
+> 如果需要启用血氧异常告警，请提前开启血氧自动检测开关，参见[设置血氧自动检测开关](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/set-blood-oxygen-switch-0000002338300788)。
+
+1. 调用[IndustryWear](https://developer.huawei.com/consumer/cn/doc/health-References/industrywear-0000001434945524)中的[getDeviceManageClient](https://developer.huawei.com/consumer/cn/doc/health-References/industrywear-0000001434945524#ZH-CN_TOPIC_0000002678163945__getDeviceManageClient-android_content_Context-)方法，获取[DeviceManageClient](https://developer.huawei.com/consumer/cn/doc/health-References/devicemanageclient-0000001485104693)对象。
+2. 参见[获取设备列表](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/get-device-list-0000002372216449)章节，获取已配对的穿戴设备列表，并从设备列表中选定需要操作的设备，获取设备Id。
+3. 构造用于设置血氧异常告警开关和阈值的JSON格式参数。
+
+   ```screen
+   {
+       "settingKey": "bloodOxygenAlarm",
+       "settingValue": {
+           "switch": 1,
+           "threshold": 80
+       }
+   }
+   ```
+
+   |参数|取值|含义|
+   |:-----------|:----------------------|:------------------------------|
+   |settingKey|bloodOxygenAlarm|血氧异常告警开关和阈值键值。|
+   |settingValue|包含以下参数：switch、threshold|血氧异常告警开关和阈值内容。|
+   |switch|0|关闭血氧异常告警。|
+   |switch|1|开启血氧异常告警。|
+   |threshold|整数，取值范围： [75, 90]|可选参数，血氧异常告警阈值，**选择开启告警时此参数必填**。|
+   [**表1**设置血氧异常告警开关和阈值参数]
+
+4. 调用[set](https://developer.huawei.com/consumer/cn/doc/health-References/devicemanageclient-0000001485104693#ZH-CN_TOPIC_0000002648084250__set-java_lang_String-java_lang_String-com_huawei_health_industry_client_callback_ServiceCallback-)方法设置血氧异常告警开关和阈值。
+
+   ```screen
+   // 获取DeviceManageClient对象
+   DeviceManageClient manageClient = IndustryWear.getDeviceManageClient(this);
+
+   // 参考https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/get-device-list-0000002372216449获取设备列表后选择需要操作的设备，获取设备Id
+   String deviceId = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
+   // 构造用于设置血氧异常告警开关和阈值的JSON格式的入参数据
+   JSONObject jsonObject = new JSONObject();
+   try {
+       JSONObject switchAndThreshold = new JSONObject();
+       switchAndThreshold.put("switch", 1);
+       switchAndThreshold.put("threshold", 80);
+       jsonObject.put("settingKey", "bloodOxygenAlarm");
+       jsonObject.put("settingValue", switchAndThreshold);
+   } catch (JSONException e) {
+       e.printStackTrace();
+   }
+
+   // 调用set方法设置血氧异常告警开关和阈值
+   manageClient.set(deviceId, jsonObject.toString(), new ServiceCallback() {
+       @Override
+       public void onResult(int statusCode, String result) {
+           // 对返回值的处理
+       }
+   });
+   ```
+
+   |返回值|取值|含义|
+   |:---------|:------------|:---------------------------------------------------------------------------------------------------------------------|
+   |statusCode|0、2、3、4、5、6、7|接口调用结果返回码，参见[返回码](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/errorcode-0000002372870401)中的通用返回码。|
+   |result|-|接口调用失败时返回错误信息。|
+   [**表2**ServiceCallback返回值]
+

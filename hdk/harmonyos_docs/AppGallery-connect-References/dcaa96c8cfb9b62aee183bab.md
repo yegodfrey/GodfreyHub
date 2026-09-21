@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # Overview
 
-包含AppGallery Connect云存储功能的相关类。  
+包含AppGallery Connect云存储功能的相关类。
 
-#### Exception Summary
+## Exception Summary
 
 |Exception|Description|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|
 |[StorageException](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-java-storage-storageexception-0000001494822430)|操作云存储的文件或目录的任务产生的错误消息和错误码定义。|
 
-#### Interface Summary
+## Interface Summary
 
 |Interface|Description|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
@@ -23,7 +23,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |[StorageTask.ErrorResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-java-storage-storagetaskerrorresult-0000001495142206)|任务执行状态中的错误信息。|
 |[StreamDownloadTask.StreamHandler](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/harmonyos-java-storage-streamdownloadtaskhandler-0000001545622137)|流式下载任务执行状态中的数据流处理接口。|
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|

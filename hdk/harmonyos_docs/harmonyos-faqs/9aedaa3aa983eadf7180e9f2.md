@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-592
 
 # ForEach渲染的List使用组件截图只能截取第一个ListItem
 
-#### 问题现象
+## 问题现象
 
 给List中每一个ListItem绑定id，使用componentSnapshot进行组件截图，id发生变化后还是只截到第一个ListItem。
 
-```
+```ts
 import { image } from '@kit.ImageKit';
 import { fileIo, fileUri } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
@@ -18,8 +18,8 @@ import { common } from '@kit.AbilityKit';
 @Entry
 @Component
 struct ListScreenshot {
-  @State imageUrl: Resource = $r('app.media.img_1'); // 替换已有图片资源
-  @State studyPath: Resource = $r('app.media.img_2'); // 替换已有图片资源
+  @State imageUrl: Resource = $r('app.media.img_1');// 替换已有图片资源
+  @State studyPath: Resource = $r('app.media.img_2');// 替换已有图片资源
   @State currentImage: string = '1';
   @State currentIndex: number = 0;
   @State secondImageUrl: string = '';
@@ -30,7 +30,7 @@ struct ListScreenshot {
     const pixelMap = await this.getUIContext().getComponentSnapshot().get(this.currentImage);
     // 2.获取图片二进制数据
     const imagePacker = image.createImagePacker();
-    // format图片类型quality图片质量，原图100
+   // format图片类型quality图片质量，原图100
     const arrayBuffer = await imagePacker.packToData(pixelMap, { format: 'image/png', quality: 98 });
     // 3.存储在应用下
     const ctx = this.getUIContext().getHostContext() as common.UIAbilityContext;
@@ -105,27 +105,27 @@ struct ListScreenshot {
 
 问题效果预览：
 
-![](https://media:101782454270001681 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/62X6GF0CTracjME-MiSvDg/zh-cn_image_0000002628552408.png?HW-CC-KV=V1&HW-CC-Date=20260920T114733Z&HW-CC-Expire=31536000000&HW-CC-Sign=042621D7C505A196CE0471BAEC7660029F3D4575F0334D2D69F0F57FDFE93B29 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [组件截图componentSnapshot.get](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-componentsnapshot#get12)：获取已加载的组件的截图，传入组件的组件标识，找到对应组件进行截图。
 * [组件标识](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id)：id为组件的唯一标识，在整个应用内唯一，唯一性由使用者保证。
-* [ForEach循环渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-foreach)：会为每一个循环单独生成唯一且不重复的索引和key。  
+* [ForEach循环渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-foreach)：会为每一个循环单独生成唯一且不重复的索引和key。
 
-#### 问题定位
+## 问题定位
 
-分析问题代码，发现所有ListItem绑定的id都是this.currentImage，该状态变量在ForEach循环渲染时，不会根据不同的ListItem变化，而是赋予所有的ListItem相同的值。所以组件id重复。  
+分析问题代码，发现所有ListItem绑定的id都是this.currentImage，该状态变量在ForEach循环渲染时，不会根据不同的ListItem变化，而是赋予所有的ListItem相同的值。所以组件id重复。
 
-#### 分析结论
+## 分析结论
 
-由于组件id重复，this.currentImage值变化后组件id依然重复，导致根据组件id截图时只截取第一个绑定该id的ListItem组件。  
+由于组件id重复，this.currentImage值变化后组件id依然重复，导致根据组件id截图时只截取第一个绑定该id的ListItem组件。
 
-#### 修改建议
+## 修改建议
 
 1. 根据ForEach的创建规律，每个ListItem组件的索引是唯一的，所以将ListItem组件id修改为索引值：
 
-   ```
+   ```ts
    ListItem() {
      // 上部分
      Column() {
@@ -146,14 +146,14 @@ struct ListScreenshot {
 
 2. 重写截图方法，当显示当前ListItem时，截取对应的图片：
 
-   ```
+   ```ts
    // 根据对应的id截图，此处根据滚动的索引this.currentIndex为截图id
    const pixelMap = await this.getUIContext().getComponentSnapshot().get(this.currentIndex.toString());
    ```
 
 完整代码如下：
 
-```
+```ts
 import { image } from '@kit.ImageKit';
 import { fileIo, fileUri } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
@@ -246,6 +246,7 @@ struct ListScreenshot {
 }
 ```
 
-#### 总结
+## 总结
 
-该问题的本质是组件的id冲突导致依据组件id截图时，只能截取到第一个ListItem，重新赋予不同id即可解决。  
+该问题的本质是组件的id冲突导致依据组件id截图时，只能截取到第一个ListItem，重新赋予不同id即可解决。
+

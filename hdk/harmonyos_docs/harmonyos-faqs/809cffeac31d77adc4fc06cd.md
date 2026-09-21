@@ -6,19 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-kit-
 
 # 组件如何实现始终居中放大
 
-#### 问题现象
+## 问题现象
 
-在Row布局中，Text组件如何实现始终保持居中放大，超出屏幕后，仍然居中显示。  
+在Row布局中，Text组件如何实现始终保持居中放大，超出屏幕后，仍然居中显示。
 
-#### 背景知识
+## 背景知识
 
-[textalign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textalign)设置文本段落在水平方向的对齐方式。[alignItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row#alignitems)设置子组件在垂直方向上的对齐格式。[justifyContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row#justifycontent8)设置子组件在水平方向上的对齐格式。  
+[textalign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textalign)设置文本段落在水平方向的对齐方式。[alignItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row#alignitems)设置子组件在垂直方向上的对齐格式。[justifyContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row#justifycontent8)设置子组件在水平方向上的对齐格式。
 
-#### 解决方案
+## 解决方案
 
 Text不能往左延伸是因为父组件的offset都在屏内，想要Text的宽度能在超过屏幕宽度时还居中显示，父组件的offset（左顶点）需要在屏外，可以设置外层容器宽度大一些。示例代码如下：
 
-```
+```ts
 @Entry
 @Component
 struct TextComponent {
@@ -63,7 +63,7 @@ struct TextComponent {
         Text('字号')
         Slider({
           value: $$this.textFontSize,
-          min: 12, // 最小字号
+          min: 12,// 最小字号
           max: 58, // 最大字号
           step: 1,
         })
@@ -75,6 +75,4 @@ struct TextComponent {
   }
 }
 ```
-
-<br />
 

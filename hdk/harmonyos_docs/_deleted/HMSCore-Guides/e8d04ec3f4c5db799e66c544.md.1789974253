@@ -1,0 +1,23 @@
+---
+name: document/cn/HMSCore-Guides/process-0000001053717279
+title: 接入流程
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/process-0000001053717279
+---
+
+# 接入流程
+
+## 设备接入流程
+
+**图1**接入流程   
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/-y-5ABWVQvmDPTw6FXyDPA/zh-cn_image_0000002548039111.png?HW-CC-KV=V1&HW-CC-Date=20260909T180337Z&HW-CC-Expire=31536000000&HW-CC-Sign=0E2DB7DB4C9245B67E1224535F94FF51B6678ADD7680C6A9033542E5480752E9)
+
+1. 与华为 BD 沟通合作意向，签署合作协议后，[获取 Gym Profile 开发套件](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/get-gymprofile-0000001055381470)。
+2. 根据本文档和 Gym Profile 开发套件完成智能跳绳[蓝牙模块功能开发](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/function-0000001054040293)。
+3. 对于使用蓝牙私有协议的设备，还需要根据本文档和 Gym Profile 开发套件完成[设备 H5 页面开发](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/rope-overview-h5-0000001073406824)。
+4. 准备及提交素材资源文件至华为开发者联盟给华为审核，以实现在运动健康App中添加设备（入口：App > 设备 > 添加设备）。对于蓝牙私有协议的设备，还需要上传设备 H5 页面的 zip 压缩包（包含设备详情、测量指导及测量操作界面），以实现用户在运动健康App 中使用设备并进行测量的操作。参见[准备及提交素材资源文件](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/cardio-prepare-0000001073398271)。
+5. 通过测试工具和测试用例测试设备蓝牙模块功能实现是否符合接入运动健康的要求。参见[蓝牙模块功能测试](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/rope-function-test-0000001073288497)。
+6. 将设备资源包拷贝到手机上，使用运动健康App 和测试用例，测试在 App 中添加设备功能是否正常。参见[与运动健康App对接测试](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/test-adddevice-0000001077486284)。
+7. 投递样机，提交测试报告至华为开发者联盟给华为进行认证测试，华为安排测试资源，反馈测试结果。
+8. 若涉及到与华为品牌有关的营销材料，需提交华为审核，才可以对外发布。
+9. 产品认证通过，营销等资料审核通过，产品可正式发布。
+

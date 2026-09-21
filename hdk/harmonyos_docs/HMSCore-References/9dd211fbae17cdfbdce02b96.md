@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/customizedt
 |:---------------------------------------|
 |public enum CustomizedTtsType 语音播报类型枚举类。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum Value and Description|
 |:---------------------------------------------------------------------|
@@ -39,40 +39,40 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/customizedt
 |YAW_NAVIGATION_TO_DESTINATION(22) 已为您导航至终点。|
 |UNKNOWN_VALUE(-1) 未知类型。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------|
 |int|[getType](#section126361019183110)() 获取到当前播报的类型值。|
 |static [CustomizedTtsType](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/customizedttstype-0000001214687580)|[valueOf](#section12769105019327)(int value) 根据传入的枚举值获取对应的枚举类型。|
 
-#### Public Methods
+## Public Methods
 
-#### getType
+### getType
 
 |Method|
 |:--------------------------------------|
 |public int getType() 您调用此API可以当前播报的类型值。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:---|:----------|
 |int|播报的类型值。|
 
-#### valueOf
+### valueOf
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static [CustomizedTtsType](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/customizedttstype-0000001214687580) valueOf(int value) 您调用此API可以根据传入的标识值获取对应的枚举类型。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------|
 |value|传入的标识值。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:----------------------------------------------------------------------------------------------------------------------|:----------|

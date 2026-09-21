@@ -6,25 +6,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/notification-
 
 # 请求通知授权
 
-应用需要获取用户授权才能发送通知。在通知发布前调用[requestEnableNotification()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationmanager#notificationmanagerrequestenablenotification10-1)接口，弹窗让用户选择是否允许发送通知。当用户拒绝授权后，将无法通过该接口再次拉起弹窗。如果应用需要向用户再次申请[通知授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/notification-glossary#notification-authorization通知授权)，则可以使用[openNotificationSettingsWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationmanager#notificationmanageropennotificationsettingswithresult)接口拉起通知管理半模态弹窗。  
+应用需要获取用户授权才能发送通知。在通知发布前调用[requestEnableNotification()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationmanager#notificationmanagerrequestenablenotification10-1)接口，弹窗让用户选择是否允许发送通知。当用户拒绝授权后，将无法通过该接口再次拉起弹窗。如果应用需要向用户再次申请[通知授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/notification-glossary#notification-authorization通知授权)，则可以使用[openNotificationSettingsWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationmanager#notificationmanageropennotificationsettingswithresult)接口拉起通知管理半模态弹窗。
 
-#### 接口说明
+## 接口说明
 
 接口详情参见[@ohos.notificationManager (NotificationManager模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationmanager)。
 
-表1 [通知授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/notification-glossary#notification-authorization通知授权)接口功能介绍  
+**表1** [通知授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/notification-glossary#notification-authorization通知授权)接口功能介绍
 
-|接口名|描述|
-|:--------------------------------------------------------------------------------------------|:-----------------------|
-|isNotificationEnabled():Promise\<boolean\>|查询通知是否授权。|
-|requestEnableNotification(context: UIAbilityContext): Promise\<void\>|请求发送通知的许可，第一次调用会弹窗让用户选择。|
-|openNotificationSettingsWithResult(context: UIAbilityContext): Promise\<NotificationSetting\>|拉起通知管理弹窗，用户设置完成后返回设置结果。|
+|**接口名**|**描述**|
+|:------------------------------------------------------------------------------------------|:-----------------------|
+|isNotificationEnabled():Promise<boolean>|查询通知是否授权。|
+|requestEnableNotification(context: UIAbilityContext): Promise<void>|请求发送通知的许可，第一次调用会弹窗让用户选择。|
+|openNotificationSettingsWithResult(context: UIAbilityContext): Promise<NotificationSetting>|拉起通知管理弹窗，用户设置完成后返回设置结果。|
 
-#### 开发步骤
+## 开发步骤
 
 1. 导入NotificationManager模块。
 
-   ```
+   ```TypeScript
    import { notificationManager } from '@kit.NotificationKit';
    import { BusinessError } from '@kit.BasicServicesKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -38,7 +38,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/notification-
 
    可通过requestEnableNotification的错误码判断用户是否授权。若返回的错误码为1600004，即为拒绝授权。
 
-   ```
+   ```TypeScript
    let context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
    notificationManager.isNotificationEnabled().then((data: boolean) => {
      hilog.info(DOMAIN_NUMBER, TAG, `isNotificationEnabled success, data: ${data}` );
@@ -65,7 +65,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/notification-
 
    用户授权完成后会返回设置结果，其中包含通知授权开关以及锁屏、横幅、角标、铃声、振动的开关设置结果。
 
-   ```
+   ```TypeScript
    let context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
    notificationManager.isNotificationEnabled().then((data: boolean) => {
      hilog.info(DOMAIN_NUMBER, TAG, `isNotificationEnabled success, data:  ${data}`);

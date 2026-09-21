@@ -1,0 +1,120 @@
+---
+name: document/cn/HMSCore-Guides/swimming-0000001184462440
+title: 游泳
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/swimming-0000001184462440
+---
+
+# 游泳
+
+## 开放水域游泳
+
+运动记录类型如下：
+
+|**运动类型**|**描述**|**运动类型常量**|数据来源|
+|:------------------|:-----|:---------|:----|
+|swimming.open_water|开放水域游泳|82|手环、手表|
+
+### 专业运动特征统计数据
+
+运动特征统计数据类型：com.huawei.activity.feature.swimming.open_water
+
+|**字段**列表|字段描述|**类型**|可选/必选|单位|取值范围|
+|:--------------|:---|:-----|:----|:-|:-----------------------------------|
+|pull_times|划水次数|int|M|次|-|
+|swimming_stroke|主泳姿|int|O|-|* 1：蛙泳 * 2：自由泳 * 3：蝶泳 * 4：仰泳 * 5：混合泳|
+
+### 关联的采样统计数据类型说明
+
+作为ActivityRecord概要数据的一部分，统一使用运动记录权限，无需每种关联的采样统计数据类型使用单独OAuth权限。
+
+|**采样统计数据类型**|**描述**|可选/必选|备注|
+|:----------------------------------------------------|:------|:----|:-----------------|
+|com.huawei.continuous.distance.total|距离统计|M|-|
+|com.huawei.continuous.calories.burnt.total|卡路里统计|M|-|
+|com.huawei.continuous.exercise_heart_rate.statistics|运动心率统计|O|用户佩戴华为手表/手环时会包含该数据|
+|com.huawei.continuous.swimming.stroke_rate.statistics|划水频率统计|O|-|
+|com.huawei.continuous.swimming.swolf.statistics|SWOLF统计|O|-|
+|com.huawei.resting_calories.statistics|静息热量统计|O|-|
+
+### 关联的原子采样数据说明
+
+关联的原子采样数据权限请参考[OAuth权限说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/introduction-fitness-record-data-0000001131831088#section27171294263)。
+
+|**原子采样数据类型**|**描述**|可选/必选|备注|
+|:--------------------------------------------|:-------|:----|:-----------------|
+|com.huawei.instantaneous.exercise_heart_rate|运动心率详情|O|用户佩戴华为手表/手环时会包含该数据|
+|com.huawei.instantaneous.location.sample|GPS详情|O|-|
+|com.huawei.instantaneous.speed|速度详情|O|-|
+|com.huawei.instantaneous.swimming.stroke_rate|划水频率详情|O|-|
+|com.huawei.instantaneous.swimming.swolf|SWOLF详情|O|-|
+|com.huawei.recovery_heart_rate|运动恢复心率详情|O|-|
+
+## 泳池游泳
+
+运动记录类型如下：
+
+|**运动类型**|**描述**|**运动类型常量**|数据来源|
+|:------------|:-----|:---------|:----|
+|swimming.pool|泳池游泳|83|手环、手表|
+
+### 专业运动特征统计数据
+
+运动特征统计数据类型：com.huawei.activity.feature.swimming.pool
+
+|**字段**列表|字段描述|**类型**|可选/必选|单位|取值范围|
+|:--------------|:---|:-----|:----|:-|:-----------------------------------|
+|pull_times|划水次数|int|M|次|-|
+|trip_times|趟数|int|M|次|-|
+|pool_length|泳池长度|int|O|米|-|
+|swimming_stroke|主泳姿|int|O|-|* 1：蛙泳 * 2：自由泳 * 3：蝶泳 * 4：仰泳 * 5：混合泳|
+
+### 关联的采样统计数据类型说明
+
+作为ActivityRecord概要数据的一部分，统一使用运动记录权限，无需每种关联的采样统计数据类型使用单独OAuth权限。
+
+|**采样统计数据类型**|**描述**|可选/必选|备注|
+|:----------------------------------------------------|:------|:----|:-----------------|
+|com.huawei.continuous.distance.total|距离统计|M|-|
+|com.huawei.continuous.calories.burnt.total|卡路里统计|M|-|
+|com.huawei.continuous.exercise_heart_rate.statistics|运动心率统计|O|用户佩戴华为手表/手环时会包含该数据|
+|com.huawei.continuous.speed.statistics|速度统计|O|-|
+|com.huawei.continuous.swimming.stroke_rate.statistics|划水频率统计|O|-|
+|com.huawei.continuous.swimming.swolf.statistics|SWOLF统计|O|-|
+|com.huawei.resting_calories.statistics|静息热量统计|O|-|
+
+### 关联的原子采样数据说明
+
+关联的原子采样数据权限请参考[OAuth权限说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/introduction-fitness-record-data-0000001131831088#section27171294263)。
+
+|**原子采样数据类型**|**描述**|可选/必选|备注|
+|:--------------------------------------------|:-------|:----|:-----------------|
+|com.huawei.instantaneous.exercise_heart_rate|运动心率详情|O|用户佩戴华为手表/手环时会包含该数据|
+|com.huawei.instantaneous.speed|速度详情|O|-|
+|com.huawei.instantaneous.swimming.stroke_rate|划水频率详情|O|-|
+|com.huawei.instantaneous.swimming.swolf|SWOLF详情|O|-|
+|com.huawei.recovery_heart_rate|运动恢复心率详情|O|-|
+
+### 关联的分段数据说明
+
+作为ActivityRecord概要数据的一部分，统一使用运动记录权限，无需每种关联的采样统计数据类型使用单独OAuth权限。
+
+|**采样统计数据类型**|**描述**|可选/必选|备注|
+|:----------------------------------------------|:------|:----|:--------|
+|com.huawei.continuous.distance.total|距离统计|O|-|
+|com.huawei.continuous.speed.statistics|速度统计|O|分段支持avg字段|
+|com.huawei.continuous.swimming.swolf.statistics|SWOLF统计|O|分段支持avg字段|
+|com.huawei.swimming.statistics|游泳统计|O|-|
+
+### 分段统计数据类型
+
+* 名称：com.huawei.swimming.statistics
+
+|**字段列表**|描述|**类型**|可选/必选|**单位**|备注|
+|:---------|:---|:-----|:----|:-----|:-----------------------------------|
+|pullTimes|划水次数|int|M|次|-|
+|strokeType|泳姿|int|O|-|* 1：蛙泳 * 2：自由泳 * 3：蝶泳 * 4：仰泳 * 5：混合泳|
+
+## 场景示例
+
+[游泳运动记录](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/swimming-records-0000001187450014)
+

@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/device-ce
 
 # 模块
 
-* [CertManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanager)  
-* [CertManagerType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanagertype)  
+* **[CertManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanager)**   
+* **[CertManagerType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanagertype)**   

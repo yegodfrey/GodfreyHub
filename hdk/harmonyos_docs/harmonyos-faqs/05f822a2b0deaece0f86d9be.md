@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-569
 
 # 如何解决Text组件含有多种字符时两端对齐间距大小不一致问题
 
-#### 问题现象
+## 问题现象
 
 使用TextAlign.Justify或TextAlign.Start均未实现两端对齐的效果，不同字符间距大小不一。如图：
 
-![](https://media:101782461557264239)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/EEhmsB2DSU29i1cvA2OOhg/zh-cn_image_0000002658911365.png?HW-CC-KV=V1&HW-CC-Date=20260920T114736Z&HW-CC-Expire=31536000000&HW-CC-Sign=BB58FDB2BC882E4001C4EFF690F019312991B7EBC4F799199571BE854BBB9D7C)
 
-#### 背景知识
+## 背景知识
 
-[Text组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)中的[textAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textalign)与[WordBreak](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#wordbreak11)相关部分。  
+[Text组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)中的[textAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textalign)与[WordBreak](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#wordbreak11)相关部分。
 
-#### 解决方案
+## 解决方案
 
 中文字符必定是全角字符，但数字英文特殊字符等存在全角和半角两种格式，一般情况下数字英文特殊字符等都会简化半角格式，这些字符只有在作为文本处理时会出现会产生格式问题，使用断行规则可以自动将其转成半角。
 
@@ -26,7 +26,7 @@ WordBreak.BREAK_ALL与TextAlign.JUSTIFY组合使用可实现英文单词按字�
 
 代码示例如下：
 
-```
+```ts
 @Entry
 @Component
 struct wordDemo {
@@ -45,6 +45,7 @@ struct wordDemo {
 }
 ```
 
-#### 总结
+## 总结
 
-文字对齐，不仅仅可以用单参数实现，有时候可以通过两个参数组合实现一个对齐效果。  
+文字对齐，不仅仅可以用单参数实现，有时候可以通过两个参数组合实现一个对齐效果。
+

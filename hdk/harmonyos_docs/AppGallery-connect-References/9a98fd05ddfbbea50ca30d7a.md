@@ -10,10 +10,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |namespace Com.Huawei.Game.Gobes public class RecordListResponse : [BaseResponse](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gameobe-baseresponse-csharp-0000001234637864) 获取对战记录列表响应。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Description|
-|:----------|:--------------------------------------------------------------------------------------------------------------------------------------|:----------|
-|RecordInfos|[RecordInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gameobe-recordinfo-csharp-0000001626747325)\[\]|对战记录列表。|
+|:----------|:------------------------------------------------------------------------------------------------------------------------------------|:----------|
+|RecordInfos|[RecordInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gameobe-recordinfo-csharp-0000001626747325)[]|对战记录列表。|
 |TotalCount|int|对战记录的总条数。|
 

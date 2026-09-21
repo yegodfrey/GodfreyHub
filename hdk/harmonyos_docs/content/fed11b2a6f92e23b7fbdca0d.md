@@ -8,17 +8,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/watch-face-preview-vid
 
 表盘市场支持播放表盘预览视频，以让您的表盘作品被更好地展示，提高表盘销售。
 
-请按下列规范准备表盘的预览视频文件。  
+请按下列规范准备表盘的预览视频文件。
 
-#### 预览视频分辨率
+## 预览视频分辨率
 
 |手表类型|表盘分辨率|预览视频分辨率|
-|:-----------------|:-------|:-----------|
-|智能手表 <br /> <br />|466\*466|960px\*960px|
-|智能手表 <br /> <br />|408\*480|816px\*960px|
-|智能手表 <br /> <br />|286\*482|570px\*960px|
+|:---|:------|:----------|
+|智能手表|466*466|960px*960px|
+|智能手表|408*480|816px*960px|
+|智能手表|286*482|570px*960px|
 
-#### 预览视频规格
+## 预览视频规格
 
 * 视频格式为MP4，编解码制式要求为H.264，无音轨。
 * 在保证清晰度的前提下，视频大小建议在5MB以内，时长建议在5秒以内。
@@ -28,10 +28,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/watch-face-preview-vid
 * 表盘预览视频不能为手持拍摄的视频，请用设计软件制作，或[使用Theme Studio Pro进行录制](#section138974534422)。
 * 表盘市场展示时会自动给预览视频加上手表外框。设计预览视频时，请勿设计手表的外框。功能效果请参考以下视频：
 
-<br />
-
-#### 预览视频录制
+## 预览视频录制
 
 在Theme Studio Pro中，支持在导出表盘资源包时，同步导出预览视频。
 
-![](https://media:101782381630870634 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/aLfShVOrQKSIctww0HxSTQ/zh-cn_image_0000001737839336.png?HW-CC-KV=V1&HW-CC-Date=20260920T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE2FF8125BB7BF39F57FDEA890BDAB3843857323C9DC378E653F2F2375EF04FD "点击放大")
+

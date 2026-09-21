@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-Guides/dynamic-mesh-0
 
 # 自定义网格
 
-CG Kit提供的自定义网格功能可将3D世界中任何需要绘制的面通过三角形绘制出来，实现形状的动态显示效果。  
+CG Kit提供的自定义网格功能可将3D世界中任何需要绘制的面通过三角形绘制出来，实现形状的动态显示效果。
 
-#### 绘制自定义网格模型
+## 绘制自定义网格模型
 
 1. 生成网格。
    1. 生成[Mesh](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/mesh-0000001050181219)对象。
@@ -19,12 +19,13 @@ CG Kit提供的自定义网格功能可将3D世界中任何需要绘制的面通
    2. 通过[UpdateVertexDeclaration](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/mesh-0000001050181219#section134013152019)接口生成或更新[Mesh](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/mesh-0000001050181219)对象中的顶点声明对象。
 3. 通过[FillVertexData](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/mesh-0000001050181219#section11626183910191)和[FillIndexData](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/mesh-0000001050181219#section57561043181910)接口，将顶点数据和索引数据设置给Mesh对象。
 4. 生成[SceneObject](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/sceneobject-0000001050179052)对象。通过SceneObject对象的[MeshRenderer](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/meshrenderer-0000001050181223)指针，将生成的Mesh对象与SceneObject对象相关联。
-5. 为[MeshRenderer](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/meshrenderer-0000001050181223)对象设置[MaterialInstance](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/materialinstance-0000001104663982)。[MaterialInstance](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/materialinstance-0000001104663982)可以通过[cgmat文件](https://developer.huawei.com/consumer/cn/doc/development/graphics-Guides/cgmat-configuration-file-0000001106071566)生成。  
-   ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20221027095249.84414050449806099718791835363240:50531026063340:2800:FF24A5BA2214226845B3FB53F0A0960A8D0D747CF54F6FB5B7A485BF52E16A76.png?needInitFileName=true?needInitFileName=true)  
-使用自定义网格模型渲染图形时，cgmat配置文件的[顶点shader模板](https://developer.huawei.com/consumer/cn/doc/development/graphics-Guides/shader-0000001154736843#section108141951154811)（forward_pbr.vert）和[像素shader模板](https://developer.huawei.com/consumer/cn/doc/development/graphics-Guides/shader-0000001154736843#section974564225020)（directional_forward_pbr.frag、point_forward_pbr.frag、spot_forward_pbr.frag）中的"location"和"binding"需要与VertexAttribute列表中的"location"和"binding"一致。  
+5. 为[MeshRenderer](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/meshrenderer-0000001050181223)对象设置[MaterialInstance](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/materialinstance-0000001104663982)。[MaterialInstance](https://developer.huawei.com/consumer/cn/doc/development/graphics-References/materialinstance-0000001104663982)可以通过[cgmat文件](https://developer.huawei.com/consumer/cn/doc/development/graphics-Guides/cgmat-configuration-file-0000001106071566)生成。 说明
+   >
+   > 使用自定义网格模型渲染图形时，cgmat配置文件的[顶点shader模板](https://developer.huawei.com/consumer/cn/doc/development/graphics-Guides/shader-0000001154736843#section108141951154811)（forward_pbr.vert）和[像素shader模板](https://developer.huawei.com/consumer/cn/doc/development/graphics-Guides/shader-0000001154736843#section974564225020)（directional_forward_pbr.frag、point_forward_pbr.frag、spot_forward_pbr.frag）中的"location"和"binding"需要与VertexAttribute列表中的"location"和"binding"一致。
+
 创建自定义网格模型的使用示例如下。
 
-```
+```screen
 struct VertexData
 {
      std::vector<Vector2> positions;
@@ -39,15 +40,15 @@ struct VertexData
 void MainApplication::CreateDynamicMesh()
 {
     // 生成网格
-    Mesh* mesh = CG_NEW(Mesh, GetGraphicsRender());
-    if (mesh == nullptr) {
+    Mesh* mesh= CG_NEW(Mesh, GetGraphicsRender());
+    if (mesh== nullptr) {
         LOGERROR("Create mesh failed.");
         return;
     }
 
     // 添加一个子网格
-    SubMesh* subMesh = mesh->AddSubMesh();
-    if (subMesh == nullptr) {
+    SubMesh* subMesh= mesh->AddSubMesh();
+    if (subMesh== nullptr) {
         LOGERROR("Create subMesh failed.");
         CG_SAFE_DELETE(mesh)
         return;
@@ -98,14 +99,14 @@ void MainApplication::CreateDynamicMesh()
     // 添加到索引缓存。
     mesh->FillIndexData(index.data(), 6);
 
-    SceneObject* sceneObject = GetSceneManager()->CreateSceneObject(nullptr);
-    if (sceneObject == nullptr) {
+    SceneObject* sceneObject= GetSceneManager()->CreateSceneObject(nullptr);
+    if (sceneObject== nullptr) {
         CG_SAFE_DELETE(mesh)
         LOGERROR("Create sceneObject failed.");
         return;
     }
-    MeshRenderer* renderer = sceneObject->AddComponent<MeshRenderer>();
-    if (renderer == nullptr) {
+    MeshRenderer* renderer= sceneObject->AddComponent<MeshRenderer>();
+    if (renderer== nullptr) {
         CG_SAFE_DELETE(mesh);
         GetSceneManager()->DeleteObject(sceneObject);
         LOGERROR("Add the render failed.");
@@ -113,7 +114,7 @@ void MainApplication::CreateDynamicMesh()
     }
     renderer->SetMesh(mesh);
     MaterialInstance* instance = MaterialInstance::New("material/screenQuad.cgmat");
-    if (instance == nullptr) {
+    if (instance== nullptr) {
         CG_SAFE_DELETE(mesh)
         GetSceneManager()->DeleteObject(sceneObject);
         LOGERROR("Create materialinstance failed.");
@@ -126,7 +127,7 @@ void MainApplication::CreateDynamicMesh()
 }
 ```
 
-#### 更新自定义网格信息
+## 更新自定义网格信息
 
 如果需要更新的顶点数据中，顶点属性有变化，请按照如下操作：
 
@@ -135,7 +136,7 @@ void MainApplication::CreateDynamicMesh()
 
 更新自定义网格模型的使用示例如下。
 
-```
+```screen
 struct VertexData
 {
      std::vector<Vector2> positions;

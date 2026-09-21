@@ -10,13 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/routechange
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public class RouteChangeInfo 路线切换的对象，在调用[MapNaviListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/mapnavilistener-0000001212215832)类的[onCalBackupGuideSuccess](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/mapnavilistener-0000001212215832#section1947493511429)方法时会返回该类型的实例。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[RouteChangeInfo](#section19665112084012)(Integer routeID, [NaviLocation](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/navilocation-0000001213437004) naviLocation, boolean isAutoChange) 使用给定参数创建RouteChangeInfo对象。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|
@@ -24,15 +24,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/routechange
 |[NaviLocation](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/navilocation-0000001213437004)|[getLocationInfo](#section13735181432115)() 切换路线成功后的location匹配信息。|
 |Integer|[getRouteID](#section365865121019)() 切换路线成功所计算的路线ID。|
 
-#### Public Constructors
+## Public Constructors
 
-#### RouteChangeInfo
+### RouteChangeInfo
 
 |Constructor|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |RouteChangeInfo(Integer routeID, [NaviLocation](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/navilocation-0000001213437004) naviLocation, boolean isAutoChange) 使用给定参数创建RouteChangeInfo对象。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:--------------------|
@@ -40,39 +40,39 @@ Parameters
 |naviLocation|切换路线成功后的location匹配信息。|
 |isAutoChange|是否自动切换到备选路线。|
 
-#### Public Methods
+## Public Methods
 
-#### getAutoChange
+### getAutoChange
 
 |Method|
 |:--------------------------------------------|
 |public boolean getAutoChange() 获取是否自动切换到备选路线。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:------|:---------------|
 |boolean|true：是。 false：否。|
 
-#### getLocationInfo
+### getLocationInfo
 
 |Method|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public [NaviLocation](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/navilocation-0000001213437004) getLocationInfo() 获取切换路线成功后的location匹配信息。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:------------------------------------------------------------------------------------------------------------|:--------------------|
 |[NaviLocation](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/navilocation-0000001213437004)|切换路线成功后的location匹配信息。|
 
-#### getRouteID
+### getRouteID
 
 |Method|
 |:--------------------------------------------|
 |public Integer getRouteID() 获取切换路线成功所计算的路线ID。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:------|:--------------|

@@ -1,0 +1,30 @@
+---
+name: document/cn/hiai-References/cancel-0000001057482169
+title: Cancel
+uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/cancel-0000001057482169
+---
+
+# Cancel
+
+## 接口定义
+
+```screen
+void Cancel(const std::string& modelName);
+```
+
+## 功能介绍
+
+取消模型异步推理任务。
+
+## 参数
+
+|名称|类型|描述|
+|:--------|:-----------------|:----|
+|modelName|const std::string&|模型名称。|
+
+> 说明
+>
+> * 本接口为CANN DDK V500新增接口。
+> * CANN DDK V500对应Kirin平台映射关系见[支持的平台](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/supported-platforms-0000001052830507)。
+> * 此接口功能在其他平台不支持。
+

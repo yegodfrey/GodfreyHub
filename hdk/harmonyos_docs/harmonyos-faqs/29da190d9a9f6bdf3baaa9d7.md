@@ -4,13 +4,13 @@ title: 真机设备链接后，执行“hdc list targets”命令结果为“[Em
 uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-32
 ---
 
-# 真机设备链接后，执行"hdc list targets"命令结果为"\[Empty\]"
+# 真机设备链接后，执行"hdc list targets"命令结果为"[Empty]"
 
-问题现象
+**问题现象**
 
-执行hdc list targets命令后返回空列表\[Empty\]，设备未正常识别。
+执行hdc list targets命令后返回空列表[Empty]，设备未正常识别。
 
-可能原因  
+**可能原因**
 
 |类别|具体表现|
 |:---|:----------------------------------|
@@ -19,7 +19,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performanc
 |环境冲突|端口被占用（例如ADB与HDC共用8710端口）/TCP模式切换失败。|
 |系统兼容|设备系统与HDC工具版本不匹配/镜像烧录异常。|
 
-解决措施  
+**解决措施**
+
 一、检查设备连接情况
 
 1. Windows环境。 查看设备管理是否显示HDC设备。
@@ -40,7 +41,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performanc
 
    打开zadig（[zadig官网](https://zadig.akeo.ie/))/（[zadig仓库下载](https://github.com/pbatard/libwdi/releases)），插入设备，Options里面打开List All Devices，下拉框找到HDC Device，然后点击Reinstall Driver。
 
-   ![](https://media:101782454408768269 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/9WMFOn_kRUqr7I3i3N8NlA/zh-cn_image_0000002654798143.png?HW-CC-KV=V1&HW-CC-Date=20260916T082506Z&HW-CC-Expire=31536000000&HW-CC-Sign=17E7D25859CD94D0EBEF05292C9E73BCE021B0B03F68D802AEA8ECFCF9BC6E64 "点击放大")
 2. Linux环境。 在命令行执行"lsusb"，查看是否存在HDC Device或HDC Interface。如果没有该命令，通过"apt-get install usbutils"安装usbutils。
 
 3. Mac环境。 使用"系统信息"或"系统概述"来查看MacOS是否识别连接到Mac的USB设备。
@@ -51,20 +52,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performanc
 
    (3)在随后出现的窗口中，选择左侧的"USB"。
 
-(4)在随后显示的设备树中检查是否存在HDC Device/HDC Interface。如果没有显示，可按照以下思路检查USB连接是否正常。  
+   (4)在随后显示的设备树中检查是否存在HDC Device/HDC Interface。如果没有显示，可按照以下思路检查USB连接是否正常。
 
 |排查项|正常内容|异常处理|
-|:--------|:-------------------------------------------------------|:------------------------------------------------------------------|
+|:--------|:-----------------------------------------------------|:------------------------------------------------------------------|
 |USB接口|使用USB直连|如果使用拓展坞无法识别设备，请更换拓展坞或尝试直连。|
-|USB线 设备状态|使用原装配套USB连接线 设备处于开机状态，进入【系统设置\>系统\>开发人员选项】 "USB调试"开关处于常开|如使用其他第三方线材，需确认其至少满足USB2.0标准。 如USB调试开关非常开，可以尝试重新插拔USB接口、重启设备或恢复出厂设置。|
+|USB线 设备状态|使用原装配套USB连接线 设备处于开机状态，进入【系统设置>系统>开发人员选项】 "USB调试"开关处于常开|如使用其他第三方线材，需确认其至少满足USB2.0标准。 如USB调试开关非常开，可以尝试重新插拔USB接口、重启设备或恢复出厂设置。|
 
 二、清除设备告警。
 
-1. 打开本地注册表（regedit），导航至：计算机\\HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Class\\{88bae032-5a81-49f0-bc3d-a4ff138216d6}。
-2. 在右侧列表中找到【UpperFilters】键，右键点击并选择修改，清空所有字符数据（建议在清空前备份数据）。最后，刷新或插拔设备，或重启PC，即可正常显示。 ![](https://media:101782454408799270 "点击放大")
+1. 打开本地注册表（regedit），导航至：计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{88bae032-5a81-49f0-bc3d-a4ff138216d6}。
+2. 在右侧列表中找到【UpperFilters】键，右键点击并选择修改，清空所有字符数据（建议在清空前备份数据）。最后，刷新或插拔设备，或重启PC，即可正常显示。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/5bgokUagR8SLUlI3Bgz1pg/zh-cn_image_0000002624638686.png?HW-CC-KV=V1&HW-CC-Date=20260916T082506Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA635F6B3BD7B6F5206D5CEBE666B8DFF230F9B7AD782158E98660195C0C86B5 "点击放大")
 
-三、进入【设置\>系统\>开发人员选项\>usb调试】重新关闭、打开USB调试；  
-四、若连接设备时出现"\\\[Fail\\\] Failed to communicate with daemon"。
+三、进入【设置>系统>开发人员选项>usb调试】重新关闭、打开USB调试；
+
+四、若连接设备时出现"\[Fail\] Failed to communicate with daemon"。
 
 1. hdc与设备不匹配：如果设备烧写的镜像是最新版本，hdc也必须使用最新版本。
 2. 端口被占用可能导致hdc和hdc_std无法同时运行，因为它们使用相同的端口。请注意，只运行其中一个。
@@ -72,4 +74,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performanc
 
    运行hdc kill。
 
-运行hdc start。  
+   运行hdc start。
+

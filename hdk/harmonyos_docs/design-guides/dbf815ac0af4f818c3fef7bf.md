@@ -8,23 +8,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/design-guides/alphabetindexer-
 
 索引条主要针对按字母顺序排序的列表进行快速定位。用于快速精确定位，如：联系人列表 (查找联系人)、天气、世界时钟 (添加城市)。开发相关描述请参考 [AlphabetIndexer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer) 文档。
 
-![](https://media:301781259448281524 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/dZUCyWvDT46pr8pYy7xpyg/zh-cn_image_0000001929672676.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=A0114B43524A5D3017E9BD6802F17F270C09A079F0A089C950A1EE5A25561BED "点击放大")
 
-#### 如何使用
+## 如何使用
 
-索引条作为快速检索类型组件，需要充分适配设备尺寸。例如在手机竖屏情况下时，能够完整展示索引条内容；若将手机旋转成横屏显示，由于屏幕高度限制，优先显示对应的字母索引；如果字母仍然显示不全，则使用缩略的方式展示关键字母条目。索引条可以通过 [usingPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#usingpopup) 接口显示浮层窗口，用于展示索引内容的首字母，可以配置仅展示英文，或展示对应该条目下的所有同类型字母前缀，主要适用于中文场景。  
+**索引条作为快速检索类型组件，需要充分适配设备尺寸。** 例如在手机竖屏情况下时，能够完整展示索引条内容；若将手机旋转成横屏显示，由于屏幕高度限制，优先显示对应的字母索引；如果字母仍然显示不全，则使用缩略的方式展示关键字母条目。索引条可以通过 [usingPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#usingpopup) 接口显示浮层窗口，用于展示索引内容的首字母，可以配置仅展示英文，或展示对应该条目下的所有同类型字母前缀，主要适用于中文场景。
 
-|--------------------------------------------|--------------------------------------------|
-|![](https://media:301781259448317525 "点击放大")|![](https://media:301781259448352526 "点击放大")|
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/0F_htcs-RB-j4mZSiPSC8A/zh-cn_image_0000001956991325.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=D5FCE834DC6228E974CBECD47AE1C9C63EA35F6D156981410C9E87B42E38E87A "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/qbM5mvAhT_e1i3sW08GkCw/zh-cn_image_0000001956831509.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=93B4932F63FAA6358D9AB1E6B43158811C11F85839C5AD677EB63CCF61F71888 "点击放大")|
 |纯首字母索引浮层|多项索引浮层|
 
-#### 组件规则
+## 组件规则
 
-#### 控件构成
+### 控件构成
 
 索引条控件主要由索引项、索引浮层和检索内容区域为主。其中索引项一般为英文字母，用来进行选择，切换对应选后会对内容区进行筛选，做到快速定位。
 
-![](https://media:301781259448430527 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/hh6N9yqnTvyIBPnwFW-Dfg/zh-cn_image_0000001929832060.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=13A63AA057215395061718F98EE0A091245E1B78266006EE560F68C2FC1DF519 "点击放大")
 
 |--|------|-------------------------------------|
 |序号|元素名称|描述|
@@ -33,65 +33,60 @@ uri: https://developer.huawei.com/consumer/cn/doc/design-guides/alphabetindexer-
 |3|索引项列表|展示所有可操作的索引项|
 |4|内容区域|跟随索引项操作变化内容显示|
 
-#### 动态布局
+### 动态布局
 
 当设备处于横屏下时，例如手机设备，或是当应用窗口处于分屏场景时，由于可展示的应用高度不够，字母索引可以以间隔方式显示字母。 通过使用 [autoCollapse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer#autocollapse11) 接口能力可以实现动态判断。
 
-![](https://media:301781259448462528 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/jlzKVB35TI-N8yyI_n8iBQ/zh-cn_image_0000001929672680.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=EE6CA38E1BCF5FB1A668DA6CBE19D54617EBC89180A23F40F3DC0B5448C19256 "点击放大")
 
-<br />
+## 视觉规则
 
-#### 视觉规则
-
-#### 沉浸光感
+### 沉浸光感
 
 组件已默认提供[沉浸光感](https://developer.huawei.com/consumer/cn/doc/design-guides/immersivelight-0000002612101053)样式，为页面带来更好的视觉精致度和空间感。
 
-![](https://media:301781259448643529 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/d7yaPefwSgmlOf92c_bA3w/zh-cn_image_0000002584074148.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=DFBFE894B882E432F39FCB2D638803D36A5833D55E9D2168FACBA1EC86DA0681 "点击放大")
 
-<br />
+## 设备差异
 
-#### 设备差异
+### 手机设备
 
-#### 手机设备
-
-|---------------------------------------------------------------------------------------|------------------------------------------------------|
-|![](https://media:301781259448677530 "点击放大")|![](https://media:301781259448754531 "点击放大")|
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/QIajbUMrRUih9dNahNWHsg/zh-cn_image_0000001956991329.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE39F0F28BE9E90B1A6701FB84FB963F5203B1AD3DA80AC40750729F74533EB8 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/xN00ClQoR7GePJBQECbQ1Q/zh-cn_image_0000001956831517.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=63C754D67EA126DD1BF747D90C8BEC966637BCE82F7EEF2C84A1D8C2620D7EB8 "点击放大")|
 |索引条的位置需要在界面中可以自由布局，通常情况下建议在界面中保持居中位置。在 HarmonyOS 应用中通常会将界面中的信号栏和底部工具栏/底部页签高度去除掉，然后居中展示。|若顶部的内容还包含子页签等其他组合组件，字母索引起始位置可以考虑基于顶部组件高度提供一个默认间距，固定显示。|
 
-#### 穿戴设备
+### 穿戴设备
 
 索引条是快速定位列表内容的操作条。用于快速精确定位，如联系人列表查找联系人。
 
-![](https://media:301781259449059532 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/81WuXnKrQ9G8j5j3vKxJ_Q/zh-cn_image_0000002347548569.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=D89ABC21F8D9A469484F928BF5C97EFD3A08167866A1F2C1C4813E899CFA355B "点击放大")
 
-使用规则
+**使用规则**
 
-* 索引条最少显示 2 个索引；当索引数在索引条上量超过 4 个时，可通过点击折叠箭头\> 展开或折叠索引条。
+* 索引条最少显示 2 个索引；当索引数在索引条上量超过 4 个时，可通过点击折叠箭头> 展开或折叠索引条。
 * 未展开状态下，用户可以在索引条上通过滑动交互和点击交互来获取精确定位。当用户手指滑动或点击至某一字母位置时，界面顶部有气泡提示当前字母，用户在非索引条区域滚动或点击时，此气泡消失；若用户没有操作，则 3.5s 后气泡自动消失。
 * 展开状态的索引条，点击或用滑动索引条，均可进行焦点选择，此时界面有气泡提示当前字母，消失规则与未展开时相同； 滑动列表中的内容或点击箭头，可将索引条折叠。
 * 展开状态的索引条弧长根据数量增长，最长可形成整圆。方形表为胶囊形。
 * 多语言情况下，整圆状态下超过 30 个字符时，可隐藏一些字符并以"."显示，焦点处于此位置时，气泡显示被隐藏的多个字符。
 * 多语言情况下，一些语言需要切换至字母索引时，本地语言末尾有一个字母，点击或滑动可切换至字母语言；切换至字母索引时，字母索引上方有一个本地语言字符，点击或获得可切换至本地语言。
 
-![](https://media:301781259449102533 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/QSs-zinyRTSTUa8PBkJ89Q/zh-cn_image_0000002164393364.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=C66064D28CCC94580B24C5D501574EE85CDCA5693F0CD8ADCCB3C84E5AE258C4 "点击放大")
 
 方形表：
 
-![](https://media:301781259449155534 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/OK1MrnWOQPGLoeERuWqnbA/zh-cn_image_0000002347549749.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=B6C36CD56BE8EED08A69BC78385369E822D2E483613FD4855A8292DA7DFBB48F "点击放大")
 
-<br />
-
-视觉规则
+**视觉规则**
 
 圆形表：
 
-![](https://media:301781259449214535 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/QNDEdnjpQwW40lMY9VR6DQ/zh-cn_image_0000002164557308.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=D764522844205570499FB3BF78A6B0D3590CA2D21C9B984946E4D1D23ABDAA92 "点击放大")
 
 方形表：
 
-![](https://media:301781259449291536 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/1KXIbrUyTcOd9svi7Ohb6w/zh-cn_image_0000002347711273.png?HW-CC-KV=V1&HW-CC-Date=20260920T033430Z&HW-CC-Expire=31536000000&HW-CC-Sign=113ACC13230B5C1187FB7CC6AC71580E92D1051A952858E10B3B16C0B6B55DE3 "点击放大")
 
-#### 开发文档
+## 开发文档
 
-[AlphabetIndexer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer)  
+[AlphabetIndexer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-alphabet-indexer)
+

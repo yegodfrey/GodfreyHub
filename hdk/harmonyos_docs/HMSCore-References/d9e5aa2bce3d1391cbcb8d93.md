@@ -10,21 +10,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/client-base
 |:-------------------------------------|
 |public final class HttpRequest HTTP请求。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[HttpRequest](#section161671342122012)([HttpTransport](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/client-base-http-httptransport-0000001534669902) transport, String requestMethod) HttpRequest类构造方法。|
 
-#### Public Constructors
+## Public Constructors
 
-#### HttpRequest
+### HttpRequest
 
 |Constructor|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |HttpRequest([HttpTransport](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/client-base-http-httptransport-0000001534669902) transport, String requestMethod) HttpRequest构造方法。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------------|:----------|

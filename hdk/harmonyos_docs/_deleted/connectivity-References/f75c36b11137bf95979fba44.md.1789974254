@@ -1,0 +1,44 @@
+---
+name: document/cn/connectivity-References/overview-0000001051392757
+title: Overview
+uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/overview-0000001051392757
+---
+
+# Overview
+
+提供设备虚拟化Engine包信息接口，包括DVEngine版本信息、获取Engine服务对象、连接DeviceVirtualization（设备虚拟化）服务以及断开DeviceVirtualizdation服务等。
+
+## Interface Summary
+
+|Interface|Description|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|
+|[IDiscoveryCallback](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/discovery-callback-0000001051650620)|设备发现的回调接口，获取发现到的虚拟设备。|
+|[IDVKitConnectCallback](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/dvkit-connect-callback-0000001052570665)|服务实例化回调接口。|
+|[IVirtualDeviceObserver](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/virtual-device-observer-0000001051490630)|设备能力状态变化的观察接口，用于获取设备能力的使能去使能状态变化。|
+|[IVirtualSensorDataListener](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/virtual-sensor-data-listener-0000001051809366)|虚拟sensor数据回调接口，用于接收虚拟sensor上报的数据。|
+
+## Class Summary
+
+|Class|Description|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+|[DvKit](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/dvkit-0000001052666937)|该类提供设备虚拟化Engine包信息接口，包括DeviceVirtualization Engine版本信息、获取Engine服务对象、连接DV服务以及断开DV服务等。|
+|[VirtualDeviceManager](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/virtual-device-manager-0000001051787342)|该类提供设备虚拟化的主要功能性接口，包括发现虚拟设备、获取虚拟设备列表、打开相应虚拟设备等。|
+|[VirtualDevice](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/virtual-device-0000001052587340)|该类为设备的信息定义类，提供设备的相关信息接口。|
+|[SensorAgent](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/sensor-agent-0000001052947349)|该类为虚拟Sensor的服务类，提供了虚拟Sensor的相关接口，包括：获取虚拟Sensor列表、注册/去注册虚拟Sensor的数据监听。|
+|[VirtualSensor](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/virtual-sensor-0000001052787349)|该类定义了虚拟sensor的内容，包括：设备id、sensor id、sensor类型等。|
+|[VirtualSensorData](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/virtual-sensor-data-0000001052890588)|该类为虚拟sensor的数据定义类，定义了虚拟sensor的数据字段，包括虚拟sensor、数据以及时间戳等。|
+|[VibratorService](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/vibrator-service-0000001052667361)|该类为虚拟vibrator的服务类，提供了虚拟马达的相关接口，包括：获取马达列表等。|
+|[VirtualVibrator](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/virtual-vibrator-0000001053067347)|该类为虚拟马达的类，提供了虚拟马达的操作接口，例如：震动、取消震动等。|
+|[DvNotification](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/dv-notification-0000001052227330)|该类为消息通知的消息属性定义类，提供消息通知的相关属性设置接口。|
+|[DvNotificationService](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/dv-notification-service-0000001052867344)|该类为消息通知的消息发送定义类，提供消息通知的发送接口。|
+|[ReturnCode](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/return-code-0000001052468665)|该类用来定义返回码。|
+|[DeviceType](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/device-type-0000001051628598)|该类用来定义设备类型。|
+|[EventType](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/event-type-0000001052548641)|该类用来定义事件类型。|
+
+## Enum Value Summary
+
+|Enum|Description|
+|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------|
+|[Capability](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/capability-0000001051468608)|能力集。|
+|[ObserverEventType](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/observer-event-type-0000001051787344)|虚拟设备事件类型。|
+

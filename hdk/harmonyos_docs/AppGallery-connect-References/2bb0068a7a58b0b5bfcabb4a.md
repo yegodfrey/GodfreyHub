@@ -6,4 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # Domain Management API
 
-Domain Management API主要用于HarmonyOS 5及以上元服务，具体接口请参见[Domain Management API参考](https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-reference-0000002271160649)。  
+Domain Management API主要用于HarmonyOS 5及以上元服务，具体接口请参见[Domain Management API参考](https://developer.huawei.com/consumer/cn/doc/app/agc-help-domain-api-reference-0000002271160649)。
+

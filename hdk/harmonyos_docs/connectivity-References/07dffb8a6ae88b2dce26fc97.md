@@ -6,6 +6,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/com_hu
 
 # com.huawei.watch.kit.hiwear
 
-* [Overview](https://developer.huawei.com/consumer/cn/doc/connectivity-References/overview-0000001051765726)  
-* [Class](https://developer.huawei.com/consumer/cn/doc/connectivity-References/typesummary_0-0000001058609351)  
-* [Exception](https://developer.huawei.com/consumer/cn/doc/connectivity-References/typesummary_1-0000001060155044)  
+* **[Overview](https://developer.huawei.com/consumer/cn/doc/connectivity-References/overview-0000001051765726)**   
+* **[Class](https://developer.huawei.com/consumer/cn/doc/connectivity-References/typesummary_0-0000001058609351)**   
+* **[Exception](https://developer.huawei.com/consumer/cn/doc/connectivity-References/typesummary_1-0000001060155044)**   

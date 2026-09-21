@@ -6,28 +6,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/scroll_cel
 
 # 商品页面刷新和展示
 
-#### 场景介绍
+## 场景介绍
 
 商品页面刷新和展示是购物比价类应用中高频使用场景之一。
 
-本示例基于[Refresh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)组件实现商品展示页面设计，包括搜索栏、业务模块栏、商品筛选栏和商品信息栏，支持页面刷新。  
+本示例基于[Refresh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)组件实现商品展示页面设计，包括搜索栏、业务模块栏、商品筛选栏和商品信息栏，支持页面刷新。
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782466524265083 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/uccNdV16TOikltbpUDoCpw/zh-cn_image_0000002517191606.gif?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=FDE9E2E7E8072F2746EABD4B4FEED712E1C387168D552BB34E7ED73CFB776C0C "点击放大")
 
-#### 实现思路
+## 实现思路
 
 1. 分别实现商品展示页面的搜索栏、业务模块栏、商品筛选栏和商品信息栏，详细实现请在代码中查看。
 
-   ```
+   ```ts
    // CatalogView.ets
    export struct CatalogView {}         // 不同业务模块栏
 
    // CustomTabBarView.ets
    export struct CustomTabBarView {}    // 商品筛选栏
 
-   // ProductView.ets
+   //ProductView.ets
    export struct ProductView {}         // 商品信息栏
 
    // SearchView.ets
@@ -36,7 +36,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/scroll_cel
 
 2. 结合[Refresh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)组件实现商品列表下拉刷新和上拉加载功能，以及滚动和吸顶效果。
 
-   ```
+   ```ts
    // MainMallPage.ets
    Refresh({ refreshing: $$this.isRefreshing }) {
      Column() {
@@ -68,15 +68,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/scroll_cel
    }
    ```
 
-#### 约束与限制
+## 约束与限制
 
 * 本示例支持API Version 20 Release及以上版本。
 * 本示例支持HarmonyOS 6.0.0 Release SDK及以上版本。
-* 本示例需要使用DevEco Studio 6.0.0 Release及以上版本进行编译运行。  
+* 本示例需要使用DevEco Studio 6.0.0 Release及以上版本进行编译运行。
 
-#### 工程目录
+## 工程目录
 
-```
+```ts
 ├──entry/src/main/ets              // 代码区
 │  ├──component          
 │  │  ├──CatalogView.ets           // 分类栏组件
@@ -93,12 +93,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/scroll_cel
 └──entry/src/main/resources        // 应用资源目录
 ```
 
-#### 参考文档
+## 参考文档
 
 [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)
 
-[Refresh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)  
+[Refresh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)
 
-#### 代码下载
+## 代码下载
 
-[商品页面刷新和展示示例代码](https://media:101782466524358084)  
+[商品页面刷新和展示示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626173524.21421552467605364070587241953958:50001231000000:2800:F3ADE9999DB966D15172F86488840179C1C3F200AF33DA5ED76A825F4DBA81F5.zip?needInitFileName=true)
+

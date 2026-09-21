@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-360
 
 # 进入全屏模式后隐藏状态栏，退出全屏模式如何显示状态栏
 
-问题描述
+**问题描述**
 
 当应用进入全屏模式时调用[setWindowLayoutFullscreen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowlayoutfullscreen9)接口会导致状态栏隐藏，返回非全屏页面时需要重新显示状态栏。
 
-解决措施
+**解决措施**
 
 退出页面时，需要调用[setSpecificSystemBarEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setspecificsystembarenabled11)启用状态栏,再调用[setWindowLayoutFullscreen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowlayoutfullscreen9)接口刷新布局使设置生效。
 
@@ -18,12 +18,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-360
 
 首先获取窗口对象，可参考：[Interface (Window)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)。
 
-```
+```ts
 // EntryAbility.ets
 
 
 onWindowStageCreate(windowStage: window.WindowStage): void {
-  // Main window is created, set main page for this ability
+ // Main window is created, set main page for this ability
   hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
 
@@ -36,16 +36,16 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
 
 
     let windowClass: window.Window = windowStage.getMainWindowSync(); // 获取应用主窗口
-    // 1. 设置窗口全屏
+   // 1. 设置窗口全屏
     let isLayoutFullScreen = true;
     windowClass.setWindowLayoutFullScreen(isLayoutFullScreen);
-    // 2. 缓存window窗口对象
+ // 2. 缓存window窗口对象
     AppStorage.setOrCreate('windowClass', windowClass);
   });
 }
 ```
 
-```
+```ts
 import { window } from '@kit.ArkUI';
 
 

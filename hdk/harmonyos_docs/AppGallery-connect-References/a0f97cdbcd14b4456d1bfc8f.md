@@ -10,15 +10,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:------------------------------------------|
 |export interface CreateRoomConfig 创建房间参数配置。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Mandatory/Optional|Description|
-|:-------------------|:-----------------------|:-----------------|:-------------------------------------------------|
-|maxPlayers|number|Mandatory|房间最大支持人数，取值范围为\[1, 100\]。|
+|:-------------------|:---------------------|:-----------------|:-------------------------------------------------|
+|maxPlayers|number|Mandatory|房间最大支持人数，取值范围为[1, 100]。|
 |isPrivate|number|Optional|房间是否私有。 * 0：公开 * 1：私有 默认值为0。|
 |isLock|number|Optional|房间是否锁定，锁定状态的房间允许查询获取，但不允许加入。 * 0：非锁定 * 1：锁定 默认值为0。|
 |roomType|string|Optional|房间类型。|
 |roomName|string|Optional|房间名称，长度不超过64个字符。|
-|matchParams|Record\<string, string\>|Optional|自定义匹配参数，JSON对象格式，最多支持5条匹配规则。|
+|matchParams|Record<string, string>|Optional|自定义匹配参数，JSON对象格式，最多支持5条匹配规则。|
 |customRoomProperties|string|Optional|自定义房间属性，最大支持2048个字符。|
 

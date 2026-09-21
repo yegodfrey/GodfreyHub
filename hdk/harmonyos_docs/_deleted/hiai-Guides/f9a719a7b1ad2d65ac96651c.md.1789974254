@@ -1,0 +1,12 @@
+---
+name: document/cn/hiai-Guides/overview-0000001194710901
+title: 概述
+uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/overview-0000001194710901
+---
+
+# 概述
+
+[Netron](https://github.com/lutzroeder/netron/)是一个神经网络模型可视化工具，支持许多主流AI框架模型的可视化。[Netron](https://github.com/lutzroeder/netron/releases/latest) 5.1.6版本开始支持.om模型可视化。如下图所示，使用Netron工具加载.om模型后，可以展示模型的拓扑结构、图、节点的信息等。
+
+![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260104150613.46639969042688553846134240801933:50001231000000:2800:66F875BBE7B47F3060D5002A8C36BBE2F40DD5E9F3C4250CB5A0ABE8D4E9CDF4.png)
+

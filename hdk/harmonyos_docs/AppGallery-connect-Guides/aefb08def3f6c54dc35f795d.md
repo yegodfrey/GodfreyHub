@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-
 
 # Query常见问题
 
-#### 性能问题
+## 性能问题
 
 不要在循环中频繁创建查询对象，应该缓存起来复用。
 
-```
+```screen
 // 问题：频繁创建查询对象
 for (int i = 0; i < 1000; i++)
 {
@@ -29,9 +29,9 @@ for (int i = 0; i < 1000; i++)
 }
 ```
 
-#### 查询中的结构性修改
+## 查询中的结构性修改
 
-```
+```screen
 // 错误：在查询中修改实体结构
 var query = world.Query<Health>();
 query.ForEachEntity((ref Health health, IEntity entity) => {

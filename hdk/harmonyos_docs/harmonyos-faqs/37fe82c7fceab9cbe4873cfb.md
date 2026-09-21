@@ -6,26 +6,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-66
 
 # 如何判断麦克风正在录音
 
-#### 问题现象
+## 问题现象
 
-怎么判断设备正在录音，麦克风正在被占用？涉及隐私或敏感的业务场景需要此状态提示用户。  
+怎么判断设备正在录音，麦克风正在被占用？涉及隐私或敏感的业务场景需要此状态提示用户。
 
-#### 背景知识
+## 背景知识
 
 [getCurrentAudioCapturerInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiostreammanager#getcurrentaudiocapturerinfoarray9)获取当前音频采集器的信息。
 
-[getMaxAmplitudeForInputDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiovolumegroupmanager#getmaxamplitudeforinputdevice12)获取输入设备音频流的最大电平值，取值范围为\[0,1\]。
+[getMaxAmplitudeForInputDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiovolumegroupmanager#getmaxamplitudeforinputdevice12)获取输入设备音频流的最大电平值，取值范围为[0,1]。
 
-[isMicrophoneMute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiovolumegroupmanager#ismicrophonemute9-1)获取麦克风静音状态。  
+[isMicrophoneMute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiovolumegroupmanager#ismicrophonemute9-1)获取麦克风静音状态。
 
-#### 解决方案
+## 解决方案
 
 1. 通过AudioStreamManager音频流管理的[getCurrentAudioCapturerInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiostreammanager#getcurrentaudiocapturerinfoarray9)接口获取当前音频采集器的信息。
 2. 遍历获取到的音频采集器的信息，调用[getMaxAmplitudeForInputDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiovolumegroupmanager#getmaxamplitudeforinputdevice12)接口获取每个采集器音频流的最大电平值，当电平值大于0，说明设备采集到声音，设备正在录音。
 
 示例代码如下：
 
-```
+```ts
 import { audio } from '@kit.AudioKit';
 
 
@@ -65,7 +65,7 @@ export struct AudioRecordingCheckDemo {
   }
 
 
-  //获取麦克风是否在录音
+//获取麦克风是否在录音
   async checkMicIsRecording(): Promise<boolean> {
     try {
       const audioVolumeGroupManager: audio.AudioVolumeGroupManager =

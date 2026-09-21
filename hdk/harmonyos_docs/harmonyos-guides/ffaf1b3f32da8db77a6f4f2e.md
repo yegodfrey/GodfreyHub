@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/screentimegua
 
 # 设置应用访问限制
 
-#### 场景介绍
+## 场景介绍
 
-当管控应用希望限制访问某些特定应用时，可通过调用限制应用访问接口实现。Screen Time Guard Kit会根据传入的应用token以及限制类型，限制用户对指定应用的访问。  
+当管控应用希望限制访问某些特定应用时，可通过调用限制应用访问接口实现。Screen Time Guard Kit会根据传入的应用token以及限制类型，限制用户对指定应用的访问。
 
-#### 业务流程
+## 业务流程
 
-![](https://media:401788444299254778)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/EpPCCJ2gRhS81MmyCpyCwQ/zh-cn_image_0000002733435484.png?HW-CC-KV=V1&HW-CC-Date=20260917T084551Z&HW-CC-Expire=31536000000&HW-CC-Sign=EAABFDCF9B6794A5B253D09701DF91409E090863FE29FF6761BF34C951BFA01C)
 
 流程说明：
 
@@ -20,40 +20,41 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/screentimegua
 
 2. 若开发者没有权限或用户没有授权，则抛出相应错误码。若开发者有权限且用户已授权，则解析参数中传入的限制类型以及token，对应用做限制处理，返回处理结果。
 
-#### 接口说明
+## 接口说明
 
-限制应用访问的关键接口如下表所示：  
+限制应用访问的关键接口如下表所示：
 
 |接口名|描述|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|
-|[setAppsRestriction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#setappsrestriction)(appInfo: [AppInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#appinfo), restrictionType: [RestrictionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#restrictiontype)): Promise\<void\>|可根据传入的应用token数组，以及限制类型（禁用/许可清单），来决定是对应用数组做限制，还是对应用数组之外的应用做限制|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|
+|[setAppsRestriction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#setappsrestriction)(appInfo: [AppInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#appinfo), restrictionType: [RestrictionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice#restrictiontype)): Promise<void>|可根据传入的应用token数组，以及限制类型（禁用/许可清单），来决定是对应用数组做限制，还是对应用数组之外的应用做限制|
 
-![](https://media:401788444299286779)  
-定义释义：
+> 说明
+>
+> **定义释义：**
+>
+> * 限制类型为禁用清单时，对应用数组中的应用做限制。
+>
+> * 限制类型为许可清单时，对应用数组以外的应用做限制。
+>
+> **边界场景：**
+>
+> * 如果传入的应用数组为空，限制类型为禁用清单，则不对任何应用做限制。该场景相当于没有开启有效管控。
+>
+> * 如果传入的应用数组为空，限制类型为许可清单，则对系统内置许可清单应用（电话、联系人、设置、未成年人模式）、管控发起应用本身、已授权的管控应用之外的所有应用做限制。
+>
+> * 对同一个管控应用，如果反复调用该接口做限制（不管是许可清单还是禁用清单），均以最新的一次的限制来生效。
+>
+> * 传入的应用数组中如果包含无效token，则为参数错误。
 
-* 限制类型为禁用清单时，对应用数组中的应用做限制。
+## 开发前提
 
-* 限制类型为许可清单时，对应用数组以外的应用做限制。
+设置应用访问限制需要申请用户授权，请先参考[请求用户授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/screentimeguard-request-user-auth)章节完成用户授权。
 
-边界场景：
-
-* 如果传入的应用数组为空，限制类型为禁用清单，则不对任何应用做限制。该场景相当于没有开启有效管控。
-
-* 如果传入的应用数组为空，限制类型为许可清单，则对系统内置许可清单应用（电话、联系人、设置、未成年人模式）、管控发起应用本身、已授权的管控应用之外的所有应用做限制。
-
-* 对同一个管控应用，如果反复调用该接口做限制（不管是许可清单还是禁用清单），均以最新的一次的限制来生效。
-
-* 传入的应用数组中如果包含无效token，则为参数错误。
-
-#### 开发前提
-
-设置应用访问限制需要申请用户授权，请先参考[请求用户授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/screentimeguard-request-user-auth)章节完成用户授权。  
-
-#### 开发步骤
+## 开发步骤
 
 1. 导入相关模块。
 
-   ```
+   ```typescript
    import { guardService } from '@kit.ScreenTimeGuardKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
    import { BusinessError } from '@kit.BasicServicesKit';
@@ -61,7 +62,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/screentimegua
 
 2. 调用setAppsRestriction，设置应用访问限制。
 
-   ```
+   ```TypeScript
    private async restrictApps(appInfo: guardService.AppInfo): Promise<void> {
      try {
        await guardService.setAppsRestriction(appInfo, guardService.RestrictionType.BLOCKLIST_TYPE);

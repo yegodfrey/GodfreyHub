@@ -6,19 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1301
 
 # 滑动组件的偏移量如何获取
 
-#### 问题现象
+## 问题现象
 
-如何监听指定的滑动组件的滑动行为并获取偏移量？  
+如何监听指定的滑动组件的滑动行为并获取偏移量？
 
-#### 背景知识
+## 背景知识
 
-[onDidScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#ondidscroll12)是滑动组件的通用接口，滑动时触发，回调信息[OnScrollCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#onscrollcallback12)包含当前帧滑动的偏移量和当前滑动状态。其中偏移量[currentOffset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#currentoffset)需要依靠滑动控制器获取。  
+[onDidScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#ondidscroll12)是滑动组件的通用接口，滑动时触发，回调信息[OnScrollCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#onscrollcallback12)包含当前帧滑动的偏移量和当前滑动状态。其中偏移量[currentOffset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#currentoffset)需要依靠滑动控制器获取。
 
-#### 解决方案
+## 解决方案
 
 以List嵌套WaterFlow为例，观察如何通过onDidScroll获取滑动组件的偏移量。
 
-```
+```screen
 @Entry
 @Component
 struct ListComponentPage {
@@ -58,7 +58,7 @@ struct ListComponentPage {
               };
             });
           }
-          // 示例高度，目的是设置一个小于WaterFlow总高度的值，使WaterFlow具备滑动行为
+        // 示例高度，目的是设置一个小于WaterFlow总高度的值，使WaterFlow具备滑动行为
           .height(200)
           .onDidScroll((scrollOffset: number, scrollState: ScrollState) => {
             console.info(`当前WaterFlow帧滑动偏移量：${scrollOffset}`);
@@ -82,7 +82,7 @@ struct ListComponentPage {
           };
         });
       }
-      // 滑动时触发
+     // 滑动时触发
       .onDidScroll((scrollOffset: number, scrollState: ScrollState) => {
         console.info(`当前List帧滑动偏移量：${scrollOffset}`);
         console.info(`当前List滑动状态：${scrollState}`);
@@ -95,17 +95,19 @@ struct ListComponentPage {
 }
 ```
 
-![](https://media:101782454369444098)  
-如果内层的WaterFlow不再设置高度，只需滑动外层List便能看到WaterFlow全部项时，WaterFlow的onDidScroll回调不会触发，即在此场景下无法监听内层滑动组件的滑动行为，如果只需监听内层的滑动组件是否在滑动，可以给内层的滑动组件设置.edgeEffect(EdgeEffect.None, { alwaysEnabled: true })即可触发其对应的onDidScroll回调。
+> 说明
+>
+> 如果内层的WaterFlow不再设置高度，只需滑动外层List便能看到WaterFlow全部项时，WaterFlow的onDidScroll回调不会触发，即在此场景下无法监听内层滑动组件的滑动行为，如果只需监听内层的滑动组件是否在滑动，可以给内层的滑动组件设置.edgeEffect(EdgeEffect.None, { alwaysEnabled: true })即可触发其对应的onDidScroll回调。
+>
+> 但此时scrollOffset，scrollState，currentOffset的返回值均为0，这是因为滑动组件虽然添加了滑动逻辑，但并没有产生真正的滑动行为。
 
-但此时scrollOffset，scrollState，currentOffset的返回值均为0，这是因为滑动组件虽然添加了滑动逻辑，但并没有产生真正的滑动行为。  
+## 总结
 
-#### 总结
+利用onDidScroll获取偏移量，可以监听指定的滑动组件是否在滑动，滑动方向是哪边。由于onDidScroll是给具体的滑动组件设置的属性，并依靠Scroller控制器获取返回值，同时触发时机是开始滑动的第一帧。因此该滑动组件与其他滑动组件平级或者嵌套时，都能精确地进行监听。
 
-利用onDidScroll获取偏移量，可以监听指定的滑动组件是否在滑动，滑动方向是哪边。由于onDidScroll是给具体的滑动组件设置的属性，并依靠Scroller控制器获取返回值，同时触发时机是开始滑动的第一帧。因此该滑动组件与其他滑动组件平级或者嵌套时，都能精确地进行监听。  
-
-#### 常见FAQ
+## 常见FAQ
 
 Q：onDidScroll中会回调滑动状态[ScrollState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#scrollstate枚举说明)，能否根据ScrollState.Idle来判断滚动是否完全停止。
 
-A：不推荐使用onDidScroll的ScrollState去判断滚动停止状态，推荐使用[onScrollStop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#onscrollstop)进行判断。  
+A：不推荐使用onDidScroll的ScrollState去判断滚动停止状态，推荐使用[onScrollStop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#onscrollstop)进行判断。
+

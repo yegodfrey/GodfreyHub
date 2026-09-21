@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
 # 阅读器翻页
 
-#### 概述
+## 概述
 
 在文本阅读器应用上，翻页时可以使用不同的效果展示页面变更，通常有以下翻页效果：
 
@@ -14,25 +14,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 * [覆盖翻页](#section213018591812)：通过水平滑动使当前页面向左侧滑出显示下一页，上一页从左侧滑入覆盖当前页，形成连贯的过渡效果。
 * [仿真翻页](#section3853128914)：模拟真实纸张的弯曲、翻折动作，例如页面边缘的弧形变形与阴影投影，实现沉浸式的体验效果。
 
-本文主要对上述翻页效果的实现进行讲解，旨在帮助开发者了解常见翻页动效开发的流程及实现细节。  
+本文主要对上述翻页效果的实现进行讲解，旨在帮助开发者了解常见翻页动效开发的流程及实现细节。
 
-#### 上下翻页
+## 上下翻页
 
-#### 场景描述
+### 场景描述
 
 上下翻页时，页面内容沿着垂直方向移动。当用户向上滑动时，当前页面内容向上滑出屏幕顶部，同时下一页内容从屏幕底部滑入；向下滑动则相反（当前页向下滑出，上一页从顶部滑入）。实现效果如下：
 
-![](https://media:201788187552051803 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/86Qkb56hR5Sl1-rQU9xTKQ/zh-cn_image_0000002329710386.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=683B434A30EB598D2C2573D43688CAE6043922E40AEA72AD94436CB6ACF39512 "点击放大")
 
-#### 实现原理
+### 实现原理
 
-使用[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件作为容器组件，提供上下滑动的能力。使用[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)组件存放每一页的内容。页面内容可以自行定义，本文使用Text组件展示文本内容。  
+使用[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件作为容器组件，提供上下滑动的能力。使用[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)组件存放每一页的内容。页面内容可以自行定义，本文使用Text组件展示文本内容。
 
-#### 开发步骤
+### 开发步骤
 
 1. 构建模拟数据。
 
-   ```
+   ```typescript
    // entry/src/main/ets/view/UpDownFlipPage.ets
    @Link currentPageNum: number;
    private data: BasicDataSource = new BasicDataSource([]);
@@ -47,7 +47,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
 2. 使用[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件实现上下翻页效果。
 
-   ```
+   ```typescript
    // entry/src/main/ets/view/UpDownFlipPage.ets
    List({ initialIndex: this.currentPageNum - 1, scroller: this.scroller }) {
      LazyForEach(this.data, (item: string) => {
@@ -63,25 +63,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
    })
    ```
 
-#### 覆盖翻页
+## 覆盖翻页
 
-#### 场景描述
+### 场景描述
 
 覆盖翻页效果模拟卡片切换，新页面（上一页）从屏幕的左侧水平滑入，完全覆盖当前页面。当前页支持从屏幕另一侧滑出，滑出时显示下层新页面。在整个过程中页面没有弯曲或折叠效果，页面作为一个整体平面进行移动。效果如下：
 
-![](https://media:201788187552292804 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/X5zPox6bTIqpeAZ5uaawTQ/zh-cn_image_0000002329870186.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=3243052BDD0D255F35D1193E95F8479A49C211935CFD9EBF5EE044A43E50E919 "点击放大")
 
-#### 实现原理
+### 实现原理
 
 使用[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)堆叠容器，存放1、2、3三个页面，借助图形变换的[translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#translate)平移属性，将上层页面向左平移屏幕宽度移至窗口左侧。使用[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)滑动手势事件判断手势滑动方向及平移距离，依据滑动方向及平移距离，执行1页面向右平移滑入屏幕，或2页面向左平移滑出屏幕。滑动手势结束后通过[显式动画 (animateTo)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animation)完成页面平移至窗口边缘，并重新渲染1、2、3页面。
 
-![](https://media:201788187552374805 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/TfMcavsxR1KdFplesDXihA/zh-cn_image_0000002427853450.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=043527FAFA83F6BA6918C94B0B0CF186568AE5B6096EE0FE2137F4B4647B8C14 "点击放大")
 
-#### 开发步骤
+### 开发步骤
 
 1. 使用Stack堆叠容器存放3个页面，并将上层页面向左平移至屏幕外。
 
-   ```
+   ```typescript
    // entry/src/main/ets/view/CoverFlipPage.ets
    @Component
    export struct CoverFlipPage {
@@ -113,7 +113,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
 2. 根据滑动手势事件获取平移的距离，修改状态变量offsetX刷新页面，控制页面移动。手势结束后调用自定义方法pageAnimateTo()方法执行显示动画，完成页面剩余滑动。
 
-   ```
+   ```typescript
    // entry/src/main/ets/view/CoverFlipPage.ets
    .gesture(
      PanGesture(this.panOption)
@@ -130,9 +130,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
    )
    ```
 
-3. pageAnimateTo()方法中设置offsetX的结束值，手势向右时offsetX的值为屏幕宽度screenW，手势向左时offsetX的值为负的屏幕宽度-screenW。设置完成后animateTo方法自动插入过渡动画。动画播放结束后，onFinish()完成回调方法中重置offsetX为0，执行自定义方法simulatePageContent()方法更新各内容页ReaderPage组件展示的数据。
+3. pageAnimateTo()方法中设置offsetX的结束值，手势向右时offsetX的值为屏幕宽度screenW，手势向左时offsetX的值为负的屏幕宽度-screenW。设置完成后animateTo()方法自动插入过渡动画。动画播放结束后，onFinish()完成回调方法中重置offsetX为0，执行自定义方法simulatePageContent()方法更新各内容页ReaderPage组件展示的数据。
 
-   ```
+   ```typescript
    // entry/src/main/ets/view/CoverFlipPage.ets
    private pageAnimateTo(isClick: boolean, isLeft?: boolean) {
      this.getUIContext().animateTo({
@@ -154,31 +154,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
    }
    ```
 
-#### 仿真翻页
+## 仿真翻页
 
-#### 场景描述
+### 场景描述
 
 仿真翻页效果模拟真实纸质书的翻页体验。用户拖动页面的角落（右上角或右下角），被拖动的页面会随着手指的移动而卷曲、折叠。在翻动过程中，可以看到当前页的背面（为当前页的翻转显示效果）以及被翻页覆盖的下一页内容逐渐显露出来。翻页轨迹遵循贝塞尔曲线，并伴有阴影效果增强立体感。翻页效果如下：
 
-![](https://media:201788187552598806 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/DI8Lb29SQa2TgkjqeiwtBw/zh-cn_image_0000002363628777.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=BEB6716675C590E11DAD470C0F5C3BC58D7F5C2513BC47EE5E38A41A7368CE10 "点击放大")
 
-#### 实现原理
+### 实现原理
 
 仿真翻页基于覆盖翻页的页面布局，使用系统接口对当前页或上一页进行截图保存为pixelMap，传递至ArkGraphics 2D的[@ohos.graphics.drawing (绘制模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)的相关绘制接口实现了当前页、背页、阴影等区域的绘制。页面绘制通过滑动手势事件[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)触发，获取手指在屏幕上的位置，通过该位置信息计算仿真翻页曲线所依赖的相关点位。手势结束时使用定时器模拟滑动触摸的点位并触发页面绘制，判断结束条件终止绘制。
 
-仿真翻页绘制实现关键点
+**仿真翻页绘制实现关键点**
 
-1. 仿真翻页控制点。仿真翻页可以看作下图三个区域组合而成。要绘制出其中曲线及直线，需要计算出一组特定的坐标点（参考下图），计算公式详见开发步骤。 ![](https://media:201788187552653807 "点击放大")
+1. 仿真翻页控制点。仿真翻页可以看作下图三个区域组合而成。要绘制出其中曲线及直线，需要计算出一组特定的坐标点（参考下图），计算公式详见开发步骤。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/mR_2WkwWTe6GpOjk6_yukw/zh-cn_image_0000002329710434.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=CFBFC86ED0176852EA84A536FA24180DA876FBA447EF18A1EA22B9795EE06649 "点击放大")
 
-2. 曲线绘制。为使用上述坐标点绘制出曲线，需要使用[@ohos.graphics.drawing (绘制模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)的相关接口实现，如[Path.lineTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path#lineto)连接线段；[Path.quadTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path#quadto)实现二阶贝塞尔曲线；[Canvas.clipPath()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#clippath12)实现对画布裁剪等。
-3. 内容绘制。仿真翻页绘制的内容来源于使用[@ohos.arkui.componentSnapshot (组件截图)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentsnapshot#componentsnapshotgetsync12)的[componentSnapshot.getSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentsnapshot#componentsnapshotgetsync12)接口获取的组件截图pixelMap，然后使用[@ohos.graphics.drawing (绘制模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)的[Canvas.drawPixelMapMesh()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#drawpixelmapmesh12)实现绘制。
-4. 阴影效果渲染。主要使用了[@ohos.graphics.drawing (绘制模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)的[ShaderEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-shadereffect)着色器实现。通过为画刷设置着色器效果，并设置相关参数，完成了渐变阴影的绘制。  
+2. 曲线绘制。为使用上述坐标点绘制出曲线，需要使用[@ohos.graphics.drawing (绘制模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)的相关接口实现，如Path.[lineTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path#lineto)连接线段；Path.[quadTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path#quadto)实现二阶贝塞尔曲线；Canvas.[clipPath()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#clippath12)实现对画布裁剪等。
+3. 内容绘制。仿真翻页绘制的内容来源于使用[@ohos.arkui.componentSnapshot (组件截图)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentsnapshot)的[componentSnapshot.getSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentsnapshot#componentsnapshotgetsync12)接口获取的组件截图pixelMap，然后使用[@ohos.graphics.drawing (绘制模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)的Canvas.[drawPixelMapMesh()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#drawpixelmapmesh12)实现绘制。
+4. 阴影效果渲染。主要使用了[@ohos.graphics.drawing (绘制模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)的[Class (ShaderEffect)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-shadereffect)着色器实现。通过为画刷设置着色器效果，并设置相关参数，完成了渐变阴影的绘制。
 
-#### 开发步骤
+### 开发步骤
 
-1. 仿真翻页页面布局 仿真翻页页面布局同覆盖翻页大体相同，屏幕区域保留当前页和下一页层叠，上一页向左移出屏幕。不同的是增加NodeContainer组件，在滑动手势事件触发时显示，用于绘制仿真翻页效果，翻页效果结束时隐藏。
+1. 仿真翻页页面布局 仿真翻页页面布局同覆盖翻页大体相同，屏幕区域保留当前页和下一页层叠，上一页向左移出屏幕。不同的是增加[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)组件，在滑动手势事件触发时显示，用于绘制仿真翻页效果，翻页效果结束时隐藏。
 
-   ```
+   ```typescript
    // entry/src/main/ets/view/EmulationFlipPage.ets
    Stack() {
      // Page area is the same as overlay page cover.
@@ -204,7 +204,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 2. 滑动手势事件
    1. 滑动手势事件触发时，记录首个点的横纵坐标，作为手势的起始位置，横坐标用于判断手势结束时页面的滑动方向，纵坐标用于判断手势的起始位置，上部、中部或下部，绘制仿真翻页时区分仿真翻页的类型。
 
-      ```
+      ```typescript
       // entry/src/main/ets/view/EmulationFlipPage.ets
       build() {
         // ...
@@ -244,7 +244,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
    2. 在onActionUpdate回调中，当检测到第二个触摸点坐标时，与首个点横坐标进行比较。横坐标大于首个点，手势向右，截图上一页，用于绘制上一页的仿真翻页显示在屏幕中覆盖当前页；横坐标小于首个点，手势向左，截图当前页，用于绘制当前页仿真翻页效果露出下一页， 并隐藏当前页。设置NodeContainer组件为显示状态。
 
-      ```
+      ```typescript
       // entry/src/main/ets/view/EmulationFlipPage.ets
       build() {
         // ...
@@ -298,7 +298,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
    3. 准备绘制需要的坐标数据，横纵坐标转换为px单位，用于仿真翻页绘制，使用AppStorage保存。比较当前横坐标与上一次的横坐标，判断当前手势的方向，用于手势释放判断页面自动翻页的方向。记录当前横坐标。调用newRectNode()方法更新NodeContainer组件。
 
-      ```
+      ```typescript
       // entry/src/main/ets/view/EmulationFlipPage.ets
       build() {
         // ...
@@ -343,7 +343,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 3. 仿真页面绘制
    1. NodeContainer组件控制器清空所有节点，新增渲染节点，渲染节点用于仿真翻页的绘制。
 
-      ```
+      ```typescript
       // entry/src/main/ets/view/EmulationFlipPage.ets
       newRectNode() {
         // Creates a RectRenderNode object.
@@ -356,7 +356,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
    2. 在RenderNode进行绘制时，draw()方法会被调用。首先执行初始化init()方法。通过AppStorage获取触摸点的横纵坐标，并判断手势起始位置，计算仿真翻页需要的坐标点以及绘制阴影时需要的相关数值。通过手势触摸点计算页角点A，限制A点纵坐标的范围，从而限制书页的翻起程度。保存点A的纵坐标。各点的计算方法见代码。计算结束后判断当前区域是否还在屏幕区域内，保存判断结果。
 
-      ```
+      ```typescript
       // entry/src/main/ets/viewmodel/PageNodeController.ets
       export class RectRenderNode extends RenderNode {
         // ...
@@ -480,7 +480,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
    3. 绘制下一页上的阴影。使用上一步计算的相关数值，配置绘制阴影所需的着色器shaderEffect，使用canvas及画刷绘制阴影。
 
-      ```
+      ```typescript
       // entry/src/main/ets/viewmodel/PageNodeController.ets
       export class RectRenderNode extends RenderNode {
         // ...
@@ -570,7 +570,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
    4. 绘制仿真翻页背面内容及阴影。首先根据计算出的绘制曲线依赖的点，规划出背面区域pathC ，使用clipPath()方法裁剪出该区域。为绘制区域设置旋转矩阵，实现将截图获取的页面pixelMap，旋转并翻转成需要的背页效果。最后绘制背页区域的阴影，此处阴影计算的算法同上一步。
 
-      ```
+      ```typescript
       // entry/src/main/ets/viewmodel/PageNodeController.ets
       export class RectRenderNode extends RenderNode {
         // ...
@@ -647,7 +647,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
    5. 绘制页面左侧文字区域及阴影。根据计算出的绘制曲线依赖的点，规划出背面区域pathA，裁剪出该区域。将截图保存的页面pixelMap绘制在该区域，并绘制该区域的阴影。完成仿真翻页的绘制。
 
-      ```
+      ```typescript
       // entry/src/main/ets/viewmodel/PageNodeController.ets
       export class RectRenderNode extends RenderNode {
         // ...
@@ -732,7 +732,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
 4. 滑动手势结束。滑动手势结束后获取最后一次绘制的页角A点的纵坐标。判断当前手势的移动方向，设置自动绘制的步进值。使用定时器执行自动绘制。
 
-   ```
+   ```typescript
    // entry/src/main/ets/view/EmulationFlipPage.ets
    build() {
      // ...
@@ -787,7 +787,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 5. 自动绘制翻页动效
    1. 根据最后手势的移动方向，页面需要自动向右侧还原，或向左侧翻页。根据上一步获取的步进值，计算新的触摸点，执行新的绘制。并使用定时器更新触摸点。
 
-      ```
+      ```typescript
       // entry/src/main/ets/view/EmulationFlipPage.ets
       private setTimer(xDiff: number, yDiff: number, drawNode: () => void) {
         // Automatically flip forward.
@@ -828,7 +828,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
    2. 定时器中增加绘制结束条件判断，页面向右侧还原时使用触摸的横纵坐标判断，页面向左翻页使用计算曲线关键点时判断绘制区域是否还在屏幕内存储的结果。执行finishLastGesture()结束绘制。
 
-      ```
+      ```typescript
       // entry/src/main/ets/view/EmulationFlipPage.ets
       private setTimer(xDiff: number, yDiff: number, drawNode: () => void) {
         // Automatically flip forward.
@@ -863,7 +863,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
 6. 动效结束更新内容页。判断动效结束后，清空定时器，根据页面初始移动方向及最后的手势移动方向更新页面内容，重新绘制页面。重置相关手势、绘制过程的状态变量。此时结束一次仿真翻页的绘制。
 
-   ```
+   ```screen
    // entry/src/main/ets/view/EmulationFlipPage.ets
    private finishLastGesture() {
      clearInterval(this.timeID);
@@ -895,6 +895,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
    }
    ```
 
-#### 示例代码
+### 示例代码
 
-[实现阅读器翻页效果](https://gitcode.com/harmonyos_samples/PageFlip)  
+[实现阅读器翻页效果](https://gitcode.com/harmonyos_samples/PageFlip)
+

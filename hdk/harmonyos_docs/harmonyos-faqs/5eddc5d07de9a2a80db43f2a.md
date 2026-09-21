@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-394
 
 可以自定义节流函数。
 
-```
+```typescript
 // Debouncing: When a function is triggered multiple times within a certain period, debouncing ensures that the function is ultimately executed only once after a specified delay
 export function debounce(func: (event: ClickEvent) => void, delay?: number) {
   let timer: number;
@@ -58,7 +58,7 @@ struct Index {
 
 以下示例，演示了TapGesture和LongPressGesture共用一个限流函数，即点击事件、长按事件在2000ms内只能触发一次。
 
-```
+```typescript
 class MyGesture implements GestureModifier {
   interval: number = 2000;
   private inThrottle: boolean = false;

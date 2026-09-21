@@ -6,21 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handw
 
 # HandWrite_HistoricalPoint
 
-#### 概述
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
+## 概述
 
 定义历史触摸点信息的结构体。
 
-系统能力： SystemCapability.Stylus.HandWrite
+**系统能力：** SystemCapability.Stylus.HandWrite
 
-起始版本： 6.0.0(20)
+**起始版本：** 6.0.0(20)
 
-相关模块： [HandWrite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwrite-c)
+**相关模块：** [HandWrite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwrite-c)
 
-所在头文件： [native_handwrite_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwrite-headerfile-declare)  
+**所在头文件：** [native_handwrite_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwrite-headerfile-declare)
 
-#### 汇总
+## 汇总
 
-#### 成员变量
+### 成员变量
 
 |名称|描述|
 |:------------------------------|:---------------------------|
@@ -29,44 +31,45 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handw
 |int64_t [timeStamp](#timestamp)|当前历史触摸点的时间戳，单位：ns。|
 |float [force](#force)|当前历史触摸点的压力值。|
 
-#### 结构体成员变量说明
+## 结构体成员变量说明
 
-#### x
+### x
 
-```
+```c
 float HandWrite_HistoricalPoint::x
 ```
 
-描述
+**描述**
 
-历史触摸点的X坐标，相对于被触摸元素左边缘。  
+历史触摸点的X坐标，相对于被触摸元素左边缘。
 
-#### y
+### y
 
-```
+```c
 float HandWrite_HistoricalPoint::y
 ```
 
-描述
+**描述**
 
-历史触摸点的Y坐标，相对于被触摸元素上边缘。  
+历史触摸点的Y坐标，相对于被触摸元素上边缘。
 
-#### timeStamp
+### timeStamp
 
-```
+```c
 int64_t HandWrite_HistoricalPoint::timeStamp
 ```
 
-描述
+**描述**
 
-当前历史触摸点的时间戳，单位为ns。  
+当前历史触摸点的时间戳，单位为ns。
 
-#### force
+### force
 
-```
+```c
 float HandWrite_HistoricalPoint::force
 ```
 
-描述
+**描述**
 
-当前历史触摸点的压力值。  
+当前历史触摸点的压力值。
+

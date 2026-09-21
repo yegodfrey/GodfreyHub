@@ -6,49 +6,49 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/text-measure-
 
 # 文本测量（ArkTS）
 
-#### 场景介绍
+## 场景介绍
 
 文本测量指的是在图形绘制中，对文本的尺寸和布局进行评估，计算文本在给定字体和样式下占用的空间（例如宽度、高度和其他相关信息）的过程。文本测量用于文本排版、布局、渲染以及调整文本显示的位置和大小等场景，便于更精准地控制与调整界面的布局和呈现，以达到设计预期。
 
 当前主要支持以下方面的文本测量能力：
 
-* 文本宽度：测量给定文本在特定字体、大小和样式下的水平长度。
+* **文本宽度**：测量给定文本在特定字体、大小和样式下的水平长度。
 
-* 文本高度：测量给定文本的垂直高度，通常涉及文本的上升线、下降线等。
+* **文本高度**：测量给定文本的垂直高度，通常涉及文本的上升线、下降线等。
 
-* 行间距：测量多行文本之间的垂直距离，通常与文本的行距相关。
+* **行间距**：测量多行文本之间的垂直距离，通常与文本的行距相关。
 
-* 字符间距：测量单个字符之间的水平距离，通常与字形和字体设计有关。
+* **字符间距**：测量单个字符之间的水平距离，通常与字形和字体设计有关。
 
-* 限制区域排版：在限定宽高区域内排版文本，获取实际排版尺寸和适配的字符串范围。
+* **限制区域排版**：在限定宽高区域内排版文本，获取实际排版尺寸和适配的字符串范围。
 
-* 字符位置查询：根据屏幕坐标获取对应的字符位置，可用于文本选择、光标定位等交互场景。
+* **字符位置查询**：根据屏幕坐标获取对应的字符位置，可用于文本选择、光标定位等交互场景。
 
-* 字符和字形范围查询：在字形范围与字符范围之间进行相互转换，用于文本编辑、选择高亮等场景中字形与字符索引的映射。
+* **字符和字形范围查询**：在字形范围与字符范围之间进行相互转换，用于文本编辑、选择高亮等场景中字形与字符索引的映射。
 
-#### 接口说明
+## 接口说明
 
-文本测量中常用接口如下表所示，详细接口说明参考[@ohos.graphics.text (文本模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text)。  
+文本测量中常用接口如下表所示，详细接口说明参考[@ohos.graphics.text (文本模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text)。
 
 |接口名|描述|
-|:-----------------------------------------------------------|:--------------------------------------------------------|
+|:----------------------------------------------------------|:--------------------------------------------------------|
 |getLongestLine(): number|获取当前段落最长行的宽度，建议实际使用时将返回值向上取整。|
 |getLongestLineWithIndent(): number|获取当前段落最长行的宽度（该宽度包含当前行缩进的宽度），建议实际使用时将返回值向上取整。|
-|getTextLines(): Array\<TextLine\>|获取当前段落文本行对象数组。|
-|getLineMetrics(): Array\<LineMetrics\>|获取段落所有行的度量信息。包含行的高度、宽度、起始坐标等信息。|
-|getLineMetrics(lineNumber: number): LineMetrics \| undefined|获取段落指定行的度量信息。包含行的高度、宽度、起始坐标等信息。超出当前段落排版后最大行数后返回undefined。|
+|getTextLines(): Array<TextLine>|获取当前段落文本行对象数组。|
+|getLineMetrics(): Array<LineMetrics>|获取段落所有行的度量信息。包含行的高度、宽度、起始坐标等信息。|
+|getLineMetrics(lineNumber: number): LineMetrics | undefined|获取段落指定行的度量信息。包含行的高度、宽度、起始坐标等信息。超出当前段落排版后最大行数后返回undefined。|
 
-#### 开发步骤
+## 开发步骤
 
 1. 导入依赖的相关模块。
 
-   ```
+   ```TypeScript
    import { text, drawing } from '@kit.ArkGraphics2D';
    ```
 
 2. 创建段落样式，并构造段落生成器ParagraphBuilder实例。
 
-   ```
+   ```TypeScript
    // 设置文本样式
    let myTextStyle: text.TextStyle = {
      color: {
@@ -70,7 +70,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/text-measure-
 
 3. 设置文本样式，添加文本内容，并生成段落文本用于后续文本的绘制显示。
 
-   ```
+   ```TypeScript
    // 在段落生成器中设置文本样式
    paragraphBuilder.pushStyle(myTextStyle);
    // 在段落生成器中设置文本内容
@@ -81,7 +81,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/text-measure-
 
 4. 调用测量相关接口，获取指定的测量信息。
 
-   ```
+   ```TypeScript
    // 对段落进行塑形排版，设置排版宽度为1000
    paragraph.layoutSync(1000);
    // case1: 获取排版后最长行行宽
@@ -122,7 +122,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/text-measure-
 
    使用[layoutWithConstraints()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#layoutwithconstraints24)接口可以在指定的宽高约束内进行排版，返回的结果包含实际排版尺寸（correctRect）和适配的字符串范围（fitStrRange）。
 
-   ```
+   ```TypeScript
    // case6: 在限定宽高区域内排版文本，获取排版结果
    let constraint: text.TextRectSize = { width: 600, height: 200 };
    let layoutResult: text.TextLayoutResult = paragraph.layoutWithConstraints(constraint);
@@ -140,7 +140,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/text-measure-
 
    使用[getCharacterPositionAtCoordinate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#getcharacterpositionatcoordinate24)获取指定编码类型下的字符位置。返回的PositionWithAffinity包含字符索引和亲和度信息。
 
-   ```
+   ```TypeScript
    // case8: 根据坐标获取字符位置（指定编码类型）
    let charPos: text.PositionWithAffinity =
      paragraph.getCharacterPositionAtCoordinate(100, 50, drawing.TextEncoding.TEXT_ENCODING_UTF16);
@@ -152,7 +152,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/text-measure-
 
    使用[getCharacterRangeForGlyphRange()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#getcharacterrangeforglyphrange24)根据字形范围获取对应的字符范围，使用[getGlyphRangeForCharacterRange()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#getglyphrangeforcharacterrange24)根据字符范围获取对应的字形范围。返回的数组包含两个元素，第一个是目标范围，第二个是实际范围。编码类型支持UTF-8和UTF-16。
 
-   ```
+   ```TypeScript
    // case9: 根据字形范围获取字符范围
    let glyphRange: text.Range = { start: 0, end: 2 };
    let glyphToCharRanges: Array<text.Range> =

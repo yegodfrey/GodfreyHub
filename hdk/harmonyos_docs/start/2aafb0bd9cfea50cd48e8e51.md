@@ -10,27 +10,30 @@ uri: https://developer.huawei.com/consumer/cn/doc/start/dev-mall-refundment-0000
 
 用户发起退款申请后，系统会在商户后台生成退款申请记录，您也会收到邮件提醒。您可以登录卖家中心后台进行查看和处理。
 
-1.登录卖家中心。
+1.登录**卖家中心**。
 
-2.在左侧导航栏，点击需求订单。
+2.在左侧导航栏，点击**需求订单。**
 
-3.在需求订单管理页，找到目标订单，点击审核退款。
+3.在需求订单管理页，找到目标订单，点击**审核退款**。
 
-![](https://media:401788750497928124 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/dO2pjSxGSMykft9rZzAvMw/zh-cn_image_0000001126644161.png?HW-CC-KV=V1&HW-CC-Date=20260909T134411Z&HW-CC-Expire=31536000000&HW-CC-Sign=A4141E5A1B4613127AB8E20E2272196C91E3C1794C4C358B6BF44FC0370E7F30 "点击放大")
 
-* 若申请不满足退款条件，选择驳回原因并点击确认，并跟申请人做好沟通。
+* 若申请不满足退款条件，选择**驳回** 原因并点击**确认**，并跟申请人做好沟通。
 
-![](https://media:401788750497969125 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/Rz6fxVxyRmKiIILrsDZSFA/zh-cn_image_0000001126385291.png?HW-CC-KV=V1&HW-CC-Date=20260909T134411Z&HW-CC-Expire=31536000000&HW-CC-Sign=D7BCF446A7290603258CD025327CF38D06616FB8962A42E69F2BF756978BAE3A "点击放大")
 
-* 若申请满足退款条件，选择同意，点击确认。 ![](https://media:401788750498027126 "点击放大")
+* 若申请满足退款条件，选择**同意** ，点击**确认** 。
 
-![](https://media:401788750498055127)  
-* 需求方确认交付件后不支持发起退款。
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/6-TxYd9tQCGZV-miWFaUAA/zh-cn_image_0000001079747460.png?HW-CC-KV=V1&HW-CC-Date=20260909T134411Z&HW-CC-Expire=31536000000&HW-CC-Sign=A8D4C3468D1830D4300D8766956E9D0519E7FB8620886A958BEC2FBA9333C257 "点击放大")
 
-<!-- -->
+> 说明
+>
+> * 需求方确认交付件后不支持发起退款。
+>
+>
+> * 已成交订单不支持发起退款。
 
-* 已成交订单不支持发起退款。
+4. 确认后此时**状态** 列显示为**已关闭，**则退款流程完成。
 
-4. 确认后此时状态列显示为已关闭，则退款流程完成。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/qnVCS-90SUu2sXNwSZcgzw/zh-cn_image_0000001126385841.png?HW-CC-KV=V1&HW-CC-Date=20260909T134411Z&HW-CC-Expire=31536000000&HW-CC-Sign=9B074B60494E860B605AB354049693998D9E27497004FB01C90BE5EA42CEB399 "点击放大")
 
-![](https://media:401788750498086128 "点击放大")  

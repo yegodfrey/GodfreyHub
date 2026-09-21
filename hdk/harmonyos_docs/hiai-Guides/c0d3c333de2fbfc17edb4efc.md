@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
 
 # 实时语音识别
 
-#### 服务介绍
+## 服务介绍
 
 实时语音识别服务支持将实时输入的短语音（时长不超过60秒）转换为文本，可实时识别60秒内的语音。该服务使用行业领先的深度学习技术，识别准确率可达95%以上。目前支持中文普通话（包括中英文混说）、英语、法语、德语、西班牙语、意大利语、阿拉伯语、俄语、泰语、马来语、菲律宾语、土耳其语的识别。
 
@@ -16,9 +16,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
 * 支持静音检测，语音中未说话部分不发送语音包。
 * 支持数字格式的智能转换，例如语音输入"二零二零年"时，能够智能识别为"2020年"。
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250514172313.31056472027966843019313054899395:50001231000000:2800:EB0F0330C8FAC78CD0C540C467A30C0943B9C6CD10B734AB27472843B7F324A3.png "点击放大")  
+![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250514172313.31056472027966843019313054899395:50001231000000:2800:EB0F0330C8FAC78CD0C540C467A30C0943B9C6CD10B734AB27472843B7F324A3.png "点击放大")
 
-#### 实时语音识别部署情况
+### 实时语音识别部署情况
 
 |区域|欧洲|俄罗斯|亚非拉|中国|
 |:----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -35,45 +35,44 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
 |菲律宾语|![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250514172314.41921047296485772522435150502900:50001231000000:2800:A50BEDA84108C2B378E94554024E4470D53BB9CB1E2810475A7158BB776734EE.png)|-|![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250514172314.13550558713541441078290623309571:50001231000000:2800:6904E68EAC6EF05FE858271AB965C5F852D58B964F7BDADD90D1836221C69D22.png)|-|
 |土耳其语|![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250514172314.89284141669572172156486274277996:50001231000000:2800:519F5E046ED2945208DDDD149E4CEEBC7CC6FD3E4481FB3F1EC1264DD0921BF7.png)|-|![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250514172315.26552323595908504770484310718949:50001231000000:2800:B3E3FEC1A1B912F19EA9954BCD484528AFC8459AB9D8B60BFDA8E3F53BC0660A.png)|-|
 
-#### 应用场景
+## 应用场景
 
 实时语音识别服务覆盖日常生活及工作中的众多领域，并且深度优化了购物搜索、影视搜索、音乐搜索以及导航等场景中的识别能力，进一步提高这几类场景的识别准确率。
 
-在使用购物类App搜索商品时，可以将语音描述的商品名称或特征识别为文字从而搜索到目标商品。同样，在使用音乐类App时，可以将语音输入的歌名或歌手识别为文字进而搜索歌曲。另外，司机在驾驶过程中不方便输入文字时，可以将输入的语音转换为文字继而搜索目的地，让行车更加安全。  
+在使用购物类App搜索商品时，可以将语音描述的商品名称或特征识别为文字从而搜索到目标商品。同样，在使用音乐类App时，可以将语音输入的歌名或歌手识别为文字进而搜索歌曲。另外，司机在驾驶过程中不方便输入文字时，可以将输入的语音转换为文字继而搜索目的地，让行车更加安全。
 
-#### 注意事项
+## 注意事项
 
 * 目前法语、西班牙语、德语、意大利语、阿拉伯语、俄语、泰语、马来语、菲律宾语、土耳其语实时语音识别服务仅支持华为手机和荣耀手机使用，中英文实时语音识别服务支持所有品牌手机。
 
-<!-- -->
 
 * 实时语音识别服务通过访问云侧接口完成识别服务，调测和使用时需保证设备可正常访问互联网。
-* 实时语音识别服务目前不支持息屏识别，调测和使用时需保持设备屏幕常亮。  
+* 实时语音识别服务目前不支持息屏识别，调测和使用时需保持设备屏幕常亮。
 
-#### 开发步骤
+## 开发步骤
 
-在进行开发之前，您需要完成必要的[开发准备工作](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/config-agc-0000001050990353)，同时请确保您的工程中已经[配置HMS Core SDK的Maven仓地址](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/config-maven-0000001050040031)，并且完成了本服务的[SDK集成](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/asr-sdk-0000001050124643)。  
+在进行开发之前，您需要完成必要的[开发准备工作](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/config-agc-0000001050990353)，同时请确保您的工程中已经[配置HMS Core SDK的Maven仓地址](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/config-maven-0000001050040031)，并且完成了本服务的[SDK集成](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/asr-sdk-0000001050124643)。
 
-#### 实时语音识别（无拾音界面）
+### 实时语音识别（无拾音界面）
 
 1. 请参见[云端鉴权信息使用须知](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/sdk-data-security-0000001229909424#section2688102310166)，设置您应用的鉴权信息。
-2. 用户调用接口创建一个语音识别器。  
+2. 用户调用接口创建一个语音识别器。
 
-   ```
+   ```screen
    "Java"
    // context为应用上下文信息。
    MLAsrRecognizer mSpeechRecognizer = MLAsrRecognizer.createAsrRecognizer(context);
    ```
 
-   ```
+   ```screen
    "Kotlin"
    // context为应用上下文信息。
    val mSpeechRecognizer = MLAsrRecognizer.createAsrRecognizer(context)
    ```
 
-3. 创建语音识别结果监听器回调。  
+3. 创建语音识别结果监听器回调。
 
-   ```
+   ```screen
    "Java"
    // 回调实现MLAsrListener接口，实现接口中的方法。
    protected class SpeechRecognitionListener implements MLAsrListener {
@@ -114,7 +113,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
    }
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    // 回调实现MLAsrListener接口，实现接口中的方法。
    internal inner class SpeechRecognitionListener : MLAsrListener {
@@ -148,21 +147,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
     }
    ```
 
-4. 将新建的结果监听器回调与语音识别器绑定。  
+4. 将新建的结果监听器回调与语音识别器绑定。
 
-   ```
+   ```screen
    "Java"
    mSpeechRecognizer.setAsrListener(new SpeechRecognitionListener());
    ```
 
-   ```
+   ```screen
    "Kotlin"
    mSpeechRecognizer!!.setAsrListener(SpeechRecognitionListener())
    ```
 
-5. 参考支持语言列表[LANGUAGE](https://developer.huawei.com/consumer/cn/doc/hiai-References/asrconstants-0000001050169559#section2081374417466)，配置识别参数，调用[startRecognizing](https://developer.huawei.com/consumer/cn/doc/hiai-References/mlasrrecognizer-0000001050697922#section296513052713)启动语音识别。  
+5. 参考支持语言列表[LANGUAGE](https://developer.huawei.com/consumer/cn/doc/hiai-References/asrconstants-0000001050169559#section2081374417466)，配置识别参数，调用[startRecognizing](https://developer.huawei.com/consumer/cn/doc/hiai-References/mlasrrecognizer-0000001050697922#section296513052713)启动语音识别。
 
-   ```
+   ```java
    "Java"
    // 新建Intent，用于配置语音识别参数。
    Intent mSpeechRecognizerIntent = new Intent(MLAsrConstants.ACTION_HMS_ASR_SPEECH);
@@ -186,7 +185,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
    mSpeechRecognizer.startRecognizing(mSpeechRecognizerIntent);
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    // 新建Intent，用于配置语音识别参数。
    val mSpeechRecognizerIntent = Intent(MLAsrConstants.ACTION_HMS_ASR_SPEECH)
@@ -208,25 +207,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
             mSpeechRecognizer.startRecognizing(mSpeechRecognizerIntent)
    ```
 
-6. 识别完成后，释放资源。  
+6. 识别完成后，释放资源。
 
-   ```
+   ```screen
    "Java"
    if (mSpeechRecognizer!= null) {
        mSpeechRecognizer.destroy();
    }
    ```
 
-   ```
+   ```screen
    "Kotlin"
    if (mSpeechRecognizer != null) {
         mSpeechRecognizer.destroy()
     }
    ```
 
-7. （可选）获取支持的语种列表。  
+7. （可选）获取支持的语种列表。
 
-   ```
+   ```screen
    "Java"
    mSpeechRecognizer.getLanguages(new MLAsrRecognizer.LanguageCallback() { 
         @Override 
@@ -241,7 +240,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
    });
    ```
 
-   ```
+   ```screen
    "Kotlin"
    mSpeechRecognizer.getLanguages(object : MLAsrRecognizer.LanguageCallback { 
         override fun onResult(result: List<String>) {
@@ -254,12 +253,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
     })
    ```
 
-#### 实时语音识别（有拾音界面）
+### 实时语音识别（有拾音界面）
 
 1. 请参见[云端鉴权信息使用须知](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/sdk-data-security-0000001229909424#section2688102310166)，设置您应用的鉴权信息。
-2. 参考支持语言列表[LANGUAGE](https://developer.huawei.com/consumer/cn/doc/hiai-References/asrconstants-0000001050169559#section2081374417466)，创建Intent，用于设置实时语音识别参数。  
+2. 参考支持语言列表[LANGUAGE](https://developer.huawei.com/consumer/cn/doc/hiai-References/asrconstants-0000001050169559#section2081374417466)，创建Intent，用于设置实时语音识别参数。
 
-   ```
+   ```java
    "Java"
    // 通过intent进行识别设置。
    Intent intent = new Intent(this, MLAsrCaptureActivity.class)
@@ -273,7 +272,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
       .putExtra(MLAsrConstants.SCENES, MLAsrConstants.SCENES_SHOPPING);
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    // 通过intent进行识别设置。
    val intent = Intent(this, MLAsrCaptureActivity::class.java)
@@ -286,25 +285,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
                     MLAsrConstants.SCENES_SHOPPING)
    ```
 
-3. 创建activity，传入第[2](#ZH-CN_TOPIC_0000001050710194__li9876161641411)步中创建的Intent，用于拾音，并将结果返回原activity，可实时识别60s内（包括60s）的语音。  
+3. 创建activity，传入第[2](#ZH-CN_TOPIC_0000001050710194__li9876161641411)步中创建的Intent，用于拾音，并将结果返回原activity，可实时识别60s内（包括60s）的语音。
 
-   ```
+   ```java
    "Java"
    private static final int REQUEST_CODE_ASR = 100;
    // REQUEST_CODE_ASR表示当前Activity和拾音界面Activity之间的请求码，通过该码可以在当前Activity中获取拾音界面的处理结果。
    startActivityForResult(intent, REQUEST_CODE_ASR);
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    val REQUEST_CODE_ASR : Int = 100
    // REQUEST_CODE_ASR表示当前Activity和拾音界面Activity之间的请求码，通过该码可以在当前Activity中获取拾音界面的处理结果。
    startActivityForResult(intent, REQUEST_CODE_ASR)
    ```
 
-4. 覆写"onActivityResult"方法，用于处理语音识别服务返回结果。  
+4. 覆写"onActivityResult"方法，用于处理语音识别服务返回结果。
 
-   ```
+   ```java
    "Java"
    @Override
    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -352,7 +351,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
    }
    ```
 
-   ```
+   ```javascript
    "Kotlin"
    override protected fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -394,9 +393,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
    }
    ```
 
-5. （可选）获取支持的语种列表。  
+5. （可选）获取支持的语种列表。
 
-   ```
+   ```screen
    "Java"
    MLAsrRecognizer.createAsrRecognizer(this).getLanguages(new MLAsrRecognizer.LanguageCallback() {
        @Override
@@ -411,7 +410,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/ml-asr-00000010500
    });
    ```
 
-   ```
+   ```screen
    "Kotlin"
    MLAsrRecognizer.createAsrRecognizer(context).getLanguages(object : MLAsrRecognizer.LanguageCallback {
         override fun onResult(result: List<String>) {

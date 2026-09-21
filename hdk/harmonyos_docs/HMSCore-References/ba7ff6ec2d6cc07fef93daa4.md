@@ -13,7 +13,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/dailyweathe
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public class [DailyWeather](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/dailyweather-0000001050695588) implements Parcelable 当天和未来六到七天的天气信息。包括月出、月落、日出、日落、最低最高温度（摄氏度）、最低最高温度（华氏度）、综合空气指数（国外不支持）、当地时间凌晨时间戳、月相、白天天气情况（[DailySituation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/dailysituation-0000001050735617)）、夜间天气情况（[DailySituation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/dailysituation-0000001050735617)）。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name|
 |:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------|
@@ -31,159 +31,159 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/dailyweathe
 |[DailySituation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/dailysituation-0000001050735617)|[getSituationDay](#section12364154314521)()|
 |[DailySituation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/dailysituation-0000001050735617)|[getSituationNight](#section1148085010529)()|
 
-#### Public Methods
+## Public Methods
 
-#### getMoonphase
+### getMoonphase
 
 |Method|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public String getMoonphase() 获取该天的月相。月相moonPhase共有8种值，分别是"New"、"Waxingcrescent"、"First"、"WaxingGibbous"、"Full"、"WaningGibbous"、"Last"和"WaningCrescent"。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:-----------------------------------------------------------------------------------------------------------------------|
 |String|该天的月相。月相moonPhase共有8种值，分别是"New"、"Waxingcrescent"、"First"、"WaxingGibbous"、"Full"、"WaningGibbous"、"Last"和"WaningCrescent"。|
 
-#### getMoonRise
+### getMoonRise
 
 |Method|
 |:-----------------------------------|
 |public long getMoonRise() 获取该天的月出时间。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:----------|
 |long|该天的月出时间。|
 
-#### getMoonSet
+### getMoonSet
 
 |Method|
 |:----------------------------------|
 |public long getMoonSet() 获取该天的月落时间。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:----------|
 |long|该天的月落时间。|
 
-#### getSunRise
+### getSunRise
 
 |Method|
 |:----------------------------------|
 |public long getSunRise() 获取该天的日出时间。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:----------|
 |long|该天的日出时间。|
 
-#### getSunSet
+### getSunSet
 
 |Method|
 |:---------------------------------|
 |public long getSunSet() 获取该天的日落时间。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:----------|
 |long|该天的日落时间。|
 
-#### getMaxTempC
+### getMaxTempC
 
 |Method|
 |:------------------------------------------|
 |public long getMaxTempC() 获取该天的最高温度，单位：摄氏度。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:--------------|
 |long|该天的最高温度，单位：摄氏度。|
 
-#### getMinTempC
+### getMinTempC
 
 |Method|
 |:------------------------------------------|
 |public long getMinTempC() 获取该天的最低温度，单位：摄氏度。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:--------------|
 |long|该天的最低温度，单位：摄氏度。|
 
-#### getMaxTempF
+### getMaxTempF
 
 |Method|
 |:------------------------------------------|
 |public long getMaxTempF() 获取该天的最高温度，单位：华氏度。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:--------------|
 |long|该天的最高温度，单位：华氏度。|
 
-#### getMinTempF
+### getMinTempF
 
 |Method|
 |:------------------------------------------|
 |public long getMinTempF() 获取该天的最低温度，单位：华氏度。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:--------------|
 |long|该天的最低温度，单位：华氏度。|
 
-#### getAqiValue
+### getAqiValue
 
 |Method|
 |:--------------------------------------------|
 |public int getAqiValue() 获取空气质量指数。 国外版本可能不支持。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:----------------|
 |int|空气质量指数。国外版本可能不支持。|
 
-#### getDateTimeStamp
+### getDateTimeStamp
 
 |Method|
 |:----------------------------------------------------------|
 |public long getDateTimeStamp() 获取某天天气对应该天的时间戳，表示的是当地凌晨的时间戳。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-------------------------|
 |long|某天天气对应该天的时间戳，表示的是当地凌晨的时间戳。|
 
-#### getSituationDay
+### getSituationDay
 
 |Method|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public [DailySituation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/dailysituation-0000001050735617) getSituationDay() 获取白天的天气信息，具体包括的值请参见[DailySituation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/dailysituation-0000001050735617)。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:----------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |[DailySituation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/dailysituation-0000001050735617)|白天的天气信息，具体包括的值请参见[DailySituation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/dailysituation-0000001050735617)。|
 
-#### getSituationNight
+### getSituationNight
 
 |Method|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public DailySituation getSituationNight() 获取晚上的天气信息，具体包括的值可以参见[DailySituation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/dailysituation-0000001050735617)。|
 
-Returns  
+**Returns**
 
 |Type|desc|
 |:----------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|

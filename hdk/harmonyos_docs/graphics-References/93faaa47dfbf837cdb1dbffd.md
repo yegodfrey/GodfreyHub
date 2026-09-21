@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/blendfacto
 |:--------|
 |混合因子类型枚举。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum Value and Description|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------|

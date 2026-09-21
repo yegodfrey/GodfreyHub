@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-auth-api-provider
 
 # ProviderType
 
-渠道方式类型。  
+渠道方式类型。
 
-#### Parameters
+## Parameters
 
 |Type|Description|
 |:----------|:----------|

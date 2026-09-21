@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/payment-merchan
 
 # 快速接入
 
-#### 接入流程
+## 接入流程
 
 商户签约接入代扣流程：
 
-![](https://media:801772763986863361)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/f5lq0nJzRWOobiuxDL8TJg/zh-cn_image_0000002512199999.png?HW-CC-KV=V1&HW-CC-Date=20260910T132632Z&HW-CC-Expire=31536000000&HW-CC-Sign=A67828FC418E2F3EDCD6EB03FC05F4751C9DC2C7A235CB253D92623FCEB35D22)
 
 1. 用户发起签约后，商户快应用向商户服务器发起创建签约订单请求。
 2. 商户服务器携带商户签约协议号和协议模板Id，请求[快应用预签约](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner-quickapp-presign-0000001868173305)接口。
@@ -22,36 +22,37 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/payment-merchan
 8. 签约完成后，商户可以调用[免密代扣](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner-apply-withhold-0000001868173313)接口，进行用户扣款。
 9. 扣款成功，华为支付服务器会返回异步结果给商户服务器，使用SM2验签方式对签约结果进行验签；代扣失败场景可能不会有代扣结果回调通知。
 
-![](https://media:801772763986891362)  
-代扣是否成功可以通过回调通知中的orderStatus的返回状态判断：
+> 说明
+>
+> 代扣是否成功可以通过回调通知中的orderStatus的返回状态判断：
+>
+> * TRX_SUCCESS：交易成功
+> * TRX_FAILED：交易失败
 
-* TRX_SUCCESS：交易成功
-* TRX_FAILED：交易失败  
+## 客户端开发
 
-#### 客户端开发
-
-* 获取contractStr接口入参
+* **获取contractStr接口入参**
 
 商户服务器通过调用[快应用预签约](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner-quickapp-presign-0000001868173305)获取预签约号（preSignNo）后商户服务器需要组 contractStr返回给客户端。
 
-* contractStr参数说明
+* **contractStr参数说明**
 
-|参数|参数类型|是否必填|描述|
-|:--------|:-----|:---|:-----------------------------------------------------------------------------------------------------------------------------------------|
+|**参数**|**参数类型**|**是否必填**|**描述**|
+|:--------|:-------|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------|
 |appId|String|是|应用ID。|
 |preSignNo|String|是|预签约号，使用[快应用预签约](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner-quickapp-presign-0000001868173305)请求生成，有效期2小时。|
 
-* contractStr示例
+* **contractStr** **示例**
 
-  ```
+  ```screen
   "{\"appId\":\"***\",\"preSignNo\": \"12314834585462\"}"
   ```
 
-* 调起签约界面
+* **调起签约界面**
 
 开发者可使用@hw-hmscore/hms-payment的HMSPAYMENT对象方法拉起签约页面。
 
-```
+```screen
 const contractStr = "{\"preSignNo\": \"12314834585462\"}";
 const appId = "***";
 HMSPAYMENT.signContract(contractStr, appId).then(res => {
@@ -64,21 +65,22 @@ HMSPAYMENT.signContract(contractStr, appId).then(res => {
 
 签约结果获取和处理
 
-1. 调用signContract接口后同步返回签约结果，通过Handler发送消息在主线程处理签约结果。 回调结果说明
+1. 调用signContract接口后同步返回签约结果，通过Handler发送消息在主线程处理签约结果。 **回调结果说明**
 
-   |参数|参数类型|描述|参考示例|
-   |:------|:-----|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |**参数**|**参数类型**|**描述**|**参考示例**|
+   |:------|:-------|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    |errCode|String|返回码|见[HMS Core SDK错误码](https://developer.huawei.com/consumer/cn/doc/development/hmscore-common-References/error-code-0000001050045846)说明|
-   |errMsg|String|返回信息描述|示例："{\\"ContractResult\\":\\"{\\\\\\"openId\\\\\\":\\\\\\"\*\*\*\*\*\\\\\\",\\\\\\"returnCode\\\\\\":\\\\\\"0\\\\\\",\\\\\\"returnMsg\\\\\\":\\\\\\"success\\\\\\",\\\\\\"signNo\\\\\\":\\\\\\"\*\*\*\*\*\*\*\\\\\\"}\\"}" returnCode为0时表示成功，具体返回参考[错误码](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/quick-app-client-error-code-0000001538667594)|
+   |errMsg|String|返回信息描述|示例："{\"ContractResult\":\"{\\\"openId\\\":\\\"*****\\\",\\\"returnCode\\\":\\\"0\\\",\\\"returnMsg\\\":\\\"success\\\",\\\"signNo\\\":\\\"*******\\\"}\"}" **returnCode为0时表示成功，具体返回参考[错误码](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/quick-app-client-error-code-0000001538667594)**|
 
 2. 商户在构建预签约请求参数时，传入了一个callbackUrl。在华为支付服务器完成签约后，将以post方式调用callbackUrl，将签约结果返回给商户服务器。
 
-![](https://media:801772763986914363)  
-最终签约结果，需以服务器接收到的结果通知或者查询API返回为准。  
+> 注意
+>
+> **最终签约结果，需以服务器接收到的结果通知或者查询API返回为准。**
 
-#### API列表
+## API列表
 
-APP签约API列表  
+APP签约API列表
 
 |功能列表|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

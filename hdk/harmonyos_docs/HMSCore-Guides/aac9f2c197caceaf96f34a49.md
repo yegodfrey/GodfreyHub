@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/publisher-servi
 
 # 使用入门
 
-#### 快速上手
+## 快速上手
 
-在您正式开发应用之前，可以通过[codelab](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_PetalAdsSDK-BannerAds-JavaScript)快速体验一个应用的开发过程。  
+在您正式开发应用之前，可以通过[codelab](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_PetalAdsSDK-BannerAds-JavaScript)快速体验一个应用的开发过程。
 
-#### 开发环境
+## 开发环境
 
 * JDK 1.7及以上
 * 安装Android Studio 3.X及以上
@@ -20,9 +20,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/publisher-servi
   * Gradle 4.1及以上（推荐）
 * 测试应用的设备：EMUI 4.0及以上的华为手机
 
-#### 开发流程
+## 开发流程
 
-您需要按照如下流程完成应用的开发工作。  
+您需要按照如下流程完成应用的开发工作。
 
 |序号|步骤|说明|
 |:-|:----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|

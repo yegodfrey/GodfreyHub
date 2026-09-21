@@ -6,6 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-v
 
 # 基于AVPlayer播放视频系列开发实践
 
-<br />
-
-* [基于AVPlayer基础播控实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-basic-control)  
+* **[基于AVPlayer基础播控实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-basic-control)**   

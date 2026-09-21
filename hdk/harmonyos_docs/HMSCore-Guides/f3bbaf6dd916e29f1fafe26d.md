@@ -9,11 +9,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/harmonyos-read-
 1. 构造[HealthRecordReadOptions](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/harmonyos-health-record-read-options-0000001184604636)请求对象。
 2. 调用[getHealthRecord](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/harmonyos-manage-health-records-0000001232134027#section17136185616578)接口，根据请求体条件获取Health Service Kit中的睡眠健康记录。
 
-   <br />
-
    读取睡眠健康记录示例代码如下：
 
-   ```
+   ```screen
    import {HMSHealthKit, HMSHealthKitDataType, HMSHealthKitDeviceType, DeviceInfo, DataCollector, Healthrecord, HealthRecordReadOptions} from '@hw-hmscore/hms-js-health'
    // 步骤1：构造请求对象HealthRecordReadOptions
    // 根据设备生产商、设备模型编号、设备uuid、设备类型构造设备信息
@@ -37,6 +35,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/harmonyos-read-
        console.error("getHealthRecord fail: " + JSON.stringify(error));
    })
    ```
-
-   <br />
 

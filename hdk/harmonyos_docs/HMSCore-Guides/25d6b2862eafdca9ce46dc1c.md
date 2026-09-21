@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-image-0
 
 消息体示例：
 
-```
+```screen
 {
     "validate_only": false,
     "message": {
@@ -31,6 +31,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-image-0
 }
 ```
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20231103095828.85638590833904679576587378102131:50001231000000:2800:B0784623B53B05ACBF2E48EC7B68B2C46E002EF750081782A0EEB35078879FF6.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-* 图片文件须小于512KB，规格建议为40dp x 40dp，弧角大小为8dp。超出建议规格的图片会存在图片压缩或图片显示不全的情况。
-* 图片格式建议使用JPG/JPEG/PNG。  
+> 说明
+>
+> * 图片文件须小于**512KB** ，规格建议为**40dp x 40dp** ，弧角大小为**8dp**。超出建议规格的图片会存在图片压缩或图片显示不全的情况。
+> * 图片格式建议使用JPG/JPEG/PNG。
+

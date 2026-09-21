@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/word_spell
 
 # 单词拼写练习
 
-#### 场景介绍
+## 场景介绍
 
 单词拼写练习是教育类应用的高频使用场景之一，如用户可通过中文翻译进行单词拼写，或者点击下方提示按钮获得音标及发音帮助拼写。
 
-本示例基于[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)和[关键帧动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-keyframeanimateto)实现拼写错误时的抖动效果，并使用[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实现单词发音。  
+本示例基于[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)和[关键帧动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-keyframeanimateto)实现拼写错误时的抖动效果，并使用[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)实现单词发音。
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782462933827096 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/Ub4i-7QlT_eyLKaUGAgQWw/zh-cn_image_0000002517032034.png?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=4F291AC443A5F07F08B105FE352FA50684AC94C4B98C115F79FD7E280DA7BEA4 "点击放大")
 
-#### 实现思路
+## 实现思路
 
 1. 若用户输入单词拼写错误，则使用[keyframeAnimateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-keyframeanimateto)关键帧动画，实现输入框左右抖动效果。
 
-   ```
+   ```ts
    @State xOffset: number = 0;
    @Link @Watch('onStatusChange') status: GradingStatus;
 
@@ -42,7 +42,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/word_spell
 
 2. 点击提示按钮后，显示单词音标并通过[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)播放单词发音。
 
-   ```
+   ```ts
    ImageButton({
      img: $r('app.media.ic_button_bulb'),
      onButtonClick: () => {
@@ -62,15 +62,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/word_spell
    }
    ```
 
-#### 约束与限制
+## 约束与限制
 
 * 本示例支持API Version 20 Release及以上版本。
 * 本示例支持HarmonyOS 6.0.0 Release SDK及以上版本。
-* 本示例需要使用DevEco Studio 6.0.0 Release及以上版本进行编译运行。  
+* 本示例需要使用DevEco Studio 6.0.0 Release及以上版本进行编译运行。
 
-#### 工程目录
+## 工程目录
 
-```
+```ts
 ├──entry/src/main/ets                // 代码区
 │  ├──components
 │  │  ├──ImageButton.ets             // 图片按钮组件
@@ -94,14 +94,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/word_spell
 └──entry/src/main/resources          // 应用资源目录
 ```
 
-#### 参考文档
+## 参考文档
 
 [TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)
 
 [关键帧动画(keyframeAnimateTo)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-keyframeanimateto)
 
-[Interface(AVPlayer)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)  
+[Interface(AVPlayer)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)
 
-#### 代码下载
+## 代码下载
 
-[单词拼写练习示例代码](https://media:101782462933922097)  
+[单词拼写练习示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626163533.92912577432971700317909333994408:50001231000000:2800:C9CCC7759AA46F8E21768ECCAD68BB0A86FE2251993C7ED90F2C56B0EC4FEE00.zip?needInitFileName=true)
+

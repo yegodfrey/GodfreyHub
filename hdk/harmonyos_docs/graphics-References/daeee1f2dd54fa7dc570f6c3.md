@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/focus_mode
 |:--------------------------|
 |public enum FocusMode 对焦模式。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum Value and Description|
 |:-------------------------|

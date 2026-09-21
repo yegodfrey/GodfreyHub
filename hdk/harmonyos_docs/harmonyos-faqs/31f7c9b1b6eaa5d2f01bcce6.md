@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-13
 
 # 是否可以用手机作为Socket服务器
 
-#### 问题现象
+## 问题现象
 
-在开启本地Socket服务后，是否可以用手机作为Socket服务器？  
+在开启本地Socket服务后，是否可以用手机作为Socket服务器？
 
-#### 解决方案
+## 解决方案
 
 * [Socket 连接](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/socket-connection)：Socket连接主要是通过Socket进行数据传输，支持TCP/UDP/Multicast/TLS协议。
 * 基本概念：
@@ -21,4 +21,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-13
   * LocalSocket：本地套接字，IPC(Inter-Process Communication)进程间通信的一种，实现设备内进程之间相互通信，无需网络。
   * TLS：安全传输层协议(Transport Layer Security)。用于在两个通信应用程序之间提供保密性和数据完整性。
 
-可以[通过Local Socket Server进行数据传输](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/socket-connection#应用通过local-socket-server进行数据传输)的方式来实现使用手机作为Socket服务器。  
+可以[通过Local Socket Server进行数据传输](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/socket-connection#应用通过local-socket-server进行数据传输)的方式来实现使用手机作为Socket服务器。
+

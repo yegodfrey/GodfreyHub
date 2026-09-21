@@ -6,55 +6,52 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-query-a
 
 # 华为支付分账订单号查询分账结果
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS GET|
-|接口方向|开发者服务器-\> 华为支付服务器|
+|-----|-----------------------------------------------------------------------------------------|
+|接口方向|开发者服务器-> 华为支付服务器|
 |接口URL|https://petalpay-developer.cloud.huawei.com.cn/api/v1/allocation/orders/{sysAllocOrderNo}|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|-----|-----------------------------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-* Request Header  
+* **Request Header**
 
   |参数|是否必选|参数类型|描述|
   |:-----------|:---|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------|
   |Content-Type|是|String|取值为：application/json; charset=UTF-8|
   |PayMercAuth|是|String|取值为：[PayMercAuth](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-data-model-0000001538219104#section11744172016145)的JSON串|
 
-<!-- -->
 
-* request path  
+* **request path**
 
   |参数|是否必填|参数类型|描述|
   |:--------------|:---|:-----|:---------|
   |sysAllocOrderNo|是|String|华为支付分账订单号。|
 
-<!-- -->
 
-* 请求示例
+* **请求示例**
 
-  ```
+  ```screen
   GET /api/v1/allocation/orders/{sysAllocOrderNo} HTTP/1.1
   Content-Type: application/json;charset=UTF-8
   PayMercAuth: {"callerId":"10132120***","traceId":"202307260909564395204","time":1690333796404,"authId":"120291744647139***","headerSign":"M4Cux54xRZjmsEhE+82XqDtw3x9HNDXh9WySWldZhnwXtP91hEOjkh68MJ02fnXml********************6odaRKzCnPhOP/sacaLt5eg+mmi7F2sY9gva/3aMjIYHJ/yEXq10Z9fEPx+ynfqNoqEN+T2Og=","bodySign":"cMTr1BKpVzo/onvCZ1nVq40tbTOpy6B8cst7BCU1BVTCKjqR2********************VE9vERMXNjOJ4Aa5nDYw9nsaPF3OHxq+vq8tKHVG939G4+1cmlG61tvGk0MN6zDg0mqTbcNTaIloabysBVeMscyrhLZTfaY="}
   ```
 
-#### 响应参数
+## 响应参数
 
-* Response Header  
+* **Response Header**
 
   |参数|是否必选|参数类型|描述|
   |:-----------|:---|:-----|:----------------------------------|
   |Content-Type|是|String|取值为：application/json; charset=UTF-8|
 
-<!-- -->
 
-* Response Body  
+* **Response Body**
 
   |参数|是否必填|参数类型|描述|
-  |:-------------------|:---|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|
+  |:-------------------|:---|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|
   |resultCode|是|String|结果码，"000000"表示成功，其他表示失败。|
   |resultDesc|是|String|结果描述。|
   |subCode|否|String|业务错误码。|
@@ -66,14 +63,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-query-a
   |sysAllocationOrderNo|否|String|华为支付分账订单号。|
   |finishTime|否|String|完成时间，UTC时间格式（yyyy-MM-dd'T'HH:mm:ss.SSSZ）。|
   |orderStatus|否|String|订单状态。 * ALLOC_SUCCESS：分账成功 * ALLOC_CHL_PROC：分账中 * ALLOC_FAILED：分账失败|
-  |mercAllocRule|否|List\<[MercAllocRuleDetail](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-data-model-0000001538219104#section12263134923713)\>|商户分账规则。|
+  |mercAllocRule|否|List<[MercAllocRuleDetail](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-data-model-0000001538219104#section12263134923713)>|商户分账规则。|
   |payload|否|String|创建交易订单时带过来（原样带回）。|
 
-<!-- -->
 
-* 响应示例
+* **响应示例**
 
-  ```
+  ```screen
   HTTP/1.1 200 OK
   Content-Type: application/json; charset=UTF-8
   {
@@ -102,12 +98,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-query-a
   }
   ```
 
-#### 错误码
+## 错误码
 
-(resultCode非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-error-code-description-0000001589053741#section1187515498410))  
+(**resultCode** 非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-error-code-description-0000001589053741#section1187515498410))
 
-|resultCode|resultDesc|subCode|subDesc|
-|:---------|:---------|:-------------------|:-----------|
+|**resultCode**|**resultDesc**|**subCode**|**subDesc**|
+|:-------------|:-------------|:-------------------|:-----------|
 |400000|业务处理失败|INVALID_ARGUMENTS|参数不合法|
 |400000|业务处理失败|MERC_ORDER_NOT_EXIST|商户订单号不存在|
 |400000|业务处理失败|UNKNOW_ERROR|服务暂不可用，请稍后重试|

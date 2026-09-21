@@ -10,36 +10,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public class GetRtmChannelPropertiesResult extends [ErrorResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gamemme-model-errorresult-android-0000001703708714) 查询RTM频道自定义属性回调结果。|
 
-#### Method Summary
+## Method Summary
 
 |Qualifier and Type|Method Name and Description|
-|:--------------------|:----------------------------------------------------------|
+|:------------------|:----------------------------------------------------------|
 |String|[getChannelId](#section59255148819)() 获取频道ID。|
-|Map\<String, String\>|[getChannelProperties](#section978921516169)() 获取RTM频道属性信息。|
+|Map<String, String>|[getChannelProperties](#section978921516169)() 获取RTM频道属性信息。|
 
-#### Methods
+## Methods
 
-#### getChannelId
+### getChannelId
 
 |Method|
 |:-----------------------------------|
 |public String getChannelId() 获取频道ID。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-----|:----------|
 |String|频道ID。|
 
-#### getChannelProperties
+### getChannelProperties
 
 |Method|
-|:---------------------------------------------------------------|
-|public Map\<String, String\> getChannelProperties() 获取RTM频道属性信息。|
+|:-------------------------------------------------------------|
+|public Map<String, String> getChannelProperties() 获取RTM频道属性信息。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:--------------------|:----------|
-|Map\<String, String\>|RTM频道属性信息。|
+|:------------------|:----------|
+|Map<String, String>|RTM频道属性信息。|
 

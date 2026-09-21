@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/process-t
 
 # 进程线程通信
 
-* [系统定义的公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)  
-* [@ohos.commonEventManager (公共事件模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-commoneventmanager)  
-* [@ohos.events.emitter (Emitter)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-emitter)  
-* [commonEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commonevent)  
+* **[系统定义的公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)**   
+* **[@ohos.commonEventManager (公共事件模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-commoneventmanager)**   
+* **[@ohos.events.emitter (Emitter)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-emitter)**   
+* **[commonEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commonevent)**   

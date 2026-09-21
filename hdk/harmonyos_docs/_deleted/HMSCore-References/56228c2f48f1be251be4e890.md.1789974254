@@ -1,0 +1,49 @@
+---
+name: document/cn/HMSCore-References/tile-0000001050153285
+title: Tile
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/tile-0000001050153285
+---
+
+# Tile
+
+|Class Info|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public class Tile 组成[TileOverlay](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/tileoverlay-0000001050153293)的最小单位，调用[TileProvider](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/tileprovider-0000001050151412)的[getTile](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/tileprovider-0000001050151412#section44133551418)方法返回Tile对象。|
+
+## Public Field Summary
+
+|Qualifier and Type|Field and Description|
+|:-----------------|:--------------------------------------------------------------------------------|
+|byte[]|data 包含图片数据的字节数组，这个图片可以通过调用类BitmapFactory的decodeByteArray(byte[], int, int)方法来创建。|
+|int|height 瓦片的高度，单位：像素。|
+|int|width 瓦片的宽度，单位：像素。|
+
+## Public Constructor Summary
+
+|Constructor Name|
+|:----------------------------------------------------------------------------------|
+|[Tile](#section147561345184912)(int width, int height, byte[] data) 使用给定参数创建Tile对象。|
+
+## Public Method Summary
+
+|Qualifier and Type|Method Name and Description|
+|:-----------------|:-----------------------------------------------|
+|int|describeContents() 返回当前对象的内容描述，默认返回0。|
+|void|writeToParcel(Parcel out, int flags) 对数据进行序列化操作。|
+
+## Public Constructors
+
+### Tile
+
+|Constructor|
+|:--------------------------------------------------------------|
+|public Tile(int width, int height, byte[] data) 使用给定参数创建Tile对象。|
+
+**Parameters**
+
+|Name|Description|
+|:-----|:---------------------------------------------------------------------------|
+|width|瓦片的宽度，单位：像素。|
+|height|瓦片的高度，单位：像素。|
+|data|包含图片数据的字节数组，这个图片可以通过调用类BitmapFactory的decodeByteArray(byte[], int, int)方法来创建。|
+

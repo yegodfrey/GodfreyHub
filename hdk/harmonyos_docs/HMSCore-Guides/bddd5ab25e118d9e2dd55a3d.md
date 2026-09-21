@@ -6,36 +6,38 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/guide-webpage-0
 
 # 网页集成"添加到华为钱包"按钮领取卡券
 
-#### 概述
+## 概述
 
-每张卡券的内容分为两个部分，商户固定信息（模板）及用户特有信息（实例）。  
-![](https://media:101782807011305610)  
-模板：用户共有的字段信息，所有用户将共同享有模板信息字段，如logo、merchantName等。
-
-用户特有信息（实例）：用户特有的字段信息，如cardNumber。如果实例和模板中有相同字段则实例信息将覆盖模板信息内容。
-
-推送模板和实例可参考[codelab](https://developer.huawei.com/consumer/cn/codelab/HMSWalletKit/index.html#0)和[服务端示例代码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/java-sample-code-0000001050157448)。
+每张卡券的内容分为两个部分，商户固定信息（模板）及用户特有信息（实例）。
+> 说明
+>
+> 模板：用户共有的字段信息，所有用户将共同享有模板信息字段，如logo、merchantName等。
+>
+> 用户特有信息（实例）：用户特有的字段信息，如cardNumber。如果实例和模板中有相同字段则实例信息将覆盖模板信息内容。
+>
+> 推送模板和实例可参考[codelab](https://developer.huawei.com/consumer/cn/codelab/HMSWalletKit/index.html#0)和[服务端示例代码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/java-sample-code-0000001050157448)。
 
 商户将卡券模板数据通过REST API接口推送到华为服务器，并在网页展示"添加到华为钱包"按钮，当用户点击时将卡券实例的数据封装成JWE通过Wallet Kit服务与用户的华为帐号绑定。用户可以在任意手机上登录该华为帐号，并打开华为钱包App查看所绑定的卡券。用户删除卡券时，所有领取过此卡券的设备上都会同步删除。
 
 用户点击"添加到华为钱包"按钮后，会发送包含用户特有信息的JWE实例到华为服务器。华为服务器收到后，关联模板，生成实际的卡券并与华为帐号关联，用户可以在华为钱包中查看此卡券。
 
-![](https://media:101782807011407611 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/5ZOtSZdpTOO3R4J3xpdNFw/zh-cn_image_0000001050755145.png?HW-CC-KV=V1&HW-CC-Date=20260909T182234Z&HW-CC-Expire=31536000000&HW-CC-Sign=92BE2E53798708D2194780E529ED8ECCF9FFE38C9B74A9827BD22B47D1329BE7 "点击放大")
 
 具体步骤如下：
 
 1. 定义包含商户信息的模板信息，并通过REST API推送到华为服务器。
 2. 在网页上集成"添加到华为钱包"按钮。
 3. 用户点击按钮时，开发者服务器生成卡券对应的实例信息，以JWE形式作为参数发送到华为服务器。
-4. JWE数据过长时通过瘦JWE方式作为参数发送到华为服务器。  
+4. JWE数据过长时通过瘦JWE方式作为参数发送到华为服务器。
 
-#### 定义模板信息
+## 定义模板信息
 
-抽取卡券信息中通用的商户信息作为模板。  
-![](https://media:101782807011522612)  
-[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)可以在服务器API中查看具体定义。
+抽取卡券信息中通用的商户信息作为模板。
+> 说明
+>
+> [HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)可以在服务器API中查看具体定义。
 
-```
+```screen
 HwWalletObject hwWalletObject = new HwWalletObject();
 hwWalletObject.setOrganizationName("xxxx");
 // 模板标识，唯一值
@@ -124,18 +126,17 @@ fields.setLocalized(localizedList);
 hwWalletObject.setFields(fields);
 ```
 
-<br />
+通过如下POST接口推送到华为服务器：
+> 说明
+>
+> 推送模板接口请参见[创建活动门票模板](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/create-model-0000001050158460)（请根据场景选择对应卡券的创建模板接口）。
 
-通过如下POST接口推送到华为服务器：  
-![](https://media:101782807011719613)  
-推送模板接口请参见[创建活动门票模板](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/create-model-0000001050158460)（请根据场景选择对应卡券的创建模板接口）。
-
-```
+```screen
 POST
 https://{walletkit_server_url}/hmspass/v1/loyalty/model
 ```
 
-请求地址中的{walletkit_server_url}变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据， 参考钱包服务器地址列表。  
+请求地址中的*{walletkit_server_url}*变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据， 参考钱包服务器地址列表。
 
 |地区|域名|
 |:---|:------------------------------------------|
@@ -147,7 +148,7 @@ https://{walletkit_server_url}/hmspass/v1/loyalty/model
 
 推送HwWalletObject代码如下，[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)可以在API参考中查看具体定义：
 
-```
+```screen
 // Read an loyalty model from a JSON file.LoyaltyModel.json is a JSON file with parameters in HwWalletObject format.
 JSONObject model = JSONObject.parseObject(ConfigUtil.readFile("LoyaltyModel.json"));
 
@@ -160,35 +161,37 @@ ServerApiService serverApiService = new ServerApiServiceImpl();
 JSONObject responseModel = serverApiService.postToWalletServer(urlSegment, JSONObject.toJSONString(model));
 ```
 
-#### 集成"添加到华为钱包"按钮
+## 集成"添加到华为钱包"按钮
 
 在网页中增加如下脚本，展示"添加到华为钱包"按钮。
 
-```
+```screen
 <script src="savetohuaweipay.min.js"></script>
 ```
 
-JS文件下载：[savetohuaweipay.zip](https://media:101782807012569623)。  
-![](https://media:101782807011898614)  
-JS文件中的添加卡券地址为中国大陆区域地址，如果需要上传其他站点请根据[配置](#section17124158175913)修改JS文件。
+JS文件下载：[savetohuaweipay.zip](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260630161012.75770690723880853177701226146610:50001231000000:2800:F471B806D62B0F07E3EFF4A92375047DF16AE5A55AA5F008420EEF3E8B1F66B7.zip?needInitFileName=true)。
+> 说明
+>
+> JS文件中的添加卡券地址为中国大陆区域地址，如果需要上传其他站点请根据[配置](#section17124158175913)修改JS文件。
 
 加入如下标记，用于传入JWE内容，在用户点击按钮时作为参数。
 
-```
+```screen
 <hw-savetohuaweipay jwt="{jwe_content}" theme="light"></hw-savetohuaweipay>
 ```
 
-#### 生成JWE并发送到华为服务器
+## 生成JWE并发送到华为服务器
 
-#### 定义用户特有信息的实例并生成JWE数据
+### 定义用户特有信息的实例并生成JWE数据
 
 用户点击"添加到华为钱包"按钮时，生成包含用户特有信息的实例。
 
-[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)可以在API参考中查看具体定义。  
-![](https://media:101782807011924615)  
-生成用户特有信息的实例前请先将模板推送至华为服务器，并在用户特有信息的实例中传入模板唯一标识PassStyleIdentifier。
+[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)可以在API参考中查看具体定义。
+> 说明
+>
+> 生成用户特有信息的实例前请先将模板推送至华为服务器，并在用户特有信息的实例中传入模板唯一标识PassStyleIdentifier。
 
-```
+```screen
 HwWalletObject hwWalletObject = new HwWalletObject();
 // 实例唯一标识，在模板下唯一，不会在华为钱包展示
 hwWalletObject.setSerialNumber("854687156"); 
@@ -288,12 +291,13 @@ hwWalletObject.setFields(fields);
 * 第四段为加密并压缩后的HwWalletObject字符串，采用第二段的sessionKey作为对称秘钥和第三段的IV作为加密向量，以AES-GCM方式对HwWalletObject字符串进行加密并压缩。
 * 第五段为签名部分，将前面4部分使用JWE的私钥（开发者联盟申请得到）进行签名，生成签名字符串。每一段均为Base64编码。
 
-![](https://media:101782807011951616)  
-sessionKey和IV部分建议每次动态变换。
+> 说明
+>
+> sessionKey和IV部分建议每次动态变换。
 
 以下代码中引用但未实现的类（"ConfigUtil"，"JweUtil"）均可以在[服务器示例代码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/java-sample-code-0000001050157448)中查看具体定义。
 
-```
+```screen
 // 在华为AppGallery Connect网站上注册的应用ID.
 String appId = ConfigUtil.instants().getValue("gw.appid");
 // 生成一个新的实例并将其绑定到用户，示例代码中使用直接读取json文件的形式来设置Instance,商户接入时建议使用定义HwWalletObject形式来生成JWE数据.
@@ -312,21 +316,23 @@ String jwe = JweUtil.generateJwe(jweSignPrivateKey, payload);
 System.out.println("JWE String: " + jwe + "\n");
 ```
 
-![](https://media:101782807011979617)  
-JWE数据需要经过URLEncoder.encode(jweStrByInstanceIds, StandardCharsets.UTF_8.toString())编码。  
+> 说明
+>
+> JWE数据需要经过URLEncoder.encode(jweStrByInstanceIds, StandardCharsets.UTF_8.toString())编码。
 
-#### 发送到华为服务器
+### 发送到华为服务器
 
 携带JWE的链接长度需控制在2000以内。HTTPS链接样例如下：
 
-```
-https://{walletkit_website_url}/walletkit/consumer/pass/save?content={content}
+```screen
+https://{walletkit_website_url}/walletkit/consumer/pass/save?content={*content*}
 ```
 
-![](https://media:101782807012159618)  
-* 最终的访问链接请不要带"{}"，即content=xxxx即可。
-* 如果添卡时需要跳过钱包端侧添加预览页面，可以在链接后添加\&preview=0跳过预览，无参或传参非0时仍展示钱包端侧预览页面，例如：https://{walletkit_website_url}/walletkit/consumer/pass/save?content={content}\&preview=0
-* 请求地址中的{walletkit_website_url}变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据，列表如下：  
+> 说明
+>
+> * 最终的访问链接请不要带"{}"，即content=xxxx即可。
+> * 如果添卡时需要跳过钱包端侧添加预览页面，可以在链接后添加&preview=0跳过预览，无参或传参非0时仍展示钱包端侧预览页面，例如：https://{walletkit_website_url}/walletkit/consumer/pass/save?content={content}&preview=0
+> * 请求地址中的*{walletkit_website_url}*变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据，列表如下：
 
 |站点|域名|
 |:------------------------------|:-------------------------------|
@@ -335,21 +341,23 @@ https://{walletkit_website_url}/walletkit/consumer/pass/save?content={content}
 |Asia, Africa, and Latin America|walletpass-dra.cloud.huawei.com|
 |Europe|walletpass-dre.cloud.huawei.com|
 
-#### 生成瘦JWE并发送到华为服务器
+## 生成瘦JWE并发送到华为服务器
 
-#### 定义用户特有信息的实例并生成JWE数据
+### 定义用户特有信息的实例并生成JWE数据
 
-由于部分浏览器的限制，网页链接中使用的JWE一般不能超过2000个字符。如果卡券实例的内容构成的JWE超过了此限制则可以选择"瘦"JWE方式，这种情况下商户需要通过REST API在用户绑卡前提前将卡券实例数据推送到华为服务器，"添加到华为钱包"按钮或链接中所包含的JWE数据仅需要包含卡券实例的Id字段。  
-![](https://media:101782807012204619)  
-* 如选择使用瘦JWE方式添加卡券则可忽略"生成JWE并发送到华为服务器"步骤。
-* 支持JWE链接的方式同时也支持瘦JWE方式。
-* 瘦JWE每次请求支持最多20个Instance Id。
+由于部分浏览器的限制，网页链接中使用的JWE一般不能超过2000个字符。如果卡券实例的内容构成的JWE超过了此限制则可以选择"瘦"JWE方式，这种情况下商户需要通过REST API在用户绑卡前提前将卡券实例数据推送到华为服务器，"添加到华为钱包"按钮或链接中所包含的JWE数据仅需要包含卡券实例的Id字段。
+> 说明
+>
+> * 如选择使用瘦JWE方式添加卡券则可忽略"生成JWE并发送到华为服务器"步骤。
+> * 支持JWE链接的方式同时也支持瘦JWE方式。
+> * 瘦JWE每次请求支持最多20个Instance Id。
 
-推送用户特有信息的实例至华为服务器。  
-![](https://media:101782807012324620)  
-[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)可以在API参考中查看具体定义。
+推送用户特有信息的实例至华为服务器。
+> 说明
+>
+> [HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)可以在API参考中查看具体定义。
 
-```
+```screen
 HwWalletObject hwWalletObject = new HwWalletObject(); 
 // 实例唯一标识，在模板下唯一，不会在华为钱包展示
 hwWalletObject.setSerialNumber("854687156"); 
@@ -443,13 +451,14 @@ hwWalletObject.setFields(fields);
 
 通过如下POST接口推送到华为服务器。
 
-```
+```screen
 POST 
 https://{walletkit_server_url}/hmspass/v1/loyalty/instance
 ```
 
-![](https://media:101782807012360621)  
-请求地址中的{walletkit_server_url}变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据，参考钱包服务器地址列表。  
+> 说明
+>
+> 请求地址中的*{walletkit_server_url}*变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据，参考钱包服务器地址列表。
 
 |地区|域名|
 |:---|:------------------------------------------|
@@ -461,7 +470,7 @@ https://{walletkit_server_url}/hmspass/v1/loyalty/instance
 
 推送hwWalletObject代码如下：
 
-```
+```screen
 // Read an loyalty model from a JSON file.LoyaltyInstance.json is a JSON file with parameters in HwWalletObject format.
 JSONObject model = JSONObject.parseObject(ConfigUtil.readFile("LoyaltyInstance.json"));
 
@@ -482,7 +491,7 @@ JSONObject responseModel = serverApiService.postToWalletServer(urlSegment, JSONO
 * 第四段为加密并压缩后的HwWalletObject字符串，采用第二段的sessionKey作为对称秘钥和第三段的IV作为加密向量，以AES-GCM方式对HwWalletObject字符串进行加密并压缩。
 * 第五段为签名部分，将前面4部分使用JWE的私钥（开发者联盟申请得到）进行签名，生成签名字符串。每一段均为Base64编码。
 
-```
+```screen
 // 在华为AppGallery Connect网站上注册的应用ID。
 String appId = ConfigUtil.instants().getValue("gw.appid");
 // 为用户绑定已存在的pass实例。构造需要绑定的实例ID列表。
@@ -500,20 +509,21 @@ String jweSignPrivateKey = ConfigUtil.instants().getValue("servicePrivateKey");
  System.out.println("JWE String: " + jwe + "\n");
 ```
 
-JWE数据需要经过URLEncoder.encode(jweStrByInstanceIds, StandardCharsets.UTF_8.toString())编码。  
+JWE数据需要经过URLEncoder.encode(jweStrByInstanceIds, StandardCharsets.UTF_8.toString())编码。
 
-#### 发送到华为服务器
+### 发送到华为服务器
 
 携带JWE的链接长度需控制在2000以内。HTTPS链接样例如下：
 
-```
-https://{walletkit_website_url}/walletkit/consumer/pass/save?content={content}
+```screen
+https://{walletkit_website_url}/walletkit/consumer/pass/save?content={*content*}
 ```
 
-![](https://media:101782807012521622)  
-* 最终的访问链接请不要带"{}"，即content=xxxx即可。
-* 如果添卡时需要跳过钱包端侧添加预览页面，可以在链接后添加\&preview=0跳过预览，无参或传参非0时仍展示钱包端侧预览页面，例如：https://{walletkit_website_url}/walletkit/consumer/pass/save?content={content}\&preview=0
-* 请求地址中的{walletkit_website_url}变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据，列表如下：  
+> 说明
+>
+> * 最终的访问链接请不要带"{}"，即content=xxxx即可。
+> * 如果添卡时需要跳过钱包端侧添加预览页面，可以在链接后添加&preview=0跳过预览，无参或传参非0时仍展示钱包端侧预览页面，例如：https://{walletkit_website_url}/walletkit/consumer/pass/save?content={content}&preview=0
+> * 请求地址中的*{walletkit_website_url}*变量需要开发者根据服务器所属区域自行选择，如果商户有全球发卡需求，因为隐私政策，不同区域的数据不能共享。建议商户向下列所有区域推送JWE数据，列表如下：
 
 |站点|域名|
 |:------------------------------|:-------------------------------|

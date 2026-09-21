@@ -12,13 +12,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/subscribe-
 2. 调用[industryServiceClient](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section7749131442313)中的[getDeviceManager](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section17822141183313)方法获取[DeviceManager](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section2045012381872)对象。
 3. 调用[DeviceManager](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section2045012381872)对象的[getDevices](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section1558035984613)方法获取穿戴设备列表。
 
-<!-- -->
 
 4. 调用[Device](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section4106204316283)对象的[subscribeRealTimeData](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section049515146113)方法订阅传感器数据。
 
-   <br />
-
-   ```
+   ```screen
    // 导入相关模块
    import { industryServiceClient, IndustryService } from '@huawei-cbg/health-industry-sdk';
    import { BusinessError, Callback } from '@ohos.base';
@@ -44,15 +41,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/subscribe-
      });
    ```
 
-   <br />
 
-<!-- -->
+5. 穿戴设备实时光传感器数据在Callback<IndustryService.[RealTimeData](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section12262172612114)>中处理，穿戴设备产生传感器数据时realTimeData数据中包含实时光传感器数据。
 
-5. 穿戴设备实时光传感器数据在Callback\<IndustryService.[RealTimeData](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section12262172612114)\>中处理，穿戴设备产生传感器数据时realTimeData数据中包含实时光传感器数据。
-
-   <br />
-
-   ```
+   ```screen
    realTimeData样例：
    {
    	"time": 1773212425379,
@@ -76,26 +68,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/subscribe-
    ```
 
    |返回值|类型|单位|含义|
-   |:------|:-------------------------------------------|:-|:--------------------------------|
-   |fields|Record\<string, object \| string \| number\>|-|包含实时数据的对象。|
+   |:------|:---------------------------------------|:-|:--------------------------------|
+   |fields|Record<string, object | string | number>|-|包含实时数据的对象。|
    |channel|number|-|三种数据通道类型，3/5/7分别对应GREEN/RED/IR通道。|
-   |data|number\[\]|-|每一路具体的ppg数据。|
-   [表1 返回详细数据字段说明]
+   |data|number[]|-|每一路具体的ppg数据。|
+   [**表1**返回详细数据字段说明]
 
-   ![](https://media:301785133819404068)  
-   PPG传感器采集周期10ms，上报周期100ms左右：三路数据（GREEN/RED/IR） 通道，每路通道上报10个浮点数据。
+   > 说明
+   >
+   > PPG传感器采集周期10ms，上报周期100ms左右：三路数据（GREEN/RED/IR） 通道，每路通道上报10个浮点数据。
+   >
+   > 数据上报数量非固定，示例中给出的是通常上报结果，实际上报周期和数据有可能因设备原因增加或者减少。
 
-   数据上报数量非固定，示例中给出的是通常上报结果，实际上报周期和数据有可能因设备原因增加或者减少。
-
-   <br />
-
-<!-- -->
 
 6. 需要取消订阅时，调用[Device](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section4106204316283)对象的[unSubscribeRealTimeData](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section1638711819219)方法取消订阅实时光传感器数据。
 
-   <br />
-
-   ```
+   ```screen
    // 调用unSubscribeRealTimeData方法取消订阅实时光传感器数据。
    // 注意：这里的callback和订阅实时光传感器数据时的callback要为同一个对象。
    device.unSubscribeRealTimeData(IndustryService.RealTimeDataType.PPG_SENSOR, callback).then(() => {
@@ -107,8 +95,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/subscribe-
    });
    ```
 
-   ![](https://media:301785133819429069)  
-   取消订阅传入的callback，要求和订阅时传入的callback为同一个对象。
-
-   <br />
+   > 说明
+   >
+   > 取消订阅传入的callback，要求和订阅时传入的callback为同一个对象。
 

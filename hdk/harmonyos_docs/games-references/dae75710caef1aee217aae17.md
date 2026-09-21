@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/exception-ove
 
 # Overview
 
-包含游戏多媒体实例异常和错误码定义。  
+包含游戏多媒体实例异常和错误码定义。
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:--------------------------------------------------------------------------------------------------------------------|:------------|

@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
 # 如何实现后台定时器
 
-#### 问题现象
+## 问题现象
 
-在页面设置一个定时器，倒计时结束后页面的元素需要发生变化。当倒计时还在进行中的时候销毁页面，如何在下次创建该页面时正确的获取并展示剩余时间（要计算页面销毁期间的时间），如果还有剩余时间就继续进行倒计时。  
+在页面设置一个定时器，倒计时结束后页面的元素需要发生变化。当倒计时还在进行中的时候销毁页面，如何在下次创建该页面时正确的获取并展示剩余时间（要计算页面销毁期间的时间），如果还有剩余时间就继续进行倒计时。
 
-#### 背景知识
+## 背景知识
 
-用户首选项为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。数据存储形式为键值对，键的类型为字符串型，值的存储数据类型包括数字型、字符型、布尔型以及这3种类型的数组类型。详情请参考用户首选项[使用指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences)及相关[API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences)。  
+用户首选项为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。数据存储形式为键值对，键的类型为字符串型，值的存储数据类型包括数字型、字符型、布尔型以及这3种类型的数组类型。详情请参考用户首选项[使用指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-preferences)及相关[API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences)。
 
-#### 解决方案
+## 解决方案
 
 主要思路是数据持久化，可以将计时器计时的起始时间保存到用户首选项中，然后根据当前时间和起始时间的差值来进行计时，即使进程被杀掉也不影响。
 
@@ -22,7 +22,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
 示例demo如下：
 
-```
+```ts
 import { preferences } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -30,7 +30,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  // 使用@State装饰器管理状态，记录动态更新的数值
+ // 使用@State装饰器管理状态，记录动态更新的数值
   @State message: number = 60;
   private timerId: number = 0;
 
@@ -78,7 +78,7 @@ struct Index {
         if (dataPreferences.hasSync('startTime')) {
           console.info(`The key startTime is contained:${dataPreferences.getSync('startTime', 600)}`);
         } else {
-          // 此处以此键值对不存在时写入数据为例,涉及开始时间和结束时间
+        // 此处以此键值对不存在时写入数据为例,涉及开始时间和结束时间
           dataPreferences.putSync('startTime', Date.now());
           let endtime: number = dataPreferences.getSync('startTime', Date.now()) as number + message * 1000;
           dataPreferences.putSync('endTime', endtime);
@@ -99,7 +99,7 @@ struct Index {
           let endtime: number = dataPreferences.getSync('endTime', Date.now()) as number;
 
 
-          // 根据结束时间和当前时间计算出剩余的倒计时时间
+         // 根据结束时间和当前时间计算出剩余的倒计时时间
           let remainingTime: number =
             Math.floor((endtime - Date.now()) / 1000) > 0 ? Math.floor((endtime - Date.now()) / 1000) : 0;
           try {
@@ -162,8 +162,9 @@ struct Index {
 }
 ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：使用putSync()方法保存数据后，退出app重新进入时为什么无法获取到此前保存的数据？
 
-A：使用putSync()方法只是保存数据到缓存的Preferences实例中，并未将Preferences实例的数据存储到持久化文件，导致无法读取数据。需要执行flushSync()方法。  
+A：使用putSync()方法只是保存数据到缓存的Preferences实例中，并未将Preferences实例的数据存储到持久化文件，导致无法读取数据。需要执行flushSync()方法。
+

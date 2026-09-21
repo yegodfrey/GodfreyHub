@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-
 
 # 系统管理
 
-#### 添加系统
+## 添加系统
 
-```
+```screen
 // 创建自定义系统
 public class MovementSystem : PgdSystem<PgdPosition, Velocity>
 {
@@ -52,9 +52,9 @@ world.RegisterSystem(new HealthSystem());
 world.RegisterSystem(new AISystem());
 ```
 
-#### 系统更新循环
+## 系统更新循环
 
-```
+```screen
 using UnityEngine;
 using Pgd;
 

@@ -1,0 +1,51 @@
+---
+name: document/cn/games-references/gamemme-gamemediaengine-minigame-0000002358963592
+title: EventHandler
+uri: https://developer.huawei.com/consumer/cn/doc/games-references/gamemme-gamemediaengine-minigame-0000002358963592
+---
+
+# EventHandler
+
+|Class Info|
+|:----------------------------------------------------------------|
+|export class GameMediaEngine implements IGameMediaEngine 游戏多媒体对象。|
+
+## Method Summary
+
+|Qualifier and Type|Method Name and Description|
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Promise<GameMediaEngine>|[create](#section366172114616)(options: [EngineCreateParams](https://developer.huawei.com/consumer/cn/doc/games-references/gamemme-enginecreateparams-minigame-0000002359123496)) 创建游戏多媒体对象。|
+
+## Methods
+
+### create
+
+|Method|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|create(options: [EngineCreateParams](https://developer.huawei.com/consumer/cn/doc/games-references/gamemme-enginecreateparams-minigame-0000002359123496)): Promise<GameMediaEngine> 创建游戏多媒体对象。|
+
+**Parameters**
+
+|Name|Description|
+|:------|:----------|
+|options|多媒体对象创建参数。|
+
+**Return**
+
+|Type|Description|
+|:-----------------------|:----------|
+|Promise<GameMediaEngine>|创建的游戏多媒体对象。|
+
+**Sample Code**
+
+```screen
+const options: EngineCreateParams = {
+  openId: '123',
+  audioId: 'demo'，
+  appId: '1230987',
+  clientId: '1a2b3c**4d5e6f',
+  clientSecret: 'a0b9c8***d7e6f5'
+};
+const gameMediaEngine = await GameMediaEngine.create(options);
+```
+

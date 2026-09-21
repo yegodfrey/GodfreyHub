@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-input-meth
 
 # 输入法框架
 
-* [输入法开发（IME）](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ime-kit)  
-* [如何防止同时修改悬浮键盘的位置和尺寸时键盘抖动](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-input-method-framework-1)  
+* **[输入法开发（IME）](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ime-kit)**   
+* **[如何防止同时修改悬浮键盘的位置和尺寸时键盘抖动](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-input-method-framework-1)**   

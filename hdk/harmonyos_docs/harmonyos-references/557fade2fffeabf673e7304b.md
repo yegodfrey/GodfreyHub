@@ -6,26 +6,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-f
 
 # CSS语法参考
 
-CSS是描述HML页面结构的样式语言。所有组件均存在系统默认样式，也可在页面CSS样式文件中对组件、页面自定义不同的样式。  
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
-#### 样式导入
+CSS是描述HML页面结构的样式语言。所有组件均存在系统默认样式，也可在页面CSS样式文件中对组件、页面自定义不同的样式。
 
-为了模块化管理和代码复用，CSS样式文件支持 @import 语句，导入 CSS 文件。  
+## 样式导入
 
-#### 声明样式
+为了模块化管理和代码复用，CSS样式文件支持 @import 语句，导入 CSS 文件。
+
+## 声明样式
 
 每个页面目录下存在一个与布局hml文件同名的css文件，用来描述该hml页面中组件的样式，决定组件应该如何显示。
 
 1. 内部样式，支持使用style、class属性来控制组件的样式。例如：
 
-   ```
+   ```html
    <!-- index.hml -->
    <div class="container">
      <text style="color: red">Hello World</text>
    </div>
    ```
 
-   ```
+   ```css
    /* index.css */
    .container {
      justify-content: center;
@@ -34,14 +36,14 @@ CSS是描述HML页面结构的样式语言。所有组件均存在系统默认�
 
 2. 文件导入，合并外部样式文件。例如，在common目录中定义样式文件style.css，并在index.css文件首行中进行导入：
 
-   ```
+   ```css
    /* style.css */
    .title {
      font-size: 50px;
    }
    ```
 
-   ```
+   ```css
    /* index.css */
    @import '../../common/style.css';
    .container {
@@ -49,9 +51,9 @@ CSS是描述HML页面结构的样式语言。所有组件均存在系统默认�
    }
    ```
 
-#### 选择器
+## 选择器
 
-css选择器用于选择需要添加样式的元素，支持的选择器如下表所示：  
+css选择器用于选择需要添加样式的元素，支持的选择器如下表所示：
 
 |选择器|样例|样例描述|
 |:-----|:---------------|:------------------------------------|
@@ -61,7 +63,7 @@ css选择器用于选择需要添加样式的元素，支持的选择器如下�
 
 示例：
 
-```
+```html
 <!-- 页面布局xxx.hml -->
 <div id="containerId" class="container">
   <text id="titleId" class="title">标题</text>
@@ -71,7 +73,7 @@ css选择器用于选择需要添加样式的元素，支持的选择器如下�
 </div>
 ```
 
-```
+```css
 /* 页面样式xxx.css */
 /* 对class="title"的组件设置样式 */
 .title {
@@ -87,38 +89,38 @@ css选择器用于选择需要添加样式的元素，支持的选择器如下�
 }
 ```
 
-#### 伪类
+## 伪类
 
-css伪类是选择器中的关键字，用于指定要选择元素的特殊状态。  
+css伪类是选择器中的关键字，用于指定要选择元素的特殊状态。
 
 |名称|支持组件|描述|
-|:-------|:------------------------------------|:-------------------------------------------------------------------------------|
-|:active|input\[type="button"\]|表示被用户激活的元素，如：被用户按下的按钮。轻量级智能穿戴上伪类选择器上仅支持background-color 和background-image 的样式设置。|
-|:checked|input\[type="checkbox"、type="radio"\]|表示checked属性为true的元素。轻量级智能穿戴上伪类选择器上仅支持background-color 和background-image 的样式设置。|
+|:-------|:----------------------------------|:-------------------------------------------------------------------------------|
+|:active|input[type="button"]|表示被用户激活的元素，如：被用户按下的按钮。轻量级智能穿戴上伪类选择器上仅支持background-color 和background-image 的样式设置。|
+|:checked|input[type="checkbox"、type="radio"]|表示checked属性为true的元素。轻量级智能穿戴上伪类选择器上仅支持background-color 和background-image 的样式设置。|
 
 伪类示例如下，设置按钮的:active伪类可以控制被用户按下时的样式：
 
-```
+```html
 <!-- index.hml -->
 <div class="container">
   <input type="button" class="button" value="Button"></input>
 </div>
 ```
 
-```
+```css
 /* index.css */
 .button:active {
   background-color: #888888;/*按钮被激活时，背景颜色变为#888888 */
 }
 ```
 
-#### 样式预编译
+## 样式预编译
 
 预编译提供了利用特有语法生成css的程序，可以提供变量、运算等功能，令开发者更便捷地定义组件样式，目前支持less、sass和scss的预编译。使用样式预编译时，需要将原css文件后缀改为less、sass或scss，如index.css改为index.less、index.sass或index.scss。
 
 * 当前文件使用样式预编译，例如将原index.css改为index.less：
 
-  ```
+  ```css
   /* index.less */
   /* 定义变量 */
   @colorBackground: #000000;
@@ -129,7 +131,7 @@ css伪类是选择器中的关键字，用于指定要选择元素的特殊状�
 
 * 引用预编译文件，例如common中存在style.scss文件，将原index.css改为index.scss，并引入style.scss：
 
-  ```
+  ```css
   /* style.scss */
   /* 定义变量 */
   $colorBackground: #000000;
@@ -137,7 +139,7 @@ css伪类是选择器中的关键字，用于指定要选择元素的特殊状�
 
   在index.scss中引用：
 
-  ```
+  ```css
   /* index.scss */
   /* 引入外部scss文件 */
   @import '../../common/style.scss';
@@ -146,5 +148,7 @@ css伪类是选择器中的关键字，用于指定要选择元素的特殊状�
   }
   ```
 
-  ![](https://media:401788445444628648)  
-引用的预编译文件建议放在common目录进行管理。  
+  > 说明
+  >
+  > 引用的预编译文件建议放在common目录进行管理。
+

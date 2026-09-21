@@ -10,15 +10,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/harmonyos-o
 |:-------------------------------------------------------------------------------------------------|
 |public interface OnCameraMoveListener 表示相机移动事件的侦听器，包含一个抽象函数[onCameraMove](#section113245916324)()。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |abstract void|[onCameraMove](#section113245916324)() 在调用[onCameraMoveStarted](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/harmonyos-oncameramovestartedlistener-0000001147992551#section15331349172613)后随着相机的移动反复调用此方法。|
 
-#### Public Methods
+## Public Methods
 
-#### onCameraMove
+### onCameraMove
 
 |Method|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

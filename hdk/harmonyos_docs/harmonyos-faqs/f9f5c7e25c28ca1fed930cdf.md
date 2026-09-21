@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-946
 
 # Flex布局Text自动换行时显示不全
 
-#### 问题现象
+## 问题现象
 
 在下面代码中，Flex布局使用alignItems: ItemAlign.Stretch进行拉伸，并使用clip进行裁剪时会出现部分字符被裁切显示不全。
 
-```
+```ts
 @Entry
 @Component
 struct Index {
@@ -54,27 +54,27 @@ struct Index {
 
 下面是字符显示不全的效果图。
 
-![](https://media:101782454340336706 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/2SEPNyy0S1eVsr7otmjPEQ/zh-cn_image_0000002628401232.png?HW-CC-KV=V1&HW-CC-Date=20260920T114744Z&HW-CC-Expire=31536000000&HW-CC-Sign=F89E9C5369BA7E23A3228AEF85715AF0561CF0190B902E816D86125623704CFE "点击放大")
 
-#### 背景知识
+## 背景知识
 
-[Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)组件可以通过设置[FlexOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex#flexoptions对象说明)的参数alignItems，设置子元素在交叉轴的对齐方式。子元素的[alignSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-flex-layout#alignself)属性也可以设置子元素在父容器交叉轴的对齐方式，且会覆盖Flex布局容器中alignItems配置。  
+[Flex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex)组件可以通过设置[FlexOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex#flexoptions对象说明)的参数alignItems，设置子元素在交叉轴的对齐方式。子元素的[alignSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-flex-layout#alignself)属性也可以设置子元素在父容器交叉轴的对齐方式，且会覆盖Flex布局容器中alignItems配置。
 
-#### 问题定位
+## 问题定位
 
-父组件设置的alignItems属性为[ItemAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#itemalign).Stretch时，子组件在交叉轴方向拉伸填充，拉伸效果由系统进行一个先期布局，不设置子组件的宽高时，会出现子组件溢出Flex区域的情况。  
+父组件设置的alignItems属性为[ItemAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#itemalign).Stretch时，子组件在交叉轴方向拉伸填充，拉伸效果由系统进行一个先期布局，不设置子组件的宽高时，会出现子组件溢出Flex区域的情况。
 
-#### 分析结论
+## 分析结论
 
-在Flex容器的子组件设置alignSelf属性，可使该子组件不应用父组件的alignItems属性，从而防止子组件被过度拉伸导致溢出。  
+在Flex容器的子组件设置alignSelf属性，可使该子组件不应用父组件的alignItems属性，从而防止子组件被过度拉伸导致溢出。
 
-#### 修改建议
+## 修改建议
 
 可以给Flex容器中的Column组件增加alignSelf属性，Text子组件在Column父组件交叉轴的对齐格式会覆盖其alignItems设置，可以使Text子组件中的文本内容完整显示。
 
 示例代码：
 
-```
+```ts
 @Entry
 @Component
 struct StretchDemo {
@@ -119,4 +119,5 @@ struct StretchDemo {
 
 效果图：
 
-![](https://media:101782454340372707 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/f7PCnLzqQISMVYjs2Kn1QQ/zh-cn_image_0000002658800497.png?HW-CC-KV=V1&HW-CC-Date=20260920T114744Z&HW-CC-Expire=31536000000&HW-CC-Sign=142235035A49C7700BDE21E2AC1400F6B8CCE5688925316242117CE189DBE08E "点击放大")
+

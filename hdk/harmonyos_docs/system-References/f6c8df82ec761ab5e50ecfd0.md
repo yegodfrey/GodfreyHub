@@ -6,36 +6,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/system-References/updatebeacon
 
 # 更新信标设备属性
 
-#### 功能介绍
+## 功能介绍
 
-更新信标设备的信息。  
+更新信标设备的信息。
 
-#### 场景描述
+## 场景描述
 
-调用此接口去更新信标设备的信息。  
+调用此接口去更新信标设备的信息。
 
-#### 使用约束
+## 使用约束
 
 * 需要获取服务帐号凭证，请参见[基于Service Account开放鉴权](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/open-platform-service-account-0000001053509221)。
-* 当信标设备状态为非激活状态，此接口会报错。  
+* 当信标设备状态为非激活状态，此接口会报错。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS PUT|
-|接口方向|应用服务器或App应用 -\> 近距离通信服务器|
-|接口URL|https://{[域名](https://developer.huawei.com/consumer/cn/doc/development/system-References/common-interface-0000001050151532#section2028854715910)}/WiseCloudNearbyBeaconService/v1/updateBeaconInfo?projectId=\[projectId\]|
+|-----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|接口方向|应用服务器或App应用 -> 近距离通信服务器|
+|接口URL|https://{[域名](https://developer.huawei.com/consumer/cn/doc/development/system-References/common-interface-0000001050151532#section2028854715910)}/WiseCloudNearbyBeaconService/v1/updateBeaconInfo?projectId=[projectId]|
 |数据格式|Content-type: application/json|
-|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-#### 查询参数
+## 查询参数
 
 |参数|是否必选|参数类型|描述|
 |:--------|:---|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
 |projectId|否|String|获取方式请参见[获取projectId](https://developer.huawei.com/consumer/cn/doc/development/system-References/common-interface-0000001050151532#section4913155719102)。|
 
-#### 请求参数
+## 请求参数
 
-Request Header  
+**Request Header**
 
 |参数|是否必选|类型|描述|
 |:------------|:---|:-----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,17 +43,17 @@ Request Header
 |timeStamp|是|Long|请求头参数，时间戳。|
 |Authorization|是|String|请求头参数，用于网关认证，请参见[基于Service Account开放鉴权](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/open-platform-service-account-0000001053509221)获取JWT。|
 
-Request Body  
+**Request Body**
 
 |参数|是否必选|类型|描述|
 |:-----|:---|:-----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |beacon|是|object|请求体参数，信标设备的信息，具体参见[信标设备结构体](https://developer.huawei.com/consumer/cn/doc/development/system-References/common-datamodel-0000001050158333#section2793931124615)。|
 
-#### 请求示例
+## 请求示例
 
 * 使用过期的Authorization进行调用，返回错误的响应体。
 
-  ```
+  ```screen
   PUT /WiseCloudNearbyBeaconService/v1/updateBeaconInfo?projectId=id123 HTTP/1.1
   Host: 域名
   Content-Type: application/json
@@ -77,7 +77,7 @@ Request Body
 
 * 业务请求失败时，返回错误的响应体，例如更新一个未激活的信标设备。
 
-  ```
+  ```screen
   PUT /WiseCloudNearbyBeaconService/v1/updateBeaconInfo?projectId=id123 HTTP/1.1
   Host: 域名
   Content-Type: application/json
@@ -101,7 +101,7 @@ Request Body
 
 * 请求成功，返回成功的响应体。
 
-  ```
+  ```screen
   PUT /WiseCloudNearbyBeaconService/v1/updateBeaconInfo?projectId=id123 HTTP/1.1
   Host: 域名
   Content-Type: application/json
@@ -123,37 +123,38 @@ Request Body
   }
   ```
 
-#### 响应参数
+## 响应参数
 
-Response Header  
+**Response Header**
 
 |参数|是否必选|参数类型|描述|
 |:-------------|:---|:------|:------------------|
 |Content-Type|否|String|上传文件Content-Type。|
 |Content-Length|是|Integer|上传文件Content-Length。|
 
-Response Body
+**Response Body**
 
-状态码为200时：
+**状态码为200时：**
 
 请求成功，无响应体。
 
-状态码为非200时：  
+**状态码为非200时：**
+
 请求失败，响应体如下。
 
-* 非业务（网关校验失败、token过期等情况）请求失败时：  
+* 非业务（网关校验失败、token过期等情况）请求失败时：
 
   |参数|类型|描述|
   |:----|:-----|:----------|
   |error|String|非业务返回的错误信息。|
 
-* 业务请求失败时：  
+* 业务请求失败时：
 
   |参数|类型|描述|
   |:-----------|:-----|:------------------------------------------------------------------------------------|
   |serviceError|object|业务返回的错误信息。请见下文[serviceError](#ZH-CN_TOPIC_0000001201395026__table20403133123715)详细信息。|
 
-  serviceError  
+  **serviceError**
 
   |参数|类型|参数含义|
   |:------|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -161,11 +162,11 @@ Response Body
   |status|String|错误状态。|
   |message|String|错误描述信息。|
 
-#### 响应示例
+## 响应示例
 
 * 使用过期的Authorization进行调用，返回错误的响应体。
 
-  ```
+  ```screen
   HTTP/1.1 401 Unauthorized
   Content-type: application/json
   content-length: 27
@@ -177,7 +178,7 @@ Response Body
 
 * 业务请求失败时，返回错误的响应体，例如更新一个未激活的信标设备。
 
-  ```
+  ```screen
   HTTP/1.1 400 Bad Request
   Content-type: application/json
   content-length: 96
@@ -193,13 +194,13 @@ Response Body
 
 * 请求成功，返回成功的响应体。
 
-  ```
+  ```screen
   HTTP/1.1 200 OK
   Content-type: application/json
   content-length: 0
   ```
 
-#### 错误码
+## 错误码
 
 |状态码|错误码|描述|建议业务处理方式|
 |:--|:--------|:---------------|:---------------------------------------------------------------------------------------|

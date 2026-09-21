@@ -1,0 +1,12 @@
+---
+name: document/cn/connectivity-References/typesummary_0-0000001061098710
+title: Interface
+uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/typesummary_0-0000001061098710
+---
+
+# Interface
+
+* **[PingCallback](https://developer.huawei.com/consumer/cn/doc/connectivity-References/pingcallback-0000001060938728)**   
+* **[Receiver](https://developer.huawei.com/consumer/cn/doc/connectivity-References/receiver-0000001060460920)**   
+* **[SendCallback](https://developer.huawei.com/consumer/cn/doc/connectivity-References/sendcallback-0000001059290639)**   
+* **[CancelFileTransferCallBack](https://developer.huawei.com/consumer/cn/doc/connectivity-References/cancelfiletransfercallback-0000001093458245)**   

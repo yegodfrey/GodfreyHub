@@ -1,0 +1,17 @@
+---
+name: document/cn/HMSCore-Guides/pay-propose-sign-app-introduction-0000001827595820
+title: 业务简介
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/pay-propose-sign-app-introduction-0000001827595820
+---
+
+# 业务简介
+
+华为支付服务集成了华为支付收银台能力，开发者的APP通过集成华为支付服务SDK，实现拉起华为支付服务收银台完成支付，并且用户可以在支付完成后选择完成免密代扣签约能力。
+
+## 支持的设备
+
+|**设备类型**|**OS版本**|HMS Core（APK）版本|
+|:--------------|:---------------------------------------|:--------------|
+|华为手机（Android）|EMUI8.0或者Android 8.0及以上（API Level 26及以上）|6.13.0.300及以上|
+|华为手机（HarmonyOS）|HarmonyOS 2.0及以上|6.13.0.300及以上|
+

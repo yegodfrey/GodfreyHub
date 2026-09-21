@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-ascf/components-canvas-
 
 # 画布
 
-* [canvas](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/components-canvas)  
+* **[canvas](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/components-canvas)**   

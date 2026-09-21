@@ -6,31 +6,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivi
 
 # 如何解决蓝牙/星闪协商MTU参数失败的问题
 
-#### 问题现象
+## 问题现象
 
-在蓝牙/星闪功能开发过程中，协商MTU时，有时会出现[2900099](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager#section2900099-操作失败)/[1009700099](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink#section1009700099)错误的问题，该如何解决？  
+在蓝牙/星闪功能开发过程中，协商MTU时，有时会出现[2900099](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager#section2900099-操作失败)/[1009700099](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink#section1009700099)错误的问题，该如何解决？
 
-#### 背景知识
+## 背景知识
 
-* BLE蓝牙提供了[setBLEMtuSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#setblemtusize)接口用于client端同server端协商MTU（最大传输单元，取值范围23\~517）大小。
-* 星闪提供了[requestMtuSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-ssap#requestmtusize)接口用于client端同server端协商MTU（最大传输单元，取值范围22\~512）大小。
-* 蓝牙/星闪同server端协商MTU前，需要保证client端同server端处于连接的状态。  
+* BLE蓝牙提供了[setBLEMtuSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#setblemtusize)接口用于client端同server端协商MTU（最大传输单元，取值范围23~517）大小。
+* 星闪提供了[requestMtuSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-ssap#requestmtusize)接口用于client端同server端协商MTU（最大传输单元，取值范围22~512）大小。
+* 蓝牙/星闪同server端协商MTU前，需要保证client端同server端处于连接的状态。
 
-#### 问题定位
+## 问题定位
 
 * 排查在协商MTU前，蓝牙/星闪client端同server端是否断开了连接。
-* 检查协商的MTU参数范围是否合理。  
+* 检查协商的MTU参数范围是否合理。
 
-#### 分析结论
+## 分析结论
 
 * 结论一：setBLEMtuSize/requestMtuSize接口调用时机不对，需要在蓝牙/星闪client端和server端连接成功后，才能调用setBLEMtuSize/requestMtuSize接口协商MTU参数。
-* 结论二：协商的MTU参数设置不在取值范围内。  
+* 结论二：协商的MTU参数设置不在取值范围内。
 
-#### 修改建议
+## 修改建议
 
 协商MTU前，需保证client端同server端处于连接的状态，且协商的MTU参数需要设置在取值范围内。蓝牙/星闪端代码参考如下：
 
-```
+```ts
 import { ble, constant } from '@kit.ConnectivityKit';
 import { ssap } from '@kit.NearLinkKit';
 
@@ -117,8 +117,9 @@ struct BleAndSsapSetMtu {
 }
 ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：在BLE蓝牙开发流程中，setBLEMtuSize()接口在什么时候调用最合适？
 
-A：setBLEMtuSize()方法只能在调用[connect()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#connect)接口成功连接上蓝牙之后调用。建议在调用[getServices()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#getservices)接口获取server端支持的所有服务能力之前调用。  
+A：setBLEMtuSize()方法只能在调用[connect()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#connect)接口成功连接上蓝牙之后调用。建议在调用[getServices()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#getservices)接口获取server端支持的所有服务能力之前调用。
+

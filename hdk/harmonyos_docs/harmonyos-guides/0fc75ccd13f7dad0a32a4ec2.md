@@ -8,13 +8,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observe
 
 上文所述的装饰器（包括[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)、[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)、[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)、[@Provide和@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)装饰器）仅能观察到第一层的变化，但是在实际应用开发中，应用会根据开发需要，封装自己的数据模型。对于多层嵌套的情况，比如二维数组、对象数组、嵌套类场景，无法观察到第二层的属性变化。因此，为了实现对嵌套数据结构中深层属性变化的观察，引入了[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-observed#observed)和[@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-objectlink#objectlink)装饰器。
 
-@Observed/@ObjectLink适用于观察嵌套对象（对象的属性是对象）属性的变化，需要开发者对装饰器的基本观察能力有一定的了解，再来对比阅读该文档。建议提前阅读：[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)的基本用法。最佳实践请参考[状态管理最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management)。常见问题请参考[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)。  
-![](https://media:401788444669115343)  
-从API version 9开始，这两个装饰器支持在ArkTS卡片中使用。
+@Observed/@ObjectLink适用于观察嵌套对象（对象的属性是对象）属性的变化，需要开发者对装饰器的基本观察能力有一定的了解，再来对比阅读该文档。建议提前阅读：[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)的基本用法。最佳实践请参考[状态管理最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management)。常见问题请参考[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)。
+> 说明
+>
+> 从API version 9开始，这两个装饰器支持在ArkTS卡片中使用。
+>
+> 从API version 11开始，这两个装饰器支持在元服务中使用。
 
-从API version 11开始，这两个装饰器支持在元服务中使用。  
-
-#### 概述
+## 概述
 
 @ObjectLink和@Observed类装饰器配合使用，可实现嵌套对象或数组的双向数据同步，使用方式如下：
 
@@ -24,9 +25,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observe
 
 * API version 19之前，@ObjectLink只能接收@Observed装饰的类实例；API version 19及以后，@ObjectLink也可以接收复杂类型，无@Observed装饰的限制。但需注意，如需观察嵌套类型场景，需要其接收@Observed装饰的类实例或[makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)的返回值。示例请参考[二维数组](#二维数组)。
 
-开发者如需实现单向数据同步，需要搭配@Prop使用，示例请参考[@Prop与@ObjectLink的差异](#prop与objectlink的差异)。  
+开发者如需实现单向数据同步，需要搭配@Prop使用，示例请参考[@Prop与@ObjectLink的差异](#prop与objectlink的差异)。
 
-#### 装饰器说明
+## 装饰器说明
 
 |@Observed类装饰器|说明|
 |:------------|:--------------------------------|
@@ -34,28 +35,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observe
 |类装饰器|装饰class。需要放在class的定义前，使用new创建类对象。|
 
 |@ObjectLink变量装饰器|说明|
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |装饰器参数|无。|
-|允许装饰的变量类型|支持继承Date、[Array](#二维数组)的class实例。 API version 11及以后支持继承[Map](#继承map类)、[Set](#继承set类)的class实例以及@Observed装饰类和undefined或null组成的联合类型，比如ClassA \| ClassB、 ClassA \| undefined 或者 ClassA \| null，示例请参考[@ObjectLink支持联合类型](#objectlink支持联合类型)。 API version 19之前，必须为被@Observed装饰的class实例。 API version 19及以后，@ObjectLink可以被复杂类型初始化，即class、object或built-in类型。但当观察嵌套类型时，仍需其接收@Observed装饰的类实例或makeV1Observed的返回值。 说明： @ObjectLink不支持简单类型，如果开发者需要使用简单类型，可以使用[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)。|
+|允许装饰的变量类型|支持继承Date、[Array](#二维数组)的class实例。 API version 11及以后支持继承[Map](#继承map类)、[Set](#继承set类)的class实例以及@Observed装饰类和undefined或null组成的联合类型，比如ClassA | ClassB、 ClassA | undefined 或者 ClassA | null，示例请参考[@ObjectLink支持联合类型](#objectlink支持联合类型)。 API version 19之前，必须为被@Observed装饰的class实例。 API version 19及以后，@ObjectLink可以被复杂类型初始化，即class、object或built-in类型。但当观察嵌套类型时，仍需其接收@Observed装饰的类实例或makeV1Observed的返回值。 **说明：** @ObjectLink不支持简单类型，如果开发者需要使用简单类型，可以使用[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)。|
 |被装饰变量的初始值|禁止本地初始化。|
 
 @ObjectLink的属性可以被改变，但不允许整体赋值，即@ObjectLink装饰的变量是只读的。
 
-```
+```ts
 // 允许@ObjectLink装饰的数据属性赋值
 this.objLink.a= ...
 // 不允许@ObjectLink装饰的数据自身赋值
 this.objLink= ...
 ```
 
-![](https://media:401788444669156344)  
-@ObjectLink装饰的变量不能被赋值，如果要使用赋值操作，请使用[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)。
+> 说明
+>
+> @ObjectLink装饰的变量不能被赋值，如果要使用赋值操作，请使用[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)。
+>
+> * @Prop装饰的变量和数据源的关系是单向同步，@Prop装饰的变量在本地拷贝了数据源，所以它允许本地更改，如果父组件中的数据源有更新，@Prop装饰的变量在本地的修改将被覆盖。
+>
+> * @ObjectLink装饰的变量和数据源的关系是双向同步，@ObjectLink装饰的变量相当于指向数据源的指针。禁止对@ObjectLink装饰的变量赋值，如果发生@ObjectLink装饰的变量的赋值，则同步链将被打断。
 
-* @Prop装饰的变量和数据源的关系是单向同步，@Prop装饰的变量在本地拷贝了数据源，所以它允许本地更改，如果父组件中的数据源有更新，@Prop装饰的变量在本地的修改将被覆盖。
-
-* @ObjectLink装饰的变量和数据源的关系是双向同步，@ObjectLink装饰的变量相当于指向数据源的指针。禁止对@ObjectLink装饰的变量赋值，如果发生@ObjectLink装饰的变量的赋值，则同步链将被打断。
-
-#### 变量的传递/访问规则说明
+## 变量的传递/访问规则说明
 
 |@ObjectLink传递/访问|说明|
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -63,13 +65,13 @@ this.objLink= ...
 |与源对象同步|双向。|
 |可以初始化子组件|允许，可用于初始化常规变量、@State、@Link、@Prop、@Provide|
 
-图1 初始化规则图示
+**图1** 初始化规则图示
 
-![](https://media:401788444669186345)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/vjvQPsHZQjG6SRsrU5hihA/zh-cn_image_0000002762992993.png?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=B82FED13CFB2DBF31320ACBB3984AD11992B87F1ED2ED951373CD716FE2AE51B)
 
-#### 观察变化和行为表现
+## 观察变化和行为表现
 
-#### 观察变化
+### 观察变化
 
 API version 19之前，如果需要观察嵌套场景的变化，如嵌套类，二维数组，对象数组等，那么内层的数据类型也需要被@Observed装饰。API version 19及以后，也可以通过使用[makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)来使内层数据可观察。内层数据需要传递给@ObjectLink，使其在UI上可观察。示例请参考[嵌套对象](#嵌套对象)。
 
@@ -85,7 +87,7 @@ API version 19之前，如果需要观察嵌套场景的变化，如嵌套类，
 
 @ObjectLink装饰继承于Date的class时，可以观察到Date整体的赋值，同时可通过调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds 更新Date的属性。
 
-```
+```TypeScript
 @Observed
 class DateClass extends Date {
   constructor(args: number | string) {
@@ -153,13 +155,13 @@ struct Parent {
 }
 ```
 
-![](https://media:401788444669349346)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/5FWUzP6FR-iIAsM4htHqMA/zh-cn_image_0000002762833105.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=396A2DD7EF1E2AE91A3D807E59479FF32F3E5D23F86968BCCB0412911B104CD2)
 
 @ObjectLink装饰继承于Map的class时，可以观察到Map整体的赋值，同时可通过调用Map的接口set, clear, delete 更新Map的值。示例请参考[继承Map类](#继承map类)。
 
-@ObjectLink装饰继承于Set的class时，可以观察到Set整体的赋值，同时可通过调用Set的接口add, clear, delete 更新Set的值。示例请参考[继承Set类](#继承set类)。  
+@ObjectLink装饰继承于Set的class时，可以观察到Set整体的赋值，同时可通过调用Set的接口add, clear, delete 更新Set的值。示例请参考[继承Set类](#继承set类)。
 
-#### 框架行为
+### 框架行为
 
 1. 初始渲染：
 
@@ -168,7 +170,7 @@ struct Parent {
    b. 子组件中@ObjectLink装饰的变量从父组件初始化，接收被@Observed装饰的class的实例，@ObjectLink的包装类会将自己注册给@Observed class。这里的注册行为指的是，@ObjectLink包装类会向@Observed实例提供自身的引用，让@Observed实例将其添加到依赖列表中，以便属性变化时能通知到它。
 2. 属性更新：当@Observed装饰的class属性改变时，会执行代理的setter和getter，然后遍历依赖它的@ObjectLink包装类，通知数据更新。
 
-#### 限制条件
+## 限制条件
 
 1. 使用@Observed装饰class会改变class原始的原型链，@Observed和其他类装饰器装饰同一个class可能会带来问题。
 
@@ -180,7 +182,7 @@ struct Parent {
 
    API version 19及以后，@ObjectLink也可以被[makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)的返回值初始化，若@ObjectLink接收的初始化值既不是@Observed装饰的class实例，也不是makeV1Observed的返回值，则会有运行时告警日志。
 
-   ```
+   ```ts
    class Test {
      msg: number;
 
@@ -194,7 +196,7 @@ struct Parent {
    @ObjectLink test: Test;
    ```
 
-   ```
+   ```TypeScript
    @Observed
    class Info {
      public count: number;
@@ -210,12 +212,12 @@ struct Parent {
 
 5. @ObjectLink装饰的变量不能本地初始化，仅能通过构造参数从父组件传入初始值，否则编译时会报错。
 
-   ```
+   ```ts
    // 错误写法，编译报错
    @ObjectLink count: CountInfo = new CountInfo(10);
    ```
 
-   ```
+   ```TypeScript
    @Observed
    class CountInfo {
      public count: number;
@@ -233,7 +235,7 @@ struct Parent {
 
    【反例】
 
-   ```
+   ```ts
    @Observed
    class Info {
      count: number;
@@ -274,7 +276,7 @@ struct Parent {
 
    【正例】
 
-   ```
+   ```TypeScript
    @Observed
    class Info {
      public count: number;
@@ -326,15 +328,15 @@ struct Parent {
    }
    ```
 
-![](https://media:401788444669428347)  
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/v8YyAbbzSb6f5xnQael6dA/zh-cn_image_0000002733273590.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=FC30D63A39EB12CB928F4B89F3732E5BA817B4BE695CD430CB4231E2FDB265E4)
 
-#### 使用场景
+## 使用场景
 
-#### 对象类型
+### 对象类型
 
 该场景包含built-in类型（Array、Map、Set和Date）和普通class。从API version 19开始，@ObjectLink接收@State传递built-in类型和普通class对象，可以观察其API调用和第一层变化，无需额外添加@Observed装饰。因为@State等状态变量装饰器，会给对象（外层对象）添加一层"代理"包装，其功能等同于添加@Observed装饰。
 
-```
+```TypeScript
 class Book {
   public name: string;
 
@@ -379,11 +381,11 @@ struct Index {
 }
 ```
 
-![](https://media:401788444669598348)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/1KLqPjj9QPGjDn1O4CaH8w/zh-cn_image_0000002733433470.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=4B75111AB8B7B5004E348BAE8B535DD98F3D8E3A60CC6F9DBE7BD6170CFCD130)
 
-#### 嵌套对象
+### 嵌套对象
 
-```
+```TypeScript
 @Observed
 class Book {
   public name: string;
@@ -448,21 +450,22 @@ struct Index {
 }
 ```
 
-![](https://media:401788444669822349)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/0lR4mohjSxG398bJLt0lZw/zh-cn_image_0000002762992995.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=00C6ADCFECBF7A3729ABD516A129206569EEECB8E6723AA6059990D151442601)
 
 上述示例中：
 
 * 对于Index组件内状态变量@State bag: Bag，bag.book是第一层，bag.book.name是第二层。因此，当点击change bag.book.name直接修改this.bag.book.name时，Index中的Text('Index: ${this.bag.book.name}')不会刷新，因为@State只能观察到第一层属性变化，不能直接观察嵌套对象内部属性name的变化。
 * 对于BookCard组件内状态变量@ObjectLink book: Book，Book被@Observed装饰，且book被@ObjectLink接收。book.name变化可以被@ObjectLink观察，因此无论是在父组件Index中点击change bag.book.name，还是在子组件BookCard中点击change book.name，BookCard中的Text('BookCard: ${this.book.name}')都会刷新。
-* @State负责感知外层对象Bag的第一层变化，@Observed + @ObjectLink负责感知内层对象Book的属性变化。  
+* @State负责感知外层对象Bag的第一层变化，@Observed + @ObjectLink负责感知内层对象Book的属性变化。
 
-#### 对象数组
+### 对象数组
 
-对象数组是一种常用的数据结构。以下示例展示了对象数组的用法。  
-![](https://media:401788444669849350)  
-NextID是用来在[ForEach循环渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)过程中，为每个数组元素生成一个唯一且持久的键值，标识对应的组件。
+对象数组是一种常用的数据结构。以下示例展示了对象数组的用法。
+> 说明
+>
+> NextID是用来在[ForEach循环渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)过程中，为每个数组元素生成一个唯一且持久的键值，标识对应的组件。
 
-```
+```TypeScript
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const DOMAIN = 0x0001;
@@ -555,33 +558,33 @@ struct Parent {
 }
 ```
 
-![](https://media:401788444669884351)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/GFXu3jPlTNurBsnltuy0DA/zh-cn_image_0000002762833107.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=0FF492FE0908DEAC600AC194C99DC7581618DE22BF68B28E3CEC633D5F587608)
 
-* this.arrA\[Math.floor(this.arrA.length/2)\] = new Info(..) ：该状态变量的改变触发2次更新：
+* this.arrA[Math.floor(this.arrA.length/2)] = new Info(..) ：该状态变量的改变触发2次更新：
 
   1. ForEach：数组项的赋值导致[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-foreach)的itemGenerator被修改，因此数组项被识别为有更改，ForEach的item builder将执行，创建新的Child组件实例。
-  2. Child({ label: 'ViewChild this.arrA\[last\]', info: this.arrA\[this.arrA.length-1\] })：上述更改改变了数组中第二个元素，所以绑定this.arrA\[1\]的Child将被更新。
+  2. Child({ label: 'ViewChild this.arrA[last]', info: this.arrA[this.arrA.length-1] })：上述更改改变了数组中第二个元素，所以绑定this.arrA[1]的Child将被更新。
 * this.arrA.push(new Info(0)) ： 将触发2次不同效果的更新：
 
   1. ForEach：新添加的Info对象对于ForEach是未知的itemGenerator，ForEach的item builder将执行，创建新的Child组件实例。
-  2. Child({ label: 'ViewChild this.arrA\[last\]', info: this.arrA\[this.arrA.length-1\] })：数组的最后一项有更改，因此引起第二个Child的实例的更改。对于Child({ label: 'ViewChild this.arrA\[first\]', info: this.arrA\[0\] })，数组的更改并没有触发一个数组项更改的改变，所以第一个Child不会刷新。
-* this.arrA\[Math.floor(this.arrA.length/2)\].info：@State无法观察到第二层的变化，但是Info被@Observed装饰，Info的属性的变化将被@ObjectLink观察到。
+  2. Child({ label: 'ViewChild this.arrA[last]', info: this.arrA[this.arrA.length-1] })：数组的最后一项有更改，因此引起第二个Child的实例的更改。对于Child({ label: 'ViewChild this.arrA[first]', info: this.arrA[0] })，数组的更改并没有触发一个数组项更改的改变，所以第一个Child不会刷新。
+* this.arrA[Math.floor(this.arrA.length/2)].info：@State无法观察到第二层的变化，但是Info被@Observed装饰，Info的属性的变化将被@ObjectLink观察到。
 
-#### 二维数组
+### 二维数组
 
 使用@Observed观察二维数组的变化。可以声明一个被@Observed装饰的继承Array的子类。
 
-```
+```TypeScript
 @Observed
 class ObservedArray<T> extends Array<T> {
 }
 ```
 
-声明一个继承自Array的类ObservedArray\<T\>，并使用new操作符创建ObservedArray\<string\>的实例，该实例可以观察到属性变化。
+声明一个继承自Array的类ObservedArray<T>，并使用new操作符创建ObservedArray<string>的实例，该实例可以观察到属性变化。
 
 在下面的示例中，展示了如何利用@Observed观察二维数组的变化。
 
-```
+```TypeScript
 @Observed
 class ObservedArray<T> extends Array<T> {
 }
@@ -654,13 +657,13 @@ struct IndexPage {
 }
 ```
 
-![](https://media:401788444669945352)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/_ndPFBJVRVyDnOqx67roLw/zh-cn_image_0000002733273592.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=1173D031BEFCA1D4358FF983B1E02E314B0D206C892642CF7E42649D73339176)
 
 API version 19及以后，@ObjectLink也可以被[makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)的返回值初始化。所以开发者如果不想额外声明继承Array的类，也可以使用makeV1Observed来达到同样的效果。
 
 完整例子如下。
 
-```
+```TypeScript
 import { UIUtils } from '@kit.ArkUI';
 
 @Component
@@ -721,16 +724,17 @@ struct IndexPage {
 }
 ```
 
-![](https://media:401788444669971353)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/6-C6OzRNTbSPuqQ4WdWS3A/zh-cn_image_0000002733433472.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=54F55F26DC738438A39E50D7649A10F4634E806FB2BA3992CA8CA725FFAC015F)
 
-#### 继承Map类
+### 继承Map类
 
-![](https://media:401788444669994354)  
-从API version 11开始，@ObjectLink支持@Observed装饰Map类型和继承Map类的类型。
+> 说明
+>
+> 从API version 11开始，@ObjectLink支持@Observed装饰Map类型和继承Map类的类型。
 
-在下面的示例中，myMap类型为MyMap\<number, string\>，点击Button改变myMap的属性，视图会随之刷新。
+在下面的示例中，myMap类型为MyMap<number, string>，点击Button改变myMap的属性，视图会随之刷新。
 
-```
+```TypeScript
 @Observed
 class Info {
   public info: MyMap<number, string>;
@@ -816,16 +820,17 @@ struct MapSampleNestedChild {
 }
 ```
 
-![](https://media:401788444670020355)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/VRf1k4fVQiumg3_gEIoapA/zh-cn_image_0000002762992997.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=BAE04FB116151BE946D858BC994AFEB3AE321AA8D1C37FD16D1494C08D0F7269)
 
-#### 继承Set类
+### 继承Set类
 
-![](https://media:401788444670056356)  
-从API version 11开始，@ObjectLink支持@Observed装饰Set类型和继承Set类的类型。
+> 说明
+>
+> 从API version 11开始，@ObjectLink支持@Observed装饰Set类型和继承Set类的类型。
 
-在下面的示例中，mySet类型为MySet\<number\>，点击Button改变mySet的属性，视图会随之刷新。
+在下面的示例中，mySet类型为MySet<number>，点击Button改变mySet的属性，视图会随之刷新。
 
-```
+```TypeScript
 @Observed
 class Info {
   public info: MySet<number>;
@@ -903,13 +908,13 @@ struct SetSampleNestedChild {
 }
 ```
 
-![](https://media:401788444670085357)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/EVwwV99hS8KXq-W2rpaOyg/zh-cn_image_0000002762833109.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=4B62F591074A0FD8171FC119335B98ED51B6AA6CC4D8A33C6265445841BB2D2B)
 
-#### @ObjectLink支持联合类型
+### @ObjectLink支持联合类型
 
-@ObjectLink支持@Observed装饰类和undefined或null组成的联合类型，在下面的示例中，count类型为Source \| Data \| undefined，点击父组件Parent中的Button改变count的属性或者类型，Child组件中对应的Text组件刷新。
+@ObjectLink支持@Observed装饰类和undefined或null组成的联合类型，在下面的示例中，count类型为Source | Data | undefined，点击父组件Parent中的Button改变count的属性或者类型，Child组件中对应的Text组件刷新。
 
-```
+```TypeScript
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const DOMAIN = 0x0001;
@@ -997,11 +1002,11 @@ struct Child {
 }
 ```
 
-![](https://media:401788444670221358)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/ZNUDQ0UuRUmy056ficH_9Q/zh-cn_image_0000002733273594.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=4232D8516EBFDB0B746373CC96A9D220364631CBC551795E1E6D4D2FCD06D918)
 
-#### 常见问题
+## 常见问题
 
-#### 基础嵌套对象属性更改失效
+### 基础嵌套对象属性更改失效
 
 在应用开发中，有很多嵌套对象场景，例如，开发者更新了某个属性，但UI没有进行对应的更新。
 
@@ -1011,7 +1016,7 @@ struct Child {
 
 下面的例子中，一些UI组件并不会更新。
 
-```
+```ts
 class Parent {
   parentId: number;
 
@@ -1112,7 +1117,7 @@ struct MyView {
 
 以下示例使用@Observed/@ObjectLink来观察嵌套对象的属性更改。
 
-```
+```TypeScript
 class Parent {
   public parentId: number;
 
@@ -1233,15 +1238,15 @@ struct MyView {
 }
 ```
 
-![](https://media:401788444670334359)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/qyarIje6Rpyh6iH0JjFV2Q/zh-cn_image_0000002733433474.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=833FBD594424A84463A8C3BC3336C4144843294B7437649634C426A7F6DFCC1B)
 
-#### 复杂嵌套对象属性更改失效
+### 复杂嵌套对象属性更改失效
 
 【反例】
 
 以下示例创建了一个带有@ObjectLink装饰变量的子组件，用于渲染一个含有嵌套属性的ParentCounter，用@Observed装饰嵌套在ParentCounter中的SubCounter。
 
-```
+```ts
 let nextId = 1;
 @Observed
 class SubCounter {
@@ -1332,19 +1337,19 @@ struct ParentComp {
 }
 ```
 
-对于Text('Parent: incr counter\[0\].counter')的onClick事件，this.counter\[0\].incrSubCounter(10)调用incrSubCounter方法使SubCounter的counter值增加10，UI同步刷新。
+对于Text('Parent: incr counter[0].counter')的onClick事件，this.counter[0].incrSubCounter(10)调用incrSubCounter方法使SubCounter的counter值增加10，UI同步刷新。
 
-然而，在Text('Parent: set.counter to 10')的onClick中调用this.counter\[0\].setSubCounter(10)时，SubCounter的counter值无法重置为10。
+然而，在Text('Parent: set.counter to 10')的onClick中调用this.counter[0].setSubCounter(10)时，SubCounter的counter值无法重置为10。
 
 incrSubCounter和setSubCounter都是同一个SubCounter的函数。在第一个点击处理时调用incrSubCounter可以正确更新UI，而第二个点击处理调用setSubCounter时却没有更新UI。实际上incrSubCounter和setSubCounter两个函数都不能触发Text('${this.value.subCounter.counter}')的更新，因为@ObjectLink value : ParentCounter仅能观察其代理ParentCounter的属性，对于this.value.subCounter.counter是SubCounter的属性，无法观察到嵌套类的属性。
 
-另外，第一个click事件调用this.counter\[0\].incrCounter()将CounterComp自定义组件中的@ObjectLink value: ParentCounter标记为已更改，会触发Text('${this.value.subCounter.counter}')的更新。如果在第一个点击事件中删除this.counter\[0\].incrCounter()，则无法更新UI。
+另外，第一个click事件调用this.counter[0].incrCounter()将CounterComp自定义组件中的@ObjectLink value: ParentCounter标记为已更改，会触发Text('${this.value.subCounter.counter}')的更新。如果在第一个点击事件中删除this.counter[0].incrCounter()，则无法更新UI。
 
 【正例】
 
-对于上述问题，为了直接观察SubCounter中的属性，以便this.counter\[0\].setSubCounter(10)操作有效，可以利用下面的方法：
+对于上述问题，为了直接观察SubCounter中的属性，以便this.counter[0].setSubCounter(10)操作有效，可以利用下面的方法：
 
-```
+```TypeScript
 let nextId = 1;
 
 @Observed
@@ -1416,13 +1421,13 @@ struct CounterChild {
 }
 ```
 
-![](https://media:401788444670367360)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/4IhrO3PJRhWLqNCPEqh-Ow/zh-cn_image_0000002762992999.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=70E7F723654D9BDEFCF00DEAB60B1A1F7A1A566060700BFC83C722C3BC73B3A9)
 
-该方法使得@ObjectLink分别代理了ParentCounter和SubCounter的属性，这样对于这两个类的属性的变化都可以观察到，即都会对UI视图进行刷新。即使删除了上面所说的this.counter\[0\].incrCounter()，UI也会进行正确的刷新。
+该方法使得@ObjectLink分别代理了ParentCounter和SubCounter的属性，这样对于这两个类的属性的变化都可以观察到，即都会对UI视图进行刷新。即使删除了上面所说的this.counter[0].incrCounter()，UI也会进行正确的刷新。
 
 该方法可用于实现"两个层级"的观察，即外部对象和内部嵌套对象的观察。但是该方法只能用于@ObjectLink装饰器，无法作用于@Prop（@Prop通过深拷贝传入对象）。详情参考[@Prop与@ObjectLink的差异](#prop与objectlink的差异)。
 
-```
+```TypeScript
 let nextId = 1;
 
 @Observed
@@ -1539,9 +1544,9 @@ struct ParentComp {
 }
 ```
 
-![](https://media:401788444670501361)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/qgLSOvhkRteiCZWVvh9-5A/zh-cn_image_0000002762833111.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=1880F7499E80CF09A88DA4ADC784D056086E281E68061D905D189E87D1FA2CA4)
 
-#### @Prop与@ObjectLink的差异
+### @Prop与@ObjectLink的差异
 
 @Prop和@ObjectLink都可以接收@Observed装饰的类对象实例。@Prop对对象进行深拷贝，修改深拷贝后的对象不会影响原对象及其关联的组件。@ObjectLink获取对象的引用，修改引用对象会影响原对象及其关联的组件。
 
@@ -1550,7 +1555,7 @@ struct ParentComp {
 1. 修改@ObjectLink装饰的对象内容将影响数据源对象，并重新同步给@Prop，因此两个Text组件都将刷新。
 2. 修改@Prop装饰的对象内容仅影响使用该对象的Text2组件，不会影响数据源对象。
 
-```
+```TypeScript
 let nextId = 0;
 
 @Observed
@@ -1610,13 +1615,13 @@ struct UserChild {
 }
 ```
 
-![](https://media:401788444670652362)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/ECAD7PPaRdCeYiysmpsJqA/zh-cn_image_0000002733273596.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=7E41568BD969B1FE0BA7E15A1525AD254A556A21A228001FD792380C8FB0B642)
 
 上面的示例关系如图所示：
 
-![](https://media:401788444670847363)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/9mMftK-YSj29PI_3ft-YrQ/zh-cn_image_0000002733433476.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=5FDB6009B7FCE336868C70078AC26044844BBDFB4D1F1A5F715B0C4CE2D6C935)
 
-#### 在@Observed装饰类的构造函数中延时更改成员变量
+### 在@Observed装饰类的构造函数中延时更改成员变量
 
 在状态管理中，使用@Observed装饰类后，会给该类使用一层"代理"进行包装。当在组件中改变该类的成员变量时，会被该代理进行拦截，在更改数据源中值的同时，也会将变化通知给绑定的组件，从而实现观测变化与触发刷新。
 
@@ -1624,7 +1629,7 @@ struct UserChild {
 
 【反例】
 
-```
+```ts
 @Observed
 class RenderClass {
   waitToRender: boolean = false;
@@ -1670,7 +1675,7 @@ struct Index {
 
 【正例】
 
-```
+```TypeScript
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const DOMAIN = 0x0001;
@@ -1712,15 +1717,15 @@ struct DelayedChangeIndex {
 }
 ```
 
-![](https://media:401788444671058364)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/zfSsbX6gT1Kjp2XzIdiBGQ/zh-cn_image_0000002762993001.png?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=BEC165432922914BCA9ED22D88FF790C78F6F303AB5B836CE7FF5A42251EC897)
 
 上文的示例代码将定时器修改移入到组件内，此时界面显示时会先显示"The value of renderClass is: false"。待定时器触发时，renderClass的值改变，触发[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)回调，此时界面刷新显示"The value of renderClass is: true"，日志输出"The value of renderClass is changed to: true"。
 
-因此，更推荐开发者在组件中对@Observed装饰的类成员变量进行修改，以实现刷新。  
+因此，更推荐开发者在组件中对@Observed装饰的类成员变量进行修改，以实现刷新。
 
-#### @ObjectLink数据源更新时机
+### @ObjectLink数据源更新时机
 
-```
+```TypeScript
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const DOMAIN = 0x0001;
@@ -1807,7 +1812,7 @@ struct Child {
 }
 ```
 
-![](https://media:401788444671093365)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/iq0JUeBsQZmwXSeiYwo0sA/zh-cn_image_0000002762833113.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=BD21E0EA81082BC71E4D289FECB9EE0885FCBE5AF3C3FF8C143066A5ED15D5C5)
 
 @ObjectLink的数据源更新依赖其父组件，当父组件中数据源改变引起父组件刷新时，会重新设置子组件@ObjectLink的数据源。这个过程不是在父组件数据源变化后立刻发生的，而是在父组件实际刷新时才会进行。上述示例中，Parent包含Child，Parent传递箭头函数给Child，在点击时，日志打印顺序是1-2-3-4-5，打印到日志4时，点击事件流程结束，此时仅仅是将子组件Child标记为需要父组件更新的节点，因此日志4打印的this.per.name的值仍为Bob，等到父组件真正更新时，才会更新Child的数据源。
 
@@ -1829,7 +1834,7 @@ struct Child {
 
 当clickEvent中更改this.info.person.name时，修改会立刻生效，此时日志4打印的值是Jack。
 
-```
+```TypeScript
 Child({
   per: this.info.person, clickEvent: () => {
     hilog.info(DOMAIN, TAG, `:::clickEvent before ${this.info.person.name}`); // 1
@@ -1839,15 +1844,15 @@ Child({
 })
 ```
 
-此时Parent中Text组件不会刷新，因为this.info.person.name属于两层嵌套。  
+此时Parent中Text组件不会刷新，因为this.info.person.name属于两层嵌套。
 
-#### @Observed装饰的类，在构造函数中使用this赋值属性，不触发UI更新
+### @Observed装饰的类，在构造函数中使用this赋值属性，不触发UI更新
 
 @Observed类的构造函数中对成员变量进行赋值或者修改时，此修改不会经过代理，无法被观测到。
 
 【反例】
 
-```
+```ts
 @Observed
 class DataDownloader {
   state: number;
@@ -1874,7 +1879,7 @@ struct Index {
 
 【正例】
 
-```
+```TypeScript
 @Observed
 class DataDownloader {
   public state: number;
@@ -1912,15 +1917,15 @@ struct Index {
 }
 ```
 
-![](https://media:401788444671121366)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/4O-R2sGiTwyi9jP7-dQDmg/zh-cn_image_0000002733273598.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=225FFAD730E150211972681D776C243A321B42C838E92819AD5DA7730CF4F29E)
 
-#### LazyForEach和@ObjectLink一起使用时，替换数组数据后UI不刷新
+### LazyForEach和@ObjectLink一起使用时，替换数组数据后UI不刷新
 
 @Observed装饰的类的数组，用[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)展开显示的时候，可能会出现替换数组数据后，修改数组数据不刷新UI的问题。改变数组数据后，需要调用onDataChange通知LazyForEach组件重新绑定状态变量，否则就会出现上述问题。
 
 【反例】
 
-```
+```ts
 // LazyForEach遍历数据基类
 class BasicDataSource implements IDataSource {
   private listeners: DataChangeListener[] = [];
@@ -2054,7 +2059,7 @@ struct ChildComponent {
 
 【正例】
 
-```
+```TypeScript
 // LazyForEach遍历数据基类
 class BasicDataSource implements IDataSource {
   private listeners: DataChangeListener[] = [];
@@ -2197,4 +2202,5 @@ struct ChildComponent {
 }
 ```
 
-![](https://media:401788444671147367)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/AUht2PofRNWsh1v95JaL1w/zh-cn_image_0000002733433478.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084559Z&HW-CC-Expire=31536000000&HW-CC-Sign=608B7114289704E5AFD812E2A1865D3BC10263E72C4D7AC8C6AC82D1FF645388)
+

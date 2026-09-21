@@ -10,13 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:-----------------------------------------------------------------------------------------|
 |public static final class AppLinking.SocialCardInfo.Builder AppLinking.SocialCardInfo的构造类。|
 
-#### Constructor Summary
+## Constructor Summary
 
 |Constructor Name And Description|
 |:--------------------------------------------|
 |public [Builder](#section17317239405)() 构造方法。|
 
-#### Method Summary
+## Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:--------------------------------|:--------------------------------------------------------------------------------|
@@ -25,77 +25,77 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |AppLinking.SocialCardInfo.Builder|[setImageUrl](#section105492172116)(String imageUrl) 设置社交分享标识信息中的预览图片地址。|
 |AppLinking.SocialCardInfo.Builder|[setTitle](#section9854835132112)(String title) 设置社交分享标识信息中的预览标题。|
 
-#### Constructor
+## Constructor
 
-#### Builder
+### Builder
 
 |Method|
 |:---------------------|
 |public Builder() 构造方法。|
 
-#### Methods
+## Methods
 
-#### build
+### build
 
 |Method|
 |:---------------------------------------------------------|
 |public AppLinking.SocialCardInfo build() 生成聚合链接中的社交分享标识信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------------------------|:----------|
 |AppLinking.SocialCardInfo|社交分享标识信息。|
 
-#### setDescription
+### setDescription
 
 |Method|
 |:----------------------------------------------------------------------------------------------|
 |public AppLinking.SocialCardInfo.Builder setDescription(String description) 设置社交分享标识信息中的预览说明信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----------|:--------------------|
 |description|需要设置的在社交分享时展示的预览说明信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------|:----------|
 |AppLinking.SocialCardInfo.Builder|构造器。|
 
-#### setImageUrl
+### setImageUrl
 
 |Method|
 |:----------------------------------------------------------------------------------------|
 |public AppLinking.SocialCardInfo.Builder setImageUrl(String imageUrl) 设置社交分享标识信息中的预览图片地址。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:------------------|
 |imageUrl|需要设置的在社交分享时展示的图片地址。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------|:----------|
 |AppLinking.SocialCardInfo.Builder|构造器。|
 
-#### setTitle
+### setTitle
 
 |Method|
 |:--------------------------------------------------------------------------------|
 |public AppLinking.SocialCardInfo.Builder setTitle(String title) 设置社交分享标识信息中的预览标题。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------------|
 |title|需要设置的在社交分享时展示的标题。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------|:----------|

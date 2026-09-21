@@ -8,13 +8,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/javascript-api-
 
 在地图上添加路况图层，可以展示当前道路实时路况信息，道路的颜色深度表示拥堵程度，暗红色代表极度拥堵，绿色代表通畅。路况信息会频繁刷新，但不是立即刷新，您可以通过"autoRefresh"和"interval"属性控制是否自动刷新和刷新周期。
 
-![](https://media:301772613558435531 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/sy_CsJZlSWmtZSUKTIul_A/zh-cn_image_0000001208831676.png?HW-CC-KV=V1&HW-CC-Date=20260917T022231Z&HW-CC-Expire=31536000000&HW-CC-Sign=3339E2195522AF7307B8BE83C3F6C7EF66898A9A0C8E2B038DC7D1800C3492CB "点击放大")
 
-#### 添加路况图层
+## 添加路况图层
 
 调用HWMapJsSDK.[HWTrafficLayer](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/js-hwtrafficlayer-0000001194474375)(map, opts)添加路况图层。
 
-```
+```javascript
 function initMap() {
     var mapOptions = {};
     mapOptions.center = {
@@ -44,14 +44,15 @@ function initMap() {
 }
 ```
 
-![](https://media:301772613558463532)  
-当底图为栅格图时，即sourceType设置为raster时，则不显示路况图层。  
+> 说明
+>
+> 当底图为栅格图时，即sourceType设置为raster时，则不显示路况图层。
 
-#### 隐藏路况图层
+## 隐藏路况图层
 
 从地图中隐藏路况图层，请调用setMap()方法并将null作为传递参数。
 
-```
+```screen
 trafficMap.setMap(null);
 ```
 

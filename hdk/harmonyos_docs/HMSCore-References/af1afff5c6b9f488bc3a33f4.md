@@ -6,47 +6,47 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/rest_walkin
 
 # 路径规划-步行
 
-#### 功能介绍
+## 功能介绍
 
-提供两点之间步行路径规划能力。  
+提供两点之间步行路径规划能力。
 
-#### 场景描述
+## 场景描述
 
-无  
+无
 
-#### 使用约束
+## 使用约束
 
 * 仅提供150km以内的路径规划能力。
-* 如需使用，请联系我们（[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)）申请配额。  
+* 如需使用，请联系我们（[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)）申请配额。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS POST|
-|接口方向|开发者 -\> 华为导航服务器|
-|接口URL|https://mapapi.cloud.huawei.com/mapApi/v1/routeService/walking?key=API KEY 说明： 1. 获取API KEY的方式请参见[获取API key](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/preparations-0000001185174404#section169441820428)。 2. 使用API key时需要调用URLEncoder.encode("Your apiKey", "UTF-8")方法对API key进行encodeURI编码。例如：原始API key：ABC/DFG+ ，转换结果：ABC%2FDFG%2B。|
+|-----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|接口方向|开发者 -> 华为导航服务器|
+|接口URL|https://mapapi.cloud.huawei.com/mapApi/v1/routeService/walking?key=*API KEY* > 说明 > 1. 获取*API KEY* 的方式请参见[获取API key](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/preparations-0000001185174404#section169441820428)。 > 2. 使用API key时需要调用URLEncoder.encode("Your apiKey", "UTF-8")方法对API key进行encodeURI编码。例如：原始API key：ABC/DFG+ ，转换结果：ABC%2FDFG%2B。|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-#### 查询参数
+## 查询参数
 
 |参数|是否必选|参数类型|描述|
 |:--|:---|:-----|:-----------------------------------------------------------------------------------------------------------------------------------|
 |key|是|String|鉴权秘钥，申请参见[获取API key](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/preparations-0000001185174404#section169441820428)。|
 
-#### 请求参数
+## 请求参数
 
-Request Body  
+**Request Body**
 
 |参数|是否必选|参数类型|描述|
 |:----------|:---|:-------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|
 |origin|是|[Coordinate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/data_model_request-0000001187430978#section1256775182913)|起点的经纬度。|
 |destination|是|[Coordinate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/data_model_request-0000001187430978#section1256775182913)|终点的经纬度。|
-|language|否|String(\<=6)|文字指引/描述的语种。目前只支持zh_CN和en。|
-|avoid|否|int\[\]|表示计算出的路径应避免所指示的特性。取值包括： * 0：时间最短 * 8：避免轮渡 默认值为0。|
+|language|否|String(<=6)|文字指引/描述的语种。目前只支持zh_CN和en。|
+|avoid|否|int[]|表示计算出的路径应避免所指示的特性。取值包括： * 0：时间最短 * 8：避免轮渡 默认值为0。|
 
-#### 请求示例
+## 请求示例
 
-```
+```screen
 POST https://mapapi.cloud.huawei.com/mapApi/v1/routeService/walking?key=API KEY   HTTP/1.1 
 Content-Type: application/json 
 Accept: application/json
@@ -62,29 +62,29 @@ Accept: application/json
 }
 ```
 
-#### 响应参数
+## 响应参数
 
-状态码为200时：
+**状态码为200时** **：**
 
-Response Header  
+**Response Header**
 
 |参数|是否必选|参数类型|描述|
 |:-----------|:---|:---------------|:---------|
 |Content-Type|是|application/json|响应消息的数据格式。|
 
-Response Body  
+**Response Body**
 
 |参数|参数类型|描述|
-|:---------|:-----------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------|
+|:---------|:---------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------|
 |returnCode|String|返回码，具体请参见[错误码](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/navibase_error_code-0000001258530435)。|
 |returnDesc|String|返回值描述。|
-|routes|[Route](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/data_model_response-0000001187112510#section05097566301)\[\]|从起点到目的地的规划路径。如果没有结果，返回空数组。|
+|routes|[Route](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/data_model_response-0000001187112510#section05097566301)[]|从起点到目的地的规划路径。如果没有结果，返回空数组。|
 
-#### 响应示例
+## 响应示例
 
-状态码为200时：
+**状态码为200时：**
 
-```
+```screen
 HTTP/1.1 200 OK
 Content-type: application/json
 {
@@ -169,9 +169,9 @@ Content-type: application/json
 }
 ```
 
-#### 调用示例
+## 调用示例
 
-```
+```screen
 public class DirectionsService {
     public static final String ROOT_URL = "https://mapapi.cloud.huawei.com/mapApi/v1/routeService/walking";
 
@@ -219,6 +219,7 @@ public class DirectionsService {
 }
 ```
 
-#### Postman调试
+## Postman调试
 
-您可以使用[Postman在线调试](https://www.postman.com/trl2dtse/workspace/hms-core/request/12678619-9d00b279-1211-4452-98ad-434beb77be6c)此接口。  
+您可以使用[Postman在线调试](https://www.postman.com/trl2dtse/workspace/hms-core/request/12678619-9d00b279-1211-4452-98ad-434beb77be6c)此接口。
+

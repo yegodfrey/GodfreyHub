@@ -6,31 +6,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
 # Button组件背景色设置
 
-#### 问题现象
+## 问题现象
 
 开发者在使用Button组件时，对组件的背景色设置有以下几个经典问题：
 
-* 场景一：如何设置渐变背景色？
-* 场景二：Button设置disable的多态样式，显示效果会比目标效果的颜色淡，如何实现准确的效果？
-* 场景三：Button设置相同颜色值的背景色和渐变色，为什么效果不一致？
-* 场景四：Button想要设置成置灰的样式，但是不知道置灰时的颜色值的情况下，该如何处理？
-* 场景五：如何自定义一个调色板，实现点击色块改变按钮背景颜色，并且点击按钮也可根据色块改变背景颜色的功能？
-* 场景六：按钮如何设置在任何状态下都不要背景色？  
+* **场景一**：如何设置渐变背景色？
+* **场景二**：Button设置disable的多态样式，显示效果会比目标效果的颜色淡，如何实现准确的效果？
+* **场景三**：Button设置相同颜色值的背景色和渐变色，为什么效果不一致？
+* **场景四**：Button想要设置成置灰的样式，但是不知道置灰时的颜色值的情况下，该如何处理？
+* **场景五**：如何自定义一个调色板，实现点击色块改变按钮背景颜色，并且点击按钮也可根据色块改变背景颜色的功能？
+* **场景六**：按钮如何设置在任何状态下都不要背景色？
 
-#### 背景知识
+## 背景知识
 
 * [Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)按钮组件，可快速创建不同样式的按钮，可采用backgroundColor属性来更改组件的背景色，如需设置[颜色渐变](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-gradient-color)，需先设置backgroundColor为透明色才能生效。
 * [stateStyles(多态样式)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-statestyles)可以依据组件的内部状态的不同，快速设置不同样式。
 * [禁用控制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-enable)设置组件是否可交互。当未设置[enabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-enable#enabled)时，组件默认可交互。
 * [ImageSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-imagespan)：Text、ContainerSpan组件的子组件，用于显示行内图片。
 * [clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clip18)：是否对子组件超出当前组件范围外的区域进行裁剪。不设置该接口时，默认不对子组件超出当前组件范围外的区域进行裁剪。
-* [stateEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#stateeffect)：设置是否开启按压态显示效果。  
+* [stateEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#stateeffect)：设置是否开启按压态显示效果。
 
-#### 解决方案
+## 解决方案
 
-* 场景一：使用[linearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-gradient-color#lineargradient)属性自定义颜色实现渐变背景色。
+* **场景一** ：使用[linearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-gradient-color#lineargradient)属性自定义颜色实现渐变背景色。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct ButtonSolution1 {
@@ -42,7 +42,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
           .margin({ top: 50 })
           .borderRadius(10)
           .backgroundColor('#00000000')
-          // 设置渐变色
+       // 设置渐变色
           .linearGradient({
             angle: 90,
             colors: [['#8E2233', 0.0], ['#D4344C', 0.3], ['#F48899', 0.7], ['#FBD7DD', 1]]
@@ -58,10 +58,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
   效果预览：
 
-  ![](https://media:101782454393475430 "点击放大")
-* 场景二：Button设置disabled多态样式会受到Button组件禁用控制属性样式影响导致显示颜色偏淡，建议用Text组件多态样式代替Button组件实现想要的效果。
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/d_ZkqdRDSK-OyhkTkMtXgg/zh-cn_image_0000002658849565.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F4E27ABB0F941F370CF0ADF71870D03B6836C9D68B6903ABB2C3DFE77B46D69 "点击放大")
+* **场景二** ：Button设置disabled多态样式会受到Button组件禁用控制属性样式影响导致显示颜色偏淡，建议用Text组件多态样式代替Button组件实现想要的效果。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct ButtonSolution2 {
@@ -167,10 +167,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
   效果预览：
 
-  ![](https://media:101782454393514431 "点击放大")
-* 场景三：Button默认有背景色，直接设置渐变色会影响渐变效果，解决方案是设置渐变色的同时设置Button组件背景色为透明。
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/_vodlE8BRrGC8BuffO86Yw/zh-cn_image_0000002628770200.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=A4AFA5F181A72DB69332EDFC2C9F30A9CE35E3C9804DF491C0E9E126B2F95E39 "点击放大")
+* **场景三** ：Button默认有背景色，直接设置渐变色会影响渐变效果，解决方案是设置渐变色的同时设置Button组件背景色为透明。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct ButtonSolution3 {
@@ -224,20 +224,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
   效果预览：
 
-  ![](https://media:101782454393560432 "点击放大")
-* 场景四：Button组件可以设置不透明度属性达到置灰效果，如设置不透明度属性opacity(0.4)实现与禁用控制属性enabled(false)时的相同样式效果。
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/BEwXTFK2T6Gfcq5Y-hONDQ/zh-cn_image_0000002658969523.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=7FD37E16C363047A3220A4081B6BB6043074E2B35F1F7AD95ED0D1B31137D65D "点击放大")
+* **场景四** ：Button组件可以设置不透明度属性达到置灰效果，如设置不透明度属性opacity(0.4)实现与禁用控制属性enabled(false)时的相同样式效果。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct ButtonSolution4 {
     build() {
       Flex({ justifyContent: FlexAlign.SpaceAround }) {
-        // 点击时无响应
+       // 点击时无响应
         Button('disable')
           .enabled(false)
           .backgroundColor(0x317aff);
-        // 相同样式效果
+       // 相同样式效果
         Button('enable')
           .backgroundColor(0x317aff)
           .opacity(0.4);
@@ -250,20 +250,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
   效果预览：
 
-  ![](https://media:101782454393599433 "点击放大")
-* 场景五：定义调色板数据源，用数组存储自定义颜色，通过@State响应式状态管理维护当前选中颜色的索引，实现状态与视图的双向联动。用Flex和ForEach组件完成调色板布局。给按钮和调色板都绑定点击事件，点击按钮时索引递增，超出数组长度自动重置，循环遍历调色板；点击调色板色块通过当前索引值，切换到对应颜色。
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/W_DFsSmYSNmyh7kHj5vzIw/zh-cn_image_0000002628610304.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=C59D0EB694D9C1D00EEA4BEF933670982EE2681AFE7F39B244ECDD18391A386B "点击放大")
+* **场景五** ：定义调色板数据源，用数组存储自定义颜色，通过@State响应式状态管理维护当前选中颜色的索引，实现状态与视图的双向联动。用Flex和ForEach组件完成调色板布局。给按钮和调色板都绑定点击事件，点击按钮时索引递增，超出数组长度自动重置，循环遍历调色板；点击调色板色块通过当前索引值，切换到对应颜色。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct BgColorSwitchPage {
-    // 自定义调色板颜色
+   // 自定义调色板颜色
     private bgColorList: string[] = [
       '#ff89fafa', '#ff8a8af6', '#ffcd89fa', '#fff689f6',
       '#fffa7d7d', '#fff5c885', '#fff6f688', '#ff8bf88b',
       '#ff4e4d4d', '#666666', '#999999', '#CCCCCC'
     ];
-    // 当前选中的颜色索引（响应式状态）
+  // 当前选中的颜色索引（响应式状态）
     @State currentColorIndex: number = 0;
 
     build() {
@@ -277,18 +277,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
           .fontColor('#ff050505')
           .backgroundColor(this.bgColorList[this.currentColorIndex]) // 设置按钮背景颜色
           .borderRadius(16)
-          // 点击按钮组件切换颜色
+       // 点击按钮组件切换颜色
           .onClick(() => {
-            // 循环切换颜色索引
+        // 循环切换颜色索引
             this.currentColorIndex = (this.currentColorIndex + 1) % this.bgColorList.length;
           });
 
-        // 调色板标题
+     // 调色板标题
         Text('自定义调色板')
           .fontSize(16)
           .margin({ top: 50, bottom: 15 });
 
-        // 调色板布局：Flex自动换行
+       // 调色板布局：Flex自动换行
         Flex({ wrap: FlexWrap.Wrap, justifyContent: FlexAlign.Center }) {
 
           ForEach(
@@ -300,11 +300,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
                 .backgroundColor(color)
                 .borderRadius(8)
                 .margin(8)
-                // 点击色块切换到对应颜色
+            // 点击色块切换到对应颜色
                 .onClick(() => {
                   this.currentColorIndex = index;
                 })
-                // 当前选中的色块添加黑色边框高亮
+           // 当前选中的色块添加黑色边框高亮
                 .border({
                   width: this.currentColorIndex === index ? 2 : 0,
                   color: '#000000',
@@ -326,10 +326,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
   效果预览：
 
-  ![](https://media:101782454393684434 "点击放大")
-* 场景六：使用stateStyles属性方法可以依据组件的内部状态的不同，快速设置不同样式，使用此方法将各个状态下的背景设为透明，此外通过stateEffect属性设置组件是否开启按压态显示效果。stateEffect默认值为true，将其设置为false即可关闭按压效果。
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/r3x6W1g4Tk2f1Cw3eE-qMQ/zh-cn_image_0000002658849567.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=D94C8AA1E990E0EA6009D53B16BB02F7417FDA79B9A967BD28B96F9739A6A9B2 "点击放大")
+* **场景六** ：使用stateStyles属性方法可以依据组件的内部状态的不同，快速设置不同样式，使用此方法将各个状态下的背景设为透明，此外通过stateEffect属性设置组件是否开启按压态显示效果。stateEffect默认值为true，将其设置为false即可关闭按压效果。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct BgStyles {
@@ -363,7 +363,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
   // 自定义方法
   @Extend(Button)
   function customStateStyle() {
-    // 设置组件不同状态下的样式
+   // 设置组件不同状态下的样式
     .stateStyles({
       clicked: {
         .backgroundColor(Color.Transparent);
@@ -384,16 +384,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
         .backgroundColor(Color.Transparent);
       },
     })
-    // 用于控制是否开启状态动效
+  // 用于控制是否开启状态动效
     .stateEffect(false);
   }
   ```
 
   效果预览：
 
-![](https://media:101782454393740435 "点击放大")  
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/aS6b3K3jSpyQ1vTP4267rA/zh-cn_image_0000002628770202.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=1142AA8FCC11E6710D9AA1C82A0600124DA571DEAA9B1C4C6CA8CD539433F99F "点击放大")
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：Button设置渐变背景色为什么未生效？
 
@@ -401,4 +401,5 @@ A：设置颜色渐变需先设置backgroundColor为透明色，详见[ButtonTyp
 
 Q：Button组件的默认背景色是什么？
 
-A：Button组件的默认背景色为"#0A59F7"。  
+A：Button组件的默认背景色为"#0A59F7"。
+

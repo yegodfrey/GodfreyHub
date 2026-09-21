@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-
 
 # 应用内直播切换后台后声音正常但无播控组件
 
-#### 问题现象
+## 问题现象
 
-在应用内打开直播，切换直播界面至后台时，音频播放仍能正常持续，听觉体验无中断。然而，系统并未触发预期的播控中心。  
+在应用内打开直播，切换直播界面至后台时，音频播放仍能正常持续，听觉体验无中断。然而，系统并未触发预期的播控中心。
 
-#### 背景知识
+## 背景知识
 
 * [AVSession Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-overview)：音视频播控服务是系统提供的音视频管控服务，用于统一管理系统中所有音视频行为，帮助开发者快速构建音视频统一展示和控制能力。
 * 应用[接入AVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene#接入流程)流程分为如下几个步骤：
@@ -18,27 +18,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-
   2. 按需创建后台任务。
   3. 设置必要的元数据（Metadata），以在播控中心展示相应的信息，包括不限于：当前媒体的ID（assetId），上一首媒体的ID（previousAssetId），下一首媒体的ID（nextAssetId），标题（title），专辑作者（author），专辑名称（album），词作者（writer），媒体时长（duration）等属性。
   4. 设置播放相关的状态，包括不限于：当前媒体的播放状态（state）、播放位置（position）、播放倍速（speed）、缓冲时间（bufferedTime）、循环模式（loopMode）、是否收藏（isFavorite）、正在播放的媒体Id（activeItemId）、自定义媒体数据（extras）等属性。
-5. 按需注册不同的控制命令，包括不限于：播放/暂停、上下一首、快进快退、收藏、循环模式、进度条。应用退出或者无对应业务时，注销会话。  
+  5. 按需注册不同的控制命令，包括不限于：播放/暂停、上下一首、快进快退、收藏、循环模式、进度条。应用退出或者无对应业务时，注销会话。
 
-#### 问题定位
+## 问题定位
 
 1. 查看问题日志信息进行分析，全局搜索关键词AVSession，可见此时当前的AVSession会话焦点（Session Focus）指向了另一个应用（进程ID：1654），并且有且只有这一个最高优先级媒体会话。
 
-   ```
+   ```screen
    08-12 16:32:27.873 1654 22650 I C02B91/av_session/AVSession: [GetAllSessionDescriptors]GetAllSessionDescriptors with size=1, topSession:com.***
    ```
 
-2. 全局搜索代码关键词AVSessionManager进行定位，发现应用并未通过AVSessionManager接口创建并激活媒体会话。  
+2. 全局搜索代码关键词AVSessionManager进行定位，发现应用并未通过AVSessionManager接口创建并激活媒体会话。
 
-#### 分析结论
+## 分析结论
 
-应用并未创建、接入AVSession会话，导致当应用进入后台时，看不到相应的播控中心。  
+应用并未创建、接入AVSession会话，导致当应用进入后台时，看不到相应的播控中心。
 
-#### 修改建议
+## 修改建议
 
 建议应用正确[创建并接入AVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene#接入流程)，确保设置正确的元数据，且至少注册一条控制命令，否则播控中心不显示当前应用接入的播控中心。参考示例如下：
 
-```
+```ts
 import { avSession as AVSessionManager } from '@kit.AVSessionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -69,7 +69,7 @@ struct avSessionExample {
   }
 
   async initAvsession() {
-    // 创建并激活媒体会话
+   // 创建并激活媒体会话
     this.session = await AVSessionManager.createAVSession(this.context, 'SESSION_NAME', this.type);
     this.setAVMetadata();
     this.registerSessionListener();
@@ -86,7 +86,7 @@ struct avSessionExample {
     });
   }
 
-  // 设置播放状态
+ // 设置播放状态
   private setAVPlaybackState(currentState: AVSessionManager.AVPlaybackState) {
     this.session!.setAVPlaybackState(currentState, (err) => {
       if (err) {
@@ -97,7 +97,7 @@ struct avSessionExample {
     });
   }
 
-  // 设置元数据
+ // 设置元数据
   private setAVMetadata() {
     let metadata: AVSessionManager.AVMetadata = {
       assetId: '0',
@@ -159,4 +159,5 @@ struct avSessionExample {
 }
 ```
 
-应用如需长时间后台播放，则还需按需[创建后台任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene#创建后台任务)。  
+应用如需长时间后台播放，则还需按需[创建后台任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene#创建后台任务)。
+

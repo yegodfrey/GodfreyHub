@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads-fwszhglyysc-0000
 
 # 服务商账户管理（应用市场应用推广）
 
-#### 应用市场应用推广服务商
+## 应用市场应用推广服务商
 
 服务商体系概述可参考：[概述](https://developer.huawei.com/consumer/cn/doc/promotion/bp-start-customer-partner-overview-0000001293855494)
 
@@ -14,8 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads-fwszhglyysc-0000
 
 客户投放伙伴子账户注册流程可参考：[客户投放伙伴子账户](https://developer.huawei.com/consumer/cn/doc/promotion/bp-start-customer-partner-sub-account-0000001346575385)
 
-<br />
+## 应用市场应用推广服务商管理平台：
 
-#### 应用市场应用推广服务商管理平台：
+详情可参考：[客户投放伙伴主账户（一级服务商）](https://developer.huawei.com/consumer/cn/doc/promotion/fusion-level1-partner-0000002466178454)、[客户投放伙伴子账户（子客服务商）](https://developer.huawei.com/consumer/cn/doc/promotion/fusion-level2-partner-0000002499177789)
 
-详情可参考：[客户投放伙伴主账户（一级服务商）](https://developer.huawei.com/consumer/cn/doc/promotion/fusion-level1-partner-0000002466178454)、[客户投放伙伴子账户（子客服务商）](https://developer.huawei.com/consumer/cn/doc/promotion/fusion-level2-partner-0000002499177789)  

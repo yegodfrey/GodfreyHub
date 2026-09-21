@@ -1,0 +1,15 @@
+---
+name: document/cn/Security-Library/sdk-download-0000001050158981
+title: SDK下载
+uri: https://developer.huawei.com/consumer/cn/doc/Security-Library/sdk-download-0000001050158981
+---
+
+# SDK下载
+
+## Android SDK下载
+
+|SDK名称|SDK包|开发者|版本号|主要功能|个人信息处理规则|合规使用说明|校验码|
+|:--------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
+|安全检测服务SDK|针对Android Studio开发环境，华为提供了Maven仓集成方式的SDK包。集成方式请参见[集成HMS Core SDK](https://developer.huawei.com/consumer/cn/doc/development/Security-Guides/android-integrating-sdk-0000001194983255)。|华为软件技术有限公司|最新版本：6.7.0.305 更多版本：[版本更新说明](https://developer.huawei.com/consumer/cn/doc/Security-Guides/version-change-history-0000001050156329)。|安全检测服务SDK的主要功能介绍请参见[业务介绍](https://developer.huawei.com/consumer/cn/doc/Security-Guides/introduction-0000001050156325)。|SDK如何处理个人信息请参见[SDK隐私声明](https://developer.huawei.com/consumer/cn/doc/Security-Guides/sdk-ys-security-0000001714705405)。|您集成和使用我们的SDK时需要遵从个人信息保护基本要求，详情请参见[SDK合规使用指南](https://developer.huawei.com/consumer/cn/doc/Security-Guides/sdk-hg-security-0000001714665585)。|已经随版本发布提供，可在SDK包中查看。|
+
+开源软件声明：[SAFETYDETECTSDK+Open+Source+Software+Notice.doc](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260811114001.20822341099634547268803894533502:50001231000000:2800:B11264659B97229F568702369C0E28482B9662DCABF9012E5831350F23B29B5D.docx?needInitFileName=true)

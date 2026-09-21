@@ -6,30 +6,30 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-vecto
 
 # Exp
 
-#### 函数功能
+## 函数功能
 
 按元素取自然指数，计算公式如下，其中PAR表示矢量计算单元一个迭代能够处理的元素个数：
 
-![](https://media:401788762301296483)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/I5aZSR_8Tvu0vXYI6fx7vw/zh-cn_image_0000002733435604.png?HW-CC-KV=V1&HW-CC-Date=20260917T084543Z&HW-CC-Expire=31536000000&HW-CC-Sign=09EB46F0F344ADB0120ED68A69F57645A5A35F5BA2C7C74E2333B2FBB9D06E22)
 
-#### 函数原型
+## 函数原型
 
 tensor前n个数据计算：
 
-```
+```cpp
 template <typename T> 
  __aicore__ inline void Exp(const LocalTensor<T>& dstLocal, const LocalTensor<T>& srcLocal, const int32_t& calCount)
 ```
 
-#### 参数说明
+## 参数说明
 
-表1 模板参数说明  
+**表1** 模板参数说明
 
 |参数名|描述|
 |:--|:-------|
 |T|操作数数据类型。|
 
-表2 参数说明  
+**表2** 参数说明
 
 |参数名|输入/输出|描述|
 |:-------|:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -37,23 +37,23 @@ template <typename T>
 |srcLocal|输入|源操作数。 类型为[LocalTensor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-localtensor)，支持的TPosition为VECIN、VECCALC、VECOUT。 LocalTensor的起始地址需要32字节对齐。 源操作数的数据类型需要与目的操作数保持一致。 Kirin9020系列处理器、Kirin9030系列处理器、KirinX90系列处理器，支持的数据类型为：half、float。|
 |calCount|输入|输入数据元素个数。|
 
-#### 返回值
+## 返回值
 
-无  
+无
 
-#### 支持的型号
+## 支持的型号
 
 Kirin9020系列处理器
 
 Kirin9030系列处理器
 
-KirinX90系列处理器  
+KirinX90系列处理器
 
-#### 约束说明
+## 约束说明
 
-操作数地址偏移对齐要求请参见[通用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-general-constraints)。  
+操作数地址偏移对齐要求请参见[通用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-general-constraints)。
 
-#### 调用示例
+## 调用示例
 
 本样例中只展示Compute流程中的部分代码。本样例的srcLocal和dstLocal均为half类型，占16位bit。
 
@@ -61,13 +61,13 @@ KirinX90系列处理器
 
 tensor前n个数据计算接口样例：
 
-```
+```cpp
 AscendC::Exp(dstLocal, srcLocal, 512);
 ```
 
 结果示例如下。
 
-```
+```text
 输入数据(srcLocal): [0.0 1.0 2.0 3.0 ...]
 输出数据(dstLocal):
 [1.0 2.719 7.391 20.08 ...]

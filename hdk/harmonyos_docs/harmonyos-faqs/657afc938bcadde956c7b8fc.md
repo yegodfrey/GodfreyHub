@@ -6,22 +6,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-47
 
 # AudioRenderer怎么播放PCM音频流
 
-#### 问题现象
+## 问题现象
 
-AudioRenderer怎么直接播放PCM音频流，音频流可能是网络返回的，或者代码生成的，而不是PCM文件？  
+AudioRenderer怎么直接播放PCM音频流，音频流可能是网络返回的，或者代码生成的，而不是PCM文件？
 
-#### 背景知识
+## 背景知识
 
-[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiorenderer-for-playback)是音频渲染器，用于播放PCM（Pulse Code Modulation）音频数据，相比AVPlayer而言，可以在输入前添加数据预处理，更适合有音频开发经验的开发者，以实现更灵活的播放功能。  
+[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiorenderer-for-playback)是音频渲染器，用于播放PCM（Pulse Code Modulation）音频数据，相比AVPlayer而言，可以在输入前添加数据预处理，更适合有音频开发经验的开发者，以实现更灵活的播放功能。
 
-#### 解决方案
+## 解决方案
 
 AudioRenderer可通过[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)监听音频数据写入回调事件，如下示例介绍直接播放音频数据流：
 
 * 代码生成临时的PCM音频数据，并赋值给Uint8Array变量audioData中。
 * AudioRenderer监听'writeData'回调，播放audioData音频流数据。
 
-```
+```ts
 import { audio } from '@kit.AudioKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -29,9 +29,9 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let audioRenderer: audio.AudioRenderer;
 let audioStreamInfo: audio.AudioStreamInfo = {
   samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_8000, // 采样率。
-  channels: audio.AudioChannel.CHANNEL_1, // 通道。
-  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE, // 采样格式。
-  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW // 编码格式。
+  channels: audio.AudioChannel.CHANNEL_1,// 通道。
+  sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE,// 采样格式。
+  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW //编码格式。
 };
 let audioRendererInfo: audio.AudioRendererInfo = {
   usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
@@ -120,11 +120,11 @@ function generateTestPCM(): Uint8Array {
 
   const freqMap: Record<number, number> = {
     1: 523.25, // C5
-    2: 587.33, // D5
+    2: 587.33,// D5
     3: 659.25, // E5
-    4: 698.46, // F5
-    5: 783.99, // G5
-    6: 880.00  // A5
+    4: 698.46,// F5
+    5: 783.99,// G5
+    6: 880.00 // A5
   };
 
   const melody = [
@@ -133,9 +133,9 @@ function generateTestPCM(): Uint8Array {
     5, 5, 4, 4, 3, 3, 2, 0
   ];
 
-  const samplesPerNote = Math.floor(sampleRate * noteDuration); // 4000
+  const samplesPerNote = Math.floor(sampleRate * noteDuration);// 4000
   const totalSamples = samplesPerNote * melody.length; // 96,000
-  const buffer = new ArrayBuffer(totalSamples * 2); // 192,000 bytes
+  const buffer = new ArrayBuffer(totalSamples * 2);// 192,000 bytes
   const view = new DataView(buffer);
 
   let idx = 0;

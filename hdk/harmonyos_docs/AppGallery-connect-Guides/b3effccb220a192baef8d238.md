@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/appg
 
 # Check
 
-#### 接口定义
+## 接口定义
 
-```
+```screen
 void check(Activity activity, String pkgName, String drmId, String drmPublicKey, boolean showErrorDailog, DrmCheckCallback callback)
 ```
 
-#### 接口描述
+## 接口描述
 
-鉴权接口，提供给开发者检查用户是否已经购买过付费应用的接口。  
+鉴权接口，提供给开发者检查用户是否已经购买过付费应用的接口。
 
-#### 请求参数
+## 请求参数
 
 |参数名|参数类型|是否必选|参数说明|
 |:--------------|:--------------------------------|:---|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -27,19 +27,20 @@ void check(Activity activity, String pkgName, String drmId, String drmPublicKey,
 |showErrorDailog|boolean|O|是否需要AppGallery DRM Service SDK根据错误码来提示用户。 * true：需要，弹框模式，由AppGallery DRM Service SDK根据错误码向用户弹出对应提示框。 * false：不需要，即错误码模式。由开发者根据错误码自行处理。 该参数不传时默认为true。|
 |callback|public interface DrmCheckCallback|M|在应用启动的主Activity中通过声明一个私有内部类来实现该接口，并根据鉴权结果选择不同的处理流程，在鉴权成功的public void onCheckSuccess()方法中继续程序逻辑，而在鉴权失败的public void onCheckFailed(int errorCode)方法中，弹框模式可以直接退出应用；错误码模式下，可以根据回调的入参errorCode自行处理鉴权失败的场景。|
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250425140403.47930609307011896851265942214851:50001231000000:2800:5BEEB6D4462C9C3AA84D7290E5C6F0E631B26ED4FC0CDEE70D293605499DD838.png)  
-将check添加到应用程序启动的主Activity的生命周期函数OnCreate的最开始位置，按接口说明传入合法参数，这样Activity就会被AppGallery DRM Service SDK保护。  
+> 说明
+>
+> 将check添加到应用程序启动的主Activity的生命周期函数OnCreate的最开始位置，按接口说明传入合法参数，这样Activity就会被AppGallery DRM Service SDK保护。
 
-#### 示例代码
+## 示例代码
 
-```
+```screen
 // 实现鉴权接口回调
 private class MyDrmCheckCallback implements DrmCheckCallback {
 @Override
 public void onCheckSuccess() {
          // 鉴权成功，用户继续使用程序。
          setContentView(R.layout.activity_main);
-        ……
+        ......
 }
 @Override
 public void onCheckFailed(int errorCode) {

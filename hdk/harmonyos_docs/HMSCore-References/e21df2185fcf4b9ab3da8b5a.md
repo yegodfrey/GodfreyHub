@@ -10,13 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/videooperat
 |:------------------------------------------------------|
 |public interface VideoOperator 视频控制类，实现对视频的播放、暂停、静音等控制。|
 
-#### Nested Class Summary
+## Nested Class Summary
 
 |Qualifier and Type|Class Name and Description|
 |:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
 |abstract static class|[VideoOperator.VideoLifecycleListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/videolifecyclelistener-0000001050066841) 视频生命周期监听器。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:----------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -31,105 +31,105 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/videooperat
 |void|[setVideoLifecycleListener](#section146161726203510)([VideoOperator.VideoLifecycleListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/videolifecyclelistener-0000001050066841) listener) 设置视频生命周期监听器。|
 |void|[stop](#section57861919153617)() 如果允许使用自定义播放器组件，停止视频。|
 
-#### Public Methods
+## Public Methods
 
-#### getAspectRatio
+### getAspectRatio
 
 |Method|
 |:--------------------------------------|
 |public float getAspectRatio() 获取视频的宽高比。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:----|:-----------------------|
 |float|返回视频宽高比。如果宽高比信息不可用，则返回0。|
 
-#### getVideoLifecycleListener
+### getVideoLifecycleListener
 
 |Method|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public [VideoOperator.VideoLifecycleListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/videolifecyclelistener-0000001050066841) getVideoLifecycleListener() 获取视频生命周期监听器。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:----------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 |[VideoOperator.VideoLifecycleListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/videolifecyclelistener-0000001050066841)|视频生命周期监听器。|
 
-#### hasVideo
+### hasVideo
 
 |Method|
 |:------------------------------------|
 |public boolean hasVideo() 广告内容是否包含视频。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------|:-------------------------------|
 |boolean|广告内容是否包含视频。 * true：是。 * false：否。|
 
-#### isCustomizeOperateEnabled
+### isCustomizeOperateEnabled
 
 |Method|
 |:-----------------------------------------------------------|
 |public boolean isCustomizeOperateEnabled() 视频广告是否使用自定义播放器组件。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------|:------------------------------------------------|
 |boolean|视频广告是否使用自定义播放器组件。 * true：是。 * false：否。 默认值为false。|
 
-#### isMuted
+### isMuted
 
 |Method|
 |:-----------------------------------|
 |public boolean isMuted() 视频是否处于静音状态。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------|:-------------------------------------------------|
 |boolean|视频是否处于静音状态。 * true：视频静音。 * false：视频非静音。 默认值为false。|
 
-#### mute
+### mute
 
 |Method|
 |:--------------------------------------------------------|
 |public void mute(boolean mute) 如果允许使用自定义播放器组件，视频静音状态使能开关。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:-------------------------------------------------------|
 |mute|如果允许使用自定义播放器组件，视频静音状态使能开关： * true：视频静音使能。 * false：非静音使能。|
 
-#### pause
+### pause
 
 |Method|
 |:---------------------------------------|
 |public void pause() 如果允许使用自定义播放器组件，暂停视频。|
 
-#### play
+### play
 
 |Method|
 |:--------------------------------------|
 |public void play() 如果允许使用自定义播放器组件，播放视频。|
 
-#### setVideoLifecycleListener
+### setVideoLifecycleListener
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setVideoLifecycleListener([VideoOperator.VideoLifecycleListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/videolifecyclelistener-0000001050066841) listener) 设置视频生命周期监听器。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------|
 |listener|视频生命周期监听器。|
 
-#### stop
+### stop
 
 |Method|
 |:--------------------------------------|

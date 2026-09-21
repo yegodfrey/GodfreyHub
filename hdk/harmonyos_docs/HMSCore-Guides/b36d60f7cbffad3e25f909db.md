@@ -11,9 +11,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/client-basketba
 1. 创建一个[ActivityRecordReadOptions](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/arro_class-0000001050093077)实例，设置将篮球活动添加至ActivityTypeList，获取篮球运动记录。
 2. [ActivityRecordsController](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/activityrecordscontroller-0000001050091295).[getActivityRecord](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/activityrecordscontroller-0000001050091295#section34819155446)方法获取数据。
 
-   <br />
-
-   ```
+   ```screen
    Log.i(TAG, "Reading a activityRecord for basketball activity");
    // 构造请求对象的时间区间：开始和结束时间
    // 请注意此处设置的开始时间和结束时间均需大于2014年1月1号对应的UNIX时间戳
@@ -94,50 +92,49 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/client-basketba
        });
    ```
 
-   ![](https://media:901788166658795254)  
-   上面的代码片段中用到两处辅助函数：
-
-   1. Health Service Kit返回ActivitySummary数据的显示函数printActivitySummary(ActivitySummary activitySummary)。函数的代码示例如下：
-
-   ```
-   // 自定义ActivitySummary输出函数
-   public void printActivitySummary(ActivitySummary activitySummary) {
-       List<SamplePoint> dataSummary = activitySummary.getDataSummary();
-       Log.i("ActivityRecordSample", "\n打印统计数据: ");
-       Log.i("ActivityRecordSample", "\nActivitySummary\n\t DataSummary: ");
-       // 打印统计数据点
-       for (SamplePoint samplePoint : dataSummary) {
-           Log.i("ActivityRecordSample", "\n\t samplePoint: \n\t DataCollector" + samplePoint.getDataCollector() + "\n\t DataType" 
-               + samplePoint.getDataType() + "\n\t StartTime" + samplePoint.getStartTime(TimeUnit.MILLISECONDS) + "\n\t EndTime"
-               + samplePoint.getEndTime(TimeUnit.MILLISECONDS) + "\n\t SamplingTime" + samplePoint.getSamplingTime(TimeUnit.MILLISECONDS)
-               + "\n\t FieldValues" + samplePoint.getFieldValues());
-       }
-       // 打印配速信息
-       PaceSummary paceSummary = activitySummary.getPaceSummary();
-       Log.i("ActivityRecordSample", "\n\t PaceSummary: \n\t AvgPace" + paceSummary.getAvgPace() + "\n\t BestPace" 
-           + paceSummary.getBestPace() + "\n\t PaceMap" + paceSummary.getPaceMap() + "\n\t PartTimeMap"
-           + paceSummary.getPartTimeMap() + "\n\t SportHealthPaceMap"
-           + paceSummary.getSportHealthPaceMap());
-   }
-   ```
-
-   2. Health Service Kit返回数据的显示函数showSampleSet(SampleSet sampleSet)。函数的代码示例如下
-
-   ```
-   // 自定义返回数据的显示函数
-   private void showSampleSet(SampleSet sampleSet) {
-       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-       for (SamplePoint samplePoint : sampleSet.getSamplePoints()) {
-           Log.i("ActivityRecordSample", "Sample point type: " + samplePoint.getDataType().getName());
-           Log.i("ActivityRecordSample", "Start: " + dateFormat.format(new Date(samplePoint.getStartTime(TimeUnit.MILLISECONDS))));
-           Log.i("ActivityRecordSample", "End: " + dateFormat.format(new Date(samplePoint.getEndTime(TimeUnit.MILLISECONDS))));
-           for (Field field : samplePoint.getDataType().getFields()) {
-               Log.i("ActivityRecordSample", "Field: " + field.getName() + " Value: " + samplePoint.getFieldValue(field));
-           }
-       }
-   }
-   ```
-
-   <br />
+   > 说明
+   >
+   > 上面的代码片段中用到两处辅助函数：
+   >
+   > 1. Health Service Kit返回ActivitySummary数据的显示函数printActivitySummary(ActivitySummary activitySummary)。函数的代码示例如下：
+   >
+   > ```screen
+   > // 自定义ActivitySummary输出函数
+   > public void printActivitySummary(ActivitySummary activitySummary) {
+   >     List<SamplePoint> dataSummary = activitySummary.getDataSummary();
+   >     Log.i("ActivityRecordSample", "\n打印统计数据: ");
+   >     Log.i("ActivityRecordSample", "\nActivitySummary\n\t DataSummary: ");
+   >     // 打印统计数据点
+   >     for (SamplePoint samplePoint : dataSummary) {
+   >         Log.i("ActivityRecordSample", "\n\t samplePoint: \n\t DataCollector" + samplePoint.getDataCollector() + "\n\t DataType" 
+   >             + samplePoint.getDataType() + "\n\t StartTime" + samplePoint.getStartTime(TimeUnit.MILLISECONDS) + "\n\t EndTime"
+   >             + samplePoint.getEndTime(TimeUnit.MILLISECONDS) + "\n\t SamplingTime" + samplePoint.getSamplingTime(TimeUnit.MILLISECONDS)
+   >             + "\n\t FieldValues" + samplePoint.getFieldValues());
+   >     }
+   >     // 打印配速信息
+   >     PaceSummary paceSummary = activitySummary.getPaceSummary();
+   >     Log.i("ActivityRecordSample", "\n\t PaceSummary: \n\t AvgPace" + paceSummary.getAvgPace() + "\n\t BestPace" 
+   >         + paceSummary.getBestPace() + "\n\t PaceMap" + paceSummary.getPaceMap() + "\n\t PartTimeMap"
+   >         + paceSummary.getPartTimeMap() + "\n\t SportHealthPaceMap"
+   >         + paceSummary.getSportHealthPaceMap());
+   > }
+   > ```
+   >
+   > 2. Health Service Kit返回数据的显示函数showSampleSet(SampleSet sampleSet)。函数的代码示例如下
+   >
+   > ```screen
+   > // 自定义返回数据的显示函数
+   > private void showSampleSet(SampleSet sampleSet) {
+   >     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+   >
+   >     for (SamplePoint samplePoint : sampleSet.getSamplePoints()) {
+   >         Log.i("ActivityRecordSample", "Sample point type: " + samplePoint.getDataType().getName());
+   >         Log.i("ActivityRecordSample", "Start: " + dateFormat.format(new Date(samplePoint.getStartTime(TimeUnit.MILLISECONDS))));
+   >         Log.i("ActivityRecordSample", "End: " + dateFormat.format(new Date(samplePoint.getEndTime(TimeUnit.MILLISECONDS))));
+   >         for (Field field : samplePoint.getDataType().getFields()) {
+   >             Log.i("ActivityRecordSample", "Field: " + field.getName() + " Value: " + samplePoint.getFieldValue(field));
+   >         }
+   >     }
+   > }
+   > ```
 

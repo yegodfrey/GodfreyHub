@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-real-time
 
 # 实时竞价
 
-#### 场景介绍
+## 场景介绍
 
-实时竞价是指用户在访问媒体产生曝光机会时，众多家DSP（Demand Side Platform，需求方平台）根据曝光的上下文以及用户属性实时地评估曝光价值并给出报价，出价最高的DSP胜出，赢得此次曝光机会。  
+实时竞价是指用户在访问媒体产生曝光机会时，众多家DSP（Demand Side Platform，需求方平台）根据曝光的上下文以及用户属性实时地评估曝光价值并给出报价，出价最高的DSP胜出，赢得此次曝光机会。
 
-#### 约束与限制
+## 约束与限制
 
 支持Phone、Tablet、PC/2in1设备。
 
-使用PC/2in1设备时，需要确保设备上智慧营销服务或广告服务的版本在8.4.80.300及以上，版本号可通过选择"设置\> 应用和元服务 \> 更多应用"查看。  
+使用PC/2in1设备时，需要确保设备上智慧营销服务或广告服务的版本在8.4.80.300及以上，版本号可通过选择"设置> 应用和元服务 > 更多应用"查看。
 
-#### 支持场景
+## 支持场景
 
 * 原生广告
 
@@ -28,20 +28,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-real-time
 
 * 贴片广告
 
-#### 接口说明
+## 接口说明
 
 |接口名|描述|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
 |[loadAd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#loadad)(adParam: AdRequestParams, adOptions: AdOptions, listener: AdLoadListener): void|请求单广告位广告，通过AdRequestParams、AdOptions进行广告请求参数设置，通过AdLoadListener监听广告请求回调。|
-|[loadAdWithMultiSlots](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#loadadwithmultislots)(adParams: AdRequestParams\[\], adOptions: AdOptions, listener: MultiSlotsAdLoadListener): void|请求多广告位广告，通过AdRequestParams\[\]、AdOptions进行广告请求参数设置，通过MultiSlotsAdLoadListener监听广告请求回调。|
+|[loadAdWithMultiSlots](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#loadadwithmultislots)(adParams: AdRequestParams[], adOptions: AdOptions, listener: MultiSlotsAdLoadListener): void|请求多广告位广告，通过AdRequestParams[]、AdOptions进行广告请求参数设置，通过MultiSlotsAdLoadListener监听广告请求回调。|
 
-#### 开发步骤
+## 开发步骤
 
-#### 添加竞价参数
+### 添加竞价参数
 
 开发者需要在广告请求参数[AdRequestParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adrequestparams)中添加实时竞价相关参数。
 
-实时竞价关键参数如下所示：  
+实时竞价关键参数如下所示：
 
 |名称|类型|必填|说明|
 |:----------|:-----|:-|:-------------------------------------------------------------------------------------------------------------------------|
@@ -53,7 +53,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-real-time
 
 示例代码如下所示：
 
-```
+```TypeScript
 import { advertising } from '@kit.AdsKit';
 
 const adRequestParams: advertising.AdRequestParams = {
@@ -74,13 +74,14 @@ const adRequestParams: advertising.AdRequestParams = {
 };
 ```
 
-#### 处理竞价结果
+### 处理竞价结果
 
 开发者需要在广告请求成功后的回调AdLoadListener.[onAdLoadSuccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#onadloadsuccess)或MultiSlotsAdLoadListener.[onAdLoadSuccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#onadloadsuccess)中，处理广告返回的实时竞价结果[Advertisement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertisement#advertisement).biddingInfo。
 
-实时竞价结果信息如下所示：  
-![](https://media:401788444370769527)  
-回传竞价结果，需要申请使用Internet网络权限[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)。详细申请权限流程请参考[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/development-preparation)。  
+实时竞价结果信息如下所示：
+> 说明
+>
+> 回传竞价结果，需要申请使用Internet网络权限[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)。详细申请权限流程请参考[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/development-preparation)。
 
 |名称|类型|必填|说明|
 |:----|:-----|:-|:--------------------------------------------------------------------------------------------------------------|
@@ -91,7 +92,7 @@ const adRequestParams: advertising.AdRequestParams = {
 
 * 若广告竞胜，开发者需要替换nurl中的宏，并回传竞胜结果。
 
-  宏说明如下：  
+  宏说明如下：
 
   |宏|说明|
   |:---------------|:---------------------------------------------------------------|
@@ -100,7 +101,7 @@ const adRequestParams: advertising.AdRequestParams = {
 
 * 若广告竞败，开发者需要替换lurl中的宏，并回传竞败结果。
 
-  宏说明如下：  
+  宏说明如下：
 
   |宏|说明|
   |:---------------|:-----------------------------------------------------------------------------------------|
@@ -113,7 +114,7 @@ const adRequestParams: advertising.AdRequestParams = {
 
 示例代码如下所示：
 
-```
+```TypeScript
 import { advertising } from '@kit.AdsKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { rcp } from '@kit.RemoteCommunicationKit';

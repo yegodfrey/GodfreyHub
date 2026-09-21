@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-multipr
 
 # MultiProcessor Mode
 
-* [同步方式](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-synchronous-mode-0000001050043967)  
-* [异步方式](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-asynchronous-mode-0000001050042018)  
+* **[同步方式](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-synchronous-mode-0000001050043967)**   
+* **[异步方式](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-asynchronous-mode-0000001050042018)**   

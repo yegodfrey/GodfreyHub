@@ -6,16 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryp
 
 # crypto_architecture_kit.h
 
-#### 概述
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
+## 概述
 
 为开发者提供加密头文件的统一入口。
 
-引用文件： \<CryptoArchitectureKit/crypto_architecture_kit.h\>
+**引用文件：** <CryptoArchitectureKit/crypto_architecture_kit.h>
 
-库： libohcrypto.so
+**库：** libohcrypto.so
 
-系统能力： SystemCapability.Security.CryptoFramework
+**系统能力：** SystemCapability.Security.CryptoFramework
 
-起始版本： 12
+**起始版本：** 12
 
-相关模块： [CryptoArchitectureKit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptoarchitecturekit)  
+**相关模块：** [CryptoArchitectureKit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptoarchitecturekit)
+

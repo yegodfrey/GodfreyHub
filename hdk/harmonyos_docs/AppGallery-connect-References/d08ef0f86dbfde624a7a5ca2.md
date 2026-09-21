@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:-------------------------------------------------------------------------|
 |public class CommonInstallException extends RuntimeException 动态加载过程失败的异常类。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name And Description|
 |:------------------------------------------------------------------------------------------------------------------------------|
@@ -18,33 +18,33 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |[CommonInstallException](#section4785201712285)(String message) 创建一个CommonInstallException实例，并指定message。|
 |[CommonInstallException](#section3198202219398)(String message, Throwable cause) 创建一个CommonInstallException实例，并指定message和cause。|
 
-#### Public Constructors
+## Public Constructors
 
-#### CommonInstallException
+### CommonInstallException
 
 |Constructor|
 |:---------------------------------------------------------------|
 |public CommonInstallException() 创建一个默认的CommonInstallException实例。|
 
-#### CommonInstallException
+### CommonInstallException
 
 |Constructor|
 |:--------------------------------------------------------------------------------------|
 |public CommonInstallException(String message) 创建一个CommonInstallException实例，并指定 message。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |message|问题描述。|
 
-#### CommonInstallException
+### CommonInstallException
 
 |Constructor|
 |:------------------------------------------------------------------------------------------------------------|
 |public CommonInstallException(String message, Throwable cause) 创建一个CommonInstallException实例，并指定message和cause。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:-----------------|

@@ -6,35 +6,35 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persiste
 
 # 通过用户首选项实现数据持久化 (ArkTS)
 
-#### 场景介绍
+## 场景介绍
 
-用户首选项(Preferences)为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。当用户有轻量级的键值型数据需要存储时，可以采用Preferences来进行存储。一般适用于保存用户的个性化设置，例如字体大小、是否开启夜间模式等。  
+用户首选项(Preferences)为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。当用户有轻量级的键值型数据需要存储时，可以采用Preferences来进行存储。一般适用于保存用户的个性化设置，例如字体大小、是否开启夜间模式等。
 
-#### 运作机制
+## 运作机制
 
 如图所示，用户程序通过ArkTS接口调用用户首选项读写对应的数据文件。开发者可以将用户首选项持久化文件的内容加载到Preferences实例，每个文件唯一对应到一个Preferences实例，系统会通过静态容器将该实例存储在内存中，直到主动从内存中移除该实例或删除该文件。
 
 应用首选项的持久化文件保存在应用沙箱内部，可以通过context获取其路径。具体请参见[获取应用文件路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#获取应用文件路径)。
 
-图1 用户首选项运作机制
+**图1** 用户首选项运作机制
 
-![](https://media:401788444418436160)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/5_yK9T0bSW6aTC5yZKq2JQ/zh-cn_image_0000002762832961.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084552Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D3A1B1FBC842F428E40424C43A890B5D1D1C876B90EDFA96199DB247EEDEE8E)
 
-#### 存储模式说明
+## 存储模式说明
 
-用户首选项默认使用XML格式进行存储，从API version 18开始，可选择GSKV存储模式。  
+用户首选项默认使用XML格式进行存储，从API version 18开始，可选择GSKV存储模式。
 
-#### XML存储
+### XML存储
 
-XML存储指的是数据会以XML的形式存储到文件中，该模式的优点是通用性强，支持跨平台。当选择该模式时，首选项对数据的操作主要发生在内存中，开发者可以在需要的时候再调用[flush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#flush)接口进行数据持久化。针对单进程、小数据量场景，推荐使用该存储模式。  
+XML存储指的是数据会以XML的形式存储到文件中，该模式的优点是通用性强，支持跨平台。当选择该模式时，首选项对数据的操作主要发生在内存中，开发者可以在需要的时候再调用[flush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#flush)接口进行数据持久化。针对单进程、小数据量场景，推荐使用该存储模式。
 
-#### GSKV存储
+### GSKV存储
 
-GSKV是从API version 18起提供的一种存储模式，数据以二进制的形式存储在文件中，该模式的优点是支持多进程并发读写。当选择该模式时，首选项对数据的操作会实时落盘。针对多进程并发场景，推荐使用该存储模式。  
+GSKV是从API version 18起提供的一种存储模式，数据以二进制的形式存储在文件中，该模式的优点是支持多进程并发读写。当选择该模式时，首选项对数据的操作会实时落盘。针对多进程并发场景，推荐使用该存储模式。
 
-#### 约束限制
+## 约束限制
 
-#### 首选项通用限制
+### 首选项通用限制
 
 * Key键为string类型，要求非空且长度不超过1024个字节。
 
@@ -46,7 +46,7 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
 * 不支持数据加密存储。如果需要进行数据加密，应用应该先将数据进行加密，然后将密文通过Uint8Array类型存储到Preferences中。
 
-#### XML模式约束限制
+### XML模式约束限制
 
 * XML模式（首选项的默认模式）无法保证进程并发安全，会有文件损坏和数据丢失的风险，不支持在多进程场景下使用。
 
@@ -54,32 +54,32 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
 * 内存会随着存储数据量的增大而增大，所以存储的数据量应该是轻量级的，建议存储的数据不超过50MB。数据量较大时，在使用同步接口创建Preferences对象和持久化数据时会成为耗时操作，不建议在主线程中使用，否则可能会出现appfreeze问题。
 
-#### GSKV模式约束限制
+### GSKV模式约束限制
 
-* GSKV模式不支持跨平台，使用该模式前需调用[isStorageTypeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#preferencesisstoragetypesupported18)接口判断当前平台是否支持该模式。  
+* GSKV模式不支持跨平台，使用该模式前需调用[isStorageTypeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#preferencesisstoragetypesupported18)接口判断当前平台是否支持该模式。
 
-#### 接口说明
+## 接口说明
 
-以下是用户首选项持久化功能的相关接口，更多接口及使用方式请见[用户首选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences)。  
+以下是用户首选项持久化功能的相关接口，更多接口及使用方式请见[用户首选项](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences)。
 
 |接口名称|描述|
-|:-------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|
+|:-----------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|
 |getPreferencesSync(context: Context, options: Options): Preferences|获取Preferences实例。该接口存在异步接口。|
 |putSync(key: string, value: ValueType): void|将数据写入Preferences实例，可通过flush将Preferences实例持久化。该接口存在异步接口。|
 |hasSync(key: string): boolean|检查Preferences实例是否包含名为给定Key的存储键值对，true表示包含，false表示不包含。给定的Key值不能为空。该接口存在异步接口。|
 |getSync(key: string, defValue: ValueType): ValueType|获取键对应的值，如果值为null或非默认值类型，将返回默认数据defValue。该接口存在异步接口。|
 |deleteSync(key: string): void|从Preferences实例中删除名为给定Key的存储键值对。该接口存在异步接口。|
-|flush(callback: AsyncCallback\<void\>): void|将当前Preferences实例的数据异步存储到用户首选项持久化文件中。|
-|on(type: 'change', callback: Callback\<string\>): void|订阅数据变更，订阅的数据发生变更后，在执行flush方法后，触发callback回调。|
-|off(type: 'change', callback?: Callback\<string\>): void|取消订阅数据变更。|
-|deletePreferences(context: Context, options: Options, callback: AsyncCallback\<void\>): void|从内存中移除指定的Preferences实例。若Preferences实例有对应的持久化文件，则同时删除其持久化文件。|
+|flush(callback: AsyncCallback<void>): void|将当前Preferences实例的数据异步存储到用户首选项持久化文件中。|
+|on(type: 'change', callback: Callback<string>): void|订阅数据变更，订阅的数据发生变更后，在执行flush方法后，触发callback回调。|
+|off(type: 'change', callback?: Callback<string>): void|取消订阅数据变更。|
+|deletePreferences(context: Context, options: Options, callback: AsyncCallback<void>): void|从内存中移除指定的Preferences实例。若Preferences实例有对应的持久化文件，则同时删除其持久化文件。|
 |isStorageTypeSupported(type: StorageType): boolean|判断当前平台是否支持希望使用的存储模式。true表示支持，false表示不支持。|
 
-#### 开发步骤
+## 开发步骤
 
 1. 导入@kit.ArkData模块。
 
-   ```
+   ```ts
    import { preferences } from '@kit.ArkData';
    ```
 
@@ -91,7 +91,7 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
    若接口返回false，则说明当前平台不支持GSKV模式，请使用XML模式进行数据存储。
 
-   ```
+   ```TypeScript
    let isGskvSupported = preferences.isStorageTypeSupported(preferences.StorageType.GSKV);
    Logger.info('Is gskv supported on this platform: ' + isGskvSupported);
    ```
@@ -102,13 +102,13 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
    context的定义如下：
 
-   ```
+   ```TypeScript
    const context = EntryAbility.getContext();
    ```
 
    针对默认的XML存储模式，使用getPreferencesSync()方法获取Preferences实例。
 
-   ```
+   ```TypeScript
    import { UIAbility } from '@kit.AbilityKit';
    import { BusinessError } from '@kit.BasicServicesKit';
    import { window } from '@kit.ArkUI';
@@ -127,7 +127,7 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
    若希望使用GSKV存储模式且当前平台支持该模式，可以通过以下方式获取GSKV存储模式的Preferences实例。需要注意的是，当选择某一存储模式后，不允许再对存储模式进行切换。
 
-   ```
+   ```TypeScript
    import { UIAbility } from '@kit.AbilityKit';
    import { BusinessError } from '@kit.BasicServicesKit';
    import { window } from '@kit.ArkUI';
@@ -148,13 +148,14 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
    针对默认存储模式（XML存储模式），在写入数据后，如有需要，可使用flush()方法将Preferences实例的数据存储到持久化文件。
 
-   针对GSKV存储模式，在写入数据后，数据会实时持久化到文件中。  
-   ![](https://media:401788444418464161)  
-   当对应的键已经存在时，putSync()方法会覆盖其值。可以使用hasSync()方法检查是否存在对应键值对。
+   针对GSKV存储模式，在写入数据后，数据会实时持久化到文件中。
+   > 说明
+   >
+   > 当对应的键已经存在时，putSync()方法会覆盖其值。可以使用hasSync()方法检查是否存在对应键值对。
 
    示例代码如下所示：
 
-   ```
+   ```TypeScript
    if (dataPreferences.hasSync('startup')) {
      Logger.info('The key startup is contained.');
    } else {
@@ -162,7 +163,7 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
      // 此处以此键值对不存在时写入数据为例
      dataPreferences.putSync('startup', 'auto');
      // 在XML模式下，当字符串包含非UTF-8格式的字符时，需要将字符串转为Uint8Array类型再存储，长度均不超过16 * 1024 * 1024个字节。
-     let uInt8Array1 = new util.TextEncoder().encodeInto('~！@#￥%……&*（）——+？');
+     let uInt8Array1 = new util.TextEncoder().encodeInto('~！@#￥%......&*（）------+？');
      dataPreferences.putSync('uInt8', uInt8Array1);
    }
    ```
@@ -173,7 +174,7 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
    示例代码如下所示：
 
-   ```
+   ```TypeScript
    let val = dataPreferences.getSync('startup', 'default');
    Logger.info('The startup value is ' + val);
    let uInt8Array2 : preferences.ValueType = dataPreferences.getSync('uInt8', new Uint8Array(0));
@@ -187,7 +188,7 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
    使用deleteSync()方法删除指定键值对，示例代码如下所示：
 
-   ```
+   ```TypeScript
    dataPreferences.deleteSync('startup');
    ```
 
@@ -195,7 +196,7 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
    应用存入数据到Preferences实例后，可以使用flush()方法实现数据持久化。示例代码如下所示：
 
-   ```
+   ```TypeScript
    dataPreferences.flush((err: BusinessError) => {
      if (err) {
        Logger.error(`Failed to flush. Code:${err.code}, message:${err.message}`);
@@ -213,7 +214,7 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
    示例代码如下所示：
 
-   ```
+   ```TypeScript
    let observer = (key: string) => {
      Logger.info('The key ' + key + ' changed.');
    }
@@ -241,7 +242,7 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
    示例代码如下所示：
 
-   ```
+   ```TypeScript
    let observer = (key: string) => {
      Logger.info('The key ' + key + ' changed.');
    }
@@ -258,23 +259,23 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
 
 9. 删除指定文件。
 
-   使用deletePreferences()方法从内存中移除指定文件对应的Preferences实例及其数据。若该Preferences存在对应的持久化文件，则一并删除，包括指定文件及其备份文件、损坏文件。  
-   ![](https://media:401788444418487162)  
-   * 调用该接口后，应用不允许再使用该Preferences实例进行数据操作，否则会出现数据一致性问题。
-
-   * 成功删除后，数据及文件将不可恢复。
-
-   * 在GSKV模式中，该接口不支持与其他接口并发调用（包括多进程），否则会出现不可预期行为。
+   使用deletePreferences()方法从内存中移除指定文件对应的Preferences实例及其数据。若该Preferences存在对应的持久化文件，则一并删除，包括指定文件及其备份文件、损坏文件。
+   > 说明
+   > * 调用该接口后，应用不允许再使用该Preferences实例进行数据操作，否则会出现数据一致性问题。
+   >
+   > * 成功删除后，数据及文件将不可恢复。
+   >
+   > * 在GSKV模式中，该接口不支持与其他接口并发调用（包括多进程），否则会出现不可预期行为。
 
    context的定义如下：
 
-   ```
+   ```TypeScript
    const context = EntryAbility.getContext();
    ```
 
    示例代码如下所示：
 
-   ```
+   ```TypeScript
    let options: preferences.Options = { name: 'myStore' };
    preferences.deletePreferences(context, options, (err: BusinessError) => {
      if (err) {
@@ -285,6 +286,7 @@ GSKV是从API version 18起提供的一种存储模式，数据以二进制的�
    })
    ```
 
-#### 示例代码
+## 示例代码
 
-* [首选项](https://gitcode.com/HarmonyOS_Samples/preferences)  
+* [首选项](https://gitcode.com/HarmonyOS_Samples/preferences)
+

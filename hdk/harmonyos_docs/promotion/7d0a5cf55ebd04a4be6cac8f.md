@@ -6,47 +6,44 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_api080-000000168
 
 # 通过RTA实验ID查询
 
-【简介】广告主通过RTA实验ID查询报表。  
-![](https://media:101784100609178810)  
-该接口默认回传采样数据，如果您需要看全量数据，请联系接口运营。
+【简介】广告主通过RTA实验ID查询报表。
+> 说明
+>
+> 该接口默认回传采样数据，如果您需要看全量数据，请联系接口运营。
 
-请求地址
+**请求地址**
 
 https://ads.cloud.huawei.com/openapi/v2/reports/rta/experiment/query
 
-请求方法
+**请求方法**
 
-POST
+**POST**
 
-请求参数  
+**请求参数**
 
-|参数名称|类型|是否必选|描述| |
-|:------------|:------|:---|:-|:-|
+|**参数名称**|**类型**|**是否必选**|**描述**|  |
+|:------------|:------|:-------|:-----|:-|
 |advertiser_id|long|否|广告主ID，当登录授权的华为账号为如下场景时此字段必填： 1）授权账号关联的是经理账户； 2）授权账号关联的是服务商账户； 3）授权账号关联了多个子客账户。||
 |filtering|Struct1|是|筛选条件||
 |page|integer|否|搜索页码 默认值1||
-|page_size|integer|否|每页展示的数据条数 默认值20 取值范围 1\~10000。||
+|page_size|integer|否|每页展示的数据条数 默认值20 取值范围 1~10000。||
 |start_date|string|是|起始时间。||
 |end_date|string|是|结束时间。||
 
-<br />
-
-filtering(Struct1)参数：  
+filtering(Struct1)参数：
 
 |参数名称|类型|是否必选|描述|
-|:-------------|:---------|:---|:-----------------------------------------------------------------------------------------------------------------------|
-|campaign_ids|string\[\]|否|推广计划ID|
+|:-------------|:-------|:---|:-----------------------------------------------------------------------------------------------------------------------|
+|campaign_ids|string[]|否|推广计划ID|
 |campaign_name|string|否|计划名称|
-|adgroup_ids|string\[\]|否|任务ID|
+|adgroup_ids|string[]|否|任务ID|
 |adgroup_name|string|否|任务名称|
-|creative_ids|string\[\]|否|创意ID|
+|creative_ids|string[]|否|创意ID|
 |placement_name|string|否|版位名称|
-|pricings|string\[\]|否|出价方式 详见[付费方式](https://developer.huawei.com/consumer/cn/doc/promotion/ads_meijuzhi-0000001510863205#section1898795494716)|
-|rta_exp_id|string\[\]|是|实验id|
+|pricings|string[]|否|出价方式 详见[付费方式](https://developer.huawei.com/consumer/cn/doc/promotion/ads_meijuzhi-0000001510863205#section1898795494716)|
+|rta_exp_id|string[]|是|实验id|
 
-<br />
-
-请求示例
+**请求示例**
 
 POST openapi/v2/reports/rta/experiment/query HTTP/1.1
 
@@ -56,9 +53,7 @@ Content-Type:application/json
 
 Authorization:Bearer CgB6e3x9ERGComr9dENxZX22iBk+mLuf1yGtQVPUjPJUMrstfKlqpdXk+kfHU9J8ZJ/soYIZHZzT446GeSYumluQuhsK7jvz4kz1Bkms4CLI/rE=
 
-<br />
-
-```
+```codeblock
 {
     "advertiser_id": "381061631473395584",
     "filtering": {
@@ -87,42 +82,34 @@ Authorization:Bearer CgB6e3x9ERGComr9dENxZX22iBk+mLuf1yGtQVPUjPJUMrstfKlqpdXk+kf
 }
 ```
 
-<br />
+**响应字段**
 
-响应字段  
-
-|-------|-------|--------|
-|参数名称|类型|描述|
+|--------|-------|--------|
+|**参数名称**|**类型**|**描述**|
 |code|string|返回码|
 |message|string|返回描述|
 |data|Struct1|指定对象统计数据|
 
-<br />
+data(Struct1)参数
 
-data(Struct1)参数  
-
-|---------|-----------|------|
-|参数名称|类型|描述|
+|---------|---------|------|
+|**参数名称**|**类型**|**描述**|
 |page_info|Struct2|分页配置信息|
-|list|Struct3\[\]|统计数据列表|
+|list|Struct3[]|统计数据列表|
 
-<br />
-
-page_info(Struct2)参数  
+page_info(Struct2)参数
 
 |------------|-------|---------|
-|参数名称|类型|描述|
+|**参数名称**|**类型**|**描述**|
 |page|integer|搜索页码|
 |page_size|integer|一页显示的数据条数|
 |total_number|integer|总条数|
 |total_page|integer|总页数|
 
-<br />
-
-list(Struct3)参数  
+list(Struct3)参数
 
 |------------------------------------|-------|----------------------------------|
-|参数名称|类型|描述|
+|**参数名称**|类型|描述|
 |advertiser_id|string|广告主ID|
 |creative_id|string|创意ID|
 |creative_name|string|创意名称|
@@ -290,13 +277,11 @@ list(Struct3)参数
 |achievement_unlocked_count|integer|解锁成就|
 |achievement_unlocked_cost|float|解锁成就成本|
 
-<br />
-
-应答示例
+**应答示例**
 
 HTTPS/1.1 200 OK
 
-```
+```codeblock
 {"data": {"page_info": {"total_number": 1,"total_num": 1,"total_page": 1,"page": 1,"page_size": 10000},"list": [{"comment_count": 3,"totalNumber": 1,"achievement_unlocked_cost": "0.01","coupon_count": 3,"effective_leads_online_count": 3,"click_count": 3,"consult_online_cost": "0.01","seven_day_retain_count": 3,"consult_online_count": 3,"game_package_claiming_cost": "0.01","active_cost": "0.01","effective_leads_phone_count": 3,"activate_hms_cost": "0.01","follow_count": 3,"first_purchase_membercard_cost": "0.01","paid_amount": "99.740736","vote_cost": "0.01","update_cost": "0.01","potential_customer_online_count": 3,"forward_cost": "0.01","three_day_retain_count": 3,"pay_count": 3,"travel_booking_cost": "0.01","potential_customer_form_count": 3,"add_to_wishlist_count": 3,"custom_count": 3,"level_achieved_count": 3,"form_submit_count": 3,"effective_book_cost": "0.01","navigate_count": 3,"form_submit_cost": "0.01","landingpage_click_cost": "0.01","lottery_count": 3,"potential_customer_phone_count": 3,"install_count": 3,"precredit_cost": "0.01","app_custom_count": 6,"activate_hms_count": 3,"retain_hms_cost": "0.01","content_view_count": 3,"follow_scan_cost": "0.01","campaign_id": "30027621","stat_datetime": "2023-08-10","read_count": 3,"effective_book_count": 3,"add_cart_count": 3,"like_count": 3,"pay_cost": "0.01","browse_cost": "0.01","register_count": 3,"effective_leads_online_cost": "0.01","re_engage_cost": "0.01","credit_cost": "0.01","install_cost": "0.01","collection_count": 3,"follow_cost": "0.01","adgroup_name": "wsw的ocpc版位多规格-20220217-竞价","subscribe_cost": "0.01","first_purchase_membercard_count": 3,"game_package_redemption_cost": "0.01","comment_cost": "0.01","achievement_unlocked_count": 3,"potential_customer_phone_cost": "0.01","advertiser_id": "381061631473395584","game_package_redemption_count": 3,"loan_completion_cost": "0.01","authorize_count": 3,"re_engage_count": 3,"reservation_cost": "0.01","effective_leadsform_cost": "0.0","active_count": 3,"level_achieved_cost": "0.01","register_cost": "0.01","invite_count": 3,"credit_count": 3,"download_cost": "0.01","rta_exp_id": " ceshishiyanid102","creative_name": "wsw的ocpc版位多规格-开屏视频-720*1280-创意 1","purchase_membercard_count": 3,"initiated_checkout_cost": "0.01","forward_count": 3,"purchase_membercard_cost": "0.01","search_count": 3,"reservation_count": 3,"creative_id": "70033302","retain_hms_count": 3,"potential_customer_online_cost": "0.01","phone_dialing_count": 3,"authorize_cost": "0.01","add_payment_info_count": 3,"invite_cost": "0.01","add_cart_cost": "0.01","rate_cost": "0.01","landingpage_click_count": 3,"login_cost": "0.01","travel_booking_count": 3,"content_view_cost": "0.01","book_amount": 39,"effective_customer_acquisition_cost": "0.01","subscribe_count": 3,"play_over_count": 3,"like_cost": "0.01","adgroup_id": "46033594","coupon_cost": "0.01","add_payment_info_cost": "0.01","web_custom_count": 3,"leads_lottery_count": 3,"precredit_count": 3,"share_cost": "0.01","read_cost": "0.01","create_role_cost": "0.01","login_count": 3,"add_quick_app_cost": "0.01","pre_order_count": 6,"pre_order_cost": "0.01","browse_count": 3,"vote_count": 3,"opened_frompushnotification_cost": "0.01","order_signing_count": 3,"seven_day_retain_cost": "0.01","update_count": 3,"redirect_count": 3,"download_count": 3,"retain_cost": "0.01","add_quick_app_count": 3,"loan_completion_count": 3,"show_count": 3,"tutorial_completion_count": 3,"start_trial_count": 3,"phone_dialing_cost": "0.01","potential_customer_form_cost": "0.01","cpc": "0.01","deliver_cost": "0.01","create_role_count": 3,"lottery_cost": "0.01","effective_consult_cost": "0.01","play_count": 3,"opened_frompushnotification_count": 3,"game_package_claiming_count": 3,"rate_count": 3,"order_signing_cost": "0.01","redirect_cost": "0.01","effective_leads_phone_cost": "0.01","retain_count": 3,"app_custom_cost": "0.01","navigate_cost": "0.01","search_cost": "0.01","follow_scan_count": 3,"leads_lottery_cost": "0.01","spent_credits_count": 3,"initiated_checkout_count": 3,"effective_leadsform_count": 9,"custom_cost": "0.01","effective_consult_count": 3,"collection_cost": "0.01","spent_credits_cost": "0.01","cost": "0.03603","add_to_wishlist_cost": "0.01","web_custom_cost": "0.01","start_trial_cost": "0.01","three_day_retain_cost": "0.01","share_count": 3,"thousand_show_cost": "10.0","tutorial_completion_cost": "0.01","effective_customer_acquisition_count": 3,"deliver_count": 3}]}}
 ```
 

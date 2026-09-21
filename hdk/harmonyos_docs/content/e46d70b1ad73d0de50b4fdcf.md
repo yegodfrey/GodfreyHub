@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/themes-fa-000000237159
 
 # 百变卡片
 
-* [百变卡片设计指导及规范](https://developer.huawei.com/consumer/cn/doc/content/themes-fa-spec-0000002504274917)  
+* **[百变卡片设计指导及规范](https://developer.huawei.com/consumer/cn/doc/content/themes-fa-spec-0000002504274917)**   

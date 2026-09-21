@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/concurrent-lo
 
    计算器业务模块定义如下：
 
-   ```
+   ```TypeScript
    import { collections } from '@kit.ArkTS';
 
    @Sendable
@@ -80,7 +80,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/concurrent-lo
 
    定时器业务模块的定义如下：
 
-   ```
+   ```TypeScript
    @Sendable
    export class TimerSdk {
 
@@ -103,7 +103,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/concurrent-lo
 
 2. 在UI主线程触发各业务模块分发到子线程，加载完成后在UI主线程使用，示例如下：
 
-   ```
+   ```TypeScript
    import { Calculator } from '../sdk/Calculator';
    import { TimerSdk } from '../sdk/TimerSdk';
    import { taskpool } from '@kit.ArkTS';

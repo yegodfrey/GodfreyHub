@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/passtype-0
 |:--------|
 |确定Pass类型。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum Value and Description|
 |:--------------------------|

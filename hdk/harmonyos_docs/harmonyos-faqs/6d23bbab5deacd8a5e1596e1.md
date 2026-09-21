@@ -6,38 +6,38 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-71
 
 # 多so相互依赖场景下如何解耦
 
-问题现象
+**问题现象**
 
 A模块包含a.so，B模块包含b.so。a.so调用b.so的函数，b.so也调用a.so的函数。按照正常编译步骤，无论先编译哪个so，都会编译失败。
 
-解决措施
+**解决措施**
 
 通过dlopen和dlsym接口进行SO编译依赖解耦，将隐式依赖转换为显式依赖。具体示例代码如下：
 
 1. 修改代码和CMakeLists.txt文件，利用Native侧dlopen方法编译出liba.so和libb.so。生成的.so文件位于build/default/intermediates/cmake/default/obj目录下。 （注意一定要用extern "C" {}括起来、不然不能识别到对应的函数导致编译出错）
 
-   ```
+   ```cpp
    // a.cpp
-   extern "C" {     // Be sure to enclose it with extern 'C' {}
+   extern "C" {    // Be sure to enclose it with extern 'C' {}
    #include "a.h"
    #include <dlfcn.h>
    #include "stdio.h"
    typedef int (*FUNC_SUB)(int, int);
    int add(int a, int b) { return a + b; }
-   int getb(char *path, int a, int b) {       // Path:The sandbox path for passing So files from ArkTS side (note that the path should be passed from ArkTS side, otherwise it may not be found, and the specific code will be listed later)
-       void *handle = dlopen(path, RTLD_LAZY);  // Open the dynamic link library with path as path
+   int getb(char *path, int a, int b) {      // Path:The sandbox path for passing So files from ArkTS side (note that the path should be passed from ArkTS side, otherwise it may not be found, and the specific code will be listed later)
+       void *handle = dlopen(path, RTLD_LAZY); // Open the dynamic link library with path as path
        if (!handle) {
            return 0;
        }
        FUNC_SUB sub_func = (FUNC_SUB)dlsym(handle, "sub"); // Get the function named sub
-       int res = sub_func(a, b);                           // caller function
-       dlclose(handle);                                    // Close dynamic link library
+       int res = sub_func(a, b);                          // caller function
+       dlclose(handle);                                   // Close dynamic link library
        return res;
    }
    }
    ```
 
-   ```
+   ```cpp
    // a.h
    extern "C" {
    #ifndef DemoSO_a_H
@@ -48,28 +48,28 @@ A模块包含a.so，B模块包含b.so。a.so调用b.so的函数，b.so也调用a
    }
    ```
 
-   ```
+   ```cpp
    // b.cpp
-   extern "C" {     // Be sure to enclose it with extern 'C' {}
+   extern "C" {    // Be sure to enclose it with extern 'C' {}
    #include "b.h"
    #include <dlfcn.h>
    #include "stdio.h"
    typedef int (*FUNC_ADD)(int, int);
    int sub(int a, int b) { return a - b; }
-   int geta(char *path, int a, int b) {    // Path: The sandbox path for passing So files from ArkTS side (note that the path should be passed from ArkTS side, otherwise it may not be found, and the specific code will be listed later)
+   int geta(char *path, int a, int b) {   // Path: The sandbox path for passing So files from ArkTS side (note that the path should be passed from ArkTS side, otherwise it may not be found, and the specific code will be listed later)
        void *handle = dlopen(path, RTLD_LAZY);    // Open the dynamic link library with path as path
        if (!handle) {
            return 0;
        }
-       FUNC_ADD add_func = (FUNC_ADD)dlsym(handle, "add");      // Get the function named sub
-       int res = add_func(a, b);                                // caller function
-       dlclose(handle);                                         // Close dynamic link library
+       FUNC_ADD add_func = (FUNC_ADD)dlsym(handle, "add");     // Get the function named sub
+       int res = add_func(a, b);                               // caller function
+       dlclose(handle);                                        // Close dynamic link library
        return res;
    }
    }
    ```
 
-   ```
+   ```cpp
    // b.h
    extern "C" {
    #ifndef DemoSO_b_H
@@ -80,7 +80,7 @@ A模块包含a.so，B模块包含b.so。a.so调用b.so的函数，b.so也调用a
    }
    ```
 
-   ```
+   ```text
    # CMakeLists.txt
    cmake_minimum_required(VERSION 3.4.1)
    project(liba)
@@ -95,10 +95,10 @@ A模块包含a.so，B模块包含b.so。a.so调用b.so的函数，b.so也调用a
 
 2. 将生成的.so文件（相对路径：build/default/intermediates/cmake/default/obj）移动到libs目录。 移动完成后，目录结构如下：
 
-   ![](https://media:101782454293155025 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/NQnscVEAQWSk4PXBpsSdOA/zh-cn_image_0000002654795277.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=C728D5D9ECFB67376E6BAF74DDA8017038FFEB1F6C29A0E6BF1C7E44CA83173C "点击放大")
 3. 修改CMakeLists.txt文件，将编译生成的.so文件引入到工程中。
 
-   ```
+   ```text
    # CMakeLists.txt
    cmake_minimum_required(VERSION 3.4.1)
    project(DemoSO)
@@ -111,7 +111,7 @@ A模块包含a.so，B模块包含b.so。a.so调用b.so的函数，b.so也调用a
    target_link_libraries(demoso PUBLIC libace_napi.z.so ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs/${OHOS_ARCH}/liba.so ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs/${OHOS_ARCH}/libb.so)
    ```
 
-   ```
+   ```ts
    // index.ets
    import testNapi from 'libdemoso.so';
    import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -129,8 +129,8 @@ A模块包含a.so，B模块包含b.so。a.so调用b.so的函数，b.so也调用a
              .fontSize(50)
              .fontWeight(FontWeight.Bold)
              .onClick(() => {
-               this.path = this.getUIContext().getHostContext()!.bundleCodeDir;   // get path
-               hilog.info(0x0000, 'testTag', 'Test NAPI 5 + 3 = %{public}d', testNapi.add(5, 3, this.path + '/libs/arm64/liba.so'));  // Call the native side function
+               this.path = this.getUIContext().getHostContext()!.bundleCodeDir;  // get path
+               hilog.info(0x0000, 'testTag', 'Test NAPI 5 + 3 = %{public}d', testNapi.add(5, 3, this.path + '/libs/arm64/liba.so')); // Call the native side function
                hilog.info(0x0000, 'testTag', 'Test NAPI 5 - 3 = %{public}d', testNapi.sub(5, 3, this.path + '/libs/arm64/libb.so'));
              })
          }
@@ -141,13 +141,13 @@ A模块包含a.so，B模块包含b.so。a.so调用b.so的函数，b.so也调用a
    }
    ```
 
-   ```
+   ```ts
    // index.d.ts
    export const add: (a: number, b: number, path: string) => number;
    export const sub: (a: number, b: number, path: string) => number;
    ```
 
-   ```
+   ```cpp
    // hello.cpp
    #include "a.h"
    #include "b.h"
@@ -171,7 +171,7 @@ A模块包含a.so，B模块包含b.so。a.so调用b.so的函数，b.so也调用a
        char path[255];
        size_t size = 255;
        napi_get_value_string_utf8(env, args[2], path, 255, &size);
-       int res = geta(path, value0, value1);                    // Call the function and pass the sandbox path
+       int res = geta(path, value0, value1);                  // Call the function and pass the sandbox path
        napi_value sum;
        napi_create_int32(env, res, &sum);
        return sum;
@@ -194,7 +194,7 @@ A模块包含a.so，B模块包含b.so。a.so调用b.so的函数，b.so也调用a
        char path[255];
        size_t size = 255;
        napi_get_value_string_utf8(env, args[2], path, 255, &size);
-       int res = getb(path, value0, value1);                 // Call the function and pass the sandbox path
+       int res = getb(path, value0, value1);              // Call the function and pass the sandbox path
        napi_value sum;
        napi_create_int32(env, res, &sum);
        return sum;

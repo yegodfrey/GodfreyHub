@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:-------------------------------------------|
 |public class PictureMessage.Picture 消息的图片信息。|
 
-#### Method Summary
+## Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:-------------------------------------------------------|
@@ -18,39 +18,39 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |String|[getActionUrl](#section1685731161720)() 获取点击图片时跳转的URL地址。|
 |int|[getActionType](#section1127911312119)() 获取action类型。|
 
-#### Methods
+## Methods
 
-#### getPictureUrl
+### getPictureUrl
 
 |Method|
 |:--------------------------------------------|
 |public String getPictureUrl() 获取图片消息的图片URL地址。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-----|:----------|
 |String|图片URL地址。|
 
-#### getActionUrl
+### getActionUrl
 
 |Method|
 |:--------------------------------------------|
 |public String getActionUrl() 获取点击图片时跳转的URL地址。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-----|:-------------|
 |String|点击图片时跳转的URL地址。|
 
-#### getActionType
+### getActionType
 
 |Method|
 |:--------------------------------------|
 |public int getActionType() 获取点击图片时跳转类型。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:---------------------|

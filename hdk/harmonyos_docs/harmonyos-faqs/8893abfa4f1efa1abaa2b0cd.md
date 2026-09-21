@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-61
 
 # 如何解决webview每次调试都需要寻找进程号问题
 
-问题背景：
+**问题背景：**
 
 在应用开发过程中，调试Web页面时，每次启动DevTools都需要重新映射端口。
 
-解决方案：
+**解决方案：**
 
 参考以下示例代码，文件内容编写完成后，将文件扩展名更改为.bat。每次调试后，运行bat文件以自动获取进程号。
 
-```
+```ts
 // xxx.bat
 @echo off
 setlocal

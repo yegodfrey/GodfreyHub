@@ -1,0 +1,47 @@
+---
+name: document/cn/graphics-Guides/introduction-0000001050197938
+title: 业务介绍
+uri: https://developer.huawei.com/consumer/cn/doc/graphics-Guides/introduction-0000001050197938
+---
+
+# 业务介绍
+
+图形计算服务（Computer Graphics Kit，简称"CG Kit"）提供前沿计算机图形学领域的渲染框架、插件SDK与GPU扩展接口，协助您挖掘硬件极限性能，大幅降低开发难度，让您创建更佳体验的产品。
+
+## 支持的设备
+
+|能力|设备类型|
+|:-------------------|:------------------------------------------------------------|
+|CG渲染框架|* 华为手机（EMUI 9.0及以上） * 非华为手机（Android 9.0及以上）|
+|GPU扩展能力：Pre-rotation|基于Kirin芯片的华为手机（EMUI 10.0及以上版本）|
+|GPU扩展能力：Smart Cache|基于Kirin 990及Kirin 9000芯片的华为手机（EMUI 10.1及以上版本）|
+|插件开发框架|* 华为手机（EMUI 8.0及以上） * 非华为手机（Android 8.0及以上）|
+|离线超分插件|* 华为手机（EMUI 8.0及以上） * 非华为手机（Android 8.0及以上）|
+|遮挡剔除插件|* 华为手机（EMUI 8.0及以上） * 非华为手机（Android 8.0及以上）|
+|体积云插件|* 华为手机（EMUI 8.0及以上） * 非华为手机（Android 8.0及以上） * PC端（Windows 10）|
+|体积雾插件|* 华为手机（EMUI 8.0及以上） * 非华为手机（Android 8.0及以上） * PC端（Windows 10）|
+|骨骼动画插件|* 华为手机（EMUI 8.0及以上） * 非华为手机（Android 8.0及以上） * PC端（Windows 10）|
+|时域抗锯齿插件|* 华为手机（EMUI 8.0及以上） * 非华为手机（Android 8.0及以上） * PC端（Windows 10）|
+|智慧流体插件|* 华为手机（EMUI 8.0及以上） * 非华为手机（Android 8.0及以上）|
+|AI捏脸插件|* 华为手机（EMUI 8.0及以上） * 非华为手机（Android 8.0及以上） * PC端（Windows 10）|
+
+## 使用约束
+
+|能力|Vulkan版本|OpenGL(ES)版本|
+|:-------------------|:--------------------|:---------------------------------------|
+|CG渲染框架|Vulkan 1.0、Vulkan 1.1|不支持|
+|GPU扩展能力：Pre-rotation|Vulkan 1.0、Vulkan 1.1|不涉及|
+|GPU扩展能力：Smart Cache|Vulkan 1.0、Vulkan 1.1|OpenGLES 2.0及以上|
+|插件开发框架|不涉及|不涉及|
+|离线超分插件|不支持|OpenGLES 3.0及以上|
+|遮挡剔除插件|不涉及|不涉及|
+|体积云插件|不支持|* 手机：OpenGLES 3.2及以上 * PC端：OpenGL 4.0及以上|
+|体积雾插件|不支持|* 手机：OpenGLES 3.1及以上 * PC端：OpenGL 4.0及以上|
+|骨骼动画插件|不涉及|不涉及|
+|时域抗锯齿插件|不支持|* 手机：OpenGLES 3.1及以上 * PC端：OpenGL 4.0及以上|
+|智慧流体插件|不支持|OpenGLES 3.0及以上|
+|AI捏脸插件|不涉及|不涉及|
+
+## 支持的国家/地区
+
+请参见[支持的国家/地区](https://developer.huawei.com/consumer/cn/doc/development/graphics-Guides/supported-regions-0000001051082740)。

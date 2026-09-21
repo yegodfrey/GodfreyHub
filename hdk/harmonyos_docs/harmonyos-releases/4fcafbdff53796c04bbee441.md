@@ -7,6 +7,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-
 # NearLink Kit
 
 |操作|旧版本|新版本|d.ts文件|
-|:----|:--|:-----------------------------------------------------------------------------------------------------------------|:-----------------------------|
-|新增API|NA|类名：manager； API声明：function getPairedDevices(): Array\<string\>; 差异内容：function getPairedDevices(): Array\<string\>;|api/@hms.nearlink.manager.d.ts|
+|:----|:--|:-------------------------------------------------------------------------------------------------------------|:-----------------------------|
+|新增API|NA|类名：manager； API声明：function getPairedDevices(): Array<string>; 差异内容：function getPairedDevices(): Array<string>;|api/@hms.nearlink.manager.d.ts|
 

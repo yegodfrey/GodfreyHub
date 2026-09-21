@@ -6,34 +6,34 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-708
 
 # Navigation如何携带参数返回首页
 
-#### 问题现象
+## 问题现象
 
-使用Navigation实现页面导航功能，从首页跳转到其他非首页之后，再次返回首页，如何将数据传递回首页？  
+使用Navigation实现页面导航功能，从首页跳转到其他非首页之后，再次返回首页，如何将数据传递回首页？
 
-#### 背景知识
+## 背景知识
 
 * [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)组件是路由导航的根视图容器，一般作为Page页面的根容器使用，其内部可分为首页和子页。
 
   首页又称为导航栏（NavBar），由三部分组成：标题栏、内容区（Navigation子组件）、工具栏；
 
   子页则通过[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)承载，由两部分组成：标题栏、内容区（NavDestination子组件）。
-* Navigation路由相关的操作都是基于页面栈[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)提供的方法进行，每个Navigation都需要创建并传入一个NavPathStack对象，用于管理页面。主要涉及页面跳转、页面返回、页面替换、页面删除、参数获取、路由拦截等功能。  
-  ![](https://media:101784081582774503)  
-  首页并不属于路由栈（[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)）管理，路由栈只能控制NavDestination页面的入栈出栈。
+* Navigation路由相关的操作都是基于页面栈[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)提供的方法进行，每个Navigation都需要创建并传入一个NavPathStack对象，用于管理页面。主要涉及页面跳转、页面返回、页面替换、页面删除、参数获取、路由拦截等功能。 说明
+  >
+  > 首页并不属于路由栈（[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)）管理，路由栈只能控制NavDestination页面的入栈出栈。
 * [pushPathByName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#pushpathbyname11)：将name指定的NavDestination页面信息入栈，传递的数据为param，添加onPop回调接收入栈页面出栈时的返回结果，并进行处理。
 * [@ohos.events.emitter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-emitter)：支持持续订阅事件、单次订阅事件、取消订阅事件及发送事件到事件队列。
 * [hideNavBar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#hidenavbar9)：设置是否隐藏导航栏。设置为true时，隐藏Navigation的导航栏，包括标题栏、内容区和工具栏。如果此时路由栈中存在NavDestination页面，则直接显示栈顶NavDestination页面，反之显示空白。
 
 返回首页一般存在两种方式：
 
-1. 通过NavPathStack的pop方法一步步回退至首页，最简单的场景是：首页-\>PageOne-\>首页。
-2. 首页跳转至其他页面之后，经过其他页面多次跳转，再立马返回首页。一个简单的场景是：首页-\>PageOne-\>PageTwo-\>首页。  
+1. 通过NavPathStack的pop方法一步步回退至首页，最简单的场景是：**首页->PageOne->首页**。
+2. 首页跳转至其他页面之后，经过其他页面多次跳转，再立马返回首页。一个简单的场景是：**首页->PageOne->PageTwo->首页**。
 
-#### 解决方案
+## 解决方案
 
 * 场景1：从其他页面一步步回退至首页。 直接在首页通过pushPathByName等方法跳转到PageOne页面，同时添加onPop回调接收PageOne页面返回的参数即可。
 
-  ```
+  ```ts
   @Entry
   @Component
   struct NavPopSolution {
@@ -86,7 +86,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-708
 
   效果预览：
 
-  ![](https://media:101784081583029504 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/LhxJ-6l-TKCduwZ4m13Nsg/zh-cn_image_0000002669866387.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=C8284139D3DD69FBA57C917F995241015609D70ED799CE29F18C6C9B10B9514D "点击放大")
 * 场景2：首页跳转至其他页面之后，经过其他页面多次跳转，再立马返回首页。 由于需要立马返回首页，无法一步步将路由栈中页面逐个出栈，所以无法通过出栈时的onPop回调，拿到上一个页面出栈时携带的参数。且首页无法推入路由栈，不能使用push类方法跳转，也没有onReady生命周期，所以也无法在onReady接收其他子页的传参。
 
   现提供两种方式完成跳转，并将参数携带回首页。
@@ -94,7 +94,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-708
     1. 在Navigation首页设置hideNavBar为true，在aboutToAppear方法中将MainPage入栈，设置为自定义首页。通过[setInterception](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#setinterception12)拦截所有返回到Navigation首页的操作，重定向到自定义首页。
     2. 从PageTwo页面跳转至MainPage，先使用clear()清除路由栈，再主动调用pushPath跳转到自定义首页MainPage。MainPage页面通过onReady方法获取传递参数。
 
-       ```
+       ```ts
        @Entry
        @Component
        struct NavMainPageExample {
@@ -197,15 +197,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-708
        }
        ```
 
-       ![](https://media:101784081583065505)  
-       连续调用多个页面栈操作方法时，中间过程会被忽略，显示最终的栈操作结果。
+       > 说明
+       >
+       > 连续调用多个页面栈操作方法时，中间过程会被忽略，显示最终的栈操作结果。
 
        效果预览：
 
-       ![](https://media:101784081583274506 "点击放大")
+       ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/d06TsV_ITdCLnVxFjHuR9g/zh-cn_image_0000002669990323.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=5C99ACF5E39F0D45089A06A394302D87AC83455A26C53A37DF4CC29401EB24F8 "点击放大")
   * 方案2：在首页的aboutToAppear订阅事件，在clear清除路由栈时通过订阅的事件将参数传递回首页。
 
-    ```
+    ```ts
     import emitter from '@ohos.events.emitter';
 
     @Entry
@@ -290,15 +291,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-708
 
     效果预览：
 
-![](https://media:101784081583436507 "点击放大")  
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/qTF6H_buTmykzChGBfUAQA/zh-cn_image_0000002639837140.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=D6DD0CC15F8B34EF5B0D4AA2B5D49A96B4B6AF573D8EE8899187F2E66A7C7862 "点击放大")
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：Navigation如何直接返回首页？
 
-A：首页不存在页面栈中，可看作在栈中的位置为-1，使用this.pathStack.clear()清空栈即可返回首页。  
+A：首页不存在页面栈中，可看作在栈中的位置为-1，使用this.pathStack.clear()清空栈即可返回首页。
 
-#### 总结
+## 总结
 
 |场景|方案|说明|
 |:------------|:------------|:---------------------------------------------------|

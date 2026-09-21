@@ -6,30 +6,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-
 
 # 基础自定义弹出框 (CustomDialog)
 
-CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件更新等与用户交互响应操作。开发者可以通过CustomDialogController类显示自定义弹出框。具体用法请参考[自定义弹窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)。  
-![](https://media:401788444594884405)  
-当前，ArkUI弹出框默认为非页面级弹出框，在页面路由跳转时，如果开发者未调用close方法将其关闭，弹出框将不会自动关闭。若需实现在跳转页面时覆盖弹出框的场景，可以使用[组件导航子页面显示类型的弹窗类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navdestination#页面显示类型)或者[页面级弹出框](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-embedded-dialog)。
+CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件更新等与用户交互响应操作。开发者可以通过CustomDialogController类显示自定义弹出框。具体用法请参考[自定义弹窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)。
+> 说明
+>
+> 当前，ArkUI弹出框默认为非页面级弹出框，在页面路由跳转时，如果开发者未调用close方法将其关闭，弹出框将不会自动关闭。若需实现在跳转页面时覆盖弹出框的场景，可以使用[组件导航子页面显示类型的弹窗类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navdestination#页面显示类型)或者[页面级弹出框](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-embedded-dialog)。
 
 默认为模态弹窗且有蒙层，不可与蒙层下方控件进行交互（不支持点击和手势等向下透传）。可以通过配置[CustomDialogControllerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions对象说明)中的isModal属性来实现模态和非模态弹窗，详细说明可参考[弹窗的种类](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-dialog-overview#弹窗的种类)。
 
-当isModal为true时，弹出框为模态弹窗，且弹窗周围的蒙层区不支持透传。isModal为false时，弹出框为非模态弹窗，且弹窗周围的蒙层区可以透传。因此如果需要同时允许弹出框的交互和弹出框外页面的交互行为，需要将弹出框设置为非模态。  
+当isModal为true时，弹出框为模态弹窗，且弹窗周围的蒙层区不支持透传。isModal为false时，弹出框为非模态弹窗，且弹窗周围的蒙层区可以透传。因此如果需要同时允许弹出框的交互和弹出框外页面的交互行为，需要将弹出框设置为非模态。
 
-#### 生命周期
+## 生命周期
 
-从API version 19开始，自定义弹出框提供了生命周期函数用于通知用户该弹出框的生命周期。生命周期的触发时序依次为：onWillAppear -\> onDidAppear -\> onWillDisappear -\> onDidDisappear。  
+从API version 19开始，自定义弹出框提供了生命周期函数用于通知用户该弹出框的生命周期。生命周期的触发时序依次为：onWillAppear -> onDidAppear -> onWillDisappear -> onDidDisappear。
 
 |名称|类型|说明|
-|:--------------|:---------------|:-------------|
-|onWillAppear|Callback\<void\>|弹出框显示动效前的事件回调。|
-|onDidAppear|Callback\<void\>|弹出框弹出后的事件回调。|
-|onWillDisappear|Callback\<void\>|弹出框退出动效前的事件回调。|
-|onDidDisappear|Callback\<void\>|弹出框消失后的事件回调。|
+|:--------------|:-------------|:-------------|
+|onWillAppear|Callback<void>|弹出框显示动效前的事件回调。|
+|onDidAppear|Callback<void>|弹出框弹出后的事件回调。|
+|onWillDisappear|Callback<void>|弹出框退出动效前的事件回调。|
+|onDidDisappear|Callback<void>|弹出框消失后的事件回调。|
 
-#### 创建自定义弹出框
+## 创建自定义弹出框
 
 1. 使用@CustomDialog装饰器装饰自定义弹出框，可在此装饰器内自定义弹出框内容。CustomDialogController需在@Component内定义。
 
-   ```
+   ```TypeScript
    @CustomDialog
    struct CustomDialogExample {
      controller?: CustomDialogController;
@@ -46,7 +47,7 @@ CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件�
 
 2. 创建构造器，与装饰器相互连接。
 
-   ```
+   ```TypeScript
    @Entry
    @Component
    export struct CreateCustomDialogNew {
@@ -59,7 +60,7 @@ CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件�
 
 3. 点击与onClick事件绑定的组件使弹出框弹出。
 
-   ```
+   ```TypeScript
    @Entry
    @Component
    export struct CreateCustomDialogNew {
@@ -79,15 +80,15 @@ CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件�
    }
    ```
 
-![](https://media:401788444595097406)  
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/XdZ5zNUgSLaxoOVPp-VMzA/zh-cn_image_0000002733274058.png?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=7FD4FF8444FE23573609559D4F71966B8F5AA9302253A680270110749CAE767C)
 
-#### 弹出框的交互
+## 弹出框的交互
 
 弹出框可用于数据交互，完成用户一系列响应操作。
 
 1. 在@CustomDialog装饰器内添加按钮和数据函数。
 
-   ```
+   ```TypeScript
    @CustomDialog
    struct CustomDialogExample {
      cancel: () => void = () => {
@@ -123,7 +124,7 @@ CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件�
 
 2. 页面内需要在构造器内进行接收，同时创建相应的函数操作。
 
-   ```
+   ```TypeScript
    @Entry
    @Component
    export struct DialogInteractionUseConstructor {
@@ -155,10 +156,10 @@ CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件�
    }
    ```
 
-   ![](https://media:401788444595245407)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/FZA59hMnThawUf8stc1ejQ/zh-cn_image_0000002733433942.png?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=043533DA14DD68AA51E08CA671204544C455A78595CB73CA0014AE41D2FFF72F)
 3. 可通过弹出框中的按钮实现路由跳转，同时获取跳转页面向当前页传入的参数。
 
-   ```
+   ```TypeScript
    @CustomDialog
    struct CustomDialogExample {
      // 数据监听仅支持@Link或@Consume，其他方式如@Prop、@ObjectLink不适用此场景
@@ -260,7 +261,7 @@ CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件�
    }
    ```
 
-   ```
+   ```TypeScript
    @Entry
    @Component
    struct IndexNew {
@@ -286,13 +287,13 @@ CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件�
    }
    ```
 
-![](https://media:401788444595274408)  
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/VXFl3s5gSx2c8N7FJ9p2Nw/zh-cn_image_0000002762993463.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=B3DC261B9D2373B8F927C0952AAEF8C1C0E2432572C4694651C326A850B1FD85)
 
-#### 弹出框的动画
+## 弹出框的动画
 
 弹出框通过定义[CustomDialogControllerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions对象说明)中的openAnimation属性控制出现动画的持续时间，速度等参数。
 
-```
+```TypeScript
 @CustomDialog
 struct CustomDialogExample {
   controller?: CustomDialogController;
@@ -350,13 +351,13 @@ export struct DialogAnimationNew {
 }
 ```
 
-![](https://media:401788444595318409)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/mRvsv1IqQnOgrHkbsxYyDw/zh-cn_image_0000002762833575.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=6B56722B9E0E1006436A42F7CDE6705980C3ADE8FE12A03DDFE8A89292756047)
 
-#### 弹出框的样式
+## 弹出框的样式
 
 通过定义弹出框的宽度、高度、背景色、阴影等参数，控制其样式。
 
-```
+```TypeScript
 @CustomDialog
 struct CustomDialogExample {
   controller?: CustomDialogController;
@@ -415,13 +416,13 @@ export struct DialogStyleNew {
 }
 ```
 
-![](https://media:401788444595347410)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/i9sjdRStTEW9kSTwxSm6GQ/zh-cn_image_0000002733274060.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=AAF1E013EF1C20A7F500B210761E3FAAA5076D4F525A150A57E564FAEE1457B4)
 
-#### 嵌套自定义弹出框
+## 嵌套自定义弹出框
 
 通过第一个弹出框打开第二个弹出框时，最好将第二个弹出框定义在第一个弹出框的父组件处，通过父组件传给第一个弹出框的回调来打开第二个弹出框。
 
-```
+```TypeScript
 @CustomDialog
 struct CustomDialogExampleTwo {
   controllerTwo?: CustomDialogController;
@@ -527,15 +528,15 @@ export struct NestDialogNew {
 }
 ```
 
-![](https://media:401788444595385411)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/Cf7IPCVPSj2nabCM7cXWnQ/zh-cn_image_0000002733433944.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=E8F4DBCBFD6734B2ED5658487FC08A8B6E727D600E7BAC5CDAF1ADAB253060F0)
 
-由于自定义弹出框在状态管理侧有父子关系，如果将第二个弹出框定义在第一个弹出框内，那么当父组件（第一个弹出框）被销毁（关闭）时，子组件（第二个弹出框）内无法再继续创建新的组件。  
+由于自定义弹出框在状态管理侧有父子关系，如果将第二个弹出框定义在第一个弹出框内，那么当父组件（第一个弹出框）被销毁（关闭）时，子组件（第二个弹出框）内无法再继续创建新的组件。
 
-#### 实现弹出框的物理返回拦截
+## 实现弹出框的物理返回拦截
 
 执行点击遮障层关闭、侧滑（左滑或右滑）、三键Back、键盘ESC关闭等交互操作时，如果注册了[CustomDialogControllerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions对象说明)中的onWillDismiss回调函数，弹出框不会立即关闭。在回调函数中，通过[DismissDialogAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#dismissdialogaction12)中的reason属性获取阻拦关闭弹出框的操作类型，根据原因决定是否关闭弹出框。
 
-```
+```TypeScript
 @CustomDialog
 struct CustomDialogExample {
   cancel: () => void = () => {
@@ -634,15 +635,15 @@ export struct DialogWithPhysicalBack {
 }
 ```
 
-![](https://media:401788444595415412)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/bGnHxR6HRiqYGuPiJ4pUHw/zh-cn_image_0000002762993465.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=22889C6AB18CB61683F35B6EC5EADECB45DB9DAEC6CE6DF55248CDFBE1296663)
 
-#### 设置弹出框避让软键盘的距离
+## 设置弹出框避让软键盘的距离
 
 为显示弹出框的独立性，弹出框弹出时会与周边进行避让，包括状态栏、导航条以及键盘等留有间距。故当软键盘弹出时，默认情况下，弹出框会自动避开软键盘，并与之保持16vp的距离。从API version 15开始，开发者可以利用[CustomDialogControllerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontrolleroptions对象说明)中的keyboardAvoidMode和keyboardAvoidDistance这两个配置项，来设置弹出框在软键盘弹出时的行为，包括是否需要避开软键盘以及与软键盘之间的距离。
 
 设置软键盘间距时，需要将keyboardAvoidMode值设为KeyboardAvoidMode.DEFAULT。
 
-```
+```TypeScript
 // xxx.ets
 import { LengthMetrics } from '@kit.ArkUI';
 
@@ -699,9 +700,9 @@ export struct DialogAvoidSoftKeyboard {
 }
 ```
 
-![](https://media:401788444595447413)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/rh30GOXFR2CAWf9E1mnO4Q/zh-cn_image_0000002762993461.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=930899FDCF53D7C86EB90F68D4538239DD1B1FC05A8110349111ED9B0090CA45)
 
-#### 获取弹出框的状态
+## 获取弹出框的状态
 
 在业务模块中，页面上可能会同时出现多个弹出框。为避免重复打开相同的弹出框，建议在显示弹出框前，先通过控制器检查其当前状态。如果弹出框已处于显示状态，则不应再次打开。
 
@@ -709,7 +710,7 @@ export struct DialogAvoidSoftKeyboard {
 
 以下示例通过[getDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#getdialogcontroller18)和[CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller)两种方法，实现了获取弹出框当前状态的功能。
 
-```
+```TypeScript
 // xxx.ets
 @CustomDialog
 struct CustomDialogExample {
@@ -767,4 +768,5 @@ export struct GetDialogStatus {
 }
 ```
 
-![](https://media:401788444595479414)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/2YiRuIjGSQC9CHNjPF8RmQ/zh-cn_image_0000002762833577.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=9B0E966E533762B871990EE871934649ACE19CF18C24463A8D78365755CC852C)
+

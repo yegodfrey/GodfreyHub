@@ -6,27 +6,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-c
 
 # Interface (ClusterOverlay)
 
-#### 导入模块
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | wearable 5.1.0(18)+
 
-```
+## 导入模块
+
+```typescript
 import { map, mapCommon } from '@kit.MapKit';
 ```
 
-#### ClusterOverlay
+## ClusterOverlay
 
 聚合图层类。ClusterOverlay用于在地图上展示聚合后的标记点，以优化大量标记点显示时的性能和用户体验。它将地理位置相近的多个标记点合并为一个聚合点，并支持点击聚合点展开查看具体标记点。适用于展示大量POI数据、避免地图过于拥挤的情况。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addClusterOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addclusteroverlay)方法时会返回该类型的实例。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)
+**起始版本：** 5.0.0(12)
 
-示例：
+**示例：**
 
-```
+```typescript
 let clusterItem1: mapCommon.ClusterItem = {
   position: {
     latitude: 31.984,
@@ -50,92 +52,92 @@ let clusterOverlayParams: mapCommon.ClusterOverlayParams = {
 let clusterOverlay: map.ClusterOverlay = await this.mapController.addClusterOverlay(clusterOverlayParams);
 ```
 
-#### on('clusterClick')
+### on('clusterClick')
 
-on(type: 'clusterClick', callback: Callback\<Array\<mapCommon.ClusterItem\>\>): void
+on(type: 'clusterClick', callback: Callback<Array<mapCommon.ClusterItem>>): void
 
 监听cluster的点击事件。使用callback异步回调。
 
 建议使用[ClusterOverlay.on(type: 'click')](#onclick)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)
+**起始版本：** 5.0.0(12)
 
-参数：  
+**参数：**
 
-|参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------|
+|**参数名**|**类型**|必填|**说明**|
+|:-------|:---------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------|
 |type|string|是|'clusterClick'：聚合图层的聚合点点击监听事件。|
-|callback|Callback\<Array\<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)\>\>|是|回调函数，返回Array\<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)\>。|
+|callback|Callback<Array<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)>>|是|回调函数，返回Array<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)>。|
 
-示例：
+**示例：**
 
-```
+```typescript
 clusterOverlay.on("clusterClick", (clusterItems) => {
   console.info(`callback: ${clusterItems.length}`);
 });
 ```
 
-#### off('clusterClick')
+### off('clusterClick')
 
-off(type: 'clusterClick', callback?: Callback\<void\>): void
+off(type: 'clusterClick', callback?: Callback<void>): void
 
 取消监听cluster的点击事件。使用callback异步回调。
 
 建议使用[ClusterOverlay.off(type: 'click')](#offclick)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)
+**起始版本：** 5.0.0(12)
 
-参数：  
+**参数：**
 
-|参数名|类型|必填|说明|
-|:-------|:---------------|:-|:-----------------------------|
+|**参数名**|**类型**|必填|**说明**|
+|:-------|:-------------|:-|:-----------------------------|
 |type|string|是|'clusterClick'：聚合图层的聚合点点击监听事件。|
-|callback|Callback\<void\>|否|回调函数，无返回结果。|
+|callback|Callback<void>|否|回调函数，无返回结果。|
 
-示例：
+**示例：**
 
-```
+```typescript
 clusterOverlay.off("clusterClick", () => {
   console.info("callback off");
 });
 ```
 
-#### on('click')
+### on('click')
 
-on(type: 'click', callback: Callback\<Array\<mapCommon.ClusterItem\>\>): void
+on(type: 'click', callback: Callback<Array<mapCommon.ClusterItem>>): void
 
 监听聚合图层的聚合点点击事件。支持传递多个callback异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)
+**起始版本：** 5.0.0(12)
 
-参数：  
+**参数：**
 
-|参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------|
+|**参数名**|**类型**|必填|**说明**|
+|:-------|:---------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |type|string|是|'click'：监听聚合图层的聚合点点击事件。|
-|callback|Callback\<Array\<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)\>\>|是|回调函数，返回Array\<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)\>，监听聚合图层的聚合点点击事件。|
+|callback|Callback<Array<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)>>|是|回调函数，返回Array<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)>，监听聚合图层的聚合点点击事件。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let callback1 = (clusterItem: Array<mapCommon.ClusterItem>) => {
   console.info("click", `callback1 clusterItem length: ${clusterItem.length}`);
 };
@@ -150,30 +152,30 @@ clusterOverlay.on("click", callback2);
 clusterOverlay.on("click", callback3);
 ```
 
-#### off('click')
+### off('click')
 
-off(type: 'click', callback?: Callback\<Array\<mapCommon.ClusterItem\>\>): void
+off(type: 'click', callback?: Callback<Array<mapCommon.ClusterItem>>): void
 
 取消监听聚合图层的聚合点点击事件。支持传递多个callback异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)
+**起始版本：** 5.0.0(12)
 
-参数：  
+**参数：**
 
-|参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**参数名**|**类型**|必填|**说明**|
+|:-------|:---------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |type|string|是|'click'：监听聚合图层的聚合点点击事件。|
-|callback|Callback\<Array\<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)\>\>|否|回调函数，返回Array\<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)\>，取消监听聚合图层的聚合点点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。|
+|callback|Callback<Array<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)>>|否|回调函数，返回Array<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)>，取消监听聚合图层的聚合点点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let callback1 = (clusterItem: Array<mapCommon.ClusterItem>) => {
   console.info("click", `callback1 clusterItem`);
 };
@@ -193,30 +195,30 @@ clusterOverlay.off('click', callback1);
 clusterOverlay.off('click');
 ```
 
-#### on('markerClusterClick')
+### on('markerClusterClick')
 
-on(type: 'markerClusterClick', callback: Callback\<MarkerClusterInfo\>): void
+on(type: 'markerClusterClick', callback: Callback<MarkerClusterInfo>): void
 
 监听聚合图层的标记点击事件。使用callback异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.3(15)
+**起始版本：** 5.0.3(15)
 
-参数：  
+**参数：**
 
-|参数名|类型|必填|说明|
-|:-------|:---------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**参数名**|**类型**|必填|**说明**|
+|:-------|:-------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |type|string|是|'markerClusterClick'：聚合图层的标记点击监听事件。|
-|callback|Callback\<[MarkerClusterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-markerclusterinfo)\>|是|回调函数，返回Callback\<[MarkerClusterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-markerclusterinfo)\>，监听聚合图层的标记点击事件。 MarkerClusterInfo包括： - marker：聚合图层的标记。 - clusterItems：聚合节点数组。|
+|callback|Callback<[MarkerClusterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-markerclusterinfo)>|是|回调函数，返回Callback<[MarkerClusterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-markerclusterinfo)>，监听聚合图层的标记点击事件。 MarkerClusterInfo包括： - marker：聚合图层的标记。 - clusterItems：聚合节点数组。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let callback1 = (markerClusterInfo: map.MarkerClusterInfo) => {
   console.info("markerClusterClick", `callback1 markerClusterInfo`);
 };
@@ -231,30 +233,30 @@ clusterOverlay.on("markerClusterClick", callback2);
 clusterOverlay.on("markerClusterClick", callback3);
 ```
 
-#### off('markerClusterClick')
+### off('markerClusterClick')
 
-off(type: 'markerClusterClick', callback?: Callback\<MarkerClusterInfo\>): void
+off(type: 'markerClusterClick', callback?: Callback<MarkerClusterInfo>): void
 
 取消监听聚合图层的标记点击事件。使用callback异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.3(15)
+**起始版本：** 5.0.3(15)
 
-参数：  
+**参数：**
 
-|参数名|类型|必填|说明|
-|:-------|:---------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**参数名**|**类型**|必填|**说明**|
+|:-------|:-------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |type|string|是|'markerClusterClick'：聚合图层的标记点击监听事件。|
-|callback|Callback\<[MarkerClusterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-markerclusterinfo)\>|否|回调函数，返回Callback\<[MarkerClusterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-markerclusterinfo)\>，取消监听聚合图层的标记点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 MarkerClusterInfo包括： - marker：聚合图层的标记。 - clusterItems：聚合节点数组。|
+|callback|Callback<[MarkerClusterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-markerclusterinfo)>|否|回调函数，返回Callback<[MarkerClusterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-markerclusterinfo)>，取消监听聚合图层的标记点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 MarkerClusterInfo包括： - marker：聚合图层的标记。 - clusterItems：聚合节点数组。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let callback1 = (markerClusterInfo: map.MarkerClusterInfo) => {
   console.info("markerClusterClick", `callback1 markerClusterInfo`);
 };
@@ -273,35 +275,35 @@ clusterOverlay.off('markerClusterClick', callback1);
 clusterOverlay.off('markerClusterClick');
 ```
 
-#### addItem
+### addItem
 
-addItem(item: mapCommon.ClusterItem): Promise\<void\>
+addItem(item: mapCommon.ClusterItem): Promise<void>
 
 新增聚合节点。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)
+**起始版本：** 5.0.0(12)
 
-参数：  
+**参数：**
 
-|参数名|类型|必填|说明|
-|:---|:----------------------------------------------------------------------------------------------------------------|:-|:-----|
+|**参数名**|**类型**|必填|**说明**|
+|:------|:----------------------------------------------------------------------------------------------------------------|:-|:-----|
 |item|mapCommon.[ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)|是|待聚合节点。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:-------------------------|
-|Promise\<void\>|Promise对象。无返回结果的Promise对象。|
+|:------------|:-------------------------|
+|Promise<void>|Promise对象。无返回结果的Promise对象。|
 
-示例：
+**示例：**
 
-```
+```typescript
 let clusterItem: mapCommon.ClusterItem = {
   position: {
     latitude: 31.98,
@@ -311,29 +313,29 @@ let clusterItem: mapCommon.ClusterItem = {
 await clusterOverlay.addItem(clusterItem);
 ```
 
-#### remove
+### remove
 
-remove(): Promise\<void\>
+remove(): Promise<void>
 
 移除聚合图层。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+**元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Map.Core
+**系统能力：** SystemCapability.Map.Core
 
-起始版本： 5.0.0(12)
+**起始版本：** 5.0.0(12)
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:-------------------------|
-|Promise\<void\>|Promise对象。无返回结果的Promise对象。|
+|:------------|:-------------------------|
+|Promise<void>|Promise对象。无返回结果的Promise对象。|
 
-示例：
+**示例：**
 
-```
+```typescript
 await clusterOverlay.remove();
 ```
 

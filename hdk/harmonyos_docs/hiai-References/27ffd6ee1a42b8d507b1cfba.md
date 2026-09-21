@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/getnamedattrs-
 
 # GetNamedAttrs
 
-#### 接口定义
+## 接口定义
 
-```
+```screen
 NamedAttrs GetNamedAttrs() const;
 ```
 
-#### 功能介绍
+## 功能介绍
 
-获取指定模板类型的参数值。  
+获取指定模板类型的参数值。
 
-#### 返回
+## 返回
 
 |类型|描述|
 |:---------|:---|

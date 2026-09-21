@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hms-aggrpay
 
 # Interface Summary
 
-* [AggrPayClient](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hms-aggrpay-client-0000001537864142)  
+* **[AggrPayClient](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hms-aggrpay-client-0000001537864142)**   

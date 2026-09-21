@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/prize-creating-proce
 
 ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20211126150204.49505884759178487859395849809552:50521125084658:2800:0B0484992CCEEEC3BE8F8DA62DC5CF99478D272AEB85977C2DEC1AB5A7CB84F9.png?needInitFileName=true?needInitFileName=true)
 
-配置说明表：  
+**配置说明表：**
 
 |X元优惠券配置表||
 |:--------|---------------------------------------------------------------------|
@@ -40,7 +40,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/prize-creating-proce
 
 ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20211126150204.63094695094188335586835087668790:50521125084658:2800:B3D383AF9D3CC840DD7547357B6342493AC7D0E2B1AD5801824F18B74245900C.png?needInitFileName=true?needInitFileName=true)
 
-配置说明表：  
+**配置说明表：**
 
 |游戏礼包配置表||
 |:----------|------------------------------------------------------------------------------------------------|
@@ -49,7 +49,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/prize-creating-proce
 |礼包名称|游戏名 新手礼包|
 |礼包价值|50|
 |礼包有效期|2021年7月5日-2021年12月31日|
-|礼包内容说明|XXX\*数量、XXX\*数量、XXX\*数量|
+|礼包内容说明|XXX*数量、XXX*数量、XXX*数量|
 |礼包使用描述|进入游戏-点击头像-礼包兑换-输入礼包码即可获得奖励|
 |配置游戏礼包注意事项：|1、礼包名称格式："游戏名+礼包名"，如：永恒纪元 初征礼包； 2、礼包取名规则：根据游戏及礼包内容特色取名； 3、礼包使用描述（格式）：进入游戏-点击头像-礼包兑换-输入礼包码即可获得奖励。|
 
@@ -57,7 +57,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/prize-creating-proce
 
 ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20211126150204.60265332771542536164563982402689:50521125084658:2800:5C8385938F06EB0B251590BA20935E02DF29BCF382BFA33726CD82D679C0EACB.png?needInitFileName=true?needInitFileName=true)
 
-配置说明表：  
+**配置说明表**：
 
 |------|------------------------|
 |第三方卡券配置表||

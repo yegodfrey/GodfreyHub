@@ -8,31 +8,30 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 
 鲸鸿动能流量变现服务（以下简称"流量变现服务"）是华为推出的一项广告服务，依托华为强大的终端平台和数据能力，帮助您实现广告流量变现。接入广告服务后，您可以在游戏内向用户展示精准的、精美的以及高价值的广告内容，并从中获得对应的广告收益。接入广告服务的流程如下：
 
-![](https://media:201787297055053836)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/Fz3PeVjXTQaoxsyhJBRDdg/zh-cn_image_0000001824814705.png?HW-CC-KV=V1&HW-CC-Date=20260909T171152Z&HW-CC-Expire=31536000000&HW-CC-Sign=A5ECAB6B949434E8FA7EC4647BE4552ACC55285706C23BCC6E92EF3A5F5D6F60)
 
 您可以接入如下广告类型：
 
 * 原生广告：广告内容以"原生"的形式植入到游戏场景中，广告呈现不破坏游戏场景的和谐，在不影响用户体验的前提下，为用户提供有价值的信息，支持展示图片、文字和视频。原生广告目前提供两种形式：
-  * 落地页下载/打开应用。您需要自定义广告图片，若是下载类广告，请额外自定义控件按钮。调用[nativeAd.startDownload](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1660516404918)接口将在用户点击广告后前往落地页下载/打开应用。
-  * （推荐）当前页下载/打开应用。该方式大大提升了原生广告的下载转化，广告流水预估可能提升20%。您在渲染广告图片时必须加上六要素（应用名，开发者信息，版本号，隐私，权限，介绍），若是下载类广告，请额外调用[nativeAd.showDownloadButton](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1472982717439)接口渲染控件按钮，样例图如下。在广告曝光后，用户点击广告将跳转至应用详情页，可以下载或打开应用。在下载类广告消失后，必须调用[nativeAd.hideDownloadButton](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section13271113313213)隐藏控件按钮。  
-    ![](https://media:201787297055124837)  
-    * 建议控件按钮与广告图片保持较近的距离。
-    * 可根据[nativeAd.onLoad](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1528411518185)返回的creativeType值判断广告类型是否带有下载按钮，如果是，则为下载类广告。
+  * **落地页** 下载/打开应用。您需要自定义广告图片，若是下载类广告，请额外自定义控件按钮。调用[nativeAd.startDownload](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1660516404918)接口将在用户点击广告后前往落地页下载/打开应用。
+  * （推荐）**当前页** 下载/打开应用。该方式大大提升了原生广告的下载转化，广告流水预估可能提升20%。您在渲染广告图片时**必须** 加上六要素（应用名，开发者信息，版本号，隐私，权限，介绍），若是下载类广告，请额外调用[nativeAd.showDownloadButton](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1472982717439)接口渲染控件按钮，样例图如下。在广告曝光后，用户点击广告将跳转至应用详情页，可以下载或打开应用。在下载类广告消失后，**必须** 调用[nativeAd.hideDownloadButton](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section13271113313213)隐藏控件按钮。 说明
+    > * 建议控件按钮与广告图片保持较近的距离。
+    > * 可根据[nativeAd.onLoad](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1528411518185)返回的**creativeType**值判断广告类型是否带有下载按钮，如果是，则为下载类广告。
 
-    ![](https://media:201787297055159838)
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/0rtrU3EWR9qXy6na4W2UbA/zh-cn_image_0000001893974644.png?HW-CC-KV=V1&HW-CC-Date=20260909T171152Z&HW-CC-Expire=31536000000&HW-CC-Sign=2AB0ADF77629B08C775A916A849EF7E53EBDBE64FAE96EDE366872DA0BAFEDA2)
 * 激励广告：观看完整的视频广告，用户可以获取游戏内对应的奖励。
 * Banner广告：在快游戏界面的顶部、中部或底部占据一个矩形位置的广告，广告内容每隔一段时间自动刷新，用户点击内容后会自动跳转到对应的页面。
 * 插屏广告：启动、暂停、退出快游戏时以全屏的形式弹出的广告。
 
-#### 前提条件
+## 前提条件
 
 * 您已了解"流量变现服务"对接入主体、媒体、设备及服务区域都有一定的限制，限制详情请参见[流量变现服务受限说明](https://developer.huawei.com/consumer/cn/doc/distribution/monetize/shouxianshuoming-0000001085379360)。
 * 您已了解"流量变现服务"业务规范，规范详情请参见[业务规则](https://developer.huawei.com/consumer/cn/doc/distribution/monetize/yewuzongze-0000001132177047)。
 * 您已实名认证、开通商户服务、签署《鲸鸿动能媒体服务协议》，操作详情请参见[注册认证](https://developer.huawei.com/consumer/cn/doc/distribution/monetize/zhucerenzheng-0000001132395957)。
 * 快游戏已添加媒体，操作详情请参见[媒体管理](https://developer.huawei.com/consumer/cn/doc/distribution/monetize/meitiguanli-0000001132278779)。
-* 快游戏已添加广告展示位，操作详情请参见[展示位创建](https://developer.huawei.com/consumer/cn/doc/distribution/monetize/zhanshiweichuangjian-0000001132700049)。  
+* 快游戏已添加广告展示位，操作详情请参见[展示位创建](https://developer.huawei.com/consumer/cn/doc/distribution/monetize/zhanshiweichuangjian-0000001132700049)。
 
-#### 征求用户意见
+## 征求用户意见
 
 鲸鸿动能投放的广告包括个性化广告和非个性化广告。为了征求用户意见，鲸鸿动能提供了相关接口征求用户意见，以及在征得用户意见后如何根据用户意见获取广告。
 
@@ -48,39 +47,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
    * 进入成功回调，返回广告技术提供商等信息，并进一步判断isNeedConsent的值。
      * isNeedConsent为false，则不需要征求意见，可以请求个性化广告。
      * isNeedConsent为true，且consentStatus=2，则需要弹框征求用户意见。
-3. 征求用户意见。
+3. 征求用户意见。 开发者需要自定义弹框等方式向用户征求意见，并展示广告技术提供商的完整列表。示例demo效果图如下（仅供参考）：
 
-   开发者需要自定义弹框等方式向用户征求意见，并展示广告技术提供商的完整列表。示例demo效果图如下（仅供参考）：  
+   |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/OOf2ADwzSFiH0sAbkk8shw/zh-cn_image_0000001120716168.png?HW-CC-KV=V1&HW-CC-Date=20260909T171152Z&HW-CC-Expire=31536000000&HW-CC-Sign=A17EC67F290BAFE1F5A29BC6746C953B20FDDCFBE4FFBF8E087FC33F16F0185A)|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/_X0SYCkpQeqaOFVhbMAsaA/zh-cn_image_0000001167595849.png?HW-CC-KV=V1&HW-CC-Date=20260909T171152Z&HW-CC-Expire=31536000000&HW-CC-Sign=9FF11A6A01F04D29E3ADF10254BAABF258FA1C673E288F06CE10C058735E6E66)|
+   |**图一** 弹框效果|**图二** 点图一中here后展示广告提供商|
 
-   |-------------------------------------|-------------------------------------|
-   |![](https://media:201787297055206839)|![](https://media:201787297055259840)|
-   |图一 弹框效果|图二 点图一中here后展示广告提供商|
-
-4. 调用[qg.setConsentStatus](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section10342513193112)设置[步骤3](#ZH-CN_TOPIC_0000001159778259__li55822449132)通过弹框获取的用户意见。  
-   ![](https://media:201787297055295841)  
-   * 请必须让用户可以随时更改或撤消意见，并将用户更新后的意见再次调用该接口进行设置。
-   * 中国大陆地区可选择是否接入[qg.setConsentStatus](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section10342513193112)设置用户意见。
+4. 调用[qg.setConsentStatus](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section10342513193112)设置[步骤3](#ZH-CN_TOPIC_0000001159778259__li55822449132)通过弹框获取的用户意见。 注意
+   > * 请必须让用户可以随时更改或撤消意见，并将用户更新后的意见再次调用该接口进行设置。
+   > * 中国大陆地区可选择是否接入[qg.setConsentStatus](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section10342513193112)设置用户意见。
 5. 根据广告类型调用[qg.setTagForUnderAgeOfPromise](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1393594010568)设置未达到法定年龄用户的标记。
 6. 根据广告类型调用[qg.setNonPersonalizedAd](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section193934035615)设置请求广告类型（个性化或者非个性化）。
 7. 请求广告。（如果获取用户意见时，用户未给出选择，则只能请求非个性化广告） 通过调用开发的接口，接入原生广告、激励视频或者Banner广告。
 
-更详细的内容可以参见[征求用户意见Demo](#section1360461017315)。  
+更详细的内容可以参见[征求用户意见Demo](#section1360461017315)。
 
-#### 原生广告
+## 原生广告
 
 1. 通过 let nativeAd=[qg.createNativeAd](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section443419211957)创建广告组件。
 2. 调用[nativeAd.load()](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section15261346684)拉取广告数据。
 
    成功执行[nativeAd.onLoad](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1528411518185)回调。
 
-   ```
+   ```javascript
    nativeAd.onLoad((adlist) => {
    })
    ```
 
    失败执行[nativeAd.onError](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section19331824172513)回调。
 
-   ```
+   ```javascript
    nativeAd.onError((errorObj) => {
    })
    ```
@@ -90,23 +86,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 5. 每次用户点击广告后调用[nativeAd.reportAdClick](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section18941134151715)进行上报。
 6. 广告页面消失时，调用[nativeAd.hideDownloadButton](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section13271113313213)接口隐藏控件按钮。
 
-更详细的内容可以参见[原生广告Demo](#section68688435321)。  
+更详细的内容可以参见[原生广告Demo](#section68688435321)。
 
-#### 激励视频广告
+## 激励视频广告
 
 1. 通过 let rewardedVideoAd=[qg.createRewardedVideoAd](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section9772146486)创建广告组件。
 2. 调用[rewardedVideoAd.load](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1972112171410)拉取广告数据，成功拉取广告数据后再显示广告的播放入口。
 
    成功执行[rewardedVideoAd.onLoad](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1630313442180)回调。
 
-   ```
+   ```javascript
    rewardedVideoAd.onLoad((adlist) => {
    })
    ```
 
    失败执行[rewardedVideoAd.onError](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section102711648165011)回调。
 
-   ```
+   ```javascript
    rewardedVideoAd.onError((errorObj) => {
    })
    ```
@@ -116,16 +112,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 5. 关闭广告前调用[rewardedVideoAd.load](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1972112171410)获取下一次广告的数据。
 6. 当应用场景销毁时，调用[rewardedVideoAd.destroy](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section5568204441520)销毁激励视频广告。
 
-详细的内容可以参见[激励视频广告Demo](#section164708613311)。  
+详细的内容可以参见[激励视频广告Demo](#section164708613311)。
 
-#### Banner广告
+## Banner广告
 
 1. 通过 let bannerAd=[qg.createBannerAd](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section912518224415)创建广告组件。
 2. 调用[bannerAd.show](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section624934211819)拉取广告。
 
    成功执行[bannerAd.onLoad](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section7324182810252)回调。
 
-   ```
+   ```screen
    bannerAd.onLoad(()=>{
        console.log('bannerAd onload success')
    })
@@ -133,7 +129,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 
    失败执行[bannerAd.onError](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section18987174410195)回调。
 
-   ```
+   ```screen
    bannerAd.onError((e)=>{
        console.log('bannerAd onError '+ JSON.stringify(e))
    })
@@ -143,16 +139,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 4. 调用[bannerAd.onClose](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section11570203913310)监听Banner广告的关闭。
 5. 调用[bannerAd.destroy](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section26911713164418)销毁Banner广告，销毁后重新创建的广告为新的广告。
 
-详细的内容可以参见[Banner广告Demo](#section173911120336)。  
+详细的内容可以参见[Banner广告Demo](#section173911120336)。
 
-#### 插屏广告
+## 插屏广告
 
 1. 通过 const interstitialAd=[qg.createInterstitialAd](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1043518578314)创建广告。
 2. 调用[interstitialAd.load](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section137531557955)加载广告数据。
 
    成功执行[interstitialAd.onLoad](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section201107221293)回调，并调用[interstitialAd.show](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section9887931482)显示广告。
 
-   ```
+   ```screen
    interstitialAd.onLoad(function (data) {
        console.log('onLoad data ' + JSON.stringify(data));
        interstitialAd.show();
@@ -161,7 +157,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 
    失败执行[interstitialAd.onError](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section16232171314174)回调。
 
-   ```
+   ```screen
    interstitialAd.onError((e)=>{
        console.log('interstitialAd onError '+ JSON.stringify(e))
    })
@@ -170,32 +166,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 3. 调用[interstitialAd.onClick](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section141912516228)监听插屏广告的点击。
 4. 调用[interstitialAd.onClose](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1856893917208)监听插屏广告的关闭，如果关闭了，则调用[interstitialAd.destroy](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section108807478234)销毁插屏广告。
 
-   ```
+   ```screen
    interstitialAd.onClose(()=>{
        console.log('interstitialAd closed');
        interstitialAd.destroy();
    })
    ```
 
-更详细的内容可以参见[插屏广告Demo](#section2045604810240)。  
+更详细的内容可以参见[插屏广告Demo](#section2045604810240)。
 
-#### 广告测试验证及上线
+## 广告测试验证及上线
 
 在广告商业上线前，您需要对集成的广告进行自测，以及提交给华为验收。
 
 在进行自测前，您需要对测试环境进行自检：
 
-1. 使用华为手机进行调试，并使用测试广告位，获取测试广告位参见[如何获取广告测试id](https://developer.huawei.com/consumer/cn/doc/distribution/monetize/ceshiyanzhengjishangxian-0000001085219714)。  
-   ![](https://media:201787297055332842)  
-   测试阶段请使用测试广告位ID。
+1. 使用华为手机进行调试，并使用测试广告位，获取测试广告位参见[如何获取广告测试id](https://developer.huawei.com/consumer/cn/doc/distribution/monetize/ceshiyanzhengjishangxian-0000001085219714)。 注意
+   >
+   > 测试阶段请使用测试广告位ID。
 2. 测试手机上已安装HMS Core（APK）4.0.0.300及以上版本，不满足要求请到华为应用市场安装或者升级。
 3. 检查测试手机时间是否为当前时间，如果不是，请调整至当前时间。
-4. 确保测试手机的"限制广告跟踪"配置项为关闭状态。（配置项设置路径：设置 \> 安全和隐私 \> 更多安全设置 \> 匿名设备标识 \> 限制广告跟踪）
+4. 确保测试手机的"限制广告跟踪"配置项为关闭状态。（配置项设置路径：设置 > 安全和隐私 > 更多安全设置 > 匿名设备标识 > 限制广告跟踪）
 
 请参考如下规则进行自检：
 
 1. 请勿设置定时器循环请求广告。
-2. 请勿失败后频繁重复请求广告。 【错误做法】失败后在onError中重新请求广告。如果每次都回调onError，会进入"请求广告---\>失败---\>请求广告"的恶性循环。
+2. 请勿失败后频繁重复请求广告。 【错误做法】失败后在onError中重新请求广告。如果每次都回调onError，会进入"请求广告--->失败--->请求广告"的恶性循环。
 
    【推荐做法】正常情况下不管是成功还是失败都不要再次发起请求。如果业务希望请求失败后重试，只有激励视频可以再发起1次，其他类型广告都不要再次发起请求。
 3. 每次请求的广告不能重复展示，展示完成后需要重新实时获取后，再次展示。 【错误做法】在多个场景使用同一个全局的广告去展示广告。
@@ -204,8 +200,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 4. 预缓存的广告如激励视频广告，请注意load和show接口调用的时间间隔，超过一个小时需重新请求新的广告来展示，否则计为无效展示，将不计费结算。
 5. 激励视频调用show接口前，建议先预加载，加载失败的时候，不要显示广告入口。否则从广告入口进入后，可能因为视频数据没有加载完成，导致空白。 【推荐做法】建议在onLoad回调中延时几秒或者几分钟调用show接口。
 
-   ![](https://media:201787297055367843)  
-   延时时长不要超过1个小时，否则广告计为无效展示，将不计费结算。
+   > 注意
+   >
+   > 延时时长不要超过1个小时，否则广告计为无效展示，将不计费结算。
 6. 没有任何内容或不以内容为主的屏幕上应避免展示广告。
 7. 广告必须有关闭按钮，特别是由开发者自行定义布局的原生广告，一定要在广告界面上设计关闭能力。
 8. 广告素材必须全尺寸等比例展示。展示广告时，要保证原有的宽高比，只能等比例缩放。
@@ -213,7 +210,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 10. 请勿通过其他违规手段进行广告请求与展示。
 11. 原生广告每次点击都需要调用reportAdClick接口上报点击事件。 【错误做法】原生广告多次点击只上报一次点击事件。
 
-<!-- -->
 
 12. 原生广告每次展示都需要上报曝光事件。 【错误做法】原生广告多次展示只上报一次曝光事件。 例如：在首次展示广告的时候调用reportAdShow接口上报，但当从其他场景返回到广告页面时，仍然显示了广告，但是没有上报曝光事件。
 
@@ -224,20 +220,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 
 16. 必须用户同意了用户隐私协议才能展示广告，不同意请勿请求和展示广告。
 
-自测和华为验收通过后，即可准备广告的商业上架，具体操作参见"[鲸鸿动能流量变现服务测试验证及上线](https://developer.huawei.com/consumer/cn/doc/distribution/monetize/ceshiyanzhengjishangxian-0000001085219714)"。  
+自测和华为验收通过后，即可准备广告的商业上架，具体操作参见"[鲸鸿动能流量变现服务测试验证及上线](https://developer.huawei.com/consumer/cn/doc/distribution/monetize/ceshiyanzhengjishangxian-0000001085219714)"。
 
-#### 示例代码
+## 示例代码
 
-![](https://media:201787297055403844) [查看视频教程](https://developer.huawei.com/consumer/cn/training/detail/101622713477391672)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/GZUfD52zS2mGeT4yeE3QhQ/zh-cn_image_0000001172477357.png?HW-CC-KV=V1&HW-CC-Date=20260909T171152Z&HW-CC-Expire=31536000000&HW-CC-Sign=F6708FD0DC17A8C2727D74147DBE1E962FCB7212E317955A16397BDC39A5CEDA) [查看视频教程](https://developer.huawei.com/consumer/cn/training/detail/101622713477391672)
 
-#### 征求用户意见
+### 征求用户意见
 
-```
+```screen
 checkAdConsent(){
   var _this = this;
     console.log("checkAdConsent start");
     //注意：setUnderAgeOfPromise是可选的。
-    //如果开发者需要针对未达到法定承诺年龄的用户请求对应的广告，则在调用requestConsentUpdate()前必须通过调用setUnderAgeOfPromise设置是否“未达到法定承诺年龄用户”的标记。
+    //如果开发者需要针对未达到法定承诺年龄的用户请求对应的广告，则在调用requestConsentUpdate()前必须通过调用setUnderAgeOfPromise设置是否"未达到法定承诺年龄用户"的标记。
     qg.setUnderAgeOfPromise(false);
     //true表明用户未达到法定承诺年龄，不能请求个性化广告，此时调用requestConsentUpdate始终回调失败，不需要弹框。
     //需要征得用户同意调用qg.setUnderAgeOfPromise(false)；       
@@ -311,9 +307,9 @@ showModal(){
 },
 ```
 
-#### 原生广告
+### 原生广告
 
-```
+```screen
 var nativeAd;
 var adId;
 createNativeAd(){
@@ -421,9 +417,9 @@ hideDownloadButton(){
 }
 ```
 
-#### 激励广告
+### 激励广告
 
-```
+```screen
 //预加载操作激励视频，创建视频对象，加载视频load，监听调用onload，监听关闭onclose
 var rewardedVideoAd;
 reLoadVideo(){
@@ -469,9 +465,9 @@ requestRewardAd(){
 },
 ```
 
-#### Banner广告
+### Banner广告
 
-```
+```screen
 createBannerAd() {
     //获取手机详细参数
     var sysInfo = qg.getSystemInfoSync();
@@ -507,9 +503,9 @@ hideBannerAd(){
 }, 
 ```
 
-#### 插屏广告
+### 插屏广告
 
-```
+```screen
 var interstitialAd;
 loadInterstitialVideoAd() {
   if (interstitialAd) {
@@ -544,9 +540,9 @@ loadInterstitialVideoAd() {
 };
 ```
 
-#### 相关链接
+## 相关链接
 
-#### FAQ
+### FAQ
 
 * [如何解决原生广告图片展示失败的问题？](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-faq-ads-0000002419715966#section571562019517)
 * [如何获取自测阶段的广告日志？](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-faq-ads-0000002419715966#section1952413341551)
@@ -573,10 +569,11 @@ loadInterstitialVideoAd() {
 * [如果鸿蒙App已经接入了广告，那么使用鸿蒙App的正式广告id可以加载广告吗？](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-faq-ads-0000002419715966#section134062551400)
 * [观看激励视频两次后，游戏场景偶现加载node场景节点时出现黑色方块，如何处理？](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-faq-ads-0000002419715966#section13535655184014)
 * [激励视频广告如何判断玩家观看完整个视频而不是中途退出？](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-faq-ads-0000002419715966#section184591654141818)
-* [如何分析华为鲸鸿动能 Kit日志？](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-faq-ads-0000002419715966#section833865491014)  
+* [如何分析华为鲸鸿动能 Kit日志？](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-faq-ads-0000002419715966#section833865491014)
 
-#### 案例
+### 案例
 
 * [不同手机上使快游戏的Banner广告始终在手机最下方展示](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-case-0000001112670384#section5905185813510)。
 * [原生广告存在多余请求](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-case-0000001112670384#section11921442194413)。
-* [广告存在多余上报曝光事件](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-case-0000001112670384#section638102114011)。  
+* [广告存在多余上报曝光事件](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-case-0000001112670384#section638102114011)。
+

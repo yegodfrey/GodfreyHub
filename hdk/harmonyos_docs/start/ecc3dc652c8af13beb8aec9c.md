@@ -11,4 +11,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/start/sdk-regulatory-policy-20
 1. 《软件开发工具包（SDK）收集个人信息技术要求》
 2. 《软件开发工具包（SDK）用户权益保障基本要求》
 
-详情请参见：[软件开发工具包（SDK）收集个人信息技术要求》等10项团体标准报批公示](https://www.taf.org.cn/StandardDraft_Detail.aspx?_NOTICE_ID=738)。  
+详情请参见：[软件开发工具包（SDK）收集个人信息技术要求》等10项团体标准报批公示](https://www.taf.org.cn/StandardDraft_Detail.aspx?_NOTICE_ID=738)。
+

@@ -10,49 +10,49 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:--------------------------------------------|
 |public class RtmChannelMemberInfo RTM频道内成员信息。|
 
-#### Method Summary
+## Method Summary
 
 |Qualifier and Type|Method Name and Description|
-|:--------------------|:--------------------------------------------------|
+|:------------------|:--------------------------------------------------|
 |String|[getOpenId](#section59255148819)() 获取玩家ID。|
 |int|[getStatus](#section14940161610714)() 获取RTM连接状态。|
-|Map\<String, String\>|[getPlayerProperties](#section8668315814)() 获取玩家属性。|
+|Map<String, String>|[getPlayerProperties](#section8668315814)() 获取玩家属性。|
 
-#### Methods
+## Methods
 
-#### getOpenId
+### getOpenId
 
 |Method|
 |:--------------------------------|
 |public String getOpenId() 获取玩家ID。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-----|:----------|
 |String|玩家ID。|
 
-#### getStatus
+### getStatus
 
 |Method|
 |:--------------------------------|
 |public int getStatus() 获取RTM连接状态。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:-----------------------|
 |int|RTM连接状态。 * 0：未连接 * 1：已连接|
 
-#### getPlayerProperties
+### getPlayerProperties
 
 |Method|
-|:---------------------------------------------------------|
-|public Map\<String, String\> getPlayerProperties() 获取玩家属性。|
+|:-------------------------------------------------------|
+|public Map<String, String> getPlayerProperties() 获取玩家属性。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:--------------------|:----------|
-|Map\<String, String\>|玩家属性。|
+|:------------------|:----------|
+|Map<String, String>|玩家属性。|
 

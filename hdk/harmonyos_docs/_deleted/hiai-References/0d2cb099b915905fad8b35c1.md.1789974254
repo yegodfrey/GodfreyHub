@@ -1,0 +1,24 @@
+---
+name: document/cn/hiai-References/nativehandle-0000001139236033
+title: NativeHandle
+uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/nativehandle-0000001139236033
+---
+
+# NativeHandle
+
+> 说明
+>
+> 此接口从DDK 5.0.1.0版本起废弃，请使用模型管家V1接口[NativeHandle](https://developer.huawei.com/consumer/cn/doc/hiai-References/nativehandle-0000002017503216)替代。
+
+|Struct Info|
+|:---------------------------------|
+|struct NativeHandle 用于保存ION内存相关信息。|
+
+## Public Attribute Summary
+
+|Qualifier and Type|Field and Description|
+|:-----------------|:-------------------------------------|
+|int|fd ION内存的fd。|
+|int|size ION内存的整体大小。|
+|int|offset ION内存的偏移，实际使用的内存大小为size-offset。|
+

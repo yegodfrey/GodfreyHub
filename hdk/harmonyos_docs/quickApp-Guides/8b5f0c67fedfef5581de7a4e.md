@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-topic
 
 # 其他
 
-* [第三方组件库](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-topic-npm-0000001159156227)  
+* **[第三方组件库](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickapp-topic-npm-0000001159156227)**   

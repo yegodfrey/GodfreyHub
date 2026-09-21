@@ -6,31 +6,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1160
 
 # 如何在bindSheet中实现页面切换的效果
 
-#### 问题现象
+## 问题现象
 
-在使用bindSheet时，只能显示一个弹窗内容，如何在bindSheet中实现页面切换的效果？  
+在使用bindSheet时，只能显示一个弹窗内容，如何在bindSheet中实现页面切换的效果？
 
-#### 背景知识
+## 背景知识
 
 * [bindSheet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#bindsheet)：半模态页面（bindSheet）默认是模态形式的非全屏弹窗式交互页面，允许部分底层父视图可见，帮助用户在与半模态交互时保留其父视图环境。半模态页面适用于展示简单的任务或信息面板，例如，个人信息、文本简介、分享面板、创建日程、添加内容等。若需展示可能影响父视图的半模态页面，半模态支持配置为非模态交互形式。
 * [onAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)：组件区域变化时触发该回调。仅会响应由布局变化所导致的组件大小、位置发生变化时的回调。
 * [animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)：提供animateTo接口来指定由于闭包代码导致的状态变化插入过渡动效。
-* [translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-page-transition-animation#translate)：设置页面转场时的平移效果。  
+* [translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-page-transition-animation#translate)：设置页面转场时的平移效果。
 
-#### 解决方案
+## 解决方案
 
 实现思路如下：
 
 * 半模态页面实现：使用Stack容器层叠布局两个组件，通过@State变量动态控制组件显隐状态，从而实现组件切换。
 * 动画效果优化：为组件绑定onClick点击事件，使用animateTo设置动画持续时间，再指定由于闭包代码导致的状态变化插入过渡动效。
 
-  ```
+  ```ts
   .onClick(() => {
     this.title = '子集标题';
     this.getUIContext()?.animateTo({
       duration: 800, // 动画持续时间，单位为毫秒。
       curve: Curve.EaseOut, // 动画曲线。
-      playMode: PlayMode.Normal, // 动画播放模式，默认播放完成后重头开始播放。  默认值：PlayMode.Normal
+      playMode: PlayMode.Normal, // 动画播放模式，默认播放完成后重头开始播放。 默认值：PlayMode.Normal
       onFinish: () => {
         console.info('play end');
       }
@@ -43,21 +43,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1160
 
 * 页面切换实现：translate属性实现页面切换效果，平移距离通过onAreaChange回调动态获取弹窗宽度，避免不同设备动画的移动尺寸不同。
 
-  ```
+  ```ts
   SheetBuilder2({ title: this.title, flag: this.flag })
     .width('100%')
     .height('100%')
     .translate(this.flag ? { x: 0 } : { x: this.translateX })
     .onAreaChange((oldValue: Area, newValue: Area) => {
       console.info('testTag', `获取到oldValue、newValue:${oldValue.width}、${newValue.width}`);
-      // 适配其他尺寸设备时，使用onAreaChange获取宽度，动画的移动尺寸直接取弹窗的宽度。
+    // 适配其他尺寸设备时，使用onAreaChange获取宽度，动画的移动尺寸直接取弹窗的宽度。
       this.translateX = newValue.width as number;
     });
   ```
 
 完整代码如下：
 
-```
+```ts
 @Entry
 @Component
 struct SheetDemo {
@@ -93,12 +93,12 @@ struct SheetDemo {
               this.getUIContext()?.animateTo({
                 duration: 800, // 动画持续时间，单位为毫秒。
                 curve: Curve.EaseOut, // 动画曲线。
-                playMode: PlayMode.Normal, // 动画播放模式，默认播放完成后重头开始播放。  默认值：PlayMode.Normal
+                playMode: PlayMode.Normal, // 动画播放模式，默认播放完成后重头开始播放。 默认值：PlayMode.Normal
                 onFinish: () => {
                   console.info('play end');
                 }
               }, () => {
-                // 指定显示动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。
+           // 指定显示动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。
                 this.flag = !this.flag;
               });
             });
@@ -118,7 +118,7 @@ struct SheetDemo {
         .translate(this.flag ? { x: 0 } : { x: this.translateX })
         .onAreaChange((oldValue: Area, newValue: Area) => {
           console.info('testTag', `获取到oldValue、newValue:${oldValue.width}、${newValue.width}`);
-          // 适配其他尺寸设备时，使用onAreaChange获取宽度，动画的移动尺寸直接取弹窗的宽度。
+      // 适配其他尺寸设备时，使用onAreaChange获取宽度，动画的移动尺寸直接取弹窗的宽度。
           this.translateX = newValue.width as number;
         });
 
@@ -194,8 +194,9 @@ struct SheetBuilder2 {
 
 效果图如下：
 
-![](https://media:201784028126891229 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/_qU1ejD1QaidARMbC-I4GA/zh-cn_image_0000002639986766.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=5025B28D4DBE7BA89F853E643853F9FD61E3112BD5E04CAF55A284B67670BC3D "点击放大")
 
-#### 总结
+## 总结
 
-适用于弹窗内页面切换效果场景。  
+适用于弹窗内页面切换效果场景。
+

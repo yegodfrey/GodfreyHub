@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/groundoverl
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public final class GroundOverlay 叠加在地图上的图像类，在调用[HuaweiMap](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/huaweimap-0000001050151757)类的[addGroundOverlay](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/huaweimap-0000001050151757#section374112486409)方法时会返回该类型的实例。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,304 +40,304 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/groundoverl
 |void|[setVisible](#section312643417368)(boolean visible) 设置覆盖物的可见性。|
 |void|[setZIndex](#section61641226133617)(float zIndex) 设置覆盖物的z指数。|
 
-#### Public Methods
+## Public Methods
 
-#### equals
+### equals
 
 |Method|
 |:-------------------------------------------------|
 |public boolean equals(Object other) 判断两个覆盖物对象是否相等。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------|
 |other|另一对象。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:------|:-------------------------------|
 |boolean|覆盖物对象是否相等。 * true：相等 * false：不相等|
 
-#### getBearing
+### getBearing
 
 |Method|
 |:-------------------------------------------|
 |public float getBearing() 您调用此API可以获取覆盖物的角度。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:----|:----------|
 |float|覆盖物的角度。|
 
-#### getBounds
+### getBounds
 
 |Method|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------|
 |public [LatLngBounds](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlngbounds-0000001050150808) getBounds() 您调用此API可以获取覆盖物的矩形区域。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:------------------------------------------------------------------------------------------------------------|:----------|
 |[LatLngBounds](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlngbounds-0000001050150808)|覆盖物的矩形区域。|
 
-#### getHeight
+### getHeight
 
 |Method|
 |:-----------------------------------------|
 |public float getHeight() 您调用此API可以获取覆盖物的高。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:----|:-----------|
 |float|覆盖物的高度，单位：米。|
 
-#### getId
+### getId
 
 |Method|
 |:-------------------------------------------------------------|
 |public String getId() 您调用此API可以获取覆盖物的ID属性，该ID在地图上的所有覆盖物中都是唯一的。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:-----|:----------|
 |String|覆盖物的ID。|
 
-#### getPosition
+### getPosition
 
 |Method|
 |:------------------------------------------------------------------------------------------------------------------------------------------|
 |public [LatLng](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlng-0000001050150800) getPosition() 您调用此API可以获取覆盖物的位置信息。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:------------------------------------------------------------------------------------------------|:----------|
 |[LatLng](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlng-0000001050150800)|覆盖物的经纬度。|
 
-#### getTag
+### getTag
 
 |Method|
 |:-----------------------------------------------------|
 |public Object getTag() 当您已给覆盖物设置tag属性，调用此API将获取该tag属性。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:-----|:--------------------------------|
 |Object|如果已设置tag，则返回Object；如果未设置，则返回null。|
 
-#### getTransparency
+### getTransparency
 
 |Method|
 |:-------------------------------------------------|
 |public float getTransparency() 您调用此API可以获取覆盖物的透明度。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
-|:----|:---------------------------------|
-|float|覆盖物的透明度，取值范围：\[0, 1\]，0为不透明，1为全透明。|
+|:----|:-------------------------------|
+|float|覆盖物的透明度，取值范围：[0, 1]，0为不透明，1为全透明。|
 
-#### getWidth
+### getWidth
 
 |Method|
 |:-----------------------------------------|
 |public float getWidth() 您调用此API可以获取覆盖物的宽度。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:----|:-----------|
 |float|覆盖物的宽度，单位：米。|
 
-#### getZIndex
+### getZIndex
 
 |Method|
 |:-------------------------------------------|
 |public float getZIndex() 您调用此API可以获取覆盖物的z指数。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:----|:-------------|
 |float|z指数，即覆盖物的叠加顺序。|
 
-#### hashCode
+### hashCode
 
 |Method|
 |:----------------------------------------|
 |public int hashCode() 您调用此API可以获取覆盖物的哈希值。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:---|:----------|
 |int|表示覆盖物的哈希值。|
 
-#### isClickable
+### isClickable
 
 |Method|
 |:------------------------------------------------|
 |public boolean isClickable() 您调用此API可以获取覆盖物的可点击性。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:------|:--------------------------------|
 |boolean|覆盖物的可点击性。 * true：可点击 * false：不可点击|
 
-#### isVisible
+### isVisible
 
 |Method|
 |:---------------------------------------------|
 |public boolean isVisible() 您调用此API可以获取覆盖物的可见性。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:------|:-----------------------------|
 |boolean|覆盖物的可见性。 * true：可见 * false：不可见|
 
-#### remove
+### remove
 
 |Method|
 |:----------------------------------------|
 |public void remove() 您调用此API可以将覆盖物从地图上移除。|
 
-#### setBearing
+### setBearing
 
 |Method|
 |:-------------------------------------------------------------|
 |public void setBearing(float bearing) 您调用此API可以设置覆盖物从正北顺时针的角度。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
-|:------|:--------------------------------------------------------------------------------------------------------------|
-|bearing|覆盖物从正北顺时针的角度，正北方向为0度。取值说明： * \[0, 360)：顺时针增加，默认为0。 * 负数：逆时针增加。例如：-90，逆时针旋转90度。 * 大于360：顺时针循环增加。例如：450，顺时针旋转90度。|
+|:------|:-------------------------------------------------------------------------------------------------------------|
+|bearing|覆盖物从正北顺时针的角度，正北方向为0度。取值说明： * [0, 360)：顺时针增加，默认为0。 * 负数：逆时针增加。例如：-90，逆时针旋转90度。 * 大于360：顺时针循环增加。例如：450，顺时针旋转90度。|
 
-#### setClickable
+### setClickable
 
 |Method|
 |:---------------------------------------------------------------|
 |public void setClickable(boolean clickable) 您调用此API可以设置覆盖物的可点击性。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------|:------------|
 |clickable|可点击性。默认为不可点击。|
 
-#### setDimensions(float width, float height)
+### setDimensions(float width, float height)
 
 |Method|
 |:-------------------------------------------------------------------------------------------|
 |public void setDimensions(float width, float height) 您调用此API可以设置覆盖物的宽高，图片会被拉伸，可能不会保留之前的图片比例。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:-----------|
 |width|覆盖物的宽度，单位：米。|
 |height|覆盖物的高度，单位：米。|
 
-#### setDimensions(float width)
+### setDimensions(float width)
 
 |Method|
 |:--------------------------------------------------------------------------|
 |public void setDimensions(float width) 您调用此API可以设置覆盖物的宽度，覆盖物的高度根据图片的比例自动变化。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:-----------|
 |width|覆盖物的宽度，单位：米。|
 
-#### setImage
+### setImage
 
 |Method|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setImage([BitmapDescriptor](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/bitmapdescriptor-0000001050152403) imageDescriptor) 您调用此API可以置覆盖物的图片信息，新图片会使用老图片的矩形区域。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------------|:----------|
 |imageDescriptor|图片对象。|
 
-#### setPosition
+### setPosition
 
 |Method|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public setPosition([LatLng](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlng-0000001050150800) latLng) 您调用此API可以设置覆盖物的位置，覆盖物的其他属性不变。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:--------------------------------|
 |latLng|覆盖物的位置。默认情况下，锚点在距离图像顶部和图像左侧一半的位置。|
 
-#### setPositionFromBounds
+### setPositionFromBounds
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setPositionFromBounds([LatLngBounds](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/latlngbounds-0000001050150808) bounds) 根据矩形区域设置覆盖物的位置。当定位时忽略旋转的角度，但绘制覆盖物时仍会使用它。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------|
 |bounds|覆盖物位置的矩形区域。|
 
-#### setTag
+### setTag
 
 |Method|
 |:--------------------------------------------------------------------------------------------------------------------------------|
 |public void setTag(Object tag) 您调用此API可以设置覆盖物的tag属性，tag属性可以是任意对象，如果设置为空，则清除tag。当您不再需要使用tag时，您可以调用setTag(null)清除tag，以防止应用程序发生内存泄漏。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|
 |tag|覆盖物的tag属性。|
 
-#### setTransparency
+### setTransparency
 
 |Method|
 |:---------------------------------------------------------|
 |public void setTransparency(float transparency) 设置覆盖物的透明度。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
-|:-----------|:----------------------------------------------|
-|transparency|覆盖物的透明度，取值范围：\[0, 1\]。 * 0：不透明。 * 1：全透明。 默认值为0。|
+|:-----------|:--------------------------------------------|
+|transparency|覆盖物的透明度，取值范围：[0, 1]。 * 0：不透明。 * 1：全透明。 默认值为0。|
 
-#### setVisible
+### setVisible
 
 |Method|
 |:---------------------------------------------------------------------------------|
 |public void setVisible(boolean visible) 您调用此方法来设置覆盖物的可见性，如果覆盖物不可见，则不会绘制，其他所有状态均保留。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |visible|可见性。默认为可见。|
 
-#### setZIndex
+### setZIndex
 
 |Method|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public void setZIndex(float zIndex) 用于设置覆盖物的z指数。z指数指的是覆盖物的叠加顺序，具有较大z指数的覆盖物会绘制在具有较小z指数的覆盖物上，具有相同z指数的叠加顺序为元素添加的先后顺序。 说明： 数量限制：添加Circle和Polygon的总数乘以2加上添加Polyline和GroundOverlay的总数不超过1450，否则会出现图形叠加错误。|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public void setZIndex(float zIndex) 用于设置覆盖物的z指数。z指数指的是覆盖物的叠加顺序，具有较大z指数的覆盖物会绘制在具有较小z指数的覆盖物上，具有相同z指数的叠加顺序为元素添加的先后顺序。 > 说明 > 数量限制：添加Circle和Polygon的总数乘以2加上添加Polyline和GroundOverlay的总数不超过1450，否则会出现图形叠加错误。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------------------|

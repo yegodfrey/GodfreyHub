@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/app-contro
 
 # 应用控制
 
-* [拉起血氧测量](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/start-spo2-measurement-0000002342676418)  
-* [拉起体温测量](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/start-temperature-measurement-0000002376514437)  
+* **[拉起血氧测量](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/start-spo2-measurement-0000002342676418)**   
+* **[拉起体温测量](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/start-temperature-measurement-0000002376514437)**   

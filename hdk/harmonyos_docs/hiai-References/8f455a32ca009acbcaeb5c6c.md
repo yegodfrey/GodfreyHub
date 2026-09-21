@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-basic-
 
 * gert（GE Runtime） gert是GE Runtime的缩写，这个命名空间专门为运行时环境而设计，提供了一系列的高性能数据结构，以确保在执行时能够提供最佳性能。
 
-#### gert命名空间
+## gert命名空间
 
 |分类|数据结构/接口名称|功能描述|
 |:----|:-------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -37,11 +37,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-basic-
 |类和结构体|[Tensor](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-tensor-0000002158477569)|Tensor类用来描述一个tensor对象的信息以及行为，包含：shape信息、format信息、datatype信息以及tensor数据内容tensordata。|
 |类和结构体|[TilingContext](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-tilingcontext-0000002158477609)|用于算子Tiling的上下文结构。|
 |类和结构体|[TilingData](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-tilingdata-0000002158596061)|用于存储Tiling数据。|
-|类和结构体|[TypedContinuousVector](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-typedcontinuousvector-0000002123077938)|本类继承自ContinuousVector类，与ContinuousVector类不同的是MutableData和GetData返回的是指定类型的地址，而不是void \*。因此称为Typed。|
+|类和结构体|[TypedContinuousVector](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-typedcontinuousvector-0000002123077938)|本类继承自ContinuousVector类，与ContinuousVector类不同的是MutableData和GetData返回的是指定类型的地址，而不是void *。因此称为Typed。|
 |枚举|[TensorPlacement](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-tensorplacement-0000002123077942)|表达Tensor存储位置的枚举值。|
-[表1 gert命名空间]
+[**表1**gert命名空间]
 
-#### ge命名空间
+## ge命名空间
 
 |分类|数据结构/接口名称|功能描述|
 |:----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -100,5 +100,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-basic-
 |宏|[原型定义接口（REG_OP）](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-prototype-definition-api-0000002123078410)|原型定义接口。|
 |宏|[原型定义衍生接口说明](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-prototype-definition-derivative-api-0000002158596569)|原型定义衍生接口。|
 |宏|[VERIFY_FUNC_REG](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-verify-func-reg-0000002158478185)|注册算子的Verify函数。|
-[表2 ge命名空间]
+[**表2**ge命名空间]
 

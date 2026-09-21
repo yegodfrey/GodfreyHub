@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-data-
 
 # 数据生成脚本适配样例
 
-```
+```python
 import sys
 import os
 import json

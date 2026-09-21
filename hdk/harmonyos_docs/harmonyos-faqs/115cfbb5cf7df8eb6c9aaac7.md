@@ -6,28 +6,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1093
 
 # 如何实现全局loading控件
 
-#### 问题现象
+## 问题现象
 
-实现一个可以作用于全局网络请求时，类似拦截器的loading弹窗，并在请求成功时关闭。  
+实现一个可以作用于全局网络请求时，类似拦截器的loading弹窗，并在请求成功时关闭。
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782454350474850 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/v6vUWTP3QIqGH-1Mh-QCKw/zh-cn_image_0000002628407366.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=39262F7CD800413146FD1BA9F719A66310839DF98FAA1B3852498129D3DBAEA1 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [LoadingProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress)：用于显示加载动效的组件。
-* [window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)：当前窗口实例，窗口管理器管理的基本单元。  
+* [window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)：当前窗口实例，窗口管理器管理的基本单元。
 
-#### 解决方案
+## 解决方案
 
 构建一个新窗口用作全局loading控件，可在UI页面直接调用。使用window接口模拟实现网络请求拦截。定义新窗口，模拟弹窗，在窗口中自定义loading组件。并且实现沉浸式效果。
 
-实现思路：HarmonyOS中自定义弹窗需要在@Component中才可以调用，而问题现象需要用在全局，window窗口可以实现此功能。在EntryAbility.ets文件中定义一个新窗口，封装window方法类用于后续调用，最后在UI页面中调用实现用作全局网络请求时拦截的loading弹窗。
+**实现思路**：HarmonyOS中自定义弹窗需要在@Component中才可以调用，而问题现象需要用在全局，window窗口可以实现此功能。在EntryAbility.ets文件中定义一个新窗口，封装window方法类用于后续调用，最后在UI页面中调用实现用作全局网络请求时拦截的loading弹窗。
 
 1. 在EntryAbility.ets定义窗口，并在onWindowStageCreate()函数中调用。代码如下：
 
-   ```
+   ```ts
    // 定义窗口
    subWindowStage: window.WindowStage | null = null;
 
@@ -35,7 +35,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1093
      // Main window is created, set main page for this ability
      hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-     // onWindowStageCreate()函数，并且增加监听
+   // onWindowStageCreate()函数，并且增加监听
      this.subWindowStage = windowStage;
      const that: EntryAbility = this;
      this.context.eventHub.on('createWindow', (data: Data) => {
@@ -58,7 +58,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1093
 
 2. 封装window方法，CommonWindow.ets文件。
 
-   ```
+   ```ts
    import window from '@ohos.window';
    import common from '@ohos.app.ability.common';
    import { BusinessError } from '@ohos.base';
@@ -176,7 +176,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1093
 
 3. MainPage页面，沉浸式弹窗页面。
 
-   ```
+   ```ts
    import window from '@ohos.window';
 
    export const entryName: string = 'loadingPage';
@@ -190,16 +190,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1093
      // 页面生命周期：打开沉浸式
      onPageShow() {
        window.getLastWindow(this.getUIContext().getHostContext(), (err, win) => {
-         // 获取当前窗口的属性
+        // 获取当前窗口的属性
          let prop: window.WindowProperties = win.getWindowProperties();
-         // 打印当前窗口属性
+      // 打印当前窗口属性
          console.info(JSON.stringify(prop));
          console.error(`err: ${err}`);
          win.setWindowLayoutFullScreen(true);
        });
      }
 
-     // 页面生命周期：关闭沉浸式
+    // 页面生命周期：关闭沉浸式
      onPageHide() {
        window.getLastWindow(this.getUIContext().getHostContext(), (err, win) => {
          console.error(`err: ${err}`);
@@ -226,7 +226,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1093
 
 4. UI页面，初始页，调用window类，按钮唤出弹窗。
 
-   ```
+   ```ts
    import { CommonWindow } from '../utils/CommonWindow';
    import { common } from '@kit.AbilityKit';
 
@@ -266,6 +266,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1093
    }
    ```
 
-#### 总结
+## 总结
 
-运用窗口特性，封装类似弹窗的效果，相比于常规弹窗[CustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller)和[getPromptAction()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getpromptaction).[openCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opencustomdialog12)不局限于依赖UI页面，在使用时自定义UI样式，可直接调用。  
+运用窗口特性，封装类似弹窗的效果，相比于常规弹窗[CustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller)和[getPromptAction()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getpromptaction).[openCustomDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opencustomdialog12)不局限于依赖UI页面，在使用时自定义UI样式，可直接调用。
+

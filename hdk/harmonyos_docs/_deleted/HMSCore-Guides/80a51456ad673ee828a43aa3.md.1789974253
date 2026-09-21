@@ -1,0 +1,23 @@
+---
+name: document/cn/HMSCore-Guides/test-nfctouch-0000001050145374
+title: 一碰联功能测试
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/test-nfctouch-0000001050145374
+---
+
+# 一碰联功能测试
+
+1. 在手机上下载并安装最新版华为运动健康App。打开运动健康App，扫描运动设备上的[二维码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/label-0000001050145372)连接运动设备。或者打开手机的蓝牙及 NFC，用手机 NFC 部位碰一碰运动设备上的 NFC 标签，连接运动设备。
+
+   **图1**连接运动设备   
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/k2suzF0sSEGVQPndWtsiYQ/zh-cn_image_0000002516359272.png?HW-CC-KV=V1&HW-CC-Date=20260909T144424Z&HW-CC-Expire=31536000000&HW-CC-Sign=7E893FB67EF86A930EBFBBCA03F70B4E6BE10D8575B4DB932F010CBB85E5EF97 "点击放大")
+
+2. 从开发套件中获取运动设备的功能测试用例。按照测试用例进行测试， 确保所有的用例正常测试通过。
+
+   通过被测设备面板进行开始、调节速度、调节坡度、暂停、恢复并持续运动，最后停止。运动过程中的状态、运动数据会实时在App显示。
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/yWnQqUwNS-OdGUIBwex3XQ/zh-cn_image_0000002516519184.png?HW-CC-KV=V1&HW-CC-Date=20260909T144424Z&HW-CC-Expire=31536000000&HW-CC-Sign=04343AC7563FCDC7BF794B00DC1B92B24B1A3A1889A6101C7B80B24E1A8E6694 "点击放大")
+
+   如果运动健康App同时管理了华为心率手表、手环，将同步获取到心率信息（横屏暂时界面）。
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/OytrT9tGQGKX6gG9CAn9rA/zh-cn_image_0000002548039069.png?HW-CC-KV=V1&HW-CC-Date=20260909T144424Z&HW-CC-Expire=31536000000&HW-CC-Sign=1444CC36830C39703997B543EA888812D3D2807440D6C71906F4A6ECE36D486D "点击放大")
+

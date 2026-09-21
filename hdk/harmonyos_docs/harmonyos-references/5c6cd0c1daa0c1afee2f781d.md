@@ -6,6 +6,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-re
 
 # 公共说明
 
+> phone
+
 * 接口协议：HTTPS
 
 * 响应协议接口数据格式：JSON

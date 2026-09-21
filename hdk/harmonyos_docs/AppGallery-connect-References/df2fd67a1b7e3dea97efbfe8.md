@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:----------------------------------------------|
 |export interface FramePlayerPropInfo 帧数据玩家属性信息。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Description|
 |:---------|:-----|:----------|

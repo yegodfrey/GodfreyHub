@@ -13,7 +13,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 * AGC Token过了有效期或者用户登出后，AGC Token失效 (TOKEN_INVALID)
 * 用户登出或者销户后，AGC 注销 (SIGNED_OUT)
 
-```
+```screen
 "Java"
 AGConnectAuth.getInstance().addTokenListener(new OnTokenListener() {
         public void onChanged(TokenSnapshot tokenSnapshot) {

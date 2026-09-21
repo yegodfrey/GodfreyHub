@@ -6,5 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-visi
 
 # Core Vision Kit（基础视觉服务）
 
-* [ArkTS API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-arkts)  
-* [ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)  
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
+
+* **[ArkTS API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-arkts)**   
+* **[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)**   

@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 # FAQ
 
-#### 通用
+## 通用
 
-#### 上传云函数zip包后，在代码文件区域未显示上传的zip包怎么办？
+### 上传云函数zip包后，在代码文件区域未显示上传的zip包怎么办？
 
-当前云函数zip包上传速度较慢，请耐心等待再次查看。  
+当前云函数zip包上传速度较慢，请耐心等待再次查看。
 
-#### 调用函数时返回"Cannot find module......"或者"Can't find function name xxx"报错是什么原因？
+### 调用函数时返回"Cannot find module......"或者"Can't find function name xxx"报错是什么原因？
 
 "函数入口"包括入口文件名称（相对根目录路径）和入口方法名称，通过"."连接。
 
@@ -24,13 +24,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
   ![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251128170630.16672414947245165073802329591065:50001231000000:2800:6B9775C4EEED0ACDE7BA6B65146151F57A71DB5018D0EFFA4BFBA686AFD1DD8F.png)
 
-#### 快游戏
+## 快游戏
 
-#### 集成快游戏SDK时，出现错误"code":10001,"msg":"agc network request error"，该如何解决？
+### 集成快游戏SDK时，出现错误"code":10001,"msg":"agc network request error"，该如何解决？
 
-使用开发工具（如VSCode）打开agconnect-quickgame-1.4.4-min.js文件，格式化代码后，搜索代码片段return e.response，并将其修改为如下内容：
+使用开发工具（如VSCode）打开agconnect-quickgame-1.4.4-min.js文件，格式化代码后，搜索代码片段**return e.response**，并将其修改为如下内容：
 
-```
+```screen
 try {
   return JSON.parse(e.response)
 } catch (t) {
@@ -38,4 +38,5 @@ try {
 }
 ```
 
-![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251128170633.39353524850529646169078921485318:50001231000000:2800:EE0FEA0E941144B6F3013F8CFFA613A5A4058777C59326BA0628B533EA9FC534.png "点击放大")  
+![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251128170633.39353524850529646169078921485318:50001231000000:2800:EE0FEA0E941144B6F3013F8CFFA613A5A4058777C59326BA0628B533EA9FC534.png "点击放大")
+

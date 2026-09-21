@@ -6,23 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1426
 
 # 屏蔽Swiper组件切换效果
 
-#### 问题现象
+## 问题现象
 
-如何实现子组件的指定区域不允许滑动切换外部Swiper，但可以滚动内部的Scroll的功能。  
+如何实现子组件的指定区域不允许滑动切换外部Swiper，但可以滚动内部的Scroll的功能。
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782461570703477 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/_LUscq1ZQ9eLqels1dby6A/zh-cn_image_0000002628763646.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=30A9193D8C47B57A4F3FB5DD64EECCE2DC8D9C29C76725BE7FBDF5081F5FECCE "点击放大")
 
-#### 背景知识
+## 背景知识
 
-[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)滑动手势事件可实现自定义手势事件。  
+[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)滑动手势事件可实现自定义手势事件。
 
-#### 解决方案
+## 解决方案
 
 在需要屏蔽Swiper组件切换效果的组件上使用PanGesture消费掉左右滚动事件。
 
-```
+```ts
 @Entry
 @Component
 struct TestSwiperPage {

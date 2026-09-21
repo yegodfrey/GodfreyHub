@@ -6,59 +6,64 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-g
 
 # getContext
 
-如果需要在页面中获得当前Ability的Context，可调用getContext接口获取当前页面关联的[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)或[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。  
-![](https://media:401788445297642602)  
-* 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-* 该接口仅限Stage模型使用。  
+> phone | 2in1 | tablet | tv | wearable
 
-#### getContext^(deprecated)^
+如果需要在页面中获得当前Ability的Context，可调用getContext接口获取当前页面关联的[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)或[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
+> 说明
+>
+> * 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> * 该接口仅限Stage模型使用。
+
+## getContext^(deprecated)^
 
 getContext(component?: Object):Context
 
-获取与页面上下文组件关联的Context对象。  
-![](https://media:401788445297667603)  
-从API version 9开始支持，从API version 18开始废弃，建议使用[getHostContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#gethostcontext12)替代。[getHostContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#gethostcontext12)需先通过getUIContext()获取[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)实例后再调用。
+获取与页面上下文组件关联的Context对象。
+> 说明
+>
+> 从API version 9开始支持，从API version 18开始废弃，建议使用[getHostContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#gethostcontext12)替代。[getHostContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#gethostcontext12)需先通过getUIContext()获取[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)实例后再调用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:-----|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |component|Object|否|当前自定义组件的实例。当需要获取指定自定义组件关联的Context时，传入该组件实例；不传入component或传入的参数类型非法时，返回默认上下文。默认上下文是指通过追溯当前方法的调用链所跟踪到的Context。传入component时返回该组件关联的Context，不传入时返回通过当前方法调用链跟踪到的默认上下文。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[Context](#context)|返回当前组件所在Ability的Context，Context的具体类型为当前Ability关联的Context对象。例如：在UIAbility（用户界面Ability）窗口中的页面调用该接口，返回类型为UIAbilityContext。在ExtensionAbility（扩展Ability）窗口中的页面调用该接口，返回类型为ExtensionContext。|
 
-#### Context
+## Context
 
 type Context = import('../api/application/Context').default
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-模型约束： 此接口仅可在Stage模型下使用。  
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 |类型|说明|
 |:--------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |import('../api/application/[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage)').default|返回当前组件所在Ability的[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage)，Context的具体类型为当前Ability关联的Context对象。例如：在UIAbility窗口中的页面调用该接口，返回类型为UIAbilityContext。在ExtensionAbility窗口中的页面调用该接口，返回类型为ExtensionContext。|
 
-![](https://media:401788445297690604)  
-直接使用getContext可能导致[UI上下文不明确](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#ui上下文不明确)的问题，建议使用getUIContext()获取[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)实例，并使用[getHostContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#gethostcontext12)获取绑定实例的Context。
+> 说明
+>
+> 直接使用getContext可能导致[UI上下文不明确](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#ui上下文不明确)的问题，建议使用getUIContext()获取[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)实例，并使用[getHostContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#gethostcontext12)获取绑定实例的Context。
 
-示例：
+**示例：**
 
 在UIAbility中通过windowStage.loadContent加载具体页面。
 
-```
+```ts
 // EntryAbility.ets
 import { UIAbility, AbilityConstant, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -101,7 +106,7 @@ export default class EntryAbility extends UIAbility {
 
 在Index.ets中可以通过getContext接口获取Context，本示例返回的Context类型为UIAbilityContext。
 
-```
+```ts
 // pages/Index.ets
 @Entry
 @Component

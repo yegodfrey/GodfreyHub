@@ -6,6 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # ArkTS API
 
-<br />
-
-* [安全密码算法](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/encryption-and-decryption-relation-0000001985404366)  
+* **[安全密码算法](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/encryption-and-decryption-relation-0000001985404366)**   

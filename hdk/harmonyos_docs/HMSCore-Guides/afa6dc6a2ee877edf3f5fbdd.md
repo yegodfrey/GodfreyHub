@@ -6,62 +6,64 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/channel-analysi
 
 # 渠道分析
 
-#### 功能概述
+## 功能概述
 
-渠道分析，用于分析用户的访问来源。您可通过新增用户、活跃用户、累计用户、新增次日留存率等基础指标评估渠道的拉新能力以及渠道带来的价值，从而优化后续的投放策略。  
+渠道分析，用于分析用户的访问来源。您可通过新增用户、活跃用户、累计用户、新增次日留存率等基础指标评估渠道的拉新能力以及渠道带来的价值，从而优化后续的投放策略。
 
-#### 统计原理
+## 统计原理
 
 ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115219.15159310336977721167141252894097:50001231000000:2800:59D42E26D199CB1F1A33C3A90F666C81E34E3DFC00C9D315E2E555D9889ED667.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)
 
-Android平台的应用市场比较多，推广方式也很丰富。集成分析SDK后，您可以通过分包发布来区分不同的渠道，即为每个渠道生成一个渠道包，每个渠道包用不同的安装渠道属性值来标识。当有用户下载激活App时，可通过渠道分析页面查看不同渠道的用户数据。  
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115219.33325066218340298116705238610173:50001231000000:2800:4DF2AC8ED1B227195245119E3BCE521606B313E087EFC489C802FF441E1487C4.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-该功能仅适用于Android应用。  
+Android平台的应用市场比较多，推广方式也很丰富。集成分析SDK后，您可以通过分包发布来区分不同的渠道，即为每个渠道生成一个渠道包，每个渠道包用不同的安装渠道属性值来标识。当有用户下载激活App时，可通过渠道分析页面查看不同渠道的用户数据。
+> 说明
+>
+> 该功能仅适用于Android应用。
 
-#### 配置安装渠道
+### 配置安装渠道
 
 您可以为不同的渠道包配置不同的安装渠道属性值，配置方法如下：
 
 打开您的工程"AndroidManifest.xml"文件，在"application"模块根节点下添加meta-data参数，格式如下。
 
-```
+```screen
 <application
-    ……
+    ......
     <meta-data
         android:name="install_channel"
         android:value="install_channel_value">
     </meta-data>
-    ……
+    ......
 </application>
 ```
 
-将"install_channel_value"替换为您应用的安装渠道名称。例如：安装来源为华为应用市场，则将"install_channel_value"替换为"AppGallery"。  
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115219.08808013377009333081428888326066:50001231000000:2800:4C6B99543C15BE4463E2F15414FC3D791DC9AB463F8074A5BEF72161ADA38A2E.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-安装渠道命名规范：支持英文字母、阿拉伯数字、下划线、中划线和空格，不能以空格为开头和结尾，长度不超过128个字符。  
+将"install_channel_value"替换为您应用的安装渠道名称。例如：安装来源为华为应用市场，则将"install_channel_value"替换为"AppGallery"。
+> 说明
+>
+> 安装渠道命名规范：支持英文字母、阿拉伯数字、下划线、中划线和空格，不能以空格为开头和结尾，长度不超过128个字符。
 
-#### 典型应用场景
+## 典型应用场景
 
 * 了解不同渠道的新增用户趋势及对比情况。
 * 了解某一渠道的详情页面，进行下钻分析。
 * 查看指定时间范围内选定指标的变化趋势。
-* 筛选指定渠道选定指标的变化趋势及对比情况。  
+* 筛选指定渠道选定指标的变化趋势及对比情况。
 
-#### 功能详述
+## 功能详述
 
-#### 案例
+### 案例
 
 一款App，近期在各大应用市场分别投放了应用包，想查看各渠道新增用户的排名情况。
 
-需求：了解App在各渠道的拉新能力，从而优化后续的投放策略。  
+需求：了解App在各渠道的拉新能力，从而优化后续的投放策略。
 
-#### 操作流程
+### 操作流程
 
 1. 登录[AppGallery Connect网站](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"我的项目"图标。
 2. 选择需要查看分析数据的应用。
-3. 选择"华为分析 \> 用户分析 \> 渠道分析"，进入渠道分析页面。
-4. 查看渠道分析报告。详情请参见[查看渠道分析报告](#section103274416495)。  
+3. 选择"华为分析 > 用户分析 > 渠道分析"，进入渠道分析页面。
+4. 查看渠道分析报告。详情请参见[查看渠道分析报告](#section103274416495)。
 
-#### 查看渠道分析报告
+### 查看渠道分析报告
 
 1. 查看不同渠道用户的趋势及对比情况。
 
@@ -92,15 +94,15 @@ Android平台的应用市场比较多，推广方式也很丰富。集成分析S
    ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115219.05497725574657369531133928943718:50001231000000:2800:35F69DFBA35EDB0D3E75A1744EB901ABAE642DC1A35BEAF0DC7EC4FEABD0C3CD.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")
 4. 筛选指定渠道选定指标的变化趋势及对比情况。
 
-   点击右侧的选择框，选择需要查看的渠道，点击"确定"，即可查看您指定渠道的指标变化趋势。  
-   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115219.43427454847296032587629671727019:50001231000000:2800:528DABB61B327570A1B256F834CDDC1CEA3C8EB48BEF67E651E3A46B19101EAC.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-   * 最多支持同时选择10个渠道。
-   * 选择指定渠道后，点击选择框右侧的锁定按钮，当您在新增用户数、活跃用户数、累计用户数以及新增用户次日留存率等各指标间切换时，已选择的渠道不会变化。
+   点击右侧的选择框，选择需要查看的渠道，点击"确定"，即可查看您指定渠道的指标变化趋势。
+   > 说明
+   > * 最多支持同时选择10个渠道。
+   > * 选择指定渠道后，点击选择框右侧的锁定按钮，当您在新增用户数、活跃用户数、累计用户数以及新增用户次日留存率等各指标间切换时，已选择的渠道不会变化。
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115220.16707232311334352835477752623775:50001231000000:2800:B5EAA981DB2D97A6145E36E1D3FD956647275F1F4B585BD7BCEF2218B739465F.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")  
+   ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115220.16707232311334352835477752623775:50001231000000:2800:B5EAA981DB2D97A6145E36E1D3FD956647275F1F4B585BD7BCEF2218B739465F.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true "点击放大")
 
-#### FAQ
+## FAQ
 
-#### 已集成了SDK，为什么渠道分析页面展示无数据？
+### 已集成了SDK，为什么渠道分析页面展示无数据？
 
 如果您未上报过安装渠道属性，渠道分析页面展示无数据，需要您配置渠道属性值，具体请参见[配置安装渠道](#section1592935001215)。

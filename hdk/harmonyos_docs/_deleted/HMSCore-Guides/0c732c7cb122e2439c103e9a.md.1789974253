@@ -1,0 +1,50 @@
+---
+name: document/cn/HMSCore-Guides/depth-0000001573107653
+title: 潜水深度
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/depth-0000001573107653
+---
+
+# 潜水深度
+
+此数据记录用户在运动过程中某一时刻的潜水深度数据。
+
+## OAuth权限
+
+联盟卡片申请的权限名称：锻炼记录 > 锻炼记录详情数据
+
+* 读权限：https://www.huawei.com/healthkit/activity.read
+* 写权限：https://www.huawei.com/healthkit/activity.write
+
+## 原子采样明细数据类型
+
+* 名称：com.huawei.diving_depth
+
+|**字段**列表|字段描述|**类型**|可选/必选|单位|取值范围|
+|:-------|:---|:-----|:----|:-|:---|
+|depth|深度|float|M|米|-|
+
+### 数据开放说明
+
+|开放API|查询及时性|数据源|
+|:--------------------------------------------------------------------------------------------------------------|:----|:-----|
+|[运动记录查询](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/activityrecords_list-0000001050114862)|分钟级|手表、手环等|
+
+## 原子采样统计数据类型
+
+* 名称：com.huawei.diving_depth.statistics
+
+|**字段列表**|描述|**类型**|可选/必选|**单位**|
+|:-------|:---|:-----|:----|:-----|
+|avg|平均深度|float|M|米|
+|max|最大深度|float|M|米|
+
+### 数据开放说明
+
+|开放API|查询及时性|统计数据维度|数据源|
+|:--------------------------------------------------------------------------------------------------------------|:----|:-------|:-----|
+|[运动记录查询](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/activityrecords_list-0000001050114862)|分钟级|运动记录概要统计|手表、手环等|
+
+### 数据订阅说明
+
+潜水深度数据不支持订阅。
+

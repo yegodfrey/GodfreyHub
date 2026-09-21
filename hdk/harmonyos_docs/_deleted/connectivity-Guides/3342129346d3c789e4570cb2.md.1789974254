@@ -1,0 +1,279 @@
+---
+name: document/cn/connectivity-Guides/client-dev-0000001052079439
+title: 应用开发
+uri: https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/client-dev-0000001052079439
+---
+
+# 应用开发
+
+## 开发流程
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/SMsvq4p5T8CwoO7UZJ3nAg/zh-cn_image_0000001053169564.png?HW-CC-KV=V1&HW-CC-Date=20260909T133224Z&HW-CC-Expire=31536000000&HW-CC-Sign=0382FF40594A8360FB4FF230E6637B5BC06EDD168FA930028666922DD7BDCD21 "点击放大")
+
+## 开发步骤
+
+1. 声明变量及获取实例。
+
+   ```screen
+   private PlayerClient mPlayerClient;
+   private ProjectionDevice mProjectionDevice;
+   //获取PlayerClient实例
+   mPlayerClient = PlayerClient.getInstance();
+   ```
+
+2. 初始化服务。
+
+   初始化Cast Engine服务，获取[PlayerClient](https://developer.huawei.com/consumer/cn/doc/connectivity-References/playerclient-0000001052167790)实例，并注册回调函数，用于处理投屏相关业务。
+   1. 实现IEventListener.Stub()，根据连接状态进行相应的处理。
+
+      ```screen
+      private IEventListener mCallback = new IEventListener.Stub() {
+      //上报连接状态。
+      public boolean onEvent(int eventId, String type) {
+      //根据连接状态进行对应的配置及逻辑处理。
+      ...
+               return true;
+           }
+       
+      //上报显示相关事件。
+      public boolean onDisplayEvent(int eventId, DisplayInfo displayInfo) {
+      //根据连接状态进行对应的配置及逻辑处理。
+      ...
+              return true;
+           }
+       };
+      ```
+
+   2. 启动服务。
+
+      ```screen
+      mPlayerClient.init(context);
+      ```
+
+   3. 注册回调接口。
+
+      ```screen
+      mPlayerClient.registerCallback(mCallback);
+      ```
+
+      > 说明
+      >
+      > IEventListener上报消息包括：
+      > * EVENT_ID_SERVICE_BIND_SUCCESS消息：服务启动成功，可以进行[步骤3](#ZH-CN_TOPIC_0000001052079439__li1061903812160)的设置。
+      > * EVENT_ID_SERVICE_BIND_FAILED消息：服务启动失败，需要重新调用[init](https://developer.huawei.com/consumer/cn/doc/connectivity-References/playerclient-0000001052167790#section14121816877)()接口进行服务重新启动。
+
+3. 投屏业务相关设置。
+
+   1. 设置鉴权模式信息。
+
+      ```screen
+      AuthInfo authInfo = null;
+       if (needPassword) {
+      //密码模式，设置6位密码（需要支持混合密码的能力）
+      authInfo = new AuthInfo(AuthInfo.AUTH_MODE_PWD);
+            authInfo.setAuthCode(password);
+       } else {
+      //PIN码模式
+      authInfo = new AuthInfo(AuthInfo.AUTH_MODE_GENERIC);
+       }
+       boolean isAuthModeSuccessfullySet = mPlayerClient.setAuthMode(authInfo);
+      If (isAuthModeSuccessfullySet) {
+      //更新本地密码or更新UI
+      }
+      ```
+
+      > 说明
+      >
+      > 设置加密模式影响UI，厂商集成时需要根据[setAuthMode](https://developer.huawei.com/consumer/cn/doc/connectivity-References/playerclient-0000001052167790#section351224618123)方法的执行结果确认下一步动作，包括更新本地保存的加密模式、密码、以及更新UI等；修改密码时，需要保证和原密码不同。
+   2. 设置大屏端设备的投屏能力。
+      * 构造HiSightCapability对象，构建能力分辨率（建议在2K以内，具体配置可参考设备分辨率）。
+
+        ```screen
+        HiSightCapability capability = new HiSightCapability(1920, 1080, 1920, 1080);
+        ```
+
+      * 设置投屏显示帧率（可选，但默认且目前仅开放30FPS）。
+
+        ```screen
+        capability.setVideoFps(30);
+        ```
+
+      * 根据平台配置低时延策略（建议配置，可有效提升投屏体验），配置数值可与芯片厂商确认优化策略并设置优化配置参数。
+
+        ```screen
+        capability.setMediaCodecConfigureFlag(2);
+        ```
+
+      * 设置投屏能力。
+
+        ```screen
+        mPlayerClient.setCapability(capability);
+        ```
+
+        > 说明
+        >
+        > 可根据平台不同在此处选用HiSightCapability提供的不同方法进行解码器优化设置。
+        >
+        > HiSightCapability.[MediaCodecConfigureFlag](https://developer.huawei.com/consumer/cn/doc/connectivity-References/hisightcapability-0000001051609048#section17295343164819)(int flag)
+        >
+        > HiSightCapability.[MediaFormatInteger](https://developer.huawei.com/consumer/cn/doc/connectivity-References/hisightcapability-0000001051609048#section839474195017)(String name, int value)
+        >
+        > HiSightCapability.[MediaFormatFloat](https://developer.huawei.com/consumer/cn/doc/connectivity-References/hisightcapability-0000001051609048#section19576112812509)(String name, float value)
+        >
+        > HiSightCapability.[MediaFormatLong](https://developer.huawei.com/consumer/cn/doc/connectivity-References/hisightcapability-0000001051609048#section31521911125013)(String name, long value)
+        >
+        > HiSightCapability.[MediaFormatString](https://developer.huawei.com/consumer/cn/doc/connectivity-References/hisightcapability-0000001051609048#section551418434495)(String name, String value)
+        >
+        > 请与芯片厂商联系确认平台的解码优化策略，并选用对应接口设置解码优化参数。
+   3. 配置大屏端设备信息。
+      * 构造大屏端设备信息类，包含设备名称和设备类型。
+
+        ```screen
+        private DeviceInfo mDeviceInfo = new DeviceInfo(mTvDeviceName, DeviceInfo.TYPE_TV);
+        ```
+
+        > 说明
+        >
+        > 要确保设置的设备类型与设备相符，否则在功能上会出现异常。如TV设备应对应TYPE_TV，电子白板应对应TYPE_WHITEBOARD。
+      * 设置大屏设备可以被周边设备发现。
+
+        ```screen
+        mPlayerClient.setDiscoverable(true, mDeviceInfo);
+        ```
+
+4. 获取并显示PIN码。
+
+   移动端设备和大屏应用APK连接在同一个局域网内。移动端通过下拉栏，点击无线投屏，开始搜索周边可投屏设备，点击搜索到的Cast Engine设备，点击开始连接投屏设备。
+
+   Cast Engine大屏设备首次收到移动端连接请求，会上报[EVENT_ID_PIN_CODE_SHOW](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section39668214540)信息，并提供对端设备信息。同一移动端设备首次连接成功后，再次通过PIN码模式发起连接请求时将跳过PIN码鉴权步骤。
+
+   ```screen
+   if (displayInfo != null) {
+   //设备连接需要的PIN码
+   String pinCode = displayInfo.getPinCode();
+   //按照UX规范开发PIN码界面以展示PIN码
+   showPinCode(pinCode, mProjectionDevice.getDeviceName());
+   //设置允许手机连接（用于不弹框让用户选择的场景）
+   mPlayerClient.setConnectRequestChooseResult(new ConnectRequestChoice(Constant.CONNECT_REQ_CHOICE_ALWAYS, mProjectionDevice));
+    }
+   ```
+
+   > 说明
+   >
+   > [RequestChooseResult](https://developer.huawei.com/consumer/cn/doc/connectivity-References/playerclient-0000001052167790#section83672018018)接口用于设置是否允许手机连接，该接口必须调用。一般可弹框让用户选择是否允许连接，如果不实现，也可以直接调用该接口下发Constant.[CONNECT_REQ_CHOICE_ALWAYS](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section3860710145712)参数以直接允许手机连接*。*
+
+5. 获取请求连接的设备信息。
+
+   移动端正确输入PIN码鉴权通过后，大屏端应用会上报[EVENT_ID_CONNECT_REQ](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section176025219543)消息，并携带请求连接的移动端设备信息。
+
+   ```screen
+   if (displayInfo != null) {
+   //获取请求连接的移动端设备信息
+   mProjectionDevice = displayInfo.getProjectionDevice();
+    }
+   ```
+
+   > 说明
+   >
+   > 密码模式下，移动端正确输入应用预设的密码即可，不需要输入PIN码，不会上报[EVENT_ID_PIN_CODE_SHOW](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section39668214540)消息。
+
+6. 显示网络信号质量。
+
+   在注册投屏服务成功后，当网络质量发生变化，大屏应用会自动上报[EVENT_ID_NETWORK_QUALITY](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section9963114582716)消息。可通过[IEventListener](https://developer.huawei.com/consumer/cn/doc/connectivity-References/ieventlistener-0000001051686905)回调函数[onDisplayEvent](https://developer.huawei.com/consumer/cn/doc/connectivity-References/ieventlistener-0000001051686905#section2047318302530)的displayInfo获取当前网络质量强度，提示用户当前网络状况。
+
+   ```screen
+   onDisplayEvent(int eventId, DisplayInfo displayInfo){
+   swicth(eventId){
+   case Constant.EVENT_ID_NETWORK_QUALITY：
+   msg.obj= displayInfo;
+   ....}
+   }
+
+   { ... ...
+   DisplayInfo displayInfo = msg.obj;
+   //获取网络强度
+   int networkQuality = displayInfo.getNetworkQuality();
+   switch (networkQuality) {
+   //网络异常，投屏断开
+   case Constant.NETWORK_QUALITY_EXCEPTION:
+   //当前信号强度为1---网络很差
+   case Constant.NETWORK_QUALITY_WORSE:
+   //当前信号强度为2---网络较差
+   case Constant.NETWORK_QUALITY_BAD:
+   //当前信号强度为3---网络一般
+   case Constant.NETWORK_QUALITY_GENERAL:
+   //当前信号强度为4---网络良好
+   case Constant.NETWORK_QUALITY_GOOD:
+   ... ...          
+   }
+   ```
+
+   > 说明
+   >
+   > 当前网络信号质量发生变化，可能会出现卡顿、破音甚至投屏中断的情况，影响用户体验。随着网络信号档位的变化，信号图标对应变化，文本提示只需首次出现。
+   >
+   > 如果网络信号良好，图标消失。比如：当网络信号强度为4时，隐藏图标，网络信号强度由3到1时，显示对应信号强度的图标，网络异常导致投屏中断时使用toast提示用户投屏已断开。具体实现请参见《HUAWEI Cast Engine UX设计规范》。
+
+7. 设置Surface并开始投屏。
+
+   在[EVENT_ID_CONNECT_REQ](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section176025219543)消息之后Cast Engine会顺序向大屏设备上报[EVENT_ID_DEVICE_CONNECTED](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section2116193615230)和[EVENT_ID_PAUSED](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section147974333502)消息。PAUSED消息下大屏端可以设置Surface并开始播放投屏视频流，为加快起播速度，也可提前（如[EVENT_ID_CONNECT_REQ](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section176025219543)消息下）启动投屏Acitivity和Surface的创建。
+
+   mProjectionDevice为[EVENT_ID_CONNECT_REQ](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section176025219543)消息中从DisplayInfo中获取的对端设备信息，可通过其获取DeviceId，再通过DeviceID构造TrackControl对象做投屏使用。投屏成功，大屏端将上报[EVENT_ID_CASTING](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section1863813235010)消息，标识当前正在投屏。
+   1. 设计应用投屏界面XML布局。
+
+      ```screen
+      <com.huawei.castpluskit.HiSightSurfaceView
+           android:id="@+id/HiSightSurfaceView"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_centerInParent="true" />
+      ```
+
+      > 说明
+      >
+      > 因电子白板设备较特殊，其width和height根据设备实际情况设置，并在[EVENT_ID_DEVICE_CONNECTED](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section2116193615230)消息下参考如下设置：
+      >
+      > ```screen
+      > int mHiviewHeight = mHiview.getHeight();
+      > int mHiviewWidth = mHiview.getWidth();
+      > mPlayerClient.setSinkPlayerParameters(mHiviewWidth, mHiviewHeight, 0, 0);
+      > ```
+
+   2. 禁止录屏和截屏。
+
+      ```screen
+      mHiView.setSecure(true);
+      ```
+
+      > 说明
+      >
+      > 在投屏Activity初始化HiSightSurfaceView后，设置mHiView.setSecure(true)。若不在此设置，可能会因为[EVENT_ID_PAUSED](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section147974333502)消息上报时间早于Surface创建完成时间，设置setSecure不生效，导致部分情况下大屏可以截取Cast Engine投屏画面。
+   3. 添加SurfaceHolder的回调，在surfaceCreated回调函数中设置投屏控件。
+
+      ```screen
+      SurfaceHolder surfaceHolder = mHiView.getHolder();
+      surfaceHolder.addCallback(mSurfaceHolderCallback);
+      private SurfaceHolder.Callback mSurfaceHolderCallback = new SurfaceHolder.Callback() {
+          @Override
+          public void surfaceCreated(SurfaceHolder holder) {
+              isSurfaceReady = true;
+              sendBroadcast(SinkTesterService.BROADCAST_ACTION_PLAY);
+          }
+      }
+      ```
+
+      > 说明
+      >
+      > 该Surface创建比较慢，可能会导致部分大屏设备setHiSightSurface的时候报surface invalid错误，导致黑屏问题。因此，需要保证在Surface生成后并且收到[EVENT_ID_PAUSED](https://developer.huawei.com/consumer/cn/doc/connectivity-References/constant-0000001052527792#section147974333502)消息的条件下设置Surface。
+   4. 开始投屏。
+
+      ```screen
+      mPlayerClient.play(new TrackControl(mProjectionDevice.getDeviceId()));
+      ```
+
+8. 传入对端设备对象，断开连接。
+
+   ```screen
+   mPlayerClient.disconnectDevice(mProjectionDevice);
+   ```
+

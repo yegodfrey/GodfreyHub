@@ -10,11 +10,11 @@ Access Token存在有效期（有效期1小时），过期后则不可用，如�
 
 其中Refresh Token的有效期较长（有效期180天），在有效期内，应用可直接通过Refresh Token调用OAuth服务的https://oauth-login.cloud.huawei.com/oauth2/v3/token接口获取新的Access Token，避免重新弹出用户授权页面去引导用户再次进行登录授权。
 
-请求示例
+**请求示例**
 
 请通过POST方式调用，示例如下：
 
-```
+```screen
 POST /oauth2/v3/token HTTP/1.1
 Host: oauth-login.cloud.huawei.com
 Content-Type: application/x-www-form-urlencoded
@@ -32,9 +32,9 @@ refresh_token=<已经授权获取的Refresh Token>
 |client_id|M|[开发准备](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/web-preparations-0000001050050891)中创建的服务器应用的APP ID。对于AppGallery Connect类应用，该值为应用中OAuth 2.0客户端ID（凭据）的Client ID。|
 |client_secret|M|[开发准备](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/web-preparations-0000001050050891)中给创建服务器应用ID分配的密钥APP SECRET。对于AppGallery Connect类应用，该值为应用中OAuth 2.0客户端ID（凭据）的Client Secret。|
 
-响应示例
+**响应示例**
 
-```
+```screen
 HTTP/1.1 200 OK
 Content-Type: text/html;charset=UTF-8
 Cache-Control: no-store

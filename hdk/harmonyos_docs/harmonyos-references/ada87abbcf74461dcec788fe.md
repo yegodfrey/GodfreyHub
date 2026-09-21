@@ -6,34 +6,37 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-a
 
 # @ohos.app.ability.OpenLinkOptions (openLink的可选参数)
 
-OpenLinkOptions可以作为[openLink()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#openlink12)的入参，用于标识是否仅打开AppLinking和传递键值对可选参数。  
-![](https://media:401788445319603830)  
-* 本模块首批接口从API version 12 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-* 本模块接口仅可在Stage模型下使用。
+OpenLinkOptions可以作为[openLink()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#openlink12)的入参，用于标识是否仅打开AppLinking和传递键值对可选参数。
+> 说明
+>
+> * 本模块首批接口从API version 12 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> * 本模块接口仅可在Stage模型下使用。
 
-#### 导入模块
+## 导入模块
 
-```
+```ts
 import { OpenLinkOptions } from '@kit.AbilityKit';
 ```
 
-#### OpenLinkOptions
+## OpenLinkOptions
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Ability.AbilityRuntime.Core  
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 |名称|类型|只读|可选|说明|
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |appLinkingOnly|boolean|否|是|表示是否必须以[AppLinking](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-linking-startup)的方式启动UIAbility。 - 取值为true时，如果不存在与AppLinking相匹配的UIAbility，直接返回。 - 取值为false时，如果不存在与AppLinking相匹配的UIAbility，AppLinking会退化为[DeepLinking](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-linking-startup)。默认值为false。 aa命令隐式拉起Ability时可以通过设置"--pb appLinkingOnly true/false"以AppLinking的方式进行启动。|
-|parameters|Record\<string, Object\>|否|是|表示WantParams参数。 说明：具体使用规则请参考[want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)中的parameters属性。|
-|hideFailureTipDialog^21+^|boolean|否|是|表示[Deep Linking](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-linking-startup)找不到应用时是否显示"暂无可用打开方式"的弹窗。 - 取值为true时，不显示"暂无可用打开方式"的弹窗。 - 取值为false时，显示"暂无可用打开方式"的弹窗。默认值为false。 说明：appLinkingOnly字段为true时不会触发Deep Linking流程，该字段不会生效。 元服务API：从API version 21开始，该接口支持在元服务中使用。|
-|completionHandler^21+^|[CompletionHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-completionhandler#completionhandler)|否|是|拉起应用结果的操作类，用于处理拉起应用的结果。 元服务API：从API version 21开始，该接口支持在元服务中使用。|
+|parameters|Record<string, Object>|否|是|表示WantParams参数。 **说明** ：具体使用规则请参考[want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)中的parameters属性。|
+|hideFailureTipDialog^21+^|boolean|否|是|表示[Deep Linking](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-linking-startup)找不到应用时是否显示"暂无可用打开方式"的弹窗。 - 取值为true时，不显示"暂无可用打开方式"的弹窗。 - 取值为false时，显示"暂无可用打开方式"的弹窗。默认值为false。 **说明**：appLinkingOnly字段为true时不会触发Deep Linking流程，该字段不会生效。 **元服务API**：从API version 21开始，该接口支持在元服务中使用。|
+|completionHandler^21+^|[CompletionHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-completionhandler#completionhandler)|否|是|拉起应用结果的操作类，用于处理拉起应用的结果。 **元服务API**：从API version 21开始，该接口支持在元服务中使用。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { common, OpenLinkOptions, wantConstant, CompletionHandler, bundleManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';

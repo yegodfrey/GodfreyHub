@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/expo
 
 # 打包（C#）
 
-* [C#（Native）](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-export-csharp-0000001413242206)  
-* [C#（小游戏）](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-export-csharp-minigame-0000001815837173)  
+* **[C#（Native）](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-export-csharp-0000001413242206)**   
+* **[C#（小游戏）](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-export-csharp-minigame-0000001815837173)**   

@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-10
 
 重写onBackPress函数，自定义返回逻辑，通过WebViewController提供的两种接口：accessBackward或accessStep(-1)，都可以实现对web页面是否可以后退情况的判断，进而对web页面进行返回操作。参考代码如下：
 
-```
+```ts
 import { webview } from "@kit.ArkWeb";
 
 @Entry
@@ -31,7 +31,7 @@ struct PageOne {
         this.controller.backward() // Navigate back to the previous webpage
         return true
       } else {
-        const popDestinationInfo = this.pageInfos.pop(); // Pop the top element of the routing stack 
+        const popDestinationInfo = this.pageInfos.pop(); // Pop the top element of the routing stack
         return true;
       }
     }).onReady((context: NavDestinationContext) => {
@@ -41,8 +41,9 @@ struct PageOne {
 }
 ```
 
-参考链接
+**参考链接**
 
 [accessBackward](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessbackward)
 
-[accessStep](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessstep)  
+[accessStep](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessstep)
+

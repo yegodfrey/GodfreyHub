@@ -18,5 +18,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-faq-2
 
 6. 服务商模式接入，切换到商户应用/元服务拉起收银台时，需要把app_id改成商户相应的appId，并在[平台类商户/服务商预下单](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-agent-prepay)接口通过subAppId字段同步传递。
 
-7. 使用"hdc hilog \> 日志路径"抓取运行日志，参考[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)及日志来分析具体的报错异常。
+7. 使用"hdc hilog > 日志路径"抓取运行日志，参考[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)及日志来分析具体的报错异常。
 

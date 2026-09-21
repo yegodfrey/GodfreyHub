@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/valueobject
 
 示例：
 
-```
+```codeblock
 {
     "key": "merchantName",
     "value": "Huawei",

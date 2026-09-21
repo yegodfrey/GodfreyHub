@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-25
 
 在Native入口定义线程安全函数，计算两数之和。
 
-```
+```cpp
 napi_threadsafe_function tsfn;
 using namespace std;
 struct CallbackData {
@@ -54,7 +54,7 @@ static napi_value AddTSFCallback(napi_env env, napi_callback_info info) {
     napi_value resourceName = nullptr;
     napi_create_string_utf8(env, "Thread_safe Function", NAPI_AUTO_LENGTH, &resourceName);
 
-    // Create a thread-safe function object, and register and bind callback and call_js_cb.
+   // Create a thread-safe function object, and register and bind callback and call_js_cb.
     napi_create_threadsafe_function(env, args[2], nullptr, resourceName, 0, 1, callbackData, Thread_Finalize_CBFunction, callbackData,
                                     CallJsFunction, &callbackData->tsfn);
     thread t(AddFunc, reinterpret_cast<void *>(callbackData)); // Create a C++ subthread to process service logic.
@@ -65,14 +65,14 @@ static napi_value AddTSFCallback(napi_env env, napi_callback_info info) {
 
 ArkTS侧调用接口。
 
-```
+```ts
 import testNapi from 'libentry.so';
 
 @Entry
 @Component
 struct Index {
   result: number = 0;
-  // ...
+ // ...
     .onClick(() => {
       testNapi.addTSFCallback(2, 3, (nativeResult: number) => {
         this.result = nativeResult;
@@ -80,6 +80,7 @@ struct Index {
     })
 ```
 
-参考链接
+**参考链接**
 
-[使用Node-API接口进行线程安全开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-thread-safety)  
+[使用Node-API接口进行线程安全开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-thread-safety)
+

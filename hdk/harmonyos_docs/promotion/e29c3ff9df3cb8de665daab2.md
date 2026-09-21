@@ -6,8 +6,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_youhua_dpa01-000
 
 # 动态商品广告
 
-<br />
-
-* [功能简介](https://developer.huawei.com/consumer/cn/doc/promotion/ads_youhua_dpa02-0000001887970754)  
-* [使用指南](https://developer.huawei.com/consumer/cn/doc/promotion/ads_youhua_dpa03-0000001888130702)  
-* [FAQ](https://developer.huawei.com/consumer/cn/doc/promotion/ads_youhua_dpa16-0000001932970597)  
+* **[功能简介](https://developer.huawei.com/consumer/cn/doc/promotion/ads_youhua_dpa02-0000001887970754)**   
+* **[使用指南](https://developer.huawei.com/consumer/cn/doc/promotion/ads_youhua_dpa03-0000001888130702)**   
+* **[FAQ](https://developer.huawei.com/consumer/cn/doc/promotion/ads_youhua_dpa16-0000001932970597)**   

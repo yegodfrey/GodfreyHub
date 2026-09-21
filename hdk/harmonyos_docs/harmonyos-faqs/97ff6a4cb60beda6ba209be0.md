@@ -6,19 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-9
 
 # 应用中如何拦截弹出分享窗口
 
-#### 问题现象
+## 问题现象
 
-应用安全管控禁止对外分享，如何拦截弹出分享窗口？  
+应用安全管控禁止对外分享，如何拦截弹出分享窗口？
 
-#### 背景知识
+## 背景知识
 
-[Aspect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#aspect11)类用于封装提供切面能力（Aspect Oriented Programming，简写AOP）的接口，这些接口可用于对类方法进行前后插桩或替换实现。  
+[Aspect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#aspect11)类用于封装提供切面能力（Aspect Oriented Programming，简写AOP）的接口，这些接口可用于对类方法进行前后插桩或替换实现。
 
-#### 解决方案
+## 解决方案
 
 使用[replace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#replace11)方法拦截systemShare.ShareController的show接口。
 
-```
+```ts
 import { common } from "@kit.AbilityKit";
 import { systemShare } from "@kit.ShareKit";
 import { util } from '@kit.ArkTS';

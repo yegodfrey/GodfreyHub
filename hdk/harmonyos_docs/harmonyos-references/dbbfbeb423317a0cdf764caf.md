@@ -6,71 +6,76 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arku
 
 # FullScreenLaunchComponent
 
-全屏启动元服务组件，当提供方授权使用方嵌入式运行元服务时，使用方全屏嵌入式运行元服务；未授权时，使用方跳出式拉起元服务。  
-![](https://media:401788445283532394)  
-该组件从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-当需要在该组件中实现可嵌入式运行的元服务，必须继承自[EmbeddableUIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddableuiability)。否则，系统无法保证元服务功能正常。  
+全屏启动元服务组件，当提供方授权使用方嵌入式运行元服务时，使用方全屏嵌入式运行元服务；未授权时，使用方跳出式拉起元服务。
+> 说明
+>
+> 该组件从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> 当需要在该组件中实现可嵌入式运行的元服务，必须继承自[EmbeddableUIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddableuiability)。否则，系统无法保证元服务功能正常。
 
-#### 导入模块
+## 导入模块
 
-```
+```ts
 import { FullScreenLaunchComponent } from '@kit.ArkUI';
 ```
 
-#### 子组件
+## 子组件
 
-无。  
+无。
 
-#### 属性
+## 属性
 
-不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。  
+不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
-#### 事件
+## 事件
 
-不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。  
+不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
-#### FullScreenLaunchComponent
+## FullScreenLaunchComponent
 
-FullScreenLaunchComponent({ content: Callback\<void\>, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback\<TerminationInfo\>, onReceive?: Callback\<Record\<string, Object\>\> })
+FullScreenLaunchComponent({ content: Callback<void>, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback<TerminationInfo>, onReceive?: Callback<Record<string, Object>> })
 
-装饰器类型：[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)
+**装饰器类型：** [@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |名称|类型|必填|装饰器类型|说明|
-|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|content|[Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)\<void\>|是|[@BuilderParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam)|可以使用组件组合来自定义拉起元服务前的占位图标，实现类似大桌面应用图标的效果。点击占位组件后，将拉起元服务。|
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|content|[Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)<void>|是|[@BuilderParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam)|可以使用组件组合来自定义拉起元服务前的占位图标，实现类似大桌面应用图标的效果。点击占位组件后，将拉起元服务。|
 |appId|string|是|-|需要拉起的元服务appId，appId是元服务的唯一标识。|
 |options|[AtomicServiceOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-atomicserviceoptions)|否|-|拉起元服务的参数。不填时使用默认参数拉起元服务。|
-|onError^18+^|[ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback)|否|-|被拉起的嵌入式运行元服务在运行过程中发生异常时触发本回调。可通过回调参数中的code、name和message获取错误信息并做处理。 元服务API： 从API version 18开始，该接口支持在元服务中使用。|
-|onTerminated^18+^|[Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)\<[TerminationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component#terminationinfo)\>|否|-|被拉起的嵌入式运行元服务通过点击元服务退出按钮、手势侧滑、调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)或者[terminateSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)正常退出时，触发本回调函数。 元服务API： 从API version 18开始，该接口支持在元服务中使用。|
-|onReceive^20+^|[Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)\<Record\<string, Object\>\>|否|-|被拉起的嵌入式运行元服务通过[@ohos.window (窗口)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)调用相关API时，触发本回调。 元服务API： 从API version 20开始，该接口支持在元服务中使用。|
+|onError^18+^|[ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback)|否|-|被拉起的嵌入式运行元服务在运行过程中发生异常时触发本回调。可通过回调参数中的code、name和message获取错误信息并做处理。 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。|
+|onTerminated^18+^|[Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)<[TerminationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component#terminationinfo)>|否|-|被拉起的嵌入式运行元服务通过点击元服务退出按钮、手势侧滑、调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)或者[terminateSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)正常退出时，触发本回调函数。 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。|
+|onReceive^20+^|[Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)<Record<string, Object>>|否|-|被拉起的嵌入式运行元服务通过[@ohos.window (窗口)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)调用相关API时，触发本回调。 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。|
 
-![](https://media:401788445283562395)  
-* 若元服务通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)退出，其携带的信息会传给回调函数的入参；
-* 若元服务通过调用[terminateSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)退出，上述回调函数的入参中，"code"取默认值"0"，"want"为"undefined"；
-* 从API version 26.0.0开始，元服务通过手势侧滑退出触发onTerminated回调。  
+> 说明
+>
+> * 若元服务通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)退出，其携带的信息会传给回调函数的入参；
+> * 若元服务通过调用[terminateSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)退出，上述回调函数的入参中，"code"取默认值"0"，"want"为"undefined"；
+> * 从API version 26.0.0开始，元服务通过手势侧滑退出触发onTerminated回调。
 
-#### 示例
+## 示例
 
 本示例展示组件使用方法和提供方元服务的实现。实际运行时请使用开发者自己的元服务appId。
 
-FullScreenLaunchComponent组件需要由使用方调用。在提供方完成本地的安装后，即可在使用方应用或者元服务中全屏嵌入式拉起提供方的元服务。  
-![](https://media:401788445283586396)  
-由于嵌入式元服务运行在独立进程，其崩溃异常不会直接暴露在宿主的日志中。本地调试时可通过以下方式查看真实报错栈：
+FullScreenLaunchComponent组件需要由使用方调用。在提供方完成本地的安装后，即可在使用方应用或者元服务中全屏嵌入式拉起提供方的元服务。
+> 说明
+>
+> 由于嵌入式元服务运行在独立进程，其崩溃异常不会直接暴露在宿主的日志中。本地调试时可通过以下方式查看真实报错栈：
+>
+> 1. 打开DevEco Studio的HiLog面板。
+> 2. 将左上角的模式切换为User logs of selected app。
+> 3. 在右侧进程列表中，选择被拉起的元服务进程（被拉起元服务的包名，且后缀带有embeddable字样）。
 
-1. 打开DevEco Studio的HiLog面板。
-2. 将左上角的模式切换为User logs of selected app。
-3. 在右侧进程列表中，选择被拉起的元服务进程（被拉起元服务的包名，且后缀带有embeddable字样）。
+**使用方**
 
-使用方
-
-```
+```ts
 // 使用方入口界面Index.ets内容如下：
 import { FullScreenLaunchComponent } from '@kit.ArkUI';
 
@@ -112,13 +117,13 @@ function ColumnChild() {
 }
 ```
 
-组件提供方
+**组件提供方**
 
 元服务提供方需要修改两个文件：
 
 * 提供方入口文件：/src/main/ets/entryability/EntryAbility.ets。
 
-```
+```ts
 import { AbilityConstant, Want, EmbeddableUIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -159,7 +164,7 @@ export default class EntryAbility extends EmbeddableUIAbility {
 
 * 提供方扩展Ability入口页面文件：/src/main/ets/pages/Index.ets。
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
 

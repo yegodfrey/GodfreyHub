@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-comm
 
 在需要执行的Task中，添加sendData()接口将消息发送给宿主线程。在宿主线程通过onReceiveData()接口接收消息。这样宿主线程就可以通过notice()接口接收到Task发送的数据。
 
-```
+```TypeScript
 export class IconItemSource {
   image: string | Resource = '';
   text: string | Resource = '';
@@ -24,7 +24,7 @@ export class IconItemSource {
 }
 ```
 
-```
+```TypeScript
 import { taskpool } from '@kit.ArkTS';
 import { IconItemSource } from './IconItemSource';
 // 实现接收Task消息的方法

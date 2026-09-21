@@ -10,35 +10,35 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wal
 |:-----------------------------------------------------------------------------------------------|
 |public class AutoResolvableForegroundIntentResult implements IResolvableTaskResult 实现Task任务回调的类。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:---------------------------------------------------------------------------------------------------------------|
 |public [AutoResolvableForegroundIntentResult()](#section491071362716) 实例化AutoResolvableForegroundIntentResult对象。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:----------------------------------------------------------------------------------------------|
 |void|[addIntent(@NonNull Intent intent)](#section12314519459) 实现IResolvableTaskResult接口的addIntent方法。|
 
-#### Public Constructors
+## Public Constructors
 
-#### public AutoResolvableForegroundIntentResult()
+### public AutoResolvableForegroundIntentResult()
 
 |Constructor|
 |:---------------------------------------------------------------------------------------|
 |public AutoResolvableForegroundIntentResult() 实例化AutoResolvableForegroundIntentResult对象。|
 
-#### Public Methods
+## Public Methods
 
-#### public void addIntent(@NonNull Intent intent)
+### public void addIntent(@NonNull Intent intent)
 
 |Method|
 |:-----------------------------------------------------------------------------------|
 |public void addIntent(@NonNull Intent intent) 实现IResolvableTaskResult接口的addIntent方法。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------|

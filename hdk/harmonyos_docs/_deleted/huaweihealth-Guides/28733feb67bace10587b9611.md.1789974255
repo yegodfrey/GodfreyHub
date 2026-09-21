@@ -1,0 +1,68 @@
+---
+name: document/cn/huaweihealth-Guides/subscribe-sos-event-0000002376595273
+title: 订阅SOS事件
+uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/subscribe-sos-event-0000002376595273
+---
+
+# 订阅SOS事件
+
+订阅和取消订阅穿戴设备的SOS事件。订阅成功后，当穿戴设备判断SOS触发时上报SOS事件。取消订阅后，不再上报SOS事件。
+> 说明
+>
+> 接口仅支持具备SOS订阅功能的行业版本穿戴设备，当前支持HUAWEI WATCH H7546、HUAWEI WATCH H7556设备。
+
+1. 调用[IndustryWear](https://developer.huawei.com/consumer/cn/doc/health-References/industrywear-0000001434945524)中的[getDeviceManageClient](https://developer.huawei.com/consumer/cn/doc/health-References/industrywear-0000001434945524#ZH-CN_TOPIC_0000002678163945__getDeviceManageClient-android_content_Context-)方法，获取[DeviceManageClient](https://developer.huawei.com/consumer/cn/doc/health-References/devicemanageclient-0000001485104693)对象。
+2. 参见[获取设备列表](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/get-device-list-0000002372216449)章节，获取已配对的穿戴设备列表，并从设备列表中选定需要操作的设备，获取设备Id。
+3. 构造用于订阅或取消订阅SOS事件提醒的JSON格式参数。
+
+   ```screen
+   {
+       "item": "SOSEvent"
+   }
+   ```
+
+4. 调用[subscribe](https://developer.huawei.com/consumer/cn/doc/health-References/devicemanageclient-0000001485104693#ZH-CN_TOPIC_0000002648084250__subscribe-java_lang_String-java_lang_String-com_huawei_health_industry_client_callback_ServiceCallback-)方法订阅SOS事件提醒。
+
+   ```screen
+   // 获取DeviceManageClient对象
+   DeviceManageClient manageClient = IndustryWear.getDeviceManageClient(this);
+
+   // 参考https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/get-device-list-0000002372216449获取设备列表后选择需要操作的设备，获取设备Id
+   String deviceId = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
+   // 构造用于订阅SOS事件提醒的JSON格式的入参数据 
+   JSONObject jsonObject = new JSONObject();
+   try {
+       jsonObject.put("item", "SOSEvent");
+   } catch (JSONException e) {
+       e.printStackTrace();
+   }
+
+   // 调用subscribe方法
+   manageClient.subscribe(deviceId, jsonObject.toString(), new ServiceCallback() {
+       @Override
+       public void onResult(int statusCode, String result) {
+           // 处理订阅返回信息
+       }
+   });
+   ```
+
+   |参数|取值|含义|
+   |:---------|:----------------|:---------------------------------------------------------------------------------------------------------------------|
+   |statusCode|0、1、2、3、6、7、10、30|接口调用结果返回码，参见[返回码](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/errorcode-0000002372870401)中的通用返回码。|
+   |result|-|订阅成功时返回空字符，订阅失败时返回错误信息。|
+   [**表1**ServiceCallback返回值]
+
+5. 调用[unSubscribe](https://developer.huawei.com/consumer/cn/doc/health-References/devicemanageclient-0000001485104693#ZH-CN_TOPIC_0000002648084250__unSubscribe-java_lang_String-java_lang_String-com_huawei_health_industry_client_callback_ServiceCallback-)方法取消订阅SOS事件提醒。
+
+   ```screen
+   // 调用unSubscribe方法取消订阅SOS事件提醒
+   manageClient.unSubscribe(deviceId, jsonObject.toString(), serviceCallback);
+   ```
+
+   > 说明
+   >
+   > 取消订阅成功条件：
+   > * 取消订阅时要求输入的解订阅参数和订阅时的参数一致。
+   > * 取消订阅时传入的ServiceCallback，要求和订阅时传入的ServiceCallback为同一个对象。
+

@@ -12,11 +12,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/write-client-sl
 2. 使用[HealthRecord](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/healthrecord_class-0000001166067583)和可选的采样集或聚合采样点数据，创建一个[HealthRecordInsertOptions](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/healthrecordinsertopt_class-0000001119107906)。
 3. 使用[HealthRecordController](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/healthrecordcontroller-0000001165268361).[addHealthRecord](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/healthrecordcontroller-0000001165268361#section12647471406)插入[HealthRecordInsertOptions](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/healthrecordinsertopt_class-0000001119107906)。
 
-   <br />
-
    插入睡眠健康记录示例代码如下：
 
-   ```
+   ```screen
    // 请注意此处的this为Activity对象
    HealthRecordController healthRecordController = HuaweiHiHealth.getHealthRecordController(this);
    Context context = getApplicationContext();
@@ -90,30 +88,30 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/write-client-sl
    });
    ```
 
-   <br />
-
-![](https://media:901788166657355245)  
-直接拷贝使用上述示例代码，会有下面多处报错，错误点和解决办法如下：
-
-1. 辅助函数logger没有定义。  
-   解决办法：定义logger函数，不进行任何操作，参考下面的示例代码。
-
-   ```
-   private static final String TAG = "HealthRecordController";
-
-   /** 
-    * 同时输出操作结果日志到logcat 
-    * 
-    * @param string日志字符串
-    */ 
-   private void logger(String string) { 
-       Log.i(TAG, string); 
-   }
-   ```
-
-2. 字符串变量healthRecordIdFromInsertResult未定义。 解决办法：healthRecordIdFromInsertResult字符串用来作为updateHealthRecord接口调用的参数，具体的定义参考如下，需在调用addHealthRecord成功后予以赋值。
-
-   ```
-   private String healthRecordIdFromInsertResult  = "";
-   ```
+> 说明
+>
+> 直接拷贝使用上述示例代码，会有下面多处报错，错误点和解决办法如下：
+>
+> 1. 辅助函数logger没有定义。
+>
+>    解决办法：定义logger函数，不进行任何操作，参考下面的示例代码。
+>
+>    ```screen
+>    private static final String TAG = "HealthRecordController";
+>
+>    /** 
+>     * 同时输出操作结果日志到logcat 
+>     * 
+>     * @param string日志字符串
+>     */ 
+>    private void logger(String string) { 
+>        Log.i(TAG, string); 
+>    }
+>    ```
+>
+> 2. 字符串变量healthRecordIdFromInsertResult未定义。 解决办法：healthRecordIdFromInsertResult字符串用来作为updateHealthRecord接口调用的参数，具体的定义参考如下，需在调用addHealthRecord成功后予以赋值。
+>
+>    ```screen
+>    private String healthRecordIdFromInsertResult  = "";
+>    ```
 

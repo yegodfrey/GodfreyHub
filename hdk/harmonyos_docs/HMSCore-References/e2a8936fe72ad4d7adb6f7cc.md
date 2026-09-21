@@ -6,56 +6,53 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-pay-pro
 
 # 华为支付系统订单号查询支付订单
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS GET|
-|接口方向|开发者服务器-\> 华为支付服务器|
+|-----|------------------------------------------------------------------------------------------------|
+|接口方向|开发者服务器-> 华为支付服务器|
 |接口URL|https://petalpay-developer.cloud.huawei.com.cn/api/v2/aggr/transactions/orders/{sysTransOrderNo}|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|-----|------------------------------------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-* Request Header  
+* **Request Header**
 
   |参数|是否必选|参数类型|描述|
   |:-----------|:---|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------|
   |Content-Type|是|String|取值为：application/json; charset=UTF-8|
   |PayMercAuth|是|String|取值为：[PayMercAuth](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-data-model-0000001538219104#section11744172016145)的JSON串|
 
-<!-- -->
 
-* request path  
+* **request path**
 
   |参数|是否必填|参数类型|描述|
   |:--------------|:---|:-----|:---------|
   |sysTransOrderNo|是|String|华为支付系统订单号。|
 
-<!-- -->
 
-* 请求示例
+* **请求示例**
 
-  ```
+  ```screen
   GET /api/v2/aggr/transactions/orders/{sysTransOrderNo} HTTP/1.1
   Content-Type: application/json;charset=UTF-8
   PayMercAuth: 
   {"callerId":"10132120***","traceId":"202305151047588466083","time":1684118878350,"authId":"120291744647139***","headerSign":"4Xb1tDGRC4f/B58ANIF6sa/Y2p8Eh4EXO7TpmBKrcSm********************hLipE8aZ0Ti6IB7idVf1Oi4P93Jn8MdFNExStZJVpRaTNOeN0znmsDJOALXgvh/RKeReQBbc4lXZp5wnyZmdwTesmPGdszSNP/s=","bodySign":"kf9AZmVjBSGUI2MldsIFShO+Ak00qpPKaXgJo+KnubAcMEY8hy1ij59nr5n+uvtmPSZlus0aA3hoMuVwN1TPo6********************dghaJShhzAsNjt8DE9ulUIlQ0Q95/dZt2jEHcXyLfGNVzDNfFPhvF08NnnGM4="}
   ```
 
-#### 响应参数
+## 响应参数
 
-* Response Header  
+* **Response Header**
 
   |参数|是否必选|参数类型|描述|
   |:-----------|:---|:-----|:----------------------------------|
   |Content-Type|是|String|取值为：application/json; charset=UTF-8|
 
-<!-- -->
 
-* Response Body  
+* **Response Body**
 
   |参数|是否必选|参数类型|描述|
-  |:--------------|:---|:---------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------|
+  |:--------------|:---|:-------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------|
   |resultCode|是|String|结果码，"000000"表示成功，其他表示失败。|
   |resultDesc|是|String|结果描述。|
   |subCode|否|String|业务错误码。|
@@ -73,12 +70,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-pay-pro
   |promotionAmount|否|long|优惠金额，单位：分。|
   |finishTime|否|String|支付完成时间，UTC时间格式（yyyy-MM-dd'T'HH:mm:ss.SSSZ）。|
   |paymentTools|否|String|支付工具。 * WECHAT_MICROPAY：微信小程序支付 * AGMT：快捷 * ACCT：账户余额 * UNIONPAY：云闪付 * TRANSFER_PAY：转账支付|
-  |promotionDetail|否|List\<[PromotionItem](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-data-model-0000001538219104#section11685193853815)\>|营销信息。|
+  |promotionDetail|否|List<[PromotionItem](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-data-model-0000001538219104#section11685193853815)>|营销信息。|
   |payer|否|[PayerOut](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-data-model-0000001538219104#section14195124713166)|用户支付时客户端信息。|
 
-* 响应示例
+* **响应示例**
 
-  ```
+  ```screen
   HTTP/1.1 200 OK
   Content-Type: application/json; charset=UTF-8
   {
@@ -115,12 +112,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-pay-pro
   }
   ```
 
-#### 错误码
+## 错误码
 
-(resultCode非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-error-code-description-0000001589053741#section1187515498410))  
+(**resultCode** 非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-error-code-description-0000001589053741#section1187515498410))
 
-|resultCode|resultDesc|subCode|subDesc|
-|:---------|:---------|:-------------------|:---------------------|
+|**resultCode**|**resultDesc**|**subCode**|**subDesc**|
+|:-------------|:-------------|:-------------------|:---------------------|
 |400000|业务处理失败|UNKNOW_ERROR|系统未知错误，请稍后重试或联系华为工程师处理|
 |400000|业务处理失败|INVALID_ARGUMENTS|参数不合法|
 |400000|业务处理失败|PAY_ORDER_NOT_EXIST|支付订单号不存在|

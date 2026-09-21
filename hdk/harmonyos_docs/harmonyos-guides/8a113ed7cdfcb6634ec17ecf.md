@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/linkenhance_d
 
 # 增强连接开发指导
 
-#### 简介
+## 简介
 
 随着技术的发展，各种应用层出不穷，设备间的互联关系也成为一种常态，此时对于网络环境的依赖也不可避免。然而，在某些特殊场景下（如航空、远洋航行等），网络受限，蓝牙成为少数可行的连接方式。但是传统蓝牙连接存在着连接数量有限、连接成功率低、连接不稳定等缺点，影响了用户体验。
 
-HarmonyOS提供了分布式增强连接能力，实现跨设备互联，完成与对端设备的连接，交换应用业务数据。相比传统蓝牙连接，使用多通道合并算法，增加设备连接数量，增强连接稳定性，提升跨端互通体验。  
+HarmonyOS提供了分布式增强连接能力，实现跨设备互联，完成与对端设备的连接，交换应用业务数据。相比传统蓝牙连接，使用多通道合并算法，增加设备连接数量，增强连接稳定性，提升跨端互通体验。
 
-#### 实现原理
+### 实现原理
 
 在设备互联过程中，发现对端的蓝牙地址并建立物理链路；在多设备互联场景下，通过特有的多通道合并算法，在保证设备间交互能力的前提下，减少实际物理链路的个数，达到设备间可用连接数增大、降低干扰提升通信的稳定性的效果。
 
 两个设备的交互实现如下，在使用[linkEnhance](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-link-enhance)能力后，当两端同时发起连接时，会自动识别合并底层多余物理链路，减少实际物理链路的个数，减少蓝牙链路资源的消耗，增加可用连接数量。
 
-![](https://media:401788444718372046)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/7TUmKKGBTBy7LSXJtaMBQQ/zh-cn_image_0000002733434606.png?HW-CC-KV=V1&HW-CC-Date=20260917T084602Z&HW-CC-Expire=31536000000&HW-CC-Sign=586A9029D37E8A310AFB0A2156EAE3468F2560BBBCE3BCC4ABC1C86D1F2A7290)
 
-#### 约束与限制
+### 约束与限制
 
 * 设备互联时需要开启蓝牙功能。
 
@@ -32,22 +32,22 @@ HarmonyOS提供了分布式增强连接能力，实现跨设备互联，完成�
 
 * 该接口提供连接能力，链路安全策略遵循调用者初始设置的蓝牙配对策略（如：Numeric Comparison、Passkey Entry、Just Works、Out of Band四种方式）。
 
-#### 环境准备
+## 环境准备
 
-#### 环境要求
+### 环境要求
 
-打开客户端和服务端设备的蓝牙开关。  
+打开客户端和服务端设备的蓝牙开关。
 
-#### 搭建环境
+### 搭建环境
 
 1. 在PC上安装[DevEco Studio](https://developer.huawei.com/consumer/cn/download/deveco-studio)，版本要求在4.1及以上。
 2. 将public-SDK更新到API 20或以上。
 3. 用USB线缆将两台调测设备（设备A和设备B）连接到PC。
-4. 打开设备A和设备B的蓝牙开关。  
+4. 打开设备A和设备B的蓝牙开关。
 
-#### 接口说明
+## 接口说明
 
-常用接口说明如下表。更多接口的详细介绍参考@ohos.distributedsched.linkEnhance[增强连接](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-link-enhance)。  
+常用接口说明如下表。更多接口的详细介绍参考@ohos.distributedsched.linkEnhance[增强连接](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-link-enhance)。
 
 |接口名|功能描述|
 |:---------------------------------------------|:---------------------------------------------------|
@@ -67,24 +67,24 @@ HarmonyOS提供了分布式增强连接能力，实现跨设备互联，完成�
 |on(type: 'serverStopped')|Server端订阅服务状态停止的事件。|
 |createServer(name: string)|创建一个server对象。|
 
-#### 增强连接开发指导
+## 增强连接开发指导
 
 * 服务端开启蓝牙后，创建Server对象，并调用[start()接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-link-enhance#start)开启服务，让服务端处于可连接状态，通过注册的事件监听，监听事件的变化通知。
 * 客户端开启蓝牙后，创建Connection对象，并调用[connect()接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-link-enhance#connect)发起连接，通过注册的事件监听，监听事件的变化通知。
-* 连接成功后，可以使用[sendData接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-link-enhance#senddata)发送数据。  
+* 连接成功后，可以使用[sendData接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-link-enhance#senddata)发送数据。
 
-#### 服务端开发指导
+### 服务端开发指导
 
 1. 导入所需的模块。
 
-   ```
+   ```ts
    import {linkEnhance} from '@kit.DistributedServiceKit';
    import { BusinessError } from '@kit.BasicServicesKit';
    ```
 
 2. 在module.json5配置文件中配置分布式数据同步权限ohos.permission.DISTRIBUTED_DATASYNC。
 
-   ```
+   ```ts
    {
      "module" : {
        "requestPermissions":[
@@ -105,7 +105,7 @@ HarmonyOS提供了分布式增强连接能力，实现跨设备互联，完成�
 
 3. 创建server对象，并开启服务，注册监听。
 
-   ```
+   ```ts
    const TAG = 'TEST';
    // server端注册服务
    linkEnhanceStart(name: string) {
@@ -132,7 +132,7 @@ HarmonyOS提供了分布式增强连接能力，实现跨设备互联，完成�
 
 4. 当连接被连上时，需要保存connection对象。
 
-   ```
+   ```ts
    serverAcceptOnCallback = (connection: linkEnhance.Connection): void => {
      console.info(TAG + 'serverOnCallback');
      try {
@@ -159,7 +159,7 @@ HarmonyOS提供了分布式增强连接能力，实现跨设备互联，完成�
 
 5. 断开连接并销毁Connection对象。
 
-   ```
+   ```ts
    // 断开连接。
    linkEnhanceDisconnect(connection: linkEnhance.Connection) {
      console.info(TAG + 'disconnect deviceId = ' + connection.getPeerDeviceId());
@@ -175,7 +175,7 @@ HarmonyOS提供了分布式增强连接能力，实现跨设备互联，完成�
 
 6. 停止服务并销毁server对象。
 
-   ```
+   ```ts
    // Server端停止服务
    linkEnhanceStop(server: linkEnhance.Server) {
      console.info(TAG + 'stop server');
@@ -198,18 +198,18 @@ HarmonyOS提供了分布式增强连接能力，实现跨设备互联，完成�
    }
    ```
 
-#### 客户端开发指导
+### 客户端开发指导
 
 1. 导入所需的模块。
 
-   ```
+   ```ts
    import { linkEnhance } from '@kit.DistributedServiceKit';
    import { BusinessError } from '@kit.BasicServicesKit';
    ```
 
 2. 在module.json5配置文件中配置分布式数据同步权限ohos.permission.DISTRIBUTED_DATASYNC。
 
-   ```
+   ```ts
    {
      "module" : {
        "requestPermissions":[
@@ -230,7 +230,7 @@ HarmonyOS提供了分布式增强连接能力，实现跨设备互联，完成�
 
 3. 创建connection对象，订阅连接结果通知变化的事件，连接服务端。
 
-   ```
+   ```ts
    const TAG = "TEST";
    // client端主动连接时调用
    linkEnhanceConnect(peerDeviceId: string) {
@@ -265,7 +265,7 @@ HarmonyOS提供了分布式增强连接能力，实现跨设备互联，完成�
 
 4. 断开连接，销毁Connection对象。
 
-   ```
+   ```ts
    disconnect(connection: linkEnhance.Connection) {
      console.info(TAG + 'disconnect deviceId = ' + connection.getPeerDeviceId());
      try {

@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-no-use-an
 
 # @performance/no-use-any-import
 
-使用import的方式引入对应的模块时，建议按需引用变量代替"import \*"的方式，以减少.ets文件的执行耗时和文件中所有export变量的初始化过程。  
+使用import的方式引入对应的模块时，建议按需引用变量代替"import *"的方式，以减少.ets文件的执行耗时和文件中所有export变量的初始化过程。
 
-#### 规则配置
+## 规则配置
 
-```
+```screen
 // code-linter.json5
 {
   "rules": {
@@ -19,13 +19,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-no-use-an
 }
 ```
 
-#### 选项
+## 选项
 
-该规则无需配置选项。  
+该规则无需配置选项。
 
-#### 正例
+## 正例
 
-```
+```screen
 // Index.ets
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { One } from '../utils/Numbers'; // It is recommended to reference variables on demand
@@ -35,9 +35,9 @@ export const One: number = 1;
 export const Two: number = 2;
 ```
 
-#### 反例
+## 反例
 
-```
+```screen
 // Index.ets
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import * as nm from '../utils/Numbers'; // The import * method is not recommended
@@ -47,11 +47,12 @@ export const One: number = 1;
 export const Two: number = 2;
 ```
 
-#### 规则集
+## 规则集
 
-```
+```screen
 plugin:@performance/recommended
 plugin:@performance/all
 ```
 
-Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。  
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+

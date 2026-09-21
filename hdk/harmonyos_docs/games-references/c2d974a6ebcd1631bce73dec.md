@@ -10,21 +10,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/gameobe-gobee
 |:-------------------------------------------|
 |export class GOBEError extends Error 自定义错误类。|
 
-#### Constructor Summary
+## Constructor Summary
 
 |Constructor Name And Description|
 |:---------------------------------------------------|
 |GOBEError(code: number, message: string) 自定义错误类构造函数。|
 
-#### Constructors
+## Constructors
 
-#### GOBEError
+### GOBEError
 
 |Constructor|
 |:---------------------------------------------------|
 |GOBEError(code: number, message: string) 自定义错误类构造函数。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------------------------------------------------------------------------------------------------------|

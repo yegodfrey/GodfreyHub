@@ -6,6 +6,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-voip
 
 # VoIPExtensionAbility（应用内通话消息扩展Ability）（废弃）
 
+> phone 5.0.0(12)+ | 2in1 6.1.0(23)+ | tablet 5.0.0(12)+
+
 VoIPExtensionAbility为应用内通话消息扩展Ability，继承自[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)，增加获取场景化消息数据的回调。有如下约束：
 
 * VoIPExtensionAbility为独立子进程，轻量级。
@@ -14,65 +16,65 @@ VoIPExtensionAbility为应用内通话消息扩展Ability，继承自[UIExtensio
 
 执行ExtensionAbility失败可能会返回错误，请按具体报错信息排查，详见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Push.PushService
+**系统能力：** SystemCapability.Push.PushService
 
-起始版本： 4.1.0(11)
+**起始版本：** 4.1.0(11)
 
-废弃版本： 26.0.0  
+**废弃版本：** 26.0.0
 
-#### 约束限制
+## 约束限制
 
-为保障系统安全性和稳定性，防止VoIPExtensionAbility滥用系统资源，系统对其能力进行管控， 不支持部分模块的引用，详情请参考[附录](#附录)。  
+为保障系统安全性和稳定性，防止VoIPExtensionAbility滥用系统资源，系统对其能力进行管控， 不支持部分模块的引用，详情请参考[附录](#附录)。
 
-#### 导入模块
+## 导入模块
 
-```
+```typescript
 import { VoIPExtensionAbility } from '@kit.PushKit';
 ```
 
-#### 属性
+## 属性
 
-模型约束： 属性仅可在Stage模型下使用。
+**模型约束：** 属性仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Push.PushService
+**系统能力：** SystemCapability.Push.PushService
 
-设备行为差异： 对于6.1.0(23)以前版本，该属性在Phone、Tablet中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该属性在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。
+**设备行为差异：** 对于6.1.0(23)以前版本，该属性在Phone、Tablet中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该属性在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。
 
-起始版本： 4.1.0(11)
+**起始版本：** 4.1.0(11)
 
-废弃版本： 26.0.0  
+**废弃版本：** 26.0.0
 
 |名称|类型|只读|可选|说明|
 |:------|:------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |context|[VoIPExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-voip-context)^(deprecated)^|否|否|VoIPExtensionAbility的上下文环境，继承自[UIExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiextensioncontext)。|
 
-#### onReceiveMessage^(deprecated)^
+## onReceiveMessage^(deprecated)^
 
 onReceiveMessage(voipInfo: pushCommon.VoIPInfo): void
 
 应用继承VoIPExtensionAbility后接收应用内通话消息的接口。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Push.PushService
+**系统能力：** SystemCapability.Push.PushService
 
-设备行为差异： 对于6.1.0(23)以前版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中无效果。
+**设备行为差异：** 对于6.1.0(23)以前版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中无效果。
 
-起始版本： 4.1.0(11)
+**起始版本：** 4.1.0(11)
 
-废弃版本： 26.0.0
+**废弃版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:----------------------------------------------------------------------------------------------------------------|:-|:-----------|
 |voipInfo|pushCommon.[VoIPInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushcommon#voipinfo)|是|网络音视频通话消息数据。|
 
-示例：
+**示例：**
 
-```
+```typescript
 import { VoIPExtensionAbility, pushCommon } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -87,9 +89,9 @@ export default class VoipExtAbility extends VoIPExtensionAbility {
 }
 ```
 
-#### 附录
+## 附录
 
-VoIPExtensionAbility不支持以下模块的引用。  
+VoIPExtensionAbility不支持以下模块的引用。
 
 |Kit|模块|
 |:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

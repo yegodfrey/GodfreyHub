@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-
 
 # OS平台API行为的变更
 
-#### Car Kit
+## Car Kit
 
-#### Car Kit接口新增801、1003810001、1003810002错误码
+### Car Kit接口新增801、1003810001、1003810002错误码
 
-变更原因
+**变更原因**
 
 当传入无效入参或在不支持的设备调用接口时，通过相关错误码告知开发者接口调用失败的原因，方便开发者定位问题。
 
-变更影响
+**变更影响**
 
 公共接口新增错误码，此变更涉及应用适配。
 
@@ -22,12 +22,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/changelogs-
 
 变更后：应用调用本次涉及修改的接口时，未使用try-catch捕获接口抛出的异常，所调用的接口在传入非法参数会抛出1003810001或者1003810002错误码，在不支持的设备上调用会抛出801错误码，会导致应用运行时发生崩溃。
 
-起始API Level
+**起始API Level**
 
 * 4.1.0(11)：getNavigationController、updateNavigationStatus、updateNavigationMetadata、registerSystemNavigationListener、unregisterSystemNavigationListener
 * 5.0.0(12)：getSmartMobilityAwareness、on(type: 'smartMobilityEvent')、off(type: 'smartMobilityEvent')、getSmartMobilityEvent、on(type: 'smartMobilityStatus')、off(type: 'smartMobilityStatus')、getSmartMobilityStatus
 
-变更的接口/组件
+**变更的接口/组件**
 
 Car Kit 提供的公共接口在变更后新增 801、1003810001、1003810002 错误码：
 
@@ -41,47 +41,47 @@ Car Kit 提供的公共接口在变更后新增 801、1003810001、1003810002 �
 |1003810001|Invalid parameter value.|
 |1003810002|The total size of all parameters exceeds the limit.|
 
-适配指导
+**适配指导**
 
 目前已接入的应用调用接口时可能未捕获异常，或已捕获异常但未对新增的错误码进行处理。应用调用上述接口时需捕获异常，并且按需处理错误码。
 
 以调用导航类接口updateNavigationStatus为例：
 
-```
+```screen
 import { navigationInfoMgr } from '@kit.CarKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 // 定义导航状态属性
 let navigationStatus: navigationInfoMgr.NavigationStatus = {/* 按需设置导航数据*/};
 
-try {
+try{
   // 获取 NavigationController
   let naviInfoController: navigationInfoMgr.NavigationController = navigationInfoMgr.getNavigationController();
   naviInfoController.updateNavigationStatus(navigationStatus);
 } catch (e) {
-  hilog.error(0x0000, 'testTag', `update navigation status error, error code: ${e.code}`);
-  // 捕获接口调用异常时的错误码并做相应处理
-  if (e.code === 801) {
-   // 按需处理801错误码
- } else if (e.code === 1003810001) {
-   // 按需处理1003810001错误码
- } else if (e.code === 1003810002) {
-   // 按需处理1003810002错误码
- }
+hilog.error(0x0000, 'testTag', `update navigation status error, error code: ${e.code}`);
+// 捕获接口调用异常时的错误码并做相应处理
+if (e.code === 801) {
+// 按需处理801错误码
+} else if (e.code === 1003810001) {
+// 按需处理1003810001错误码
+} else if (e.code === 1003810002) {
+// 按需处理1003810002错误码
+}
 }
 ```
 
-#### Data Augmentation Kit
+## Data Augmentation Kit
 
-#### rag.streamRun接口思考过程输出变更
+### rag.streamRun接口思考过程输出变更
 
-变更原因
+**变更原因**
 
 思考中输出内容优化。
 
-变更影响
+**变更影响**
 
-此变更在部分场景涉及应用适配，详见适配指导的情况说明。
+此变更在部分场景涉及应用适配，详见**适配指导**的情况说明。
 
 1. 思考内容扩充： 变更前：思考内容输出固定语句"正在思考中，请稍后..."。
 
@@ -90,15 +90,15 @@ try {
 
    变更后：提问后立即开始输出思考内容。
 
-起始API Level
+**起始API Level**
 
 6.0.0(20)
 
-变更的接口/组件
+**变更的接口/组件**
 
 rag.streamRun接口回调函数输出。
 
-适配指导
+**适配指导**
 
 前提：开发者调用该接口时，rag.streamRun第二个参数config配置中，配置了THOUGHT。
 
@@ -108,7 +108,7 @@ rag.streamRun接口回调函数输出。
 
 情况3、如果开发者在config中配置了THOUGHT，解析了思考中的具体内容，或者使用固定时间进行界面等待效果：推荐如下修改进行适配：
 
-```
+```ts
 const answerTypes: Array<rag.StreamType> = [rag.StreamType.THOUGHT, rag.StreamType.REFERENCE, rag.StreamType.ANSWER];
 await session.streamRun('question', { answerTypes }, (err: BusinessError, stream: rag.Stream) => {
   if (err) {
@@ -129,15 +129,15 @@ await session.streamRun('question', { answerTypes }, (err: BusinessError, stream
 });
 ```
 
-#### Device Security Kit
+## Device Security Kit
 
-#### SECURITY_AUDIT_NOTIFY_EVENT_FILE_INTERCEPTED、FILE_INTERCEPTED枚举值变更
+### SECURITY_AUDIT_NOTIFY_EVENT_FILE_INTERCEPTED、FILE_INTERCEPTED枚举值变更
 
-变更原因
+**变更原因**
 
 为了帮助开发者更直观的识别安全审计事件ID，并能使开发者依据事件ID的规划原则准确识别该事件提供的数据类别，需要将原本规划偏移的文件拦截事件对应ArkTS、C的枚举值进行调整，按事件类别、行为等重新规划。
 
-变更影响
+**变更影响**
 
 此变更不涉及应用适配。
 
@@ -145,11 +145,11 @@ await session.streamRun('question', { answerTypes }, (err: BusinessError, stream
 
 变更后：如果应用需要订阅文件拦截事件，ArkTS语言环境使用FILE_INTERCEPTED枚举进行订阅，C语言环境使用SECURITY_AUDIT_NOTIFY_EVENT_FILE_INTERCEPTED枚举进行订阅。
 
-起始 API Level
+**起始 API Level**
 
 6.0.0(20)
 
-变更的接口/组件
+**变更的接口/组件**
 
 变更文件：hmscore_sdk_c/DeviceSecurityKit/security_audit.h
 
@@ -157,4 +157,5 @@ await session.streamRun('question', { answerTypes }, (err: BusinessError, stream
 
 变更文件：hmscore_sdk_js/api/@hms.security.securityAudit.d.ts
 
-变更接口："FILE_INTERCEPTED = 0x2700003C"变更为"FILE_INTERCEPTED = 0x1C001100"。  
+变更接口："FILE_INTERCEPTED = 0x2700003C"变更为"FILE_INTERCEPTED = 0x1C001100"。
+

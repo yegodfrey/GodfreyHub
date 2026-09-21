@@ -1,0 +1,14 @@
+---
+name: document/cn/Media-Guides/add-permissions-0000001050044227
+title: 添加权限
+uri: https://developer.huawei.com/consumer/cn/doc/Media-Guides/add-permissions-0000001050044227
+---
+
+# 添加权限
+
+全景服务SDK需要读写外部存储的权限。需要在Manifest文件中申请权限：
+
+```screen
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
+

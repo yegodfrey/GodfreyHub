@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/accessibility-pro-0000
 
 # 辅助功能
 
-#### Theme Studio Pro快捷键
+## Theme Studio Pro快捷键
 
 |操作|快捷键（Windows）|快捷键（ macOS）|
 |:-------------|:------------------|:-----------------|
@@ -33,22 +33,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/accessibility-pro-0000
 |挑选图层|Ctrl + 鼠标左键|Command+鼠标左键|
 |连续选中图层|Shift + 鼠标左键|Shift + 鼠标左键|
 
-![](https://media:101782381630001630)  
-1. 全局可支持10个步骤的撤回与重做。
-2. 切换类型、切换模板后，之前的快捷键步骤将会被清空。
+> 说明
+>
+> 1. 全局可支持10个步骤的撤回与重做。
+> 2. 切换类型、切换模板后，之前的快捷键步骤将会被清空。
 
-<br />
-
-#### 上传裁剪
+## 上传裁剪
 
 背景模块的【单图】元素，上传时，如上传的图片不符合规范，可对图片进行裁剪。
 
-![](https://media:101782381630177631 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/GeUuXutpTbWve7OF41EpIg/zh-cn_image_0000001783376509.png?HW-CC-KV=V1&HW-CC-Date=20260920T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=A846E3D38D0DF1923494257847607AEB478A4A0D1571060B5FC001E87B00997C "点击放大")
 
 可通过右下角缩放条和鼠标滚轮的滚动放大缩小图片
 
-![](https://media:101782381630735632 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/4dBlFJDjQtGNk1U47t4aYA/zh-cn_image_0000001736297464.png?HW-CC-KV=V1&HW-CC-Date=20260920T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=FC92A3EDC355834777154DB224AD7DBC1761A647F2ED1A526972E3F7063069D4 "点击放大")
 
-确定后，生成466\*466分辨率的背景单图，
+确定后，生成466*466分辨率的背景单图，
 
-![](https://media:101782381630781633 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/H_tz5sxRSaKGP1-qNujS1g/zh-cn_image_0000001736456624.png?HW-CC-KV=V1&HW-CC-Date=20260920T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=B218A001F25CFFE8E7CF300D8D9BD3E7494C24E8242BF4A4BC5DFAB153CB0325 "点击放大")
+

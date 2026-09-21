@@ -7,6 +7,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-publish-api-data-
 # RequiredInfo
 
 |参数名称|必选(M)/可选(O)|类型|参数说明|
-|:---------|:----------|:-------------------------------------------------------------------------------------------------------------------------|:-------------------|
-|sceneItems|O|List\<[SceneItem](https://developer.huawei.com/consumer/cn/doc/app/agc-help-publish-api-data-sceneitem-0000002294845634)\>|收集的请求信息。 数组长度不超过200。|
+|:---------|:----------|:-----------------------------------------------------------------------------------------------------------------------|:-------------------|
+|sceneItems|O|List<[SceneItem](https://developer.huawei.com/consumer/cn/doc/app/agc-help-publish-api-data-sceneitem-0000002294845634)>|收集的请求信息。 数组长度不超过200。|
 

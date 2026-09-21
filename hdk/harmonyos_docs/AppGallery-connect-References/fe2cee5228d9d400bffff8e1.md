@@ -6,6 +6,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # Tag
 
-* [Overview](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/tag-overview-0000002475974769)  
-* [Inactive](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/tag-inactive-0000002475934237)  
-* [ITags](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/tag-itags-0000002475974413)  
+* **[Overview](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/tag-overview-0000002475974769)**   
+* **[Inactive](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/tag-inactive-0000002475934237)**   
+* **[ITags](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/tag-itags-0000002475974413)**   

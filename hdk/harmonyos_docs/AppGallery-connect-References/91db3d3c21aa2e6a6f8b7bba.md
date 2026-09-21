@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # com.huawei.agconnect.common.api.AGCInstanceID
 
-* [Overview](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-agcinstanceid-android-overview-0000001157322886)  
-* [AGCInstanceID](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-agcinstanceid-android-0000001204162951)  
+* **[Overview](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-agcinstanceid-android-overview-0000001157322886)**   
+* **[AGCInstanceID](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-agcinstanceid-android-0000001204162951)**   

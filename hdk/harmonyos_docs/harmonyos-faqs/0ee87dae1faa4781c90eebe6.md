@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-49
 
 参考代码如下：
 
-```
+```typescript
 import { request } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -28,6 +28,7 @@ try {
 }
 ```
 
-参考链接
+**参考链接**
 
-[@ohos.request (上传下载)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request)  
+[@ohos.request (上传下载)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request)
+

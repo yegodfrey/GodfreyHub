@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-503
 
 # 如何控制Swiper组件只能向一个方向滑动
 
-#### 问题现象
+## 问题现象
 
 在使用Swiper组件时，需要控制Swiper组件只往一个方向滑动，例如：
 
 期望只能向右滑动，实际在使用onGestureRecognizerJudgeBegin拦截滑动手势时，先向右滑动不松手，再快速向左滑动Swiper组件会向左滑动并翻页与预期不符。具体现象如下图：
 
-![](https://media:101782454305221195 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/wpneRZIqSGCcLfRD4HTklQ/zh-cn_image_0000002628388618.png?HW-CC-KV=V1&HW-CC-Date=20260920T114741Z&HW-CC-Expire=31536000000&HW-CC-Sign=F66DF6C5D9AE9A95D720A1C864705A935148F1F4AE2090B19C31DCE8DC72DED9 "点击放大")
 
 问题代码如下：
 
-```
+```ts
 @Entry
 @Component
 struct Index {
@@ -42,16 +42,16 @@ struct Index {
       .nextMargin(35)
       .onGestureRecognizerJudgeBegin((event: BaseGestureEvent, current: GestureRecognizer,
         recognizers: Array<GestureRecognizer>) => {
-        // 判断手势识别器的类型
+      // 判断手势识别器的类型
         if (current.getType() === GestureControl.GestureType.PAN_GESTURE) {
           let pan: PanGestureEvent = event as PanGestureEvent;
-          // 获取手势事件偏移量X
+        // 获取手势事件偏移量X
           if (pan.offsetX < 0) {
             current.setEnabled(true);
             return GestureJudgeResult.CONTINUE;
           } else {
             current.setEnabled(false);
-            // 判定手势结果为失败
+          // 判定手势结果为失败
             return GestureJudgeResult.REJECT;
           }
         }
@@ -66,22 +66,22 @@ struct Index {
 }
 ```
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782454305351196 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ntikjJMnSK-9LfXQkKF3lw/zh-cn_image_0000002628548518.png?HW-CC-KV=V1&HW-CC-Date=20260920T114741Z&HW-CC-Expire=31536000000&HW-CC-Sign=279F75B0D8F63CECF0A16B227A450C67D76BF2845868BF5E066724063F7B721A "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)：滑块视图容器，提供子组件滑动轮播显示的能力；
-* [onGestureRecognizerJudgeBegin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement#ongesturerecognizerjudgebegin13)：自定义手势识别器判定回调，可以获取Swiper组件进行手势滑动时的offsetX从而判断是向右滑动还是向左滑动，再通过返回[GestureJudgeResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-common#gesturejudgeresult11)手势判定结果，实现控制Swiper组件单一方向滑动的需求。  
+* [onGestureRecognizerJudgeBegin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-blocking-enhancement#ongesturerecognizerjudgebegin13)：自定义手势识别器判定回调，可以获取Swiper组件进行手势滑动时的offsetX从而判断是向右滑动还是向左滑动，再通过返回[GestureJudgeResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-common#gesturejudgeresult11)手势判定结果，实现控制Swiper组件单一方向滑动的需求。
 
-#### 解决方案
+## 解决方案
 
 使用onGestureRecognizerJudgeBegin回调时，按住Swiper组件先向一个方向滑动，不松手再快速向另一个方向滑动时，Swiper组件会向另一个方向滑动并翻页，排查后发现在不松手滑动时Swiper组件不会逐帧触发onGestureRecognizerJudgeBegin回调，因此无法逐帧拦截滑动手势。
 
 可以将[disableSwipe](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#disableswipe8)设置为true，禁止组件滑动切换功能，并且通过PanGesture手势获取滑动的速度，从而判断是调用showNext()还是showPrevious()方法，从而控制Swiper组件只能往一个方向滑动。代码示例如下：
 
-```
+```ts
 @Entry
 @Component
 struct SwiperLimitTest {
@@ -101,10 +101,10 @@ struct SwiperLimitTest {
             .borderRadius(8)
             .parallelGesture(
               PanGesture().onActionEnd(e => {
-                // 手势结束，获取当前的速度
+              // 手势结束，获取当前的速度
                 let velocityX = e.velocityX || 0;
                 if (velocityX < 0) {
-                  // x轴方向速度小于0时，向左移动
+                 // x轴方向速度小于0时，向左移动
                   this.swiperController.showNext();
                 }
               })

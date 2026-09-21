@@ -8,9 +8,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-ascf/components-textare
 
 多行文本输入框组件。
 
-起始版本： 1.0.0
+**起始版本：** 1.0.0
 
-约束与限制：
+**约束与限制：**
 
 * 宽度未设置时，默认撑满最大宽度。
 
@@ -18,14 +18,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-ascf/components-textare
 
 * 高度未设置时，组件无默认高度，自动适应内容高度。
 
-属性：  
+**属性：**
 
 |名称|类型|默认值|必填|描述|
 |:----------------|:----------|:-----|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |value|string|-|否|输入框的初始内容。|
 |confirm-type|string|return|否|点击textarea拉起输入法后，输入法键盘右下角文字类型，有效值如下： - send：输入法键盘的右下角文字为"发送"。 - search：输入法键盘的右下角文字为"搜索"。 - next：输入法键盘的右下角文字为"下一步"。 - go：输入法键盘的右下角文字为"开始"。 - done：输入法键盘的右下角文字为"完成"。 - return：输入法键盘的右下角文字为"换行"。|
 |placeholder|string|-|否|输入框为空时占位符。|
-|focus|boolean|false|否|获取焦点。 起始版本： 1.0.5|
+|focus|boolean|false|否|获取焦点。 **起始版本：** 1.0.5|
 |placeholder-style|string|-|否|指定placeholder的样式，目前仅支持color,font-size和font-weight。|
 |disabled|boolean|false|否|是否禁用。|
 |maxlength|number|140|否|最大输入长度，设置为 -1的时候不限制最大长度。|
@@ -35,11 +35,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-ascf/components-textare
 |bindblur|eventhandle|-|否|输入框失去焦点时触发。|
 |bindconfirm|eventhandle|-|否|点击完成按钮时触发。|
 
-示例：
+**示例：**
 
 hxml文件：
 
-```
+```html
 <view class="page-section">
   <view class="textarea-wrp">
   <textarea
@@ -64,7 +64,7 @@ hxml文件：
 
 js文件：
 
-```
+```js
 Page({
   data: {},
   bindTextAreaBlur(event) {

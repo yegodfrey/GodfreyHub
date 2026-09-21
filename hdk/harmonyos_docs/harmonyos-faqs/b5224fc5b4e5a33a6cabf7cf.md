@@ -8,4 +8,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-b
 
 请检查环境是否正确，PyCharm所引用的python版本是否引用hypium及hypium_perf的全部版本，可尝试参考[场景化性能测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-testing#section8642101711299)章节手动安装并检查依赖包完整性。
 
-更新场景化性能测试服务后，如果本地调试失败，请检查当前依赖包版本是否与安装包中的版本一致。  
+更新场景化性能测试服务后，如果本地调试失败，请检查当前依赖包版本是否与安装包中的版本一致。
+

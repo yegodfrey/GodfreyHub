@@ -10,34 +10,34 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:---------------------------------------------------|
 |public class PictureMessage extends AppMessage 图片消息。|
 
-#### Method Summary
+## Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:---------------------|:-----------------------------------------------|
 |PictureMessage.Picture|[getPicture](#section4945115111516)() 获取消息图片信息。|
 |MessageType|[getMessageType](#section294651515152)() 获取消息类型。|
 
-#### Methods
+## Methods
 
-#### getPicture
+### getPicture
 
 |Method|
 |:---------------------------------------------------|
 |public PictureMessage.Picture getPicture() 获取消息图片信息。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 |[PictureMessage.Picture](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/picturemessage-picture-android-0000001057935887)|消息图片信息。|
 
-#### getMessageType
+### getMessageType
 
 |Method|
 |:------------------------------------------|
 |public MessageType getMessageType() 获取消息类型。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-----------------------------------------------------------------------------------------------------------------------------|:--------------------------------|

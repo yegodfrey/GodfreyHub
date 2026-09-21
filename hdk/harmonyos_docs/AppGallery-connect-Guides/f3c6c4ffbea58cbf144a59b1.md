@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-
 
 # Entity窗口
 
-#### 功能介绍
+## 功能介绍
 
-Entity窗口支持实时展示被选World下的所有Entity列表，同时支持查看Entity内部的详细属性值、数据情况。  
+Entity窗口支持实时展示被选World下的所有Entity列表，同时支持查看Entity内部的详细属性值、数据情况。
 
-#### 界面布局
+## 界面布局
 
-![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260212110247.74259344051852576407056265119606:50001231000000:2800:803BEBB741322AB5B747EA179C31EA40CA48956D399B3422151BDD8AB6A803A9.png "点击放大")  
+![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260212110247.74259344051852576407056265119606:50001231000000:2800:803BEBB741322AB5B747EA179C31EA40CA48956D399B3422151BDD8AB6A803A9.png "点击放大")
 
 |界面|说明|
 |:---------|:------------------------|

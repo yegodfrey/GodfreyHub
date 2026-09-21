@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-
 |新增API|NA|类名：userAuth； API声明：interface AuthTipInfo 差异内容：interface AuthTipInfo|api/@ohos.userIAM.userAuth.d.ts|
 |新增API|NA|类名：AuthTipInfo； API声明：tipType: UserAuthType; 差异内容：tipType: UserAuthType;|api/@ohos.userIAM.userAuth.d.ts|
 |新增API|NA|类名：AuthTipInfo； API声明：tipCode: UserAuthTipCode; 差异内容：tipCode: UserAuthTipCode;|api/@ohos.userIAM.userAuth.d.ts|
-|新增API|NA|类名：userAuth； API声明：type AuthTipCallback = (authTipInfo: AuthTipInfo) =\> void; 差异内容：type AuthTipCallback = (authTipInfo: AuthTipInfo) =\> void;|api/@ohos.userIAM.userAuth.d.ts|
+|新增API|NA|类名：userAuth； API声明：type AuthTipCallback = (authTipInfo: AuthTipInfo) => void; 差异内容：type AuthTipCallback = (authTipInfo: AuthTipInfo) => void;|api/@ohos.userIAM.userAuth.d.ts|
 |新增API|NA|类名：UserAuthResultCode； API声明：INVALID_PARAMETERS = 12500008 差异内容：INVALID_PARAMETERS = 12500008|api/@ohos.userIAM.userAuth.d.ts|
 |接口新增可选或必选方法|类名：global； API声明： 差异内容：NA|类名：UserAuthInstance； API声明：on(type: 'authTip', callback: AuthTipCallback): void; 差异内容：on(type: 'authTip', callback: AuthTipCallback): void;|api/@ohos.userIAM.userAuth.d.ts|
 |接口新增可选或必选方法|类名：global； API声明： 差异内容：NA|类名：UserAuthInstance； API声明：off(type: 'authTip', callback?: AuthTipCallback): void; 差异内容：off(type: 'authTip', callback?: AuthTipCallback): void;|api/@ohos.userIAM.userAuth.d.ts|

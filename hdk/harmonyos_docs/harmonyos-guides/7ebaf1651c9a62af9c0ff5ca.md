@@ -14,9 +14,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pastebutton
 
 粘贴控件效果如图所示。
 
-![](https://media:401788444712350002)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/XT0wkI2WT7SBiCdFqUkOXw/zh-cn_image_0000002733274644.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084603Z&HW-CC-Expire=31536000000&HW-CC-Sign=1DEAE3BEE12B61C6F84FC39B526E2EA692D3CDF1B1F5DB19B767B8D9522F27B2)
 
-#### 约束与限制
+## 约束与限制
 
 * 临时授权会持续到灭屏、应用切后台或应用退出时终止。
 
@@ -24,13 +24,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pastebutton
 
 * 为了保障用户隐私，应用需确保安全控件可见且可识别。开发者应合理配置控件的尺寸和颜色等属性，避免视觉混淆。若因控件样式不合法导致授权失败请检查设备错误日志。
 
-#### 开发步骤
+## 开发步骤
 
 以简化用户填写验证码为例，参考以下步骤：单击控件获取临时授权，将内容粘贴到文本框。效果图见上文。
 
 1. 导入剪贴板依赖。
 
-   ```
+   ```ts
    import { pasteboard } from '@kit.BasicServicesKit';
    ```
 
@@ -42,7 +42,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pastebutton
 
    当前示例使用了默认参数。具体详情，请参见[PasteButton控件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-security-components-pastebutton)。此外，所有安全控件均继承了[安全控件通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securitycomponent-attributes)，可用于自定义样式。
 
-   ```
+   ```TypeScript
    import { pasteboard, BusinessError } from '@kit.BasicServicesKit';
 
    @Entry

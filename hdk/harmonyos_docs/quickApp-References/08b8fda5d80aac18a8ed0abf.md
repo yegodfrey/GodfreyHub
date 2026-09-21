@@ -6,24 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 
 # textarea
 
-#### 概述
+## 概述
 
-提供可交互的界面，接收用户的输入，默认为多行。  
+提供可交互的界面，接收用户的输入，默认为多行。
 
-#### 使用限制
+## 使用限制
 
 |限制条件|说明|
 |:---|:-----------|
 |适用终端|手机、平板、智慧屏、车机|
 |适用区域|全球|
 
-#### 子组件
+## 子组件
 
-不支持。  
+不支持。
 
-#### 属性
+## 属性
 
-支持 \<text\> 属性，同时除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。  
+支持 <text> 属性，同时除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。
 
 |名称|类型|默认值|是否必填|描述|
 |:-----------------|:-----|:--|:---|:----------------------------|
@@ -31,40 +31,40 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 |maxlength|number|-|否|输入框可输入的最多字符数量，不填表示不限制输入框中字符数量|
 |model:value(1100+)|string|-|否|用于绑定和更新框架中的值的model指令。|
 
-#### 样式
+## 样式
 
-支持active伪类。除了支持 [通用样式](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-common-styles-0000001170210009)以外，还支持如下样式。  
+支持active伪类。除了支持 [通用样式](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-common-styles-0000001170210009)以外，还支持如下样式。
 
 |名称|类型|默认值|是否必填|描述|
-|:-----------------|:-------------------------------------------------------------------------------------------------|:---------------|:---|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-----------------|:-------------------------------------------------------------------------------------|:---------------|:---|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |color|color|rgba(0,0,0,0.87)|否|文本颜色|
 |font-size|number|37.5px|否|文本尺寸|
-|font-weight(1030+)|lighter \| 100 \| 200 \| 300 \| 400 \| 500 \| 600 \| 700 \| 800 \| 900 \| normal \| bold \| bolder|normal|否|-|
+|font-weight(1030+)|lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | normal | bold | bolder|normal|否|-|
 |placeholder-color|color|rgba(0,0,0,0.38)|否|提示文本的颜色|
 |font-family(1030+)|string|-|否|通过该属性可以设置组件中字符串的字体，支持四种系统原生字体：normal,sans-serif,serif,monospace（此四种字体只对英文有效）。 如果需要设置自定义字体，请参见"[font-face样式](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-font-face-0000001170050125)"。|
 
-#### 事件
+## 事件
 
-除了支持 [通用事件](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-events-0000001123530338) 以外，还支持如下事件。  
+除了支持 [通用事件](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-events-0000001123530338) 以外，还支持如下事件。
 
 |名称|参数|描述|
-|:---------------------|:---------------------------------|:--------------------------------------------------------------|
+|:---------------------|:---------------------------------|:------------------------------------------------------------|
 |change|{text:newText}|输入内容发生变化时触发|
-|selectionchange(1030+)|-|在\<textarea\>组件中调用其select()和setSelectionRange()方法改变选中字符串时触发此事件。|
+|selectionchange(1030+)|-|在<textarea>组件中调用其select()和setSelectionRange()方法改变选中字符串时触发此事件。|
 |linechange(1060+)|{height: number, lineCount:number}|输入框行数变化时调用，height为当前输入框高度，lineCount为当前文本行数。|
 
-#### 方法
+## 方法
 
 |名称|参数|描述|
 |:----------------|:-----------------------------------------------|:-------------------------------|
-|focus|{focus:true\|false}，focus不传默认为true|使组件获得或者失去焦点，可触发focus伪类，可弹出或收起输入法|
+|focus|{focus:true|false}，focus不传默认为true|使组件获得或者失去焦点，可触发focus伪类，可弹出或收起输入法|
 |select|-|选中文本框的全部文本|
 |setSelectionRange|{start:number,end:number}|设置文本框的选中区域|
 |getSelectionRange|{callback:function(start: number, end : number)}|获取文本框的选中区域|
 
-#### 示例代码
+## 示例代码
 
-```
+```screen
 <template>
   <div class="container">
     <div class="page-title-wrap">
@@ -182,9 +182,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 
 效果图如下：
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20221207150410.92800747871260357913714306687075:50001231000000:2800:C81592E93DDA6148B599C1E3E4529A2281F7CE6AEC1749A72C52D4C40CB08B54.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
+![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20221207150410.92800747871260357913714306687075:50001231000000:2800:C81592E93DDA6148B599C1E3E4529A2281F7CE6AEC1749A72C52D4C40CB08B54.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)
 
-#### 版本更新说明
+## 版本更新说明
 
 |版本|发布日期|描述|
 |:---|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

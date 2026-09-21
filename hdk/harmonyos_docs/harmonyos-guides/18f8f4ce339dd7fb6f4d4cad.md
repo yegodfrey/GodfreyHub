@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-promo
 
 # 领券场景
 
-#### 场景介绍
+## 场景介绍
 
 从6.1.0(23)版本开始，新增支持领券场景。
 
@@ -20,20 +20,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-promo
 
 领券场景展示效果如下：
 
-![](https://media:401788444381785655)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/zQAq3qPXSSmRsPXNAY8PGg/zh-cn_image_0000002733435406.png?HW-CC-KV=V1&HW-CC-Date=20260917T084549Z&HW-CC-Expire=31536000000&HW-CC-Sign=F0C9B9113C7F8978142522634329B1C66AB363955489FBCB6BD1648331FA901D)
 
-#### 接入流程
+## 接入流程
 
 |步骤|说明|
 |:-------|:----------------------------------------------------------------------------------------------------------------|
 |开发准备|根据[端侧应用配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-config-app-identity-info)完成开发准备。|
 |接入活动入口组件|根据领券场景[开发步骤](#开发步骤)完成接入。|
 
-#### 业务流程
+## 业务流程
 
 关于领券场景的业务流程如下：
 
-![](https://media:401788444381819656)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/6ZaNPbQlSeCXYjXGo4KiUw/zh-cn_image_0000002762994929.png?HW-CC-KV=V1&HW-CC-Date=20260917T084549Z&HW-CC-Expire=31536000000&HW-CC-Sign=F6959B1531B746580EFA329474BCB9952D17EEF32F90D9B458E6EFCFD8870380)
 
 1. 用户进入商户服务。
 
@@ -67,21 +67,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-promo
 
 16. 返回商品选择页。
 
-#### 接口说明
+## 接口说明
 
-领券场景需要拉起活动入口组件，涉及接口如下，更详细信息详见[API接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice#startpromotionentrydialog)。  
+领券场景需要拉起活动入口组件，涉及接口如下，更详细信息详见[API接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice#startpromotionentrydialog)。
 
 |接口名|描述|
-|:---------------------------------------------------------------------------------|:--------|
-|startPromotionEntryDialog(mercNo: string, offset?: number): Promise\<UserAction\>;|拉起活动入口组件。|
+|:-------------------------------------------------------------------------------|:--------|
+|startPromotionEntryDialog(mercNo: string, offset?: number): Promise<UserAction>;|拉起活动入口组件。|
 
-#### 开发步骤
+## 开发步骤
 
-#### 拉起活动入口组件（端侧开发）
+### 拉起活动入口组件（端侧开发）
 
 针对领券场景，商户服务需要先拉起活动入口组件引导用户领券。示例代码如下：
 
-```
+```TypeScript
 import { promotionService } from '@kit.PaymentKit';
 
 @Component

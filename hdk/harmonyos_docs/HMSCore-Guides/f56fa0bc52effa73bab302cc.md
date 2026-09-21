@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/extended-erroco
 
 # 错误码
 
-错误码对应的API接口为[HiHealthError](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealtherror-0000001071707423)。  
+错误码对应的API接口为**[HiHealthError](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealtherror-0000001071707423)**。
 
 |常量字段|数值|数据定义|典型场景|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----|:-----------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|

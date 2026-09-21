@@ -1,0 +1,18 @@
+---
+name: document/cn/graphics-Guides/error-code-0000001062510108
+title: 错误码
+uri: https://developer.huawei.com/consumer/cn/doc/graphics-Guides/error-code-0000001062510108
+---
+
+# 错误码
+
+|错误码|值|描述|解决方法|
+|:--------------------|:-|:------------------------|:---------------------------------------------------------------------------------------|
+|ERR_NO_ERROR|0|调用正确。|-|
+|ERR_COMMON|1|其他错误。|请收集日志或截图等，在[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)页面提交相关信息。|
+|ERR_INVALID_PARAM|2|参数错误。|重新修改参数。|
+|ERR_INNER_MODULE_FAIL|3|HMS Core包含不正确，混淆规则配置错误等。|确认Android Studio项目级build.gradle文件中maven仓依赖配置和应用级别build.gradle文件中依赖项配置是否正确。|
+|ERR_SOCKET_FAIL|4|手机ROM版本不支持。|升级版本或更换支持的手机（目前支持EMUI 11及以上）。|
+|ERR_TOO_MANY_COMMANDS|5|消息未得到响应，可能是短时间内调用API次数过多。|检查代码是否有过于频繁的API调用。|
+
+若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。

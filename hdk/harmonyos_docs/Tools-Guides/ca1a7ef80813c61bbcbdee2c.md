@@ -35,9 +35,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/Tools-Guides/ide-release-quick
 
    ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230510100018.43204342505897205726692250141190:50001231000000:2800:78DF57773B74F2B426E0B6A83680F7ABB74FBA5E74503F1513137E82AF955D3A.png?needInitFileName=true?needInitFileName=true?needInitFileName=true)
 
-#### 相关链接
+## 相关链接
 
-#### FAQ
+### FAQ
 
 * [发布体验版快应用，提示"请求实体超出限制"和"icon大小超出限制"，如何处理？](https://developer.huawei.com/consumer/cn/doc/development/quickApp-Guides/quickapp-faq-0000001129279483#section65021139145413)
 * [发布体验版本快应用，一直显示"重复的临时的版本"，如何处理？](https://developer.huawei.com/consumer/cn/doc/development/quickApp-Guides/quickapp-faq-0000001129279483#section1595320612328)

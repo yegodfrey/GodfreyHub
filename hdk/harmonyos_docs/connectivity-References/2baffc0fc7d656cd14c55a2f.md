@@ -18,9 +18,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/OneHop
 |void|UninitOneHop(void)释放系统资源|
 |int|StartOneHopService(const OneHopKitHandlers callBack)启动OneHop服务|
 |int|StopOneHopService(void)停止Onehop服务|
-|int|OneHopConfirmFileRecv(const char path)用户同意接收文件的处理|
+|int|OneHopConfirmFileRecv(const char  path)用户同意接收文件的处理|
 |int|OneHopRefuseFileRecv(void)用户拒绝接收文件的处理|
-|int|GetConnectedDeviceName(char\* devName, int len)获取当前连接的对端设备名称|
+|int|GetConnectedDeviceName(char* devName, int len)获取当前连接的对端设备名称|
 
 ## Structs
 
@@ -29,7 +29,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/OneHop
 |TransferResult|
 |OneHop服务的文件传输结果枚举值。|
 
-Members
+**Members**
 
 |-----------------------|---------------|
 |Member name|Member desc|
@@ -42,7 +42,7 @@ Members
 |OnehopErrorCode|
 |Onehop服务的错误码。|
 
-Members
+**Members**
 
 |---------------------------------------|--------------|
 |Member name|Member desc|
@@ -58,7 +58,7 @@ Members
 |OnehopStatus|
 |Onehop服务状态枚举值。|
 
-Members
+**Members**
 
 |--------------------------|-------------------|
 |Member name|Member desc|
@@ -74,7 +74,7 @@ Members
 |OneHopKitHandlers|
 |Onehop服务的回调函数结构体。|
 
-Members
+**Members**
 
 |----------------------------|-----------------------------------------------|
 |Member name|Member desc|
@@ -87,17 +87,17 @@ Members
 
 |--------------------------------------------|
 |Method|
-|int GetKitVersion (char \*result, int len)|
+|int GetKitVersion (char *result, int len)|
 |获取OneHop SDK版本号。此接口需要在调用InitOneHop()接口前进行调用。|
 
-Parameters
+**Parameters**
 
 |--------------|------------------------------|
 |Parameter name|Parameter desc|
 |result|版本号字符串。|
 |len|输入参数result的字符串长度值。len的值不能小于20。|
 
-Return  
+**Return**
 
 |----|------------|
 |type|desc|
@@ -114,7 +114,7 @@ Parameters
 |Parameter name|Parameter desc|
 |context|扩展预留|
 
-Return  
+**Return**
 
 |----|------------|
 |type|desc|
@@ -130,13 +130,13 @@ Return
 |int StartOneHopService(const OneHopKitHandlers callBack)|
 |启动OneHop 服务。此接口需要在调用InitOneHop ()接口后进行调用。|
 
-Parameters
+**Parameters**
 
 |--------------|--------------|
 |Parameter name|Parameter desc|
 |callBack|Onehop服务回调|
 
-Return  
+**Return**
 
 |----|-----------------------|
 |type|desc|
@@ -147,7 +147,7 @@ Return
 |int StopOneHopService(void)|
 |停止OneHop 服务。此接口需要在调用StartOneHopService ()接口后进行调用。|
 
-Return
+**Return**
 
 |----|-------------|
 |type|desc|
@@ -155,16 +155,16 @@ Return
 
 |------------------------------------------------------------------|
 |Method|
-|int OneHopConfirmFileRecv(const char \* path)|
+|int OneHopConfirmFileRecv(const char * path)|
 |确认接收文件。当用户确认接收文件时调用此接口，以通知OneHop服务执行接收文件的相关操作，并将文件保存的路径信息告知OneHop。|
 
-Parameters
+**Parameters**
 
 |--------------|--------------------------------|
 |Parameter name|Parameter desc|
 |path|文件保存路径。path的字符串长度不能大于1024 bytes.|
 
-Return  
+**Return**
 
 |----|------------|
 |type|desc|
@@ -175,25 +175,25 @@ Return
 |int OneHopRefuseFileRecv(void)|
 |拒绝接收文件。当用户拒绝接收文件时调用此接口，以通知OneHop服务。|
 
-Return
+**Return**
 
 |----|------------|
 |type|desc|
 |int|0: 成功, -1:失败|
 
-|---------------------------------------------------|
+|--------------------------------------------------|
 |Method|
-|int GetConnectedDeviceName(char\* devName, int len)|
+|int GetConnectedDeviceName(char* devName, int len)|
 |获取当前连接到OneHop服务的手机设备名称。|
 
-Parameters
+**Parameters**
 
 |--------------|---------------------------------|
 |Parameter name|Parameter desc|
 |devName|手机设备名称|
 |len|输入参数devName的字符串长度值。len的值不能小于256。.|
 
-Return  
+**Return**
 
 |----|------------|
 |type|desc|
@@ -203,24 +203,24 @@ Return
 
 |---------------------------------------------------------------|
 |Method|
-|typedef void(\*OnehopStatusCallback) (OnehopStatus status)|
+|typedef void(*OnehopStatusCallback) (OnehopStatus status)|
 |OneHop服务连接状态变化回调函数。当OneHop SDK的连接状态发生变化时，SDK通过此回调通知上层应用当前的连接状态。|
 
-Parameters
+**Parameters**
 
 |--------------|---------------|
 |Parameter name|Parameter desc|
 |status|状态值: 详见章节 2.4.3|
 
-Return  
+**Return**
 
 |----|----|
 |type|desc|
 |void|无返回值|
 
-|-------------------------------------------------------------------------------------|
+|------------------------------------------------------------------------------------|
 |Method|
-|typedef void(OnehopRequestFileTransferCallback)( const char\* fileNames, int fileNum)|
+|typedef void(OnehopRequestFileTransferCallback)( const char* fileNames, int fileNum)|
 |OneHop服务请求文件传输回调函数。当手机端发起文件传输请求时，OneHop服务通过此回调通知上层应用。|
 
 Parameters
@@ -230,25 +230,7 @@ Parameters
 |fileNames|文件名列表|
 |fileNum|文件数量|
 
-Return  
-
-|----|----|
-|type|desc|
-|void|无返回值|
-
-|-------------------------------------------------------------------------------------|
-|Method|
-|typedef void(\*OnehopTransferProgressCallback)(int finishedFileNum, int totalFileNum)|
-|OneHop服务文件传输进度回调函数。通过此回调通知上层应用文件传输已完成数量及总文件数量。|
-
-Parameters
-
-|---------------|--------------|
-|Parameter name|Parameter desc|
-|finishedFileNum|已完成传输的文件数量|
-|totalFileNum|本次传输任务的总文件数量|
-
-Return  
+**Return**
 
 |----|----|
 |type|desc|
@@ -256,17 +238,35 @@ Return
 
 |------------------------------------------------------------------------------------|
 |Method|
-|typedef void (\*OnehopTransferResultCallback)( TransferResult result, int failedNum)|
+|typedef void(*OnehopTransferProgressCallback)(int finishedFileNum, int totalFileNum)|
+|OneHop服务文件传输进度回调函数。通过此回调通知上层应用文件传输已完成数量及总文件数量。|
+
+**Parameters**
+
+|---------------|--------------|
+|Parameter name|Parameter desc|
+|finishedFileNum|已完成传输的文件数量|
+|totalFileNum|本次传输任务的总文件数量|
+
+**Return**
+
+|----|----|
+|type|desc|
+|void|无返回值|
+
+|-----------------------------------------------------------------------------------|
+|Method|
+|typedef void (*OnehopTransferResultCallback)( TransferResult result, int failedNum)|
 |OneHop服务文件传输结果回调函数。当文件传输任务结束时，通过此回调通知上层应用文件传输的结果。|
 
-Parameters
+**Parameters**
 
 |--------------|---------------------------------------------------------------------------------------------------------|
 |Parameter name|Parameter desc|
 |result|传输结果: 详见章节2.4.1|
 |failedNum|当参数result的值为RECV_SUCCESS,无需处理 failedNum.当参数result的值为RECV_PARTLY_SUCCESS 或RECV_FAIL时，failedNum表示传输失败的文件数量。|
 
-Return  
+**Return**
 
 |----|----|
 |type|desc|

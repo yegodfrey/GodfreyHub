@@ -10,28 +10,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/requestcall
 |:------------------------------------------|
 |public interface RequestCallback 广告加载结果的回调。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |void|[onAdsLoadedSuccess](#section1736916283124)([AdsData](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adsdata-0000001162703100) adsData) 广告加载成功回调。|
 |void|[onAdsLoadFailed](#section1388383452211)() 广告加载失败回调。|
 
-#### Public Methods
+## Public Methods
 
-#### onAdsLoadedSuccess
+### onAdsLoadedSuccess
 
 |Method|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void onAdsLoadedSuccess([AdsData](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adsdata-0000001162703100) adsData) 广告加载成功回调。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |adsData|广告的数据。|
 
-#### onAdsLoadFailed
+### onAdsLoadFailed
 
 |Method|
 |:--------------------------------------|

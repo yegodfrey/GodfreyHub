@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-acce
 
 # OpenGL ES平台
 
-#### 业务流程
+## 业务流程
 
 基于OpenGL ES图形API平台，超帧外插模式的主要业务流程如下：
 
-![](https://media:401788444167742754)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/fnX2M9O0QtidSW_OozYJig/zh-cn_image_0000002733275116.png?HW-CC-KV=V1&HW-CC-Date=20260917T084545Z&HW-CC-Expire=31536000000&HW-CC-Sign=F4D5D65428204136FD8D3D99F28E26A1EE153FB3461E5672DDA2C1F88A2CF821)
 
 1. 用户进入超帧适用的游戏场景。
 
@@ -32,23 +32,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-acce
 
 10. 游戏应用调用[HMS_FG_DestroyContext_GLES](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_destroycontext_gles)接口销毁超帧上下文实例并释放内存资源。
 
-#### 开发步骤
+## 开发步骤
 
-![](https://media:401788444167780755)  
-外插模式需要标记模板缓冲的第8位，用于区分静态物体和动态物体。静态物体所占区域的模板值需标记为0xxx xxxx，动态物体所占区域的模板值需标记为1xxx xxxx，模板缓冲的低7位模板值开发者可自行设置。如果标记错误或漏标记，可能会造成超帧预测效果不准确，如运动物体边缘区域拖影等现象。
+> 注意
+>
+> 外插模式需要标记模板缓冲的第8位，用于区分静态物体和动态物体。静态物体所占区域的模板值需标记为0xxx xxxx，动态物体所占区域的模板值需标记为1xxx xxxx，模板缓冲的低7位模板值开发者可自行设置。如果标记错误或漏标记，可能会造成超帧预测效果不准确，如运动物体边缘区域拖影等现象。
 
 本节阐述基于OpenGL ES图形API平台的超帧调用示例。详细代码请参考[图形开发Sample（超帧GLES）](https://gitcode.com/harmonyos_samples/frame-generation-gles-samplecode-clientdemo-cpp)。
 
 1. 引用Graphics Accelerate Kit超帧头文件：frame_generation_gles.h。
 
-   ```
-   // 引用超帧frame_generation_gles.h头文件
-   #include <graphics_game_sdk/frame_generation_gles.h>
-   ```
+       // 引用超帧frame_generation_gles.h头文件
+       #include <graphics_game_sdk/frame_generation_gles.h>
 
 2. 编写CMakeLists.txt。
 
-   ```
+   ```cpp
    find_library(framegeneration-lib libframegeneration.so REQUIRED)
 
    target_link_libraries(entry PUBLIC
@@ -58,7 +57,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-acce
 
 3. 调用[HMS_FG_CreateContext_GLES](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_createcontext_gles)接口创建超帧上下文实例。如果返回nullptr，则说明超帧上下文实例创建失败，或当前硬件设备不支持开启超帧。
 
-   ```
+   ```cpp
    // 创建超帧上下文实例
    FG_Context_GLES* context_ = HMS_FG_CreateContext_GLES();
    if (context_ == nullptr) {
@@ -69,154 +68,144 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-acce
 
 4. 调用超帧实例属性配置接口，超帧算法模式选择外插模式。
 
-   ```
-   // 初始化超帧接口调用错误码
-   FG_ErrorCode errorCode = FG_SUCCESS;
+       // 初始化超帧接口调用错误码
+       FG_ErrorCode errorCode = FG_SUCCESS;
 
-   // 超帧算法模式
-   FG_AlgorithmModeInfo aInfo{};
-   aInfo.predictionMode = FG_PREDICTION_MODE_EXTRAPOLATION; // 外插模式
-   aInfo.meMode = FG_ME_MODE_BASIC; // 运动估计基础模式
-   errorCode = HMS_FG_SetAlgorithmMode_GLES(context_, &aInfo); // 设置超帧算法模式
-   if (errorCode != FG_SUCCESS) {
-       GOLOGE("HMS_FG_SetAlgorithmMode_GLES execution failed, error code: %d.", errorCode);
-       return false;
-   }
+       // 超帧算法模式
+       FG_AlgorithmModeInfo aInfo{};
+       aInfo.predictionMode = FG_PREDICTION_MODE_EXTRAPOLATION; // 外插模式
+       aInfo.meMode = FG_ME_MODE_BASIC; // 运动估计基础模式
+       errorCode = HMS_FG_SetAlgorithmMode_GLES(context_, &aInfo); // 设置超帧算法模式
+       if (errorCode != FG_SUCCESS) {
+           GOLOGE("HMS_FG_SetAlgorithmMode_GLES execution failed, error code: %d.", errorCode);
+           return false;
+       }
 
-   // 真实帧颜色缓冲区分辨率
-   FG_Dimension2D inputColorResolution{};
-   inputColorResolution.width = scene_.fboWidth_; // 真实帧颜色缓冲区图像宽度
-   inputColorResolution.height = scene_.fboHeight_; // 真实帧颜色缓冲区图像高度
-   // 真实帧深度模板缓冲区分辨率
-   FG_Dimension2D inputDepthStencilResolution{};
-   inputDepthStencilResolution.width = scene_.fboWidth_; // 真实帧深度模板缓冲区图像宽度
-   inputDepthStencilResolution.height = scene_.fboHeight_; // 真实帧深度模板缓冲区图像高度
-   // 预测帧分辨率
-   FG_Dimension2D outputColorResolution{};
-   outputColorResolution.width = scene_.fboWidth_; // 预测帧图像宽度
-   outputColorResolution.height = scene_.fboHeight_; // 预测帧图像高度
-   // 超帧输入输出图像分辨率
-   FG_ResolutionInfo rInfo{};
-   rInfo.inputColorResolution = inputColorResolution;
-   rInfo.inputDepthStencilResolution = inputDepthStencilResolution;
-   rInfo.outputColorResolution = outputColorResolution;
-   errorCode = HMS_FG_SetResolution_GLES(context_, &rInfo); // 设置超帧输入输出图像分辨率
-   if (errorCode != FG_SUCCESS) {
-       GOLOGE("HMS_FG_SetResolution_GLES execution failed, error code: %d.", errorCode);
-       return false;
-   }
+       // 真实帧颜色缓冲区分辨率
+       FG_Dimension2D inputColorResolution{};
+       inputColorResolution.width = scene_.fboWidth_; // 真实帧颜色缓冲区图像宽度
+       inputColorResolution.height = scene_.fboHeight_; // 真实帧颜色缓冲区图像高度
+       // 真实帧深度模板缓冲区分辨率
+       FG_Dimension2D inputDepthStencilResolution{};
+       inputDepthStencilResolution.width = scene_.fboWidth_; // 真实帧深度模板缓冲区图像宽度
+       inputDepthStencilResolution.height = scene_.fboHeight_; // 真实帧深度模板缓冲区图像高度
+       // 预测帧分辨率
+       FG_Dimension2D outputColorResolution{};
+       outputColorResolution.width = scene_.fboWidth_; // 预测帧图像宽度
+       outputColorResolution.height = scene_.fboHeight_; // 预测帧图像高度
+       // 超帧输入输出图像分辨率
+       FG_ResolutionInfo rInfo{};
+       rInfo.inputColorResolution = inputColorResolution;
+       rInfo.inputDepthStencilResolution = inputDepthStencilResolution;
+       rInfo.outputColorResolution = outputColorResolution;
+       errorCode = HMS_FG_SetResolution_GLES(context_, &rInfo); // 设置超帧输入输出图像分辨率
+       if (errorCode != FG_SUCCESS) {
+           GOLOGE("HMS_FG_SetResolution_GLES execution failed, error code: %d.", errorCode);
+           return false;
+       }
 
-   // 设置齐次裁剪空间Z/W范围及深度测试模式，接口不调用时默认为FG_CVV_Z_SEMANTIC_MINUS_ONE_TO_ONE_FORWARD_Z
-   errorCode = HMS_FG_SetCvvZSemantic_GLES(context_, FG_CVV_Z_SEMANTIC_MINUS_ONE_TO_ONE_FORWARD_Z);
-   if (errorCode != FG_SUCCESS) {
-       GOLOGE("HMS_FG_SetCvvZSemantic_GLES execution failed, error code: %d.", errorCode);
-       return false;
-   }
+       // 设置齐次裁剪空间Z/W范围及深度测试模式，接口不调用时默认为FG_CVV_Z_SEMANTIC_MINUS_ONE_TO_ONE_FORWARD_Z
+       errorCode = HMS_FG_SetCvvZSemantic_GLES(context_, FG_CVV_Z_SEMANTIC_MINUS_ONE_TO_ONE_FORWARD_Z);
+       if (errorCode != FG_SUCCESS) {
+           GOLOGE("HMS_FG_SetCvvZSemantic_GLES execution failed, error code: %d.", errorCode);
+           return false;
+       }
 
-   // 设置真实渲染帧颜色缓冲区图像格式，接口不调用时默认为FG_FORMAT_R8G8B8A8_UNORM
-   errorCode = HMS_FG_SetImageFormat_GLES(context_, FG_FORMAT_R8G8B8A8_UNORM);
-   if (errorCode != FG_SUCCESS) {
-       GOLOGE("HMS_FG_SetImageFormat_GLES execution failed, error code: %d.", errorCode);
-       return false;
-   }
+       // 设置真实渲染帧颜色缓冲区图像格式，接口不调用时默认为FG_FORMAT_R8G8B8A8_UNORM
+       errorCode = HMS_FG_SetImageFormat_GLES(context_, FG_FORMAT_R8G8B8A8_UNORM);
+       if (errorCode != FG_SUCCESS) {
+           GOLOGE("HMS_FG_SetImageFormat_GLES execution failed, error code: %d.", errorCode);
+           return false;
+       }
 
-   // 当颜色缓冲区相对深度模板缓冲区基于y轴翻转180度时，设置第二个参数为true，接口不调用时默认为无翻转
-   errorCode = HMS_FG_SetDepthStencilYDirectionInverted_GLES(context_, false);
-   if (errorCode != FG_SUCCESS) {
-       GOLOGE("HMS_FG_SetDepthStencilYDirectionInverted_GLES execution failed, error code: %d.", errorCode);
-       return false;
-   }
-   ```
+       // 当颜色缓冲区相对深度模板缓冲区基于y轴翻转180度时，设置第二个参数为true，接口不调用时默认为无翻转
+       errorCode = HMS_FG_SetDepthStencilYDirectionInverted_GLES(context_, false);
+       if (errorCode != FG_SUCCESS) {
+           GOLOGE("HMS_FG_SetDepthStencilYDirectionInverted_GLES execution failed, error code: %d.", errorCode);
+           return false;
+       }
 
 5. 调用[HMS_FG_Activate_GLES](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_activate_gles)接口激活超帧上下文实例。
 
-   ```
-   // 激活超帧上下文实例
-   errorCode = HMS_FG_Activate_GLES(context_);
-   if (errorCode != FG_SUCCESS) {
-       GOLOGE("HMS_FG_Activate_GLES execution failed, error code: %d.", errorCode);
-       return false;
-   }
-   ```
+       // 激活超帧上下文实例
+       errorCode = HMS_FG_Activate_GLES(context_);
+       if (errorCode != FG_SUCCESS) {
+           GOLOGE("HMS_FG_Activate_GLES execution failed, error code: %d.", errorCode);
+           return false;
+       }
 
 6. 游戏运行中，真实渲染帧和预测帧交替渲染并送显。渲染真实帧时，缓存颜色信息、深度信息和相机矩阵等属性信息。渲染预测帧时，需调用[HMS_FG_Dispatch_GLES](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_dispatch_gles)接口并传入上一帧真实帧属性信息，指定预测帧缓冲区索引，生成预测帧，最终更新预测帧缓冲区内存。
 
-   ```
-   // 帧生成属性配置结构体
-   FG_DispatchDescription_GLES dispatchDescriptionData_ {
-       .inputColor = 0U,
-       .inputDepthStencil = 0U,
-       .viewProj{},
-       .invViewProj{},
-       .outputColor = 0U
-   };
-   ```
+       // 帧生成属性配置结构体
+       FG_DispatchDescription_GLES dispatchDescriptionData_ {
+           .inputColor = 0U,
+           .inputDepthStencil = 0U,
+           .viewProj{},
+           .invViewProj{},
+           .outputColor = 0U
+       };
 
-   ```
-   // 真实帧渲染阶段
-   // 渲染当前帧渲染画面，缓存颜色、深度、相机矩阵等信息，用于下一帧预测帧生成
-   // ...
+       // 真实帧渲染阶段
+       // 渲染当前帧渲染画面，缓存颜色、深度、相机矩阵等信息，用于下一帧预测帧生成
+       // ...
 
-   // 绘制缓存中的上一帧真实帧
-   // ...
+       // 绘制缓存中的上一帧真实帧
+       // ...
 
-   // 绘制UI
-   // ...
+       // 绘制UI
+       // ...
 
-   // 送显缓存中的上一帧真实帧
-   // ...
+       // 送显缓存中的上一帧真实帧
+       // ...
 
-   bool const runPrediction = predictionEnabled_ && !predictionPaused_;
-   if (runPrediction) { // 预测帧渲染阶段
-       // 传入上一帧真实渲染帧颜色缓冲区索引
-       dispatchDescriptionData_.inputColor = scene_.texture_;
-       // 传入上一帧真实渲染帧深度模板缓冲区索引
-       dispatchDescriptionData_.inputDepthStencil = scene_.depthTexture_;
-       // 传入预测帧缓冲区索引
-       dispatchDescriptionData_.outputColor = predictedFrame_;
-       // 传入上一帧真实渲染帧视图投影矩阵
-       dispatchDescriptionData_.viewProj = *reinterpret_cast<FG_Mat4x4 const *>(&lastViewProj_);
-       Matrix4x4 invViewProj{};
-       // 传入上一帧真实渲染帧视图投影逆矩阵
-       dispatchDescriptionData_.invViewProj =
-           *reinterpret_cast<FG_Mat4x4 const *>(invViewProj.Invert(lastViewProj_).data_);
+       bool const runPrediction = predictionEnabled_ && !predictionPaused_;
+       if (runPrediction) { // 预测帧渲染阶段
+           // 传入上一帧真实渲染帧颜色缓冲区索引
+           dispatchDescriptionData_.inputColor = scene_.texture_;
+           // 传入上一帧真实渲染帧深度模板缓冲区索引
+           dispatchDescriptionData_.inputDepthStencil = scene_.depthTexture_;
+           // 传入预测帧缓冲区索引
+           dispatchDescriptionData_.outputColor = predictedFrame_;
+           // 传入上一帧真实渲染帧视图投影矩阵
+           dispatchDescriptionData_.viewProj = *reinterpret_cast<FG_Mat4x4 const *>(&lastViewProj_);
+           Matrix4x4 invViewProj{};
+           // 传入上一帧真实渲染帧视图投影逆矩阵
+           dispatchDescriptionData_.invViewProj =
+               *reinterpret_cast<FG_Mat4x4 const *>(invViewProj.Invert(lastViewProj_).data_);
 
-       // 生成预测帧，更新预测帧缓冲区的内存
-       FG_ErrorCode errorCode = HMS_FG_Dispatch_GLES(context_, &dispatchDescriptionData_);
+           // 生成预测帧，更新预测帧缓冲区的内存
+           FG_ErrorCode errorCode = HMS_FG_Dispatch_GLES(context_, &dispatchDescriptionData_);
 
-       switch (errorCode) {
-           case FG_SUCCESS: {
-               // 绘制预测帧
-               // ...
+           switch (errorCode) {
+               case FG_SUCCESS: {
+                   // 绘制预测帧
+                   // ...
 
-               // 绘制UI
-               // ...
+                   // 绘制UI
+                   // ...
 
-               // 送显预测帧
-               // ...
-               break;
+                   // 送显预测帧
+                   // ...
+                   break;
+               }
+
+               case FG_COLLECTING_PREVIOUS_FRAMES:
+                   // 传入真实帧数量未达到固定阈值，无预测帧生成，基础外插模式传入真实帧数量<3时返回该状态码，增强外插模式传入真实帧数量<2时返回该状态码，此时不要将预测帧送显
+                   break;
+               default:
+                   // 预测帧生成失败
+                   GOLOGE("HMS_FG_Dispatch_GLES execution failed, error code: %d.", errorCode);
+                   return false;
            }
-
-           case FG_COLLECTING_PREVIOUS_FRAMES:
-               // 传入真实帧数量未达到固定阈值，无预测帧生成，基础外插模式传入真实帧数量<3时返回该状态码，增强外插模式传入真实帧数量<2时返回该状态码，此时不要将预测帧送显
-               break;
-           default:
-               // 预测帧生成失败
-               GOLOGE("HMS_FG_Dispatch_GLES execution failed, error code: %d.", errorCode);
-               return false;
        }
-   }
-   ```
 
 7. 调用[HMS_FG_DestroyContext_GLES](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_destroycontext_gles)接口销毁超帧实例，释放内存资源。
 
-   ```
-   // 销毁超帧上下文实例并释放内存资源
-   FG_ErrorCode errorCode = HMS_FG_DestroyContext_GLES(&context_);
-   // ...
-   if (errorCode != FG_SUCCESS) {
-       GOLOGE("HMS_FG_DestroyContext_GLES execution failed, error code: %d.", errorCode);
-       return false;
-   }
-   ```
+       // 销毁超帧上下文实例并释放内存资源
+       FG_ErrorCode errorCode = HMS_FG_DestroyContext_GLES(&context_);
+       // ...
+       if (errorCode != FG_SUCCESS) {
+           GOLOGE("HMS_FG_DestroyContext_GLES execution failed, error code: %d.", errorCode);
+           return false;
+       }
 

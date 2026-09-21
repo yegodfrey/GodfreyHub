@@ -1,67 +1,70 @@
 ---
 name: document/cn/harmonyos-references/js-apis-enterprise-wifimanager
-title: @ohos.enterprise.wifiManager（Wi-Fi管理）
+title: @ohos.enterprise.wifiManager (Wi-Fi管理)
 uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager
 ---
 
-# @ohos.enterprise.wifiManager（Wi-Fi管理）
+# @ohos.enterprise.wifiManager (Wi-Fi管理)
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 本模块提供企业设备Wi-Fi管理能力，包括查询Wi-Fi开启状态、配置Wi-Fi连接、管理Wi-Fi名单等。
 
-使用场景：
+**使用场景**：
 
 * 企业设备批量配置Wi-Fi连接，简化设备初始化流程
 * 控制设备可连接的Wi-Fi网络，实现网络访问合规管理
 * 管理企业设备的Wi-Fi开关，统一网络策略
 
-功能收益：
+**功能收益**：
 
 * 提高企业网络管理效率，减少IT（Information Technology，信息技术）运维成本
 * 确保设备仅连接安全的Wi-Fi网络，降低安全风险
 * 实现网络策略统一管控，满足企业合规要求
 
-![](https://media:401788445581071517)  
-本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 说明
+>
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> 本模块接口仅可在Stage模型下使用。
+>
+> 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide)。
+>
+> 全局通用限制类策略由restrictions统一提供，若要全局禁用Wi-Fi，请参考[@ohos.enterprise.restrictions (限制类策略)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions)。
 
-本模块接口仅可在Stage模型下使用。
+## 导入模块
 
-本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide)。
-
-全局通用限制类策略由restrictions统一提供，若要全局禁用Wi-Fi，请参考[@ohos.enterprise.restrictions（限制类策略）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions)。  
-
-#### 导入模块
-
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 ```
 
-#### wifiManager.isWifiActiveSync
+## wifiManager.isWifiActiveSync
 
 isWifiActiveSync(admin: Want): boolean
 
 查询当前设备Wi-Fi开启状态。
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------|:----------------------------------------|
 |boolean|返回Wi-Fi开启状态，true表示Wi-Fi开启，false表示Wi-Fi关闭。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -70,9 +73,9 @@ isWifiActiveSync(admin: Want): boolean
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -89,30 +92,31 @@ try {
 }
 ```
 
-#### wifiManager.setWifiProfileSync
+## wifiManager.setWifiProfileSync
 
 setWifiProfileSync(admin: Want, profile: WifiProfile): void
 
 为当前设备配置Wi-Fi，连接到指定网络。
+> 说明
+>
+> 在多个MDM应用场景下，遵循[配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)规则。
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-冲突规则： [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:-------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
 |profile|[WifiProfile](#wifiprofile)|是|Wi-Fi配置信息，用于指定要连接的Wi-Fi网络的配置参数，包括SSID、BSSID、密钥、安全类型等。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -121,11 +125,11 @@ setWifiProfileSync(admin: Want, profile: WifiProfile): void
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.|
 
-示例：
+**示例：**
 
-适用于公共开放Wi-Fi
+**适用于公共开放Wi-Fi**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -150,9 +154,9 @@ try {
 }
 ```
 
-适用于多个同名Wi-Fi但不同BSSID的场景
+**适用于多个同名Wi-Fi但不同BSSID的场景**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -178,9 +182,9 @@ try {
 }
 ```
 
-适用于老旧的工业设备等场景、安全性低
+**适用于老旧的工业设备等场景、安全性低**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -206,9 +210,9 @@ try {
 }
 ```
 
-适用于家庭网络、小型办公室、消费级路由器等场景
+**适用于家庭网络、小型办公室、消费级路由器等场景**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -233,9 +237,9 @@ try {
 }
 ```
 
-适用于现代化IoT设备网络
+**适用于现代化IoT设备网络**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -260,9 +264,9 @@ try {
 }
 ```
 
-适用于公司网络和大学校园网络
+**适用于公司网络和大学校园网络**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -305,7 +309,7 @@ try {
 }
 ```
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -348,7 +352,7 @@ try {
 }
 ```
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -391,7 +395,7 @@ try {
 }
 ```
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -434,9 +438,9 @@ try {
 }
 ```
 
-适用于需要固定IP地址供客户端访问等场景
+**适用于需要固定IP地址供客户端访问等场景**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -469,9 +473,9 @@ try {
 }
 ```
 
-#### wifiManager.addAllowedWifiList^19+^
+## wifiManager.addAllowedWifiList^19+^
 
-addAllowedWifiList(admin: Want, list: Array\<WifiAccessInfo\>): void
+addAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 添加Wi-Fi允许名单。添加允许名单后当前设备仅允许连接该名单下的Wi-Fi。适用于企业安全管理场景，例如限制员工设备只能连接公司授权的Wi-Fi网络，防止连接不安全的外部Wi-Fi，保障企业网络安全和数据安全。
 
@@ -480,24 +484,26 @@ addAllowedWifiList(admin: Want, list: Array\<WifiAccessInfo\>): void
 1. 已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)接口禁用了设备Wi-Fi能力。通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)解除Wi-Fi禁用后，可解除冲突。
 2. 已经通过[addDisallowedWifiList](#wifimanageradddisallowedwifilist19)接口添加了Wi-Fi禁用名单。通过[removeDisallowedWifiList](#wifimanagerremovedisallowedwifilist19)移除Wi-Fi禁用名单后，可解除冲突。
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+> 说明
+>
+> 在多个MDM应用场景下，遵循[合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)规则。
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-冲突规则： [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
-|list|Array\<[WifiAccessInfo](#wifiaccessinfo19)\>|是|Wi-Fi允许名单数组。数组总长度不能超过200。例如，若当前允许名单数组中已有100个Wi-Fi，则最多支持通过该接口再添加100个。|
+|list|Array<[WifiAccessInfo](#wifiaccessinfo19)>|是|Wi-Fi允许名单数组。数组总长度不能超过200。例如，若当前允许名单数组中已有100个Wi-Fi，则最多支持通过该接口再添加100个。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -506,9 +512,9 @@ addAllowedWifiList(admin: Want, list: Array\<WifiAccessInfo\>): void
 |9200010|A conflict policy has been configured.|
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -530,30 +536,31 @@ try {
 }
 ```
 
-#### wifiManager.removeAllowedWifiList^19+^
+## wifiManager.removeAllowedWifiList^19+^
 
-removeAllowedWifiList(admin: Want, list: Array\<WifiAccessInfo\>): void
+removeAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 移除Wi-Fi允许名单。若移除允许名单中的部分Wi-Fi，则当前设备仅允许连接剩下未移除的Wi-Fi。若移除允许名单中的所有Wi-Fi，则当前设备可以连接任意Wi-Fi。适用于企业Wi-Fi策略调整场景，例如公司更换Wi-Fi网络时移除旧网络限制、或解除部分Wi-Fi限制以允许员工连接新的办公网络。
+> 说明
+>
+> 在多个MDM应用场景下，遵循[合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)规则。
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-冲突规则： [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
-|list|Array\<[WifiAccessInfo](#wifiaccessinfo19)\>|是|待移除的Wi-Fi允许名单数组。数组总长度不能超过200。|
+|list|Array<[WifiAccessInfo](#wifiaccessinfo19)>|是|待移除的Wi-Fi允许名单数组。数组总长度不能超过200。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -561,9 +568,9 @@ removeAllowedWifiList(admin: Want, list: Array\<WifiAccessInfo\>): void
 |9200002|The administrator application does not have permission to manage the device.|
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -585,35 +592,35 @@ try {
 }
 ```
 
-#### wifiManager.getAllowedWifiList^19+^
+## wifiManager.getAllowedWifiList^19+^
 
-getAllowedWifiList(admin: Want): Array\<WifiAccessInfo\>
+getAllowedWifiList(admin: Want): Array<WifiAccessInfo>
 
 获取Wi-Fi允许名单。
 
 本接口通过传入Want查询对应企业设备管理应用设置的策略，如需查询实际生效的策略，请使用[wifiManager.getAllowedWifiList](#wifimanagergetallowedwifilist)接口。
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------------------------|:-----------|
-|Array\<[WifiAccessInfo](#wifiaccessinfo19)\>|Wi-Fi允许名单数组。|
+|:-----------------------------------------|:-----------|
+|Array<[WifiAccessInfo](#wifiaccessinfo19)>|Wi-Fi允许名单数组。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -621,9 +628,9 @@ getAllowedWifiList(admin: Want): Array\<WifiAccessInfo\>
 |9200002|The administrator application does not have permission to manage the device.|
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -640,35 +647,35 @@ try {
 }
 ```
 
-#### wifiManager.getAllowedWifiList
+## wifiManager.getAllowedWifiList
 
-getAllowedWifiList(admin: Want \| null): Array\<WifiAccessInfo\>
+getAllowedWifiList(admin: Want | null): Array<WifiAccessInfo>
 
 获取Wi-Fi允许名单。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:---------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------|
-|admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) \| null|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。|
+|:----|:--------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------|
+|admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | null|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------------------------|:-----------|
-|Array\<[WifiAccessInfo](#wifiaccessinfo19)\>|Wi-Fi允许名单数组。|
+|:-----------------------------------------|:-----------|
+|Array<[WifiAccessInfo](#wifiaccessinfo19)>|Wi-Fi允许名单数组。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -676,9 +683,9 @@ getAllowedWifiList(admin: Want \| null): Array\<WifiAccessInfo\>
 |9200002|The administrator application does not have permission to manage the device.|
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 
 try {
@@ -690,9 +697,9 @@ try {
 }
 ```
 
-#### wifiManager.addDisallowedWifiList^19+^
+## wifiManager.addDisallowedWifiList^19+^
 
-addDisallowedWifiList(admin: Want, list: Array\<WifiAccessInfo\>): void
+addDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 添加Wi-Fi禁用名单。添加禁用名单后当前设备不允许连接该名单下的Wi-Fi。适用于企业安全管控场景，例如禁止设备连接不安全的公共Wi-Fi(如咖啡馆、机场Wi-Fi)、防止员工连接竞争对手或恶意网络，保障企业数据安全。
 
@@ -701,24 +708,26 @@ addDisallowedWifiList(admin: Want, list: Array\<WifiAccessInfo\>): void
 1. 已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)接口禁用了设备Wi-Fi能力。通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)解除Wi-Fi禁用后，可解除冲突。
 2. 已经通过[addAllowedWifiList](#wifimanageraddallowedwifilist19)接口添加了Wi-Fi允许名单。通过[removeAllowedWifiList](#wifimanagerremoveallowedwifilist19)移除Wi-Fi允许名单后，可解除冲突。
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+> 说明
+>
+> 在多个MDM应用场景下，遵循[合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)规则。
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-冲突规则： [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
-|list|Array\<[WifiAccessInfo](#wifiaccessinfo19)\>|是|Wi-Fi禁用名单数组。数组总长度不能超过200。例如，若当前禁用名单数组中已有100个Wi-Fi，则最多支持通过该接口再添加100个。|
+|list|Array<[WifiAccessInfo](#wifiaccessinfo19)>|是|Wi-Fi禁用名单数组。数组总长度不能超过200。例如，若当前禁用名单数组中已有100个Wi-Fi，则最多支持通过该接口再添加100个。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -727,9 +736,9 @@ addDisallowedWifiList(admin: Want, list: Array\<WifiAccessInfo\>): void
 |9200010|A conflict policy has been configured.|
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -751,30 +760,31 @@ try {
 }
 ```
 
-#### wifiManager.removeDisallowedWifiList^19+^
+## wifiManager.removeDisallowedWifiList^19+^
 
-removeDisallowedWifiList(admin: Want, list: Array\<WifiAccessInfo\>): void
+removeDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 移除Wi-Fi禁用名单。若移除禁用名单中的部分Wi-Fi，则当前设备不允许连接禁用名单内剩余的Wi-Fi。若移除禁用名单中的所有Wi-Fi，则当前设备可以连接任意的Wi-Fi。适用于企业Wi-Fi策略调整场景，例如解除对特定Wi-Fi的禁用限制、允许员工连接新批准的办公网络、或完全移除禁用策略。
+> 说明
+>
+> 在多个MDM应用场景下，遵循[合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)规则。
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-冲突规则： [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
-|list|Array\<[WifiAccessInfo](#wifiaccessinfo19)\>|是|待移除的Wi-Fi禁用名单数组。数组总长度不能超过200。|
+|list|Array<[WifiAccessInfo](#wifiaccessinfo19)>|是|待移除的Wi-Fi禁用名单数组。数组总长度不能超过200。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -782,9 +792,9 @@ removeDisallowedWifiList(admin: Want, list: Array\<WifiAccessInfo\>): void
 |9200002|The administrator application does not have permission to manage the device.|
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -806,35 +816,35 @@ try {
 }
 ```
 
-#### wifiManager.getDisallowedWifiList^19+^
+## wifiManager.getDisallowedWifiList^19+^
 
-getDisallowedWifiList(admin: Want): Array\<WifiAccessInfo\>
+getDisallowedWifiList(admin: Want): Array<WifiAccessInfo>
 
 获取Wi-Fi禁用名单。
 
 本接口通过传入Want查询对应企业设备管理应用设置的策略，如需查询实际生效的策略，请使用[wifiManager.getDisallowedWifiList](#wifimanagergetdisallowedwifilist)接口。
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------------------------|:-----------|
-|Array\<[WifiAccessInfo](#wifiaccessinfo19)\>|Wi-Fi禁用名单数组。|
+|:-----------------------------------------|:-----------|
+|Array<[WifiAccessInfo](#wifiaccessinfo19)>|Wi-Fi禁用名单数组。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -842,9 +852,9 @@ getDisallowedWifiList(admin: Want): Array\<WifiAccessInfo\>
 |9200002|The administrator application does not have permission to manage the device.|
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -861,35 +871,35 @@ try {
 }
 ```
 
-#### wifiManager.getDisallowedWifiList
+## wifiManager.getDisallowedWifiList
 
-getDisallowedWifiList(admin: Want \| null): Array\<WifiAccessInfo\>
+getDisallowedWifiList(admin: Want | null): Array<WifiAccessInfo>
 
 获取Wi-Fi禁用名单。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:---------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------|
-|admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) \| null|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。|
+|:----|:--------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------|
+|admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | null|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------------------------|:-----------|
-|Array\<[WifiAccessInfo](#wifiaccessinfo19)\>|Wi-Fi禁用名单数组。|
+|:-----------------------------------------|:-----------|
+|Array<[WifiAccessInfo](#wifiaccessinfo19)>|Wi-Fi禁用名单数组。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -897,9 +907,9 @@ getDisallowedWifiList(admin: Want \| null): Array\<WifiAccessInfo\>
 |9200002|The administrator application does not have permission to manage the device.|
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { wifiManager } from '@kit.MDMKit';
 
 try {
@@ -911,7 +921,7 @@ try {
 }
 ```
 
-#### wifiManager.turnOnWifi^20+^
+## wifiManager.turnOnWifi^20+^
 
 turnOnWifi(admin: Want, isForce: boolean): void
 
@@ -920,25 +930,26 @@ turnOnWifi(admin: Want, isForce: boolean): void
 以下情况下，通过本接口打开Wi-Fi开关，会打开失败并提示"系统功能被禁用"：
 
 ​已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)接口禁用了Wi-Fi。需通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)接口启用Wi-Fi，解决"系统功能被禁用"报错。
+> 说明
+>
+> 在多个MDM应用场景下，任意MDM应用通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)接口禁用了Wi-Fi，则无法通过本接口直接打开Wi-Fi开关。
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-冲突规则： 任意MDM应用​通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)接口禁用了Wi-Fi，则无法通过本接口直接打开Wi-Fi开关。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:-------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
 |isForce|boolean|是|是否强制打开Wi-Fi功能。 true表示强制开启Wi-Fi，强制开启后不支持用户在设备上手动关闭Wi-Fi开关，必须采用[turnOffWifi](#wifimanagerturnoffwifi20)接口关闭。false表示非强制开启Wi-Fi，此时用户可以在设备上手动操作关闭Wi-Fi开关。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -947,9 +958,9 @@ turnOnWifi(admin: Want, isForce: boolean): void
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 |203|This function is prohibited by enterprise management policies.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { Want } from '@kit.AbilityKit';
 import { wifiManager } from '@kit.MDMKit';
 
@@ -967,7 +978,7 @@ try {
 }
 ```
 
-#### wifiManager.turnOffWifi^20+^
+## wifiManager.turnOffWifi^20+^
 
 turnOffWifi(admin: Want): void
 
@@ -976,24 +987,25 @@ turnOffWifi(admin: Want): void
 以下情况下，通过本接口关闭Wi-Fi开关，会提示"系统功能被禁用"：
 
 ​已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)接口禁用了Wi-Fi。需通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)接口启用Wi-Fi，解决"系统功能被禁用"报错。
+> 说明
+>
+> 在多个MDM应用场景下，任意MDM应用通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)接口禁用了Wi-Fi，则无法通过本接口直接关闭Wi-Fi开关。
 
-需要权限： ohos.permission.ENTERPRISE_MANAGE_WIFI
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-冲突规则： 任意MDM应用通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicydeprecated)接口禁用了Wi-Fi，则无法通过本接口直接关闭Wi-Fi开关。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------|
 |admin|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。  
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------|
@@ -1002,9 +1014,9 @@ turnOffWifi(admin: Want): void
 |201|Permission verification failed. The application does not have the permission required to call the API.|
 |203|This function is prohibited by enterprise management policies.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { Want } from '@kit.AbilityKit';
 import { wifiManager } from '@kit.MDMKit';
 
@@ -1022,28 +1034,28 @@ try {
 }
 ```
 
-#### WifiAccessInfo^19+^
+## WifiAccessInfo^19+^
 
 Wi-Fi的SSID和BSSID信息。
 
 设置允许名单时，SSID和BSSID需要同时满足，才可以连接该Wi-Fi；设置禁用名单时，SSID和BSSID满足其中一个，就不能连接该Wi-Fi。
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。  
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 |名称|类型|只读|可选|说明|
 |:----|:-----|:-|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |ssid|string|否|否|Wi-Fi热点名称，编码格式为UTF-8，最大长度为32字节（中文字符占3位，英文字符占1位）。|
 |bssid|string|否|是|Wi-Fi热点的MAC地址，例如：00:11:22:33:44:55。获取方式如下：打开设置应用-点击系统选项-点击开发者选项-开启WLAN详细日志记录开关，然后进入设置应用中的WLAN列表，查看显示的MAC地址。若一个Wi-Fi对应多个MAC地址，需添加所有MAC地址。 作为[addDisallowedWifiList](#wifimanageradddisallowedwifilist19)和[removeDisallowedWifiList](#wifimanagerremovedisallowedwifilist19)接口的入参时，该属性可选，默认值为空字符串。 作为[addAllowedWifiList](#wifimanageraddallowedwifilist19)和[removeAllowedWifiList](#wifimanagerremoveallowedwifilist19)接口入参时，从API version 21开始，该属性可选，默认值为空字符串。API version 20及之前的版本，该属性必填。|
 
-#### WifiProfile
+## WifiProfile
 
 Wi-Fi配置信息。
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。  
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 |名称|类型|只读|可选|说明|
 |:------------|:------------------------------------|:-|:-|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1061,13 +1073,13 @@ Wi-Fi配置信息。
 |staticIp|[IpProfile](#ipprofile)|否|是|静态IP配置信息。ipType为STATIC时，该字段必填。|
 |eapProfile|[WifiEapProfile](#wifieapprofile)|否|是|可扩展身份验证协议配置。只有securityType为WIFI_SEC_TYPE_EAP时必填。|
 
-#### WifiSecurityType
+## WifiSecurityType
 
 表示加密类型的枚举。
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。  
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 |名称|值|说明|
 |:------------------------|:-|:--------------------------------------------------------------------|
@@ -1082,13 +1094,13 @@ Wi-Fi配置信息。
 |WIFI_SEC_TYPE_WAPI_CERT|8|WAPI-Cert加密类型。中国自主的无线安全标准。|
 |WIFI_SEC_TYPE_WAPI_PSK|9|WAPI-PSK加密类型。|
 
-#### IpType
+## IpType
 
 表示IP类型的枚举。
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。  
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 |名称|值|说明|
 |:------|:-|:--------------------------------------------------|
@@ -1096,29 +1108,29 @@ Wi-Fi配置信息。
 |DHCP|1|动态主机配置协议，一种能自动为网络中的设备分配IP地址和其他网络配置信息的服务。|
 |UNKNOWN|2|未指定。|
 
-#### IpProfile
+## IpProfile
 
 IP配置信息。
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。  
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 |名称|类型|只读|可选|说明|
-|:-----------|:--------------|:-|:-|:-------------------------------------------------------------------------------|
+|:-----------|:------------|:-|:-|:-------------------------------------------------------------------------------|
 |ipAddress|number|否|否|IP地址，十进制表示，正常点分十进制写法为192.168.1.1，对应的十进制为3232235777。地址值范围0.0.0.0到255.255.255.255。|
 |gateway|number|否|否|默认网关，十进制表示，通常是路由器的IP地址。地址值范围0.0.0.0到255.255.255.255。|
 |prefixLength|number|否|否|子网掩码。地址值范围0.0.0.0到255.255.255.255。|
-|dnsServers|number\[\]|否|否|DNS服务器，数组内最多包含首选DNS服务器和备用DNS服务器两个地址。地址值范围0.0.0.0到255.255.255.255。|
-|domains|Array\<string\>|否|否|域信息。|
+|dnsServers|number[]|否|否|DNS服务器，数组内最多包含首选DNS服务器和备用DNS服务器两个地址。地址值范围0.0.0.0到255.255.255.255。|
+|domains|Array<string>|否|否|域信息。|
 
-#### WifiEapProfile
+## WifiEapProfile
 
 可扩展身份验证协议配置信息。
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。  
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 |名称|类型|只读|可选|说明|
 |:----------------|:----------------------------|:-|:-|:---------------------------------------------------|
@@ -1138,15 +1150,16 @@ IP配置信息。
 |plmn|string|否|否|凭证提供商。|
 |eapSubId|number|否|否|SIM卡的子ID。|
 
-#### EapMethod
+## EapMethod
 
-表示EAP认证方式的枚举。  
-![](https://media:401788445581107518)  
-当前仅支持使用EAP_PEAP、EAP_TLS两种认证方式，其他暂不支持。
+表示EAP认证方式的枚举。
+> 说明
+>
+> 当前仅支持使用EAP_PEAP、EAP_TLS两种认证方式，其他暂不支持。
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。  
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 |名称|值|说明|
 |:-------------|:-|:-----------------------------------------|
@@ -1160,13 +1173,13 @@ IP配置信息。
 |EAP_AKA_PRIME|7|AKA Prime类型，EAP-AKA增强版，在密钥派生中绑定网络名称。|
 |EAP_UNAUTH_TLS|8|UNAUTH TLS类型，单向认证（仅认证客户端）和加密通道。|
 
-#### Phase2Method
+## Phase2Method
 
 表示第二阶段认证方式的枚举。
 
-系统能力： SystemCapability.Customization.EnterpriseDeviceManager
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-模型约束： 此接口仅可在Stage模型下使用。  
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 |名称|值|说明|
 |:---------------|:-|:-----------|

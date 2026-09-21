@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-772
 
 # Text绑定自定义菜单
 
-#### 问题现象
+## 问题现象
 
 Text组件绑定自定义菜单如何实现以下效果：
 
@@ -15,23 +15,23 @@ Text组件绑定自定义菜单如何实现以下效果：
 
 问题效果预览：
 
-![](https://media:101782454328783533 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/VycHdmELR7S69-C6mIMM5g/zh-cn_image_0000002658795071.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=45740D4B98854AE178DD792AB69A9A433F512D0EE94B1F773140612909CE8169 "点击放大")
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782454328930534 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/UHS5Z8rQQmCU0mIpMR0CSw/zh-cn_image_0000002628555700.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=C78337CD26C44739CA6F54534EBAB2388E93BE6D330650BAAAF55C28BA4C7ED3 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [绑定手势方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings)为组件绑定不同类型的手势事件，并设置事件的响应方法。
-* [bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#bindselectionmenu11)方法能设置Text自定义选择菜单，使用方法可参考[文本绑定自定义菜单](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#示例8文本绑定自定义菜单)。  
+* [bindSelectionMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#bindselectionmenu11)方法能设置Text自定义选择菜单，使用方法可参考[文本绑定自定义菜单](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#示例8文本绑定自定义菜单)。
 
-#### 解决方案
+## 解决方案
 
 * 在页面最外层组件添加点击事件，关闭菜单，实现触摸屏幕菜单消失的效果。
 * 双击手势出现默认菜单是系统默认规格，可以为Text组件绑定双击事件覆盖默认行为。
 
-```
+```ts
 @Entry
 @Component
 struct BindMenuPage {
@@ -45,19 +45,19 @@ struct BindMenuPage {
           .width('100px').height('100px');
       }
       .parallelGesture(
-        // 重写双击手势事件，关闭菜单
+     // 重写双击手势事件，关闭菜单
         TapGesture({ count: 2 })
           .onAction(() => {
             this.controller.closeSelectionMenu();
           }), GestureMask.Normal)
       .copyOption(CopyOptions.InApp)
-      // 设置TextResponseType.LONG_PRESS，可以通过长按方式弹出自定义菜单
+   // 设置TextResponseType.LONG_PRESS，可以通过长按方式弹出自定义菜单
       .bindSelectionMenu(TextSpanType.DEFAULT, this.LongPressImageCustomMenu, TextResponseType.LONG_PRESS);
     }.width('100%').height('100%')
     .justifyContent(FlexAlign.Center)
     .onClick(() => {
-      // 在页面根节点设置点击事件，关闭菜单
-      this.controller.closeSelectionMenu(); // 关闭菜单
+   // 在页面根节点设置点击事件，关闭菜单
+      this.controller.closeSelectionMenu(); //关闭菜单
     });
   }
 
@@ -66,7 +66,7 @@ struct BindMenuPage {
     Column() {
       Menu() {
         MenuItemGroup() {
-          // 图片资源需自行替换
+     // 图片资源需自行替换
           MenuItem({ startIcon: $r('app.media.startIcon'), content: 'Long Press Image Menu 1', labelInfo: '' });
           MenuItem({ startIcon: $r('app.media.startIcon'), content: 'Long Press Image Menu 2', labelInfo: '' });
           MenuItem({ startIcon: $r('app.media.startIcon'), content: 'Long Press Image Menu 3', labelInfo: '' });

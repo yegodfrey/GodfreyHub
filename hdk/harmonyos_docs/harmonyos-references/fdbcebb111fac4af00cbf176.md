@@ -6,33 +6,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 # Class (CursorController)
 
-提供鼠标光标样式设置的能力，支持恢复默认鼠标光标样式、设置系统鼠标光标样式以及设置自定义鼠标光标样式，适用于需要根据界面交互状态动态调整鼠标光标显示效果的场景，有助于提升界面交互提示的清晰度。  
-![](https://media:401788445400060993)  
-* 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-* 本Class首批接口从API version 12开始支持。
+提供鼠标光标样式设置的能力，支持恢复默认鼠标光标样式、设置系统鼠标光标样式以及设置自定义鼠标光标样式，适用于需要根据界面交互状态动态调整鼠标光标显示效果的场景，有助于提升界面交互提示的清晰度。
+> 说明
+>
+> * 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> * 本Class首批接口从API version 12开始支持。
+>
+> * 本模块接口仅可在Stage模型下使用。
+>
+> * 以下API需先使用UIContext中的[getCursorController()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getcursorcontroller12)方法获取CursorController实例，再通过此实例调用对应方法。
 
-* 本模块接口仅可在Stage模型下使用。
-
-* 以下API需先使用UIContext中的[getCursorController()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getcursorcontroller12)方法获取CursorController实例，再通过此实例调用对应方法。
-
-#### restoreDefault^12+^
+## restoreDefault^12+^
 
 restoreDefault(): void
 
 恢复默认的光标样式。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-示例：
+**示例：**
 
 当光标移出绿框时，通过CursorController的restoreDefault方法恢复默认光标样式。
 
-```
+```ts
 import { pointer } from '@kit.InputKit';
 import { CursorController } from '@kit.ArkUI';
 
@@ -57,33 +60,34 @@ struct CursorControlExample {
 }
 ```
 
-![](https://media:401788445400150994)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/eAhfZbM_SbWLxcuYNhCl_Q/zh-cn_image_0000002762995325.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084648Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A27665592344A0E72177DEEC15A6E37CE75BEE07F7E5065D487E52EFC78C333)
 
-#### setCursor^12+^
+## setCursor^12+^
 
 setCursor(value: PointerStyle): void
 
 更改当前的鼠标光标样式。
 
-模型约束： 此接口仅可在Stage模型下使用。  
-![](https://media:401788445400219995)  
-该接口调用后不会立即生效，而是在下一帧改变鼠标光标样式。
+**模型约束：** 此接口仅可在Stage模型下使用。
+> 说明
+>
+> 该接口调用后不会立即生效，而是在下一帧改变鼠标光标样式。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------|
 |value|[PointerStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-t#pointerstyle)|是|鼠标光标样式，指定要设置的系统预定义光标类型（如箭头、手型指针、十字准星等），各样式含义详见PointerStyle枚举说明。|
 
-示例：
+**示例：**
 
 当光标进入蓝色框时，通过CursorController的setCursor方法修改光标样式为PointerStyle.WEST。
 
-```
+```ts
 import { pointer } from '@kit.InputKit';
 import { CursorController } from '@kit.ArkUI';
 
@@ -108,38 +112,39 @@ struct CursorControlExample {
 }
 ```
 
-![](https://media:401788445400244996)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/6vt1GsiARWSaTsRHVC0ODw/zh-cn_image_0000002762835439.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084648Z&HW-CC-Expire=31536000000&HW-CC-Sign=572CBE51810302B7739D160F56A3035B0D1B2FA4EF743FA0950F106CD434EB74)
 
-#### setCustomCursor
+## setCustomCursor
 
 setCustomCursor(value: image.PixelMap, focusX?: number, focusY?: number): void
 
-设置自定义鼠标光标样式。  
-![](https://media:401788445400281997)  
-* 该接口调用后不会立即生效，而是在下一帧改变鼠标光标样式。
-* 仅支持设置静态图片，不支持设置动态图片。
+设置自定义鼠标光标样式。
+> 说明
+>
+> * 该接口调用后不会立即生效，而是在下一帧改变鼠标光标样式。
+> * 仅支持设置静态图片，不支持设置动态图片。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-----|:------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------|
-|value|[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|是|自定义鼠标光标样式的像素图。仅支持静态图片，不支持动态图片。最大尺寸为256\*256px，超过该尺寸时，本次设置不会生效，鼠标光标保持当前样式不变。|
-|focusX|number|否|自定义光标焦点的X坐标。以光标图片左上角为原点，向右为正方向。该焦点将在显示时与系统鼠标指针的屏幕坐标对齐，鼠标的点击、拖拽等操作均以此点为准。 默认值：0 单位：px 取值范围：\[0, 图片宽度\]，超出取值范围时按默认值处理。|
-|focusY|number|否|自定义光标焦点的Y坐标。以光标图片左上角为原点，向下为正方向。结合focusX共同确定图像内代表实际交互位置的点。 默认值：0 单位：px 取值范围：\[0, 图片高度\]，超出取值范围时按默认值处理。|
+|:-----|:------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------|
+|value|[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|是|自定义鼠标光标样式的像素图。仅支持静态图片，不支持动态图片。最大尺寸为256*256px，超过该尺寸时，本次设置不会生效，鼠标光标保持当前样式不变。|
+|focusX|number|否|自定义光标焦点的X坐标。以光标图片左上角为原点，向右为正方向。该焦点将在显示时与系统鼠标指针的屏幕坐标对齐，鼠标的点击、拖拽等操作均以此点为准。 默认值：0 单位：px 取值范围：[0, 图片宽度]，超出取值范围时按默认值处理。|
+|focusY|number|否|自定义光标焦点的Y坐标。以光标图片左上角为原点，向下为正方向。结合focusX共同确定图像内代表实际交互位置的点。 默认值：0 单位：px 取值范围：[0, 图片高度]，超出取值范围时按默认值处理。|
 
-示例：
+**示例：**
 
 当光标进入蓝框且自定义光标图片加载完成后，通过调用[setCustomCursor](#setcustomcursor)接口，设置自定义鼠标光标样式。
 
-```
+```ts
 import { image } from '@kit.ImageKit';
 import { CursorController } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -227,4 +232,5 @@ struct CustomCursorExample {
 }
 ```
 
-![](https://media:401788445400306998)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/LgjGEDjATOW3vCL38VfOew/zh-cn_image_0000002733275928.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084648Z&HW-CC-Expire=31536000000&HW-CC-Sign=2DF73265137D036708D4504BA1587D86301D78E129014159E619176050F5E9E3)
+

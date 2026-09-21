@@ -6,23 +6,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 # OH_Drawing_Point3D
 
-```
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
+```c
 typedef struct {...} OH_Drawing_Point3D
 ```
 
-#### 概述
+## 概述
 
 定义一个三维的坐标点。
 
-起始版本： 12
+**起始版本：** 12
 
-相关模块： [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)
+**相关模块：** [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)
 
-所在头文件： [drawing_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-types-h)  
+**所在头文件：** [drawing_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-types-h)
 
-#### 汇总
+## 汇总
 
-#### 成员变量
+### 成员变量
 
 |名称|描述|
 |:------|:----|

@@ -1,0 +1,16 @@
+---
+name: document/cn/AppGallery-connect-References/android-package-0000001053086909
+title: com.huawei.agconnect.apms
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/android-package-0000001053086909
+---
+
+# com.huawei.agconnect.apms
+
+* **[Overview](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/android-apm-api-overview-0000001052246892)**   
+* **[APMS](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/apms-0000001052488219)**   
+* **[CustomTrace](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/customtrace-0000001051488170)**   
+* **[NetworkMeasure](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/networkmeasure-0000001052966915)**   
+* **[AddCustomTrace](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/addcustomtrace-0000001053086911)**   
+* **[ApmsLog](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/apmslog-0000001282058148)**   
+* **[FetchTask.FetchCallback](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/fetchcallback-0000001282762594)**   
+* **[TaskInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/taskinfo-0000001335131185)**   

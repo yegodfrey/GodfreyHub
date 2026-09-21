@@ -6,29 +6,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1250
 
 # 应用启动时出现黑屏
 
-#### 问题现象
+## 问题现象
 
 应用启动后，在页面内容出现前显示黑屏。
 
-![](https://media:101782461531241765 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/6t908K0RT3GZoKdIEftigw/zh-cn_image_0000002628755348.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=6F31186AF012094882A416594F1E6496945292713B4C00E088F2F0CD786CD2A3 "点击放大")
 
-#### 背景知识
+## 背景知识
 
-[setTimeout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-timer#settimeout)可用来设定一个定时器，在定时到期以后执行注册的回调函数。  
+[setTimeout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-timer#settimeout)可用来设定一个定时器，在定时到期以后执行注册的回调函数。
 
-#### 问题定位
+## 问题定位
 
-查看启动页在资源加载完成前，是否使用过渡动效或页面。若没有使用过渡动效或页面，启动页资源加载完成前无显示内容，导致黑屏。  
+查看启动页在资源加载完成前，是否使用过渡动效或页面。若没有使用过渡动效或页面，启动页资源加载完成前无显示内容，导致黑屏。
 
-#### 分析结论
+## 分析结论
 
-启动页未设置资源加载完成前的替代显示内容，导致加载好内容前无显示内容，出现黑屏，影响用户体验。  
+启动页未设置资源加载完成前的替代显示内容，导致加载好内容前无显示内容，出现黑屏，影响用户体验。
 
-#### 修改建议
+## 修改建议
 
 启动页设置资源加载完成前的替代显示内容。
 
-```
+```screen
 import { window } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 
@@ -48,7 +48,7 @@ struct StartDemo {
       this.isShow = true;
     }, 2000);
 
-    // 模拟页面内容加载
+   // 模拟页面内容加载
     setTimeout(() => {
       this.loading = false;
     }, 3000);
@@ -57,7 +57,7 @@ struct StartDemo {
   build() {
     Column() {
       if (!this.loading && this.isShow) {
-        // 加载好的页面内容
+       // 加载好的页面内容
         Stack() {
           Text('Hello World')
             .fontSize(20);
@@ -86,4 +86,5 @@ struct StartDemo {
 
 效果图如下：
 
-![](https://media:101782461531355766 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/GyRUb1cBRPOu0q9cL2kKog/zh-cn_image_0000002658954669.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=7DBB3E8897B9F41484856FD2E82A74FCBD5A7B77E9835A7FC6406A3AD932F7D4 "点击放大")
+

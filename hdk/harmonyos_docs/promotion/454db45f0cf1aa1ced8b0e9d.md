@@ -8,18 +8,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads-15611-0000002560
 
 【简介】通过API方式在广告DMP上创建人群包，需要您先通过API方式将包含设备ID的文件上传至Ads的OBS中
 
-请求地址
+**请求地址**
 
 https://svc-drcn.ads.huawei.com/opendmp/v1/audience/file/upload
 
-请求方法
+**请求方法**
 
-POST
+**POST**
 
-请求参数  
+**请求参数**
 
-|------------|-------------------|----|---|
-|参数名称|类型|是否必选|描述|
+|------------|-------------------|--------|------|
+|**参数名称**|**类型**|**是否必选**|**描述**|
 |file|multipart/form-data|是|文件流|
 |deviceIDType|String|是|类型|
 
@@ -30,8 +30,6 @@ POST
 zip文件内是一个txt文件,txt文件不为空
 
 txt文件大小超过1G，行数小于3000万
-
-<br />
 
 文件内容说明
 
@@ -47,10 +45,10 @@ txt文件大小超过1G，行数小于3000万
 
 2)文件只能包含一种设备ID类型，使用 deviceIDType传参值 标识整个文件的设备ID 类型 （当设备ID类型非3的时候，deviceIDType 必传）
 
-3)目前支持以下几种设备ID及类型：  
+3)目前支持以下几种设备ID及类型：
 
-|-----------|------|
-|设备ID|设备ID类型|
+|-----------|---------------|
+|**设备ID**|**设备** **ID类型**|
 |OAID-sha256|3|
 |GAID-sha256|4|
 |OAID-MD5|6|
@@ -58,32 +56,28 @@ txt文件大小超过1G，行数小于3000万
 |手机号-MD5|8|
 |手机号-sha256|9|
 
-请求示例
+**请求示例**
 
 POST https://${base_address}/opendmp/v1/audience/file/upload HTTP/1.1 Headers:
 
 Content-Type: application/json
 
-Authorization：Bearer DAEAAIX7ISfTb+NErs\*\*\*\*\*hPPri5SbmCiZ0g0Hw2PryODiEnUiJkub FRe4TQtxNeGPQphveHdUMACAjDxduayVZWe+FOSsdoNV/H6TRM3g3Pd81PDmWiM1KS 2
+Authorization：Bearer DAEAAIX7ISfTb+NErs*****hPPri5SbmCiZ0g0Hw2PryODiEnUiJkub FRe4TQtxNeGPQphveHdUMACAjDxduayVZWe+FOSsdoNV/H6TRM3g3Pd81PDmWiM1KS 2
 
 Body:
 
-![](https://media:101784100686668967)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/NpidVFEBS72nM_0Xf7xCsA/zh-cn_image_0000002529827746.png?HW-CC-KV=V1&HW-CC-Date=20260918T093103Z&HW-CC-Expire=31536000000&HW-CC-Sign=5AA0743A13AAA23552A21C1D105FB0F9146D23ADCA2801F9122475CDA1A86D2D)
 
-<br />
+**响应字段**
 
-响应字段  
-
-|------------|------|----|----|------------------------|
-|参数名|类型|长度|是否必填|说明|
+|------------|------|------|--------|------------------------|
+|**参数名**|**类型**|**长度**|**是否必填**|**说明**|
 |code|int|-|Y|响应码|
 |message|String|2048|N|描述|
 |value|object|-|N|NA|
 |downloadUrls|String|-|Y|人群包地址（格式：dmpid/ 文件名.zip）|
 
-<br />
-
-常见状态码  
+常见状态码
 
 |HTTP状态码|结果码|结果码说明|响应消息|
 |:------|:-------|:-------|:-------|
@@ -91,7 +85,7 @@ Body:
 |400|请参考错误码说明|请参考错误码说明|请参考错误码说明|
 |401|请参考错误码说明|请参考错误码说明|请参考错误码说明|
 
-错误码说明  
+错误码说明
 
 |-------|----------|---------------------------------------------------------------------------|
 |HTTP状态码|结果码|结果码说明|
@@ -115,8 +109,7 @@ Body:
 |429|1000009011|请求频率过高 Too many request|
 |500|1000009000|系统内部错误 Huawei internal server error (General)|
 
-<br />
+**应答示例**
 
-应答示例
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/UyPseD_4RkWuHZ6Sx2qDxg/zh-cn_image_0000002529787752.png?HW-CC-KV=V1&HW-CC-Date=20260918T093103Z&HW-CC-Expire=31536000000&HW-CC-Sign=C8E876ED725E3F3029DCCB8647F1896435105D4184D07376484B7377DC2FD144)
 
-![](https://media:101784100686695968)  

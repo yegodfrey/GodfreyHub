@@ -6,16 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 # OH_Drawing_Lattice
 
-```
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
+```c
 typedef struct OH_Drawing_Lattice OH_Drawing_Lattice
 ```
 
-#### 概述
+## 概述
 
 定义为矩形网格，用于将图片按照矩形网格进行划分。
 
-起始版本： 23
+**起始版本：** 23
 
-相关模块： [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)
+**相关模块：** [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)
 
-所在头文件： [drawing_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-types-h)  
+**所在头文件：** [drawing_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-types-h)
+

@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
 # 网络信息查询与连接管理
 
-#### 概述
+## 概述
 
-[Network Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-api)提供常用的网络信息查询与连接管理功能，包括获取网络类型、检查网络可用性、监听网络状态变化、查询Wi-Fi及蜂窝网络信息等。这些能力帮助开发者灵活应对复杂多变的网络环境，精准实现各类场景需求，显著提升用户的网络使用体验。  
+[Network Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-api)提供常用的网络信息查询与连接管理功能，包括获取网络类型、检查网络可用性、监听网络状态变化、查询Wi-Fi及蜂窝网络信息等。这些能力帮助开发者灵活应对复杂多变的网络环境，精准实现各类场景需求，显著提升用户的网络使用体验。
 
-#### 连接到指定网络场景
+## 连接到指定网络场景
 
-#### 场景描述
+### 场景描述
 
 在特定业务场景中（如企业或校园内网），应用必须通过指定的网络连接到专用服务器以获取关键数据。若连接指定网络失败，将直接导致网络配置中断、身份认证受阻或核心资源无法访问，从而中断业务流程。
 
@@ -22,17 +22,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 * 获取系统扫描的Wi-Fi列表
 * 通过点击Wi-Fi列表连接到相应的Wi-Fi
 
-图 1 连接到指定网络效果图
+**图 1** 连接到指定网络效果图
 
-![](https://media:401788444758660438)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/9QQJ7boOR3WtQ2yxEB1Ktg/zh-cn_image_0000002733434622.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084604Z&HW-CC-Expire=31536000000&HW-CC-Sign=65362BF29D6360C22C3F8C522B6D0D83C916E3796EABEEB86DB819DC8B0656AD)
 
-#### 实现方案
+### 实现方案
 
 连接到指定Wi-Fi场景主要通过[@ohos.wifiManager (WLAN)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager)模块结合[@ohos.net.connection (网络连接管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection)模块相关API来实现。通过@ohos.wifiManager模块检查Wi-Fi是否启用，获取系统扫描的Wi-Fi列表，选中指定Wi-Fi后发起连接请求；通过@ohos.net.connection模块检测网络连通性，判断是否需要进行登录认证（如 Portal 认证）才能正常访问网络。流程图如下：
 
-![](https://media:401788444758700439)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/KvnFtn7LTB6TXwj46NBIfw/zh-cn_image_0000002762994143.png?HW-CC-KV=V1&HW-CC-Date=20260917T084604Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA4082A503835C29FF487585BC0B8AB0666BDB26E0F06BB4AFD3ED78D7469E98)
 
-#### 开发步骤
+### 开发步骤
 
 1. 网络权限声明。
 
@@ -45,7 +45,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    * ohos.permission.INTERNET：用于访问Internet网络。
 
-   ```
+   ```json5
    {
      "module": {
        // ...
@@ -76,7 +76,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    先使用[getDefaultNetSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetdefaultnetsync9)接口判断默认网络是否连接，并通过[getNetCapabilitiesSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetnetcapabilitiessync10)方法获取默认连接网络类型。若网络类型为Wi-Fi，则使用[getLinkedInfoSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagergetlinkedinfosync18)方法获取当前连接的Wi-Fi信息，该信息包含SSID等内容。将获取到的SSID与指定Wi-Fi的SSID进行比对，若一致则表示已连接到指定Wi-Fi。
 
-   ```
+   ```ts
    checkNetwork(): void {
      try {
        let netHandle = connection.getDefaultNetSync();
@@ -108,7 +108,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    通过[getNetCapabilitiesSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetnetcapabilitiessync10)方法获取网络能力信息对象，其networkCap属性包含网络的具体能力。若networkCap中包含connection.NetCap.NET_CAPABILITY_VALIDATED，则表示网络具备访问互联网的能力（即网络可用）；若networkCap中包含connection.NetCap.NET_CAPABILITY_PORTAL，则说明网络需要认证登录之后才能正常使用。
 
-   ```
+   ```ts
    if (ssid === TARGET_WIFI_SSID) {
      if (networkCap.includes(connection.NetCap.NET_CAPABILITY_VALIDATED)) {
        showToast(this.uiContext, $r('app.string.connected_to_spec_wifi'));
@@ -126,7 +126,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    在获取Wi-Fi列表之前，需要通过[isWifiActive()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanageriswifiactive)方法判断Wi-Fi开关是否已打开。如果已打开，则通过调用[getScanInfoList()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagergetscaninfolist10)方法获取系统扫描附近的Wi-Fi网络，并返回一个包含所有扫描到的Wi-Fi信息的数组。数组中的每个元素包含了Wi-Fi的SSID、加密类型、信号强度等详细信息。
 
-   ```
+   ```ts
    getScanList(): void {
      try {
        let isWifiActive = wifiManager.isWifiActive();
@@ -151,7 +151,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    首先，创建一个包含要连接的Wi-Fi的SSID、密码及安全类型（如WPA2_PSK）等信息的Wi-Fi配置对象，使用[addCandidateConfig()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanageraddcandidateconfig)方法，传入该配置对象以添加候选网络配置。然后，调用[connectToCandidateConfig()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagerconnecttocandidateconfig)方法发起连接请求。
 
-   ```
+   ```ts
    connectWifi() {
      let config: wifiManager.WifiDeviceConfig = {
        ssid: this.ssid,
@@ -170,9 +170,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
    }
    ```
 
-#### 网络状态感知场景
+## 网络状态感知场景
 
-#### 场景描述
+### 场景描述
 
 本章以网络视频播放场景为例，围绕网络状态感知展开，介绍如何在监听到网络状态变化后，动态调整视频播放行为，以优化播放体验。本章实现的网络视频播放优化体验如下：
 
@@ -184,7 +184,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
 * 当监听到网络中断时，提示用户检查网络连接，以避免视频突然中断带来的不良体验。
 
-#### 实现方案
+### 实现方案
 
 网络状态感知的实现方案以实时监测网络状态变化并联动视频播放业务的调整为核心，主要依赖于[@ohos.net.connection（网络连接管理）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection)模块和[netQuality（网络质量）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netquality)模块来实现。本章重点介绍网络视频播放时对网络状态变化的感知，视频播放的具体实现可参考[示例代码](#示例代码)章节。为避免网络波动影响播放流畅性，建议开发者进行缓存处理。
 
@@ -196,7 +196,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 * [on('netAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#onnetavailable)：订阅网络可用事件，当网络可用时触发该事件。
 * [netQuality.on('netSceneChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netquality#netqualityonnetscenechange)：订阅网络场景信息，如从正常网络进入到弱网环境。
 
-以视频播放场景为例，网络状态感知体验如下：  
+以视频播放场景为例，网络状态感知体验如下：
 
 |网络状态感知|应用处理|
 |:----------------|:----------------------------------------------|
@@ -207,17 +207,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 |网络不可用（网络能力变化）|弹窗提示网络不可用，视频加载失败后展示错误页面。|
 |网络可用（网络能力变化）|和网络类型变化规格一致。|
 
-#### 开发步骤
+### 开发步骤
 
 1. 订阅网络可用/不可用事件。
 
    使用[on('netAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#onnetavailable)订阅网络可用事件通知，接收到网络可用通知时，检测当前网络是否具备访问Internet的能力。若网络能正常访问Internet且此前因网络问题导致播放失败，则重置播放器并继续播放视频。
 
-   ```
+   ```ts
    import { connection } from '@kit.NetworkKit';
    ```
 
-   ```
+   ```ts
    this.netCon = connection.createNetConnection();
    this.netCon.on('netAvailable', (data: connection.NetHandle) => {
      Logger.info(TAG, `on netAvailable, Succeeded to get netAvailable: ${JSON.stringify(data)}`);
@@ -229,7 +229,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
    });
    ```
 
-   ```
+   ```ts
    public static isNetworkAvailable(): boolean {
      try {
        let netHandle = connection.getDefaultNetSync();
@@ -249,7 +249,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    使用[on('netUnavailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#onnetunavailable)订阅网络不可用事件通知，接收到网络不可用事件时，使用Toast弹窗提示用户网络不可用。
 
-   ```
+   ```ts
    this.netCon.on('netUnavailable', () => {
      Logger.info(TAG, 'on netUnavailable, Succeeded to get unavailable net event');
      this.isNetAvailable = false;
@@ -261,7 +261,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    通过[on('netCapabilitiesChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#onnetcapabilitieschange)方法可以订阅Wi-Fi和蜂窝网络切换的事件通知，当网络切换为蜂窝时暂停播放，否则继续播放视频。
 
-   ```
+   ```ts
    this.netCon.on('netCapabilitiesChange', (data: connection.NetCapabilityInfo) => {
      Logger.info(TAG, `on netCapabilitiesChange, Succeeded to get netCapabilitiesChange: ${JSON.stringify(data)}`);
      if (data.netCap.bearerTypes.includes(connection.NetBearType.BEARER_CELLULAR)) {
@@ -281,12 +281,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    从Wi-Fi切换为蜂窝网络后视频播放场景效果如下：
 
-   ![](https://media:401788444758731440)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/VMJMx8EeR2W846pds8Mh5w/zh-cn_image_0000002762834257.png?HW-CC-KV=V1&HW-CC-Date=20260917T084604Z&HW-CC-Expire=31536000000&HW-CC-Sign=79608E694A49FE45964969F1C3E5BE51037ED0638ED0C35E1A5B5B3FDB06B1F2)
 3. 订阅网络丢失事件。
 
    通过[on('netLost')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#onnetlost)方法可以订阅网络丢失的事件通知，使用Toast提示用户网络已断开。
 
-   ```
+   ```ts
    this.netCon.on('netLost', (data: connection.NetHandle) => {
      Logger.info(TAG, `on netLost, Succeeded to get netLost: ${JSON.stringify(data)}`);
      this.isNetAvailable = false;
@@ -297,11 +297,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    网络断开时效果图：
 
-   ![](https://media:401788444758764441)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/iTm4aYonQVyVMcMEIL25Hw/zh-cn_image_0000002733274742.png?HW-CC-KV=V1&HW-CC-Date=20260917T084604Z&HW-CC-Expire=31536000000&HW-CC-Sign=469341A59130B4E91BEBBA5C91C9CEA10B51798CA44B867B103E4DCFC14F0EC9)
 
    当网络断开时，将继续播放视频缓存；缓存播放完毕后，将触发Video组件的onError方法。若此时网络仍未连接，需提示用户检查网络。
 
-   ```
+   ```ts
    Video({ src: this.videoUrl, controller: this.controller })
    // ...
      .onError(() => {
@@ -316,12 +316,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    播放错误时效果图
 
-   ![](https://media:401788444758793442)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/h-q-FIIBTWCStPX5fnWHDA/zh-cn_image_0000002733434624.png?HW-CC-KV=V1&HW-CC-Date=20260917T084604Z&HW-CC-Expire=31536000000&HW-CC-Sign=570B4D49880297921C66E64144722D1FA2A551C9497A7A924B28327E2F043AEF)
 4. 订阅网络状态变化通知。
 
    接下来需要调用[register()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#register)接口，用来订阅指定的网络状态变化通知，该接口需在on()方法调用之后使用。例如，若指定的网络可用，将触发on('netAvailable')、on('netCapabilitiesChange')回调；若超时时间内网络不可用，将触发on('netUnavailable')回调。若断网，将触发on('netLost')回调。
 
-   ```
+   ```ts
    this.netCon.register((error: BusinessError) => {
      if (error) {
        Logger.error(TAG, `networkListen fail: ${JSON.stringify(error)}`);
@@ -333,7 +333,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    使用[netQuality.on('netSceneChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netquality#netqualityonnetscenechange)方法订阅网络场景变化通知，当网络为弱信号场景（weakSignal）或者拥塞场景（congestion）时，使用Toast弹窗提示用户当前网络不佳。建议开发者实现多种不同清晰度资源切换的功能，在此场景下，提示用户切换清晰度。
 
-   ```
+   ```ts
    import { netQuality } from '@kit.NetworkBoostKit';
      onNetSceneChange() {
        try {
@@ -357,7 +357,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    在退出页面时，通过调用[unregister()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#unregister)取消订阅网络状态变化通知，使用[netQuality.off('netSceneChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netquality#netqualityoffnetscenechange)取消订阅场景变化。
 
-   ```
+   ```ts
    aboutToDisappear(): void {
      this.netCon?.unregister((err: BusinessError) => {
        if (err) {
@@ -372,29 +372,30 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
    }
    ```
 
-#### 获取Wi-Fi信息
+## 获取Wi-Fi信息
 
-#### 场景描述
+### 场景描述
 
 在公司考勤中，有些企业使用基于WLAN定位的网络打卡方式。员工需连接公司指定Wi-Fi，应用获取Wi-Fi的MAC地址后方可打卡。本章将介绍如何获取该MAC地址。
 
-图 2 获取Wi-Fi MAC地址效果图
+**图 2** 获取Wi-Fi MAC地址效果图
 
-![](https://media:401788444758921443)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/jD9ACtAzTIWRSr688DUbeg/zh-cn_image_0000002762994145.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084604Z&HW-CC-Expire=31536000000&HW-CC-Sign=F68647CD4C2795A722D3793920F1DFCBD7B11A981AE21CDA5BBD9B5E1FDC9ECA)
 
-#### 实现方案
+### 实现方案
 
-使用[@ohos.geoLocationManager (位置服务)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager)模块的[getCurrentWifiBssidForLocating()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geolocationmanagergetcurrentwifibssidforlocating14)方法获取当前连接的Wi-Fi MAC地址（Bssid）。通过将获取的MAC地址与业务服务端保存的Wi-Fi MAC地址进行比对，判断打卡是否成功。关于业务服务端的实现逻辑需要开发者自己实现，本文不做介绍。  
-![](https://media:401788444758947444)  
-需要注意的是，虽然@ohos.wifiManager的[getLinkedInfo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagergetlinkedinfo)也能获取当前连接Wi-Fi的MAC地址（Bssid），但需要申请ohos.permission.GET_WIFI_PEERS_MAC权限（仅系统应用可申请）才能返回真实地址，否则为随机地址，因此不推荐用于Wi-Fi打卡和其他需要真实MAC地址的场景。  
+使用[@ohos.geoLocationManager (位置服务)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager)模块的[getCurrentWifiBssidForLocating()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geolocationmanagergetcurrentwifibssidforlocating14)方法获取当前连接的Wi-Fi MAC地址（Bssid）。通过将获取的MAC地址与业务服务端保存的Wi-Fi MAC地址进行比对，判断打卡是否成功。关于业务服务端的实现逻辑需要开发者自己实现，本文不做介绍。
+> 说明
+>
+> 需要注意的是，虽然@ohos.wifiManager的[getLinkedInfo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagergetlinkedinfo)也能获取当前连接Wi-Fi的MAC地址（Bssid），但需要申请ohos.permission.GET_WIFI_PEERS_MAC权限（仅系统应用可申请）才能返回真实地址，否则为随机地址，因此不推荐用于Wi-Fi打卡和其他需要真实MAC地址的场景。
 
-#### 开发步骤
+### 开发步骤
 
 1. 检查WLAN连接状态。
 
    通过[wifiManager.isWifiActive()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanageriswifiactive)和[wifiManager.isConnected()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagerisconnected)分别获取WLAN开关的状态和连接状态，确保已经连接了Wi-Fi网络。
 
-   ```
+   ```ts
    import { wifiManager } from '@kit.ConnectivityKit';
      isWiFiConnected(): boolean {
        try {
@@ -421,7 +422,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    获取当前连接Wi-Fi的MAC地址（Bssid）需要申请位置权限ohos.permission.LOCATION和ohos.permission.APPROXIMATELY_LOCATION，首先在module.json5中声明位置权限。
 
-   ```
+   ```json5
    {
      "module": {
        // ...
@@ -442,7 +443,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    动态申请位置权限。
 
-   ```
+   ```ts
    import { abilityAccessCtrl, bundleManager, Permissions } from '@kit.AbilityKit';
      async requestPermissions(): Promise<number> {
 
@@ -484,7 +485,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    使用[geoLocationManager.getCurrentWifiBssidForLocating()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geolocationmanagergetcurrentwifibssidforlocating14)方法获取Wi-Fi的MAC地址。
 
-   ```
+   ```ts
    import { geoLocationManager } from '@kit.LocationKit';
      getWiFiBssid() {
        if (this.isWiFiConnected()) {
@@ -504,9 +505,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
      }
    ```
 
-#### 网络故障诊断分析场景
+## 网络故障诊断分析场景
 
-#### 场景描述
+### 场景描述
 
 用户在使用应用的网络功能时，网络故障（如无法访问、加载缓慢、连接中断）是常见的问题。为了方便定位问题，需要获取路由、网络类型、代理、DNS、网关、运营商及信号强度、时延等信息。通过分析这些数据，可以判断问题出在设备、运营商还是服务器，从而采取相应措施恢复网络和应用的正常运行。
 
@@ -526,9 +527,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 * 蜂窝网络信号强度
 * 网络时延
 
-![](https://media:401788444758979445)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/2Zf8gMr0QXePxqH5J7Eilw/zh-cn_image_0000002762834259.png?HW-CC-KV=V1&HW-CC-Date=20260917T084604Z&HW-CC-Expire=31536000000&HW-CC-Sign=1A613DDBAA31EBFB8E314B237780EE81BA911DC8CF213739D53E15C75403778A)
 
-#### 实现方案
+### 实现方案
 
 主要通过以下模块的相关API获取网络故障诊断场景所需的网络信息：
 
@@ -542,18 +543,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 * 网络可用性是否可用：如果不可用，则检测结果为网络不可用。
 * 网络是否连接：如果未连接，则检测结果为网络未连接。
 * 网络信号强度：如果Wi-Fi低于-70dbm，蜂窝信号强度低于-100dbm，则检测结果为当前网络不佳。
-* 时延：如果rttMs\>100ms，则检测结果为当前网络不佳。
-* 下载速度：如果下载速度小于\<1MB/s，则检测结果为当前网络不佳。
+* 时延：如果rttMs>100ms，则检测结果为当前网络不佳。
+* 下载速度：如果下载速度小于<1MB/s，则检测结果为当前网络不佳。
 
-以上检测项都未异常，则检测结果为网络正常。其中信号强度、时延和下载速度的获取，通过开启下载任务[request.agent.create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentcreate10-1)，取10秒的平均值。  
+以上检测项都未异常，则检测结果为网络正常。其中信号强度、时延和下载速度的获取，通过开启下载任务[request.agent.create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#requestagentcreate10-1)，取10秒的平均值。
 
-#### 开发步骤
+### 开发步骤
 
 1. 获取网络连接信息。
 
    该步骤整合了通过@ohos.net.connection模块可获取的各类网络基础连接信息，通过[getNetCapabilitiesSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetnetcapabilitiessync10)方法获取网络类型和是否可用。
 
-   ```
+   ```ts
    checkNetAvailable(): void {
      try {
        let netHandle = connection.getDefaultNetSync();
@@ -582,7 +583,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    通过[getConnectionPropertiesSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetconnectionpropertiessync10)方法获取路由信息、IP信息、DNS服务信息，通过[getDefaultHttpProxy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetdefaulthttpproxy10-1)方法获取代理信息。
 
-   ```
+   ```ts
    getConnectionInfo(): void {
      try {
        let netHandle = connection.getDefaultNetSync();
@@ -608,7 +609,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    通过@ohos.wifiManager模块的[getLinkedInfoSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagergetlinkedinfosync18)方法获取信号强度和MAC地址信息，这些信息对诊断Wi-Fi连接不稳定、信号弱等问题至关重要。
 
-   ```
+   ```ts
    getWifiInfo(): void {
      try {
        let linkInfo = wifiManager.getLinkedInfoSync();
@@ -629,7 +630,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
    * 使用[radio.getNetworkState()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-radio#radiogetnetworkstate-2)方法判断蜂窝网络是否处于漫游状态。
    * 使用[radio.getSignalInformationSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-radio#radiogetsignalinformationsync10)方法获取蜂窝网络信号强度和网络制式。
 
-   ```
+   ```ts
    async getCellularInfo(): Promise<void> {
      try {
        let primarySlotId = await radio.getPrimarySlotId();
@@ -654,7 +655,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    首先判断网络是否连接和是否可用，如果未连接或者不可用，则显示网络未连接和网络不可用的结果。
 
-   ```
+   ```ts
    checkNetAvailable(): void {
      try {
        let netHandle = connection.getDefaultNetSync();
@@ -683,7 +684,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    如果有网络连接，则开启下载任务用于网络质量测试，下载任务持续时间为10秒。
 
-   ```
+   ```ts
    queryNetworkInfo() {
      this.checkNetAvailable();
      if (!this.hasNetwork) {
@@ -707,7 +708,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    在下载任务期间，通过netQuality模块的on('netQosChange')接口实时监听网络质量变化，获取时延、下载速度等关键指标。并计算10秒内的平均下载速度、平均时延、Wi-Fi和蜂窝的平均信号强度。并根据这些指标和规格数据对比，获取检测结果，数据规格参考[实现方案](#实现方案)小节。
 
-   ```
+   ```ts
    onQosChange(): void {
      try {
        netQuality.on('netQosChange', (list: netQuality.NetworkQos[]) => {
@@ -750,6 +751,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
    }
    ```
 
-#### 示例代码
+## 示例代码
 
-* [实现常见网络信息查询](https://gitcode.com/harmonyos_samples/network-query)  
+* [实现常见网络信息查询](https://gitcode.com/harmonyos_samples/network-query)
+

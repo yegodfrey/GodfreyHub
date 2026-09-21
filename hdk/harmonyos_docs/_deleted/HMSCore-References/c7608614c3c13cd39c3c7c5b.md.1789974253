@@ -1,0 +1,21 @@
+---
+name: document/cn/HMSCore-References/overview-0000001077819400
+title: 说明
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/overview-0000001077819400
+---
+
+# 说明
+
+|Name|Description|
+|:------------------------|:---------------------------------------------------------|
+|Android - Java/Kotlin|基于Java/Kotlin语言开发的独立Android应用程序接口，提供了数据采集、数据管理、数据分析能力。|
+|HarmonyOS - Java|基于Java语言开发的独立HarmonyOS应用程序接口，提供了数据采集、数据管理、数据分析能力。|
+|HarmonyOS - JavaScript|基于JavaScript语言开发的独立HarmonyOS应用程序接口，提供了数据采集、数据管理、数据分析能力。|
+|iOS - Objective-C/Swift|基于Objective-C/Swift语言开发的独立iOS应用程序接口，提供了数据采集、数据管理、数据分析能力。|
+|macOS - Objective-C/Swift|基于Objective-C/Swift语言开发的独立macOS应用程序接口，提供了数据采集、数据管理、数据分析能力。|
+|Web - JavaScript|基于JavaScript语言开发的Web平台应用编程接口，提供了数据采集、数据管理、数据分析能力。|
+|快应用 - JavaScript|基于JavaScript语言开发的快应用平台应用编程接口，提供了数据采集、数据管理、数据分析能力。|
+|微信小程序- JavaScript|基于JavaScript语言开发的微信小程序平台应用编程接口，提供了数据采集、数据管理、数据分析能力。|
+|快游戏 - JavaScript|基于JavaScript语言开发的快游戏平台应用编程接口，提供了数据采集、数据管理、数据分析能力。|
+|REST|提供支持HTTP和HTTPS的云服务接口，用于导出个人数据、查询导出任务状态、创建数据导出任务等。|
+

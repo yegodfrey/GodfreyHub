@@ -7,54 +7,54 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 # AGCAppMessagingFrequencyType
 
 |Class Info|
-|:--------------------------------------------------------------------------------------------------------------------------|
-|展示频率。 OBJECTIVE-C ``` enum AGCAppMessagingFrequencyType {} ``` SWIFT ``` public enum AGCAppMessagingFrequencyType : Int ```|
+|:--------------------------------------------------------------------------------------------------------------------------------------|
+|展示频率。 OBJECTIVE-C ```screen enum AGCAppMessagingFrequencyType {} ``` SWIFT ```screen public enum AGCAppMessagingFrequencyType : Int ```|
 
-#### AGCAppMessagingFrequencyTypeDisplayOnce
+## AGCAppMessagingFrequencyTypeDisplayOnce
 
 仅展示一次。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 AGCAppMessagingFrequencyTypeDisplayOnce = 1
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 case displayOnce = 1
 ```
 
-#### AGCAppMessagingFrequencyTypeDisplayOnceXDay
+## AGCAppMessagingFrequencyTypeDisplayOnceXDay
 
 X天内展示1次。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 AGCAppMessagingFrequencyTypeDisplayOnceXDay = 2
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 case displayOnceXDay = 2
 ```
 
-#### AGCAppMessagingFrequencyTypeDisplayXPreDay
+## AGCAppMessagingFrequencyTypeDisplayXPreDay
 
 每天展示X次。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 AGCAppMessagingFrequencyTypeDisplayXPreDay = 3
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 case displayXPreDay = 3
 ```
 

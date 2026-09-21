@@ -1,0 +1,15 @@
+---
+name: document/cn/HMSCore-Guides/app-dev-0000001050121522
+title: 应用开发（手机、平板）
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/app-dev-0000001050121522
+---
+
+# 应用开发（手机、平板）
+
+* **[游戏初始化](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/game-start-0000001050123475)**   
+* **[游戏升级](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/game-update-0000001271748961)**   
+* **[游戏登录](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/game-login-0000001050121526)**   
+* **[浮标](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/game-buoy-0000001050121528)**   
+* **[防沉迷](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/game-anti-indulgence-0000001050123479)**   
+* **[查询可玩状态（可选）](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/game-agequery-0000001217671532)**   
+* **[GameTurbo Engine（可选）](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/game-gameturbo-0000001254626641)**   

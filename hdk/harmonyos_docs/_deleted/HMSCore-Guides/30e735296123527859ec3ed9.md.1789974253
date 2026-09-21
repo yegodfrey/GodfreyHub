@@ -1,0 +1,218 @@
+---
+name: document/cn/HMSCore-Guides/faq-0000001050166999
+title: FAQ
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/faq-0000001050166999
+---
+
+# FAQ
+
+如果您在下面没有找到需要的问题，请加入[Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services?tab=Frequent)社区参与讨论。
+
+## Android SDK
+
+### 鉴权成功，但onMapReady没有回调？
+
+如果使用MapView，请查看生命周期方法是否完整调用。
+
+### 鉴权失败的可能原因？
+
+在[联盟网站](https://developer.huawei.com/consumer/cn) -> 管理中心的"凭证"中设置了"API限制"：当选择"限制此密钥"时，未在输入框中加入"地图服务"，导致调用地图服务时出现403鉴权失败。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/_vur1gFsQOyWHN50HuOo2w/zh-cn_image_0000001193682504.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=783639BAD5E16DD532AA12D06F09C6DF207634A8FED9CDAB7F447288081FABB1 "点击放大")
+
+### 目前Map Kit各个服务是否支持中国大陆？
+
+支持。
+
+### Map Kit提供的Android SDK是否支持地图的横竖屏切换？
+
+支持。
+
+### 如果出现下面的错误，要怎么处理？
+
+```screen
+Duplicate class com.huawei.secure.android.common.ssl.R found in modules r-classes.jar (com.huawei.agconnect:agconnect-credential:1.3.0.300) and r-classes.jar (com.huawei.hms:maps-base:4.0.0.301)
+```
+
+解决方式：需要升级Map Kit Android SDK版本到4.0.1.302及以上。
+
+### 返回错误码30或31的可能原因？
+
+* 30：HMS Core APK不存在或版本过低时弹提示框且返回此错误码。
+* 31：当前正在显示着未安装最新版本的HMS Core提示框时，重复请求将返回此错误码。
+
+### 返回错误码010001或010002或010003可能的原因？
+
+* 项目中App ID与[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)上不一致。
+* 未配置指纹。需在本地生成签名证书指纹，然后在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置。
+* 未配置应用的[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)配置文件，参见[添加当前应用的AppGallery Connect配置文件](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-sdk-integrating-sdk-0000001061671869#section4256162815361)。
+* API密钥没有使用encode转码。
+
+### 调用BitmapDescriptorFactory.fromResource(int)发生空指针异常？
+
+异常堆栈：
+
+```screen
+E/HmsMapKit_CrashHandler_79: uncaughtException stacktrace is java.lang.NullPointerException: Attempt to invoke virtual method 'android.content.res.Resources android.content.Context.getResources()' on a null object reference
+```
+
+解决方式：
+
+在使用BitmapDescriptorFactory之前调用MapsInitializer.initialize(this.getApplicationContext())或者MapsInitializer.initialize(this)。
+
+### 返回错误码010010的可能原因？
+
+日志中搜到"responseBody is returnCode: 010010; resultInfo : unknown error."并且日志中有"MapClientDataImpl.getAppId() is: ，"。
+
+该问题是App ID没有取到，可以在AndroidManifest.xml的application标签下添加：
+
+```screen
+<meta-data
+	android:name="com.huawei.hms.client.appid"
+	android:value="appid=*****9011" />
+```
+
+### Android SDK设置我的位置按钮隐藏不生效？
+
+需要在onMapReady中设置：
+
+```screen
+hmap.setMyLocationEnabled(false);
+hmap.getUiSettings().setMyLocationButtonEnabled(false);
+```
+
+### 如何保护API密钥？
+
+1. 通过Android应用使用地图服务SDK接口，为增强安全保护，建议给API密钥增加Android应用限制。
+   * 进入[联盟网站](https://developer.huawei.com/consumer/cn) -> 管理中心，点击"凭证"，编辑API密钥信息。
+
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/N6WDxc2USOic-5EhQVqYGA/zh-cn_image_0000001175402439.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=B92C318033B05FF94FD12A41DCFD0CDF5A55A64DA3F2FE502909E1E40AE7DA96 "点击放大")
+   * 增加Android应用限制。勾选"Android应用"，配置"应用包名"和"SHA256证书指纹"。
+
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/0dZyimGyStS_1SKQpCwiIA/zh-cn_image_0000001129282942.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=B3E5F8E3A754E0669DA342A4854F0E0A3FE59FB0084BB18289EC8D7CD60DFC80 "点击放大")
+2. 监控收费API的额度消费情况，以及设置消费提醒。 详情查看[服务定价与订购](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-service-billing-0000001058092595)中的"查看您的账户详情"、"查看项目服务SKU月详情费用"、"查看项目服务SKU日详情费用"和"设置消费提醒"指导文档。
+
+3. 不再使用的API密钥及时删除。
+
+### 地图加载出来前会闪现缩放图标，如何规避？
+
+Android 8以下设备在地图加载出来前会闪现缩放图标（Android 8为低概率偶现，Android 8以上正常显示）。
+
+目前，您可以通过如下两种方式规避上述闪现问题：
+
+* XML方式设置：将uiZoomControls属性设置为false。
+* 代码方式设置：将[HuaweiMapOptions](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/huaweimapooptions-0000001050150194).[zoomControlsEnabled](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/huaweimapooptions-0000001050150194#section937192082118)(boolean isZoomControlsEnabled)方法参数设置为false。
+
+### 在Android 11上，已安装HMS Core（APK）最新版本，仍然提示升级，如何解决？
+
+Android 11更改了应用查询同一设备上其他已安装的应用以及与之交互的方式。您应用的targetSdkVersion是30或者更高版本，并且集成6.0.1.304之前版本的Map Kit的SDK时，将无法访问HMS Core（APK），并且持续提示升级。
+
+您可以通过以下两种方法解决。
+
+* 方法一： 升级Map Kit的SDK至6.0.1.304及以上版本，版本信息请参见[版本更新说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-sdk-version-change-history-0000001050156688)。
+
+
+* 方法二： 如果不升级SDK，需要在"AndroidManifest.xml"中manifest下添加<queries>标签。
+
+  ```screen
+  <manifest ...>
+      ...
+      <queries>
+          <intent>
+              <action android:name="com.huawei.hms.core.aidlservice" />
+          </intent>
+      </queries>
+      ...
+  </manifest>
+  ```
+
+  > 说明
+  >
+  > <queries>标签对工具的要求如下：
+  > * Android Studio需升级至3.3或更高版本。
+  > * Android Gradle插件需升级至3.3.3、3.4.3、3.5.4、3.6.4、4.0.1或4.1.0及更高版本。
+
+## HarmonyOS Java SDK
+
+### 鉴权成功，但onMapReady没有回调？
+
+如果使用MapView，请查看生命周期方法是否完整调用。
+
+### 目前Map Kit各个服务是否支持中国大陆？
+
+支持。
+
+### 返回错误码010001或010002或010003可能的原因？
+
+* 项目中App ID与[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)上不一致。
+* 未配置指纹。需在本地生成签名证书指纹，然后在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置。
+* 未配置应用的[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)配置文件，参见[添加当前应用的AppGallery Connect配置文件](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/harmonyos-sdk-integrating-sdk-0000001101419182#section3995646105918)。
+
+## JavaScript API
+
+### 目前Map Kit各个服务是否支持中国大陆？
+
+支持。
+
+### 返回错误码010024的原因？
+
+010024表示接口已经欠费，需要在"我的项目 > 我的套餐"中对欠费的服务进行充值。
+
+### 返回错误码010027的原因？
+
+010027表示未订购付费套餐，有两种可能情况：
+
+1. 您未通过[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)创建项目。检查使用的API密钥是否在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)存在，如果不存在重新到[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)上创建项目和应用，使用应用的API密钥作为认证凭证。
+2. 您未升级到付费档。请到"[我的项目](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/myProject) > 我的套餐"，进行套餐升级。
+
+### 如何保护API密钥？
+
+1. 浏览器端应用访问地图服务Web接口，为增强安全保护，可以给API密钥增加域名白名单。
+   * 进入[联盟网站](https://developer.huawei.com/consumer/cn/console#/serviceCards/) -> 管理中心，点击"凭证"，编辑API密钥信息。
+
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/bShhXkwZQ1O9oHDBz7GY2g/zh-cn_image_0000001079537212.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=AC8521CE860F84C3DB3F135A5659A84E08AA43903C68DFC28FE3698E28A40208 "点击放大")
+   * 增加域名白名单。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/11PE9hsKTHalYul1OYwNfA/zh-cn_image_0000001126153985.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=A598569824A13294983BB5C9BE6F182D9A374E4E219767826A070BE931553C91 "点击放大")
+
+2. 通过客户端使用地图服务Web接口，建议通过代理服务器调用接口。
+3. 监控收费API的额度消费情况，以及设置消费提醒。 详情查看[服务定价与订购](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-service-billing-0000001058092595)中的"查看您的账户详情"、"查看项目服务SKU月详情费用"、"查看项目服务SKU日详情费用"和"设置消费提醒"指导文档。
+
+4. 不再使用的API密钥及时删除。
+
+## REST API
+
+### 目前Map Kit各个服务是否支持中国大陆？
+
+支持。
+
+### 调用Web API返回错误码6的原因？
+
+可能原因是"API密钥"中包含特殊字符，此时需要对特殊字符编码进行encodeURI编码。例如，原始API密钥：ABC/DFG+ ，转换结果：ABC%2FDFG%2B。
+
+### 返回错误码010024的原因？
+
+010024表示接口已经欠费，需要在"我的项目 > 我的套餐"中对欠费的服务进行充值。
+
+### 返回错误码010027的原因？
+
+010027表示未订购付费套餐，有两种可能情况：
+
+1. 您未通过[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)创建项目。检查使用的API密钥是否在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)存在，如果不存在重新到[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)上创建项目和应用，使用应用的API密钥作为认证凭证。
+2. 您未升级到付费档。请到"[我的项目](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/myProject) > 我的套餐"，进行套餐升级。
+
+### 返回错误码010010的可能原因？
+
+010010表示参数非法，请排查您的URL请求中是否包含非法值、参数是否在取值范围内。
+
+### 如何保护API密钥？
+
+1. 浏览器端应用访问地图服务Web接口，为增强安全保护，可以给API密钥增加域名白名单。
+   * 进入[联盟网站](https://developer.huawei.com/consumer/cn/console#/serviceCards/) -> 管理中心，点击"凭证"，编辑API密钥信息。
+
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/grS_zM7_TQqYauWLXF9Hrg/zh-cn_image_0000001079537212.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=F73790647ED1A138EB56215569E2BF78017C1383A35716806D77EBB8530E604A "点击放大")
+   * 增加域名白名单。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/qITsLMr7QJW5z2-UqJBGKw/zh-cn_image_0000001126153985.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=041FFA7361B03FF0D14B4C501DF871DE4C4222A251DA9CCAAAA53CF59031742E "点击放大")
+
+2. 通过客户端使用地图服务Web接口，建议通过代理服务器调用接口。
+3. 监控收费API的额度消费情况，以及设置消费提醒。 详情查看[服务定价与订购](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-service-billing-0000001058092595)中的"查看您的账户详情"、"查看项目服务SKU月详情费用"、"查看项目服务SKU日详情费用"和"设置消费提醒"指导文档。
+
+4. 不再使用的API密钥及时删除。
+

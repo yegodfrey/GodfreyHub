@@ -6,14 +6,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/screen
 
 # Overview
 
-#### Interface Summary
+## Interface Summary
 
 |Interface|Description|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
 |[HwCaasServiceCallBack](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/screen-sharing-hwcaasservicecallback-0000001050768899)|CaaS服务回调接口，由开发者实现并传入，作用是初始化和资源释放完成后通知开发者，以便开发者进行下一步操作。|
 |[HwCallStateCallBack](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/screen-sharing-hwcallabilitycallback-0000001050728870)|通话状态查询回调接口，由开发者实现并传入，作用是返回当前的通话状态，以便开发者进一步操作。|
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|

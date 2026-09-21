@@ -1,0 +1,63 @@
+---
+name: document/cn/HMSCore-Guides/breath-holding-train-0000001272350014
+title: 潜水闭气训练
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/breath-holding-train-0000001272350014
+---
+
+# 潜水闭气训练
+
+闭气训练相关运动记录类型如下：
+
+|**活动类型常量**|**描述**|数据来源|
+|:--------------------------------|:-----|:--------|
+|HiHealthActivities.APNEA_TRAINING|闭气训练|部分专业手表、手环|
+
+## 专业运动特征统计数据
+
+* 潜水闭气训练运动特征统计数据类型：com.huawei.activity.feature.breath_holding_train
+* Android SDK类型常量：DataType.DT_ACTIVITY_FEATURE_BREATH_HOLDING_TRAIN
+
+|**字段**列表|字段描述|Android SDK常量|**类型**|可选/必选|单位|取值范围|
+|:-----------------------|:------|:--------------------------------|:-----|:----|:-|:---|
+|breathTime|呼吸时间|Field.BREATH_TIME|int|M|秒|-|
+|breathHoldingTime|闭气时间|Field.BREATH_HOLDING_TIME|int|M|秒|-|
+|breathHoldingTrainRhythm|闭气训练节奏数|Field.BREATH_HOLDING_TRAIN_RHYTHM|int|O|次|-|
+
+## 关联的采样统计数据类型说明
+
+作为ActivityRecord概要数据的一部分，统一使用运动记录权限，无需每种关联的采样统计数据类型使用单独OAuth权限。
+
+|**采样统计数据类型**|**描述**|可选/必选|备注|
+|:---------------------------------------------------|:-----|:----|:-----------------|
+|com.huawei.continuous.exercise_heart_rate.statistics|运动心率统计|O|用户佩戴华为手表/手环时会包含该数据|
+
+## 关联的原子采样数据说明
+
+关联的原子采样数据权限请参考[OAuth权限说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/activity-type-constants-0000001135051290#section27171294263)。
+
+|**原子采样数据类型**|**描述**|可选/必选|备注|
+|:-------------------------------------------|:-----|:----|:-----------------|
+|com.huawei.instantaneous.exercise_heart_rate|运动心率详情|O|用户佩戴华为手表/手环时会包含该数据|
+
+## 闭气训练数据分段说明
+
+作为ActivityRecord概要数据的一部分，统一使用运动记录权限，无需每种关联的采样统计数据类型使用单独OAuth权限。
+
+|**采样统计数据类型**|**描述**|可选/必选|备注|
+|:-----------------------------------------|:-------|:----|:------------|
+|com.huawei.breath_holding_train.statistics|闭气训练特征统计|O|闭气训练按闭气节奏自动分段|
+
+* 闭气训练运动特征统计数据类型：com.huawei.breath_holding_train.statistics
+* Android SDK类型常量：DataType.POLYMERIZE_BREATH_HOLDING_TRAIN_STATISTICS
+
+|**字段**列表|字段描述|Android SDK常量|**类型**|可选/必选|单位|取值范围|
+|:----------------|:---|:------------------------|:-----|:----|:-|:---|
+|breathTime|呼吸时间|Field.BREATH_TIME|int|M|秒|-|
+|breathHoldingTime|闭气时间|Field.BREATH_HOLDING_TIME|int|M|秒|-|
+
+## 场景示例
+
+读取：[读取潜水闭气训练运动记录](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/read-breath-holding-train-scene-0000001332616565)。
+
+写入：[写入潜水闭气训练运动记录](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/write-breath-holding-train-scene-0000001280416600)。
+

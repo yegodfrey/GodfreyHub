@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/gameobe-platf
 |:-------------------------------|
 |export Enum PlatformType 平台类型参数。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Description|
 |:---------|:-----|:-----------------------------|

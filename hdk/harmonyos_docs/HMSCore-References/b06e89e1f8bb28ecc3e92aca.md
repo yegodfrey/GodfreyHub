@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hwprogressb
 
 # Overview
 
-包含华为进度条的功能类以及不同风格的资源。  
+包含华为进度条的功能类以及不同风格的资源。
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:--------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|

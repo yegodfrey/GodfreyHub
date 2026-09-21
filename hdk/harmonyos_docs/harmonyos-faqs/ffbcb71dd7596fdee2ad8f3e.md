@@ -6,23 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-libr
 
 # PhotoPicker的常见使用问题
 
-#### 问题现象
+## 问题现象
 
 HarmonyOS为开发者提供了PhotoViewPicker接口和PhotoPickerComponent组件，开发者可以使用这两种方式拉起媒体文件选择器，让用户自行选择媒体文件资源。本文总结了一些PhotoPicker的常见使用问题如下：
 
 1. PhotoViewPicker和PhotoPickerComponent的区别是什么，如何选择？
 2. PhotoPickerComponent存在哪些限制？
-3. 使用Picker完成图片选择后返回的uri如何使用，直接使用该uri上传报错如何处理？  
+3. 使用Picker完成图片选择后返回的uri如何使用，直接使用该uri上传报错如何处理？
 
-#### 背景知识
+## 背景知识
 
 [使用Picker选择媒体库资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker)：当用户需要分享图片、视频等文件时，开发者可以通过特定接口拉起系统图库，让用户自行选择待分享的资源，完成分享。此接口本身无需申请权限，目前适用于界面UIAbility，使用窗口组件触发。
 
-[使用PhotoPicker组件访问图片/视频](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-guidelines-photoviewpicker)：当应用需要读取用户图片时，开发者可以在应用界面中嵌入PhotoPickerComponent组件，在用户选择所需要的图片资源后，直接返回该图片资源，而不需要授予应用读取图片文件的权限，即可完成图片或视频文件的访问和读取。  
+[使用PhotoPicker组件访问图片/视频](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-guidelines-photoviewpicker)：当应用需要读取用户图片时，开发者可以在应用界面中嵌入PhotoPickerComponent组件，在用户选择所需要的图片资源后，直接返回该图片资源，而不需要授予应用读取图片文件的权限，即可完成图片或视频文件的访问和读取。
 
-#### 解决方案
+## 解决方案
 
-1. PhotoViewPicker和PhotoPickerComponent是HarmonyOS为开发者提供的选取图库媒体文件资源的两种方式，两者差异及适用场景如下：  
+1. PhotoViewPicker和PhotoPickerComponent是HarmonyOS为开发者提供的选取图库媒体文件资源的两种方式，两者差异及适用场景如下：
 
    |对比维度|PhotoViewPicker|PhotoPickerComponent|
    |:----|:--------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------|
@@ -33,18 +33,16 @@ HarmonyOS为开发者提供了PhotoViewPicker接口和PhotoPickerComponent组件
    |定制化能力|使用固定系统界面|可深度集成到自定义 UI（支持背景色/勾选框样式等配置）|
    |适用场景|* 需系统级相册界面 * 要求文件类型过滤 * 需重复选择同一文件|* 避免页面跳转的沉浸式体验 * 需与自定义 UI 深度集成 * 简化交互流程（如勾选后直接编辑）|
 
-<!-- -->
 
 2. PhotoPickerComponent组件使用存在限制如下：
    * 不支持嵌套使用，用户使用PhotoPickerComponent选中媒体文件后，系统会将媒体文件的uri授权给应用，如果此时在Picker上方存在可点击事件，可能会对用户安全造成影响，因此PhotoPickerComponent上方覆盖设置了overlay属性的组件，将导致PhotoPickerComponent无法接受手势事件。
    * PhotoPickerComponent不支持[同层渲染](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-same-layer)。
    * PhotoPickerComponent不支持在[@ohos.inputMethod (输入法框架)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod)中使用。
 
-<!-- -->
 
 3. 使用Picker完成图片选择后，会直接返回该图片资源，系统出于安全考虑不允许直接对其进行上传，必须先存到沙箱，所以需要使用[copyFileSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiocopyfilesync)接口把文件资源读取到自己的沙箱目录中再进行操作。图库拷贝到沙箱参考代码：
 
-   ```
+   ```ts
    async copyFile2Sandbox(filePathString: string): Promise<boolean> {
        let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
        let resFile: fileIo.File | undefined;
@@ -69,7 +67,7 @@ HarmonyOS为开发者提供了PhotoViewPicker接口和PhotoPickerComponent组件
 
    此示例以PhotoPickerComponent为例，PhotoViewPicker同理，完整代码如下：
 
-   ```
+   ```ts
    import { common } from '@kit.AbilityKit';
    import { fileIo } from '@kit.CoreFileKit';
    import {
@@ -174,7 +172,7 @@ HarmonyOS为开发者提供了PhotoViewPicker接口和PhotoPickerComponent组件
    }
    ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：PhotoViewPicker在@ohos.file.picker中跟@ohos.file.photoAccessHelper都存在，两个包下的PhotoViewPicker有什么区别？
 
@@ -234,4 +232,5 @@ A：PhotoPickerComponent支持连续选择，但角标仅支持数字形式，�
 
 Q：PhotoPickerComponent超出最大选择数量时如何自定义提示？
 
-A：需自定义实现提示窗，可使用[toast](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opentoast18)、[popup](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-uicontext-popup)或[dialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box)组件设计提示窗，配合[ExceedMaxSelectedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#exceedmaxselectedcallback13)回调控制弹窗弹出提示。  
+A：需自定义实现提示窗，可使用[toast](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#opentoast18)、[popup](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-uicontext-popup)或[dialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-alert-dialog-box)组件设计提示窗，配合[ExceedMaxSelectedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#exceedmaxselectedcallback13)回调控制弹窗弹出提示。
+

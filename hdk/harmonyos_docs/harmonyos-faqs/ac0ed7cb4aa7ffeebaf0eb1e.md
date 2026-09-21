@@ -6,32 +6,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-1
 
 # 定位权限无法重复拉起如何解决
 
-#### 问题现象
+## 问题现象
 
-应用安装完成，首次申请位置权限弹窗被用户点击拒绝后，无论是退出后台还是杀死应用后再唤起应用，都无法再次拉起系统权限弹窗。  
+应用安装完成，首次申请位置权限弹窗被用户点击拒绝后，无论是退出后台还是杀死应用后再唤起应用，都无法再次拉起系统权限弹窗。
 
-#### 背景知识
+## 背景知识
 
 应用使用位置权限，必须在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)的requestPermissions标签中声明权限。本文以[ohos.permission.APPROXIMATELY_LOCATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissionapproximately_location)权限为例，允许应用获取设备模糊位置信息。
 
-应用在首次打开或运行中，在用户未主动点击权限对应的相关功能或服务时，提前向用户弹窗申请开启位置权限，属于[权限索取违规行为](https://developer.huawei.com/consumer/cn/doc/app/faq-05)，所以需要用户主动点击触发后弹起权限弹窗。若首次弹窗未被用户授权同意，应用应给出提示去设置打开权限开关或者能够重复拉起权限窗口。  
+应用在首次打开或运行中，在用户未主动点击权限对应的相关功能或服务时，提前向用户弹窗申请开启位置权限，属于[权限索取违规行为](https://developer.huawei.com/consumer/cn/doc/app/faq-05)，所以需要用户主动点击触发后弹起权限弹窗。若首次弹窗未被用户授权同意，应用应给出提示去设置打开权限开关或者能够重复拉起权限窗口。
 
-#### 问题定位
+## 问题定位
 
-[requestPermissionsFromUser](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissionsfromuser9-1)用于UIAbility/UIExtensionAbility拉起弹框请求用户授权。如果用户拒绝授权，将无法再次拉起弹框，需要用户在系统应用"设置"的界面中，手动授予权限，或是调用[requestPermissionOnSetting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissiononsetting12)，拉起权限设置弹框，引导用户授权。  
+[requestPermissionsFromUser](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissionsfromuser9-1)用于UIAbility/UIExtensionAbility拉起弹框请求用户授权。如果用户拒绝授权，将无法再次拉起弹框，需要用户在系统应用"设置"的界面中，手动授予权限，或是调用[requestPermissionOnSetting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissiononsetting12)，拉起权限设置弹框，引导用户授权。
 
-#### 分析结论
+## 分析结论
 
 需要在代码中加入二次申请权限逻辑：
 
 1. 页面加载时校验应用是否被授予位置权限，并用变量标识校验结果。若结果为true，则获取并展示位置信息；若结果为false，则展示授权按钮。
-2. 使用[requestPermissionsFromUser](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissionsfromuser9-1)拉起弹框请求用户授权，根据授权结果回调，如果权限被授予，则执行获取位置的业务逻辑。如果权限未被授予，则进入引导用户二次授权位置权限的逻辑。  
+2. 使用[requestPermissionsFromUser](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissionsfromuser9-1)拉起弹框请求用户授权，根据授权结果回调，如果权限被授予，则执行获取位置的业务逻辑。如果权限未被授予，则进入引导用户二次授权位置权限的逻辑。
 
-#### 修改建议
+## 修改建议
 
 定义变量hasPermissions用来表示是否获取到位置权限。在页面初始化时校验应用是否被授予位置权限，若已授权，则获取位置信息。
 
-```
+```screen
 aboutToAppear(): void {
   this.checkPermissions(this.permissions).then((isGranted: boolean) => {
   if (isGranted) {
@@ -66,7 +66,7 @@ getLocation() {
 
 申请位置权限的逻辑：
 
-```
+```screen
 async requestPermission() {
   this.checkPermissions(this.permissions).then((isGranted: boolean) => {
     if (isGranted) {
@@ -77,7 +77,7 @@ async requestPermission() {
     let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
     atManager.requestPermissionsFromUser(this.context, this.permissions)
       .then((data: PermissionRequestResult) => {
-        if (data.authResults.every(item => item === 0)) { // 已授权
+        if (data.authResults.every(item => item === 0)) { //已授权
           this.getLocation();
           this.hasPermissions = true;
         } else {
@@ -105,7 +105,7 @@ async requestPermission() {
 
 1. 拉起申请权限半模态面板：
 
-   ```
+   ```screen
    async requestPermissionOnSetting() {
      let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
      atManager.requestPermissionOnSetting(this.context, this.permissions)
@@ -123,7 +123,7 @@ async requestPermission() {
 
 2. 跳转到系统设置界面，让用户自行打开权限。需要将settingsParamBundleName字段修改为对应应用包名：
 
-   ```
+   ```screen
    goToPermissionSettings() {
      this.uiContext.showAlertDialog({
        title: '定位失败',
@@ -154,7 +154,7 @@ async requestPermission() {
 
 3. 提示用户去设置打开位置权限：
 
-   ```
+   ```screen
    showDialogToUser() {
      this.uiContext.showAlertDialog({
        title: '定位失败',
@@ -165,7 +165,7 @@ async requestPermission() {
 
 完整示例参考如下：
 
-```
+```screen
 import { BusinessError } from '@kit.BasicServicesKit';
 import {
   abilityAccessCtrl,
@@ -189,7 +189,7 @@ enum Solution {
 @Entry
 @Component
 struct RequestLocationPermission {
-  @State hasPermissions: boolean = false; // 是否获取到定位权限
+  @State hasPermissions: boolean = false; //是否获取到定位权限
   @State address: string = '';
   longitude: number = 0;
   latitude: number = 0;
@@ -298,7 +298,7 @@ struct RequestLocationPermission {
         await bundleManager.getBundleInfoForSelf(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION);
       let appInfo: bundleManager.ApplicationInfo = bundleInfo.appInfo;
       tokenId = appInfo.accessTokenId;
-      // 校验列表中的权限是否都被授权
+     // 校验列表中的权限是否都被授权
       const authResults = permissions.map(item => atManager.checkAccessTokenSync(tokenId, item) ===
       abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED);
       return authResults.every(item => item === true);
@@ -319,7 +319,7 @@ struct RequestLocationPermission {
       let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
       atManager.requestPermissionsFromUser(this.context, this.permissions)
         .then((data: PermissionRequestResult) => {
-          if (data.authResults.every(item => item === 0)) { // 已授权
+          if (data.authResults.every(item => item === 0)) {// 已授权
             this.getLocation();
             this.hasPermissions = true;
           } else {
@@ -401,6 +401,7 @@ struct RequestLocationPermission {
 }
 ```
 
-#### 总结
+## 总结
 
-HarmonyOS生态对于权限申请有一定规范，当用户拒绝首次权限申请后，后续重新申请该权限时并不会重新弹窗，为了用户的体验，此时需要开发者做相应的适配，引导客户授权。本文给出了3种适配方式（重新拉起半模态面板、跳转到系统设置页面、信息提示），除了位置以外，麦克风、相机等权限申请也可参考本文实现。  
+HarmonyOS生态对于权限申请有一定规范，当用户拒绝首次权限申请后，后续重新申请该权限时并不会重新弹窗，为了用户的体验，此时需要开发者做相应的适配，引导客户授权。本文给出了3种适配方式（重新拉起半模态面板、跳转到系统设置页面、信息提示），除了位置以外，麦克风、相机等权限申请也可参考本文实现。
+

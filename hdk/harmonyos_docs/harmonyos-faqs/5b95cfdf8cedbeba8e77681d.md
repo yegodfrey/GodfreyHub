@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-167
 
 # Web如何拦截网页加载错误并重新加载指定页面
 
-#### 问题现象
+## 问题现象
 
-在Web中加载H5页面时，若页面加载出错，如何拦截错误、切换页面，并触发重新加载H5页面？  
+在Web中加载H5页面时，若页面加载出错，如何拦截错误、切换页面，并触发重新加载H5页面？
 
-#### 背景知识
+## 背景知识
 
 * [onErrorReceive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onerrorreceive)：网页资源加载遇到错误或无网络时会触发该回调；
-* [javaScriptProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#javascriptproxy)：提供了从前端页面调用应用侧ArkTS功能的通道。  
+* [javaScriptProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#javascriptproxy)：提供了从前端页面调用应用侧ArkTS功能的通道。
 
-#### 解决方案
+## 解决方案
 
 1. ArkTS侧实现加载H5页面的功能，并通过javaScriptProxy接口给H5注入对应的对象和方法，以便H5侧能调用；
 2. 使用ArkWeb的onErrorReceive回调拦截网页加载错误，在该回调中加载本地H5页面； 代码如下：
 
-   ```
+   ```ts
    import { webview } from '@kit.ArkWeb';
 
 
@@ -79,7 +79,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-167
 
 3. 在加载的本地H5侧调用该重新加载的方法，加载目标网页地址，H5代码如下：
 
-   ```
+   ```html
    <!DOCTYPE html>
    <html lang="zh-CN">
    <meta charset="UTF-8">
@@ -133,9 +133,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-167
    </style>
    ```
 
-   ![](https://media:101782461555768214)  
-访问在线网页时需添加网络权限：[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。  
+   > 说明
+   >
+   > 访问在线网页时需添加网络权限：[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 
-#### 总结
+## 总结
 
-在网页资源加载遇到问题时，可以通过onErrorReceive回调拦截到网页资源加载错误，在该回调中实现重新加载页面，或引导用户稍后尝试等功能。  
+在网页资源加载遇到问题时，可以通过onErrorReceive回调拦截到网页资源加载错误，在该回调中实现重新加载页面，或引导用户稍后尝试等功能。
+

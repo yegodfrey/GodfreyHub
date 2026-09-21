@@ -6,14 +6,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1098
 
 # Navigation基础传参和接收示例
 
-#### 问题现象
+## 问题现象
 
-* 场景一：页面间参数传递和接收如何实现？
-* 场景二：如何获取pop、popToName、popToIndex传入的result参数？
-* 场景三：如何判断参数来源自哪个页面，使用的什么方法传递过来的？
-* 场景四：POP_TO_SINGLETON模式下，如何传参和接收参数？  
+* **场景一**：页面间参数传递和接收如何实现？
+* **场景二**：如何获取pop、popToName、popToIndex传入的result参数？
+* **场景三**：如何判断参数来源自哪个页面，使用的什么方法传递过来的？
+* **场景四**：POP_TO_SINGLETON模式下，如何传参和接收参数？
 
-#### 背景知识
+## 背景知识
 
 * [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)：路由导航的根视图容器。
 * [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)：子页面的根容器，用于显示Navigation的内容区。
@@ -23,9 +23,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1098
 * [onResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onresult15)：NavDestination返回时触发该回调。
 * [LaunchMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#launchmode12枚举说明)：路由栈操作模式。
 * [onNewParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onnewparam19)：当之前存在于栈中的NavDestination页面通过launchMode.MOVE_TO_TOP_SINGLETON或launchMode.POP_TO_SINGLETON移动到栈顶时，触发该回调。
-* 开发者可参考[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)实现对系统路由表的文件配置。  
+* 开发者可参考[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)实现对系统路由表的文件配置。
 
-#### 解决方案
+## 解决方案
 
 |实现场景|实现方案||方案对比|
 |:-----------------------------------------|:---|---------------------------------------------------------------------|:---------------------------------|
@@ -38,36 +38,40 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1098
 |场景四：在POP_TO_SINGLETON模式下实现传参和接收。|方案一：使用onNewParam更新参数。||仅单向传递（发送页→目标页）。|
 |场景四：在POP_TO_SINGLETON模式下实现传参和接收。|方案二：使用事件通信机制（Emitter）实现参数传递和接收。||支持双向通信（任意线程/组件间互发）。|
 
-* 场景一：页面间参数传递和接收的实现。
+* **场景一** ：页面间参数传递和接收的实现。
   * 参数传递：可通过[pushPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#pushpath10)、[pushPathByName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#pushpathbyname10)、[pushDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#pushdestination11)、[pushDestinationByName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#pushdestinationbyname11)等方法实现。以pushPath为例，通过NavPathInfo对象中的params属性，实现从发起页到目标页的数据传递：
 
-    ```
+    ```ts
     this.params = new NavParams('HomePage的数据', 'HomePage', 'pushPath');
     let info: NavPathInfo = new NavPathInfo('PageA', this.params);
     this.pageInfo.pushPath(info);
     ```
 
   * 参数接收：
-    * 方案一：通过onReady获取参数。 onReady可获取[NavDestinationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#navdestinationcontext11)上下文信息，其中pathInfo包含页面传递的数据。
+    * **方案一** ：通过onReady获取参数。
 
-      ```
+      onReady可获取[NavDestinationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#navdestinationcontext11)上下文信息，其中pathInfo包含页面传递的数据。
+
+      ```ts
       .onReady((context: NavDestinationContext) => {
         this.pageInfo = context.pathStack;
         this.params1 = context.pathInfo.param as NavParams;
       })
       ```
 
-    * 方案二：使用getParamByIndex获取参数。 getParamByIndex通过页面在路由栈中的索引位置获取参数（索引从栈底开始计算）。getParamByName通过页面名称获取所有同名页面的参数，返回一个参数数组。若页面栈中目标页面唯一或已知位置，直接通过索引获取更高效。
+    * **方案二** ：使用getParamByIndex获取参数。
 
-      ```
+      getParamByIndex通过页面在路由栈中的索引位置获取参数（索引从栈底开始计算）。getParamByName通过页面名称获取所有同名页面的参数，返回一个参数数组。若页面栈中目标页面唯一或已知位置，直接通过索引获取更高效。
+
+      ```ts
       this.params2 = this.pageInfo.getParamByIndex(this.pageInfo.getAllPathName().length - 1) as NavParams;
       ```
 
-* 场景二：获取pop、popToName、popToIndex传入的result参数。
-  * 方案一：使用onPop回调获取参数。
+* **场景二** ：获取pop、popToName、popToIndex传入的result参数。
+  * **方案一** ：使用onPop回调获取参数。
     1. 在发送页面添加onPop回调接收结果：
 
-       ```
+       ```ts
        this.pageInfo.pushPathByName('PageC', null, (popInfo: PopInfo) => {
          this.params = popInfo.result as NavParams;
        }, false);
@@ -75,24 +79,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1098
 
     2. 在目标页面通过pop()设置result参数:
 
-       ```
+       ```ts
        this.params = new NavParams('PageC的数据', 'PageC', 'pop');
        this.pageInfo.pop(this.params, false);
        ```
 
-  * 方案二：使用onResult回调获取参数。 onResult是NavDestination组件用于接收页面返回数据的回调方法，在NavDestination中声明onResult回调并接收数据：
+  * **方案二** ：使用onResult回调获取参数。
 
-    ```
+    onResult是NavDestination组件用于接收页面返回数据的回调方法，在NavDestination中声明onResult回调并接收数据：
+
+    ```ts
     .onResult((result: ESObject) => {
       this.params = result as NavParams;
     });
     ```
 
-* 场景三：判断参数的来源页面和传递方式。 方法：自定义参数标记。
+* **场景三** ：判断参数的来源页面和传递方式。
+
+  方法：自定义参数标记。
 
   在传参时添加标识字段，用于识别页面来源和传递方式。
 
-  ```
+  ```ts
   // 自定义参数标记
   export class NavParams {
     data: string; // 传递数据
@@ -106,20 +114,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1098
   }
   ```
 
-* 场景四：在POP_TO_SINGLETON模式下实现传参和接收。 onReady仅在页面首次创建并完成初始化时触发一次。当使用POP_TO_SINGLETON模式时，如果目标页面已在路由栈中存在，则不会触发onReady。
+* **场景四** ：在POP_TO_SINGLETON模式下实现传参和接收。
 
-  * 方案一：使用onNewParam更新参数。 从API19开始NavDestination新增onNewParam，用于处理单实例页面被重新激活时的参数更新。
+  onReady仅在页面首次创建并完成初始化时触发一次。当使用POP_TO_SINGLETON模式时，如果目标页面已在路由栈中存在，则不会触发onReady。
+  * **方案一** ：使用onNewParam更新参数。
 
-    ```
+    从API19开始NavDestination新增onNewParam，用于处理单实例页面被重新激活时的参数更新。
+
+    ```ts
     .onNewParam((param: string) => {
       this.param1 = param;
     });
     ```
 
-  * 方案二：使用事件通信机制（Emitter）实现参数传递和接收。
+  * **方案二** ：使用事件通信机制（Emitter）实现参数传递和接收。
     1. 发送页面传递参数：
 
-       ```
+       ```ts
        this.pageInfo.pushPath({ name: 'ReceivePageA', param: this.data },
          { launchMode: LaunchMode.POP_TO_SINGLETON, animated: true });
        let eventData: emitter.EventData = { data: { 'param': this.data } };
@@ -128,7 +139,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1098
 
     2. 接收页面获取参数：
 
-       ```
+       ```ts
        aboutToAppear(): void {
          emitter.on('params', (eventData: emitter.EventData) => {
            if (eventData.data && eventData.data['param']) {
@@ -144,12 +155,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1098
 
 场景一、二、三完整示例参考如下：
 
-```
+```ts
 // 自定义参数标记
 export class NavParams {
-  data: string; // 传递数据
+  data: string;// 传递数据
   sourcePage: string; // 页面来源标记
-  sourceMethod: string; // 页面传递方式
+  sourceMethod: string;// 页面传递方式
   constructor(data: string, sourcePage: string, sourceMethod: string) {
     this.data = data;
     this.sourcePage = sourcePage;
@@ -315,7 +326,7 @@ struct PageC {
 
 "src/main/resources/base/profile/router_map.json"配置如下所示：
 
-```
+```json
 {
   "routerMap": [
     {
@@ -348,11 +359,11 @@ struct PageC {
 
 效果预览：
 
-![](https://media:101782454350591853 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/7nIjv8p9S0WTm0PMexoPNA/zh-cn_image_0000002658806699.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=14C222CDFC663C9E69F1E2502DF9130CBB566445D268807E968EFF7D1C281D89 "点击放大")
 
 场景四完整示例参考如下：
 
-```
+```ts
 import { emitter } from '@kit.BasicServicesKit';
 
 @Entry
@@ -467,9 +478,9 @@ struct ReceivePageB {
 
 效果预览：
 
-![](https://media:101782454350659854 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/Hjta7fnERTivv--waEsIyQ/zh-cn_image_0000002628407446.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=229AE323DB5E004DB0B3C206300B9772876BE7572F09EA131136A7E6C10A99D1 "点击放大")
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：Navigation获取页面参数的getParamByName方法为什么返回值是数组？
 
@@ -479,7 +490,7 @@ Q：路由传参时，使用instanceof做类型判断存在安全隐患，有哪
 
 A：使用泛型方式判断：
 
-```
+```ts
 // 定义参数类型
 export class NavParam {
   data: string;

@@ -6,11 +6,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-univer
 
 # 拖拽控制
 
-组件提供了一些属性和接口，可用于配置组件对拖拽事件的响应行为，或影响系统对拖拽事件的处理方式，包括配置组件拖拽和落入行为、数据类型、预览图样式及交互效果。  
-![](https://media:401788445379560608)  
-* 从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-* 本模块接口仅可在Stage模型下使用。
+组件提供了一些属性和接口，可用于配置组件对拖拽事件的响应行为，或影响系统对拖拽事件的处理方式，包括配置组件拖拽和落入行为、数据类型、预览图样式及交互效果。
+> 说明
+>
+> * 从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> * 本模块接口仅可在Stage模型下使用。
 
 ArkUI框架对以下组件实现了默认的拖拽能力，支持对数据的拖出或拖入响应。开发者也可以通过实现通用拖拽事件来自定义拖拽响应。
 
@@ -22,162 +25,165 @@ ArkUI框架对以下组件实现了默认的拖拽能力，支持对数据的拖
 
 Text、TextInput、TextArea、Hyperlink、Image、RichEditor和Web组件的draggable属性默认为true，默认支持拖出能力。
 
-其他支持拖出能力的组件需要开发者将draggable属性设置为true，并在[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)等接口中实现数据封装与传递，才能正确处理拖拽。  
-![](https://media:401788445379585609)  
-Text组件需配合[copyOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#copyoption9)一起使用，设置copyOption为CopyOptions.InApp或者CopyOptions.LocalDevice。  
+其他支持拖出能力的组件需要开发者将draggable属性设置为true，并在[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)等接口中实现数据封装与传递，才能正确处理拖拽。
+> 说明
+>
+> Text组件需配合[copyOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#copyoption9)一起使用，设置copyOption为CopyOptions.InApp或者CopyOptions.LocalDevice。
 
-#### allowDrop
+## allowDrop
 
-allowDrop(value: Array\<UniformDataType\> \| null \| Array\<string\>): T
+allowDrop(value: Array<UniformDataType> | null | Array<string>): T
 
 设置该组件上允许落入的数据类型。如果未设置allowDrop，组件将默认接受所有数据类型。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:--------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|value|Array\<[UniformDataType](#uniformdatatype)\> \| null^12+^ \| Array\<string\>^23+^|是|设置该组件上允许落入的数据类型。从API version 12开始，允许设置成null使该组件不接受所有的数据类型。从API version 23开始，支持设置自定义数据类型Array\<string\>，自定义数据类型为应用自行定义的数据类型字符串，字符串无明确格式要求，但不应与UniformDataType标准类型格式重复，建议以易记易区分为原则来定义。|
+|:----|:--------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|value|Array<[UniformDataType](#uniformdatatype)> | null^12+^ | Array<string>^23+^|是|设置该组件上允许落入的数据类型。从API version 12开始，允许设置成null使该组件不接受所有的数据类型。从API version 23开始，支持设置自定义数据类型Array<string>，自定义数据类型为应用自行定义的数据类型字符串，字符串无明确格式要求，但不应与UniformDataType标准类型格式重复，建议以易记易区分为原则来定义。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:--------------|
 |T|返回当前组件，可用于链式调用。|
 
-#### draggable
+## draggable
 
 draggable(value: boolean): T
 
 设置该组件是否允许拖拽。默认情况下，组件不允许拖拽。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:------|:-|:-------------------------------------|
 |value|boolean|是|设置该组件是否允许进行拖拽。true表示允许拖拽，false表示不允许拖拽。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:--------------|
 |T|返回当前组件，可用于链式调用。|
 
-#### dragPreview^11+^
+## dragPreview^11+^
 
-dragPreview(value: CustomBuilder \| DragItemInfo \| string): T
+dragPreview(value: CustomBuilder | DragItemInfo | string): T
 
 设置组件浮起和拖拽过程中的预览图。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|value|[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) \| [DragItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#dragiteminfo) \| string^12+^|是|设置组件浮起和拖拽过程中的预览图，仅在[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)拖拽方式中有效。 当组件支持拖拽并同时设置[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)的预览图时，则长按浮起的预览图以[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)设置的预览图为准。开发者在[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)中返回的背板图优先级低于[dragPreview](#dragpreview11)设置的预览图，当设置了[dragPreview](#dragpreview11)预览图时，拖拽过程中的背板图使用[dragPreview](#dragpreview11)预览图。由于[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)需要离线渲染之后才能使用，因此存在一定的性能开销和时延，推荐优先使用 [DragItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#dragiteminfo)中的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)方式。 当传入类型为string的id时，则将id对应组件的截图作为预览图。如果id对应的组件无法查找到，或者id对应的组件[Visibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#visibility)属性设置成None/Hidden，则对组件自身进行截图作为拖拽预览图。目前截图不含有亮度、阴影、模糊和旋转等视觉效果。|
+|:----|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|value|[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | [DragItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#dragiteminfo) | string^12+^|是|设置组件浮起和拖拽过程中的预览图，仅在[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)拖拽方式中有效。 当组件支持拖拽并同时设置[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)的预览图时，则长按浮起的预览图以[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)设置的预览图为准。开发者在[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)中返回的背板图优先级低于[dragPreview](#dragpreview11)设置的预览图，当设置了[dragPreview](#dragpreview11)预览图时，拖拽过程中的背板图使用[dragPreview](#dragpreview11)预览图。由于[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)需要离线渲染之后才能使用，因此存在一定的性能开销和时延，推荐优先使用 [DragItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#dragiteminfo)中的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)方式。 当传入类型为string的id时，则将id对应组件的截图作为预览图。如果id对应的组件无法查找到，或者id对应的组件[Visibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#visibility)属性设置成None/Hidden，则对组件自身进行截图作为拖拽预览图。目前截图不含有亮度、阴影、模糊和旋转等视觉效果。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:--------------|
 |T|返回当前组件，可用于链式调用。|
 
-#### dragPreview^15+^
+## dragPreview^15+^
 
-dragPreview(preview: CustomBuilder \| DragItemInfo \| string, config?: PreviewConfiguration):T
+dragPreview(preview: CustomBuilder | DragItemInfo | string, config?: PreviewConfiguration):T
 
-自定义组件拖拽过程中的预览图，仅用于设置浮起效果或者禁用浮起效果。  
-![](https://media:401788445379650610)  
-该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+自定义组件拖拽过程中的预览图，仅用于设置浮起效果或者禁用浮起效果。
+> 说明
+>
+> 该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
 
-元服务API： 从API version 15开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|preview|[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) \| [DragItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#dragiteminfo) \| string|是|设置组件浮起和拖拽过程中的预览图，仅在[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)拖拽方式中有效。 当组件支持拖拽并同时设置[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)的预览图时，则长按浮起的预览图以[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)设置的预览图为准。开发者在[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)中返回的背板图优先级低于[dragPreview](#dragpreview11)设置的预览图，当设置了[dragPreview](#dragpreview11)预览图时，拖拽过程中的背板图使用[dragPreview](#dragpreview11)预览图。由于[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)需要离线渲染之后才能使用，因此会增加预览图生成的性能开销和时延，推荐优先使用 [DragItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#dragiteminfo)中的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)方式。 当传入类型为string的id时，则将id对应组件的截图作为预览图。如果id对应的组件无法查找到，或者id对应的组件[Visibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#visibility)属性设置成None/Hidden，则对组件自身进行截图作为拖拽预览图。目前截图不含有亮度、阴影、模糊和旋转等视觉效果。|
+|:------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|preview|[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | [DragItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#dragiteminfo) | string|是|设置组件浮起和拖拽过程中的预览图，仅在[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)拖拽方式中有效。 当组件支持拖拽并同时设置[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)的预览图时，则长按浮起的预览图以[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)设置的预览图为准。开发者在[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)中返回的背板图优先级低于[dragPreview](#dragpreview11)设置的预览图，当设置了[dragPreview](#dragpreview11)预览图时，拖拽过程中的背板图使用[dragPreview](#dragpreview11)预览图。由于[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)需要离线渲染之后才能使用，因此会增加预览图生成的性能开销和时延，推荐优先使用 [DragItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#dragiteminfo)中的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)方式。 当传入类型为string的id时，则将id对应组件的截图作为预览图。如果id对应的组件无法查找到，或者id对应的组件[Visibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#visibility)属性设置成None/Hidden，则对组件自身进行截图作为拖拽预览图。目前截图不含有亮度、阴影、模糊和旋转等视觉效果。|
 |config|[PreviewConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#previewconfiguration15)|否|对自定义拖拽过程中的预览图进行配置，仅对[dragPreview](#dragpreview11)中的预览生效。当需要配置预览图是否仅用于浮起效果、是否延迟创建等自定义预览行为时传入该参数；不传入时，使用系统默认的拖拽预览行为，即预览图不限制仅用于浮起效果且不延迟创建预览图。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:--------------|
 |T|返回当前组件，可用于链式调用。|
 
-#### dragPreviewOptions^11+^
+## dragPreviewOptions^11+^
 
 dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions): T
 
-设置拖拽过程中预览图处理模式，数量角标的显示以及预览图浮起的交互模式。不支持onItemDragStart拖拽方式。  
-![](https://media:401788445379676611)  
-从API version 20开始，该接口支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+设置拖拽过程中预览图处理模式，数量角标的显示以及预览图浮起的交互模式。不支持onItemDragStart拖拽方式。
+> 说明
+>
+> 从API version 20开始，该接口支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----------|:-------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------|
 |value|[DragPreviewOptions](#dragpreviewoptions11-1)^11+^|是|设置拖拽过程中预览图处理模式、数量角标的显示、背板图样式及浮起与拖拽预览图过渡效果。|
 |options^12+^|[DragInteractionOptions](#draginteractionoptions12)^12+^|否|设置拖拽过程中预览图浮起的交互模式。当需要启用多选聚拢、默认点按效果、禁用浮起、边缘自动滚屏或震动反馈等交互能力时传入该参数；不传入该参数时，拖拽交互按[DragInteractionOptions](#draginteractionoptions12)中各字段的默认值处理。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-|:--------------|
 |T|返回当前组件，可用于链式调用。|
 
-#### DragPreviewOptions^11+^
+## DragPreviewOptions^11+^
 
 设置拖拽过程中预览图处理模式、数量角标的显示、背板图样式及过渡效果。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:--------------------|:---------------------------------------------------------------------------------------------------|:-|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|mode|[DragPreviewMode](#dragpreviewmode11枚举说明) \| Array\<[DragPreviewMode](#dragpreviewmode11枚举说明)\>^12+^|否|是|表示拖拽过程中预览图处理模式。 默认值：DragPreviewMode.AUTO 当组件同时设置DragPreviewMode.AUTO和其它枚举值时，以DragPreviewMode.AUTO为准，其它枚举值设置无效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|numberBadge^12+^|boolean \| number|否|是|控制数量角标是否显示，或强制设置显示的数量。设置为true时显示角标并使用实际拖拽对象数量，设置为false时不显示角标，设置为number值时强制显示指定数量的角标。当设置数量角标时取值范围为\[0, 2^31^-1\]，超过取值范围时会按默认值true处理。当设置为浮点数时，只显示整数部分。 说明： 在多选拖拽场景，需通过该接口设置拖拽对象的数量。 默认值：true。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|modifier^12+^|[ImageModifier](#imagemodifier12)|否|是|用于配置拖拽背板图的样式Modifier对象，可使用图片组件所支持的属性和样式来配置背板图样式（参考示例6），当前支持透明度、阴影、背景模糊度、圆角、材质效果。文本拖拽只支持默认效果，不支持通过modifier进行自定义。 1.透明度。 通过[opacity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-opacity#opacity)设置不透明度，不透明度的取值范围为0-1。设置0或不设置时采用背板图透明度的默认值0.95，设置1或超出0-1范围的值时不透明。 2.阴影。 通过[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)设置阴影。 3.背景模糊度。 通过[backgroundEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundeffect11)或[backgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyle9)设置背景模糊度，如果两者同时设置，以后设置的属性为准。 4.圆角。 通过[border](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#border)或[borderRadius](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#borderradius)设置圆角，当同时在mode和modifier中设置圆角，mode设置的圆角显示优先级低于modifier设置。 5.材质效果，从API版本26.0.0开始支持。 通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)设置系统材质效果。 默认值：空，拖拽背板图不设置样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 说明： 1.若节点已设置背景模糊或材质效果，直接用作拖拽预览会导致截图包含这些效果，与拖拽modifier属性冲突。建议使用[dragPreview](#dragpreview11)自定义不包含背景模糊和材质效果的预览。 2.[ImmersiveMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivematerial)的[colorInvert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数在拖拽中不生效。|
-|sizeChangeEffect^19+^|[DraggingSizeChangeEffect](#draggingsizechangeeffect19枚举说明)^19+^|否|是|用于选择长按浮起图与拖拽预览图过渡效果。 默认值：DraggingSizeChangeEffect.DEFAULT。 元服务API： 从API version 19开始，该接口支持在元服务中使用。|
+|:--------------------|:------------------------------------------------------------------------------------------------|:-|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|mode|[DragPreviewMode](#dragpreviewmode11枚举说明) | Array<[DragPreviewMode](#dragpreviewmode11枚举说明)>^12+^|否|是|表示拖拽过程中预览图处理模式。 默认值：DragPreviewMode.AUTO 当组件同时设置DragPreviewMode.AUTO和其它枚举值时，以DragPreviewMode.AUTO为准，其它枚举值设置无效。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|numberBadge^12+^|boolean | number|否|是|控制数量角标是否显示，或强制设置显示的数量。设置为true时显示角标并使用实际拖拽对象数量，设置为false时不显示角标，设置为number值时强制显示指定数量的角标。当设置数量角标时取值范围为[0, 2^31^-1]，超过取值范围时会按默认值true处理。当设置为浮点数时，只显示整数部分。 **说明：** 在多选拖拽场景，需通过该接口设置拖拽对象的数量。 默认值：true。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|modifier^12+^|[ImageModifier](#imagemodifier12)|否|是|用于配置拖拽背板图的样式Modifier对象，可使用图片组件所支持的属性和样式来配置背板图样式（参考示例6），当前支持透明度、阴影、背景模糊度、圆角、材质效果。文本拖拽只支持默认效果，不支持通过modifier进行自定义。 1.透明度。 通过[opacity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-opacity#opacity)设置不透明度，不透明度的取值范围为0-1。设置0或不设置时采用背板图透明度的默认值0.95，设置1或超出0-1范围的值时不透明。 2.阴影。 通过[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)设置阴影。 3.背景模糊度。 通过[backgroundEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundeffect11)或[backgroundBlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyle9)设置背景模糊度，如果两者同时设置，以后设置的属性为准。 4.圆角。 通过[border](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#border)或[borderRadius](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#borderradius)设置圆角，当同时在mode和modifier中设置圆角，mode设置的圆角显示优先级低于modifier设置。 5.材质效果，从API版本26.0.0开始支持。 通过[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)设置系统材质效果。 默认值：空，拖拽背板图不设置样式。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。 **说明：** 1.若节点已设置背景模糊或材质效果，直接用作拖拽预览会导致截图包含这些效果，与拖拽modifier属性冲突。建议使用[dragPreview](#dragpreview11)自定义不包含背景模糊和材质效果的预览。 2.[ImmersiveMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersivematerial)的[colorInvert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uimaterial#immersiveoptions)参数在拖拽中不生效。|
+|sizeChangeEffect^19+^|[DraggingSizeChangeEffect](#draggingsizechangeeffect19枚举说明)^19+^|否|是|用于选择长按浮起图与拖拽预览图过渡效果。 默认值：DraggingSizeChangeEffect.DEFAULT。 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。|
 
-#### DragPreviewMode^11+^枚举说明
+## DragPreviewMode^11+^枚举说明
 
 设置拖拽预览图的显示模式。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
-|:---------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|AUTO|1|系统根据拖拽场景自动改变跟手点位置，根据规则自动对拖拽背板图进行缩放变换等。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|DISABLE_SCALE|2|禁用系统对拖拽背板图的缩放行为。适用于需要保持拖拽预览图原始尺寸、不希望系统自动缩放的场景，如精确尺寸拖拽或自定义预览图大小控制场景。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|ENABLE_DEFAULT_SHADOW^12+^|3|启用非文本类组件默认阴影效果。适用于需要为拖拽预览图添加视觉层次感、提升拖拽对象辨识度的场景。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|ENABLE_DEFAULT_RADIUS^12+^|4|启用非文本类组件统一圆角效果，适用于需要为拖拽预览图提供一致圆角外观的场景。默认值12vp。当应用自身设置的圆角值大于默认值或modifier设置的圆角时，则显示应用自定义圆角效果。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|ENABLE_DRAG_ITEM_GRAY_EFFECT^18+^|5|启用支持原拖拽对象灰显（透明度）效果，对文本内容拖拽不生效。用户拖起时原对象显示灰显效果，释放时原对象恢复原有效果。开启默认灰显效果后，不建议在拖拽开始后自行修改透明度，如果开发者在拖拽发起后自行修改应用透明度，则灰显效果将被覆盖，且在结束拖拽时无法正确恢复原始透明度效果。 元服务API： 从API version 18开始，该接口支持在元服务中使用。|
-|ENABLE_MULTI_TILE_EFFECT^18+^|6|启用支持多选对象鼠标拖拽不聚拢效果，各拖拽图显示在其原始位置的相对位置，当满足多选的情况下且isMultiSelectionEnabled为true时该参数才生效。不聚拢效果优先级高于[dragPreview](#dragpreview11)。不支持二次拖拽、圆角和缩放设置。 元服务API： 从API version 18开始，该接口支持在元服务中使用。|
-|ENABLE_TOUCH_POINT_CALCULATION_BASED_ON_FINAL_PREVIEW^19+^|7|启用支持以拖拽预览图初始尺寸计算跟手点位置，长按浮起图和拖拽图不一致时使用。鼠标拖拽，设置DragPreviewMode.ENABLE_MULTI_TILE_EFFECT时不生效。 元服务API： 从API version 19开始，该接口支持在元服务中使用。|
+|:---------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|AUTO|1|系统根据拖拽场景自动改变跟手点位置，根据规则自动对拖拽背板图进行缩放变换等。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|DISABLE_SCALE|2|禁用系统对拖拽背板图的缩放行为。适用于需要保持拖拽预览图原始尺寸、不希望系统自动缩放的场景，如精确尺寸拖拽或自定义预览图大小控制场景。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|ENABLE_DEFAULT_SHADOW^12+^|3|启用非文本类组件默认阴影效果。适用于需要为拖拽预览图添加视觉层次感、提升拖拽对象辨识度的场景。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|ENABLE_DEFAULT_RADIUS^12+^|4|启用非文本类组件统一圆角效果，适用于需要为拖拽预览图提供一致圆角外观的场景。默认值12vp。当应用自身设置的圆角值大于默认值或modifier设置的圆角时，则显示应用自定义圆角效果。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|ENABLE_DRAG_ITEM_GRAY_EFFECT^18+^|5|启用支持原拖拽对象灰显（透明度）效果，对文本内容拖拽不生效。用户拖起时原对象显示灰显效果，释放时原对象恢复原有效果。开启默认灰显效果后，不建议在拖拽开始后自行修改透明度，如果开发者在拖拽发起后自行修改应用透明度，则灰显效果将被覆盖，且在结束拖拽时无法正确恢复原始透明度效果。 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。|
+|ENABLE_MULTI_TILE_EFFECT^18+^|6|启用支持多选对象鼠标拖拽不聚拢效果，各拖拽图显示在其原始位置的相对位置，当满足多选的情况下且isMultiSelectionEnabled为true时该参数才生效。不聚拢效果优先级高于[dragPreview](#dragpreview11)。不支持二次拖拽、圆角和缩放设置。 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。|
+|ENABLE_TOUCH_POINT_CALCULATION_BASED_ON_FINAL_PREVIEW^19+^|7|启用支持以拖拽预览图初始尺寸计算跟手点位置，长按浮起图和拖拽图不一致时使用。鼠标拖拽，设置DragPreviewMode.ENABLE_MULTI_TILE_EFFECT时不生效。 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。|
 
-#### DraggingSizeChangeEffect^19+^枚举说明
+## DraggingSizeChangeEffect^19+^枚举说明
 
 当一个节点上同时设置长按浮起预览（参考[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)）与拖拽时，使用该字段设置长按浮起预览图与拖拽预览图过渡动效方式。
 
-元服务API： 从API version 19开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
 |:----------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -185,53 +191,53 @@ dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions):
 |SIZE_TRANSITION|1|发起拖拽时，由菜单预览图直接切换为拖拽预览图，尺寸逐步从菜单预览图尺寸过渡到最终预览图尺寸，设置了[DragPreviewMode](#dragpreviewmode11枚举说明)中的DISABLE_SCALE枚举值时尺寸过渡不生效。这在长按浮起预览图与拖拽预览图相同时使用。|
 |SIZE_CONTENT_TRANSITION|2|发起拖拽时，由菜单预览图逐步过渡切换为最终拖拽预览图，设置[DragPreviewMode](#dragpreviewmode11枚举说明)中的DISABLE_SCALE时尺寸过渡不生效。这常用于菜单预览图与拖拽预览图差异较大时使用，过渡效果包含内容透明度及尺寸变化。|
 
-#### DragInteractionOptions^12+^
+## DragInteractionOptions^12+^
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:----------------------------|:------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|isMultiSelectionEnabled|boolean|否|是|表示拖拽过程中背板图是否支持多选聚拢效果。true表示支持多选聚拢效果，false表示不支持多选聚拢效果。该参数只在[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)和[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件中的[GridItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem)组件和[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)组件生效。 当一个item组件设置为多选拖拽时，该组件的子组件不可拖拽。聚拢组件预览图设置的优先级为[dragPreview](#dragpreview11)中的string、dragPreview中的PixelMap、组件自截图，不支持dragPreview中的Builder形式。 不支持组件绑定[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)中参数存在isShown的模式。 默认值：false 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|defaultAnimationBeforeLifting|boolean|否|是|表示是否启用长按浮起阶段组件自身的默认点按效果（缩小）。true表示启用默认点按效果，false表示不启用默认点按效果。 默认值：false 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|isLiftingDisabled^15+^|boolean|否|是|表示长按拖拽时，是否禁用浮起效果。true表示禁用浮起效果，false表示不禁用浮起效果。 如果设置为true，当组件支持拖拽并同时设置[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)时，仅弹出配置的自定义菜单预览。 默认值：false 元服务API： 从API version 15开始，该接口支持在元服务中使用。|
-|enableEdgeAutoScroll^18+^|boolean|否|是|设置在拖拽至可滚动组件边缘时是否触发自动滚屏。true表示触发自动滚屏，false表示不触发自动滚屏。 默认值：true 元服务API： 从API version 18开始，该接口支持在元服务中使用。|
-|enableHapticFeedback^18+^|boolean|否|是|表示拖拽时是否启用震动。true表示启用震动，false表示不启用震动。仅在存在蒙层的预览（通过[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)）场景生效。 注意： 仅当应用具备 ohos.permission.VIBRATE 权限，且用户启用了触感反馈时才会生效。 默认值：false 元服务API： 从API version 18开始，该接口支持在元服务中使用。|
+|:----------------------------|:------|:-|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|isMultiSelectionEnabled|boolean|否|是|表示拖拽过程中背板图是否支持多选聚拢效果。true表示支持多选聚拢效果，false表示不支持多选聚拢效果。该参数只在[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)和[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件中的[GridItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-griditem)组件和[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)组件生效。 当一个item组件设置为多选拖拽时，该组件的子组件不可拖拽。聚拢组件预览图设置的优先级为[dragPreview](#dragpreview11)中的string、dragPreview中的PixelMap、组件自截图，不支持dragPreview中的Builder形式。 不支持组件绑定[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)中参数存在isShown的模式。 默认值：false **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|defaultAnimationBeforeLifting|boolean|否|是|表示是否启用长按浮起阶段组件自身的默认点按效果（缩小）。true表示启用默认点按效果，false表示不启用默认点按效果。 默认值：false **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|isLiftingDisabled^15+^|boolean|否|是|表示长按拖拽时，是否禁用浮起效果。true表示禁用浮起效果，false表示不禁用浮起效果。 如果设置为true，当组件支持拖拽并同时设置[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu8)时，仅弹出配置的自定义菜单预览。 默认值：false **元服务API：** 从API version 15开始，该接口支持在元服务中使用。|
+|enableEdgeAutoScroll^18+^|boolean|否|是|设置在拖拽至可滚动组件边缘时是否触发自动滚屏。true表示触发自动滚屏，false表示不触发自动滚屏。 默认值：true **元服务API：** 从API version 18开始，该接口支持在元服务中使用。|
+|enableHapticFeedback^18+^|boolean|否|是|表示拖拽时是否启用震动。true表示启用震动，false表示不启用震动。仅在存在蒙层的预览（通过[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)）场景生效。 **注意：** 仅当应用具备 ohos.permission.VIBRATE 权限，且用户启用了触感反馈时才会生效。 默认值：false **元服务API：** 从API version 18开始，该接口支持在元服务中使用。|
 
-#### UniformDataType
+## UniformDataType
 
 type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType
 
 标准化数据类型。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |类型|说明|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------|
 |import('../api/@ohos.data.uniformTypeDescriptor').default.[UniformDataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-uniformtypedescriptor#uniformdatatype)|标准化数据类型。|
 
-#### ImageModifier^12+^
+## ImageModifier^12+^
 
 type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier
 
 图片组件modifier对象。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |类型|说明|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|
 |import('../api/arkui/ImageModifier').[ImageModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)|图片组件modifier对象。|
 
-#### 示例
+## 示例
 
-#### 示例1（允许拖拽和落入）
+### 示例1（允许拖拽和落入）
 
 示例1通过配置[allowDrop](#allowdrop)设置组件是否可落入，通过配置[draggable](#draggable)设置组件是否可拖拽。
 
-```
+```ts
 // xxx.ets
 import { unifiedDataChannel, uniformTypeDescriptor } from '@kit.ArkData';
 
@@ -348,13 +354,13 @@ struct ImageExample {
 }
 ```
 
-![](https://media:401788445379709612)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/59sjp_N7QQqPEHhVWgtpEQ/zh-cn_image_0000002762835595.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=58A2E77220A10385B4F4FD7A8E990877BF7F3E5ADA475FE48750657D4DEEA551)
 
-#### 示例2（设置预览图）
+### 示例2（设置预览图）
 
 示例2通过配置[dragPreview](#dragpreview11)设置拖拽过程的预览图。
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -416,13 +422,13 @@ struct DragPreviewDemo {
 }
 ```
 
-![](https://media:401788445379739613)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/_p68wqS5Q6-Bl5_8gDejkw/zh-cn_image_0000002733276086.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=4FAFDA9EE9E0FF45139938C56601165309EEA4FA520A3AABE8DA1AF333B4B4B1)
 
-#### 示例3（设置背板图样式）
+### 示例3（设置背板图样式）
 
 示例3通过配置[dragPreviewOptions](#dragpreviewoptions11)为ENABLE_DEFAULT_SHADOW、ENABLE_DEFAULT_RADIUS设置默认阴影和统一圆角效果。从API version 18开始，通过配置[dragPreviewOptions](#dragpreviewoptions11)为ENABLE_DRAG_ITEM_GRAY_EFFECT设置灰显效果。
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -464,13 +470,13 @@ struct DragPreviewOptionsDemo {
 }
 ```
 
-![](https://media:401788445379764614)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/EbzXzJPeQROZVB8Vqm0JWQ/zh-cn_image_0000002733435964.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=1506F8BABB2F78A2416B443E2593FC6F7FC7CDE86C27EDDE8A20EEE676C0BB56)
 
-#### 示例4（设置多选拖拽）
+### 示例4（设置多选拖拽）
 
 示例4通过配置[isMultiSelectionEnabled](#draginteractionoptions12)实现Grid组件的多选拖拽效果。
 
-```
+```ts
 @Entry
 @Component
 struct Example {
@@ -505,13 +511,13 @@ struct Example {
 }
 ```
 
-![](https://media:401788445379929615)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/JwKeK_WJRZqqrVQ6f5sUBw/zh-cn_image_0000002762995485.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=60FEDF2CADB8C82F3FA2B3B4AEDE2B67D5999E943F1DF742D0FEFFC4D15BB41F)
 
-#### 示例5（设置默认点按效果）
+### 示例5（设置默认点按效果）
 
 示例5通过配置[defaultAnimationBeforeLifting](#draginteractionoptions12)实现Grid组件的默认点按效果。
 
-```
+```ts
 @Entry
 @Component
 struct Example {
@@ -546,13 +552,13 @@ struct Example {
 }
 ```
 
-![](https://media:401788445379956616)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/yarRHHcfTWCNw1NQ_eObyg/zh-cn_image_0000002762835597.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=B161D984A3BCB788C68E167859B6AC130AD2A2D0947E994ADC1B1E3D792275EE)
 
-#### 示例6（自定义背板图样式）
+### 示例6（自定义背板图样式）
 
 示例6通过配置[ImageModifier](#imagemodifier12)实现Image组件的自定义背板图样式。
 
-```
+```ts
 // xxx.ets
 import { ImageModifier } from '@kit.ArkUI';
 
@@ -592,15 +598,15 @@ struct DragPreviewOptionsDemo {
 }
 ```
 
-![](https://media:401788445379997617)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/FClUaFQfTJeWfeCl0vhuHA/zh-cn_image_0000002733276088.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7DE3E6BF09DBA69C6F6B43E80EA87E11DB98B81486FD75E8642ACF65F628F18)
 
-#### 示例7（图片拖拽设置）
+### 示例7（图片拖拽设置）
 
 示例7展示了不同图片（在线图片资源、本地图片资源和PixelMap）在拖拽时组件的设置。
 
 使用网络图片时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 
-```
+```ts
 // xxx.ets
 import { uniformTypeDescriptor, unifiedDataChannel } from '@kit.ArkData';
 import { image } from '@kit.ImageKit';
@@ -822,13 +828,13 @@ struct ImageDrag {
 }
 ```
 
-![](https://media:401788445380035618)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/ZMbMwO4yTwiXFbYrA1_bFg/zh-cn_image_0000002733435966.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=EEE6A0E5DCB86A2048675FEB470D802A548DC553AC46880F302703211FAB00B7)
 
-#### 示例8（设置图片拖拽震动）
+### 示例8（设置图片拖拽震动）
 
 从API version 18开始，示例8通过设置[enableHapticFeedback](#draginteractionoptions12)实现图片拖拽的震动效果。
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -877,11 +883,11 @@ struct DragPreviewDemo {
 }
 ```
 
-#### 示例9（自定义预览图）
+### 示例9（自定义预览图）
 
 从API version 15开始，示例9通过配置[onlyForLifting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#previewconfiguration15)实现自定义预览图，仅用于浮起效果以及配置[isLiftingDisabled](#draginteractionoptions12)实现禁用浮起效果。
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -976,17 +982,17 @@ struct LiftingExampleDemo {
 
 自定义预览图用于浮起效果。
 
-![](https://media:401788445380067619)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/Bf0-a6xlQSOabX35GQeb_Q/zh-cn_image_0000002762995487.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=6B50E633CE2D468255ABC2F6656661C344F610AFF2CB01584B6BF005D336A733)
 
 自定义预览图禁用浮起效果。
 
-![](https://media:401788445380096620)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/Uyf99rhORJGxHQcaDCcPUw/zh-cn_image_0000002762835599.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB3F81D21BBF31143C3E317C248A4E40C91984DBD94D2BE87AE90DD7346D8601)
 
-#### 示例10（以拖拽预览图初始尺寸计算跟手点位置）
+### 示例10（以拖拽预览图初始尺寸计算跟手点位置）
 
 从API version 19开始，示例10通过配置[DragPreviewMode](#dragpreviewmode11枚举说明)为ENABLE_TOUCH_POINT_CALCULATION_BASED_ON_FINAL_PREVIEW实现根据拖拽预览图的初始尺寸来计算拖拽过程中跟手点位置。当设置[DragPreviewMode](#dragpreviewmode11枚举说明)为ENABLE_MULTI_TILE_EFFECT时，该属性不生效。
 
-```
+```ts
 @Entry
 @Component
 struct Index {
@@ -1067,13 +1073,13 @@ struct Index {
 }
 ```
 
-![](https://media:401788445380191621)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/7r_wxey3Qmy79p5lOF7XhA/zh-cn_image_0000002733276090.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=FC4772106541079E80ADE9D806F67CC9D2400D86EC92CC0034EF8A962857EBE8)
 
-#### 示例11（长按浮起预览图与拖拽预览图过渡动效）
+### 示例11（长按浮起预览图与拖拽预览图过渡动效）
 
 从API version 19开始，示例11通过配置[DraggingSizeChangeEffect](#draggingsizechangeeffect19枚举说明)实现不同拖拽过渡效果。
 
-```
+```ts
 @Entry
 @Component
 struct Index {
@@ -1154,13 +1160,13 @@ struct Index {
 }
 ```
 
-![](https://media:401788445380291622)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/soyhmMttTL6SYlGWRkBaBg/zh-cn_image_0000002733435968.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=E4869A1B385EDB5F53E8A37F8CBDA2596A43BDF798E68D01ADCA2D5A8E34E23C)
 
-#### 示例12（设置自定义组件落入）
+### 示例12（设置自定义组件落入）
 
 从API version 23开始，示例12通过组件的[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)接口传递其类型，并在目标组件的[allowDrop](#allowdrop)属性中设置允许该类型落入，即可实现自定义组件的拖拽落入功能。
 
-```
+```ts
 import { unifiedDataChannel } from '@kit.ArkData';
 
 @Entry
@@ -1285,15 +1291,15 @@ struct CustomCard {
 }
 ```
 
-![](https://media:401788445380321623)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/h1AsGhKwQQOBFEiy7xviZQ/zh-cn_image_0000002762995489.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=B585258F1234A5D37CBB5A1902DEDF1CC5D1EBA53C6440F6281C4DAF541BEBCE)
 
-#### 示例13（设置背板图材质效果）
+### 示例13（设置背板图材质效果）
 
 该示例通过配置[ImageModifier](#imagemodifier12)中的[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性，设置拖拽背板的材质效果。
 
 从API版本26.0.0开始，[DragPreviewOptions](#dragpreviewoptions11-1)接口中的modifier参数新增支持[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性。
 
-```
+```ts
 // xxx.ets
 import { ImageModifier } from '@kit.ArkUI';
 import { uiMaterial } from '@kit.ArkUI';
@@ -1373,4 +1379,5 @@ struct DragPreviewMaterialDemo {
 }
 ```
 
-![](https://media:401788445380355624)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/lKyQjkddTXiX6g4r8Pi-3Q/zh-cn_image_0000002762835601.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=33237777C7CD1F1D4CF5FCD976204B2DAD77464B204BDE9DB9ADD82F0CBE4A25)
+

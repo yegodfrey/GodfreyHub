@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-21
 
 可以使用安全控件中的保存控件，省去权限申请和权限请求等环节，获得临时授权，保存对应图片。需要申请的权限为：ohos.permission.INTERNET。参考代码如下：
 
-```
+```ts
 import { http } from '@kit.NetworkKit';
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -25,7 +25,7 @@ struct SaveImage {
     let OutData: http.HttpResponse;
     let imagePackerApi = image.createImagePacker();
     let packOpts: image.PackingOption = { format: 'image/jpeg', quality: 98 };
-    // 确保网络正常
+   // 确保网络正常
     http.createHttp().request(url, {
       method: http.RequestMethod.GET,
       connectTimeout: 60000,
@@ -47,10 +47,10 @@ struct SaveImage {
             };
 
             let options: Record<string, number | boolean | tmp> = {
-              'alphaType': 0, // Transparency
-              'editable': false, // Is it editable
-              'pixelFormat': 3, // Pixel Format
-              'scaleMode': 1, // Abbreviation
+              'alphaType': 0,// Transparency
+              'editable': false,// Is it editable
+              'pixelFormat': 3,// Pixel Format
+              'scaleMode': 1,// Abbreviation
               'size': { height: 100, width: 100 }
             }; // Create Image Size
             imageSource.createPixelMap(options).then((pixelMap: PixelMap) => {
@@ -66,7 +66,7 @@ struct SaveImage {
                   let helper = photoAccessHelper.getPhotoAccessHelper(context);
                   let uri = await helper.createAsset(photoAccessHelper.PhotoType.IMAGE, 'png');
                   let file = await fileIo.open(uri, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
-                  // Write to file
+                 // Write to file
                   await fileIo.write(file.fd, buffer);
                   this.getUIContext().getPromptAction().showToast({ message: '已保存至相册！' });
                   // Close the file
@@ -109,8 +109,9 @@ struct SaveImage {
 }
 ```
 
-#### 参考链接
+## 参考链接
 
 [使用保存控件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/savebutton)
 
-[存档图类型数据源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display#存档图类型数据源)  
+[存档图类型数据源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display#存档图类型数据源)
+

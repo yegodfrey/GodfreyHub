@@ -8,17 +8,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-game-revi
 
 审核人员需要测试您的游戏。
 
-若游戏的部分功能需要玩家通过身份验证后才能使用，例如登录权限、在线购买。请为审核人员提供测试账号，以便审核人员使用测试账号测试受限功能。  
+若游戏的部分功能需要玩家通过身份验证后才能使用，例如登录权限、在线购买。请为审核人员提供测试账号，以便审核人员使用测试账号测试受限功能。
 
-#### 前提条件
+## 前提条件
 
-已根据[准备游戏信息和素材](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-game-prepare-0000002406557837#section1266325574712)准备应用审核信息的自测文件。  
+已根据[准备游戏信息和素材](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-game-prepare-0000002406557837#section1266325574712)准备应用审核信息的自测文件。
 
-#### 操作步骤
+## 操作步骤
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"APP与元服务"，选择待上架的游戏。
-2. 左侧导航栏选择"应用上架 \> 版本信息"下待发布的版本。
-3. 进入右侧页面的"应用审核信息"区域，根据提示填写信息。 ![](https://media:101782378017247531)
+2. 左侧导航栏选择"应用上架 > 版本信息"下待发布的版本。
+3. 进入右侧页面的"应用审核信息"区域，根据提示填写信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/h8ZJMwoSQwOA5PaJ6-Medg/zh-cn_image_0000002516031165.png?HW-CC-KV=V1&HW-CC-Date=20260916T032631Z&HW-CC-Expire=31536000000&HW-CC-Sign=4D52BBB3FA5AE026F6D0021879FF3401B6BA1C46576DF2A2312F6EFB063DB3EE)
 
    |配置项|说明|
    |:-------|:---------------------------------------------------------------------------------------|

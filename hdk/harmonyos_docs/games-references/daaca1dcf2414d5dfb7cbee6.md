@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/audio-msg-csh
 
 # 语音消息
 
-* [AudioMsgFileInfo](https://developer.huawei.com/consumer/cn/doc/games-references/gamemme-audiomsgfileinfo-csharp-native-0000002358963760)  
+* **[AudioMsgFileInfo](https://developer.huawei.com/consumer/cn/doc/games-references/gamemme-audiomsgfileinfo-csharp-native-0000002358963760)**   

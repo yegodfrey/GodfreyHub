@@ -6,33 +6,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 # chart
 
-![](https://media:401788445361470364)  
-从API version 4开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
-图表组件，用于呈现线形图、柱状图、量规图、进度类圆形图表、加载类圆形图表、占比类圆形图表界面。  
+> 说明
+>
+> 从API version 4开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-#### 权限列表
+图表组件，用于呈现线形图、柱状图、量规图、进度类圆形图表、加载类圆形图表、占比类圆形图表界面。
 
-无  
+## 权限列表
 
-#### 子组件
+无
 
-不支持。  
+## 子组件
 
-#### 属性
+不支持。
 
-除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：  
+## 属性
+
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
 
 |名称|类型|默认值|必填|描述|
-|:--------------------|:----------------------------------|:---|:-|:------------------------------------------------------------------------------------------------------------------------------|
+|:--------------------|:-------------------------------|:---|:-|:------------------------------------------------------------------------------------------------------------------------------|
 |type|string|line|否|设置图表类型（不支持动态修改），可选项有： - bar：柱状图。 - line：线形图。 - gauge：量规图。 - progress^5+^：进度类圆形图表。 - loading^5+^：加载类圆形图表。 - rainbow^5+^：占比类圆形图表。|
 |options|ChartOptions|-|否|图表参数设置，柱状图和线形图必须设置参数，量规图不生效。可以设置x轴、y轴的最小值、最大值、刻度数、是否显示，线条宽度、是否平滑等。（不支持动态修改）|
-|datasets|Array\<ChartDataset\>|-|否|数据集合，柱状图和线形图必须设置数据集合，量规图不生效。可以设置多条数据集及其背景色。|
-|segments^5+^|DataSegment \| Array\<DataSegment\>|-|否|进度类、加载类和占比类圆形图表使用的数据结构。 DataSegment针对进度类和加载类圆形图表使用， Array\<DataSegment\>针对占比类图表使用，DataSegment最多9个。|
+|datasets|Array<ChartDataset>|-|否|数据集合，柱状图和线形图必须设置数据集合，量规图不生效。可以设置多条数据集及其背景色。|
+|segments^5+^|DataSegment | Array<DataSegment>|-|否|进度类、加载类和占比类圆形图表使用的数据结构。 DataSegment针对进度类和加载类圆形图表使用， Array<DataSegment>针对占比类图表使用，DataSegment最多9个。|
 |effects^5+^|boolean|true|否|是否开启占比类、进度类圆形图表特效。 默认值：true，表示开启占比类、进度类圆形图表特效。|
 |animationduration^6+^|number|3000|否|设置占比类圆形图表展开动画时长，单位为ms。|
 
-表1 ChartOptions  
+**表1** ChartOptions
 
 |名称|类型|默认值|必填|描述|
 |:-----|:----------|:--|:-|:-----------------------------------------------------------|
@@ -40,26 +43,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 |yAxis|ChartAxis|-|是|y轴参数设置。可以设置y轴最小值、最大值、刻度数以及是否显示。|
 |series|ChartSeries|-|否|仅线形图支持设置数据序列参数，可以设置的样式： - 线的样式，如线宽、是否平滑。 - 设置线最前端位置白点的样式和大小。|
 
-表2 ChartDataset  
+**表2** ChartDataset
 
 |名称|类型|默认值|必填|描述|
-|:----------|:------------------------------------|:------|:-|:---------------------------------------|
-|strokeColor|\<color\>|#ff6384|否|仅线形图支持设置线条颜色。|
-|fillColor|\<color\>|#ff6384|否|填充颜色。 线形图表示填充的渐变颜色。|
-|data|Array\<number\> \| Array\<Point\>^5+^|-|是|设置绘制线或柱中的点集。|
+|:----------|:-------------------------------|:------|:-|:---------------------------------------|
+|strokeColor|<color>|#ff6384|否|仅线形图支持设置线条颜色。|
+|fillColor|<color>|#ff6384|否|填充颜色。 线形图表示填充的渐变颜色。|
+|data|Array<number> | Array<Point>^5+^|-|是|设置绘制线或柱中的点集。|
 |gradient|boolean|false|否|仅线形图支持设置是否显示填充渐变颜色。 默认值：false，不显示填充渐变颜色。|
 
-表3 ChartAxis  
+**表3** ChartAxis
 
 |名称|类型|默认值|必填|描述|
-|:-------|:--------|:------|:-|:------------------------------------------------------------------------------------|
+|:-------|:------|:------|:-|:-----------------------------------------------------------------------------------|
 |min|number|0|否|轴的最小值，仅线形图支持负数。|
 |max|number|100|否|轴的最大值，仅线形图支持负数。|
-|axisTick|number|10|否|轴显示的刻度数量。仅支持1\~20，且具体显示的效果与图的宽度所占的像素/（max-min）有关。 在柱状图中，每组数据显示的柱子数量与刻度数量一致，且柱子显示在刻度处。|
+|axisTick|number|10|否|轴显示的刻度数量。仅支持1~20，且具体显示的效果与图的宽度所占的像素/（max-min）有关。 在柱状图中，每组数据显示的柱子数量与刻度数量一致，且柱子显示在刻度处。|
 |display|boolean|false|否|是否显示轴。 默认值：false，不显示轴。|
-|color|\<color\>|#c0c0c0|否|轴颜色。|
+|color|<color>|#c0c0c0|否|轴颜色。|
 
-表4 ChartSeries  
+**表4** ChartSeries
 
 |名称|类型|默认值|必填|描述|
 |:----------|:-------------|:--|:-|:-------------------|
@@ -69,31 +72,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 |bottomPoint|PointStyle|-|否|最低点的样式和大小。|
 |loop|ChartLoop|-|否|设置屏幕显示满时，是否需要从头开始绘制。|
 
-表5 ChartLineStyle  
+**表5** ChartLineStyle
 
 |名称|类型|默认值|必填|描述|
-|:-----|:---------|:----|:-|:------------------------|
-|width|\<length\>|1px|否|线宽设置。|
+|:-----|:-------|:----|:-|:------------------------|
+|width|<length>|1px|否|线宽设置。|
 |smooth|boolean|false|否|是否平滑。 默认值：false，表示不做平滑处理。|
 
-表6 PointStyle  
+**表6** PointStyle
 
 |名称|类型|默认值|必填|描述|
-|:----------|:---------|:------|:-|:-----------------------------------------------------|
+|:----------|:-------|:------|:-|:-----------------------------------------------------|
 |shape|string|circle|否|高亮点的形状。可选值为： - circle：圆形。 - square：方形。 - triangle：三角形。|
-|size|\<length\>|5px|否|高亮点的大小。|
-|strokeWidth|\<length\>|1px|否|边框宽度|
-|strokeColor|\<color\>|#ff0000|否|边框颜色。|
-|fillColor|\<color\>|#ff0000|否|填充颜色。|
+|size|<length>|5px|否|高亮点的大小。|
+|strokeWidth|<length>|1px|否|边框宽度|
+|strokeColor|<color>|#ff0000|否|边框颜色。|
+|fillColor|<color>|#ff0000|否|填充颜色。|
 
-表7 ChartLoop  
+**表7** ChartLoop
 
 |名称|类型|默认值|必填|描述|
-|:-------|:---------|:----|:-|:--------------------------------------------------------------------------------------------------------------------|
-|margin|\<length\>|1|否|擦除点的个数（最新绘制的点与最老的点之间的横向距离）。轻量设备margin和topPoint/bottomPoint/headPoint同时使用时，有概率出现point正好位于擦除区域的情况，导致point不可见，因此不建议同时使用。|
+|:-------|:-------|:----|:-|:--------------------------------------------------------------------------------------------------------------------|
+|margin|<length>|1|否|擦除点的个数（最新绘制的点与最老的点之间的横向距离）。轻量设备margin和topPoint/bottomPoint/headPoint同时使用时，有概率出现point正好位于擦除区域的情况，导致point不可见，因此不建议同时使用。|
 |gradient|boolean|false|否|是否需要渐变擦除。 默认值：false，表示不需要渐变擦除。|
 
-表8 Point^5+^  
+**表8** Point^5+^
 
 |名称|类型|默认值|必填|描述|
 |:-----------|:---------|:------|:-|:----------------------------------------------------------------|
@@ -101,11 +104,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 |pointStyle|PointStyle|-|否|表示当前数据点的绘制样式。|
 |description|string|-|否|表示当前点的注释内容。|
 |textLocation|string|-|否|可选值为top，bottom，none。分别表示注释的绘制位置位于点的上方，下方，以及不绘制。|
-|textColor|\<color\>|#000000|否|表示注释文字的颜色。|
+|textColor|<color>|#000000|否|表示注释文字的颜色。|
 |lineDash|string|solid|否|表示绘制当前线段虚线的样式。"dashed, 5, 5"表示纯虚线，绘制5px的实线后留5px的空白。"solid"表示绘制实线。|
-|lineColor|\<color\>|#000000|否|表示绘制当前线段的颜色。此颜色不设置会默认使用整体的strokeColor。|
+|lineColor|<color>|#000000|否|表示绘制当前线段的颜色。此颜色不设置会默认使用整体的strokeColor。|
 
-表9 DataSegment^5+^  
+**表9** DataSegment^5+^
 
 |名称|类型|默认值|必填|描述|
 |:---------|:-----|:--|:-|:-----------------------------------------------------------------------|
@@ -126,46 +129,46 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 |7|起始颜色：#a5d61d，结束颜色：#69d14f|起始颜色：#91c23a，结束颜色：#70ba5d|
 |8|起始颜色：#a2a2b0，结束颜色：#8e8e93|起始颜色：#8c8c99，结束颜色：#6b6b76|
 
-当类型为量规图时，还支持如下属性：  
+当类型为量规图时，还支持如下属性：
 
 |名称|类型|默认值|必填|描述|
 |:------|:-----|:--|:-|:---------------------|
 |percent|number|0|否|当前值占整体的百分比，取值范围为0-100。|
 
-#### 样式
+## 样式
 
-除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)外，还支持如下样式：  
+除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)外，还支持如下样式：
 
 |名称|类型|默认值|必填|描述|
-|:--------------|:---------|:---------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------|
-|stroke-width|\<length\>|32px（量规） 24px（占比类圆形图表）|否|量规、占比类圆形图表组件刻度条的宽度。|
-|start-angle|\<deg\>|240（量规） 0（占比类圆形图表）|否|量规、占比类圆形图表组件刻度条起始角度，以时钟0点为基线。范围为0到360。|
-|total-angle|\<deg\>|240（量规） 360（占比类圆形图表）|否|量规、占比类圆形图表组件刻度条总长度，范围为-360到360，负数标识起点到终点为逆时针。|
-|center-x|\<length\>|-|否|量规组件刻度条中心位置，该样式优先于通用样式的position样式。该样式需要和center-y和radius一起配置才能生效。（仅量规图支持）|
-|center-y|\<length\>|-|否|量规组件刻度条中心位置，该样式优先于通用样式的position样式。该样式需要和center-x和radius一起配置才能生效。（仅量规图支持）|
-|radius|\<length\>|-|否|量规组件刻度条半径，该样式优先于通用样式的width和height样式。该样式需要和center-x和center-y一起配置才能生效。（仅量规图支持）|
+|:--------------|:-------|:---------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------|
+|stroke-width|<length>|32px（量规） 24px（占比类圆形图表）|否|量规、占比类圆形图表组件刻度条的宽度。|
+|start-angle|<deg>|240（量规） 0（占比类圆形图表）|否|量规、占比类圆形图表组件刻度条起始角度，以时钟0点为基线。范围为0到360。|
+|total-angle|<deg>|240（量规） 360（占比类圆形图表）|否|量规、占比类圆形图表组件刻度条总长度，范围为-360到360，负数标识起点到终点为逆时针。|
+|center-x|<length>|-|否|量规组件刻度条中心位置，该样式优先于通用样式的position样式。该样式需要和center-y和radius一起配置才能生效。（仅量规图支持）|
+|center-y|<length>|-|否|量规组件刻度条中心位置，该样式优先于通用样式的position样式。该样式需要和center-x和radius一起配置才能生效。（仅量规图支持）|
+|radius|<length>|-|否|量规组件刻度条半径，该样式优先于通用样式的width和height样式。该样式需要和center-x和center-y一起配置才能生效。（仅量规图支持）|
 |colors|Array|-|否|量规组件刻度条每一个区段的颜色。 如：colors: #ff0000, #00ff00。（仅量规图支持）|
 |weights|Array|-|否|量规组件刻度条每一个区段的权重。 如：weights: 2, 2。（仅量规图支持）|
 |font-family^5+^|Array|-|否|表示绘制注释的字体族，支持[自定义字体](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-customizing-font)。|
-|font-size^5+^|\<length\>|-|否|表示绘制注释的字体的大小。|
+|font-size^5+^|<length>|-|否|表示绘制注释的字体的大小。|
 
-#### 事件
+## 事件
 
-支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)。  
+支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)。
 
-#### 方法
+## 方法
 
-除支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)外，还支持如下方法：  
+除支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)外，还支持如下方法：
 
 |方法|参数|描述|
-|:-----|:-----------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
-|append|{ serial: number, data: Array\<number\>, }|向已有的数据序列中动态添加数据，根据serial指定目标序列，serial为datasets数组的下标，从0开始。假设serial的值为index，使用data数据更新datasets\[index\].data。仅线形图支持，按横坐标加1递增（与xAxis min/max设置相关）。|
+|:-----|:---------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|
+|append|{ serial: number, data: Array<number>, }|向已有的数据序列中动态添加数据，根据serial指定目标序列，serial为datasets数组的下标，从0开始。假设serial的值为index，使用data数据更新datasets[index].data。仅线形图支持，按横坐标加1递增（与xAxis min/max设置相关）。|
 
-#### 示例
+## 示例
 
 1. 线形图
 
-   ```
+   ```html
    <!-- xxx.hml -->
    <div class="container">
      <stack class="chart-region">
@@ -176,7 +179,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    </div>
    ```
 
-   ```
+   ```css
    /* xxx.css */
    .container {
      flex-direction: column;
@@ -202,7 +205,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ```
+   ```js
    // xxx.js
    export default {
      data: {
@@ -254,10 +257,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ![](https://media:401788445361498365)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/5OzxqSXXQd2bwYHdE_fv7Q/zh-cn_image_0000002762996203.png?HW-CC-KV=V1&HW-CC-Date=20260917T084646Z&HW-CC-Expire=31536000000&HW-CC-Sign=F3E837A0351C57FCF5FF6022F78CB6758E7027C1E0C70ABF1D3540D9E904CC83)
 2. 柱状图
 
-   ```
+   ```html
    <!-- xxx.hml -->
    <div class="container">
      <stack class="data-region">
@@ -267,7 +270,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    </div>
    ```
 
-   ```
+   ```css
    /* xxx.css */
    .container {
      flex-direction: column;
@@ -287,7 +290,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ```
+   ```js
    // xxx.js
    export default {
      data: {
@@ -322,10 +325,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ![](https://media:401788445361533366)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/G0PZquSZT-W_9CHrD7SA3g/zh-cn_image_0000002762836317.png?HW-CC-KV=V1&HW-CC-Date=20260917T084646Z&HW-CC-Expire=31536000000&HW-CC-Sign=C52ABC0628ABB0D595A6EF198D318F6CAFDE6522917E7EE8C63C4616FFB308D2)
 3. 量规图
 
-   ```
+   ```html
    <!-- xxx.hml -->
    <div class="container">
      <div class="gauge-region">
@@ -334,7 +337,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    </div>
    ```
 
-   ```
+   ```css
    /* xxx.css */
    .container {
      flex-direction: column;
@@ -351,10 +354,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ![](https://media:401788445361701367)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/kPp0pHXGT7aPgwdX3UHJNg/zh-cn_image_0000002733276806.png?HW-CC-KV=V1&HW-CC-Date=20260917T084646Z&HW-CC-Expire=31536000000&HW-CC-Sign=0C709E0F0B4659D0EACDE2728906E62395D9D167234CE41F2F692379425DF279)
 4. 进度类、加载类、占比类圆形图表
 
-   ```
+   ```html
    <!-- xxx.hml -->
    <div class="container">
        <text class="text">progress Example</text>
@@ -372,7 +375,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    </div>
    ```
 
-   ```
+   ```css
    /* xxx.css */
    .container {
        flex-direction: column;
@@ -389,7 +392,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ```
+   ```js
    // xxx.js
    export default {
       data: {
@@ -427,4 +430,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-![](https://media:401788445361737368)  
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/xAwZ0j-sQpKuIPa-kvOKNg/zh-cn_image_0000002733436680.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084646Z&HW-CC-Expire=31536000000&HW-CC-Sign=8A17FD47C1A9EA7D99BA421C8BC30EC7F2EF662CED1541774D6E8C03A5E20603)
+

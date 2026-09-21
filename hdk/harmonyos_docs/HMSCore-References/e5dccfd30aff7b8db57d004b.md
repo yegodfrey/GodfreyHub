@@ -6,28 +6,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/savemultipl
 
 # saveMultipleHealthData：将多条设备测量数据存储到运动健康平台
 
-接口原型
+**接口原型**
 
 public void saveMultipleHealthData(String data, String function)
 
 方法描述：将多条设备测量数据存储到运动健康平台。当前支持JS将体温、血氧、血糖、体重、血压数据存储到运动健康。
 
-请求参数  
+**请求参数**
 
 |参数名称|参数类型|参数描述|可选选项|
 |:-------|:-----|:-----------------------------------|:---|
 |data|String|测量数据，参考下方举例。|M|
 |function|String|运动健康返回存储结果的回调函数，该回调函数有一个参数，详情参见响应参数。|M|
-[表1 请求参数]
+[**表1**请求参数]
 
 data参数是一个json字符串，是设备测量的结果
 
 数据举例：
 
-比如设备上的血糖测量结果有多条，需要同步到运动健康App里，则构造以下json字符串传递给参数data  
+比如设备上的血糖测量结果有多条，需要同步到运动健康App里，则构造以下json字符串传递给参数data
+
 体温数据：
 
-```
+```screen
 {
 "type"：2104,
 "dataTypeName": "com.huawei.instantaneous.body.temperature",
@@ -65,7 +66,7 @@ data:[
 
 多条血氧数据：
 
-```
+```screen
 {
 "type"：2103,
 "dataTypeName": "com.huawei.instantaneous.spo2",
@@ -95,7 +96,7 @@ data:[{
 
 多条血糖数据：
 
-```
+```screen
 {
 "type"：10001,
 "dataTypeName": "com.huawei.instantaneous.blood_glucose",
@@ -144,7 +145,7 @@ data:[{
 
 多条体重数据：
 
-```
+```screen
 {
 "type"：10006,
 "dataTypeName": "com.huawei.instantaneous.body_weight",
@@ -233,7 +234,7 @@ data:[{
 
 多条血压数据：
 
-```
+```screen
 {
 "type"：10002,
 "dataTypeName": " com.huawei.instantaneous.blood_pressure",
@@ -269,7 +270,7 @@ data:[{
 
 多条跳绳数据：
 
-```
+```screen
 {
 "type"：30029,
 "dataTypeName": "com.huawei.instantaneous.rope_skipping",(可选）
@@ -296,12 +297,10 @@ data:[{
 ]
 ```
 
-<br />
-
-响应参数  
+**响应参数**
 
 |参数名称|参数类型|参数描述|可选选项|
 |:---------|:-----|:-----------------------------------------------------------------------------------------------------------------------------|:---|
 |resultCode|Number|0，表示存储成功。 0以外表示存储失败，具体错误信息参见[错误码清单](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/errcode-0000001058135271)。|M|
-[表2 响应参数]
+[**表2**响应参数]
 

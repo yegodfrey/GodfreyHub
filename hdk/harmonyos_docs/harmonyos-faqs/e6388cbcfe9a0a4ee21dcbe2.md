@@ -6,22 +6,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-15
 
 # 子页面播放音频返回首页后，仍会短暂听到音频声音
 
-#### 问题现象
+## 问题现象
 
-应用中子页面播放音频，点击返回首页后，仍然可以短暂地听到音频声音，声音没有立刻结束。  
+应用中子页面播放音频，点击返回首页后，仍然可以短暂地听到音频声音，声音没有立刻结束。
 
-#### 背景知识
+## 背景知识
 
 * [AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avplayer)：支持将Audio/Video媒体资源（比如mp4/mp3/mkv/mpeg-ts等）转码为可供渲染的图像和可听见的音频模拟信号，并通过输出设备进行播放。
-* [onPageShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpageshow)：router路由页面（即@Entry装饰的自定义组件）每次显示时触发一次，包括路由跳转、应用进入前台等场景。  
+* [onPageShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpageshow)：router路由页面（即@Entry装饰的自定义组件）每次显示时触发一次，包括路由跳转、应用进入前台等场景。
 
-#### 问题定位
+## 问题定位
 
 检查应用中AVPlayer实例调用stop接口停止音频播放的调用时机，是否在首页的onPageShow函数中停止的音频播放，问题代码如下：
 
-```
+```ts
 onPageShow(): void {
-  // 应用首页停止子页面的音频播放
+// 应用首页停止子页面的音频播放
   this.avStop();
 }
 avStop(): void {
@@ -36,15 +36,15 @@ avStop(): void {
 }
 ```
 
-#### 分析结论
+## 分析结论
 
-应用在首页的onPageShow函数中，调用的AVPlayer实例的stop接口停止的音频播放；而子页面从销毁到执行首页onPageShow函数中stop接口停止音频播放，有一定代码运行时间，导致返回首页后短暂的音频播放问题。  
+应用在首页的onPageShow函数中，调用的AVPlayer实例的stop接口停止的音频播放；而子页面从销毁到执行首页onPageShow函数中stop接口停止音频播放，有一定代码运行时间，导致返回首页后短暂的音频播放问题。
 
-#### 修改建议
+## 修改建议
 
 应用在子页面的aboutToDisappear函数中，调用AVPlayer实例的stop及release接口，停止音频播放并销毁AVPlayer实例，避免返回首页后仍然有音频播放的问题，示例如下：
 
-```
+```ts
 aboutToDisappear() {
   if (this.avPlayer == null) {
     console.info(`${this.tag}: avPlayer has not init aboutToDisappear`);
@@ -81,7 +81,7 @@ aboutToDisappear() {
 
 1. 应用首页，点击Next会跳转到音频播放子页面。
 
-   ```
+   ```ts
    @Entry
    @Component
    struct Index {
@@ -95,7 +95,7 @@ aboutToDisappear() {
              Text('首页')
                .fontSize(50)
                .fontWeight(FontWeight.Bold);
-             // 添加按钮，以响应用户onClick事件
+        // 添加按钮，以响应用户onClick事件
              Button() {
                Text('子页面音频')
                  .fontSize(20)
@@ -124,7 +124,7 @@ aboutToDisappear() {
 
 2. 音频播放子页面，自动播放音频，点击Back会返回首页，并停止音乐播放。
 
-   ```
+   ```ts
    import display from '@ohos.display';
    import { common } from '@kit.AbilityKit';
    import media from '@ohos.multimedia.media';
@@ -133,7 +133,7 @@ aboutToDisappear() {
 
    const PROPORTION = 0.99; // 占屏幕比例
    const SURFACE_W = 0.9; // 表面宽比例
-   const SURFACE_H = 1.78; // 表面高比例
+   const SURFACE_H = 1.78;// 表面高比例
 
 
    @Builder
@@ -152,7 +152,7 @@ aboutToDisappear() {
      private surfaceId: string = '';
      private intervalID: number = -1;
      private context: common.UIAbilityContext | undefined = undefined;
-     private fileName: string = '3463094780.mp3'; // 资源需替换成用户自己的资源，否则无法成功运行
+     private fileName: string = '3463094780.mp3'; //资源需替换成用户自己的资源，否则无法成功运行
      private isSwiping: boolean = false; // 用户滑动过程中
      private xComponentFlag: boolean = false;
      @State surfaceW: number | null = null;
@@ -172,7 +172,7 @@ aboutToDisappear() {
 
 
      async avSetupVideoAndSubtitle() {
-       // 通过UIAbilityContext的resourceManager成员的getRawFd接口获取媒体资源播放地址。
+      // 通过UIAbilityContext的resourceManager成员的getRawFd接口获取媒体资源播放地址。
        if (this.context === undefined) {
          return;
        }
@@ -210,7 +210,7 @@ aboutToDisappear() {
      }
 
 
-     // 注册avplayer回调函数
+    // 注册avplayer回调函数
      async setAVPlayerCallback(callback: (avPlayer: media.AVPlayer) => void): Promise<void> {
        // seek操作结果回调函数
        if (this.avPlayer == null) {
@@ -232,17 +232,17 @@ aboutToDisappear() {
          }
          this.avPlayer.reset();
        });
-       // 状态机变化回调函数
+      // 状态机变化回调函数
        this.avPlayer.on('stateChange', async (state) => {
          if (this.avPlayer == null) {
            console.info(`${this.tag}: avPlayer has not init on state change`);
            return;
          }
          switch (state) {
-           case 'idle': // 成功调用reset接口后触发该状态机上报
+           case 'idle': //成功调用reset接口后触发该状态机上报
              console.info(`${this.tag}: setAVPlayerCallback AVPlayer state idle called.`);
              break;
-           case 'initialized': // avplayer设置播放源后触发该状态上报
+           case 'initialized': //avplayer设置播放源后触发该状态上报
              console.info(`${this.tag}: setAVPlayerCallback AVPlayer state initialized called.`);
              if (this.surfaceId) {
                this.avPlayer.surfaceId = this.surfaceId; // 设置显示画面，当播放的资源为纯音频时无需设置
@@ -250,7 +250,7 @@ aboutToDisappear() {
                this.avPlayer.prepare();
              }
              break;
-           case 'prepared': // prepare调用成功后上报该状态机
+           case 'prepared': //prepare调用成功后上报该状态机
              console.info(`${this.tag}: setAVPlayerCallback AVPlayer state prepared called.`);
              this.avPlayer.on('bufferingUpdate', (infoType: media.BufferingInfoType, value: number) => {
                console.info(`${this.tag}: bufferingUpdate called, infoType value: ${infoType}, value:${value}}`);
@@ -258,7 +258,7 @@ aboutToDisappear() {
              this.avPlayer.play(); // 调用播放接口开始播放
              callback(this.avPlayer);
              break;
-           case 'playing': // play成功调用后触发该状态机上报
+           case 'playing': //play成功调用后触发该状态机上报
              console.info(`${this.tag}: setAVPlayerCallback AVPlayer state playing called.`);
              if (this.intervalID !== -1) {
                clearInterval(this.intervalID);
@@ -297,11 +297,11 @@ aboutToDisappear() {
        this.surfaceW = this.windowWidth * SURFACE_W;
        this.surfaceH = this.surfaceW / SURFACE_H;
        this.context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-       // 通过UIAbilityContext的resourceManager成员的getRawFd接口获取媒体资源播放地址。
+     // 通过UIAbilityContext的resourceManager成员的getRawFd接口获取媒体资源播放地址。
        if (this.context === undefined) {
          return;
        }
-       // this.fileName需根据应用实际情况配置对应的资源，否则会导致程序无法正常运行
+    // this.fileName需根据应用实际情况配置对应的资源，否则会导致程序无法正常运行
        let fileDescriptorVideo = await this.context.resourceManager.getRawFd(this.fileName);
        let avFileDescriptor: media.AVFileDescriptor =
          { fd: fileDescriptorVideo.fd, offset: fileDescriptorVideo.offset, length: fileDescriptorVideo.length };
@@ -312,7 +312,7 @@ aboutToDisappear() {
          this.avPlayer.release();
          await this.msleepAsync(1500);
        }
-       // 创建avPlayer实例对象
+     // 创建avPlayer实例对象
        this.avPlayer = await media.createAVPlayer();
        // 创建状态机变化回调函数
        await this.setAVPlayerCallback((avPlayer: media.AVPlayer) => {
@@ -370,7 +370,7 @@ aboutToDisappear() {
      @Builder
      CoverXComponent() {
        XComponent({
-         // 装载视频容器
+        // 装载视频容器
          id: 'xComponent',
          type: XComponentType.SURFACE,
          controller: this.xComponentController

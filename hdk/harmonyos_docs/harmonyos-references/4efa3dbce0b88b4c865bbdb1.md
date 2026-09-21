@@ -6,79 +6,78 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-f
 
 # @ohos.window.floatingBall (闪控球窗口)
 
-该模块提供闪控球的基础功能，包括判断设备是否支持闪控球功能，以及创建闪控球控制器来启动、更新或停止闪控球。适用于跨应用的题目搜索、账单记录、商品比价、抢单、翻译场景，以及金融类应用的实时盯盘场景，以小窗模式呈现内容。闪控球以悬浮小组件形式显示在其他应用之上，即时呈现应用的关键信息。  
-![](https://media:401788445108742840)  
-* 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
-* 在HarmonyOS 7.0.0之前，支持在Tablet设备的非[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#电脑模式)、Phone设备使用闪控球功能，其他设备不可用；从HarmonyOS 7.0.0开始，支持在Phone、PC/2in1、Tablet设备使用闪控球功能，其他设备不可用。
+该模块提供闪控球的基础功能，包括判断设备是否支持闪控球功能，以及创建闪控球控制器来启动、更新或停止闪控球。
 
-* 针对系统能力SystemCapability.Window.SessionManager，请先使用[canIUse()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap#caniuse)接口判断当前设备是否支持此syscap及对应接口。
+适用于跨应用的题目搜索、账单记录、商品比价、抢单、翻译场景，以及金融类应用的实时盯盘场景，以小窗模式呈现内容。闪控球以悬浮小组件形式显示在其他应用之上，即时呈现应用的关键信息。
 
-闪控球和闪控窗对比
+闪控球和闪控窗的对比与联动使用可见[窗口类型开发概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-type-overview#闪控球和闪控窗的对比)。
+> 说明
+>
+> * 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> * 在HarmonyOS 7.0.0之前，支持在Tablet设备的非[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#电脑模式)、Phone设备使用闪控球功能，其他设备不可用；从HarmonyOS 7.0.0开始，支持在Phone、PC/2in1、Tablet设备使用闪控球功能，其他设备不可用。
+>
+> * 针对系统能力SystemCapability.Window.SessionManager，请先使用[canIUse()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap#caniuse)接口判断当前设备是否支持此syscap及对应接口。
 
-* 共同点：闪控球和[闪控窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatview)均为一种特殊的应用辅助窗口，具备在应用主窗口和对应UIAbility退至后台后仍然可以在前台显示的能力。可以用于应用退至后台后，使用其继续显示UI。
-* 区别：
-  * 显示形式不同。闪控球以小圆球的形式展现，适用于展示关键信息。闪控窗以小型窗口展示，展示区域较大，可以持续展示应用内容或提供快捷操作。
-  * 闪控球只能贴边展示，闪控窗则没有此限制。
-  * 闪控球模板固定，应用不能定制UI。闪控窗同样存在模板，并由系统管理并统一绘制UI，但是提供了可绘制的区域，可供应用加载指定页面内容。
+**与闪控窗联动：**
 
-与闪控窗联动：
+本模块可与[@ohos.window.floatView](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatview)（闪控窗）联合使用。通过[floatView.bind](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatview#floatviewbind)接口将闪控窗控制器与闪控球控制器绑定后，用户点击闪控球可展开为闪控窗，点击闪控窗左上角的缩小按钮可收起为闪控球，实现两种窗口形态的相互切换。
 
-本模块可与[@ohos.window.floatView](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatview)（闪控窗）联合使用。通过[floatView.bind](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatview#floatviewbind)接口将闪控窗控制器与闪控球控制器绑定后，用户点击闪控球可展开为闪控窗，点击闪控窗左上角的缩小按钮可收起为闪控球，实现两种窗口形态的相互切换。  
+## 导入模块
 
-#### 导入模块
-
-```
+```ts
 import { floatingBall } from '@kit.ArkUI';
 ```
 
-#### floatingBall.isFloatingBallEnabled
+## floatingBall.isFloatingBallEnabled
 
 isFloatingBallEnabled(): boolean
 
 判断当前设备是否支持闪控球功能。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------|:----------------------------------|
 |boolean|当前设备是否支持闪控球功能。true表示支持，false则表示不支持。|
 
-示例：
+**示例：**
 
-```
+```ts
 // 判断当前设备是否支持闪控球功能
 let enable: boolean = floatingBall.isFloatingBallEnabled();
 console.info('Floating ball enabled is: ' + enable);
 ```
 
-#### floatingBall.create
+## floatingBall.create
 
-create(config: FloatingBallConfiguration): Promise\<FloatingBallController\>
+create(config: FloatingBallConfiguration): Promise<FloatingBallController>
 
 创建闪控球控制器，使用Promise异步回调。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-设备行为差异： 在HarmonyOS 7.0.0之前，该接口在Tablet设备的非[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#电脑模式)、Phone设备下可正常调用，在其他设备、Tablet设备的[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#电脑模式)下调用返回801错误码。从HarmonyOS 7.0.0开始，支持在Phone、PC/2in1、Tablet设备使用，其他设备调用返回801错误码。
+**设备行为差异：** 在HarmonyOS 7.0.0之前，该接口在Tablet设备的非[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#电脑模式)、Phone设备下可正常调用，在其他设备、Tablet设备的[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#电脑模式)下调用返回801错误码。从HarmonyOS 7.0.0开始，支持在Phone、PC/2in1、Tablet设备使用，其他设备调用返回801错误码。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:------------------------------------------------------|:-|:---------------------------------------|
 |config|[FloatingBallConfiguration](#floatingballconfiguration)|是|创建闪控球控制器的参数。该参数不能为空，并且构造该参数的context不能为空。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------------------------------------------------|:-----------------------|
-|Promise\<[FloatingBallController](#floatingballcontroller)\>|Promise对象。返回当前创建的闪控球控制器。|
+|:---------------------------------------------------------|:-----------------------|
+|Promise<[FloatingBallController](#floatingballcontroller)>|Promise对象。返回当前创建的闪控球控制器。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:----------------------------------------------------------------------------------|
@@ -86,9 +85,9 @@ create(config: FloatingBallConfiguration): Promise\<FloatingBallController\>
 |1300019|Wrong parameters for operating the floating ball.|
 |1300023|Floating ball internal error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 
@@ -114,49 +113,49 @@ try {
 }
 ```
 
-#### FloatingBallConfiguration
+## FloatingBallConfiguration
 
 创建闪控球控制器时需要提供的参数配置。
 
-系统能力： SystemCapability.Window.SessionManager  
+**系统能力：** SystemCapability.Window.SessionManager
 
 |名称|类型|只读|可选|说明|
 |:------|:---------------------------------------------------------------------------------------------------------------------|:-|:-|:----------------------------------------------------------|
 |context|[BaseContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-basecontext)|否|否|表示上下文环境，用于创建闪控球控制器时关联应用的主窗口。该参数不能为空，通常传入UIAbilityContext对象。|
 
-#### FloatingBallController
+## FloatingBallController
 
 闪控球控制器实例，用于启动、更新、停止闪控球以及注册回调等操作。
 
 下列API示例中都需先使用[floatingBall.create()](#floatingballcreate)方法获取到闪控球控制器实例（即floatingBallController），再通过此实例调用对应方法。
 
-系统能力： SystemCapability.Window.SessionManager  
+**系统能力：** SystemCapability.Window.SessionManager
 
-#### startFloatingBall
+### startFloatingBall
 
-startFloatingBall(params: FloatingBallParams): Promise\<void\>
+startFloatingBall(params: FloatingBallParams): Promise<void>
 
 启动闪控球，使用Promise异步回调。
 
-需要权限： ohos.permission.USE_FLOAT_BALL
+**需要权限：** ohos.permission.USE_FLOAT_BALL
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:----------------------------------------|:-|:---------------------------|
 |params|[FloatingBallParams](#floatingballparams)|是|启动闪控球的参数，用于配置闪控球的标题、内容或背景色等。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|无返回结果的Promise对象。|
+|:------------|:---------------|
+|Promise<void>|无返回结果的Promise对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:---------------------------------------------------------------------------------------------------------------------|
@@ -170,9 +169,9 @@ startFloatingBall(params: FloatingBallParams): Promise\<void\>
 |1300025|The floating ball state does not support this operation.|
 |1300034|This operation conflicts with other floating windows. Possible cause: App has already started float view. 适用版本：26.0.0+|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 配置闪控球启动参数
@@ -193,29 +192,29 @@ try {
 }
 ```
 
-#### updateFloatingBall
+### updateFloatingBall
 
-updateFloatingBall(params: FloatingBallParams): Promise\<void\>
+updateFloatingBall(params: FloatingBallParams): Promise<void>
 
 更新闪控球，使用Promise异步回调。必须先调用[startFloatingBall()](#startfloatingball)启动闪控球后，才能调用此方法更新闪控球参数。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:----------------------------------------|:-|:----------------------------------------------------------|
 |params|[FloatingBallParams](#floatingballparams)|是|更新闪控球的参数，用于更新闪控球的标题、内容或背景色等。调用此接口更新闪控球时，模板类型template字段不可更改。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|无返回结果的Promise对象。|
+|:------------|:---------------|
+|Promise<void>|无返回结果的Promise对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:--------------------------------------------------------------------|
@@ -229,9 +228,9 @@ updateFloatingBall(params: FloatingBallParams): Promise\<void\>
 |1300027|When updating the floating ball, the template type cannot be changed.|
 |1300028|Updating static template-based floating balls is not supported.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 配置闪控球更新参数
@@ -252,23 +251,23 @@ try {
 }
 ```
 
-#### stopFloatingBall
+### stopFloatingBall
 
-stopFloatingBall(): Promise\<void\>
+stopFloatingBall(): Promise<void>
 
 停止闪控球，使用Promise异步回调。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|无返回结果的Promise对象。|
+|:------------|:---------------|
+|Promise<void>|无返回结果的Promise对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:------------------------------------------|
@@ -276,9 +275,9 @@ stopFloatingBall(): Promise\<void\>
 |1300023|Floating ball internal error.|
 |1300024|The floating ball window state is abnormal.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 停止闪控球
@@ -289,24 +288,24 @@ floatingBallController.stopFloatingBall().then(() => {
 });
 ```
 
-#### on('stateChange')
+### on('stateChange')
 
-on(type: 'stateChange', callback: Callback\<FloatingBallState\>): void
+on(type: 'stateChange', callback: Callback<FloatingBallState>): void
 
 注册闪控球生命周期状态变化的监听事件。不再使用时，取消监听以避免内存泄漏。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------------|:-|:------------------------------------|
+|:-------|:------------------------------------------------|:-|:------------------------------------|
 |type|string|是|监听事件，固定为'stateChange'，即闪控球生命周期状态变化事件。|
-|callback|Callback\<[FloatingBallState](#floatingballstate)\>|是|回调函数。返回当前的闪控球生命周期状态。|
+|callback|Callback<[FloatingBallState](#floatingballstate)>|是|回调函数。返回当前的闪控球生命周期状态。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:------------------------------------------------|
@@ -315,9 +314,9 @@ on(type: 'stateChange', callback: Callback\<FloatingBallState\>): void
 |1300023|Floating ball internal error.|
 |1300024|The floating ball window state is abnormal.|
 
-示例：
+**示例：**
 
-```
+```ts
 // 定义状态变化回调函数
 let onStateChange = (state: floatingBall.FloatingBallState) => {
   console.info('Floating ball stateChange: ' + state);
@@ -330,24 +329,24 @@ try {
 }
 ```
 
-#### off('stateChange')
+### off('stateChange')
 
-off(type: 'stateChange', callback?: Callback\<FloatingBallState\>): void
+off(type: 'stateChange', callback?: Callback<FloatingBallState>): void
 
 取消闪控球生命周期状态变化的监听事件。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------------|:-|:-----------------------------------------------------------|
+|:-------|:------------------------------------------------|:-|:-----------------------------------------------------------|
 |type|string|是|监听事件，固定为'stateChange'，即闪控球生命周期状态变化事件。|
-|callback|Callback\<[FloatingBallState](#floatingballstate)\>|否|回调函数。返回当前的闪控球生命周期状态。若传入参数，则停止该监听。若未传入参数，则停止所有闪控球生命周期状态变化的监听。|
+|callback|Callback<[FloatingBallState](#floatingballstate)>|否|回调函数。返回当前的闪控球生命周期状态。若传入参数，则停止该监听。若未传入参数，则停止所有闪控球生命周期状态变化的监听。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:------------------------------------------------|
@@ -355,9 +354,9 @@ off(type: 'stateChange', callback?: Callback\<FloatingBallState\>): void
 |1300023|Floating ball internal error.|
 |1300024|The floating ball window state is abnormal.|
 
-示例：
+**示例：**
 
-```
+```ts
 // 定义状态变化回调函数（需与注册时的回调一致）
 let onStateChange = (state: floatingBall.FloatingBallState) => {
   console.info('Floating ball stateChange: ' + state);
@@ -370,24 +369,24 @@ try {
 }
 ```
 
-#### on('click')
+### on('click')
 
-on(type: 'click', callback: Callback\<void\>): void
+on(type: 'click', callback: Callback<void>): void
 
 注册闪控球的点击监听事件，不使用时，取消监听以避免内存泄漏。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------|:-|:--------------------------------|
+|:-------|:-------------|:-|:--------------------------------|
 |type|string|是|监听事件，固定为'click'，即闪控球点击事件。|
-|callback|Callback\<void\>|是|回调函数。当点击闪控球事件发生时的回调。该回调函数不返回任何参数。|
+|callback|Callback<void>|是|回调函数。当点击闪控球事件发生时的回调。该回调函数不返回任何参数。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:------------------------------------------------|
@@ -396,9 +395,9 @@ on(type: 'click', callback: Callback\<void\>): void
 |1300023|Floating ball internal error.|
 |1300024|The floating ball window state is abnormal.|
 
-示例：
+**示例：**
 
-```
+```ts
 // 定义点击事件回调函数
 let onClick = () => {
   console.info('Floating ball onClick');
@@ -411,24 +410,24 @@ try {
 }
 ```
 
-#### off('click')
+### off('click')
 
-off(type: 'click', callback?: Callback\<void\>): void
+off(type: 'click', callback?: Callback<void>): void
 
 取消闪控球点击的监听事件。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:---------------|:-|:--------------------------------------------------------------------|
+|:-------|:-------------|:-|:--------------------------------------------------------------------|
 |type|string|是|监听事件，固定为'click'，即闪控球点击事件。|
-|callback|Callback\<void\>|否|回调函数。当点击闪控球事件发生时的回调。该回调函数不返回任何参数。若传入参数，则关闭特定的监听。若未传入参数，则关闭所有闪控球点击的监听。|
+|callback|Callback<void>|否|回调函数。当点击闪控球事件发生时的回调。该回调函数不返回任何参数。若传入参数，则关闭特定的监听。若未传入参数，则关闭所有闪控球点击的监听。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:------------------------------------------------|
@@ -436,9 +435,9 @@ off(type: 'click', callback?: Callback\<void\>): void
 |1300023|Floating ball internal error.|
 |1300024|The floating ball window state is abnormal.|
 
-示例：
+**示例：**
 
-```
+```ts
 // 定义点击事件回调函数（需与注册时的回调一致）
 let onClick = () => {
   console.info('Floating ball onClick');
@@ -451,23 +450,23 @@ try {
 }
 ```
 
-#### getFloatingBallWindowInfo
+### getFloatingBallWindowInfo
 
-getFloatingBallWindowInfo(): Promise\<FloatingBallWindowInfo\>
+getFloatingBallWindowInfo(): Promise<FloatingBallWindowInfo>
 
 获取闪控球窗口信息，使用Promise异步回调。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------------------------------------------------|:-------------------|
-|Promise\<[FloatingBallWindowInfo](#floatingballwindowinfo)\>|Promise对象，返回闪控球窗口信息。|
+|:---------------------------------------------------------|:-------------------|
+|Promise<[FloatingBallWindowInfo](#floatingballwindowinfo)>|Promise对象，返回闪控球窗口信息。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:-------------------------------------------------------|
@@ -478,9 +477,9 @@ getFloatingBallWindowInfo(): Promise\<FloatingBallWindowInfo\>
 |1300024|The floating ball window state is abnormal.|
 |1300025|The floating ball state does not support this operation.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 获取闪控球窗口信息
@@ -491,31 +490,31 @@ floatingBallController.getFloatingBallWindowInfo().then((data: floatingBall.Floa
 });
 ```
 
-#### restoreMainWindow
+### restoreMainWindow
 
-restoreMainWindow(want: Want): Promise\<void\>
+restoreMainWindow(want: Want): Promise<void>
 
 恢复应用主窗口并加载指定页面。使用Promise异步回调。仅支持在点击闪控球后调用；若应用拥有ohos.permission.AUTO_RESTORE_MAIN_WINDOW权限，可以无需点击直接调用该接口。
 
-需要权限： ohos.permission.USE_FLOAT_BALL
+**需要权限：** ohos.permission.USE_FLOAT_BALL
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:-------------------------------------------------------------------------------------------------|:-|:-----------|
 |want|[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)|是|加载指定页面的Want。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|无返回结果的Promise对象。|
+|:------------|:---------------|
+|Promise<void>|无返回结果的Promise对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -529,9 +528,9 @@ restoreMainWindow(want: Want): Promise\<void\>
 |1300025|The floating ball state does not support this operation.|
 |1300026|Failed to restore the main window. Possible causes: 1. Invalid parameter. The provided bundleName does not match the caller's application bundleName. 2. The application lacks the ohos.permission.AUTO_RESTORE_MAIN_WINDOW permission, and no user interaction (click) on the floating ball has occurred.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -552,9 +551,9 @@ try {
 }
 ```
 
-#### setFloatingBallVisibilityInApp^24+^
+### setFloatingBallVisibilityInApp^24+^
 
-setFloatingBallVisibilityInApp(isVisible: boolean): Promise\<void\>
+setFloatingBallVisibilityInApp(isVisible: boolean): Promise<void>
 
 设置闪控球在应用内是否可见。使用Promise异步回调。
 
@@ -562,25 +561,25 @@ setFloatingBallVisibilityInApp(isVisible: boolean): Promise\<void\>
 * 默认情况（即未调用此接口设置时）和调用此接口传入true时：除多任务界面外，闪控球均可见。
 * 调用此接口传入false时：当应用处于前台（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-lifecycle#应用主窗的生命周期状态)为SHOWN或者RESUMED）时，闪控球不可见；当应用处于后台（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-lifecycle#应用主窗的生命周期状态)为HIDDEN）时，闪控球可见。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:------|:-|:---------------------------------|
 |isVisible|boolean|是|true表示闪控球在应用内可见；false表示闪控球在应用内不可见。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:--------------------------------------------------------------------------------------------------------------------------------|
@@ -588,9 +587,9 @@ setFloatingBallVisibilityInApp(isVisible: boolean): Promise\<void\>
 |1300023|Floating ball internal error. Possible cause: The floating ball controller is null.|
 |1300024|The floating ball window state is abnormal. Possible causes: The floating ball window has not been created or has been destroyed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 设置闪控球在应用内不可见
@@ -601,27 +600,27 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 });
 ```
 
-#### onDestroy
+### onDestroy
 
-onDestroy(callback: Callback\<string\>): void
+onDestroy(callback: Callback<string>): void
 
 注册闪控球销毁事件的监听。当闪控球销毁时，回调函数会接收到销毁原因的字符串。不再使用时，调用[offDestroy](#offdestroy)接口取消监听以避免内存泄漏。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|callback|Callback\<string\>|是|回调函数。返回闪控球停止的原因。停止原因包括： - "APP_STOP"：应用主动停止。 - "DUMPSTER_STOP"：拖动到垃圾桶触发停止。 - "LONG_PRESS_SINGLE_STOP"：长按单个闪控球触发停止。 - "LONG_PRESS_ALL_STOP"：长按全部闪控球触发停止。 - "MAIN_WINDOW_DESTROY_STOP"：context关联的主窗口被销毁后触发停止。 - "SQUEEZE"：超出设备闪控球数量上限，被其他闪控球挤占停止。 - "FLOAT_VIEW_STOP"：与闪控窗绑定后，绑定状态下跟随闪控窗停止。 - "STOP_IN_SIDEBAR"：在侧边栏中被停止。|
+|:-------|:---------------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|callback|Callback<string>|是|回调函数。返回闪控球停止的原因。停止原因包括： - "APP_STOP"：应用主动停止。 - "DUMPSTER_STOP"：拖动到垃圾桶触发停止。 - "LONG_PRESS_SINGLE_STOP"：长按单个闪控球触发停止。 - "LONG_PRESS_ALL_STOP"：长按全部闪控球触发停止。 - "MAIN_WINDOW_DESTROY_STOP"：context关联的主窗口被销毁后触发停止。 - "SQUEEZE"：超出设备闪控球数量上限，被其他闪控球挤占停止。 - "FLOAT_VIEW_STOP"：与闪控窗绑定后，绑定状态下跟随闪控窗停止。 - "STOP_IN_SIDEBAR"：在侧边栏中被停止。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------------|
@@ -630,9 +629,9 @@ onDestroy(callback: Callback\<string\>): void
 |1300023|Floating ball internal error. Possible cause: System error, such as a null pointer, insufficient memory.|
 |1300024|The floating ball window state is abnormal. Possible cause: The floating ball controller has been destroyed.|
 
-示例：
+**示例：**
 
-```
+```ts
 // 定义销毁事件回调函数
 let onDestroy = (reason: string) => {
   console.info('Floating ball has destroyed, reason: ' + reason);
@@ -645,27 +644,27 @@ try {
 }
 ```
 
-#### offDestroy
+### offDestroy
 
-offDestroy(callback?: Callback\<string\>): void
+offDestroy(callback?: Callback<string>): void
 
 取消闪控球销毁事件的监听。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------|:-|:----------------------------------------|
-|callback|Callback\<string\>|否|回调函数。若传入参数，则取消该监听；若未传入参数，则取消所有闪控球销毁事件的监听。|
+|:-------|:---------------|:-|:----------------------------------------|
+|callback|Callback<string>|否|回调函数。若传入参数，则取消该监听；若未传入参数，则取消所有闪控球销毁事件的监听。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。  
+以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
 |错误码ID|错误信息|
 |:------|:-----------------------------------------------------------------------------------------------------------|
@@ -673,9 +672,9 @@ offDestroy(callback?: Callback\<string\>): void
 |1300023|Floating ball internal error. Possible cause: System error, such as a null pointer, insufficient memory.|
 |1300024|The floating ball window state is abnormal. Possible cause: The floating ball controller has been destroyed.|
 
-示例：
+**示例：**
 
-```
+```ts
 // 定义销毁事件回调函数（需与注册时的回调一致）
 let onDestroy = (reason: string) => {
   console.info('Floating ball has destroyed, reason: ' + reason);
@@ -694,39 +693,39 @@ try {
 }
 ```
 
-#### FloatingBallParams
+## FloatingBallParams
 
 启动和更新闪控球的配置参数。
 
-系统能力： SystemCapability.Window.SessionManager  
+**系统能力：** SystemCapability.Window.SessionManager
 
 |名称|类型|只读|可选|说明|
-|:----------------------|:------------------------------------------------------------------------------------------------------------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------------------|:------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |template|[FloatingBallTemplate](#floatingballtemplate)|否|否|闪控球模板。不同模板对其他参数有不同要求，详见FloatingBallTemplate枚举说明。|
 |title|string|否|否|闪控球标题，不可为空字符串，大小不超过64字节。传入空字符串或超过64字节时返回错误码[1300019](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window#section1300019-闪控球参数校验错误)。|
 |content|string|否|是|闪控球内容，大小不超过64字节。不传入时默认为空字符串，不显示闪控球内容。超过64字节时返回错误码[1300019](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window#section1300019-闪控球参数校验错误)。|
 |backgroundColor|string|否|是|闪控球背景颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'）。格式错误时返回错误码[1300019](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window#section1300019-闪控球参数校验错误)。不传入时闪控球跟随系统深浅色模式的默认背景色。|
-|titleColor|string|否|是|闪控球标题文字颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'），不传入时根据背景色色度自动填充，若背景色为亮色则填充黑色('#E5000000')，若背景色为暗色则填充白色('#E5FFFFFF')。配置此属性时，必须配置背景色backgroundColor，否则返回错误码[1300019](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window#section1300019-闪控球参数校验错误)。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。|
-|contentColor|string|否|是|闪控球内容文字颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'），不传入时根据背景色色度自动填充，若背景色为亮色则填充黑色('#99000000')，若背景色为暗色则填充白色('#99FFFFFF')。配置此属性时，必须配置背景色backgroundColor，否则返回错误码[1300019](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window#section1300019-闪控球参数校验错误)。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。|
-|icon|[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|是|闪控球图标，图标像素的总字节数不超过192KB（图标像素的总字节数通过[getPixelBytesNumber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#getpixelbytesnumber7)获取），超过192KB时返回错误码[1300019](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window#section1300019-闪控球参数校验错误)。建议图标像素宽高为128px\*128px。实际显示效果依赖于设备能力和闪控球UI样式。|
-|textUpdateAnimationType|[FloatingBallTextUpdateAnimationType](#floatingballtextupdateanimationtype)|否|是|闪控球文本更新时的动画类型。默认为FloatingBallTextUpdateAnimationType.ANIMATION_NONE。 起始版本：26.0.0 模型约束： 此接口仅可在Stage模型下使用。|
+|titleColor|string|否|是|闪控球标题文字颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'），不传入时根据背景色色度自动填充，若背景色为亮色则填充黑色('#E5000000')，若背景色为暗色则填充白色('#E5FFFFFF')。配置此属性时，必须配置背景色backgroundColor，否则返回错误码[1300019](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window#section1300019-闪控球参数校验错误)。 **起始版本**：26.0.0 **模型约束：** 此接口仅可在Stage模型下使用。|
+|contentColor|string|否|是|闪控球内容文字颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'），不传入时根据背景色色度自动填充，若背景色为亮色则填充黑色('#99000000')，若背景色为暗色则填充白色('#99FFFFFF')。配置此属性时，必须配置背景色backgroundColor，否则返回错误码[1300019](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window#section1300019-闪控球参数校验错误)。 **起始版本**：26.0.0 **模型约束：** 此接口仅可在Stage模型下使用。|
+|icon|[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|是|闪控球图标，图标像素的总字节数不超过192KB（图标像素的总字节数通过[getPixelBytesNumber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#getpixelbytesnumber7)获取），超过192KB时返回错误码[1300019](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window#section1300019-闪控球参数校验错误)。建议图标像素宽高为128px*128px。实际显示效果依赖于设备能力和闪控球UI样式。|
+|textUpdateAnimationType|[FloatingBallTextUpdateAnimationType](#floatingballtextupdateanimationtype)|否|是|闪控球文本更新时的动画类型。默认为FloatingBallTextUpdateAnimationType.ANIMATION_NONE。 **起始版本**：26.0.0 **模型约束：** 此接口仅可在Stage模型下使用。|
 
-#### FloatingBallState
+## FloatingBallState
 
 闪控球生命周期状态的枚举。
 
-系统能力： SystemCapability.Window.SessionManager  
+**系统能力：** SystemCapability.Window.SessionManager
 
 |名称|值|说明|
 |:------|:-|:-------|
 |STARTED|1|表示闪控球启动。|
 |STOPPED|2|表示闪控球停止。|
 
-#### FloatingBallTemplate
+## FloatingBallTemplate
 
 闪控球模板类型的枚举。
 
-系统能力： SystemCapability.Window.SessionManager  
+**系统能力：** SystemCapability.Window.SessionManager
 
 |名称|值|说明|
 |:-------|:-|:--------------------------------------------------------|
@@ -735,25 +734,25 @@ try {
 |EMPHATIC|3|强调文本布局，支持图标、标题和内容。使用此模板时，FloatingBallParams中的title参数必传。|
 |SIMPLE|4|纯文本布局，只支持标题。使用此模板时，FloatingBallParams中的title参数必传。|
 
-#### FloatingBallWindowInfo
+## FloatingBallWindowInfo
 
 闪控球窗口信息。
 
-系统能力： SystemCapability.Window.SessionManager  
+**系统能力：** SystemCapability.Window.SessionManager
 
 |名称|类型|只读|可选|说明|
 |:-------|:-----|:-|:-|:-------|
 |windowId|number|是|否|闪控球窗口ID。|
 
-#### FloatingBallTextUpdateAnimationType
+## FloatingBallTextUpdateAnimationType
 
 闪控球文本更新动画类型的枚举。
 
-系统能力： SystemCapability.Window.SessionManager
+**系统能力：** SystemCapability.Window.SessionManager
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-起始版本：26.0.0  
+**起始版本**：26.0.0
 
 |名称|值|说明|
 |:----------------|:-|:------|

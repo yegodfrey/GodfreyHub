@@ -6,43 +6,46 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-m
 
 # @ohos.matrix4 (矩阵变换)
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 用于对组件进行[图形变换](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation)的各种操作，为组件提供矩阵变换能力，支持对图形进行平移、旋转和缩放等。
 
 Matrix4的使用场景包括：
 
-[图形变换](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation)中的[transform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#transform18)接口通过使用图形变换矩阵Matrix4对象设置组件的二维变换矩阵，[transform3D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#transform3d20)接口通过使用图形变换矩阵Matrix4对象设置组件的三维变换矩阵。  
-![](https://media:401788445278286334)  
-本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。  
+[图形变换](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation)中的[transform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#transform18)接口通过使用图形变换矩阵Matrix4对象设置组件的二维变换矩阵，[transform3D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#transform3d20)接口通过使用图形变换矩阵Matrix4对象设置组件的三维变换矩阵。
+> 说明
+>
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-#### 导入模块
+## 导入模块
 
-```
+```ts
 import { matrix4 } from '@kit.ArkUI';
 ```
 
-#### matrix4.init
+## matrix4.init
 
-init(options: \[number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number\]): Matrix4Transit
+init(options: [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number]): Matrix4Transit
 
-Matrix的构造函数，可以通过传入的参数创建一个四阶矩阵，矩阵为列优先，即输入数组的16个值按列依次填充至矩阵：array\[0\]\~array\[3\]为第1列，array\[4\]\~array\[7\]为第2列，array\[8\]\~array\[11\]为第3列，array\[12\]\~array\[15\]为第4列。当仅需单位矩阵时，推荐使用matrix4.identity()。
+Matrix的构造函数，可以通过传入的参数创建一个四阶矩阵，矩阵为列优先，即输入数组的16个值按列依次填充至矩阵：array[0]~array[3]为第1列，array[4]~array[7]为第2列，array[8]~array[11]为第3列，array[12]~array[15]为第4列。当仅需单位矩阵时，推荐使用matrix4.identity()。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:---------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------|
-|options|\[number,number,number,number, number,number,number,number, number,number,number,number, number,number,number,number\]|是|参数为长度为16（4\*4）的number数组， 详情见四阶矩阵说明。 各number取值范围：(-∞, +∞) 默认值： \[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1\]|
+|:------|:-------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------|
+|options|[number,number,number,number, number,number,number,number, number,number,number,number, number,number,number,number]|是|参数为长度为16（4*4）的number数组， 详情见四阶矩阵说明。 各number取值范围：(-∞, +∞) 默认值： [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:-------------|
 |[Matrix4Transit](#matrix4transit)|根据入参创建的四阶矩阵对象。|
 
-四阶矩阵说明：  
+**四阶矩阵说明：**
 
 |参数名|类型|必填|说明|
 |:--|:-----|:-|:--------------------|
@@ -63,9 +66,9 @@ Matrix的构造函数，可以通过传入的参数创建一个四阶矩阵，�
 |m32|number|是|z轴平移值，单位：px，单位矩阵默认为0。|
 |m33|number|是|在齐次坐标下生效，产生透视投影效果。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { matrix4 } from '@kit.ArkUI';
 
 // 创建一个四阶矩阵
@@ -90,25 +93,25 @@ struct Tests {
 }
 ```
 
-#### matrix4.identity
+## matrix4.identity
 
 identity(): Matrix4Transit
 
 Matrix的初始化函数，可以返回一个初始的单位矩阵对象，可作为后续矩阵变换操作的基础。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:------|
 |[Matrix4Transit](#matrix4transit)|单位矩阵对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 // matrix1 和 matrix2 效果一致
 import { matrix4 } from '@kit.ArkUI';
 
@@ -140,37 +143,38 @@ struct Tests {
 }
 ```
 
-#### Matrix4Transit
+## Matrix4Transit
 
-矩阵对象。支持通过链式调用translate、scale、rotate、skew等方法组合多种变换效果。  
-![](https://media:401788445278315335)  
-多个变换方法链式调用时，变换的顺序会影响最终结果。例如，先translate后scale与先scale后translate会产生不同的变换效果，需根据预期效果选择正确的调用顺序。
+矩阵对象。支持通过链式调用translate、scale、rotate、skew等方法组合多种变换效果。
+> 说明
+>
+> 多个变换方法链式调用时，变换的顺序会影响最终结果。例如，先translate后scale与先scale后translate会产生不同的变换效果，需根据预期效果选择正确的调用顺序。
+>
+> translate、scale、rotate、skew、combine、invert方法会改变调用该函数的原始矩阵。如需保留原始矩阵不被修改，请先调用copy()再进行变换操作，例如：matrix.copy().translate({x:100})。
 
-translate、scale、rotate、skew、combine、invert方法会改变调用该函数的原始矩阵。如需保留原始矩阵不被修改，请先调用copy()再进行变换操作，例如：matrix.copy().translate({x:100})。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
-
-#### copy
+### copy
 
 copy(): Matrix4Transit
 
 Matrix的拷贝函数，可以拷贝一份当前的矩阵对象。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:---------|
 |[Matrix4Transit](#matrix4transit)|当前矩阵的拷贝对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 import { matrix4 } from '@kit.ArkUI';
 
@@ -205,33 +209,33 @@ struct Test {
 }
 ```
 
-![](https://media:401788445278350336)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/-n_JsdN1QwOL7bo-2Dxe9g/zh-cn_image_0000002733275958.png?HW-CC-KV=V1&HW-CC-Date=20260917T084629Z&HW-CC-Expire=31536000000&HW-CC-Sign=8C107BC9F79A9FF16C122977A366F7EEABA6056C8D36CC7D47A6A66CDEC9AC20)
 
-#### combine
+### combine
 
 combine(options: Matrix4Transit): Matrix4Transit
 
 Matrix的叠加函数，可以为当前矩阵增加另一个矩阵的叠加效果，生成一个新的矩阵对象。会改变调用该函数的原始矩阵。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------------|:-|:---------------------------------------|
 |options|[Matrix4Transit](#matrix4transit)|是|待叠加的矩阵对象，其变换效果将与当前矩阵进行叠加（矩阵相乘），生成新的变换矩阵。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:--------|
 |[Matrix4Transit](#matrix4transit)|矩阵叠加后的对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 import { matrix4 } from '@kit.ArkUI';
 
@@ -261,27 +265,27 @@ struct Test {
 }
 ```
 
-![](https://media:401788445278388337)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/IC6FU3sgSx6Ya1bKd6gFnA/zh-cn_image_0000002733435834.png?HW-CC-KV=V1&HW-CC-Date=20260917T084629Z&HW-CC-Expire=31536000000&HW-CC-Sign=FEC7EA11CBE8642352FEB8069A02DEF8BAC78B1E168D94FA04D6729083F243B7)
 
-#### invert
+### invert
 
 invert(): Matrix4Transit
 
 Matrix的逆函数，会改变调用该函数的原始矩阵，将其变换为逆矩阵并返回。逆矩阵与原始矩阵相乘结果为单位矩阵。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:----------|
 |[Matrix4Transit](#matrix4transit)|当前矩阵的逆矩阵对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { matrix4 } from '@kit.ArkUI';
 
 // matrix1(宽放大2倍) 和 matrix2(宽缩小2倍) 效果相反
@@ -310,31 +314,31 @@ struct Tests {
 }
 ```
 
-#### translate
+### translate
 
 translate(options: TranslateOption): Matrix4Transit
 
 Matrix的平移函数，可以为当前矩阵增加x轴/y轴/z轴平移效果。会改变调用该函数的原始矩阵。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------------------------|:-|:------|
 |options|[TranslateOption](#translateoption)|是|设置平移参数。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:----------|
 |[Matrix4Transit](#matrix4transit)|平移效果后的矩阵对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 import { matrix4 } from '@kit.ArkUI';
 
@@ -354,33 +358,33 @@ struct Test {
 }
 ```
 
-![](https://media:401788445278422338)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/ca2cCcYDTgiKhZWLZkjzGA/zh-cn_image_0000002762995357.png?HW-CC-KV=V1&HW-CC-Date=20260917T084629Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A085A5EDE7BAA4A6CF5CFA33BF004601AC2D6BD81558C4943E0C9CB98FC64FF)
 
-#### scale
+### scale
 
 scale(options: ScaleOption): Matrix4Transit
 
 Matrix的缩放函数，可以为当前矩阵增加x轴/y轴/z轴缩放效果。会改变调用该函数的原始矩阵。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------|:-|:------|
 |options|[ScaleOption](#scaleoption)|是|设置缩放参数。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:----------|
 |[Matrix4Transit](#matrix4transit)|缩放效果后的矩阵对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 import { matrix4 } from '@kit.ArkUI';
 
@@ -407,36 +411,36 @@ struct Test {
 }
 ```
 
-![](https://media:401788445278464339)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/XiqlIN-YR2C_GZRr2-tERQ/zh-cn_image_0000002762835471.png?HW-CC-KV=V1&HW-CC-Date=20260917T084629Z&HW-CC-Expire=31536000000&HW-CC-Sign=C701E6E0774F24B84D856AF7BC54C1FAA59418455807BA4D0B804ABF3E628E97)
 
-#### skew^12+^
+### skew^12+^
 
 skew(x: number, y: number): Matrix4Transit
 
 Matrix的倾斜函数，可以为当前矩阵增加x轴/y轴倾斜效果。会改变调用该函数的原始矩阵。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--|:-----|:-|:-----------------------------------------------------------------|
 |x|number|是|x轴倾斜参数，用于设置x轴方向的倾斜程度，值为剪切因子（即tan值）。 值为0时无倾斜，正值沿x轴正方向倾斜，负值沿x轴负方向倾斜。|
 |y|number|是|y轴倾斜参数，用于设置y轴方向的倾斜程度，值为剪切因子（即tan值）。 值为0时无倾斜，正值沿y轴正方向倾斜，负值沿y轴负方向倾斜。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:----------|
 |[Matrix4Transit](#matrix4transit)|倾斜效果后的矩阵对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 import { matrix4 } from '@kit.ArkUI';
 
@@ -460,33 +464,33 @@ struct Test {
 }
 ```
 
-![](https://media:401788445278552340)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/4MpdfSYbQ4K1VJ4i6zlXOA/zh-cn_image_0000002733275960.jpeg?HW-CC-KV=V1&HW-CC-Date=20260917T084629Z&HW-CC-Expire=31536000000&HW-CC-Sign=46660217FE015CB56EF02C6FF451B7FDAC44218630FA146008288CBD01A4A43A)
 
-#### rotate
+### rotate
 
 rotate(options: RotateOption): Matrix4Transit
 
 Matrix的旋转函数，可以为当前矩阵增加x轴/y轴/z轴旋转效果。会改变调用该函数的原始矩阵。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------------------|:-|:------|
 |options|[RotateOption](#rotateoption)|是|设置旋转参数。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:----------|
 |[Matrix4Transit](#matrix4transit)|旋转效果后的矩阵对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 import { matrix4 } from '@kit.ArkUI';
 
@@ -512,33 +516,33 @@ struct Test {
 }
 ```
 
-![](https://media:401788445278657341)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/bZeJ2D6BRki6BMFuadNp3A/zh-cn_image_0000002733435836.png?HW-CC-KV=V1&HW-CC-Date=20260917T084629Z&HW-CC-Expire=31536000000&HW-CC-Sign=2013422C448766F06DAC8388D30302DDA5F66AF5B2508722CF7B133343830F6E)
 
-#### transformPoint
+### transformPoint
 
-transformPoint(options: \[number, number\]): \[number, number\]
+transformPoint(options: [number, number]): [number, number]
 
 Matrix的坐标点转换函数，可以将当前的变换效果作用到一个坐标点上。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:-----------------|:-|:----------------------------------------|
-|options|\[number, number\]|是|需要转换的坐标点，格式为\[x, y\]，其中x为横坐标、y为纵坐标，单位为px。|
+|:------|:---------------|:-|:--------------------------------------|
+|options|[number, number]|是|需要转换的坐标点，格式为[x, y]，其中x为横坐标、y为纵坐标，单位为px。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:-----------------------|
-|\[number, number\]|返回矩阵变换后的坐标点，格式为\[x, y\]。|
+|:---------------|:---------------------|
+|[number, number]|返回矩阵变换后的坐标点，格式为[x, y]。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 import { matrix4 } from '@kit.ArkUI';
 
@@ -573,38 +577,39 @@ struct Test {
 }
 ```
 
-![](https://media:401788445279021342)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/ynEw_HsrRAGuSJ6iNlhmag/zh-cn_image_0000002762995359.png?HW-CC-KV=V1&HW-CC-Date=20260917T084629Z&HW-CC-Expire=31536000000&HW-CC-Sign=73E0395DB41708B629909B3121C23A6B054D468F9E707C356B289EA2552EC212)
 
-#### setPolyToPoly^12+^
+### setPolyToPoly^12+^
 
 setPolyToPoly(options: PolyToPolyOptions): Matrix4Transit
 
 将一个多边形的顶点坐标映射到另外一个多边形的顶点坐标。适用于需要进行自定义形变的场景，如图片透视校正、实现3D视觉效果、卡片翻转效果等。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------------------------------|:-|:-----------------------------------|
 |options|[PolyToPolyOptions](#polytopolyoptions12)|是|多边形映射参数，用于指定源多边形顶点坐标和目标多边形顶点坐标的映射关系。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:----------|
 |[Matrix4Transit](#matrix4transit)|当前矩阵变换后的对象。|
 
-![](https://media:401788445279052343)  
-需要配合组件的scale({centerX:0,centerY:0,x:1})接口使用，将变换中心点设置为组件左上角。默认情况下变换中心点为组件中心点，不配合使用时setPolyToPoly的映射效果将以组件中心点为基准，可能导致变换结果不符合预期。此处scale()应在组件上调用（如Image.scale()），与transform()配合使用，而非矩阵对象的变换方法。
+> 说明
+>
+> 需要配合组件的scale({centerX:0,centerY:0,x:1})接口使用，将变换中心点设置为组件左上角。默认情况下变换中心点为组件中心点，不配合使用时setPolyToPoly的映射效果将以组件中心点为基准，可能导致变换结果不符合预期。此处scale()应在组件上调用（如Image.scale()），与transform()配合使用，而非矩阵对象的变换方法。
 
-示例：
+**示例：**
 
-```
+```ts
 import { matrix4 } from '@kit.ArkUI';
 
 @Entry
@@ -631,15 +636,15 @@ struct Index {
 }
 ```
 
-![](https://media:401788445279085344)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/qOyUyvVZTFmGNcaxxAL-Ow/zh-cn_image_0000002762835473.png?HW-CC-KV=V1&HW-CC-Date=20260917T084629Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B55C28CB2DE69C2725B6A7E0AEC4F88D41D778DDE4C2F3B9786C07C55489FB8)
 
-#### TranslateOption
+## TranslateOption
 
 平移参数。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
 |:-|:-----|:-|:-|:---------------------------------|
@@ -647,91 +652,92 @@ struct Index {
 |y|number|否|是|y轴的平移距离。 单位：px 默认值：0 取值范围 (-∞, +∞)|
 |z|number|否|是|z轴的平移距离。 单位：px 默认值：0 取值范围 (-∞, +∞)|
 
-#### ScaleOption
+## ScaleOption
 
 缩放参数。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:------|:-----|:-|:-|:---------------------------------------------------------------------------------------|
-|x|number|否|是|x轴的缩放倍数。x=1时表示不缩放，保持原始大小；x\>1时以x轴方向放大；0\<x\<1时以x轴方向缩小；x\<0时沿x轴反向并缩放。 默认值：1 取值范围 (-∞, +∞)|
-|y|number|否|是|y轴的缩放倍数。y\>1时以y轴方向放大，0\<y\<1时以y轴方向缩小，y\<0时沿y轴反向并缩放。 默认值：1 取值范围 (-∞, +∞)|
-|z|number|否|是|z轴的缩放倍数。z=1时表示不缩放，保持原始大小；z\>1时以z轴方向放大；0\<z\<1时以z轴方向缩小；z\<0时沿z轴反向并缩放。 默认值：1 取值范围 (-∞, +∞)|
+|:------|:-----|:-|:-|:-----------------------------------------------------------------------------------|
+|x|number|否|是|x轴的缩放倍数。x=1时表示不缩放，保持原始大小；x>1时以x轴方向放大；0<x<1时以x轴方向缩小；x<0时沿x轴反向并缩放。 默认值：1 取值范围 (-∞, +∞)|
+|y|number|否|是|y轴的缩放倍数。y>1时以y轴方向放大，0<y<1时以y轴方向缩小，y<0时沿y轴反向并缩放。 默认值：1 取值范围 (-∞, +∞)|
+|z|number|否|是|z轴的缩放倍数。z=1时表示不缩放，保持原始大小；z>1时以z轴方向放大；0<z<1时以z轴方向缩小；z<0时沿z轴反向并缩放。 默认值：1 取值范围 (-∞, +∞)|
 |centerX|number|否|是|变换中心点x轴坐标。 单位：px 默认值：组件中心点x轴坐标。 取值范围 (-∞, +∞)|
 |centerY|number|否|是|变换中心点y轴坐标。 单位：px 默认值：组件中心点y轴坐标。 取值范围 (-∞, +∞)|
 
-#### RotateOption
+## RotateOption
 
 旋转参数。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:------|:-----|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|x|number|否|是|旋转轴向量x坐标，用于指定旋转轴在x方向的分量。当需要绕包含x分量的轴旋转时传入此参数，不传入时旋转轴x分量默认为0。 说明： 旋转向量中x、y、z至少有一个不为0才有意义。 默认值：0 取值范围：(-∞, +∞)|
-|y|number|否|是|旋转轴向量y坐标，用于指定旋转轴在y方向的分量。当需要绕包含y分量的轴旋转时传入此参数，不传入时旋转轴y分量默认为0。 说明： 旋转向量中x、y、z至少有一个不为0才有意义。 默认值：0 取值范围：(-∞, +∞)|
-|z|number|否|是|旋转轴向量z坐标，用于指定旋转轴在z方向的分量。当需要绕包含z分量的轴旋转时传入此参数，不传入时旋转轴z分量默认为0。 默认值：0 取值范围 (-∞, +∞)。 说明： 旋转向量中x、y、z至少有一个不为0，否则不产生旋转效果。|
+|:------|:-----|:-|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|x|number|否|是|旋转轴向量x坐标，用于指定旋转轴在x方向的分量。当需要绕包含x分量的轴旋转时传入此参数，不传入时旋转轴x分量默认为0。 **说明：** 旋转向量中x、y、z至少有一个不为0才有意义。 默认值：0 取值范围：(-∞, +∞)|
+|y|number|否|是|旋转轴向量y坐标，用于指定旋转轴在y方向的分量。当需要绕包含y分量的轴旋转时传入此参数，不传入时旋转轴y分量默认为0。 **说明：** 旋转向量中x、y、z至少有一个不为0才有意义。 默认值：0 取值范围：(-∞, +∞)|
+|z|number|否|是|旋转轴向量z坐标，用于指定旋转轴在z方向的分量。当需要绕包含z分量的轴旋转时传入此参数，不传入时旋转轴z分量默认为0。 默认值：0 取值范围 (-∞, +∞)。 **说明：** 旋转向量中x、y、z至少有一个不为0，否则不产生旋转效果。|
 |angle|number|否|是|旋转角度，用于设置组件绕旋转轴的旋转量。当需要旋转组件时传入此参数，不传入时组件不做旋转。 单位为度（°） 默认值：0|
-|centerX|number|否|是|单次矩阵变换操作的中心点相对于组件变换中心点（锚点）的额外x轴偏移值。 单位：px 默认值：0 说明： 为0时表示x方向的矩阵变换中心恰好为组件x方向锚点，取值表示相对组件x方向锚点的额外偏移量。具体实现可参考[示例3（按中心点旋转）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#示例3按中心点旋转)。|
-|centerY|number|否|是|单次矩阵变换中心点相对于组件变换中心点（锚点）的额外y轴偏移值。 单位：px 默认值：0 说明： 为0时表示y方向的矩阵变换中心恰好为组件y方向锚点，取值表示相对组件y方向锚点的额外偏移量。具体实现可参考[示例3（按中心点旋转）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#示例3按中心点旋转)。|
+|centerX|number|否|是|单次矩阵变换操作的中心点相对于组件变换中心点（锚点）的额外x轴偏移值。 单位：px 默认值：0 **说明：** 为0时表示x方向的矩阵变换中心恰好为组件x方向锚点，取值表示相对组件x方向锚点的额外偏移量。具体实现可参考[示例3（按中心点旋转）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#示例3按中心点旋转)。|
+|centerY|number|否|是|单次矩阵变换中心点相对于组件变换中心点（锚点）的额外y轴偏移值。 单位：px 默认值：0 **说明：** 为0时表示y方向的矩阵变换中心恰好为组件y方向锚点，取值表示相对组件y方向锚点的额外偏移量。具体实现可参考[示例3（按中心点旋转）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#示例3按中心点旋转)。|
 
-#### PolyToPolyOptions^12+^
+## PolyToPolyOptions^12+^
 
 多边形到多边形的映射选项。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:---------|:-------------------------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|src|Array\<[Point](#point12)\>|否|否|源多边形顶点坐标，用于定义映射变换的起始形状。|
-|srcIndex|number|否|是|源点坐标起始索引，用于指定从src数组的哪个位置开始取点。当需要从src数组特定位置开始取源点时传入此参数，不传入时从索引0开始取点。 默认值：0 取值范围：\[0, +∞)|
-|dst|Array\<[Point](#point12)\>|否|否|目标多边形顶点坐标，用于定义映射变换的目标形状。|
-|dstIndex|number|否|是|目标点坐标起始索引，用于指定从dst数组中取目标点坐标的起始位置。 默认值: src.length/2 取值范围：\[0, +∞)|
-|pointCount|number|否|是|使用到的点数量。前提条件：src和dst数组中的点数量需不少于pointCount。如果为0，则返回单位矩阵；如果为1，则使用1个源点和1个目标点，返回将源点平移到目标点的平移矩阵；如果为2，返回仿射变换矩阵（含旋转、缩放和平移）；如果为3，返回仿射变换矩阵（含旋转、缩放、平移和剪切）；如果为4，返回透视变换矩阵。超出范围时不生效。 默认值: 0 取值范围：\[0, +∞)|
+|:---------|:-----------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|src|Array<[Point](#point12)>|否|否|源多边形顶点坐标，用于定义映射变换的起始形状。|
+|srcIndex|number|否|是|源点坐标起始索引，用于指定从src数组的哪个位置开始取点。当需要从src数组特定位置开始取源点时传入此参数，不传入时从索引0开始取点。 默认值：0 取值范围：[0, +∞)|
+|dst|Array<[Point](#point12)>|否|否|目标多边形顶点坐标，用于定义映射变换的目标形状。|
+|dstIndex|number|否|是|目标点坐标起始索引，用于指定从dst数组中取目标点坐标的起始位置。 默认值: src.length/2 取值范围：[0, +∞)|
+|pointCount|number|否|是|使用到的点数量。前提条件：src和dst数组中的点数量需不少于pointCount。如果为0，则返回单位矩阵；如果为1，则使用1个源点和1个目标点，返回将源点平移到目标点的平移矩阵；如果为2，返回仿射变换矩阵（含旋转、缩放和平移）；如果为3，返回仿射变换矩阵（含旋转、缩放、平移和剪切）；如果为4，返回透视变换矩阵。超出范围时不生效。 默认值: 0 取值范围：[0, +∞)|
 
-#### Point^12+^
+## Point^12+^
 
 坐标点的数据结构。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
 |:-|:-----|:-|:-|:------------------------|
 |x|number|否|否|x轴坐标。 单位：px 取值范围：(-∞, +∞)|
 |y|number|否|否|y轴坐标。 单位：px 取值范围：(-∞, +∞)|
 
-#### matrix4.copy^(deprecated)^
+## matrix4.copy^(deprecated)^
 
 copy(): Matrix4Transit
 
-Matrix的拷贝函数，可以拷贝一份当前的矩阵对象。  
-![](https://media:401788445279185345)  
-从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.copy](#copy)替代。
+Matrix的拷贝函数，可以拷贝一份当前的矩阵对象。
+> 说明
+>
+> 从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.copy](#copy)替代。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:---------|
 |[Matrix4Transit](#matrix4transit)|当前矩阵的拷贝对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 // xxx.ets
 import { matrix4 } from '@kit.ArkUI';
 
@@ -761,133 +767,140 @@ struct Test {
 }
 ```
 
-![](https://media:401788445279229346)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/mTSl8ifJTFuu4aJm0unO1A/zh-cn_image_0000002733275962.png?HW-CC-KV=V1&HW-CC-Date=20260917T084629Z&HW-CC-Expire=31536000000&HW-CC-Sign=C7F72EAAE8BD9660069F95BBCA0FB362E7C31AA651A2DB72008F79C74EC7FAB1)
 
-#### matrix4.invert^(deprecated)^
+## matrix4.invert^(deprecated)^
 
 invert(): Matrix4Transit
 
-Matrix的逆函数，可以返回一个当前矩阵对象的逆矩阵，即效果正好相反。会改变调用该函数的原始矩阵。  
-![](https://media:401788445279399347)  
-从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.invert](#invert)替代。
+Matrix的逆函数，可以返回一个当前矩阵对象的逆矩阵，即效果正好相反。会改变调用该函数的原始矩阵。
+> 说明
+>
+> 从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.invert](#invert)替代。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:----------|
 |[Matrix4Transit](#matrix4transit)|当前矩阵的逆矩阵对象。|
 
-#### matrix4.combine^(deprecated)^
+## matrix4.combine^(deprecated)^
 
 combine(options: Matrix4Transit): Matrix4Transit
 
-Matrix的叠加函数，可以将两个矩阵的效果叠加起来作用于当前矩阵。会改变调用该函数的原始矩阵。  
-![](https://media:401788445279434348)  
-matrixA.combine(matrixB)与matrixB.combine(matrixA)的变换结果不同。combine()的调用顺序决定了变换的叠加顺序，例如先平移后缩放与先缩放后平移的变换效果不同。使用时需根据预期的变换效果选择正确的调用顺序。如需保留原始矩阵不被修改，应先调用copy()再调用combine()，例如：matrixA.copy().combine(matrixB)。  
-![](https://media:401788445279463349)  
-从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.combine](#combine)替代。
+Matrix的叠加函数，可以将两个矩阵的效果叠加起来作用于当前矩阵。会改变调用该函数的原始矩阵。
+> 说明
+>
+> matrixA.combine(matrixB)与matrixB.combine(matrixA)的变换结果不同。combine()的调用顺序决定了变换的叠加顺序，例如先平移后缩放与先缩放后平移的变换效果不同。使用时需根据预期的变换效果选择正确的调用顺序。如需保留原始矩阵不被修改，应先调用copy()再调用combine()，例如：matrixA.copy().combine(matrixB)。
+> 说明
+>
+> 从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.combine](#combine)替代。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------------|:-|:------------------------|
 |options|[Matrix4Transit](#matrix4transit)|是|待叠加的矩阵对象，其变换效果将与单位矩阵进行叠加。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:--------|
 |[Matrix4Transit](#matrix4transit)|叠加后的矩阵对象。|
 
-#### matrix4.translate^(deprecated)^
+## matrix4.translate^(deprecated)^
 
 translate(options: TranslateOption): Matrix4Transit
 
-Matrix的平移函数，可以为当前矩阵增加x轴/y轴/z轴平移效果。会改变调用该函数的原始矩阵。  
-![](https://media:401788445279496350)  
-从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.translate](#translate)替代。
+Matrix的平移函数，可以为当前矩阵增加x轴/y轴/z轴平移效果。会改变调用该函数的原始矩阵。
+> 说明
+>
+> 从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.translate](#translate)替代。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------------------------|:-|:------------------------|
 |options|[TranslateOption](#translateoption)|是|平移配置参数，用于设置x轴、y轴、z轴的平移距离。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:--------|
 |[Matrix4Transit](#matrix4transit)|平移后的矩阵对象。|
 
-#### matrix4.scale^(deprecated)^
+## matrix4.scale^(deprecated)^
 
 scale(options: ScaleOption): Matrix4Transit
 
-Matrix的缩放函数，可以为当前矩阵增加x轴/y轴/z轴缩放效果。会改变调用该函数的原始矩阵。  
-![](https://media:401788445279559351)  
-从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.scale](#scale)替代。
+Matrix的缩放函数，可以为当前矩阵增加x轴/y轴/z轴缩放效果。会改变调用该函数的原始矩阵。
+> 说明
+>
+> 从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.scale](#scale)替代。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------|:-|:--------------------------------|
 |options|[ScaleOption](#scaleoption)|是|缩放配置参数，用于设置x轴、y轴、z轴的缩放倍数及变换中心点坐标。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:--------|
 |[Matrix4Transit](#matrix4transit)|缩放后的矩阵对象。|
 
-#### matrix4.rotate^(deprecated)^
+## matrix4.rotate^(deprecated)^
 
 rotate(options: RotateOption): Matrix4Transit
 
-Matrix的旋转函数，可以为当前矩阵增加x轴/y轴/z轴旋转效果。会改变调用该函数的原始矩阵。  
-![](https://media:401788445279651352)  
-从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.rotate](#rotate)替代。
+Matrix的旋转函数，可以为当前矩阵增加x轴/y轴/z轴旋转效果。会改变调用该函数的原始矩阵。
+> 说明
+>
+> 从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.rotate](#rotate)替代。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------------------|:-|:-------------------------------------|
 |options|[RotateOption](#rotateoption)|是|旋转配置参数，用于设置旋转轴向量(x/y/z)、旋转角度及变换中心点偏移值。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------|:--------|
 |[Matrix4Transit](#matrix4transit)|旋转后的矩阵对象。|
 
-#### matrix4.transformPoint^(deprecated)^
+## matrix4.transformPoint^(deprecated)^
 
-transformPoint(options: \[number, number\]): \[number, number\]
+transformPoint(options: [number, number]): [number, number]
 
-Matrix的坐标点转换函数，可以将当前的变换效果作用到一个坐标点上。  
-![](https://media:401788445279815353)  
-从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.transformPoint](#transformpoint)替代。
+Matrix的坐标点转换函数，可以将当前的变换效果作用到一个坐标点上。
+> 说明
+>
+> 从API version 7开始支持，从API version 10开始废弃，建议使用[Matrix4Transit.transformPoint](#transformpoint)替代。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:-----------------|:-|:--------|
-|options|\[number, number\]|是|需要转换的坐标点。|
+|:------|:---------------|:-|:--------|
+|options|[number, number]|是|需要转换的坐标点。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:-----------------------|
-|\[number, number\]|返回矩阵变换后的坐标点，格式为\[x, y\]。|
+|:---------------|:---------------------|
+|[number, number]|返回矩阵变换后的坐标点，格式为[x, y]。|
 

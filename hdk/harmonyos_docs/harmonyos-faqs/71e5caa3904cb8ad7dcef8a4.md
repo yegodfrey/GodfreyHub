@@ -6,24 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivi
 
 # 如何通过已连接的BLE蓝牙设备的虚拟MAC地址建立经典蓝牙连接
 
-#### 问题现象
+## 问题现象
 
-当周围存在多个名称相同的蓝牙设备时，如何在经典蓝牙的扫描列表中准确识别出当前已通过BLE连接的设备，并进一步建立经典蓝牙连接？  
+当周围存在多个名称相同的蓝牙设备时，如何在经典蓝牙的扫描列表中准确识别出当前已通过BLE连接的设备，并进一步建立经典蓝牙连接？
 
-#### 背景知识
+## 背景知识
 
 * 蓝牙技术是一种无线通信技术，可以在短距离内传输数据，目前蓝牙有两种常见的技术分类：传统蓝牙（BR/EDR）和低功耗蓝牙（BLE）。两种类型的蓝牙区分可以参考：[蓝牙服务开发概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bluetooth-overview)。
 * 在BLE蓝牙中，可以通过[ScanFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#scanfilter)过滤参数精确找到需要连接的BLE蓝牙设备。
 * [经典蓝牙扫描](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection#connectionstartbluetoothdiscovery)无法配置过滤参数，通常只能通过扫描到的虚拟MAC地址，调用[getRemoteDeviceName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection#connectiongetremotedevicename16)接口获取设备名称来确定目标设备。
-* 若对端设备同时支持经典蓝牙和BLE蓝牙，通过BLE蓝牙虚拟MAC地址建立蓝牙配对的同时，也会完成经典蓝牙的配对。  
+* 若对端设备同时支持经典蓝牙和BLE蓝牙，通过BLE蓝牙虚拟MAC地址建立蓝牙配对的同时，也会完成经典蓝牙的配对。
 
-#### 解决方案
+## 解决方案
 
 使用已连接的BLE蓝牙设备的虚拟MAC地址调用[pairDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection#connectionpairdevice)接口发起配对。配对完成后，配对列表中不仅会包含BLE蓝牙的配对信息，还会包含经典蓝牙的配对信息。通过调用[getPairedDevices](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection#connectiongetpaireddevices)接口，可以直接获取到经典蓝牙的虚拟MAC地址，然后使用这个MAC地址建立经典蓝牙连接。
 
 参考样例代码：
 
-```
+```ts
 import socket from '@ohos.bluetooth.socket';
 import connection from '@ohos.bluetooth.connection';
 import { ble } from '@kit.ConnectivityKit';
@@ -69,19 +69,19 @@ struct Index {
       connection.on('bondStateChange', (data: connection.BondStateParam) => {
         console.info(`pair state = ${data}`);
         if (data.state === 2) {
-          // 3.配对完成后，重新获取配对列表信息。此刻，配对列表中存在该设备的ble配对信息和经典蓝牙配对信息。
+         // 3.配对完成后，重新获取配对列表信息。此刻，配对列表中存在该设备的ble配对信息和经典蓝牙配对信息。
           let devices: Array<string> = connection.getPairedDevices();
           for (let i = 0; i < devices.length; i++) {
             console.info(`已配对mac： ${devices[i]}`);
             let dev: string = devices[i];
-            // 4.通过ble蓝牙的mac地址，找出经典蓝牙的mac地址。
+           // 4.通过ble蓝牙的mac地址，找出经典蓝牙的mac地址。
             if (dev !== this.bleAddress) {
               let n: string = connection.getRemoteDeviceName(devices[i]);
               console.info(`已配对后开始连接 n: ${n} mac: ${devices[i]}`);
-              // 5.通过经典蓝牙mac地址获取设备名称，然后通过这个名称二次匹配，确定设备。
+            // 5.通过经典蓝牙mac地址获取设备名称，然后通过这个名称二次匹配，确定设备。
               if (n === this.name) {
                 connection.off('bondStateChange');
-                // 6.确定设备后，发起经典蓝牙连接。
+               // 6.确定设备后，发起经典蓝牙连接。
                 this.connect(devices[i]);
               }
             }
@@ -95,11 +95,11 @@ struct Index {
         console.info(`发现设备 ： ${name}，地址为 ： ${data[i].deviceId}`);
         ble.stopBLEScan();
         ble.off('BLEDeviceFind');
-        // 发现设备后，先保存设备名称
+      // 发现设备后，先保存设备名称
         this.bleAddress = data[i].deviceId;
         let devices: Array<string> = connection.getPairedDevices();
         let index = devices.indexOf(data[i].deviceId);
-        // 2.1查询配对列表，如果该设备未配对，先发起配对。
+       // 2.1查询配对列表，如果该设备未配对，先发起配对。
         if (index < 0) {
           console.info(`准备配对: ${name}`);
           connection.pairDevice(data[i].deviceId).then(() => {
@@ -107,7 +107,7 @@ struct Index {
           });
         } else {
           console.info(`已配对: ${name}`);
-          // 2.2如果设备已经配对，直接在配对列表中找出设备对端设备的经典蓝牙mac地址，发起连接即可。
+        // 2.2如果设备已经配对，直接在配对列表中找出设备对端设备的经典蓝牙mac地址，发起连接即可。
           for (let i = 0; i < devices.length; i++) {
             console.info(`已配对mac ${devices[i]} 设备名称： ${name}`);
             let dev: string = devices[i];
@@ -123,7 +123,7 @@ struct Index {
         }
       }
     });
-    // 1.以设备名称为过滤参数，发起ble扫描，获取对端ble蓝牙mac地址。
+  // 1.以设备名称为过滤参数，发起ble扫描，获取对端ble蓝牙mac地址。
     ble.startBLEScan([{
       name: this.name
     }], {
@@ -146,7 +146,7 @@ struct Index {
 }
 ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：使用connection.pairDevice发起设备配对并成功后，如何通过代码调用取消配对？
 
@@ -202,4 +202,5 @@ A：ble.startBLEScan()方法扫描到的设备和配不配对没有具体的关�
 
 Q：API20及以下的[connection.getPairState()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection#connectiongetpairstate11)是否支持传入真实的物理地址?
 
-A：从API21开始支持[connection.getPairState()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection#connectiongetpairstate11)传入真实物理地址。  
+A：从API21开始支持[connection.getPairState()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection#connectiongetpairstate11)传入真实物理地址。
+

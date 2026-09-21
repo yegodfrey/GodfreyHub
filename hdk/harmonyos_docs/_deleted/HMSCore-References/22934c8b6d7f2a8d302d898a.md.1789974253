@@ -1,0 +1,33 @@
+---
+name: document/cn/HMSCore-References/classes-0000001050147315
+title: Class Summary
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/classes-0000001050147315
+---
+
+# Class Summary
+
+* **[AdListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adlistener-0000001050066825)**   
+* **[AdParam](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adparam-0000001050066827)**   
+* **[AdParam.Builder](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adparam-builder-0000001050066829)**   
+* **[AdSize](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/adsize-0000001050064882)**   
+* **[AdvertiserInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/advertiserinfo-0000001420607914)**   
+* **[AppDownloadButton](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/appdownloadbutton-0000001139541279)**   
+* **[AppDownloadButtonStyle](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/appdownloadbuttonstyle-0000001092242462)**   
+* **[AppDownloadButtonStyle.Style](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/appdownloadbuttonstyle-style-0000001139204887)**   
+* **[BannerAdSize](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/banneradsize-0000001050066831)**   
+* **[ChoicesView](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/choicesview-0000001050064884)**   
+* **[HwAds](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hwads-0000001050066833)**   
+* **[Image](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/image-0000001050064886)**   
+* **[RequestOptions](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/requestoptions-0000001050066843)**   
+* **[RequestOptions.Builder](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/requestoptions-builder-0000001050064896)**   
+* **[Video](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/video-0000001194699274)**   
+* **[VideoConfiguration](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/videoconfiguration-0000001050066837)**   
+* **[VideoConfiguration.Builder](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/videoconfiguration-builder-0000001050064890)**   
+* **[VideoOperator.VideoLifecycleListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/videolifecyclelistener-0000001050066841)**   
+* **[AppInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/appinfo-0000001600190342)**   
+* **[PromoteInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/promoteinfo-0000001750234640)**   
+* **[InformationController](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/informationcontroller-0000001759616022)**   
+* **[InformationController.Builder](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/informationcontroller-builder-0000001761542954)**   
+* **[BiddingInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/biddinginfo-0000001920219376)**   
+* **[BiddingParam](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/biddingparam-0000001920059660)**   
+* **[BiddingParam.Builder](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/biddingparam-builder-0000001949058581)**   

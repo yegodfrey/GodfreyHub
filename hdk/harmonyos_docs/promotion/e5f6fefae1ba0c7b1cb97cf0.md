@@ -8,16 +8,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-tool-t
 
 您通过本接口创建定向包，创建后的定向包，可以绑定同一广告主的多个任务。
 
-* 请求地址：请根据您的就近区域进行选择 亚非拉：https://ads-dra.cloud.huawei.com/ads/v1/tools/targeting_package/create
+* **请求地址** ：请根据您的就近区域进行选择
+
+  亚非拉：https://ads-dra.cloud.huawei.com/ads/v1/tools/targeting_package/create
 
   俄罗斯：https://ads-drru.cloud.huawei.ru/ads/v1/tools/targeting_package/create
 
   欧洲：https://ads-dre.cloud.huawei.com/ads/v1/tools/targeting_package/create
-* 请求方法：POST
-* 请求参数：  
+* **请求方法** ：**POST**
+* **请求参数：**
 
-  |----------------------------------|-------|----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-  |参数名称|类型|是否必选|描述|
+  |----------------------------------|-------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  |**参数名称**|**类型**|**是否必选**|**描述**|
   |advertiser_id|long|否|广告主ID，对于经理账户或您的多个广告主账户共用一个华为账号，此字段必填。|
   |targeting_name|string|是|定向包名称，最大长度不超过100必填。|
   |targeting_description|string|否|定向包描述，最大长度不超过100。|
@@ -25,8 +27,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-tool-t
   |gender_struct|Struct2|否|性别定向，值为gender定向中的value。 单选值，不支持复选。|
   |age_struct|Struct2|否|年龄定向，值为age定向中的value。 可同时选择不同年龄段的值。|
   |series_type_struct|Struct2|否|手机系列定向，值为series_type定向中的value。|
-  |installed_apps_struct|Struct2|否|已安装应用定向，如果选择此定向，value填写\["true"\]，productType为ANDROID_APP时，installedAppsStruct和not_installed_Apps_struct为二选一。|
-  |not_installed_apps_struct|Struct2|否|未安装应用定向，如果选择此定向，value填写\["true"\]，productType为ANDROID_APP时，installedAppsStruct和not_installed_apps_struct为二选一。|
+  |installed_apps_struct|Struct2|否|已安装应用定向，如果选择此定向，value填写["true"]，productType为ANDROID_APP时，installedAppsStruct和not_installed_Apps_struct为二选一。|
+  |not_installed_apps_struct|Struct2|否|未安装应用定向，如果选择此定向，value填写["true"]，productType为ANDROID_APP时，installedAppsStruct和not_installed_apps_struct为二选一。|
   |app_category_installed_struct|Struct2|否|已安装App分类定向，值为app_category定向中的value，app_category_installed_struct、not_app_category_install_struct、app_category_active_struct不能同时选择。|
   |not_app_category_install_struct|Struct2|否|未安装App分类定向，值为app_category定向中的value，app_category_installed_struct、not_app_category_install_struct、app_category_active_struct不能同时选择。|
   |app_category_active_struct|Struct2|否|一个月内活跃App分类定向，值为app_category定向中的value，app_category_installed_struct、not_app_category_install_struct、app_category_active_struct不能同时选择。|
@@ -46,14 +48,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-tool-t
   |not_app_category_of_media_struct|Struct2|否|投放媒体类型排除定向|
   |accept_roaming_flag|string|否|漫游流量开关：选择地域定向时生效，字段不填时默认打开。 取值详见[漫游流量开关](https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-appendix1-0000001174597591#section16966142714578)|
 
-  Struct2定义  
+  Struct2定义
 
-  |----------|----------|----|-------|
-  |参数名称|类型|是否必选|描述|
-  |value|string\[\]|是|定向选中的值。|
-  |additional|string|否| |
+  |----------|--------|--------|-------|
+  |**参数名称**|**类型**|**是否必选**|**描述**|
+  |value|string[]|是|定向选中的值。|
+  |additional|string|否|  |
 
-  * 请求示例 POST ads/v1/tools/targeting_package/create
+  * **请求示例**
+
+    POST ads/v1/tools/targeting_package/create
 
     HTTP/1.1
 
@@ -63,9 +67,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-tool-t
 
     Authorization:Bearer CgB6e3x9ERGComr9dENxZX22iBk+mLuf1yGtQVPUjPJUMrstfKlqpdXk+kfHU9J8ZJ/soYIZHZzT446GeSYumluQuhsK7jvz4kz1Bkms4CLI/rE=
 
-    <br />
-
-    ```
+    ```codeblock
     {
         "advertiser_id": "504217979710404224",
         "targeting_name": "海外-非应用类",
@@ -130,23 +132,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/marketing-api-tool-t
     }
     ```
 
-  * 响应字段  
+  * 响应字段
 
-    |-------|-------|------|
-    |参数名称|类型|描述|
+    |--------|-------|------|
+    |**参数名称**|**类型**|**描述**|
     |code|string|返回码。|
     |message|string|返回描述。|
     |data|Struct1|定向包ID。|
 
-    Struct1定义  
+    Struct1定义
 
-    |------------|----|------|
-    |参数名称|类型|描述|
+    |------------|------|------|
+    |**参数名称**|**类型**|**描述**|
     |targeting_id|long|定向包ID。|
 
-  * 应答示例 HTTPS/1.1 200 OK
+  * **应答示例**
 
-    ```
+    HTTPS/1.1 200 OK
+
+    ```codeblock
     {
         "code": "200",
         "data": {

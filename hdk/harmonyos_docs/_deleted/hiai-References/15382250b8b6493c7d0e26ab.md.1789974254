@@ -1,0 +1,33 @@
+---
+name: document/cn/hiai-References/mllivenessdetectinfo-0000001062727846
+title: MLLivenessDetectInfo
+uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mllivenessdetectinfo-0000001062727846
+---
+
+# MLLivenessDetectInfo
+
+|Class Info|
+|:--------------------------------------------------------------------|
+|com.huawei.hms.mlsdk.livenessdetection.MLLivenessDetectInfo 静默活体检测信息。|
+
+## Public Field Summary
+
+|Qualifier and Type|Field and Description|
+|:-----------------|:----------------------------------------------------|
+|int|[MASK_WAS_DETECTED](#section4376346102010) 检测到当前戴了口罩。|
+|int|[NO_FACE_WAS_DETECTED](#section3980121574110) 未检测到人脸。|
+
+## Public Fields
+
+### MASK_WAS_DETECTED
+
+|Field|
+|:---------------------------------------------------------------------|
+|public static final int MASK_WAS_DETECTED 检测到当前戴了口罩。 Constant Value: 2|
+
+### NO_FACE_WAS_DETECTED
+
+|Field|
+|:---------------------------------------------------------------------|
+|public static final int NO_FACE_WAS_DETECTED 未检测到人脸。 Constant Value: 1|
+

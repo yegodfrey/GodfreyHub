@@ -10,35 +10,35 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/vastapplica
 |:----------------------------------|
 |public class VastApplication 全局上下文。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:-------------------------------------------------------------------|
 |void|[init](#section23660491326)(Context context, boolean test) 初始化全局上下文。|
 |Context|[getContext](#section1198912219171)() 获取当前页面的上下文。|
 
-#### Public Methods
+## Public Methods
 
-#### init
+### init
 
 |Method|
 |:---------------------------------------------------------------|
 |public static void init(Context context, boolean test) 初始化全局上下文。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:--------------------------|
 |context|页面上下文。|
 |test|是否为测试广告： * true：是 * false：否|
 
-#### getContext
+### getContext
 
 |Method|
 |:---------------------------------------------|
 |public static Context getContext() 获取当前页面的上下文。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------|:----------|

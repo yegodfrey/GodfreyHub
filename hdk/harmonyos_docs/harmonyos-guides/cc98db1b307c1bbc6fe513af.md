@@ -6,20 +6,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-health
 
 # 健康记录
 
-#### 场景介绍
+## 场景介绍
 
-健康记录，记录健康记录的基本信息，包括健康记录的起止时间，数据类型，字段值，明细数据等，支持写入、读取和删除，每条健康记录需要关联数据源。  
+健康记录，记录健康记录的基本信息，包括健康记录的起止时间，数据类型，字段值，明细数据等，支持写入、读取和删除，每条健康记录需要关联数据源。
 
-#### 接口说明
+## 接口说明
 
 |接口名|描述|
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|[saveData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstoresavedata-2)(healthSequence: [HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)\[\] \| [HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)): Promise\<void\>|保存健康记录，入参为单个[HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)或[HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)数组。|
-|[readData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstorereaddata-2)\<T extends [HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)\>(request: [HealthSequenceReadRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequencereadrequest)): Promise\<T\[\]\>|查询健康记录，通过[HealthSequenceReadRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequencereadrequest)设置查询条件，可按数据类型，字段、时间范围等条件查询。|
-|[deleteData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstoredeletedata-5)(healthSequence: [HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence) \| [HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)\[\]): Promise\<void\>|删除健康记录，按入参删除指定的健康记录，可传入单个[HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)或[HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)数组。|
-|[deleteData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstoredeletedata-2)(request: [HealthSequenceDeleteRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequencedeleterequest) \| [HealthSequenceDeleteRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequencedeleterequest)\[\]): Promise\<void\>|删除健康记录，按[HealthSequenceDeleteRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequencedeleterequest)删除，可设置数据类型、时间范围、数据源等删除条件。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|[saveData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstoresavedata-2)(healthSequence: [HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)[] | [HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)): Promise<void>|保存健康记录，入参为单个[HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)或[HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)数组。|
+|[readData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstorereaddata-2)<T extends [HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)>(request: [HealthSequenceReadRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequencereadrequest)): Promise<T[]>|查询健康记录，通过[HealthSequenceReadRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequencereadrequest)设置查询条件，可按数据类型，字段、时间范围等条件查询。|
+|[deleteData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstoredeletedata-5)(healthSequence: [HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence) | [HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)[]): Promise<void>|删除健康记录，按入参删除指定的健康记录，可传入单个[HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)或[HealthSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequence)数组。|
+|[deleteData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstoredeletedata-2)(request: [HealthSequenceDeleteRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequencedeleterequest) | [HealthSequenceDeleteRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequencedeleterequest)[]): Promise<void>|删除健康记录，按[HealthSequenceDeleteRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthsequencedeleterequest)删除，可设置数据类型、时间范围、数据源等删除条件。|
 
-#### 开发前检查
+## 开发前检查
 
 * 完成[申请运动健康服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-apply)与[配置Client ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-configuration-client-id)。
 
@@ -29,13 +29,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-health
 
 * 错误码请参考[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)，常见问题请参考[Health Service Kit常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-faqs)。
 
-#### 开发步骤
+## 开发步骤
 
-#### 保存用户的健康记录
+### 保存用户的健康记录
 
 1. 导入运动健康服务功能模块及相关公共模块。
 
-   ```
+   ```typescript
    import { healthStore } from '@kit.HealthServiceKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
    ```
@@ -44,7 +44,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-health
 
 3. 创建健康记录。
 
-   ```
+   ```typescript
    let healthSequence: healthStore.healthSequenceHelper.sleepRecord.Model = {
      summaries: {
        fallAsleepTime: 1695740400000, // 2023-09-26 23:00:00
@@ -95,7 +95,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-health
 
 4. 调用[saveData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstoresavedata-2)方法执行保存数据请求，并处理返回结果。
 
-   ```
+   ```typescript
    try {
      await healthStore.saveData(healthSequence);
      hilog.info(0x0000, 'testTag', 'Succeeded in saving data.');
@@ -104,18 +104,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-health
    }
    ```
 
-#### 读取用户的健康记录
+### 读取用户的健康记录
 
 1. 导入运动健康服务功能模块及相关公共模块。
 
-   ```
+   ```typescript
    import { healthStore } from '@kit.HealthServiceKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
    ```
 
 2. 创建查询健康记录请求。
 
-   ```
+   ```typescript
    let healthSequenceReadRequest: healthStore.HealthSequenceReadRequest = {
      healthSequenceDataType: healthStore.healthSequenceHelper.sleepRecord.DATA_TYPE,
      startTime: 1695740400000,
@@ -128,7 +128,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-health
 
 3. 调用[readData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstorereaddata-2)方法执行查询请求，并处理返回结果。
 
-   ```
+   ```typescript
    try {
      const healthSequences = await healthStore.readData(healthSequenceReadRequest);
      hilog.info(0x0000, 'testTag', 'Succeeded in reading data.');
@@ -144,18 +144,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-health
    }
    ```
 
-#### 删除指定的健康记录
+### 删除指定的健康记录
 
 1. 导入运动健康服务功能模块及相关公共模块。
 
-   ```
+   ```typescript
    import { healthStore } from '@kit.HealthServiceKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
    ```
 
 2. 查询待删除健康记录。
 
-   ```
+   ```typescript
    let healthSequenceReadRequest: healthStore.HealthSequenceReadRequest = {
      healthSequenceDataType: healthStore.healthSequenceHelper.sleepRecord.DATA_TYPE,
      startTime: 1695740400000,
@@ -166,7 +166,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-health
 
 3. 调用[deleteData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstoredeletedata-5)方法执行删除请求，并处理返回结果。
 
-   ```
+   ```typescript
    try {
      for (let index = 0; index < healthSequences.length; index++) {
        const healthSequence = healthSequences[index];
@@ -178,18 +178,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-health
    }
    ```
 
-#### 根据请求删除用户健康记录
+### 根据请求删除用户健康记录
 
 1. 导入运动健康服务功能模块及相关公共模块。
 
-   ```
+   ```typescript
    import { healthStore } from '@kit.HealthServiceKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
    ```
 
 2. 创建删除健康记录请求。
 
-   ```
+   ```typescript
    const healthSequenceDeleteRequest: healthStore.HealthSequenceDeleteRequest= {
      healthSequenceDataType: healthStore.healthSequenceHelper.sleepRecord.DATA_TYPE,
      startTime: 1695740400000,
@@ -199,7 +199,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-health
 
 3. 调用[deleteData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthstoredeletedata-2)方法执行删除请求，并处理返回结果。
 
-   ```
+   ```typescript
    try {
      await healthStore.deleteData(healthSequenceDeleteRequest);
      hilog.info(0x0000, 'testTag', 'Succeeded in deleting data.');

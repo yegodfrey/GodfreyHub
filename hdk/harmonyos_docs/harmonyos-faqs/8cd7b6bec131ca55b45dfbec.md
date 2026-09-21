@@ -6,30 +6,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1223
 
 # 如何实现单页面的沉浸式效果
 
-#### 问题现象
+## 问题现象
 
 A页面没有设置沉浸式模式，B页面设置了沉浸式模式。在A页面跳转B页面时使用setWindowLayoutFullScreen()方法让页面变沉浸式，在B页面的aboutToDisappear生命周期中退出沉浸式，回到A页面，发现A页面也进入了沉浸式模式，如何避免A页面因跳转B页面而进入沉浸式模式？
 
 问题效果预览：
 
-![](https://media:101782454294727049 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/fBo3St1YR2m-YYmyt4Wxcw/zh-cn_image_0000002628594024.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=A3AAF43F51A535B6601D867486D65E8315BB449AE890D6DE1B6B8C1075366F0B "点击放大")
 
-#### 背景知识
+## 背景知识
 
 沉浸式模式通常指让应用的界面更加专注于内容，不希望用户被无关元素干扰。实现沉浸式效果有如下两种方案：
 
 * [窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)提供管理窗口的一些基础能力，包括对当前窗口的创建、销毁、各属性设置，以及对各窗口间的管理调度。其中，[setWindowLayoutFullScreen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowlayoutfullscreen9)用于动态设置主窗口或子窗口的布局模式为沉浸式，即隐藏系统状态栏/导航栏以最大化可用区域。
-* 设置组件的[expandSafeArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#expandsafearea)属性，扩展组件的安全区域到状态栏和导航栏，从而实现沉浸式。  
+* 设置组件的[expandSafeArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#expandsafearea)属性，扩展组件的安全区域到状态栏和导航栏，从而实现沉浸式。
 
-#### 解决方案
+## 解决方案
 
 由于aboutToDisappear生命周期是异步回调，因此在B页面的aboutToDisappear生命周期中退出沉浸式，A页面也会看到沉浸式过渡为非沉浸式的效果。解决该问题可参考以下2种方案：
 
-* 方案一：在页面跳转过程中，通过页面生命周期方法动态控制沉浸式模式： 当B页面被隐藏时，在onPageHide方法中主动调用setWindowLayoutFullScreen(false)恢复非沉浸式状态，同时通过window.getLastWindow(this.getUIContext().getHostContext())确保仅操作当前页面的窗口实例，从而隔离页面间的状态影响，避免A页面因沉浸式模式被意外修改。
+* **方案一** ：在页面跳转过程中，通过页面生命周期方法动态控制沉浸式模式：
+
+  当B页面被隐藏时，在onPageHide方法中主动调用setWindowLayoutFullScreen(false)恢复非沉浸式状态，同时通过window.getLastWindow(this.getUIContext().getHostContext())确保仅操作当前页面的窗口实例，从而隔离页面间的状态影响，避免A页面因沉浸式模式被意外修改。
 
   Index页面：
 
-  ```
+  ```ts
   @Entry
   @Component
   struct Index {
@@ -50,7 +52,7 @@ A页面没有设置沉浸式模式，B页面设置了沉浸式模式。在A页�
 
   PageTwo页面：
 
-  ```
+  ```ts
   import { window } from '@kit.ArkUI';
 
   export class ParamInfo {
@@ -101,11 +103,12 @@ A页面没有设置沉浸式模式，B页面设置了沉浸式模式。在A页�
 
   效果预览：
 
-  ![](https://media:101782454294936050 "点击放大")
-* 方案二：使用expandSafeArea属性扩展安全区域的方案实现：  
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/KjiVOpQ5Soa27MjxA-FB-w/zh-cn_image_0000002628753920.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=45DF97CBB72CDA1717E6C575472441F16170BD3099F744BAF8430302943C7565 "点击放大")
+* **方案二** ：使用expandSafeArea属性扩展安全区域的方案实现：
+
   单个页面实现沉浸式，优先考虑使用expandSafeArea属性扩展安全区域的方案实现，该方案只会影响当前组件的布局。PageThree页面：
 
-  ```
+  ```ts
   @Entry
   @Component
   struct PageThree {
@@ -126,7 +129,7 @@ A页面没有设置沉浸式模式，B页面设置了沉浸式模式。在A页�
 
   PageFour.ets页面：
 
-  ```
+  ```ts
   export class ParamInfo {
     fromPage: string = '';
   }
@@ -158,13 +161,13 @@ A页面没有设置沉浸式模式，B页面设置了沉浸式模式。在A页�
 
   效果预览：
 
-![](https://media:101782454294978051 "点击放大")  
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/9z3GU8DDTMO6fAeMyo4-Rg/zh-cn_image_0000002658953231.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=2DBB0A34B91B361B42B508376F3F2991CC17D077B0E5B363FE9CB6735D91D177 "点击放大")
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：当页面存在悬浮子窗口时，使用下述方法实现沉浸式效果失效。
 
-```
+```ts
 import { window } from '@kit.ArkUI';
 
 @Entry
@@ -200,13 +203,13 @@ A：[getLastWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 EntryAbility.ets：
 
-```
+```ts
 onWindowStageCreate(windowStage: window.WindowStage): void {
   windowStage.loadContent('pages/Index', (err) => {
     if (err.code) {
       return;
     }
-    // 保存windowStage，在页面中取出使用
+  // 保存windowStage，在页面中取出使用
     AppStorage.setOrCreate('windowStage', windowStage);
   });
 }
@@ -214,7 +217,7 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
 
 Index.ets：
 
-```
+```ts
 import { window } from '@kit.ArkUI'
 
 @Entry
@@ -240,6 +243,7 @@ struct Index {
 }
 ```
 
-#### 总结
+## 总结
 
-一般来说，整个应用（所有页面）都需要沉浸式效果，可以选择设置窗口全屏方案统一实现，针对具体页面的避让场景设置padding；单个页面或者仅需要将背景延伸到状态栏和导航栏，页面内容（子组件）希望避让状态栏和导航栏，使用expandSafeArea属性扩展对应组件安全区域来实现沉浸式效果更为方便。  
+一般来说，整个应用（所有页面）都需要沉浸式效果，可以选择设置窗口全屏方案统一实现，针对具体页面的避让场景设置padding；单个页面或者仅需要将背景延伸到状态栏和导航栏，页面内容（子组件）希望避让状态栏和导航栏，使用expandSafeArea属性扩展对应组件安全区域来实现沉浸式效果更为方便。
+

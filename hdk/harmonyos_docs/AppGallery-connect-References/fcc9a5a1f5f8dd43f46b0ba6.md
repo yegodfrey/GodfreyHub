@@ -6,10 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # FFResolutionInfo2
 
-分辨率信息。  
-Structure Declaration
+分辨率信息。
 
-```
+**Structure Declaration**
+
+```screen
 typedef struct FFResolutionInfo2 {
     FFStructureType sType;
     const void* pNext;
@@ -20,11 +21,11 @@ typedef struct FFResolutionInfo2 {
 } FFResolutionInfo2;
 ```
 
-Members  
+**Members**
 
 |Name|Mandatory/Optional|Description|
-|:--------------------------|:-----------------|:----------------------------------------------|
-|sType|Mandatory|此结构体类型必须为FF_STRUCTURE_TYPE_RESOLUTION_INFO_2|
+|:--------------------------|:-----------------|:-----------------------------------------------|
+|sType|Mandatory|此结构体类型必须为**FF_STRUCTURE_TYPE_RESOLUTION_INFO_2**|
 |pNext|Optional|指向扩展链中的下一个结构体的指针。扩展参数，可缺省，默认值为NULL。|
 |sceneColorResolution|Mandatory|场景颜色图像的分辨率，以像素为单位。|
 |sceneDepthStencilResolution|Optional|场景深度/模板图像的分辨率，以像素为单位。如果不使用，或者与场景颜色分辨率相同，可以设置为0。|

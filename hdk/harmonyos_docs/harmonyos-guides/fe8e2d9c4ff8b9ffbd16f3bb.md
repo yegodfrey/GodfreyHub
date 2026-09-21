@@ -12,15 +12,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-integ
 
 本节阐述同步模式下单模型的使用，从流程上分别阐述每个步骤在应用层和native层的实现和调用。接口请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit)，示例请参见[SampleCode](https://gitcode.com/HarmonyOS_Samples/cannkit-samplecode-clientdemo-cpp)，本示例支持加载离线模型对图片中的物体进行分类，App运行效果图如下所示。
 
-![](https://media:401788762275599256)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/_FWXTmq7T1S4f9vK2JkBVQ/zh-cn_image_0000002762995091.png?HW-CC-KV=V1&HW-CC-Date=20260917T084542Z&HW-CC-Expire=31536000000&HW-CC-Sign=FA2EE27621B8BB8BE4B630F61F94790C224F8AFE6AADE4DC1ABDDD273A045227)
 
-#### 预置模型
+## 预置模型
 
 为了让App运行时能够读取到模型文件和处理推理结果，需要先把离线模型和模型对应的结果标签文件预置到工程的"entry/src/main/resources/rawfile"目录中。
 
-本示例所使用的离线模型的转换和生成请参考[Caffe模型转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-model-conversion-example#caffe模型转换)。  
+本示例所使用的离线模型的转换和生成请参考[Caffe模型转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-model-conversion-example#caffe模型转换)。
 
-#### 加载离线模型
+## 加载离线模型
 
 在App应用创建时加载模型和读取结果标签文件。
 
@@ -32,7 +32,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-integ
 
 4. 设置模型的deviceID。
 
-   ```
+   ```cpp
    size_t deviceID = 0;
    const size_t *allDevicesID = nullptr;
    uint32_t deviceCount = 0;
@@ -73,15 +73,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-integ
 
 7. 调用[OH_NNCompilation_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-core-h#oh_nncompilation_destroy)，释放模型编译实例。
 
-上述流程可参见[SampleCode](https://gitcode.com/HarmonyOS_Samples/cannkit-samplecode-clientdemo-cpp)中entry/src/main/cpp/Classification.cpp文件中的LoadModel函数和entry/src/main/cpp/HIAIModelManager.cpp中的HIAIModelManager::LoadModelFromBuffer函数。  
+上述流程可参见[SampleCode](https://gitcode.com/HarmonyOS_Samples/cannkit-samplecode-clientdemo-cpp)中entry/src/main/cpp/Classification.cpp文件中的LoadModel函数和entry/src/main/cpp/HIAIModelManager.cpp中的HIAIModelManager::LoadModelFromBuffer函数。
 
-#### 输入输出数据准备
+## 输入输出数据准备
 
-1. 处理模型的输入，例如示例中模型的输入为1\*3\*227\*227格式Float类型的数据，需要把输入的图片转成该格式后传递到NAPI层。
+1. 处理模型的输入，例如示例中模型的输入为1*3*227*227格式Float类型的数据，需要把输入的图片转成该格式后传递到NAPI层。
 
 2. 创建模型的输入和输出Tensor，并把应用层传递的数据填充到输入的Tensor中。
 
-   ```
+   ```cpp
    // 创建输入数据
    size_t inputCount = 0;
    std::vector<NN_Tensor*> inputTensors;
@@ -141,18 +141,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-integ
    }
    ```
 
-上述流程可参见[SampleCode](https://gitcode.com/HarmonyOS_Samples/cannkit-samplecode-clientdemo-cpp)中"entry/src/main/cpp/Classification.cpp"文件中的InitIOTensors函数和"entry/src/main/cpp/HIAIModelManager.cpp"中的HIAIModelManager::InitIOTensors函数。  
+上述流程可参见[SampleCode](https://gitcode.com/HarmonyOS_Samples/cannkit-samplecode-clientdemo-cpp)中"entry/src/main/cpp/Classification.cpp"文件中的InitIOTensors函数和"entry/src/main/cpp/HIAIModelManager.cpp"中的HIAIModelManager::InitIOTensors函数。
 
-#### 同步推理离线模型
+## 同步推理离线模型
 
-![](https://media:401788762275639257)  
-如果不更换模型，则首次编译加载完成后可多次推理，即一次编译加载，多次推理。
+> 说明
+>
+> 如果不更换模型，则首次编译加载完成后可多次推理，即一次编译加载，多次推理。
 
 调用[OH_NNExecutor_RunSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-core-h#oh_nnexecutor_runsync)，完成模型的同步推理。
 
-可参见[SampleCode](https://gitcode.com/HarmonyOS_Samples/cannkit-samplecode-clientdemo-cpp)中"entry/src/main/cpp/Classification.cpp"文件中的RunModel函数和"entry/src/main/cpp/HIAIModelManager.cpp"中的HIAIModelManager::RunModel函数。  
+可参见[SampleCode](https://gitcode.com/HarmonyOS_Samples/cannkit-samplecode-clientdemo-cpp)中"entry/src/main/cpp/Classification.cpp"文件中的RunModel函数和"entry/src/main/cpp/HIAIModelManager.cpp"中的HIAIModelManager::RunModel函数。
 
-#### 模型输出后处理
+## 模型输出后处理
 
 1. 调用[OH_NNTensor_GetDataBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-core-h#oh_nntensor_getdatabuffer)，获取输出的Tensor，在输出Tensor中会得到模型的输出数据。
 
@@ -161,6 +162,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-integ
    例如本示例demo中模型的输出是1000个label的概率，期望得到这1000个结果中概率最大的三个标签。
 3. 销毁申请的Tensor资源和执行器实例。
 
-上述流程可参见[SampleCode](https://gitcode.com/HarmonyOS_Samples/cannkit-samplecode-clientdemo-cpp)中"entry/src/main/cpp/Classification.cpp"文件中的GetResult、UnloadModel函数和"entry/src/main/cpp/HIAIModelManager.cpp"中的HIAIModelManager::GetResult、HIAIModelManager::UnloadModel函数。  
-![](https://media:401788762275829258)  
-开发者可根据需要自行设置模型推理优先级。使用[OH_NNCompilation_SetPriority](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-core-h#oh_nncompilation_setpriority)接口，默认值为OH_NN_PRIORITY_NONE，本接口应在模型推理前调用。  
+上述流程可参见[SampleCode](https://gitcode.com/HarmonyOS_Samples/cannkit-samplecode-clientdemo-cpp)中"entry/src/main/cpp/Classification.cpp"文件中的GetResult、UnloadModel函数和"entry/src/main/cpp/HIAIModelManager.cpp"中的HIAIModelManager::GetResult、HIAIModelManager::UnloadModel函数。
+> 说明
+>
+> 开发者可根据需要自行设置模型推理优先级。使用[OH_NNCompilation_SetPriority](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neural-network-core-h#oh_nncompilation_setpriority)接口，默认值为OH_NN_PRIORITY_NONE，本接口应在模型推理前调用。
+

@@ -6,38 +6,38 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-840
 
 # 如何解决拖拽功能和长按功能的冲突问题
 
-#### 问题现象
+## 问题现象
 
-在List组件中，单个ListItem在同时设置拖拽功能与长按功能时，实际运行之后会产生冲突，如何解决单个ListItem拖拽功能和长按功能的冲突问题？  
+在List组件中，单个ListItem在同时设置拖拽功能与长按功能时，实际运行之后会产生冲突，如何解决单个ListItem拖拽功能和长按功能的冲突问题？
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782461567014418 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/JaJqfeo3QrWTYWDvpj6z-g/zh-cn_image_0000002628398638.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114737Z&HW-CC-Expire=31536000000&HW-CC-Sign=1882BB6DE17DFDFB31707AA7D232BE7B1942B65A51984EFCF85B59FC4B1A55A3 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [支持统一拖拽](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-events-drag-event)提供了一种通过鼠标或手势触屏传递数据的机制，即从一个组件位置拖出数据并将其拖入到另一个组件位置，以触发响应。
 * [长按手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-single-gesture#长按手势longpressgesture)通过长按屏幕触发长按手势事件。
 * 由于拖拽事件和长按手势都需要通过长按来触发，因此这种[组合手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-combined-gestures)类型会出现冲突，例如[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件中每个[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)都设置单独的长按事件时，拖拽功能和长按手势功能就会出现冲突。
 * [Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)网格容器，由"行"和"列"分割的单元格所组成，通过指定"项目"所在的单元格做出各种各样的布局。
-* 滑动手势[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)，能够提供自定义拖拽事件的功能。  
+* 滑动手势[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)，能够提供自定义拖拽事件的功能。
 
-#### 解决方案
+## 解决方案
 
 由于在ListItem中设置单独的长按事件会与拖拽事件产生冲突，因此建议放弃List本身的拖拽事件，使用滑动手势PanGesture，自行实现拖拽过程的逻辑，然后再通过组合手势的功能，去实现其他的长按事件。
 
-```
+```ts
 import curves from '@ohos.curves';
 
 @Entry
 @Component
 struct Page {
-  // 元素数组
+  //元素数组
   @State numbers: number[] = [];
-  // 多列
+  //多列
   private str: string = '';
   row: number = 4;
-  // 元素数组中最后一个元素的索引
+  //元素数组中最后一个元素的索引
   @State lastIndex: number = 0;
   @State dragItem: number = -1;
   @State scaleItem: number = -1;
@@ -54,7 +54,7 @@ struct Page {
       this.numbers.push(i);
     }
     this.lastIndex = this.numbers.length - 1;
-    // 多列
+   // 多列
     for (let i = 0; i < this.row; i++) {
       this.str = this.str + '1fr ';
     }
@@ -69,18 +69,18 @@ struct Page {
     this.numbers.splice(newIndex, 0, tmp[0]);
   }
 
-  // 向下滑
+// 向下滑
   down(index: number): void {
     if (!this.isDraggable(index + this.row)) {
       return;
     }
     this.offsetY -= this.FIX_VP_Y;
     this.dragRefOffsetY += this.FIX_VP_Y;
-    // 多列
+   // 多列
     this.itemMove(index, index + this.row);
   }
 
-  // 向下滑(右下角为空)
+// 向下滑(右下角为空)
   down2(index: number): void {
     if (!this.isDraggable(index + 3)) {
       return;
@@ -90,7 +90,7 @@ struct Page {
     this.itemMove(index, index + 3);
   }
 
-  // 向上滑
+// 向上滑
   up(index: number): void {
     if (!this.isDraggable(index - this.row)) {
       return;
@@ -100,7 +100,7 @@ struct Page {
     this.itemMove(index, index - this.row);
   }
 
-  // 向左滑
+ // 向左滑
   left(index: number): void {
     if (!this.isDraggable(index - 1)) {
       return;
@@ -110,7 +110,7 @@ struct Page {
     this.itemMove(index, index - 1);
   }
 
-  // 向右滑
+ // 向右滑
   right(index: number): void {
     if (!this.isDraggable(index + 1)) {
       return;
@@ -144,7 +144,7 @@ struct Page {
     this.itemMove(index, index - (this.row - 1));
   }
 
-  // 向左下滑
+ // 向左下滑
   lowerLeft(index: number): void {
     if (!this.isDraggable(index + (this.row - 1))) {
       return;
@@ -156,7 +156,7 @@ struct Page {
     this.itemMove(index, index + (this.row - 1));
   }
 
-  // 向左上滑
+// 向左上滑
   upperLeft(index: number): void {
     if (!this.isDraggable(index - (this.row + 1))) {
       return;
@@ -168,10 +168,10 @@ struct Page {
     this.itemMove(index, index - (this.row + 1));
   }
 
-  // 通过元素的索引，控制对应元素是否能移动排序
+ // 通过元素的索引，控制对应元素是否能移动排序
   isDraggable(index: number): boolean {
     console.info(`index: ${index}`);
-    return index > -1; // 恒成立，所有元素均可移动排序
+    return index > -1; //恒成立，所有元素均可移动排序
   }
 
   build() {
@@ -200,16 +200,16 @@ struct Page {
                 })
               .animation({ curve: Curve.Sharp, duration: 300 });
           }
-          // 添加震动
+        // 添加震动
           .onTouch(() => {
           })
           .onAreaChange((oldVal, newVal) => {
-            // 多列
+          // 多列
             this.FIX_VP_X = Math.round(newVal.width as number);
             this.FIX_VP_Y = Math.round(newVal.height as number);
             console.info(`oldVal:${JSON.stringify(oldVal)}`);
           })
-          // 指定固定GridItem不响应事件
+         // 指定固定GridItem不响应事件
           .hitTestBehavior(this.isDraggable(this.numbers.indexOf(item)) ? HitTestMode.Default : HitTestMode.None)
           .scale({ x: this.scaleItem == item ? 1.05 : 1, y: this.scaleItem == item ? 1.05 : 1 })
           .zIndex(this.dragItem == item ? 1 : 0)
@@ -248,43 +248,43 @@ struct Page {
                     if (this.offsetY >= this.FIX_VP_Y / 2 &&
                       (this.offsetX <= this.FIX_VP_X / 2 && this.offsetX >= -this.FIX_VP_X / 2)
                       && (index + this.row <= this.lastIndex)) {
-                      // 向下滑
+                      //向下滑
                       this.down(index);
                     } else if (this.offsetY <= -this.FIX_VP_Y / 2 &&
                       (this.offsetX <= this.FIX_VP_X / 2 && this.offsetX >= -this.FIX_VP_X / 2)
                       && index - this.row >= 0) {
-                      // 向上滑
+                      //向上滑
                       this.up(index);
                     } else if (this.offsetX >= this.FIX_VP_X / 2 &&
                       (this.offsetY <= this.FIX_VP_Y / 2 && this.offsetY >= -this.FIX_VP_Y / 2)
                       && !(((index - (this.row - 1)) % this.row == 0) || index == this.lastIndex)) {
-                      // 向右滑
+                      //向右滑
                       this.right(index);
                     } else if (this.offsetX <= -this.FIX_VP_X / 2 &&
                       (this.offsetY <= this.FIX_VP_Y / 2 && this.offsetY >= -this.FIX_VP_Y / 2)
                       && !(index % this.row == 0)) {
-                      // 向左滑
+                    // 向左滑
                       this.left(index);
                     } else if (this.offsetX >= this.FIX_VP_X / 2 && this.offsetY >= this.FIX_VP_Y / 2
                       && ((index + this.row + 1 <= this.lastIndex && !((index - (this.row - 1)) % this.row == 0)) ||
                         !((index - (this.row - 1)) % this.row == 0))) {
-                      // 向右下滑
+                      //向右下滑
                       this.lowerRight(index);
                     } else if (this.offsetX >= this.FIX_VP_X / 2 && this.offsetY <= -this.FIX_VP_Y / 2
                       && !((index - this.row < 0) || ((index - (this.row - 1)) % this.row == 0))) {
-                      // 向右上滑
+                     // 向右上滑
                       this.upperRight(index);
                     } else if (this.offsetX <= -this.FIX_VP_X / 2 && this.offsetY >= this.FIX_VP_Y / 2
                       && (!(index % this.row == 0) && (index + (this.row - 1) <= this.lastIndex))) {
-                      // 向左下滑
+                    // 向左下滑
                       this.lowerLeft(index);
                     } else if (this.offsetX <= -this.FIX_VP_X / 2 && this.offsetY <= -this.FIX_VP_Y / 2
                       && !((index <= this.row - 1) || (index % this.row == 0))) {
-                      // 向左上滑
+                      //向左上滑
                       this.upperLeft(index);
                     } else if (this.offsetX >= this.FIX_VP_X / 2 && this.offsetY >= this.FIX_VP_Y / 2
                       && (index == this.lastIndex)) {
-                      // 向右下滑(右下角为空)
+                     // 向右下滑(右下角为空)
                       this.down2(index);
                     }
                   });
@@ -316,7 +316,7 @@ struct Page {
       .width('90%')
       .editMode(true)
       .scrollBar(BarState.Off)
-      // 多列
+      //多列
       .columnsTemplate(this.str);
     }
     .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
@@ -325,8 +325,9 @@ struct Page {
 }
 ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：Grid上下左右拖拽动画如何实现？
 
-A：在跨行或跨列场景下，可以通过自定义Grid布局、自定义手势和显式动画来实现拖拽交换的效果。  
+A：在跨行或跨列场景下，可以通过自定义Grid布局、自定义手势和显式动画来实现拖拽交换的效果。
+

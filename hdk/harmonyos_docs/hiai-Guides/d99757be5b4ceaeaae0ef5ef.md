@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/enhanced-computing
 
 # 计算能力增强（可选）
 
-* [NPU算子库动态升级介绍](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/intruduction-0000001152124259)  
-* [NPU算子库动态升级集成](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/integration-0000001105764366)  
+* **[NPU算子库动态升级介绍](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/intruduction-0000001152124259)**   
+* **[NPU算子库动态升级集成](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/integration-0000001105764366)**   

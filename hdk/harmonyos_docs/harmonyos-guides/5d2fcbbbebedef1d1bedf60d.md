@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/common-proble
 
 # 应用程序包常见问题
 
-#### 如何获取签名信息中的指纹信息
+## 如何获取签名信息中的指纹信息
 
 * 通过调用接口获取。
 
 可以调用[bundleManager.getBundleInfoForSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)获取自身的BundleInfo应用包信息，应用包信息中包含signatureInfo签名信息，签名信息中包含指纹信息，使用哈希算法SHA-256生成。
 
-```
+```TypeScript
 import { bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -32,32 +32,32 @@ try {
 
 * 通过[bm工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool)获取指纹信息，使用哈希算法SHA-256生成。
 
-```
+```shell
 hdc shell
 # 需将com.example.myapplication替换为实际应用的包名
 bm dump -n com.example.myapplication | grep fingerprint
 ```
 
-![](https://media:401788444135431301)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/LrNmdCxsS8av5ji88ZrKJg/zh-cn_image_0000002733433258.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=A54B6DA42C05A683992AF91C2A256E1D53D2424D0BCF294885213757F48FFFF7)
 
 * 通过.cer证书文件获取，可以参考[APP备案FAQ](https://developer.huawei.com/consumer/cn/doc/app/50130)中HarmonyOS应用/元服务如何获取公钥和签名信息，指纹信息使用哈希算法SHA-1生成。
 
 * 通过keytool工具获取，详情参考[生成签名证书指纹](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/appgallerykit-preparation-game-0000001055356911#section147011294331)，使用哈希算法SHA-256生成。
 
-#### 什么是appIdentifier
+## 什么是appIdentifier
 
 appIdentifier是[Profile文件](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-profile-0000002248341090)中的一个字段，为应用的唯一标识，在应用签名时生成，其中：
 
 1. 通过DevEco Studio工具[自动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing-auto)生成，此时的appIdentifier字段是随机生成的，在不同的设备上签名、或者重新签名均会导致appIdentifier字段不一致。
 2. 采用手动签名，并通过AppGallery Connect平台申请证书，此时申请[调试Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-debug-profile-0000002248181278)或者[发布Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-profile-0000002248341090)中的appIdentifier字段是固定的，该字段来源于AppGallery Connect创建应用时生成的[APP ID](https://developer.huawei.com/consumer/cn/doc/app/agc-help-create-app-0000002247955506#section16423184171915)，由云端统一分配。此时的appIdentifier字段在应用全生命周期中不会发生变化，包括版本升级、证书变更、开发者公私钥变更、应用转移等。
 
-因此，在跨设备调试、跨应用交互调试、或者多用户共同开发且需要共享密钥等要求appIdentifier不变的场景下，推荐使用手动签名，具体场景请参考[使用场景说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。  
+因此，在跨设备调试、跨应用交互调试、或者多用户共同开发且需要共享密钥等要求appIdentifier不变的场景下，推荐使用手动签名，具体场景请参考[使用场景说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
 
-#### 如何获取应用信息中的appIdentifier
+## 如何获取应用信息中的appIdentifier
 
 * 可以调用[bundleManager.getBundleInfoForSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)获取自身的BundleInfo应用包信息，应用包信息中包含signatureInfo签名信息，签名信息中包含appIdentifier信息。
 
-```
+```TypeScript
 import { bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -77,23 +77,23 @@ try {
 
 * 通过[bm工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool)获取。
 
-```
+```shell
 hdc shell
 # 需将com.example.myapplication替换为实际应用的包名
 bm dump -n com.example.myapplication | grep appIdentifier
 ```
 
-![](https://media:401788444135462302)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/EaDsEXGBQXKQf9acBjE22A/zh-cn_image_0000002762992785.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=7305D2A02A9F8E9307D3C8951677452AB5A6D222AB6BD2D7E9C6D119E7E66509)
 
-#### 什么是appId
+## 什么是appId
 
-appId是应用的唯一标识，由包名、下划线和证书公钥的Base64编码组成。由于appId和签名信息相关，如果签名证书的公钥更换，appId也会跟随变化，所以应用的唯一标识推荐使用[appIdentifier](#什么是appidentifier)。  
+appId是应用的唯一标识，由包名、下划线和证书公钥的Base64编码组成。由于appId和签名信息相关，如果签名证书的公钥更换，appId也会跟随变化，所以应用的唯一标识推荐使用[appIdentifier](#什么是appidentifier)。
 
-#### 如何获取应用信息中的appId
+## 如何获取应用信息中的appId
 
 * 可以调用[bundleManager.getBundleInfoForSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)获取自身的BundleInfo应用包信息，应用包信息中包含signatureInfo签名信息，签名信息中包含appId信息。
 
-```
+```TypeScript
 import { bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -113,35 +113,35 @@ try {
 
 * 通过[bm工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool)获取。
 
-```
+```shell
 hdc shell
 # 需将ohos.app.hap.myapplication替换为实际应用的包名
 bm dump -n ohos.app.hap.myapplication |grep '"appId":'
 ```
 
-![](https://media:401788444135525303)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/4KOi4yEOQUu6fAa1OMyl9A/zh-cn_image_0000002762832901.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=858AC26DDD5F7091C94FF0075BD747B3444AD5BB32C8064100A52A5531135849)
 
-#### 应用的uid
+## 应用的uid
 
 uid是系统中用于[应用沙箱](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/access-token-overview#应用沙箱)隔离的唯一标识符，它分配给每个应用进程，确保应用在运行时相互隔离（如文件系统，内存空间等）。
 
-uid的生成算法为：uid = userId \* 200000 + (bundleId % 200000)。其中%表示取模运算，计算bundleId除以200000的余数。userId表示应用需要安装的用户编号，可以通过[getOsAccountLocalId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#getosaccountlocalid9)接口获取。bundleId表示应用的唯一编号，取值范围为10000到65535的整数，仅系统内部使用，可以通过uid和userId反算获取。  
+uid的生成算法为：uid = userId * 200000 + (bundleId % 200000)。其中%表示取模运算，计算bundleId除以200000的余数。userId表示应用需要安装的用户编号，可以通过[getOsAccountLocalId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#getosaccountlocalid9)接口获取。bundleId表示应用的唯一编号，取值范围为10000到65535的整数，仅系统内部使用，可以通过uid和userId反算获取。
 
-#### 如何获取应用的uid
+## 如何获取应用的uid
 
 * 通过[bm工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool)获取。
 
-```
+```shell
 hdc shell
 # 需将ohos.app.hap.myapplication替换为实际应用的包名
 bm dump -n ohos.app.hap.myapplication |grep uid
 ```
 
-![](https://media:401788444135554304)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/GPKt-_s_T4aiRIti1LHb9Q/zh-cn_image_0000002733273384.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=55E38832254E304583BF63B70A9F22212779F9592325E2BC1E2D3F09B2A9B333)
 
-* 可以调用[bundleManager.getBundleInfoForSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)获取自身的BundleInfo应用包信息，示例代码可以参考[如何获取应用信息中的appId](#如何获取应用信息中的appid)，取值方式为bundleInfo.appInfo.uid。  
+* 可以调用[bundleManager.getBundleInfoForSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)获取自身的BundleInfo应用包信息，示例代码可以参考[如何获取应用信息中的appId](#如何获取应用信息中的appid)，取值方式为bundleInfo.appInfo.uid。
 
-#### 跨HSP模块调用和跨HAR模块调用的区别
+## 跨HSP模块调用和跨HAR模块调用的区别
 
 HSP模块和HAR模块被调用时，主要的区别在Module2（HSP/HAR）模块Native调用Module2（HSP/HAR）模块ArkTS中，在调用napi_load_module_with_info加载模块时的入参不同，其余流程一致。
 
@@ -149,30 +149,30 @@ HSP模块和HAR模块被调用时，主要的区别在Module2（HSP/HAR）模块
 
    如图所示，编译构建后，HAR模块被打包到各个模块之中，所以其入口模块仍然是HAP模块，napi_load_module_with_info中第2个参数的模块名称要填HAP模块中oh-package.json5中定义的依赖HAR的名称，而不是HAR模块的实际名称。
 
-   ![](https://media:401788444135589305)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/8-HGmQgpQzejlS9NiOnP1w/zh-cn_image_0000002733433260.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D08695DBD353E6A909405715292565825C36CEFE1C4A081FEAA562137363B74)
 2. 被调用模块Module2是HSP
 
-当被调用模块Module2是HSP，HSP是独立的模块，其入口模块就是HSP本模块，所以napi_load_module_with_info第2个参数的模块名就是它自己的模块名。  
+   当被调用模块Module2是HSP，HSP是独立的模块，其入口模块就是HSP本模块，所以napi_load_module_with_info第2个参数的模块名就是它自己的模块名。
 
-#### 找不到HAR或HSP模块的ArkTS文件
+## 找不到HAR或HSP模块的ArkTS文件
 
-问题现象
+**问题现象**
 
 调用HAR/HSP模块的ArkTS文件时，可能会遇到以下报错：
 
-```
+```ts
 Error message:Cannot find module 'staticModule/src/main/ets/utils/Util' imported from 'com.xxxx.crossmodulereference/entry'.
 ```
 
-可能原因
+**可能原因**
 
 工程级的build-profile.json5中的useNormalizedOHMUrl设置参数为false。
 
-解决措施
+**解决措施**
 
 在调用模块Module1的build-profile.json5里面添加如下配置。
 
-```
+```json5
 // ...
   "buildOption": {
     // ...

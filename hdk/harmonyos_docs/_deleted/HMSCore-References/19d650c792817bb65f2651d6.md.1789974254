@@ -1,0 +1,209 @@
+---
+name: document/cn/HMSCore-References/update-model-0000001050158452
+title: 局部更新交通卡模板
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/update-model-0000001050158452
+---
+
+# 局部更新交通卡模板
+
+## 功能介绍
+
+更新modelId对应的交通卡模板的某些字段。
+
+## 场景描述
+
+开发者可以调用该API，更新modelId对应的交通卡模板的某些字段。除了passTypeIdentifier和passStyleIdentifier（modelId），其余字段均可更新。卡券模板被更新后，与之关联的已被华为钱包用户领取的卡券都会被相应地更新，不同的更新场景请查看[同步/异步更新规则](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/update-rulse-0000001053263499)。
+
+## 使用约束
+
+需在华为AGC网站上创建应用并申请卡券对应的服务。只能更新已添加到华为服务器的卡券模板。
+
+## 接口原型
+
+|承载协议|HTTPS PATCH|
+|-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|接口方向|开发者服务器->华为钱包服务器|
+|接口URL|{url}/hmspass/v1/transit/model/{modelId} {url}变量需要开发者根据服务器所属区域自行选择，请参见[钱包服务器地址](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/server-address-0000001050158382)。|
+|数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
+
+## 路径参数
+
+|参数|是否必选|参数类型|描述|
+|:------|:---|:-----|:-----------------------------------------------------|
+|modelId|是|String|卡券模板的唯一标识符。这个ID在同一个appId下唯一。这个ID只能包含字母、数字和（.）、（-）、（_）。|
+
+## 请求参数
+
+**Request Header** **：**
+
+|参数|是否必选|参数类型|描述|
+|:------------|:---|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Authorization|是|String|鉴权码。获取方式详见[基于OAuth 2.0开放鉴权](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/open-platform-oauth-0000001053629189-V5)，请使用"客户端模式"。"client_id"和"client_secret"即为开发者在华为AGC网站上创建应用后获取的"App ID"和"App key"。将获取到的"access_token"的值拼接在字符串"Bearer"之后，以空格符相隔，组成"Authorization"参数的值。|
+|Content-Type|是|String|固定值："application/json;charset=utf-8"。|
+|Accept|是|String|固定值："application/json;charset=utf-8"。|
+
+**Request Body** **：**
+
+|参数|是否必选|参数类型|描述|
+|:-------------------------------------------------------------------------------------------------------------|:---|:-----------------------------------------------------------------------------------------------------|:-------|
+|详见HwWalletObject[参数描述](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/param-0000001050158366)|是|[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)|待更新的卡券模板|
+
+## 请求示例
+
+```codeblock
+PATCH /hmspass/v1/transit/model/transitModelTest HTTP/1.1
+Content-Type: application/json;charset=utf-8
+Authorization: Bearer ***
+Accept: application/json;charset=utf-8
+Host: wallet-passentrust-drcn.cloud.huawei.com.cn
+{
+  "fields": {
+    "commonFields": [
+      {
+        "key": "logo",
+        "value": "https://www.huawei.com/new_image_url.png"
+      }
+    ]
+  }
+}
+```
+
+## 响应参数
+
+**错误码为200时：**
+
+|参数|参数类型|描述|
+|:-------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|:-------|
+|详见HwWalletObject[参数描述](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/param-0000001050158366)|[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)|已更新的卡券模板|
+
+## 响应示例
+
+```codeblock
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "passVersion": "1.0",
+  "passTypeIdentifier": "hwpass.com.huawei.wallet.transit.test",
+  "passStyleIdentifier": "transitModelTest",
+  "organizationName": "XXX Railway",
+  "fields": {
+    "countryCode": "CN",
+    "locationList": [
+      {
+        "longitude": "114.0679603815",
+        "latitude": "22.6592051284"
+      }
+    ],
+    "commonFields": [
+      {
+        "key": "logo",
+        "value": "https://www.huawei.com/new_image_url.png"
+      },
+      {
+        "key": "merchantName",
+        "value": "XXX Railway",
+        "localizedValue": "merchantNameI18N"
+      }
+    ],
+    "appendFields": [
+      {
+        "key": "backgroundColor",
+        "value": "#FF37C09A"
+      },
+      {
+        "key": "ticketFaceValue",
+        "value": "$127"
+      }
+    ],
+    "imageList": [
+      {
+        "key": "mainImage[0]",
+        "value": "https://www.huawei.com/XXX0.png"
+      },
+      {
+        "key": "mainImage[1]",
+        "value": "https://www.huawei.com/XXX1.png"
+      },
+      {
+        "key": "mainImage[2]",
+        "value": "https://www.huawei.com/XXX2.png"
+      }
+    ],
+    "messageList": [
+      {
+        "key": "message[0]",
+        "value": "Have a nice trip!"
+      }
+    ],
+    "ticketInfoList": [
+      {
+        "key": "departureStationName",
+        "value": "Euston"
+      },
+      {
+        "key": "arrivalStationName",
+        "value": "Lime Street"
+      },
+      {
+        "key": "departureCityName",
+        "value": "London"
+      },
+      {
+        "key": "arrivalCityName",
+        "value": "Liverpool"
+      },
+      {
+        "key": "departureTime",
+        "value": "2019-12-09T16:00:00.010Z"
+      },
+      {
+        "key": "arrivalTime",
+        "value": "2019-12-09T19:00:00.010Z"
+      },
+      {
+        "key": "platform",
+        "value": "3"
+      }
+    ],
+    "localized": [
+      {
+        "key": "merchantNameI18N",
+        "language": "zh-cn",
+        "value": "XXX铁路公司"
+      },
+      {
+        "key": "merchantNameI18N",
+        "language": "en",
+        "value": "XXX Railway"
+      }
+    ]
+  }
+}
+```
+
+## 错误码
+
+详见[错误码](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-server-errorcode-0000001051072926)。
+
+## 调用示例
+
+```codeblock
+public HwWalletObject partialUpdateWalletModel(String url, String modelId, String body) {
+    // Construct the http header.
+    HttpHeaders header = constructHttpHeaders();
+    // Construct the http URL.
+    String baseUrl = ConfigHelper.instants().getValue("walletServerBaseUrl");
+    String walletServerUrl = baseUrl + url + modelId;
+    // Construct the http body.
+    JSONObject jsonObj = JSONObject.parseObject(body);
+
+    // Send the http request and get response.
+    HttpEntity<JSONObject> entity = new HttpEntity<>(jsonObj, header);
+    ResponseEntity<HwWalletObject> response =
+        REST_TEMPLATE.exchange(walletServerUrl, HttpMethod.PATCH, entity, HwWalletObject.class);
+
+    // Return the updated wallet model.
+    return response.getBody();
+}
+```
+

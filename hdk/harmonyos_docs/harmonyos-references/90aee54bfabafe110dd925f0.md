@@ -6,16 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohav
 
 # OH_AVMetadataBuilderStruct
 
-```
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
+```c
 typedef struct OH_AVMetadataBuilderStruct OH_AVMetadataBuilder
 ```
 
-#### 概述
+## 概述
 
 会话元数据构建器。用于构建会话元数据。
 
-起始版本： 13
+**起始版本：** 13
 
-相关模块： [OHAVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohavsession)
+**相关模块：** [OHAVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohavsession)
 
-所在头文件： [native_avmetadata.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avmetadata-h)  
+**所在头文件：** [native_avmetadata.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avmetadata-h)
+

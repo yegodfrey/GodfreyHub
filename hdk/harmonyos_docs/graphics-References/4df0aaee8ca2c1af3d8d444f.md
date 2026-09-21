@@ -10,27 +10,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/api-tapres
 |:--------------------------------------|
 |public class TapPlaneResult 平面点击事件回调结果。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[ARNode](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-arnode-0000001071564248)|[createARNode](#section15900154515418)([Node](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-node-0000001061589671) node) 创建具备AR能力的节点。|
 
-#### Public Methods
+## Public Methods
 
-#### createARNode
+### createARNode
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public [ARNode](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-arnode-0000001071564248) createARNode([Node](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-node-0000001061589671) node) 创建具备AR能力的节点。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|
 |node|待创建的节点。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----------------------------------------------------------------------------------------------------|:----------|

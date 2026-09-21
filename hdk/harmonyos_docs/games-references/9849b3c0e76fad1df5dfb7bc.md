@@ -6,22 +6,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/games-api-bin
 
 # 获取插桩结果
 
-#### 功能介绍
+## 功能介绍
 
-调用此接口获取插桩任务的结果。通过packageName与Version可以查询到最新的插桩结果，若再传入taskId可以查询到指定结果。  
+调用此接口获取插桩任务的结果。通过**packageName** 与**Version** 可以查询到最新的插桩结果，若再传入**taskId**可以查询到指定结果。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS|
-|接口方向|开发者服务器 -\> 华为服务器|
+|-----|---------------------------------------------------------------------------------|
+|接口方向|开发者服务器 -> 华为服务器|
 |接口方法|GET|
-|接口URL|https://connect-api.cloud.huawei.com/api/gpos/binary/instrumentation?taskId=\*\*\*\*\*|
+|接口URL|https://connect-api.cloud.huawei.com/api/gpos/binary/instrumentation?taskId=*****|
 |数据格式|* 请求：Content-Type: application/json * 响应：Content-Type: application/json|
-|-----|--------------------------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-#### Header
+### Header
 
 |参数|类型|必选(M)/可选(O)|说明|
 |:------------|:-----|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -30,7 +30,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/games-api-bin
 |Authorization|string|M|认证信息，格式为"Authorization: Bearer ${access_token}"，其中access_token为调用[获取Token](https://developer.huawei.com/consumer/cn/doc/games-references/games-api-binary-optimization-obtain-token-0000002408001421)接口返回的access_token。|
 |projectId|string|M|在AppGallery Connect[创建项目和应用](https://developer.huawei.com/consumer/cn/doc/games-guides/games-binary-optimization-agc-works-0000002342950440#section210054711512)后的项目ID。最大长度20个字符。|
 
-#### Query
+### Query
 
 |参数|类型|必选(M)/可选(O)|说明|
 |:----------|:-----|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -41,9 +41,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/games-api-bin
 |packageName|string|O|游戏包名，与调用[提交插桩任务](https://developer.huawei.com/consumer/cn/doc/games-references/games-api-binary-optimization-submit-pile-task-0000002374241876)接口的入参packageName保持一致。最大长度256个字符。|
 |version|string|O|游戏版本号，与调用[提交插桩任务](https://developer.huawei.com/consumer/cn/doc/games-references/games-api-binary-optimization-submit-pile-task-0000002374241876)接口的入参version保持一致。最大长度64个字符。|
 
-#### 请求示例
+## 请求示例
 
-```
+```screen
 GET /api/gpos/binary/instrumentation?taskId=1105625425926684672
 Host: connect-api.cloud.huawei.com
 Content-Type: application/json
@@ -52,24 +52,24 @@ Authorization: Bearer ***
 projectId: ***
 ```
 
-#### 响应参数
+## 响应参数
 
 |参数|类型|必选(M)/可选(O)|说明|
-|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------|:----------|:--------------------------------------------------------------------------------------------------|
-|ret|[CommonRet](#ZH-CN_TOPIC_0000002408001433__zh-cn_topic_0000001863462698_zh-cn_topic_0000001854868752_p1170913233715)|M|包含返回码及描述信息的JSON字符串，格式为{"code":retcode, "msg": "description"}： * retcode：返回码。 * description：返回码描述信息。|
+|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------|:----------|:-------------------------------------------------------------------------------------------------------|
+|ret|[CommonRet](#ZH-CN_TOPIC_0000002408001433__zh-cn_topic_0000001863462698_zh-cn_topic_0000001854868752_p1170913233715)|M|包含返回码及描述信息的JSON字符串，格式为{"code":*retcode* , "msg": "*description*"}： * retcode：返回码。 * description：返回码描述信息。|
 |totalCount|int|O|插桩任务总数量。|
 |offset|int|O|分页偏移。|
 |hasNext|int|O|当前页面是否有下一页： * 0：没有下一页，"下一页"按钮置灰。 * 1：有下一页，"下一页"按钮高亮。|
-|data|List\<[BinaryInstrumentationResult](#ZH-CN_TOPIC_0000002408001433__zh-cn_topic_0000001863462698_zh-cn_topic_0000001854868752_p11445153517818)\>|O|若调用成功，将返回任务进度信息。|
+|data|List<[BinaryInstrumentationResult](#ZH-CN_TOPIC_0000002408001433__zh-cn_topic_0000001863462698_zh-cn_topic_0000001854868752_p11445153517818)>|O|若调用成功，将返回任务进度信息。|
 
-CommonRet参数说明  
+CommonRet参数说明
 
 |参数|类型|必选(M)/可选(O)|说明|
 |:---|:-----|:----------|:-----------------------------|
 |code|int|O|[返回码](#section17757520191913)。|
 |msg|string|O|描述信息。|
 
-BinaryInstrumentationResult参数说明  
+BinaryInstrumentationResult参数说明
 
 |参数|类型|必选(M)/可选(O)|说明|
 |:---------------------|:--------------------------------------------------------------------------------------------------------------------|:----------|:---------------------------------------------------------|
@@ -77,24 +77,24 @@ BinaryInstrumentationResult参数说明
 |packageName|string|M|游戏包名。|
 |version|string|M|游戏版本号。|
 |status|int|M|二进制插桩任务状态： * 0：未开始。 * 1：排队中。 * 2：正在执行。 * 3：插桩成功。 * 4：插桩失败。|
-|progress|int|M|插桩任务进度，取值范围\[0,100\]。|
+|progress|int|M|插桩任务进度，取值范围[0,100]。|
 |note|string|O|插桩任务的备注信息。|
 |instrumentedSoFileInfo|[FileInfo](#ZH-CN_TOPIC_0000002408001433__zh-cn_topic_0000001863462698_zh-cn_topic_0000001854868752_p146251637131114)|O|插桩so文件的信息，支持使用当前文件替换原始so文件，替换后需要重新打包和签名。|
 |resultMessage|string|O|插桩结果的补充信息： * 插桩任务失败时返回失败原因。 * 插桩任务成功时返回Success。|
 
-FileInfo参数说明  
+FileInfo参数说明
 
 |参数|类型|必选(M)/可选(O)|说明|
-|:---------|:-----|:----------|:----------------------------------------------------|
+|:---------|:-----|:----------|:-------------------------------------------------------|
 |objectId|string|O|文件的对象ID。|
-|url|string|O|当status=3时，将生成文件下载地址，您可以直接下载文件。 说明： 若想下载文件，请在60分钟内下载。|
+|url|string|O|当status=3时，将生成文件下载地址，您可以直接下载文件。 > 说明 > 若想下载文件，请在60分钟内下载。|
 |fileName|string|O|文件名称。|
 |fileSha256|string|O|文件的Sha256哈希值，可进行完整性校验。|
 |fileSize|string|O|文件大小，单位：字节。|
 
-#### 响应示例
+## 响应示例
 
-```
+```screen
 {
     "ret": {
         "code": 0,
@@ -124,7 +124,7 @@ FileInfo参数说明
 }
 ```
 
-#### 返回码
+## 返回码
 
 |code|msg|Description|
 |:---|:------------------|:----------|

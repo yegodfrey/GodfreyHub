@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1316
 
 # Grid组件自动滚屏
 
-#### 问题现象
+## 问题现象
 
-当GridItem拖拽到边缘时自滚动，拖拽到右下指定区域删除GridItem。  
+当GridItem拖拽到边缘时自滚动，拖拽到右下指定区域删除GridItem。
 
-#### 背景知识
+## 背景知识
 
 [Grid组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)是一种网格容器，由"行"和"列"分割的单元格所组成，通过指定"项目"所在的单元格做出各种各样的布局。在实现以上功能之前需要先了解基本的Grid组件[事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#事件)以及官方基础参考示例：[示例5（Grid拖拽场景）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#示例5grid拖拽场景)。
 
@@ -18,13 +18,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1316
 
 1. 通过[onScrollIndex()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#onscrollindex)获取Grid组件显示区域上第一个子组件和最后一个组件的索引值；
 2. 在[onItemDragMove()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#onitemdragmove8)拖拽移动事件中，通过this.scroller.currentOffset()获取scroller的实时y坐标；
-3. 通过在拖拽移动时设置边缘判定条件，并采用[scrollTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollto)方法实现滚动到指定位置，实现自动滚动能力。  
+3. 通过在拖拽移动时设置边缘判定条件，并采用[scrollTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollto)方法实现滚动到指定位置，实现自动滚动能力。
 
-#### 解决方案
+## 解决方案
 
 在自滚动的基础上新增拖动Item到指定区域删除功能，先通过onItemDrop回调中的event参数判断GridItem移动的坐标，当坐标移动到指定区域后，再删除该元素。示例如下：
 
-```
+```ts
 .onItemDrop((event: ItemDragInfo, itemIndex: number,
   insertIndex: number) => { //绑定此事件的组件可作为拖拽释放目标，当在本组件范围内停止拖拽行为时，触发回调。
   if (event.x > 270 && event.y > 710) {
@@ -38,7 +38,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1316
 
 完整示例代码如下：
 
-```
+```ts
 @Entry
 @Component
 struct GridDemo {
@@ -166,4 +166,5 @@ struct GridDemo {
 
 实现效果如下：
 
-![](https://media:101782454371400123 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/fJ3AUGB6TaCYdacO-JOEaQ/zh-cn_image_0000002658838373.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=555FE6D1D407D36FEC161479564E6857846417300D3869D66E5772EBD2021934 "点击放大")
+

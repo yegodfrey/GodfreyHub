@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/harmonyos-j
 
 # Overview
 
-包含帐号服务的登录结果类。  
+包含帐号服务的登录结果类。
 
-#### Interface Summary
+## Interface Summary
 
 |Interface|Description|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|

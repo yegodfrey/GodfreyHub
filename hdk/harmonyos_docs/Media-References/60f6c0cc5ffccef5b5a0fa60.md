@@ -10,21 +10,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/hvevideoselec
 |:-----------------------------------------------------|
 |public interface HVEVideoSelectionCallback 精彩片段提取结果回调。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:----------------------------------------------------------|
 |void|[onResult](#section2072316612237)(long start) 精彩片段提取结果回调接口。|
 
-#### Public Methods
+## Public Methods
 
-#### onResult
+### onResult
 
 |Method|
 |:--------------------------------------|
 |void onResult(long start) 精彩片段提取结果回调接口。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:-----------------|

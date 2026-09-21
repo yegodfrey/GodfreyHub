@@ -6,39 +6,39 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/flutter-plugin-
 
 # 版本更新说明
 
-#### 6.0.1.304（2021-09-30）
+## 6.0.1.304（2021-09-30）
 
 * 华为地图SDK版本更新为6.0.1.304。
 * 将animation.dart更名为hmsMarkerAnimation.dart。类名[HmsMarkerAnimation](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plugin-hmsmarkeranimation-0000001253024733)保持不变。
 
-新增特性
+**新增特性**
 
 * 增加地形图类型。
-* 地图支持Lite模式。  
+* 地图支持Lite模式。
 
-#### 历史版本
+## 历史版本
 
-#### 5.3.0.301（2021-09-01）
+### 5.3.0.301（2021-09-01）
 
-热补丁
+**热补丁**
 
-修改了元数据包来支持Flutter和Dart版本。  
+修改了元数据包来支持Flutter和Dart版本。
 
-#### 5.3.0.300（2021-08-31）
+### 5.3.0.300（2021-08-31）
 
 * 华为地图SDK版本更新为5.3.0.300。
 
-重大更改
+**重大更改**
 
 * 已将库迁移到空安全（Null Safety）。
 * 当refWidth值无效时，[Cap.customCapFromBitmap](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plugin-cap-0000001208344748#section8204mcpsimp)方法返回圆帽，不再返回null。
 
-错误修复
+**错误修复**
 
 * 修复了无法将初始填充值设置为华为地图实例的错误。
 * 修复了无法通过指定边界来创建地图覆盖物的错误。
 
-新增特性
+**新增特性**
 
 * 新增[PointOfInterest](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plugin-pointofinterest-0000001253264699)类。
 * 新增[Location](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plugin-location-0000001208184794)类。
@@ -82,18 +82,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/flutter-plugin-
   * 新增previewId属性，用于设置华为地图实例的自定义样式。
   * 在HuaweiMapController中新增setLocationSource接口，用于开启位置源特性。
   * 在HuaweiMapController中新增setLocation接口，用于将自定义位置指定为位置源。
-* 在HuaweiMapController中新增deactivateLocationSource接口，用于关闭位置源特性。  
+  * 在HuaweiMapController中新增deactivateLocationSource接口，用于关闭位置源特性。
 
-#### 5.0.3.303（2021-03-31）
+### 5.0.3.303（2021-03-31）
 
 * 更新了HMSLogger。
 * 修复了华为地图在低版本HMS Core设备上运行时崩溃的错误。
 * 修复了点击华为地图实例上Legal按钮时应用崩溃的错误。
-* 新增导致demo应用无法运行的缺失权限。  
+* 新增导致demo应用无法运行的缺失权限。
 
-#### 5.0.3.302（2020-11-30）
+### 5.0.3.302（2020-11-30）
 
-新增特性
+**新增特性**
 
 * 华为地图SDK版本更新为5.0.3.302。
 * 新增瓦片图层[TileOverlay](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plugin-tileoverlay-0000001253144701)以及如下瓦片类型：[Tile](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/tile-0000001208024794)、[UrlTile](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plugin-urltile-0000001208184792)和[RepetitiveTile](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plugin-repetitivetile-0000001253264697)。
@@ -114,4 +114,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/flutter-plugin-
     * 新增[enableLogger](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plugin-huaweimaputils-0000001208344746#section6184mcpsimp)方法。
     * 新增[disableLogger](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plugin-huaweimaputils-0000001208344746#section6163mcpsimp)方法。
   * 新增[distanceCalculator](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plugin-huaweimaputils-0000001208344746#section6204mcpsimp)方法。
-* 修复了错误并进行了优化。  
+* 修复了错误并进行了优化。
+

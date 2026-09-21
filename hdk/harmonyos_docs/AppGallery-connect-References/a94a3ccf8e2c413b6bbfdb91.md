@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # Web/快应用
 
-* [agconnect.cloudstorage](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudstorage-webquickapp-0000001055575258)  
+* **[agconnect.cloudstorage](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/cloudstorage-webquickapp-0000001055575258)**   

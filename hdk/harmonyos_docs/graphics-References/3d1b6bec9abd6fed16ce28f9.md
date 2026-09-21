@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/ddgi-overv
 
 # Overview
 
-图形引擎服务DDGI插件，生成动态的漫反射全局光照，该插件基于Vulkan图形API开发，支持windows平台、带Vulkan驱动的主流安卓/HarmonyOS环境。  
+图形引擎服务DDGI插件，生成动态的漫反射全局光照，该插件基于Vulkan图形API开发，支持windows平台、带Vulkan驱动的主流安卓/HarmonyOS环境。
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:------------------------------------------------------------------------------------------------------------|:--------------|
 |[DDGIAPI](https://developer.huawei.com/consumer/cn/doc/graphics-References/ddgi-api-ddgiapi-0000001259277208)|动态漫反射全局光照算法内核类。|
 
-#### Interface Summary
+## Interface Summary
 
 |Method|Description|
 |:--------------------------------------------------------------------------------------------------------------------------|:-----------------------------|
 |[DDGIUpsampling](https://developer.huawei.com/consumer/cn/doc/graphics-References/ddgi-api-ddgiupsampling-0000001261859978)|shader中使用，返回上采样后的Irradiance结果。|
 
-#### Struct Summary
+## Struct Summary
 
 |Struct|Description|
 |:--------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|
@@ -35,7 +35,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/ddgi-overv
 |[Mat4X4](https://developer.huawei.com/consumer/cn/doc/graphics-References/ddgi-api-mat4x4-0000001307317121)|模板化的矩阵数据，4行4列的列主序矩阵。该结构体仅用于数据存储、传递，不支持其他运算。|
 |[Vec](https://developer.huawei.com/consumer/cn/doc/graphics-References/ddgi-api-vec-0000001307437165)|模板化的向量数据，特化为Vec2，Vec3，Vec4。该结构体仅用于数据存储、传递，不支持其他运算。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum Class|Description|
 |:----------------------------------------------------------------------------------------------------------------------------------------|:-----------------|

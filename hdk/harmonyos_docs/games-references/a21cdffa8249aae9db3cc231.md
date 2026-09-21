@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-references/gameobe-playe
 |:------------------------------------|
 |export interface PlayerConfig 玩家信息配置。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Mandatory/Optional|Description|
 |:---------------------|:-----|:-----------------|:-------------------|

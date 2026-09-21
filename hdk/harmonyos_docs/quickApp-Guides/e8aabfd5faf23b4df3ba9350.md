@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 # 宫格组件
 
-#### 简介
+## 简介
 
 宫格组件主要用于展示商品推荐列表、热门内容等场景。宫格一般具有如下能力：
 
@@ -19,7 +19,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 宫格（grid）组件由若干个小宫格组成，每个小宫格的结构大致分为三部分，一是图片，二是文本，三是角标。自定义宫格组件通过data参数，指定上述内容，data参数如下：
 
-```
+```screen
 {
     text: 'Grid 1',                 //显示的文本
     uri: 'https://www.huawei.com',  //点击宫格跳转链接 
@@ -35,22 +35,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 布局代码如下：
 
-```
+```screen
 <text>方形布局</text>
 <div class="example-body">
       <grid data="{{data}}" mode="square" column="{{3}}" show-border="{{true}}"  border-color="#FF0000" @change="change"></grid>
 </div>
 ```
 
-#### 开发指引
+## 开发指引
 
-#### 自定义子组件
+### 自定义子组件
 
 1. 定义布局样式。 宫格整体外观都是通用的，但是内部具体的样式有区别，在设计的时候，不能把内部样式固定，否则一旦宫格的UI有变化，会导致子组件也要修改，违背了对外开源的初衷。
 
    所以，在子组件grid.ux中，开放多种样式属性，方便开发者自定义样式。
 
-   ```
+   ```screen
    <import name="flex-row" src="./flex_row"></import>
    <template>
      <flex-row wrap="wrap" h-style="{{hStyle}}">
@@ -68,17 +68,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 2. 规划属性和支持的事件。 支持的属性：
 
-   |属性|类型|默认值|描述|
+   |**属性**|**类型**|**默认值**|**描述**|
    |:-----------|:------|:------|:------|
-   |data|Array|\[\]|宫格数据。|
+   |data|Array|[]|宫格数据。|
    |mode|String|square|布局模式。|
    |column|Number|3|宫格列数。|
    |show-border|Boolean|true|是否显示边框。|
    |border-color|String|#d8e4ee|边框颜色。|
 
-   data配置项：  
+   data配置项：
 
-   |属性|类型|参数示例|描述|
+   |属性|**类型**|**参数示例**|**描述**|
    |:---------|:-----|:---------------------|:-----|
    |text|String|Grid 1|文本内容。|
    |uri|String|https://www.huawei.com|url链接。|
@@ -86,17 +86,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
    |badge|String|5|角标内容。|
    |badgeColor|String|#007AFF|角标背景色。|
 
-   支持的事件：  
+   支持的事件：
 
-   |事件名称|参数|描述|
-   |:-----|:--|:------|
+   |**事件名称**|**参数**|**描述**|
+   |:-------|:-----|:------|
    |change|evt|宫格点击事件。|
 
-#### 父子组件通信
+### 父子组件通信
 
 1. 子组件的props中定义相关属性值，父组件引用时传入属性值，子组件通过 this.xxx 获取值并进行处理。
 
-   ```
+   ```screen
    props: {
      data: {},
      mode: {
@@ -116,12 +116,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 2. 父组件定义宫格点击事件并绑定。
 
-   ```
+   ```screen
    <text style="padding-top: 20px;padding-bottom: 20px;font-size: 35px">点击宫格触发事件:</text>
    <grid data="{{data}}" mode="square" column="{{3}}" @change="change"></grid>
    ```
 
-   ```
+   ```screen
    change: function (evt) {
        console.log("evt.detail : " + JSON.stringify(evt.detail));
        if (evt.detail.params.uri) {
@@ -141,20 +141,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 3. 子组件在点击宫格时触发父组件的change事件。
 
-   ```
+   ```screen
    handleClick(item) {
      console.log("handleClick : " + JSON.stringify(item));
      this.$emit('change', { params: item })
    }
    ```
 
-#### 计算数据和样式
+### 计算数据和样式
 
 使用计算属性computed方法，通过props属性动态计算数据和样式，返回给组件使用。
 
 1. 生成宫格的数据。
 
-   ```
+   ```screen
    compData() {
      var arr = []
      for (var i = 0, len = this.data.length; i < len; i++) {
@@ -178,7 +178,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 2. 生成宫格的style样式。
 
-   ```
+   ```screen
    colWidth() {
      var that = this
      device.getInfo({
@@ -217,7 +217,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 3. 生成小宫格内文字和图片的style样式。
 
-   ```
+   ```screen
    avatarSize() {
      if (this.column > 3) {
        return 46
@@ -240,11 +240,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
    },
    ```
 
-#### 示例代码
+## 示例代码
 
 页面hello.ux代码：
 
-```
+```screen
 <import name="grid" src="../Grid/grid"></import>
 <template>
   <div class="container">
@@ -379,7 +379,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 宫格组件grid.ux代码：
 
-```
+```screen
 <import name="flex-row" src="./flex_row"></import>
 <template>
   <flex-row wrap="wrap" h-style="{{hStyle}}">
@@ -528,7 +528,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/custom-compone
 
 flex-row.ux代码：
 
-```
+```screen
 <template>
   <div class="{{bgColor}}" style="{{compStyle}}">
     <slot></slot>

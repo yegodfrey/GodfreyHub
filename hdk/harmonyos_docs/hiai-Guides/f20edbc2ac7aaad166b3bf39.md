@@ -11,4 +11,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/functional-descrip
 * 支持查看模型的format、input和output等参数。
 * 支持查看编译后模型的子图和算子设备信息。
 * 支持查看节点的NODE PROPERTIES、ATTRIBUTES、INPUTS和OUTPUTS等信息。
-* 支持保存可视化结果导出为图片。  
+* 支持保存可视化结果导出为图片。
+

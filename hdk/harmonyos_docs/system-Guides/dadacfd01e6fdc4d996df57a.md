@@ -6,17 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/system-Guides/hem_rest_prepara
 
 # 开发准备
 
-#### 注册成为开发者
+## 注册成为开发者
 
-在开发应用前需要在[华为开发者联盟](https://developer.huawei.com/consumer/cn)网站上注册成为开发者并完成实名认证，具体方法请参见[帐号注册认证](https://developer.huawei.com/consumer/cn/doc/start/registration-and-verification-0000001053628148)。  
-![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220623150402.13953595772158924238917936955384:50530622094706:2800:B773D7BAA84E45B285F52F4180F7A8B3C745DE4C9956FA4B34DD35C0D46EFE63.png?needInitFileName=true?needInitFileName=true)  
-"开发者类型"仅有"企业开发者"的合作伙伴才能开通HEM服务。  
+在开发应用前需要在[华为开发者联盟](https://developer.huawei.com/consumer/cn)网站上注册成为开发者并完成实名认证，具体方法请参见[帐号注册认证](https://developer.huawei.com/consumer/cn/doc/start/registration-and-verification-0000001053628148)。
 
-#### 申请EMM资质认证
+> 说明
+>
+> "开发者类型"仅有"企业开发者"的合作伙伴才能开通HEM服务。
 
-认证成为EMM厂商，具体操作详情参见[HEM EMM厂商操作指导](https://developer.huawei.com/business/cn/doc/distribution/HEM/developer_operation-procedure-0000001144194520)。  
+## 申请EMM资质认证
 
-#### 创建服务器应用
+认证成为EMM厂商，具体操作详情参见[HEM EMM厂商操作指导](https://developer.huawei.com/business/cn/doc/distribution/HEM/developer_operation-procedure-0000001144194520)。
+
+## 创建服务器应用
 
 在[华为开发者联盟官网](https://developer.huawei.com/consumer/cn/)，创建服务器应用，申请接入华为帐号。
 
@@ -32,7 +34,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/system-Guides/hem_rest_prepara
 
 6. 填写"回调地址"，点击"提交"，提交成功后系统生成App ID，以及Secret信息。 ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220623150402.27930123113735292945343242494024:50530622094706:2800:C59714E4C3AB83E47E7207B941C7BDB60B5B0CE46BD8D9BAD4E5441DFCF9E5A7.png?needInitFileName=true?needInitFileName=true "点击放大")
 
-#### 开通HEM API服务
+## 开通HEM API服务
 
 1. 点击左侧菜单"我的API"，进入"HEM EMM厂商API"。 ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20220623150403.43575983163178355844770254750227:50530622094706:2800:1209B5126C3E4E418D8682BEAF59A7F4FC1B970AA82FF15478DB0AE06D5B863C.png?needInitFileName=true?needInitFileName=true "点击放大")
 

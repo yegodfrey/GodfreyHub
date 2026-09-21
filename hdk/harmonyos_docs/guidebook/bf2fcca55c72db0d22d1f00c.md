@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/guidebook/solution-00000021140
 
 # 鸿蒙生态解决方案白皮书
 
-点击下载：[鸿蒙生态解决方案白皮书](https://media:801788430076411706)
+点击下载：[鸿蒙生态解决方案白皮书](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260903180756.31509392291580473589823584869141:50001231000000:2800:963C23F09848181E1AD7893E00F6C08F82333AE191BB4085F45B707C215AE021.pdf?needInitFileName=true)
 
 引言
 
@@ -35,12 +35,13 @@ HarmonyOS生态对用户、开发者、行业/产业的价值：
 1. 开发者：帮助开发者了解HarmonyOS生态的技术架构、开发工具和关键创新，以便能够更高效地进行应用开发。
 2. 合作伙伴：如硬件厂商、软件供应商、服务提供商等，为他们提供合作的机会和方向，共同打造完整的生态链。
 3. 行业用户：包括企业、政府机构等，助力伙伴了解HarmonyOS生态在行业应用中的潜力和解决方案，推动行业数字化转型。
-4. 其他对HarmonyOS生态感兴趣的读者。  
-* [HarmonyOS应用生态概述](https://developer.huawei.com/consumer/cn/doc/guidebook/solution1-0000002571014294)  
-* [HarmonyOS应用开发基础解决方案](https://developer.huawei.com/consumer/cn/doc/guidebook/solution2-0000002601573491)  
-* [HarmonyOS应用开发高阶解决方案](https://developer.huawei.com/consumer/cn/doc/guidebook/solution3-0000002601693439)  
-* [HarmonyOS元服务开发解决方案](https://developer.huawei.com/consumer/cn/doc/guidebook/solution4-0000002571173930)  
-* [三方SDK解决方案](https://developer.huawei.com/consumer/cn/doc/guidebook/solution5-0000002571014296)  
-* [三方跨平台框架解决方案](https://developer.huawei.com/consumer/cn/doc/guidebook/solution6-0000002601573495)  
-* [HarmonyOS应用上架运营流程](https://developer.huawei.com/consumer/cn/doc/guidebook/solution7-0000002601693441)  
-* [HarmonyOS生态解决方案典型案例](https://developer.huawei.com/consumer/cn/doc/guidebook/solution8-0000002571173932)  
+4. 其他对HarmonyOS生态感兴趣的读者。
+
+* **[HarmonyOS应用生态概述](https://developer.huawei.com/consumer/cn/doc/guidebook/solution1-0000002571014294)**   
+* **[HarmonyOS应用开发基础解决方案](https://developer.huawei.com/consumer/cn/doc/guidebook/solution2-0000002601573491)**   
+* **[HarmonyOS应用开发高阶解决方案](https://developer.huawei.com/consumer/cn/doc/guidebook/solution3-0000002601693439)**   
+* **[HarmonyOS元服务开发解决方案](https://developer.huawei.com/consumer/cn/doc/guidebook/solution4-0000002571173930)**   
+* **[三方SDK解决方案](https://developer.huawei.com/consumer/cn/doc/guidebook/solution5-0000002571014296)**   
+* **[三方跨平台框架解决方案](https://developer.huawei.com/consumer/cn/doc/guidebook/solution6-0000002601573495)**   
+* **[HarmonyOS应用上架运营流程](https://developer.huawei.com/consumer/cn/doc/guidebook/solution7-0000002601693441)**   
+* **[HarmonyOS生态解决方案典型案例](https://developer.huawei.com/consumer/cn/doc/guidebook/solution8-0000002571173932)**   

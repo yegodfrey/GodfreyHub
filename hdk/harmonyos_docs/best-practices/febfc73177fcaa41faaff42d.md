@@ -6,35 +6,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-sett
 
 # 多设备设置界面
 
-#### 概述
+## 概述
 
 本文从当前常见的多设备应用场景中选取设置应用作为典型案例，详细阐述"一多"理念在实际开发中的应用。设置应用主要展示导航页列表及内容页在不同设备上的呈现方式，并介绍路由跳转功能。
 
 当前应用已适配的设备包括：直板机、双折叠（Mate X系列）、三折叠、阔折叠、平板和电脑。
 
-下文将从UX设计、工程管理、移动端页面和电脑端页面四个角度，介绍"一多"设置应用在开发过程中的最佳实践。  
-![](https://media:201788187490472255)  
-阅读本文前，建议开发者先了解[ArkUI（方舟UI框架）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkui)和[一次开发，多端部署概览](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-overview)相关知识。
+下文将从UX设计、工程管理、移动端页面和电脑端页面四个角度，介绍"一多"设置应用在开发过程中的最佳实践。
+> 说明
+>
+> 阅读本文前，建议开发者先了解[ArkUI（方舟UI框架）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkui)和[一次开发，多端部署概览](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-overview)相关知识。
 
 * [UX设计](#section99762271515)：介绍设置应用的交互逻辑与通用设计要点，开发者可直接参考。
 * [工程管理](#section719020851716)：介绍"一多"工程所需配置，并推荐采用结构更清晰的三层架构。
-* [移动端页面](#section202931220101020)和[电脑端页面](#section5748352172710)：遵循实际应用开发流程，以页面为基本单元，依次讲解窗口适配、页面开发及功能开发的设计思路与实现方式。  
+* [移动端页面](#section202931220101020)和[电脑端页面](#section5748352172710)：遵循实际应用开发流程，以页面为基本单元，依次讲解窗口适配、页面开发及功能开发的设计思路与实现方式。
 
-#### UX设计
+## UX设计
 
 设计参考图如下所示。
 
-![](https://media:201788187490659256 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/a416B107RxSB8TtnVxVlwg/zh-cn_image_0000002579408634.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=B5D7AD8449F52089D86C0A46A3E938BB6809440D48054CF4CB117EB9879DBF73 "点击放大")
 
-#### 工程管理
+## 工程管理
 
-为确保"一多"工程代码的复用性与可维护性，推荐开发者采用分层架构组织代码工程。该架构将项目划分为产品定制层（products）、基础特性层（features）和公共能力层（common）三个层级，各层级权责明确且功能独立，为开发者提供了清晰、高效且可扩展的设计方案。关于分层架构的具体设计细节，可参考[分层架构设计](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-layered-architecture-design)。  
+为确保"一多"工程代码的复用性与可维护性，推荐开发者采用分层架构组织代码工程。该架构将项目划分为产品定制层（products）、基础特性层（features）和公共能力层（common）三个层级，各层级权责明确且功能独立，为开发者提供了清晰、高效且可扩展的设计方案。关于分层架构的具体设计细节，可参考[分层架构设计](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-layered-architecture-design)。
 
-#### 创建工程
+### 创建工程
 
-建议开发者参考[多设备工程部署与发布](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-ide)相关内容，掌握分层架构工程的创建与配置方法后，创建模板项目工程。根据设置应用的开发需求进行针对性修改，确保工程架构贴合实际业务需求。  
+建议开发者参考[多设备工程部署与发布](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-ide)相关内容，掌握分层架构工程的创建与配置方法后，创建模板项目工程。根据设置应用的开发需求进行针对性修改，确保工程架构贴合实际业务需求。
 
-#### 工程结构
+### 工程结构
 
 应用采用推荐的分层架构，将代码工程按products、features、common三个层级组织代码工程。各层级设计如下：
 
@@ -44,7 +45,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-sett
 
 工程结构如下：
 
-```
+```screen
 ├──common                                          // 公共模块层
 │  └──multisettingbase                             // 公共能力模块
 │     ├──src/main/ets                              // 代码区
@@ -80,11 +81,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-sett
       └──src/main/resources                        // 资源目录
 ```
 
-#### 移动端页面
+## 移动端页面
 
-本章介绍如何针对直板机、双折叠（Mate X系列）、三折叠、阔折叠、平板设备上的设置应用，利用"一多"布局能力，实现页面层级"一套代码、多端适配"的目标。同时，阐述这些设备上的窗口适配方案。  
+本章介绍如何针对直板机、双折叠（Mate X系列）、三折叠、阔折叠、平板设备上的设置应用，利用"一多"布局能力，实现页面层级"一套代码、多端适配"的目标。同时，阐述这些设备上的窗口适配方案。
 
-#### 窗口适配
+### 窗口适配
 
 * 窗口模式 适配设备支持全屏、分屏、悬浮窗和自由窗口模式，具体参见[窗口模式](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-mode)。其中，分屏模式与悬浮窗无需特殊设计，可通过系统方式进入。应用内监听窗口尺寸变化，[通过断点刷新UI](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive-layout#section175001836203617)，自动适配全屏、分屏、悬浮窗和自由窗口模式下的布局。
 
@@ -92,17 +93,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-sett
 
 * 窗口沉浸式 根据UX设计，需实现不同窗口模式（全屏、分屏、悬浮窗、自由窗口）下的沉浸式效果，可参考[窗口沉浸式](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-immersive)。推荐开发者使用组件级沉浸方案（组件设置页面沉浸）[实现沉浸式效果](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-immersive#section180431120426)，同时需进行动态安全区避让，确保沉浸式显示效果。自由窗口模式下，使用[window.setWindowDecorVisible(false)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowdecorvisible11)隐藏标题栏，仅保留右上角三键，使应用页面延伸至标题栏区域，实现沉浸式显示效果。
 
-#### 导航与详情页
+### 导航与详情页
 
-设置应用导航与详情页主要展示列表按钮以及对应详情页，点击导航按钮实现详情页跳转。根据功能设计，应用首页相关内容划分为6个区域，效果图如下：  
+设置应用导航与详情页主要展示列表按钮以及对应详情页，点击导航按钮实现详情页跳转。根据功能设计，应用首页相关内容划分为6个区域，效果图如下：
 
 |横向断点|sm|md|lg、xl|
-|:---|:-------------------------------------------|:-------------------------------------------|:-------------------------------------------|
-|首页|![](https://media:201788187490922257 "点击放大")|![](https://media:201788187491374258 "点击放大")|![](https://media:201788187491482259 "点击放大")|
+|:---|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|首页|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/pWu8y1HeSy-pMERmNrLQ5w/zh-cn_image_0000002579568552.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=C91FF8746A3835D8C9A521DD8DCA81012E31B7193162E02C356B268689470267 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/zT2ISqrERg24WJPN4hHokw/zh-cn_image_0000002610008431.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=39F65A3481EED2030424A8585EC573EBD7BD2608BF69AC50ACEDD3DE7B143186 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/2eZk75vEQWenuvVOkrdy4Q/zh-cn_image_0000002609928539.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=B80F16F1A815172E20D2B47F6529A5C3F9505AE47E8E4CDC6B391A9FC1B775DE "点击放大")|
 
-界面开发
+**界面开发**
 
-具体介绍及实现方案如下表所示：  
+具体介绍及实现方案如下表所示：
 
 |区域编号|简介|实现方案|
 |:---|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -113,7 +114,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-sett
 |5|WLAN页设置按钮列表|列表基于[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件实现，自定义单个按钮组件，支持传入不同参数展示不同样式，开关按钮使用[Toggle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle)实现。|
 |6|WLAN列表|列表基于[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件实现，自定义WLAN组件显示WLAN信息及图标。|
 
-路由跳转
+**路由跳转**
 
 通过[HdsNavigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation)组件、[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)对象、[HdsNavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavdestination)组件及系统路由表实现页面路由跳转。
 
@@ -121,21 +122,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-sett
 * HdsNavDestination组件用于构建HdsNavigation组件的子页面，组件中需声明@Builder对外实例化方法，用于注册系统路由表。
 * 在系统路由表中注册子页面实例化方法、源码所在路径及唯一标识符，系统路由表文件路径为entry/src/main/resources/base/profile/router_map.json。
 
-更多内容参考[Navigation页面路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-jump)。  
+更多内容参考[Navigation页面路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-jump)。
 
-#### 电脑端页面
+## 电脑端页面
 
-本章介绍如何基于现有移动端界面开发方案，实现代码逻辑与布局复用，高效完成电脑设备上设置应用的界面开发。  
+本章介绍如何基于现有移动端界面开发方案，实现代码逻辑与布局复用，高效完成电脑设备上设置应用的界面开发。
 
-#### 导航与详情页
+### 导航与详情页
 
 设置应用导航与详情页主要展示列表按钮及对应详情页，点击导航按钮实现详情页跳转。根据功能设计，应用首页相关内容划分为6个区域，效果图如下：
 
-![](https://media:201788187491568260 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/Y432z-unQ62foWnCc7T3dA/zh-cn_image_0000002579408636.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=485F0B42553B9344D2B31FDFE426AA7904E0C02D5384EED2D6E435EF48EF8FC9 "点击放大")
 
-界面开发
+**界面开发**
 
-具体介绍及实现方案如下表所示：  
+具体介绍及实现方案如下表所示：
 
 |区域编号|简介|实现方案|
 |:---|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -146,10 +147,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-sett
 |5|WLAN页设置按钮列表|复用移动端导航与详情页对应区域的布局实现方案。|
 |6|WLAN列表|复用移动端导航与详情页对应区域的布局实现方案。|
 
-路由跳转
+**路由跳转**
 
-同移动端页面-[导航与详情页](#section16469195751520)-路由跳转。  
+同移动端页面-[导航与详情页](#section16469195751520)-路由跳转。
 
-#### 示例代码
+## 示例代码
 
-[多设备设置界面](https://gitcode.com/HarmonyOS_Samples/NavigationSettings)  
+[多设备设置界面](https://gitcode.com/HarmonyOS_Samples/NavigationSettings)
+

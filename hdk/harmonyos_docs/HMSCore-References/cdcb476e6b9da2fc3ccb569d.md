@@ -6,40 +6,41 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner
 
 # 取消补差
 
-#### 功能介绍
+## 功能介绍
 
-对于需要补差的订单，可在发起分账前，调用该接口取消补差，取消补差后可发起分账。  
-![](https://media:201774590626295577)  
-1. 取消补差含义为取消需要补差的原订单，已经请求过补差的订单且成功的，或者补差状态未知的订单（异常情况), 不支持调用取消补差。
-2. 发起补差请求失败后可以再次发起取消补差。  
+对于需要补差的订单，可在发起分账前，调用该接口取消补差，取消补差后可发起分账。
+> 说明
+>
+> 1. 取消补差含义为取消需要补差的原订单，已经请求过补差的订单且成功的，或者补差状态未知的订单（异常情况), 不支持调用取消补差。
+> 2. 发起补差请求失败后可以再次发起取消补差。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS POST|
-|接口方向|开发者服务器-\> 华为支付服务器|
+|-----|------------------------------------------------------------------------------|
+|接口方向|开发者服务器-> 华为支付服务器|
 |接口URL|https://petalpay-developer.cloud.huawei.com.cn/api/v1/partner/subsidies/cancel|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|-----|------------------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-* Request Header  
+* **Request Header**
 
   |参数|是否必选|参数类型|描述|
   |:-----------|:---|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------|
   |Content-Type|是|String|取值为：application/json; charset=UTF-8|
   |PayMercAuth|是|String|取值为：[PayMercAuth](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-data-model-0000001538219104#section11744172016145)的JSON串|
 
-* Request Body  
+* **Request Body**
 
   |参数|是否必选|类型|说明|
   |:--------------|:---|:-----|:---------|
   |subMercNo|是|String|收单商户号。|
   |sysTransOrderNo|是|String|华为支付系统订单号。|
 
-* 请求示例
+* **请求示例**
 
-  ```
+  ```screen
   POST /api/v1/partner/subsidies/cancel HTTP/1.1
   Content-Type: application/json;charset=UTF-8
   PayMercAuth: {"callerId":"10132120***","traceId":"202305151026342776499","time":1684117602555,"authId":"120291744647139***","headerSign":"u+H1Oe3fXV9mGCES89XA7tSj********************DwKJH7rMv6SBj/z0UcN9QrxXSeR8r6X46b7491N1jKg/lOG7eAFfwjEWJu5JyvY5KunSeE6DiKs=","bodySign":"yWDtXOBqDoItPgHmF57L6U5G7F/LhsILChu8YSp********************imTcTN7pBpFA7pvFexUasPj10iUIFeaszpiRT2aQDaqLGaxvta6J5UxIUmAp+wGdV/juGEvQ="}
@@ -50,15 +51,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner
   }
   ```
 
-#### 响应参数
+## 响应参数
 
-* Response Header  
+* **Response Header**
 
   |参数|是否必选|参数类型|描述|
   |:-----------|:---|:-----|:----------------------------------|
   |Content-Type|是|String|取值为：application/json; charset=UTF-8|
 
-* Response Body  
+* **Response Body**
 
   |参数|是否必选|参数类型|描述|
   |:--------------|:---|:-----|:-------------------------|
@@ -70,9 +71,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner
   |subMercNo|否|String|收单商户号。|
   |sysTransOrderNo|否|String|华为支付系统订单号。|
 
-* 响应示例
+* **响应示例**
 
-  ```
+  ```screen
   HTTP/1.1 200 OK
   Content-Type: application/json; charset=UTF-8
   {
@@ -84,12 +85,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner
   }
   ```
 
-#### 错误码
+## 错误码
 
-(resultCode非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-error-code-description-0000001589053741#section1187515498410))  
+(**resultCode** 非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-error-code-description-0000001589053741#section1187515498410))
 
-|----------|----------|-------------------------|----------------------|
-|resultCode|resultDesc|subCode|subDesc|
+|--------------|--------------|-------------------------|----------------------|
+|**resultCode**|**resultDesc**|**subCode**|**subDesc**|
 |400000|业务处理失败|UNKNOW_ERROR|系统未知错误，请稍后重试或联系华为工程师处理|
 |400000|业务处理失败|INVALID_ARGUMENTS|参数不合法|
 |400000|业务处理失败|INVALID_MERCNO|无效商户号|

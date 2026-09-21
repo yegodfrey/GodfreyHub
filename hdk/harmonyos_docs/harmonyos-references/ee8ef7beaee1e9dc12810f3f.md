@@ -6,28 +6,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 # Functions
 
-![](https://media:401788444816119494)  
-本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。  
+> phone | 2in1 | tablet | tv | wearable
 
-#### 导入模块
+> 说明
+>
+> 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-```
+## 导入模块
+
+```ts
 import { avSession } from '@kit.AVSessionKit';
 ```
 
-#### avSession.createAVSession^10+^
+## avSession.createAVSession^10+^
 
-createAVSession(context: Context, tag: string, type: AVSessionType): Promise\<AVSession\>
+createAVSession(context: Context, tag: string, type: AVSessionType): Promise<AVSession>
 
-创建会话对象，一个应用进程仅允许存在一个会话，重复创建会失败，使用Promise异步回调。  
-![](https://media:401788444816209495)  
-在业务执行阶段需要保持AVSession对象存活，避免后台管控静音、设备选择异常、通知/锁屏/胶囊播控卡片显示异常等情况。
+创建会话对象，一个应用进程仅允许存在一个会话，重复创建会失败，使用Promise异步回调。
+> 说明
+>
+> 在业务执行阶段需要保持AVSession对象存活，避免后台管控静音、设备选择异常、通知/锁屏/胶囊播控卡片显示异常等情况。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Multimedia.AVSession.Core
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------|
@@ -35,24 +39,24 @@ createAVSession(context: Context, tag: string, type: AVSessionType): Promise\<AV
 |tag|string|是|会话的自定义名称。|
 |type|[AVSessionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avsessiontype10)|是|会话类型。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|
-|Promise\<[AVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession)\>|Promise对象。返回会话实例对象，可用于获取会话ID，以及设置元数据、播放状态，发送按键事件等操作。|
+|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|
+|Promise<[AVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession)>|Promise对象。返回会话实例对象，可用于获取会话ID，以及设置元数据、播放状态，发送按键事件等操作。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:----------------------------------------------------------------------------------------------------|
 |401|parameter check failed. 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.|
 |6600101|Session service exception.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 
 @Entry
@@ -82,37 +86,38 @@ struct Index {
 }
 ```
 
-#### avSession.createAVSession^10+^
+## avSession.createAVSession^10+^
 
-createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback\<AVSession\>): void
+createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback<AVSession>): void
 
-创建会话对象，一个应用进程仅允许存在一个会话，重复创建会失败，使用callback异步回调。  
-![](https://media:401788444816369496)  
-在业务执行阶段需要保持AVSession对象存活，避免后台管控静音、设备选择异常、通知/锁屏/胶囊播控卡片显示异常等情况。
+创建会话对象，一个应用进程仅允许存在一个会话，重复创建会失败，使用callback异步回调。
+> 说明
+>
+> 在业务执行阶段需要保持AVSession对象存活，避免后台管控静音、设备选择异常、通知/锁屏/胶囊播控卡片显示异常等情况。
 
-系统能力： SystemCapability.Multimedia.AVSession.Core
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------|
+|:-------|:---------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------|
 |context|[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)|是|需要使用UIAbilityContext，用于系统获取应用组件的相关信息。|
 |tag|string|是|会话的自定义名称。|
 |type|[AVSessionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avsessiontype10)|是|会话类型。|
-|callback|AsyncCallback\<[AVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession)\>|是|回调函数。回调返回会话实例对象，可用于获取会话ID，以及设置元数据、播放状态，发送按键事件等操作。|
+|callback|AsyncCallback<[AVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession)>|是|回调函数。回调返回会话实例对象，可用于获取会话ID，以及设置元数据、播放状态，发送按键事件等操作。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:----------------------------------------------------------------------------------------------------|
 |401|parameter check failed. 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.|
 |6600101|Session service exception.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -147,42 +152,42 @@ struct Index {
 }
 ```
 
-#### avSession.getAVSession^22+^
+## avSession.getAVSession^22+^
 
-getAVSession(context: Context): Promise\<AVSession\>
+getAVSession(context: Context): Promise<AVSession>
 
 获取会话对象。使用Promise异步回调。
 
 该接口可将当前进程已创建过的会话对象返回，如果没有创建过会话对象，该接口调用会失败并抛出异常。
 
-元服务API： 从API version 22开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.Multimedia.AVSession.Core
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:-----------------------------------------------------------------------------------------------------|:-|:------------------------------------|
 |context|[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)|是|需要使用UIAbilityContext，用于系统获取应用组件的相关信息。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|
-|Promise\<[AVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession)\>|Promise对象。返回会话实例对象，可用于获取会话ID、设置元数据及播放状态、发送按键事件等操作。|
+|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|
+|Promise<[AVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession)>|Promise对象。返回会话实例对象，可用于获取会话ID、设置元数据及播放状态、发送按键事件等操作。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:--------------------------|
 |6600101|Session service exception.|
 |6600102|The session does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 
 @Entry
@@ -213,36 +218,36 @@ struct Index {
 }
 ```
 
-#### avSession.getAllSessionDescriptors^23+^
+## avSession.getAllSessionDescriptors^23+^
 
-getAllSessionDescriptors(): Promise\<Array\<Readonly\<AVSessionDescriptor\>\>\>
+getAllSessionDescriptors(): Promise<Array<Readonly<AVSessionDescriptor>>>
 
 获取所有设置过媒体信息且注册过控制回调的会话的描述符信息。使用Promise异步回调。
 
-需要权限： ohos.permission.MANAGE_MEDIA_RESOURCES 或 ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
+**需要权限：** ohos.permission.MANAGE_MEDIA_RESOURCES 或 ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
 
 系统应用可以从ohos.permission.MANAGE_MEDIA_RESOURCES或ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC两个权限中选择一个进行申请，普通应用仅允许申请ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC受限权限。
 
-系统能力： SystemCapability.Multimedia.AVSession.Manager
+**系统能力：** SystemCapability.Multimedia.AVSession.Manager
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|
-|Promise\<Array\<Readonly\<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)\>\>\>|Promise对象。返回所有会话描述的只读对象。|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|
+|Promise<Array<Readonly<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)>>>|Promise对象。返回所有会话描述的只读对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:-------------------------|
 |201|permission denied.|
 |6600101|Session service exception.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 @Entry
 @Component
@@ -269,33 +274,33 @@ struct Index {
 }
 ```
 
-#### avSession.createController^23+^
+## avSession.createController^23+^
 
-createController(sessionId: string): Promise\<AVSessionController\>
+createController(sessionId: string): Promise<AVSessionController>
 
 根据会话ID创建会话控制器。使用Promise异步回调。
 
-需要权限： ohos.permission.MANAGE_MEDIA_RESOURCES 或 ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
+**需要权限：** ohos.permission.MANAGE_MEDIA_RESOURCES 或 ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
 
 系统应用可以从ohos.permission.MANAGE_MEDIA_RESOURCES或ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC两个权限中选择一个进行申请，普通应用仅允许申请ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC受限权限。
 
-系统能力： SystemCapability.Multimedia.AVSession.Manager
+**系统能力：** SystemCapability.Multimedia.AVSession.Manager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:-----|:-|:----|
 |sessionId|string|是|会话ID。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|
-|Promise\<[AVSessionController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsessioncontroller)\>|Promise对象。返回会话控制器实例，可查看会话ID， 并完成对会话发送命令及事件，获取元数据、播放状态信息等操作。|
+|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|
+|Promise<[AVSessionController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsessioncontroller)>|Promise对象。返回会话控制器实例，可查看会话ID， 并完成对会话发送命令及事件，获取元数据、播放状态信息等操作。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:--------------------------|
@@ -303,9 +308,9 @@ createController(sessionId: string): Promise\<AVSessionController\>
 |6600101|Session service exception.|
 |6600102|The session does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 
 @Entry
@@ -333,34 +338,34 @@ struct Index {
 }
 ```
 
-#### avSession.onSessionCreate^23+^
+## avSession.onSessionCreate^23+^
 
-onSessionCreate(callback: Callback\<AVSessionDescriptor\>): void
+onSessionCreate(callback: Callback<AVSessionDescriptor>): void
 
 监听会话创建事件。使用callback异步回调。
 
-需要权限： ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
+**需要权限：** ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
 
-系统能力： SystemCapability.Multimedia.AVSession.Manager
+**系统能力：** SystemCapability.Multimedia.AVSession.Manager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------|
-|callback|Callback\<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)\>|是|回调函数。参数为会话相关描述。|
+|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------|
+|callback|Callback<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)>|是|回调函数。参数为会话相关描述。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:-------------------------|
 |201|permission denied.|
 |6600101|Session service exception.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 
 @Entry
@@ -385,34 +390,34 @@ struct Index {
 }
 ```
 
-#### avSession.onSessionDestroy^23+^
+## avSession.onSessionDestroy^23+^
 
-onSessionDestroy(callback: Callback\<AVSessionDescriptor\>): void
+onSessionDestroy(callback: Callback<AVSessionDescriptor>): void
 
 监听会话的销毁事件。使用callback异步回调。
 
-需要权限： ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
+**需要权限：** ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
 
-系统能力： SystemCapability.Multimedia.AVSession.Manager
+**系统能力：** SystemCapability.Multimedia.AVSession.Manager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------|
-|callback|Callback\<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)\>|是|回调函数。参数为会话相关描述。|
+|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------|
+|callback|Callback<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)>|是|回调函数。参数为会话相关描述。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:-------------------------|
 |201|permission denied.|
 |6600101|Session service exception.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 @Entry
 @Component
@@ -434,34 +439,34 @@ struct Index {
 }
 ```
 
-#### avSession.onTopSessionChange^23+^
+## avSession.onTopSessionChange^23+^
 
-onTopSessionChange(callback: Callback\<AVSessionDescriptor\>): void
+onTopSessionChange(callback: Callback<AVSessionDescriptor>): void
 
 监听最新播放会话变更的事件。使用callback异步回调。
 
-需要权限： ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
+**需要权限：** ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
 
-系统能力： SystemCapability.Multimedia.AVSession.Manager
+**系统能力：** SystemCapability.Multimedia.AVSession.Manager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------|
-|callback|Callback\<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)\>|是|回调函数。参数为会话相关描述。|
+|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------|
+|callback|Callback<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)>|是|回调函数。参数为会话相关描述。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:-------------------------|
 |201|permission denied.|
 |6600101|Session service exception.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 @Entry
 @Component
@@ -485,34 +490,34 @@ struct Index {
 }
 ```
 
-#### avSession.offSessionCreate^23+^
+## avSession.offSessionCreate^23+^
 
-offSessionCreate(callback?: Callback\<AVSessionDescriptor\>): void
+offSessionCreate(callback?: Callback<AVSessionDescriptor>): void
 
 注销会话创建事件监听。注销后，不再接收该事件。
 
-需要权限： ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
+**需要权限：** ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
 
-系统能力： SystemCapability.Multimedia.AVSession.Manager
+**系统能力：** SystemCapability.Multimedia.AVSession.Manager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------|
-|callback|Callback\<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)\>|否|需要取消的回调函数，与on接口注册时的回调函数保持一致。如果不填写该参数，则取消所有已注册的回调。|
+|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------|
+|callback|Callback<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)>|否|需要取消的回调函数，与on接口注册时的回调函数保持一致。如果不填写该参数，则取消所有已注册的回调。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:-------------------------|
 |201|permission denied.|
 |6600101|Session service exception.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 @Entry
 @Component
@@ -534,34 +539,34 @@ struct Index {
 }
 ```
 
-#### avSession.offSessionDestroy^23+^
+## avSession.offSessionDestroy^23+^
 
-offSessionDestroy(callback?: Callback\<AVSessionDescriptor\>): void
+offSessionDestroy(callback?: Callback<AVSessionDescriptor>): void
 
 注销会话销毁事件监听。注销后，不再监听该事件。
 
-需要权限： ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
+**需要权限：** ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
 
-系统能力： SystemCapability.Multimedia.AVSession.Manager
+**系统能力：** SystemCapability.Multimedia.AVSession.Manager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------|
-|callback|Callback\<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)\>|否|需要取消的回调函数，与on接口注册时的回调函数保持一致。如果不填写该参数，则取消所有已注册的回调。|
+|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------|
+|callback|Callback<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)>|否|需要取消的回调函数，与on接口注册时的回调函数保持一致。如果不填写该参数，则取消所有已注册的回调。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:-------------------------|
 |201|permission denied.|
 |6600101|Session service exception.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 @Entry
 @Component
@@ -583,34 +588,34 @@ struct Index {
 }
 ```
 
-#### avSession.offTopSessionChange^23+^
+## avSession.offTopSessionChange^23+^
 
-offTopSessionChange(callback?: Callback\<AVSessionDescriptor\>): void
+offTopSessionChange(callback?: Callback<AVSessionDescriptor>): void
 
 注销最新播放会话变更事件监听。注销后，不再进行该事件的监听。
 
-需要权限： ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
+**需要权限：** ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
 
-系统能力： SystemCapability.Multimedia.AVSession.Manager
+**系统能力：** SystemCapability.Multimedia.AVSession.Manager
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------|
-|callback|Callback\<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)\>|否|需要取消的回调函数，与on接口注册时的回调函数保持一致。如果不填写该参数，则取消所有已注册的回调。|
+|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------|
+|callback|Callback<[AVSessionDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avsessiondescriptor23)>|否|需要取消的回调函数，与on接口注册时的回调函数保持一致。如果不填写该参数，则取消所有已注册的回调。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:-------------------------|
 |201|permission denied.|
 |6600101|Session service exception.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 @Entry
 @Component
@@ -632,33 +637,33 @@ struct Index {
 }
 ```
 
-#### avSession.isDesktopLyricSupported^23+^
+## avSession.isDesktopLyricSupported^23+^
 
-isDesktopLyricSupported(): Promise\<boolean\>
+isDesktopLyricSupported(): Promise<boolean>
 
 设备是否支持桌面歌词功能。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Multimedia.AVSession.Core
+**系统能力：** SystemCapability.Multimedia.AVSession.Core
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------|:-------------------------------------------------|
-|Promise\<boolean\>|Promise对象。返回true表示设备支持桌面歌词功能；返回false表示设备不支持桌面歌词功能。|
+|:---------------|:-------------------------------------------------|
+|Promise<boolean>|Promise对象。返回true表示设备支持桌面歌词功能；返回false表示设备不支持桌面歌词功能。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。  
+以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
 |错误码ID|错误信息|
 |:------|:-------------------------|
 |6600101|Session service exception.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { avSession } from '@kit.AVSessionKit';
 
 avSession.isDesktopLyricSupported().then((isSupported: boolean) => {

@@ -6,23 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/speechrecogni
 
 # 语音识别
 
-将一段中文音频信息（中文、中文语境下的英文；短语音模式不超过60s，长语音模式不超过8h）转换为文本，音频信息可以为PCM音频文件或者实时语音。  
+将一段中文音频信息（中文、中文语境下的英文；短语音模式不超过60s，长语音模式不超过8h）转换为文本，音频信息可以为PCM音频文件或者实时语音。
 
-#### 场景介绍
+## 场景介绍
 
-手机/平板等设备在无网状态下，为听障人士或不方便收听音频场景提供音频转文本能力。  
+手机/平板等设备在无网状态下，为听障人士或不方便收听音频场景提供音频转文本能力。
 
-#### 约束与限制
+## 约束与限制
 
 |AI能力|约束|
 |:---|:------------------------------------------------------------|
 |语音识别|- 支持的语种类型：中文普通话。 - 支持的模型类型：离线。 - 语音时长：短语音模式不超过60s，长语音模式不超过8h。|
 
-#### 开发步骤
+## 开发步骤
 
 1. 在使用语音识别时，将实现语音识别相关的类添加至工程。
 
-   ```
+   ```typescript
    import { speechRecognizer } from '@kit.CoreSpeechKit';
    import { BusinessError } from '@kit.BasicServicesKit';
    ```
@@ -31,7 +31,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/speechrecogni
 
    createEngine方法提供了两种调用形式，当前以其中一种作为示例，其他方式可参见[speechRecognizer.createEngine](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#speechrecognizercreateengine)。
 
-   ```
+   ```typescript
    let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
    // 设置独立的sessionId
    let sessionId: string = '123456';
@@ -57,7 +57,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/speechrecogni
 
 3. 得到[SpeechRecognitionEngine](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#speechrecognitionengine)实例对象后，实例化[RecognitionListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#recognitionlistener)对象，然后调用[setListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#setlistener)方法设置回调，用来接收语音识别相关的回调信息。
 
-   ```
+   ```typescript
    // 创建回调对象
    let setListener: speechRecognizer.RecognitionListener = {
      // 开始识别成功回调
@@ -87,7 +87,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/speechrecogni
 
 4. 分别为音频文件转文字和麦克风转文字功能设置开始识别的相关参数，调用[startListening](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#startlistening)方法，开始识别。
 
-   ```
+   ```typescript
    private startListeningForRecording() {
      let audioParam: speechRecognizer.AudioInfo = { audioType: 'pcm', sampleRate: 16000, soundChannel: 1, sampleBit: 16 };// audioInfo参数配置请参考AudioInfo
      let extraParam: Record<string, Object> = {
@@ -108,23 +108,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/speechrecogni
 
 5. 传入音频流，调用[writeAudio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#writeaudio)方法，开始写入音频流。读取音频文件时，开发者需预先准备一个pcm格式音频文件。
 
-   ```
+   ```typescript
    let uint8Array: Uint8Array = new Uint8Array();
    // 可以通过如下方式获取音频流：1、通过录音获取音频流；2、从音频文件中读取音频流
    // 写入音频流，音频流长度仅支持640或1280
    asrEngine?.writeAudio(sessionId, uint8Array);
    ```
 
-   ![](https://media:401788762251213088)  
-   1. 如需通过录音获取音频流，请打开麦克风权限，参考步骤10配置相关权限。
-
-   2. 如需从音频文件中读取音频流，请在项目中的main\\resources\\resfile路径下存放pcm文件。
+   > 说明
+   > 1. 如需通过录音获取音频流，请打开麦克风权限，参考步骤10配置相关权限。
+   >
+   > 2. 如需从音频文件中读取音频流，请在项目中的main\resources\resfile路径下存放pcm文件。
 
 6. （可选）当需要查询语音识别服务支持的语种信息，可调用[listLanguages](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#listlanguages)方法。
 
    listLanguages方法提供了两种调用形式，当前以其中一种作为示例，其他方式可参见[listLanguages](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#listlanguages)。
 
-   ```
+   ```typescript
    // 设置查询相关的参数
    let languageQuery: speechRecognizer.LanguageQuery = {
      sessionId: sessionId
@@ -139,28 +139,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/speechrecogni
 
 7. （可选）当需要结束识别时，可调用[finish](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#finish)方法。
 
-   ```
+   ```typescript
    // 结束识别
    asrEngine?.finish(sessionId);
    ```
 
 8. （可选）当需要取消识别时，可调用[cancel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#cancel)方法。
 
-   ```
+   ```typescript
    // 取消识别
    asrEngine?.cancel(sessionId);
    ```
 
 9. （可选）当需要释放语音识别引擎资源时，可调用[shutdown](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#shutdown)方法。
 
-   ```
+   ```typescript
    // 释放识别引擎资源
    asrEngine?.shutdown();
    ```
 
 10. 需要在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中添加ohos.permission.MICROPHONE权限，确保麦克风使用正常。详细步骤可查看[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)章节。
 
-```
+```typescript
 // ...
 'requestPermissions': [
   {
@@ -177,13 +177,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/speechrecogni
 // ...
 ```
 
-#### 开发实例
+## 开发实例
 
-点击按钮，将一段音频信息转换为文本。  
+点击按钮，将一段音频信息转换为文本。
 
-#### Index.ets
+### Index.ets
 
-```
+```typescript
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
@@ -554,11 +554,11 @@ struct Index {
 }
 ```
 
-#### FileCapturer.ets
+### FileCapturer.ets
 
 添加FileCapturer.ets文件用于pcm文件音频流。
 
-```
+```typescript
 import { fileIo } from '@kit.CoreFileKit';
 
 const TAG = 'FileCapturer';
@@ -676,11 +676,11 @@ async function sleep(ms: number): Promise<void> {
 }
 ```
 
-#### EntryAbility.ets
+### EntryAbility.ets
 
 在EntryAbility.ets文件中添加麦克风权限。
 
-```
+```typescript
 import { abilityAccessCtrl, UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';

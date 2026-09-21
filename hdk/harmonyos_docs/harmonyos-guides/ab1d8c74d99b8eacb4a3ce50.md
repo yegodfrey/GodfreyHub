@@ -8,15 +8,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-style
 
 如果每个组件的样式都需要单独设置，在开发过程中会出现大量代码在进行重复样式设置，虽然可以复制粘贴，但为了代码简洁性和后续方便维护，我们推出了可以提炼公共样式进行复用的装饰器[@Styles](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-decorator-styles#styles)。
 
-@Styles装饰器可以将多条样式设置提炼成一个方法，直接在组件声明的位置调用。通过@Styles装饰器可以快速定义并复用自定义样式。  
-![](https://media:401788444620522774)  
-从API version 9开始支持。
+@Styles装饰器可以将多条样式设置提炼成一个方法，直接在组件声明的位置调用。通过@Styles装饰器可以快速定义并复用自定义样式。
+> 说明
+>
+> 从API version 9开始支持。
+>
+> 从API version 9开始，该装饰器支持在ArkTS卡片中使用。
+>
+> 从API version 11开始，该装饰器支持在元服务中使用。
 
-从API version 9开始，该装饰器支持在ArkTS卡片中使用。
-
-从API version 11开始，该装饰器支持在元服务中使用。  
-
-#### 装饰器使用说明
+## 装饰器使用说明
 
 * 当前@Styles仅支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)和[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
@@ -24,14 +25,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-style
 
 * 组件内@Styles的优先级高于全局@Styles。框架优先找当前组件内的@Styles，如果找不到，则会全局查找。
 
-![](https://media:401788444620550775)  
-只能在当前文件内使用@Styles，不支持export。
-
-若需要实现样式导出，推荐使用[AttributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-attributemodifier)。
+> 说明
+>
+> 只能在当前文件内使用@Styles，不支持export。
+>
+> 若需要实现样式导出，推荐使用[AttributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-attributemodifier)。
 
 定义在组件内的@Styles可以通过this访问组件的常量和状态变量，并可以在@Styles里通过事件来改变状态变量的值，示例如下：
 
-```
+```TypeScript
 @Entry
 @Component
 struct FancyUse {
@@ -58,13 +60,13 @@ struct FancyUse {
 }
 ```
 
-![](https://media:401788444620582776)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/svkD9MIYTE6vvgX6WoclNw/zh-cn_image_0000002762833073.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=D2F11C8F6E292E10549C9D6CE68A6BF8910AC81C1BF35EF01152A78BCC2B6AAA)
 
-#### 限制条件
+## 限制条件
 
 * @Styles方法不支持传入参数，编译期会报错。
 
-```
+```TypeScript
   // 错误写法： @Styles不支持参数，编译期报错
   @Styles
   function globalFancy (value: number) {
@@ -72,7 +74,7 @@ struct FancyUse {
   }
 ```
 
-```
+```TypeScript
 // 正确写法
   @Styles
   function globalFancy() {
@@ -82,7 +84,7 @@ struct FancyUse {
 
 * 不支持在@Styles方法内使用条件渲染语句，条件渲染语句内的属性不生效。
 
-```
+```TypeScript
   // 错误写法
   @Styles
   function backgroundColorStyle() {
@@ -92,7 +94,7 @@ struct FancyUse {
   }
 ```
 
-```
+```TypeScript
 // 正确写法
   @Styles
   function backgroundColorStyle() {
@@ -100,11 +102,11 @@ struct FancyUse {
   }
 ```
 
-#### 使用场景
+## 使用场景
 
-#### 组件内@Styles和全局@Styles的用法
+### 组件内@Styles和全局@Styles的用法
 
-```
+```TypeScript
 // 定义在全局的@Styles封装的样式
 @Styles
 function globalFancy1() {
@@ -145,4 +147,5 @@ struct GlobalFancy {
 }
 ```
 
-![](https://media:401788444620607777)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/kUBHqIOIQbe-QhRIiVWVAg/zh-cn_image_0000002733273558.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=238068CC089339DA880AEA67B74EB0848281F3C771744B85C69F0957B3D5EFE1)
+

@@ -1,0 +1,349 @@
+---
+name: document/cn/AppGallery-connect-References/agcstoragemanagement-0000001054967269
+title: AGCStorageManagement
+uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcstoragemanagement-0000001054967269
+---
+
+# AGCStorageManagement
+
+|Class Info|
+|:------------------------------------------------------|
+|public class AGCStorageManagement 为App提供支持上传下载文件功能的管理类。|
+
+## Method Summary
+
+|Qualifier and Type|Method Name and Description|
+|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|static AGCStorageManagement|[getInstance](#section1143341012211)() 初始化默认的存储实例。|
+|static AGCStorageManagement|[getInstance](#section27389337613)(HttpURLConnectionFactory factory) 使用开发者重写的HttpURLConnection的创建类来初始化存储实例。|
+|static AGCStorageManagement|[getInstance](#section621525220414)(String bucketName) 初始化开发者自己创建的存储实例。|
+|static AGCStorageManagement|[getInstance](#section1995739779)(String bucketName, HttpURLConnectionFactory factory) 使用开发者重写的HttpURLConnection的创建类和自己创建的存储实例来初始化存储实例。|
+|static AGCStorageManagement|[getInstance](#section1810317349494)(AGConnectInstance instance, String bucketName) 使用开发者创建的AGConnectInstance和指定存储实例名来初始化存储实例。|
+|static AGCStorageManagement|[getInstance](#section7327646105314)(AGConnectInstance instance, String bucketName, HttpURLConnectionFactory factory) 使用开发者创建的AGConnectInstance 、指定存储实例名和重写的HttpURLConnection的创建类来初始化存储实例。|
+|[StorageReference](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storagereference-0000001054767243)|[getStorageReference](#section939311202814)() 创建根目录的引用。|
+|[StorageReference](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storagereference-0000001054767243)|[getStorageReference](#section9635163510919)(String objectPath) 创建指定文件路径地址的文件或目录的引用。|
+|[StorageReference](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storagereference-0000001054767243)|[getReferenceFromUrl](#section37489523561)(AGConnectInstance instance, String fullUrl) 使用开发者生成的AGConnectInstance创建指定云端地址的文件或目录的引用。|
+|long|[getMaxUploadTimeout](#section11292185005613)() 获取最大的上传超时时间。|
+|long|[getMaxDownloadTimeout](#section16319131085820)() 获取最大的下载超时时间。|
+|long|[getMaxRequestTimeout](#section1541131585919)() 获取最大的请求超时时间。|
+|int|[getRetryTimes](#section197201713111017)() 获取最大的重试次数。|
+|String|[getArea](#section16121912174317)() 获取当前的存储地。|
+|void|[setMaxUploadTimeout](#section78819411019)(long maxUploadTimeout) 设置最大的上传超时时间。|
+|void|[setMaxDownloadTimeout](#section14124145518317)(long maxDownloadTimeout) 设置最大的下载超时时间。|
+|void|[setMaxRequestTimeout](#section1628214501848)(long maxRequestTimeout) 设置最大的请求超时时间。|
+|void|[setRetryTimes](#section2887577119)(int retryTimes) 设置最大的重试次数。|
+
+## Methods
+
+### getInstance
+
+|Method|
+|:-----------------------------------------------------------|
+|public static AGCStorageManagement getInstance() 初始化默认的存储实例。|
+
+> 说明
+>
+> 当AGConnect框架初始化失败时，会抛出IllegalArgumentException类型的异常。
+
+**Return**
+
+|Type|Description|
+|:-------------------|:-------------------------|
+|AGCStorageManagement|返回AGCStorageManagement的实例。|
+
+### getInstance
+
+|Method|
+|:----------------------------------------------------------------------------------------------------------------------|
+|public static AGCStorageManagement getInstance(HttpURLConnectionFactory factory) 使用开发者重写的HttpURLConnection的创建类来初始化存储实例。|
+
+> 说明
+>
+> 当AGConnect框架初始化失败时，会抛出IllegalArgumentException类型的异常。
+
+**Parameters**
+
+|Name|Description|
+|:------|:---------------------------|
+|factory|开发者重写的HttpURLConnection的创建类。|
+
+**Return**
+
+|Type|Description|
+|:-------------------|:-------------------------|
+|AGCStorageManagement|返回AGCStorageManagement的实例。|
+
+### getInstance
+
+|Method|
+|:---------------------------------------------------------------------------------|
+|public static AGCStorageManagement getInstance(String bucketName) 初始化开发者自己创建的存储实例。|
+
+> 说明
+>
+> * 当AGConnect框架初始化失败时，会抛出IllegalArgumentException类型的异常。
+> * 当bucketName为null时，会抛出NullPointerException类型的异常。
+
+**Parameters**
+
+|Name|Description|
+|:---------|:-----------|
+|bucketName|待初始化的存储实例名称。|
+
+**Return**
+
+|Type|Description|
+|:-------------------|:-------------------------|
+|AGCStorageManagement|返回AGCStorageManagement的实例。|
+
+### getInstance
+
+|Method|
+|:---------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static AGCStorageManagement getInstance(String bucketName, HttpURLConnectionFactory factory) 使用开发者重写的HttpURLConnection的创建类和自己创建的存储实例来初始化存储实例。|
+
+> 说明
+>
+> * 当AGConnect框架初始化失败时，会抛出IllegalArgumentException类型的异常。
+> * 当bucketName为空时，会抛出NullPointerException类型的异常。
+
+**Parameters**
+
+|Name|Description|
+|:---------|:---------------------------|
+|bucketName|待初始化的存储实例名称。|
+|factory|开发者重写的HttpURLConnection的创建类。|
+
+**Return**
+
+|Type|Description|
+|:-------------------|:-------------------------|
+|AGCStorageManagement|返回AGCStorageManagement的实例。|
+
+### getInstance
+
+|Method|
+|:---------------------------------------------------------------------------------------------------------------------------------------|
+|public static AGCStorageManagement getInstance(AGConnectInstance instance, String bucketName) 使用开发者创建的AGConnectInstance和指定存储实例名来初始化存储实例。|
+
+> 说明
+>
+> * 当AGConnectInstance实例为null时，会抛出IllegalArgumentException类型的异常。
+> * 当bucketName为null时，会抛出NullPointerException类型的异常。
+
+**Parameters**
+
+|Name|Description|
+|:---------|:-------------|
+|instance|包含用户项目信息的框架实例。|
+|bucketName|待初始化的存储实例名称。|
+
+**Return**
+
+|Type|Description|
+|:-------------------|:-------------------------|
+|AGCStorageManagement|返回AGCStorageManagement的实例。|
+
+### getInstance
+
+|Method|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static AGCStorageManagement getInstance(AGConnectInstance instance,String bucketName, HttpURLConnectionFactory factory) 使用开发者创建的AGConnectInstance、指定存储实例名和重写的HttpURLConnection的创建类来初始化存储实例。|
+
+> 说明
+>
+> * 当AGConnectInstance实例为null时，会抛出IllegalArgumentException类型的异常。
+> * 当bucketName为null时，会抛出NullPointerException类型的异常。
+
+**Parameters**
+
+|Name|Description|
+|:---------|:---------------------------|
+|instance|包含用户项目信息的框架实例。|
+|bucketName|待初始化的存储实例名称。|
+|factory|开发者重写的HttpURLConnection的创建类。|
+
+**Return**
+
+|Type|Description|
+|:-------------------|:-------------------------|
+|AGCStorageManagement|返回AGCStorageManagement的实例。|
+
+### getStorageReference
+
+|Method|
+|:--------------------------------------------------------|
+|public StorageReference getStorageReference() 创建文件或目录的引用。|
+
+> 说明
+>
+> * 当配置文件中的storage_url项为空时，会抛出NullPointerException类型的异常。
+> * 当配置文件中的default_bucket项为空时，会抛出NullPointerException类型的异常。
+
+**Return**
+
+|Type|Description|
+|:-------------------------------------------------------------------------------------------------------------------------------|:---------------------|
+|[StorageReference](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storagereference-0000001054767243)|返回StorageReference的实例。|
+
+### getStorageReference
+
+|Method|
+|:---------------------------------------------------------------------------------|
+|public StorageReference getStorageReference(String objectPath) 创建指定文件路径地址文件或目录的引用。|
+
+> 说明
+>
+> * 当objectPath为空时，会抛出NullPointerException类型的异常。
+> * 当objectPath存在参数错误时，会抛出IllegalArgumentException类型的异常。
+
+**Parameters**
+
+|Name|Description|
+|:---------|:------------------------------------------------------------------------------|
+|objectPath|需要创建引用的文件或目录的地址。 > 注意 > * objectPath的长度必须小于等于1024个字符。 > * 支持https://和http://协议。|
+
+**Return**
+
+|Type|Description|
+|:-------------------------------------------------------------------------------------------------------------------------------|:---------------------|
+|[StorageReference](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storagereference-0000001054767243)|返回StorageReference的实例。|
+
+### getReferenceFromUrl
+
+|Method|
+|:----------------------------------------------------------------------------------------------------------------------------------|
+|public StorageReference getReferenceFromUrl(AGConnectInstance instance, String fullUrl) 使用开发者生成的AGConnectInstance创建指定云端地址的文件或目录的引用。|
+
+> 说明
+>
+> * 当instance为空时，会抛出NullPointerException类型的异常。
+> * 当instance中的区域信息和fullUrl的区域不一致时，会抛出IllegalArgumentException类型的异常。
+> * 当fullUrl存在参数错误时，会抛出IllegalArgumentException类型的异常。
+> * 当fullUrl为空时，会抛出NullPointerException类型的异常。
+
+**Parameters**
+
+|Name|Description|
+|:-------|:--------------------------------|
+|instance|包含用户项目信息的框架实例。|
+|fullUrl|待创建StorageReference引用的云端文件或目录的地址。|
+
+**Return**
+
+|Type|Description|
+|:-------------------------------------------------------------------------------------------------------------------------------|:---------------------|
+|[StorageReference](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/storagereference-0000001054767243)|返回StorageReference的实例。|
+
+### getMaxUploadTimeout
+
+|Method|
+|:---------------------------------------------|
+|public long getMaxUploadTimeout() 获取最大的上传超时时间。|
+
+**Return**
+
+|Type|Description|
+|:---|:-----------|
+|long|返回最大的上传超时时间。|
+
+### getMaxDownloadTimeout
+
+|Method|
+|:-----------------------------------------------|
+|public long getMaxDownloadTimeout() 获取最大的下载超时时间。|
+
+**Return**
+
+|Type|Description|
+|:---|:-----------|
+|long|返回最大的下载超时时间。|
+
+### getMaxRequestTimeout
+
+|Method|
+|:----------------------------------------------|
+|public long getMaxRequestTimeout() 获取最大的请求超时时间。|
+
+**Return**
+
+|Type|Description|
+|:---|:-----------|
+|long|返回最大的请求超时时间。|
+
+### getRetryTimes
+
+|Method|
+|:------------------------------------|
+|public int getRetryTimes() 获取最大的重试次数。|
+
+**Return**
+
+|Type|Description|
+|:---|:----------|
+|int|返回最大的重试次数。|
+
+### getArea
+
+|Method|
+|:--------------------------------|
+|public String getArea() 获取当前的存储地。|
+
+**Return**
+
+|Type|Description|
+|:-----|:----------|
+|String|存储地。|
+
+### setMaxUploadTimeout
+
+|Method|
+|:------------------------------------------------------------------|
+|public void setMaxUploadTimeout(long maxUploadTimeout) 设置最大的上传超时时间。|
+
+> 说明
+>
+> 当文件越大时，上传文件完毕校验耗时越长，请根据上传的文件大小设置合理的超时时长。
+
+**Parameters**
+
+|Name|Description|
+|:---------------|:---------------------|
+|maxUploadTimeout|最大的上传超时时间。值必须大于0，单位：秒。|
+
+### setMaxDownloadTimeout
+
+|Method|
+|:----------------------------------------------------------------------|
+|public void setMaxDownloadTimeout(long maxDownloadTimeout) 设置最大的下载超时时间。|
+
+**Parameters**
+
+|Name|Description|
+|:-----------------|:---------------------|
+|maxDownloadTimeout|最大的下载超时时间。值必须大于0，单位：秒。|
+
+### setMaxRequestTimeout
+
+|Method|
+|:--------------------------------------------------------------------|
+|public void setMaxRequestTimeout(long maxRequestTimeout) 设置最大的请求超时时间。|
+
+**Parameters**
+
+|Name|Description|
+|:----------------|:---------------------|
+|maxRequestTimeout|最大的请求超时时间。值必须大于0，单位：秒。|
+
+### setRetryTimes
+
+|Method|
+|:---------------------------------------------------|
+|public void setRetryTimes(int retryTimes) 设置最大的重试次数。|
+
+**Parameters**
+
+|Name|Description|
+|:---------|:----------|
+|retryTimes|最大的重试次数。|
+

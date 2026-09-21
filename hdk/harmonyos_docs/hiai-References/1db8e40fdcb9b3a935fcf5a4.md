@@ -6,23 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/delattr-000000
 
 # DelAttr
 
-#### 接口定义
+## 接口定义
 
-```
+```screen
 GraphErrCodeStatus DelAttr(const string& name);
 ```
 
-#### 功能介绍
+## 功能介绍
 
-删除属性。  
+删除属性。
 
-#### 参数
+## 参数
 
 |名称|输入/输出|类型|描述|
-|:---|:----|:-------------|:----|
-|name|输入|const string\&|属性名称。|
+|:---|:----|:------------|:----|
+|name|输入|const string&|属性名称。|
 
-#### 返回
+## 返回
 
 |类型|描述|
 |:-----------------|:-----------------------------------|

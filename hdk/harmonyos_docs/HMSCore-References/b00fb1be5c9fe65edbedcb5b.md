@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/server-api-
 
 # Files:subscribe
 
-#### 功能介绍
+## 功能介绍
 
-订阅文件的变化。  
+订阅文件的变化。
 
-#### 场景描述
+## 场景描述
 
-Files.subscribe接口实现订阅目录或文件变化的功能，主要针对的是某个资源维度的变化。  
+Files.subscribe接口实现订阅目录或文件变化的功能，主要针对的是某个资源维度的变化。
 
-#### 使用约束
+## 使用约束
 
 * Scope至少包含下面其中一个：
   * https://www.huawei.com/auth/drive.appdata
@@ -24,41 +24,40 @@ Files.subscribe接口实现订阅目录或文件变化的功能，主要针对�
   * https://www.huawei.com/auth/drive.metadata
   * https://www.huawei.com/auth/drive.metadata.readonly
 
-<!-- -->
 
 * url参数采用允许清单机制，只支持设置在允许清单中的url
-* 仅支持80/8080/443/8443/8888此范围内端口回调  
+* 仅支持80/8080/443/8443/8888此范围内端口回调
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTP POST|
-|接口方向|开发者服务器-\>华为云空间服务器|
+|-----|-----------------------------------------------------------------------|
+|接口方向|开发者服务器->华为云空间服务器|
 |接口URL|https://driveapis.cloud.huawei.com.cn/drive/v1/files/{fileId}/subscribe|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|-----|-----------------------------------------------------------------------|
 
-#### 路径参数
+## 路径参数
 
 |参数|是否必选|参数类型|描述|
 |:-----|:---|:-----|:----|
 |fileId|是|string|文件ID。|
 
-#### 查询参数
+## 查询参数
 
 |参数|是否必选|参数类型|描述|
-|:----------|:---|:------|:----------------------------------|
-|fields|否|string|采用\[Partial-response格式\]，具体使用见公共说明。|
+|:----------|:---|:------|:--------------------------------|
+|fields|否|string|采用[Partial-response格式]，具体使用见公共说明。|
 |form|否|string|媒体格式。|
 |prettyPrint|否|boolean|是否以美观格式输出。|
 |quotaId|否|string|用户标识，小于40个字符。用于限制单个用户的API访问数量。|
 |callback|否|string|JSONP的callback函数。|
 
-#### 请求参数
+## 请求参数
 
-Request Header  
+**Request Header**
 
 |参数|是否必选|参数类型|描述|
-|:------------------|:---|:-----|:-----------------------------------|
+|:------------------|:---|:-----|:---------------------------------|
 |Authorization|是|string|用户鉴权信息 AccessToken（即AT）|
 |x-hw-trace-id|否|string|业务跟踪id。|
 |x-hw-app-id|否|string|应用的appid。|
@@ -70,9 +69,9 @@ Request Header
 |x-hw-deviceUUID|否|string|设备UUID。|
 |x-hw-deviceUDID|否|string|设备UDID。|
 |x-hw-appPackageName|否|string|应用包名。|
-|x-hw-network|否|string|网络类型，\[WiFi, 2G, 3G, 4G, 5G, wire\]。|
+|x-hw-network|否|string|网络类型，[WiFi, 2G, 3G, 4G, 5G, wire]。|
 
-Request Body  
+**Request Body**
 
 |参数|是否必选|参数类型|描述|
 |:-------------|:---|:------|:-----------------------------------------------------|
@@ -82,9 +81,9 @@ Request Body
 |url|是|string|发送通知的地址。|
 |expirationTime|否|integer|通道的到期的日期和时间，以Unix时间戳表示，以毫秒为单位，File资源最长1天，Change资源最长1周。|
 
-#### 请求示例
+## 请求示例
 
-```
+```screen
 POST https://driveapis.cloud.huawei.com.cn/drive/v1/files/DSQpEkxcAAADKXEPJAYABgOUVrNwA8Cu/subscribe?fields=* HTTP/1.1 
 Accept: application/json 
 Content-Type: application/json 
@@ -99,9 +98,9 @@ Cache-Control: no-cache
 }
 ```
 
-#### 响应参数
+## 响应参数
 
-状态码为200时:  
+**状态码为200时:**
 
 |参数|参数类型|描述|
 |:-------------|:------|:-----------------------------------------------------|
@@ -114,9 +113,9 @@ Cache-Control: no-cache
 |type|string|类型。|
 |url|string|回调地址。|
 
-#### 响应示例
+## 响应示例
 
-```
+```screen
 { 
     "userToken": "F0Ge0", 
     "resourceId": "MTIzOTA0Njg3ODM3MTUxMjcwNHxBQndKQU9tOEN1b0NLVXdKazRsUDQzZ1JUQS1UaEFyc0E", 
@@ -129,9 +128,9 @@ Cache-Control: no-cache
 }
 ```
 
-#### 常见错误码
+## 常见错误码
 
-错误码后4位为业务错误码，用于区分错误场景，其他业务错误码见[状态码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/status-code-0000001050992633)章节。  
+**错误码后4位为业务错误码，用于区分错误场景，其他业务错误码见[状态码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/status-code-0000001050992633)章节**。
 
 |状态码|错误码|响应代码|描述|
 |:--|:-------|:------------------------|:----------------------|
@@ -149,9 +148,9 @@ Cache-Control: no-cache
 |403|21114038|OUTER_SERVICE_ERROR|服务器异常。|
 |500|21115002|OUTER_SERVICE_UNAVAILABLE|服务器异常。|
 
-#### 调用示例
+## 调用示例
 
-```
+```screen
    public static void main(String[] args) throws IOException {
         // 设置请求地址，文件ID和用户认证令牌
         String url = "https://driveapis.cloud.huawei.com.cn/drive/v1/files";

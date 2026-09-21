@@ -6,20 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/harm
 
 # 配置前准备
 
-#### 创建项目与应用
+## 创建项目与应用
 
-项目是您在AppGallery Connect资源的组织实体，您可以将一个应用的不同平台版本添加到同一个项目中。当您的应用需要使用AGC服务时，您可以[创建您的项目](https://developer.huawei.com/consumer/cn/doc/app/agc-help-createproject-0000001100334664)和[创建您的应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-createapp-0000001146718717)。  
+项目是您在AppGallery Connect资源的组织实体，您可以将一个应用的不同平台版本添加到同一个项目中。当您的应用需要使用AGC服务时，您可以[创建您的项目](https://developer.huawei.com/consumer/cn/doc/app/agc-help-createproject-0000001100334664)和[创建您的应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-createapp-0000001146718717)。
 
-#### 开通服务
+## 开通服务
 
 首次使用云函数服务前，需要先开通此服务。如果您已经开通，可跳过本步骤。
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"开发与服务"。
 2. 在项目列表中点击需要开通云函数的项目。
 
-3. 在左侧导航栏选择"云开发（Serverless）\> 云函数"，进入云函数页面，点击"立即开通"。 ![](https://media:801773804286032474)
+3. 在左侧导航栏选择"云开发（Serverless）> 云函数"，进入云函数页面，点击"立即开通"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/P2VTas4rSwSJudxS4UZSEw/zh-cn_image_0000001844598910.png?HW-CC-KV=V1&HW-CC-Date=20260916T040231Z&HW-CC-Expire=31536000000&HW-CC-Sign=812264829A21A68E4E77D8086DA7ED13C08A003E6B95CEC469A8D431035B17E5)
 
-   ![](https://media:801773804286062475)  
-   如果您此时未设置数据处理位置，系统会自动弹出提示框引导您完成设置。目前，云函数支持启用多个数据处理位置，具体请参见[设置数据处理位置](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-data-storage-location-0000001162597847#section154810363471)。
-4. 如果您已启用多个数据处理位置，当您需要在不同的数据处理位置管理云函数时，可在云函数页面选择"数据处理位置"下拉选项进行切换。 ![](https://media:801773804286114476)
+   > 说明
+   >
+   > 如果您此时未设置数据处理位置，系统会自动弹出提示框引导您完成设置。目前，云函数支持启用多个数据处理位置，具体请参见[设置数据处理位置](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-data-storage-location-0000001162597847#section154810363471)。
+4. 如果您已启用多个数据处理位置，当您需要在不同的数据处理位置管理云函数时，可在云函数页面选择"数据处理位置"下拉选项进行切换。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/YHZVwwJ8RiuFdJi3XsZvBg/zh-cn_image_0000001949074410.png?HW-CC-KV=V1&HW-CC-Date=20260916T040231Z&HW-CC-Expire=31536000000&HW-CC-Sign=73DB380E20F4ADAF9279C6731DCB476BB8AA91A7B102FEFF1792C91718794BD9)
 

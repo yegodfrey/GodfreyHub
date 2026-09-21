@@ -1,0 +1,21 @@
+---
+name: document/cn/Tools-Guides/faq-0000001050741475
+title: FAQ
+uri: https://developer.huawei.com/consumer/cn/doc/Tools-Guides/faq-0000001050741475
+---
+
+# FAQ
+
+如果您在下面没有找到需要的问题，请加入[Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services?tab=Frequent)社区参与讨论。
+
+* **[运行环境的Adb、Hdc如何配置？](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/faq_adb_hdc_config-0000002413959349)**   
+* **[连接工具无响应如何解决？](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/faq_tool_no_response-0000002414079201)**   
+* **[启动抓取失败如何操作？](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/faq_capture_fails-0000002380479852)**   
+* **[未激活状态无法执行抓取如何操作？](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/faq_not_presenting_capture-0000002380319988)**   
+* **[遇到xml文件导出到D盘失败怎么办？](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/faq_xml_export_fail-0000002413959353)**   
+* **[遇到多线程渲染的情况下，无法抓帧？](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/faq_multithreaded_rendering-0000002414079205)**   
+* **[连续帧功能支持多contexts抓取吗？](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/faq_capture_multiple_contexts-0000002380319992)**   
+* **[如何抓取使用GL program binary的应用程序？](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/faq_capture_gl_program_binary-0000002413959357)**   
+* **[连上设备后进行抓帧，Frame Profiler卡死，并且长时间不恢复？](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/faq_capture_frame_profile_stuck-0000002414079209)**   
+* **[出现Graphics Profiler Server connection timed out报错应如何解决？](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/faq_server_connection_timed_out-0000002380479864)**   
+* **[Mac版本抓取需要勾选Override GPU Debug Layers选项](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/mac_capture_check_gpu_debug_layers-0000002572196204)**   

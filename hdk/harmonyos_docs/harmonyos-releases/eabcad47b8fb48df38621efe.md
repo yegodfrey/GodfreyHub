@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/deveco-stud
 
 # DevEco Studio
 
-* [新增和增强特性](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/ide-504-release)  
-* [变更说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/ide-changelogs-504-release)  
+* **[新增和增强特性](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/ide-504-release)**   
+* **[变更说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/ide-changelogs-504-release)**   

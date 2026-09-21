@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiore
 
 # 使用AudioRenderer开发音频播放功能(ArkTS)
 
-AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音频数据，相比[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avplayer-for-playback)而言，可以在输入前添加数据预处理，更适合有音频开发经验的开发者，以实现更灵活的播放功能。  
+AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音频数据，相比[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avplayer-for-playback)而言，可以在输入前添加数据预处理，更适合有音频开发经验的开发者，以实现更灵活的播放功能。
 
-#### 开发指导
+## 开发指导
 
 使用AudioRenderer播放音频涉及到AudioRenderer实例的创建、音频渲染参数的配置、渲染的开始与停止、资源的释放等。本开发指导将以一次渲染音频数据的过程为例，向开发者讲解如何使用AudioRenderer进行音频渲染，建议搭配[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)的API说明阅读。
 
@@ -26,17 +26,17 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
 
 当音频流处于工作状态（非released状态）时，会占用系统的音频流资源。由于系统对音频流数量有限制，所以当客户端暂时不使用音频流时，调用release()回收音频资源，做好资源利用，避免后续创建音频流失败。
 
-图1 AudioRenderer状态变化示意图
+**图1** AudioRenderer状态变化示意图
 
-![](https://media:401788444191497251)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/4qz6dIQORoKtIzIfA96YoA/zh-cn_image_0000002762834379.png?HW-CC-KV=V1&HW-CC-Date=20260917T084546Z&HW-CC-Expire=31536000000&HW-CC-Sign=8E959F5B56A3F692D6D1B6F1860397C6A09322708C9F4E93CA21B400055B9160)
 
-#### 开发步骤及注意事项
+### 开发步骤及注意事项
 
 以下各步骤示例为代码片段，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/Audio/AudioRendererSampleJS)。
 
 1. 配置音频渲染参数并创建AudioRenderer实例，音频渲染参数的详细信息可以查看[AudioRendererOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendereroptions8)。
 
-   ```
+   ```TypeScript
    import { audio } from '@kit.AudioKit';
    // ...
    // 从API版本26.0.0开始，参数samplingRate支持number类型。
@@ -76,12 +76,12 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
 
    * API version 12开始该方法支持返回回调结果，系统可以根据开发者返回的值来决定此次回调中的数据是否播放。
 
-     ![](https://media:401788444191526252)  
-     * 能填满回调所需长度数据的情况下，返回audio.AudioDataCallbackResult.VALID，系统会取用完整长度的数据缓冲进行播放。请不要在未填满数据的情况下返回audio.AudioDataCallbackResult.VALID，否则会导致杂音、卡顿等现象。
-     * 在无法填满回调所需长度数据的情况下，建议开发者返回audio.AudioDataCallbackResult.INVALID，系统不会处理该段音频数据，然后会再次向应用请求数据，确认数据填满后返回audio.AudioDataCallbackResult.VALID。
-     * 回调函数结束后，音频服务会把缓冲中数据放入队列里等待播放，因此请勿在回调外再次更改缓冲中的数据。对于最后一帧，如果数据不够填满缓冲长度，开发者需要使用剩余数据拼接空数据的方式，将缓冲填满，避免缓冲内的历史脏数据对播放效果产生不良的影响。
+     > 注意
+     > * 能填满回调所需长度数据的情况下，返回audio.AudioDataCallbackResult.VALID，系统会取用完整长度的数据缓冲进行播放。请不要在未填满数据的情况下返回audio.AudioDataCallbackResult.VALID，否则会导致杂音、卡顿等现象。
+     > * 在无法填满回调所需长度数据的情况下，建议开发者返回audio.AudioDataCallbackResult.INVALID，系统不会处理该段音频数据，然后会再次向应用请求数据，确认数据填满后返回audio.AudioDataCallbackResult.VALID。
+     > * 回调函数结束后，音频服务会把缓冲中数据放入队列里等待播放，因此请勿在回调外再次更改缓冲中的数据。对于最后一帧，如果数据不够填满缓冲长度，开发者需要使用剩余数据拼接空数据的方式，将缓冲填满，避免缓冲内的历史脏数据对播放效果产生不良的影响。
 
-     ```
+     ```TypeScript
      import { audio } from '@kit.AudioKit';
      import { BusinessError } from '@kit.BasicServicesKit';
      import { fileIo as fs } from '@kit.CoreFileKit';
@@ -121,15 +121,15 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
 
    * API version 11该方法不支持返回回调结果，系统默认回调中的数据均为有效数据。
 
-     ![](https://media:401788444191553253)  
-     * 开发者应避免在主线程中注册回调，以免被其他业务阻塞导致响应回调不及时造成卡顿。建议使用独立的异步线程池处理回调。
-     * 请确保填满回调所需长度数据，否则会导致杂音、卡顿等现象。
-     * 在无法填满回调所需长度数据的情况下，建议开发者选择暂时停止写入数据（不暂停音频流），阻塞回调函数，等待数据充足时，再继续写入数据，确保数据填满。在阻塞回调函数后，如需调用AudioRenderer相关接口，需先解阻塞。
-     * 开发者如果不希望播放本次回调中的音频数据，可以主动将回调中的数据块置空（置空后，也会被系统统计到已写入的数据，播放静音帧）。
-     * 回调函数结束后，音频服务会把缓冲中数据放入队列里等待播放，因此请勿在回调外再次更改缓冲中的数据。对于最后一帧，如果数据不够填满缓冲长度，开发者需要使用剩余数据拼接空数据的方式，将缓冲填满，避免缓冲内的历史脏数据对播放效果产生不良的影响。
-     * 在写数据回调中，避免与耗时业务耦合或等待其他业务操作，例如写数据时不要等待UI绘制。否则，可能会导致数据传输不及时，从而产生卡顿现象。
+     > 注意
+     > * 开发者应避免在主线程中注册回调，以免被其他业务阻塞导致响应回调不及时造成卡顿。建议使用独立的异步线程池处理回调。
+     > * 请确保填满回调所需长度数据，否则会导致杂音、卡顿等现象。
+     > * 在无法填满回调所需长度数据的情况下，建议开发者选择暂时停止写入数据（不暂停音频流），阻塞回调函数，等待数据充足时，再继续写入数据，确保数据填满。在阻塞回调函数后，如需调用AudioRenderer相关接口，需先解阻塞。
+     > * 开发者如果不希望播放本次回调中的音频数据，可以主动将回调中的数据块置空（置空后，也会被系统统计到已写入的数据，播放静音帧）。
+     > * 回调函数结束后，音频服务会把缓冲中数据放入队列里等待播放，因此请勿在回调外再次更改缓冲中的数据。对于最后一帧，如果数据不够填满缓冲长度，开发者需要使用剩余数据拼接空数据的方式，将缓冲填满，避免缓冲内的历史脏数据对播放效果产生不良的影响。
+     > * 在写数据回调中，避免与耗时业务耦合或等待其他业务操作，例如写数据时不要等待UI绘制。否则，可能会导致数据传输不及时，从而产生卡顿现象。
 
-     ```
+     ```TypeScript
      import { BusinessError } from '@kit.BasicServicesKit';
      import { fileIo as fs } from '@kit.CoreFileKit';
      import { common } from '@kit.AbilityKit';
@@ -152,7 +152,7 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
 
 3. 调用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#start8)方法进入running状态，开始渲染音频。
 
-   ```
+   ```TypeScript
    import { BusinessError } from '@kit.BasicServicesKit';
    // ...
        audioRenderer.start((err: BusinessError) => {
@@ -168,7 +168,7 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
 
 4. 调用[stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#stop8)方法停止渲染。
 
-   ```
+   ```TypeScript
    import { BusinessError } from '@kit.BasicServicesKit';
    // ...
        audioRenderer.stop((err: BusinessError) => {
@@ -186,7 +186,7 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
 
    应用需根据实际业务需求合理使用AudioRenderer实例，按需创建并及时释放，避免占用过多音频资源导致异常。
 
-   ```
+   ```TypeScript
    import { BusinessError } from '@kit.BasicServicesKit';
    // ...
        audioRenderer.release((err: BusinessError) => {
@@ -202,7 +202,7 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
        await context.resourceManager.closeRawFd('S16LE_2_48000.pcm');
    ```
 
-#### 选择正确的StreamUsage
+### 选择正确的StreamUsage
 
 创建AudioRenderer实例时，开发者需要根据应用场景指定播放器的StreamUsage，选择正确的StreamUsage可以避免用户遇到不符合预期的行为。
 
@@ -211,9 +211,9 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
 如果开发者配置了不正确的StreamUsage，可能带来一些不符合预期的行为。例如以下场景。
 
 * 游戏场景错误使用STREAM_USAGE_MUSIC类型，游戏应用将无法和其他音乐应用并发播放，而游戏场景通常可以与其他音乐应用并发播放。
-* 导航场景错误使用STREAM_USAGE_MUSIC类型，导航应用播报时会导致正在播放的音乐停止播放，而导航场景我们通常期望正在播放的音乐仅降低音量播放。  
+* 导航场景错误使用STREAM_USAGE_MUSIC类型，导航应用播报时会导致正在播放的音乐停止播放，而导航场景我们通常期望正在播放的音乐仅降低音量播放。
 
-#### 配置合适的音频采样率
+### 配置合适的音频采样率
 
 采样率：指音频每秒单个声道样点数，单位为Hz。
 
@@ -223,13 +223,13 @@ AudioRenderer支持枚举类型[AudioSamplingRate](https://developer.huawei.com/
 
 若通过AudioRenderer设置的输入音频采样率与设备输出采样率不一致，系统会将输入音频重采样为设备输出采样率。
 
-若为减少重采样功耗，可使用采样率与输出设备采样率一致的输入音频。推荐使用48k采样率。  
+若为减少重采样功耗，可使用采样率与输出设备采样率一致的输入音频。推荐使用48k采样率。
 
-#### 完整示例
+### 完整示例
 
 下面展示了使用AudioRenderer渲染音频文件的示例代码。
 
-```
+```TypeScript
 import { audio } from '@kit.AudioKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo as fs } from '@kit.CoreFileKit';
@@ -407,4 +407,5 @@ async function release(context: common.UIAbilityContext) {
 }
 ```
 
-当同优先级或高优先级音频流要使用输出设备时，当前音频流会被中断，应用可以自行响应中断事件并做出处理。具体的音频并发处理方式可参考[处理音频焦点事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-concurrency)。  
+当同优先级或高优先级音频流要使用输出设备时，当前音频流会被中断，应用可以自行响应中断事件并做出处理。具体的音频并发处理方式可参考[处理音频焦点事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-concurrency)。
+

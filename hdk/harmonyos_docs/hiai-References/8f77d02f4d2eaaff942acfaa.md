@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-tpipe-
 
 # InitBufPool
 
-#### 功能说明
+## 功能说明
 
 初始化TBufPool内存资源池。本接口适用于内存资源有限时，希望手动指定UB/L1内存资源复用的场景。本接口初始化后在整体内存资源中划分出一块子资源池。划分出的子资源池TBufPool，提供了如下方式进行资源管理：
 
@@ -14,27 +14,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-tpipe-
 * TBufPool::InitBufPool接口对子资源池继续划分。
 * TBufPool::InitBuffer接口分配Buffer。
 
-关于TBufPool的具体介绍及资源划分图示请参考[TBufPool](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-tbufpool-0000002123077194)。  
+关于TBufPool的具体介绍及资源划分图示请参考[TBufPool](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-tbufpool-0000002123077194)。
 
-#### 函数原型
+## 函数原型
 
-```
+```cpp
 template <class T> 
 __aicore__ inline bool InitBufPool(T& bufPool, uint32_t len) 
 template <class T, class U> 
 __aicore__ inline bool InitBufPool(T& bufPool, uint32_t len, U& shareBuf)
 ```
 
-#### 参数说明
+## 参数说明
 
-表1 InitBufPool(T\& bufPool, uint32_t len) 原型定义参数说明  
+表1 InitBufPool(T& bufPool, uint32_t len) 原型定义参数说明
 
 |参数名称|输入/输出|含义|
 |:------|:----|:------------------------------------------|
 |bufPool|输入|新划分的资源池，类型为TBufPool。|
 |len|输入|新划分资源池长度，单位为Byte，非32Bytes对齐会自动补齐至32Bytes对齐。|
 
-表2 InitBufPool(T\& bufPool, uint32_t len, U\& shareBuf)原型定义参数说明  
+表2 InitBufPool(T& bufPool, uint32_t len, U& shareBuf)原型定义参数说明
 
 |参数名称|输入/输出|含义|
 |:-------|:----|:------------------------------------------|
@@ -42,27 +42,27 @@ __aicore__ inline bool InitBufPool(T& bufPool, uint32_t len, U& shareBuf)
 |len|输入|新划分资源池长度，单位为Byte，非32Bytes对齐会自动补齐至32Bytes对齐。|
 |shareBuf|输入|被复用资源池，类型为TBufPool，新划分资源池与被复用资源池共享起始地址及长度。|
 
-#### 支持的型号
+## 支持的型号
 
 Kirin9020系列处理器
 
-KirinX90系列处理器  
+KirinX90系列处理器
 
-#### 注意事项
+## 注意事项
 
 * 新划分的资源池与被复用资源池的硬件属性需要一致，两者共享起始地址及长度。
 * 输入长度需要小于等于被复用资源池长度。
-* 其他泛用约束参考[TBufPool](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-tbufpool-0000002123077194)。  
+* 其他泛用约束参考[TBufPool](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-tbufpool-0000002123077194)。
 
-#### 返回值
+## 返回值
 
-无  
+无
 
-#### 调用示例
+## 调用示例
 
 由于物理内存的大小有限，在计算过程没有数据依赖的场景或数据依赖串行、没有内存踩踏的场景下，可以通过指定内存复用解决资源不足的问题。本示例中Tpipe::InitBufPool初始化子资源池tbufPool1，并且指定tbufPool2复用tbufPool1的起始地址及长度。tbufPool1及tbufPool2的后续计算串行，不存在数据踩踏，实现了内存复用及自动同步的能力。
 
-```
+```cpp
 #include "kernel_operator.h" 
 class ResetApi { 
 public: 

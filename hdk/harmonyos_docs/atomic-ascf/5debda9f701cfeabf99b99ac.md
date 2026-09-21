@@ -6,21 +6,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-pull-down-ref
 
 # 下拉刷新
 
-#### has.startPullDownRefresh
+## has.startPullDownRefresh
 
 has.startPullDownRefresh(Object object)
 
-下拉刷新接口。调用后触发下拉刷新动画，效果与用户手动触发一致。  
-![](https://media:901788330620944939)  
-* 用户界面触发的下拉刷新，会在4s内关闭。
+下拉刷新接口。调用后触发下拉刷新动画，效果与用户手动触发一致。
+> 说明
+>
+> * 用户界面触发的下拉刷新，会在4s内关闭。
+>
+> * 通过API触发的下拉刷新，可以调用 [has.stopPullDownRefresh](#hasstoppulldownrefresh) 进行关闭。
 
-* 通过API触发的下拉刷新，可以调用 [has.stopPullDownRefresh](#hasstoppulldownrefresh) 进行关闭。
+**起始版本：** 1.0.0
 
-起始版本： 1.0.0
+**参数：**
 
-参数：
-
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -28,15 +29,15 @@ has.startPullDownRefresh(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-错误码：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:-------|:-------------------------------------------------------------------------------------------------------------------|
 |30001101|startPullDownRefresh error. Possible causes: 1.is already startPullDownRefresh. 2.config not enable pullDownRefresh.|
 
-示例：
+**示例：**
 
-```
+```js
 has.startPullDownRefresh({
   success: () => {
     console.info('startPullDownRefresh success');
@@ -50,17 +51,17 @@ has.startPullDownRefresh({
 });
 ```
 
-#### has.stopPullDownRefresh
+## has.stopPullDownRefresh
 
 has.stopPullDownRefresh(Object object)
 
 停止当前页面下拉刷新。
 
-起始版本： 1.0.0
+**起始版本：** 1.0.0
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -68,15 +69,15 @@ has.stopPullDownRefresh(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-错误码：  
+**错误码信息：**
 
 |错误码|错误信息|
 |:-------|:-------------------------|
 |30001201|stopPullDownRefresh error.|
 
-示例：
+**示例：**
 
-```
+```js
 has.stopPullDownRefresh({
   success: () => {
     console.info('stopPullDownRefresh success');

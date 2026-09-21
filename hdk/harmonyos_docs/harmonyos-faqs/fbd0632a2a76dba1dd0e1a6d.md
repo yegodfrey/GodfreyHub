@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-13
 
 参考代码：
 
-```
+```ts
 setFlash(captureSession: camera.PhotoSession,flashMode: camera.FlashMode) {
   if (captureSession != null) {
     let focusModeStatus: boolean = captureSession?.isFlashModeSupported(flashMode);

@@ -6,27 +6,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1452
 
 # HarmonyOS多窗口截图合并方案
 
-#### 问题现象
+## 问题现象
 
-当前页面由两个窗口组成，截图时仅能获取其中一个窗口的内容，无法实现与用户手动截图一致的效果。  
+当前页面由两个窗口组成，截图时仅能获取其中一个窗口的内容，无法实现与用户手动截图一致的效果。
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782454278557811 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/lJgNXgTlTDa6BnCJzGGEuQ/zh-cn_image_0000002628604264.png?HW-CC-KV=V1&HW-CC-Date=20260920T114734Z&HW-CC-Expire=31536000000&HW-CC-Sign=9D4FE0246DF63D790DB84E3597E0A93F2F1B6B0C0BC7F6DAC9C14ED00D3718FF "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-window)：窗口提供管理窗口的一些基础能力，包括对当前窗口的创建、销毁、各属性设置，以及对各窗口间的管理调度。用于生成子窗口。
 * [snapshot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#snapshot9)：获取窗口级别截图。
-* [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)：提供画布组件，用于自定义绘制图形。将图片在画布组件上进行合并实现与手动截图相同的效果。  
+* [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)：提供画布组件，用于自定义绘制图形。将图片在画布组件上进行合并实现与手动截图相同的效果。
 
-#### 解决方案
+## 解决方案
 
 使用snapshot分别获取每个窗口的截图，再根据窗口的叠加顺序，将截图按照顺序使用drawImage绘制在Canvas上的同一位置，然后获取截图。
 
 * 主要页面（截图以及绘制合并主要逻辑）。
 
-  ```
+  ```screen
   import { BusinessError } from '@kit.BasicServicesKit';
   import { window } from '@kit.ArkUI';
   import { image } from '@kit.ImageKit';
@@ -35,13 +35,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1452
   @Entry
   @Component
   struct Index {
-    private context = this.getUIContext().getHostContext(); // 获取Context
+    private context = this.getUIContext().getHostContext(); //获取Context
     mainWindowClass: window.Window | undefined = undefined;
     private settings: RenderingContextSettings = new RenderingContextSettings(true);
     private canvasContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
 
     aboutToAppear(): void {
-      // 获取主窗口
+    // 获取主窗口
       window.getLastWindow(this.context).then((value) => {
         this.mainWindowClass = value;
       });
@@ -79,16 +79,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1452
             .width('90%')
             .margin({ bottom: 20 })
             .onClick(async () => {
-              // 清除画布内容
+         // 清除画布内容
               this.canvasContext.clearRect(0, 0, 1000, 1000);
-              // 主窗口截图
+             // 主窗口截图
               this.mainWindowClass?.snapshot((err: BusinessError, pixelMap: image.PixelMap) => {
                 const errCode: number = err.code;
                 if (errCode) {
                   console.error(`Failed to snapshot window. Cause code: ${err.code}, message: ${err.message}`);
                   return;
                 }
-                // 绘制主窗口到画布
+               // 绘制主窗口到画布
                 this.canvasContext.drawImage(pixelMap, 90, 50, 200, 400);
               });
               window.getLastWindow(this.context, (err: BusinessError, topWindow) => {
@@ -102,7 +102,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1452
                     console.error(`Failed to snapshot window. Cause code: ${err.code}, message: ${err.message}`);
                     return;
                   }
-                  // 绘制子窗口到画布
+                 // 绘制子窗口到画布
                   this.canvasContext.drawImage(pixelMap, 90, 50, 200, 400);
                 });
               });
@@ -119,11 +119,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1452
   }
   ```
 
-<!-- -->
 
 * 子窗口（示例窗口，无关键逻辑）。
 
-  ```
+  ```screen
   @Entry
   @Component
   struct Watermark {
@@ -141,13 +140,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1452
               this.canvas.font = '16vp';
               this.canvas.textAlign = 'center';
               this.canvas.textBaseline = 'middle';
-              // 在这里绘制文字水印，也可以是图片水印
+            // 在这里绘制文字水印，也可以是图片水印
               for (let i = 0; i < this.canvas.width / 120; i++) {
                 this.canvas.translate(120, 0);
                 let j = 0;
                 for (; j < this.canvas.height / 120; j++) {
                   this.canvas.rotate(-Math.PI / 180 * 30);
-                  // 此处水印数据是写死的，具体请替换为自己的水印
+                 // 此处水印数据是写死的，具体请替换为自己的水印
                   this.canvas.fillText('test', -60, -60);
                   this.canvas.rotate(Math.PI / 180 * 30);
                   this.canvas.translate(0, 120);

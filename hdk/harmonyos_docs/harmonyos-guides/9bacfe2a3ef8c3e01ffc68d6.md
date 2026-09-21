@@ -14,15 +14,16 @@ ArkUI提供了系统组件[NodeContainer](https://developer.huawei.com/consumer/
 
 [NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)提供了一系列生命周期回调，通过[makeNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller#makenode)回调返回一个[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)节点树的根节点。将[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)节点树挂载到对应的[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)下。同时提供了[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)、[aboutToDisappear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttodisappear)、[aboutToResize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller#abouttoresize)、[onTouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller#ontouchevent)四个回调方法用于监听对应的[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)的状态，以及[rebuild](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller#rebuild)方法用于主动触发[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)重新回调[makeNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller#makenode)以更新子节点。
 
-每个生命周期的回调的具体含义参考[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)的接口文档说明。  
-![](https://media:401788444586601266)  
-* NodeContainer下仅支持挂载自定义的FrameNode节点以及BuilderNode创建的组件树的根节点。
+每个生命周期的回调的具体含义参考[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)的接口文档说明。
+> 说明
+>
+> * NodeContainer下仅支持挂载自定义的FrameNode节点以及BuilderNode创建的组件树的根节点。
+>
+> * 从API Version 12开始支持的接口，可以通过FrameNode的查询接口返回系统组件的代理节点，代理节点可以作为makeNode的返回值进行返回，但代理节点无法成功挂载在组件树上，最终的显示结果为代理节点挂载失败。
+>
+> * 需要保证一个节点只能作为一个父节点的子节点去使用，否则可能存在显示异常或者功能异常，尤其是页面路由场景或者动效场景。例如，如果通过NodeController将同一个节点挂载在多个NodeContainer上，仅一个占位容器下会显示节点，且多个NodeContainer的可见性、透明度等影响子组件状态的属性更新均会影响被挂载的子节点。
 
-* 从API Version 12开始支持的接口，可以通过FrameNode的查询接口返回系统组件的代理节点，代理节点可以作为makeNode的返回值进行返回，但代理节点无法成功挂载在组件树上，最终的显示结果为代理节点挂载失败。
-
-* 需要保证一个节点只能作为一个父节点的子节点去使用，否则可能存在显示异常或者功能异常，尤其是页面路由场景或者动效场景。例如，如果通过NodeController将同一个节点挂载在多个NodeContainer上，仅一个占位容器下会显示节点，且多个NodeContainer的可见性、透明度等影响子组件状态的属性更新均会影响被挂载的子节点。
-
-#### 基本概念
+## 基本概念
 
 * 自定义节点：使用ArkUI提供的接口，以命令式创建的节点。包括自定义组件节点（[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)）、自定义渲染节点（[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)）、自定义声明式节点（[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)）、[ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent)等。
 
@@ -34,11 +35,11 @@ ArkUI提供了系统组件[NodeContainer](https://developer.huawei.com/consumer/
 
 * 占位节点：用于在声明式节点树上为自定义节点树预留位置的节点，主要包括NodeContainer和ContentSlot。鉴于页面的主树采用声明式节点树，因此，唯有借助占位节点，才能将命令式构建的自定义节点成功挂载至声明式节点树上。
 
-#### 使用NodeContainer挂载自定义节点
+## 使用NodeContainer挂载自定义节点
 
 通过NodeController在NodeContainer下挂载自定义节点。
 
-```
+```TypeScript
 // common.ets
 import { BuilderNode, UIContext } from '@kit.ArkUI';
 
@@ -74,7 +75,7 @@ export function getOrCreateNode(uiContext: UIContext): BuilderNode<[Params]> | n
 }
 ```
 
-```
+```TypeScript
 // Index.ets
 import { FrameNode, NodeController, Size, UIContext } from '@kit.ArkUI';
 import { getOrCreateNode } from './Common';
@@ -158,11 +159,11 @@ struct Index {
 }
 ```
 
-#### NodeContainer和ContentSlot添加子节点布局差异
+## NodeContainer和ContentSlot添加子节点布局差异
 
 [NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)是一个容器节点，布局参考左上角对齐的[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)组件，不会按照父容器的布局规则进行布局。[ContentSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-contentslot)只是一个语法节点，不参与布局，添加的子节点会按照父容器的布局规则进行布局。
 
-```
+```TypeScript
 import { FrameNode, NodeContent, NodeController, typeNode, UIContext } from '@kit.ArkUI';
 
 class NodeContentCtrl {
@@ -279,4 +280,5 @@ struct Index {
 }
 ```
 
-![](https://media:401788444586656267)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/j0z2wzlyTp6KV0IUq4sBjw/zh-cn_image_0000002733434088.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=D9AD7757673A36E7A219AC44E48E232BD05F0E48449DCC85A22F8023DE5ED06D)
+

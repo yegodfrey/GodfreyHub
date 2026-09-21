@@ -6,28 +6,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/query-healt
 
 # 查询健康趋势
 
-#### 功能介绍
+## 功能介绍
 
-查询特定健康数据类型对应的数据项的趋势统计结果。  
+查询特定健康数据类型对应的数据项的趋势统计结果。
 
-#### 场景描述
+## 场景描述
 
-针对特定健康数据类型，返回其可统计趋势的数据项的趋势统计结果。  
+针对特定健康数据类型，返回其可统计趋势的数据项的趋势统计结果。
 
-#### 使用约束
+## 使用约束
 
 * 联盟卡片申请数据类型对应的权限。
-* 仅支持部分开发者使用，如有需要，可[提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)或者发送邮件至[hihealth@huawei.com](mailto:hihealth@huawei.com)进行咨询。  
+* 仅支持部分开发者使用，如有需要，可[提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)或者发送邮件至[hihealth@huawei.com](mailto:hihealth@huawei.com)进行咨询。
 
-#### 接口原型
+## 接口原型
 
-|承载协议|HTTPS GET|
-|接口方向|开发者应用-\>Health Service Kit云|
-|接口URL|https://health-api.cloud.huawei.com/healthkit/v2/healthTrends?dataType=\*\*\*\&lang=\*\*\*\&timeZone=\*\*\*|
+|**承载协议**|HTTPS GET|
+|---------|------------------------------------------------------------------------------------------------|
+|**接口方向**|开发者应用->Health Service Kit云|
+|**接口URL**|https://health-api.cloud.huawei.com/healthkit/v2/healthTrends?dataType=***&lang=***&timeZone=***|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|-----|-----------------------------------------------------------------------------------------------------------|
 
-#### 查询参数
+## 查询参数
 
 |参数|参数类型|是否必选|描述|
 |:-------|:-----|:---|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -35,25 +35,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/query-healt
 |lang|String|是|语言。目前只支持 zh-CN|
 |timeZone|String|是|时区。格式为 +0800|
 
-#### 请求参数
+## 请求参数
 
-Request Header  
+**Request Header**
 
 |参数|参数类型|是否必选|描述|
-|:----------------|:-----|:---|:-----------------------------------------------------------------------------------------------------------------------------------------|
+|:----------------|:-----|:---|:--------------------------------------------------------------------------------------------------------------------------------------------|
 |Content-type|String|是|取值为：application/json; charset=UTF-8|
-|Authorization|String|是|请参见[认证鉴权](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/auth-example-0000001054581058)。 说明： Bearer后面拼接空格，再拼接获取的access_token。|
+|Authorization|String|是|请参见[认证鉴权](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/auth-example-0000001054581058)。 > 说明 > Bearer后面拼接空格，再拼接获取的access_token。|
 |x-client-id|String|否|开放联盟分配的应用标识。服务端可以基于其进行灰度路由，建议携带。|
 |x-version|String|否|接口调用方的软件版本号。即当前客户端版本号，服务端可以基于其进行灰度，建议携带。|
 |x-caller-trace-id|String|否|请求跟踪ID。用于串联服务调用方与服务端整体请求链条，建议携带。|
 
-Request Body
+**Request Body**
 
-无  
+无
 
-#### 请求示例
+## 请求示例
 
-```
+```screen
 GET
 https://health-api.cloud.huawei.com/healthkit/v2/healthTrends?dataType=com.huawei.instantaneous.resting_heart_rate&lang=zh-CN&timeZone=+0800
 Content-Type: application/json
@@ -63,25 +63,25 @@ x-version: ***
 x-caller-trace-id: ***
 ```
 
-#### 响应参数
+## 响应参数
 
-状态码为200时：
+**状态码为200时：**
 
-Response Header  
+**Response Header**
 
 |参数|参数类型|是否必选|描述|
 |:-----------|:-----|:---|:----------------------------------|
 |Content-Type|String|是|取值为：application/json; charset=UTF-8|
 
-Response Body  
+**Response Body**
 
 |参数|参数类型|是否必选|描述|
-|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------|:---|:---|
-|healthTrendReports|List\<[HealthTrend](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/data-model-0000001054556973#section8936145565217)\>|是|趋势报告|
+|:-----------------|:------------------------------------------------------------------------------------------------------------------------------------|:---|:---|
+|healthTrendReports|List<[HealthTrend](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/data-model-0000001054556973#section8936145565217)>|是|趋势报告|
 
-#### 响应示例
+## 响应示例
 
-```
+```screen
 HTTP/1.1 200 OK
 Content-type: application/json;charset=utf-8
 {
@@ -253,6 +253,7 @@ Content-type: application/json;charset=utf-8
 }
 ```
 
-#### 错误码
+## 错误码
 
-请参见[错误码](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/error-code-0000001054236973)。  
+请参见[错误码](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/error-code-0000001054236973)。
+

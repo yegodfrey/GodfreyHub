@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-enter-e
 
 [transition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component)是基础的组件转场接口，用于实现一个组件出现或者消失时的动画效果。可以通过[TransitionEffect^10+^对象说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component#transitioneffect10对象说明)的组合使用，定义出各式效果。
 
-表1 转场效果接口  
+**表1** 转场效果接口
 
 |转场效果|说明|动画|
 |:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -25,7 +25,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-enter-e
 
 1. 创建TransitionEffect。
 
-   ```
+   ```TypeScript
    // 出现时会是所有出现转场效果的叠加，消失时会是所有消失转场效果的叠加
    // 说明各个effect跟随的动画参数
    private effect: TransitionEffect =
@@ -47,14 +47,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-enter-e
 
 2. 将转场效果通过[transition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component)接口设置到组件。
 
-   ```
+   ```ts
    Text('test')
      .transition(this.effect)
    ```
 
 3. 新增或者删除组件触发转场。
 
-   ```
+   ```ts
    @State isPresent: boolean = true;
    // ...
    if (this.isPresent) {
@@ -74,7 +74,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-enter-e
 
 完整的示例代码和效果如下，示例中采用直接删除或新增组件的方式触发转场，也可以替换为在[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animation)闭包内改变控制变量触发转场。
 
-```
+```TypeScript
 import { curves } from '@kit.ArkUI';
 
 @Entry
@@ -137,11 +137,11 @@ struct TransitionEffectDemo {
 }
 ```
 
-![](https://media:401788444586347260)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/eyptZJE2TXKu8_AHG-Be6A/zh-cn_image_0000002733434042.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=060DB16BE6BDA97D7D0F169631FCFCB1B68BD16C869A93F42AD3C73F6D5A531C)
 
 对多个组件添加转场效果时，可以在[animation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-animatorproperty#animation)动画参数中配置不同的delay值，实现组件渐次出现消失的效果：
 
-```
+```TypeScript
 const ITEM_COUNTS = 9;
 const ITEM_COLOR = '#ED6F21';
 const INTERVAL = 30;
@@ -202,4 +202,5 @@ struct Index1 {
 }
 ```
 
-![](https://media:401788444586383261)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/hDxSLsbkQ6OMXBMG3Daifg/zh-cn_image_0000002762993563.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=76CA19867DBDBECFAB2522A641D0DB8747125B55124EDDB8AD5EEC544434AE63)
+

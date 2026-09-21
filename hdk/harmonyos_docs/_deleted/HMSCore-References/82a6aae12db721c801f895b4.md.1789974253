@@ -1,0 +1,69 @@
+---
+name: document/cn/HMSCore-References/constant-values-0000001050817323
+title: Constant-values
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/constant-values-0000001050817323
+---
+
+# Constant-values
+
+## com.huawei.hms.hmsscankit
+
+|Qualifier and Type|Constant Field|Value|
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|
+|public static final int|[SUCCESS](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-scanutil4-0000001050167699#section171631634203411)|0|
+|public static final int|[SCAN_NO_DETECTED](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-scanutil4-0000001050167699#section495013293519)|4096|
+|public static final String|[RESULT](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-scanutil4-0000001050167699#section13418152610215)|SCAN_RESULT|
+|public static final String|[RESULT_CODE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-scanutil4-0000001050167699#section17931130214)|SCAN_RESULT_CODE|
+
+## com.huawei.hms.ml.scan
+
+|Qualifier and Type|Constant Field|Value|
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static final int|[ARTICLE_NUMBER_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section127332022711)|1001|
+|public static final int|[EMAIL_CONTENT_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section17208112814265)|1002|
+|public static final int|[TEL_PHONE_NUMBER_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section104121654133219)|1003|
+|public static final int|[PURE_TEXT_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section6366341123010)|1004|
+|public static final int|[SMS_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section926722510313)|1005|
+|public static final int|[URL_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section47371318994)|1006|
+|public static final int|[WIFI_CONNECT_INFO_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section7971126193)|1007|
+|public static final int|[EVENT_INFO_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section359615942718)|1008|
+|public static final int|[CONTACT_DETAIL_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section1528412411182)|1009|
+|public static final int|[DRIVER_INFO_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section145482574242)|1010|
+|public static final int|[LOCATION_COORDINATE_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section4752126122911)|1011|
+|public static final int|[ISBN_NUMBER_FORM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-hms-scan4-0000001050167739#section13444195511282)|1012|
+|public static final int|[OTHER_USE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-address-info4-0000001050165832#section125782319111)|-1|
+|public static final int|[RESIDENTIAL_USE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-address-info4-0000001050165832#section641955207)|0|
+|public static final int|[OFFICE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-address-info4-0000001050165832#section091813121913)|1|
+|public static final int|[ALL_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section188972467446)|0|
+|public static final int|[AZTEC_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section10882134815459)|SCAN_TYPE.AZTEC_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[CODABAR_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section9721120125316)|SCAN_TYPE.CODABAR_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[CODE39_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section187611711174812)|SCAN_TYPE.CODE39_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[CODE93_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section14697204214483)|SCAN_TYPE.CODE93_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[CODE128_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section56251822124920)|SCAN_TYPE.CODE128_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[DATAMATRIX_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section722123317461)|SCAN_TYPE.DATAMATRIX_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[EAN8_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section197411385505)|SCAN_TYPE.EAN8_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[EAN13_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section12654135119493)|SCAN_TYPE.EAN13_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[FORMAT_UNKNOWN](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section15641857424)|SCAN_TYPE.FORMAT_UNKNOWN.getUnKnown()|
+|public static final int|[MULTI_FUNCTIONAL_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section978465419331)|SCAN_TYPE.MULTI_FUNCTIONAL_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[ITF14_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1101141085112)|SCAN_TYPE.ITF14_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[PDF417_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section247311644715)|SCAN_TYPE.PDF417_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[QRCODE_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section116901236184313)|SCAN_TYPE.QRCODE_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[UPCCODE_A_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section043122105215)|SCAN_TYPE.UPCCODE_A_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[UPCCODE_E_SCAN_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section9878371523)|SCAN_TYPE.UPCCODE_E_SCAN_TYPE.[getScanType](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section1644416922712)()|
+|public static final int|[SCAN_FORMAT_FLAG](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanbase-0000001281096800#section3258162814227)|"ScanFormatValue"|
+|public static final int|[OTHER_USE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-email-content4-0000001050165890#section1344011417228)|-1|
+|public static final int|[RESIDENTIAL_USE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-email-content4-0000001050165890#section1095422910381)|0|
+|public static final int|[OFFICE_USE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-email-content4-0000001050165890#section3258162814227)|1|
+|public static final int|[SCAN_PARSE_FAILED](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanresult-0000001572628185#section127332022711)|4097|
+|public static final int|[SCAN_NEED_ZOOM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanresult-0000001572628185#section3489839103113)|4098|
+|public static final int|[SCAN_OVEREXPOSED](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanresult-0000001572628185#section9797145113111)|4099|
+|public static final int|[SCAN_UNDEREXPOSED](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/hmsscanresult-0000001572628185#section17208112814265)|4100|
+|public static final int|[OTHER_USE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-tel-phone-number4-0000001050167873#section865733894411)|-1|
+|public static final int|[FAX_USE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-tel-phone-number4-0000001050167873#section94099611440)|0|
+|public static final int|[RESIDENTIAL_USE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-tel-phone-number4-0000001050167873#section1193718177445)|1|
+|public static final int|[CELLPHONE_NUMBER_USE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-tel-phone-number4-0000001050167873#section674313112567)|2|
+|public static final int|[OFFICE_USE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-tel-phone-number4-0000001050167873#section586113815568)|3|
+|public static final int|[NO_PASSWORD_MODE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-wifi-connection-info4-0000001050167895#section107130422497)|0|
+|public static final int|[WPA_MODE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-wifi-connection-info4-0000001050167895#section492016515507)|1|
+|public static final int|[WEP_MODE_TYPE](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/scan-wifi-connection-info4-0000001050167895#section7352553124911)|2|
+

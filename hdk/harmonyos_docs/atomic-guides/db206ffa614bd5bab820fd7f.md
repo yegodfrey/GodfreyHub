@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-devicesec
 
 # 可信应用服务
 
-* [安全地理位置场景](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-devicesecurity-taas-securelocation)  
-* [签名验证](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-devicesecurity-taas-verify)  
+* **[安全地理位置场景](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-devicesecurity-taas-securelocation)**   
+* **[签名验证](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-devicesecurity-taas-verify)**   

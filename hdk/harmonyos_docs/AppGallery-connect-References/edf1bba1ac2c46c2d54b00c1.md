@@ -6,35 +6,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # 语音审核结果回调
 
-当游戏语音片段经过审核检测后，将通过开发者已配置的"检测结果回调地址"通知具体的检测结果。  
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20241105115823.16866734995624104973162921568200:50001231000000:2800:BA923225EDCA1C4C6C3F01B93D86694FFA036CDE76EC268AF7152F841C06341D.png?needInitFileName=true?needInitFileName=true)  
-开发者在接收到请求后，解析出检测结果详情，以便进一步处理。  
+当游戏语音片段经过审核检测后，将通过开发者已配置的"检测结果回调地址"通知具体的检测结果。
+> 说明
+>
+> 开发者在接收到请求后，解析出检测结果详情，以便进一步处理。
 
-#### 使用约束
+## 使用约束
 
-开发者已配置"检测结果回调地址"，且回调地址网络可达。如果使用https，请确保TLS证书在有效期内。  
+开发者已配置"检测结果回调地址"，且回调地址网络可达。如果使用https，请确保TLS证书在有效期内。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS POST|
-|接口方向|实时语音审核服务 -\> 开发者服务器|
-|接口URL|由开发者指定的"[检测结果回调地址](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-console-servicemanagement-0000001255134391#ZH-CN_TOPIC_0000001255134391__p68121432153215)"。 说明： 请确保此接口URL可达。|
+|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|接口方向|实时语音审核服务 -> 开发者服务器|
+|接口URL|由开发者指定的"[检测结果回调地址](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-console-servicemanagement-0000001255134391#ZH-CN_TOPIC_0000001255134391__p68121432153215)"。 > 说明 > 请确保此接口URL可达。|
 |数据格式|请求：Content-Type: application/json 响应：Content-Type: application/json|
-|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-#### Request Header
+### Request Header
 
 |参数名称|必选（M）/可选（O）|类型|参数说明|
 |:------------|:----------|:-----|:------------------------------------------------------|
 |Content-Type|M|String|取值为：application/json; charset=UTF-8。|
 |Authorization|M|String|签名信息，用于校验消息是否可信，具体请参见下方的[签名生成说明](#section830415297458)。|
 
-#### Request Body
+### Request Body
 
 |参数名称|必选（M）/可选（O）|类型|参数说明|
-|:------------|:----------|:-------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:------------|:----------|:-----------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |openId|M|String|游戏玩家ID。|
 |appId|M|String|游戏appId。|
 |roomId|M|String|玩家所在语音房间的ID。|
@@ -42,22 +43,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |resultCode|M|Integer|检测处理结果。 * 成功：0 * 其他：-1|
 |resultMessage|M|String|检测任务状态消息。|
 |Flag|M|Integer|语音是否有风险。 * 无风险：0 * 有风险：1|
-|riskLabels|O|List\<String\>|音频的风险标签。枚举值包括： * PORN：色情 * SENSITIVE：敏感信息 * POLITICS：政治敏感 * AD：广告 * ADD_WATER：灌水 * PROHIBIT：赌博、毒品、违禁药品等 * ABUSE：辱骂 * RELIGION：宗教 * CHILD_ABUSE：虐童 * TERRORISM：暴恐 * DISCRIMINATION：种族歧视 * GAMBLING：赌博 * DISGUST：恶心 * VULGAR：低俗 * NEGATIVE：负面 * SUPERSTITION：封建迷信 * FRAUD：欺诈 说明： 一个语音文件可能会有多个标签，如：\["PORN","AD"\]。|
-|detail|O|List\<[RiskDetail](#ZH-CN_TOPIC_0000001298699924__p19847238145611)\>|音频审核的详细结果。 说明： 仅当riskLabels不为空时，采用detail表示返回的相关检测结果详细信息。|
+|riskLabels|O|List<String>|音频的风险标签。枚举值包括： * PORN：色情 * SENSITIVE：敏感信息 * POLITICS：政治敏感 * AD：广告 * ADD_WATER：灌水 * PROHIBIT：赌博、毒品、违禁药品等 * ABUSE：辱骂 * RELIGION：宗教 * CHILD_ABUSE：虐童 * TERRORISM：暴恐 * DISCRIMINATION：种族歧视 * GAMBLING：赌博 * DISGUST：恶心 * VULGAR：低俗 * NEGATIVE：负面 * SUPERSTITION：封建迷信 * FRAUD：欺诈 > 说明 > 一个语音文件可能会有多个标签，如：["PORN","AD"]。|
+|detail|O|List<[RiskDetail](#ZH-CN_TOPIC_0000001298699924__p19847238145611)>|音频审核的详细结果。 > 说明 > 仅当riskLabels不为空时，采用detail表示返回的相关检测结果详细信息。|
 |startTime|M|Long|送检语音开始时间的时间戳，即距离1970年1月1日0点的毫秒数。|
 |endTime|M|Long|送检语音结束时间的时间戳，即距离1970年1月1日0点的毫秒数。|
 
-RiskDetail  
+**RiskDetail**
 
 |参数名称|必选（M）/可选（O）|类型|参数说明|
-|:---------|:----------|:-------------|:-----------------------------------------|
+|:---------|:----------|:-----------|:-----------------------------------------|
 |label|O|String|检测出的风险分类标签，如："PROHIBIT"。|
 |confidence|O|Float|风险检测结果的置信度，以百分比表示，如置信度为96.95%时，此字段为：96.95。|
-|keyWord|O|List\<String\>|音频转文本后由文本敏感词审核的结果列表，如：\["毒品","枪支"\]。|
+|keyWord|O|List<String>|音频转文本后由文本敏感词审核的结果列表，如：["毒品","枪支"]。|
 
-#### 请求示例
+## 请求示例
 
-```
+```screen
 POST https://xxx/xxx
 Content-Type: application/json
 Authorization: qS8XAN******************NOiIrLzqw=
@@ -65,41 +66,41 @@ Authorization: qS8XAN******************NOiIrLzqw=
 {"openId":"c***3","appId":"102***218","roomId":"930220711430063104","recordId":"119180139967600000000024","resultCode":0,"resultMessage":"SUCCESS","hitFlag":1,"riskLabels":["ABUSE","SENSITIVE","PORN"],"detail":[{"label":"SENSITIVE","confidence":65.9,"keyWord":["leader","common"]},{"label":"ABUSE","confidence":96.0,"keyWord":["common"]},{"label":"PORN","confidence":99.999,"keyWord":["common","NORMAL","PORN"]}],"startTime":1657167794049,"endTime":1657167854059}
 ```
 
-#### 响应参数
+## 响应参数
 
 |参数名称|必选（M）/可选（O）|类型|参数说明|
 |:---|:----------|:------|:------------------------------|
 |code|M|Integer|状态码。 * 0：成功 * 1：签名校验错误 * 2：未知错误|
 |msg|O|String|状态消息。|
 
-#### 响应示例
+## 响应示例
 
-```
+```screen
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 {"code":0,"msg":"Success"}
 ```
 
-#### 签名生成及校验规则
+## 签名生成及校验规则
 
-#### 签名校验规则
+### 签名校验规则
 
-开发者接收到请求后，根据签名规则对消息内容签名，将计算出的签名与header携带的签名Authorization字段比对，如果一致，则消息来源可靠。  
+开发者接收到请求后，根据签名规则对消息内容签名，将计算出的签名与header携带的签名Authorization字段比对，如果一致，则消息来源可靠。
 
-#### 生成签名
+### 生成签名
 
-计算签名涉及字段如下：  
+计算签名涉及字段如下：
 
 |字段名|类型|含义|
-|:---------|:-----|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|strContent|String|签名对象，格式："POST" + requestBody。 示例： ``` POST{"openId":"c***3","appId":"102***218","roomId":"930220711430063104","recordId":"119180139967600000000024","resultCode":0,"resultMessage":"SUCCESS","hitFlag":1,"riskLabels":["ABUSE","SENSITIVE","PORN"],"detail":[{"label":"SENSITIVE","confidence":65.9,"keyWord":["leader","common"]},{"label":"ABUSE","confidence":96.0,"keyWord":["common"]},{"label":"PORN","confidence":99.999,"keyWord":["common","NORMAL","PORN"]}],"startTime":1657167794049,"endTime":1657167854059} ```|
-|gameSecret|String|游戏密钥。 说明： 开通"游戏服务"后记录下的"[游戏私钥](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-console-servicemanagement-0000001255134391#ZH-CN_TOPIC_0000001255134391__li2471125718563)"。|
+|:---------|:-----|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|strContent|String|签名对象，格式："POST" + requestBody。 示例： ```screen POST{"openId":"c***3","appId":"102***218","roomId":"930220711430063104","recordId":"119180139967600000000024","resultCode":0,"resultMessage":"SUCCESS","hitFlag":1,"riskLabels":["ABUSE","SENSITIVE","PORN"],"detail":[{"label":"SENSITIVE","confidence":65.9,"keyWord":["leader","common"]},{"label":"ABUSE","confidence":96.0,"keyWord":["common"]},{"label":"PORN","confidence":99.999,"keyWord":["common","NORMAL","PORN"]}],"startTime":1657167794049,"endTime":1657167854059} ```|
+|gameSecret|String|游戏密钥。 > 说明 > 开通"游戏服务"后记录下的"[游戏私钥](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-console-servicemanagement-0000001255134391#ZH-CN_TOPIC_0000001255134391__li2471125718563)"。|
 
 以gameSecret作为密钥，使用HmacSha256算法对strContent进行签名，并使用BASE64对签名进行编码。
 
 示例代码：
 
-```
+```screen
 import org.apache.commons.codec.binary.Base64;
 
 import java.nio.charset.StandardCharsets;

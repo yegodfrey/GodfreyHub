@@ -7,6 +7,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/api-conetw
 # ConeTwistConstraint.Descriptor
 
 |Class Info|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public static class Descriptor extends [Component.Descriptor](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-component-descriptor-0000001061359987)\<[ConeTwistConstraint](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-conetwistconstraint-0000001142982445)\> 圆锥体旋转约束组件描述符。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public static class Descriptor extends [Component.Descriptor](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-component-descriptor-0000001061359987)<[ConeTwistConstraint](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-conetwistconstraint-0000001142982445)> 圆锥体旋转约束组件描述符。|
 

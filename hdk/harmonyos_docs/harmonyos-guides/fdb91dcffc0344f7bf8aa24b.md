@@ -8,27 +8,28 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-faultlog-
 
 从DevEco Studio 6.0.0 Beta2版本开始，支持对AppFreeze类型的FaultLog，进行结构化展示和日志过滤。关于AppFreeze日志的检测原理、日志规格等信息请查看[AppFreeze（应用冻屏）检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines)。
 
-1. 打开FaultLog窗口，双击appfreeze日志，Fault Info右侧会出现Fault Analysis页签。 ![](https://media:401788752130034676)
+1. 打开FaultLog窗口，双击appfreeze日志，**Fault Info** 右侧会出现**Fault Analysis** 页签。
 
-2. 点击Fault Analysis页签，会展示结构化的日志信息。
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/ZjLxMyIYTl2v3SjlBPHuPg/zh-cn_image_0000002701823942.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=559E98C43BFDEDFED2BFA9618781685C0860F86D72B0A13B5C4ACFFFA1668A7A)
+2. 点击**Fault Analysis** 页签，会展示结构化的日志信息。
    * 页面上方的字段对应了FaultLog中的字段，具体对应关系请参考[字段说明](#section6678213185017)。
    * 页面下方包含Stacks、Logs、Binder Communication、System等页签，具体如下。
-     * Stacks：展示线程的堆栈信息，具体请参考[查看堆栈信息](#section6334533115019)。
-     * Logs：展示FaultLog中的HiLog日志，具体请参考[查看HiLog日志](#section7265205715018)。
-     * Binder Communication：从DevEco Studio 6.1.1 Beta1版本开始，新增Binder Communication页签，对应AppFreeze日志中的[对端信息（与当前故障进程通信的进程信息）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#对端信息与当前故障进程通信的进程信息)，用于展示进程间通信的调用信息、各进程Binder资源信息，具体请参考[查看Binder通信信息](#section61431112125119)。
-     * System：从DevEco Studio 6.0.0 Beta3版本开始，新增System页签，用于在高负载场景下，展示设备CPU/内存的日志信息，具体请参考[查看高负载CPU/内存日志信息](#section145027295519)。
-     * Sampling Stack：从DevEco Studio 6.1.1 Beta1版本开始，新增Sampling Stack页签，对应[AppFreeze增强日志中的堆栈信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#appfreeze应用冻屏增强日志信息采样栈)，用于查看采样栈数据，标记可疑问题栈，具体请参考[查看采样栈数据信息](#section1731022185212)。
-     * 3s/6s Compare：从DevEco Studio 6.0.2 Beta1版本开始，新增3s/6s Compare页签，用于对[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s应用主线程卡死超时)类型的AppFreeze问题，展示3s和6s时间点的主线程堆栈日志，具体请参考[查看3s/6s堆栈日志](#section699194455215)。
-     * Main Thread Task Queue：从DevEco Studio 6.1.1 Beta1版本开始，新增Main Thread Task Queue页签，对应AppFreeze日志中的[EventHandler信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#日志主干通用信息)，用于展示主线程的任务队列，包括历史任务和待调度任务，具体请参考[查看主线程任务队列信息](#section3149310135314)。
+     * **Stacks** ：展示线程的堆栈信息，具体请参考[查看堆栈信息](#section6334533115019)。
+     * **Logs** ：展示FaultLog中的HiLog日志，具体请参考[查看HiLog日志](#section7265205715018)。
+     * **Binder Communication：** 从DevEco Studio 6.1.1 Beta1版本开始，新增Binder Communication页签，对应AppFreeze日志中的[对端信息（与当前故障进程通信的进程信息）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#对端信息与当前故障进程通信的进程信息)，用于展示进程间通信的调用信息、各进程Binder资源信息，具体请参考[查看Binder通信信息](#section61431112125119)。
+     * **System** ：从DevEco Studio 6.0.0 Beta3版本开始，新增System页签，用于在高负载场景下，展示设备CPU/内存的日志信息，具体请参考[查看高负载CPU/内存日志信息](#section145027295519)。
+     * **Sampling Stack** ：从DevEco Studio 6.1.1 Beta1版本开始，新增Sampling Stack页签，对应[AppFreeze增强日志中的堆栈信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#appfreeze应用冻屏增强日志信息采样栈)，用于查看采样栈数据，标记可疑问题栈，具体请参考[查看采样栈数据信息](#section1731022185212)。
+     * **3s/6s Compare** ：从DevEco Studio 6.0.2 Beta1版本开始，新增3s/6s Compare页签，用于对[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s应用主线程卡死超时)类型的AppFreeze问题，展示3s和6s时间点的主线程堆栈日志，具体请参考[查看3s/6s堆栈日志](#section699194455215)。
+     * **Main Thread Task Queue** ：从DevEco Studio 6.1.1 Beta1版本开始，新增Main Thread Task Queue页签，对应AppFreeze日志中的[EventHandler信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#日志主干通用信息)，用于展示主线程的任务队列，包括历史任务和待调度任务，具体请参考[查看主线程任务队列信息](#section3149310135314)。
 
-     ![](https://media:401788752130067677)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/tiec3O9RRnSviGBu6yAP7Q/zh-cn_image_0000002731543217.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=A9D089A2C81F9B51FB885ECF8BE4DE178095028C3C650520D13689DFCFD9DBF2)
 
-#### 字段说明
+## 字段说明
 
-Fault Analysis页签中的字段和FaultLog的字段对应关系如下。  
+**Fault Analysis**页签中的字段和FaultLog的字段对应关系如下。
 
-|Fault Analysis的字段|说明|
-|:----------------|:--------------------------------------------------------------------------------|
+|**Fault Analysis**的字段|说明|
+|:--------------------|:--------------------------------------------------------------------------------|
 |Occurrence time|FaultLog发生的时间，对应FaultLog中的Timestamp字段。|
 |Analysis time|触发日志结构化展示的时间，即双击日志文件的时间。|
 |Frontend|是否是前台应用，对应FaultLog中的Foreground字段。|
@@ -40,15 +41,15 @@ Fault Analysis页签中的字段和FaultLog的字段对应关系如下。
 |System version|系统镜像版本，对应FaultLog中的Build info字段。|
 |Freeze type|冻结类型，对应FaultLog中的Reason字段。|
 |Note|从DevEco Studio 6.1.1 Beta1版本开始，如果AppFreeze是系统高负载导致的，会显示Note字段，对应FaultLog中的NOTE字段。|
-[表1]
+[**表1**]
 
-#### 查看堆栈信息
+## 查看堆栈信息
 
 Stacks页签用于查看AppFreeze中的堆栈信息，并以线程为单元进行折叠，点击展开按钮，可以展开对应线程。
 
-![](https://media:401788752130115678)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/fiJzt9fRSR-5JnnqsrwySA/zh-cn_image_0000002731383243.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=5CCDB87536A410D5AD0B3312DCC40C2D24FA18DD87CBB7242D8F0EE86448E487)
 
-图中标注1的勾选框是展开应用堆栈，标注2的勾选框是展开系统堆栈，两个勾选框一共组成了四种状态，具体如下表。  
+图中标注1的勾选框是展开应用堆栈，标注2的勾选框是展开系统堆栈，两个勾选框一共组成了四种状态，具体如下表。
 
 |勾选框勾选状态|说明|
 |:------|:----------------|
@@ -56,15 +57,15 @@ Stacks页签用于查看AppFreeze中的堆栈信息，并以线程为单元进�
 |1、2都勾选|展示所有线程，线程处于展开状态。|
 |只勾选1|只展示应用线程，线程处于展开状态。|
 |只勾选2|只展示系统线程，线程处于展开状态。|
-[表2]
+[**表2**]
 
-#### 查看HiLog日志
+## 查看HiLog日志
 
 Logs页签用于查看AppFreeze中的HiLog日志，支持日志级别的过滤和搜索。
 
-![](https://media:401788752130148679)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/flfr6GEZTO2dLXufl-zC0g/zh-cn_image_0000002731383241.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=5D23FDC0BE241091BD799C2C4A5CE584B9F9D8F1D108370B31C2D09D5609B404)
 
-#### 查看Binder通信信息
+## 查看Binder通信信息
 
 从DevEco Studio 6.1.1 Beta1版本开始，新增Binder Communication页签，对应AppFreeze日志中的[对端信息（与当前故障进程通信的进程信息）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#对端信息与当前故障进程通信的进程信息)。
 
@@ -74,9 +75,9 @@ Binder Communication页签包含以下内容：
 
 ② 查看各进程Binder资源信息，包括进程ID/名称、当前IPC请求数、已启动IPC线程数、最大IPC线程数等，当进程资源紧张时会高亮显示。
 
-![](https://media:401788752130199680 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/aLI9-NphQx2MPoQhlVFYFg/zh-cn_image_0000002731543215.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=DF5CEB36FC445C5ADA593792408D6D69F96024D44E5A4D7273DD786C05B1D20F "点击放大")
 
-#### 查看高负载CPU/内存日志信息
+## 查看高负载CPU/内存日志信息
 
 从DevEco Studio 6.0.0 Beta3版本开始，新增System页签，用于在高负载场景下，展示设备CPU/内存的日志信息，有助于分析高负载和AppFreeze之间的关联关系。
 
@@ -88,7 +89,7 @@ Binder Communication页签包含以下内容：
 
 ③：选中柱状图后，显示相关的日志。
 
-![](https://media:401788752130248681 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/E09bK_PMTmq8f3MQfVRdCQ/zh-cn_image_0000002701664022.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=0A8C0F220174C549177D0738BF55D9AC284C3555DE2B67987F5C7B9922A58F18 "点击放大")
 
 如下是内存的相关日志。
 
@@ -98,15 +99,15 @@ Binder Communication页签包含以下内容：
 
 ③：选中柱状图后，显示相关的日志。
 
-![](https://media:401788752130289682 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/lcqe1g03SNevYmPs54jRkw/zh-cn_image_0000002701664018.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=74A8DF68D8F4F8C6FB7A72B03CFD2E0358F443E9878F3301107F0D8F3D6A0013 "点击放大")
 
-#### 查看采样栈数据信息
+## 查看采样栈数据信息
 
 从DevEco Studio 6.1.1 Beta1版本开始，新增Sampling Stack页签，对应[AppFreeze增强日志中的堆栈信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#appfreeze应用冻屏增强日志信息采样栈)，用于查看采样栈数据，标记可疑问题栈。
 
 当设备版本低于API 26.0.0时，查看采样栈数据之前，需要在AppScope/app.json5文件中配置如下环境变量，获取AppFreeze增强日志。当设备版本为API 26.0.0及以上时，无需配置环境变量。
 
-```
+```json5
 "appEnvironments": [
   {
     "name": "DFX_APPFREEZE_LOG_OPTIONS",
@@ -117,21 +118,21 @@ Binder Communication页签包含以下内容：
 
 Sampling Stack页签默认展示堆栈水平条形图，按照堆栈的出现频率从高到低排序，条形图最后的数字是堆栈出现的次数，并通过不同颜色标识应用堆栈和系统堆栈，可通过左上角的勾选框选择查看对应的堆栈。
 
-![](https://media:401788752130331683)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/g2pYUXlOQz6zaWZLK6yz6A/zh-cn_image_0000002701823944.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=A37733D227C6081ACC050B88C632FD0BE24B65DAFD7CF24DE2C441A767689409)
 
 点击切换图表类型按钮，可切换到堆栈火焰图，并通过不同颜色标识堆栈类型，其中红色代表异常堆栈。
 
-![](https://media:401788752130378684)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/93DSg-JCS9a_p7U6S2nmaA/zh-cn_image_0000002701823940.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=D4F2B2BC773DB482B6057960AEC63D403C7CCE80B8BD601564938E68DD375305)
 
-#### 查看3s/6s堆栈日志
+## 查看3s/6s堆栈日志
 
 从DevEco Studio 6.0.2 Beta1版本开始，新增3s/6s Compare页签，用于对[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s应用主线程卡死超时)类型的AppFreeze问题，展示3s和6s时间点的主线程堆栈日志，并标识栈帧中可能的故障处。
 
-![](https://media:401788752130418685)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/by4hEFlYQlKUgy7IMQQMGw/zh-cn_image_0000002701664020.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=CE0BABD593F93E98EB00ADD190D4D14CBC137B90B16E1AACE4B7BFE7FDF2AC55)
 
-如果不是THREAD_BLOCK_6S类型的AppFreeze问题，不会展示3s/6s Compare页签。  
+如果不是THREAD_BLOCK_6S类型的AppFreeze问题，不会展示3s/6s Compare页签。
 
-#### 查看主线程任务队列信息
+## 查看主线程任务队列信息
 
 从DevEco Studio 6.1.1 Beta1版本开始，新增Main Thread Task Queue页签，对应AppFreeze日志中的[EventHandler信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#日志主干通用信息)，用于展示主线程的任务队列，包括历史任务和待调度任务。
 
@@ -143,4 +144,5 @@ Sampling Stack页签默认展示堆栈水平条形图，按照堆栈的出现频
 
 ④ 支持切换查看3s和6s时间点的任务信息。
 
-![](https://media:401788752130460686)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/eOpoS9KjSCWQY_JZMnDu6w/zh-cn_image_0000002731383239.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=13E5464C629BA3A7C8818F8C4B56B3851C152B79C236F17797F3032B57655E79)
+

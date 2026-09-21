@@ -11,12 +11,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-fgrd-sh
 * 设置为"true"时，应用在前台时由NC展示通知栏消息。
 * 设置为"false"时，应用在前台时，通知栏消息将不会展示，消息内容会通过[onMessageReceived](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hmsmessageservice-0000001050173839#section2394629102116)([RemoteMessage](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/remotemessage-0000001050171874) message)方法传递给应用，可参见[获取消息数据](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-basic-receivemsg-0000001087370610#section129902001015)获取消息字段。这种情况下，推送服务不会校验消息字段的合法性。
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20231103095826.86281743620097602185475160389860:50001231000000:2800:68E7571C04A68067A502BB2AD877D066244C737F33670A28D880135D22BE47B4.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)  
-该功能要求EMUI 9.1.0及以上版本，Push SDK 4.0及以上版本。
+> 说明
+>
+> 该功能要求EMUI 9.1.0及以上版本，Push SDK 4.0及以上版本。
 
 消息体示例：
 
-```
+```screen
 {
     "message": {
         "notification": {

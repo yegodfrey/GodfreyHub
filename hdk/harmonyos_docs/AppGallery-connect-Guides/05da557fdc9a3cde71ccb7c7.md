@@ -6,54 +6,57 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 # 集成SDK
 
-#### 添加配置文件
+## 添加配置文件
 
 为了简化配置步骤，AGC为您提供了保存应用配置信息的配置文件。只需将配置文件添加到您的工程目录，AGC上的应用信息将会被自动加载到您的开发环境。
 
 1. [获取agconnect-services.plist文件](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-crash-obtain-files-0000001281093660#section162221315153813)。
-2. 将"agconnect-services.plist"文件添加到Xcode工程目录下。 ![](https://media:401780969327291121)
+2. 将"agconnect-services.plist"文件添加到Xcode工程目录下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/9biWgxpsT4-hFuTl2K0xmQ/zh-cn_image_0000001333951865.png?HW-CC-KV=V1&HW-CC-Date=20260916T040830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F35BDD48C346E71538590127049355A0FA4A5D2AAE2C47AF0FCECA66D7E9BF79)
 
-#### 添加AGC SDK及崩溃SDK
+## 添加AGC SDK及崩溃SDK
 
-#### 使用CocoaPods集成
+### 使用CocoaPods集成
 
 1. 打开命令行窗口，导航至Xcode项目所在的位置。
 2. 创建Podfile文件。如果已经存在，可跳过本步骤。
 
-   ```
+   ```screen
    cd project-directory 
    pod init
    ```
 
 3. 在podfile中添加AGC基础SDK依赖的pod。
 
-   ```
+   ```screen
    pod 'AGConnectCore','~> 1.9.4.300'
    ```
 
-   ![](https://media:401780969327318122)  
-   如果您已集成过AGC SDK，AGConnectCore的pod可不配置。
+   > 说明
+   >
+   > 如果您已集成过AGC SDK，AGConnectCore的pod可不配置。
 4. 在podfile中添加崩溃服务要依赖的pod。
 
-   ```
+   ```screen
    pod 'AGConnectCrash', '~> 1.9.4.300'
-   // 推荐您集成性能管理SDK进一步定位应用崩溃是否由应用ANR、启动、发送网络请求等应用内事件或行为造成的
+   // 推荐您集成https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-apm-ios-getstarted-0000001051808644#section1228533511103进一步定位应用崩溃是否由应用ANR、启动、发送网络请求等应用内事件或行为造成的
    pod 'AGConnectAPM', '~> 1.2.1.303'
    ```
 
 5. 安装pod，然后打开xcworkspace文件查看该项目。
 
-   ```
+   ```screen
    pod install
    ```
 
-6. 初始化AGC SDK。 在项目的AppDelegate.m中导入头文件 #import \<AGConnectCore/AGConnectCore.h\>，在 application:(UIApplication \*)application didFinishLaunchingWithOptions:(NSDictionary \*)launchOptions 方法中添加如下代码：
+6. 初始化AGC SDK。 在项目的AppDelegate.m中导入头文件 #import <AGConnectCore/AGConnectCore.h>，在 application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 方法中添加如下代码：
 
-   ![](https://media:401780969327343123)  
-   初始化\[AGCInstance startUp\]方法需要在\[AGCApplicationDelegate didFinishLaunchingWithOptions\]监听方法之前调用。  
-   Objective-C
+   > 注意
+   >
+   > 初始化[AGCInstance startUp]方法需要在[AGCApplicationDelegate didFinishLaunchingWithOptions]监听方法之前调用。
 
-   ```
+   **Objective-C**
+
+   ```screen
    #import "AppDelegate.h"
    #import <AGConnectCore/AGConnectCore.h>
 
@@ -68,9 +71,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    }
    ```
 
-#### 不使用CocoaPods集成
+### 不使用CocoaPods集成
 
-1. 下载AGC基础SDK。  
+1. 下载AGC基础SDK。
 
    |包名|SDK说明|下载地址|数字签名（SHA256）校验|
    |:--------------------------------|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|
@@ -78,7 +81,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    |agconnectcredential-1.9.4.300.zip|AGC网关鉴权包。|点击[下载](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_package_901_9/72/v3/teS22HRESMuEg7iBw8eoFA/agconnectcredential-1.9.4.300.zip?HW-CC-KV=V1&HW-CC-Date=20260605T072800Z&HW-CC-Expire=315360000&HW-CC-Sign=ACBAB17604E27FA4A4643561B5CFCD4DE338504440CA738A06DE4A15B708D036 )。|54c9b788328fb99863894955eda5993b88d91796f415b28c22a82b8f43d67623|
    |hmfoundation-1.9.4.300.zip|Task包。|点击[下载](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_package_901_9/d5/v3/eX4PX--sTJuBHVGHJNKRiw/hmfoundation-1.9.4.300.zip?HW-CC-KV=V1&HW-CC-Date=20260605T072100Z&HW-CC-Expire=315360000&HW-CC-Sign=C170D9FC6FDD0C484E25A4611EFEE63192431E36B8B1F8195E43C5D4247ACD74 )。|404228ec0776d77cef377196e784c8fb79124e39ef04d99a8da543044bed6680|
 
-2. 下载崩溃服务SDK。  
+2. 下载崩溃服务SDK。
 
    |服务|包名|SDK说明|数字签名（SHA256）校验|
    |:---|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------------------------------------------------------------|
@@ -86,9 +89,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 3. 将下载的压缩包解压到本地。
 
-<!-- -->
 
-4. 将如下文件一起拖入到Xcode工程中。  
+4. 将如下文件一起拖入到Xcode工程中。
 
    |文件|所在包名|需求场景|
    |:----------------------------|:--------------------------------|:-----|
@@ -98,19 +100,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    |HMFoundation.framework|hmfoundation-x.x.x.xxx.zip|必须集成|
    |AGConnectCrash.framework|agconnectcrash-x.x.x.xxx.zip|崩溃服务集成|
 
-   ![](https://media:401780969327377124)
-5. 勾选"Copy items if needed"选项。 ![](https://media:401780969327421125 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/RNHcRpqnQImQnm2TX16lmg/zh-cn_image_0000001281711794.png?HW-CC-KV=V1&HW-CC-Date=20260916T040830Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F66F417A68A54D84096F110D0CE5E11FF818B6FB18AA8450D676A14578D3B7D)
+5. 勾选"Copy items if needed"选项。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/cbPBsEriSUW7U6a8EFc8Sw/zh-cn_image_0000001281551886.png?HW-CC-KV=V1&HW-CC-Date=20260916T040830Z&HW-CC-Expire=31536000000&HW-CC-Sign=6698067CC7A32F15526B0CA647713665F5298F546F02C09DCD1ED8E8D526D67E "点击放大")
 
-<!-- -->
 
-6. 修改工程配置文件。 在Target -\> Build Settings -\> Other Linker Flags配置中添加'-ObjC'。
+6. 修改工程配置文件。 在Target -> Build Settings -> Other Linker Flags配置中添加'-ObjC'。
 
-   ![](https://media:401780969327460126 "点击放大")
-7. 初始化AGC SDK。 在项目的AppDelegate.m中导入头文件 #import \<AGConnectCore/AGConnectCore.h\> , 在 application:(UIApplication \*)application didFinishLaunchingWithOptions:(NSDictionary \*)launchOptions的方法中添加如下代码：
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/2PAGw51IRPKVIwrCtLU_dQ/zh-cn_image_0000001282031390.png?HW-CC-KV=V1&HW-CC-Date=20260916T040830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F44A0A070D5709DD02399C15FAE4D8F3BE784A4DE2D9DA9EBA9AB9A958B492D7 "点击放大")
+7. 初始化AGC SDK。 在项目的AppDelegate.m中导入头文件 #import <AGConnectCore/AGConnectCore.h> , 在 application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions的方法中添加如下代码：
 
-   Objective-C
+   **Objective-C**
 
-   ```
+   ```screen
    #import "AppDelegate.h"
    #import <AGConnectCore/AGConnectCore.h>
 
@@ -125,21 +126,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    }
    ```
 
-#### （可选）将密钥信息传递给AGC
+## （可选）将密钥信息传递给AGC
 
-#### 通过配置文件参数传递密钥
+### 通过配置文件参数传递密钥
 
 AGC SDK提供了AGCServicesConfig类来对agconnect-services.plist文件中的参数进行配置，如果您在下载配置文件时选择了"不包含密钥"，则agconnect-services.plist文件中将不包含client_id、client_secret和api_key参数，您必须通过AGCServicesConfig类的接口在应用启动时将参数设置给AGC SDK。
 
 1. 创建AGCServicesConfig对象。
 
-   ```
+   ```screen
    AGCServicesConfig *config = [[AGCServicesConfig alloc] initWithDefaultPlist];
    ```
 
 2. 设置clientId、clientSecret和apiKey参数。
 
-   ```
+   ```screen
    config.clientId = @"YOUR_CLIENT_ID";
    config.clientSecret = @"YOUR_CLIENT_SECRET";
    config.apiKey = @"YOUR_API_KEY";
@@ -147,35 +148,35 @@ AGC SDK提供了AGCServicesConfig类来对agconnect-services.plist文件中的�
 
    AGCServicesConfig类还支持设置cpId（开发者的账号ID）、productId（项目ID）和appId（应用ID）参数。
 
-   ```
+   ```screen
    config.cpId = @"YOUR_CP_ID";
    config.productId = @"YOUR_PRODUCT_ID";
    config.appId = @"YOUR_APP_ID";
    ```
 
-   参数的值可在AGC控制台"项目设置 \> 常规"页面中查询，对应关系如下：
-   * "YOUR_CLIENT_ID"替换为"常规"页面"项目"栏中"Client ID"的值。
-   * "YOUR_CLIENT_SECRET"替换为"常规"页面"项目"栏中"Client Secret"的值。
-   * "YOUR_API_KEY"替换为"常规"页面"项目"栏中"API密钥（凭据）"的值。
-   * "YOUR_CP_ID"替换为"常规"页面"开发者"栏中"Developer ID"的值。
-   * "YOUR_PRODUCT_ID"替换为"常规"页面"项目"栏中"项目ID"的值。
+   参数的值可在AGC控制台"项目设置 > 常规"页面中查询，对应关系如下：
+   * *"YOUR_CLIENT_ID"*替换为"常规"页面"项目"栏中"Client ID"的值。
+   * *"YOUR_CLIENT_SECRET"*替换为"常规"页面"项目"栏中"Client Secret"的值。
+   * *"YOUR_API_KEY"*替换为"常规"页面"项目"栏中"API密钥（凭据）"的值。
+   * *"YOUR_CP_ID"*替换为"常规"页面"开发者"栏中"Developer ID"的值。
+   * *"YOUR_PRODUCT_ID"*替换为"常规"页面"项目"栏中"项目ID"的值。
 
-   YOUR_APP_ID"替换为当前AGC控制台网页地址栏中的"appId"的值。
+   *YOUR_APP_ID"*替换为当前AGC控制台网页地址栏中的"appId"的值。
 
-   ![](https://media:401780969327510127)
-3. 把手动创建的AGCServicesConfig对象传递到启动代码中。 将application:(UIApplication \*)application didFinishLaunchingWithOptions:(NSDictionary \*)launchOptions的方法的初始化代码"\[AGCInstance startUp\]"修改为：
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/hFtcwm55SpSjdgc5kmKt3A/zh-cn_image_0000001276983674.png?HW-CC-KV=V1&HW-CC-Date=20260916T040830Z&HW-CC-Expire=31536000000&HW-CC-Sign=1F627CE7FB643889522B24675B2BE083A8138AC930629169B503D6BE20925337)
+3. 把手动创建的AGCServicesConfig对象传递到启动代码中。 将application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions的方法的初始化代码"[AGCInstance startUp]"修改为：
 
-   ```
+   ```screen
    [AGCInstance startUp:config];
    ```
 
-#### 通过Token传递密钥
+### 通过Token传递密钥
 
 如果您认为client_id和client_secret放在json文件里不安全，我们建议您将client_id和client_secret放在自己的服务端。先调用https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token接口去换取Token，然后在初始化AGC SDK时通过[setCustomCredentialsProvider](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-ios-agcservicesconfig-0000001098896302#section2065310480913)将Token传给AGC去使用。
 
 Token接口请求示例：
 
-```
+```screen
 POST /agc/apigw/oauth2/v1/token
 Host: connect-drcn.dbankcloud.cn
 Content-Type: application/json
@@ -189,7 +190,7 @@ Content-Type: application/json
 
 Token接口响应示例：
 
-```
+```screen
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 {
@@ -200,7 +201,7 @@ Content-Type: application/json; charset=utf-8
 
 setCustomCredentialsProvider接口调用示例：
 
-```
+```screen
 "Objective-C"
 // 将自己获取的token和过期时间传入
  NSString *token = @"access_token";
@@ -212,7 +213,7 @@ setCustomCredentialsProvider接口调用示例：
 [AGCInstance startUp:config];
 ```
 
-```
+```screen
 "Swift"
 let token = "access_token"
 let expiration = expires_in
@@ -223,7 +224,8 @@ config.customCredentialsProvider = { source, isForceRefresh in
 AGCInstance.startUp(config)
 ```
 
-#### 更多信息
+## 更多信息
 
 * 集成完成后，您可以制造一个崩溃[测试崩溃的实现](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-crash-test-ios-0000001054941954)。
-* 您可以[设置崩溃提醒](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-crash-notice-0000001055340559)，以便能及时通过邮箱或者短信收到崩溃通知。  
+* 您可以[设置崩溃提醒](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-crash-notice-0000001055340559)，以便能及时通过邮箱或者短信收到崩溃通知。
+

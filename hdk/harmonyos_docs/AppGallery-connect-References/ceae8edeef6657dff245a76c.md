@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public class SubscribeRtmChannelResult : [ErrorResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gamemme-errorresult-csharp-0000001726767058) 订阅RTM频道回调结果。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Description|
 |:--------|:-----|:----------|

@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mlremoteaftres
 |:--------------------------------------------------------------------|
 |com.huawei.hms.mlsdk.aft.cloud.MLRemoteAftResult.Segment 每段音频的文字转写结果。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:--------------------------------------------------------------------------|
@@ -18,39 +18,39 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mlremoteaftres
 |int|[getStartTime](#section920303011464)() 获取语音分段转写结果首个文字相对于音频开始点的偏移值（单位：毫秒）。|
 |String|[getText](#section1211404274613)() 获取语音分段转写结果。|
 
-#### Public Methods
+## Public Methods
 
-#### getEndTime()
+### getEndTime()
 
 |Method|
 |:-----------------------------------------------------------|
 |public int getEndTime() 获取语音分段转写结果最后一个文字相对于音频开始点的偏移值（单位：毫秒）。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:---------------------------------|
 |int|音频分段转写结果最后一个文字相对于音频开始点的偏移值（单位：毫秒）。|
 
-#### getStartTime()
+### getStartTime()
 
 |Method|
 |:-----------------------------------------------------------|
 |public int getStartTime() 获取语音分段转写结果首个文字相对于音频开始点的偏移值（单位：毫秒）。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-------------------------------|
 |int|语音分段转写结果首个文字相对于音频开始点的偏移值（单位：毫秒）。|
 
-#### getText()
+### getText()
 
 |Method|
 |:----------------------------------|
 |public String getText() 获取语音分段转写结果。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:----------|

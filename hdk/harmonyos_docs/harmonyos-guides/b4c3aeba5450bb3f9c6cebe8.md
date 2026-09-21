@@ -6,32 +6,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
 
 # 激励广告
 
-#### 场景介绍
+## 场景介绍
 
 激励广告是一种全屏幕的视频广告，用户可以选择点击观看，以换取相应奖励。
 
-![](https://media:401788444329896040)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/rIJdGq6_TwC-HBwXqKRm-Q/zh-cn_image_0000002762994581.png?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE811FC0B8AB451650F9317AA5FA59F644947B3689A8F7F7851F84471EB819CC)
 
-#### 约束与限制
+## 约束与限制
 
 支持Phone、Tablet、PC/2in1设备。
 
-使用PC/2in1设备时，需要确保设备上智慧营销服务或广告服务的版本在8.4.80.300及以上，版本号可通过选择"设置\> 应用和元服务 \> 更多应用"查看。  
+使用PC/2in1设备时，需要确保设备上智慧营销服务或广告服务的版本在8.4.80.300及以上，版本号可通过选择"设置> 应用和元服务 > 更多应用"查看。
 
-#### 接口说明
+## 接口说明
 
 |接口名|描述|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
 |[loadAd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#loadad)(adParam: AdRequestParams, adOptions: AdOptions, listener: AdLoadListener): void|请求单广告位广告，通过AdRequestParams、AdOptions进行广告请求参数设置，通过AdLoadListener监听广告请求回调。|
 |[showAd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#advertisingshowad)(ad: Advertisement, options: AdDisplayOptions, context?: common.UIAbilityContext): void|展示广告，通过AdDisplayOptions进行广告展示参数设置。 说明：为了保证广告能正确展示，该接口必须和请求广告接口配套使用。|
 
-#### 开发步骤
+## 开发步骤
 
-#### 请求广告
+### 请求广告
 
 1. 导入相关模块。
 
-   ```
+   ```typescript
    import { abilityAccessCtrl, common, PermissionRequestResult } from '@kit.AbilityKit';
    import { advertising, identifier } from '@kit.AdsKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -41,14 +41,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
 
    若需提升广告推送精准度，可以在请求参数[AdRequestParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adrequestparams)中添加oaid属性。
 
-   如何获取OAID参见[获取OAID信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/oaid-service)。  
-   ![](https://media:401788444330105041)  
-   使用以下示例中提供的测试广告位时，必须先获取OAID信息。
+   如何获取OAID参见[获取OAID信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/oaid-service)。
+   > 说明
+   >
+   > 使用以下示例中提供的测试广告位时，必须先获取OAID信息。
 3. 请求单广告位广告。
 
    需要先创建一个AdLoader对象，通过AdLoader的[loadAd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#loadad)方法请求广告，最后通过[AdLoadListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adloadlistener)，来监听广告的加载状态。
 
-   请求广告关键参数如下所示：  
+   请求广告关键参数如下所示：
 
    |请求广告参数名|类型|必填|说明|
    |:------|:-----|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -58,7 +59,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
 
    示例代码如下所示：
 
-   ```
+   ```typescript
    @Entry
    @Component
    struct Index {
@@ -138,11 +139,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
    }
    ```
 
-#### 事件订阅
+### 事件订阅
 
 1. 导入相关模块。
 
-   ```
+   ```typescript
    import { BusinessError, commonEventManager } from '@kit.BasicServicesKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
    ```
@@ -152,7 +153,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
    开发者需要在应用中订阅com.huawei.hms.pps.action.PPS_REWARD_STATUS_CHANGED事件来监听激励广告页面变化并接收奖励信息。
 
    在订阅到公共事件后，可以从[CommonEventData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventdata)的parameters参数中获取激励广告页面变化状态和奖励信息。
-   * 使用reward_ad_status作为key值获取激励广告页面变化状态，涉及的页面变化状态如下所示：  
+   * 使用reward_ad_status作为key值获取激励广告页面变化状态，涉及的页面变化状态如下所示：
 
      |页面变化状态|说明|
      |:---------------|:--------|
@@ -169,7 +170,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
 
    示例代码如下所示：
 
-   ```
+   ```typescript
    const KEY_REWARD_DATA = 'reward_ad_data';
    const KEY_REWARD_STATUS = 'reward_ad_status';
 
@@ -251,11 +252,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
    }
    ```
 
-#### 展示广告
+### 展示广告
 
 1. 导入相关模块。
 
-   ```
+   ```typescript
    import { common } from '@kit.AbilityKit';
    import { advertising } from '@kit.AdsKit';
    import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -269,7 +270,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
 
    示例代码如下所示：
 
-   ```
+   ```typescript
    @Entry
    @Component
    struct Index {
@@ -310,33 +311,34 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
    }
    ```
 
-#### 校验激励广告服务端验证回调
+## 校验激励广告服务端验证回调
 
 服务端验证回调是指鲸鸿动能平台发送给媒体服务器的网址请求，其中带有特定的查询参数，用来通知媒体服务器某位用户因为与激励视频广告互动而应予以奖励，从而规避欺骗的行为。
 
-![](https://media:401788444330254042)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/dhZb8RRYQ26uf_oPXuvZEA/zh-cn_image_0000002762834697.png?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=84E431AD82BA469B05991409630CE3C7C1C263CE2E5A3EEBEAB5A7E6FD0AFD8E)
 
-#### 奖励用户
+### 奖励用户
 
 * 在给用户发奖励时，要把握好用户体验和奖励验证之间的平衡。由于服务器端回调会存在延迟的情况，因此我们建议客户端立即奖励用户，同时在收到服务器端回调时对所有奖励进行验证。这种做法可确保奖励符合发放条件，同时提供良好的用户体验。
 
 * 对于某些应用而言，奖励是否达到发放条件非常重要，用户可适当接受延迟。这时，推荐做法是等待服务器端回调完成验证，再向用户发放奖励。
 
-#### 校验服务端验证回调
+### 校验服务端验证回调
 
-![](https://media:401788444330521043)  
-App上架至华为应用市场（AppGallery）时间超过12小时才可以收到回调。
+> 说明
+>
+> App上架至华为应用市场（AppGallery）时间超过12小时才可以收到回调。
 
 1. 设置激励广告的奖励配置。
 
-   您在[鲸鸿动能媒体服务平台](https://developer.huawei.com/consumer/cn/service/ads/publisher/html/index.html?lang=zh)上申请激励视频广告位时选择"媒体管理（点击媒体名）\> 新增展示位 \> 选择激励视频（点击下一步，进入编辑页面）"，设置奖励类型和奖励数量，并点击"高级设置"，设置服务器端验证的URL。如下图：
+   您在[鲸鸿动能媒体服务平台](https://developer.huawei.com/consumer/cn/service/ads/publisher/html/index.html?lang=zh)上申请激励视频广告位时选择"媒体管理（点击媒体名）> 新增展示位 > 选择激励视频（点击下一步，进入编辑页面）"，设置奖励类型和奖励数量，并点击"高级设置"，设置服务器端验证的URL。如下图：
 
-   ![](https://media:401788444330562044)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/b3Amxx8nTo-sflsxqXDgYA/zh-cn_image_0000002733275182.png?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=DB0C8E6456D817E1DD384A03C9B17D63B34F8B0D591A587F87F21FC26E1BC851)
 2. （可选）设置自定义数据customData和userId。
 
    您在[展示广告第2点](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher-service-reward#展示广告)之前可以设置自定义数据customData和userId。示例代码如下所示：
 
-   ```
+   ```typescript
    import { advertising } from '@kit.AdsKit';
 
    // 广告展示参数，开发者可根据项目实际情况设置
@@ -350,13 +352,14 @@ App上架至华为应用市场（AppGallery）时间超过12小时才可以收�
    };
    ```
 
-   ![](https://media:401788444330590045)  
-   如果没有设置customData和userId，不影响发放奖励事件上报但是服务端验证的参数中没有这两个字段。如果设置customData和userId，必须在展示广告之前设置并且URLEncode之后，长度不超过1024个字符，否则影响服务端验证。
+   > 说明
+   >
+   > 如果没有设置customData和userId，不影响发放奖励事件上报但是服务端验证的参数中没有这两个字段。如果设置customData和userId，必须在展示广告之前设置并且URLEncode之后，长度不超过1024个字符，否则影响服务端验证。
 3. 获取要验证的内容。
 
-   用户观看完激励广告时，鲸鸿动能平台服务端会把需要验证的参数以及keyId和sign传给媒体提供的URL：https://www.example.com/feedback（\[即第1点中配置的验证URL\](ads-publisher-service-reward.md#校验服务端验证回调)）。请求体样例：
+   用户观看完激励广告时，鲸鸿动能平台服务端会把需要验证的参数以及keyId和sign传给媒体提供的URL：https://www.example.com/feedback（[即第1点中配置的验证URL](ads-publisher-service-reward.md#校验服务端验证回调)）。请求体样例：
 
-   ```
+   ```typescript
    {
        "adId" : "j14rx3xtac",
        "data" : "CUSTOM_DATA",
@@ -369,7 +372,7 @@ App上架至华为应用市场（AppGallery）时间超过12小时才可以收�
    }
    ```
 
-   服务器端验证回调查询参数说明：  
+   服务器端验证回调查询参数说明：
 
    |参数名称|类型|是否必选|描述|
    |:-----------|:-----|:---|:--------------|
@@ -388,11 +391,11 @@ App上架至华为应用市场（AppGallery）时间超过12小时才可以收�
 
    验证内容（除sign、keyId）格式顺序如下：
 
-   adId={adId}\&data={data}\&rewardAmount={rewardAmount}\&rewardName={rewardName}\&uniqueId={uniqueId}\&userId={userId}
+   adId={adId}&data={data}&rewardAmount={rewardAmount}&rewardName={rewardName}&uniqueId={uniqueId}&userId={userId}
 
    其中'{}'里面表示参数的值，且参数顺序不能变。如果参数为null或者空字符串，则URL中不拼接该参数。然后用SHA256计算散列值，得到paramContentData。示例代码如下所示：
 
-   ```
+   ```typescript
    String adId = request.getParameter("adId");
    String data = request.getParameter("data");
    // ...
@@ -405,7 +408,7 @@ App上架至华为应用市场（AppGallery）时间超过12小时才可以收�
 
    可参考以下工具类计算散列值：
 
-   ```
+   ```typescript
    public static String digest(String message) {
      if (TextUtils.isEmpty(message)) {
        return "";
@@ -444,18 +447,18 @@ App上架至华为应用市场（AppGallery）时间超过12小时才可以收�
 
    a. 在[鲸鸿动能媒体服务平台](https://developer.huawei.com/consumer/cn/service/ads/publisher/html/index.html?lang=zh)上查看对应的账户信息时选择"账户"。
 
-   ![](https://media:401788444330648046)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/pRS2zluISMGaV8xBcxdY9A/zh-cn_image_0000002733435060.png?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E90106D98CAD8159E8E771CA82A2DC0E97705E64E0C9344474911A919900AAE)
 
    通过点击上图所示的"获取密钥"按钮弹出如下所示的弹框，获取"开发者ID"和"密钥"。
 
-   ![](https://media:401788444330685047)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/qSOPPga6TImuHvjfxFEuFQ/zh-cn_image_0000002762994583.png?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF97FD913ED87783FDD422418C6EACB48AEF0825B35E16E16E5D3F66EB4A93B6)
 
    b. 您根据应用分发区域不同，需要使用对应站点的接口URL去获取公钥列表，不同站点对应的接口URL如下所示：
-   * 中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）：<https://ppscrowd-drcn.op.hicloud.com/action-lib-track/publickeys>
+   * 中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）：[https://ppscrowd-drcn.op.hicloud.com/action-lib-track/publickeys](https://ppscrowd-drcn.op.hicloud.com/action-lib-track/publickeys)
 
    将body通过密钥进行HMAC-SHA256加密得到签名，替换到Authorization中，并设置"开发者ID"和Authorization到Header中。示例代码如下所示：
 
-   ```
+   ```typescript
    String data = "";
    String url = "https://ppscrowd-dre.op.dbankcloud.com/action-lib-track/publickeys";
    String authorization = "Digest validTime=\"{0}\", response=\"{1}\"";
@@ -493,7 +496,7 @@ App上架至华为应用市场（AppGallery）时间超过12小时才可以收�
 
    返回data消息体（publicKey已匿名化）：
 
-   ```
+   ```typescript
    {
        "keys": [
            {
@@ -508,11 +511,11 @@ App上架至华为应用市场（AppGallery）时间超过12小时才可以收�
    }
    ```
 
-   返回消息结构体：  
+   返回消息结构体：
 
    |参数名称|类型|是否必选|描述|
-   |:---|:----------|:---|:-----|
-   |keys|List\<key\>|是|返回公钥列表|
+   |:---|:--------|:---|:-----|
+   |keys|List<key>|是|返回公钥列表|
 
    * key结构体：
 
@@ -529,7 +532,7 @@ App上架至华为应用市场（AppGallery）时间超过12小时才可以收�
 
    示例代码如下所示：
 
-   ```
+   ```typescript
    public static boolean verify(byte[] data, String publicKey, String newSign, String signatureAlgorithm) {
        try {
            byte[] keyBytes = base64Decode(publicKey);
@@ -550,11 +553,11 @@ App上架至华为应用市场（AppGallery）时间超过12小时才可以收�
    }
    ```
 
-#### 测试激励广告
+## 测试激励广告
 
 激励广告测试广告位ID，仅可用于调测激励广告功能，不可用于广告变现，在应用正式发布前需替换为正式的激励广告位ID。您应在应用发布前先进入[流量变现官网](https://developer.huawei.com/consumer/cn/monetize)，点击"开始变现"，登录[鲸鸿动能媒体服务平台](https://developer.huawei.com/consumer/cn/service/ads/publisher/html/index.html?lang=zh)，申请正式的广告位ID并替换测试广告位ID，具体操作详情请参见[展示位创建](https://developer.huawei.com/consumer/cn/doc/distribution/monetize/zhanshiweichuangjian-0000001132700049)。
 
-激励广告测试广告位ID列表如下：  
+激励广告测试广告位ID列表如下：
 
 |广告位类型|测试广告位ID|展示形式|比例|推广类型|
 |:----|:---------|:---|:---|:---|

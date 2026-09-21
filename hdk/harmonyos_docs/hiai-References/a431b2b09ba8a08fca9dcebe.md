@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mlapplication-
 |:----------------------------------------------------------------------------------------------------------------------------------|
 |com.huawei.harmony.ml.agc.MLApplication App信息类，用于存储集成了ML Kit SDK的App基本信息，完成ML Kit的初始化。当您使用ML Kit的云侧服务时，您需要设置您应用的apiKey或accessToken。|
 
-#### Public Field Summary
+## Public Field Summary
 
 |Qualifier and Type|Field and Description|
 |:-----------------|:-----------------------------------------------|
@@ -19,7 +19,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mlapplication-
 |int|[REGION_DR_GERMAN](#section110912417364) 德国。|
 |int|[REGION_DR_RUSSIA](#section12701143816368) 俄罗斯。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------|
@@ -29,95 +29,95 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mlapplication-
 |void|[setUserRegion](#section3712458134410)(int userRegion) 当用户选择主动管理并指定数据处理位置策略后，指定数据处理地。|
 |String|[getCountryCode](#section10390105533417)() 该接口为用户选择主动管理并指定数据处理位置策略，指定数据处理地后，获取当前用户选择的大区。|
 
-#### Public Fields
+## Public Fields
 
-#### REGION_DR_SINGAPORE
+## REGION_DR_SINGAPORE
 
 |Field|
 |:--------------------------------------------------------------------|
 |public static final int REGION_DR_SINGAPORE 新加坡。 Constant Value: 1007|
 
-#### REGION_DR_CHINA
+## REGION_DR_CHINA
 
 |Field|
 |:----------------------------------------------------------------|
 |public static final int REGION_DR_CHINA 中国区。 Constant Value: 1002|
 
-#### REGION_DR_GERMAN
+## REGION_DR_GERMAN
 
 |Field|
 |:----------------------------------------------------------------|
 |public static final int REGION_DR_GERMAN 德国。 Constant Value: 1006|
 
-#### REGION_DR_RUSSIA
+## REGION_DR_RUSSIA
 
 |Field|
 |:-----------------------------------------------------------------|
 |public static final int REGION_DR_RUSSIA 俄罗斯。 Constant Value: 1005|
 
-#### Public Methods
+## Public Methods
 
-#### getInstance(Context context)
+### getInstance(Context context)
 
 |Method|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public static [MLApplication](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlapplication-harmonyos-0000001201420740) getInstance(Context context) 获取默认的App实例。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |context|上下文。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---------------------------------------------------------------------------------------------------------------------------------|:----------|
 |[MLApplication](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlapplication-harmonyos-0000001201420740)|返回默认的App实例。|
 
-#### setAccessToken(String token)
+### setAccessToken(String token)
 
 |Method|
 |:---------------------------------------------------|
 |public void setAccessToken(String token) 设置应用的Token。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------|
 |token|应用的访问令牌。|
 
-#### setApiKey(String apiKey)
+### setApiKey(String apiKey)
 
 |Method|
 |:------------------------------------------------|
 |public void setApiKey(String apiKey) 设置应用的apiKey。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------|
 |apiKey|应用的apiKey。|
 
-#### setUserRegion (int userRegion)
+## setUserRegion (int userRegion)
 
 |Method|
 |:------------------------------------------------------------------------|
 |public void setUserRegion (int userRegion) 当用户选择主动管理并指定数据处理位置策略后，指定数据处理地。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |userRegion|指定数据处理地，提供MLApplication. REGION_DR_CHINA、MLApplication. REGION_DR_GERMAN、MLApplication. REGION_DR_RUSSIA、MLApplication. REGION_DR_SINGAPORE四个常量分别对应中国、德国、俄罗斯、新加坡四个处理位置进行设置。|
 
-#### getCountryCode()
+## getCountryCode()
 
 |Method|
 |:---------------------------------------------------------------------------|
 |public String getCountryCode() 该接口为用户选择主动管理并指定数据处理位置策略，指定数据处理地后，获取当前用户选择的大区。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:-----------------------------------------------------------|

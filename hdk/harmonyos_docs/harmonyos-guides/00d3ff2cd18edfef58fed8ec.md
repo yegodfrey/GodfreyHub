@@ -8,11 +8,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_prefer-ts
 
 强制使用"@ts-expect-error"而不是"@ts-ignore"。
 
-该规则仅支持对.js/.ts文件进行检查。  
+该规则仅支持对.js/.ts文件进行检查。
 
-#### 规则配置
+## 规则配置
 
-```
+```screen
 // code-linter.json5
 {
   "rules": {
@@ -21,13 +21,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_prefer-ts
 }
 ```
 
-#### 选项
+## 选项
 
-该规则无需配置选项。  
+该规则无需配置选项。
 
-#### 正例
+## 正例
 
-```
+```screen
 // @ts-expect-error: with description
 export const str: string = 1;
 
@@ -41,9 +41,9 @@ export const multiLine: number = 'value';
 export const block: string = 1;
 ```
 
-#### 反例
+## 反例
 
-```
+```screen
 // @ts-ignore
 const str: string = 1;
 
@@ -62,10 +62,11 @@ const isOptionEnabled = (key: string): boolean => {
 };
 ```
 
-#### 规则集
+## 规则集
 
-```
+```screen
 plugin:@typescript-eslint/all
 ```
 
-Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。  
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+

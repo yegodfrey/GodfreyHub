@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/isv-merc-manage
 
 # 业务简介
 
-华为支付系统为服务商提供管理特约商户的API接口，便于服务商系统与华为支付做系统级的对接管理，如：商户入网、商户冻结及解冻等。
+华为支付系统为**服务商** 提供管理**特约商户** **的**API接口，便于服务商系统与华为支付做系统级的对接管理，如：商户入网、商户冻结及解冻等。
 
-注：服务商，可登录[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)，在页面上进行特约商户等操作。如需使用该套API接口与华为支付进行商户管理的交互，请提前联系华为支付侧人员进行沟通确认。  
+**注：** 服务商，可登录[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)，在页面上进行**特约商户**等操作。如需使用该套API接口与华为支付进行商户管理的交互，请提前联系华为支付侧人员进行沟通确认。
 
-#### 商户进件状态流转
+## 商户进件状态流转
 
-![](https://media:201774590620939293 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/a9EtBhOhSnGVftWr7txKyQ/zh-cn_image_0000002563729861.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=12A600220DCC5CF3B058BE7D0EB197D5DFF6DFAE1B05BE4F89A117E587174723 "点击放大")
 
-商户进件状态流程如上图所示，具体状态说明如下：  
+商户进件状态流程如上图所示，具体状态说明如下：
 
 |进件状态|状态枚举|说明|
 |:------|:--------------------------------------|:------------------------------------|

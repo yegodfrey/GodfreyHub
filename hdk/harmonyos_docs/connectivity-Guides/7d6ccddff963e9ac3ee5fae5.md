@@ -6,7 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/watch-dev-
 
 # 穿戴侧应用开发
 
-<br />
-
-* [穿戴设备侧应用开发（JS）](https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/fitnesswatch-dev-0000001051423561)  
-* [穿戴设备侧应用开发（Java）](https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/smartwatch-dev-0000001051423536)  
+* **[穿戴设备侧应用开发（JS）](https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/fitnesswatch-dev-0000001051423561)**   
+* **[穿戴设备侧应用开发（Java）](https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/smartwatch-dev-0000001051423536)**   

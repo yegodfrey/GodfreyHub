@@ -1,0 +1,83 @@
+---
+name: document/cn/app/agc-help-accountinfo-0000001108468138
+title: 管理开发者账号
+uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-accountinfo-0000001108468138
+---
+
+# 管理开发者账号
+
+如果您需要更新自己的华为开发者账号信息，可以通过AppGallery Connect进行更改。
+
+## 查看和编辑个人信息
+
+1. 在任意AppGallery Connect页面的右上角点击您的用户名，然后选择"个人信息"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/JRYZI8B0SC2shnH-GjmKQw/zh-cn_image_0000002060493393.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=D91C90CE373B8FB7107558FB6BEBB715FE6327889B17361093B5FFF7277C4CD3)
+
+2. 页面将跳转到"用户与访问"模块的"用户 > 个人信息"页面，点击左侧页面用户名后的"管理"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/lKbjOgJCTwmN_NGCdu2mYw/zh-cn_image_0000001169255890.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=3FF4C919915D0CD3BF268ACDCEE2F947253AEEDCA9E1C100AF06571E25EB8D2E)
+
+3. 页面将跳转到华为账号中心页面，您可以在"个人信息"菜单中查看或编辑您的个人信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/h6yzoP9AR9uBnZEaU2Gu-Q/zh-cn_image_0000002024233756.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=EE8A473A8289FD9A4683F4192A3C7736AF4FCF6176BEC9706744B624701EFC83)
+
+## 保护账号安全
+
+在华为账号中心页面，您可以在"账号与安全"菜单中设置，例如：修改登录账号名称，绑定手机号、邮箱，修改安全手机号、安全邮箱，重置密码，冻结账号等。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/heBgVdCwSvmGS4LM-zOGeg/zh-cn_image_0000002069424253.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=511F42CEAB616AFB7323B1A2188E11D21BE33B9607FDF0F34AB13ABAD949E6DE)
+
+### 修改账号名
+
+注册账号时生成的账号名是随机字符串， 为了方便好友通过账号名搜索到您，您可点击"账号名"右侧的"更改"修改账号名。但账号名仅可修改一次，修改后将不再展示"更改"按钮。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/g6qURQ2tQtWV_Uswu6Qb-A/zh-cn_image_0000002033547394.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=07FB5ABB49ED83C14D28B69288CD1BDE5648E8207ADDBF78E6644EA0B99544F0)
+
+### 绑定手机号/邮箱
+
+* 若您注册账号时使用了电子邮箱，系统将自动绑定电子邮箱，您也可点击"手机号"右侧的"绑定"，输入发送至安全手机的验证码后绑定手机号，这样您既可使用电子邮箱，也可使用绑定的手机号登录华为账号。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/cReh6KiGTfeEIQEh0agWfQ/zh-cn_image_0000002070920609.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=2346D4B2D641D2AA72101179F03E0D5D88EFB86C91AD58FE27268EE25CBF0C61)
+
+* 若您注册账号时使用了手机号，系统将自动绑定手机号，您也可点击"邮件地址"右侧的"绑定"，输入验证码后绑定电子邮箱，这样您既可使用手机号，也可使用绑定的电子邮箱登录华为账号。 说明
+  >
+  > 未设置"安全手机号"时，验证码将发送至注册账号时使用的手机号上。反之，验证码将发送至安全手机号上。
+
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/rzCjLLWpSKSOLxgoM4lHIQ/zh-cn_image_0000002034847442.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=175D0DA73521E05ADAFB2D7D61BF75DE160B30743C9E24C7582A9AA466733E36)
+
+### 解绑邮箱
+
+> 说明
+>
+> * 不支持解绑手机号，且已绑定手机号的情况下，才可解绑邮箱，否则只支持更改邮箱。
+> * 未设置"安全手机号"时，验证码将发送至注册账号时使用的手机号上。反之，验证码将发送至安全手机号上。
+
+绑定邮箱后，您可根据需要进行解绑。点击"邮件地址"右侧的"解绑"，输入验证码后即可解绑邮箱。解绑后，您将不能使用原邮件地址登录华为服务、第三方应用和游戏。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/sxLEb53tTSOkKNy_ZPv8AA/zh-cn_image_0000002034709880.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=ECFAE8318EEACE34CBA9D5E07CA545C67015AB8EB09F823227D6665CB8D05FA5)
+
+### 设置安全手机号/安全邮箱
+
+为了保护您的账号安全，您可点击"设置"设置安全手机号，或者安全邮件地址。设置完成后，若开启了"双重验证"，后续登录华为账号、重置密码或验证身份时，均需进行密码和验证码的双重验证。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/CN_FJ-QJTXKHrClzrqBAwg/zh-cn_image_0000002034690498.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=D84022E1B9D8D8942088DD4AB9279F3D42AD405813F5D0288B58DA8277583EC2)
+
+### 重置账号密码
+
+1. 在"安全中心"区域，点击"重置账号密码"右侧的"重置"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/vXRzlcmQT4efj_YDpHXFmg/zh-cn_image_0000002070932437.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=25243B874E28A6CDB4C8758654732166C696B5697547CA7545EF1D6F74CD211C)
+
+2. 若设置了安全手机号，需要输入安全手机验证码。然后在"重置账号密码"窗口，输入旧密码，并按照密码要求设置新密码，点击"确定"完成密码修改。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/jaAwrz-2Q8Oe8gOSIU2JJQ/zh-cn_image_0000002070934449.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A5D15C9DC83E58AB9096A38E4A8D5F13ABD34B24293214D2F918E9D5B2663D5)
+
+### 冻结/解冻账号
+
+若您怀疑账号被盗，可点击"冻结账号"右侧的 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/jrLizDoESg--qRybkvKwzg/zh-cn_image_0000001655808510.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=51829CFBD8FF038C510062D14A97E80ADFD25F016A680A4C2AE61FAFEE83EA17 "点击放大")，在"冻结账号"弹出窗口点击"冻结"，输入要冻结的账号即可将账号紧急冻结。为保障您的账号安全，被冻结的账号将自动从设备上退出登录。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/yz9mzIaQQLmHO3sdCMdSew/zh-cn_image_0000002070786465.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=6E5F0F634A847A962082D8BEBFF25773B371C91D039EF2CD04D6A0D7527FB9B7)
+
+风险解除后，可点击"解冻账号"右侧的 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/hMsKZDMCR6e91GDnBvt3lQ/zh-cn_image_0000001656886432.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=EAB2D96A06F35EC2E7BC6DB054298116F199864B7CFD4C76A81952054A62DFF0)，在"解冻账号"弹出窗口点击"解冻"将账号解冻。
+
+## 查看角色和权限
+
+在AppGallery Connect的"用户与访问"模块的"用户 > 个人信息"菜单下，您可以查看您当前账号的角色和权限。作为账号持有者，拥有所有权限，作为团队账号的子账号，角色和权限由账号持有者分配，有关团队账号的具体说明，请参见[管理团队账号](https://developer.huawei.com/consumer/cn/doc/app/agc-help-manageaccount-0000001099996700)。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/5hxL_LhHSOenHsrwedUBvw/zh-cn_image_0000002581604737.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=B163323B420AE9041EFE3F389D96C5CF18E0F0F39BD3ED254C8D5C67CF7DDDC6)
+
+## 设置通知消息
+
+在AppGallery Connect的"用户与访问"模块的"用户 > 个人信息"菜单下，您还可以设置在发生某些重大事件时给您的邮箱地址或手机发送通知消息。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/WuzKOeIOQD-0Qh9OAlJ0kw/zh-cn_image_0000001214778573.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=A1D3A535EF04ACF92134C6445D8D25B06184DC93B5F605D4DAF30173CD55E4E1)
+

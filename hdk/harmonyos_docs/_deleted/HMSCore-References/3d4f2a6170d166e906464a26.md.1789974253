@@ -1,0 +1,16 @@
+---
+name: document/cn/HMSCore-References/overview-0000001052660345
+title: Overview
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/overview-0000001052660345
+---
+
+# Overview
+
+包含错误相关的类
+
+## Class Summary
+
+|Class|Description|
+|:--------------------------------------------------------------------------------------------------------------|:----------|
+|[HiHealthError](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hihealtherror-0000001071707423)|错误码|
+

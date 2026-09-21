@@ -6,14 +6,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # Overview
 
-#### Interface Summary
+## Interface Summary
 
 |Interface|Description|
 |:---------------------------------------------------------------------------------------------------------------------------------|:------------------|
 |[AGCInstance](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-web-agcinstance-0000001159665969)|AGC SDK初始化和配置参数类接口。|
 |[Crypt](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-web-crypt-0000001113466032)|供用户实现的加解密接口。|
 
-#### Type Summary
+## Type Summary
 
 |Class|Description|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|
@@ -21,7 +21,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |[AGConnectOptions](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-web-agconnectoptions-0000001113306138)|AGC SDK选项设置。|
 |AGCError|AGC SDK异常类型基类。|
 
-#### Enum Summary
+## Enum Summary
 
 |Enum|Description|
 |:---------------------------------------------------------------------------------------------------------------------------------------|:----------|

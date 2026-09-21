@@ -6,26 +6,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1269
 
 # 如何实现评论区楼层效果
 
-#### 问题现象
+## 问题现象
 
 如何实现贴吧评论区楼层的效果，要求如下：
 
 * 实现循环遍历每一层外边都添加一个边框。
-* 最多展示4层外边框。  
+* 最多展示4层外边框。
 
-#### 背景知识
+## 背景知识
 
 * [Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)布局是一种层叠容器，允许子组件按添加顺序堆叠，后添加的组件覆盖在先前的组件上，常用于实现悬浮按钮、弹窗等场景。
 * [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)：为可滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。
-* [onAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)：组件区域变化时触发该回调。仅会响应由布局变化所导致的组件大小、位置发生变化时的回调。  
+* [onAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-area-change-event#onareachange)：组件区域变化时触发该回调。仅会响应由布局变化所导致的组件大小、位置发生变化时的回调。
 
-#### 解决方案
+## 解决方案
 
 利用Stack组件用于垂直堆叠子组件，并通过Alignment.Top，使得所有子组件的内容都对齐到顶部达到楼层堆叠的效果。通过监听组件高度的变化，动态调整每个楼层组件的高度和调整边框，并在用户点击展开全部按钮时重新布局。
 
 * FloorDetail页面（定义数据）。
 
-  ```
+  ```screen
   export class FloorDetail {
     image?: Resource;
     floor?: number = 0;
@@ -71,7 +71,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1269
 
 * Floor页面（自定义组件）。
 
-  ```
+  ```screen
   import { FloorDetail } from './FloorDetail';
 
   @Component
@@ -133,7 +133,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1269
   }
   ```
 
-<!-- -->
 
 * Index页面（核心代码）。
   1. 利用Stack垂直堆叠子组件，达到模拟楼层的目的。
@@ -141,9 +140,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1269
   3. 创建楼层组件，设置索引的增加，宽度会逐渐减少。
   4. 动态决定组件的高度。如果高度为0，则使用自动高度；否则使用存储的高度值。
   5. 监听组件区域的变化，当组件大小发生变化时更新当前楼层组件的高度。
-  6. 通过(index \> 4 ? 4 : index) \* this.border_num来控制索引大于4的楼层不显示边框，达到最多显示4层边框效果。
+  6. 通过(index > 4 ? 4 : index) * this.border_num来控制索引大于4的楼层不显示边框，达到最多显示4层边框效果。
 
-  ```
+  ```screen
   import { floorMessages, FloorDetail } from './FloorDetail';
   import { Floor } from './Floor';
 
@@ -152,12 +151,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1269
   struct Index {
     scroller: Scroller = new Scroller();
     @State allFloorMessages: FloorDetail[] = floorMessages; // 所有可用的楼层消息
-    @State showFloorMessages: FloorDetail[] = []; // 当前显示的楼层消息
+    @State showFloorMessages: FloorDetail[] = [];// 当前显示的楼层消息
     @State componentHeight: number[] = []; // 每个楼层组件的高度
     @State isShowAll: boolean = false; // 标志，指示是否显示所有消息
-    @State isGet: boolean = false; // 标志，指示是否已获取组件高度
-    @State showFloors: number = 0; // 要显示的楼层数量
-    @State flag: number = 0; // 用于跟踪已处理的楼层数量
+    @State isGet: boolean = false;// 标志，指示是否已获取组件高度
+    @State showFloors: number = 0;// 要显示的楼层数量
+    @State flag: number = 0;// 用于跟踪已处理的楼层数量
     private allFloors: number = this.allFloorMessages.length; // 所有楼层消息的总数
     borderNum: number = 2;
 

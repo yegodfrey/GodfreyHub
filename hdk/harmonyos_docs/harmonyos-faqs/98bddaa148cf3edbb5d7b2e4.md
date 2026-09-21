@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
 # 数据存储方案如何选择
 
-问题描述
+**问题描述**
 
 HarmonyOS标准系统支持典型的存储数据形态，包括用户首选项、键值型数据库、关系型数据库。
 
@@ -20,12 +20,12 @@ PersistentStorage：持久化存储UI状态
 
 开发者选择合适的数据存储方案时，应考虑以下因素：数据类型、访问模式、性能要求、成本预算和扩展性需求。
 
-解决措施
+**解决措施**
 
-开发者应根据数据类型、访问模式等核心因素，结合各存储方案的功能特性进行选择。根据数据特性和使用场景，主要存储方案可分为以下几类：  
+开发者应根据数据类型、访问模式等核心因素，结合各存储方案的功能特性进行选择。根据数据特性和使用场景，主要存储方案可分为以下几类：
 
 |----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|[LocalStorage：页面级UI状态存储](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage) <br />|页面级UI状态存储，用于UIAbility内、页面间的状态共享。|
+|[LocalStorage：页面级UI状态存储](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage)|页面级UI状态存储，用于UIAbility内、页面间的状态共享。|
 |[AppStorage：应用全局的UI状态存储](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)|单例LocalStorage对象，由UI框架在应用程序启动时创建，为应用程序UI状态属性提供中央存储。|
 |[PersistentStorage：持久化存储UI状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-persiststorage)|持久化存储UI状态，和AppStorage配合使用，选择AppStorage存储的数据写入磁盘，以确保这些属性在应用程序重新启动时的值与应用程序关闭时的值相同。|
 |[@ohos.data.preferences (用户首选项)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences)|用于保存应用的配置信息。数据通过文本的形式保存在设备中，应用使用过程中会将文本中的数据全量加载到内存中，所以访问速度快、效率高，但不适合需要存储大量数据的场景。|

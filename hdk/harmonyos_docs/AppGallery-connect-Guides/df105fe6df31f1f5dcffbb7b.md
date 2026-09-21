@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/adx_
 
 # 业务介绍
 
-本接口提供了获取⼴告、获取应用详情信息、获取更新信息、上报打点能力，详细介绍了ADX（即广告交易平台 AD exchange）如何通过调用这些能力实现接入华为应用市场进行推广服务。  
+本接口提供了获取⼴告、获取应用详情信息、获取更新信息、上报打点能力，详细介绍了ADX（即广告交易平台 AD exchange）如何通过调用这些能力实现接入华为应用市场进行推广服务。
 
-#### 接入流程
+## 接入流程
 
-主要接入流程如下：  
+主要接入流程如下：
 
 |序号|步骤|详情|
 |:-|:--------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -22,7 +22,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/adx_
 |6|获取安装应用列表|ADX需要[调用获取安装应用列表接口](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/adx_dsp_api_if-installed-app-list-0000001386006892)，用于查询用户已安装应用列表的数据。|
 |7|获取数据报表|ADX需要[调用获取报表接口](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/adx_dsp_api_if-report-0000001431077570)，以便向媒体按天提供推广、下载、收益等统计数据。|
 
-#### 广告形态说明
+## 广告形态说明
 
 当前支持应用搜索和应用推荐两类广告形态，具体如下：
 

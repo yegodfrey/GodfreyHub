@@ -4,38 +4,38 @@ title: 命令：Intent命令<IntentCommand>
 uri: https://developer.huawei.com/consumer/cn/doc/content/themes-engine-next-base-intentcommand-0000002471235064
 ---
 
-# 命令：Intent命令\<IntentCommand\>
+# 命令：Intent命令<IntentCommand>
 
-#### 功能概述
+## 功能概述
 
-通过IntentCommand命令，可以跳转打开其他应用程序App，一次只能跳转一个应用，不能实现连续跳转多个应用。  
+通过IntentCommand命令，可以跳转打开其他应用程序App，一次只能跳转一个应用，不能实现连续跳转多个应用。
 
-#### 支持范围
+## 支持范围
 
-起始规范版本：HarmonyOS 5.0
+**起始规范版本：**HarmonyOS 5.0
 
-是否平台特性：否  
+**是否平台特性：**否
 
-| |锁屏（Lockscreen）|桌面（Wallpaper）|一镜到底（LongTake）|百变卡片（Widget）|充电动效（ChargingSkin）|
+|  |锁屏（Lockscreen）|桌面（Wallpaper）|一镜到底（LongTake）|百变卡片（Widget）|充电动效（ChargingSkin）|
 |:---|:------------:|:-----------:|:------------:|:----------:|:----------------:|
 |是否支持|√|√|x|√|√|
-[表1 支持根标签]
+[**表1** **支持根标签**]
 
-| |直板机|折叠屏|平板|
+|  |直板机|折叠屏|平板|
 |:---|:-:|:-:|:-:|
 |是否支持|√|√|√|
-[表2 支持设备类型]
+[**表2** **支持设备类型**]
 
-#### XML规范
+## XML规范
 
-```
+```screen
 <IntentCommand action="" category="" package="" class="" condition="" delay="" delayCondition="" />
 ```
 
-#### 参数说明
+## 参数说明
 
-|------------------|---|--|-------------------------------------------------------------------------------------|
-|参数|类型|选项|注释|
+|------------------|------|------|-----------------------------------------------------------------------------------------|
+|**参数**|**类型**|**选项**|**注释**|
 |action|字符串|选填|intent的action（使用package和class时忽略该参数。参考应用示例）|
 |category|字符串|选填|intent需要设置的category（参考应用示例）|
 |package|字符串|必填|intent需要设置的的包名（参考应用示例）|
@@ -43,31 +43,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/themes-engine-next-bas
 |condition|表达式|选填|条件判断，支持表达式。当condition里的条件判断为非0或者为true时，该命令执行，为false或者0则不执行。|
 |delay|数值|选填|延迟，以毫秒记。延迟delay毫秒后执行该命令。|
 |delayCondition|表达式|选填|延迟判断，为真则delay命令生效，否则失效。默认为true或者1时，表示可以延迟启动命令，如果false或者非1则不延迟执行。|
-|uri|字符串|选填|目标跳转的页面。 起始规范版本：HarmonyOS 6.0|
-|type|字符串|选填|表示MIME type类型描述，打开文件的类型，主要用于文管打开文件。比如：'text/xml' 、 'image/\*'等。 起始规范版本：HarmonyOS 6.0|
-|ext|字符串|选填|染色信息，可选字段ext，当存在该字段时，打点内容增加ext字段，透传该值。 起始规范版本：HarmonyOS 7.0|
-|actionNotInstalled|字符串|选填|表示基于packageName判断目标应用未安装时动作，0表示进行toast提示"应用未安装"，1表示跳转到主题app统一页面。 起始规范版本：HarmonyOS 7.0|
+|uri|字符串|选填|目标跳转的页面。 **起始规范版本**：HarmonyOS 6.0|
+|type|字符串|选填|表示MIME type类型描述，打开文件的类型，主要用于文管打开文件。比如：'text/xml' 、 'image/*'等。 **起始规范版本**：HarmonyOS 6.0|
+|ext|字符串|选填|染色信息，可选字段ext，当存在该字段时，打点内容增加ext字段，透传该值。 **起始规范版本**：HarmonyOS 7.0|
+|actionNotInstalled|字符串|选填|表示基于packageName判断目标应用未安装时动作，0表示进行toast提示"应用未安装"，1表示跳转到主题app统一页面。 **起始规范版本**：HarmonyOS 7.0|
 
-#### 应用示例
+## 应用示例
 
-示例一：打开相机
+**示例一：打开相机**
 
-```
+```screen
 <IntentCommand action="action.system.home" category="entity.system.home" package="com.huawei.hmos.camera" class="com.huawei.hmos.camera.MainAbility" />
 ```
 
-示例二：跳转游戏中心原神游戏下载界面
+**示例二：跳转游戏中心原神游戏下载界面**
 
-```
+```screen
 <IntentCommand uri="https://game.cloud.huawei.com/gc/link/detail?appId=C5765880207854347801" type="" />
 ```
 
-<br />
-
-华为鸿蒙应用包名列表  
+华为鸿蒙应用包名列表
 
 |----------|-------------------------------|--------------------------------------------|
-|应用名|包名|页面名|
+|**应用名**|**包名**|**页面名**|
 |桌面|com.ohos.sceneboard|/|
 |设置|com.huawei.hmos.settings|com.huawei.hmos.settings.MainAbility|
 |图库|com.huawei.hmos.photos|com.huawei.hmos.photos.MainAbility|

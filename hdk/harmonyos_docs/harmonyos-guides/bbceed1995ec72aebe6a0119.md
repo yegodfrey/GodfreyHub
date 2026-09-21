@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-state-var
 
 # @performance/state-variable-usage-in-ui-format-check
 
-建议删除不使用的UI变量。  
+建议删除不使用的UI变量。
 
-#### 规则配置
+## 规则配置
 
-```
+```screen
 // code-linter.json5
 {
   "rules": {
@@ -19,13 +19,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-state-var
 }
 ```
 
-#### 选项
+## 选项
 
-该规则无需配置选项。  
+该规则无需配置选项。
 
-#### 正例
+## 正例
 
-```
+```screen
 class User {
   private name: string;
   constructor(name: string) {
@@ -67,9 +67,9 @@ struct Parent {
 }
 ```
 
-#### 反例
+## 反例
 
-```
+```screen
 class User {
   private name: string;
   constructor(name: string) {
@@ -105,13 +105,11 @@ struct Parent {
 }
 ```
 
-#### 规则集
+## 规则集
 
-```
+```screen
 plugin:@performance/all
 ```
 
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
-
-<br />
 

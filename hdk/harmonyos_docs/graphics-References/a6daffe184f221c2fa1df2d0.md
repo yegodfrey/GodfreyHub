@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/api-constr
 |:--------------------------------|
 |public interface Constraint 约束接口。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -20,63 +20,63 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/api-constr
 |void|[setNodeA](#section1227115303383)([Node](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-node-0000001061589671) nodeA) 设置约束连接的节点A。|
 |void|[setNodeB](#section1378193018385)([Node](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-node-0000001061589671) nodeB) 设置约束连接的节点B。|
 
-#### Public Methods
+## Public Methods
 
-#### getNodeA
+### getNodeA
 
 |Method|
 |:-------------------------------------------------------------------------------------------------------------------------------|
 |public [Node](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-node-0000001061589671) getNodeA() 获取约束连接的节点A。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-------------------------------------------------------------------------------------------------|:----------|
 |[Node](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-node-0000001061589671)|节点A。|
 
-#### getNodeB
+### getNodeB
 
 |Method|
 |:-------------------------------------------------------------------------------------------------------------------------------|
 |public [Node](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-node-0000001061589671) getNodeB() 获取约束连接的节点B。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-------------------------------------------------------------------------------------------------|:----------|
 |[Node](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-node-0000001061589671)|节点B。|
 
-#### getType
+### getType
 
 |Method|
 |:------------------------------------------------------------------------------------------------------------------------------------------------|
 |public [Constraint.Type](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-constraint-type-0000001097681558) getType() 获取约束类型。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----------------------------------------------------------------------------------------------------------------------|:----------|
 |[Constraint.Type](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-constraint-type-0000001097681558)|约束类型。|
 
-#### setNodeA
+### setNodeA
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------|
 |public void setNodeA([Node](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-node-0000001061589671) nodeA) 设置约束连接的节点A。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------|
 |nodeA|节点A。|
 
-#### setNodeB
+### setNodeB
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------|
 |public void setNodeB([Node](https://developer.huawei.com/consumer/cn/doc/graphics-References/api-node-0000001061589671) nodeB) 设置约束连接的节点B。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------|

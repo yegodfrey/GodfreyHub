@@ -6,29 +6,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 # stack
 
-堆叠容器，子组件按照顺序依次入栈，后一个子组件覆盖前一个子组件。  
-![](https://media:401788445406019083)  
-从API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。  
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-#### 子组件
+堆叠容器，子组件按照顺序依次入栈，后一个子组件覆盖前一个子组件。
+> 说明
+>
+> 从API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-支持。  
+## 子组件
 
-#### 属性
+支持。
 
-支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)。  
+## 属性
 
-#### 样式
+支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)。
 
-支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-styles)。  
+## 样式
 
-#### 事件
+支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-styles)。
 
-支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-events)。  
+## 事件
 
-#### 示例
+支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-events)。
 
-```
+## 示例
+
+```html
 <!-- xxx.hml -->
 <stack class="stack-parent">
   <div class="back-child bd-radius"></div>
@@ -37,7 +40,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 </stack>
 ```
 
-```
+```css
 /* xxx.css */
 .stack-parent {
   width: 400px;
@@ -69,6 +72,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 }
 ```
 
-4×4卡片
+**4×4卡片**
 
-![](https://media:401788445406044084)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/p-aUYWyKQ3-Xs8bk4JWNog/zh-cn_image_0000002762836559.png?HW-CC-KV=V1&HW-CC-Date=20260917T084648Z&HW-CC-Expire=31536000000&HW-CC-Sign=5B909B3BE700F203200C8AA8C05942E0878F473BA6CEA122660D0C0D42AC7F19)
+

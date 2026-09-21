@@ -6,24 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-ser
 
 # 如何实现接近身体自动灭屏的功能
 
-#### 问题现象
+## 问题现象
 
-在接听电话的时候，手机靠近身体，为了避免误触，需要将手机灭屏，怎么实现？  
+在接听电话的时候，手机靠近身体，为了避免误触，需要将手机灭屏，怎么实现？
 
-#### 背景知识
+## 背景知识
 
 * [RunningLock锁](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-runninglock)：运行锁，能够阻止CPU进入低功耗状态，保证业务能够在系统待机状态下继续活动的一种锁机制。
 * [RunningLockType.PROXIMITY_SCREEN_CONTROL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-runninglock#runninglocktype)：接近光锁，使能接近光传感器，并根据传感器与障碍物的距离远近发起亮灭屏流程。
-* [RunningLock.create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-runninglock#runninglockcreate9)：创建RunningLock锁。  
+* [RunningLock.create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-runninglock#runninglockcreate9)：创建RunningLock锁。
 
-#### 解决方案
+## 解决方案
 
 利用光传感器去判断手机与障碍物的距离，并依据与障碍物的距离发起亮灭屏的流程。
 
 * 实现过程：
   1. src/main/module.json5文件配置RunningLock权限。
 
-     ```
+     ```screen
      {
        "name": "ohos.permission.RUNNING_LOCK"
      }
@@ -31,7 +31,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-ser
 
   2. 创建一个接近光锁。
 
-     ```
+     ```screen
      runningLock.create('running_lock_test', runningLock.RunningLockType.PROXIMITY_SCREEN_CONTROL)
        .then((lock: runningLock.RunningLock) => {
          this.runLock = lock;
@@ -42,11 +42,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-sensor-ser
        });
      ```
 
-<!-- -->
 
 * 完整示例参考如下：
 
-  ```
+  ```screen
   import { runningLock } from '@kit.BasicServicesKit';
 
   @Entry

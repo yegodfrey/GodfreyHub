@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/translate-over
 
 # Overview
 
-文本翻译云侧调用API接口。  
+文本翻译云侧调用API接口。
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|

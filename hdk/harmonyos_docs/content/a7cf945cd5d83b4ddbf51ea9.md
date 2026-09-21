@@ -6,20 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/shake-0000001077893764
 
 # 摇一摇
 
-#### 动效概述
+## 动效概述
 
 摇一摇触发手机动效，同时通过#shake变量控制动画的可见性。
 
-可在主题App中搜索《橙意漫屏》进行体验和参考。  
+可在主题App中搜索《橙意漫屏》进行体验和参考。
 
-#### 素材准备
+## 素材准备
 
-![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251218173455.14457458067626863452848074067892:50001231000000:2800:F6372747B3583FB2825DE783644B8BD49685DEF78E9253184982CF4C7A23289A.png "点击放大")  
+![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251218173455.14457458067626863452848074067892:50001231000000:2800:F6372747B3583FB2825DE783644B8BD49685DEF78E9253184982CF4C7A23289A.png "点击放大")
 
-#### 效果和脚本展示
+## 效果和脚本展示
 
-
-```
+```screen
 <?xml version="1.0" encoding="utf-8"?>
 <Lockscreen version="1" frameRate="30"  displayDesktop="true" screenWidth="1080" vibrate="true">
 	<Var name="w" expression="#screen_width" persist="true" const="true" />

@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-29
 
 # 应用从后台切换至前台，播放音频无声音
 
-#### 问题现象
+## 问题现象
 
-首次打开应用可以正常播放音频，将应用切换到后台后再切换至前台，点击播放音频按钮无声音。  
+首次打开应用可以正常播放音频，将应用切换到后台后再切换至前台，点击播放音频按钮无声音。
 
-#### 背景知识
+## 背景知识
 
 * [AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avplayer-for-playback)：AVPlayer主要工作是将视频、音频媒体资源转码为可供渲染的图像和可听见的音频模拟信号，并通过输出设备进行播放。
 * AVPlayerState：AVPlayerState是AVPlayer的状态机，包含以下几个状态：
@@ -24,20 +24,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-29
   * released：销毁状态。
   * error：错误状态。
 * 当播放处于prepared/playing/paused/completed状态时，播放引擎处于工作状态，这需要占用系统较多的运行内存。当客户端暂时不使用播放器时，调用[reset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#reset9)或[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#release9)回收内存资源，做好资源利用。
-* Media错误码[5400102](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media#section5400102-当前状态不支持此操作)：当前状态机不支持此操作。  
+* Media错误码[5400102](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media#section5400102-当前状态不支持此操作)：当前状态机不支持此操作。
 
-#### 问题定位
+## 问题定位
 
 1. 在日志中查找错误码"5400102"，找到相关错误信息：
 
-   ```
+   ```txt
    OnErrorCb:errorCode 5400102, errorMsg Operate Not Permit: current state is not prepared/playing/paused/completed, unsupport speed operation
    ```
 
    日志表示当前AVPlayer组件状态不处于工作状态（prepared、playing、paused或completed），却执行了更改播放速度的操作，当前状态不允许执行该操作，导致播放失败。
 2. 将应用从前台切换到后台，输出日志："AVPlayer state released called."，说明AVPlayer组件被销毁，状态变更为released。查看切换到后台时的设置，退到后台后销毁AVPlayer组件，且返回到前台时未重新使AVPlayer组件处于工作状态，导致播放失败。
 
-   ```
+   ```typescript
    onPageHide() {
      // 应用退到后台后销毁该组件
      this.avPlayer.release((err) => {
@@ -52,15 +52,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-29
    }
    ```
 
-#### 分析结论
+## 分析结论
 
-应用退到后台后销毁AVPlayer组件，且返回到前台时未重新使AVPlayer组件处于工作状态，导致播放失败。  
+应用退到后台后销毁AVPlayer组件，且返回到前台时未重新使AVPlayer组件处于工作状态，导致播放失败。
 
-#### 修改建议
+## 修改建议
 
 返回到前台时重新启动AVPlayer组件，使组件处于工作状态。
 
-```
+```ts
 import display from '@ohos.display';
 import emitter from '@ohos.events.emitter';
 import { common } from '@kit.AbilityKit';
@@ -143,8 +143,8 @@ struct ChangeStatus {
   }
 
   async avSetupAudio() {
-    // 通过UIAbilityContext的resourceManager成员的getRawFd接口获取媒体资源播放地址。
-    // 返回类型为{fd,offset,length},fd为HAP包fd地址，offset为媒体资源偏移量，length为播放长度。
+   // 通过UIAbilityContext的resourceManager成员的getRawFd接口获取媒体资源播放地址。
+   // 返回类型为{fd,offset,length},fd为HAP包fd地址，offset为媒体资源偏移量，length为播放长度。
     if (this.context === undefined) {
       return;
     }
@@ -153,10 +153,10 @@ struct ChangeStatus {
       { fd: fileDescriptor.fd, offset: fileDescriptor.offset, length: fileDescriptor.length };
 
     if (!this.avPlayer) {
-      // 创建avPlayer实例对象
+     // 创建avPlayer实例对象
       this.avPlayer = await media.createAVPlayer();
     }
-    // 创建状态机变化回调函数
+   // 创建状态机变化回调函数
     await this.setAVPlayerCallback((avPlayer: media.AVPlayer) => {
       this.percent = avPlayer.width / avPlayer.height;
       this.setVideoWH();
@@ -196,9 +196,9 @@ struct ChangeStatus {
     }
   }
 
-  // 注册avplayer回调函数
+ // 注册avplayer回调函数
   async setAVPlayerCallback(callback: (avPlayer: media.AVPlayer) => void): Promise<void> {
-    // seek操作结果回调函数
+   // seek操作结果回调函数
     if (this.avPlayer == null) {
       return;
     }
@@ -297,7 +297,7 @@ struct ChangeStatus {
           break;
       }
     });
-    // 时间上报监听函数
+   // 时间上报监听函数
     this.avPlayer.on('timeUpdate', (time: number) => {
       this.currentTime = time;
     });
@@ -348,7 +348,7 @@ struct ChangeStatus {
   onPageShow() {
     if (this.surfaceId.length !== 0) {
       this.avSetupAudio(); // 设置AVPlayer组件处于工作状态
-      // 恢复到上次播放的位置
+   // 恢复到上次播放的位置
       setTimeout(() => {
         this.avPlayer?.seek(this.lastTime);
       }, 100);
@@ -418,7 +418,7 @@ struct ChangeStatus {
             // 进度条
             Row() {
               Row() {
-                // $r("app.media.ic_pause")和$r("app.media.ic_play"))需要替换为开发者需要的图片资源文件
+               // $r("app.media.ic_pause")和$r("app.media.ic_play"))需要替换为开发者需要的图片资源文件
                 Image(this.isPlay ? $r('app.media.ic_pause') : $r('app.media.ic_play')) // 暂停/播放
                   .width(40)
                   .height(40)
@@ -431,7 +431,7 @@ struct ChangeStatus {
                       this.isPlay = true;
                     }
                   });
-                // 左侧时间
+              // 左侧时间
                 Text(this.timeConvert(this.currentTime))
                   .id('currentTimeText')
                   .fontColor(Color.White)
@@ -440,7 +440,7 @@ struct ChangeStatus {
                   .margin({ left: 10 });
               };
 
-              // 进度条
+           // 进度条
               Row() {
                 Slider({
                   value: this.currentTime,
@@ -463,13 +463,13 @@ struct ChangeStatus {
               .layoutWeight(1);
 
               Row() {
-                // 右侧时间
+               // 右侧时间
                 Text(this.timeConvert(this.durationTime))
                   .id('durationTimeText')
                   .fontColor(Color.White)
                   .fontWeight(FontWeight.Regular);
 
-                // 倍速按钮
+              // 倍速按钮
                 Button(this.speedName, { type: ButtonType.Normal })
                   .border({ width: 1, color: Color.White })
                   .width(75)

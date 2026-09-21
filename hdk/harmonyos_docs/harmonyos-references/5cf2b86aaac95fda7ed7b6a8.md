@@ -6,23 +6,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arku
 
 # ArkUI_PointF
 
-```
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
+```c
 typedef struct {...} ArkUI_PointF
 ```
 
-#### 概述
+## 概述
 
 定义一个二维坐标点结构体，用于描述组件位置或偏移等坐标信息，坐标以浮点类型存储。
 
-起始版本： 24
+**起始版本：** 24
 
-相关模块： [ArkUI_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule)
+**相关模块：** [ArkUI_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule)
 
-所在头文件： [native_type_visual.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-visual-h)  
+**所在头文件：** [native_type_visual.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-visual-h)
 
-#### 汇总
+## 汇总
 
-#### 成员变量
+### 成员变量
 
 |名称|描述|
 |:------|:------------------------|

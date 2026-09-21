@@ -6,55 +6,60 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-r
 
 # @ohos.router (页面路由)(不推荐)
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+ | lite_wearable 12+
+
 本模块提供页面路由能力，支持通过url或命名路由进行页面跳转与替换、返回上一页面或指定页面、管理页面栈、获取页面状态与跳转参数、设置页面返回询问对话框等，适用于需要在应用内进行页面导航和流转的场景。
 
-推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)作为应用路由框架。  
-![](https://media:401788445292370511)  
-* 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)作为应用路由框架。
+> 说明
+>
+> * 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> * 页面路由需要在页面渲染完成之后才能调用，在onInit和onReady生命周期中页面还处于渲染阶段，禁止调用页面路由方法。
+>
+> * 本模块功能依赖UI的执行上下文，不可在[UI上下文不明确](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#ui上下文不明确)的地方使用，参见[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)说明。
+>
+> * 如果使用传入callback形式的[pushUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl-1)或[pushNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute-1)接口，callback中通过[getStackSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getstacksize23)等接口获取的栈信息为中间态的栈信息，可能与栈操作完全结束后，再通过[getStackSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getstacksize23)等接口获取的栈信息不一致。
 
-* 页面路由需要在页面渲染完成之后才能调用，在onInit和onReady生命周期中页面还处于渲染阶段，禁止调用页面路由方法。
+## 导入模块
 
-* 本模块功能依赖UI的执行上下文，不可在[UI上下文不明确](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#ui上下文不明确)的地方使用，参见[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)说明。
-
-* 如果使用传入callback形式的[pushUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl-1)或[pushNamedRoute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute-1)接口，callback中通过[getStackSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getstacksize23)等接口获取的栈信息为中间态的栈信息，可能与栈操作完全结束后，再通过[getStackSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getstacksize23)等接口获取的栈信息不一致。
-
-#### 导入模块
-
-```
+```ts
 import { router } from '@kit.ArkUI';
 ```
 
-#### router.pushUrl^(deprecated)^
+## router.pushUrl^(deprecated)^
 
-pushUrl(options: RouterOptions): Promise\<void\>
+pushUrl(options: RouterOptions): Promise<void>
 
-跳转到应用内的指定页面。  
-![](https://media:401788445292396512)  
-* 从API version 9开始支持，从API version 18开始废弃，建议使用[pushUrl(options: router.RouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl)替代。pushUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+跳转到应用内的指定页面。
+> 说明
+>
+> * 从API version 9开始支持，从API version 18开始废弃，建议使用[pushUrl(options: router.RouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl)替代。pushUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------|:-|:--------|
 |options|[RouterOptions](#routeroptions)|是|跳转页面描述信息。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445292419513)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -63,9 +68,9 @@ pushUrl(options: RouterOptions): Promise\<void\>
 |100002|Uri error. The URI of the page to redirect is incorrect or does not exist.|
 |100003|Page stack error. Too many pages are pushed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class InnerParams {
@@ -98,32 +103,34 @@ router.pushUrl({
   });
 ```
 
-#### router.pushUrl^(deprecated)^
+## router.pushUrl^(deprecated)^
 
-pushUrl(options: RouterOptions, callback: AsyncCallback\<void\>): void
+pushUrl(options: RouterOptions, callback: AsyncCallback<void>): void
 
-跳转到应用内的指定页面。  
-![](https://media:401788445292446514)  
-* 从API version 9开始支持，从API version 18开始废弃，建议使用[pushUrl(options: router.RouterOptions, callback: AsyncCallback\<void\>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl-1)替代。pushUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+跳转到应用内的指定页面。
+> 说明
+>
+> * 从API version 9开始支持，从API version 18开始废弃，建议使用[pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl-1)替代。pushUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------|:-|:-------------------------------------------------------------|
 |options|[RouterOptions](#routeroptions)|是|跳转页面描述信息。|
-|callback|AsyncCallback\<void\>|是|页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。|
+|callback|AsyncCallback<void>|是|页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445292471515)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -132,9 +139,9 @@ pushUrl(options: RouterOptions, callback: AsyncCallback\<void\>): void
 |100002|Uri error. The URI of the page to redirect is incorrect or does not exist.|
 |100003|Page stack error. Too many pages are pushed.|
 
-示例：
+**示例：**
 
-```
+```ts
 class InnerParams {
   data3: number[];
 
@@ -165,38 +172,40 @@ router.pushUrl({
 });
 ```
 
-#### router.pushUrl^(deprecated)^
+## router.pushUrl^(deprecated)^
 
-pushUrl(options: RouterOptions, mode: RouterMode): Promise\<void\>
+pushUrl(options: RouterOptions, mode: RouterMode): Promise<void>
 
-跳转到应用内的指定页面。  
-![](https://media:401788445292498516)  
-* 从API version 9开始支持，从API version 18开始废弃，建议使用[pushUrl(options: router.RouterOptions, mode: router.RouterMode)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl-2)替代。pushUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+跳转到应用内的指定页面。
+> 说明
+>
+> * 从API version 9开始支持，从API version 18开始废弃，建议使用[pushUrl(options: router.RouterOptions, mode: router.RouterMode)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl-2)替代。pushUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------|:-|:---------|
 |options|[RouterOptions](#routeroptions)|是|跳转页面描述信息。|
 |mode|[RouterMode](#routermode9)|是|跳转页面使用的模式。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445292528517)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -205,9 +214,9 @@ pushUrl(options: RouterOptions, mode: RouterMode): Promise\<void\>
 |100002|Uri error. The URI of the page to redirect is incorrect or does not exist.|
 |100003|Page stack error. Too many pages are pushed.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class InnerParams {
@@ -240,33 +249,35 @@ router.pushUrl({
   })
 ```
 
-#### router.pushUrl^(deprecated)^
+## router.pushUrl^(deprecated)^
 
-pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback\<void\>): void
+pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void
 
-跳转到应用内的指定页面。  
-![](https://media:401788445292550518)  
-* 从API version 9开始支持，从API version 18开始废弃，建议使用[pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback\<void\>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl-3)替代。pushUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+跳转到应用内的指定页面。
+> 说明
+>
+> * 从API version 9开始支持，从API version 18开始废弃，建议使用[pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl-3)替代。pushUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------|:-|:-------------------------------------------------------------|
 |options|[RouterOptions](#routeroptions)|是|跳转页面描述信息。|
 |mode|[RouterMode](#routermode9)|是|跳转页面使用的模式。|
-|callback|AsyncCallback\<void\>|是|页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。|
+|callback|AsyncCallback<void>|是|页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445292577519)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -275,9 +286,9 @@ pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback\<void\
 |100002|Uri error. The URI of the page to redirect is incorrect or does not exist.|
 |100003|Page stack error. Too many pages are pushed.|
 
-示例：
+**示例：**
 
-```
+```ts
 class InnerParams {
   data3: number[];
 
@@ -308,37 +319,39 @@ router.pushUrl({
 })
 ```
 
-#### router.replaceUrl^(deprecated)^
+## router.replaceUrl^(deprecated)^
 
-replaceUrl(options: RouterOptions): Promise\<void\>
+replaceUrl(options: RouterOptions): Promise<void>
 
-用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。  
-![](https://media:401788445292602520)  
-* 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用[replaceUrl(options: router.RouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl)替代。replaceUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
+> 说明
+>
+> * 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用[replaceUrl(options: router.RouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl)替代。replaceUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Lite
 
-系统能力： SystemCapability.ArkUI.ArkUI.Lite
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------|:-|:--------|
 |options|[RouterOptions](#routeroptions)|是|替换页面描述信息。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445292629521)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -346,9 +359,9 @@ replaceUrl(options: RouterOptions): Promise\<void\>
 |100001|The UI execution context is not found. This error code is thrown only in the standard system.|
 |200002|Uri error. The URI of the page to be used for replacement is incorrect or does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class RouterParams {
@@ -371,32 +384,34 @@ router.replaceUrl({
   })
 ```
 
-#### router.replaceUrl^(deprecated)^
+## router.replaceUrl^(deprecated)^
 
-replaceUrl(options: RouterOptions, callback: AsyncCallback\<void\>): void
+replaceUrl(options: RouterOptions, callback: AsyncCallback<void>): void
 
-用应用内的某个页面替换当前页面，并销毁被替换的页面。  
-![](https://media:401788445292662522)  
-* 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用[replaceUrl(options: router.RouterOptions, callback: AsyncCallback\<void\>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl-1)替代。replaceUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+用应用内的某个页面替换当前页面，并销毁被替换的页面。
+> 说明
+>
+> * 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用[replaceUrl(options: router.RouterOptions, callback: AsyncCallback<void>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl-1)替代。replaceUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Lite
 
-系统能力： SystemCapability.ArkUI.ArkUI.Lite
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------|:-|:-------------------------------------------------------------|
 |options|[RouterOptions](#routeroptions)|是|替换页面描述信息。|
-|callback|AsyncCallback\<void\>|是|页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。|
+|callback|AsyncCallback<void>|是|页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445292690523)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -404,9 +419,9 @@ replaceUrl(options: RouterOptions, callback: AsyncCallback\<void\>): void
 |100001|The UI execution context is not found. This error code is thrown only in the standard system.|
 |200002|Uri error. The URI of the page to be used for replacement is incorrect or does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 class RouterParams {
   data1: string;
 
@@ -427,38 +442,40 @@ router.replaceUrl({
 })
 ```
 
-#### router.replaceUrl^(deprecated)^
+## router.replaceUrl^(deprecated)^
 
-replaceUrl(options: RouterOptions, mode: RouterMode): Promise\<void\>
+replaceUrl(options: RouterOptions, mode: RouterMode): Promise<void>
 
-用应用内的某个页面替换当前页面，并销毁被替换的页面。  
-![](https://media:401788445292717524)  
-* 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用[replaceUrl(options: router.RouterOptions, mode: router.RouterMode)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl-2)替代。replaceUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+用应用内的某个页面替换当前页面，并销毁被替换的页面。
+> 说明
+>
+> * 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用[replaceUrl(options: router.RouterOptions, mode: router.RouterMode)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl-2)替代。replaceUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Lite
 
-系统能力： SystemCapability.ArkUI.ArkUI.Lite
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------|:-|:---------|
 |options|[RouterOptions](#routeroptions)|是|替换页面描述信息。|
 |mode|[RouterMode](#routermode9)|是|替换页面使用的模式。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445292746525)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -466,9 +483,9 @@ replaceUrl(options: RouterOptions, mode: RouterMode): Promise\<void\>
 |100001|Failed to get the delegate. This error code is thrown only in the standard system.|
 |200002|Uri error. The URI of the page to be used for replacement is incorrect or does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class RouterParams {
@@ -491,33 +508,35 @@ router.replaceUrl({
   })
 ```
 
-#### router.replaceUrl^(deprecated)^
+## router.replaceUrl^(deprecated)^
 
-replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback\<void\>): void
+replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void
 
-用应用内的某个页面替换当前页面，并销毁被替换的页面。  
-![](https://media:401788445292774526)  
-* 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用[replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback\<void\>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl-3)替代。replaceUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+用应用内的某个页面替换当前页面，并销毁被替换的页面。
+> 说明
+>
+> * 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用[replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl-3)替代。replaceUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Lite
 
-系统能力： SystemCapability.ArkUI.ArkUI.Lite
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------|:-|:-------------------------------------------------------------|
 |options|[RouterOptions](#routeroptions)|是|替换页面描述信息。|
 |mode|[RouterMode](#routermode9)|是|替换页面使用的模式。|
-|callback|AsyncCallback\<void\>|是|页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。|
+|callback|AsyncCallback<void>|是|页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445292840527)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -525,9 +544,9 @@ replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback\<vo
 |100001|The UI execution context is not found. This error code is thrown only in the standard system.|
 |200002|Uri error. The URI of the page to be used for replacement is incorrect or does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 class RouterParams {
   data1: string;
 
@@ -548,39 +567,41 @@ router.replaceUrl({
 });
 ```
 
-#### router.pushNamedRoute^(deprecated)^
+## router.pushNamedRoute^(deprecated)^
 
-pushNamedRoute(options: NamedRouterOptions): Promise\<void\>
+pushNamedRoute(options: NamedRouterOptions): Promise<void>
 
-跳转到指定的命名路由页面。  
-![](https://media:401788445292887528)  
-* 从API version 10开始支持，从API version 18开始废弃，建议使用[pushNamedRoute(options: router.NamedRouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute)替代。pushNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+跳转到指定的命名路由页面。
+> 说明
+>
+> * 从API version 10开始支持，从API version 18开始废弃，建议使用[pushNamedRoute(options: router.NamedRouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute)替代。pushNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------------------|:-|:--------|
 |options|[NamedRouterOptions](#namedrouteroptions10)|是|跳转页面描述信息。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445292916529)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -589,9 +610,9 @@ pushNamedRoute(options: NamedRouterOptions): Promise\<void\>
 |100003|Page stack error. Too many pages are pushed.|
 |100004|Named route error. The named route does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class InnerParams {
@@ -624,36 +645,38 @@ router.pushNamedRoute({
   })
 ```
 
-详细示例请参考：[UI开发-命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing#命名路由)  
+详细示例请参考：[UI开发-命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing#命名路由)
 
-#### router.pushNamedRoute^(deprecated)^
+## router.pushNamedRoute^(deprecated)^
 
-pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback\<void\>): void
+pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void
 
-跳转到指定的命名路由页面。  
-![](https://media:401788445293016530)  
-* 从API version 10开始支持，从API version 18开始废弃，建议使用[pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback\<void\>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute-1)替代。pushNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+跳转到指定的命名路由页面。
+> 说明
+>
+> * 从API version 10开始支持，从API version 18开始废弃，建议使用[pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute-1)替代。pushNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------|:-|:-------------------------------------------------------------|
 |options|[NamedRouterOptions](#namedrouteroptions10)|是|跳转页面描述信息。|
-|callback|AsyncCallback\<void\>|是|页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。|
+|callback|AsyncCallback<void>|是|页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445293145531)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -662,9 +685,9 @@ pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback\<void\>): vo
 |100003|Page stack error. Too many pages are pushed.|
 |100004|Named route error. The named route does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 class InnerParams {
   data3: number[];
 
@@ -695,40 +718,42 @@ router.pushNamedRoute({
 })
 ```
 
-#### router.pushNamedRoute^(deprecated)^
+## router.pushNamedRoute^(deprecated)^
 
-pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise\<void\>
+pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>
 
-跳转到指定的命名路由页面。  
-![](https://media:401788445293202532)  
-* 从API version 10开始支持，从API version 18开始废弃，建议使用[pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute-2)替代。pushNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+跳转到指定的命名路由页面。
+> 说明
+>
+> * 从API version 10开始支持，从API version 18开始废弃，建议使用[pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute-2)替代。pushNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------------------|:-|:---------|
 |options|[NamedRouterOptions](#namedrouteroptions10)|是|跳转页面描述信息。|
 |mode|[RouterMode](#routermode9)|是|跳转页面使用的模式。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445293230533)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -737,9 +762,9 @@ pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise\<void\>
 |100003|Page stack error. Too many pages are pushed.|
 |100004|Named route error. The named route does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class InnerParams {
@@ -772,35 +797,37 @@ router.pushNamedRoute({
   })
 ```
 
-#### router.pushNamedRoute^(deprecated)^
+## router.pushNamedRoute^(deprecated)^
 
-pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback\<void\>): void
+pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void
 
-跳转到指定的命名路由页面。  
-![](https://media:401788445293255534)  
-* 从API version 10开始支持，从API version 18开始废弃，建议使用[pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback\<void\>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute-3)替代。pushNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+跳转到指定的命名路由页面。
+> 说明
+>
+> * 从API version 10开始支持，从API version 18开始废弃，建议使用[pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushnamedroute-3)替代。pushNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------|:-|:-------------------------------------------------------------|
 |options|[NamedRouterOptions](#namedrouteroptions10)|是|跳转页面描述信息。|
 |mode|[RouterMode](#routermode9)|是|跳转页面使用的模式。|
-|callback|AsyncCallback\<void\>|是|页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。|
+|callback|AsyncCallback<void>|是|页面跳转结果回调函数。 当页面跳转成功时，error为undefined。当页面跳转失败时，error为系统返回的错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445293288535)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -809,9 +836,9 @@ pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCal
 |100003|Page stack error. Too many pages are pushed.|
 |100004|Named route error. The named route does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 class InnerParams {
   data3: number[];
 
@@ -842,39 +869,41 @@ router.pushNamedRoute({
 })
 ```
 
-#### router.replaceNamedRoute^(deprecated)^
+## router.replaceNamedRoute^(deprecated)^
 
-replaceNamedRoute(options: NamedRouterOptions): Promise\<void\>
+replaceNamedRoute(options: NamedRouterOptions): Promise<void>
 
-用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。  
-![](https://media:401788445293312536)  
-* 从API version 10开始支持，从API version 18开始废弃，建议使用[replaceNamedRoute(options: router.NamedRouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute)替代。replaceNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
+> 说明
+>
+> * 从API version 10开始支持，从API version 18开始废弃，建议使用[replaceNamedRoute(options: router.NamedRouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute)替代。replaceNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------------------|:-|:--------|
 |options|[NamedRouterOptions](#namedrouteroptions10)|是|替换页面描述信息。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445293338537)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -882,9 +911,9 @@ replaceNamedRoute(options: NamedRouterOptions): Promise\<void\>
 |100001|The UI execution context is not found. This error code is thrown only in the standard system.|
 |100004|Named route error. The named route does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class RouterParams {
@@ -907,34 +936,36 @@ router.replaceNamedRoute({
   })
 ```
 
-#### router.replaceNamedRoute^(deprecated)^
+## router.replaceNamedRoute^(deprecated)^
 
-replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback\<void\>): void
+replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void
 
-用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。  
-![](https://media:401788445293369538)  
-* 从API version 10开始支持，从API version 18开始废弃，建议使用[replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback\<void\>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute-1)替代。replaceNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
+> 说明
+>
+> * 从API version 10开始支持，从API version 18开始废弃，建议使用[replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute-1)替代。replaceNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------|:-|:-------------------------------------------------------------|
 |options|[NamedRouterOptions](#namedrouteroptions10)|是|替换页面描述信息。|
-|callback|AsyncCallback\<void\>|是|页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。|
+|callback|AsyncCallback<void>|是|页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445293394539)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -942,9 +973,9 @@ replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback\<void\>):
 |100001|The UI execution context is not found. This error code is thrown only in the standard system.|
 |100004|Named route error. The named route does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 class RouterParams {
   data1: string;
 
@@ -965,40 +996,42 @@ router.replaceNamedRoute({
 })
 ```
 
-#### router.replaceNamedRoute^(deprecated)^
+## router.replaceNamedRoute^(deprecated)^
 
-replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise\<void\>
+replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>
 
-用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。  
-![](https://media:401788445293419540)  
-* 从API version 10开始支持，从API version 18开始废弃，建议使用[replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute-2)替代。replaceNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
+> 说明
+>
+> * 从API version 10开始支持，从API version 18开始废弃，建议使用[replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute-2)替代。replaceNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------------------|:-|:---------|
 |options|[NamedRouterOptions](#namedrouteroptions10)|是|替换页面描述信息。|
 |mode|[RouterMode](#routermode9)|是|替换页面使用的模式。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445293447541)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1006,9 +1039,9 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise\<void\
 |100001|Failed to get the delegate. This error code is thrown only in the standard system.|
 |100004|Named route error. The named route does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class RouterParams {
@@ -1031,35 +1064,37 @@ router.replaceNamedRoute({
   })
 ```
 
-#### router.replaceNamedRoute^(deprecated)^
+## router.replaceNamedRoute^(deprecated)^
 
-replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback\<void\>): void
+replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void
 
-用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。  
-![](https://media:401788445293472542)  
-* 从API version 10开始支持，从API version 18开始废弃，建议使用[replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback\<void\>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute-3)替代。replaceNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
+> 说明
+>
+> * 从API version 10开始支持，从API version 18开始废弃，建议使用[replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replacenamedroute-3)替代。replaceNamedRoute需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:------------------------------------------|:-|:-------------------------------------------------------------|
 |options|[NamedRouterOptions](#namedrouteroptions10)|是|替换页面描述信息。|
 |mode|[RouterMode](#routermode9)|是|替换页面使用的模式。|
-|callback|AsyncCallback\<void\>|是|页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。|
+|callback|AsyncCallback<void>|是|页面替换结果回调函数。 当页面替换成功时，error为undefined。当页面替换失败时，error为系统返回的错误对象。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
-![](https://media:401788445293501543)  
-该接口返回的以下错误码均为string类型。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
+> 说明
+>
+> 该接口返回的以下错误码均为string类型。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1067,9 +1102,9 @@ replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: Async
 |100001|The UI execution context is not found. This error code is thrown only in the standard system.|
 |100004|Named route error. The named route does not exist.|
 
-示例：
+**示例：**
 
-```
+```ts
 class RouterParams {
   data1: string;
 
@@ -1090,172 +1125,178 @@ router.replaceNamedRoute({
 });
 ```
 
-#### router.back^(deprecated)^
+## router.back^(deprecated)^
 
 back(options?: RouterOptions ): void
 
-返回上一页面或指定的页面，会删除当前页面与指定页面之间的所有页面。如果此前调用了[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)开启了返回询问对话框，则在执行返回操作时会先弹出确认对话框，用户确认后才执行返回；用户取消则不执行返回。  
-![](https://media:401788445293529544)  
-* 从API version 8开始支持，从API version 18开始废弃，建议使用[back](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#back)(options?: router.RouterOptions)替代。back需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+返回上一页面或指定的页面，会删除当前页面与指定页面之间的所有页面。如果此前调用了[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)开启了返回询问对话框，则在执行返回操作时会先弹出确认对话框，用户确认后才执行返回；用户取消则不执行返回。
+> 说明
+>
+> * 从API version 8开始支持，从API version 18开始废弃，建议使用[back](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#back)(options?: router.RouterOptions)替代。back需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |options|[RouterOptions](#routeroptions)|否|返回页面描述信息，其中url指返回目标页面的路由地址，如果页面栈中不存在指定url的页面，则不响应当前返回请求。如果url未设置，则返回上一页，页面不会重新构建，页面栈里面的page不会回收，出栈后会被回收。back是返回接口，url设置为特殊值"/"不生效。如果是用命名路由的方式跳转，传入的url需是命名路由的名称。|
 
-示例：
+**示例：**
 
-```
+```ts
 this.getUIContext().getRouter().back({ url: 'pages/detail' });
 ```
 
-#### router.back^(deprecated)^
+## router.back^(deprecated)^
 
 back(index: number, params?: Object): void;
 
-返回指定的页面，会删除当前页面与指定页面之间的所有页面。如果此前调用了[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)开启了返回询问对话框，则在执行返回操作时会先弹出确认对话框，用户确认后才执行返回；用户取消则不执行返回。  
-![](https://media:401788445293556545)  
-* 从API version 12开始支持，从API version 18开始废弃，建议使用[back(index: number, params?: Object)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#back12)替代。back需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+返回指定的页面，会删除当前页面与指定页面之间的所有页面。如果此前调用了[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)开启了返回询问对话框，则在执行返回操作时会先弹出确认对话框，用户确认后才执行返回；用户取消则不执行返回。
+> 说明
+>
+> * 从API version 12开始支持，从API version 18开始废弃，建议使用[back(index: number, params?: Object)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#back12)替代。back需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 12开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 12开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-----|:-----|:-|:--------------------------------------------------------------------------------------------------------------------------|
-|index|number|是|返回目标页面的索引值，取值范围\[1, 页面栈大小\]，页面栈最大数量为32。从栈底到栈顶，index从1开始递增。索引不存在或超出页面栈有效范围时不响应。|
-|params|Object|否|页面返回时携带的参数。 说明： params参数只能传递可序列化的参数，不能传递方法和接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。|
+|:-----|:-----|:-|:------------------------------------------------------------------------------------------------------------------------------|
+|index|number|是|返回目标页面的索引值，取值范围[1, 页面栈大小]，页面栈最大数量为32。从栈底到栈顶，index从1开始递增。索引不存在或超出页面栈有效范围时不响应。|
+|params|Object|否|页面返回时携带的参数。 **说明：** params参数只能传递可序列化的参数，不能传递方法和接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。|
 
-示例：
+**示例：**
 
-```
+```ts
 this.getUIContext().getRouter().back(1);
 ```
 
-```
+```ts
 this.getUIContext().getRouter().back(1, { info: '来自Home页' }); // 携带参数返回
 ```
 
-#### router.clear^(deprecated)^
+## router.clear^(deprecated)^
 
 clear(): void
 
-清空页面栈中的所有历史页面，仅保留当前页面作为栈顶页面。  
-![](https://media:401788445293582546)  
-* 从API version 8开始支持，从API version 18开始废弃，建议使用[clear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#clear)替代。clear需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+清空页面栈中的所有历史页面，仅保留当前页面作为栈顶页面。
+> 说明
+>
+> * 从API version 8开始支持，从API version 18开始废弃，建议使用[clear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#clear)替代。clear需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**示例：**
 
-示例：
-
-```
+```ts
 this.getUIContext().getRouter().clear();
 ```
 
-#### router.getLength^(deprecated)^
+## router.getLength^(deprecated)^
 
 getLength(): string
 
-获取当前在页面栈内的页面数量。  
-![](https://media:401788445293609547)  
-* 从API version 8开始支持，从API version 18开始废弃，建议使用[getLength](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getlengthdeprecated)替代。getLength需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+获取当前在页面栈内的页面数量。
+> 说明
+>
+> * 从API version 8开始支持，从API version 18开始废弃，建议使用[getLength](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getlengthdeprecated)替代。getLength需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:-----------------|
 |string|页面数量，页面栈支持最大数值是32。|
 
-示例：
+**示例：**
 
-```
+```ts
 let size = this.getUIContext().getRouter().getLength();
 console.info('pages stack size = ' + size);
 ```
 
-#### router.getState^(deprecated)^
+## router.getState^(deprecated)^
 
 getState(): RouterState
 
-获取栈顶页面的状态信息。  
-![](https://media:401788445293633548)  
-* 从API version 8开始支持，从API version 18开始废弃，建议使用[getState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getstate)替代。getState需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+获取栈顶页面的状态信息。
+> 说明
+>
+> * 从API version 8开始支持，从API version 18开始废弃，建议使用[getState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getstate)替代。getState需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------|:-------------------------|
 |[RouterState](#routerstate)|栈顶页面的状态信息，包含页面索引、名称、路径和参数。|
 
-示例：
+**示例：**
 
-```
+```ts
 let page = this.getUIContext().getRouter().getState();
 console.info('current index = ' + page.index);
 console.info('current name = ' + page.name);
 console.info('current path = ' + page.path);
 ```
 
-#### router.getStateByIndex^(deprecated)^
+## router.getStateByIndex^(deprecated)^
 
-getStateByIndex(index: number): RouterState \| undefined
+getStateByIndex(index: number): RouterState | undefined
 
-通过索引值获取对应页面的状态信息。  
-![](https://media:401788445293669549)  
-* 从API version 12开始支持，从API version 18开始废弃，建议使用[getStateByIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getstatebyindex12)替代。getStateByIndex需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+通过索引值获取对应页面的状态信息。
+> 说明
+>
+> * 从API version 12开始支持，从API version 18开始废弃，建议使用[getStateByIndex](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getstatebyindex12)替代。getStateByIndex需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 12开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 12开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:-----|:-|:---------------------------------------------------------------------------|
-|index|number|是|表示要获取的页面索引，取值范围\[1, 页面栈大小\]，页面栈最大数量为32。从栈底到栈顶，index从1开始递增。索引不存在时返回undefined。|
+|:----|:-----|:-|:-------------------------------------------------------------------------|
+|index|number|是|表示要获取的页面索引，取值范围[1, 页面栈大小]，页面栈最大数量为32。从栈底到栈顶，index从1开始递增。索引不存在时返回undefined。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:---------------------------------------|:-----------------------------------------------|
-|[RouterState](#routerstate) \| undefined|返回对应索引页面的状态信息，包含页面索引、名称、路径和参数。索引不存在时返回undefined。|
+|:--------------------------------------|:-----------------------------------------------|
+|[RouterState](#routerstate) | undefined|返回对应索引页面的状态信息，包含页面索引、名称、路径和参数。索引不存在时返回undefined。|
 
-示例：
+**示例：**
 
-```
+```ts
 let options: router.RouterState | undefined = router.getStateByIndex(1);
 if (options != undefined) {
   console.info('index = ' + options.index);
@@ -1265,37 +1306,38 @@ if (options != undefined) {
 }
 ```
 
-#### router.getStateByUrl^(deprecated)^
+## router.getStateByUrl^(deprecated)^
 
-getStateByUrl(url: string): Array\<RouterState\>
+getStateByUrl(url: string): Array<RouterState>
 
-通过url获取对应页面的状态信息。  
-![](https://media:401788445293694550)  
-* 从API version 12开始支持，从API version 18开始废弃，建议使用[getStateByUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getstatebyurl12)替代。getStateByUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+通过url获取对应页面的状态信息。
+> 说明
+>
+> * 从API version 12开始支持，从API version 18开始废弃，建议使用[getStateByUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getstatebyurl12)替代。getStateByUrl需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 12开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 12开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--|:-----|:-|:-----------------------------------------------------------------|
 |url|string|是|表示要获取对应页面信息的url。url格式为页面绝对路径，由配置文件中pages列表提供，例如：pages/index/index。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-----------------------------------|:------------------------------------|
-|Array\<[RouterState](#routerstate)\>|匹配指定url的页面状态信息数组，每个元素包含页面索引、名称、路径和参数。|
+|:---------------------------------|:------------------------------------|
+|Array<[RouterState](#routerstate)>|匹配指定url的页面状态信息数组，每个元素包含页面索引、名称、路径和参数。|
 
-示例：
+**示例：**
 
-```
+```ts
 let options: Array<router.RouterState> = router.getStateByUrl('pages/index');
 for (let i: number = 0; i < options.length; i++) {
   console.info('index = ' + options[i].index);
@@ -1305,51 +1347,52 @@ for (let i: number = 0; i < options.length; i++) {
 }
 ```
 
-#### RouterState
+## RouterState
 
 页面状态信息。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:----------|:-----|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|index|number|否|否|表示当前页面在页面栈中的索引。从栈底到栈顶，index从1开始递增。 元服务API： 从API version 11开始，该接口支持在元服务中使用。|
-|name|string|否|否|表示当前页面的名称，即对应文件名。 元服务API： 从API version 11开始，该接口支持在元服务中使用。|
-|path|string|否|否|表示当前页面的路径。 元服务API： 从API version 11开始，该接口支持在元服务中使用。|
-|params^12+^|Object|否|否|表示当前页面携带的参数。 说明： params参数只能传递可序列化的参数，不能传递方法和接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。|
+|:----------|:-----|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|index|number|否|否|表示当前页面在页面栈中的索引。从栈底到栈顶，index从1开始递增。 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。|
+|name|string|否|否|表示当前页面的名称，即对应文件名。 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。|
+|path|string|否|否|表示当前页面的路径。 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。|
+|params^12+^|Object|否|否|表示当前页面携带的参数。 **说明：** params参数只能传递可序列化的参数，不能传递方法和接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。 **模型约束：** 此接口仅可在Stage模型下使用。|
 
-#### router.showAlertBeforeBackPage^(deprecated)^
+## router.showAlertBeforeBackPage^(deprecated)^
 
 showAlertBeforeBackPage(options: EnableAlertOptions): void
 
-开启页面返回询问对话框。调用此方法后，执行[back](#routerbackdeprecated)返回页面时将弹出确认对话框，用户确认后才执行页面返回操作。适用于需要防止用户误操作返回导致数据丢失的场景，例如用户正在填写表单、编辑文档或进行支付操作时，弹出确认对话框以避免意外退出。  
-![](https://media:401788445293719551)  
-* 从API version 9开始支持，从API version 18开始废弃，建议使用[showAlertBeforeBackPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#showalertbeforebackpage)替代。showAlertBeforeBackPage需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+开启页面返回询问对话框。调用此方法后，执行[back](#routerbackdeprecated)返回页面时将弹出确认对话框，用户确认后才执行页面返回操作。适用于需要防止用户误操作返回导致数据丢失的场景，例如用户正在填写表单、编辑文档或进行支付操作时，弹出确认对话框以避免意外退出。
+> 说明
+>
+> * 从API version 9开始支持，从API version 18开始废弃，建议使用[showAlertBeforeBackPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#showalertbeforebackpage)替代。showAlertBeforeBackPage需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------------------------------|:-|:--------|
 |options|[EnableAlertOptions](#enablealertoptions)|是|文本弹窗信息描述。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。  
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
 |错误码ID|错误信息|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------|
 |401|Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.Incorrect parameters types; 3. Parameter verification failed.|
 |100001|Internal error.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
@@ -1361,111 +1404,114 @@ try {
 }
 ```
 
-#### EnableAlertOptions
+## EnableAlertOptions
 
 页面返回询问对话框选项。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
 |:------|:-----|:-|:-|:-------|
 |message|string|否|否|询问对话框内容。|
 
-#### router.hideAlertBeforeBackPage^(deprecated)^
+## router.hideAlertBeforeBackPage^(deprecated)^
 
 hideAlertBeforeBackPage(): void
 
-禁用页面返回询问对话框。调用此方法后，将关闭由[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)开启的返回询问对话框，[back](#routerbackdeprecated)操作将不再弹出确认对话框，直接执行页面返回。  
-![](https://media:401788445293742552)  
-* 从API version 9开始支持，从API version 18开始废弃，建议使用[hideAlertBeforeBackPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#hidealertbeforebackpage)替代。hideAlertBeforeBackPage需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+禁用页面返回询问对话框。调用此方法后，将关闭由[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)开启的返回询问对话框，[back](#routerbackdeprecated)操作将不再弹出确认对话框，直接执行页面返回。
+> 说明
+>
+> * 从API version 9开始支持，从API version 18开始废弃，建议使用[hideAlertBeforeBackPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#hidealertbeforebackpage)替代。hideAlertBeforeBackPage需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**示例：**
 
-示例：
-
-```
+```ts
 this.getUIContext().getRouter().hideAlertBeforeBackPage();
 ```
 
-#### router.getParams^(deprecated)^
+## router.getParams^(deprecated)^
 
 getParams(): Object
 
-获取发起跳转的页面往当前页传入的参数。  
-![](https://media:401788445293768553)  
-* 从API version 8开始支持，从API version 18开始废弃，建议使用[getParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getparams)替代。getParams需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+获取发起跳转的页面往当前页传入的参数。
+> 说明
+>
+> * 从API version 8开始支持，从API version 18开始废弃，建议使用[getParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#getparams)替代。getParams需先通过[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)实例，然后通过该实例进行调用。
+>
+> * 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+>
+> getParams只获取当前页面的参数，并不会清除页面关联的参数。
 
-* 从API version 10开始，可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)方法获取当前UI上下文关联的[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)对象。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-getParams只获取当前页面的参数，并不会清除页面关联的参数。
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
-
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:----------------|
 |Object|发起跳转的页面往当前页传入的参数。|
 
-示例：
+**示例：**
 
-```
+```ts
 this.getUIContext().getRouter().getParams();
 ```
 
-#### RouterOptions
+## RouterOptions
 
 路由跳转选项。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Lite  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Lite
 
 |名称|类型|只读|可选|说明|
-|:---------------|:------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|url|string|否|否|表示目标页面的url，可以用以下两种格式： - 页面绝对路径，由配置文件中pages列表提供，例如： - pages/index/index - pages/detail/detail - 特殊值，如果url的值是"/"，则跳转到首页，首页默认为页面跳转配置项src数组的第一个数据项。 传入不存在或无效的url路径时，跳转失败，具体错误码参见各接口的错误码说明。 元服务API： 从API version 11开始，该接口支持在元服务中使用。|
-|params|Object|否|是|表示路由跳转时要同时传递到目标页面的数据，切换到其他页面时，当前接收的数据失效。跳转到目标页面后，使用router.getParams()获取传递的参数，此外，在类Web范式中，参数也可以在页面中直接使用，如this.keyValue(keyValue为跳转时params参数中的key值)，如果目标页面中已有该字段，则其值会被传入的字段值覆盖。 说明： params参数只能传递可序列化的参数，不能传递方法和接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。传入不可序列化的参数时，可能导致参数传递失败或应用运行异常。建议开发者提取接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 元服务API： 从API version 11开始，该接口支持在元服务中使用。|
-|recoverable^14+^|boolean|否|是|表示对应的页面是否可恢复，默认为true。当为true时，表示可恢复，当为false时，表示不可恢复。 说明： 当应用退到后台，并且在未来的某个时间点，由于系统资源限制等原因被系统杀死，如果某个页面被设置成可恢复，那么该应用再次被拉到前台后系统可以恢复出页面，详细说明请参考[UIAbility备份恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-recover-guideline)。|
+|:---------------|:------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|url|string|否|否|表示目标页面的url，可以用以下两种格式： - 页面绝对路径，由配置文件中pages列表提供，例如： - pages/index/index - pages/detail/detail - 特殊值，如果url的值是"/"，则跳转到首页，首页默认为页面跳转配置项src数组的第一个数据项。 传入不存在或无效的url路径时，跳转失败，具体错误码参见各接口的错误码说明。 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。|
+|params|Object|否|是|表示路由跳转时要同时传递到目标页面的数据，切换到其他页面时，当前接收的数据失效。跳转到目标页面后，使用router.getParams()获取传递的参数，此外，在类Web范式中，参数也可以在页面中直接使用，如this.keyValue(keyValue为跳转时params参数中的key值)，如果目标页面中已有该字段，则其值会被传入的字段值覆盖。 **说明：** params参数只能传递可序列化的参数，不能传递方法和接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。传入不可序列化的参数时，可能导致参数传递失败或应用运行异常。建议开发者提取接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。|
+|recoverable^14+^|boolean|否|是|表示对应的页面是否可恢复，默认为true。当为true时，表示可恢复，当为false时，表示不可恢复。 **说明：** 当应用退到后台，并且在未来的某个时间点，由于系统资源限制等原因被系统杀死，如果某个页面被设置成可恢复，那么该应用再次被拉到前台后系统可以恢复出页面，详细说明请参考[UIAbility备份恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-recover-guideline)。|
 
-![](https://media:401788445293795554)  
-页面路由栈支持的最大Page数量为32。  
+> 说明
+>
+> 页面路由栈支持的最大Page数量为32。
 
-#### RouterMode^9+^
+## RouterMode^9+^
 
 路由跳转模式。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
-|:-------|:-|:-----------------------------------------------------------------------------------------------------------------------------|
-|Standard|0|多实例模式，也是默认情况下的跳转模式。 目标页面会被添加到页面栈顶，无论栈中是否存在相同url的页面。适用于需要保留多个相同页面的场景，例如浏览商品详情页时每个商品各需要一个独立页面实例。 说明： 不使用路由跳转模式时，则按照默认的多实例模式进行跳转。|
+|:-------|:-|:---------------------------------------------------------------------------------------------------------------------------------|
+|Standard|0|多实例模式，也是默认情况下的跳转模式。 目标页面会被添加到页面栈顶，无论栈中是否存在相同url的页面。适用于需要保留多个相同页面的场景，例如浏览商品详情页时每个商品各需要一个独立页面实例。 **说明：** 不使用路由跳转模式时，则按照默认的多实例模式进行跳转。|
 |Single|1|单实例模式。 如果目标页面的url已经存在于页面栈中，则该url页面移动到栈顶。 如果目标页面的url在页面栈中不存在同url页面，则按照默认的多实例模式进行跳转。适用于需要保持页面唯一实例的场景，例如主页、登录页等不应在栈中重复出现的页面。|
 
-#### NamedRouterOptions^10+^
+## NamedRouterOptions^10+^
 
-命名路由跳转选项。  
+命名路由跳转选项。
 
 |名称|类型|只读|可选|说明|
-|:---------------|:------|:-|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|name|string|否|否|表示目标命名路由页面的name，需为已注册的命名路由名称。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 系统能力： SystemCapability.ArkUI.ArkUI.Full|
-|params|Object|否|是|表示路由跳转时要同时传递到目标页面的数据。跳转到目标页面后，使用router.getParams()获取传递的参数，此外，在类Web范式中，参数也可以在页面中直接使用，如this.keyValue(keyValue为跳转时params参数中的key值)，如果目标页面中已有该字段，则其值会被传入的字段值覆盖。 说明： params参数不能传递方法和接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。传入不可序列化的参数时，可能导致参数传递失败或应用运行异常。建议开发者提取接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 系统能力： SystemCapability.ArkUI.ArkUI.Full|
-|recoverable^14+^|boolean|否|是|表示对应的页面是否可恢复，默认为true。当为true时，表示可恢复，当为false时，表示不可恢复。 说明： 当应用退到后台，并且在未来的某个时间点，由于系统资源限制等原因被系统杀死，如果某个页面被设置成可恢复，那么该应用再次被拉到前台后系统可以恢复出页面，详细说明请参考[UIAbility备份恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-recover-guideline)。 系统能力： SystemCapability.ArkUI.ArkUI.Lite|
+|:---------------|:------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|name|string|否|否|表示目标命名路由页面的name，需为已注册的命名路由名称。 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。 **模型约束：** 此接口仅可在Stage模型下使用。 **系统能力：** SystemCapability.ArkUI.ArkUI.Full|
+|params|Object|否|是|表示路由跳转时要同时传递到目标页面的数据。跳转到目标页面后，使用router.getParams()获取传递的参数，此外，在类Web范式中，参数也可以在页面中直接使用，如this.keyValue(keyValue为跳转时params参数中的key值)，如果目标页面中已有该字段，则其值会被传入的字段值覆盖。 **说明：** params参数不能传递方法和接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。传入不可序列化的参数时，可能导致参数传递失败或应用运行异常。建议开发者提取接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。 **模型约束：** 此接口仅可在Stage模型下使用。 **系统能力：** SystemCapability.ArkUI.ArkUI.Full|
+|recoverable^14+^|boolean|否|是|表示对应的页面是否可恢复，默认为true。当为true时，表示可恢复，当为false时，表示不可恢复。 **说明：** 当应用退到后台，并且在未来的某个时间点，由于系统资源限制等原因被系统杀死，如果某个页面被设置成可恢复，那么该应用再次被拉到前台后系统可以恢复出页面，详细说明请参考[UIAbility备份恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-recover-guideline)。 **系统能力：** SystemCapability.ArkUI.ArkUI.Lite|
 
-#### 完整示例
+## 完整示例
 
-#### 基于JS扩展的类Web开发范式
+### 基于JS扩展的类Web开发范式
 
 以下代码仅适用于javascript文件，不适用于ArkTS文件
 
-```
+```js
 // 在当前页面中
 export default {
   pushPage() {
@@ -1479,7 +1525,7 @@ export default {
 }
 ```
 
-```
+```js
 // 在detail页面中
 export default {
   onInit() {
@@ -1488,12 +1534,13 @@ export default {
 }
 ```
 
-#### 基于TS扩展的声明式开发范式
+### 基于TS扩展的声明式开发范式
 
-![](https://media:401788445293841555)  
-直接使用router可能导致[UI上下文不明确](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#ui上下文不明确)的问题，建议使用getUIContext获取[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)实例，并使用[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取绑定实例的router。
+> 说明
+>
+> 直接使用router可能导致[UI上下文不明确](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#ui上下文不明确)的问题，建议使用getUIContext获取[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)实例，并使用[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取绑定实例的router。
 
-```
+```ts
 // 通过router.pushUrl跳转至目标页携带params参数
 import { router } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1557,7 +1604,7 @@ struct Index {
 }
 ```
 
-```
+```ts
 // 在second页面中接收传递过来的参数
 import { router } from '@kit.ArkUI';
 
@@ -1610,25 +1657,26 @@ struct Second {
 }
 ```
 
-#### router.push^(deprecated)^
+## router.push^(deprecated)^
 
 push(options: RouterOptions): void
 
-跳转到应用内的指定页面。  
-![](https://media:401788445293869556)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[pushUrl(options: router.RouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl)替代。
+跳转到应用内的指定页面。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[pushUrl(options: router.RouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#pushurl)替代。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------|:-|:--------|
 |options|[RouterOptions](#routeroptions)|是|跳转页面描述信息。|
 
-示例：
+**示例：**
 
-```
+```ts
 class InnerParams {
   data3: number[];
 
@@ -1653,25 +1701,26 @@ router.push({
 });
 ```
 
-#### router.replace^(deprecated)^
+## router.replace^(deprecated)^
 
 replace(options: RouterOptions): void
 
-用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。  
-![](https://media:401788445293942557)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[replaceUrl(options: router.RouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl)替代。
+用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[replaceUrl(options: router.RouterOptions)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#replaceurl)替代。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Lite
+**系统能力：** SystemCapability.ArkUI.ArkUI.Lite
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------|:-|:--------|
 |options|[RouterOptions](#routeroptions)|是|替换页面描述信息。|
 
-示例：
+**示例：**
 
-```
+```ts
 class RouterParams {
   data1: string;
 
@@ -1686,53 +1735,55 @@ router.replace({
 });
 ```
 
-#### router.enableAlertBeforeBackPage^(deprecated)^
+## router.enableAlertBeforeBackPage^(deprecated)^
 
 enableAlertBeforeBackPage(options: EnableAlertOptions): void
 
-开启页面返回询问对话框。调用此方法后，执行[back](#routerbackdeprecated)返回页面时将弹出确认对话框，用户确认后才执行页面返回操作；用户取消则不执行返回。适用于需要防止用户误操作返回导致数据丢失的场景，例如用户正在填写表单、编辑文档或进行支付操作时，弹出确认对话框以避免意外退出。  
-![](https://media:401788445293990558)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[showAlertBeforeBackPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#showalertbeforebackpage)替代。
+开启页面返回询问对话框。调用此方法后，执行[back](#routerbackdeprecated)返回页面时将弹出确认对话框，用户确认后才执行页面返回操作；用户取消则不执行返回。适用于需要防止用户误操作返回导致数据丢失的场景，例如用户正在填写表单、编辑文档或进行支付操作时，弹出确认对话框以避免意外退出。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[showAlertBeforeBackPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#showalertbeforebackpage)替代。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------------------------------|:-|:--------|
 |options|[EnableAlertOptions](#enablealertoptions)|是|文本弹窗信息描述。|
 
-示例：
+**示例：**
 
-```
+```ts
 router.enableAlertBeforeBackPage({
   message: 'Message Info'
 });
 ```
 
-#### router.disableAlertBeforeBackPage^(deprecated)^
+## router.disableAlertBeforeBackPage^(deprecated)^
 
 disableAlertBeforeBackPage(): void
 
-禁用页面返回询问对话框。调用此方法后，将关闭由[enableAlertBeforeBackPage](#routerenablealertbeforebackpagedeprecated)开启的返回询问对话框，[back](#routerbackdeprecated)操作将不再弹出确认对话框，直接执行页面返回。  
-![](https://media:401788445294330559)  
-从API version 8开始支持，从API version 9开始废弃，建议使用[hideAlertBeforeBackPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#hidealertbeforebackpage)替代。
+禁用页面返回询问对话框。调用此方法后，将关闭由[enableAlertBeforeBackPage](#routerenablealertbeforebackpagedeprecated)开启的返回询问对话框，[back](#routerbackdeprecated)操作将不再弹出确认对话框，直接执行页面返回。
+> 说明
+>
+> 从API version 8开始支持，从API version 9开始废弃，建议使用[hideAlertBeforeBackPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router#hidealertbeforebackpage)替代。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-示例：
+**示例：**
 
-```
+```ts
 router.disableAlertBeforeBackPage();
 ```
 
-#### 示例
+## 示例
 
 该示例展示了类Web范式下router.[replace](#routerreplacedeprecated)以及router.[replaceUrl](#routerreplaceurldeprecated)接口的跳转功能。
 
 示例树状结构如下：
 
-```
+```text
 pages
 ├─ index
 │  ├─ index.css
@@ -1744,7 +1795,7 @@ pages
    └─ routerPage.js
 ```
 
-```
+```css
 /* index.css */
 .page {
   width: 100%;
@@ -1801,7 +1852,7 @@ pages
 }
 ```
 
-```
+```html
 <!--index.hml-->
 <div class="page">
     <text class="page-name">{{ pageName }}</text>
@@ -1812,7 +1863,7 @@ pages
 </div>
 ```
 
-```
+```js
 // index.js
 import router from '@ohos.router';
 
@@ -1841,7 +1892,7 @@ export default {
 }
 ```
 
-```
+```css
 /* routerPage.css */
 .page {
   width: 100%;
@@ -1898,7 +1949,7 @@ export default {
 }
 ```
 
-```
+```html
 <!--routerPage.hml-->
 <div class="page">
     <text class="page-name">{{ pageName }}</text>
@@ -1909,7 +1960,7 @@ export default {
 </div>
 ```
 
-```
+```js
 // routerPage.js
 import router from '@ohos.router';
 
@@ -1938,4 +1989,5 @@ export default {
 }
 ```
 
-![](https://media:401788445294363560)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/F8lKKoRSRNKJRg4Lpi9wEA/zh-cn_image_0000002762835481.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084630Z&HW-CC-Expire=31536000000&HW-CC-Sign=4D98F66669E988F592A7E70231590FBFA84CAE0AB9A68750F11A1029A41F5665)
+

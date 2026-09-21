@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agca
 
 # Java中对接口参数的处理建议
 
-本接口采用的是application/x-www-form-urlencoded格式，会在http层进行编码，同时接收端会自动解码。建议通过如下方法获得get参数串（即我们发送的原始信息），原始信息是没有urlencode的，验签也是需要使用原始内容参与的。而使用request. getParameter()会隐含进行urldecode，在部分情况下可能无法正确获取原始参数信息，比如参数取值中如果包含"%"、"+"、"\&"等特殊符号。
+本接口采用的是application/x-www-form-urlencoded格式，会在http层进行编码，同时接收端会自动解码。建议通过如下方法获得get参数串（即我们发送的原始信息），原始信息是没有urlencode的，验签也是需要使用原始内容参与的。而使用request. getParameter()会隐含进行urldecode，在部分情况下可能无法正确获取原始参数信息，比如参数取值中如果包含"%"、"+"、"&"等特殊符号。
 
 如下为代码示例：
 
-```
+```screen
 String line = null;
         StringBuffer sb = new StringBuffer();
         try{
@@ -60,4 +60,5 @@ String line = null;
         return valueMap;
 ```
 
-采用如上方法获取参数时，对于sign和其他接口定义中明确编码后发送的参数需要进行urldecode处理，其余参数不需要处理。  
+采用如上方法获取参数时，对于sign和其他接口定义中明确编码后发送的参数需要进行urldecode处理，其余参数不需要处理。
+

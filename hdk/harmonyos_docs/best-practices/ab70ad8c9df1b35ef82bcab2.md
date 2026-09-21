@@ -6,39 +6,38 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 # 多设备移动支付界面
 
-#### 概述
+## 概述
 
 本文从当前常见的多设备应用场景中，选择移动支付应用作为典型案例，详细介绍"一多"在实际开发中的应用。
 
-移动支付应用的核心是为用户提供便捷的金融支付服务，主要功能涵盖扫码支付、出示收付款二维码、投资理财等。本文围绕上述核心功能，选取推荐页、扫一扫页、收付款页作为典型页面进行开发实践。开发过程遵循多设备开发的"差异性"、"一致性"、"灵活性"和"兼容性"原则，助力开发者快速掌握 "一多" 开发能力，高效实现移动支付应用相关功能。
+移动支付应用的核心是为用户提供便捷的金融支付服务，主要功能涵盖扫码支付、出示收付款二维码、投资理财等。本文围绕上述核心功能，选取推荐页、扫一扫页、收付款页作为典型页面进行开发实践。开发过程遵循多设备开发的"差异性"、"一致性"、"灵活性"和"兼容性"原则，助力开发者快速掌握"一多"开发能力，高效实现移动支付应用相关功能。
 
-目前该应用已适配设备包括：直板机、双折叠（Mate X系列）、三折叠、阔折叠、平板、电脑和智能穿戴。  
-![](https://media:201788187481000209)  
-阅读本文前，建议开发者先了解[ArkUI（方舟UI框架）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkui)和[一次开发，多端部署概览](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-overview)相关知识。
+目前该应用已适配设备包括：直板机、双折叠（Mate X系列）、三折叠、阔折叠、平板、电脑和智能穿戴。
+> 说明
+>
+> 阅读本文前，建议开发者先了解[ArkUI（方舟UI框架）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkui)和[一次开发，多端部署概览](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-overview)相关知识。
 
 下文将从UX设计、工程管理、页面开发三个方面，系统介绍移动支付应用在实际开发中的最佳实践，为开发者提供可借鉴的实现思路。
 
 * [UX设计](#section329281918912)：介绍移动支付应用的交互逻辑和通用设计要点，可供同类移动支付应用开发者直接参考复用。
-* [工程管理](#section197441250917)：基于分层架构搭建 "一多" 应用代码工程，以清晰的目录结构明确各层逻辑，同时针对移动支付业务场景提供适配的工程配置方案。
+* [工程管理](#section197441250917)：基于分层架构搭建"一多"应用代码工程，以清晰的目录结构明确各层逻辑，同时针对移动支付业务场景提供适配的工程配置方案。
 * [移动端页面](#section189941330999)、[电脑端页面](#section188167341083)和[智能穿戴端页面](#section188882391398)：按照实际应用开发流程，以页面为基本单元，分别讲解移动端、电脑端、智能穿戴端页面在窗口适配、页面开发、功能开发等环节的设计思路与具体实现方法。
 
-#### UX设计
+## UX设计
 
 移动支付应用的UX设计可参考[移动支付类](https://developer.huawei.com/consumer/cn/doc/design-guides/mobile-payment-0000001957421613)多设备响应式设计指南，设计参考图如下所示。
 
-![](https://media:201788187481541210 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/Aa4e01R0QoGY2TgBW8SSQQ/zh-cn_image_0000002583509660.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F0BDE5898357D0BE7C06F98840016D80E5B4E2E76F413B98B6449E07C6621EE "点击放大")
 
-<br />
+## 工程管理
 
-#### 工程管理
+为提升"一多"工程代码的复用性和可维护性，推荐开发者使用分层架构组织代码工程。分层架构将项目工程划分为产品定制层（products）、基础特性层（features）和公共能力层（common），各层级权责明确且功能独立，为开发者提供了一套清晰、高效且可扩展的设计架构。关于分层架构的具体设计细节，可参考[分层架构设计](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-layered-architecture-design)。
 
-为提升"一多"工程代码的复用性和可维护性，推荐开发者使用分层架构组织代码工程。分层架构将项目工程划分为产品定制层（products）、基础特性层（features）和公共能力层（common），各层级权责明确且功能独立，为开发者提供了一套清晰、高效且可扩展的设计架构。关于分层架构的具体设计细节，可参考[分层架构设计](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-layered-architecture-design)。  
+### 创建工程
 
-#### 创建工程
+开发者可先参考[多设备工程部署与发布](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-ide)相关内容，掌握分层架构工程的创建与配置方法，并完成分层架构模板工程的搭建。后续再结合移动支付应用的实际开发需求进行针对性调整，使工程架构与业务场景保持一致。
 
-开发者可先参考[多设备工程部署与发布](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-ide)相关内容，掌握分层架构工程的创建与配置方法，并完成分层架构模板工程的搭建。后续再结合移动支付应用的实际开发需求进行针对性调整，使工程架构与业务场景保持一致。  
-
-#### 工程结构
+### 工程结构
 
 移动支付应用基于推荐的分层架构，按products、features、common三个层级组织代码工程。各层级设计如下：
 
@@ -48,7 +47,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 工程结构如下：
 
-```
+```screen
 ├──common                                        // 公共能力层
 │  └──multimobilepaymentbase/src/main
 │     ├──ets
@@ -104,44 +103,44 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
       └──resources                               
 ```
 
-#### 移动端页面
+## 移动端页面
 
-本章介绍如何针对直板机、双折叠（Mate X系列）、三折叠、阔折叠和平板设备，使用"一多"布局能力，实现移动支付应用页面层级"一套代码、多端适配"。同时，介绍上述设备的窗口适配方案。  
+本章介绍如何针对直板机、双折叠（Mate X系列）、三折叠、阔折叠和平板设备，使用"一多"布局能力，实现移动支付应用页面层级"一套代码、多端适配"。同时，介绍上述设备的窗口适配方案。
 
-#### 窗口适配
+### 窗口适配
 
 * 窗口模式 适配设备支持全屏、分屏和悬浮窗模式，具体参见[窗口模式](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-mode)。其中，分屏模式与悬浮窗通常无特殊设计，可通过系统方式进入。应用内监听窗口尺寸变化，[通过断点刷新UI](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive-layout#section175001836203617)，即可自动适配全屏、分屏、悬浮窗模式下的布局。
 
-* 窗口方向 窗口显示方向通过在HAP包的module.json5文件中[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)下配置orientation属性为follow_desktop实现，[跟随桌面的旋转模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-rotation#其他方向类型)。
+* 窗口方向 窗口显示方向通过在HAP包的module.json5文件中[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)下配置orientation属性为[其他方向类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-rotation#其他方向类型)的FOLLOW_DESKTOP来实现。
 
-<!-- -->
 
 * 窗口沉浸式 根据UX设计规范，需要实现沉浸式效果，具体实现可参考[窗口沉浸式](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-immersive)。在推荐页中，可通过window.[setWindowLayoutFullscreen()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowlayoutfullscreen9)实现沉浸式，并配合动态安全区避让，确保显示效果完整。
 
-  ![](https://media:201788187481574211)  
-  由于扫一扫页面和收付款页面通过半模态转场实现，无法通过setWindowLayoutFullscreen()达到沉浸式的目的，需要针对性进行沉浸式处理：
+  > 说明
+  >
+  > 由于扫一扫页面和收付款页面通过半模态转场实现，无法通过setWindowLayoutFullscreen()达到沉浸式的目的，需要针对性进行沉浸式处理：
+  >
+  > 在扫一扫页面中，可以通过[ignoreLayoutSafeArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#ignorelayoutsafearea20)，扩展相机预览时的安全区域。
+  >
+  > 在收付款页面中，可以通过[background](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#background10)属性，在设置背景色的同时向父组件的安全区扩展，实现沉浸式显示效果。
 
-  在扫一扫页面中，可以通过[ignoreLayoutSafeArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#ignorelayoutsafearea20)，扩展相机预览时的安全区域。
+### 推荐页
 
-在收付款页面中，可以通过[background](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#background10)属性，在设置背景色的同时向父组件的安全区扩展，实现沉浸式显示效果。  
-
-#### 推荐页
-
-推荐页主要展示常用功能入口与推荐产品，满足用户快速浏览信息、便捷使用的需求。按照功能设计，将推荐页相关内容划分为6个区域，效果图如下：  
+推荐页主要展示常用功能入口与推荐产品，满足用户快速浏览信息、便捷使用的需求。按照功能设计，将推荐页相关内容划分为6个区域，效果图如下：
 
 |示意图|sm|md|lg/xl|
-|:--|:-------------------------------------------|:-------------------------------------------|:-------------------------------------------|
-|效果图|![](https://media:201788187481970212 "点击放大")|![](https://media:201788187482334213 "点击放大")|![](https://media:201788187482450214 "点击放大")|
+|:--|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/UUuzOcQtQx-lx0yDumekEw/zh-cn_image_0000002583669562.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=B5A8046BBCA627231491D51A8472BFA73F385E1861FA3240FBA3AFE47839B258 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/LvatTagwSYe8wJ8dUlKQ6w/zh-cn_image_0000002614029339.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=076A05DA1984EE9BB5458E39220E209074471C100474FCDF05FB2F14E0C1EC25 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/tDSutfe9SyaituSpi3jZlA/zh-cn_image_0000002613909457.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=8FF8018A0DB1EA2C40E269DA1925E3D2F5D231B891B9078232FADC9471E686EA "点击放大")|
 
-界面开发
+**界面开发**
 
 推荐页借助"一多"自适应布局的拉伸能力、占比能力和响应式组件，实现不同断点下的布局效果。
 
-具体介绍及实现方案如下表所示：  
+具体介绍及实现方案如下表所示：
 
 |区域编号|简介|实现方案|
 |:---|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|1|底部页签|使用[HdsTabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs)组件实现，通过[HdsTabsFloatingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs#hdstabsfloatingstyle)属性设置页签栏的悬浮样式。|
+|1|底部页签|使用[HdsTabs (底部页签)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs)组件实现，通过[HdsTabsFloatingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs#hdstabsfloatingstyle)属性设置页签栏的悬浮样式。|
 |2|城市及搜索框|通过[Blank](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-blank)组件填充中间空白区域，实现[拉伸能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/adaptive-layout-V5#拉伸能力)。|
 |3|金刚区|通过监听[断点](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive-layout#section1532120147301)变化改变快捷功能的形态，在横向断点为sm时呈现上下布局，大于sm时呈现左右布局。同时结合[占比能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/adaptive-layout-V5#占比能力)，使其在左右布局时随着窗口的宽度变化而变化。|
 |4|功能入口合集|采用[重复布局](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-page-layout#section381193213517)结合断点监听，在横向断点为sm，功能呈现为2行4列；横向断点为md时，呈现为2行6列；横向断点为lg或xl时，呈现为2行8列。|
@@ -150,21 +149,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 在实际开发中，区域1为外层页签，区域2-6为并列的推荐页内容，所以对应的开发顺序为区域1和区域2-6。
 
-在本示例中，点击扫一扫/收付款，在不同断点下呈现效果不同：在横向断点为sm时，拉起一个独立页面；横向断点大于sm时，拉起一个弹窗。此处采用[半模态转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition)实现，sm断点时设置半模态样式[sheetType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheettype11枚举说明)为CONTENT_COVER，即全屏弹窗；大于sm断点时设置样式为CENTER，即居中弹窗。具体实现可查看[示例代码](#section22034418521)。  
+在本示例中，点击扫一扫/收付款，在不同断点下呈现效果不同：在横向断点为sm时，拉起一个独立页面；横向断点大于sm时，拉起一个弹窗。此处采用[半模态转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition)实现，sm断点时设置半模态样式sheetType（[SheetType枚举说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheettype11枚举说明)）为CONTENT_COVER，即全屏弹窗；大于sm断点时设置样式为CENTER，即居中弹窗。具体实现可查看[示例代码](#section22034418521)。
 
-#### 扫一扫页
+### 扫一扫页
 
-扫一扫页主要功能为拉起相机进行扫码，同时提供其他相关功能入口。按照功能设计，将扫一扫页相关内容划分为4个区域，效果图如下：  
+扫一扫页主要功能为拉起相机进行扫码，同时提供其他相关功能入口。按照功能设计，将扫一扫页相关内容划分为4个区域，效果图如下：
 
 |示意图|sm|md|lg/xl|
-|:--|:-------------------------------------------|:-------------------------------------------|:-------------------------------------------|
-|效果图|![](https://media:201788187482810215 "点击放大")|![](https://media:201788187483045216 "点击放大")|![](https://media:201788187483148217 "点击放大")|
+|:--|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/1pQnEdhQSyKyxdW7MLRngA/zh-cn_image_0000002583509662.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B94E8C5A582FEB53494D779141438D8D06819ECCC2272E31C5969F8BF39E06D "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/4RLOwgUoQRmZvKaEUorbgw/zh-cn_image_0000002583669564.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7955798D6577868594F04EAF73E91906203FD1F38A1B9ECFE9A98510482E18D "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/LhLhvVJIS02GwYM60nyIew/zh-cn_image_0000002614029341.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E4B28F4C31A30890BB8F6F2E43168BBFD53026445D6CFD06EA4FE7909391D01 "点击放大")|
 
-界面开发
+**界面开发**
 
 扫一扫页借助"一多"自适应布局的均分能力，实现不同断点下的布局效果。
 
-具体介绍及实现方案如下表所示：  
+具体介绍及实现方案如下表所示：
 
 |区域编号|简介|实现方案|
 |:---|:----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -175,25 +174,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 在实际开发中，区域1为底层画面，区域2-4为并列的扫一扫页内容，所以对应的开发顺序为区域1和区域2-4。
 
-功能开发
+**功能开发**
 
 扫一扫功能通过[Scan Kit（统一扫码服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-api)的能力实现。多设备开发时，某些设备可能不支持扫码功能，需要使用[canIUse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap#caniuse)接口查询系统能力，若支持扫码，[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)，调用相机，打开扫码弹窗。
 
-在本示例中，仅实现拉起相机预览流并保存扫码数据信息，在实际开发时，需要根据业务逻辑进一步处理扫码数据。具体实现逻辑可查看[示例代码](#section22034418521)。  
+在本示例中，仅实现拉起相机预览流并保存扫码数据信息，在实际开发时，需要根据业务逻辑进一步处理扫码数据。具体实现逻辑可查看[示例代码](#section22034418521)。
 
-#### 收付款页
+### 收付款页
 
-收付款页主要功能为展示收付款二维码，同时提供其他相关功能入口。按照功能设计，将收付款页相关内容划分为4个区域，效果图如下：  
+收付款页主要功能为展示收付款二维码，同时提供其他相关功能入口。按照功能设计，将收付款页相关内容划分为4个区域，效果图如下：
 
 |示意图|sm|md|lg/xl|
-|:--|:-------------------------------------------|:-------------------------------------------|:-------------------------------------------|
-|效果图|![](https://media:201788187483260218 "点击放大")|![](https://media:201788187483503219 "点击放大")|![](https://media:201788187483618220 "点击放大")|
+|:--|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/FFm4ou71T7WXNLZjV8cQrQ/zh-cn_image_0000002613909459.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=A687CECCBEBA9AE395D023E8DFFDC12D9EC8D03799B6847D1FE77D4BBBC27418 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/qLMQjbD_TLKAbhwUCuM4Tw/zh-cn_image_0000002583509664.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A42BFCCC3C81A4958D54EE0064FC3BFDABDA1033E372953635F8AB8D379FAEE "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/nbDcX_WjRoKizTrdUI3aIw/zh-cn_image_0000002583669566.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=A810A3235E1FD950A4AFBC8C6CA1D9878F8A6ABCFA2BA35A71A567FA5A7D583F "点击放大")|
 
-界面开发
+**界面开发**
 
 收付款页借助"一多"自适应布局的拉伸能力，实现不同断点下的布局效果。
 
-具体介绍及实现方案如下表所示：  
+具体介绍及实现方案如下表所示：
 
 |区域编号|简介|实现方案|
 |:---|:---|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -204,71 +203,72 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 在实际开发中，区域1、2、4为并列内容，3需要判断位于哪个容器中，所以对应的开发顺序为区域1、2、4和区域3。
 
-功能开发
+**功能开发**
 
-二维码通过[generateBarcode (码图生成)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-generatebarcode)能力实现，需要设备具备码图生成能力，所以在开发时，需要通过[canIUse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap#caniuse)接口进行判断，防止因设备不兼容导致功能异常或崩溃。  
+二维码通过[generateBarcode (码图生成)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-generatebarcode)能力实现，需要设备具备码图生成能力，所以在开发时，需要通过[canIUse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap#caniuse)接口进行判断，防止因设备不兼容导致功能异常或崩溃。
 
-#### 电脑端页面
+## 电脑端页面
 
-本章介绍如何基于现有移动端界面开发方案，实现代码逻辑与布局复用，高效完成电脑设备上移动支付应用的界面开发。  
+本章介绍如何基于现有移动端界面开发方案，实现代码逻辑与布局复用，高效完成电脑设备上移动支付应用的界面开发。
 
-#### 窗口适配
+### 窗口适配
 
 * 窗口模式 适配设备支持自由窗口模式，具体参见[窗口模式](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-mode)。应用内监听窗口尺寸变化，[通过断点刷新UI](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive-layout#section175001836203617)，即可自动适配自由窗口模式下的布局。
 
 * 窗口沉浸式 自由窗口模式下使用window.[setWindowDecorVisible(false)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowdecorvisible11)设置隐藏标题栏，仅保留右上角三键。此时，应用页面拓展至标题栏区域，实现沉浸式显示效果。
 
-#### 推荐页
+### 推荐页
 
 电脑端推荐页与移动端推荐页内容基本一致，差异点在于，移动端使用底部页签进行内容视图切换，电脑端使用侧边栏进行切换。按照模块，将推荐页相关内容划分为2个区域，效果图如下：
 
-![](https://media:201788187483810221 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/h04IQUymS8e8TtQ7QjACTg/zh-cn_image_0000002614029343.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=18D85C47EE6B90065403386F974B1926DEB7198EE45A4BFD2FF55A6D9A5A48A1 "点击放大")
 
-界面开发
+**界面开发**
 
 推荐页定义独立的侧边栏，并复用已有的移动端页面代码即可实现。
 
-具体介绍及实现方案如下表所示：  
+具体介绍及实现方案如下表所示：
 
 |区域编号|简介|实现方案|
 |:---|:--|:---------------------------------------------------------------------------------------------------------------------------------|
 |1|侧边栏|通过[SideBarContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-sidebarcontainer)组件，单独定义侧边栏内容。|
 |2|内容区|复用[移动端页面](#section189941330999)内容。|
 
-在实际开发中， 区域1为外层容器，所以对应的开发顺序为先区域1后区域2。  
+在实际开发中，区域1为外层容器，所以对应的开发顺序为先区域1后区域2。
 
-#### 智能穿戴端页面
+## 智能穿戴端页面
 
-本章介绍如何完成智能穿戴设备上的移动支付应用开发，同时，阐述功能开发的实现方案。  
+本章介绍如何完成智能穿戴设备上的移动支付应用开发，同时，阐述功能开发的实现方案。
 
-#### 推荐页
+### 推荐页
 
-智能穿戴设备推荐页仅展示金刚区核心功能，并且，由于智能穿戴没有摄像头，不支持扫一扫能力，仅提供收付款、出行和卡包功能。效果图如下：  
-
-|示意图|xs|
-|:--|:-------------------------------------------|
-|效果图|![](https://media:201788187483854222 "点击放大")|
-
-界面开发
-
-推荐页使用弧形列表[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)组件实现，它支持自定义标题栏样式及子组件样式，常用于穿戴设备的开发场景。  
-
-#### 收付款页
-
-收付款页仅展示二维码，效果图如下：  
+智能穿戴设备推荐页仅展示金刚区核心功能，并且，由于智能穿戴没有摄像头，不支持扫一扫能力，仅提供收付款、出行和卡包功能。效果图如下：
 
 |示意图|xs|
-|:--|:-------------------------------------------|
-|效果图|![](https://media:201788187483911223 "点击放大")|
+|:--|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/BGUlHin_QTS5IbkEhDGMeQ/zh-cn_image_0000002613909461.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=18E45B65A3AFE44563F456E771EE0460D7A75C636EB462F4BB6CBC1C55A512FE "点击放大")|
 
-界面开发
+**界面开发**
+
+推荐页使用弧形列表[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)组件实现，它支持自定义标题栏样式及子组件样式，常用于穿戴设备的开发场景。
+
+### 收付款页
+
+收付款页仅展示二维码，效果图如下：
+
+|示意图|xs|
+|:--|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/7ghoGY4dQx6tv6DWyad9TA/zh-cn_image_0000002583509666.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC30768A7A8C2CEABE4E3DF6388CE87CB91D447E5110B1C35D3D783DC92FD76C "点击放大")|
+
+**界面开发**
 
 页面跳转通过[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)和[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件实现，并隐藏标题栏。
 
-功能开发
+**功能开发**
 
-二维码通过[generateBarcode (码图生成)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-generatebarcode)能力实现，需要设备具备码图生成能力，所以在开发时，需要通过[canIUse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap#caniuse)接口进行判断，防止因设备不兼容导致功能异常或崩溃。  
+二维码通过[generateBarcode (码图生成)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-generatebarcode)能力实现，需要设备具备码图生成能力，所以在开发时，需要通过[canIUse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-syscap#caniuse)接口进行判断，防止因设备不兼容导致功能异常或崩溃。
 
-#### 示例代码
+## 示例代码
 
-* [多设备移动支付界面](https://gitcode.com/HarmonyOS_Samples/multi-mobile-payment)  
+* [多设备移动支付界面](https://gitcode.com/HarmonyOS_Samples/multi-mobile-payment)
+

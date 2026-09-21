@@ -6,6 +6,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-appen
 
 # 附录
 
-* [版本获取方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-obtaining-the-version)  
-* [支持的算子](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-supported-operators)  
-* [可视化工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-visualization-tool-usage)  
+* **[版本获取方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-obtaining-the-version)**   
+* **[支持的算子](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-supported-operators)**   
+* **[可视化工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-visualization-tool-usage)**   

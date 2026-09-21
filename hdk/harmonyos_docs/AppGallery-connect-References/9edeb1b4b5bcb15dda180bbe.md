@@ -11,21 +11,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |public interface FetchCallback|
 |回捞任务回调接口，用于通知接收到回捞任务。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:-------------------------------------------------------------------------------|
 |void|[onReceiveTask](#section1277143703917)(TaskInfo taskInfo) 接收到与此设备用户标识匹配的回捞任务时回调。|
 
-#### Public Methods
+## Public Methods
 
-#### onReceiveTask
+### onReceiveTask
 
 |Method|
 |:------------------------------------------------------------------|
 |public void onReceiveTask(TaskInfo taskInfo) 接收到与此设备用户标识匹配的回捞任务时回调。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:------------------------------------------------------------------------------------------------------------------------------------------|

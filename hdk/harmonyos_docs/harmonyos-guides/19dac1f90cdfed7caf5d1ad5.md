@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-add-delet
 
 * 将其他PDF文档页添加到本PDF文档。
 
-#### 接口说明
+## 接口说明
 
 |接口名|描述|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|
@@ -23,7 +23,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-add-delet
 |[insertPageFromDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#insertpagefromdocument)(document: PdfDocument, fromIndex: number, pageCount: number, index: number): PdfPage|将其他文档的页添加到当前文档。|
 |[deletePage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#deletepage)(index: number, count: number): void|删除指定的PDF页。|
 
-#### 示例代码
+## 示例代码
 
 1. 调用loadDocument方法，加载PDF文档。
 
@@ -36,7 +36,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-add-delet
    3. 将input2.pdf文档的索引1、2、3页插入到input.pdf索引0的位置，并另存文档。
 4. 调用deletePage方法删除单个或多个索引页。
 
-```
+```TypeScript
 import { pdfService } from '@kit.PDFKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 // ...

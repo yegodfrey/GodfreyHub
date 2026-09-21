@@ -1,0 +1,243 @@
+---
+name: document/cn/HMSCore-References/list-model-0000001050160359
+title: 批量查询优惠券模板
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/list-model-0000001050160359
+---
+
+# 批量查询优惠券模板
+
+## 功能介绍
+
+获取保存在华为钱包服务器的所有优惠券模板。
+
+## 场景描述
+
+开发者可以调用该API，查询属于某一appId的所有优惠券模板。可以按照pageSize来分页返回。返回的模板可以属于多个passTypeIdentifier。
+
+## 使用约束
+
+需在华为AGC网站上创建应用并申请卡券对应的服务。
+
+## 接口原型
+
+|承载协议|HTTPS GET|
+|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|接口方向|开发者服务器->华为钱包服务器|
+|接口URL|{url}/hmspass/v1/offer/model?session={session}&pageSize={pageSize} {url}变量需要开发者根据服务器所属区域自行选择，请参见[钱包服务器地址](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/server-address-0000001050158382)。|
+|数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
+
+## 查询参数
+
+|参数|是否必选|参数类型|描述|
+|:-------|:---|:-----|:---------------------------------------------------------------------------------------------------------------------------------|
+|pageSize|否|int|每次返回的记录数。最大值为50。如果pageSize未定义，则返回所有结果。|
+|session|否|String|如果指定了pageSize且对象总数大于pageSize，调用批量查询接口会返回一个nextSession参数。再次调用此接口时，将这个session参数设置为之前获取的nextSession，可以得到下一组对象。调用批量查询接口获取第一组对象时不填写此参数。|
+
+备注：pageSize和session都不存在则返回全部对象。pageSize存在而session不存在，则返回第一组对象。pageSize和session都存在则返回下一组对象。不能填写了session而不填写pageSize。对象总数超过50时必须设置pageSize。使用session查询下一组对象时，pageSize应与之前使用的值保持一致。
+
+## 请求参数
+
+**Request Header：**
+
+|参数|是否必选|参数类型|描述|
+|:------------|:---|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Authorization|是|String|鉴权码。获取方式详见[基于OAuth 2.0开放鉴权](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/open-platform-oauth-0000001053629189-V5)，请使用"客户端模式"。"client_id"和"client_secret"即为开发者在华为AGC网站上创建应用后获取的"App ID"和"App key"。将获取到的"access_token"的值拼接在字符串"Bearer"之后，以空格符相隔，组成"Authorization"参数的值。|
+|Content-Type|是|String|固定值："application/json;charset=utf-8"。|
+|Accept|是|String|固定值："application/json;charset=utf-8"。|
+
+## 请求示例
+
+```codeblock
+GET /hmspass/v1/offer/model HTTP/1.1
+Content-Type: application/json;charset=utf-8
+Authorization: Bearer ***
+Accept: application/json;charset=utf-8
+Host: wallet-passentrust-drcn.cloud.huawei.com.cn
+```
+
+## 响应参数
+
+**错误码为200时：**
+
+|参数|参数类型|描述|
+|:-------|:-----------------------------------------------------------------------------------------------------------|:-----|
+|data|List<[HwWalletObject](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/def-0000001050160319)>|卡券模板列表|
+|pageInfo|PageInfo|页面信息|
+
+**PageInfo：**
+
+|参数|参数类型|描述|
+|:----------|:-----|:----------------------|
+|pageSize|int|返回列表的长度|
+|nextSession|String|查询下一页使用的session，5分钟内有效。|
+
+## 响应示例
+
+```codeblock
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "data": [
+    {
+      "passVersion": "1.0",
+      "passTypeIdentifier": "hwpass.com.huawei.wallet.offer.test",
+      "passStyleIdentifier": "offerModelTest",
+      "organizationName": "Huawei",
+      "fields": {
+        "countryCode": "CN",
+        "locationList": [
+          {
+            "longitude": "114.0679603815",
+            "latitude": "22.6592051284"
+          }
+        ],
+        "commonFields": [
+          {
+            "key": "logo",
+            "value": "https://www.huawei.com/XXX.png"
+          },
+          {
+            "key": "name",
+            "value": "50%-Off Coupon",
+            "localizedValue": "nameI18N"
+          },
+          {
+            "key": "providerName",
+            "value": "XXX Company"
+          },
+          {
+            "key": "merchantName",
+            "value": "HUAWEI Vmall",
+            "localizedValue": "merchantNameI18N"
+          }
+        ],
+        "appendFields": [
+          {
+            "key": "details",
+            "value": "Detail information of this coupon.",
+            "localizedValue": "detailsI18N"
+          },
+          {
+            "key": "declaration",
+            "value": "Coupon disclaimer provided by merchant.",
+            "localizedValue": "declarationI18N"
+          },
+          {
+            "key": "backgroundColor",
+            "value": "#FF1C2635"
+          }
+        ],
+        "messageList": [
+          {
+            "key": "message[0]",
+            "value": "Don't miss this great offer!",
+            "label": "Important!",
+           "localizedValue": "message[0]I18N"
+          }
+        ],
+        "imageList": [
+          {
+            "key": "mainImage[0]",
+            "value": "https://www.huawei.com/XXX0.png"
+          },
+          {
+            "key": "mainImage[1]",
+            "value": "https://www.huawei.com/XXX1.png"
+          },
+          {
+            "key": "mainImage[2]",
+            "value": "https://www.huawei.com/XXX2.png"
+          }
+        ],
+        "localized": [
+          {
+            "key": "merchantNameI18N",
+            "language": "zh-cn",
+            "value": "华为商城"
+          },
+          {
+            "key": "merchantNameI18N",
+            "language": "en",
+            "value": "HUAWEI Vmall"
+          },
+          {
+            "key": "message[0]I18N",
+            "language": "zh-cn",
+            "value": "不要错过这次的优惠！"
+          },
+          {
+            "key": "message[0]I18N",
+            "language": "en",
+            "value": "Don't miss this great offer!"
+          }
+        ]
+      }
+    }
+  ],
+  "pageInfo": {
+    "pageSize": 1
+  }
+}
+```
+
+## 错误码
+
+详见[错误码](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-server-errorcode-0000001051072926)。
+
+## 调用示例
+
+```codeblock
+public List<HwWalletObject> listWalletModel(String url, Integer pageSize) {
+    // Construct the http header.
+    HttpHeaders header = constructHttpHeaders();
+    // Construct the http URL.
+    String baseUrl = ConfigHelper.instants().getValue("walletServerBaseUrl");
+    String walletServerUrl = baseUrl + url;
+
+    HttpEntity entity = new HttpEntity(header);
+    if (pageSize == null) {
+        ResponseEntity<BatchGetHwWalletResult> response =
+            REST_TEMPLATE.exchange(walletServerUrl, HttpMethod.GET, entity, BatchGetHwWalletResult.class);
+        BatchGetHwWalletResult batchGetHwWalletResult = response.getBody();
+        if (batchGetHwWalletResult == null) {
+            System.out.println("listWalletModel failed. batchGetHwWalletResult is null.");
+            return null;
+        } else {
+            return batchGetHwWalletResult.getData();
+        }
+    } else {
+        List<HwWalletObject> walletModelList = new LinkedList<>();
+        String tempUrl = walletServerUrl + "?pageSize=" + pageSize;
+        String session = "";
+        while (true) {
+            String finalUrl = tempUrl;
+            if (!session.isEmpty()) {
+                finalUrl = finalUrl + "&session=" + session;
+            }
+            ResponseEntity<BatchGetHwWalletResult> response =
+                REST_TEMPLATE.exchange(finalUrl, HttpMethod.GET, entity, BatchGetHwWalletResult.class);
+            BatchGetHwWalletResult batchGetHwWalletResult = response.getBody();
+            if (batchGetHwWalletResult == null) {
+                System.out.println("listWalletModel failed. batchGetHwWalletResult is null.");
+                return null;
+            }
+            List<HwWalletObject> data = batchGetHwWalletResult.getData();
+            if (data == null || data.isEmpty()) {
+                return walletModelList;
+            }
+            walletModelList.addAll(data);
+            PageInfo pageInfo = batchGetHwWalletResult.getPageInfo();
+            if (pageInfo == null) {
+                System.out.println("listWalletModel failed. pageInfo is null.");
+                return null;
+            }
+            String nextSession = pageInfo.getNextSession();
+            if (nextSession == null || nextSession.isEmpty()) {
+                return walletModelList;
+            }
+            session = nextSession;
+        }
+    }
+}
+```
+

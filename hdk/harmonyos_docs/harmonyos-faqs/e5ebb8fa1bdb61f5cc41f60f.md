@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
 
 # HarmonyOS如何监听U盘插拔
 
-#### 问题现象
+## 问题现象
 
-应用需要监听手机是否插入了U盘，HarmonyOS如何监听U盘插拔？  
+应用需要监听手机是否插入了U盘，HarmonyOS如何监听U盘插拔？
 
-#### 背景知识
+## 背景知识
 
-[公共事件模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)提供了公共事件相关的能力，包括发布公共事件、订阅公共事件、以及取消订阅公共事件。U盘插拔事件可以使用此模块来实现订阅和事件处理。  
+[公共事件模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)提供了公共事件相关的能力，包括发布公共事件、订阅公共事件、以及取消订阅公共事件。U盘插拔事件可以使用此模块来实现订阅和事件处理。
 
-#### 解决方案
+## 解决方案
 
 * 步骤：
   1. 模块导入： 使用[@ohos.commonEventManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-commoneventmanager)模块来管理公共事件。导入[BusinessError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#businesserror)用于错误处理。
@@ -35,18 +35,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
   |usual.event.hardware.usb.action.USB_DEVICE_ATTACHED|当用户设备作为USB主机时，USB设备已挂载的公共事件。|
   |usual.event.hardware.usb.action.USB_DEVICE_DETACHED|当用户设备作为USB主机时，USB设备被卸载的公共事件。|
 
-<!-- -->
 
 * 用USB是否挂载处理监听U盘插拔，代码如下： U盘插入事件：usual.event.hardware.usb.action.USB_DEVICE_ATTACHED。
 
   U盘拔出事件：usual.event.hardware.usb.action.USB_DEVICE_DETACHED。
 
-  ```
-  // 定义U盘插拔事件的监听器
+  ```screen
+  //定义U盘插拔事件的监听器
   export default class UsbEventListener {
     private subscriber: commonEventManager.CommonEventSubscriber | null = null;
 
-    // 订阅U盘插拔事件
+    //订阅U盘插拔事件
     subscribeUsbEvents() {
       const subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
         events: [
@@ -54,7 +53,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
           'usual.event.hardware.usb.action.USB_DEVICE_DETACHED'
         ]
       };
-      // 创建订阅者
+     // 创建订阅者
       commonEventManager.createSubscriber(subscribeInfo,
         (err: BusinessError, subscriber: commonEventManager.CommonEventSubscriber) => {
           if (err) {
@@ -62,14 +61,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
             return;
           }
           this.subscriber = subscriber;
-          // 订阅事件
+        // 订阅事件
           commonEventManager.subscribe(subscriber, (err: BusinessError, data: commonEventManager.CommonEventData) => {
             if (err) {
               console.error(`Failed to subscribe event. Code: ${err.code}, message: ${err.message}`);
               return;
             }
             console.error(data.event);
-            // 获取连接的USB设备信息
+           // 获取连接的USB设备信息
             if (data.event === 'usual.event.hardware.usb.action.USB_DEVICE_ATTACHED') {
               console.info('U 盘已插入');
               this.handleUsbAttached();
@@ -81,7 +80,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
         });
     }
 
-    // 处理U盘插入事件
+  // 处理U盘插入事件
     private handleUsbAttached() {
       console.info('处理 U 盘插入逻辑');
     }
@@ -91,7 +90,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
       console.info('处理 U 盘拔出逻辑');
     }
 
-    // 取消订阅
+    //取消订阅
     unsubscribeUsbEvents() {
       if (this.subscriber) {
         commonEventManager.unsubscribe(this.subscriber, (err: BusinessError) => {
@@ -108,7 +107,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
 
   可运行的Index.ets代码参考如下：
 
-  ```
+  ```screen
   import { BusinessError } from '@ohos.base';
   import commonEventManager from '@ohos.commonEventManager';
 
@@ -145,11 +144,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
     }
   }
 
-  // 定义U盘插拔事件的监听器
+  //定义U盘插拔事件的监听器
   export default class UsbEventListener {
     private subscriber: commonEventManager.CommonEventSubscriber | null = null;
 
-    // 订阅U盘插拔事件
+   // 订阅U盘插拔事件
     subscribeUsbEvents() {
       const subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
         events: [
@@ -157,7 +156,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
           'usual.event.hardware.usb.action.USB_DEVICE_DETACHED'
         ]
       };
-      // 创建订阅者
+    // 创建订阅者
       commonEventManager.createSubscriber(subscribeInfo,
         (err: BusinessError, subscriber: commonEventManager.CommonEventSubscriber) => {
           if (err) {
@@ -165,14 +164,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
             return;
           }
           this.subscriber = subscriber;
-          // 订阅事件
+         // 订阅事件
           commonEventManager.subscribe(subscriber, (err: BusinessError, data: commonEventManager.CommonEventData) => {
             if (err) {
               console.error(`Failed to subscribe event. Code: ${err.code}, message: ${err.message}`);
               return;
             }
             console.error(data.event);
-            // 获取连接的USB设备信息
+           // 获取连接的USB设备信息
             if (data.event === 'usual.event.hardware.usb.action.USB_DEVICE_ATTACHED') {
               console.info('U 盘已插入');
               this.handleUsbAttached();
@@ -184,17 +183,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
         });
     }
 
-    // 处理U盘插入事件
+   // 处理U盘插入事件
     private handleUsbAttached() {
       console.info('处理 U 盘插入逻辑');
     }
 
-    // 处理U盘拔出事件
+   // 处理U盘拔出事件
     private handleUsbDetached() {
       console.info('处理 U 盘拔出逻辑');
     }
 
-    // 取消订阅
+    //取消订阅
     unsubscribeUsbEvents() {
       if (this.subscriber) {
         commonEventManager.unsubscribe(this.subscriber, (err: BusinessError) => {
@@ -209,7 +208,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
   }
   ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：如何查看U盘中的文件？
 
@@ -217,4 +216,5 @@ A：手机连接U盘后，打开手机设置，开启otg权限，在系统自带
 
 Q：ArkTS感知到USB插入驱动，如何传递给Qt工程，实现消息监听？
 
-A：使用[@ohos.commonEventManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-commoneventmanager)模块来管理公共事件，监听USB的插入和拔出事件；并通过[Node-API](https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101705084078534051?pathId=101667550095504391)传递给Native侧，实现处理。  
+A：使用[@ohos.commonEventManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-commoneventmanager)模块来管理公共事件，监听USB的插入和拔出事件；并通过[Node-API](https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101705084078534051?pathId=101667550095504391)传递给Native侧，实现处理。
+

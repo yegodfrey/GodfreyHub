@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:----------------------------------------------------------|
 |public class GetRtmChannelHistoryMessagesReq 查询RTM频道历史消息请求。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Description|
 |:--------|:-----|:------------------------------------|

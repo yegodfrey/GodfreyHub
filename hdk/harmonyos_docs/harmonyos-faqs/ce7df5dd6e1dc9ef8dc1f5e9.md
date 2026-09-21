@@ -6,26 +6,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1035
 
 # 如何解决多弹窗跳转页面覆盖问题
 
-#### 问题现象
+## 问题现象
 
 进入应用首页后点击按钮会出现两个自定义弹窗A和B，在点击弹窗A时，会跳转到新页面，但新页面会被弹窗B所遮挡。
 
 如何实现以下效果：
 
 1. 点击弹窗A跳转到新页面，弹窗B被新页面覆盖，不显示在最上方；
-2. 返回后弹窗A消失，弹窗B仍然显示。  
+2. 返回后弹窗A消失，弹窗B仍然显示。
 
-#### 背景知识
+## 背景知识
 
-[自定义弹窗（CustomDialog）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)：通过CustomDialogController或PromptAction控制弹窗，支持自定义UI布局。  
+[自定义弹窗（CustomDialog）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)：通过CustomDialogController或PromptAction控制弹窗，支持自定义UI布局。
 
-#### 解决方案
+## 解决方案
 
 解决思路：
 
 1. 实现所需效果，弹窗A需要在跳转到新页面之前关闭，即在跳转页面方法之前使用自定义弹窗控制器的close方法，关闭弹窗A；
 
-   ```
+   ```ts
    Button('跳转')
      .onClick(() => {
        this.controller?.close();
@@ -35,7 +35,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1035
 
 2. 弹窗B在新页面返回首页后仍然显示，不适合回到首页后再重新打开，所以考虑在跳转到新页面时把弹窗B的布局由可见设置为不可见，在返回首页时由不可见设置为可见。
 
-   ```
+   ```screen
    @State showFlag: Visibility = Visibility.Visible; // 设置弹窗是否可见
 
    onPageShow(): void {
@@ -51,7 +51,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1035
 
 1. 首页：
 
-   ```
+   ```ts
    // 弹窗A
    @CustomDialog
    @Component
@@ -207,7 +207,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1035
 
 2. 跳转的新页面：
 
-   ```
+   ```ts
    @Entry
    @Component
    struct Second {
@@ -238,10 +238,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1035
 
 实现效果如下图所示：
 
-![](https://media:101782461603524017 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/GSJmhGKsSqqJNu_bnsTnQg/zh-cn_image_0000002628564726.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=C6D9C4614CF61B1447A195615FACD6591561B8C2934CDA23CDEED5A61BBAC249 "点击放大")
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：如果两个弹窗不是在@Entry修饰的组件中弹出，而是在@Component修饰的子组件中弹出，该如何实现这种效果？
 
-A：使用[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)装饰器修饰子组件中的showFlag属性，使其与父组件中对应的数据源建立双向数据绑定。  
+A：使用[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)装饰器修饰子组件中的showFlag属性，使其与父组件中对应的数据源建立双向数据绑定。
+

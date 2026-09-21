@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/system-References/deviceemailm
 |:----------------------------------------|
 |public class DeviceEmailManager 邮箱相关的管理类。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -19,10 +19,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/system-References/deviceemailm
 |[ExchangeAccount](#section1217520113177)(String emailAddress, String easUser, String easDomain, String serverAddress, String serverPassword) ExchangeAccount构造方法。|
 |[ExchangeAccount](#section154144212016)(String displayName, String emailAddress, String easUser, String easDomain, int syncLookback, int syncInterval, boolean isDefault, String senderName, String protocolVersion, String signature, String serverAddress, boolean useSSL,boolean useTLS, boolean acceptAllCertificates, String serverPassword, String serverPathPrefix, int calendarPeriod, boolean displayHtmlDisabled, boolean forwardEmailDisabled, boolean screenShotDisabled) ExchangeAccount构造方法。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
-|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |boolean|[setAccountDeletionDisabled](#section7640424102217)(ComponentName admin, boolean isDisabled) 禁止删除邮箱帐户。|
 |boolean|[isAccountDeletionDisabled](#section1281182318307)(ComponentName admin) 查询是否禁止删除邮箱帐户。|
 |boolean|[setAccountAdditionDisabled](#section1632220210324)(ComponentName admin,boolean isDisabled) 禁止添加邮箱帐户。|
@@ -32,17 +32,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/system-References/deviceemailm
 |void|[configEmailAccount](#section1046891515304)(ComponentName admin, EmailAccount emailAccount) 添加 Email 账户或更新 Email 账户配置。|
 |void|[configExchangeAccount](#section183251613183312)(ComponentName admin,ExchangeAccount exchangeAccount) 添加Exchange账户或更新Exchange账户配置。|
 |boolean|[setEmailForwardingDisabled](#section5946647421)(ComponentName admin, String emailAddress, boolean isDisabled) 禁止邮箱帐户转发。|
-|boolean|[setExceptionListForAccountAddition](#section16170119134910)(ComponentName admin, boolean isDisabled, ArrayList\<String\> list) 禁止/允许添加账户设置例外名单。|
-|ArrayList\<String\>|[getAccountsTrustListDisablingAddition](#section1283142015527)(ComponentName admin) 获取禁止添加账户设置白名单。|
-|ArrayList\<String\>|[getAccountsWhiteListDisablingAddition](#section2943195021110)(ComponentName admin) EMUI 11.0.0该方法已废弃，请使用ArrayList\<String\> [getAccountsTrustListDisablingAddition](#section1283142015527)(ComponentName admin)。|
-|ArrayList\<String\>|[getAccountsBlockListAllowingAddition](#section1528584516278)(ComponentName admin) 获取允许添加账户设置的黑名单。|
-|ArrayList\<String\>|[getAccountsBlackListAllowingAddition](#section20678194913139)(ComponentName admin) EMUI 11.0.0该方法已废弃，请使用ArrayList\<String\> [getAccountsBlockListAllowingAddition](#section1528584516278)(ComponentName admin)。|
+|boolean|[setExceptionListForAccountAddition](#section16170119134910)(ComponentName admin, boolean isDisabled, ArrayList<String> list) 禁止/允许添加账户设置例外名单。|
+|ArrayList<String>|[getAccountsTrustListDisablingAddition](#section1283142015527)(ComponentName admin) 获取禁止添加账户设置白名单。|
+|ArrayList<String>|[getAccountsWhiteListDisablingAddition](#section2943195021110)(ComponentName admin) EMUI 11.0.0该方法已废弃，请使用ArrayList<String> [getAccountsTrustListDisablingAddition](#section1283142015527)(ComponentName admin)。|
+|ArrayList<String>|[getAccountsBlockListAllowingAddition](#section1528584516278)(ComponentName admin) 获取允许添加账户设置的黑名单。|
+|ArrayList<String>|[getAccountsBlackListAllowingAddition](#section20678194913139)(ComponentName admin) EMUI 11.0.0该方法已废弃，请使用ArrayList<String> [getAccountsBlockListAllowingAddition](#section1528584516278)(ComponentName admin)。|
 |boolean|[isAccountAdditionDisabled](#section13108852556)(ComponentName admin, String emailAddress) 查询邮箱地址为emailAddress的帐户添加功能是否被禁用。|
-|boolean|[setExceptionListForAccountDeletion](#section6254133414911)(ComponentName admin, boolean isDisabled, ArrayList\<String\> list) 禁止/允许删除账户设置例外名单。|
-|ArrayList\<String\>|[getAccountsTrustListDisablingDeletion](#section53076631513)(ComponentName admin) 获取禁止删除账户设置的白名单。|
-|ArrayList\<String\>|[getAccountsWhiteListDisablingDeletion](#section9859131481315)(ComponentName admin) EMUI 11.0.0该方法已废弃，请使用ArrayList\<String\> [getAccountsTrustListDisablingDeletion](#section53076631513)(ComponentName admin)。|
-|ArrayList\<String\>|[getAccountsBlockListAllowingDeletion](#section20418122974318)(ComponentName admin) 获取允许删除账户设置的黑名单。|
-|ArrayList\<String\>|[getAccountsBlackListAllowingDeletion](#section163897251752)(ComponentName admin) EMUI 11.0.0该方法已废弃，请使用ArrayList\<String\> [getAccountsBlockListAllowingDeletion](#section20418122974318)(ComponentName admin)。|
+|boolean|[setExceptionListForAccountDeletion](#section6254133414911)(ComponentName admin, boolean isDisabled, ArrayList<String> list) 禁止/允许删除账户设置例外名单。|
+|ArrayList<String>|[getAccountsTrustListDisablingDeletion](#section53076631513)(ComponentName admin) 获取禁止删除账户设置的白名单。|
+|ArrayList<String>|[getAccountsWhiteListDisablingDeletion](#section9859131481315)(ComponentName admin) EMUI 11.0.0该方法已废弃，请使用ArrayList<String> [getAccountsTrustListDisablingDeletion](#section53076631513)(ComponentName admin)。|
+|ArrayList<String>|[getAccountsBlockListAllowingDeletion](#section20418122974318)(ComponentName admin) 获取允许删除账户设置的黑名单。|
+|ArrayList<String>|[getAccountsBlackListAllowingDeletion](#section163897251752)(ComponentName admin) EMUI 11.0.0该方法已废弃，请使用ArrayList<String> [getAccountsBlockListAllowingDeletion](#section20418122974318)(ComponentName admin)。|
 |boolean|[isAccountDeletionDisabled](#section11731526181220)(ComponentName admin, String emailAddress) 查询邮箱地址为emailAddress的帐户删除功能是否已被禁用。|
 |boolean|[isAccountAddedByMDM](#section822533114153)(Context context, String emailAddress, int userId) 查询电子邮箱地址是否通过MDM应用添加。|
 |boolean|[setForceSMIMECertificateAlias](#section49842020193513)(ComponentName admin, String emailAddress, String alias, int type) 设置电子邮箱证书别名。|
@@ -51,11 +51,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/system-References/deviceemailm
 |boolean|[isForceSMIMEMessages](#section1467913165615)(Context context, String emailAddress, int type) 查询是否对指定邮箱设置了签名或者加密。|
 |boolean|[setForceRequiredSMIMEAndCertificateAlias](#section260821910811)(ComponentName admin, String emailAddress, String alias, boolean isForced, int type) 对邮箱设置SMIME证书别名并且强制打开SMIME。|
 
-#### Public Constructors
+## Public Constructors
 
-#### EmailAccount(String, String, String, int, String, String, String, String, int, String, String)
+### EmailAccount(String, String, String, int, String, String, String, String, int, String, String)
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -65,7 +65,7 @@ Supported Devices
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public EmailAccount(String emailAddress, String inComingProtocol, String inComingServerAddress, int inComingServerPort, String inComingServerLogin, String inComingServerPassword, String outGoingProtocol, String outGoingServerAddress, int outGoingServerPort, String outGoingServerLogin, String outGoingServerPassword) 构造EmailAccount。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------------------|:----------------|
@@ -81,15 +81,15 @@ Parameters
 |outGoingServerLogin|外发设置用户名。|
 |outGoingServerPassword|外发设置密码。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:-----------------------|:----------|
 |IllegalArgumentException|参数错误。|
 
-#### EmailAccount(String, String, String, int, String, String, boolean, boolean, boolean, String, String, String, int, String, String, boolean, boolean, boolean, String, String, String, boolean)
+### EmailAccount(String, String, String, int, String, String, boolean, boolean, boolean, String, String, String, int, String, String, boolean, boolean, boolean, String, String, String, boolean)
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -99,7 +99,7 @@ Supported Devices
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public EmailAccount(String emailAddress, String inComingProtocol, String inComingServerAddress, int inComingServerPort, String inComingServerLogin, String inComingServerPassword, boolean inComingServerUseSSL, boolean inComingServerUseTLS, boolean inComingServerAcceptAllCertificates, String inComingPathPrefix, String outGoingProtocol, String outGoingServerAddress, int outGoingServerPort, String outGoingServerLogin, String outGoingServerPassword, boolean outGoingServerUseSSL, boolean outGoingServerUseTLS, boolean outGoingServerAcceptAllCertificates, String outGoingPathPrefix, String senderName, String signature, boolean isDefault 构造EmailAccount。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----------------------------------|:----------------|
@@ -126,15 +126,15 @@ Parameters
 |signature|电子邮件签名。|
 |isDefault|设置为默认账户。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:-----------------------|:----------|
 |IllegalArgumentException|参数错误。|
 
-#### ExchangeAccount(String, String, String, String, String)
+### ExchangeAccount(String, String, String, String, String)
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -144,7 +144,7 @@ Supported Devices
 |:--------------------------------------------------------------------------------------------------------------------------------------------|
 |public ExchangeAccount(String emailAddress, String easUser, String easDomain, String serverAddress, String serverPassword) 构造ExchangeAccount。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------------|:-----------|
@@ -154,15 +154,15 @@ Parameters
 |serverAddress|服务器，不能为空。|
 |serverPassword|密码。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:-----------------------|:----------|
 |IllegalArgumentException|参数错误。|
 
-#### ExchangeAccount(String, String, String, String, int, int, boolean, String, String, String, String, boolean,boolean, boolean, String, String, int, boolean, boolean, boolean)
+### ExchangeAccount(String, String, String, String, int, int, boolean, String, String, String, String, boolean,boolean, boolean, String, String, int, boolean, boolean, boolean)
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -172,7 +172,7 @@ Supported Devices
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public ExchangeAccount(String displayName, String emailAddress, String easUser, String easDomain, int syncLookback, int syncInterval, boolean isDefault, String senderName, String protocolVersion, String signature, String serverAddress, boolean useSSL,boolean useTLS, boolean acceptAllCertificates, String serverPassword, String serverPathPrefix, int calendarPeriod, boolean displayHtmlDisabled, boolean forwardEmailDisabled, boolean screenShotDisabled) 构造ExchangeAccount。|
 
-Parameters  
+**Parameters**
 
 |Name↵|Description↵|
 |:--------------------|:-------------------------------------------------------------------------------------------------------------|
@@ -197,17 +197,17 @@ Parameters
 |forwardEmailDisabled|禁止转发邮件。|
 |screenShotDisabled|禁止截屏。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:-----------------------|:----------|
 |IllegalArgumentException|参数错误。|
 
-#### Public Methods
+## Public Methods
 
-#### setAccountDeletionDisabled
+### setAccountDeletionDisabled
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -217,28 +217,28 @@ Supported Devices
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public boolean setAccountDeletionDisabled(ComponentName admin, boolean isDisabled) 禁止删除邮箱帐户。如果禁止删除邮箱帐户，用户不能删除华为邮箱内已登录的帐户。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:---------------------------------|
 |admin|调用该接口的组件名称，不能为null。|
 |isDisabled|* true：禁止删除邮箱帐户。 * false：允许删除邮箱帐户。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:-------------------------|
 |boolean|* true：配置成功。 * false：配置失败。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:--------------------------------------------------------|
 |SecurityException|* 此APK未经设备管理激活。 * 无com.huawei.permission.sec.MDM_EMAIL权限。|
 
-#### isAccountDeletionDisabled
+### isAccountDeletionDisabled
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -248,21 +248,21 @@ Supported Devices
 |:---------------------------------------------------------------------------|
 |public boolean isAccountDeletionDisabled(ComponentName admin) 查询是否已禁止删除邮箱帐户。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------------------------------------------|
 |admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:----------------------------------------|
 |boolean|* true：删除邮箱帐户功能被禁止。 * false：删除邮箱帐户功能未被禁止。|
 
-#### setAccountAdditionDisabled
+### setAccountAdditionDisabled
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -272,28 +272,28 @@ Supported Devices
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public boolean setAccountAdditionDisabled (ComponentName admin,boolean isDisabled) 禁止添加邮箱帐户。如果禁止添加邮箱帐户，用户不能向华为邮箱中添加帐户。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:---------------------------------|
 |admin|调用该接口的组件名称，不能为null。|
 |isDisabled|* true：禁止添加邮箱帐户。 * false：允许添加邮箱帐户。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:-------------------------|
 |boolean|* true：配置成功。 * false：配置失败。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:--------------------------------------------------------|
 |SecurityException|* 此APK未经设备管理激活。 * 无com.huawei.permission.sec.MDM_EMAIL权限。|
 
-#### isAccountAdditionDisabled(ComponentName admin)
+### isAccountAdditionDisabled(ComponentName admin)
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -303,21 +303,21 @@ Supported Devices
 |:------------------------------------------------------------------------------|
 |public boolean isAccountAdditionDisabled(ComponentName admin) 查询添加邮箱帐户功能是否已被禁用。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------------------------------------------|
 |admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:----------------------------------------|
 |boolean|* true：添加邮箱帐户功能被禁止。 * false：添加邮箱帐户功能未被禁止。|
 
-#### setPop3ImapDisabled
+### setPop3ImapDisabled
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -327,28 +327,28 @@ Supported Devices
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public boolean setPop3ImapDisabled(ComponentName admin,boolean isDisabled) 禁用 Pop3/Imap 协议。如果禁用 Pop3/Imap 协议，用户在华为邮箱内不能添加Pop3/Imap 协议的帐户，已登录的 Pop3/Imap 帐户也会被从设备中删除。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:-------------------------------------------------|
 |admin|调用该接口的组件名称，不能为null。|
 |isDisabled|* true：禁用 Pop3/Imap 协议。 * false：允许使用 Pop3/Imap 协议。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:-------------------------|
 |boolean|* true：配置成功。 * false：配置失败。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:--------------------------------------------------------|
 |SecurityException|* 此APK未经设备管理激活。 * 无com.huawei.permission.sec.MDM_EMAIL权限。|
 
-#### isPop3ImapDisabled
+### isPop3ImapDisabled
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -358,21 +358,21 @@ Supported Devices
 |:--------------------------------------------------------------------------|
 |public boolean isPop3ImapDisabled (ComponentName admin) 查询Pop3/Imap协议是否被禁用。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------------------------------------------|
 |admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:--------------------------------------------------|
 |boolean|* true：Pop3/Imap协议功能被禁止。 * false：Pop3/Imap协议功能未被禁止。|
 
-#### configEmailAccount
+### configEmailAccount
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -382,29 +382,29 @@ Supported Devices
 |:--------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void configEmailAccount(ComponentName admin, EmailAccount emailAccount) 添加Email账户或更新Email账户配置。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:------------------|
 |admin|调用该接口的组件名称，不能为null。|
 |emailAccount|EmailAccount，不能为空。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:----------|
 |void|-|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:-----------------------|:--------------------------------------------------------|
 |IllegalArgumentException|参数错误。|
 |SecurityException|* 此APK未经设备管理激活。 * 无com.huawei.permission.sec.MDM_EMAIL权限。|
 
-#### configExchangeAccount
+### configExchangeAccount
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -414,29 +414,29 @@ Supported Devices
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void configExchangeAccount(ComponentName admin,ExchangeAccount exchangeAccount) 添加Exchange账户或更新Exchange账户配置。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------------|:--------------------|
 |admin|调用该接口的组件名称，不能为null。|
 |exchangeAccount|ExchangeAccount，不能为空。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:----------|
 |void|-|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:-----------------------|:--------------------------------------------------------|
 |IllegalArgumentException|参数错误。|
 |SecurityException|* 此APK未经设备管理激活。 * 无com.huawei.permission.sec.MDM_EMAIL权限。|
 
-#### setEmailForwardingDisabled
+### setEmailForwardingDisabled
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -446,7 +446,7 @@ Supported Devices
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public boolean setEmailForwardingDisabled(ComponentName admin, String emailAddress, boolean isDisabled) 禁止邮箱帐户转发。当邮件账户被禁止转发时：1.该账户不能作为转发的发件人；2.该账户回复邮件时，不能更改收件人及抄送密送配置。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:---------------------------------|
@@ -454,32 +454,32 @@ Parameters
 |emailAddress|被禁止转发的邮件地址。|
 |isDisabled|* true：禁止邮箱帐户转发。 * false：允许邮箱帐户转发。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:-------------------------|
 |boolean|* true：配置成功。 * false：配置失败。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:-----------------------|:--------------------------------------------------------|
 |IllegalArgumentException|参数错误。|
 |SecurityException|* 此APK未经设备管理激活。 * 无com.huawei.permission.sec.MDM_EMAIL权限。|
 
-#### setExceptionListForAccountAddition
+### setExceptionListForAccountAddition
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
 |手机、平板|EMUI 8.0及以上或HarmonyOS 2.0及以上|
 
 |Method|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public boolean setExceptionListForAccountAddition(ComponentName admin, boolean isDisabled, ArrayList\<String\> list) 禁止/允许添加账户，设置例外名单。当禁止添加账户，设置白名单，白名单里账户可以添加；当允许添加账户，设置黑名单，黑名单里账户不允许添加。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public boolean setExceptionListForAccountAddition(ComponentName admin, boolean isDisabled, ArrayList<String> list) 禁止/允许添加账户，设置例外名单。当禁止添加账户，设置白名单，白名单里账户可以添加；当允许添加账户，设置黑名单，黑名单里账户不允许添加。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:-----------------------------|
@@ -487,141 +487,141 @@ Parameters
 |isDisabled|* true：禁止添加账户。 * false：允许添加账户。|
 |list|禁止/允许添加账户，要设置的例外名单列表。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:-------------------------|
 |boolean|* true：配置成功。 * false：配置失败。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:--------------------------------------------------------|
 |SecurityException|* 此APK未经设备管理激活。 * 无com.huawei.permission.sec.MDM_EMAIL权限。|
 
-#### getAccountsTrustListDisablingAddition
+### getAccountsTrustListDisablingAddition
 
-Supported Devices  
-
-|Device Type|OS Version|
-|:----------|:-------------------------|
-|手机、平板|EMUI 11.0或HarmonyOS 2.0及以上|
-
-|Method|
-|:---------------------------------------------------------------------------------------------------|
-|public ArrayList\<String\> getAccountsTrustListDisablingAddition(ComponentName admin) 获取禁止添加账户设置白名单。|
-
-Parameters  
-
-|Name|Description|
-|:----|:----------------------------------------------|
-|admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
-
-Return  
-
-|Type|Description|
-|:------------------|:--------------|
-|ArrayList\<String\>|禁止添加账户设置的白名单列表。|
-
-Throws  
-
-|Name|Description|
-|:----------------|:------------|
-|SecurityException|此APK未经设备管理激活。|
-
-#### getAccountsWhiteListDisablingAddition
-
-Supported Devices  
-
-|Device Type|OS Version|
-|:----------|:------------------|
-|手机、平板|EMUI 8.0\~EMUI 10.1|
-
-|Method|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public ArrayList\<String\> getAccountsWhiteListDisablingAddition (ComponentName admin) EMUI 11.0.0该方法废弃，请使用[getAccountsTrustListDisablingAddition](#section1283142015527)。 获取禁止添加账户设置白名单。|
-
-Parameters  
-
-|Name|Description|
-|:----|:----------------------------------------------|
-|admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
-
-Return  
-
-|Type|Description|
-|:------------------|:--------------|
-|ArrayList\<String\>|禁止添加账户设置的白名单列表。|
-
-Throws  
-
-|Name|Description|
-|:----------------|:------------|
-|SecurityException|此APK未经设备管理激活。|
-
-#### getAccountsBlockListAllowingAddition
-
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:-------------------------|
 |手机、平板|EMUI 11.0或HarmonyOS 2.0及以上|
 
 |Method|
-|:---------------------------------------------------------------------------------------------------|
-|public ArrayList\<String\> getAccountsBlockListAllowingAddition(ComponentName admin) 获取允许添加账户设置的黑名单。|
+|:-------------------------------------------------------------------------------------------------|
+|public ArrayList<String> getAccountsTrustListDisablingAddition(ComponentName admin) 获取禁止添加账户设置白名单。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------------------------------------------|
 |admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:------------------|:--------------|
-|ArrayList\<String\>|允许添加账户设置的黑名单列表。|
+|:----------------|:--------------|
+|ArrayList<String>|禁止添加账户设置的白名单列表。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:------------|
 |SecurityException|此APK未经设备管理激活。|
 
-#### getAccountsBlackListAllowingAddition
+### getAccountsWhiteListDisablingAddition
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
-|:----------|:------------------|
-|手机、平板|EMUI 8.0\~EMUI 10.1|
+|:----------|:-----------------|
+|手机、平板|EMUI 8.0~EMUI 10.1|
 
 |Method|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public ArrayList\<String\> getAccountsBlackListAllowingAddition (ComponentName admin) EMUI 11.0.0该方法废弃，请使用[getAccountsBlockListAllowingAddition](#section1528584516278)。 获取允许添加账户设置的黑名单。|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public ArrayList<String> getAccountsWhiteListDisablingAddition (ComponentName admin) EMUI 11.0.0该方法废弃，请使用[getAccountsTrustListDisablingAddition](#section1283142015527)。 获取禁止添加账户设置白名单。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------------------------------------------|
 |admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:------------------|:--------------|
-|ArrayList\<String\>|允许添加账户设置的黑名单列表。|
+|:----------------|:--------------|
+|ArrayList<String>|禁止添加账户设置的白名单列表。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:------------|
 |SecurityException|此APK未经设备管理激活。|
 
-#### isAccountAdditionDisabled
+### getAccountsBlockListAllowingAddition
 
-Supported Devices  
+**Supported Devices**
+
+|Device Type|OS Version|
+|:----------|:-------------------------|
+|手机、平板|EMUI 11.0或HarmonyOS 2.0及以上|
+
+|Method|
+|:-------------------------------------------------------------------------------------------------|
+|public ArrayList<String> getAccountsBlockListAllowingAddition(ComponentName admin) 获取允许添加账户设置的黑名单。|
+
+**Parameters**
+
+|Name|Description|
+|:----|:----------------------------------------------|
+|admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
+
+**Return**
+
+|Type|Description|
+|:----------------|:--------------|
+|ArrayList<String>|允许添加账户设置的黑名单列表。|
+
+**Throws**
+
+|Name|Description|
+|:----------------|:------------|
+|SecurityException|此APK未经设备管理激活。|
+
+### getAccountsBlackListAllowingAddition
+
+**Supported Devices**
+
+|Device Type|OS Version|
+|:----------|:-----------------|
+|手机、平板|EMUI 8.0~EMUI 10.1|
+
+|Method|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public ArrayList<String> getAccountsBlackListAllowingAddition (ComponentName admin) EMUI 11.0.0该方法废弃，请使用[getAccountsBlockListAllowingAddition](#section1528584516278)。 获取允许添加账户设置的黑名单。|
+
+**Parameters**
+
+|Name|Description|
+|:----|:----------------------------------------------|
+|admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
+
+**Return**
+
+|Type|Description|
+|:----------------|:--------------|
+|ArrayList<String>|允许添加账户设置的黑名单列表。|
+
+**Throws**
+
+|Name|Description|
+|:----------------|:------------|
+|SecurityException|此APK未经设备管理激活。|
+
+### isAccountAdditionDisabled
+
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -631,38 +631,38 @@ Supported Devices
 |:------------------------------------------------------------------------------------------------------------------|
 |public boolean isAccountAdditionDisabled(ComponentName admin, String emailAddress) 查询邮箱地址为emailAddress的帐户添加功能是否被禁用。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:---------------------------------------------|
 |admin|调用接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
 |emailAddress|邮箱地址。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:------------------------------------------------------------|
 |boolean|* true：emailAdress账户的添加功能被禁止。 * false：emailAdress账户的添加功能未被禁止。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:------------|
 |SecurityException|此APK未经设备管理激活。|
 
-#### setExceptionListForAccountDeletion
+### setExceptionListForAccountDeletion
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
 |手机、平板|EMUI 8.0及以上或HarmonyOS 2.0及以上|
 
 |Method|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public boolean setExceptionListForAccountDeletion(ComponentName admin, boolean isDisabled, ArrayList\<String\> list) 允许/禁止删除账户，设置例外名单。当禁止删除账户，设置白名单，白名单里账户可以删除；当允许删除账户，设置黑名单，黑名单里账户不允许删除。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public boolean setExceptionListForAccountDeletion(ComponentName admin, boolean isDisabled, ArrayList<String> list) 允许/禁止删除账户，设置例外名单。当禁止删除账户，设置白名单，白名单里账户可以删除；当允许删除账户，设置黑名单，黑名单里账户不允许删除。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:-----------------------------|
@@ -670,141 +670,141 @@ Parameters
 |isDisabled|* true：禁止删除账户。 * false：允许删除账户。|
 |list|允许/禁止删除账户，要设置的例外名单列表。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:-------------------------|
 |boolean|* true：配置成功。 * false：配置失败。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:--------------------------------------------------------|
 |SecurityException|* 此APK未经设备管理激活。 * 无com.huawei.permission.sec.MDM_EMAIL权限。|
 
-#### getAccountsTrustListDisablingDeletion
+### getAccountsTrustListDisablingDeletion
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:-------------------------|
 |手机、平板|EMUI 11.0或HarmonyOS 2.0及以上|
 
 |Method|
-|:---------------------------------------------------------------------------------------------------|
-|public ArrayList\<String\> getAccountsTrustListDisablingDeletion(ComponentName admin) 获取禁止删除账户设置白名单。|
+|:-------------------------------------------------------------------------------------------------|
+|public ArrayList<String> getAccountsTrustListDisablingDeletion(ComponentName admin) 获取禁止删除账户设置白名单。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------------------------------------------|
 |admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:------------------|:--------------|
-|ArrayList\<String\>|禁止删除账户设置的白名单列表。|
+|:----------------|:--------------|
+|ArrayList<String>|禁止删除账户设置的白名单列表。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:------------|
 |SecurityException|此APK未经设备管理激活。|
 
-#### getAccountsWhiteListDisablingDeletion
+### getAccountsWhiteListDisablingDeletion
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
-|:----------|:------------------|
-|手机、平板|EMUI 8.0\~EMUI 10.1|
+|:----------|:-----------------|
+|手机、平板|EMUI 8.0~EMUI 10.1|
 
 |Method|
-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public ArrayList\<String\> getAccountsWhiteListDisablingDeletion(ComponentName admin) EMUI 11.0.0该方法废弃，请使用[getAccountsTrustListDisablingDeletion](#section53076631513)。 获取禁止删除账户设置白名单。|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public ArrayList<String> getAccountsWhiteListDisablingDeletion(ComponentName admin) EMUI 11.0.0该方法废弃，请使用[getAccountsTrustListDisablingDeletion](#section53076631513)。 获取禁止删除账户设置白名单。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------------------------------------------|
 |admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:------------------|:--------------|
-|ArrayList\<String\>|禁止删除账户设置的白名单列表。|
+|:----------------|:--------------|
+|ArrayList<String>|禁止删除账户设置的白名单列表。|
 
-Throws  
+**Throws**
 
 |-----------------|-------------|
 |Name|Description|
 |SecurityException|此APK未经设备管理激活。|
 
-#### getAccountsBlockListAllowingDeletion
+### getAccountsBlockListAllowingDeletion
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:-------------------------|
 |手机、平板|EMUI 11.0或HarmonyOS 2.0及以上|
 
 |Method|
-|:---------------------------------------------------------------------------------------------------|
-|public ArrayList\<String\> getAccountsBlockListAllowingDeletion(ComponentName admin) 获取允许删除账户设置的黑名单。|
+|:-------------------------------------------------------------------------------------------------|
+|public ArrayList<String> getAccountsBlockListAllowingDeletion(ComponentName admin) 获取允许删除账户设置的黑名单。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------------------------------------------|
 |admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:------------------|:--------------|
-|ArrayList\<String\>|允许删除账户设置的黑名单列表。|
+|:----------------|:--------------|
+|ArrayList<String>|允许删除账户设置的黑名单列表。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:------------|
 |SecurityException|此APK未经设备管理激活。|
 
-#### getAccountsBlackListAllowingDeletion
+### getAccountsBlackListAllowingDeletion
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
-|:----------|:------------------|
-|手机、平板|EMUI 8.0\~EMUI 10.1|
+|:----------|:-----------------|
+|手机、平板|EMUI 8.0~EMUI 10.1|
 
 |Method|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public ArrayList\<String\> getAccountsBlackListAllowingDeletion(ComponentName admin) EMUI 11.0.0该方法废弃，请使用[getAccountsBlockListAllowingDeletion](#section20418122974318)。 获取允许删除账户设置的黑名单。|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public ArrayList<String> getAccountsBlackListAllowingDeletion(ComponentName admin) EMUI 11.0.0该方法废弃，请使用[getAccountsBlockListAllowingDeletion](#section20418122974318)。 获取允许删除账户设置的黑名单。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------------------------------------------|
 |admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
 
-Return  
+**Return**
 
 |Type|Description|
-|:------------------|:--------------|
-|ArrayList\<String\>|允许删除账户设置的黑名单列表。|
+|:----------------|:--------------|
+|ArrayList<String>|允许删除账户设置的黑名单列表。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:------------|
 |SecurityException|此APK未经设备管理激活。|
 
-#### isAccountDeletionDisabled(ComponentName admin, String emailAddress)
+### isAccountDeletionDisabled(ComponentName admin, String emailAddress)
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -814,28 +814,28 @@ Supported Devices
 |:-------------------------------------------------------------------------------------------------------------------|
 |public boolean isAccountDeletionDisabled(ComponentName admin, String emailAddress) 查询邮箱地址为emailAddress的帐户删除功能是否已被禁用。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:----------------------------------------------|
 |admin|调用该接口的组件名称，查询该应用配置的策略；参数为null时，获取所有应用设置的综合策略结果。|
 |emailAddress|邮箱地址。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:--------------------------------------------------------------|
 |boolean|* true：emailAddress账户的删除功能被禁止。 * false：emailAddress账户的删除功能未被禁止。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:----------------|:------------|
 |SecurityException|此APK未经设备管理激活。|
 
-#### isAccountAddedByMDM
+### isAccountAddedByMDM
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -845,7 +845,7 @@ Supported Devices
 |:--------------------------------------------------------------------------------------------------------|
 |public boolean isAccountAddedByMDM(Context context, String emailAddress, int userId) 查询电子邮箱地址是否通过MDM应用添加。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:----------|
@@ -853,15 +853,15 @@ Parameters
 |emailAddress|邮箱地址。|
 |userId|用户ID。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:----------------------------------|
 |boolean|* true：是通过MDM添加。 * false：不是通过MDM添加。|
 
-#### setForceSMIMECertificateAlias
+### setForceSMIMECertificateAlias
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -871,7 +871,7 @@ Supported Devices
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public boolean setForceSMIMECertificateAlias(ComponentName admin, String emailAddress, String alias, int type) 设置电子邮箱证书别名。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:--------------------------|
@@ -880,22 +880,22 @@ Parameters
 |alias|证书别名。|
 |type|证书类别。 * 1 ：签名证书。 * 2 ：加密证书。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:-------------------------|
 |boolean|* true：设置成功。 * false：设置失败。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:-----------------------|:-----------------------------------------------------------------------|
 |SecurityException|* 此APK未经设备管理激活。 * 无com.huawei.permission.sec.MDM_EMAIL权限。 * 此APK不属于当前用户。|
 |IllegalArgumentException|参数admin为null时。|
 
-#### isForceSMIMECertificateAlias
+### isForceSMIMECertificateAlias
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -905,7 +905,7 @@ Supported Devices
 |:--------------------------------------------------------------------------------------------------------------------------|
 |public boolean isForceSMIMECertificateAlias(Context context, String emailAddress, String alias, int type) 查询是否对电子邮箱证书指定的别名。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:---------------------|
@@ -914,15 +914,15 @@ Parameters
 |alias|证书别名。|
 |type|证书类别 1 ：签名证书。 2 ：加密证书。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:---------------------------------|
 |boolean|* true：设置了指定的别名。 * false：未设置指定的别名。|
 
-#### setForceSMIMEMessages
+### setForceSMIMEMessages
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -932,7 +932,7 @@ Supported Devices
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public boolean setForceSMIMEMessages(ComponentName admin, String emailAddress, boolean isForced, int type) 设置对指定邮箱进行签名或者加密。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:--------------------------|
@@ -941,22 +941,22 @@ Parameters
 |isForced|* true：开启。 * false：关闭。|
 |type|证书类别。 * 1 ：签名证书。 * 2 ：加密证书。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:-------------------------|
 |boolean|* true：设置成功。 * false：设置失败。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:-----------------------|:-----------------------------------------------------------------------|
 |SecurityException|* 此APK未经设备管理激活。 * 无com.huawei.permission.sec.MDM_EMAIL权限。 * 此APK不属于当前用户。|
 |IllegalArgumentException|参数admin为null时。|
 
-#### isForceSMIMEMessages
+### isForceSMIMEMessages
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -966,7 +966,7 @@ Supported Devices
 |:------------------------------------------------------------------------------------------------------|
 |public boolean isForceSMIMEMessages(Context context, String emailAddress, int type) 查询是否对指定邮箱设置了签名或者加密。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:--------------------------|
@@ -974,15 +974,15 @@ Parameters
 |emailAddress|邮箱地址。|
 |type|证书类别。 * 1 ：签名证书。 * 2 ：加密证书。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:-----------------------|
 |boolean|* true：已设置。 * false：未设置。|
 
-#### setForceRequiredSMIMEAndCertificateAlias
+### setForceRequiredSMIMEAndCertificateAlias
 
-Supported Devices  
+**Supported Devices**
 
 |Device Type|OS Version|
 |:----------|:---------------------------|
@@ -992,7 +992,7 @@ Supported Devices
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public boolean setForceRequiredSMIMEAndCertificateAlias(ComponentName admin, String emailAddress, String alias, boolean isForced, int type) 对邮箱设置SMIME证书别名并且强制打开SMIME。 注意：需要申请com.huawei.permission.sec.MDM_EMAIL权限。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:------------------------------------|
@@ -1002,13 +1002,13 @@ Parameters
 |isForced|* true：强制打开SMIME。 * false：不强制打开SMIME。|
 |type|证书类别。 * 1 ：签名证书。 * 2 ：加密证书。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:-------------------------|
 |boolean|* true：设置成功。 * false：设置失败。|
 
-Throws  
+**Throws**
 
 |Name|Description|
 |:-----------------------|:-----------------------------------------------------------------------|

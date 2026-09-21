@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/mapnavrouti
 |:------------------------------------------|
 |public enum MapNaviRoutingTip 路线规划成功后的提示类型。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum Value and Description|
 |:-------------------------------|

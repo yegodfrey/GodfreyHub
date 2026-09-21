@@ -6,35 +6,38 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i
 
 # @ohos.intl (国际化-Intl)
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 本模块提供基础的应用国际化能力，包括时间日期格式化、数字格式化、排序等，相关接口在ECMA 402标准中定义。
 
-[国际化-I18n](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i18n)提供其他非ECMA 402定义的国际化接口，与本模块共同使用可提供完整的国际化支持能力。  
-![](https://media:401788444971369270)  
-* 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+[国际化-I18n](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i18n)提供其他非ECMA 402定义的国际化接口，与本模块共同使用可提供完整的国际化支持能力。
+> 说明
+>
+> * 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> * 本模块接口基于[CLDR](https://cldr.unicode.org)国际化数据库实现，随着CLDR标准的迭代演进，接口处理结果可能会相应调整。例如数字格式化接口，其返回值仅适用于界面展示场景，开发者请勿对返回格式进行硬编码或假设性判断，否则可能导致版本兼容问题。其中，API version 12 对应[CLDR 42](https://cldr.unicode.org/downloads/cldr-42)版本，具体数据变更详情可查阅[CLDR官方文档](https://cldr.unicode.org/)。
+>
+> * 从API version 11开始，本模块部分接口支持在ArkTS卡片中使用。
+>
+> * 从API version 12开始，本模块全接口支持在元服务中使用。
 
-* 本模块接口基于[CLDR](https://cldr.unicode.org)国际化数据库实现，随着CLDR标准的迭代演进，接口处理结果可能会相应调整。例如数字格式化接口，其返回值仅适用于界面展示场景，开发者请勿对返回格式进行硬编码或假设性判断，否则可能导致版本兼容问题。其中，API version 12 对应[CLDR 42](https://cldr.unicode.org/downloads/cldr-42)版本，具体数据变更详情可查阅[CLDR官方文档](https://cldr.unicode.org/)。
+## 导入模块
 
-* 从API version 11开始，本模块部分接口支持在ArkTS卡片中使用。
-
-* 从API version 12开始，本模块全接口支持在元服务中使用。
-
-#### 导入模块
-
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 ```
 
-#### Locale^(deprecated)^
+## Locale^(deprecated)^
 
-#### 属性
+### 属性
 
 从API version 6开始支持，从API version 20开始废弃，建议使用[Intl.Locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)替代。
 
-卡片能力：从API version 11开始，该接口支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该接口支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
 |名称|类型|只读|可选|说明|
 |:--------------|:------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,7 +52,7 @@ import { intl } from '@kit.LocalizationKit';
 |numberingSystem|string|否|否|区域使用的数字系统，取值包括： "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks", "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp", "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl", "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng", "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund", "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", "wcho"。|
 |numeric|boolean|否|否|true表示对数字字符进行特殊的排序规则处理（把数字字符作为数值进行排序），false表示不对数字字符进行特殊的排序规则处理。 默认值：false。|
 
-#### constructor^(deprecated)^
+### constructor^(deprecated)^
 
 constructor()
 
@@ -57,15 +60,15 @@ constructor()
 
 创建区域对象。
 
-卡片能力：从API version 11开始，该接口支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该接口支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 默认构造函数使用系统当前区域ID创建
@@ -74,7 +77,7 @@ let locale = new intl.Locale();
 let localeID = locale.toString();
 ```
 
-#### constructor^(deprecated)^
+### constructor^(deprecated)^
 
 constructor(locale: string, options?: LocaleOptions)
 
@@ -82,22 +85,22 @@ constructor(locale: string, options?: LocaleOptions)
 
 创建区域对象。
 
-卡片能力：从API version 11开始，该接口支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该接口支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------------------------------|:-|:------------------------------|
 |locale|string|是|表示区域ID的字符串，由语言、脚本、国家地区组成。|
 |options|[LocaleOptions](#localeoptionsdeprecated)|否|创建区域对象的配置项。 默认值：所有属性都取默认值时的配置项。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 创建zh-CN区域对象
@@ -105,7 +108,7 @@ let locale = new intl.Locale('zh-CN');
 let localeID = locale.toString(); // localeID = 'zh-CN'
 ```
 
-#### toString^(deprecated)^
+### toString^(deprecated)^
 
 toString(): string
 
@@ -113,21 +116,21 @@ toString(): string
 
 获取区域对象的字符串。
 
-卡片能力：从API version 11开始，该接口支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该接口支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:--------|
 |string|区域对象的字符串。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 创建en-GB区域对象
@@ -135,7 +138,7 @@ let locale = new intl.Locale('en-GB');
 let localeID = locale.toString(); // localeID = 'en-GB'
 ```
 
-#### maximize^(deprecated)^
+### maximize^(deprecated)^
 
 maximize(): Locale
 
@@ -143,21 +146,21 @@ maximize(): Locale
 
 最大化区域信息，补齐区域对象中缺少的脚本、国家地区信息。
 
-卡片能力：从API version 11开始，该接口支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该接口支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------|:------------------|
 |[Locale](#localedeprecated)|补齐完脚本、国家地区信息后的区域对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 创建zh区域对象
@@ -173,7 +176,7 @@ maximizedLocale = locale.maximize();
 localeID = maximizedLocale.toString(); // localeID = 'en-Latn-US'
 ```
 
-#### minimize^(deprecated)^
+### minimize^(deprecated)^
 
 minimize(): Locale
 
@@ -181,21 +184,21 @@ minimize(): Locale
 
 最小化区域信息，移除区域对象中的脚本、国家地区信息。
 
-卡片能力：从API version 11开始，该接口支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该接口支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------|:------------------|
 |[Locale](#localedeprecated)|移除完脚本、国家地区信息后的区域对象。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 创建zh-Hans-CN区域对象
@@ -211,17 +214,17 @@ minimizedLocale = locale.minimize();
 localeID = minimizedLocale.toString(); // localeID = 'en'
 ```
 
-#### LocaleOptions^(deprecated)^
+## LocaleOptions^(deprecated)^
 
 从API version 6开始支持，从API version 20开始废弃，以calendar为例，建议使用[Intl.LocaleOptions.calendar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar)替代。
 
 区域初始化配置项。从API version 9开始，LocaleOptions属性由必填改为可选。
 
-卡片能力：从API version 11开始，该类型支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该类型支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
 |名称|类型|只读|可选|说明|
 |:--------------|:------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -232,20 +235,21 @@ localeID = minimizedLocale.toString(); // localeID = 'en'
 |numeric|boolean|否|是|true表示将数字字符视为数字进行排序处理，false表示将数字字符视为普通字符进行排序处理。例如设置为true时，字符串"21"和字符串"123"比较，相当于数字21和123比较。默认值：false。|
 |caseFirst|string|否|是|区域的排序规则是否考虑大小写，取值包括： "upper"：大写排前面。 "lower"：小写排前面。 "false"：使用区域默认的大小写排序规则。|
 
-![](https://media:401788444971396271)  
-* calendar：不同取值的含义请参考[设置日历和历法表1](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/i18n-calendar)。  
+> 说明
+>
+> * calendar：不同取值的含义请参考[设置日历和历法表1](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/i18n-calendar)。
 
-#### DateTimeFormat^(deprecated)^
+## DateTimeFormat^(deprecated)^
 
 从API version 6开始支持，从API version 20开始废弃，建议使用[Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)替代。
 
 提供日期格式化的能力。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
-#### constructor^(deprecated)^
+### constructor^(deprecated)^
 
 constructor()
 
@@ -253,45 +257,45 @@ constructor()
 
 创建时间日期格式化对象。
 
-卡片能力：从API version 11开始，该接口支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该接口支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用系统当前区域ID创建DateTimeFormat对象
 let formatter: intl.DateTimeFormat = new intl.DateTimeFormat();
 ```
 
-#### constructor^(deprecated)^
+### constructor^(deprecated)^
 
-constructor(locale: string \| Array\<string\>, options?: DateTimeOptions)
+constructor(locale: string | Array<string>, options?: DateTimeOptions)
 
 从API version 6开始支持，从API version 20开始废弃，建议使用[Intl.DateTimeFormat.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat)替代。
 
 创建时间日期格式化对象。
 
-卡片能力：从API version 11开始，该接口支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该接口支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------------------------|:-|:----------------------------------------------------------------------------------|
-|locale|string \| Array\<string\>|是|区域ID或区域ID数组。输入是区域ID数组时，使用第一个有效的区域ID。|
+|locale|string | Array<string>|是|区域ID或区域ID数组。输入是区域ID数组时，使用第一个有效的区域ID。|
 |options|[DateTimeOptions](#datetimeoptionsdeprecated)|否|创建时间日期格式化对象时可设置的配置项。 若所有选项均未设置时，year、month、day三个属性的默认值为numeric。 默认值：所有属性都取默认值时的配置项。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用zh-CN区域ID创建DateTimeFormat对象，日期风格为full，时间风格为medium
@@ -301,7 +305,7 @@ let formatter: intl.DateTimeFormat = new intl.DateTimeFormat('zh-CN', { dateStyl
 formatter = new intl.DateTimeFormat(['ban', 'zh'], { dateStyle: 'full', timeStyle: 'medium' });
 ```
 
-#### format^(deprecated)^
+### format^(deprecated)^
 
 format(date: Date): string
 
@@ -309,27 +313,27 @@ format(date: Date): string
 
 对时间日期进行格式化，返回格式化后的时间日期字符串。
 
-卡片能力：从API version 11开始，该接口支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该接口支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:---|:---|:-|:------------------------|
-|date|Date|是|时间日期。 说明： 月份从0开始计数，0表示一月。|
+|:---|:---|:-|:----------------------------|
+|date|Date|是|时间日期。 **说明：** 月份从0开始计数，0表示一月。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:------------|
 |string|格式化后的时间日期字符串。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 let date: Date = new Date(2021, 11, 17, 3, 24, 0); // 时间日期为2021.12.17 03:24:00
@@ -342,7 +346,7 @@ formatter = new intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'me
 formattedDate = formatter.format(date); // formattedDate "Friday, 17 December 2021, 03:24:00"
 ```
 
-#### formatRange^(deprecated)^
+### formatRange^(deprecated)^
 
 formatRange(startDate: Date, endDate: Date): string
 
@@ -350,28 +354,28 @@ formatRange(startDate: Date, endDate: Date): string
 
 对时间日期段进行格式化，返回格式化后的时间日期段字符串。
 
-卡片能力：从API version 11开始，该接口支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该接口支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:--------|:---|:-|:---------------------------|
-|startDate|Date|是|时间日期的开始。 说明： 月份从0开始计数，0表示一月。|
-|endDate|Date|是|时间日期的结束。 说明： 月份从0开始计数，0表示一月。|
+|:--------|:---|:-|:-------------------------------|
+|startDate|Date|是|时间日期的开始。 **说明：** 月份从0开始计数，0表示一月。|
+|endDate|Date|是|时间日期的结束。 **说明：** 月份从0开始计数，0表示一月。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:-------------|
 |string|格式化后的时间日期段字符串。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 let startDate: Date = new Date(2021, 11, 17, 3, 24, 0); // 时间日期为2021.12.17 03:24:00
@@ -381,7 +385,7 @@ let formatter: intl.DateTimeFormat = new intl.DateTimeFormat('en-GB');
 let formattedDateRange: string = formatter.formatRange(startDate, endDate); // formattedDateRange = '17/12/2021 - 18/12/2021'
 ```
 
-#### resolvedOptions^(deprecated)^
+### resolvedOptions^(deprecated)^
 
 resolvedOptions(): DateTimeOptions
 
@@ -389,21 +393,21 @@ resolvedOptions(): DateTimeOptions
 
 获取创建时间日期格式化对象时设置的配置项。
 
-卡片能力：从API version 11开始，该接口支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该接口支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------------------|:---------------|
 |[DateTimeOptions](#datetimeoptionsdeprecated)|时间日期格式化对象设置的配置项。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 let formatter: intl.DateTimeFormat = new intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'medium' });
@@ -413,17 +417,17 @@ let dateStyle: string | undefined = options.dateStyle; // dateStyle = 'full'
 let timeStyle: string | undefined = options.timeStyle; // timeStyle = 'medium'
 ```
 
-#### DateTimeOptions^(deprecated)^
+## DateTimeOptions^(deprecated)^
 
 从API version 6开始支持，从API version 20开始废弃，建议使用Intl.DateTimeFormatOptions和Intl.ResolvedDateTimeFormatOptions替代。用法参考[Intl.DateTimeFormat.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat)和[Intl.DateTimeFormat.resolvedOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions)。
 
 时间日期格式化时可设置的配置项。从API version 9开始，DateTimeOptions的属性由必填改为可选。
 
-卡片能力：从API version 11开始，该类型支持在ArkTS卡片中使用。
+**卡片能力**：从API version 11开始，该类型支持在ArkTS卡片中使用。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
 |名称|类型|只读|可选|说明|
 |:--------------|:------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -447,84 +451,84 @@ let timeStyle: string | undefined = options.timeStyle; // timeStyle = 'medium'
 |localeMatcher|string|否|是|要使用的区域匹配算法，取值包括： "lookup"：精确匹配。 "best fit"：最佳匹配。|
 |formatMatcher|string|否|是|要使用的格式匹配算法，取值包括： "basic"：精确匹配。 "best fit"：最佳匹配。|
 
-#### NumberFormat
+## NumberFormat
 
 提供标准的数字格式化的能力。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
-#### constructor^8+^
+### constructor^8+^
 
 constructor()
 
 使用当前系统区域创建数字格式化对象。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用系统当前区域ID创建NumberFormat对象
 let formatter: intl.NumberFormat = new intl.NumberFormat();
 ```
 
-#### constructor
+### constructor
 
-constructor(locale: string \| Array\<string\>, options?: NumberOptions)
+constructor(locale: string | Array<string>, options?: NumberOptions)
 
 根据指定的区域和配置项创建数字格式化对象。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:------------------------------|:-|:-------------------------------------|
-|locale|string \| Array\<string\>|是|区域ID或区域ID数组。输入是区域ID数组时，使用第一个有效的区域ID。|
+|locale|string | Array<string>|是|区域ID或区域ID数组。输入是区域ID数组时，使用第一个有效的区域ID。|
 |options|[NumberOptions](#numberoptions)|否|创建数字格式化对象时可设置的配置项。 默认值：所有属性都取默认值时的配置项。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用en-GB区域ID创建NumberFormat对象，style设置为decimal，notation设置为scientific
 let formatter: intl.NumberFormat = new intl.NumberFormat('en-GB', { style: 'decimal', notation: 'scientific' });
 ```
 
-#### format
+### format
 
 format(num: number): string
 
 对数字进行格式化，返回格式化后的数字字符串。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--|:-----|:-|:----|
 |num|number|是|数字对象。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:----------|
 |string|格式化后的数字字符串。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用区域ID列表创建NumberFormat对象，因为en-GB为合法的区域ID，因此使用en-GB创建NumberFormat对象
@@ -539,57 +543,57 @@ formatter = new intl.NumberFormat('en', options);
 let result: string = formatter.format(1.23456); // result = 1.23
 ```
 
-#### formatRange^18+^
+### formatRange^18+^
 
 formatRange(startRange: number, endRange: number): string
 
 对数字范围进行格式化，返回格式化后的数字范围字符串。
 
-元服务API：从API version 18开始，该接口支持在元服务中使用。
+**元服务API**：从API version 18开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---------|:-----|:-|:--------|
 |startRange|number|是|数字范围的起始值。|
 |endRange|number|是|数字范围的终止值。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:------------|
 |string|格式化后的数字范围字符串。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 let formatter: intl.NumberFormat = new intl.NumberFormat('en-US', { style: 'unit', unit: 'meter' });
-let formattedRange: string = formatter.formatRange(0, 3); // formattedRange: 0–3 m
+let formattedRange: string = formatter.formatRange(0, 3); // formattedRange: 0--3 m
 ```
 
-#### resolvedOptions
+### resolvedOptions
 
 resolvedOptions(): NumberOptions
 
 获取创建数字格式化对象时设置的配置项。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:------------------------------|:----------------|
 |[NumberOptions](#numberoptions)|创建数字格式化对象时设置的配置项。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 let formatter: intl.NumberFormat = new intl.NumberFormat(['en-GB', 'zh'], { style: 'decimal', notation: 'scientific' });
@@ -599,116 +603,116 @@ let style: string | undefined = options.style; // style = 'decimal'
 let notation: string | undefined = options.notation; // notation = 'scientific'
 ```
 
-#### NumberOptions
+## NumberOptions
 
 创建数字格式化对象时可设置的配置项。从API version 9开始，NumberOptions的属性由必填改为可选。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
 |名称|类型|只读|可选|说明|
-|:-----------------------|:------|:-|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|locale|string|否|是|合法的区域ID， 如："zh-Hans-CN"。 默认值：系统当前区域ID。 元服务API：从API version 12开始，该接口支持在元服务中使用。|
-|currency|string|否|是|货币单位（需设置style为currency）， 取值符合[ISO-4217标准](https://www.iso.org/iso-4217-currency-codes.html)，如："EUR"，"CNY"，"USD"等。 从API version 12开始支持三位数字代码，如："978"，"156"，"840"等。 元服务API：从API version 12开始，该接口支持在元服务中使用。|
-|currencySign|string|否|是|货币单位的符号显示（需设置style为currency），取值包括： "standard"，"accounting"。 默认值：standard。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表19](#附录)。|
-|currencyDisplay|string|否|是|货币的显示方式（需设置style为currency），取值包括："symbol", "narrowSymbol", "code", "name"。 默认值：symbol。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表20](#附录)。|
-|unit|string|否|是|单位名称（需设置style为unit），如："meter"，"inch"，"hectare"等。 从API version 18开始新增支持的组合单位有： "beat-per-minute", "body-weight-per-second", "breath-per-minute", "foot-per-hour", "jump-rope-per-minute", "meter-per-hour", "milliliter-per-minute-per-kilogram", "rotation-per-minute", "step-per-minute", "stroke-per-minute"。 元服务API：从API version 12开始，该接口支持在元服务中使用。|
-|unitDisplay|string|否|是|单位的显示格式（需设置style为unit），取值包括："long", "short", "narrow"。 默认值：short。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表21](#附录)。|
-|unitUsage^8+^|string|否|是|单位的使用场景（需设置style为unit），取值包括："default", "area-land-agricult", "area-land-commercl", "area-land-residntl", "length-person", "length-person-small", "length-rainfall", "length-road", "length-road-small", "length-snowfall", "length-vehicle", "length-visiblty", "length-visiblty-small", "length-person-informal", "length-person-small-informal", "length-road-informal", "speed-road-travel", "speed-wind", "temperature-person", "temperature-weather", "volume-vehicle-fuel", "elapsed-time-second", "size-file-byte", "size-shortfile-byte"。 默认值：default。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表22](#附录)。|
-|signDisplay|string|否|是|数字符号的显示格式，取值包括： "auto"：自动判断是否显示正负符号。 "never"：不显示正负号。 "always"：总是显示正负号。 "exceptZero"：除了0都显示正负号。 默认值："auto"。 元服务API：从API version 12开始，该接口支持在元服务中使用。|
-|compactDisplay|string|否|是|紧凑显示格式，取值包括："long", "short"。 默认值：short。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表18](#附录)。|
-|notation|string|否|是|数字的表示方法，取值包括："standard", "scientific", "engineering", "compact"。 默认值：standard。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表17](#附录)。|
-|localeMatcher|string|否|是|要使用的区域匹配算法，取值包括："lookup", "best fit"。 默认值：best fit。 元服务API：从API version 12开始，该接口支持在元服务中使用。|
-|style|string|否|是|数字的显示格式，取值包括："decimal", "currency", "percent", "unit"。 默认值：decimal。 元服务API：从API version 12开始，该接口支持在元服务中使用。|
-|numberingSystem|string|否|是|数字系统，取值包括： "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks", "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp", "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl", "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng", "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund", "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", "wcho"。 默认值：区域的默认数字系统。 元服务API：从API version 12开始，该接口支持在元服务中使用。|
-|useGrouping|boolean|否|是|true表示分组显示，false表示不分组显示。 默认值：true。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表16](#附录)。|
-|minimumIntegerDigits|number|否|是|表示要使用的最小整数位数，取值范围：\[1, 21\]。 默认值：1。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表11](#附录)。|
-|minimumFractionDigits|number|否|是|表示要使用的最小分数位数，取值范围：\[0, 20\]。 默认值：0。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表12](#附录)。|
-|maximumFractionDigits|number|否|是|表示要使用的最大分数位数，取值范围：\[1, 21\]。 默认值：3。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表13](#附录)。|
-|minimumSignificantDigits|number|否|是|表示要使用的最小有效位数，取值范围：\[1, 21\]。 默认值：1。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表14](#附录)。|
-|maximumSignificantDigits|number|否|是|表示要使用的最大有效位数，取值范围：\[1, 21\]。 默认值：21。 元服务API：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表15](#附录)。|
-|roundingPriority^18+^|string|否|是|最大分数位数和最大有效位数同时设置时的舍入优先级，取值包括："auto" 选择区域默认的最大分数位数或最大有效位数，"morePrecision" 取最大分数位数，"lessPrecision" 取最大有效位数。 默认值：auto。 元服务API：从API version 18开始，该接口支持在元服务中使用。|
-|roundingIncrement^18+^|number|否|是|表示舍入增量，取值范围：1，2，5，10，20，25，50，100，200，250，500，1000，2000，2500，5000。 默认值：1。 元服务API：从API version 18开始，该接口支持在元服务中使用。|
-|roundingMode^18+^|string|否|是|表示舍入模式，取值包括： "ceil"：向上取整。 "floor"：向下取整。 "expand"：远离零取整。 "trunc"：向零取整。 "halfCeil"：半向上取整，大于等于增量的一半时向上取整，小于增量的一半时向下取整。 "halfFloor"：半向下取整，大于增量的一半时向上取整，小于等于增量的一半时向下取整。 "halfExpand"：半远离零取整，大于等于增量的一半时远离零取整，小于增量的一半时向零取整。 "halfTrunc"：半向零取整，大于增量的一半时远离零取整，小于等于增量的一半时向零取整。 "halfEven"：半向偶数取整，大于增量的一半时 远离零取整，小于增量的一半时向零取整，等于增量的一半时向最近的偶数位舍入。 默认值：halfExpand。 元服务API：从API version 18开始，该接口支持在元服务中使用。|
+|:-----------------------|:------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|locale|string|否|是|合法的区域ID， 如："zh-Hans-CN"。 默认值：系统当前区域ID。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。|
+|currency|string|否|是|货币单位（需设置style为currency）， 取值符合[ISO-4217标准](https://www.iso.org/iso-4217-currency-codes.html)，如："EUR"，"CNY"，"USD"等。 从API version 12开始支持三位数字代码，如："978"，"156"，"840"等。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。|
+|currencySign|string|否|是|货币单位的符号显示（需设置style为currency），取值包括： "standard"，"accounting"。 默认值：standard。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表19](#附录)。|
+|currencyDisplay|string|否|是|货币的显示方式（需设置style为currency），取值包括："symbol", "narrowSymbol", "code", "name"。 默认值：symbol。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表20](#附录)。|
+|unit|string|否|是|单位名称（需设置style为unit），如："meter"，"inch"，"hectare"等。 从API version 18开始新增支持的组合单位有： "beat-per-minute", "body-weight-per-second", "breath-per-minute", "foot-per-hour", "jump-rope-per-minute", "meter-per-hour", "milliliter-per-minute-per-kilogram", "rotation-per-minute", "step-per-minute", "stroke-per-minute"。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。|
+|unitDisplay|string|否|是|单位的显示格式（需设置style为unit），取值包括："long", "short", "narrow"。 默认值：short。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表21](#附录)。|
+|unitUsage^8+^|string|否|是|单位的使用场景（需设置style为unit），取值包括："default", "area-land-agricult", "area-land-commercl", "area-land-residntl", "length-person", "length-person-small", "length-rainfall", "length-road", "length-road-small", "length-snowfall", "length-vehicle", "length-visiblty", "length-visiblty-small", "length-person-informal", "length-person-small-informal", "length-road-informal", "speed-road-travel", "speed-wind", "temperature-person", "temperature-weather", "volume-vehicle-fuel", "elapsed-time-second", "size-file-byte", "size-shortfile-byte"。 默认值：default。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表22](#附录)。|
+|signDisplay|string|否|是|数字符号的显示格式，取值包括： "auto"：自动判断是否显示正负符号。 "never"：不显示正负号。 "always"：总是显示正负号。 "exceptZero"：除了0都显示正负号。 默认值："auto"。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。|
+|compactDisplay|string|否|是|紧凑显示格式，取值包括："long", "short"。 默认值：short。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表18](#附录)。|
+|notation|string|否|是|数字的表示方法，取值包括："standard", "scientific", "engineering", "compact"。 默认值：standard。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表17](#附录)。|
+|localeMatcher|string|否|是|要使用的区域匹配算法，取值包括："lookup", "best fit"。 默认值：best fit。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。|
+|style|string|否|是|数字的显示格式，取值包括："decimal", "currency", "percent", "unit"。 默认值：decimal。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。|
+|numberingSystem|string|否|是|数字系统，取值包括： "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks", "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp", "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl", "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng", "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund", "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", "wcho"。 默认值：区域的默认数字系统。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。|
+|useGrouping|boolean|否|是|true表示分组显示，false表示不分组显示。 默认值：true。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表16](#附录)。|
+|minimumIntegerDigits|number|否|是|表示要使用的最小整数位数，取值范围：[1, 21]。 默认值：1。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表11](#附录)。|
+|minimumFractionDigits|number|否|是|表示要使用的最小分数位数，取值范围：[0, 20]。 默认值：0。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表12](#附录)。|
+|maximumFractionDigits|number|否|是|表示要使用的最大分数位数，取值范围：[1, 21]。 默认值：3。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表13](#附录)。|
+|minimumSignificantDigits|number|否|是|表示要使用的最小有效位数，取值范围：[1, 21]。 默认值：1。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表14](#附录)。|
+|maximumSignificantDigits|number|否|是|表示要使用的最大有效位数，取值范围：[1, 21]。 默认值：21。 **元服务API**：从API version 12开始，该接口支持在元服务中使用。 不同取值的显示效果请参考[附录表15](#附录)。|
+|roundingPriority^18+^|string|否|是|最大分数位数和最大有效位数同时设置时的舍入优先级，取值包括："auto" 选择区域默认的最大分数位数或最大有效位数，"morePrecision" 取最大分数位数，"lessPrecision" 取最大有效位数。 默认值：auto。 **元服务API**：从API version 18开始，该接口支持在元服务中使用。|
+|roundingIncrement^18+^|number|否|是|表示舍入增量，取值范围：1，2，5，10，20，25，50，100，200，250，500，1000，2000，2500，5000。 默认值：1。 **元服务API**：从API version 18开始，该接口支持在元服务中使用。|
+|roundingMode^18+^|string|否|是|表示舍入模式，取值包括： "ceil"：向上取整。 "floor"：向下取整。 "expand"：远离零取整。 "trunc"：向零取整。 "halfCeil"：半向上取整，大于等于增量的一半时向上取整，小于增量的一半时向下取整。 "halfFloor"：半向下取整，大于增量的一半时向上取整，小于等于增量的一半时向下取整。 "halfExpand"：半远离零取整，大于等于增量的一半时远离零取整，小于增量的一半时向零取整。 "halfTrunc"：半向零取整，大于增量的一半时远离零取整，小于等于增量的一半时向零取整。 "halfEven"：半向偶数取整，大于增量的一半时 远离零取整，小于增量的一半时向零取整，等于增量的一半时向最近的偶数位舍入。 默认值：halfExpand。 **元服务API**：从API version 18开始，该接口支持在元服务中使用。|
 
-#### Collator^8+^
+## Collator^8+^
 
 提供字符串排序的能力。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
-#### constructor^8+^
+### constructor^8+^
 
 constructor()
 
 使用当前系统区域创建排序对象。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用系统区域创建Collator对象
 let collator = new intl.Collator();
 ```
 
-#### constructor^8+^
+### constructor^8+^
 
-constructor(locale: string \| Array\<string\>, options?: CollatorOptions)
+constructor(locale: string | Array<string>, options?: CollatorOptions)
 
 根据指定的区域和配置项创建排序对象。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:-----------------------------------|:-|:-----------------------------------|
-|locale|string \| Array\<string\>|是|区域ID或区域ID数组。输入是区域ID数组时，使用第一个有效的区域ID。|
+|locale|string | Array<string>|是|区域ID或区域ID数组。输入是区域ID数组时，使用第一个有效的区域ID。|
 |options|[CollatorOptions](#collatoroptions8)|否|创建排序对象时可设置的配置项。 默认值：所有属性都取默认值时的配置项。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用zh-CN区域ID创建Collator对象，localeMatcher设置为lookup，usage设置为sort
 let collator = new intl.Collator('zh-CN', {localeMatcher: 'lookup', usage: 'sort'});
 ```
 
-#### compare^8+^
+### compare^8+^
 
 compare(first: string, second: string): number
 
 根据配置项的排序规则，比较两个字符串。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-----|:-----|:-|:-----------|
 |first|string|是|进行比较的第一个字符串。|
 |second|string|是|进行比较的第二个字符串。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:-----------------------------------------------------------------------------------------------------|
 |number|比较结果。 - number为负数时，表示first排序在second之前。 - number为0时，表示first与second排序相同。 - number为正数，表示first排序在second之后。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用en-GB区域ID创建Collator对象
@@ -717,25 +721,25 @@ let collator = new intl.Collator('en-GB');
 let compareResult = collator.compare('first', 'second'); // compareResult = -1
 ```
 
-#### resolvedOptions^8+^
+### resolvedOptions^8+^
 
 resolvedOptions(): CollatorOptions
 
 获取创建排序对象时设置的配置项。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----------------------------------|:---------|
 |[CollatorOptions](#collatoroptions8)|返回排序对象的属性。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 let collator = new intl.Collator('zh-Hans', { usage: 'sort', ignorePunctuation: true });
@@ -745,15 +749,15 @@ let usage = options.usage; // usage = 'sort'
 let ignorePunctuation = options.ignorePunctuation; // ignorePunctuation = true
 ```
 
-#### CollatorOptions^8+^
+## CollatorOptions^8+^
 
 创建排序对象时可设置的配置项。
 
 从API version 9开始，CollatorOptions中的属性改为可选。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
 |名称|类型|只读|可选|说明|
 |:----------------|:------|:-|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -762,20 +766,20 @@ let ignorePunctuation = options.ignorePunctuation; // ignorePunctuation = true
 |sensitivity|string|否|是|表示字符串中的哪些差异会导致非零结果值，取值范围： "base"：不同的字母比较不相等，比如：'a' ≠ 'b', 'a' = 'á', 'a' = 'A'。 "accent"：不同的字母或不同读音的相同字母比较不相等，比如'a' ≠ 'b', 'a' ≠ 'á', 'a' = 'A'。 "case"：不同的字母或相同字母大小写比较不相等，比如：'a' ≠ 'b', 'a' = 'á', 'a' ≠ 'A'。 "variant"：不同的字母或读音及其它有区别的标志或大小写都是不相等的，比如：'a' ≠ 'b', 'a' ≠ 'á', 'a' ≠ 'A'。 默认值："variant"。|
 |ignorePunctuation|boolean|否|是|true表示忽略标点符号，false表示考虑标点符号。 默认值：false。|
 |collation|string|否|是|区域的排序规则，取值包括： "big5han"：拉丁字母使用的拼音排序。 "compat"：兼容性排序，仅用于阿拉伯语。 "dict"：词典风格排序，仅用于僧伽罗语。 "direct"：二进制码点排序。 "ducet"：按Unicode排序元素表排序。 "eor"：按欧洲排序规则排序。 "gb2312"：拼音排序，仅用于中文排序。 "phonebk"：电话本风格排序。 "phonetic"：发音排序。 "pinyin"：拼音排序。 "reformed"：瑞典语排序。 "searchjl"：韩语初始辅音搜索的特殊排序。 "stroke"：汉语的笔画排序。 "trad"：传统风格排序，如西班牙语。 "unihan"：统一汉字排序，用于日语、韩语、中文等汉字排序。 "zhuyin"：注音排序，仅用于中文排序。 默认值："default"。|
-|numeric|boolean|否|是|数字排序，取值包括： true：使用数字排序，比如：'1' \< '2' \< '10' \< '11'。 false：不使用数字排序，比如：'1' \< '10' \< '11' \< '2'。 默认值：false。|
+|numeric|boolean|否|是|数字排序，取值包括： true：使用数字排序，比如：'1' < '2' < '10' < '11'。 false：不使用数字排序，比如：'1' < '10' < '11' < '2'。 默认值：false。|
 |caseFirst|string|否|是|区域的排序规则是否考虑大小写，取值包括： "upper"：大写排前面。 "lower"：小写排前面。 "false"：使用区域默认的大小写排序规则。 默认值："false"。|
 
-#### PluralRules^(deprecated)^
+## PluralRules^(deprecated)^
 
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules)替代。
 
 提供获取单复数类型的能力。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
-#### constructor^(deprecated)^
+### constructor^(deprecated)^
 
 constructor()
 
@@ -783,48 +787,48 @@ constructor()
 
 创建单复数对象来计算数字的单复数类别。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用系统区域创建PluralRules对象
 let pluralRules = new intl.PluralRules();
 ```
 
-#### constructor^(deprecated)^
+### constructor^(deprecated)^
 
-constructor(locale: string \| Array\<string\>, options?: PluralRulesOptions)
+constructor(locale: string | Array<string>, options?: PluralRulesOptions)
 
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.PluralRules.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules)替代。
 
 创建单复数对象来计算数字的单复数类别。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------------------------------|:-|:-----------------------------------|
-|locale|string \| Array\<string\>|是|区域ID或区域ID数组。输入是区域ID数组时，使用第一个有效的区域ID。|
+|locale|string | Array<string>|是|区域ID或区域ID数组。输入是区域ID数组时，使用第一个有效的区域ID。|
 |options|[PluralRulesOptions](#pluralrulesoptionsdeprecated)|否|创建单复数对象时设置的配置项。 默认值：所有属性都取默认值时的配置项。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用zh-CN区域ID创建PluralRules对象，localeMatcher设置为lookup，type设置为cardinal
 let pluralRules: intl.PluralRules = new intl.PluralRules('zh-CN', { localeMatcher: 'lookup', type: 'cardinal' });
 ```
 
-#### select^(deprecated)^
+### select^(deprecated)^
 
 select(n: number): string
 
@@ -832,25 +836,25 @@ select(n: number): string
 
 获取数字的单复数类别。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--|:-----|:-|:-----------|
 |n|number|是|待获取单复数类别的数字。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |string|单复数类别，取值包括："zero"，"one"，"two", "few", "many", "other"。 不同取值的含义请参考[语言单复数规则](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html)。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用zh-Hans区域ID创建PluralRules对象
@@ -864,37 +868,37 @@ let enPluralRules = new intl.PluralRules('en-US');
 plural = enPluralRules.select(1); // plural = 'one'
 ```
 
-#### PluralRulesOptions^(deprecated)^
+## PluralRulesOptions^(deprecated)^
 
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.PluralRulesOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules)替代。
 
 创建单复数对象时可设置的配置项。从API version 9开始，PluralRulesOptions的属性由必填改为可选。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
 |名称|类型|只读|可选|说明|
-|:-------------------------------------|:-----|:-|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------------------------------------|:-----|:-|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |localeMatcher^(deprecated)^|string|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.localeMatcher替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 区域匹配算法，取值包括："best fit", "lookup"。 默认值：best fit。|
 |type^(deprecated)^|string|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.type替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 排序的类型，取值包括："cardinal", "ordinal", 默认值：cardinal。 - cardinal：基数词，ordinal：序数词。|
-|minimumIntegerDigits^(deprecated)^|number|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.minimumIntegerDigits替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 表示要使用的最小整数位数，取值范围：\[1, 21\]，小于1时取值为1，大于21时取值为21。 默认值：1。|
-|minimumFractionDigits^(deprecated)^|number|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.minimumFractionDigits替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 表示要使用的最小分数位数，取值范围：\[0, 20\]，小于0时取值为0，大于20时取值为20。 默认值：0。|
-|maximumFractionDigits^(deprecated)^|number|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.maximumFractionDigits替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 表示要使用的最大分数位数，取值范围：\[1, 21\]，小于1时取值为1，大于21时取值为21。 默认值：3。|
-|minimumSignificantDigits^(deprecated)^|number|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.minimumSignificantDigits替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 表示要使用的最小有效位数，取值范围：\[1, 21\]，小于1时取值为1，大于21时取值为21。 默认值：1。|
-|maximumSignificantDigits^(deprecated)^|number|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.maximumSignificantDigits替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 表示要使用的最大有效位数，取值范围：\[1, 21\]，小于1时取值为1，大于21时取值为21。 默认值：21。|
+|minimumIntegerDigits^(deprecated)^|number|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.minimumIntegerDigits替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 表示要使用的最小整数位数，取值范围：[1, 21]，小于1时取值为1，大于21时取值为21。 默认值：1。|
+|minimumFractionDigits^(deprecated)^|number|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.minimumFractionDigits替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 表示要使用的最小分数位数，取值范围：[0, 20]，小于0时取值为0，大于20时取值为20。 默认值：0。|
+|maximumFractionDigits^(deprecated)^|number|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.maximumFractionDigits替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 表示要使用的最大分数位数，取值范围：[1, 21]，小于1时取值为1，大于21时取值为21。 默认值：3。|
+|minimumSignificantDigits^(deprecated)^|number|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.minimumSignificantDigits替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 表示要使用的最小有效位数，取值范围：[1, 21]，小于1时取值为1，大于21时取值为21。 默认值：1。|
+|maximumSignificantDigits^(deprecated)^|number|否|是|从API version 8开始支持，从API version 20开始废弃，建议使用Intl.PluralRulesOptions.maximumSignificantDigits替代，用法参考[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)。 表示要使用的最大有效位数，取值范围：[1, 21]，小于1时取值为1，大于21时取值为21。 默认值：21。|
 
-#### RelativeTimeFormat^(deprecated)^
+## RelativeTimeFormat^(deprecated)^
 
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat)替代。
 
 提供相对时间格式化的能力。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
-#### constructor^(deprecated)^
+### constructor^(deprecated)^
 
 constructor()
 
@@ -902,41 +906,41 @@ constructor()
 
 创建相对时间格式化对象。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用系统区域创建RelativeTimeFormat对象
 let formatter: intl.RelativeTimeFormat = new intl.RelativeTimeFormat();
 ```
 
-#### constructor^(deprecated)^
+### constructor^(deprecated)^
 
-constructor(locale: string \| Array\<string\>, options?: RelativeTimeFormatInputOptions)
+constructor(locale: string | Array<string>, options?: RelativeTimeFormatInputOptions)
 
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.RelativeTimeFormat.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat)替代。
 
 创建相对时间格式化对象。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:--------------------------------------------------------------------------|:-|:------------------------------------|
-|locale|string \| Array\<string\>|是|区域ID或区域ID数组。输入是区域ID数组时，使用第一个有效的区域ID。|
+|locale|string | Array<string>|是|区域ID或区域ID数组。输入是区域ID数组时，使用第一个有效的区域ID。|
 |options|[RelativeTimeFormatInputOptions](#relativetimeformatinputoptionsdeprecated)|否|创建相对时间格式化对象时的配置项。 默认值：所有属性都取默认值时的配置项。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用zh-CN区域ID创建RelativeTimeFormat对象，localeMatcher设置为lookup，numeric设置为always，style设置为long
@@ -947,7 +951,7 @@ let formatter: intl.RelativeTimeFormat = new intl.RelativeTimeFormat('zh-CN', {
 });
 ```
 
-#### format^(deprecated)^
+### format^(deprecated)^
 
 format(value: number, unit: string): string
 
@@ -955,26 +959,26 @@ format(value: number, unit: string): string
 
 对相对时间进行格式化，返回相对时间字符串。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-----|:-|:--------------------------------------------------------------------------------------|
 |value|number|是|相对时间格式化的数值。|
 |unit|string|是|相对时间格式化的单位， 取值包括："year", "quarter", "month", "week", "day", "hour", "minute", "second"。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:-----|:---------|
 |string|格式化后的相对时间。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用zh-CN区域ID创建RelativeTimeFormat对象
@@ -983,34 +987,34 @@ let formatter: intl.RelativeTimeFormat = new intl.RelativeTimeFormat('zh-CN');
 let formatResult: string = formatter.format(3, 'quarter'); // formatResult = '3个季度后'
 ```
 
-#### formatToParts^(deprecated)^
+### formatToParts^(deprecated)^
 
-formatToParts(value: number, unit: string): Array\<object\>
+formatToParts(value: number, unit: string): Array<object>
 
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.RelativeTimeFormat.formatToParts](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts)替代。
 
 对相对时间进行格式化，获取格式化结果中各个部分的对象数组。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-----|:-|:--------------------------------------------------------------------------------------|
 |value|number|是|相对时间格式化的数值。|
 |unit|string|是|相对时间格式化的单位， 取值包括："year", "quarter", "month", "week", "day", "hour", "minute", "second"。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Array\<object\>|格式化结果中各个部分的对象数组。|
+|:------------|:---------------|
+|Array<object>|格式化结果中各个部分的对象数组。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用en区域ID创建RelativeTimeFormat对象，numeric设置为auto
@@ -1018,7 +1022,7 @@ let formatter: intl.RelativeTimeFormat = new intl.RelativeTimeFormat('en', { num
 let parts: Array<object> = formatter.formatToParts(10, 'seconds'); // parts = [ {type: 'literal', value: 'in'}, {type: 'integer', value: 10, unit: 'second'}, {type: 'literal', value: 'seconds'} ]
 ```
 
-#### resolvedOptions^(deprecated)^
+### resolvedOptions^(deprecated)^
 
 resolvedOptions(): RelativeTimeFormatResolvedOptions
 
@@ -1026,19 +1030,19 @@ resolvedOptions(): RelativeTimeFormatResolvedOptions
 
 获取相对时间格式化对象的格式化配置项。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n
+**系统能力**：SystemCapability.Global.I18n
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------------------------------------------------------|:----------------|
 |[RelativeTimeFormatResolvedOptions](#relativetimeformatresolvedoptionsdeprecated)|相对时间格式化对象的格式化配置项。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { intl } from '@kit.LocalizationKit';
 
 // 使用en-GB区域ID创建RelativeTimeFormat对象
@@ -1048,7 +1052,7 @@ let options: intl.RelativeTimeFormatResolvedOptions = formatter.resolvedOptions(
 let style: string = options.style; // style = 'short'
 ```
 
-#### RelativeTimeFormatInputOptions^(deprecated)^
+## RelativeTimeFormatInputOptions^(deprecated)^
 
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.RelativeTimeFormatOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#options)替代。
 
@@ -1056,9 +1060,9 @@ let style: string = options.style; // style = 'short'
 
 从API version 9开始，RelativeTimeFormatInputOptions中的属性改为可选。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
 |名称|类型|只读|可选|说明|
 |:------------|:-----|:-|:-|:-------------------------------------------------------------------------------------------|
@@ -1066,15 +1070,15 @@ let style: string = options.style; // style = 'short'
 |numeric|string|否|是|输出消息的格式，表示格式化结果中是否使用数字表示相对日期或时间。取值包括："always", "auto"。 默认值：always。 不同取值的显示效果请参考[附录表23](#附录)。|
 |style|string|否|是|国际化消息的长度，取值包括："long", "short", "narrow"。 默认值：long。 不同取值的显示效果请参考[附录表24](#附录)。|
 
-#### RelativeTimeFormatResolvedOptions^(deprecated)^
+## RelativeTimeFormatResolvedOptions^(deprecated)^
 
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.RelativeTimeFormatOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#return_value)替代。
 
 相对时间格式化对象的格式化配置项。
 
-元服务API：从API version 12开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-系统能力：SystemCapability.Global.I18n  
+**系统能力**：SystemCapability.Global.I18n
 
 |名称|类型|只读|可选|说明|
 |:--------------|:-----|:-|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1083,13 +1087,13 @@ let style: string = options.style; // style = 'short'
 |style|string|否|否|国际化消息的长度，取值包括："long", "short", "narrow"。 不同取值的显示效果请参考[附录表24](#附录)。|
 |numberingSystem|string|否|否|使用的数字系统，取值包括： "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks", "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp", "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl", "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng", "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund", "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", "wcho"。|
 
-#### 附录
+## 附录
 
-时间日期格式化选项
+**时间日期格式化选项**
 
 下方表格以时间：2021年9月17日 13:04:00、2021年9月17日 00:25:00和区域ID: zh-CN、en为例，说明[DateTimeOptions](#datetimeoptionsdeprecated)的取值和显示结果。
 
-表1 日期显示格式 (dateStyle)  
+**表1** 日期显示格式 (dateStyle)
 
 |取值|描述|2021年9月17日 13:04:00，区域ID为zh-CN显示结果|2021年9月17日 13:04:00，区域ID为en显示结果|
 |:-----|:---------------------|:---------------------------------|:------------------------------|
@@ -1098,7 +1102,7 @@ let style: string = options.style; // style = 'short'
 |short|简短的日期显示，包含年份、月份和天数。|2021/9/17|9/17/21|
 |medium|中等长度日期显示，包含年份、月份和天数。|2021年9月17日|Sep 17, 2021|
 
-表2 时间显示格式 (timeStyle)  
+**表2** 时间显示格式 (timeStyle)
 
 |取值|描述|2021年9月17日 13:04:00，区域ID为zh-CN显示结果|2021年9月17日 13:04:00，区域ID为en显示结果|
 |:-----|:------------------------------------|:---------------------------------|:------------------------------|
@@ -1107,14 +1111,14 @@ let style: string = options.style; // style = 'short'
 |short|简短时间显示，包含小时和分钟。|13:04|13:04|
 |medium|中等长度时间显示，包含小时、分钟和秒。|13:04:00|13:04:00|
 
-表3 年份显示格式 (year)  
+**表3** 年份显示格式 (year)
 
 |取值|描述|2021年9月17日 13:04:00，区域ID为zh-CN显示结果|2021年9月17日 13:04:00，区域ID为en显示结果|
 |:------|:---------------|:---------------------------------|:------------------------------|
 |numeric|完整的年份显示。|2021年|2021|
 |2-digit|用完整年份的后2位数字表示年份。|21年|21|
 
-表4 星期显示格式 (weekday)  
+**表4** 星期显示格式 (weekday)
 
 |取值|描述|2021年9月17日 13:04:00，区域ID为zh-CN显示结果|2021年9月17日 13:04:00，区域ID为en显示结果|
 |:-----|:--------|:---------------------------------|:------------------------------|
@@ -1122,7 +1126,7 @@ let style: string = options.style; // style = 'short'
 |short|简短的星期显示。|周五|Fri|
 |narrow|最简短的星期显示。|五|F|
 
-表5 时制格式 (hourCycle)  
+**表5** 时制格式 (hourCycle)
 
 |取值|描述|2021年9月17日 13:04:00，区域ID为zh-CN显示结果|2021年9月17日 00:25:00，区域ID为zh-CN显示结果|
 |:--|:---------|:---------------------------------|:---------------------------------|
@@ -1131,10 +1135,11 @@ let style: string = options.style; // style = 'short'
 |h23|用0-23表示小时。|13:04|00:25|
 |h24|用1-24表示小时。|13:04|24:25|
 
-![](https://media:401788444971419272)  
-不设置dateStyle或timeStyle参数时，hourCycle不同取值的显示效果如上表格。
+> 说明
+>
+> 不设置dateStyle或timeStyle参数时，hourCycle不同取值的显示效果如上表格。
 
-表6 时制格式 (hourCycle)  
+**表6** 时制格式 (hourCycle)
 
 |取值|描述|2021年9月17日 13:04:00，区域ID为zh-CN显示结果|2021年9月17日 00:25:00，区域ID为zh-CN显示结果|
 |:--|:---------|:---------------------------------|:---------------------------------|
@@ -1143,10 +1148,11 @@ let style: string = options.style; // style = 'short'
 |h23|用0-11表示小时。|1:04|0:25|
 |h24|用0-23表示小时。|13:04|0:25|
 
-![](https://media:401788444971553273)  
-设置dateStyle或timeStyle参数时，hourCycle不同取值的显示效果如上表格。
+> 说明
+>
+> 设置dateStyle或timeStyle参数时，hourCycle不同取值的显示效果如上表格。
 
-表7 月份格式 (month)  
+**表7** 月份格式 (month)
 
 |取值|描述|2021年9月17日 13:04:00，区域ID为zh-CN显示结果|2021年9月17日 13:04:00，区域ID为en显示结果|
 |:------|:-----------|:---------------------------------|:------------------------------|
@@ -1156,14 +1162,14 @@ let style: string = options.style; // style = 'short'
 |short|简短的月份显示。|9月|Sep|
 |narrow|最简短的月份显示。|9|S|
 
-表8 时区名称的本地化表示 (timeZoneName)  
+**表8** 时区名称的本地化表示 (timeZoneName)
 
 |取值|描述|2021年9月17日 13:04:00，区域ID为zh-CN显示结果|2021年9月17日 13:04:00，区域ID为en显示结果|
 |:----|:---------|:---------------------------------|:------------------------------|
 |long|详细的时区名称显示。|中国标准时间|China Standard Time|
 |short|简短的时区名称显示。|GMT+8|GMT+8|
 
-表9 纪元的显示格式 (era)  
+**表9** 纪元的显示格式 (era)
 
 |取值|描述|2021年9月17日 13:04:00，区域ID为zh-CN显示效果|2021年9月17日 13:04:00，区域ID为en显示效果|
 |:-----|:--------|:---------------------------------|:------------------------------|
@@ -1171,7 +1177,7 @@ let style: string = options.style; // style = 'short'
 |short|简短的纪元显示。|公元|AD|
 |narrow|最简短的纪元显示。|公元|A|
 
-表10 时段的显示格式 (dayPeriod)  
+**表10** 时段的显示格式 (dayPeriod)
 
 |取值|描述|2021年9月17日 13:04:00，区域ID为zh-CN显示效果|2021年9月17日 13:04:00，区域ID为en显示效果|
 |:-----|:--------|:---------------------------------|:------------------------------|
@@ -1179,55 +1185,55 @@ let style: string = options.style; // style = 'short'
 |short|简短的时段表示。|下午|in the afternoon|
 |narrow|最简短的时段表示。|下午|in the afternoon|
 
-数字格式化选项
+**数字格式化选项**
 
 通过数字格式化选项可以设置最小整数位数、最小小数位数、最大小数位数、最小有效位数、最大有效位数、是否分组显示、数字的表示方法、紧凑显示格式、舍入模式、舍入优先级、舍入增量以及数字的显示格式和数字系统。其中，数字的显示格式包括decimal(十进制)、percent(百分数)、currency(货币)和unit(单位)。
 
 以123000.123为例，各选项取值和显示效果如下表所示：
 
-表11 最小整数位数 (minimumIntegerDigits)  
+**表11** 最小整数位数 (minimumIntegerDigits)
 
 |取值|显示效果|
 |:-|:------------|
 |6|123,000.123|
 |7|0,123,000.123|
 
-表12 最小小数位数 (minimumFractionDigits)  
+**表12** 最小小数位数 (minimumFractionDigits)
 
 |取值|显示效果|
 |:-|:-----------|
 |3|123,000.123|
 |4|123,000.1230|
 
-表13 最大小数位数 (maximumFractionDigits)  
+**表13** 最大小数位数 (maximumFractionDigits)
 
 |取值|显示效果|
 |:-|:----------|
 |3|123,000.123|
 |2|123,000.12|
 
-表14 最小有效位数 (minimumSignificantDigits)  
+**表14** 最小有效位数 (minimumSignificantDigits)
 
 |取值|显示效果|
 |:-|:-----------|
 |9|123,000.123|
 |10|123,000.1230|
 
-表15 最大有效位数 (maximumSignificantDigits)  
+**表15** 最大有效位数 (maximumSignificantDigits)
 
 |取值|显示效果|
 |:-|:----------|
 |9|123,000.123|
 |8|123,000.12|
 
-表16 是否分组显示 (useGrouping)  
+**表16** 是否分组显示 (useGrouping)
 
 |取值|显示效果|
 |:----|:----------|
 |true|123,000.123|
 |false|123000.123|
 
-表17 数字的表示方法 (notation)  
+**表17** 数字的表示方法 (notation)
 
 |取值|显示效果|
 |:----------|:-----------|
@@ -1236,25 +1242,25 @@ let style: string = options.style; // style = 'short'
 |engineering|123.000123E3|
 |compact|123K|
 
-表18 紧凑显示格式 (compactDisplay)  
+**表18** 紧凑显示格式 (compactDisplay)
 
 |取值|显示效果|
 |:----|:-----------|
 |short|123K|
 |long|123 thousand|
 
-货币格式化选项
+**货币格式化选项**
 
 以货币单位USD，数字大小-12300为例。
 
-表19 货币单位的符号 (currencySign)  
+**表19** 货币单位的符号 (currencySign)
 
 |取值|显示效果|
 |:---------|:-------------|
 |standard|-US$12,300.00|
 |accounting|(US$12,300.00)|
 
-表20 货币的显示方式 (currencyDisplay)  
+**表20** 货币的显示方式 (currencyDisplay)
 
 |取值|显示效果|
 |:-----------|:--------------------|
@@ -1263,11 +1269,11 @@ let style: string = options.style; // style = 'short'
 |code|-USD 12,300.00|
 |name|-12,300.00 US dollars|
 
-单位格式化选项
+**单位格式化选项**
 
 以单位hectare，数字大小-12300为例。
 
-表21 单位的显示格式 (unitDisplay)  
+**表21** 单位的显示格式 (unitDisplay)
 
 |取值|显示效果|
 |:-----|:----------------|
@@ -1275,7 +1281,7 @@ let style: string = options.style; // style = 'short'
 |short|-12,300 ha|
 |narrow|-12,300ha|
 
-表22 单位的使用场景 (unitUsage)  
+**表22** 单位的使用场景 (unitUsage)
 
 |取值|显示效果|
 |:-----------------|:-------------|
@@ -1283,18 +1289,18 @@ let style: string = options.style; // style = 'short'
 |default|-47.491 sq mi|
 |area-land-agricult|-30,393.962 ac|
 
-相对时间格式化选项
+**相对时间格式化选项**
 
 以相对时间：一天前，区域ID: fr-FR和en-GB为例。
 
-表23 数值表示 (numeric)  
+**表23** 数值表示 (numeric)
 
 |取值|描述|显示效果(fr-FR)|显示效果(en-GB)|
 |:-----|:----------------------|:------------|:----------|
 |always|使用数值表示相对时间。|il y a 1 jour|1 day ago|
 |auto|根据区域ID自适应选择短语或数值表示相对时间。|hier|yesterday|
 
-表24 相对时间样式 (style)  
+**表24** 相对时间样式 (style)
 
 |取值|描述|显示效果(fr-FR)|显示效果(en-GB)|
 |:-----|:----------|:------------|:----------|

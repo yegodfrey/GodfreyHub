@@ -12,23 +12,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/screentimegua
 
 2. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)，点击"开发与服务"，在项目列表中找到对应的项目，并点击选择您需要申请ACL权限的应用。在"项目设置"页面，选择"ACL权限"页签，开始为应用申请ACL权限。
 
-   ![](https://media:401788444298499766)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/oAIaEG3cQV6fX3YHSX64hw/zh-cn_image_0000002733435472.png?HW-CC-KV=V1&HW-CC-Date=20260917T084551Z&HW-CC-Expire=31536000000&HW-CC-Sign=6AA106F80076478EB3219FA578FC7C746F9E51DCDBD0585AF6F8094988D84592)
 3. 在核对注意事项后，在"未获取权限"区域中勾选"我已知晓"。在权限搜索框中输入"ohos.permission.MANAGE_SCREEN_TIME_GUARD"，查找并勾选权限，提交申请。
 
 4. 根据实际业务需求填写使用场景并提交，审批时间为3个工作日。
 
-   ![](https://media:401788444298578767)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/z9IjWtI3RnmHf4GPgVkw-Q/zh-cn_image_0000002762994995.png?HW-CC-KV=V1&HW-CC-Date=20260917T084551Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC1D5A833210634AFADBB22C98DC68BC435C05B810D608791CDD4120737AAC4E)
 5. 权限申请通过后，在申请profile文件时，在"申请权限"栏选中"受限ACL权限（HarmonyOS API9及以上）"选项，点击"查看"。
 
-   ![](https://media:401788444298770768)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/zXNyDXGPQ_Wx3VLJ1eNSxg/zh-cn_image_0000002762835107.png?HW-CC-KV=V1&HW-CC-Date=20260917T084551Z&HW-CC-Expire=31536000000&HW-CC-Sign=7D09BB53FD2299A00251FE1C5C343B10C5DD5F51DBE7FC2AF0AB0F19A6C508FA)
 6. 在弹出的"选择受限ACL权限"窗口可以看到已申请的权限，勾选后点击确定。
 
-   ![](https://media:401788444298811769)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/O5A9mW-_QkCT7uLRlT9YLA/zh-cn_image_0000002733275592.png?HW-CC-KV=V1&HW-CC-Date=20260917T084551Z&HW-CC-Expire=31536000000&HW-CC-Sign=BE37A2F74814545C3358FD8EC8DB2362DFF879608277E886916DC32E8F790BDA)
 7. 选择权限后点击"添加"生成新的Profile文件，下载后按[手动配置签名信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing-manual)替换profile文件。
 
 8. 在工程中entry模块的module.json5文件中添加"ohos.permission.MANAGE_SCREEN_TIME_GUARD"权限，如下所示：
 
-   ```
+   ```JSON5
    "requestPermissions": [{
      "name": "ohos.permission.MANAGE_SCREEN_TIME_GUARD"
    }]

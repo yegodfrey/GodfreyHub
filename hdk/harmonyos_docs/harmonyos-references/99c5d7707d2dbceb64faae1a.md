@@ -6,42 +6,46 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-r
 
 # @ohos.reminderAgent (后台代理提醒)
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 本模块提供后台代理提醒的能力。
 
-开发应用时，开发者可以调用相关接口创建定时提醒，包括倒计时、日历、闹钟这三类提醒类型。使用后台代理提醒能力后，应用被冻结或退出后，计时和弹出提醒的功能将被后台系统服务代理。  
-![](https://media:401788445137024167)  
-从API version 7开始支持，从API version 9开始废弃，建议使用[@ohos.reminderAgentManager (后台代理提醒)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager)替代。
+开发应用时，开发者可以调用相关接口创建定时提醒，包括倒计时、日历、闹钟这三类提醒类型。使用后台代理提醒能力后，应用被冻结或退出后，计时和弹出提醒的功能将被后台系统服务代理。
+> 说明
+>
+> 从API version 7开始支持，从API version 9开始废弃，建议使用[@ohos.reminderAgentManager (后台代理提醒)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager)替代。
+>
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。  
+## 导入模块
 
-#### 导入模块
-
-```
+```ts
 import reminderAgent from '@ohos.reminderAgent';
 ```
 
-#### reminderAgent.publishReminder^(deprecated)^
+## reminderAgent.publishReminder^(deprecated)^
 
-publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback\<number\>): void
+publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<number>): void
 
-发布一个后台代理提醒，使用回调的方式实现异步调用，该方法需要申请通知弹窗权限[Notification.requestEnableNotification](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification#notificationrequestenablenotification8)后才能调用。  
-![](https://media:401788445137054168)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.publishReminder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagerpublishreminder)替代。
+发布一个后台代理提醒，使用回调的方式实现异步调用，该方法需要申请通知弹窗权限[Notification.requestEnableNotification](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification#notificationrequestenablenotification8)后才能调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.publishReminder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagerpublishreminder)替代。
 
-需要权限：ohos.permission.PUBLISH_AGENT_REMINDER
+**需要权限**：ohos.permission.PUBLISH_AGENT_REMINDER
 
-系统能力：SystemCapability.Notification.ReminderAgent
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
-参数：  
+**参数**：
 
 |参数名|类型|必填|说明|
 |:----------|:--------------------------------------------|:-|:-----------------|
 |reminderReq|[ReminderRequest](#reminderrequestdeprecated)|是|需要发布的提醒实例。|
-|callback|AsyncCallback\<number\>|是|异步回调，返回当前发布的提醒的id。|
+|callback|AsyncCallback<number>|是|异步回调，返回当前发布的提醒的id。|
 
-示例：
+**示例**：
 
-```
+```ts
 import { BusinessError } from '@ohos.base';
 import reminderAgent from '@ohos.reminderAgent';
 
@@ -55,33 +59,34 @@ reminderAgent.publishReminder(timer, (err: BusinessError, reminderId: number) =>
 });
 ```
 
-#### reminderAgent.publishReminder^(deprecated)^
+## reminderAgent.publishReminder^(deprecated)^
 
-publishReminder(reminderReq: ReminderRequest): Promise\<number\>
+publishReminder(reminderReq: ReminderRequest): Promise<number>
 
-发布一个后台代理提醒，使用Promise方式实现异步调用，该方法需要申请通知弹窗权限[Notification.requestEnableNotification](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification#notificationrequestenablenotification8)后才能调用。  
-![](https://media:401788445137084169)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.publishReminder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagerpublishreminder-1)替代。
+发布一个后台代理提醒，使用Promise方式实现异步调用，该方法需要申请通知弹窗权限[Notification.requestEnableNotification](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification#notificationrequestenablenotification8)后才能调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.publishReminder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagerpublishreminder-1)替代。
 
-需要权限：ohos.permission.PUBLISH_AGENT_REMINDER
+**需要权限**：ohos.permission.PUBLISH_AGENT_REMINDER
 
-系统能力：SystemCapability.Notification.ReminderAgent
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
-参数：  
+**参数**：
 
 |参数名|类型|必填|说明|
 |:----------|:--------------------------------------------|:-|:---------|
 |reminderReq|[ReminderRequest](#reminderrequestdeprecated)|是|需要发布的提醒实例。|
 
-返回值：  
+**返回值**：
 
 |类型|说明|
-|:----------------|:-------|
-|Promise\<number\>|返回提醒的Id。|
+|:--------------|:-------|
+|Promise<number>|返回提醒的Id。|
 
-示例：
+**示例**：
 
-```
+```ts
 import reminderAgent from '@ohos.reminderAgent';
 
 let timer:reminderAgent.ReminderRequestTimer = {
@@ -94,26 +99,27 @@ reminderAgent.publishReminder(timer).then((reminderId: number) => {
 });
 ```
 
-#### reminderAgent.cancelReminder^(deprecated)^
+## reminderAgent.cancelReminder^(deprecated)^
 
-cancelReminder(reminderId: number, callback: AsyncCallback\<void\>): void
+cancelReminder(reminderId: number, callback: AsyncCallback<void>): void
 
-取消指定id的提醒，使用回调的方式实现异步调用。  
-![](https://media:401788445137112170)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.cancelReminder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagercancelreminder)替代。
+取消指定id的提醒，使用回调的方式实现异步调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.cancelReminder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagercancelreminder)替代。
 
-系统能力： SystemCapability.Notification.ReminderAgent
+**系统能力**： SystemCapability.Notification.ReminderAgent
 
-参数：  
+**参数**：
 
 |参数名|类型|必填|说明|
-|:---------|:--------------------|:-|:--------------|
+|:---------|:------------------|:-|:--------------|
 |reminderId|number|是|目标reminder的id号。|
-|callback|AsyncCallback\<void\>|是|异步回调。|
+|callback|AsyncCallback<void>|是|异步回调。|
 
-示例：
+**示例**：
 
-```
+```ts
 import { BusinessError } from '@ohos.base';
 import reminderAgent from '@ohos.reminderAgent';
 
@@ -122,31 +128,32 @@ reminderAgent.cancelReminder(1, (err: BusinessError, data: void) => {
 });
 ```
 
-#### reminderAgent.cancelReminder^(deprecated)^
+## reminderAgent.cancelReminder^(deprecated)^
 
-cancelReminder(reminderId: number): Promise\<void\>
+cancelReminder(reminderId: number): Promise<void>
 
-取消指定id的提醒，使用Promise方式实现异步调用。  
-![](https://media:401788445137137171)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.cancelReminder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagercancelreminder-1)替代。
+取消指定id的提醒，使用Promise方式实现异步调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.cancelReminder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagercancelreminder-1)替代。
 
-系统能力： SystemCapability.Notification.ReminderAgent
+**系统能力**： SystemCapability.Notification.ReminderAgent
 
-参数：  
+**参数**：
 
 |参数名|类型|必填|说明|
 |:---------|:-----|:-|:--------------|
 |reminderId|number|是|目标reminder的id号。|
 
-返回值：  
+**返回值**：
 
 |类型|说明|
-|:--------------|:-------------|
-|Promise\<void\>|Promise类型异步回调。|
+|:------------|:-------------|
+|Promise<void>|Promise类型异步回调。|
 
-示例：
+**示例**：
 
-```
+```ts
 import reminderAgent from '@ohos.reminderAgent';
 
 reminderAgent.cancelReminder(1).then(() => {
@@ -154,25 +161,26 @@ reminderAgent.cancelReminder(1).then(() => {
 });
 ```
 
-#### reminderAgent.getValidReminders^(deprecated)^
+## reminderAgent.getValidReminders^(deprecated)^
 
-getValidReminders(callback: AsyncCallback\<Array\<ReminderRequest\>\>): void
+getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>): void
 
-获取当前应用已设置的所有有效（未过期）的提醒，使用回调的方式实现异步调用。  
-![](https://media:401788445137162172)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.getValidReminders](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagergetvalidreminders)替代。
+获取当前应用已设置的所有有效（未过期）的提醒，使用回调的方式实现异步调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.getValidReminders](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagergetvalidreminders)替代。
 
-系统能力： SystemCapability.Notification.ReminderAgent
+**系统能力**： SystemCapability.Notification.ReminderAgent
 
-参数：  
+**参数**：
 
 |参数名|类型|必填|说明|
-|:-------|:----------------------------------------------------------------------|:-|:---------------------------|
-|callback|AsyncCallback\<Array\<[ReminderRequest](#reminderrequestdeprecated)\>\>|是|异步回调，返回当前应用已设置的所有有效（未过期）的提醒。|
+|:-------|:------------------------------------------------------------------|:-|:---------------------------|
+|callback|AsyncCallback<Array<[ReminderRequest](#reminderrequestdeprecated)>>|是|异步回调，返回当前应用已设置的所有有效（未过期）的提醒。|
 
-示例：
+**示例**：
 
-```
+```ts
 import { BusinessError } from '@ohos.base';
 import reminderAgent from '@ohos.reminderAgent';
 
@@ -201,25 +209,26 @@ reminderAgent.getValidReminders((err: BusinessError, reminders: Array<reminderAg
 })
 ```
 
-#### reminderAgent.getValidReminders^(deprecated)^
+## reminderAgent.getValidReminders^(deprecated)^
 
-getValidReminders(): Promise\<Array\<ReminderRequest\>\>
+getValidReminders(): Promise<Array<ReminderRequest>>
 
-获取当前应用已设置的所有有效（未过期）的提醒，使用Promise方式实现异步调用。  
-![](https://media:401788445137186173)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.getValidReminders](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagergetvalidreminders-1)替代。
+获取当前应用已设置的所有有效（未过期）的提醒，使用Promise方式实现异步调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.getValidReminders](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagergetvalidreminders-1)替代。
 
-系统能力： SystemCapability.Notification.ReminderAgent
+**系统能力**： SystemCapability.Notification.ReminderAgent
 
-返回值：  
+**返回值**：
 
 |类型|说明|
-|:----------------------------------------------------------------|:----------------------|
-|Promise\<Array\<[ReminderRequest](#reminderrequestdeprecated)\>\>|返回当前应用已设置的所有有效（未过期）的提醒。|
+|:------------------------------------------------------------|:----------------------|
+|Promise<Array<[ReminderRequest](#reminderrequestdeprecated)>>|返回当前应用已设置的所有有效（未过期）的提醒。|
 
-示例：
+**示例**：
 
-```
+```ts
 import reminderAgent from '@ohos.reminderAgent';
 
 reminderAgent.getValidReminders().then((reminders: Array<reminderAgent.ReminderRequest>) => {
@@ -247,25 +256,26 @@ reminderAgent.getValidReminders().then((reminders: Array<reminderAgent.ReminderR
 })
 ```
 
-#### reminderAgent.cancelAllReminders^(deprecated)^
+## reminderAgent.cancelAllReminders^(deprecated)^
 
-cancelAllReminders(callback: AsyncCallback\<void\>): void
+cancelAllReminders(callback: AsyncCallback<void>): void
 
-取消当前应用所有的提醒，使用回调的方式实现异步调用。  
-![](https://media:401788445137217174)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.cancelAllReminders](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagercancelallreminders)替代。
+取消当前应用所有的提醒，使用回调的方式实现异步调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.cancelAllReminders](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagercancelallreminders)替代。
 
-系统能力： SystemCapability.Notification.ReminderAgent
+**系统能力**： SystemCapability.Notification.ReminderAgent
 
-参数：  
+**参数**：
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------|:-|:----|
-|callback|AsyncCallback\<void\>|是|异步回调。|
+|:-------|:------------------|:-|:----|
+|callback|AsyncCallback<void>|是|异步回调。|
 
-示例：
+**示例**：
 
-```
+```ts
 import { BusinessError } from '@ohos.base';
 import reminderAgent from '@ohos.reminderAgent';
 
@@ -274,25 +284,26 @@ reminderAgent.cancelAllReminders((err: BusinessError, data: void) =>{
 })
 ```
 
-#### reminderAgent.cancelAllReminders^(deprecated)^
+## reminderAgent.cancelAllReminders^(deprecated)^
 
-cancelAllReminders(): Promise\<void\>
+cancelAllReminders(): Promise<void>
 
-取消当前应用所有的提醒，使用Promise方式实现异步调用。  
-![](https://media:401788445137240175)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.cancelAllReminders](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagercancelallreminders-1)替代。
+取消当前应用所有的提醒，使用Promise方式实现异步调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.cancelAllReminders](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagercancelallreminders-1)替代。
 
-系统能力： SystemCapability.Notification.ReminderAgent
+**系统能力**： SystemCapability.Notification.ReminderAgent
 
-返回值：  
+**返回值**：
 
 |类型|说明|
-|:--------------|:-------------|
-|Promise\<void\>|Promise类型异步回调。|
+|:------------|:-------------|
+|Promise<void>|Promise类型异步回调。|
 
-示例：
+**示例**：
 
-```
+```ts
 import reminderAgent from '@ohos.reminderAgent';
 
 reminderAgent.cancelAllReminders().then(() => {
@@ -300,26 +311,27 @@ reminderAgent.cancelAllReminders().then(() => {
 })
 ```
 
-#### reminderAgent.addNotificationSlot^(deprecated)^
+## reminderAgent.addNotificationSlot^(deprecated)^
 
-addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback\<void\>): void
+addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void
 
-添加一个NotificationSlot，使用回调的方式实现异步调用。  
-![](https://media:401788445137322176)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.addNotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanageraddnotificationslot)替代。
+添加一个NotificationSlot，使用回调的方式实现异步调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.addNotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanageraddnotificationslot)替代。
 
-系统能力： SystemCapability.Notification.ReminderAgent
+**系统能力**： SystemCapability.Notification.ReminderAgent
 
-参数：  
+**参数**：
 
 |参数名|类型|必填|说明|
 |:-------|:--------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------|
 |slot|[NotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification#notificationslot)|是|notification.slot实例，仅支持设置其type属性。|
-|callback|AsyncCallback\<void\>|是|异步回调。|
+|callback|AsyncCallback<void>|是|异步回调。|
 
-示例：
+**示例**：
 
-```
+```ts
 import { BusinessError } from '@ohos.base';
 import notification from '@ohos.notification';
 import reminderAgent from '@ohos.reminderAgent';
@@ -333,31 +345,32 @@ reminderAgent.addNotificationSlot(mySlot, (err: BusinessError, data: void) => {
 });
 ```
 
-#### reminderAgent.addNotificationSlot^(deprecated)^
+## reminderAgent.addNotificationSlot^(deprecated)^
 
-addNotificationSlot(slot: NotificationSlot): Promise\<void\>
+addNotificationSlot(slot: NotificationSlot): Promise<void>
 
-添加一个NotificationSlot，使用Promise方式实现异步调用。  
-![](https://media:401788445137361177)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.addNotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanageraddnotificationslot-1)替代。
+添加一个NotificationSlot，使用Promise方式实现异步调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.addNotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanageraddnotificationslot-1)替代。
 
-系统能力： SystemCapability.Notification.ReminderAgent
+**系统能力**： SystemCapability.Notification.ReminderAgent
 
-参数：  
+**参数**：
 
 |参数名|类型|必填|说明|
 |:---|:--------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------|
 |slot|[NotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification#notificationslot)|是|notification.slot实例，仅支持设置其type属性。|
 
-返回值：  
+**返回值**：
 
 |类型|说明|
-|:--------------|:-------------|
-|Promise\<void\>|Promise类型异步回调。|
+|:------------|:-------------|
+|Promise<void>|Promise类型异步回调。|
 
-示例：
+**示例**：
 
-```
+```ts
 import notification from '@ohos.notification';
 import reminderAgent from '@ohos.reminderAgent';
 import { NotificationSlot } from './notification/notificationSlot';
@@ -370,26 +383,27 @@ reminderAgent.addNotificationSlot(mySlot).then(() => {
 });
 ```
 
-#### reminderAgent.removeNotificationSlot^(deprecated)^
+## reminderAgent.removeNotificationSlot^(deprecated)^
 
-removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback\<void\>): void
+removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>): void
 
-删除目标NotificationSlot，使用callback方式实现异步调用。  
-![](https://media:401788445137385178)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.removeNotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagerremovenotificationslot)替代。
+删除目标NotificationSlot，使用callback方式实现异步调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.removeNotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagerremovenotificationslot)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
-参数：  
+**参数**：
 
 |参数名|类型|必填|说明|
 |:-------|:-----------------------------------------------------------------------------------------------------------------------|:-|:----------------------|
 |slotType|[notification.SlotType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification#slottype)|是|目标notification.slot的类型。|
-|callback|AsyncCallback\<void\>|是|异步回调。|
+|callback|AsyncCallback<void>|是|异步回调。|
 
-示例：
+**示例**：
 
-```
+```ts
 import { BusinessError } from '@ohos.base';
 import notification from '@ohos.notification';
 import reminderAgent from '@ohos.reminderAgent';
@@ -399,31 +413,32 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION, 
 });
 ```
 
-#### reminderAgent.removeNotificationSlot^(deprecated)^
+## reminderAgent.removeNotificationSlot^(deprecated)^
 
-removeNotificationSlot(slotType: notification.SlotType): Promise\<void\>
+removeNotificationSlot(slotType: notification.SlotType): Promise<void>
 
-删除目标NotificationSlot，使用Promise方式实现异步调用。  
-![](https://media:401788445137408179)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.removeNotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagerremovenotificationslot-1)替代。
+删除目标NotificationSlot，使用Promise方式实现异步调用。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.removeNotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderagentmanagerremovenotificationslot-1)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
-参数：  
+**参数**：
 
 |参数名|类型|必填|说明|
 |:-------|:-----------------------------------------------------------------------------------------------------------------------|:-|:----------------------|
 |slotType|[notification.SlotType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification#slottype)|是|目标notification.slot的类型。|
 
-返回值：  
+**返回值**：
 
 |类型|说明|
-|:--------------|:-------------|
-|Promise\<void\>|Promise类型异步回调。|
+|:------------|:-------------|
+|Promise<void>|Promise类型异步回调。|
 
-示例：
+**示例**：
 
-```
+```ts
 import notification from '@ohos.notification';
 import reminderAgent from '@ohos.reminderAgent';
 
@@ -432,26 +447,28 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 });
 ```
 
-#### ActionButtonType^(deprecated)^
+## ActionButtonType^(deprecated)^
 
-按钮的类型。  
-![](https://media:401788445137436180)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ActionButtonType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#actionbuttontype)替代。
+按钮的类型。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ActionButtonType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#actionbuttontype)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent  
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
 |名称|值|说明|
 |:------------------------|:-|:---------|
 |ACTION_BUTTON_TYPE_CLOSE|0|表示关闭提醒的按钮。|
 |ACTION_BUTTON_TYPE_SNOOZE|1|表示延迟提醒的按钮。|
 
-#### ReminderType^(deprecated)^
+## ReminderType^(deprecated)^
 
-提醒的类型。  
-![](https://media:401788445137461181)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ReminderType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#remindertype)替代。
+提醒的类型。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ReminderType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#remindertype)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent  
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
 |名称|值|说明|
 |:---------------------|:-|:----------|
@@ -459,57 +476,61 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 |REMINDER_TYPE_CALENDAR|1|表示提醒类型：日历。|
 |REMINDER_TYPE_ALARM|2|表示提醒类型：闹钟。|
 
-#### ActionButton^(deprecated)^
+## ActionButton^(deprecated)^
 
-用于设置弹出的提醒通知信息上显示的按钮类型和标题。  
-![](https://media:401788445137486182)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ActionButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#actionbutton)替代。
+用于设置弹出的提醒通知信息上显示的按钮类型和标题。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ActionButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#actionbutton)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent  
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
 |名称|类型|只读|可选|说明|
 |:----|:----------------------------------------------|:-|:-|:-------|
 |title|string|否|否|按钮显示的标题。|
 |type|[ActionButtonType](#actionbuttontypedeprecated)|否|否|按钮的类型。|
 
-#### WantAgent^(deprecated)^
+## WantAgent^(deprecated)^
 
-点击提醒通知后跳转的目标ability信息。  
-![](https://media:401788445137509183)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.WantAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#wantagent)替代。
+点击提醒通知后跳转的目标ability信息。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.WantAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#wantagent)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent  
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
 |名称|类型|只读|可选|说明|
 |:----------|:-----|:-|:-|:------------------------|
 |pkgName|string|否|否|指明点击提醒通知栏后跳转的目标HAP名。|
 |abilityName|string|否|否|指明点击提醒通知栏后跳转的目标ability名称。|
 
-#### MaxScreenWantAgent^(deprecated)^
+## MaxScreenWantAgent^(deprecated)^
 
-全屏显示提醒到达时自动拉起的目标ability信息，该接口预留。  
-![](https://media:401788445137531184)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.MaxScreenWantAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#maxscreenwantagent)替代。
+全屏显示提醒到达时自动拉起的目标ability信息，该接口预留。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.MaxScreenWantAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#maxscreenwantagent)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent  
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
 |名称|类型|只读|可选|说明|
 |:----------|:-----|:-|:-|:------------------------------------------|
 |pkgName|string|否|否|指明提醒到达时自动拉起的目标HAP名（如果设备在使用中，则只弹出通知横幅框）。|
 |abilityName|string|否|否|指明提醒到达时自动拉起的目标ability名（如果设备在使用中，则只弹出通知横幅框）。|
 
-#### ReminderRequest^(deprecated)^
+## ReminderRequest^(deprecated)^
 
-提醒实例对象，用于设置提醒类型、响铃时长等具体信息。  
-![](https://media:401788445137554185)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ReminderRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderrequest)替代。
+提醒实例对象，用于设置提醒类型、响铃时长等具体信息。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ReminderRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderrequest)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent  
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
 |名称|类型|只读|可选|说明|
 |:-----------------|:-----------------------------------------------------------------------------------------------------------------------|:-|:-|:-------------------------------|
 |reminderType|[ReminderType](#remindertypedeprecated)|否|否|指明提醒类型。|
-|actionButton|\[[ActionButton](#actionbuttondeprecated)?, [ActionButton](#actionbuttondeprecated)?\]|否|是|弹出的提醒通知栏中显示的按钮（参数可选，支持0/1/2个按钮）。|
+|actionButton|[[ActionButton](#actionbuttondeprecated)?, [ActionButton](#actionbuttondeprecated)?]|否|是|弹出的提醒通知栏中显示的按钮（参数可选，支持0/1/2个按钮）。|
 |wantAgent|WantAgent|否|是|点击通知后需要跳转的目标ability信息。|
 |maxScreenWantAgent|[MaxScreenWantAgent](#maxscreenwantagentdeprecated)|否|是|提醒到达时跳转的目标包。如果设备正在使用中，则弹出一个通知框。|
 |ringDuration|number|否|是|指明响铃时长。 单位：s，默认1秒。|
@@ -522,53 +543,57 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 |notificationId|number|否|是|指明提醒使用的通知的id号，相同id号的提醒会覆盖。|
 |slotType|[notification.SlotType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification#slottype)|否|是|指明提醒的slot类型。|
 
-#### ReminderRequestCalendar^(deprecated)^
+## ReminderRequestCalendar^(deprecated)^
 
-日历实例对象，用于设置提醒的时间。  
-![](https://media:401788445137584186)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ReminderRequestCalendar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderrequestcalendar)替代。
+日历实例对象，用于设置提醒的时间。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ReminderRequestCalendar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderrequestcalendar)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent  
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
 |名称|类型|只读|可选|说明|
 |:-----------|:----------------------------------------|:-|:-|:---------|
 |dateTime|[LocalDateTime](#localdatetimedeprecated)|否|否|指明提醒的目标时间。|
-|repeatMonths|Array\<number\>|否|是|指明重复提醒的月份。|
-|repeatDays|Array\<number\>|否|是|指明重复提醒的日期。|
+|repeatMonths|Array<number>|否|是|指明重复提醒的月份。|
+|repeatDays|Array<number>|否|是|指明重复提醒的日期。|
 
-#### ReminderRequestAlarm^(deprecated)^
+## ReminderRequestAlarm^(deprecated)^
 
-闹钟实例对象，用于设置提醒的时间。  
-![](https://media:401788445137624187)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ReminderRequestAlarm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderrequestalarm)替代。
+闹钟实例对象，用于设置提醒的时间。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ReminderRequestAlarm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderrequestalarm)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent  
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
 |名称|类型|只读|可选|说明|
-|:---------|:--------------|:-|:-|:-------------------------------|
+|:---------|:------------|:-|:-|:-------------------------------|
 |hour|number|否|否|指明提醒的目标时刻。|
 |minute|number|否|否|指明提醒的目标分钟。|
-|daysOfWeek|Array\<number\>|否|是|指明每周哪几天需要重复提醒。范围为周一到周末，对应数字为1到7。|
+|daysOfWeek|Array<number>|否|是|指明每周哪几天需要重复提醒。范围为周一到周末，对应数字为1到7。|
 
-#### ReminderRequestTimer^(deprecated)^
+## ReminderRequestTimer^(deprecated)^
 
-倒计时实例对象，用于设置提醒的时间。  
-![](https://media:401788445137666188)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ReminderRequestTimer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderrequesttimer)替代。
+倒计时实例对象，用于设置提醒的时间。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.ReminderRequestTimer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#reminderrequesttimer)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent  
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
 |名称|类型|只读|可选|说明|
 |:-------------------|:-----|:-|:-|:-------------|
 |triggerTimeInSeconds|number|否|否|指明倒计时的秒数。 单位：s|
 
-#### LocalDateTime^(deprecated)^
+## LocalDateTime^(deprecated)^
 
-用于日历类提醒设置时指定时间信息。  
-![](https://media:401788445137695189)  
-从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.LocalDateTime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#localdatetime)替代。
+用于日历类提醒设置时指定时间信息。
+> 说明
+>
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用[reminderAgentManager.LocalDateTime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-reminderagentmanager#localdatetime)替代。
 
-系统能力：SystemCapability.Notification.ReminderAgent  
+**系统能力**：SystemCapability.Notification.ReminderAgent
 
 |名称|类型|只读|可选|说明|
 |:-----|:-----|:-|:-|:-|

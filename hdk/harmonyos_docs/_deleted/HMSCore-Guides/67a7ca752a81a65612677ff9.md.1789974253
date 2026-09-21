@@ -1,0 +1,39 @@
+---
+name: document/cn/HMSCore-Guides/sleep-0000001131264006
+title: 睡眠状态
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/sleep-0000001131264006
+---
+
+# 睡眠状态
+
+此数据记录用户在一小段时间内的睡眠状态，每一条数据都代表该时间段（开始时间-结束时间）内的睡眠状态。每条数据不能存在交叉，后一条数据的开始时间应该大于或等于前一条数据的结束时间。
+
+## OAuth权限
+
+联盟卡片申请的权限名称：健康数据 > 睡眠数据
+
+* 读权限：https://www.huawei.com/healthkit/sleep.read
+* 写权限：https://www.huawei.com/healthkit/sleep.write
+
+## 原子采样明细数据类型
+
+* 名称：com.huawei.continuous.sleep.fragment
+
+|**字段**列表|字段描述|**类型**|可选/必选|单位|取值范围|
+|:----------|:---|:-----|:----|:-|:-----------------------------------------|
+|sleep_state|睡眠状态|int|M|-|取值如下： 1：浅睡 2：梦睡（快速眼动） 3：深睡 4：清醒 5：午睡（零星小睡）|
+
+> 说明
+>
+> 用户手动录入的睡眠记录的明细数据暂不支持获取。
+
+### 数据开放说明
+
+|开放API|查询及时性|数据源|
+|:-----------------------------------------------------------------------------------------------------------------------|:----|:-----|
+|[健康记录查询](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/get-health-record-by-datatype-0000001142843917)|小时级|手表、手环等|
+
+### 数据订阅说明
+
+可通过睡眠记录订阅睡眠数据，请参见[睡眠记录数据订阅说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/sleep-record-0000001177830493#section15946135618308)。
+

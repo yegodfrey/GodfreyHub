@@ -14,4 +14,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-405
 
 参考[动态路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-router-to-navigation#动态路由)中的方案一：自定义路由表。
 
-Navigation自动生成动态路由示例参考：[自动生成动态路由](https://gitcode.com/HarmonyOS-Cases/cases/blob/master/CommonAppDevelopment/common/routermodule/README_AUTO_GENERATE.md)。  
+Navigation自动生成动态路由示例参考：[自动生成动态路由](https://gitcode.com/HarmonyOS-Cases/cases/blob/master/CommonAppDevelopment/common/routermodule/README_AUTO_GENERATE.md)。
+

@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-
 
 # 编译构建项目无法排除某些目录打包怎么处理
 
-#### 问题现象
+## 问题现象
 
 当开启release编译构建，开启从入口文件开始编译，构建闭源HAR时，编译构建指定模块时无法排除该模块中的某些文件。项目结构示例如下，按照以下3项步骤，工程中的test模块中/src/main/ets/com/test/test.ts应该不会被打包进test.har包，但是实际test.ts文件仍然还是会被打包。
 
@@ -14,32 +14,33 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-
 2. hvigor-config.json5中ohos.compile.lib.entryfile为true，开启从入口文件开始编译；
 3. 模块下的build-profile.json5中buildOptionSet.arkOptions.obfuscation.ruleOptions.enable为true，构建闭源HAR。
 
-![](https://media:101782454463041171 "点击放大")  
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/ZFLFMaHITu6nyThziuF6NA/zh-cn_image_0000002628409278.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=C10B8C058E82E975AA5765085CB048275E9FFFFDB79EFB25EE9771351C6A77BE "点击放大")
 
-#### 解决方案
+## 解决方案
 
 当编译构建需要排除某些目录或文件时，需要配置.ohpmignore文件，并且还要明确该目录或文件是否被引用。
 
-1. 配置.ohpmignore文件：
+**1. 配置.ohpmignore文件：**
 
 若部分工程源文件无需构建到HAR包中，可在module目录下新建.ohpmignore文件，用于配置打包时要忽略的文件，将无需打包进HAR包的文件/文件夹名称写入.ohpmignore文件中。DevEco Studio构建时将过滤掉.ohpmignore文件中所包含的文件目录。
 
-需注意：更改.ohpmignore配置后，需要清空相应模块的build文件夹，或点击DevEco Studio的Build -\> clean project后再打包。
+需注意：更改.ohpmignore配置后，需要清空相应模块的build文件夹，或点击DevEco Studio的Build -> clean project后再打包。
 
-2. 编译构建：
+**2. 编译构建：**
 
 当开启release编译构建，开启从入口文件开始编译，构建闭源HAR时，存在引用和不引用test.ts两种情况：
 
 a. 如果test文件被其他地方引用了，test.har编译结果如下，发现包含test文件：
 
-![](https://media:101782454463084172 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/mOzC_MRdQN2pH6UlsmTk_g/zh-cn_image_0000002658808549.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=5FBCE3BF46B094E420EF9A522610DC16B287226E3BA80931A43014DEAAB4DEDB "点击放大")
 
-![](https://media:101782454463113173 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/B_WB8wY8QNe14IjdEQGevA/zh-cn_image_0000002628569174.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=481FD35C79236A4CFB69C134E06493E20816EC72C252A654DA6D1CB4F0C02DF1 "点击放大")
 
 b. 如果test文件没有被引用，test.har编译结果如下，此时不包含test文件：
 
-![](https://media:101782454463144174 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/m8fzUitBSbeGxLukNUdjmQ/zh-cn_image_0000002658928499.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=572ABFD34F1F0F98813B54972F9CF22F270703D199DEE326DA5F0B5F543AA87C "点击放大")
 
-#### 总结
+## 总结
 
-当开启release编译构建，开启从入口文件开始编译，构建闭源HAR时，.ohpmignore文件中配置的文件或目录如果被其他地方引用了，则会被打包，如果未被引用，则不会被打包。  
+当开启release编译构建，开启从入口文件开始编译，构建闭源HAR时，.ohpmignore文件中配置的文件或目录如果被其他地方引用了，则会被打包，如果未被引用，则不会被打包。
+

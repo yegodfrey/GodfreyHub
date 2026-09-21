@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 
 # 窗口模式简介
 
-#### 场景介绍
+## 场景介绍
 
 窗口模式指窗口在设备屏幕上的显示状态，包括全屏、最大化、最小化、自由悬浮窗口和分屏多种模式，是单个窗口的属性。
 
@@ -20,19 +20,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 
 * 全局悬浮窗（即WindowType.TYPE_FLOAT）、模态窗口（即WindowType.TYPE_DIALOG）、非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下的子窗以及系统窗口固定为自由悬浮窗口模式，不存在窗口模式切换。
 
-可通过以下章节了解窗口模式基础能力、自由窗口适配等详细内容。  
+可通过以下章节了解窗口模式基础能力、自由窗口适配等详细内容。
 
-#### 窗口模式WindowStatusType
+## 窗口模式WindowStatusType
 
-窗口模式通过[WindowStatusType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)枚举来描述，该枚举定义了应用窗口在不同场景下的显示状态。开发者可以根据应用需求选择合适的窗口模式，或动态监听窗口模式变化以进行相应的适配处理。下文将详细介绍各个窗口模式的特点、窗口模式变化的感知以及窗口模式策略的配置方式。  
-![](https://media:401788444459237613)  
-除了非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下固定支持主窗口的FULL_SCREEN模式外，其他各种窗口模式需提前配置相应的支持策略后才可触发。  
+窗口模式通过[WindowStatusType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)枚举来描述，该枚举定义了应用窗口在不同场景下的显示状态。开发者可以根据应用需求选择合适的窗口模式，或动态监听窗口模式变化以进行相应的适配处理。下文将详细介绍各个窗口模式的特点、窗口模式变化的感知以及窗口模式策略的配置方式。
+> 说明
+>
+> 除了非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下固定支持主窗口的FULL_SCREEN模式外，其他各种窗口模式需提前配置相应的支持策略后才可触发。
 
-#### FULL_SCREEN
+### FULL_SCREEN
 
 全屏模式是指应用窗口铺满整个屏幕的显示状态。
 
-特点：
+**特点：**
 
 * 窗口占据整个屏幕空间。
 
@@ -40,13 +41,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 
 * 在非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，窗口铺满整个屏幕，无标题栏和dock栏显示。
 
-适用场景：
+**适用场景：**
 
 * 沉浸式体验的应用，如视频播放、游戏等。
 
 * 需要最大化利用屏幕空间的应用场景。
 
-触发方式：
+**触发方式：**
 
 * [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下：
 
@@ -58,70 +59,71 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 
 * 非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，应用主窗口启动时默认进入FULL_SCREEN显示模式。
 
-#### MAXIMIZE
+### MAXIMIZE
 
 最大化模式是指应用窗口在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下铺满整个屏幕，但保留dock栏、状态栏和标题栏的显示状态。
 
-特点：
+**特点：**
 
 * 窗口占据整个屏幕空间，不需要hover就可以显示dock栏、状态栏和标题栏。
 
 * 仅在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下存在该模式。
 
-适用场景：
+**适用场景：**
 
 [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下需要全屏显示但保持dock栏、状态栏和标题栏可见。
 
-触发方式：
+**触发方式：**
 
 * [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，应用在module.json5文件的metadata中将"ohos.ability.window.isMaximize"字段配置为true，应用主窗口启动将以MAXIMIZE模式启动。
 
 * [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，应用调用[maximize()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#maximize12)接口，使用window.MaximizePresentation.EXIT_IMMERSIVE枚举入参。
 
-![](https://media:401788444459270614)  
-* 应用子窗口仅在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下支持FULL_SCREEN与MAXIMIZE模式，且需要在创建子窗时将maximizeSupported参数配置为true；或者通过[setSupportedWindowModes()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setsupportedwindowmodes)配置支持。
+> 说明
+>
+> * 应用子窗口仅在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下支持FULL_SCREEN与MAXIMIZE模式，且需要在创建子窗时将maximizeSupported参数配置为true；或者通过[setSupportedWindowModes()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setsupportedwindowmodes)配置支持。
+>
+> * FULL_SCREEN与MAXIMIZE的主要差异：
+>
+>   * FULL_SCREEN：窗口铺满整个屏幕；在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，无dock栏、状态栏和标题栏显示；在非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，无dock栏和标题栏显示。
+>
+>   * MAXIMIZE：窗口铺满整个屏幕，有dock栏、状态栏和标题栏显示。
+>
+>   * MAXIMIZE模式仅在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下生效。
 
-* FULL_SCREEN与MAXIMIZE的主要差异：
-
-  * FULL_SCREEN：窗口铺满整个屏幕；在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，无dock栏、状态栏和标题栏显示；在非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，无dock栏和标题栏显示。
-
-  * MAXIMIZE：窗口铺满整个屏幕，有dock栏、状态栏和标题栏显示。
-
-  * MAXIMIZE模式仅在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下生效。
-
-#### MINIMIZE
+### MINIMIZE
 
 最小化模式是指应用窗口缩小到任务栏或dock栏，不在屏幕上显示内容的状态。
 
-特点：
+**特点：**
 
 * 窗口内容不可见，窗口生命周期进入后台状态。
 
 * 用户可以通过任务栏或dock栏重新激活窗口。
 
-适用场景：
+**适用场景：**
 
 * 用户需要暂时隐藏窗口，但希望窗口可快速恢复之前的显示内容。
 
 * 需要在后台继续处理某些业务逻辑的应用。
 
-触发方式：
+**触发方式：**
 
 * 应用调用[minimize()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#minimize11)接口。
 
 * 用户点击系统标题栏中的最小化按钮。
 
-#### FLOATING
+### FLOATING
 
 自由悬浮窗口模式是指应用窗口以自由悬浮窗口的形式显示，可以自由调整窗口的大小和位置。
 
 在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下和非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，自由悬浮窗口模式具有不同的特点和使用场景。
 
-* 自由窗口状态下
+* **自由窗口状态下**
 
   自由窗口状态下，自由悬浮窗口在屏幕上可以按自由大小、位置显示，支持拖拽移动、拖拽缩放和分屏组合，从而实现多任务处理。
 
-  特点：
+  **特点：**
   * 应用可通过[resize()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#resize9)、[moveWindowTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#movewindowto9-1)等接口改变自由悬浮窗口大小和位置。
 
   * 同一屏幕上可同时显示多个自由悬浮窗口。
@@ -130,23 +132,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 
   * 全局悬浮窗、模态窗口及系统窗口固定以自由悬浮窗口模式显示，无法切换窗口模式。
 
-  适用场景：
+  **适用场景：**
   * 多任务并行处理的场景。
 
   * 需要同时查看多个应用内容的场景。
 
-  触发方式：
+  **触发方式：**
   * [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，窗口启动时默认进入FLOATING显示模式。
 
   * 当窗口在全屏、分屏模式时，应用调用[recover()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#recover11)接口。
 
   * 当窗口在全屏、分屏模式时，用户点击系统标题栏中的还原按钮。
 
-* 非自由窗口状态下
+* **非自由窗口状态下**
 
   非自由窗口状态下的自由悬浮窗口在屏幕上可以按自由位置显示，但不同窗口类型在自由悬浮窗口模式下的能力存在差异。
 
-  特点：
+  **特点：**
   * 对于应用主窗口：
 
     * 应用主窗口仅在进入智慧多窗悬浮窗或全景多窗后，窗口处于自由悬浮窗口模式，详见[智慧多窗简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-intro)。
@@ -169,24 +171,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 
     * 无顶部横条。
 
-  适用场景：
+  **适用场景：**
   * 多任务并行处理的场景。
 
   * 需要同时查看多个应用内容的场景。
 
-  触发方式：
+  **触发方式：**
 
-  用户触发：包含通过悬浮窗手势触发、通知消息启动应用、侧边Dock启动应用、顶部横条切换等方式。详细内容可见[智慧多窗简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-intro)中"悬浮窗的触发及恢复方式"章节。  
-  ![](https://media:401788444459298615)  
-更多关于智慧多窗悬浮窗的信息，请参考[智慧多窗简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-intro)和[智慧多窗最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-window-practice)。  
+  用户触发：包含通过悬浮窗手势触发、通知消息启动应用、侧边Dock启动应用、顶部横条切换等方式。详细内容可见[智慧多窗简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-intro)中"悬浮窗的触发及恢复方式"章节。
+  > 说明
+  >
+  > 更多关于智慧多窗悬浮窗的信息，请参考[智慧多窗简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-intro)和[智慧多窗最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-window-practice)。
 
-#### SPLIT_SCREEN
+### SPLIT_SCREEN
 
 分屏模式是指应用窗口占据屏幕的某个部分，与另一个窗口同时显示的状态。当前支持应用内分屏及应用间分屏。
 
-![](https://media:401788444459837616)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/nTNMCyJWTDeCHC88APrebg/zh-cn_image_0000002733274402.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=C40AEA5F3ADBC9DB8251D173ABE30E07C62470DB8EDBC0D0B341193744F7131A)
 
-特点：
+**特点：**
 
 * 分屏窗口按照左右或上下布局排列。
 
@@ -196,21 +199,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 
 * 当前仅支持二分屏。
 
-适用场景：
+**适用场景：**
 
 多个应用长时间并行使用的场景，如一边查看文档一边编写邮件、多应用商品比价等。
 
-触发方式：
+**触发方式：**
 
 * 应用在前台调用[startAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability-1)时，配置[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions#startoptions)中的windowMode为WINDOW_MODE_SPLIT_PRIMARY或WINDOW_MODE_SPLIT_SECONDARY（新拉起的应用主窗在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)下进入待分屏状态，在非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)下与调用方应用主窗形成分屏）。
 
 * 用户触发：[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，可通过点击窗口系统标题栏三键区域、拖拽窗口到分屏热区的方式触发。非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，可通过分屏手势、点击顶部横条切换的方式触发。
 
-#### 获取与监听窗口模式
+## 获取与监听窗口模式
 
 应用可以通过查询窗口模式、监听窗口模式变化事件来感知当前窗口状态的改变，并据此进行相应的业务适配。
 
-系统提供了以下相关查询和监听接口。  
+系统提供了以下相关查询和监听接口。
 
 |接口|功能描述|触发时机|适用场景|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------|:----------|:-------------------------|:------------------------------------------------------------|
@@ -218,9 +221,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 |[on('windowStatusChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowstatuschange11)|开启窗口模式变化的监听|窗口模式变化时立即触发（此时窗口属性可能还没有更新）|需要快速响应窗口模式变化，不依赖窗口属性的场景。|
 |[on('windowStatusDidChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowstatusdidchange20)|开启窗口模式变化的监听|窗口模式变化且Rect属性更新完成后触发|需要在窗口模式变化后立即获取准确窗口大小和位置的场景。|
 
-#### 定制窗口模式支持策略
+## 定制窗口模式支持策略
 
-应用可以通过多种方式配置窗口支持的模式，以满足不同设备和场景的需求。针对主窗、子窗窗口模式，提供了四种主要的配置方式，按优先级从高到低依次为：  
+应用可以通过多种方式配置窗口支持的模式，以满足不同设备和场景的需求。针对主窗、子窗窗口模式，提供了四种主要的配置方式，按优先级从高到低依次为：
 
 |优先级排序|配置方式|支持的窗口类型|生效范围|
 |:----|:-------------------------------------------------------------------------------------------------------------|:----------|:----------|
@@ -229,22 +232,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 |3|[通过module.json5配置文件中abilities标签下的metadata标签配置](#通过modulejson5配置文件中abilities标签下的metadata标签配置)|应用主窗口|仅在自由窗口状态下生效|
 |4|[通过module.json5配置文件中abilities标签下的supportWindowMode属性配置](#通过modulejson5配置文件中abilities标签下的supportwindowmode属性配置)|应用主窗口|均生效|
 
-![](https://media:401788444459869617)  
-* 非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下只能通过[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)下的supportWindowMode属性配置窗口支持模式，其他配置方式均不生效。
+> 说明
+>
+> * 非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下只能通过[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)下的supportWindowMode属性配置窗口支持模式，其他配置方式均不生效。
+>
+> * 非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，应用在[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)下配置的supportWindowMode属性中即使未包含FULL_SCREEN，依然默认支持全屏模式显示。
+>
+> * 在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，supportWindowMode中配置的FULL_SCREEN模式，表示窗口支持windowStatusType.FULL_SCREEN 和windowStatusType.MAXIMIZE两种显示模式。
+>
+> * 多设备场景下不同窗口模式的开发与实现可以参考[窗口模式最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-mode)。
 
-* 非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，应用在[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)下配置的supportWindowMode属性中即使未包含FULL_SCREEN，依然默认支持全屏模式显示。
-
-* 在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下，supportWindowMode中配置的FULL_SCREEN模式，表示窗口支持windowStatusType.FULL_SCREEN 和windowStatusType.MAXIMIZE两种显示模式。
-
-* 多设备场景下不同窗口模式的开发与实现可以参考[窗口模式最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-mode)。
-
-#### 通过setSupportedWindowModes()接口配置
+### 通过setSupportedWindowModes()接口配置
 
 * 通过调用WindowStage.[setSupportedWindowModes()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#setsupportedwindowmodes15)传入supportedWindowModes或调用WindowStage.[setSupportedWindowModes()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#setsupportedwindowmodes20)接口传入supportedWindowModes和grayOutMaximizeButton，可以在运行时动态修改当前主窗口支持的窗口模式。
 
 * 通过调用Window.[setSupportedWindowModes()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setsupportedwindowmodes)传入supportedWindowModes，可以在运行时动态修改当前主、子窗口支持的窗口模式。
 
-支持配置的窗口模式如下所示：  
+支持配置的窗口模式如下所示：
 
 |配置值|模式|说明|
 |:----------------------------|:---|:-------------------------------------------------------|
@@ -258,11 +262,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 
 * 适用于需要根据应用状态动态调整窗口模式的场景。
 
-#### 通过startAbility()接口配置
+### 通过startAbility()接口配置
 
 应用调用[startAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability-1)时可通过[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions#startoptions)中的supportWindowMode参数，指定启动时窗口支持的模式。
 
-支持的模式值（详见[bundleManager.SupportWindowMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#supportwindowmode)）：  
+**支持的模式值** （详见[bundleManager.SupportWindowMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#supportwindowmode)）：
 
 |配置值|模式|说明|
 |:------------------------------------------|:-------|:------------|
@@ -274,11 +278,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 
 * 适用于主窗口启动时指定窗口模式。
 
-#### 通过module.json5配置文件中abilities标签下的metadata标签配置
+### 通过module.json5配置文件中abilities标签下的metadata标签配置
 
 通过[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中[abilities](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)标签下的[metadata标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-config-m#metadata标签)，可以设置窗口相关的元数据属性，包括自由多窗下的可支持窗口模式。
 
-配置项说明：  
+**配置项说明：**
 
 |配置项|说明|取值|
 |:----|:------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -291,11 +295,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 
 * 可缺省，缺省值为"fullscreen, split, floating"。
 
-#### 通过module.json5配置文件中abilities标签下的supportWindowMode属性配置
+### 通过module.json5配置文件中abilities标签下的supportWindowMode属性配置
 
 通过[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中[abilities](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)标签下的supportWindowMode属性，可以指定应用支持的窗口模式。
 
-支持的模式值：  
+**支持的模式值：**
 
 |配置值|模式|说明|
 |:-----------|:----|:------------------------|
@@ -303,7 +307,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 |"split"|分屏模式|应用窗口占据屏幕的某个部分，与另一个窗口同时显示。|
 |"floating"|悬浮窗模式|应用窗口以悬浮窗口的形式显示。|
 
-* 可缺省，缺省值为\["fullscreen", "split", "floating"\]。
+* 可缺省，缺省值为["fullscreen", "split", "floating"]。
 
 * 在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态和非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/freeform-window-overview#自由窗口)状态下均生效。
 

@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-a
 
 # 数据库备份与恢复 (ArkTS)
 
-#### 场景介绍
+## 场景介绍
 
 如果操作或存储的过程中出现问题，开发者可以使用恢复功能，将数据库恢复到之前的状态，重新对数据库进行操作。
 
 在数据库被篡改、删除、或者设备断电场景下，数据库可能会因为数据丢失、数据损坏、脏数据等而不可用，可以通过数据库的备份恢复能力将数据库恢复至可用状态。
 
-键值型数据库和关系型数据库均支持对数据库的备份和恢复。另外，键值型数据库还支持删除数据库备份，以释放本地存储空间。  
+键值型数据库和关系型数据库均支持对数据库的备份和恢复。另外，键值型数据库还支持删除数据库备份，以释放本地存储空间。
 
-#### 键值型数据库备份、恢复与删除
+## 键值型数据库备份、恢复与删除
 
 键值型数据库，通过backup接口实现数据库备份，通过restore接口实现数据库恢复，通过deletebackup接口删除数据库备份。具体接口及功能，可见[分布式键值数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedkvstore)。
 
@@ -26,7 +26,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-a
 
    (3) 创建kvStore。
 
-   ```
+   ```ts
    // 导入模块
    // 在pages目录下新建KvStoreInterface.ets
    import { distributedKVStore } from '@kit.ArkData';
@@ -46,7 +46,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-a
    }
    ```
 
-   ```
+   ```TypeScript
    public CreateKvManager = (() => {
      Logger.info('CreateKvManager start');
      if (typeof (kvManager) === 'undefined') {
@@ -67,7 +67,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-a
    })
    ```
 
-   ```
+   ```TypeScript
    public GetKvStore = (() => {
      Logger.info('GetKvStore start');
      if (kvManager === undefined) {
@@ -125,7 +125,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-a
 
 2. 使用put()方法插入数据。
 
-   ```
+   ```TypeScript
    public Put = (() => {
      Logger.info('Put start');
      if (kvStore === undefined) {
@@ -152,7 +152,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-a
 
 3. 使用backup()方法备份数据。
 
-   ```
+   ```TypeScript
    public Backup = (() => {
      Logger.info('Backup start');
      if (kvStore === undefined) {
@@ -177,7 +177,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-a
 
 4. 使用delete()方法删除数据（模拟意外删除、篡改场景）。
 
-   ```
+   ```TypeScript
    public Delete = (() => {
      Logger.info('DeleteData start');
      if (kvStore === undefined) {
@@ -202,7 +202,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-a
 
 5. 使用restore()方法恢复数据。
 
-   ```
+   ```TypeScript
    public Restore = (() => {
      Logger.info('Restore start');
      if (kvStore === undefined) {
@@ -227,7 +227,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-a
 
 6. 当本地设备存储空间有限或需要重新备份时，还可使用deleteBackup()方法删除备份，释放存储空间。
 
-   ```
+   ```TypeScript
    public DeleteBackup = (() => {
      Logger.info('DeleteBackup start');
      if (kvStore === undefined) {
@@ -251,17 +251,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-a
    })
    ```
 
-#### 关系型数据库备份
+## 关系型数据库备份
 
 数据库操作或者存储过程中，有可能会因为各种原因发生非预期的数据库异常的情况，可以根据需要使用关系型数据库的备份能力，以便在数据库异常时，可靠高效地恢复数据保证业务数据正常使用。
 
-关系型数据库支持手动备份和自动备份（仅系统应用可用）两种方式。  
+关系型数据库支持手动备份和自动备份（仅系统应用可用）两种方式。
 
-#### 手动备份
+### 手动备份
 
 手动备份：通过调用[backup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#backup)接口实现数据库手动备份。示例如下：
 
-```
+```TypeScript
 import { relationalStore } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
@@ -270,7 +270,7 @@ import { UIContext } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 ```
 
-```
+```TypeScript
 /* context为应用的上下文信息，由调用方自行获取，此处仅为示例。 */
 const context = new UIContext().getHostContext() as common.UIAbilityContext;
 let store: relationalStore.RdbStore | undefined = undefined;
@@ -304,7 +304,7 @@ try {
 }
 ```
 
-#### 关系型数据库异常重建
+## 关系型数据库异常重建
 
 在创建或使用关系型数据库的过程中，抛出14800011异常错误码说明数据库出现异常，可以删除数据库后恢复数据。
 
@@ -314,7 +314,7 @@ try {
 
 若数据库异常前未配置StoreConfig中的allowRebuild或allowRebuild配置为false，则需将其配置为true再次进行开库。具体示例如下：
 
-```
+```TypeScript
 let store: relationalStore.RdbStore | undefined = undefined;
 /* context为应用的上下文信息，由调用方自行获取，此处仅为示例。 */
 const context = new UIContext().getHostContext() as common.UIAbilityContext;
@@ -333,13 +333,13 @@ try {
 }
 ```
 
-#### 关系型数据库数据恢复
+## 关系型数据库数据恢复
 
 针对数据库出现异常的情况，在数据库重建成功后，需要用提前备份好的数据进行数据恢复。
 
-恢复方式分以下两种，手动备份恢复和自动备份恢复（仅系统应用可用）。  
+恢复方式分以下两种，手动备份恢复和自动备份恢复（仅系统应用可用）。
 
-#### 恢复手动备份数据
+### 恢复手动备份数据
 
 关系型数据库通过调用backup接口可以实现[手动备份数据库](#手动备份)，通过restore接口可以实现手动恢复数据库。
 
@@ -347,7 +347,7 @@ try {
 
 1. 抛出数据库异常错误码。
 
-   ```
+   ```TypeScript
    let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
    if (store != undefined) {
      (store as relationalStore.RdbStore).query(predicates, ['ID', 'NAME', 'AGE', 'SALARY', 'CODES'])
@@ -379,7 +379,7 @@ try {
 
 2. 关闭所有打开着的结果集。
 
-   ```
+   ```TypeScript
    let resultSets: relationalStore.ResultSet[] = []
    // 使用resultSet.close()方法关闭所有打开着的结果集
    for (let resultSet of resultSets) {
@@ -395,7 +395,7 @@ try {
 
 3. 调用restore接口恢复数据。
 
-   ```
+   ```TypeScript
    let store: relationalStore.RdbStore | undefined = undefined;
    /* context为应用的上下文信息，由调用方自行获取，此处仅为示例。 */
    const context = new UIContext().getHostContext() as common.UIAbilityContext;
@@ -432,6 +432,7 @@ try {
    }
    ```
 
-#### 示例代码
+## 示例代码
 
-* [数据库的备份与恢复](https://gitcode.com/HarmonyOS_Samples/data-base-upgrade)  
+* [数据库的备份与恢复](https://gitcode.com/HarmonyOS_Samples/data-base-upgrade)
+

@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file
 
 # 如何读取占用空间不同的文件
 
-#### 问题现象
+## 问题现象
 
-如何读取占用空间不同的文件？例如文本文件、音视频文件。  
+如何读取占用空间不同的文件？例如文本文件、音视频文件。
 
-#### 解决方案
+## 解决方案
 
 1. 读取占用空间较小的文件，例如文本文件，适合使用fs.readText，代码示例如下：
 
-   ```
+   ```ts
    import { BusinessError } from '@kit.BasicServicesKit';
    import { fileIo as fs } from '@kit.CoreFileKit';
    import { common } from '@kit.AbilityKit';
@@ -45,7 +45,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file
 
 2. 读取占用空间较大的文件，例如音视频文件，则需要分块读取。推荐基于fs.createStream创建文件读取流的方式，也可以使用fs.read的方式读取，需要注意控制缓冲区大小。代码示例参考如下：
 
-   ```
+   ```ts
    import { BusinessError } from '@kit.BasicServicesKit';
    import { common } from '@kit.AbilityKit';
    import { fileIo as fs } from '@kit.CoreFileKit';

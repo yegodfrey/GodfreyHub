@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-846
 
 # 如何实现可旋转的弧形图片集
 
-#### 问题现象
+## 问题现象
 
-如何实现一个类似转盘效果的弧形图片集，要求可以360度旋转。  
+如何实现一个类似转盘效果的弧形图片集，要求可以360度旋转。
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782454334687622 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/-oe0faEeTNqkWXreYGElIw/zh-cn_image_0000002628398640.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=B18A09EE9219DE24959C4EA76BF5F171764BE20CAFFD9D0FD36400617B072FA8 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)为图片组件，常用于在应用中显示图片。配合通用属性[rotate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#rotate)可以实现图片的旋转。
 * [gesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-binding#gesture常规手势绑定方法)为通用的一种手势绑定方法，可以将手势绑定到对应的组件上。
-* 自定义组件的生命周期[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)函数在创建自定义组件的新实例后，在执行其build()函数之前执行。允许在aboutToAppear函数中改变状态变量，更改将在后续执行build()函数中生效。  
+* 自定义组件的生命周期[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)函数在创建自定义组件的新实例后，在执行其build()函数之前执行。允许在aboutToAppear函数中改变状态变量，更改将在后续执行build()函数中生效。
 
-#### 解决方案
+## 解决方案
 
 1. 通过aboutToAppear方法初始化屏幕宽度和图像在圆上的位置坐标。
 2. 使用Stack堆叠图像，并为Stack添加手势识别。
@@ -29,7 +29,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-846
 
 完整示例参考如下：
 
-```
+```ts
 import { display } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -53,7 +53,7 @@ struct RotatingArcDemo {
       'app.media.c', 'app.media.c', 'app.media.c'];
   private points: number[][] = [];
 
-  // 通过aboutToAppear方法初始化屏幕宽度和图像在圆上的位置坐标。
+// 通过aboutToAppear方法初始化屏幕宽度和图像在圆上的位置坐标。
   aboutToAppear(): void {
     this.getScreenWidth();
     this.calculatePointsOnCircle(0, 200, 200, this.imageList.length);
@@ -78,12 +78,12 @@ struct RotatingArcDemo {
               .id(`${index}`);
           });
         }
-        // centerY=图片高度+圆的半径
+       // centerY=图片高度+圆的半径
         .rotate({ angle: this.stackAngle, centerY: 200 + 100 });
       }.height('100%')
       .width('100%')
       .backgroundColor('#ffa7a7a7')
-      // 为Stack添加手势识别。
+     // 为Stack添加手势识别。
       .gesture(
         PanGesture(this.panOption)
           .onActionStart((event: GestureEvent) => {
@@ -115,7 +115,7 @@ struct RotatingArcDemo {
     };
   }
 
-  // 自定义getAngle方法计算图像的旋转角度。
+ // 自定义getAngle方法计算图像的旋转角度。
   getAngle(index: number): number {
     let length = this.imageList.length;
     let midIndex = length / 2;
@@ -128,10 +128,10 @@ struct RotatingArcDemo {
     }
   }
 
-  /** 自定义calculatePointsOnCircle方法计算图像的位置坐标。
-   * 输入 圆心x，y、 半径、均匀分布的数量
-   * 返回一组坐标x=0 / y=200 /r=100
-   */
+/** 自定义calculatePointsOnCircle方法计算图像的位置坐标。
+* 输入 圆心x，y、 半径、均匀分布的数量
+* 返回一组坐标x=0 / y=200 /r=100
+*/
   calculatePointsOnCircle(x: number, y: number, r: number, n: number) {
     const theta = (2 * Math.PI) / n;
     for (let i = 0; i < n; i++) {
@@ -144,7 +144,7 @@ struct RotatingArcDemo {
     }
   }
 
-  // 自定义getScreenWidth方法获取屏幕宽度，用于手势识别的坐标计算。
+// 自定义getScreenWidth方法获取屏幕宽度，用于手势识别的坐标计算。
   getScreenWidth() {
     display.getAllDisplays((err: BusinessError, data: Array<display.Display>) => {
       this.screenWidth = data[0].width;

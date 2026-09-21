@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/newenergy-0
 
 # com.huawei.hms.navi.navibase.model.newenergy
 
-* [Overview](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/newenergy_overview-0000001663638205)  
-* [Class Summary](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/newenergy_class_summary-0000001615479022)  
+* **[Overview](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/newenergy_overview-0000001663638205)**   
+* **[Class Summary](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/newenergy_class_summary-0000001615479022)**   

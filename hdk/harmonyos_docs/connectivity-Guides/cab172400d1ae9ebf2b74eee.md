@@ -18,4 +18,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/error-code
 |[HICALL_NO_OVERLAYS_PERMISSION](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/screen-sharing-hwcaasutils-0000001050728872#ZH-CN_TOPIC_0000001051143694__section16623115115523)|2005|畅连通话悬浮窗权限未打开。|请打开畅连通话悬浮窗的权限。|
 |[ILLEGAL_HANDLER_TYPE](https://developer.huawei.com/consumer/cn/doc/development/connectivity-References/screen-sharing-hwcaasutils-0000001050728872#ZH-CN_TOPIC_0000001051143694__section11271195635215)|2006|handlerType设置错误。|请传入正确的值。|
 
-若问题仍无法解决，请选择"支持 \> 技术支持 \> 在线提单"提交问题，华为支持人员会及时处理。
+若问题仍无法解决，请选择"支持 > 技术支持 > 在线提单"提交问题，华为支持人员会及时处理。

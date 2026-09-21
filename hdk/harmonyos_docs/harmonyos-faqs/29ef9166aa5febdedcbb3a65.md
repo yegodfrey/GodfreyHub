@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-247
 
 在List容器组件内可以将ListItemGroup和LazyForEach结合使用。参考代码如下：
 
-```
+```typescript
 @Entry
 @Component
 struct LazyForEachDemo {

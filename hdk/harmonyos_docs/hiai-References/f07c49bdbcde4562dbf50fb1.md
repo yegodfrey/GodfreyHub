@@ -6,6 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-math-0
 
 # 数学库
 
-<br />
-
-* [Tanh](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-math-tanh-0000002315287808)  
+* **[Tanh](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-math-tanh-0000002315287808)**   

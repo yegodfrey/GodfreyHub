@@ -10,4 +10,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-297
 
 UI组件截屏参考：[@ohos.arkui.componentSnapshot (组件截图)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentsnapshot)
 
-窗口截屏参考：[snapshot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#snapshot9)  
+窗口截屏参考：[snapshot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#snapshot9)
+

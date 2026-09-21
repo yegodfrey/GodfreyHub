@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-data
 
 参考代码如下：
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { distributedKVStore } from '@kit.ArkData';
 
@@ -27,20 +27,20 @@ export struct ReadingTheLocalDatabase {
           .fontWeight(FontWeight.Bold)
           .onClick(async () => {
             try {
-              let name = new distributedKVStore.FieldNode('name'); // Create FieldNode
+              let name = new distributedKVStore.FieldNode('name');// Create FieldNode
               name.type = distributedKVStore.ValueType.STRING; // Set NodeType string
               name.nullable = false; // NodeData is not null
               name.default = 'cake'; // Default
 
-              let schema1 = new distributedKVStore.Schema(); // Create Schema
+              let schema1 = new distributedKVStore.Schema();// Create Schema
               schema1.root.appendChild(name); // add Child name
               schema1.indexes = ['$.name'];
-              // Create KVManager
+             // Create KVManager
               let kvManager = distributedKVStore.createKVManager({
                 bundleName: 'TEST_CRASH_APP',
                 context: this.getUIContext().getHostContext()
               });
-              // Create database 
+             // Create database
               await kvManager.getKVStore('storeIds', {
                 createIfMissing: true,
                 backup: false,
@@ -68,7 +68,7 @@ export struct ReadingTheLocalDatabase {
                 }
                 entries.push(ent);
               }
-              // insert data 
+             // insert data
               kvStore.putBatch(entries)
                 .then((data) => {
                   console.info('Succeeded in putting Batch');
@@ -88,7 +88,7 @@ export struct ReadingTheLocalDatabase {
               if (kvStore === undefined) {
                 return;
               }
-              // Use predicates to query a specified field that has a value similar to the specified string, and obtain a list of key value pairs that match the specified Query object
+            // Use predicates to query a specified field that has a value similar to the specified string, and obtain a list of key value pairs that match the specified Query object
               kvStore.getEntries(new distributedKVStore.Query().like('$.name', 'c%'))
                 .then((value) => {
                   for (let i = 0; i < value.length; i++) {

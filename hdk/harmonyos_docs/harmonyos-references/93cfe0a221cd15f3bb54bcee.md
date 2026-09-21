@@ -6,47 +6,50 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-
 
 # Select
 
-提供下拉选择菜单，让用户在多个选项间选择。Select组件支持设置选项图标、自定义样式、分割线等，适用于需要在有限空间内展示多个选项供用户选择的场景。  
-![](https://media:401788445243769867)  
-该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。  
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-#### 子组件
+提供下拉选择菜单，让用户在多个选项间选择。Select组件支持设置选项图标、自定义样式、分割线等，适用于需要在有限空间内展示多个选项供用户选择的场景。
+> 说明
+>
+> 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-无  
+## 子组件
 
-#### 接口
+无
 
-Select(options: Array\<SelectOption\>)
+## 接口
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+Select(options: Array<SelectOption>)
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-参数：  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------|
-|options|[Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-array)\<[SelectOption](#selectoption对象说明)\>|是|设置下拉选项。|
+|:------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:-|:------|
+|options|[Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-array)<[SelectOption](#selectoption对象说明)>|是|设置下拉选项。|
 
-#### SelectOption对象说明
+## SelectOption对象说明
 
 下拉菜单项的信息。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:-------------------------------------------------------------------------------------------------------|
-|value|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|否|下拉选项内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。|
-|icon|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|是|下拉选项图片，默认不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。|
-|symbolIcon^12+^|[SymbolGlyphModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-symbolglyphmodifier)|否|是|下拉选项Symbol图片，默认不显示。 symbolIcon优先级高于icon。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。|
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:---------------------------------------------------------------------------------------------------------------|
+|value|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|否|下拉选项内容。 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。|
+|icon|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|是|下拉选项图片，默认不显示。 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。|
+|symbolIcon^12+^|[SymbolGlyphModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-symbolglyphmodifier)|否|是|下拉选项Symbol图片，默认不显示。 symbolIcon优先级高于icon。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。 **模型约束：** 此接口仅可在Stage模型下使用。|
 
-#### 属性
+## 属性
 
-除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：  
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
-#### selected
+### selected
 
-selected(value: number \| Resource)
+selected(value: number | Resource)
 
 设置下拉菜单初始选项的索引，第一项的索引为0。当不设置selected属性、或设置为负数、非整数、超出索引范围等异常值时，默认选中值为-1，菜单项不选中；当设置为undefined、null时，选中第一项。
 
@@ -54,37 +57,37 @@ selected(value: number \| Resource)
 
 从API version 18开始，该属性支持[!!](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#系统组件参数双向绑定)双向绑定变量。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:-------------------------------------------------------------------------------------------------------------|:-|:-------------------|
-|value|number \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)^11+^|是|下拉菜单初始选项的索引，索引值从0开始。|
+|:----|:------------------------------------------------------------------------------------------------------------|:-|:-------------------|
+|value|number | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)^11+^|是|下拉菜单初始选项的索引，索引值从0开始。|
 
-#### selected^18+^
+### selected^18+^
 
-selected(numCount: Optional\<number \| Resource\>)
+selected(numCount: Optional<number | Resource>)
 
 设置下拉菜单初始选项的索引，第一项的索引为0。当不设置selected属性、或设置为负数、非整数、超出索引范围等异常值时，默认选中值为-1，菜单项不选中；当设置为undefined、null时，选中第一项。
 
 该属性支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)、[!!](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#系统组件参数双向绑定)双向绑定变量。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------|
-|numCount|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<number \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)\>|是|下拉菜单初始选项的索引，索引值从0开始。 当numCount的值为undefined或null时，选中第一项。|
+|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------|
+|numCount|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<number | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)>|是|下拉菜单初始选项的索引，索引值从0开始。 当numCount的值为undefined或null时，选中第一项。|
 
-#### value
+### value
 
 value(value: ResourceStr)
 
@@ -94,49 +97,49 @@ value(value: ResourceStr)
 
 从API version 18开始，该参数支持[!!](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#系统组件参数双向绑定)双向绑定变量。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:---------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------|
-|value|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)^11+^|是|下拉按钮本身的文本内容。 说明： 文本长度大于列宽时，文本被截断，超出的部分以省略号的方式显示。|
+|:----|:---------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------|
+|value|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)^11+^|是|下拉按钮本身的文本内容。 **说明：** 文本长度大于列宽时，文本被截断，超出的部分以省略号的方式显示。|
 
-#### value^18+^
+### value^18+^
 
-value(resStr: Optional\<ResourceStr\>)
+value(resStr: Optional<ResourceStr>)
 
 设置下拉按钮的文本内容。选中菜单项后，按钮文本将自动更新为选中的菜单项文本。与[value](#value)相比，resStr参数新增了对undefined类型的支持。
 
 该参数支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)、[!!](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#系统组件参数双向绑定)双向绑定变量。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------|
-|resStr|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)\>|是|下拉按钮本身的文本内容。 当resStr的值为undefined时维持上次取值。 说明： 文本长度大于列宽时，文本被截断。|
+|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------|
+|resStr|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)>|是|下拉按钮本身的文本内容。 当resStr的值为undefined时维持上次取值。 **说明：** 文本长度大于列宽时，文本被截断。|
 
-#### controlSize^12+^
+### controlSize^12+^
 
 controlSize(value: ControlSize)
 
 设置Select组件的尺寸。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:---------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------|
@@ -148,25 +151,25 @@ controlSize、width、height接口作用优先级：
 
 2）如果开发者只设置了controlSize，没有设置width和height，组件宽高自适应文字，文字不超出组件，并设置最小宽度minWidth和最小高度minHeight；
 
-3）如果同时设置了controlSize、width、height接口，width和height设置的值生效，但如果width和height设置的值小于controlSize设置的最小宽度minWidth和最小高度minHeight，width和height设置的值不生效，宽高仍保持controlSize设置的最小宽度minWidth和最小高度minHeight。  
+3）如果同时设置了controlSize、width、height接口，width和height设置的值生效，但如果width和height设置的值小于controlSize设置的最小宽度minWidth和最小高度minHeight，width和height设置的值不生效，宽高仍保持controlSize设置的最小宽度minWidth和最小高度minHeight。
 
-#### controlSize^18+^
+### controlSize^18+^
 
-controlSize(size: Optional\<ControlSize\>)
+controlSize(size: Optional<ControlSize>)
 
 设置Select组件的尺寸。与[controlSize](#controlsize12)^12+^相比，size参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:---|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------|
-|size|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[ControlSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#controlsize11枚举说明)\>|是|Select组件的尺寸。 默认值：ControlSize.NORMAL。 当size的值为undefined或null时，默认值为ControlSize.NORMAL。|
+|:---|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------|
+|size|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ControlSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#controlsize11枚举说明)>|是|Select组件的尺寸。 默认值：ControlSize.NORMAL。 当size的值为undefined或null时，默认值为ControlSize.NORMAL。|
 
 controlSize、width、height接口作用优先级：
 
@@ -174,471 +177,473 @@ controlSize、width、height接口作用优先级：
 
 2）如果开发者只设置了controlSize，没有设置width和height，组件宽高自适应文字，文字不超出组件，并设置最小宽度minWidth和最小高度minHeight；
 
-3）如果同时设置了controlSize、width、height接口，width和height设置的值生效，但如果width和height设置的值小于controlSize设置的最小宽度minWidth和最小高度minHeight，width和height设置的值不生效，宽高仍保持controlSize设置的最小宽度minWidth和最小高度minHeight。  
+3）如果同时设置了controlSize、width、height接口，width和height设置的值生效，但如果width和height设置的值小于controlSize设置的最小宽度minWidth和最小高度minHeight，width和height设置的值不生效，宽高仍保持controlSize设置的最小宽度minWidth和最小高度minHeight。
 
-#### menuItemContentModifier^12+^
+### menuItemContentModifier^12+^
 
-menuItemContentModifier(modifier: ContentModifier\<MenuItemConfiguration\>)
+menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration>)
 
-定制Select下拉菜单项内容区的方法。在应用了menuItemContentModifier后，下拉菜单的内容将完全由开发者自定义，此时为Select组件设置的分割线、选项颜色及下拉菜单的字体颜色等属性将不再生效。适用于下拉菜单项需要展示图文混排、多行文本、复杂图标或内置控件等复杂布局的场景。  
-![](https://media:401788445243794868)  
-该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+定制Select下拉菜单项内容区的方法。在应用了menuItemContentModifier后，下拉菜单的内容将完全由开发者自定义，此时为Select组件设置的分割线、选项颜色及下拉菜单的字体颜色等属性将不再生效。适用于下拉菜单项需要展示图文混排、多行文本、复杂图标或内置控件等复杂布局的场景。
+> 说明
+>
+> 该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
-
-|参数名|类型|必填|说明|
-|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------|
-|modifier|[ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)\<[MenuItemConfiguration](#menuitemconfiguration12对象说明)\>|是|在Select组件上，定制下拉菜单项内容区的方法。 modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。|
-
-#### menuItemContentModifier^18+^
-
-menuItemContentModifier(modifier: Optional\<ContentModifier\<MenuItemConfiguration\>\>)
-
-定制Select下拉菜单项内容区的方法。与[menuItemContentModifier](#menuitemcontentmodifier12)^12+^相比，modifier参数新增了对undefined类型的支持。在应用了menuItemContentModifier后，下拉菜单的内容将完全由开发者自定义，此时为Select组件设置的分割线、选项颜色及下拉菜单的字体颜色等属性将不再生效。  
-![](https://media:401788445243820869)  
-该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
-
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
-
-模型约束： 此接口仅可在Stage模型下使用。
-
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------|
-|modifier|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)\<[MenuItemConfiguration](#menuitemconfiguration12对象说明)\>\>|是|在Select组件上，定制下拉菜单项内容区的方法。 modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。 当modifier的值为undefined或null时，不使用内容修改器。|
+|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------|
+|modifier|[ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)<[MenuItemConfiguration](#menuitemconfiguration12对象说明)>|是|在Select组件上，定制下拉菜单项内容区的方法。 modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。|
 
-#### divider^12+^
+### menuItemContentModifier^18+^
 
-divider(options: Optional\<DividerOptions\> \| null)
+menuItemContentModifier(modifier: Optional<ContentModifier<MenuItemConfiguration>>)
+
+定制Select下拉菜单项内容区的方法。与[menuItemContentModifier](#menuitemcontentmodifier12)^12+^相比，modifier参数新增了对undefined类型的支持。在应用了menuItemContentModifier后，下拉菜单的内容将完全由开发者自定义，此时为Select组件设置的分割线、选项颜色及下拉菜单的字体颜色等属性将不再生效。
+> 说明
+>
+> 该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+|参数名|类型|必填|说明|
+|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------------------------|
+|modifier|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)<[MenuItemConfiguration](#menuitemconfiguration12对象说明)>>|是|在Select组件上，定制下拉菜单项内容区的方法。 modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。 当modifier的值为undefined或null时，不使用内容修改器。|
+
+### divider^12+^
+
+divider(options: Optional<DividerOptions> | null)
 
 设置分割线样式，不设置该属性则按"默认值"展示分割线。该属性与dividerStyle冲突，如果同时设置，按调用顺序生效，后者覆盖前者。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|options|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[DividerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker#divideroptions12对象说明)\> \| null|是|1.设置DividerOptions，则按设置的样式显示分割线。 默认值： { strokeWidth: '1px' , color: '#33182431' } 2.设置为null时，不显示分割线。 3.strokeWidth设置过宽时，会覆盖文字。分割线会从每一个Item底部开始，同时向上向下画分割线。 4.startMargin和endMargin的默认值与不设置divider属性时的分割线样式保持一致。startMargin和endMargin的和与optionWidth的值相等时，不显示分割线。 startMargin和endMargin的和超过optionWidth的值时，按照默认样式显示分割线。|
+|:------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|options|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[DividerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker#divideroptions12对象说明)> | null|是|1.设置DividerOptions，则按设置的样式显示分割线。 默认值： { strokeWidth: '1px' , color: '#33182431' } 2.设置为null时，不显示分割线。 3.strokeWidth设置过宽时，会覆盖文字。分割线会从每一个Item底部开始，同时向上向下画分割线。 4.startMargin和endMargin的默认值与不设置divider属性时的分割线样式保持一致。startMargin和endMargin的和与optionWidth的值相等时，不显示分割线。 startMargin和endMargin的和超过optionWidth的值时，按照默认样式显示分割线。|
 
-#### dividerStyle^19+^
+### dividerStyle^19+^
 
-dividerStyle(style: Optional\<DividerStyleOptions\>)
+dividerStyle(style: Optional<DividerStyleOptions>)
 
 设置分割线样式，不设置该属性则按"默认值"展示分割线。该属性与divider冲突，如果同时设置，按调用顺序生效，后者覆盖前者。
 
-元服务API： 从API version 19开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|style|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[DividerStyleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dividerstyleoptions12)\>|是|1.设置DividerStyleOptions，则按设置的样式显示分割线。 默认值： { strokeWidth: '1px' , color: '#33182431' } 2.设置为null或undefined时，展示默认分割线。 3.当mode为FLOAT_ABOVE_MENU时，strokeWidth设置过宽时，会覆盖文字。分割线会从每一个Item底部开始，同时向上向下画分割线。当mode为EMBEDDED_IN_MENU时，分割线在Menu中展开，独立占用高度。 4.startMargin和endMargin的默认值与不设置divider属性时的分割线样式保持一致。startMargin和endMargin的和与optionWidth的值相等时，不显示分割线。startMargin和endMargin的和超过optionWidth的值时，按照默认样式显示分割线。|
+|:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|style|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[DividerStyleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dividerstyleoptions12)>|是|1.设置DividerStyleOptions，则按设置的样式显示分割线。 默认值： { strokeWidth: '1px' , color: '#33182431' } 2.设置为null或undefined时，展示默认分割线。 3.当mode为FLOAT_ABOVE_MENU时，strokeWidth设置过宽时，会覆盖文字。分割线会从每一个Item底部开始，同时向上向下画分割线。当mode为EMBEDDED_IN_MENU时，分割线在Menu中展开，独立占用高度。 4.startMargin和endMargin的默认值与不设置divider属性时的分割线样式保持一致。startMargin和endMargin的和与optionWidth的值相等时，不显示分割线。startMargin和endMargin的和超过optionWidth的值时，按照默认样式显示分割线。|
 
-#### font
+### font
 
 font(value: Font)
 
 设置下拉按钮本身的文本样式。当size为0时，文本不显示，当size为负值时，文本的size按照默认值显示。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |value|[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)|是|下拉按钮本身的文本样式。 API version 11及以前默认值： { size: $r('sys.float.ohos_id_text_size_button1'), weight: FontWeight.Medium } API version 12以后，如果设置[controlSize](#controlsize12)的值为：ControlSize.SMALL，size默认值是$r('sys.float.ohos_id_text_size_button2')，否则为$r('sys.float.ohos_id_text_size_button1')。|
 
-#### font^18+^
+### font^18+^
 
-font(selectFont: Optional\<Font\>)
+font(selectFont: Optional<Font>)
 
 设置下拉按钮本身的文本样式。当size为0时，文本不显示，当size为负值时，文本的size按照默认值显示。与[font](#font)相比，selectFont参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|selectFont|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)\>|是|下拉按钮本身的文本样式。 如果设置[controlSize](#controlsize12)的值为：ControlSize.SMALL，size默认值是$r('sys.float.ohos_id_text_size_button2')，否则为$r('sys.float.ohos_id_text_size_button1')。 当selectFont的值为undefined时，恢复为系统文本样式。|
+|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|selectFont|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)>|是|下拉按钮本身的文本样式。 如果设置[controlSize](#controlsize12)的值为：ControlSize.SMALL，size默认值是$r('sys.float.ohos_id_text_size_button2')，否则为$r('sys.float.ohos_id_text_size_button1')。 当selectFont的值为undefined时，恢复为系统文本样式。|
 
-#### fontColor
+### fontColor
 
 fontColor(value: ResourceColor)
 
 设置下拉按钮本身的文本颜色。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------------|
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|下拉按钮本身的文本颜色。 默认值：$r('sys.color.ohos_id_color_text_primary')混合$r('sys.color.ohos_id_alpha_content_primary')的透明度。|
 
-#### fontColor^18+^
+### fontColor^18+^
 
-fontColor(resColor: Optional\<ResourceColor\>)
+fontColor(resColor: Optional<ResourceColor>)
 
 设置下拉按钮本身的文本颜色。与[fontColor](#fontcolor)相比，resColor参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------|
-|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)\>|是|下拉按钮本身的文本颜色。 当resColor的值为undefined时，默认值：$r('sys.color.ohos_id_color_text_primary')混合$r('sys.color.ohos_id_alpha_content_primary')的透明度。|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------|
+|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)>|是|下拉按钮本身的文本颜色。 当resColor的值为undefined时，默认值：$r('sys.color.ohos_id_color_text_primary')混合$r('sys.color.ohos_id_alpha_content_primary')的透明度。|
 
-#### selectedOptionBgColor
+### selectedOptionBgColor
 
 selectedOptionBgColor(value: ResourceColor)
 
 设置下拉菜单选中项的背景色。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------|
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|下拉菜单选中项的背景色。 默认值：$r('sys.color.ohos_id_color_component_activated')混合$r('sys.color.ohos_id_alpha_highlight_bg')的透明度。|
 
-#### selectedOptionBgColor^18+^
+### selectedOptionBgColor^18+^
 
-selectedOptionBgColor(resColor: Optional\<ResourceColor\>)
+selectedOptionBgColor(resColor: Optional<ResourceColor>)
 
 设置下拉菜单选中项的背景色。与[selectedOptionBgColor](#selectedoptionbgcolor)相比，resColor参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------|
-|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)\>|是|下拉菜单选中项的背景色。 当resColor的值为undefined时，默认值：$r('sys.color.ohos_id_color_component_activated')混合$r('sys.color.ohos_id_alpha_highlight_bg')的透明度。|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------------------------------------------------|
+|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)>|是|下拉菜单选中项的背景色。 当resColor的值为undefined时，默认值：$r('sys.color.ohos_id_color_component_activated')混合$r('sys.color.ohos_id_alpha_highlight_bg')的透明度。|
 
-#### selectedOptionFont
+### selectedOptionFont
 
 selectedOptionFont(value: Font)
 
 设置下拉菜单选中项的文本样式。当size为0的时候，文本不显示，当size为负值的时候，文本的size按照默认值显示。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------------|
 |value|[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)|是|下拉菜单选中项的文本样式。 默认值： { size: $r('sys.float.ohos_id_text_size_body1'), weight: FontWeight.Regular }|
 
-#### selectedOptionFont^18+^
+### selectedOptionFont^18+^
 
-selectedOptionFont(selectFont: Optional\<Font\>)
+selectedOptionFont(selectFont: Optional<Font>)
 
 设置下拉菜单选中项的文本样式。当size为0的时候，文本不显示，当size为负值的时候，文本的size按照默认值显示。与[selectedOptionFont](#selectedoptionfont)相比，selectFont参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------|
-|selectFont|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)\>|是|下拉菜单选中项的文本样式。 当selectFont的值为undefined时，默认值： { size: $r('sys.float.ohos_id_text_size_body1'), weight: FontWeight.Regular }|
+|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------|
+|selectFont|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)>|是|下拉菜单选中项的文本样式。 当selectFont的值为undefined时，默认值： { size: $r('sys.float.ohos_id_text_size_body1'), weight: FontWeight.Regular }|
 
-#### selectedOptionFontColor
+### selectedOptionFontColor
 
 selectedOptionFontColor(value: ResourceColor)
 
 设置下拉菜单选中项的文本颜色。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------|
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|下拉菜单选中项的文本颜色。 默认值：$r('sys.color.ohos_id_color_text_primary_activated')|
 
-#### selectedOptionFontColor^18+^
+### selectedOptionFontColor^18+^
 
-selectedOptionFontColor(resColor: Optional\<ResourceColor\>)
+selectedOptionFontColor(resColor: Optional<ResourceColor>)
 
 设置下拉菜单选中项的文本颜色。与[selectedOptionFontColor](#selectedoptionfontcolor)相比，resColor参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------|
-|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)\>|是|下拉菜单选中项的文本颜色。 当resColor的值为undefined时，默认值为$r('sys.color.ohos_id_color_text_primary_activated')。|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------|
+|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)>|是|下拉菜单选中项的文本颜色。 当resColor的值为undefined时，默认值为$r('sys.color.ohos_id_color_text_primary_activated')。|
 
-#### optionBgColor
+### optionBgColor
 
 optionBgColor(value: ResourceColor)
 
 设置下拉菜单项的背景色。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------------------------------|
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|下拉菜单项的背景色。 默认值： API version 11之前，默认值为Color.White。 API version 11及之后，默认值为Color.Transparent。|
 
-#### optionBgColor^18+^
+### optionBgColor^18+^
 
-optionBgColor(resColor: Optional\<ResourceColor\>)
+optionBgColor(resColor: Optional<ResourceColor>)
 
 设置下拉菜单项的背景色。与[optionBgColor](#optionbgcolor)相比，resColor参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------|
-|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)\>|是|下拉菜单项的背景色。 当resColor的值为undefined时，默认值：API version 11之前为Color.White，API version 11及之后为Color.Transparent。|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------|
+|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)>|是|下拉菜单项的背景色。 当resColor的值为undefined时，默认值：API version 11之前为Color.White，API version 11及之后为Color.Transparent。|
 
-#### optionFont
+### optionFont
 
 optionFont(value: Font)
 
 设置下拉菜单项的文本样式。当size为0的时候，文本不显示，当size为负值的时候，文本的size按照默认值显示。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------------------------------|
 |value|[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)|是|下拉菜单项的文本样式。 默认值： { size: $r('sys.float.ohos_id_text_size_body1'), weight: FontWeight.Regular }|
 
-#### optionFont^18+^
+### optionFont^18+^
 
-optionFont(selectFont: Optional\<Font\>)
+optionFont(selectFont: Optional<Font>)
 
 设置下拉菜单项的文本样式。当size为0的时候，文本不显示，当size为负值的时候，文本的size按照默认值显示。
 
 与[optionFont](#optionfont)相比，selectFont参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------------------------------|
-|selectFont|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)\>|是|下拉菜单项的文本样式。 当selectFont的值为undefined时，默认值： { size: $r('sys.float.ohos_id_text_size_body1'), weight: FontWeight.Regular }|
+|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------------------------------------------------|
+|selectFont|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)>|是|下拉菜单项的文本样式。 当selectFont的值为undefined时，默认值： { size: $r('sys.float.ohos_id_text_size_body1'), weight: FontWeight.Regular }|
 
-#### optionFontColor
+### optionFontColor
 
 optionFontColor(value: ResourceColor)
 
 设置下拉菜单项的文本颜色。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------|
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|下拉菜单项的文本颜色。 默认值：$r('sys.color.ohos_id_color_text_primary')|
 
-#### optionFontColor^18+^
+### optionFontColor^18+^
 
-optionFontColor(resColor: Optional\<ResourceColor\>)
+optionFontColor(resColor: Optional<ResourceColor>)
 
 设置下拉菜单项的文本颜色。与[optionFontColor](#optionfontcolor)相比，resColor参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------|
-|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)\>|是|下拉菜单项的文本颜色。 当resColor的值为undefined时，默认值：$r('sys.color.ohos_id_color_text_primary')|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------|
+|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)>|是|下拉菜单项的文本颜色。 当resColor的值为undefined时，默认值：$r('sys.color.ohos_id_color_text_primary')|
 
-#### space^10+^
+### space^10+^
 
 space(value: Length)
 
 设置下拉菜单项的文本与箭头的间距。不支持设置百分比。将间距设置为null、undefined，或者小于等于8的值时，取默认值。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:------------------------------------------------------------------------------------------|:-|:----------------------------------------------|
-|value|[Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length)|是|下拉菜单项的文本与箭头的间距。 默认值：8vp 说明： 设置string类型时，不支持百分比。|
+|:----|:------------------------------------------------------------------------------------------|:-|:--------------------------------------------------|
+|value|[Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length)|是|下拉菜单项的文本与箭头的间距。 默认值：8vp **说明：** 设置string类型时，不支持百分比。|
 
-#### space^18+^
+### space^18+^
 
-space(spaceLength: Optional\<Length\>)
+space(spaceLength: Optional<Length>)
 
 设置下拉菜单项的文本与箭头的间距。不支持设置百分比。设置为null、undefined，或者小于等于8的值，取默认值。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------|
-|spaceLength|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length)\>|是|下拉菜单项的文本与箭头之间的间距。 当spaceLength的值为undefined时，默认值：8vp|
+|:----------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------|
+|spaceLength|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length)>|是|下拉菜单项的文本与箭头之间的间距。 当spaceLength的值为undefined时，默认值：8vp|
 
-#### arrowPosition^10+^
+### arrowPosition^10+^
 
 arrowPosition(value: ArrowPosition)
 
 设置下拉菜单项的文本与箭头之间的对齐方式。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:------------------------------------|:-|:----------------------------------------|
 |value|[ArrowPosition](#arrowposition10枚举说明)|是|下拉菜单项的文本与箭头之间的对齐方式。 默认值：ArrowPosition.END|
 
-#### arrowPosition^18+^
+### arrowPosition^18+^
 
-arrowPosition(position: Optional\<ArrowPosition\>)
+arrowPosition(position: Optional<ArrowPosition>)
 
 设置下拉菜单项的文本与箭头之间的对齐方式。与[arrowPosition](#arrowposition10)相比，position参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------|
-|position|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[ArrowPosition](#arrowposition10枚举说明)\>|是|下拉菜单项的文本与箭头之间的对齐方式。 当position的值为undefined时，默认值：ArrowPosition.END|
+|:-------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------|
+|position|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ArrowPosition](#arrowposition10枚举说明)>|是|下拉菜单项的文本与箭头之间的对齐方式。 当position的值为undefined时，默认值：ArrowPosition.END|
 
-#### menuAlign^10+^
+### menuAlign^10+^
 
 menuAlign(alignType: MenuAlignType, offset?: Offset)
 
 设置下拉按钮与下拉菜单间的对齐方式。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------|
 |alignType|[MenuAlignType](#menualigntype10枚举说明)|是|对齐方式类型。 默认值：MenuAlignType.START|
 |offset|[Offset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#offset)|否|按照对齐类型对齐后，下拉菜单相对下拉按钮的偏移量。dx控制水平方向偏移，dy控制垂直方向偏移。 默认值：{dx: 0, dy: 0}|
 
-#### menuAlign^18+^
+### menuAlign^18+^
 
-menuAlign(alignType: Optional\<MenuAlignType\>, offset?: Offset)
+menuAlign(alignType: Optional<MenuAlignType>, offset?: Offset)
 
 设置下拉按钮与下拉菜单间的对齐方式。与[menuAlign](#menualign10)^10+^相比，alignType参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:--------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------|
-|alignType|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[MenuAlignType](#menualigntype10枚举说明)\>|是|对齐方式类型。 当alignType的值为undefined时，默认值：MenuAlignType.START|
+|:--------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------|
+|alignType|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[MenuAlignType](#menualigntype10枚举说明)>|是|对齐方式类型。 当alignType的值为undefined时，默认值：MenuAlignType.START|
 |offset|[Offset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#offset)|否|按照对齐类型对齐后，下拉菜单相对下拉按钮的偏移量。 默认值：{dx: 0, dy: 0}|
 
-#### optionWidth^11+^
+### optionWidth^11+^
 
-optionWidth(value: Dimension \| OptionWidthMode )
+optionWidth(value: Dimension | OptionWidthMode )
 
 设置下拉菜单项的宽度，不支持设置百分比。OptionWidthMode类型为枚举类型，OptionWidthMode决定下拉菜单是否继承下拉按钮宽度。
 
@@ -646,21 +651,21 @@ optionWidth(value: Dimension \| OptionWidthMode )
 
 Select组件距屏幕边缘的左右间距为16vp，建议将组件本身及菜单项的宽度设置为小于等于calc(100% - 32vp)的值，以避免下拉菜单弹出时发生偏移。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------|
-|value|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) \| [OptionWidthMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#optionwidthmode11)|是|下拉菜单项的宽度。|
+|:----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------|
+|value|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | [OptionWidthMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#optionwidthmode11)|是|下拉菜单项的宽度。|
 
-#### optionWidth^18+^
+### optionWidth^18+^
 
-optionWidth(width: Optional\<Dimension \| OptionWidthMode\> )
+optionWidth(width: Optional<Dimension | OptionWidthMode> )
 
 设置下拉菜单项的宽度，不支持设置百分比。OptionWidthMode类型为枚举类型，OptionWidthMode决定下拉菜单是否继承下拉按钮宽度。与[optionWidth](#optionwidth11)^11+^相比，width参数新增了对undefined类型的支持。
 
@@ -668,19 +673,19 @@ optionWidth(width: Optional\<Dimension \| OptionWidthMode\> )
 
 Select组件距屏幕边缘的左右间距为16vp，建议将组件本身及菜单项的宽度设置为小于等于calc(100% - 32vp)的值，以避免下拉菜单弹出时发生偏移。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------|
-|width|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) \| [OptionWidthMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#optionwidthmode11)\>|是|下拉菜单项的宽度。 当width的值为undefined时，属性无效，菜单项宽度设为默认值，即2栅格。|
+|:----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------|
+|width|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | [OptionWidthMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#optionwidthmode11)>|是|下拉菜单项的宽度。 当width的值为undefined时，属性无效，菜单项宽度设为默认值，即2栅格。|
 
-#### optionHeight^11+^
+### optionHeight^11+^
 
 optionHeight(value: Dimension)
 
@@ -690,21 +695,21 @@ optionHeight(value: Dimension)
 
 如果下拉菜单所有选项的实际高度小于设定的高度，下拉菜单的高度按实际高度显示。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------|:-|:-----------|
 |value|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)|是|下拉菜单显示的最大高度。|
 
-#### optionHeight^18+^
+### optionHeight^18+^
 
-optionHeight(height: Optional\<Dimension\>)
+optionHeight(height: Optional<Dimension>)
 
 设置下拉菜单显示的最大高度，不支持设置百分比。默认最大高度是屏幕可用高度的80%，设置的菜单最大高度不能超过默认最大高度。与[optionHeight](#optionheight11)^11+^相比，height参数新增了对undefined类型的支持。
 
@@ -712,370 +717,376 @@ optionHeight(height: Optional\<Dimension\>)
 
 如果下拉菜单所有选项的实际高度小于设定的高度，下拉菜单的高度按实际高度显示。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------|
-|height|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)\>|是|下拉菜单显示的最大高度。 当height的值为undefined时，属性不生效，下拉菜单最大高度设为默认值，即屏幕可用高度的80%。|
+|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------------------------|
+|height|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10)>|是|下拉菜单显示的最大高度。 当height的值为undefined时，属性不生效，下拉菜单最大高度设为默认值，即屏幕可用高度的80%。|
 
-#### menuBackgroundColor^11+^
+### menuBackgroundColor^11+^
 
 menuBackgroundColor(value: ResourceColor)
 
-设置下拉菜单的背景色。  
-![](https://media:401788445243960870)  
-从API version 12开始，该接口支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+设置下拉菜单的背景色。
+> 说明
+>
+> 从API version 12开始，该接口支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:--------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------|
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|下拉菜单的背景色。 默认值：API version 11之前为$r('sys.color.ohos_id_color_card_bg')，API version 11及之后为Color.Transparent。|
 
-#### menuBackgroundColor^18+^
+### menuBackgroundColor^18+^
 
-menuBackgroundColor(resColor: Optional\<ResourceColor\>)
+menuBackgroundColor(resColor: Optional<ResourceColor>)
 
 设置下拉菜单的背景色。与[menuBackgroundColor](#menubackgroundcolor11)^11+^相比，resColor参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------|
-|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)\>|是|下拉菜单的背景色。 当resColor的值为undefined时，默认值为Color.Transparent。|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------|
+|resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)>|是|下拉菜单的背景色。 当resColor的值为undefined时，默认值为Color.Transparent。|
 
-#### menuBackgroundBlurStyle^11+^
+### menuBackgroundBlurStyle^11+^
 
 menuBackgroundBlurStyle(value: BlurStyle)
 
-设置下拉菜单的背景模糊材质。  
-![](https://media:401788445244022871)  
-从API version 12开始，该接口支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+设置下拉菜单的背景模糊材质。
+> 说明
+>
+> 从API version 12开始，该接口支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:---------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------------|
 |value|[BlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#blurstyle9)|是|下拉菜单的背景模糊材质。 默认值：BlurStyle.COMPONENT_ULTRA_THICK|
 
-#### menuBackgroundBlurStyle^18+^
+### menuBackgroundBlurStyle^18+^
 
-menuBackgroundBlurStyle(style: Optional\<BlurStyle\>)
+menuBackgroundBlurStyle(style: Optional<BlurStyle>)
 
 设置下拉菜单的背景模糊材质。与[menuBackgroundBlurStyle](#menubackgroundblurstyle11)^11+^相比，style参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------|
-|style|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[BlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#blurstyle9)\>|是|下拉菜单的背景模糊材质。 当style的值为undefined时，默认值：BlurStyle.COMPONENT_ULTRA_THICK|
+|:----|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------|
+|style|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[BlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#blurstyle9)>|是|下拉菜单的背景模糊材质。 当style的值为undefined时，默认值：BlurStyle.COMPONENT_ULTRA_THICK|
 
-#### avoidance^19+^
+### avoidance^19+^
 
 avoidance(mode: AvoidanceMode)
 
 设置下拉菜单的避让模式。
 
-元服务API： 从API version 19开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:------------------------------------|:-|:------------------------------------------|
 |mode|[AvoidanceMode](#avoidancemode19枚举说明)|是|设置下拉菜单的避让模式。 默认值：AvoidanceMode.COVER_TARGET|
 
-#### menuOutline^20+^
+### menuOutline^20+^
 
 menuOutline(outline: MenuOutlineOptions)
 
 设置下拉菜单框的外描边样式。
 
-元服务API： 从API version 20开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:------|:----------------------------------------------|:-|:-----------|
 |outline|[MenuOutlineOptions](#menuoutlineoptions20对象说明)|是|下拉菜单框的外描边样式。|
 
-#### showDefaultSelectedIcon^20+^
+### showDefaultSelectedIcon^20+^
 
 showDefaultSelectedIcon(show: boolean)
 
 设置是否显示默认选择的图标。
 
-元服务API： 从API version 20开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |show|boolean|是|是否显示默认选定的图标。 true：显示默认选定的图标；false：不显示默认选定的图标，通过突出显示背景色来表示选中。 默认值：false 当show为true时，若设置了selectedOptionBgColor选中项的背景色时，则同时显示选中项的背景色和默认选定的图标；若未通过selectedOptionBgColor设置选中项的背景色时，不突出显示背景色，只显示默认选定的图标。|
 
-#### textModifier^20+^
+### textModifier^20+^
 
-textModifier(modifier: Optional\<TextModifier\>)
+textModifier(modifier: Optional<TextModifier>)
 
-定制Select按钮文本样式的方法，在应用了textModifier之后，Select按钮的文本样式将完全由开发者自定义。  
-![](https://media:401788445244045872)  
-该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+定制Select按钮文本样式的方法，在应用了textModifier之后，Select按钮的文本样式将完全由开发者自定义。
+> 说明
+>
+> 该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
 
-元服务API： 从API version 20开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
-
-|参数名|类型|必填|说明|
-|:-------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------|
-|modifier|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)\>|是|在Select组件上，定制按钮文本样式的方法。 当modifier的值为undefined时，不自定义文本样式。|
-
-#### arrowModifier^20+^
-
-arrowModifier(modifier: Optional\<SymbolGlyphModifier\>)
-
-定制Select按钮下拉箭头图标样式的方法，在应用arrowModifier之后，Select按钮下拉箭头的图标样式将完全由开发者自定义。  
-![](https://media:401788445244109873)  
-该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
-
-元服务API： 从API version 20开始，该接口支持在元服务中使用。
-
-模型约束： 此接口仅可在Stage模型下使用。
-
-系统能力： SystemCapability.ArkUI.ArkUI.Full
-
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------|
-|modifier|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[SymbolGlyphModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-symbolglyphmodifier)\>|是|在Select组件上，定制Select按钮下拉箭头图标样式的方法。 当modifier的值为undefined时，不自定义下拉箭头图标样式。|
+|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------|
+|modifier|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)>|是|在Select组件上，定制按钮文本样式的方法。 当modifier的值为undefined时，不自定义文本样式。|
 
-#### optionTextModifier^20+^
+### arrowModifier^20+^
 
-optionTextModifier(modifier: Optional\<TextModifier\>)
+arrowModifier(modifier: Optional<SymbolGlyphModifier>)
+
+定制Select按钮下拉箭头图标样式的方法，在应用arrowModifier之后，Select按钮下拉箭头的图标样式将完全由开发者自定义。
+> 说明
+>
+> 该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+|参数名|类型|必填|说明|
+|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------------------------------------------------------------|
+|modifier|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[SymbolGlyphModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-symbolglyphmodifier)>|是|在Select组件上，定制Select按钮下拉箭头图标样式的方法。 当modifier的值为undefined时，不自定义下拉箭头图标样式。|
+
+### optionTextModifier^20+^
+
+optionTextModifier(modifier: Optional<TextModifier>)
 
 定制Select下拉菜单未选中项文本样式的方法，在应用optionTextModifier之后，下拉菜单未选中项的文本样式将完全由开发者自定义。
 
-如果[optionFont](#optionfont)与optionTextModifier的font属性同时设置，则优先使用[optionFont](#optionfont)设置下拉菜单未选中项的文本样式；[optionFont](#optionfont)中缺省的属性将设置为对应的默认值。  
-![](https://media:401788445244140874)  
-该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+如果[optionFont](#optionfont)与optionTextModifier的font属性同时设置，则优先使用[optionFont](#optionfont)设置下拉菜单未选中项的文本样式；[optionFont](#optionfont)中缺省的属性将设置为对应的默认值。
+> 说明
+>
+> 该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
 
-元服务API： 从API version 20开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------|
-|modifier|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)\>|是|在Select组件上，定制Select下拉菜单未选中项文本样式的方法。 当modifier的值为undefined时，不自定义下拉菜单未选中项的文本样式。|
+|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------------------------------|
+|modifier|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)>|是|在Select组件上，定制Select下拉菜单未选中项文本样式的方法。 当modifier的值为undefined时，不自定义下拉菜单未选中项的文本样式。|
 
-#### selectedOptionTextModifier^20+^
+### selectedOptionTextModifier^20+^
 
-selectedOptionTextModifier(modifier: Optional\<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)\>)
+selectedOptionTextModifier(modifier: Optional<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)>)
 
 定制Select下拉菜单选中项文本样式的方法，在应用selectedOptionTextModifier之后，下拉菜单选中项的文本样式将完全由开发者自定义。
 
-如果[selectedOptionFont](#selectedoptionfont)与selectedOptionTextModifier的font属性同时设置，则优先使用[selectedOptionFont](#selectedoptionfont)设置下拉菜单选中项的文本样式；若未设置[selectedOptionFont](#selectedoptionfont)，则优先使用[optionFont](#optionfont)设置下拉菜单选中项的文本样式。其中[selectedOptionFont](#selectedoptionfont)或者[optionFont](#optionfont)缺省的属性将设置为对应的默认值。  
-![](https://media:401788445244169875)  
-该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+如果[selectedOptionFont](#selectedoptionfont)与selectedOptionTextModifier的font属性同时设置，则优先使用[selectedOptionFont](#selectedoptionfont)设置下拉菜单选中项的文本样式；若未设置[selectedOptionFont](#selectedoptionfont)，则优先使用[optionFont](#optionfont)设置下拉菜单选中项的文本样式。其中[selectedOptionFont](#selectedoptionfont)或者[optionFont](#optionfont)缺省的属性将设置为对应的默认值。
+> 说明
+>
+> 该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
 
-元服务API： 从API version 20开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------|
-|modifier|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)\>|是|设置下拉菜单选中项的文本样式。 开发者可以根据需要管理和维护文本的样式进行设置。 当modifier的值为undefined时，不自定义下拉菜单选中项的文本样式。|
+|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------|
+|modifier|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)>|是|设置下拉菜单选中项的文本样式。 开发者可以根据需要管理和维护文本的样式进行设置。 当modifier的值为undefined时，不自定义下拉菜单选中项的文本样式。|
 
-#### showInSubWindow^20+^
+### showInSubWindow^20+^
 
-showInSubWindow(showInSubWindow:Optional\<boolean\>)
+showInSubWindow(showInSubWindow:Optional<boolean>)
 
 设置下拉菜单是否显示在子窗中。未通过该接口设置时，下拉菜单默认不显示在子窗中。
 
-元服务API： 从API version 20开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------|
-|showInSubWindow|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<boolean\>|是|设置下拉菜单是否显示在子窗中。 true代表下拉菜单显示在子窗中。 false代表下拉菜单不显示在子窗中。|
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-|:----------------------------------------------------|
+|showInSubWindow|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<boolean>|是|设置下拉菜单是否显示在子窗中。 true代表下拉菜单显示在子窗中。 false代表下拉菜单不显示在子窗中。|
 
-#### keyboardAvoidMode^23+^
+### keyboardAvoidMode^23+^
 
-keyboardAvoidMode(mode:Optional\<MenuKeyboardAvoidMode\>)
+keyboardAvoidMode(mode:Optional<MenuKeyboardAvoidMode>)
 
 设置下拉菜单是否避让软键盘。未通过该接口设置时，默认不避让软键盘。
 
-元服务API： 从API version 23开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:---|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|mode|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[MenuKeyboardAvoidMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menukeyboardavoidmode23枚举说明)\>|是|设置下拉菜单是否避让软键盘。取值为undefined时，按照MenuKeyboardAvoidMode.NONE处理，不避让软键盘。各枚举值的具体效果参见[MenuKeyboardAvoidMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menukeyboardavoidmode23枚举说明)枚举说明。|
+|:---|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|mode|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[MenuKeyboardAvoidMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menukeyboardavoidmode23枚举说明)>|是|设置下拉菜单是否避让软键盘。取值为undefined时，按照MenuKeyboardAvoidMode.NONE处理，不避让软键盘。各枚举值的具体效果参见[MenuKeyboardAvoidMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menukeyboardavoidmode23枚举说明)枚举说明。|
 
-#### minKeyboardAvoidDistance^23+^
+### minKeyboardAvoidDistance^23+^
 
-minKeyboardAvoidDistance(distance:Optional\<LengthMetrics\>)
+minKeyboardAvoidDistance(distance:Optional<LengthMetrics>)
 
 设置Select的菜单避让软键盘的最小距离。未通过该接口设置，最小距离默认为8vp。仅当[keyboardAvoidMode](#keyboardavoidmode23)设置为避让软键盘时生效。
 
-元服务API： 从API version 23开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------|
-|distance|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12)\>|是|设置下拉菜单避让软键盘的最小距离。设置为负数、undefined时，按照8vp处理。|
+|:-------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------------|
+|distance|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12)>|是|设置下拉菜单避让软键盘的最小距离。设置为负数、undefined时，按照8vp处理。|
 
-#### menuBackgroundBlurStyleOptions
+### menuBackgroundBlurStyleOptions
 
-menuBackgroundBlurStyleOptions(blurStyle: Optional\<BackgroundBlurStyleOptions\>)
+menuBackgroundBlurStyleOptions(blurStyle: Optional<BackgroundBlurStyleOptions>)
 
 设置Select下拉菜单的背景模糊效果。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:--------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------|
-|blurStyle|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[BackgroundBlurStyleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyleoptions10对象说明)\>|是|设置Select下拉菜单的背景模糊效果。|
+|:--------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------|
+|blurStyle|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[BackgroundBlurStyleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundblurstyleoptions10对象说明)>|是|设置Select下拉菜单的背景模糊效果。|
 
-#### menuBackgroundEffect
+### menuBackgroundEffect
 
-menuBackgroundEffect(effect: Optional\<BackgroundEffectOptions\>)
+menuBackgroundEffect(effect: Optional<BackgroundEffectOptions>)
 
 设置Select下拉菜单的背景属性。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------|
-|effect|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[BackgroundEffectOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundeffectoptions11)\>|是|设置Select下拉菜单的背景属性，包括：模糊半径、亮度、饱和度和颜色。|
+|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-----------------------------------|
+|effect|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[BackgroundEffectOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundeffectoptions11)>|是|设置Select下拉菜单的背景属性，包括：模糊半径、亮度、饱和度和颜色。|
 
-#### menuSystemMaterial
+### menuSystemMaterial
 
-menuSystemMaterial(material:Optional\<SystemUiMaterial\>)
+menuSystemMaterial(material:Optional<SystemUiMaterial>)
 
 设置Select下拉菜单的系统材质。不同系统材质对应不同的属性影响效果，该接口影响下拉菜单背景色[menuBackgroundColor](#menubackgroundcolor18)、边框颜色[borderColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#bordercolor)、边框宽度[borderWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#borderwidth)、阴影[shadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadow)等参数，当设置系统材质时，上述接口不生效。
 
-起始版本： 26.0.0
+**起始版本：** 26.0.0
 
-元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------|
-|material|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[SystemUiMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemuimaterial)\>|是|设置下拉菜单系统材质。材质设置为无效值、undefined时，按照不设置系统材质处理。|
+|:-------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:------------------------------------------|
+|material|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[SystemUiMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemuimaterial)>|是|设置下拉菜单系统材质。材质设置为无效值、undefined时，按照不设置系统材质处理。|
 
-#### ArrowPosition^10+^枚举说明
+## ArrowPosition^10+^枚举说明
 
 箭头的位置。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
 |:----|:-|:---------|
 |END|0|文字在前，箭头在后。|
 |START|1|箭头在前，文字在后。|
 
-#### MenuAlignType^10+^枚举说明
+## MenuAlignType^10+^枚举说明
 
 下拉菜单的对齐方式。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
 |:-----|:-|:-----------|
@@ -1083,118 +1094,118 @@ menuSystemMaterial(material:Optional\<SystemUiMaterial\>)
 |CENTER|1|居中对齐。|
 |END|2|按照语言方向末端对齐。|
 
-#### AvoidanceMode^19+^枚举说明
+## AvoidanceMode^19+^枚举说明
 
 下拉菜单避让模式的枚举选项。
 
-元服务API： 从API version 19开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|值|说明|
 |:------------------|:-|:----------------------------|
 |COVER_TARGET|0|目标组件下方无足够空间时，覆盖目标组件。|
 |AVOID_AROUND_TARGET|1|目标组件四周无足够空间时，在最大空间处压缩显示（可滚动）。|
 
-#### MenuItemConfiguration^12+^对象说明
+## MenuItemConfiguration^12+^对象说明
 
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
-元服务API： 从API version 12开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-|value|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|否|下拉菜单项的文本内容。 说明： 当文本字符的长度超过菜单项文本区域的宽度时，文本将会被截断。|
-|icon|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|是|下拉菜单项的图片内容。 说明： string格式可用于加载网络图片和本地图片。|
+|:------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+|value|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|否|下拉菜单项的文本内容。 **说明：** 当文本字符的长度超过菜单项文本区域的宽度时，文本将会被截断。|
+|icon|[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)|否|是|下拉菜单项的图片内容。 **说明：** string格式可用于加载网络图片和本地图片。|
 |symbolIcon|[SymbolGlyphModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-symbolglyphmodifier)|否|是|下拉选项Symbol图片内容。|
 |selected|boolean|否|否|下拉菜单项是否被选中。值为true表示选中，值为false表示未选中。 默认值：false|
 |index|number|否|否|下拉菜单项的索引，索引值从0开始。|
-|triggerSelect|(index: number, value: string) :void|否|否|下拉菜单选中某一项的回调函数。 index：选中菜单项的索引。 value：选中菜单项的文本。 说明： index会赋值给事件[onSelect](#onselect)回调中的索引参数； value会返回给Select组件显示，同时会赋值给事件[onSelect](#onselect)回调中的文本参数。|
+|triggerSelect|(index: number, value: string) :void|否|否|下拉菜单选中某一项的回调函数。 index：选中菜单项的索引。 value：选中菜单项的文本。 **说明：** index会赋值给事件[onSelect](#onselect)回调中的索引参数； value会返回给Select组件显示，同时会赋值给事件[onSelect](#onselect)回调中的文本参数。|
 
-#### MenuOutlineOptions^20+^对象说明
+## MenuOutlineOptions^20+^对象说明
 
 下拉菜单框的外描边参数对象。
 
-元服务API： 从API version 20开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full  
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
-|:----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:----------------------|
-|width|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) \| [EdgeOutlineWidths](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#edgeoutlinewidths11对象说明)|否|是|设置外描边宽度，不支持百分比。 默认值：0vp|
-|color|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) \| [EdgeColors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#edgecolors9)|否|是|设置外描边颜色。 默认值：#19ffffff|
+|:----|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:----------------------|
+|width|[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | [EdgeOutlineWidths](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#edgeoutlinewidths11对象说明)|否|是|设置外描边宽度，不支持百分比。 默认值：0vp|
+|color|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | [EdgeColors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#edgecolors9)|否|是|设置外描边颜色。 默认值：#19ffffff|
 
-#### 事件
+## 事件
 
-#### onSelect
+### onSelect
 
-onSelect(callback: (index: number, value: string) =\> void)
+onSelect(callback: (index: number, value: string) => void)
 
 下拉菜单选中某一项时，会触发回调。
 
-元服务API： 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:----|:-----|:-|:--------------|
 |index|number|是|选中项的索引，索引值从0开始。|
 |value|string|是|选中项的值。|
 
-#### onSelect^18+^
+### onSelect^18+^
 
-onSelect(callback: Optional\<OnSelectCallback\> )
+onSelect(callback: Optional<OnSelectCallback> )
 
 下拉菜单选中某一项时，会触发回调。与[onSelect](#onselect)相比，callback参数新增了对undefined类型的支持。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------|
-|callback|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)\<[OnSelectCallback](#onselectcallback18)\>|是|下拉菜单选中某一项的回调。 当callback的值为undefined时，不使用回调函数。|
+|:-------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------|
+|callback|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[OnSelectCallback](#onselectcallback18)>|是|下拉菜单选中某一项的回调。 当callback的值为undefined时，不使用回调函数。|
 
-#### OnSelectCallback^18+^
+## OnSelectCallback^18+^
 
-type OnSelectCallback = (index: number, selectStr: string) =\> void
+type OnSelectCallback = (index: number, selectStr: string) => void
 
 下拉菜单选中某一项时触发的回调函数类型定义。
 
-元服务API： 从API version 18开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.ArkUI.ArkUI.Full
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--------|:-----|:-|:--------------|
 |index|number|是|选中项的索引，索引值从0开始。|
 |selectStr|string|是|选中项的值。|
 
-#### 示例
+## 示例
 
-#### 示例1（设置下拉菜单）
+### 示例1（设置下拉菜单）
 
 该示例通过配置[SelectOption](#selectoption对象说明)实现下拉菜单，并从API version 19开始通过设置[avoidance](#avoidance19)属性实现菜单的避让方式。
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -1243,13 +1254,13 @@ struct SelectExample {
 }
 ```
 
-![](https://media:401788445244194876)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/Ix-b6dhBTq21iyg1M745HA/zh-cn_image_0000002762835809.png?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=5569768B472897F67A7F04D57B9E8550158B79C3F252FBB42B973776EC1F70B0)
 
-#### 示例2（设置symbol类型图标）
+### 示例2（设置symbol类型图标）
 
 该示例实现了一个下拉菜单中图片为Symbol的Select组件，并从API version 19开始通过设置[avoidance](#avoidance19)属性实现菜单的避让方式。
 
-```
+```ts
 // xxx.ets
 import { SymbolGlyphModifier } from '@kit.ArkUI';
 
@@ -1304,13 +1315,13 @@ struct SelectExample {
 }
 ```
 
-![](https://media:401788445244272877)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/xJckiwk4Tf6767VZu-Ixnw/zh-cn_image_0000002733276300.png?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=03FC3B591C7F08BAA85D86A9E4856BFFE8A721869856F33BD0FEC4E2A79231A2)
 
-#### 示例3（自定义下拉菜单）
+### 示例3（自定义下拉菜单）
 
 该示例实现了一个自定义下拉菜单选项的Select组件。自定义下拉菜单选项样式为"文本 + Symbol图片 + 空白间隔 + 文本 + 绘制三角形"，点击菜单选项后Select组件显示菜单选项的文本内容。
 
-```
+```ts
 import { SymbolGlyphModifier } from '@kit.ArkUI';
 
 /**
@@ -1394,13 +1405,13 @@ struct SelectExample {
 }
 ```
 
-![](https://media:401788445244300878)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/poL2BzP2Q8S3qn7xkpb-Mw/zh-cn_image_0000002733436174.png?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=1694827B688B0FDFC8D309596C33044B8D0F2F29B23A6F5BB61F9DCF33F3400A)
 
-#### 示例4（设置分割线样式）
+### 示例4（设置分割线样式）
 
 该示例通过配置divider的DividerOptions类型实现分割线样式的下拉菜单，并从API version 19开始通过设置[avoidance](#avoidance19)属性实现菜单的避让方式。
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -1451,13 +1462,13 @@ struct SelectExample {
 }
 ```
 
-![](https://media:401788445244335879)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/zgujAySaTNeo-cvbWNWtYQ/zh-cn_image_0000002762995697.png?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=A3470F07D7D478F87456AEFF8548128D135701B4215B3DB13CE205E3BBE9F0BB)
 
-#### 示例5（设置无分割线样式）
+### 示例5（设置无分割线样式）
 
 该示例通过配置divider为null实现无分割线样式的下拉菜单，并从API version 19开始通过设置[avoidance](#avoidance19)属性实现菜单的避让方式。
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -1498,13 +1509,13 @@ struct SelectExample {
 }
 ```
 
-![](https://media:401788445244370880)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/ewUL-uwNTeWqPcpdbl3j8A/zh-cn_image_0000002762835811.png?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=E717A4C82076FD2443D1FBA434B5931CBC5388FD3E3B0B9C6F50090554419D2A)
 
-#### 示例6（设置Select中文本和箭头样式）
+### 示例6（设置Select中文本和箭头样式）
 
 从API version 20开始，该示例通过[textModifier](#textmodifier20)和[arrowModifier](#arrowmodifier20)属性设置文本以及箭头样式。
 
-```
+```ts
 import { TextModifier, SymbolGlyphModifier } from "@kit.ArkUI";
 
 /**
@@ -1573,13 +1584,13 @@ struct SelectExample {
 }
 ```
 
-![](https://media:401788445244401881)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/28YNwZGyQ5KjVgkSnriEtw/zh-cn_image_0000002733276302.png?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=8C0334FEFA772FD8AF41D3A836A81B2D497D005CE94944859F5D29D21898E176)
 
-#### 示例7（设置Select下拉菜单选中和非选中项文本样式）
+### 示例7（设置Select下拉菜单选中和非选中项文本样式）
 
 从API version 20开始，该示例通过[optionTextModifier](#optiontextmodifier20)和[selectedOptionTextModifier](#selectedoptiontextmodifier20)属性设置下拉菜单选中和非选中项文本样式。
 
-```
+```ts
 import { TextModifier } from "@kit.ArkUI";
 
 /**
@@ -1650,13 +1661,13 @@ struct SelectExample {
 }
 ```
 
-![](https://media:401788445244430882)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/qFad00Q8TAeJqP8rjH2TMw/zh-cn_image_0000002733436176.png?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=65D219B0FD4093A31EB579B9F3143FB07088791EF9A43B26CEAD9B1A0AD191B1)
 
-#### 示例8（设置分割线模式）
+### 示例8（设置分割线模式）
 
 从API version 19开始，该示例通过配置[DividerStyleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dividerstyleoptions12)的mode属性设置分割线模式。
 
-```
+```ts
 import { LengthMetrics } from '@kit.ArkUI'
 
 @Entry
@@ -1684,13 +1695,13 @@ struct Index {
 }
 ```
 
-![](https://media:401788445244459883)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/Y2mRA21LSnW922y6vdqPOA/zh-cn_image_0000002762995699.png?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=CFE42CE82F4E66BE0CE75328D4D3430B0DA6B9F8650C295333781BD417415498)
 
-#### 示例9（设置Select下拉菜单外描边样式）
+### 示例9（设置Select下拉菜单外描边样式）
 
 从API version 20开始该示例通过配置menuOutline的width和color属性设置下拉菜单外描边样式。
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -1739,15 +1750,15 @@ struct SelectExample {
 }
 ```
 
-![](https://media:401788445244497884)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/YZSYYjS5SxaqAoFW8lgACQ/zh-cn_image_0000002762835813.png?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=88431005ADC12C41CC01DEF9905020DCF615CA46868F532D71007F0CCFD4541C)
 
-#### 示例10（设置Select弹出菜单避让软键盘）
+### 示例10（设置Select弹出菜单避让软键盘）
 
 该示例通过调用[keyboardAvoidMode](#keyboardavoidmode23)和[minKeyboardAvoidDistance](#minkeyboardavoiddistance23)接口，实现下拉菜单避让软键盘并自定义避让软键盘的最小距离。
 
 从API version 23开始，新增keyboardAvoidMode、minKeyboardAvoidDistance接口。
 
-```
+```ts
 import { inputMethod } from '@kit.IMEKit';
 import { LengthMetrics } from '@kit.ArkUI';
 
@@ -1819,17 +1830,17 @@ struct Index {
 }
 ```
 
-![](https://media:401788445244526885)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/tcpl2pN0RMu7tyC6M44EIw/zh-cn_image_0000002733276304.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=DBF52F123AF43F2851E35F2EB35C273958AB75CEDF875D9D2310BDD3042B5DC3)
 
-#### 示例11（设置Select和下拉菜单沉浸光感效果）
+### 示例11（设置Select和下拉菜单沉浸光感效果）
 
 该示例通过调用[menuSystemMaterial](#menusystemmaterial)接口设置下拉菜单的系统材质，实现沉浸光感效果；通过[SystemUiMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemuimaterial)接口设置Select组件的系统材质，实现沉浸光感效果。
 
-组件沉浸光感效果会根据设备算力与用户在系统中设置的沉浸光感效果自适应调整，开发者无需额外适配。
+该示例配图为高算力设备强档效果，组件沉浸光感效果会根据设备算力与用户在系统中设置的沉浸光感效果自适应调整，开发者无需额外适配。
 
 从API版本26.0.0开始，新增menuSystemMaterial接口。
 
-```
+```ts
 import { uiMaterial } from '@kit.ArkUI';
 
 @Entry
@@ -1860,14 +1871,18 @@ struct Index {
     }
     // $r('app.media.img')需要替换为开发者所需的图像资源文件。
     .backgroundImage($r('app.media.img'))
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
   }
 }
 ```
 
 未设置系统材质时：
 
-![](https://media:401788445244618886)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/pXrSuhgBSkipxw_P-NE1Gg/zh-cn_image_0000002733436178.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=5D26E446E11B9B375AFC00332B655A5F0E284C4752D5574A35043D1AB4B18976)
 
 设置系统材质后：
 
-![](https://media:401788445244726887)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/_6MinkgvRceZuhf09rWqsA/zh-cn_image_0000002762995701.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084627Z&HW-CC-Expire=31536000000&HW-CC-Sign=2E56F37EDDA81C858652EAC6C7D50E6C99DD82FC373CFCB6CB2F3D166FFC7B1A)
+

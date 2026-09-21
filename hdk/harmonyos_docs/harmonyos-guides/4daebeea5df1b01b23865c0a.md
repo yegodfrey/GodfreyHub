@@ -6,31 +6,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-build-cus
 
 # 构建自定义组件
 
-ArkUI开发框架在NDK接口提供了自定义UI组件的能力，这些能力包括自定义测算，自定义布局和自定义绘制。开发者通过注册相关自定义回调事件接入ArkUI开发框架的布局渲染流程，这些事件需要使用[registerNodeCustomEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodecustomevent)来进行声明，并通过[addNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#addnodecustomeventreceiver)函数添加组件自定义事件的监听器，在该监听器的回调函数中处理相关自定义测算，自定义布局和自定义绘制逻辑。  
-![](https://media:401788444458258599)  
-* 自定义组件事件注册需要[addNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#addnodecustomeventreceiver)声明监听器注册和[registerNodeCustomEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodecustomevent)声明需要的自定义事件类型，监听器只能监听已声明的事件。
+ArkUI开发框架在NDK接口提供了自定义UI组件的能力，这些能力包括自定义测算，自定义布局和自定义绘制。开发者通过注册相关自定义回调事件接入ArkUI开发框架的布局渲染流程，这些事件需要使用[registerNodeCustomEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodecustomevent)来进行声明，并通过[addNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#addnodecustomeventreceiver)函数添加组件自定义事件的监听器，在该监听器的回调函数中处理相关自定义测算，自定义布局和自定义绘制逻辑。
+> 说明
+>
+> * 自定义组件事件注册需要[addNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#addnodecustomeventreceiver)声明监听器注册和[registerNodeCustomEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodecustomevent)声明需要的自定义事件类型，监听器只能监听已声明的事件。
+>
+> * 需要关注事件的反注册逻辑，如在组件销毁前调用[removeNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#removenodecustomeventreceiver)移除事件监听器，[unregisterNodeCustomEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#unregisternodecustomevent)通知ArkUI框架已监听的自定义组件事件不再需要监听。
+>
+> * [addNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#addnodecustomeventreceiver)可以添加多个函数指针，每个函数指针都会在对应事件触发时触发，对应的[removeNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#removenodecustomeventreceiver)需要传递对应的函数指针用于移除监听。
+>
+> * [registerNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodecustomeventreceiver)是全局监听函数，不同于[addNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#addnodecustomeventreceiver)，[registerNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodecustomeventreceiver)能够监听所有Native组件的自定义事件触发，但只能传递一个函数指针，多次调用使用最后一次的函数指针进行回调，释放时使用unregisterNodeCustomEventReceiver进行反注册。
+>
+> * 自定义组件相关接口（[measureNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#measurenode)、[layoutNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#layoutnode)、[setMeasuredSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#setmeasuredsize)、[setLayoutPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#setlayoutposition)）仅允许在对应的自定义事件（ARKUI_NODE_CUSTOM_EVENT_ON_MEASURE、ARKUI_NODE_CUSTOM_EVENT_ON_LAYOUT，见[ArkUI_NodeCustomEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-node-attributes-custom-attributes-h#arkui_nodecustomeventtype)）回调中使用。
 
-* 需要关注事件的反注册逻辑，如在组件销毁前调用[removeNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#removenodecustomeventreceiver)移除事件监听器，[unregisterNodeCustomEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#unregisternodecustomevent)通知ArkUI框架已监听的自定义组件事件不再需要监听。
-
-* [addNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#addnodecustomeventreceiver)可以添加多个函数指针，每个函数指针都会在对应事件触发时触发，对应的[removeNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#removenodecustomeventreceiver)需要传递对应的函数指针用于移除监听。
-
-* [registerNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodecustomeventreceiver)是全局监听函数，不同于[addNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#addnodecustomeventreceiver)，[registerNodeCustomEventReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#registernodecustomeventreceiver)能够监听所有Native组件的自定义事件触发，但只能传递一个函数指针，多次调用使用最后一次的函数指针进行回调，释放时使用unregisterNodeCustomEventReceiver进行反注册。
-
-* 自定义组件相关接口（[measureNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#measurenode)、[layoutNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#layoutnode)、[setMeasuredSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#setmeasuredsize)、[setLayoutPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#setlayoutposition)）仅允许在对应的自定义事件（ARKUI_NODE_CUSTOM_EVENT_ON_MEASURE、ARKUI_NODE_CUSTOM_EVENT_ON_LAYOUT，见[ArkUI_NodeCustomEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-node-attributes-custom-attributes-h#arkui_nodecustomeventtype)）回调中使用。
-
-#### 自定义布局容器
+## 自定义布局容器
 
 以下示例创建了一个自定义容器，该容器将子组件最大值加上额外边距作为自身大小，同时对子组件进行居中排布。
 
-图1 自定义容器组件
+**图1** 自定义容器组件
 
-![](https://media:401788444458285600)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/KbznnBeqSPe8cR2DnxfUOA/zh-cn_image_0000002762993687.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=E87A820EFD5272458C63F7656D830177565403FA6A6A4275CB2FCE3060C8CAFE)
 
 1. 按照[接入ArkTS页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page)创建前置工程。
 
 2. 创建自定义容器组件封装对象。
 
-   ```
+   ```C
    // ArkUICustomContainerNode.h
    // 自定义容器组件示例
 
@@ -153,68 +154,66 @@ ArkUI开发框架在NDK接口提供了自定义UI组件的能力，这些能力�
 
 3. 使用自定义容器创建带文本的示例界面。
 
-   ```
-   #include "NativeEntry.h"
+       #include "NativeEntry.h"
 
-   #include "ArkUICustomContainerNode.h"
-   #include "ArkUITextNode.h"
-   #include "UITimer.h"
+       #include "ArkUICustomContainerNode.h"
+       #include "ArkUITextNode.h"
+       #include "UITimer.h"
 
-   #include <arkui/native_node_napi.h>
-   #include <arkui/native_type.h>
-   #include <js_native_api.h>
+       #include <arkui/native_node_napi.h>
+       #include <arkui/native_type.h>
+       #include <js_native_api.h>
 
-   namespace NativeModule {
-       namespace {
-           napi_env g_env;
-       } // namespace
+       namespace NativeModule {
+           namespace {
+               napi_env g_env;
+           } // namespace
 
-       napi_value CreateNativeRoot(napi_env env, napi_callback_info info)
-       {
-           size_t argc = 1;
-           napi_value args[1] = {nullptr};
+           napi_value CreateNativeRoot(napi_env env, napi_callback_info info)
+           {
+               size_t argc = 1;
+               napi_value args[1] = {nullptr};
 
-           napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+               napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-           ArkUI_NodeContentHandle contentHandle;
-           OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
-           NativeEntry::GetInstance()->SetContentHandle(contentHandle);
+               ArkUI_NodeContentHandle contentHandle;
+               OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
+               NativeEntry::GetInstance()->SetContentHandle(contentHandle);
 
-           // 创建自定义容器和文本组件。
-           auto node = std::make_shared<ArkUICustomContainerNode>();
-           node->SetBackgroundColor(0xFFE0FFFF);
-           auto textNode = std::make_shared<ArkUITextNode>();
-           textNode->SetTextContent("CustomContainer Example");
-           const int32_t fontSize = 16;
-           textNode->SetFontSize(fontSize);
-           textNode->SetBackgroundColor(0xFFfffacd);
-           textNode->SetTextAlign(ARKUI_TEXT_ALIGNMENT_CENTER);
-           node->AddChild(textNode);
-           auto onClick = [](ArkUI_NodeEvent *event) {
-               auto textNode = (ArkUITextNode *)OH_ArkUI_NodeEvent_GetUserData(event);
-               textNode->SetFontColor(0xFF00FF7F);
-           };
-           textNode->RegisterOnClick(onClick, textNode.get());
+               // 创建自定义容器和文本组件。
+               auto node = std::make_shared<ArkUICustomContainerNode>();
+               node->SetBackgroundColor(0xFFE0FFFF);
+               auto textNode = std::make_shared<ArkUITextNode>();
+               textNode->SetTextContent("CustomContainer Example");
+               const int32_t fontSize = 16;
+               textNode->SetFontSize(fontSize);
+               textNode->SetBackgroundColor(0xFFfffacd);
+               textNode->SetTextAlign(ARKUI_TEXT_ALIGNMENT_CENTER);
+               node->AddChild(textNode);
+               auto onClick = [](ArkUI_NodeEvent *event) {
+                   auto textNode = (ArkUITextNode *)OH_ArkUI_NodeEvent_GetUserData(event);
+                   textNode->SetFontColor(0xFF00FF7F);
+               };
+               textNode->RegisterOnClick(onClick, textNode.get());
 
-           // 保持Native侧对象到管理类中，维护生命周期。
-           NativeEntry::GetInstance()->SetRootNode(node);
-           g_env = env;
-           return nullptr;
-       }
+               // 保持Native侧对象到管理类中，维护生命周期。
+               NativeEntry::GetInstance()->SetRootNode(node);
+               g_env = env;
+               return nullptr;
+           }
 
-       napi_value DestroyNativeRoot(napi_env env, napi_callback_info info)
-       {
-           // 从管理类中释放Native侧对象。
-           NativeEntry::GetInstance()->DisposeRootNode();
-           return nullptr;
-       }
+           napi_value DestroyNativeRoot(napi_env env, napi_callback_info info)
+           {
+               // 从管理类中释放Native侧对象。
+               NativeEntry::GetInstance()->DisposeRootNode();
+               return nullptr;
+           }
 
-   } // namespace NativeModule
-   ```
+       } // namespace NativeModule
 
 4. 修改CMakeLists.txt，添加链接库。
 
-   ```
+   ```cpp
      # CMakeLists.txt
 
      # the minimum version of CMake.
@@ -263,21 +262,19 @@ ArkUI开发框架在NDK接口提供了自定义UI组件的能力，这些能力�
           ${hilog-lib} ${libace-lib} ${libnapi-lib} ${libuv-lib} )
    ```
 
-#### 自定义绘制组件
+## 自定义绘制组件
 
 以下示例创建了一个自定义绘制组件，该绘制组件能够绘制自定义矩形，并使用上述自定义容器进行布局排布。
 
-图2 自定义绘制组件
+**图2** 自定义绘制组件
 
-<br />
-
-![](https://media:401788444458317601)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/GBEE2QM-QcSayS_PJznSvQ/zh-cn_image_0000002762833801.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A6BB7860F27C856A0D9394D0ED33847AB1B64475F64F5597127BE3C7BA57520)
 
 1. 按照[自定义布局容器](#自定义布局容器)章节准备前置工程。
 
 2. 创建自定义绘制组件封装对象。
 
-   ```
+   ```C
    // ArkUICustomNode.h
    // 自定义绘制组件示例
 
@@ -372,69 +369,67 @@ ArkUI开发框架在NDK接口提供了自定义UI组件的能力，这些能力�
 
 3. 使用自定义绘制组件和自定义容器创建示例界面。
 
-   ```
-   #include "NativeEntry.h"
+       #include "NativeEntry.h"
 
-   #include "ArkUICustomContainerNode.h"
-   #include "ArkUICustomNode.h"
+       #include "ArkUICustomContainerNode.h"
+       #include "ArkUICustomNode.h"
 
-   #include <arkui/native_node_napi.h>
-   #include <arkui/native_type.h>
-   #include <js_native_api.h>
-   #include "UITimer.h"
+       #include <arkui/native_node_napi.h>
+       #include <arkui/native_type.h>
+       #include <js_native_api.h>
+       #include "UITimer.h"
 
-   namespace NativeModule {
-       namespace {
-           napi_env g_env;
-       } // namespace
+       namespace NativeModule {
+           namespace {
+               napi_env g_env;
+           } // namespace
 
-       napi_value CreateNativeRoot(napi_env env, napi_callback_info info)
-       {
-           size_t argc = 1;
-           napi_value args[1] = {nullptr};
+           napi_value CreateNativeRoot(napi_env env, napi_callback_info info)
+           {
+               size_t argc = 1;
+               napi_value args[1] = {nullptr};
 
-           napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+               napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-           // 获取NodeContent
-           ArkUI_NodeContentHandle contentHandle;
-           OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
-           NativeEntry::GetInstance()->SetContentHandle(contentHandle);
+               // 获取NodeContent
+               ArkUI_NodeContentHandle contentHandle;
+               OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
+               NativeEntry::GetInstance()->SetContentHandle(contentHandle);
 
-           // 创建自定义容器和自定义绘制组件。
-           auto node = std::make_shared<ArkUICustomContainerNode>();
-           node->SetBackgroundColor(0xFFE0FFFF);
-           auto customNode = std::make_shared<ArkUICustomNode>();
-           customNode->SetBackgroundColor(0xFFD3D3D3);
-           const int width = 150;
-           const int height = 150;
-           customNode->SetWidth(width);
-           customNode->SetHeight(height);
-           node->AddChild(customNode);
-           auto onClick = [](ArkUI_NodeEvent *event) {
-               auto customNode = (ArkUICustomNode *)OH_ArkUI_NodeEvent_GetUserData(event);
-               customNode->SetRectColor(0xFF00FF7F);
-           };
-           customNode->RegisterOnClick(onClick, customNode.get());
+               // 创建自定义容器和自定义绘制组件。
+               auto node = std::make_shared<ArkUICustomContainerNode>();
+               node->SetBackgroundColor(0xFFE0FFFF);
+               auto customNode = std::make_shared<ArkUICustomNode>();
+               customNode->SetBackgroundColor(0xFFD3D3D3);
+               const int width = 150;
+               const int height = 150;
+               customNode->SetWidth(width);
+               customNode->SetHeight(height);
+               node->AddChild(customNode);
+               auto onClick = [](ArkUI_NodeEvent *event) {
+                   auto customNode = (ArkUICustomNode *)OH_ArkUI_NodeEvent_GetUserData(event);
+                   customNode->SetRectColor(0xFF00FF7F);
+               };
+               customNode->RegisterOnClick(onClick, customNode.get());
 
-           // 保持Native侧对象到管理类中，维护生命周期。
-           NativeEntry::GetInstance()->SetRootNode(node);
-           g_env = env;
-           return nullptr;
-       }
+               // 保持Native侧对象到管理类中，维护生命周期。
+               NativeEntry::GetInstance()->SetRootNode(node);
+               g_env = env;
+               return nullptr;
+           }
 
-       napi_value DestroyNativeRoot(napi_env env, napi_callback_info info)
-       {
-           // 从管理类中释放Native侧对象。
-           NativeEntry::GetInstance()->DisposeRootNode();
-           return nullptr;
-       }
+           napi_value DestroyNativeRoot(napi_env env, napi_callback_info info)
+           {
+               // 从管理类中释放Native侧对象。
+               NativeEntry::GetInstance()->DisposeRootNode();
+               return nullptr;
+           }
 
-   } // namespace NativeModule
-   ```
+       } // namespace NativeModule
 
 4. 修改CMakeLists.txt，添加链接库。
 
-   ```
+   ```cpp
      # CMakeLists.txt
 
      # the minimum version of CMake.
@@ -483,19 +478,19 @@ ArkUI开发框架在NDK接口提供了自定义UI组件的能力，这些能力�
           ${hilog-lib} ${libace-lib} ${libnapi-lib} ${libuv-lib} libnative_drawing.so)
    ```
 
-#### 不规则网格布局示例
+## 不规则网格布局示例
 
 以下示例创建了一个不规则网格布局容器，支持不同大小的网格单元，实现类似瀑布流的布局效果。完整示例请参考[CustomDrawIrregularSample](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NativeType/CustomDrawIrregularSample)。
 
-图3 不规则网格布局效果
+**图3** 不规则网格布局效果
 
-![](https://media:401788444458354602)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/arvSKKvDRpeVp-thhvw-rw/zh-cn_image_0000002733274284.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=CE26CACB1A00E34E5A25AFB3DBCF00D86FB0E67AD93CAA13BA4DA6FD64D4E613)
 
 1. 按照[自定义布局容器](#自定义布局容器)章节准备前置工程。
 
 2. 创建不规则网格布局容器组件封装对象。
 
-   ```
+   ```C
     // ArkUIIrregularGridNode.h
     // 不规则网格布局容器示例
 
@@ -711,146 +706,144 @@ ArkUI开发框架在NDK接口提供了自定义UI组件的能力，这些能力�
 
 3. 使用不规则网格布局容器创建示例界面。
 
-   ```
-    #include "NativeEntry.h"
+        #include "NativeEntry.h"
 
-    #include "ArkUIIrregularGridNode.h"
-    #include "ArkUINode.h"
+        #include "ArkUIIrregularGridNode.h"
+        #include "ArkUINode.h"
 
-    #include <arkui/native_node_napi.h>
-    #include <arkui/native_type.h>
-    #include <js_native_api.h>
-    #include <utility>
-    #include <vector>
+        #include <arkui/native_node_napi.h>
+        #include <arkui/native_type.h>
+        #include <js_native_api.h>
+        #include <utility>
+        #include <vector>
 
-    namespace NativeModule {
-    namespace {
-    napi_env g_env = nullptr;
+        namespace NativeModule {
+        namespace {
+        napi_env g_env = nullptr;
 
-    constexpr uint32_t GRID_BACKGROUND_COLOR = 0xFFF5F5F5;
-    constexpr int32_t GRID_COLUMN_COUNT = 4;
-    constexpr int32_t GRID_GAP = 8;
-    constexpr float GRID_ITEM_RADIUS = 8.0f;
-    constexpr float GRID_ITEM_BORDER_WIDTH = 1.0f;
-    constexpr uint32_t GRID_ITEM_BORDER_COLOR = 0xFFCCCCCC;
-    constexpr float GRID_ITEM_BASE_HEIGHT = 60.0f;
-    constexpr float GRID_ITEM_HEIGHT_STEP = 40.0f;
+        constexpr uint32_t GRID_BACKGROUND_COLOR = 0xFFF5F5F5;
+        constexpr int32_t GRID_COLUMN_COUNT = 4;
+        constexpr int32_t GRID_GAP = 8;
+        constexpr float GRID_ITEM_RADIUS = 8.0f;
+        constexpr float GRID_ITEM_BORDER_WIDTH = 1.0f;
+        constexpr uint32_t GRID_ITEM_BORDER_COLOR = 0xFFCCCCCC;
+        constexpr float GRID_ITEM_BASE_HEIGHT = 60.0f;
+        constexpr float GRID_ITEM_HEIGHT_STEP = 40.0f;
 
-    using GridItemSize = std::pair<int32_t, int32_t>;
+        using GridItemSize = std::pair<int32_t, int32_t>;
 
-    const std::vector<GridItemSize>& GetGridItemSizes()
-    {
-        static const std::vector<GridItemSize> itemSizes = {
-            {1, 1}, // 小方块
-            {2, 1}, // 竖长条
-            {1, 3}, // 横长条
-            {2, 2}, // 大方块
-            {1, 1}, // 小方块
-            {1, 2}, // 横条
-            {3, 1}, // 很长的竖条
-        };
-        return itemSizes;
-    }
-
-    const std::vector<uint32_t>& GetGridItemColors()
-    {
-        static const std::vector<uint32_t> colors = {
-            0xFF64B5F6, // 蓝色
-            0xFFE57373, // 红色
-            0xFF81C784, // 绿色
-            0xFFFFB74D, // 橙色
-            0xFF9575CD, // 紫色
-            0xFF4DB6AC, // 青色
-            0xFFFFD54F, // 黄色
-            0xFFF06292, // 粉色
-            0xFF7986CB, // 靛蓝
-            0xFFA1887F, // 棕色
-        };
-        return colors;
-    }
-
-    void SetNodeColorAttribute(ArkUI_NativeNodeAPI_1* nodeAPI, ArkUI_NodeHandle node, uint32_t color)
-    {
-        ArkUI_NumberValue bgColor[] = {{.u32 = color}};
-        ArkUI_AttributeItem bgColorItem = {bgColor, 1};
-        nodeAPI->setAttribute(node, NODE_BACKGROUND_COLOR, &bgColorItem);
-    }
-
-    void SetNodeBorderRadiusAttribute(ArkUI_NativeNodeAPI_1* nodeAPI, ArkUI_NodeHandle node, float radius)
-    {
-        ArkUI_NumberValue radiusValue[] = {{.f32 = radius}};
-        ArkUI_AttributeItem radiusItem = {radiusValue, 1};
-        nodeAPI->setAttribute(node, NODE_BORDER_RADIUS, &radiusItem);
-    }
-
-    void SetNodeBorderStyle(ArkUI_NativeNodeAPI_1* nodeAPI, ArkUI_NodeHandle node)
-    {
-        ArkUI_NumberValue borderWidth[] = {{.f32 = GRID_ITEM_BORDER_WIDTH}};
-        ArkUI_AttributeItem borderWidthItem = {borderWidth, 1};
-        nodeAPI->setAttribute(node, NODE_BORDER_WIDTH, &borderWidthItem);
-
-        ArkUI_NumberValue borderColor[] = {{.u32 = GRID_ITEM_BORDER_COLOR}};
-        ArkUI_AttributeItem borderColorItem = {borderColor, 1};
-        nodeAPI->setAttribute(node, NODE_BORDER_COLOR, &borderColorItem);
-    }
-
-    void SetNodeHeightByRowSpan(ArkUI_NativeNodeAPI_1* nodeAPI, ArkUI_NodeHandle node, int32_t rowSpan)
-    {
-        float minHeight = GRID_ITEM_BASE_HEIGHT + (rowSpan - 1) * GRID_ITEM_HEIGHT_STEP;
-        ArkUI_NumberValue minHeightValue[] = {{.f32 = minHeight}};
-        ArkUI_AttributeItem minHeightItem = {minHeightValue, 1};
-        nodeAPI->setAttribute(node, NODE_HEIGHT, &minHeightItem);
-    }
-
-    void AddGridItems(
-        ArkUI_NativeNodeAPI_1* nodeAPI,
-        const std::shared_ptr<ArkUIIrregularGridNode>& gridNode,
-        const std::vector<GridItemSize>& itemSizes,
-        const std::vector<uint32_t>& colors)
-    {
-        for (size_t i = 0; i < itemSizes.size(); ++i) {
-            auto itemNode = nodeAPI->createNode(ARKUI_NODE_STACK);
-            SetNodeColorAttribute(nodeAPI, itemNode, colors[i % colors.size()]);
-            SetNodeBorderRadiusAttribute(nodeAPI, itemNode, GRID_ITEM_RADIUS);
-            SetNodeBorderStyle(nodeAPI, itemNode);
-            SetNodeHeightByRowSpan(nodeAPI, itemNode, itemSizes[i].first);
-            gridNode->SetItemConfig(itemNode, itemSizes[i].first, itemSizes[i].second);
-            nodeAPI->addChild(gridNode->GetHandle(), itemNode);
+        const std::vector<GridItemSize>& GetGridItemSizes()
+        {
+            static const std::vector<GridItemSize> itemSizes = {
+                {1, 1}, // 小方块
+                {2, 1}, // 竖长条
+                {1, 3}, // 横长条
+                {2, 2}, // 大方块
+                {1, 1}, // 小方块
+                {1, 2}, // 横条
+                {3, 1}, // 很长的竖条
+            };
+            return itemSizes;
         }
-    }
-    } // namespace
 
-    napi_value CreateNativeRoot(napi_env env, napi_callback_info info)
-    {
-        size_t argc = 1;
-        napi_value args[1] = {nullptr};
-        napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+        const std::vector<uint32_t>& GetGridItemColors()
+        {
+            static const std::vector<uint32_t> colors = {
+                0xFF64B5F6, // 蓝色
+                0xFFE57373, // 红色
+                0xFF81C784, // 绿色
+                0xFFFFB74D, // 橙色
+                0xFF9575CD, // 紫色
+                0xFF4DB6AC, // 青色
+                0xFFFFD54F, // 黄色
+                0xFFF06292, // 粉色
+                0xFF7986CB, // 靛蓝
+                0xFFA1887F, // 棕色
+            };
+            return colors;
+        }
 
-        ArkUI_NodeContentHandle contentHandle;
-        OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
-        NativeEntry::GetInstance()->SetContentHandle(contentHandle);
+        void SetNodeColorAttribute(ArkUI_NativeNodeAPI_1* nodeAPI, ArkUI_NodeHandle node, uint32_t color)
+        {
+            ArkUI_NumberValue bgColor[] = {{.u32 = color}};
+            ArkUI_AttributeItem bgColorItem = {bgColor, 1};
+            nodeAPI->setAttribute(node, NODE_BACKGROUND_COLOR, &bgColorItem);
+        }
 
-        auto gridNode = std::make_shared<ArkUIIrregularGridNode>();
-        gridNode->SetBackgroundColor(GRID_BACKGROUND_COLOR);
-        gridNode->SetColumnCount(GRID_COLUMN_COUNT);
-        gridNode->SetGap(GRID_GAP);
+        void SetNodeBorderRadiusAttribute(ArkUI_NativeNodeAPI_1* nodeAPI, ArkUI_NodeHandle node, float radius)
+        {
+            ArkUI_NumberValue radiusValue[] = {{.f32 = radius}};
+            ArkUI_AttributeItem radiusItem = {radiusValue, 1};
+            nodeAPI->setAttribute(node, NODE_BORDER_RADIUS, &radiusItem);
+        }
 
-        auto* nodeAPI = NativeModuleInstance::GetInstance()->GetNativeNodeAPI();
-        AddGridItems(nodeAPI, gridNode, GetGridItemSizes(), GetGridItemColors());
+        void SetNodeBorderStyle(ArkUI_NativeNodeAPI_1* nodeAPI, ArkUI_NodeHandle node)
+        {
+            ArkUI_NumberValue borderWidth[] = {{.f32 = GRID_ITEM_BORDER_WIDTH}};
+            ArkUI_AttributeItem borderWidthItem = {borderWidth, 1};
+            nodeAPI->setAttribute(node, NODE_BORDER_WIDTH, &borderWidthItem);
 
-        // 保持Native侧对象到管理类中，维护生命周期。
-        NativeEntry::GetInstance()->SetRootNode(gridNode);
-        g_env = env;
-        return nullptr;
-    }
+            ArkUI_NumberValue borderColor[] = {{.u32 = GRID_ITEM_BORDER_COLOR}};
+            ArkUI_AttributeItem borderColorItem = {borderColor, 1};
+            nodeAPI->setAttribute(node, NODE_BORDER_COLOR, &borderColorItem);
+        }
 
-    napi_value DestroyNativeRoot(napi_env env, napi_callback_info info)
-    {
-        // 从管理类中释放Native侧对象。
-        NativeEntry::GetInstance()->DisposeRootNode();
-        return nullptr;
-    }
+        void SetNodeHeightByRowSpan(ArkUI_NativeNodeAPI_1* nodeAPI, ArkUI_NodeHandle node, int32_t rowSpan)
+        {
+            float minHeight = GRID_ITEM_BASE_HEIGHT + (rowSpan - 1) * GRID_ITEM_HEIGHT_STEP;
+            ArkUI_NumberValue minHeightValue[] = {{.f32 = minHeight}};
+            ArkUI_AttributeItem minHeightItem = {minHeightValue, 1};
+            nodeAPI->setAttribute(node, NODE_HEIGHT, &minHeightItem);
+        }
 
-    } // namespace NativeModule
-   ```
+        void AddGridItems(
+            ArkUI_NativeNodeAPI_1* nodeAPI,
+            const std::shared_ptr<ArkUIIrregularGridNode>& gridNode,
+            const std::vector<GridItemSize>& itemSizes,
+            const std::vector<uint32_t>& colors)
+        {
+            for (size_t i = 0; i < itemSizes.size(); ++i) {
+                auto itemNode = nodeAPI->createNode(ARKUI_NODE_STACK);
+                SetNodeColorAttribute(nodeAPI, itemNode, colors[i % colors.size()]);
+                SetNodeBorderRadiusAttribute(nodeAPI, itemNode, GRID_ITEM_RADIUS);
+                SetNodeBorderStyle(nodeAPI, itemNode);
+                SetNodeHeightByRowSpan(nodeAPI, itemNode, itemSizes[i].first);
+                gridNode->SetItemConfig(itemNode, itemSizes[i].first, itemSizes[i].second);
+                nodeAPI->addChild(gridNode->GetHandle(), itemNode);
+            }
+        }
+        } // namespace
+
+        napi_value CreateNativeRoot(napi_env env, napi_callback_info info)
+        {
+            size_t argc = 1;
+            napi_value args[1] = {nullptr};
+            napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+
+            ArkUI_NodeContentHandle contentHandle;
+            OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
+            NativeEntry::GetInstance()->SetContentHandle(contentHandle);
+
+            auto gridNode = std::make_shared<ArkUIIrregularGridNode>();
+            gridNode->SetBackgroundColor(GRID_BACKGROUND_COLOR);
+            gridNode->SetColumnCount(GRID_COLUMN_COUNT);
+            gridNode->SetGap(GRID_GAP);
+
+            auto* nodeAPI = NativeModuleInstance::GetInstance()->GetNativeNodeAPI();
+            AddGridItems(nodeAPI, gridNode, GetGridItemSizes(), GetGridItemColors());
+
+            // 保持Native侧对象到管理类中，维护生命周期。
+            NativeEntry::GetInstance()->SetRootNode(gridNode);
+            g_env = env;
+            return nullptr;
+        }
+
+        napi_value DestroyNativeRoot(napi_env env, napi_callback_info info)
+        {
+            // 从管理类中释放Native侧对象。
+            NativeEntry::GetInstance()->DisposeRootNode();
+            return nullptr;
+        }
+
+        } // namespace NativeModule
 

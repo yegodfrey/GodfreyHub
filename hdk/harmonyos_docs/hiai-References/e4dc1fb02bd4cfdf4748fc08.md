@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/scd-overview-0
 
 # Overview
 
-ML Kit提供的场景识别SDK。此包提供了场景识别SDK，开发者集成此SDK，即可获取华为ML Kit提供的场景识别能力。具体使用方法可参见：[场景识别开发步骤](https://developer.huawei.com/consumer/cn/doc/development/hiai-Guides/scene-detection-0000001055162807#section1538393817134)。  
+ML Kit提供的场景识别SDK。此包提供了场景识别SDK，开发者集成此SDK，即可获取华为ML Kit提供的场景识别能力。具体使用方法可参见：[场景识别开发步骤](https://developer.huawei.com/consumer/cn/doc/development/hiai-Guides/scene-detection-0000001055162807#section1538393817134)。
 
-#### Class Summary
+## Class Summary
 
 |Class|Description|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

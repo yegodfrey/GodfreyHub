@@ -1,0 +1,27 @@
+---
+name: document/cn/HMSCore-Examples/client-sample-code-0000001050114484
+title: 客户端示例代码
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/client-sample-code-0000001050114484
+---
+
+# 客户端示例代码
+
+压缩包里面包含了一个Android Studio工程，该工程包含了华为云空间客户端示例代码，允许创建使用华为云空间服务的应用程序，主要包括以下功能：
+
+* 获取用户信息
+* 文件的上传、下载和搜索
+* 对文件的评论、回复和查询历史版本
+* 云端文件变化的查询、推送通知功能等（如使用开启文件变化通知功能，需[将Server服务器域名注册到Drive](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/server-enable-notification-0000001064341112)。）
+
+|名称|**Gitee**|GitHub|
+|:----------|:----------------------------------------------------|:-----------------------------------------------------|
+|Android示例代码|[链接](https://gitee.com/hms-core/hms-drive-clientdemo)|[链接](https://github.com/HMS-Core/hms-drive-clientdemo)|
+
+> 说明
+>
+> 在使用示例代码前请详细阅读示例工程中的"README"文件。您需要完成以下操作后才可以运行示例代码。
+>
+> 1. 在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站下载自己应用的"agconnect-services.json"文件，拷贝到示例工程的应用级根目录下。
+>
+> 2. 修改示例工程中应用级"build.gradle"文件中的"applicationId"为您自己的应用包名。
+

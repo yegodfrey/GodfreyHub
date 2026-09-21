@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-61
 
 1. 自定义assign方法
 
-```
+```ts
 function assign(target: Record<string, Object>, ...source: Object[]): Record<string, Object> {
   for (const items of source) {
     for (const key of Object.keys(items)) {
@@ -23,7 +23,7 @@ function assign(target: Record<string, Object>, ...source: Object[]): Record<str
 
 2. 使用assign方法
 
-```
+```ts
 interface IMergeSub {
   testString: string,
   testObject?: IMergeSub,
@@ -68,12 +68,12 @@ export function testAssign() {
     'f': ['objectThree-f']
   }
 
-  // Merge multiple objects, and the properties of both Object One and Object Two will be attached to Object Three. When the property names are the same, the properties of the object with the lower index will overwrite the properties of the previous object
+ // Merge multiple objects, and the properties of both Object One and Object Two will be attached to Object Three. When the property names are the same, the properties of the object with the lower index will overwrite the properties of the previous object
   const multiObjectMerged = assign(objectThree, objectTwo, objectOne);
   console.log('multiObjectMerged is:' + JSON.stringify(multiObjectMerged));
   console.log('objectThree is:' + JSON.stringify(objectThree));
 
-  // Merge the properties of Object One into Object Two, and the value of Object Two will change. When the property names are the same, Object One will overwrite the properties of Object Two
+ // Merge the properties of Object One into Object Two, and the value of Object Two will change. When the property names are the same, Object One will overwrite the properties of Object Two
   const objectMerged = assign(objectTwo, objectOne);
   console.log('objectTwo is:' + JSON.stringify(objectTwo));
   console.log('objectMerged is:' + JSON.stringify(objectMerged));

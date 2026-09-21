@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-faq-1
 
 当使用REST API接口进行消息推送时，您可能遇到一些问题，请按照如下思路进行处理：
 
-1. 优先检查[消息推送接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-struct)URL（https://push-api.cloud.huawei.com/v3/\[projectId\]/messages:send）是否正确。
+1. 优先检查[消息推送接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-struct)URL（https://push-api.cloud.huawei.com/**v3** /**[projectId]**/messages:send）是否正确。
 
    * 请使用v3版本的推送接口URL，不要使用v1或v2版本的推送接口URL，详情请参见[场景化消息中的请求URL版本问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-faq-8)。
    * 请检查推送接口地址中的projectId，确保与您当前应用所属的项目保持一致，若不一致请更新推送接口URL中的projectId，并重新[生成鉴权令牌](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-jwt-token)，应用重新[获取Push Token](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-get-token)，再进行消息推送。

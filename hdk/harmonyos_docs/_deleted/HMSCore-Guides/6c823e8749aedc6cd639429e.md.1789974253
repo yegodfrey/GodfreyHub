@@ -1,0 +1,44 @@
+---
+name: document/cn/HMSCore-Guides/version-change-history-0000001050042326
+title: 版本更新说明
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/version-change-history-0000001050042326
+---
+
+# 版本更新说明
+
+## 5.0.1.304（2023-09-28）
+
+|----------------------------------------------------------|
+|Android版本：com.huawei.hms:wallet:5.0.1.304 **修改特性** 修复安全问题。|
+
+## SDK依赖说明
+
+最新版本SDK需要用户手机上安装HMS Core（APK）4.0.0.300及以上版本。
+
+温馨提示：如果您在集成SDK或上架应用到华为应用市场时遇到问题，可以[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)。
+
+## 历史版本
+
+### 4.0.5.300（2022-03-30）
+
+|------------------------------------------------------------------------------------------------------------------------|
+|Android版本：com.huawei.hms:wallet:4.0.5.300 **修改特性** * targetSdkVersion升级30，适配Android R （Android 11）。 * 升级Wallet SDK的依赖组件。|
+
+### 4.0.4.301（2020-08-05）
+
+|-------------------------------------------------------------------------------------|
+|Android版本：com.huawei.hms:wallet:4.0.4.301 **修改特性** 解决BadParcelableException异常场景的崩溃问题。|
+
+### 4.0.2.301（2020-02-27）
+
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Android版本：com.huawei.hms:wallet:4.0.2.301 **新增特性** 支持Eclipse项目中集成Wallet SDK。 **修改特性** 将CreateWalletPassRequest.setJwt()方法修改为[setContent(String contentStr)](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wallet-createwalletpasss-0000001050145792#section83145512118)，对功能无影响，用户只需在升级版本时修改引用的方法即可。|
+
+### 4.0.0.300（2020-01-15）
+
+|---------------------------------------------------------------------|
+|Android版本：com.huawei.hms:wallet:4.0.0.300 **新增特性** 支持添加会员卡、礼品卡、优惠券能力。|
+
+### 历史版本文档
+
+WalletKit 4.0版本文档：[入口](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/wallet-guide-introduction)

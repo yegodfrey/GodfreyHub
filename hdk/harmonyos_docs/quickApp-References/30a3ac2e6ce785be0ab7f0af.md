@@ -6,24 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 
 # refresh-footer（1090+）
 
-#### 概述
+## 概述
 
-refresh2下拉刷新底部容器。  
+refresh2下拉刷新底部容器。
 
-#### 使用限制
+## 使用限制
 
 |限制条件|说明|
 |:---|:-----------|
 |适用终端|手机、平板、智慧屏、车机|
 |适用区域|全球|
 
-#### 子组件
+## 子组件
 
-支持。  
+支持。
 
-#### 属性
+## 属性
 
-除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。  
+除了支持 [通用属性](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-attributes-0000001170050123) 以外，还支持如下属性。
 
 |名称|类型|默认值|是否必填|描述|
 |:---------------------|:------|:----------|:---|:----------------------------------------------------------------------------------------------------------------|
@@ -38,21 +38,21 @@ refresh2下拉刷新底部容器。
 |autorefresh|boolean|false|否|滑向底部时，是否自动加载。|
 |translationwithcontent|boolean|true|否|默认取值为true，表示刷新时footer跟随内容移动。|
 
-#### 样式
+## 样式
 
-支持 [通用样式](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-common-styles-0000001170210009) 。  
+支持 [通用样式](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-common-styles-0000001170210009) 。
 
-#### 事件
+## 事件
 
-除了支持 [通用事件](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-events-0000001123530338) 以外，还支持如下事件。  
+除了支持 [通用事件](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-events-0000001123530338) 以外，还支持如下事件。
 
 |名称|参数|描述|
 |:---|:----------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |move|{scrollY:number,percent:number,isDrag:boolean,refreshing:boolean}|footer移动参数回调。 * scrollY：footer相对初始位置的移动距离。当上拉footer时，该值为负。 * percent：footer移动距离/触发刷新的距离。当percent取值大于或等于1f（宽度为1的浮点数）时，触发刷新。 * isDrag：是否可通过手势拖拽。 * refreshing：当前是否处理刷新状态（刷新状态下也可移动）。|
 
-#### 示例代码
+## 示例代码
 
-```
+```screen
 <import name="movie-item" src="../Common/SR399/movie-item.ux"></import>
 <template>
   <div class="root">
@@ -205,7 +205,7 @@ import api from '../Common/SR399/service.js'
 </script>
 ```
 
-#### 版本更新说明
+## 版本更新说明
 
 |版本|发布日期|描述|
 |:---|:---------|:-------|

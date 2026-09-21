@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-acce
 
 # 上传至华为CDN的资源包文件支持哪些格式类型
 
-华为CDN场景下，游戏资源包支持的格式类型如下：  
+华为CDN场景下，游戏资源包支持的格式类型如下：
 
 |资源文件的后缀|
 |:------------|

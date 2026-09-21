@@ -12,7 +12,7 @@ fullscreen表示支持全屏显示，split表示支持分屏显示，floating表
 
 参考代码如下：
 
-```
+```json
 "abilities": [
   {
     "name": "EntryAbility",
@@ -38,6 +38,7 @@ fullscreen表示支持全屏显示，split表示支持分屏显示，floating表
 ],
 ```
 
-参考链接
+**参考链接**
 
-[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)  
+[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)
+

@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 # 开发流程
 
-![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250307095811.98239666128172057201944131807237:50001231000000:2800:586D491C7FA85A8D7618994580367268AAFC0274F1A31EC9E3CE2D562BAC9FCC.png?needInitFileName=true?needInitFileName=true)  
+![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250307095811.98239666128172057201944131807237:50001231000000:2800:586D491C7FA85A8D7618994580367268AAFC0274F1A31EC9E3CE2D562BAC9FCC.png?needInitFileName=true?needInitFileName=true)
 
 |序号|任务|说明|
 |:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|

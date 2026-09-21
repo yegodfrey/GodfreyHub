@@ -10,13 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/create-cms-de
 
 PKCS #7是用于存储签名或加密数据的标准语法。CMS作为PKCS #7的扩展，支持的数据类型包括数据、签名数据、封装数据、签名和封装数据、摘要数据以及加密数据。该标准常用于保护数据的完整性和机密性。
 
-目前仅支持CMS签名数据和封装数据。  
+目前仅支持CMS签名数据和封装数据。
 
-#### 开发步骤
+## 开发步骤
 
 1. 导入[证书模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert)。
 
-   ```
+   ```ts
    import { cert } from '@kit.DeviceCertificateKit';
    ```
 
@@ -30,7 +30,7 @@ PKCS #7是用于存储签名或加密数据的标准语法。CMS作为PKCS #7的
 
 解封装示例：
 
-```
+```TypeScript
 import { cert } from '@kit.DeviceCertificateKit';
 
 let ECC_256_PUBKEY: string =

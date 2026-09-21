@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-
 
 # 基本查询
 
-#### 创建查询
+## 创建查询
 
-```
+```screen
 var world = new IECSWorld();
 
 // 查询包含单个组件的实体
@@ -21,12 +21,13 @@ var movementQuery = world.Query<PgdPosition, Velocity>();
 var complexQuery = world.Query<PgdPosition, Velocity, Health, Name>();
 ```
 
-![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260212110240.82303278632020075086491766332684:50001231000000:2800:4357D6816D5625BA90229EDAACC195182B72636460D563D6172A37162CF395BF.png)  
-SharedComponent查询，Relation的查询方式和Component的查询方式有所不同，详情请参见[SharedComponent](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-sharedcomponent-0000002494387362)和[Relation](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-relation-0000002435246990)。  
+> 说明
+>
+> SharedComponent查询，Relation的查询方式和Component的查询方式有所不同，详情请参见[SharedComponent](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-sharedcomponent-0000002494387362)和[Relation](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/pgd-relation-0000002435246990)。
 
-#### 获取查询结果
+## 获取查询结果
 
-```
+```screen
 // 获取实体数量
 int entityCount = healthQuery.EntityCount;
 Console.WriteLine($"有血量的实体数量: {entityCount}");

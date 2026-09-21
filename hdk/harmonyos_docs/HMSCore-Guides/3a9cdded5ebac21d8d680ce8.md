@@ -20,21 +20,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/glucose-sensor-
 
 * 支持保存历史数据的血糖仪，最好支持时钟，以便在脱机状态下能够记录测量时间。
 
-#### 测量协议
+## 测量协议
 
 GLP（Glucose Sensor Profile）允许用户使用手机从血糖仪获取测量数据。其结构如下：
 
-![](https://media:901788166625642603 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/FqSfLo1MTKmAtXEkNTY5DA/zh-cn_image_0000002516359248.png?HW-CC-KV=V1&HW-CC-Date=20260909T134120Z&HW-CC-Expire=31536000000&HW-CC-Sign=48C769A6A248AC82D0733D0084DC265FF8DC978C8F80E100DA9AB2021225E8D5 "点击放大")
 
-#### 测量流程
+## 测量流程
 
 运动健康App 接收到血糖设备蓝牙广播后，主动发起连接。如果连接成功，则开始发现服务流程。接下来发现服务成功之后，血糖设备应至少返回 GLS（UUID：0x1808）这项服务，并设置特征值 GlucoseMeasurement 的 Notification 属性。
 
-![](https://media:901788166625681604 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/KW0yXS0jQBObqLEln1evwA/zh-cn_image_0000002547959051.png?HW-CC-KV=V1&HW-CC-Date=20260909T134120Z&HW-CC-Expire=31536000000&HW-CC-Sign=E87FB93031C5EA9FDA86C4026B9260BB0A56D03D821312413836061C2BE76E44 "点击放大")
 
-#### 特征字段说明
+## 特征字段说明
 
-运动健康App 测量血糖时，使用了下列 Service 和 Characteristic。  
+运动健康App 测量血糖时，使用了下列 Service 和 Characteristic。
 
 |Service / Feature|UUID|Mandatory Field(s)|
 |:--------------------------|:-----|:------------------------------------------------|
@@ -43,5 +43,7 @@ GLP（Glucose Sensor Profile）允许用户使用手机从血糖仪获取测量�
 |Record Access Control Point|0x2a52|-|
 |Glucose Measurement|0x2a18|Flags + SequenceNumber + Time Stamp +Sensor State|
 
-![](https://media:901788166625713605)  
-没有用到 Glucose Measurement Context 特性的原因是运动健康所需要的功能字段已经在 GlucoseMeasurement 特性中被声明，不需要 Glucose Measurement Context 来提供额外的支持字段（比如说 SequenceNumber 等等）。  
+> 注意
+>
+> 没有用到 Glucose Measurement Context 特性的原因是运动健康所需要的功能字段已经在 GlucoseMeasurement 特性中被声明，不需要 Glucose Measurement Context 来提供额外的支持字段（比如说 SequenceNumber 等等）。
+

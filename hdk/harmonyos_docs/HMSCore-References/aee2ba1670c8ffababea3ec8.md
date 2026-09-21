@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/hms-iap-ent
 
 # Interface Summary
 
-* [InAppPurchaseData.PurchaseState](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/inapppurchasedata-purchasestate-0000001050137691)  
+* **[InAppPurchaseData.PurchaseState](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/inapppurchasedata-purchasestate-0000001050137691)**   

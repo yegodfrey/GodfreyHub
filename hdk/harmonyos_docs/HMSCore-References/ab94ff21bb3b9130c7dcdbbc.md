@@ -13,7 +13,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/isenvreadyr
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public class IsEnvReadyResult extends [Result](https://developer.huawei.com/consumer/cn/doc/hmscore-common-References/result-0000001050123085) 请求[isEnvReady](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/iapclient-0000001050137587#section0680174272414)接口成功时返回的信息。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:----------------------------------------------|
@@ -23,15 +23,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/isenvreadyr
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |getStatus|
 
-#### Public Methods
+## Public Methods
 
-#### getReturnCode
+### getReturnCode
 
 |Method|
 |:-------------------------------------|
 |public int getReturnCode() 获取查询结果的返回码。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:-------------------------------|

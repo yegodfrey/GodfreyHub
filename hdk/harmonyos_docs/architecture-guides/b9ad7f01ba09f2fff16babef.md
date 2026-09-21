@@ -6,24 +6,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/red_envelo
 
 # 红包雨
 
-#### 场景介绍
+## 场景介绍
 
 红包雨是购物比价类应用的高频使用场景之一，如购物、游戏平台举办大促营销活动时，发放红包雨刺激消费。
 
-本示例基于[帧动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-animator)实现红包雨效果，支持在红包掉落过程中点击红包，并触发奖励领取效果。  
+本示例基于[帧动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-animator)实现红包雨效果，支持在红包掉落过程中点击红包，并触发奖励领取效果。
 
-#### 效果预览
+## 效果预览
 
-![](https://media:101782466526176097 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/3f4RIIcRS1W6i2pORu1X_w/zh-cn_image_0000002517031548.gif?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=F494BD5182A5FFC4684038033E189A012CA4B6C7E09E011F7ECAA77A9334C095 "点击放大")
 
-#### 实现思路
+## 实现思路
 
-![](https://media:101782466526223098)  
-实现红包雨动画效果，需支持红包在掉落动画执行过程中响应点击事件，因此采用[帧动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-animator)来实现该效果；由于animateTo属性动画是通过改变Y轴位移实现动画效果，仅能感知到终态位置的点击事件，不满足红包在掉落过程中响应点击事件的条件，因此不采用animateTo属性动画。
+> 说明
+>
+> 实现红包雨动画效果，需支持红包在掉落动画执行过程中响应点击事件，因此采用[帧动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-animator)来实现该效果；由于animateTo属性动画是通过改变Y轴位移实现动画效果，仅能感知到终态位置的点击事件，不满足红包在掉落过程中响应点击事件的条件，因此不采用animateTo属性动画。
 
 1. 循环生成红包组件。
 
-   ```
+   ```ts
    @State redEnvCount: number = 20; // 设置红包总个数
    @State redEnvs: Array<RedEnvelope> = [];
 
@@ -52,7 +53,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/red_envelo
 
 2. 在红包组件onAppear回调中，创建动画对象，并执行动画。
 
-   ```
+   ```ts
    Image($r('app.media.redEnvelope'))
      .position({ x: item.offsetX, y: item.offsetY })
      .onAppear(() => {
@@ -71,7 +72,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/red_envelo
 
 3. 当红包动画全部结束后，释放动画。
 
-   ```
+   ```ts
    finishAnimationCount: number = 0;
    allAnimationFinish() {
      this.isAllAnimationFinish = true;
@@ -88,15 +89,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/red_envelo
    }
    ```
 
-#### 约束与限制
+## 约束与限制
 
 * 本示例支持API Version 20 Release及以上版本。
 * 本示例支持HarmonyOS 6.0.0 Release SDK及以上版本。
-* 本示例需要使用DevEco Studio 6.0.0 Release及以上版本进行编译运行。  
+* 本示例需要使用DevEco Studio 6.0.0 Release及以上版本进行编译运行。
 
-#### 工程目录
+## 工程目录
 
-```
+```ts
 ├──entry/src/main/ets                     // 代码区
 │  ├──entryability
 │  │  └──EntryAbility.ets       
@@ -109,10 +110,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/red_envelo
 └──entry/src/main/resources               // 应用资源目录
 ```
 
-#### 参考文档
+## 参考文档
 
-[帧动画(ohos.animator)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-animator)  
+[帧动画(ohos.animator)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-animator)
 
-#### 代码下载
+## 代码下载
 
-[红包雨示例代码](https://media:101782466526382099)  
+[红包雨示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626173526.36228960044985254868036330590782:50001231000000:2800:8C106982ADF604ECA6558798322D71443B9690A79AFC121217A7FCAA4399DA09.zip?needInitFileName=true)
+

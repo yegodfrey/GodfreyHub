@@ -10,16 +10,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 获得授权的方式有如下两种：
 
-* [（推荐）Service Account方式](#section172553511916)
+* **[（推荐）Service Account方式](#section172553511916)**
 
-  使用Service Account（服务账号），您可以实现服务器与服务器之间接口的鉴权，相比API客户端方式更安全。  
-  ![](https://media:801773135261996846)  
-  Service Account即将替代API客户端，新创建凭据请您选择Service Account，并请尽快将您使用的API客户端切换到Service Account。
-* [API客户端方式](#section8100153831815)
+  使用Service Account（服务账号），您可以实现服务器与服务器之间接口的鉴权，相比API客户端方式更安全。
+  > 说明
+  >
+  > Service Account即将替代API客户端，新创建凭据请您选择Service Account，并请尽快将您使用的API客户端切换到Service Account。
+* **[API客户端方式](#section8100153831815)**
 
   使用API客户端，您可以以应用的身份进行API操作，API访问权限由API客户端的角色来确定。此方式适合开发者自己的IT系统对接AppGallery Connect时使用。
 
-#### （推荐）Service Account方式
+## （推荐）Service Account方式
 
 要发起一个基本的Service Account方式的API调用，您需要在AppGallery Connect中管理您的Service Account。
 
@@ -27,20 +28,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 1. [创建Service Account](#section47096509126)
 2. [获取鉴权令牌](#section276512551310)
-3. [访问API](#section628511528139)  
+3. [访问API](#section628511528139)
 
-#### 创建Service Account
+### 创建Service Account
 
 Service Account是AppGallery Connect用于管理用户访问AppGallery Connect API的身份凭据，您可以给不同角色创建不同的Service Account，使不同角色可以访问对应权限的AppGallery Connect API。在访问某个API前，必须创建有权访问该API的Service Account。
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，选择"用户与访问"。
-2. 左侧导航栏选择"API密钥 \> Connect API"，选择"Service Account"页签，点击"创建"。 ![](https://media:801773135262034847)
+2. 左侧导航栏选择"API密钥 > Connect API"，选择"Service Account"页签，点击"创建"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/fg-kU5_YR22DnOVAV5yQbA/zh-cn_image_0000002553555057.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=9285DD85050799004CA4E42A292FB5AB6B25BD175D7B453A0CF36AE231EA0DB3)
 
-   <br />
-
-3. 在"创建Service Account"窗口，配置Service Account信息。 ![](https://media:801773135262194848)
-
-   <br />
+3. 在"创建Service Account"窗口，配置Service Account信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/gxc_PKFlQkeiBERZ5PogUQ/zh-cn_image_0000002549346225.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=A0FE20AFA8A1B37CF6DC894272C543B0412D3B4B7CE010D3A8F00D10FCF9BA2E)
 
    |参数|说明|
    |:-|:--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,9 +46,9 @@ Service Account是AppGallery Connect用于管理用户访问AppGallery Connect A
    |项目|仅当"类型"选择"项目级"时展示。 选择你希望通过创建的项目级凭据访问的项目。|
    |角色|选择的角色决定了该Service Account具有的权限，具体角色对应的权限请参考[角色与权限](https://developer.huawei.com/consumer/cn/doc/app/agc-help-rolepermission-0000002271930352)。|
 
-4. Service Account创建成功后，将自动下载对应的"\*\*\*\*\*\*private.json"格式的凭据文件，信息如下。请妥善保存。
+4. Service Account创建成功后，将自动下载对应的"******private.json"格式的凭据文件，信息如下。请妥善保存。
 
-   ```
+   ```screen
    {
        "project_id": "244********17868",
        "key_id": "79******b9",
@@ -64,41 +61,34 @@ Service Account是AppGallery Connect用于管理用户访问AppGallery Connect A
    }
    ```
 
-5. （可选）点击Service Account"操作"列的"添加"，AGC将为您新生成一个密钥，并自动下载包含新密钥的凭据文件。最多可为一个Service Account添加10个密钥。 ![](https://media:801773135262235849)
+5. （可选）点击Service Account"操作"列的"添加"，AGC将为您新生成一个密钥，并自动下载包含新密钥的凭据文件。最多可为一个Service Account添加10个密钥。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/PdiNjv7mSZ-n48biOPmutQ/zh-cn_image_0000002553558597.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D3E90398EC2CD72F099D9394856FB1B00F8D58128ABEBCD6BB43FEC0EA9EDFC)
 
-   <br />
+   如需删除添加的密钥，在"密钥ID"列点击对应密钥的删除按钮即可。如密钥总数超过3个，可点击"更多"打开"管理密钥ID"窗口进行删除。
+   > 注意
+   >
+   > 删除密钥，会导致密钥关联的API权限和资源都被删除，无法继续正常使用，请谨慎操作。
 
-   如需删除添加的密钥，在"密钥ID"列点击对应密钥的删除按钮即可。如密钥总数超过3个，可点击"更多"打开"管理密钥ID"窗口进行删除。  
-   ![](https://media:801773135262261850)  
-   删除密钥，会导致密钥关联的API权限和资源都被删除，无法继续正常使用，请谨慎操作。
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/T6zJv1KqToi1dcNLLG65FA/zh-cn_image_0000002522714914.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=AEDC7188F859146B1E72C09294B66D1ED624E5F73E08E7FCC9FB292390676118)
 
-   ![](https://media:801773135262301851)
+6. （可选）Service Account创建成功即自动启用。您也可以通过点击"操作"列的"停用"，来停用该Service Account。 注意
+   >
+   > 停用Service Account会阻止账号向API进行身份验证，且可能会使资源无法正常使用该账号，请谨慎操作。
 
-   <br />
-
-6. （可选）Service Account创建成功即自动启用。您也可以通过点击"操作"列的"停用"，来停用该Service Account。  
-   ![](https://media:801773135262355852)  
-   停用Service Account会阻止账号向API进行身份验证，且可能会使资源无法正常使用该账号，请谨慎操作。
-
-   ![](https://media:801773135262392853)
-
-   <br />
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/2AvK8S6BRuuUkcZNu7uvQA/zh-cn_image_0000002522600868.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=E47DEC6270BC173706A25368C81A76F8708954A80D4CBAFEF8175EE79832F2C8)
 
    如需重新启用Service Account，点击"操作"列的"启用"。
 
-   ![](https://media:801773135262445854)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/soVz34-3SB-yEZdL1EmVoQ/zh-cn_image_0000002553681293.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=07912C86C438DDA71DB130183040DB2B8C33C88F885DB8FC090B48AA3E410832)
 
-   <br />
-
-#### 获取鉴权令牌
+### 获取鉴权令牌
 
 创建Service Account后，您可以使用凭据文件中返回的key_id和private_key来获取鉴权令牌，从而访问AppGallery Connect API。
 
-Service Account鉴权令牌为JWT（JSON Web Token）格式字符串，JWT数据格式包括Header（头部）、Payload（负载）和Signature（签名），示例：eyJraWQiOiIx\*\*\*\*\*\*.eyJhdWQiOiJodHR\*\*\*\*\*\*.QRodgXa2xeXSt4Gp\*\*\*\*\*\*
+Service Account鉴权令牌为JWT（JSON Web Token）格式字符串，JWT数据格式包括Header（头部）、Payload（负载）和Signature（签名），示例：eyJraWQiOiIx******.eyJhdWQiOiJodHR******.QRodgXa2xeXSt4Gp******
 
-1. 生成JWT Header数据。 根据文件中的key_id字段拼接JSON体，对JSON体进行BASE64编码，生成Header数据，示例：eyJraWQiOiIx\*\*\*\*\*\*。
+1. 生成JWT Header数据。 根据文件中的key_id字段拼接JSON体，对JSON体进行BASE64编码，生成Header数据，示例：eyJraWQiOiIx******。
 
-   ```
+   ```screen
    {
      "kid": "79******b9",
      "typ": "JWT",
@@ -112,9 +102,9 @@ Service Account鉴权令牌为JWT（JSON Web Token）格式字符串，JWT数据
    |typ|数据类型，固定为：JWT。|
    |alg|算法类型，固定为：PS256。|
 
-2. 生成JWT Payload数据。 根据文件中的sub_account字段拼接JSON体，对JSON体进行BASE64编码，生成Payload数据，示例：eyJhdWQiOiJodHR\*\*\*\*\*\*。
+2. 生成JWT Payload数据。 根据文件中的sub_account字段拼接JSON体，对JSON体进行BASE64编码，生成Payload数据，示例：eyJhdWQiOiJodHR******。
 
-   ```
+   ```screen
    {
      "aud": "https://oauth-login.cloud.huawei.com/oauth2/v3/token",
      "iss": "10*****19",
@@ -130,11 +120,11 @@ Service Account鉴权令牌为JWT（JSON Web Token）格式字符串，JWT数据
    |exp|JWT到期时间，UTC时间戳，比iat晚3600秒。|
    |iat|JWT签发时间，UTC时间戳，为自UTC时间1970年1月1日00:00:00的秒数（您的服务器时间需要校准为标准时间）。|
 
-3. 生成JWT Signature数据。 将完成BASE64编码后的Header字符串与Payload字符串，通过"."进行连接，并在业务应用中，通过密钥JSON文件中的private_key（华为不进行存储，请您妥善保管），使用SHA256withRSA/PSS算法对拼接的字符串签名，生成Signature数据，示例：QRodgXa2xeXSt4Gp\*\*\*\*\*\*。
+3. 生成JWT Signature数据。 将完成BASE64编码后的Header字符串与Payload字符串，通过"."进行连接，并在业务应用中，通过密钥JSON文件中的private_key（华为不进行存储，请您妥善保管），使用SHA256withRSA/PSS算法对拼接的字符串签名，生成Signature数据，示例：QRodgXa2xeXSt4Gp******。
 
 您可以在应用程序中参考如下代码来获取鉴权令牌，完整Demo请参见[服务端示例代码](https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/server-sample-code-0000001057110387)。
 
-```
+```screen
 public class JWTGenerateDemo {
     // please replace it with the private_key in your json file
     // this is the plain text in this demo, please encrypt the private key in your code, only get the string between
@@ -204,17 +194,17 @@ public class JWTGenerateDemo {
 }
 ```
 
-#### 访问API
+### 访问API
 
 在调用API时，把已获取的鉴权令牌置于Authorization头部以完成鉴权。
 
-```
+```screen
 GET /v1/demo/indexes HTTP/1.1
 Authorization: Bearer eyJraWQiOiIx******.eyJhdWQiOiJodHR******.QRodgXa2xeXSt4Gp******
 Host: connect-api.cloud.huawei.com
 ```
 
-#### API客户端方式
+## API客户端方式
 
 要发起一个基本的API客户端方式的API调用，您需要在AppGallery Connect中管理您的API客户端，API只能由您的团队账号所有者管理。
 
@@ -222,33 +212,30 @@ Host: connect-api.cloud.huawei.com
 
 1. [创建API客户端](#section186371930132016)
 2. [获取访问API的Token](#section206281157202011)
-3. [访问API](#section18775752151812)  
+3. [访问API](#section18775752151812)
 
-#### 创建API客户端
+### 创建API客户端
 
 API客户端是AppGallery Connect用于管理用户访问AppGallery Connect API的身份凭据，您可以给不同角色创建不同的API客户端，使不同角色可以访问对应权限的AppGallery Connect API。在访问某个API前，必须创建有权访问该API的API客户端。
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，选择"用户与访问"。
-2. 左侧导航栏选择"API密钥 \> Connect API"，选择"API客户端"页签，点击"创建"。 ![](https://media:801773135262488855)
+2. 左侧导航栏选择"API密钥 > Connect API"，选择"API客户端"页签，点击"创建"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/EFBXurA4TCuvUNV87sAdsA/zh-cn_image_0000002518368928.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=46470A4EF7B08B42106C5650B0C1E2EA4B41E85022E11859DEBA97FAC9F3B69B)
 
-3. 在"创建API客户端"窗口，配置API客户端信息。 ![](https://media:801773135262521856)
-
-   <br />
+3. 在"创建API客户端"窗口，配置API客户端信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/XVuDsGjbQ06eSdRY_SZynw/zh-cn_image_0000002539281211.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=74CD8D32A0C3054FADA00273E238E10441694B4DC10E21D1AEF7151566B6954F)
 
    |参数|说明|
    |:-|:-----------------------------------------------------------------------------------------------------------------------------------|
    |名称|输入自定义的API客户端名称。|
-   |项目|选择服务所属的项目。 注意： 请务必选择服务所属的项目，表示创建的API客户端为项目级的。不能选择"N/A"，否则将会导致调用API时返回错误。|
+   |项目|选择服务所属的项目。 > 注意 > 请务必选择服务所属的项目，表示创建的API客户端为项目级的。不能选择"N/A"，否则将会导致调用API时返回错误。|
    |角色|选择的角色决定了该API客户端具有的权限，具体角色对应的权限请参考[角色与权限](https://developer.huawei.com/consumer/cn/doc/app/agc-help-rolepermission-0000002271930352)。|
 
-4. 客户端创建成功后，客户端信息列表中会记录"ID"和"密钥"的值。后续您需要使用ID和密钥获取访问API的Token。 ![](https://media:801773135262553857)
+4. 客户端创建成功后，客户端信息列表中会记录"ID"和"密钥"的值。后续您需要使用ID和密钥获取访问API的Token。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/S_b93tbkSACLR2BpLEAprA/zh-cn_image_0000002554892179.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=90B0A7FFF6B1321873BF6ECBC8134B19360D706EE0A7C78D01AECAA1C30E03FF)
 
-   <br />
+### 获取访问API的Token
 
-#### 获取访问API的Token
+创建完API客户端后需要到华为AppGallery Connect平台进行鉴权，鉴权通过后将获得用于访问AppGallery Connect API的Access Token。用户凭借该Access Token即可访问REST API。您可以调用[获取Token](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048)接口来获取Access Token。
 
-创建完API客户端后需要到华为AppGallery Connect平台进行鉴权，鉴权通过后将获得用于访问AppGallery Connect API的Access Token。用户凭借该Access Token即可访问REST API。您可以调用[获取Token](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain-token-project-0000001477336048)接口来获取Access Token。  
+### 访问API
 
-#### 访问API
+获取鉴权通过后的Access Token后，您即可以调用对应的服务API来完成相应的功能开发。
 
-获取鉴权通过后的Access Token后，您即可以调用对应的服务API来完成相应的功能开发。  

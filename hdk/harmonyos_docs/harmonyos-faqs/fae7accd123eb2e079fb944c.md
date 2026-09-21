@@ -6,16 +6,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-form-15
 
 # 如何对服务卡片进行调试
 
-#### 问题现象
+## 问题现象
 
-因为卡片事件是从应用的form进程发起，正常情况下使用debug模式运行后会导致走不到断点；另外卡片交互冷启动应用的场景也无法正常使用debug模式进行断点调试。  
+因为卡片事件是从应用的form进程发起，正常情况下使用debug模式运行后会导致走不到断点；另外卡片交互冷启动应用的场景也无法正常使用debug模式进行断点调试。
 
-#### 背景知识
+## 背景知识
 
 * [Form Kit（卡片开发框架）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/formkit-overview)提供了一种在桌面、锁屏等系统入口上嵌入显示应用信息的开发框架和API，可以将应用内用户关注的重要信息或常用操作抽取到服务卡片（简称"卡片"）上，通过将卡片添加到桌面、锁屏等系统入口上，以达到信息展示、服务直达的便捷体验效果。
-* 开发者可以通过将某个应用设置为["等待调试模式"](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-arkts-attach-to-process)，然后当开发者需要对应用进行调试时，拉起应用即可快速进入调试。  
+* 开发者可以通过将某个应用设置为["等待调试模式"](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-arkts-attach-to-process)，然后当开发者需要对应用进行调试时，拉起应用即可快速进入调试。
 
-#### 解决方案
+## 解决方案
 
 开发者可通过[两种方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-arkts-extension)对EntryFormAbility生命周期函数进行调试。
 
@@ -24,21 +24,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-form-15
 
 [方式一](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-arkts-extension#section14388152112818)：需要使用IDE的"等待调试"能力进行卡片交互调试。具体的实现步骤为：
 
-1. 在设备选择框中选择调试的设备，并单击Run-》Attach to Process by Name。 ![](https://media:101782461523331553 "点击放大")
+1. 在设备选择框中选择调试的设备，并单击Run-》Attach to Process by Name。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/vuv8XZfCTceRON-7aJzuQQ/zh-cn_image_0000002628791558.png?HW-CC-KV=V1&HW-CC-Date=20260920T114734Z&HW-CC-Expire=31536000000&HW-CC-Sign=9FDAF5CBF4B7B284EA70BD3668CA271EFEC02CB1DEBF6DD7FBCE0C18534A4708 "点击放大")
 
-2. 在选择调试的工程并将类型选为ArkTS。然后单击Attach，即可将该应用设置为"等待调试模式"。 ![](https://media:101782461523358554 "点击放大")
+2. 在选择调试的工程并将类型选为ArkTS。然后单击Attach，即可将该应用设置为"等待调试模式"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/0EJmcfAYTriYmj0B8mvVPQ/zh-cn_image_0000002658990865.png?HW-CC-KV=V1&HW-CC-Date=20260920T114734Z&HW-CC-Expire=31536000000&HW-CC-Sign=7FFBF4DB4109DAE3DF2442ED72AECA443A1B40B5D042E989483B78EAEF8E4C59 "点击放大")
 
-3. 确认DevEco Studio底部出现Waiting for debugger进度条后，可以开始调试。 ![](https://media:101782461523390555 "点击放大")
+3. 确认DevEco Studio底部出现Waiting for debugger进度条后，可以开始调试。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/kLlw3xPDSn6WQJYauMjpLg/zh-cn_image_0000002628631654.png?HW-CC-KV=V1&HW-CC-Date=20260920T114734Z&HW-CC-Expire=31536000000&HW-CC-Sign=1725F0F3717992A617383B3A5ED27967EEB0ADD63532002E33E7CD77DCA884B8 "点击放大")
 
-4. 在需要调试的代码行的左侧边线设置断点。 ![](https://media:101782461523446556 "点击放大")
+4. 在需要调试的代码行的左侧边线设置断点。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/3w4PNUJrSrGPOO83GauFVQ/zh-cn_image_0000002658870927.png?HW-CC-KV=V1&HW-CC-Date=20260920T114734Z&HW-CC-Expire=31536000000&HW-CC-Sign=40591246C4EFBDFCF793A2287BCAB6B3D5D975CB66564A16CA1D6EC9C6A842F9 "点击放大")
 
-5. 操作应用，当应用运行到代码处，会在代码处停住，并高亮显示。 ![](https://media:101782461523482557 "点击放大")
+5. 操作应用，当应用运行到代码处，会在代码处停住，并高亮显示。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/cWZmvOAjTeSCRkekrNFrug/zh-cn_image_0000002628791560.png?HW-CC-KV=V1&HW-CC-Date=20260920T114734Z&HW-CC-Expire=31536000000&HW-CC-Sign=52CAE928B0F826152433934D5A02FA904621CD7996259EA3353EE7DC72E542DF "点击放大")
 
 [方式二](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-arkts-extension#section8660163873914)：需要修改IDE的运行配置方式。具体的实现步骤为：
 
-1. 在运行调试窗口，运行配置项Launch Options选择Specified Ability。 ![](https://media:101782461523521558 "点击放大")
+1. 在运行调试窗口，运行配置项Launch Options选择Specified Ability。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/oGpFHfnWRwCycgVCawPGKQ/zh-cn_image_0000002658990869.png?HW-CC-KV=V1&HW-CC-Date=20260920T114734Z&HW-CC-Expire=31536000000&HW-CC-Sign=3DF9A3B1EEE749C401D43A2E4C199660323B782C87D46D137E35692FC6088CE8 "点击放大")
 
-2. 选择需要进行调试的EntryFormAbility。 ![](https://media:101782461523556559 "点击放大")
+2. 选择需要进行调试的EntryFormAbility。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/YoLXFZT3TPaV0ggwu5j3Kg/zh-cn_image_0000002628631658.png?HW-CC-KV=V1&HW-CC-Date=20260920T114734Z&HW-CC-Expire=31536000000&HW-CC-Sign=288DD1306AFBF392478E37BE9F6F06223DB275AB6F46908CF9A312D0D68C1887 "点击放大")
 
-3. 点击OK保存配置后，点击调试按钮，启动调试即可命中生命周期函数断点。 ![](https://media:101782461523595560 "点击放大")
+3. 点击OK保存配置后，点击调试按钮，启动调试即可命中生命周期函数断点。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/kxfZg5a4S9uhGxR5R6UAlg/zh-cn_image_0000002658870929.png?HW-CC-KV=V1&HW-CC-Date=20260920T114734Z&HW-CC-Expire=31536000000&HW-CC-Sign=936B65A348CE93149A2B4136F4D0398EAC15737CDC734302EB42B93D9E8CFAAA "点击放大")
 

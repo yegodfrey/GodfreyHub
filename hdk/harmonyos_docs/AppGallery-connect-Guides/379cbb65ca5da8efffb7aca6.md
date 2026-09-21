@@ -6,6 +6,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 # 登录认证
 
-* [手机](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-harmonyts-login-phone-0000001529605829)  
-* [邮箱](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-harmonyts-login-email-0000001522426989)  
-* [关联账号](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-harmonyts-login-linkaccount-0000001471387498)  
+* **[手机](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-harmonyts-login-phone-0000001529605829)**   
+* **[邮箱](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-harmonyts-login-email-0000001522426989)**   
+* **[关联账号](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-auth-harmonyts-login-linkaccount-0000001471387498)**   

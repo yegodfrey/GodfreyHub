@@ -6,22 +6,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/getbufferlist-
 
 # GetBufferList
 
-![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260104150639.06336933885710194868363917185618:50001231000000:2800:2776D2543A8289DEA3AFA30B7777B588D85BF0D8D839EEE91B0BD88DFC42C16A.png)  
-该接口已废弃。  
+> 注意
+>
+> 该接口已废弃。
 
-#### 接口定义
+## 接口定义
 
-```
+```screen
 const std::vector<Buffer> GetBufferList() const;
 ```
 
-#### 功能介绍
+## 功能介绍
 
-获取指定模板类型的参数值。  
+获取指定模板类型的参数值。
 
-#### 返回
+## 返回
 
 |类型|描述|
-|:--------------------------|:---|
-|const std::vector\<Buffer\>|属性值。|
+|:------------------------|:---|
+|const std::vector<Buffer>|属性值。|
 

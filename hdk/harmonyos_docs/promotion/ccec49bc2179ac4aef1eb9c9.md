@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/business-00000012198
 
 # 商务合作
 
-如果您有更多的商务合作需求，您可以联系以下邮箱：  
+如果您有更多的商务合作需求，您可以联系以下邮箱：
 
 |广告投放地区|邮箱|
-|:--------:|:----------------------:|
+|:------:|:----------------------:|
 |欧洲|euads2c@huawei.com|
 |亚洲|petaladsapac@huawei.com|
 |拉丁美洲|petaladslatam@huawei.com|
-|中东\&北非\&南非|adsmea@huawei.com|
+|中东&北非&南非|adsmea@huawei.com|
 |其他|petalads@huawei.com|
 

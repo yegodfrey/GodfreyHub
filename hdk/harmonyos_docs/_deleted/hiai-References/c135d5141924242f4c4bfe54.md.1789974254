@@ -1,0 +1,31 @@
+---
+name: document/cn/hiai-References/datatype-0000001139374905
+title: DataType
+uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/datatype-0000001139374905
+---
+
+# DataType
+
+> 说明
+>
+> 此接口从DDK 5.0.1.0版本起废弃，请使用模型管家V1接口[HIAI_DataType](https://developer.huawei.com/consumer/cn/doc/hiai-References/hiai-datatype-0000001051809440)替代。
+
+|Enum Info|
+|:--------|
+|数据类型枚举定义。|
+
+## Enum Value Summary
+
+|Enum Value and Description|Value|
+|:-------------------------|:----|
+|UINT8|0|
+|FLOAT32|1|
+|FLOAT16|2|
+|INT32|3|
+|INT8|4|
+|INT16|5|
+|BOOL|6|
+|INT64|7|
+|UINT32|8|
+|DOUBLE|9|
+

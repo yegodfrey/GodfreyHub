@@ -6,7 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-p
 
 # 申请退款
 
-#### 功能介绍
+> phone | 2in1 | tablet
+
+## 功能介绍
 
 开发者可以调用该接口申请已交易订单退款。退款规则如下：
 
@@ -20,42 +22,42 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-p
 
 4. 服务商代特约商户退款，需要服务商在[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)上[申请API退款授权](https://developer.huawei.com/consumer/cn/doc/pay-docs/hwzf-apituikuan-0000002371871965)。
 
-#### 使用场景
+## 使用场景
 
-开发者已完成Payment Kit单次支付能力的集成，并且有成功交易的订单，可以通过该接口完成某笔订单的退款申请，退款成功后华为支付会回调退款结果给商户服务器。  
+开发者已完成Payment Kit单次支付能力的集成，并且有成功交易的订单，可以通过该接口完成某笔订单的退款申请，退款成功后华为支付会回调退款结果给商户服务器。
 
-#### 使用约束
+## 使用约束
 
-换单重试，视为新的业务订单，需开发者自行将新的业务订单关联业务原订单。接口重入规则说明如下（供参考）：  
+换单重试，视为新的业务订单，需开发者自行将新的业务订单关联业务原订单。接口重入规则说明如下（供参考）：
 
 |重入判定字段|支持原单重入场景|建议换单重试场景|
 |:------------------------|:-----------------------------------------------------------|:--------------------------------------------------------------|
 |商户退款订单（mercRefundOrderNo）|发起退款请求失败，建议根据错误码（400000 RETRY_TOO_MANY错误码场景，需要换单重试）排查后，原单重试。|1. 400000 RETRY_TOO_MANY错误码场景，需要换单重试。 2. 多次部分退款场景下，每次需要换单后发起请求。|
 
-#### 接口原型
+## 接口原型
 
-* 承载协议： HTTPS POST
+* **承载协议：** HTTPS POST
 
-* 接口方向： 开发者服务器 -\> 华为支付服务器
+* **接口方向：** 开发者服务器 -> 华为支付服务器
 
-* 接口URL： https://petalpay-developer.cloud.huawei.com.cn/api/v1/partner/aggr/transactions/refunds
+* **接口URL：** https://petalpay-developer.cloud.huawei.com.cn/api/v1/partner/aggr/transactions/refunds
 
-* 数据格式：
+* **数据格式：**
 
   请求消息：Content-Type: application/json; charset=UTF-8
 
-响应消息：Content-Type: application/json; charset=UTF-8  
+  响应消息：Content-Type: application/json; charset=UTF-8
 
-#### 请求参数
+## 请求参数
 
-Request Header  
+**Request Header**
 
 |参数|是否必选|参数类型|描述|
 |:-----------|:---|:-----|:---------------------------------------------------------------------------------------------------------------------|
 |Content-Type|是|String|取值为：application/json; charset=UTF-8|
 |PayMercAuth|是|String|取值为：[PayMercAuth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#paymercauth)的JSON字符串|
 
-Request Body  
+**Request Body**
 
 |参数|是否必选|类型|说明|
 |:----------------|:---|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -64,12 +66,12 @@ Request Body
 |mercRefundOrderNo|是|String|商户退款订单号，商户需要保证字段唯一性。最大长度64。 针对同一笔退款请求，如果失败或异常，重试时保证此参数不变，防止重复退款。相同的退款订单号多次请求只退一笔。|
 |reason|否|String|退款原因，账单详情中显示。最大长度为256。|
 |callbackUrl|是|String|回调通知地址，通知URL必须为外网环境可直接访问的URL，要求为https地址。具体要求参考[通知回调接口说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-rest-overview#通知回调接口说明)。最大长度为512。|
-|refundAmount|否|Long|退款总金额。订单需要退款的金额，该金额不能大于订单金额，单位：分。 说明： 如果正向交易使用了营销，该退款金额包含营销金额，华为支付会按业务规则分配营销和买家自有资金分别退多少，默认按比例退款。如不填则默认全额退款。|
+|refundAmount|否|Long|退款总金额。订单需要退款的金额，该金额不能大于订单金额，单位：分。 **说明：** 如果正向交易使用了营销，该退款金额包含营销金额，华为支付会按业务规则分配营销和买家自有资金分别退多少，默认按比例退款。如不填则默认全额退款。|
 |payload|否|String|商户预留信息，在查询和回调通知时会原样返回。最大长度255。|
 
-#### 请求示例
+## 请求示例
 
-```
+```json
 POST /api/v1/partner/aggr/transactions/refunds HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 PayMercAuth: {"callerId":"10132120***","traceId":"202305151442062977847","time":1684132926969,"authId":"120291744647139***","headerSign":"BpOBa8o+gJnKG+vHVI7u********************mVuKDV8iPqNJ+Y8b4XDpSi3FHgjozsWH+uLoTSIg=","bodySign":"lHjrX3dv44zyfu+PO1G+oa9tJi2********************EatA8QTjLPsSPKfM="}
@@ -84,18 +86,18 @@ Accept: application/json
 }
 ```
 
-#### 响应参数
+## 响应参数
 
-Response Header  
+**Response Header**
 
 |参数|是否必选|参数类型|描述|
 |:-----------|:---|:-----|:----------------------------------|
 |Content-Type|是|String|取值为：application/json; charset=UTF-8|
 
-Response Body  
+**Response Body**
 
 |参数|是否必选|参数类型|描述|
-|:----------------|:---|:-----|:------------------------------------------------------------------------------------------------------------------------|
+|:----------------|:---|:-----|:----------------------------------------------------------------------------------------------------------------------------|
 |resultCode|是|String|结果码，"000000"表示成功，其他表示失败。|
 |resultDesc|是|String|结果描述。|
 |subCode|否|String|业务错误码。|
@@ -105,12 +107,12 @@ Response Body
 |sysRefundOrderNo|是|String|华为支付退款订单号。|
 |sysTransOrderNo|是|String|华为支付系统订单号。|
 |mercOrderNo|是|String|商户订单号，由商户自己生成，商户需保证订单信息唯一性。最小长度为1，最大长度46。|
-|refundAmount|是|Long|退款总金额。订单需要退款的金额，该金额不能大于订单金额，单位：分。 说明： 如果正向交易使用了营销，该退款金额包含营销金额，华为支付会按业务规则分配营销和买家自有资金分别退多少，默认按比例退款。如不填则默认payerRefundAmount。|
+|refundAmount|是|Long|退款总金额。订单需要退款的金额，该金额不能大于订单金额，单位：分。 **说明：** 如果正向交易使用了营销，该退款金额包含营销金额，华为支付会按业务规则分配营销和买家自有资金分别退多少，默认按比例退款。如不填则默认payerRefundAmount。|
 |payerRefundAmount|否|Long|退款给用户的金额，单位：分。|
 
-#### 响应示例
+## 响应示例
 
-```
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=UTF-8
 {
@@ -126,12 +128,12 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-#### 错误码
+## 错误码
 
-resultCode非400000的错误码请查看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。  
+**resultCode** 非400000的错误码请查看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。
 
-|返回码|错误码|错误描述|解决方案|
-|:-----|:------------------------------|:-----------|:--------------------------------------------------------------------------------------------------------|
+|**返回码**|**错误码**|**错误描述**|解决方案|
+|:------|:------------------------------|:-----------|:--------------------------------------------------------------------------------------------------------|
 |400000|UNKNOW_ERROR|服务暂不可用，请稍后重试|稍后重试。|
 |400000|INVALID_ARGUMENTS|参数不合法|检查请求参数。|
 |400000|INVALID_MERCNO|无效商户号|检查入参商户号是否正确。|

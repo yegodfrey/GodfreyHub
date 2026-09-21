@@ -6,47 +6,48 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/tile-servic
 
 # 更新瓦片数据
 
-#### 功能介绍
+## 功能介绍
 
-根据指定的数据ID和数据类型，上传瓦片数据文件更新瓦片数据。  
+根据指定的数据ID和数据类型，上传瓦片数据文件更新瓦片数据。
 
-#### 场景描述
+## 场景描述
 
-提供的自定义图层服务，适用于对地图图层有特殊需求的应用场景，如制作火灾图、月球图、温度图等。  
+提供的自定义图层服务，适用于对地图图层有特殊需求的应用场景，如制作火灾图、月球图、温度图等。
 
-#### 使用约束
+## 使用约束
 
 * 上传的数据文件支持格式：json、tif、zip
 * 上传的数据文件大小不超过300MB。
-* 使用前，请联系华为地图运营团队（[mapteam@huawei.com](mailto:mapteam@huawei.com)）开通Tile Service权限。  
+* 使用前，请联系华为地图运营团队（[mapteam@huawei.com](mailto:mapteam@huawei.com)）开通Tile Service权限。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS PUT|
-|接口方向|开发者服务器 -\> 华为地图服务服务器|
+|-----|-------------------------------------------------|
+|接口方向|开发者服务器 -> 华为地图服务服务器|
 |接口URL|https://mapapi.cloud.huawei.com/mapApi/v1/dataset|
 |数据格式|响应消息：Content-Type: application/json|
-|-----|-------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251009193608.84029456123497865072584986809122:50001231000000:2800:40536F1AC677ED5D8EB8F8BD74900AD7B8CC9AAF9054EB0EEDA8A47D60FDE39A.png)  
-Request Header中的 Authorization 和Query String中的 key 至少需要存在一个。
+> 说明
+>
+> **Request Header** 中的 Authorization 和**Query String**中的 key 至少需要存在一个。
 
-Request Header  
+**Request Header**
 
 |参数|是否必选|参数类型|描述|
-|:------------|:---|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:------------|:---|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |Content-Type|是|application/json|请求消息的数据格式。|
-|Authorization|否|String|AT或者API Key，推荐用AT。 说明： AT认证 * 获取AT认证的方式请参见[基于OAuth 2.0获取应用级AT](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/open-platform-oauth-0000001053629189#section155891726174616), AT有效期是1个小时。 * 使用AT认证时推荐新申请AT接入MapKit。 API KEY认证 * 获取API KEY的方式请参见[获取API密钥](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/web-api-preparations-0000001077961278#section8881246152413)。 * 使用"API密钥"时需要调用URLEncoder.encode("Your apiKey", "UTF-8")方法对API密钥进行encodeURI编码。例如，原始API密钥：ABC/DFG+ ，转换结果：ABC%2FDFG%2B。 * 建议"API密钥"设置安全保护措施，具体请参见[如何保护API密钥](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/faq-0000001050166999#section1237862534718)。|
+|Authorization|否|String|AT或者API Key，推荐用AT。 > 说明 > AT认证 > * 获取AT认证的方式请参见[基于OAuth 2.0获取应用级AT](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/open-platform-oauth-0000001053629189#section155891726174616), AT有效期是1个小时。 > * 使用AT认证时推荐新申请AT接入MapKit。 > API KEY认证 > * 获取*API KEY* 的方式请参见[获取API密钥](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/web-api-preparations-0000001077961278#section8881246152413)。 > * 使用"API密钥"时需要调用URLEncoder.encode("Your apiKey", "UTF-8")方法对API密钥进行encodeURI编码。例如，原始API密钥：ABC/DFG+ ，转换结果：ABC%2FDFG%2B。 > * 建议"API密钥"设置安全保护措施，具体请参见[如何保护API密钥](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/faq-0000001050166999#section1237862534718)。|
 
-Query String  
+**Query String**
 
 |参数|是否必选|参数类型|描述|
-|:--|:---|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|key|否|String|鉴权密钥，申请参见[获取API密钥](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/web-api-preparations-0000001077961278#section8881246152413)。 说明： 1. 获取API KEY的方式请参见[获取API密钥](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/web-api-preparations-0000001077961278#section8881246152413)。 2. 使用API key时需要调用URLEncoder.encode("Your apiKey", "UTF-8")方法对API key进行encodeURI编码。例如：原始API key：ABC/DFG+ ，转换结果：ABC%2FDFG%2B。|
+|:--|:---|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|key|否|String|鉴权密钥，申请参见[获取API密钥](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/web-api-preparations-0000001077961278#section8881246152413)。 > 说明 > 1. 获取*API KEY* 的方式请参见[获取API密钥](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/web-api-preparations-0000001077961278#section8881246152413)。 > 2. 使用API key时需要调用URLEncoder.encode("Your apiKey", "UTF-8")方法对API key进行encodeURI编码。例如：原始API key：ABC/DFG+ ，转换结果：ABC%2FDFG%2B。|
 
-Request Body  
+**Request Body**
 
 |参数|是否必选|参数类型|描述|
 |:---|:---|:-----|:--------------------------------------|
@@ -54,11 +55,11 @@ Request Body
 |type|是|String|数据类型。 * VECTOR：矢量 * RASTER：栅格|
 |file|是|file|上传的数据文件，文件大小不超过300MB，支持格式：json、tif、zip。|
 
-#### 请求示例
+## 请求示例
 
-#### 矢量数据
+### 矢量数据
 
-```
+```screen
 PUT https://mapapi.cloud.huawei.com/mapApi/v1/dataset?key=API KEY   HTTP/1.1    
 Content-Type: application/json    
 Accept: application/json   
@@ -69,9 +70,9 @@ Accept: application/json
 }
 ```
 
-#### 栅格数据
+### 栅格数据
 
-```
+```screen
 PUT https://mapapi.cloud.huawei.com/mapApi/v1/dataset?key=API KEY   HTTP/1.1    
 Content-Type: application/json    
 Accept: application/json   
@@ -82,9 +83,9 @@ Accept: application/json
 }
 ```
 
-#### 栅格数据压缩包分片
+### 栅格数据压缩包分片
 
-```
+```screen
 PUT https://mapapi.cloud.huawei.com/mapApi/v1/dataset?key=API KEY   HTTP/1.1    
 Content-Type: application/json    
 Accept: application/json   
@@ -95,17 +96,17 @@ Accept: application/json
 }
 ```
 
-#### 响应参数
+## 响应参数
 
-状态码为200时：
+**状态码为200时** **：**
 
-Response Header  
+**Response Header**
 
 |参数|是否必选|参数类型|描述|
 |:-----------|:---|:---------------|:---------|
 |Content-Type|是|application/json|响应消息的数据格式。|
 
-Response Body  
+**Response Body**
 
 |参数|参数类型|描述|
 |:---------|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
@@ -113,11 +114,11 @@ Response Body
 |returnDesc|String|返回值描述。|
 |data|[Dataset](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/output-params-0000001050161434#section8465194365317)|更新的瓦片原始数据。|
 
-#### 响应示例
+## 响应示例
 
-状态码为200时：
+**状态码为200时：**
 
-```
+```screen
 HTTP/1.1 200 OK
 Content-type: application/json
 { 
@@ -136,9 +137,9 @@ Content-type: application/json
 }
 ```
 
-#### 调用示例
+## 调用示例
 
-```
+```screen
 "AT认证" 
 public class UpdateDataSetService { 
     public static final String ROOT_URL = "https://mapapi.cloud.huawei.com/mapApi/v1/dataset";
@@ -176,7 +177,7 @@ public class UpdateDataSetService {
 }
 ```
 
-```
+```screen
 "API KEY认证"
 public class UpdateDataSetService { 
     public static final String ROOT_URL = "https://mapapi.cloud.huawei.com/mapApi/v1/dataset";

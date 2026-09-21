@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 
 # 登录
 
-* [游戏登录](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runtime-account-kit-0000001113458340)  
-* [防沉迷](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runtime-anti-indulgence-0000001752222624)  
+* **[游戏登录](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runtime-account-kit-0000001113458340)**   
+* **[防沉迷](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runtime-anti-indulgence-0000001752222624)**   

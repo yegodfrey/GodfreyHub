@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-ascf/components-navigat
 
 # 导航
 
-* [navigator](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/components-navigator)  
+* **[navigator](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/components-navigator)**   

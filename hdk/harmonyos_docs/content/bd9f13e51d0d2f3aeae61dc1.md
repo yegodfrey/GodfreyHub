@@ -4,23 +4,23 @@ title: 命令组<GroupCommands>
 uri: https://developer.huawei.com/consumer/cn/doc/content/groupcommand-0000001073778623
 ---
 
-# 命令组\<GroupCommands\>
+# 命令组<GroupCommands>
 
-#### 功能概述
+## 功能概述
 
-支持常用自定义一组命令组复用，方便与简化重复定义。  
+支持常用自定义一组命令组复用，方便与简化重复定义。
 
-#### 应用场景
+## 应用场景
 
-可对不同的图片元素进行不同的动画展示，比如云朵被风吹动，鸟儿在天空飞翔，花草在地上晃动......  
+可对不同的图片元素进行不同的动画展示，比如云朵被风吹动，鸟儿在天空飞翔，花草在地上晃动......
 
-#### XML规范
+## XML规范
 
-```
+```screen
 <GroupCommands method="" paramTypes="" params="" />
 ```
 
-#### 参数说明
+## 参数说明
 
 |参 数|类 型|选 项|注 释|
 |:---------|:--|:--|:-------------------------------|
@@ -28,11 +28,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/groupcommand-000000107
 |paramTypes|表达式|选填|传入执行动作参数的类型，缺省值"String"，目前暂无其他选项|
 |params|字符串|必填|传入命令组中具体Trigger action名称|
 
-#### 应用示例
+## 应用示例
 
-示例一：通过变量命令控制命令组内选项，来切换不同旋转动画。
+**示例一：**通过变量命令控制命令组内选项，来切换不同旋转动画。
 
-```
+```screen
 <Text x="540" y="#screen_height-200+#ThemeAdEntry_slider.move_y" color="#000000" size="48" text="点击变换" align="center"/>
 <Image x="610" y="390" centerX="136" centerY="151" src="aixin7.png" visibility="eq(#a,0)">
   <RotationAnimation >

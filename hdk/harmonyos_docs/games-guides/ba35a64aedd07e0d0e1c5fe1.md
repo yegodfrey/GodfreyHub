@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-center-user
 
 # 用户运营
 
-* [互动评论](https://developer.huawei.com/consumer/cn/doc/games-guides/games-center-interaction-comments-0000002320645993)  
+* **[互动评论](https://developer.huawei.com/consumer/cn/doc/games-guides/games-center-interaction-comments-0000002320645993)**   

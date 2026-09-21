@@ -6,30 +6,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-34
 
 # 如何处理相机旋转的相关问题
 
-#### 问题现象
+## 问题现象
 
-由于相机安装角度的问题，在进行相机开发时经常会遇到成像角度与预览角度不一致的问题，这时需要对最终成像进行旋转。  
+由于相机安装角度的问题，在进行相机开发时经常会遇到成像角度与预览角度不一致的问题，这时需要对最终成像进行旋转。
 
-#### 背景知识
+## 背景知识
 
 * 进行相机开发前需申请对应的权限，具体可查看[申请相机开发的权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preparation)章节。
-* 在预览时，图像旋转角度与屏幕显示旋转角度相关。系统将以原始图像方向为基线，根据相机镜头角度和屏幕显示补偿角度，旋转图像。图像旋转角度=镜头安装角度+屏幕显示补偿角度，屏幕显示补偿角度的值与屏幕旋转角度相等。具体可参考[相机旋转角度的术语](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term)和[适配相机旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation)。  
+* 在预览时，图像旋转角度与屏幕显示旋转角度相关。系统将以原始图像方向为基线，根据相机镜头角度和屏幕显示补偿角度，旋转图像。图像旋转角度=镜头安装角度+屏幕显示补偿角度，屏幕显示补偿角度的值与屏幕旋转角度相等。具体可参考[相机旋转角度的术语](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term)和[适配相机旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation)。
 
-#### 解决方案
+## 解决方案
 
-* 场景一：使用XComponent预览图片发生旋转。
-  * 问题现象： 在横屏状态下使用XComponent预览图片产生90度旋转。
-  * 解决方案： 使用rotate属性对展示预览流的XComponent组件进行旋转。预览流顺时针旋转了90度，需要将XComponent逆时针旋转90度，然后还需要指定XComponent的大小，防止旋转后图像拉伸变形。此外，[rotate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#rotate)还是组件的通用属性，在使用其他组件展示图像时也可以使用此属性调整角度，如Row、Image等。
+* **场景一：使用XComponent预览图片发生旋转。**
+  * **问题现象：** 在横屏状态下使用XComponent预览图片产生90度旋转。
+  * **解决方案：** 使用rotate属性对展示预览流的XComponent组件进行旋转。预览流顺时针旋转了90度，需要将XComponent逆时针旋转90度，然后还需要指定XComponent的大小，防止旋转后图像拉伸变形。此外，[rotate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#rotate)还是组件的通用属性，在使用其他组件展示图像时也可以使用此属性调整角度，如Row、Image等。
 
-<!-- -->
 
-* 场景二：使用ImageReceiver接收图片旋转。
-  * 问题现象： 使用[ImageReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagereceiver)接收相机预览流图片，将获取到的YUV数据buffer解码成RGBA_8888的图片并进行实时送显，角度与实际拍摄角度不一致，如下图所示：
+* **场景二：使用ImageReceiver接收图片旋转。**
+  * **问题现象：** 使用[ImageReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagereceiver)接收相机预览流图片，将获取到的YUV数据buffer解码成RGBA_8888的图片并进行实时送显，角度与实际拍摄角度不一致，如下图所示：
 
-    ![](https://media:101782441937960022 "点击放大")
-  * 解决方案： 目前预览流角度固定后置摄像头得到的YUV数据顺时针旋转270度。可以对buffer数据再顺时针旋转90度，使用旋转后的buffer创建[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)，再进行解码等操作，核心代码见rotateYUVDegree90()方法，完整参考代码如下：
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/IxqJ4pAkSjGhd06Ub2hHpQ/zh-cn_image_0000002658911793.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=13366A17F544CDB14F964AE38B4DDB0B2CED67F693026333BB2936B1EA335252 "点击放大")
+  * **解决方案：** 目前预览流角度固定后置摄像头得到的YUV数据顺时针旋转270度。可以对buffer数据再顺时针旋转90度，使用旋转后的buffer创建[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)，再进行解码等操作，核心代码见rotateYUVDegree90()方法，完整参考代码如下：
 
-    ```
+    ```ts
     import { BusinessError } from '@kit.BasicServicesKit';
     import { abilityAccessCtrl, common } from '@kit.AbilityKit';
     import { camera } from '@kit.CameraKit';
@@ -54,7 +53,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-34
           i++;
         }
       }
-      // 将颜色分量U、V进行旋转
+     // 将颜色分量U、V进行旋转
       i = imageWidth * imageHeight * 3 / 2 - 1;
       for (let x = imageWidth - 1; x > 0; x = x - 2) {
         for (let y = 0; y < imageHeight / 2; y++) {
@@ -96,16 +95,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-34
 
       async createDualChannelPreview(): Promise<void> {
         let cameraManager: camera.CameraManager = camera.getCameraManager(this.context);
-        // 获取支持的相机设备对象
+       // 获取支持的相机设备对象
         let camerasDevices: Array<camera.CameraDevice> = cameraManager.getSupportedCameras();
-        // 获取profile对象
+       // 获取profile对象
         let profiles: camera.CameraOutputCapability =
           cameraManager.getSupportedOutputCapability(camerasDevices[0], camera.SceneMode.NORMAL_PHOTO);
         let previewProfiles: Array<camera.Profile> = profiles.previewProfiles;
-        // 预览流2
+       // 预览流2
         this.previewProfilesObj2 = previewProfiles[0];
         this.receiver = image.createImageReceiver(this.previewProfilesObj2.size, 2000, 8);
-        // 创建预览流2输出对象
+       // 创建预览流2输出对象
         let imageReceiverSurfaceId: string = await this.receiver.getReceivingSurfaceId();
         let previewOutput2: camera.PreviewOutput =
           cameraManager.createPreviewOutput(this.previewProfilesObj2, imageReceiverSurfaceId);
@@ -119,13 +118,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-34
         if (this.photoOutput === undefined) {
           return;
         }
-        // 创建cameraInput对象
+       // 创建cameraInput对象
         let cameraInput: camera.CameraInput = cameraManager.createCameraInput(camerasDevices[0]);
-        // 打开相机
+       // 打开相机
         await cameraInput.open();
         // 会话流程
         this.captureSession = cameraManager.createSession(1);
-        // 开始配置会话
+       // 开始配置会话
         this.captureSession.beginConfig();
         // 把CameraInput加入到会话
         this.captureSession.addInput(cameraInput);
@@ -139,23 +138,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-34
           let err = error as BusinessError;
           console.error(`Add photoOutput error: ${err.code}}`);
         }
-        // 提交配置信息
+       // 提交配置信息
         await this.captureSession.commitConfig();
-        // 会话开始
+      // 会话开始
         await this.captureSession.start();
         this.onImageArrival(this.receiver);
       }
 
 
       async onImageArrival(receiver: image.ImageReceiver): Promise<void> {
-        // Image格式与PixelMap格式映射关系。
+       // Image格式与PixelMap格式映射关系。
         let formatToPixelMapFormatMap = new Map<number, image.PixelMapFormat>([
           [12, image.PixelMapFormat.RGBA_8888],
           [25, image.PixelMapFormat.NV21],
           [35, image.PixelMapFormat.YCBCR_P010],
           [36, image.PixelMapFormat.YCRCB_P010]
         ]);
-        // PixelMapFormat格式的单个像素点大小映射关系。
+       // PixelMapFormat格式的单个像素点大小映射关系。
         let pixelMapFormatToSizeMap = new Map<image.PixelMapFormat, number>([
           [image.PixelMapFormat.RGBA_8888, 4],
           [image.PixelMapFormat.NV21, 1.5],
@@ -193,7 +192,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-34
                     desiredPixelFormat: 3,
                   };
                   if (stride == width) {
-                    // 调用旋转函数
+                   // 调用旋转函数
                     let buffer: ArrayBuffer =
                       rotateYUVDegree90(imgComponent.byteBuffer, this.previewProfilesObj2!.size.width,
                         this.previewProfilesObj2!.size.height);
@@ -208,7 +207,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-34
                       const srcBuf = new Uint8Array(imgComponent.byteBuffer, j * stride, width);
                       dstArr.set(srcBuf, j * width);
                     }
-                    // 调用旋转函数
+                // 调用旋转函数
                     let buffer: ArrayBuffer =
                       rotateYUVDegree90(dstArr.buffer as ArrayBuffer, this.previewProfilesObj2!.size.width,
                         this.previewProfilesObj2!.size.height);
@@ -231,7 +230,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-34
       build() {
         Column() {
           Row() {
-            // 将编辑好的pixelMap传递给状态变量imgUrl后，通过Image组件进行渲染
+          // 将编辑好的pixelMap传递给状态变量imgUrl后，通过Image组件进行渲染
             Image(this.imgUrl).objectFit(ImageFit.Cover).width('100%').height('50%')
           }.backgroundColor('#F0F0F0')
 
@@ -258,7 +257,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-34
 
     旋转之后的预览图像如下图所示：
 
-    ![](https://media:101782441938030023 "点击放大")
-* 场景三：视频通话旋转。
-  * 问题现象： 两个设备之间进行视频通话，存在设备间持握方向不一致问题，导致一端看到的另一端画面是颠倒的。
-* 解决方案： 在本端将画面转正，再通过网络发送到对端，可以使用libyuv三方库进行自绘制场景预览角度的归一化处理。  
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/j8xdnfApSGetHU-LZRvV2A/zh-cn_image_0000002628392580.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE7F1AF9A1EF086DD8A63F9113D3286A37201F8E453B450B4266F490CC398547 "点击放大")
+* **场景三：视频通话旋转。**
+  * **问题现象：** 两个设备之间进行视频通话，存在设备间持握方向不一致问题，导致一端看到的另一端画面是颠倒的。
+  * **解决方案：** 在本端将画面转正，再通过网络发送到对端，可以使用libyuv三方库进行自绘制场景预览角度的归一化处理。
+

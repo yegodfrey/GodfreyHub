@@ -10,13 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/broadcastin
 |:---------------------------------------|
 |public class BroadcastingPoint 配置播报点信息类。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[BroadcastingPoint](#section19665112084012)(double distances, [UnitEnum](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/unitenum-0000001212736150) unit, [GuideSpeechType](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/guidespeechtype-0000001217416424) speechType) 播报点信息类有参构造方法，初始化播报距离、播报单位、以及播报点类型。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -28,15 +28,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/broadcastin
 |void|[setGuideSpeechType](#section9690154333613)([GuideSpeechType](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/guidespeechtype-0000001217416424) guideSpeechType) 设置当前播报点的播报类型。|
 |void|[setUnit](#section1040118441367)([UnitEnum](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/unitenum-0000001212736150) unit) 设置当前播报点的公英制单位。|
 
-#### Public Constructors
+## Public Constructors
 
-#### BroadcastingPoint(double distances, UnitEnum unit, GuideSpeechType speechType)
+### BroadcastingPoint(double distances, UnitEnum unit, GuideSpeechType speechType)
 
 |Constructor|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |BroadcastingPoint(double distances, [UnitEnum](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/unitenum-0000001212736150) unit, [GuideSpeechType](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/guidespeechtype-0000001217416424) speechType) 播报点信息类有参构造方法，初始化播报距离、播报单位、以及播报点类型。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:-----------|
@@ -44,87 +44,87 @@ Parameters
 |unit|当前播报点的公英制单位。|
 |speechType|当前播报点的播报类型。|
 
-#### Public Methods
+## Public Methods
 
-#### getBroadcastingDistances
+### getBroadcastingDistances
 
 |Method|
 |:--------------------------------------------------------------|
 |public double getBroadcastingDistances() 您调用此API可以获取当前播报点的播报距离。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:-----|:----------|
 |double|播报距离，单位：米。|
 
-#### getGuideSpeechType
+### getGuideSpeechType
 
 |Method|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public [GuideSpeechType](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/guidespeechtype-0000001217416424) getGuideSpeechType() 您调用此API可以获取当前播报点的播报类型。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:------------------------------------------------------------------------------------------------------------------|:----------|
 |[GuideSpeechType](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/guidespeechtype-0000001217416424)|播报类型。|
 
-#### getMeterLen
+### getMeterLen
 
 |Method|
 |:---------------------------------------------------|
 |public int getMeterLen() 您调用此API可以获取当前播报点的公制距离，单位：米。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:---|:-----------|
 |int|公制播报距离，单位：米。|
 
-#### getUnit
+### getUnit
 
 |Method|
 |:---------------------------------------------------------------------------------------------------------------------------------------------|
 |public [UnitEnum](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/unitenum-0000001212736150) getUnit() 您调用此API可以获取当前播报点的公英制单位。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:----------------------------------------------------------------------------------------------------|:----------|
 |[UnitEnum](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/unitenum-0000001212736150)|公英制单位。|
 
-#### setBroadcastingDistances
+### setBroadcastingDistances
 
 |Method|
 |:-------------------------------------------------------------------------------------|
 |public void setBroadcastingDistances(int broadcastingDistances) 您调用此API可以设置当前播报点的播报距离。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------------------|:----------|
 |broadcastingDistances|播报距离，单位：米。|
 
-#### setGuideSpeechType
+### setGuideSpeechType
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setGuideSpeechType([GuideSpeechType](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/guidespeechtype-0000001217416424) guideSpeechType) 您调用此API可以设置当前播报点的播报类型。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:--------------|:----------|
 |guideSpeechType|播报类型。|
 
-#### setUnit
+### setUnit
 
 |Method|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setUnit([UnitEnum](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/unitenum-0000001212736150) unit) 您调用此API可以设置当前播报点的公英制单位。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|

@@ -6,31 +6,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-38
 
 # 使用PixelMap高效完成一张图片裁剪为多个部分
 
-#### 问题现象
+## 问题现象
 
-服务器返回给端侧一张大图和多组图像裁剪坐标，页面根据图像坐标裁剪出小图进行展示。该行为需要将一张大图裁剪为多张小图，使用常规方案（[使用PixelMap图像变换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-transformation)拷贝图片后裁剪）处理10张小图约耗时2S，页面会长时间保持loading状态。  
+服务器返回给端侧一张大图和多组图像裁剪坐标，页面根据图像坐标裁剪出小图进行展示。该行为需要将一张大图裁剪为多张小图，使用常规方案（[使用PixelMap图像变换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-transformation)拷贝图片后裁剪）处理10张小图约耗时2S，页面会长时间保持loading状态。
 
-#### 背景知识
+## 背景知识
 
 * [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendableimage#pixelmap)图像像素类，用于读取或写入图像数据以及获取图像信息。
 * [PixelMap.crop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#crop9)根据输入的尺寸对图片进行裁剪，会对PixelMap自身进行修改。
-* [PixelMap.readPixels](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#readpixels7-1)固定按照BGRA_8888格式，读取PixelMap指定区域内的图像像素数据，并写入PositionArea.pixels缓冲区中，该区域由PositionArea.region指定。  
+* [PixelMap.readPixels](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#readpixels7-1)固定按照BGRA_8888格式，读取PixelMap指定区域内的图像像素数据，并写入PositionArea.pixels缓冲区中，该区域由PositionArea.region指定。
 
-#### 解决方案
+## 解决方案
 
 由于PixelMap.crop方法操作PixelMap自身而不是返回副本，一张图裁剪为多张小图时，需要将原图拷贝后再剪切的方式处理，大量的复制拷贝增加了处理耗时，参考[PixelMap深拷贝案例](https://gitee.com/harmonyos_samples/image-depth-copy)。实现逻辑如下图所示：
 
-![](https://media:101782441940815067 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/hfc8SHdGRNWiitTi5-kYmQ/zh-cn_image_0000002658911815.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=4F1DADCCB68786D99EDFE14634AD561E4F7F3159A2A002078A7B01810BA47A51 "点击放大")
 
 实现一张图片的高效裁剪，可以使用PixelMap.readPixels，传入area参数仅读取裁剪范围，再使用writePixels写入新图片。此时仅复制了必须的裁剪结果数据，降低大量复制消耗并且可以省略复制后的裁剪步骤，操作示意图及步骤如下：
 
-![](https://media:101782441940848068 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/SpDVVciwRdy6p8QmvNPt3Q/zh-cn_image_0000002628392608.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=6746C12BDB5E112E9C3DCE2D693ED57D146D925B82DD67212BF1DAB10DCC0C7E "点击放大")
 
 1. 获取需要裁剪的PixelMap通过readPixels读取裁剪区域数据。
-2. 使用writePixels将读取到的数据写入空白PixelMap，生成小图。  
+2. 使用writePixels将读取到的数据写入空白PixelMap，生成小图。
+
    裁剪逻辑代码：
 
-   ```
+   ```ts
    static async cropImage(pixelMap: image.PixelMap, x: number, y: number, width: number,
      height: number): Promise<PixelMap> {
      let region: image.Region = { x: x, y: y, size: { height: height, width: width } };
@@ -67,9 +68,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-38
    }
    ```
 
-3. 通过demo进行性能对比，将图片裁剪为多张100\*100的小图时，使用writePixels裁剪小图比拷贝裁剪小图的性能提升约7倍。完整代码示例如下：
+3. 通过demo进行性能对比，将图片裁剪为多张100*100的小图时，使用writePixels裁剪小图比拷贝裁剪小图的性能提升约7倍。完整代码示例如下：
 
-   ```
+   ```ts
    import { image } from '@kit.ImageKit';
    import { BusinessError, systemDateTime } from '@kit.BasicServicesKit';
    import fs from '@ohos.file.fs';
@@ -105,7 +106,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-38
        }
      }
 
-     // 压缩图片
+    // 压缩图片
      private static async readImageToCache(path: string): Promise<image.PixelMap> {
        let readFile = fs.openSync(path, fs.OpenMode.READ_ONLY);
        try {
@@ -158,7 +159,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-38
        return snapshot;
      }
 
-     // copy方式实现裁剪
+    // copy方式实现裁剪
      static async cropImageWithCopy(pixelMap: image.PixelMap, x: number, y: number, width: number,
        height: number): Promise<PixelMap> {
        let region: image.Region = { x: x, y: y, size: { height: height, width: width } };

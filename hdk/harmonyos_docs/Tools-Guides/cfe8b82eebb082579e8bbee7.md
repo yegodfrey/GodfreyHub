@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/Tools-Guides/ml-conversion-000
 
 # ML Kit手工转换指导书
 
-#### 开发准备
+## 开发准备
 
-您若需要应用支持ML Kit，必须完成接入准备，请参见[开发准备](https://developer.huawei.com/consumer/cn/doc/development/hiai-Guides/config-agc-0000001050990353)。  
+您若需要应用支持ML Kit，必须完成接入准备，请参见[开发准备](https://developer.huawei.com/consumer/cn/doc/development/hiai-Guides/config-agc-0000001050990353)。
 
-#### 接口转换
+## 接口转换
 
-#### FirebaseVision.getInstance
+### FirebaseVision.getInstance
 
 |Google API|To HMS API|
 |:--------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -20,31 +20,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/Tools-Guides/ml-conversion-000
 
 To HMS API代码示例：
 
-```
+```screen
 com.huawei.hms.mlsdk.common.MLApplication app = com.huawei.hms.mlsdk.common.MLApplication.getInstance("appName");
 com.huawei.hms.mlsdk.MLAnalyzerFactory factory = com.huawei.hms.mlsdk.MLAnalyzerFactory.getInstance(app);
 ```
 
-#### FaceDetector.finalize
+### FaceDetector.finalize
 
 |Google API|To HMS API|
 |:---------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |com.google.android.gms.vision.face.FaceDetector.finalize()|[com.huawei.hms.mlsdk.face.MLFaceAnalyzer.stop](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlfaceanalyzer-0000001050167440#section11274122510131)() [MLFaceAnalyzer](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlfaceanalyzer-0000001050167440)不支持重写finalize方法，可以调用[stop](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlfaceanalyzer-0000001050167440#section11274122510131)方法释放资源。|
 
-#### 废弃的常量
+## 废弃的常量
 
 |Google API|Add HMS API|To HMS API|
 |:------------------------------------------------------------------------------|:----------|:---------|
 |com.google.firebase.ml.vision.face.FirebaseVisionFace.INVALID_ID|不提供|不提供|
 |com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler.ON_DEVICE_AUTOML|不提供|不提供|
 
-#### switch-case语句中使用常量
+## switch-case语句中使用常量
 
 如果在Google API代码中使用了switch-case语句，在Add HMS API场景下，需要将其转换为if-else语句，示例如下。
 
 Google API代码：
 
-```
+```screen
 int rotation;//rotation值由您自己设置
 int rotationDegree = 0;
 switch (rotation) {
@@ -64,7 +64,7 @@ switch (rotation) {
 
 Add HMS API代码：
 
-```
+```screen
 int rotation;//rotation值由您自己设置
 int rotationDegree = 0;
 if (rotation == ExtensionVisionImageMetadata.getROTATION_90()) {

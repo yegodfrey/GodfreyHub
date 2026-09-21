@@ -10,15 +10,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/hmscore-common-References/onca
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public interface [OnCanceledListener](https://developer.huawei.com/consumer/cn/doc/development/hmscore-common-References/oncanceledlistener-0000001050123095) 任务被取消时调用。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name|
 |:-----------------|:----------------------------------|
 |void|[onCanceled](#section32821622269)()|
 
-#### Public Methods
+## Public Methods
 
-#### onCanceled
+### onCanceled
 
 |Method|
 |:---------------------|

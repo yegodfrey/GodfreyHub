@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/ndk_enum_e
 |:--------|
 |环境纹理更新模式。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum Name|
 |:-------------------------------------------------------------------------------|

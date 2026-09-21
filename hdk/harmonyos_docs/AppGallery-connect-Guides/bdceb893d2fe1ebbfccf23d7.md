@@ -11,7 +11,7 @@ IGenericRelation和IEntityRelation两个关系接口，可自行选择实现。
 * 实现IGenericRelation定义的关系对应的关系目标没有强制要求。
 * 实现IEntityRelation定义的关系对应的关系目标必须是IEntity。
 
-```
+```screen
 public enum InventoryItemType
 {
     Axe = 1,

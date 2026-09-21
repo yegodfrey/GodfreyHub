@@ -6,6 +6,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-auth-pricing-0000
 
 # 计费说明
 
-免费。  
-![](https://media:101782377989730798)  
-认证服务中国站已不再支持发送手机验证码/通知短信，不涉及短信费用。  
+免费。
+> 说明
+>
+> 认证服务中国站已不再支持发送手机验证码/通知短信，不涉及短信费用。
+

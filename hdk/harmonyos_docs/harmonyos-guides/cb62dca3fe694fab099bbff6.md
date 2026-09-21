@@ -6,22 +6,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds
 
 # 沉浸光感
 
-#### 场景介绍
+## 场景介绍
 
 从6.1.0(23) 版本开始，新增支持HDS组件的沉浸光感材质能力。
 
-* HDS导航：通过设置[TitleBarStyleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#titlebarstyleoptions)的systemMaterialEffect参数，可为标题栏按钮设置沉浸光感视效。
-* HDS底部页签：通过设置[HdsTabsFloatingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs#hdstabsfloatingstyle)的systemMaterialEffect参数，可为底部页签设置沉浸光感视效。  
+* **HDS导航** ：通过设置[TitleBarStyleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#titlebarstyleoptions)的systemMaterialEffect参数，可为标题栏按钮设置沉浸光感视效。
+* **HDS底部页签** ：通过设置[HdsTabsFloatingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs#hdstabsfloatingstyle)的systemMaterialEffect参数，可为底部页签设置沉浸光感视效。
 
-#### 使用系统自适应的沉浸光感
+## 使用系统自适应的沉浸光感
 
-推荐使用系统自适应的沉浸光感效果，系统会根据当前设备的算力动态调整组件的材质效果，实现性能与显示效果的最佳平衡体验。  
+推荐使用系统自适应的沉浸光感效果，系统会根据当前设备的算力动态调整组件的材质效果，实现性能与显示效果的最佳平衡体验。
 
-#### 开发步骤
+### 开发步骤
 
 1. 导入相关模块。
 
-   ```
+   ```typescript
    import { HdsNavigation, HdsNavigationTitleMode, HdsTabs, HdsTabsController, HdsNavigationMenuContentOptions, ScrollEffectType, hdsMaterial } from '@kit.UIDesignKit';
    import { SymbolGlyphModifier } from '@kit.ArkUI';
    ```
@@ -30,7 +30,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds
 
    以下示例代码为底部页签和标题栏的4个按钮设置了沉浸光感效果，该效果将根据系统能力自适应调整。
 
-   ```
+   ```TypeScript
    // 自适应沉浸光感示例
    @Entry
    @Component
@@ -165,18 +165,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds
    ];
    ```
 
-#### 使用自定义沉浸光感效果
+## 使用自定义沉浸光感效果
 
 如果使用自定义沉浸光感的视觉效果，请先调用[getSystemMaterialTypes()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial#getsystemmaterialtypes)接口查询当前设备所支持的材质能力，再根据查询结果选用相应的材质效果枚举：
 
 1. 如果查询结果显示当前设备支持IMMERSIVE材质类型，可选用EXQUISITE或GENTLE效果。
-2. 如果查询结果显示当前设备不支持IMMERSIVE材质类型，则建议使用SMOOTH效果，以降低卡顿和发热风险，保障用户体验。  
+2. 如果查询结果显示当前设备不支持IMMERSIVE材质类型，则建议使用SMOOTH效果，以降低卡顿和发热风险，保障用户体验。
 
-#### 开发步骤
+### 开发步骤
 
 1. 导入相关模块。
 
-   ```
+   ```typescript
    import { HdsNavigation, HdsNavigationTitleMode, HdsTabs, HdsTabsController, HdsNavigationMenuContentOptions, ScrollEffectType, hdsMaterial } from '@kit.UIDesignKit';
    import { SymbolGlyphModifier } from '@kit.ArkUI';
    ```
@@ -185,7 +185,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds
 
    以下示例代码为底部页签和标题栏的4个按钮设置了沉浸光感效果，根据设备所能支持的材质能力自定义动态切换显示效果。
 
-   ```
+   ```TypeScript
    // 自定义沉浸光感示例
    @Entry
    @Component
@@ -328,6 +328,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds
    ];
    ```
 
-   沉浸光感材质效果展示
+   **沉浸光感材质效果展示**
 
-![](https://media:401788444410433037)  
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/b6CEJydOSC2F6FF9YQca5g/zh-cn_image_0000002762994041.png?HW-CC-KV=V1&HW-CC-Date=20260917T084552Z&HW-CC-Expire=31536000000&HW-CC-Sign=7DB5B391C483EC28D0349D60C648ADCCB677C4FED48598C64C593BC38338EFDA)
+

@@ -13,13 +13,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightinte
 |:------------------------------------------------------------------|
 |public class InsightIntent 共享的意图数据，包括意图名称、版本号、标识、Action信息、Entity信息。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:---------------------------------------------------------|
 |[InsightIntent(String name)](#section420201416532) 构造意图实例。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name|
 |:--------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------|
@@ -39,246 +39,246 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightinte
 |[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)|[setIntentTargetInfo](#section172870469116)(JSONObject intentTargetInfo)|
 |[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)|[addIntentInfo](#section56231114394)(String key, JSONObject intentInfo)|
 
-#### Public Constructors
+## Public Constructors
 
-#### InsightIntent(String name)
+### InsightIntent(String name)
 
 |Constructor|
 |:----------------------------------------|
 |public InsightIntent(String name) 构造意图实例。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|
 |name|意图名称。|
 
-#### Public Methods
+## Public Methods
 
-#### getIntentName
+## getIntentName
 
 |Method|
-|:------------------------------------|
-|public String getIntentName() 获取意图名称。|
+|:-----------------------------------|
+|publicString getIntentName() 获取意图名称。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:----------|
 |String|意图名称。|
 
-#### setIntentName
+## setIntentName
 
 |Method|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public [InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIntentName(String intentName) 设置意图名称。|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIntentName(String intentName) 设置意图名称。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:----------|
 |intentName|意图名称。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|
 |[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)|当前[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)对象。|
 
-#### getIntentVersion
+## getIntentVersion
 
 |Method|
-|:----------------------------------------|
-|public String getIntentVersion() 获取意图版本号。|
+|:---------------------------------------|
+|publicString getIntentVersion() 获取意图版本号。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:----------|
 |String|意图版本号。|
 
-#### setIntentVersion
+## setIntentVersion
 
 |Method|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public [InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIntentVersion(String intentVersion) 设置意图版本号。|
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIntentVersion(String intentVersion) 设置意图版本号。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------------|:----------|
 |intentVersion|意图版本号。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|
 |[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)|当前[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)对象。|
 
-#### getIdentifier
+## getIdentifier
 
 |Method|
-|:------------------------------------|
-|public String getIdentifier() 获取意图标识。|
+|:-----------------------------------|
+|publicString getIdentifier() 获取意图标识。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:----------|
 |String|意图标识。|
 
-#### setIdentifier
+## setIdentifier
 
 |Method|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public [InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIdentifier(String identifier) 设置意图标识。|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIdentifier(String identifier) 设置意图标识。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:----------|
 |identifier|意图标识。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|
 |[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)|当前[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)对象。|
 
-#### getIntentActionInfo
+## getIntentActionInfo
 
 |Method|
-|:----------------------------------------------------|
-|public JSONObject getIntentActionInfo() 获取意图Action信息。|
+|:---------------------------------------------------|
+|publicJSONObject getIntentActionInfo() 获取意图Action信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---------|:----------|
 |JSONObject|意图Action信息。|
 
-#### setIntentActionInfo
+## setIntentActionInfo
 
 |Method|
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public [InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIntentActionInfo(JSONObject intentActionInfo) 设置意图Action信息。|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIntentActionInfo(JSONObject intentActionInfo) 设置意图Action信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------------|:---------------|
 |intentActionInfo|需要设置的意图Action信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|
 |[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)|当前[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)对象。|
 
-#### getIntentEntityInfo
+## getIntentEntityInfo
 
 |Method|
-|:----------------------------------------------------|
-|public JSONObject getIntentEntityInfo() 获取意图Entity信息。|
+|:---------------------------------------------------|
+|publicJSONObject getIntentEntityInfo() 获取意图Entity信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---------|:----------|
 |JSONObject|意图Entity信息。|
 
-#### setIntentEntityInfo
+## setIntentEntityInfo
 
 |Method|
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public [InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIntentEntityInfo(JSONObject intentEntityInfo) 设置意图Entity信息。|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIntentEntityInfo(JSONObject intentEntityInfo) 设置意图Entity信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------------|:---------------|
 |intentEntityInfo|需要设置的意图Entity信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|
 |[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)|当前[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)对象。|
 
-#### getCustomFormInfo
+## getCustomFormInfo
 
 |Method|
-|:-------------------------------------------------|
-|public JSONObject getCustomFormInfo() 获取意图自定义卡片信息。|
+|:------------------------------------------------|
+|publicJSONObject getCustomFormInfo() 获取意图自定义卡片信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---------|:----------|
 |JSONObject|意图自定义卡片信息。|
 
-#### setCustomFormInfo
+## setCustomFormInfo
 
 |Method|
-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public [InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setCustomFormInfo(JSONObject customFormInfo) 设置意图自定义卡片信息。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setCustomFormInfo(JSONObject customFormInfo) 设置意图自定义卡片信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------------|:--------------|
 |customFormInfo|需要设置的意图自定义卡片信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|
 |[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)|当前[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)对象。|
 
-#### getIntentTargetInfo
+## getIntentTargetInfo
 
 |Method|
-|:------------------------------------------------|
-|public JSONObject getIntentTargetInfo() 获取意图目标信息。|
+|:-----------------------------------------------|
+|publicJSONObject getIntentTargetInfo() 获取意图目标信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---------|:----------|
 |JSONObject|意图目标信息。|
 
-#### setIntentTargetInfo
+## setIntentTargetInfo
 
 |Method|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public [InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIntentTargetInfo(JSONObject intentTargetInfo) 设置意图目标信息。|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) setIntentTargetInfo(JSONObject intentTargetInfo) 设置意图目标信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------------|:-----------|
 |intentTargetInfo|需要设置的意图目标信息。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|
 |[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)|当前[InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061)对象。|
 
-#### addIntentInfo
+## addIntentInfo
 
 |Method|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public [InsightIntent](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/insightintent-0000001556686061) addIntentInfo(String key, JSONObject intentInfo) 意图内添加指定键及对应信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:----------|
 |key|意图信息key值。|
 |intentInfo|意图信息value值。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|

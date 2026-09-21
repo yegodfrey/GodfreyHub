@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-143
 2. 在onItemDragStart回调中设置拖拽时显示的组件。
 3. 在onItemDrop中获取拖拽起始位置和拖拽插入位置，并完成数组位置交换逻辑。
 
-   ```
+   ```ts
    @Entry
    @Component
    struct GridExample {
@@ -77,7 +77,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-143
          .onItemDragStart((event: ItemDragInfo, itemIndex: number) => { // When dragging the component bound to this event for the first time, a callback is triggered.
            return this.pixelMapBuilder(); //Set the image displayed during the drag and drop process.
          })
-         // The component bound to this event can be used as a drag and drop release target. When the drag behavior stops within the scope of this component, a callback is triggered.
+        // The component bound to this event can be used as a drag and drop release target. When the drag behavior stops within the scope of this component, a callback is triggered.
          .onItemDrop((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => {
            // Drag the starting position of itemIndex, drag the insertion position of insertIndex
            this.changeIndex(itemIndex, insertIndex)

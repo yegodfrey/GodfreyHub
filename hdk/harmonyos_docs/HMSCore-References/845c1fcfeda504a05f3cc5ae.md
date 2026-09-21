@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plu
 
 # GroundOverlay
 
-在地图上定义一个图片。  
+在地图上定义一个图片。
 
-#### Properties
+## Properties
 
 |名称|类型|描述|
 |:--------------|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|
@@ -26,17 +26,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plu
 |zIndex|double|覆盖物的Z-index。z-index表示覆盖物的叠加顺序。Z-index值较大的覆盖物将压盖Z-index较小的覆盖物。具有相同z-index的覆盖物以随机顺序相互压盖。|
 |onClick|VoidCallback?|点击覆盖物时调用的函数。|
 
-#### Constructor Summary
+## Constructor Summary
 
 |构造函数|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
 |[GroundOverlay({required GroundOverlayId groundOverlayId, required double width, required double height, required BitmapDescriptor imageDescriptor, double bearing, bool clickable, LatLng? position, LatLngBounds? bounds, Offset anchor, double transparency, bool visible, double zIndex})](#section2675mcpsimp)|创建一个GroundOverlay对象。|
 
-#### Constructors
+## Constructors
 
-#### GroundOverlay
+### GroundOverlay
 
-创建一个GroundOverlay对象。  
+创建一个GroundOverlay对象。
 
 |参数|类型|描述|
 |:--------------|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|
@@ -54,18 +54,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plu
 |zIndex|double|覆盖物的Z-index。z-index表示覆盖物的叠加顺序。Z-index值较大的覆盖物将压盖Z-index较小的覆盖物。具有相同z-index的覆盖物以随机顺序相互压盖。|
 |onClick|VoidCallback?|点击覆盖物时调用的函数。|
 
-#### Method Summary
+## Method Summary
 
 |方法|返回类型|描述|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|:----------------------------|
-|[GroundOverlay.updateCopy({double? bearing, bool? clickable, double? width, double? height, BitmapDescriptor? imageDescriptor, LatLng? position, LatLngBounds? bounds, Offset? anchor, double? transparency, bool? visible, double? zIndex, VoidCallback? onClick})](#section2838mcpsimp)|GroundOverlay|复制已有的GroundOverlay对象并更新指定的属性。|
-|[GroundOverlay.clone()](#ZH-CN_TOPIC_0000001208344754__section1044782764914)|GroundOverlay|克隆一个GroundOverlay对象。|
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|:----------------------------|
+|[GroundOverlay.updateCopy({double? bearing, bool? clickable, double? width, double? height, BitmapDescriptor? imageDescriptor, LatLng? position, LatLngBounds? bounds, Offset? anchor, double? transparency, bool? visible, double? zIndex, VoidCallback? onClick})](#section2838mcpsimp)|**GroundOverlay**|复制已有的GroundOverlay对象并更新指定的属性。|
+|[GroundOverlay.clone()](#ZH-CN_TOPIC_0000001208344754__section1044782764914)|**GroundOverlay**|克隆一个GroundOverlay对象。|
 
-#### Methods
+## Methods
 
-#### GroundOverlay.updateCopy
+### GroundOverlay.updateCopy
 
-复制已有的GroundOverlay对象并更新指定的属性。  
+复制已有的GroundOverlay对象并更新指定的属性。
 
 |参数|类型|描述|
 |:--------------|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|
@@ -83,12 +83,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/flutter-plu
 |onClick|VoidCallback?|点击覆盖物时调用的函数。|
 
 |返回类型|描述|
-|:------------|:---------------|
-|GroundOverlay|GroundOverlay对象。|
+|:----------------|:---------------|
+|**GroundOverlay**|GroundOverlay对象。|
 
 调用示例：
 
-```
+```screen
 // 定义一个GroundOverlay对象。
 GroundOverlay groundOverlay; 
  
@@ -96,17 +96,17 @@ GroundOverlay groundOverlay;
 groundOverlay = groundOverlay!.updateCopy(clickable: true);
 ```
 
-#### GroundOverlay.clone
+### GroundOverlay.clone
 
-克隆一个GroundOverlay对象。  
+克隆一个GroundOverlay对象。
 
 |返回类型|描述|
-|:------------|:---------------|
-|GroundOverlay|GroundOverlay对象。|
+|:----------------|:---------------|
+|**GroundOverlay**|GroundOverlay对象。|
 
 调用示例：
 
-```
+```screen
 // 定义一个GroundOverlay对象。
 GroundOverlay groundOverlay; 
 GroundOverlay groundOverlay2; 

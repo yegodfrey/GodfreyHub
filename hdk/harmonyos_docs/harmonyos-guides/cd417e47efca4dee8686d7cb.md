@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-gener
 
 例如：
 
-```
+```cpp
 REGISTER_CUSTOM_OP("OpType")
    .FrameworkType(TENSORFLOW)
    .OriginOpType("OriginOpType")

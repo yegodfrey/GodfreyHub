@@ -1,0 +1,86 @@
+---
+name: document/cn/huaweihealth-Guides/query-osa-data-0000002376514409
+title: 查询睡眠呼吸暂停数据
+uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/query-osa-data-0000002376514409
+---
+
+# 查询睡眠呼吸暂停数据
+
+穿戴设备提供检测睡眠呼吸暂停能力，用户佩戴穿戴设备入睡后，行业应用可以通过本接口查询穿戴设备上检测到的睡眠呼吸暂停数据。
+> 说明
+>
+> * 查询穿戴设备的睡眠呼吸暂停数据，需要先在运动健康APP中激活睡眠呼吸暂停检测功能。打开路径：点击【设备】->点击已连接的【设备卡片】->点击【睡眠呼吸暂停检测】->打开页面后，点击下方的【激活】按钮。
+> * 获取穿戴设备的睡眠呼吸暂停数据，请提前开启睡眠呼吸暂停检测开关，参见[睡眠呼吸暂停检测开关设置与查询](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/set-and-query-osa-switch-0000002526659252)。
+> * 需要采集睡眠呼吸暂停数据时，建议在查询时间段内佩戴穿戴设备入睡且睡眠时间超过5个小时，否则穿戴设备侧可能会返回空数据。
+> * 不支持并发查询睡眠呼吸暂停数据，需等待上一次查询结束后方可进行下一次查询。
+
+1. 导入相关模块。
+2. 调用[industryServiceClient](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section7749131442313)中的[getDeviceManager](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section17822141183313)方法获取[DeviceManager](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section2045012381872)对象。
+3. 调用[DeviceManager](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section2045012381872)对象的[getDevices](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section1558035984613)方法获取穿戴设备列表。
+4. 调用[Device](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section4106204316283)对象的[queryHistoryData](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section535119272598)方法查询睡眠呼吸暂停数据。
+
+   ```screen
+   // 导入相关模块
+   import { IndustryService, industryServiceClient } from '@huawei-cbg/health-industry-sdk';
+   import { BusinessError } from '@ohos.base';
+
+   // 通过industryServiceClient获取DeviceManager对象，然后通过DeviceManager对象获取Device对象
+   industryServiceClient.getDeviceManager(getContext(this)).getDevices().then(devices => devices?.[0])
+     .then((device: IndustryService.Device) => {
+       // 构造查询睡眠呼吸暂停数据参数
+       let queryParam: IndustryService.QueryOptions = {
+         type: IndustryService.DataType.OBSTRUCTIVE_SLEEP_APNEA,
+         startTime: 1736580274,
+         endTime: 1736580330
+       };
+
+       // 调用Device对象的queryHistoryData方法查询睡眠呼吸暂停数据
+       device.queryHistoryData(queryParam).then((data: IndustryService.HistoryData[]) => {
+         // 查询睡眠呼吸暂停数据成功, 打印接口返回的睡眠呼吸暂停数据
+         console.info(`Succeeded in querying obstructiveSleepApnea data, result is ${data}.`);
+       }).catch((err: BusinessError) => {
+         // 查询睡眠呼吸暂停数据失败
+         console.error(`Failed to query obstructiveSleepApnea data. Code is ${err.code}, message is ${err.message}.`);
+       });
+     }).catch((err: BusinessError) => {
+       // 获取穿戴设备列表失败
+       console.error(`Failed to get devices. Code is ${err.code}, message is ${err.message}.`);
+     });
+   ```
+
+   > 说明
+   >
+   > 查询睡眠呼吸暂停数据接口参数要求：
+   > * 查询开始时间小于查询结束时间。
+   > * 查询结束时间不大于当前时间。
+   > * 查询开始时间和当前时间间隔不超过7天（不包含当天）。
+
+   查询成功并且有睡眠呼吸暂停数据返回IndustryService.[HistoryData](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section1335151184716)[]，查询成功睡眠呼吸暂停数据为空返回[]，查询失败抛出BusinessError。
+
+   查询成功返回的睡眠呼吸暂停数据样例：
+
+   ```screen
+   [{
+       "startTime": 1736510400,
+       "endTime": 1736510400,
+       "type": "obstructiveSleepApnea",
+       "fields": {
+           "osaLevel": 2
+       }
+   },
+   {
+       "startTime": 1736424000,
+       "endTime": 1736424000,
+       "type": "obstructiveSleepApnea",
+       "fields": {
+           "osaLevel": 3
+       }
+   },...]
+   ```
+
+   |返回值|类型|单位|含义|
+   |:-------|:-----|:-|:-----------------------------------------|
+   |fields|object|-|包含睡眠呼吸暂停数据对象。|
+   |osaLevel|number|-|风险等级： * 1：正常 * 2：疑似低风险 * 3：疑似中风险 * 4：疑似高风险|
+   [**表1**返回睡眠呼吸暂停数据说明]
+

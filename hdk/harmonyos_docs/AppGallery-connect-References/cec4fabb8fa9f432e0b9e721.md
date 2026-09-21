@@ -7,10 +7,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 # RemotePlayerPosition
 
 |Class Info|
-|:----------------------------------------------------------------------|
-|其他玩家位置信息。 OBJECTIVE-C ``` @interface RemotePlayerPosition: NSObject ```|
+|:----------------------------------------------------------------------------|
+|其他玩家位置信息。 OBJECTIVE-C ```screen @interface RemotePlayerPosition: NSObject ```|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Description|
 |:-------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------|

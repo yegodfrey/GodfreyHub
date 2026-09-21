@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-101
 
 # 如何在List组件中分组展示不同种类的数据
 
-问题现象
+**问题现象**
 
 根据数据种类为ListItem设置不同样式。例如，标题和标题对应的子类等，应分别应用相应的样式。
 
-解决措施
+**解决措施**
 
 可以通过在List组件中使用ListItemGroup组件来展示ListItem分组，并单独设置ListItemGroup中的header参数以自定义每组的头部组件样式。参考代码如下：
 
-```
+```ts
 // xxx.ets
 @Entry
 @Component
@@ -91,8 +91,9 @@ interface TimeTable {
 
 效果如图所示：
 
-![](https://media:101782454283045881 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/aFfMUtS6SsuQpuIjh6aYlA/zh-cn_image_0000002654835227.png?HW-CC-KV=V1&HW-CC-Date=20260920T114737Z&HW-CC-Expire=31536000000&HW-CC-Sign=608E89B8FFBF1F28AAF0FE8C6DB22DCF8743512A45451C81A09540B7972E3B8C "点击放大")
 
-参考链接
+**参考链接**
 
-[ListItemGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitemgroup)  
+[ListItemGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitemgroup)
+

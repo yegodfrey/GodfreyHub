@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member
 
 # 开发场景
 
-* [开通会员卡](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-open)  
-* [查看会员卡](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-view)  
-* [更新会员卡](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-update)  
-* [删除会员卡](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-delete)  
+* **[开通会员卡](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-open)**   
+* **[查看会员卡](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-view)**   
+* **[更新会员卡](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-update)**   
+* **[删除会员卡](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-member-scene-delete)**   

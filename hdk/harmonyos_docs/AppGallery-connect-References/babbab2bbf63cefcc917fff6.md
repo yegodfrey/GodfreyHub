@@ -9,6 +9,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |参数名称|必选(M)/可选(O)|类型|参数说明|
 |:----------|:----------|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |locale|M|String|语言环境，请参考[国家/地区、语言、币种列表](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-supported-countries-overview-0000001146718725)。 例如：zh_CN、en_US。|
-|productName|M|String(55)|商品名称。不支持特殊字符\|。|
-|productDesc|M|String(100)|商品描述。不支持特殊字符\|。|
+|productName|M|String(55)|商品名称。不支持特殊字符|。|
+|productDesc|M|String(100)|商品描述。不支持特殊字符|。|
 

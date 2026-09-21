@@ -6,22 +6,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/filemanagerse
 
 # 获取文件图标
 
-#### 场景介绍
+## 场景介绍
 
-根据文件类型获取对应的文件图标。  
+根据文件类型获取对应的文件图标。
 
-#### 接口说明
+## 接口说明
 
 |接口名|描述|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|
-|[getFileIconSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-filemanagerservice#filemanagerservicegetfileiconsync)(fileType: string): string \| Resource|根据文件类型获取文件图标。|
-|[getFileIcon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-filemanagerservice#filemanagerservicegetfileicon)(fileType: string): Promise\<string \| Resource\>|根据文件类型获取文件图标。使用Promise异步回调。|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|
+|[getFileIconSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-filemanagerservice#filemanagerservicegetfileiconsync)(fileType: string): string | Resource|根据文件类型获取文件图标。|
+|[getFileIcon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-filemanagerservice#filemanagerservicegetfileicon)(fileType: string): Promise<string | Resource>|根据文件类型获取文件图标。使用Promise异步回调。|
 
-#### 示例代码
+## 示例代码
 
 1.导入文件管理服务模块及相关模块。
 
-```
+```typescript
 import { fileManagerService } from '@kit.FileManagerServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { uniformTypeDescriptor } from '@kit.ArkData';
@@ -31,7 +31,7 @@ import { uniformTypeDescriptor } from '@kit.ArkData';
 
 3.获取文件图标。
 
-```
+```typescript
 @Component
 export struct GetFileIcon {
   @State inputText: string = ''
@@ -40,7 +40,7 @@ export struct GetFileIcon {
   private getFileIconByFileExtension(filenameExtension: string): void {
     try {
       // 根据文件的后缀名，获取后缀名对应文件类型的UTD-ID
-      // filenameExtension为文件后缀，以txt文件为例，filenameExtension可以输入为：“.txt”
+      // filenameExtension为文件后缀，以txt文件为例，filenameExtension可以输入为：".txt"
       let typeId: string = uniformTypeDescriptor.getUniformDataTypeByFilenameExtension(filenameExtension);
       // 调用getFileIconSync方法，根据UTD-ID获取对应的文件图标
       this.fileIcon = fileManagerService.getFileIconSync(typeId);

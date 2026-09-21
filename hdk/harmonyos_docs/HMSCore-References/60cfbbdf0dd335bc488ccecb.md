@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/search-regi
 
 # 搜索区域码
 
-|中文|英文|代码|
+|中文|**英文**|代码|
 |:----|:-------------------|:-|
 |全球|Global|ww|
 |智利|Chile|cl|

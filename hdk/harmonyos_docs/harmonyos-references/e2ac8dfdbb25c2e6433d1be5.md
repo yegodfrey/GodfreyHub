@@ -6,30 +6,33 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservi
 
 # 通过gamePlayerId获取playerId/openId/unionId
 
-#### 功能介绍
+> phone | 2in1 | tablet | tv
 
-调用该接口，传入Access Token、APP ID、gamePlayerId到华为服务器上获取HarmonyOS 4及以下游戏的玩家playerId、openId、unionId信息。  
+## 功能介绍
 
-#### 场景描述
+调用该接口，传入Access Token、APP ID、gamePlayerId到华为服务器上获取HarmonyOS 4及以下游戏的玩家playerId、openId、unionId信息。
 
-通过Access Token、APP ID、gamePlayerId信息到华为服务器上查询HarmonyOS 4及以下游戏的玩家playerId、openId、unionId信息。  
+## 场景描述
 
-#### 接口原型
+通过Access Token、APP ID、gamePlayerId信息到华为服务器上查询HarmonyOS 4及以下游戏的玩家playerId、openId、unionId信息。
 
-* 承载协议：HTTPS POST
+## 接口原型
 
-* 接口方向：开发者服务器-\>华为游戏服务器
+* **承载协议**：HTTPS POST
 
-* 接口URL：https://jos-open-api.cloud.huawei.com/gameservice/api/gbClientApi
+* **接口方向**：开发者服务器->华为游戏服务器
 
-  ![](https://media:401788444911290060)  
-  请使用TLS 1.2协议或以上版本。
-* 数据格式：
+* **接口URL**：https://jos-open-api.cloud.huawei.com/gameservice/api/gbClientApi
+
+  > 说明
+  >
+  > 请使用TLS 1.2协议或以上版本。
+* **数据格式**：
 
   * 请求：Content-Type: application/x-www-form-urlencoded（表单方式）
-* 响应：Content-Type: application/json  
+  * 响应：Content-Type: application/json
 
-#### 请求参数
+## 请求参数
 
 |参数|是否必选|类型|描述|
 |:-----------|:---|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,9 +41,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservi
 |appId|是|String|HarmonyOS 5.0及以上游戏的APP ID，获取方法请参见[查看应用信息](https://developer.huawei.com/consumer/cn/doc/app/agc-help-view-app-info-0000002282674569)。|
 |gamePlayerId|是|String|HarmonyOS 5.0及以上游戏的玩家标识，通过调用[unionLogin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameplayer#gameplayerunionlogin)接口返回。|
 
-#### 请求示例
+## 请求示例
 
-```
+```java
 POST /gameservice/api/gbClientApi HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 User-Agent: PostmanRuntime/7.24.0
@@ -52,7 +55,7 @@ Content-Length: 717
 method=external.hms.gs.player.transfer.convertId&accessToken=******&appId=xxxxxxx&gamePlayerId=xxxxxxx
 ```
 
-#### 响应参数
+## 响应参数
 
 |参数|是否必选|类型|描述|
 |:-------|:---|:-----|:-------------------------------------------------------------------------------------|
@@ -62,9 +65,9 @@ method=external.hms.gs.player.transfer.convertId&accessToken=******&appId=xxxxxx
 |unionId|否|String|在HarmonyOS 4及以下系统，由华为账号和开发者账号组合加密起来的玩家标识。|
 |errMsg|否|String|异常场景下返回错误码的描述。|
 
-#### 响应示例
+## 响应示例
 
-```
+```java
 HTTP/1.1 200 OK
 Date: Tue, 19 May 2023 06:28:02 GMT
 Content-Type: application/json; charset=utf-8
@@ -80,9 +83,9 @@ Server: elb
 }
 ```
 
-#### 调用示例
+## 调用示例
 
-```
+```java
 Java
 package okhttp.com.post;
 import com.alibaba.fastjson.JSONObject;
@@ -96,7 +99,7 @@ public class ConvertIdTest {
      * 接口本地调测时使用
      */
     public static void main(String[] args) {
-        String method = "external.hms.gs.player.transfer.convertId"; // 固定传入“external.hms.gs.player.transfer.convertId”
+        String method = "external.hms.gs.player.transfer.convertId"; // 固定传入"external.hms.gs.player.transfer.convertId"
         String accessToken = "xxxxx"; // 请使用客户端Player对象中的Access Token
         String appId = "xxxx"; // HarmonyOS 5.0及以上游戏的APP ID
         String gamePlayerId = "xxxxx"; // 通过Access Token到华为服务器上获取到的玩家gamePlayerId
@@ -133,7 +136,7 @@ public class ConvertIdTest {
 }
 ```
 
-```
+```csharp
 C#
 using System;
 using System.IO;
@@ -146,7 +149,7 @@ namespace cXdemo
     {
         static void Main(string[] args)
         {
-            // 固定传入“external.hms.gs.player.transfer.convertId”
+            // 固定传入"external.hms.gs.player.transfer.convertId"
             string method = "external.hms.gs.player.transfer.convertId";
             // 请使用客户端Player对象中的Access Token
             string accessToken = "xxxxx";
@@ -184,14 +187,14 @@ namespace cXdemo
 }
 ```
 
-```
+```php
 PHP
 class convert_id
 {
     /**
      * 根据AccessToken获取玩家信息
      *
-     * @param string $method 固定传入“external.hms.gs.player.transfer.convertId”
+     * @param string $method 固定传入"external.hms.gs.player.transfer.convertId"
      * @param string $accessToken 请使用客户端Player对象中的Access Token
      * @param string $appId HarmonyOS 5.0及以上游戏的APP ID
      * @param string $gamePlayerId 通过Access Token到华为服务器上获取到的玩家gamePlayerId
@@ -226,14 +229,14 @@ class convert_id
     }
 }
 $convert_id = new convert_id();
-$method = "external.hms.gs.player.transfer.convertId"; // 固定传入“external.hms.gs.player.transfer.convertId”
+$method = "external.hms.gs.player.transfer.convertId"; // 固定传入"external.hms.gs.player.transfer.convertId"
 $accessToken = "xxxxx"; // 请使用客户端Player对象中的Access Token
 $appId = "xxxxx"; // HarmonyOS 5.0及以上游戏的APP ID
 $gamePlayerId = "xxxxx"; // 通过Access Token到华为服务器上获取到的玩家gamePlayerId
 $convert_id->call_https($method, $accessToken, $appId, $gamePlayerId);
 ```
 
-```
+```python
 Python
 from typing import Any
 import requests
@@ -254,7 +257,7 @@ class ConvertIdSolution:
         response = requests.post(url, headers=headers, data=encodedParams)
         print(response.text)
 if __name__ == "__main__":
-    # 固定传入“external.hms.gs.player.transfer.convertId”
+    # 固定传入"external.hms.gs.player.transfer.convertId"
     input_method = 'external.hms.gs.player.transfer.convertId'
     # 请使用客户端Player对象中的Access Token
     input_accessToken = 'xxx'

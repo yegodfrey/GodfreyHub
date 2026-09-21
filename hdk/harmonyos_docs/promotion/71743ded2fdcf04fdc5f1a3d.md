@@ -6,4 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/account-recharge-000
 
 # 充值账户
 
-在投放前，请确保通用基金账户余额（余额含代金券额度）充足。若余额不足，任务投放会受影响，请[进行充值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-account-recharge-0000001126625360)。  
+在投放前，请确保通用基金账户余额（余额含代金券额度）充足。若余额不足，任务投放会受影响，请[进行充值](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-account-recharge-0000001126625360)。
+

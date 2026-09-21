@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/health-gla
 
 # 微体检
 
-* [查询微体检报告](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/query-health-glance-report-0000002527074956)  
+* **[查询微体检报告](https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/query-health-glance-report-0000002527074956)**   

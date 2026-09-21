@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scan-1
 
 # 扫码时无法识别多个码图
 
-#### 问题现象
+## 问题现象
 
-使用扫码功能识别多个码图时，无法识别多个。  
+使用扫码功能识别多个码图时，无法识别多个。
 
-#### 背景知识
+## 背景知识
 
-[ScanOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-scanbarcode-api#scanoptions)：扫码、识码参数。  
+[ScanOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-scanbarcode-api#scanoptions)：扫码、识码参数。
 
 |名称|类型|只读|可选|说明|
 |:--------------|:------|:-|:-|:---------------------|
@@ -20,23 +20,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scan-1
 |enableMultiMode|boolean|否|是|是否开启多码识别，默认false。|
 |enableAlbum|boolean|否|是|是否开启相册，默认true。|
 
-#### 问题定位
+## 问题定位
 
 查看代码，检查scanTypes扫码类型是否设置ALL，检查enableMultiMode多码识别是否开启。如下，如果ScanOptions未设置正确，会导致无法识别多个码图。
 
-```
+```ts
 let options: scanBarcode.ScanOptions = { scanTypes: [scanCore.ScanType.ONE_D_CODE], enableMultiMode: false, enableAlbum: true };
 ```
 
-#### 分析结论
+## 分析结论
 
-应用没有开启多码识别或扫码类型没有设置对应类型。  
+应用没有开启多码识别或扫码类型没有设置对应类型。
 
-#### 修改建议
+## 修改建议
 
 参考以下示例，完善ScanOptions的参数配置，将ScanType设置为ALL，enableMultiMode设置为true：
 
-```
+```ts
 import { scanBarcode, scanCore } from '@kit.ScanKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 

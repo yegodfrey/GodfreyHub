@@ -6,26 +6,27 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery
 
 # 应用发布选取新包时提示较低版本包，无法选择
 
-#### 问题现象
+## 问题现象
 
 版本包上传成功后，在新版本发布选择版本包时，无法勾选新版本包，提示"该状态为较低版本包，不能选择使用"。
 
-![](https://media:301785305085049016 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/dDe9mBdBR1CLB7KXPF8o3Q/zh-cn_image_0000002628394610.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC7D3E6BD96E4DE9F8D7763D28BB6C0D2D0E509B55C9B62B06B3253BA4636B75 "点击放大")
 
-#### 背景知识
+## 背景知识
 
-[选择待发布软件包](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-choose-pkg-0000002278981434)：上传软件包并通过基础合法检查后，就可以从上传的版本中选择需要发布的软件包。  
+[选择待发布软件包](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-choose-pkg-0000002278981434)：上传软件包并通过基础合法检查后，就可以从上传的版本中选择需要发布的软件包。
 
-#### 问题定位
+## 问题定位
 
-* 查看应用当前在架版本号，为12920000。 ![](https://media:301785305085110017 "点击放大")
+* 查看应用当前在架版本号，为12920000。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/xTKcIMxbQSKpE9wrN2EvGw/zh-cn_image_0000002628554500.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=5260B123A733801718F16FE99AE8B8DB8BEDEB17E342714F626B3C3973613ACB "点击放大")
 
-* 问题现象中可以知道新上传的包版本为11940000。  
+* 问题现象中可以知道新上传的包版本为11940000。
 
-#### 分析结论
+## 分析结论
 
-当前新版本包的版本号小于在架版本，AppGallery Connect版本发布需要新包版本大于等于在架版本，所以无法选取。  
+当前新版本包的版本号小于在架版本，AppGallery Connect版本发布需要新包版本大于等于在架版本，所以无法选取。
 
-#### 修改建议
+## 修改建议
 
-新包版本不能小于在架版本，打包前应将新包的版本设置大于等于在架版本。版本信息在app.json5中versionCode配置，数值大于等于在架版本数值即可。  
+新包版本不能小于在架版本，打包前应将新包的版本设置大于等于在架版本。版本信息在app.json5中versionCode配置，数值大于等于在架版本数值即可。
+

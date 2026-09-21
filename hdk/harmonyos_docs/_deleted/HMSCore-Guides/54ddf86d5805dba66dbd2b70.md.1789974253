@@ -1,0 +1,48 @@
+---
+name: document/cn/HMSCore-Guides/middle-high-intensity-0000001131257384
+title: 中高强度
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/middle-high-intensity-0000001131257384
+---
+
+# 中高强度
+
+此数据记录用户在一小段时间内的运动强度数据。
+
+## OAuth权限
+
+联盟卡片申请的权限名称：日常活动 > 中高强度数据
+
+* 读权限：Scopes.HEALTHKIT_STRENGTH_READ
+* 写权限：Scopes.HEALTHKIT_STRENGTH_WRITE
+
+## 原子采样明细数据类型
+
+* 名称：com.huawei.continuous.exercise_intensity.v2
+* Android SDK类型常量：DataType.DT_CONTINUOUS_EXERCISE_INTENSITY_V2
+
+|**字段**列表|描述|Android SDK常量|**类型**|可选/必选|单位|取值范围|
+|:------------|:---|:------------------|:-----|:----|:-|:----------------------------------------|
+|exercise_type|活动类型|Field.EXERCISE_TYPE|int|M|-|1：步行 2：跑步 3：骑行 4：训练 5：心率（无实际意义） 6：爬高 7：游泳|
+
+### 数据开放说明
+
+|开放API|查询及时性|数据源|
+|:-------------------------------------------------------------------------------------------------------------------------------|:----|:--------|
+|[读取运动健康数据](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/datacontroller-0000001050089472#section0447440145418)|小时级|手机、手表、手环等|
+
+## 原子采样统计数据类型
+
+* 名称：com.huawei.continuous.exercise_intensity.v2.statistics
+* Android SDK类型常量：DataType.DT_STATISTICS_EXERCISE_INTENSITY_V2
+
+|**字段列表**|描述|Android SDK常量|**类型**|可选/必选|**单位**|
+|:------------|:---|:------------------|:--------------------|:----|:----------------------------------------------------------------------------------------------------|
+|intensity_map|中高强度|Field.INTENSITY_MAP|Map<Integer, Integer>|M|key是exercise_type，参考com.huawei.continuous.exercise_intensity.v2； value是统计时间内对应的exercise_type的时长，单位：分钟|
+
+### 数据开放说明
+
+|开放API|及时性|数据源|
+|:-------------------------------------------------------------------------------------------------------------------------------|:--|:--------|
+|[读取当日统计数据](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/datacontroller-0000001050089472#section9463154045415)|小时级|手机、手表、手环等|
+|[读取多日统计数据](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/datacontroller-0000001050089472#section295981925017)|小时级|手机、手表、手环等|
+

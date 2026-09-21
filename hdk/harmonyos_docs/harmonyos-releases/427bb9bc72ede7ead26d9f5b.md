@@ -6,11 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/c-api-compa
 
 # C API兼容性保护
 
-#### 通过dlopen加载动态库，调用dlsym接口查询的方式，判断API兼容性
+## 通过dlopen加载动态库，调用dlsym接口查询的方式，判断API兼容性
 
 示例如下：
 
-```
+```screen
 void *handle = NULL; // 库的句柄
 Location_ResultCode (*OH_Location_StartLocating_Test)(const Location_RequestConfig *); // 函数指针
 OH_Location_StartLocating_Test = NULL;

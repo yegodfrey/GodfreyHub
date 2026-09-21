@@ -6,43 +6,46 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 # tabs
 
-![](https://media:401788445427892432)  
-从API version 4开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-tab页签容器。  
+> 说明
+>
+> 从API version 4开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-#### 权限列表
+tab页签容器。
 
-无  
+## 权限列表
 
-#### 子组件
+无
 
-仅支持\<[tab-bar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-tab-bar)\>和\<[tab-content](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-tab-content)\>。  
+## 子组件
 
-#### 属性
+仅支持<[tab-bar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-tab-bar)>和<[tab-content](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-tab-content)>。
 
-除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：  
+## 属性
+
+除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
 
 |名称|类型|默认值|必填|描述|
 |:-------|:------|:----|:-|:------------------------------------------------------------------------------------|
 |index|number|0|否|当前处于激活态的tab索引。|
 |vertical|boolean|false|否|是否为纵向的tab，默认为false，可选值为： - false：tabbar和tabcontent上下排列。 - true：tabbar和tabcontent左右排列。|
 
-#### 样式
+## 样式
 
-支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)。  
+支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)。
 
-#### 事件
+## 事件
 
-除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)外，还支持如下事件：  
+除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)外，还支持如下事件：
 
 |名称|参数|描述|
 |:-----|:--------------------|:----------------------------|
 |change|{ index: indexValue }|tab页签切换后触发，动态修改index值不会触发该回调。|
 
-#### 示例
+## 示例
 
-```
+```html
 <!-- xxx.hml -->
 <div class="container">
   <tabs class = "tabs" index="0" vertical="false" onchange="change">
@@ -66,7 +69,7 @@ tab页签容器。
 </div>
 ```
 
-```
+```css
 /* xxx.css */
 .container {
   flex-direction: column;
@@ -100,7 +103,7 @@ tab页签容器。
 }
 ```
 
-```
+```js
 // xxx.js
 export default {
   change: function(e) {
@@ -109,4 +112,5 @@ export default {
 }
 ```
 
-![](https://media:401788445427945433)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/LcsIgBkgSl2xtzMgfIzrqg/zh-cn_image_0000002733276804.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084650Z&HW-CC-Expire=31536000000&HW-CC-Sign=D2896E29C73CEC3FE1C7D0AF66E06BFA0F5D6D0792B6A04AA6DD33ED1F7825B9)
+

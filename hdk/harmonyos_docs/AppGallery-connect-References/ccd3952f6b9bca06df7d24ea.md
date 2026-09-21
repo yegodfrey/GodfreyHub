@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # 队伍配置
 
-* [CreateGroupConfig](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gameobe-creategroupconfig-js-0000001209770260)  
+* **[CreateGroupConfig](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/gameobe-creategroupconfig-js-0000001209770260)**   

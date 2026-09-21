@@ -6,29 +6,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-comp
 
 # 嵌套Tabs时渐变导航无法穿透标题栏的解决方法
 
-#### 问题现象
+## 问题现象
 
-在HarmonyOS应用开发中，当使用渐变导航并嵌套Tabs组件时，列表上滑后列表项无法穿透标题栏区域显示，导致渐变导航的穿透效果失效。  
+在HarmonyOS应用开发中，当使用渐变导航并嵌套Tabs组件时，列表上滑后列表项无法穿透标题栏区域显示，导致渐变导航的穿透效果失效。
 
-#### 背景知识
+## 背景知识
 
-在HarmonyOS应用开发中，渐变导航通常通过设置ScrollEffectType.GRADIENT_BLUR实现列表项滚动时穿透标题栏的视觉效果。Tabs组件常用于实现视图切换，其包含的TabContent组件用于展示具体内容。默认情况下，组件的clip属性为true，会对超出自身边界范围的子组件进行裁剪。更多参考请参见[Tabs组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-building-ui-layout-external-container#tabs组件)和[滚动组件通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package#导出arkui组件)。  
+在HarmonyOS应用开发中，渐变导航通常通过设置ScrollEffectType.GRADIENT_BLUR实现列表项滚动时穿透标题栏的视觉效果。Tabs组件常用于实现视图切换，其包含的TabContent组件用于展示具体内容。默认情况下，组件的clip属性为true，会对超出自身边界范围的子组件进行裁剪。更多参考请参见[Tabs组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-building-ui-layout-external-container#tabs组件)和[滚动组件通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package#导出arkui组件)。
 
-#### 问题定位
+## 问题定位
 
-在实现渐变导航穿透效果时，若在导航容器内嵌套了Tabs及TabContent组件，当内部List组件上滑时，ListItem虽然已经进入标题栏区域，但并未穿透标题栏显示出来。排查发现，由于Tabs和TabContent组件默认开启了clip裁剪功能，超出的内容被直接裁剪掉，导致渐变导航的穿透效果无法正常生效。  
+在实现渐变导航穿透效果时，若在导航容器内嵌套了Tabs及TabContent组件，当内部List组件上滑时，ListItem虽然已经进入标题栏区域，但并未穿透标题栏显示出来。排查发现，由于Tabs和TabContent组件默认开启了clip裁剪功能，超出的内容被直接裁剪掉，导致渐变导航的穿透效果无法正常生效。
 
-#### 分析结论
+## 分析结论
 
 核心原因：Tabs和TabContent组件的clip属性默认会对超出当前组件范围外的子组件区域进行裁剪。
 
-技术原理解析：渐变导航的穿透效果依赖于子组件能够超出父容器边界进行渲染。当嵌套Tabs时，Tabs和TabContent的默认裁剪行为阻止了内部List内容延伸至标题栏区域，从而表现为渐变导航不工作。  
+技术原理解析：渐变导航的穿透效果依赖于子组件能够超出父容器边界进行渲染。当嵌套Tabs时，Tabs和TabContent的默认裁剪行为阻止了内部List内容延伸至标题栏区域，从而表现为渐变导航不工作。
 
-#### 修改建议
+## 修改建议
 
 为Tabs和TabContent组件设置clip(false)，关闭超出区域的裁剪功能。
 
-```
+```ts
 import { HdsNavigation, HdsNavigationTitleMode, ScrollEffectType, TitleBarStyleOptions } from '@hms.hds.hdsBaseComponent';
 
 @Entry

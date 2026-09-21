@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-automa
 
 # AutoMappingFnDynamic
 
-#### 函数功能
+## 函数功能
 
-动态输入/输出算子的自动映射回调函数。  
+动态输入/输出算子的自动映射回调函数。
 
-#### 函数原型
+## 函数原型
 
-```
+```cpp
 Status AutoMappingFnDynamic(const google::protobuf::Message *op_src, ge::Operator &op, std::map<std::string, std::pair<std::string, std::string>> dynamic_name_attr_value, int32_t in_pos = -1, int32_t out_pos = -1)
 ```
 
-#### 参数说明
+## 参数说明
 
 |参数|输入/输出|说明|
 |:----------------------|:----|:-----------------------------------------------------------------|
@@ -26,15 +26,15 @@ Status AutoMappingFnDynamic(const google::protobuf::Message *op_src, ge::Operato
 |in_pos|输入|动态输入的端口id。|
 |out_pos|输入|动态输出的端口id。|
 
-#### 约束说明
+## 约束说明
 
-若原始TensorFlow算子与适配AI处理器的算子属性无法一一映射，AutoMappingFnDynamic函数无法应用于回调函数[ParseParamsByOperatorFn](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-parseparamsbyoperatorfn-0000002123078170)中，此种场景下，请在回调函数中使用[AutoMappingByOpFnDynamic](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-automappingbyopfndynamic-0000002158596357)接口进行可以映射成功的属性的自动解析，使用示例请参见[调用示例](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-automappingbyopfndynamic-0000002158596357#section103793mcpsimp)。  
+若原始TensorFlow算子与适配AI处理器的算子属性无法一一映射，AutoMappingFnDynamic函数无法应用于回调函数[ParseParamsByOperatorFn](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-parseparamsbyoperatorfn-0000002123078170)中，此种场景下，请在回调函数中使用[AutoMappingByOpFnDynamic](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-automappingbyopfndynamic-0000002158596357)接口进行可以映射成功的属性的自动解析，使用示例请参见[调用示例](https://developer.huawei.com/consumer/cn/doc/hiai-References/cannkit-automappingbyopfndynamic-0000002158596357#section103793mcpsimp)。
 
-#### 调用示例
+## 调用示例
 
 动态输入的代码示例：
 
-```
+```cpp
 // register MapStage op to GE 
 Status MapStageMapping(const google::protobuf::Message* op_src, ge::Operator& op) { 
   map<string, pair<string, string>> value; 
@@ -52,11 +52,11 @@ REGISTER_CUSTOM_OP("MapStage")
 
 动态输出的代码示例：
 
-```
+```cpp
 Status AutoMappingFnSplit(const google::protobuf::Message* op_src, ge::Operator& op) { 
   map<string, pair<string, string>> value; 
   value["out"] = pair<string, string>("y", "num_split"); 
-  AutoMappingFnDynamic(op_src, op, value); 
+ AutoMappingFnDynamic(op_src, op, value); 
   return SUCCESS; 
 } 
  

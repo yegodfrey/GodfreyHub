@@ -6,17 +6,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-50
 
 # 如何调节系统音量
 
-#### 问题现象
+## 问题现象
 
-有没有API可以调节系统媒体音量大小，[AudioManager.setVolume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiomanager#setvolumedeprecated)接口已废弃，如何调节系统音量？  
+有没有API可以调节系统媒体音量大小，[AudioManager.setVolume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiomanager#setvolumedeprecated)接口已废弃，如何调节系统音量？
 
-#### 背景知识
+## 背景知识
 
 [AVVolumePanel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avvolumepanel)提供创建音量面板AVVolumePanel的功能，提供展示和调节系统音量的统一面板。
 
-[AudioManager.setVolume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiomanager#setvolumedeprecated)接口已废弃，替代接口仅面向系统应用开放。  
+[AudioManager.setVolume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiomanager#setvolumedeprecated)接口已废弃，替代接口仅面向系统应用开放。
 
-#### 解决方案
+## 解决方案
 
 应用无法直接调节系统音量，可以通过系统音量面板[AVVolumePanel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avvolumepanel)组件，让用户通过界面操作来调节音量。
 
@@ -28,7 +28,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-50
 
 使用示例代码如下：
 
-```
+```ts
 import { audio, AVVolumePanel } from '@kit.AudioKit';
 
 let audioManager = audio.getAudioManager();
@@ -104,8 +104,9 @@ export struct AVVolumePanelDemo {
 }
 ```
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：三方应用能否在后台控制系统音量？
 
-A：安全规格不允许三方应用在后台控制系统音量，应用需在前台通过[AVVolumePanel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avvolumepanel)组件让用户通过界面操作调节音量。  
+A：安全规格不允许三方应用在后台控制系统音量，应用需在前台通过[AVVolumePanel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avvolumepanel)组件让用户通过界面操作调节音量。
+

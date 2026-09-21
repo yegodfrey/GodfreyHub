@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-advance
 
 # 弧形按钮 (ArcButton)(圆形屏幕推荐使用)
 
-从API version 18开始支持ArcButton。ArcButton是弧形按钮组件，推荐用于圆形屏幕。为用户提供强调、普通、警告等样式按钮。具体用法请参考[ArcButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton)。  
+从API version 18开始支持ArcButton。ArcButton是弧形按钮组件，推荐用于圆形屏幕。为用户提供强调、普通、警告等样式按钮。具体用法请参考[ArcButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton)。
 
-#### 创建按钮
+## 创建按钮
 
 ArcButton通过调用以下接口来创建。
 
-```
+```TypeScript
 ArcButton({
   options: new ArcButtonOptions({
     label: 'OK',
@@ -25,9 +25,9 @@ ArcButton({
 
 其中，[label](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮文字，[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮类型，[styleMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮样式。
 
-![](https://media:401788444501378228)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/b3hjsO2bSFK-WRNxeEfXgg/zh-cn_image_0000002733433920.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=2625D4C253D13DAA1B363F9B21A98A02A0B84F2874BD172655FE99C7615A85B3)
 
-#### 设置按钮类型
+## 设置按钮类型
 
 ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮类型。
 
@@ -35,7 +35,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
 
   通过将[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置为ArcButtonPosition.BOTTOM_EDGE，可以将按钮设置为下弧形按钮。
 
-  ```
+  ```TypeScript
   ArcButton({
     options: new ArcButtonOptions({
       label: 'OK',
@@ -47,12 +47,12 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://media:401788444501408229)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/EeKWrJt_QT65bg6tRTO05A/zh-cn_image_0000002762993443.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=E49057A2023B7F1FCC35ED20A6FCB343E5608F7958E4B201817C0CA0078B6FD5)
 * 上弧形按钮。
 
   通过将[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置为ArcButtonPosition.TOP_EDGE，可以将按钮设置为上弧形按钮。
 
-  ```
+  ```TypeScript
   ArcButton({
     options: new ArcButtonOptions({
       label: 'OK',
@@ -63,15 +63,15 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-![](https://media:401788444501441230)  
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/XLtpiJOhTJWGhx5NmdDYRw/zh-cn_image_0000002762833555.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=83A904BE763598C485C39E1E1A98010D2C14A3F6A717603EFB5EDCBDBAECF4C3)
 
-#### 自定义样式
+## 自定义样式
 
 * 设置背景色。
 
   使用[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的背景色。
 
-  ```
+  ```TypeScript
   ArcButton({
     options: new ArcButtonOptions({
       label: 'OK',
@@ -81,12 +81,12 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://media:401788444501475231)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/lbYKkU_IR-iOSq-XnX71Fw/zh-cn_image_0000002733274040.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=C843C9254DB34030E51631B55F41CABAFA61BE666810CE8E7DF68D2B79207F04)
 * 设置文本颜色。
 
   使用[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的文本颜色。
 
-  ```
+  ```TypeScript
   ArcButton({
     options: new ArcButtonOptions({
       label: 'OK',
@@ -97,12 +97,12 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://media:401788444501529232)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/WsIGf1W0SIGmopc62z-L_g/zh-cn_image_0000002733433922.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=48C152C95C44121AD3ABBABFA949F64F40F491C7C081588C75B75D14B50B4740)
 * 设置阴影颜色。
 
   使用[shadowEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性启用按钮阴影，并通过[shadowColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的阴影颜色。
 
-  ```
+  ```TypeScript
   ArcButton({
     options: new ArcButtonOptions({
       label: 'OK',
@@ -112,13 +112,13 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-![](https://media:401788444501560233)  
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/JCXvEMIKQtKEFlC92vqAQQ/zh-cn_image_0000002762993445.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=A40C268EF9E2B6144B72392962D9A002036BB21FBBFB5450023F5183670B5017)
 
-#### 添加事件
+## 添加事件
 
 * 绑定onClick事件来响应点击操作后的自定义行为。
 
-  ```
+  ```TypeScript
   ArcButton({
     options: new ArcButtonOptions({
       label: 'OK',
@@ -132,7 +132,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
 
 * 绑定onTouch事件来响应触摸操作后的自定义行为。
 
-  ```
+  ```TypeScript
   ArcButton({
     options: new ArcButtonOptions({
       label: 'OK',
@@ -145,13 +145,13 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-#### 场景示例
+## 场景示例
 
 在亮度设置界面，进度条显示当前亮度为30%。点击重置后，亮度值将被重置为默认的50%。
 
 运行该示例推荐在Wearable设备上以获得最佳显示效果，同时支持在其他设备上运行。若要在Wearable设备上运行，在src/main目录下的工程配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中[deviceTypes标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#devicetypes标签)内配置wearable。
 
-```
+```JSON5
 "module": {
   // ...
   "deviceTypes": [
@@ -162,7 +162,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
 }
 ```
 
-```
+```TypeScript
 import { LengthMetrics, LengthUnit, ArcButton, ArcButtonOptions, ArcButtonStyleMode } from '@kit.ArkUI';
 
 const BRIGHT_NESS_VALUE = 30;
@@ -238,4 +238,5 @@ struct BrightnessPage {
 }
 ```
 
-![](https://media:401788444501591234)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/CM4iseE7Q--oPoGgXnk98Q/zh-cn_image_0000002762833557.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=C6E68CE29CA16A1F45E17A312FEE0AE7E087372092A7C2885490B18209976009)
+

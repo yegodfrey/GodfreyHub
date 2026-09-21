@@ -6,27 +6,30 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 # Class (ExifMetadata)
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 ExifMetadata implements Metadata
 
-Exif（Exchangeable image file format）元数据。  
-![](https://media:401788444850907776)  
-* 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+Exif（Exchangeable image file format）元数据。
+> 说明
+>
+> * 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+>
+> * 应用通过[PhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper)查询媒体库图片，在读取gpsLatitude、gpsLongitude、gpsAltitude、gpsTimestamp等GPS相关属性前，应先声明并向用户申请[ohos.permission.MEDIA_LOCATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissionmedia_location)权限。如果GPS相关属性返回全为0或为空，请先检查该权限是否已获授权，并确认原始图片是否包含GPS信息。
 
-* 应用通过[PhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper)查询媒体库图片，在读取gpsLatitude、gpsLongitude、gpsAltitude、gpsTimestamp等GPS相关属性前，应先声明并向用户申请[ohos.permission.MEDIA_LOCATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissionmedia_location)权限。如果GPS相关属性返回全为0或为空，请先检查该权限是否已获授权，并确认原始图片是否包含GPS信息。
+## 导入模块
 
-#### 导入模块
-
-```
+```ts
 import { image } from '@kit.ImageKit';
 ```
 
-#### 属性
+## 属性
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Multimedia.Image.Core
+**系统能力：** SystemCapability.Multimedia.Image.Core
 
-各属性详细取值，请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。  
+各属性详细取值，请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。
 
 |名称|类型|只读|可选|说明|
 |:----------------------------------|:----------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,17 +37,17 @@ import { image } from '@kit.ImageKit';
 |subfileType|number|否|是|已弃用标签，表示该子文件中的数据类型。请使用newSubfileType替代。|
 |imageWidth|number|否|是|图像宽度。单位为像素（px）。|
 |imageLength|number|否|是|图像长度。单位为像素（px）。|
-|bitsPerSample|number\[\]|否|是|像素各分量的位数。如RGB是3分量，格式是8，8，8。|
+|bitsPerSample|number[]|否|是|像素各分量的位数。如RGB是3分量，格式是8，8，8。|
 |compression|number|否|是|用于图像压缩的算法标准。|
 |photometricInterpretation|number|否|是|像素组成，如RGB（红绿蓝，Red Green Blue）和YCbCr（亮度-蓝色色差-红色色差，Luma-Chrominance）。|
 |imageDescription|string|否|是|图像描述。|
 |make|string|否|是|拍摄设备的品牌制造商名称。|
 |model|string|否|是|相机型号。|
-|stripOffsets|number\[\]|否|是|图像数据的分块存储偏移量，单位为字节（Byte）。 为提高大图像访问效率，原始像素数据被分割为多个连续区块（称为条带）。 此标签按顺序存储每个条带在文件中的起始位置偏移量。|
+|stripOffsets|number[]|否|是|图像数据的分块存储偏移量，单位为字节（Byte）。 为提高大图像访问效率，原始像素数据被分割为多个连续区块（称为条带）。 此标签按顺序存储每个条带在文件中的起始位置偏移量。|
 |orientation|[Orientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#orientation23)|否|是|图像方向。|
 |samplesPerPixel|number|否|是|记录每个像素的颜色分量数量，适用于RGB（红绿蓝，Red Green Blue）和YCbCr（亮度-蓝色色差-红色色差，Luma-Chrominance）色彩模型。 由于这两种模型都是三分量模型（一个亮度分量加两个色度分量，或三个颜色通道），因此该标签的标准值为3。 对于JPEG压缩图像，此标签将会被对应的JPEG标记替换。|
 |rowsPerStrip|number|否|是|每条图像数据的行数。|
-|stripByteCounts|number\[\]|否|是|压缩后每个条带中的字节数。|
+|stripByteCounts|number[]|否|是|压缩后每个条带中的字节数。|
 |xResolution|number|否|是|宽度方向上的图像分辨率。|
 |yResolution|number|否|是|高度方向上的图像分辨率。|
 |planarConfiguration|number|否|是|指示像素分量是以块状或平面格式记录。|
@@ -53,28 +56,28 @@ import { image } from '@kit.ImageKit';
 |software|string|否|是|用于生成图像的软件名称和版本。|
 |dateTime|string|否|是|图像创建的日期和时间。 在本标准中，指文件更改的日期和时间。格式为："YYYY:MM:DD HH:MM:SS"，时间以24小时格式显示。例如："2025:12:15 18:44:59"。|
 |artist|string|否|是|创建图像的人的姓名。|
-|whitePoint|number\[\]|否|是|图像白点的色度。|
-|primaryChromaticities|number\[\]|否|是|图像原色的色度。|
+|whitePoint|number[]|否|是|图像白点的色度。|
+|primaryChromaticities|number[]|否|是|图像原色的色度。|
 |photoMode|number|否|是|照片模式。|
 |jpegInterchangeFormat|number|否|是|JPEG交换格式比特流的SOI（Start of Image）标记。|
 |jpegInterchangeFormatLength|number|否|是|JPEG流的字节数。|
-|yCbCrCoefficients|number\[\]|否|是|用于将RGB图像数据转换为YCbCr图像数据的变换矩阵系数。|
-|yCbCrSubSampling|number\[\]|否|是|色度分量与亮度分量的采样比。|
+|yCbCrCoefficients|number[]|否|是|用于将RGB图像数据转换为YCbCr图像数据的变换矩阵系数。|
+|yCbCrSubSampling|number[]|否|是|色度分量与亮度分量的采样比。|
 |yCbCrPositioning|number|否|是|色度分量相对于亮度分量的位置。|
-|referenceBlackWhite|number\[\]|否|是|参考黑点值和白点值。|
+|referenceBlackWhite|number[]|否|是|参考黑点值和白点值。|
 |copyright|string|否|是|图像的版权信息。|
 |exposureTime|number|否|是|曝光时间。单位为秒（s）。|
 |fNumber|number|否|是|光圈值，如f/1.8。|
 |exposureProgram|number|否|是|相机在拍摄照片时用于设置曝光的程序类。|
 |spectralSensitivity|string|否|是|指示相机每个通道的光谱灵敏度。|
-|gpsVersionID|number\[\]|否|是|GPS信息的格式版本标识符。|
+|gpsVersionID|number[]|否|是|GPS信息的格式版本标识符。|
 |gpsLatitudeRef|string|否|是|GPS纬度参考。例如，N表示北纬，S表示南纬。|
-|gpsLatitude|number\[\]|否|是|GPS纬度。 纬度用三个RATIONAL（分数形式存储的数值）值表示，分别是度、分和秒，格式为dd/1、mm/1、ss/1。 当使用度数和分钟时，分钟分数最多保留两位小数，格式为dd/1，mmmm/100,0/1。|
+|gpsLatitude|number[]|否|是|GPS纬度。 纬度用三个RATIONAL（分数形式存储的数值）值表示，分别是度、分和秒，格式为dd/1、mm/1、ss/1。 当使用度数和分钟时，分钟分数最多保留两位小数，格式为dd/1，mmmm/100,0/1。|
 |gpsLongitudeRef|string|否|是|GPS经度参考。例如，E表示东经，W表示西经。|
-|gpsLongitude|number\[\]|否|是|GPS经度。 经度用三个RATIONAL（分数形式存储的数值）值表示，分别是度、分和秒，格式为dd/1、mm/1、ss/1。 当使用度数和分钟时，分钟分数最多保留两位小数，格式为dd/1，mmmm/100，0/1。|
+|gpsLongitude|number[]|否|是|GPS经度。 经度用三个RATIONAL（分数形式存储的数值）值表示，分别是度、分和秒，格式为dd/1、mm/1、ss/1。 当使用度数和分钟时，分钟分数最多保留两位小数，格式为dd/1，mmmm/100，0/1。|
 |gpsAltitudeRef|number|否|是|用于GPS的参考高度。|
 |gpsAltitude|number|否|是|基于GPSAltitudeRef中的参考高度。|
-|gpsTimestamp|number\[\]|否|是|GPS时间戳。|
+|gpsTimestamp|number[]|否|是|GPS时间戳。|
 |gpsSatellites|string|否|是|用于测量的GPS卫星。通常是它的伪随机噪声码（PRN）编号。|
 |gpsStatus|string|否|是|记录图像时GPS接收器的状态。|
 |gpsMeasureMode|string|否|是|GPS测量模式。|
@@ -87,9 +90,9 @@ import { image } from '@kit.ImageKit';
 |gpsImgDirection|number|否|是|拍摄时图像的方向。|
 |gpsMapDatum|string|否|是|GPS接收机使用的大地测量数据。|
 |gpsDestLatitudeRef|string|否|是|指示目标点的纬度参考。|
-|gpsDestLatitude|number\[\]|否|是|目的地的纬度。|
+|gpsDestLatitude|number[]|否|是|目的地的纬度。|
 |gpsDestLongitudeRef|string|否|是|指示目标点的经度参考。|
-|gpsDestLongitude|number\[\]|否|是|目的地的经度。|
+|gpsDestLongitude|number[]|否|是|目的地的经度。|
 |gpsDestBearingRef|string|否|是|指向目的地的方位参考。|
 |gpsDestBearing|number|否|是|到达目的地的方位。|
 |gpsDestDistanceRef|string|否|是|到目标点距离的测量单位。|
@@ -100,7 +103,7 @@ import { image } from '@kit.ImageKit';
 |gpsDifferential|number|否|是|是否对GPS数据应用了差分校正，这对精确定位精度至关重要。|
 |gpsHPositioningError|number|否|是|水平定位误差。单位为米（m）。|
 |isoSpeedRatings|number|否|是|ISO 12232中指定的相机或输入设备的ISO速度和ISO纬度。|
-|photographicSensitivity|number\[\]|否|是|拍摄图像时相机或输入设备的灵敏度。|
+|photographicSensitivity|number[]|否|是|拍摄图像时相机或输入设备的灵敏度。|
 |oecf|ArrayBuffer|否|是|ISO 14524中规定的光电转换函数（OECF）。|
 |sensitivityType|number|否|是|灵敏度类型。|
 |standardOutputSensitivity|number|否|是|标准输出灵敏度。|
@@ -125,7 +128,7 @@ import { image } from '@kit.ImageKit';
 |lightSource|number|否|是|光源。|
 |flash|number|否|是|闪光。|
 |focalLength|number|否|是|焦距。单位为毫米（mm）。|
-|subjectArea|number\[\]|否|是|用于指示主要对象在整个场景中的位置和区域。|
+|subjectArea|number[]|否|是|用于指示主要对象在整个场景中的位置和区域。|
 |makerNote|ArrayBuffer|否|是|Exif/相机文件系统设计规则DCF（Design rule for Camera File system）写入器制造商记录所需信息的标签。|
 |userComment|string|否|是|用户评论。|
 |subsecTime|string|否|是|记录DateTime标记的秒分数的标记。|
@@ -141,7 +144,7 @@ import { image } from '@kit.ImageKit';
 |focalPlaneXResolution|number|否|是|传感器物理平面X轴方向上每单位物理长度的像素数量。|
 |focalPlaneYResolution|number|否|是|传感器物理平面Y轴方向上每单位物理长度的像素数量。|
 |focalPlaneResolutionUnit|number|否|是|FocalPlaneXResolution和FocalPlaneYResolution的测量单位。|
-|subjectLocation|number\[\]|否|是|图像中主体的像素坐标（基于左上角原点）。|
+|subjectLocation|number[]|否|是|图像中主体的像素坐标（基于左上角原点）。|
 |exposureIndex|number|否|是|拍摄时选定的曝光指数。|
 |sensingMethod|number|否|是|摄像头的图像传感器类型。|
 |fileSource|ArrayBuffer|否|是|指示图像源。|
@@ -162,34 +165,34 @@ import { image } from '@kit.ImageKit';
 |imageUniqueId|string|否|是|为每个图像分配的唯一标识符。|
 |cameraOwnerName|string|否|是|相机所有者的姓名。|
 |bodySerialNumber|string|否|是|相机机身的序列号。|
-|lensSpecification|number\[\]|否|是|所用镜头的规格。|
+|lensSpecification|number[]|否|是|所用镜头的规格。|
 |lensMake|string|否|是|镜头的制造商。|
 |lensModel|string|否|是|镜头的型号名称。|
 |lensSerialNumber|string|否|是|镜头的序列号。|
 |compositeImage|number|否|是|指示图像是否为合成图像。|
-|sourceImageNumberOfCompositeImage|number\[\]|否|是|用于合成图像的源图像数量。|
+|sourceImageNumberOfCompositeImage|number[]|否|是|用于合成图像的源图像数量。|
 |sourceExposureTimesOfCompositeImage|ArrayBuffer|否|是|合成图像的源图像的曝光时间，例如1/33秒。|
 |gamma|number|否|是|每个组件的伽玛值。|
 
-#### createInstance
+## createInstance
 
 static createInstance(): ExifMetadata
 
 创建一个空的[ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata)实例。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Multimedia.Image.Core
+**系统能力：** SystemCapability.Multimedia.Image.Core
 
-返回值：  
+**返回值：**
 
 |类型|说明|
 |:--------------------------------------------------------------------------------------------------------------|:------------------|
 |[ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata)|返回ExifMetadata的空实例。|
 
-示例：
+**示例：**
 
-```
+```ts
 async function exifMetadataCreateInstance(context: Context) {
   let exifMetadata = image.ExifMetadata.createInstance();
   if (exifMetadata != undefined) {
@@ -198,41 +201,41 @@ async function exifMetadataCreateInstance(context: Context) {
 }
 ```
 
-#### getProperties
+## getProperties
 
-getProperties(key: Array\<string\>): Promise\<Record\<string, string \| null\>\>
+getProperties(key: Array<string>): Promise<Record<string, string | null>>
 
 获取图像的元数据属性值。使用Promise异步回调。
 
 要查询的属性的具体信息请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Multimedia.Image.Core
+**系统能力：** SystemCapability.Multimedia.Image.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:--|:--------------|:-|:----------|
-|key|Array\<string\>|是|要获取的值的属性名称。|
+|:--|:------------|:-|:----------|
+|key|Array<string>|是|要获取的值的属性名称。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:------------------------------------------|:------------------------|
-|Promise\<Record\<string, string \| null\>\>|Promise对象，返回获取到的图像元数据属性值。|
+|:-------------------------------------|:------------------------|
+|Promise<Record<string, string | null>>|Promise对象，返回获取到的图像元数据属性值。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。  
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 |错误码ID|错误信息|
 |:------|:----------------------------------------------------------------|
 |7600202|Unsupported metadata. Possible causes: unsupported metadata type.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -259,41 +262,41 @@ async function exifMetadataGetProperties(context: Context) {
 }
 ```
 
-#### setProperties
+## setProperties
 
-setProperties(records: Record\<string, string \| null\>): Promise\<void\>
+setProperties(records: Record<string, string | null>): Promise<void>
 
 批量设置图片元数据中的指定属性的值。使用Promise异步回调。
 
 要查询的属性的具体信息请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Multimedia.Image.Core
+**系统能力：** SystemCapability.Multimedia.Image.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
-|:------|:-------------------------------|:-|:------------------------------|
-|records|Record\<string, string \| null\>|是|用户要修改的ExifMetadata对象的属性和键值对的集合。|
+|:------|:----------------------------|:-|:------------------------------|
+|records|Record<string, string | null>|是|用户要修改的ExifMetadata对象的属性和键值对的集合。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。  
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 |错误码ID|错误信息|
 |:------|:----------------------------------------------------------------|
 |7600202|Unsupported metadata. Possible causes: unsupported metadata type.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -324,25 +327,25 @@ async function exifMetadataSetProperties(context: Context) {
 }
 ```
 
-#### getAllProperties
+## getAllProperties
 
-getAllProperties(): Promise\<Record\<string, string \| null\>\>
+getAllProperties(): Promise<Record<string, string | null>>
 
 获取图片中所有元数据的属性和值。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Multimedia.Image.Core
+**系统能力：** SystemCapability.Multimedia.Image.Core
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:------------------------------------------|:------------------------|
-|Promise\<Record\<string, string \| null\>\>|Promise对象，返回元数据拥有的所有属性的值。|
+|:-------------------------------------|:------------------------|
+|Promise<Record<string, string | null>>|Promise对象，返回元数据拥有的所有属性的值。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -370,25 +373,25 @@ async function exifMetadataGetAllProperties(context: Context) {
 }
 ```
 
-#### clone
+## clone
 
-clone(): Promise\<ExifMetadata\>
+clone(): Promise<ExifMetadata>
 
 对Exif元数据进行克隆。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Multimedia.Image.Core
+**系统能力：** SystemCapability.Multimedia.Image.Core
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------------------------------------------------------------------------------------------------------|:-----------------------|
-|Promise\<[ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata)\>|Promise对象，成功返回Exif元数据实例。|
+|:-----------------------------------------------------------------------------------------------------------------------|:-----------------------|
+|Promise<[ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata)>|Promise对象，成功返回Exif元数据实例。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -416,25 +419,25 @@ async function exifMetadataClone(context: Context) {
 }
 ```
 
-#### getBlob
+## getBlob
 
-getBlob(): Promise\<ArrayBuffer\>
+getBlob(): Promise<ArrayBuffer>
 
 以二进制数据的形式获取元数据。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Multimedia.Image.Core
+**系统能力：** SystemCapability.Multimedia.Image.Core
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:---------------------|:---------------------|
-|Promise\<ArrayBuffer\>|Promise对象，返回元数据的二进制数据。|
+|:-------------------|:---------------------|
+|Promise<ArrayBuffer>|Promise对象，返回元数据的二进制数据。|
 
-示例：
+**示例：**
 
-```
+```ts
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {
@@ -457,39 +460,39 @@ async function exifMetadataGetBlob(context: Context) {
 }
 ```
 
-#### setBlob
+## setBlob
 
-setBlob(blob: ArrayBuffer): Promise\<void\>
+setBlob(blob: ArrayBuffer): Promise<void>
 
 使用二进制数据替换当前元数据。使用Promise异步回调。
 
-模型约束： 此接口仅可在Stage模型下使用。
+**模型约束：** 此接口仅可在Stage模型下使用。
 
-系统能力： SystemCapability.Multimedia.Image.Core
+**系统能力：** SystemCapability.Multimedia.Image.Core
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:---|:----------|:-|:---------|
 |blob|ArrayBuffer|是|要替换的二进制数据。|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------|:---------------|
-|Promise\<void\>|Promise对象，无返回结果。|
+|:------------|:---------------|
+|Promise<void>|Promise对象，无返回结果。|
 
-错误码：
+**错误码：**
 
-以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。  
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 |错误码ID|错误信息|
 |:------|:--------------------------------------------------------------------------|
 |7600206|Invalid parameter. Possible causes: The blob is empty or has a length of 0.|
 
-示例：
+**示例：**
 
-```
+```ts
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {

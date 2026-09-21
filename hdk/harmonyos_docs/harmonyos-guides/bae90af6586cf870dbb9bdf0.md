@@ -8,9 +8,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-s
 
 在应用开发中，启动应用（通常指启动UIAbility组件）是开发者的常见任务。例如，从商城应用跳转到支付应用进行付款，从聊天应用启动视频应用播放视频，或者在应用间跳转时需要指定特定的窗口模式等场景。
 
-通过[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)，开发者可以在启动UIAbility时灵活控制其启动行为，包括窗口模式、窗口位置、启动动效、启动页样式、窗口尺寸限制等多个方面，从而满足不同设备形态和用户场景的需求。  
+通过[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)，开发者可以在启动UIAbility时灵活控制其启动行为，包括窗口模式、窗口位置、启动动效、启动页样式、窗口尺寸限制等多个方面，从而满足不同设备形态和用户场景的需求。
 
-#### 指定窗口模式启动应用
+## 指定窗口模式启动应用
 
 在某些场景下，开发者需要指定UIAbility以特定的窗口模式启动。例如：
 
@@ -18,14 +18,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-s
 * 在PC/2in1设备上，打开文档时以全屏模式启动，提供沉浸式体验。
 * 在视频应用中，打开视频播放UIAbility时，希望以悬浮窗形式显示，方便用户同时查看简介和播放界面。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 配置StartOptions的windowMode，指定窗口模式。windowMode的说明参见[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)。如果未指定windowMode，UIAbility将以系统默认的窗口展示形态启动。
 4. 调用startAbility接口，启动目标UIAbility。
 
-```
+```TypeScript
 import { common, Want, AbilityConstant, StartOptions } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -73,7 +73,7 @@ struct StartWithSpecifiedWindowModeAbility {
 }
 ```
 
-#### 设置窗口显示模式
+## 设置窗口显示模式
 
 在某些场景下，开发者需要指定UIAbility窗口标题栏显示哪些窗口模式。例如：
 
@@ -81,14 +81,14 @@ struct StartWithSpecifiedWindowModeAbility {
 * 需要控制窗口是否支持悬浮窗模式。
 * 需要控制窗口是否支持分屏模式。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 配置StartOptions的supportWindowModes，设置窗口显示模式。supportWindowModes的说明参见[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)。
 4. 调用startAbility接口，启动目标UIAbility。
 
-```
+```TypeScript
 import { common, Want, StartOptions, bundleManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -138,18 +138,18 @@ struct SetWindowDisplayModeAbility {
 }
 ```
 
-#### 设置窗口分配比例
+## 设置窗口分配比例
 
 在某些场景下，开发者需要指定UIAbility在分屏模式下的窗口比例分配。例如，根据应用内容的重要程度，设置不同的分屏比例。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 从API版本26.0.0开始，支持通过StartOptions的splitRatio字段设置窗口分配比例。splitRatio的说明参见[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)和[SplitRatioPreference](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#splitratiopreference)。
 4. 调用startAbility接口，启动目标UIAbility。
 
-```
+```TypeScript
 import { common, Want, StartOptions, AbilityConstant } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -197,21 +197,21 @@ struct SetSplitRatioAbility {
 }
 ```
 
-#### 指定显示屏幕启动应用
+## 指定显示屏幕启动应用
 
 在多屏设备（如平板连接外接显示器、2in1设备等）上，开发者可能需要指定UIAbility在特定的屏幕上启动。例如：
 
 * 在平板设备上，将视频播放功能启动到外接显示器上。
 * 在2in1设备上，将辅助功能启动到副屏幕上。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 配置StartOptions的displayId，指定要显示的屏幕。displayId的说明参见[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)。
 4. 调用startAbility接口，启动目标UIAbility。
 
-```
+```TypeScript
 import { common, Want, StartOptions } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -259,18 +259,18 @@ struct SpecifyDisplayScreen {
 }
 ```
 
-#### 控制应用启动时是否有动效
+## 控制应用启动时是否有动效
 
 需要快速切换界面时，关闭动画以提升响应速度。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 配置StartOptions的withAnimation，控制是否有启动动效。withAnimation的说明参见[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)。
 4. 调用startAbility接口，启动目标UIAbility。
 
-```
+```TypeScript
 import { common, Want, StartOptions } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -318,7 +318,7 @@ struct ControlStartupAnimation {
 }
 ```
 
-#### 启动应用时设置窗口位置
+## 启动应用时设置窗口位置
 
 在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态下，开发者可能需要指定UIAbility窗口的初始位置。例如：
 
@@ -327,14 +327,14 @@ struct ControlStartupAnimation {
 * 在多窗口场景下，为辅助工具类应用设置较小的窗口尺寸。
 * 将辅助窗口放置在屏幕边缘。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 配置StartOptions的windowLeft、windowTop、windowWidth、windowHeight属性，设置窗口位置和尺寸。相关属性的说明参见[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)。建议同时配置windowLeft和windowTop字段。
 4. 调用startAbility接口，启动目标UIAbility。
 
-```
+```TypeScript
 import { common, Want, StartOptions } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -386,21 +386,21 @@ struct SetWindowPosition {
 }
 ```
 
-#### 启动应用时设置窗口尺寸限制
+## 启动应用时设置窗口尺寸限制
 
 在[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态下，开发者可能需要限制UIAbility窗口的尺寸范围，防止用户将窗口调整得过大或过小。例如：
 
 * 设置最小窗口尺寸，确保UI内容不会因为窗口太小而无法正常显示。
 * 设置最大窗口尺寸，避免窗口在大屏设备上过大而影响使用体验。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 配置StartOptions的minWindowWidth、minWindowHeight、maxWindowWidth、maxWindowHeight属性，设置窗口尺寸限制。相关属性的说明参见[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)。可以通过[getWindowLimitsVP()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowlimitsvp22)获取当前窗口的尺寸限制。
 4. 调用startAbility接口，启动目标UIAbility。
 
-```
+```TypeScript
 import { common, Want, StartOptions } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -452,25 +452,26 @@ struct SetWindowSizeConstraintsAbility {
 }
 ```
 
-#### 隐藏启动UIAbility
+## 隐藏启动UIAbility
 
 在某些场景下，开发者需要启动UIAbility但不希望其立即显示在前台。例如：启动一个用于后台监控的UIAbility，等待条件触发后再显示。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 配置StartOptions的processMode和startupVisibility，设置进程模式和可见性。相关属性的说明参见[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)。
 4. 调用startAbility接口，启动目标UIAbility。
 
-![](https://media:401788444464749672)  
-当设置目标UIAbility为不可见时：
+> 说明
+>
+> 当设置目标UIAbility为不可见时：
+>
+> * 目标UIAbility的窗口不会显示在前台。
+> * Dock栏不会有图标。
+> * 目标UIAbility的onForeground生命周期不会被调用。
 
-* 目标UIAbility的窗口不会显示在前台。
-* Dock栏不会有图标。
-* 目标UIAbility的onForeground生命周期不会被调用。
-
-```
+```TypeScript
 import { AbilityConstant, contextConstant, StartOptions, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -525,26 +526,27 @@ export default class HideStartedUIAbilityAbility extends UIAbility {
 }
 ```
 
-#### 设置启动页图标和背景色
+## 设置启动页图标和背景色
 
 开发者希望自定义UIAbility启动时显示的启动页图标和背景颜色。例如：
 
 * 为特定功能UIAbility设置主题色一致的启动背景和专属图标，提升品牌识别度。
 * 根据不同场景展示不同的启动页样式，增强视觉体验。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 配置StartOptions的startWindowIcon和startWindowBackgroundColor，设置启动页图标和背景色。相关属性的说明参见[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)。
 4. 调用startAbility接口，启动目标UIAbility。
 
-![](https://media:401788444464799673)  
-* 如果未配置startWindowIcon，则默认采用module.json5文件中startWindowIcon字段的配置。
-* 如果未配置startWindowBackgroundColor，则默认采用module.json5文件中startWindowBackground字段的配置。
-* 背景颜色为ARGB格式，如：#E5FFFFFF（透明度为E5，RGB值为FFFFFF）。
+> 说明
+>
+> * 如果未配置startWindowIcon，则默认采用module.json5文件中startWindowIcon字段的配置。
+> * 如果未配置startWindowBackgroundColor，则默认采用module.json5文件中startWindowBackground字段的配置。
+> * 背景颜色为ARGB格式，如：#E5FFFFFF（透明度为E5，RGB值为FFFFFF）。
 
-```
+```TypeScript
 import { AbilityConstant, StartOptions, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -610,18 +612,18 @@ export default class SetBackgroundColorAbility extends UIAbility {
 }
 ```
 
-#### 获取启动结果
+## 获取启动结果
 
 在某些场景下，开发者需要获取UIAbility启动的结果，以便进行后续处理。例如：使用其他应用账号登录，需要知道拉起其他应用是否成功。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 配置StartOptions的completionHandler，设置启动结果回调。completionHandler的说明参见[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)。
 4. 调用startAbility接口，启动目标UIAbility。
 
-```
+```TypeScript
 import { AbilityConstant, CompletionHandler, StartOptions, UIAbility, Want, bundleManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -672,24 +674,25 @@ export default class GetLaunchResultAbility extends UIAbility {
 }
 ```
 
-#### 隐藏启动页
+## 隐藏启动页
 
 在某些场景下，开发者希望启动UIAbility时不显示启动页，直接显示应用界面。例如：
 
 * 快速切换功能时，避免启动页闪烁，提升体验流畅度。
 * 应用界面加载速度很快时，不需要启动页过渡。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 配置StartOptions的hideStartWindow，设置隐藏启动页。属性的说明参见[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions)。
 4. 调用startAbility接口，启动目标UIAbility。
 
-![](https://media:401788444464868674)  
-启动页介绍和规格详见[StartWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#startwindow标签)。
+> 说明
+>
+> 启动页介绍和规格详见[StartWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#startwindow标签)。
 
-```
+```TypeScript
 import { AbilityConstant, StartOptions, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -730,18 +733,18 @@ export default class HideSplashScreenAbility extends UIAbility {
 }
 ```
 
-#### 设置窗口参数
+## 设置窗口参数
 
 在某些高级场景下，开发者需要更细粒度地控制UIAbility启动时的窗口参数。例如：窗口动效。
 
-开发步骤如下：
+**开发步骤如下：**
 
 1. 在启动UIAbility之前，需要先导入相关的模块。
 2. 创建Want对象，指定要启动的UIAbility信息。UIAbilityContext的获取方式参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
 3. 配置StartOptions的windowCreateParams，设置窗口参数。窗口参数配置详见[WindowCreateParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#windowcreateparams20)。
 4. 调用startAbility接口，启动目标UIAbility。
 
-```
+```TypeScript
 import { AbilityConstant, StartOptions, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';

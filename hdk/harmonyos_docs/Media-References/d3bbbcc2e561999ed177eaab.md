@@ -6,48 +6,48 @@ uri: https://developer.huawei.com/consumer/cn/doc/Media-References/cancel-asynch
 
 # 取消异步任务
 
-#### 功能介绍
+## 功能介绍
 
-通过解析MusicXML中的内容进行歌声的合成。您的应用可以通过调用此接口，取消歌声合成异步任务，并删除任务。  
+通过解析MusicXML中的内容进行歌声的合成。您的应用可以通过调用此接口，取消歌声合成异步任务，并删除任务。
 
-#### 场景描述
+## 场景描述
 
-任务需要进行变更，不需要继续运行原任务时可调用任务取消接口。  
+任务需要进行变更，不需要继续运行原任务时可调用任务取消接口。
 
-#### 使用约束
+## 使用约束
 
-仅支持合法的32位任务ID，CP只能删除自己创建的任务，当传入的任务ID不存在时也会返回成功。  
+仅支持合法的32位任务ID，CP只能删除自己创建的任务，当传入的任务ID不存在时也会返回成功。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS POST|
-|接口方向|应用服务端 --\> 音频编辑服务|
-|URI|{rootUrl}/v1/audioeditor/gateway/ai/ttsing/async/task/cancel 说明： {rootUrl}在不同站点有不同的URL，具体请参见[站点信息](https://developer.huawei.com/consumer/cn/doc/development/Media-References/rest_api_public_description-0000001317085953#section10142203818241)。|
+|----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|接口方向|应用服务端 --> 音频编辑服务|
+|URI|*{rootUrl}*/v1/audioeditor/gateway/ai/ttsing/async/task/cancel > 说明 > *{rootUrl}* 在不同站点有不同的URL，具体请参见[站点信息](https://developer.huawei.com/consumer/cn/doc/development/Media-References/rest_api_public_description-0000001317085953#section10142203818241)。|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-Request Header  
+**Request Header**
 
 |参数|是否必选|参数类型|描述|
-|:-----------------|:---|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-----------------|:---|:-----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |X-Request-ID|是|String|请求事务标识，保证唯一即可。|
 |X-Package-Name|是|String|App包名。|
 |X-Country-Code|是|String|App所在归属国家。|
 |HMS-APPLICATION-ID|是|String|App标识，即Client ID。|
 |certFingerprint|是|String|证书指纹。|
-|Authorization|是|String|您动态获取的[Access Token](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/open-platform-oauth-0000001053629189)。 说明： Bearer后面拼接空格，再拼接获取的access_token。|
+|Authorization|是|String|您动态获取的[Access Token](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/open-platform-oauth-0000001053629189)。 > 说明 > Bearer后面拼接空格，再拼接获取的access_token。|
 
-Request Body  
+**Request Body**
 
 |参数|是否必选|参数类型|描述|
 |:-----|:---|:-----|:----|
 |taskId|是|String|任务ID。|
 
-#### 请求示例
+## 请求示例
 
-```
+```screen
 POST /v1/audioeditor/gateway/ai/ttsing/async/task/cancel HTTP/1.1
 X-Request-ID: a6596b8a-87b0-4cb3-97fe-45e91432515f
 X-Package-Name: com.huawei.demo
@@ -62,26 +62,26 @@ Authorization: Bearer ***
 }
 ```
 
-#### 响应参数
+## 响应参数
 
-状态码为200时：
+**状态码为200时：**
 
-Response Header  
+**Response Header**
 
 |参数|是否必选|参数类型|描述|
 |:-----------|:---|:-----|:-----------------------------------|
 |Content-Type|是|String|取值为：application/json; charset=UTF-8。|
 
-Response Body  
+**Response Body**
 
 |参数|是否必选|参数类型|描述|
 |:------|:---|:-----|:--------------------------------------------------------------------------------------------------------------------|
 |retCode|是|String|详细错误码，请参见[错误码](https://developer.huawei.com/consumer/cn/doc/development/Media-References/errorcode-0000001323704145)。|
 |retMsg|是|String|错误码描述，请参见[错误码](https://developer.huawei.com/consumer/cn/doc/development/Media-References/errorcode-0000001323704145)。|
 
-#### 响应示例
+## 响应示例
 
-```
+```screen
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -91,6 +91,6 @@ Content-Type: application/json
 }
 ```
 
-#### Postman调试
+## Postman调试
 
 您可以使用[Postman在线调试](https://www.postman.com/trl2dtse/workspace/hms-core/request/12678619-6014f3a2-2fa1-4209-a889-39c66b5b0b6f)此接口。

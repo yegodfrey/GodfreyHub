@@ -8,9 +8,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/adx_
 
 1. 准备阶段
    1. ADX需要在AppGallery Connect（简称AGC）上[创建开发者账号](https://developer.huawei.com/consumer/cn/doc/start/registration-and-verification-0000001053628148)。
-   2. 在AGC上[创建API客户端](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp)，获取客户端ID。  
-      ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20221126115028.83839778792486085336135338351145:50531125054745:2800:75EE5A64403EA67DFBE774D3FE94E9D69AFED864C6FAABC7A86DC9C69CEE11A8.png?needInitFileName=true?needInitFileName=true)  
-      创建API客户端时，"项目"保持默认值"N/A"，"角色"选择"管理员"。
+   2. 在AGC上[创建API客户端](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section103mcpsimp)，获取客户端ID。 注意
+      >
+      > 创建API客户端时，"项目"保持默认值"N/A"，"角色"选择"管理员"。
    3. 在AGC上[查询开发者帐号ID](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-get-developerid-projectid-0000001166543063)，获取Developer ID。
    4. AG运营同学在媒体平台为ADX创建应⽤、展示位，设置屏蔽规则，并将展示位ID提供给ADX。
 2. 开发阶段：ADX调用接口进行开发，并上报端侧的展示、点击、下载、安装等用户行为，AG研发同学会配合ADX进行联调。涉及接口如下：

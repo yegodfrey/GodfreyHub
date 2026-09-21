@@ -6,34 +6,34 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/payment-mer
 
 # 查询用户优惠券列表
 
-#### 功能介绍
+## 功能介绍
 
-商户自定义筛选条件（如创建商户号、归属商户号、发放商户号等），查询指定用户卡包中满足对应条件的所有商家券信息。  
+商户自定义筛选条件（如创建商户号、归属商户号、发放商户号等），查询指定用户卡包中满足对应条件的所有商家券信息。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS GET|
-|接口方向|开发者服务器-\> 华为支付服务器|
+|-----|------------------------------------------------------------------------------------------------------------|
+|接口方向|开发者服务器-> 华为支付服务器|
 |接口URL|https://petalpay-developer.cloud.huawei.com.cn/api/merchantgrow/v1/merchantcoupon/coupon/query/user/{openid}|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|-----|------------------------------------------------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-* Request Header  
+* **Request Header**
 
   |参数|是否必选|参数类型|描述|
   |:-----------|:---|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------|
   |Content-Type|是|String|取值为：application/json; charset=UTF-8|
   |PayMercAuth|是|String|取值为：[PayMercAuth](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-data-model-0000001538219104#section11744172016145)的JSON串|
 
-* Request Path  
+* **Request Path**
 
   |参数|是否必选|类型|说明|
   |:-----|:---|:-----|:----------------|
   |openid|是|String|用户在指定App下的OpenID。|
 
-* Request Query  
+* **Request Query**
 
   |参数|是否必选|类型|说明|
   |:--------------|:---|:------|:---------------------------------------------------------------------------|
@@ -46,26 +46,26 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/payment-mer
   |offset|否|Integer|分页页码。最小值为0。|
   |limit|否|Integer|分页大小。最小值为0，最大值为100。|
 
-* 请求示例
+* **请求示例**
 
-  ```
+  ```screen
   GET /api/merchantgrow/v1/merchantcoupon/coupon/query/user/{openid}?appid=App00001&senderMerchant=10000822 HTTP/1.1
   PayMercAuth: {"callerId":"10132120***","traceId":"202305151026422776499","time":1684117602555,"authId":"120291744647139***","headerSign":"u+H1Oe3fXV9mGCES89XA7tSjp8+TELYgG4bKyECwrVGwwExHtdWTnKc4WvEpfjLzpzKE2/+KYaq1j*********************xXSeR8r6X46b7491N1jKg/lOG7eAFfwjEWJu5JyvY5KunSeE6DiKs=","bodySign":"yWDtXOBqDoItPgHmF57L6U5G7F/LhsILChu8YSpVV0HwRQCzdGAz53wDkCRLiAEVGDDu6E6KxPAHE0TIkTxH*********************iUIFeaszpiRT2aQDaqLGaxvta6J5UxIUmAp+wGdV/juGEvQ="}
   Content-Type: application/json
   ```
 
-#### 响应参数
+## 响应参数
 
-* Response Header  
+* **Response Header**
 
   |参数|是否必选|参数类型|描述|
   |:-----------|:---|:-----|:----------------------------------|
   |Content-Type|是|String|取值为：application/json; charset=UTF-8|
 
-* Response Body  
+* **Response Body**
 
   |参数|是否必选|参数类型|描述|
-  |:---------|:---|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|
+  |:---------|:---|:-----------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|
   |resultCode|是|String|返回码，"000000"表示成功，其他表示见错误码。|
   |resultDesc|是|String|结果描述。|
   |subCode|否|String|业务错误码。|
@@ -76,11 +76,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/payment-mer
   |total|是|Integer|总个数。|
   |limit|是|Integer|分页大小。|
   |offset|是|Integer|分页页码。|
-  |coupons|否|List\<[CouponInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/payment-merc-coup-model-0000001892914453#section347715310442)\>|给用户呈现的优惠券信息，返回信息不包含展现信息中的详情信息(富文本)。|
+  |coupons|否|List<[CouponInfo](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/payment-merc-coup-model-0000001892914453#section347715310442)>|给用户呈现的优惠券信息，返回信息不包含展现信息中的详情信息(富文本)。|
 
-* 响应示例
+* **响应示例**
 
-  ```
+  ```screen
   HTTP/1.1 200 OK
   Content-Type: application/json; charset=UTF-8
   {
@@ -178,12 +178,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/payment-mer
   }
   ```
 
-#### 错误码
+## 错误码
 
-(resultCode非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-error-code-description-0000001589053741#section1187515498410))  
+(**resultCode** 非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-error-code-description-0000001589053741#section1187515498410))
 
-|----------|----------|-----------------------|-------------------------------------------------------------|
-|resultCode|resultDesc|subCode|subDesc|
+|--------------|--------------|-----------------------|-------------------------------------------------------------|
+|**resultCode**|**resultDesc**|**subCode**|**subDesc**|
 |400000|业务处理失败|UNKNOW_ERROR|服务暂不可用, 请稍后重试|
 |400000|业务处理失败|INVALID_ARGUMENTS|参数不合法|
 |400000|业务处理失败|INVALID_MERC_NO|无效商户号|

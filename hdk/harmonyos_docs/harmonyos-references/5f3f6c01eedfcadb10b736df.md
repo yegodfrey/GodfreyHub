@@ -6,16 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arku
 
 # ArkUI_TouchRecognizer
 
-```
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
+```c
 typedef struct ArkUI_TouchRecognizer ArkUI_TouchRecognizer
 ```
 
-#### 概述
+## 概述
 
 定义触摸识别器。触摸识别器是底层触摸事件的识别单元，负责检测和处理触摸按下、移动、抬起等原始触摸事件。
 
-起始版本： 15
+**起始版本：** 15
 
-相关模块： [ArkUI_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule)
+**相关模块：** [ArkUI_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule)
 
-所在头文件： [native_gesture.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-gesture-h)  
+**所在头文件：** [native_gesture.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-gesture-h)
+

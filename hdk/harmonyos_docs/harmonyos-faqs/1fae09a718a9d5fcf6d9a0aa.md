@@ -6,23 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
 
 # 如何实现类似雷达扫描的效果
 
-#### 问题现象
+## 问题现象
 
 场景一：有一个扫描的功能按键，点击按键之后怎么实现一个从按键向外扩散的一个圆形水波特效。
 
-场景二：如何实现向圆周扫描360°旋转的雷达动画？  
+场景二：如何实现向圆周扫描360°旋转的雷达动画？
 
-#### 背景知识
+## 背景知识
 
 * [层叠布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-stack-layout)用于在屏幕上预留一块区域来显示组件中的元素，提供元素可以重叠的布局。层叠布局通过Stack容器组件实现位置的固定定位与层叠，容器中的子元素依次入栈，后一个子元素覆盖前一个子元素，子元素可以叠加，也可以设置位置。[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)用于显式动画接口。在需要动画时，显式调用该接口改变状态以产生动画。
-* [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)是提供画布的组件，用于自定义绘制图形。其基于[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)进行绘制，绘制对象可以是矩形、文本、图片等。  
+* [Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)是提供画布的组件，用于自定义绘制图形。其基于[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)进行绘制，绘制对象可以是矩形、文本、图片等。
 
-#### 解决方案
+## 解决方案
 
-* 场景一：水波纹。  
-  使用Stack组件来给按钮添加类似水波纹扩散效果，点击按钮，添加动画，效果为透明度0.8-\>0，半径扩大到6倍，持续时间无限。再次点击按钮，则用持续时间为0的动画来打断持续时间无限的动画。
+* **场景一** ：水波纹。
 
-  ```
+  使用Stack组件来给按钮添加类似水波纹扩散效果，点击按钮，添加动画，效果为透明度0.8->0，半径扩大到6倍，持续时间无限。再次点击按钮，则用持续时间为0的动画来打断持续时间无限的动画。
+
+  ```ts
   import { Scale } from '@kit.ArkUI';
 
   @Entry
@@ -50,10 +51,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
   struct ButtonWithWaterRipples {
     @Link isListening: boolean;
     @State immediatelyOpacity: number = 0.8; // 立刻触发动画的Stack初始透明度
-    @State immediatelyScale: Scale = { x: 1, y: 1 }; // 立刻触发动画的Stack初始缩放度
-    private readonly BUTTON_SIZE: number = 120; // 按钮大小
-    private readonly BUTTON_CLICK_SCALE: number = 0.8; // 按钮点击时缩放比例
-    private readonly ANIMATION_DURATION: number = 1300; // 动画持续时间
+    @State immediatelyScale: Scale = { x: 1, y: 1 }; //立刻触发动画的Stack初始缩放度
+    private readonly BUTTON_SIZE: number = 120; //按钮大小
+    private readonly BUTTON_CLICK_SCALE: number = 0.8; //按钮点击时缩放比例
+    private readonly ANIMATION_DURATION: number = 1300; //动画持续时间
 
     @Styles
     ripplesStyle() {
@@ -82,14 +83,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
         .onClick(() => {
           this.isListening = !this.isListening;
           if (this.isListening) {
-            // 生成透明度0.8->0和扩大1->6倍半径的动画，iterations设置为-1表示无限重复
+           // 生成透明度0.8->0和扩大1->6倍半径的动画，iterations设置为-1表示无限重复
             this.getUIContext()?.animateTo({ duration: this.ANIMATION_DURATION, iterations: -1, curve: Curve.EaseInOut },
               () => {
                 this.immediatelyOpacity = 0;
                 this.immediatelyScale = { x: 6, y: 6 };
               });
           } else {
-            // 设置duration为0动画打断扩散的特效
+           // 设置duration为0动画打断扩散的特效
             this.getUIContext()?.animateTo({ duration: 0 }, () => {
               this.immediatelyOpacity = 0.8;
               this.immediatelyScale = { x: 1, y: 1 };
@@ -103,18 +104,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
 
   效果预览：
 
-  ![](https://media:101782454372879136 "点击放大")
-* 场景二：雷达扫描。
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/54mIEd72TL2nrhv-Ep2mXA/zh-cn_image_0000002628599992.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=2663F01794F2A1791EF08DB607C14BCA795E02B03813A14DFB7866586CC738C2 "点击放大")
+* **场景二** ：雷达扫描。
   * 雷达扫描方案一：通过Stack组件叠加静态底图与动态旋转扇形图，并配合animation设置无限循环的线性动画（iterations: -1），使扇形图持续旋转实现。
 
-    ```
+    ```ts
     @Entry
     @Component
     struct RadarScan2 {
-      @State angle: number = 0; // 旋转角度变量
+      @State angle: number = 0;// 旋转角度变量
 
       aboutToAppear() {
-        // 初始化动画（2秒完成360度旋转）
+        //初始化动画（2秒完成360度旋转）
         setTimeout(() => {
           this.angle = 360;
         }, 200);
@@ -123,16 +124,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
       build() {
         Row() {
           Stack() {
-            // 静态网格底图
+           // 静态网格底图
             Image($r('app.media.startIcon'))
               .width(300)
               .height(300);
 
-            // 动态扇形扫描图
+           // 动态扇形扫描图
             Image($r('app.media.background'))
               .width(300)
               .height(300)
-              .rotate({ z: 1, angle: this.angle })  // 绕Z轴旋转
+              .rotate({ z: 1, angle: this.angle })  //绕Z轴旋转
               .animation({
                 duration: 2000,
                 curve: Curve.Linear,
@@ -150,10 +151,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
 
     效果预览：
 
-    ![](https://media:101782454373069137 "点击放大")
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/f6oPx_iwSKWeq4ap79ddBw/zh-cn_image_0000002628759922.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=61B1296D0EAD75BF7118D674B1310E517D949B1C6F14E55EEB6EC5F14D1567D3 "点击放大")
   * 雷达扫描方案二：通过Canvas组件实现雷达扫描动画效果，包含网格绘制、扫描线旋转、扇形渐变区域和随机目标点。并使用定时器驱动角度变化实现动画效果，createRadialGradient创建扫描扇形渐变效果。
 
-    ```
+    ```ts
     import cryptoFramework from '@ohos.security.cryptoFramework';
 
     @Entry
@@ -165,7 +166,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
       private radius: number = 120;
       private settings: RenderingContextSettings = new RenderingContextSettings(true);
       private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
-      private random: cryptoFramework.Random = cryptoFramework.createRandom(); // 生成随机数实例
+      private random: cryptoFramework.Random = cryptoFramework.createRandom(); //生成随机数实例
 
       build() {
         Column() {
@@ -190,9 +191,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
 
       onDraw() {
         let ctx = this.context;
-        ctx.clearRect(0, 0, 300, 300); // 清除画布
+        ctx.clearRect(0, 0, 300, 300); //清除画布
 
-        // 绘制雷达网格
+        //绘制雷达网格
         ctx.strokeStyle = '#00ff00';
         ctx.lineWidth = 1;
         for (let r = 30; r <= this.radius; r += 30) {
@@ -209,7 +210,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
         ctx.lineTo(270, this.centerY);
         ctx.stroke();
 
-        // 绘制扫描线
+       // 绘制扫描线
         const radian = this.angle * Math.PI / 180;
         ctx.beginPath();
         ctx.moveTo(this.centerX, this.centerY);
@@ -221,7 +222,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
         ctx.lineWidth = 2;
         ctx.stroke();
 
-        // 绘制扫描扇形
+       // 绘制扫描扇形
         const gradient = ctx.createRadialGradient(
           this.centerX, this.centerY, 0,
           this.centerX, this.centerY, this.radius
@@ -239,7 +240,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
         );
         ctx.closePath();
         ctx.fill();
-        this.drawRandomTargets(ctx); // 随机目标点
+        this.drawRandomTargets(ctx); //随机目标点
       }
 
       drawRandomTargets(ctx: CanvasRenderingContext2D) {
@@ -262,13 +263,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
 
     效果预览：
 
-    ![](https://media:101782454373129138 "点击放大")
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/3dJxLgdtSFSNQ9Gf3kGgmg/zh-cn_image_0000002658959237.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=A66278B920F8F76767F197C2711CD1591735CE7DB36FEC63E95F0BC0C054FDB1 "点击放大")
 
-  <!-- -->
 
   * 雷达扫描方案三：通过Row的linearGradient属性创建扇形渐变效果，结合rotate动画实现扫描效果。渐变颜色使用半透明绿色模拟雷达波束，Stack容器实现图层叠加。
 
-    ```
+    ```ts
     @Entry
     @Component
     struct RadarScan4 {
@@ -293,16 +293,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
       build() {
         Column() {
           Stack() {
-            // 静态网格背景
+          // 静态网格背景
             Row() {
-              // 这里可以添加网格绘制逻辑
+            // 这里可以添加网格绘制逻辑
             }
             .width(300)
             .height(300)
             .borderRadius(150)
             .backgroundColor('#4A90E2');
 
-            // 扫描扇形（使用渐变Row模拟）
+          // 扫描扇形（使用渐变Row模拟）
             Row()
               .width(150)
               .height(3)
@@ -325,8 +325,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
 
     效果预览：
 
-    ![](https://media:101782454373281139 "点击放大")
-* 整体方案对比：  
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/zkHcHCYbSpaqwpME-xIRGA/zh-cn_image_0000002658839285.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=65904A9C00A762D7ADF12AA8B78F420F230C3359AEFC2FB78B1AA6DD870EF200 "点击放大")
+* 整体方案对比：
 
   |方案|优点|缺点|
   |:-------|:---------|:------|

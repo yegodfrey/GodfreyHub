@@ -10,36 +10,36 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mlbcrcapture-0
 |:-----------------------------------------------------|
 |com.huawei.hms.mlplugin.card.bcr.MLBcrCapture 银行卡检测插件。|
 
-#### Nested Interface Summary
+## Nested Interface Summary
 
 |Qualifier and Type|Interface Name and Description|
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
 |interface|[MLBcrCapture.Callback](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlbcrcapture-callback-0000001204918055) 检测结果回调接口。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |void|[captureFrame](#section1778513427181)(Context context, [MLBcrCapture.Callback](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlbcrcapture-callback-0000001204918055) callback) 视频帧检测银行卡信息。|
 
-#### Public Methods
+## Public Methods
 
-#### captureFrame(Context context, MLBcrCapture.Callback callback)
+### captureFrame(Context context, MLBcrCapture.Callback callback)
 
 |Method|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void captureFrame(Context context, [MLBcrCapture.Callback](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlbcrcapture-callback-0000001204918055) callback) 视频帧检测银行卡信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------|
 |context|上下文。|
 |callback|检测结果回调。|
 
-Sample code：
+**Sample code：**
 
-```
+```screen
  MLBcrCaptureConfig config = new MLBcrCaptureConfig.Factory()
      // 设置银行卡识别期望返回的结果类型。
      // MLBcrCaptureConfig.SIMPLE_RESULT：仅识别卡号、生效期和持卡人（限信用卡）信息。

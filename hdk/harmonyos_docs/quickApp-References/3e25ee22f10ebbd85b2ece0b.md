@@ -6,32 +6,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 
 # section-list（1090+）
 
-#### 概述
+## 概述
 
-分组列表容器。  
+分组列表容器。
 
-#### 使用限制
+## 使用限制
 
 |限制条件|说明|
 |:---|:-----------|
 |适用终端|手机、平板、智慧屏、车机|
 |适用区域|全球|
 
-#### 子组件
+## 子组件
 
-仅支持\<section-group\>和\<section-item\>组件。  
+仅支持<section-group>和<section-item>组件。
 
-#### 属性
+## 属性
 
-支持[通用属性](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-attributes-0000001170050123)。  
+支持[通用属性](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-attributes-0000001170050123)。
 
-#### 样式
+## 样式
 
-支持[通用样式](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-common-styles-0000001170210009)。  
+支持[通用样式](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-common-styles-0000001170210009)。
 
-#### 事件
+## 事件
 
-除了支持[通用事件](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-events-0000001123530338)以外，还支持如下事件。  
+除了支持[通用事件](https://developer.huawei.com/consumer/cn/doc/development/quickApp-References/quickapp-events-0000001123530338)以外，还支持如下事件。
 
 |名称|参数|描述|
 |:------------|:------------------------------------------------------------------------|:-----------------------------------------------------------------|
@@ -41,22 +41,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-c
 |scrolltop|-|列表滑动到顶部。|
 |scrollbottom|-|列表滑动到底部。|
 
-#### 方法
+## 方法
 
 |名称|参数|描述|
 |:-------|:-----|:---------|
 |scrollTo|object|列表滑动到指定位置。|
 
-scrollTo的参数说明：  
+**scrollTo的参数说明：**
 
 |名称|类型|是否必填|默认值|备注|
 |:-------|:-----|:---|:------|:----------------------------------------------|
 |index|number|是|-|滑动目标位置索引。取值范围即section-list直接子组件的取值范围。|
 |behavior|string|否|instant|是否是平滑滑动或瞬间滑动，取值如下： * smooth：平滑滑动 * instant：瞬间滑动|
 
-#### 示例代码
+## 示例代码
 
-```
+```screen
 <template>
   <div class="wrapper">
     <section-list id="list" class="list" onscroll="scrollListener"
@@ -295,7 +295,7 @@ export default {
 </style>
 ```
 
-#### 版本更新说明
+## 版本更新说明
 
 |版本|发布日期|描述|
 |:---|:---------|:-------|

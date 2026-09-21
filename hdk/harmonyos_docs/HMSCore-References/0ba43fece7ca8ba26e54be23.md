@@ -10,13 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/instreamadl
 |:--------------------------------------------------------|
 |public static class InstreamAdLoader.Builder 贴片广告加载器的构造器。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
-|Constructor Name|
+|ConstructorName|
 |:--------------------------------------------------------------------------|
 |[Builder](#section22921117771)(Context context, String adId) 生成贴片广告加载器构造方法。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Class Name and Description|
 |:--------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -25,84 +25,84 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/instreamadl
 |InstreamAdLoader.Builder|[setMaxCount](#section521414184231)(int maxCount) 设置贴片广告最大数量。|
 |InstreamAdLoader.Builder|[setTotalDuration](#section39531130239)(int totalDuration) 设置贴片广告最大时长。|
 
-#### Public Constructors
+## Public Constructors
 
-#### Builder
+### Builder
 
 |Constructor|
 |:----------------------------------------------------------|
 |public Builder(Context context, String adId) 生成贴片广告加载器构造方法。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|
 |context|上下文。|
 |adId|广告位ID。|
 
-#### Public Methods
+## Public Methods
 
-#### build
+### build
 
 |Method|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public [InstreamAdLoader](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/instreamadloader-0000001058104175) build() 构建[InstreamAdLoader](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/instreamadloader-0000001058104175)对象。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:--------------------------------------------------------------------------------------------------------------------|:----------|
 |[InstreamAdLoader](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/instreamadloader-0000001058104175)|贴片广告加载器。|
 
-#### setInstreamAdLoadListener
+### setInstreamAdLoadListener
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public InstreamAdLoader.Builder setInstreamAdLoadListener([InstreamAdLoadListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/instreamadloadlistener-0000001057956181) adLoadListener) 设置贴片广告加载监听器。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------------|:----------|
 |adLoadListener|贴片广告加载监听器。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----------------------|:----------|
 |InstreamAdLoader.Builder|当前对象。|
 
-#### setMaxCount
+### setMaxCount
 
 |Method|
 |:--------------------------------------------------------------------|
 |public InstreamAdLoader.Builder setMaxCount(int maxCount) 设置贴片广告最大数量。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------|
 |maxCount|贴片广告最大数量。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----------------------|:----------|
 |InstreamAdLoader.Builder|当前对象。|
 
-#### setTotalDuration
+### setTotalDuration
 
 |Method|
 |:------------------------------------------------------------------------------|
 |public InstreamAdLoader.Builder setTotalDuration(int totalDuration) 设置贴片广告最大时长。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------------|:-------------|
 |totalDuration|贴片广告最大时长，单位：秒。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----------------------|:----------|

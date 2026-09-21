@@ -15,7 +15,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-telephony-
 
 参考代码如下：
 
-```
+```typescript
 import { radio, observer } from '@kit.TelephonyKit';
 
 // Taking obtaining the signal strength of card 1 as an example
@@ -38,6 +38,7 @@ observer.on("signalInfoChange", (data) => {
 });
 ```
 
-参考链接
+**参考链接**
 
-[getSignalInformation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-radio#radiogetsignalinformation7)  
+[getSignalInformation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-radio#radiogetsignalinformation7)
+

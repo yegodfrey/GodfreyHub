@@ -7,521 +7,521 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 # AGCAppLinkingComponents
 
 |Class Info|
-|:-----------------------------------------------------------------------------------------------------------------------------------|
-|链接组装器。 OBJECTIVE-C ``` @interface AGCAppLinkingComponents : NSObject ``` SWIFT ``` open class AGCAppLinkingComponents : NSObject ```|
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+|链接组装器。 **OBJECTIVE-C** ```screen @interface AGCAppLinkingComponents : NSObject ``` **SWIFT** ```screen open class AGCAppLinkingComponents : NSObject ```|
 
-#### uriPrefix
+## uriPrefix
 
 链接前缀。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *uriPrefix;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var uriPrefix: String? { get set }
 ```
 
-#### longLink
+## longLink
 
 长链接。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *longLink;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var longLink: String? { get set }
 ```
 
-#### deepLink
+## deepLink
 
 深度链接。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *deepLink;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var deepLink: String? { get set }
 ```
 
-#### previewType
+## previewType
 
 链接预览页样式。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, assign, unsafe_unretained, readwrite)
     AGCLinkingPreviewType previewType;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var previewType: AGCLinkingPreviewType { get set }
 ```
 
-#### isShowPreview
+## isShowPreview
 
 是否展示预览页。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, assign, unsafe_unretained, readwrite)
     BOOL isShowPreview;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var isShowPreview : Bool { get set }
 ```
 
-#### expireMinute
+## expireMinute
 
 短链接失效时间，单位为分钟，默认两年失效。最短5分钟。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, assign, unsafe_unretained, readwrite)
     NSInteger expireMinute;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var expireMinute: Int { get set }
 ```
 
-#### androidPackageName
+## androidPackageName
 
 Android应用包名。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *androidPackageName;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var androidPackageName: String? { get set }
 ```
 
-#### androidDeepLink
+## androidDeepLink
 
 Android应用深度链接。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *androidDeepLink;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var androidDeepLink: String? { get set }
 ```
 
-#### androidOpenType
+## androidOpenType
 
 Android应用未安装时打开行为。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, assign, unsafe_unretained, readwrite)
     AGCLinkingAndroidOpenType androidOpenType;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var androidOpenType: AGCLinkingAndroidOpenType { get set }
 ```
 
-#### androidFallbackUrl
+## androidFallbackUrl
 
 Android应用未安装时打开的链接地址。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *androidFallbackUrl;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var androidFallbackUrl: String? { get set }
 ```
 
-#### harmonyOSPackageName
+## harmonyOSPackageName
 
 HarmonyOS应用包名。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *harmonyOSPackageName;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var harmonyOSPackageName: String? { get set }
 ```
 
-#### harmonyOSDeepLink
+## harmonyOSDeepLink
 
 HarmonyOS应用深度链接。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *harmonyOSDeepLink;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var harmonyOSDeepLink: String? { get set }
 ```
 
-#### harmonyOSFallbackUrl
+## harmonyOSFallbackUrl
 
 HarmonyOS应用未安装时打开的链接地址。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *harmonyOSFallbackUrl;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var harmonyOSFallbackUrl: String? { get set }
 ```
 
-#### iosBundleId
+## iosBundleId
 
 iOS应用的BundleID。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *iosBundleId;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var iosBundleId: String? { get set }
 ```
 
-#### iosDeepLink
+## iosDeepLink
 
 iOS应用的深度链接。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *iosDeepLink;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var iosDeepLink: String? { get set }
 ```
 
-#### iosFallbackUrl
+## iosFallbackUrl
 
 iOS应用未安装时打开的链接地址。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *iosFallbackUrl;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var iosFallbackUrl: String? { get set }
 ```
 
-#### ipadBundleId
+## ipadBundleId
 
 iPad应用的BundleID。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *ipadBundleId;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var ipadBundleId: String? { get set }
 ```
 
-#### ipadFallbackUrl
+## ipadFallbackUrl
 
 iPad应用未安装时打开的链接地址。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *ipadFallbackUrl;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var ipadFallbackUrl: String? { get set }
 ```
 
-#### iTunesConnectMediaType
+## iTunesConnectMediaType
 
 App Store Connect的媒介类型。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable)
     NSString *iTunesConnectMediaType;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var iTunesConnectMediaType: String? { get set }
 ```
 
-#### iTunesConnectAffiliateToken
+## iTunesConnectAffiliateToken
 
 App Store Connect的会员Token。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable)
     NSString *iTunesConnectAffiliateToken;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var iTunesConnectAffiliateToken: String? { get set }
 ```
 
-#### iTunesConnectProviderToken
+## iTunesConnectProviderToken
 
 App Store Connect的提供商Token。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable)
     NSString *iTunesConnectProviderToken;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var iTunesConnectProviderToken: String? { get set }
 ```
 
-#### iTunesConnectCampaignToken
+## iTunesConnectCampaignToken
 
 App Store Connect的活动Token。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable)
     NSString *iTunesConnectCampaignToken;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var iTunesConnectCampaignToken: String? { get set }
 ```
 
-#### socialTitle
+## socialTitle
 
 社交媒体中分享的标题。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *socialTitle;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var socialTitle: String? { get set }
 ```
 
-#### socialDescription
+## socialDescription
 
 社交媒体中分享的描述。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *socialDescription;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var socialDescription: String? { get set }
 ```
 
-#### socialImageUrl
+## socialImageUrl
 
 社交媒体中分享的图片地址。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *socialImageUrl;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var socialImageUrl: String? { get set }
 ```
 
-#### campaignName
+## campaignName
 
 活动名称。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *campaignName;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var campaignName: String? { get set }
 ```
 
-#### campaignSource
+## campaignSource
 
 活动来源。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *campaignSource;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var campaignSource: String? { get set }
 ```
 
-#### campaignMedium
+## campaignMedium
 
 活动媒介。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 @property (nonatomic, strong, readwrite, nullable) NSString *campaignMedium;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 var campaignMedium: String? { get set }
 ```
 
-#### -buildLongLink
+## -buildLongLink
 
 生成长链接。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 - (nonnull NSURL *)buildLongLink;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 func buildLongLink() -> URL
 ```
 
-#### -buildShortLink:
+## -buildShortLink:
 
 生成短链接。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 - (void)buildShortLink:(nonnull AGCShortAppLinkingCallBack)callback;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 func buildShortLink(_ callback: @escaping AGCShortAppLinkingCallBack)
 ```
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------|
 |callback|短链接回调。|
 
-#### -buildShortLink:callback:
+## -buildShortLink:callback:
 
 生成短链接。
 
-OBJECTIVE-C
+**OBJECTIVE-C**
 
-```
+```screen
 - (void)buildShortLink:(AGCShortLinkingLength)length
               callback:(nonnull AGCShortAppLinkingCallBack)callback;
 ```
 
-SWIFT
+**SWIFT**
 
-```
+```screen
 func buildShortLink(_ length: AGCShortLinkingLength, callback: @escaping AGCShortAppLinkingCallBack)
 ```
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------|

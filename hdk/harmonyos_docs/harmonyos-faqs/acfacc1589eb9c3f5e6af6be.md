@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1247
 
 # 每输入一个字输入法软键盘都会收回
 
-#### 问题现象
+## 问题现象
 
 用户在输入框打字时，每打一个字输入法软键盘都会收回。
 
-![](https://media:101782454364582039 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/uDcc9cNfQpGhuXECUjtApQ/zh-cn_image_0000002628595452.png?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A21EBCDF5C2CD44E56EABF49208067C6E1709A2E6D0B4A06E1EC341342B9746 "点击放大")
 
-#### 背景知识
+## 背景知识
 
-TextArea.[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#onchange)：输入内容发生变化时，触发该回调。  
+TextArea.[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#onchange)：输入内容发生变化时，触发该回调。
 
-#### 问题定位
+## 问题定位
 
 1. 日志搜索Focus，查看组件聚焦情况，发现两次拉起输入法时，输入框的组件ID不同，可以判断组件发生了重新渲染，当组件重新渲染时，输入框会失焦，导致输入法收起。
 
-   ```
+   ```txt
    [(100000:100000:scope)] current focus node info : (TextArea/9077).
    ...
    [(100000:100000:scope)] current focus node info : (TextArea/9154).
@@ -28,21 +28,21 @@ TextArea.[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 2. 代码搜索onChange，检查代码逻辑，当输入变化时，onChange调用自定义函数并导致组件重新渲染。
 
-   ```
+   ```ts
    TextArea.onChange(() => {
-     // 自定义函数包含组件重新渲染逻辑
+    // 自定义函数包含组件重新渲染逻辑
    });
    ```
 
-#### 分析结论
+## 分析结论
 
-当输入框的内容发生改变时，组件重进渲染，导致输入框失焦，输入法收起。  
+当输入框的内容发生改变时，组件重进渲染，导致输入框失焦，输入法收起。
 
-#### 修改建议
+## 修改建议
 
 参考以下示例，优化代码逻辑，当输入框内容发生变化时，不要进行导致组件失焦的操作。
 
-```
+```ts
 @Entry
 @Component
 struct TextAreaPage {
@@ -59,13 +59,13 @@ struct TextAreaPage {
           .fontSize(20)
         TextArea({ text: this.text, placeholder: 'input your word...', controller: this.controller })
           .onChange((value: string) => {
-            // 文本内容发生变化时触发该回调
-            // 文本内容变化的时候不要有失焦的代码逻辑
+          // 文本内容发生变化时触发该回调
+// 文本内容变化的时候不要有失焦的代码逻辑
             console.info('onChange is triggering: ', value);
             this.textStr1 = `onChange is triggering: ${value}`;
           })
           .onFocus(() => {
-            // 绑定通用事件，输入框获焦时触发该回调
+           // 绑定通用事件，输入框获焦时触发该回调
             console.info('onFocus is triggering');
             this.textStr9 = `onFocus is triggering`;
           })

@@ -6,10 +6,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # FFStructureType
 
-返回码。  
-Enum Info
+返回码。
 
-```
+**Enum Info**
+
+```screen
 typedef enum FFStructureType {
     FF_STRUCTURE_TYPE_DRAW_FRAME_INFO = 0,
     FF_STRUCTURE_TYPE_PREDICTION_ALGORITHM_INFO = 1,
@@ -36,7 +37,7 @@ typedef enum FFStructureType {
 } FFStructureType;
 ```
 
-Enum Value Summary  
+**Enum Value Summary**
 
 |Return Code|Value|Description|
 |:---------------------------------------------------|:---------|:-----------|

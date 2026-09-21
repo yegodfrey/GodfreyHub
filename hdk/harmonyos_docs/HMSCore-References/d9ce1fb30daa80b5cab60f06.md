@@ -6,43 +6,42 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner
 
 # 冻结子商户
 
-#### 功能介绍
+## 功能介绍
 
-平台类商户/服务商可以通过调用此接口冻结平台子商户/特约商户。  
-![](https://media:201774590626822582)  
-此接口不支持传入冻结子商户列表，只支持一次调用冻结一个子商户。  
+平台类商户/服务商可以通过调用此接口冻结平台子商户/特约商户。
+> 说明
+>
+> 此接口不支持传入冻结子商户列表，只支持一次调用冻结一个子商户。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS POST|
-|接口方向|开发者服务器-\> 华为支付服务器|
+|-----|---------------------------------------------------------------------------------|
+|接口方向|开发者服务器-> 华为支付服务器|
 |接口URL|https://petalpay-developer.cloud.huawei.com.cn/api/v1/partner/mgmt/submerc/freeze|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|-----|---------------------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-* Request Header  
+* **Request Header**
 
   |参数|是否必选|参数类型|描述|
   |:-----------|:---|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------|
   |Content-Type|是|String|取值为：application/json; charset=UTF-8|
   |PayMercAuth|是|String|取值为：[PayMercAuth](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-data-model-0000001538219104#section11744172016145)的JSON串|
 
-<!-- -->
 
-* Request Body  
+* **Request Body**
 
   |参数|是否必填|参数类型|描述|
   |:----------|:---|:-----|:--------------|
   |subMercNo|是|String|特约商户号或平台子商户号。|
   |callbackUrl|是|String|回调通知地址，最大长度512。|
 
-<!-- -->
 
-* 请求示例
+* **请求示例**
 
-  ```
+  ```screen
   POST /api/v1/partner/mgmt/submerc/freeze HTTP/1.1
   Content-Type: application/json;charset=UTF-8
   PayMercAuth: 
@@ -54,17 +53,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner
   }
   ```
 
-#### 响应参数
+## 响应参数
 
-* Response Header  
+* **Response Header**
 
   |参数|是否必选|参数类型|描述|
   |:-----------|:---|:-----|:----------------------------------|
   |Content-Type|是|String|取值为：application/json; charset=UTF-8|
 
-<!-- -->
 
-* Response Body  
+* **Response Body**
 
   |参数|是否必填|参数类型|描述|
   |:---------|:---|:-----|:---------------------------------------|
@@ -78,11 +76,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner
   |mercStatus|否|String|当前商户状态。 * 20：正常 * 30：冻结 * 40：销户 * 50：预销户|
   |flowId|是|String|审批流程id。|
 
-<!-- -->
 
-* 响应示例
+* **响应示例**
 
-  ```
+  ```screen
   HTTP/1.1 200 OK
   Content-Type: application/json; charset=UTF-8
   {
@@ -95,12 +92,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner
   }
   ```
 
-#### 错误码
+## 错误码
 
-(resultCode非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-error-code-description-0000001589053741#section1187515498410))  
+(**resultCode** 非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-error-code-description-0000001589053741#section1187515498410))
 
-|resultCode|resultDesc|subCode|subDesc|
-|:---------|:---------|:----------------|:------|
+|**resultCode**|**resultDesc**|**subCode**|**subDesc**|
+|:-------------|:-------------|:----------------|:----------|
 |400000|业务处理失败|INVALID_ARGUMENTS|参数不合法|
 |400000|业务处理失败|CHECK_MERC_STATUS|商户状态异常|
 |400000|业务处理失败|FLOW_INVALID|流程异常|

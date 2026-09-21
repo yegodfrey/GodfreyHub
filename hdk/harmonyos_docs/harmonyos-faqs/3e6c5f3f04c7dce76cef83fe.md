@@ -15,4 +15,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-1
 
 在onConfigurationUpdate回调方法中订阅或监听系统环境变量的变化，包括语言、颜色模式和屏幕方向。
 
-详细请参见[获取/设置环境变量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/subscribe-system-environment-variable-changes)。  
+详细请参见[获取/设置环境变量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/subscribe-system-environment-variable-changes)。
+

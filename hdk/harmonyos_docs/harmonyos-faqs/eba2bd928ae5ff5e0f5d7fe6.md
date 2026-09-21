@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-arc
 
 核心代码如下：
 
-```
+```typescript
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 

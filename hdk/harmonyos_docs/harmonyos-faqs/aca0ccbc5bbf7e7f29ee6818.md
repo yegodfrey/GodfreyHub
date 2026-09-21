@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-serv
 
 # 如何判断Sendable对象是类的实例
 
-#### 问题现象
+## 问题现象
 
-[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)传递到其它线程后，如何判断Sendable对象是类的实例？  
+[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)传递到其它线程后，如何判断Sendable对象是类的实例？
 
-#### 解决方案
+## 解决方案
 
 使用instanceof需要在导出Sendable类的文件里加上"use shared"，把文件标记成共享的，示例代码如下：
 
-```
+```screen
 "use shared";
 
 @Sendable
@@ -44,7 +44,7 @@ export class Per3 {
 
 创建Per类对象，并通过instanceof判断其是否为Sendable类的实例。
 
-```
+```screen
 import { Per, Per1, Per2, Per3 } from './Per';
 import { lang, taskpool } from '@kit.ArkTS';
 

@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/graphics-References/vertexlayo
 |:---------|
 |顶点属性的组织枚举。|
 
-#### Enum Value Summary
+## Enum Value Summary
 
 |Enum Value and Description|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

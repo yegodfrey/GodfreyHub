@@ -6,31 +6,32 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/cancel
 
 # CancelFileTransferCallBack
 
-|---------------------------------------------------|
-|``` public interface CancelFileTransferCallBack ```|
+|-------------------------------------------|
+|public interface CancelFileTransferCallBack|
 
-取消发送文件的回调接口。  
+取消发送文件的回调接口。
 
-#### Method Summary
+## Method Summary
 
 |Modifier and Type|Method and Description|
 |:----------------|:-------------------------------------------------------------------------------|
 |void|[onCancelFileTransferResult](#section19719193003813)(int errCode) 取消发送文件的结果回调函数。|
 
-#### Method Detail
+## Method Detail
 
-#### onCancelFileTransferResult
+### onCancelFileTransferResult
 
 void onCancelFileTransferResult(int errCode)
 
 发送消息的结果回调函数。
 
-Parameters:  
+**Parameters:**
 
 |Parameter Name|Parameter Description|
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------|
 |errCode|返回码，具体的值参见 [WearEngineErrorCode](https://developer.huawei.com/consumer/cn/doc/connectivity-References/wearengineerrorcode-0000001059980969)|
 
-Since:
+**Since:**
 
-API level 5 (SDK 5.0.1.301)  
+API level 5 (SDK 5.0.1.301)
+

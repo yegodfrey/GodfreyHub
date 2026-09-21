@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ringtone-prep
 
 1. 导入ringtone模块和相关公共模块。
 
-   ```
+   ```typescript
    import { common } from '@kit.AbilityKit';
    import { ringtone } from '@kit.RingtoneKit';
    import { BusinessError } from '@kit.BasicServicesKit';
@@ -17,7 +17,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ringtone-prep
 
 2. 调用[ringtone.getSupportedRingtoneTypes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-ringtone#ringtonegetsupportedringtonetypes)接口，查询支持设置的铃声类型。
 
-   ```
+   ```typescript
    import { ringtone } from '@kit.RingtoneKit'
    import { JSON } from '@kit.ArkTS';
    import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -51,7 +51,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ringtone-prep
 
 3. 调用[ringtone.getSupportedDataTypes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-ringtone#ringtonegetsupporteddatatypes)接口，查询支持的数据类型。当前支持格式：MP3，OGG，FLAC，AAC，MP2，M4A，MP4。
 
-   ```
+   ```typescript
    import { ringtone } from '@kit.RingtoneKit'
    import { BusinessError } from '@kit.BasicServicesKit';
    import { uniformTypeDescriptor } from '@kit.ArkData';
@@ -96,7 +96,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ringtone-prep
 
    通过promise异步方式：
 
-   ```
+   ```typescript
    import { common } from '@kit.AbilityKit';
    import { ringtone } from '@kit.RingtoneKit';
    import { BusinessError } from '@kit.BasicServicesKit';
@@ -189,7 +189,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ringtone-prep
 
    通过callback异步方式：
 
-   ```
+   ```typescript
    // 详细代码参考API参考
    let prefixUri: string = '';
    let audioPath: string = prefixUri + '/' + this.buttonText;
@@ -201,7 +201,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ringtone-prep
 
 5. 调用[ringtone.getSupportedMaxDuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-ringtone#ringtonegetsupportedmaxduration)接口，获取当前铃声支持的最大时长。
 
-   ```
+   ```typescript
    import { ringtone } from '@kit.RingtoneKit'
    import { BusinessError } from '@kit.BasicServicesKit';
    import { uniformTypeDescriptor } from '@kit.ArkData';
@@ -244,7 +244,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ringtone-prep
 
 6. 调用[ringtone.getSupportedMaxSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-ringtone#ringtonegetsupportedmaxsize)接口，获取当前铃声支持的文件大小。
 
-   ```
+   ```typescript
    import { ringtone } from '@kit.RingtoneKit'
    import { BusinessError } from '@kit.BasicServicesKit';
    import { uniformTypeDescriptor } from '@kit.ArkData';

@@ -10,29 +10,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/settlement-model-000
 
 ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20211126150203.43656282454346400803999982145125:50521125084658:2800:F8C6F9B3A161F96B1928001D0157EEDF29D37798CBD6616B376747DDEBED7942.png?needInitFileName=true?needInitFileName=true)
 
-* 功能介绍
+* **功能介绍**
 
-收入抵减模式：收入抵减模式，如奖品是华为优惠券，则按活动实际收入扣减活动流水（如非联运应用，不会造成收入扣减）
+**收入抵减模式：**收入抵减模式，如奖品是华为优惠券，则按活动实际收入扣减活动流水（如非联运应用，不会造成收入扣减）
 
-充值预购模式：分成将不再扣减活动收入流水，而计作营销费用，需开发者将活动资金预充入账户并冻结关联使用。
+**充值预购模式：**分成将不再扣减活动收入流水，而计作营销费用，需开发者将活动资金预充入账户并冻结关联使用。
 
-* 使用场景示例
+* **使用场景示例**
 
 充值预购模式下，优惠券活动不影响开发者流水，可帮助开发者优化财务情况，开发者用于优惠券活动的营销费用，将按照正常联运分成比例进行分成，即例如开发者发了10元的优惠券，在用户使用之后，开发者将获得5元收入。
 
-* 基本操作步骤
+* **基本操作步骤**
 
 1.权限申请 --- 2.冻结金创建 --- 3.奖品创建 --- 4.活动创建 --- 5.冻结金管理
 
-* 具体操作步骤
+* **具体操作步骤**
 
-步骤1.权限申请
+**步骤1.权限申请**
 
 （1）入口：用户与访问→个人信息→管理→团队账号_【修改】→角色信息【应用市场】界面；
 
 （2）账号持有者可直接使用该功能；非账号持有者，根据实际情况，选择申请【运营】、【管理员】、【App管理员】任一个角色，即可使用该功能。
 
-步骤2.冻结金创建
+**步骤2.冻结金创建**
 
 （1）入口：用户与访问→账户中心→资金冻结管理（新增）
 
@@ -50,7 +50,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/settlement-model-000
 
 ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20211126150203.64734945436785675054600801862997:50521125084658:2800:09C30230A63F63CA40A111028B54B521B50B117DEE0CF65A321A8E68810B7C8A.png?needInitFileName=true?needInitFileName=true)
 
-步骤3. 奖品创建
+**步骤3. 奖品创建**
 
 （1）入口：用户与访问→我的应用→奖品管理→点击【新增】。
 
@@ -62,7 +62,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/settlement-model-000
 
 ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20211126150203.66251940858791801238696723433236:50521125084658:2800:70EC0E5CB208ADA3208C6AE755088DF85D7A980CCADBD51DC8D443D66FD86F52.png?needInitFileName=true?needInitFileName=true)
 
-步骤4. 活动创建
+**步骤4. 活动创建**
 
 （1）入口：我的应用→活动管理→新建
 
@@ -101,15 +101,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/settlement-model-000
 
 ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20211126150203.92453098097125552062702767781916:50521125084658:2800:2EFEA9FFAE10C402F0BD8C2FBCF185780BC9C1F3BE54AFF34EB30B60C749B5DB.png?needInitFileName=true?needInitFileName=true)
 
-步骤5. 冻结资金管理
+**步骤5. 冻结资金管理**
 
-（1） 优惠券总体使用情况查询：
+（1） 优惠券**总体**使用情况查询：
 
 * 入口：账户中心-资金冻结管理；
 
 ![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20211126150204.18756287196471345694639139966671:50521125084658:2800:6CF0347280AA027C9D81AC2A03188F25D7B502BB13EC82608CC2D4AD57A497D6.png?needInitFileName=true?needInitFileName=true "点击放大")
 
-（2）优惠券逐条使用记录查询：
+（2）优惠券**逐条**使用记录查询：
 
 * 入口：账户中心-账户概览；
 

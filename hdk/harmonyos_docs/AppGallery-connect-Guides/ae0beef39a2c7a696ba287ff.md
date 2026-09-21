@@ -6,34 +6,34 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 # 展示应用内消息
 
-当您在AGC创建了消息、并且集成了应用内消息SDK，当达到消息展示的触发条件后，应用内消息服务会自动以默认的消息展示布局在应用中展示消息。您可以不需要编写任何代码，就可以拥有展示消息的能力。如果您需要对展示的消息或目标用户进行一些其他的特殊配置，您可以通过调用应用内消息SDK提供的API完成。  
+当您在AGC创建了消息、并且集成了应用内消息SDK，当达到消息展示的触发条件后，应用内消息服务会自动以默认的消息展示布局在应用中展示消息。您可以不需要编写任何代码，就可以拥有展示消息的能力。如果您需要对展示的消息或目标用户进行一些其他的特殊配置，您可以通过调用应用内消息SDK提供的API完成。
 
-#### 前提条件
+## 前提条件
 
 * 已[集成SDK](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-appmessaging-integratesdk-android-0000001072532718)。
 * 已[添加应用内消息](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-appmessage-create-android-0000001072054882)。
-* 如果您想要以自定义布局展示消息，则需前往AGC控制台进行设置，具体请参见[自定义消息布局](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-appmessage-create-android-0000001072054882#ZH-CN_TOPIC_0000001072054882__zh-cn_topic_0000001199092457_zh-cn_topic_0000001071730074_li11180317169)。  
+* 如果您想要以自定义布局展示消息，则需前往AGC控制台进行设置，具体请参见[自定义消息布局](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-appmessage-create-android-0000001072054882#ZH-CN_TOPIC_0000001072054882__zh-cn_topic_0000001199092457_zh-cn_topic_0000001071730074_li11180317169)。
 
-#### 展示应用内消息条件
+## 展示应用内消息条件
 
 应用内消息SDK展示消息的条件需要同时满足以下几点：
 
 * App在前台运行。
 * 开启从AGC服务端数据拉取功能（默认开启）。
 
-  ```
+  ```screen
   "Java"
   AGConnectAppMessaging.getInstance().setFetchMessageEnable(true);
   ```
 
-  ```
+  ```screen
   "Kotlin"
   AGConnectAppMessaging.getInstance().setFetchMessageEnable(true);
   ```
 
-  ![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250307095810.01109039397738022026989325500266:50001231000000:2800:7D2108D90B7CEF4C81B21FD3CC5000098453B9529A1F0C38FF5ED6E667F66A42.png?needInitFileName=true?needInitFileName=true)  
-  * 应用内消息SDK并不是每次触发事件都会去AGC服务端请求消息，而是每8小时请求一次（通常为App启动时），然后把所有的消息缓存到本地，在过期前事件触发时只会从本地读取消息。
-  * 在消息数据过期前，如果在AGC创建了新的消息，由于应用内消息SDK不会再次到AGC请求数据，新创建的消息将不会被获取。
+  > 说明
+  > * 应用内消息SDK并不是每次触发事件都会去AGC服务端请求消息，而是每8小时请求一次（通常为App启动时），然后把所有的消息缓存到本地，在过期前事件触发时只会从本地读取消息。
+  > * 在消息数据过期前，如果在AGC创建了新的消息，由于应用内消息SDK不会再次到AGC请求数据，新创建的消息将不会被获取。
 
 * AGC上创建的应用内消息状态为"已发布"，并满足以下条件：
   * 消息的开始时间和结束时间满足要求：当前时间（手机时间）需要大于消息的开始时间且小于结束时间。
@@ -41,39 +41,39 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
   * 消息的触发事件满足要求：消息的触发事件列表中需要包含此次App的触发事件。
 * 开启消息展示功能（默认为开启）。
 
-  ```
+  ```screen
   "Java"
   AGConnectAppMessaging appMessaging = AGConnectAppMessaging.getInstance();
   appMessaging.setDisplayEnable(true);
   ```
 
-  ```
+  ```screen
   "Kotlin"
   var appMessaging: AGConnectAppMessaging? = AGConnectAppMessaging.getInstance();
   appMessaging?.setDisplayEnable(true);
   ```
 
-#### 应用内消息的交互与响应
+## 应用内消息的交互与响应
 
 通过应用内消息SDK您可以进一步定制应用内消息的行为，在用户与消息交互时进行响应，应用内消息SDK支持对消息的展示、点击和消失事件的监听。实现的基本步骤如下：
 
-1. 调用[AGConnectAppMessaging.getInstance](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessaging-android-0000001057483901#section56986074216)初始化[AGConnectAppMessaging](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessaging-android-0000001057483901)实例。  
+1. 调用[AGConnectAppMessaging.getInstance](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessaging-android-0000001057483901#section56986074216)初始化[AGConnectAppMessaging](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessaging-android-0000001057483901)实例。
 
-   ```
+   ```screen
    "Java"
    AGConnectAppMessaging appMessaging = AGConnectAppMessaging.getInstance();
    ```
 
-   ```
+   ```screen
    "Kotlin"
    var appMessaging: AGConnectAppMessaging? = AGConnectAppMessaging.getInstance();
    ```
 
 2. 创建监听器。 您可以通过继承应用内消息SDK的[AGConnectAppMessagingOnDisplayListener](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessagingondisplaylistener-android-0000001059201574)（消息展示监听器）、[AGConnectAppMessagingOnClickListener](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessagingonclicklistener-android-0000001059041586)（消息点击监听器）、[AGConnectAppMessagingOnDismissListener](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessagingondismisslistener-android-0000001057483899#section1511931153518)（消息消失监听器）来创建事件的监听器。
 
-   例如，创建一个点击事件的监听器：  
+   例如，创建一个点击事件的监听器：
 
-   ```
+   ```screen
    "Java"
    public class ClickListener implements AGConnectAppMessagingOnClickListener {
    	@Override
@@ -83,7 +83,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    }
    ```
 
-   ```
+   ```screen
    "Kotlin"
    class ClickListener : AGConnectAppMessagingOnClickListener {
    	override fun onMessageClick(appmessage: AppMessage?) {
@@ -94,25 +94,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 3. 注册监听器。 您可以通过[AGConnectAppMessaging](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessaging-android-0000001057483901)的[addOnClickListener](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessaging-android-0000001057483901#section42623184414)、[addOnDismissListener](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessaging-android-0000001057483901#section951412818449)和[addOnDisplayListener](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessaging-android-0000001057483901#section189328520443)来注册监听器。例如，注册一个点击事件的监听器：
 
-   ```
+   ```screen
    "Java"
    ClickListener listener = new ClickListener();
    appMessaging.addOnClickListener(listener);
    ```
 
-   ```
+   ```screen
    "Kotlin"
    val clickListener = ClickListener();
    appMessaging?.addOnClickListener(clickListener)
    ```
 
-#### 设置自定义的布局
+## 设置自定义的布局
 
 应用内消息服务提供三种默认的展示布局：弹框消息、图片消息和Banner消息。您也可以自定义消息的展示布局，从而使得消息的展示布局更加适合App的主题。
 
-1. 实现[AGConnectAppMessagingDisplay](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessagingdisplay-android-0000001059201572)接口自定义一个消息显示类。  
+1. 实现[AGConnectAppMessagingDisplay](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessagingdisplay-android-0000001059201572)接口自定义一个消息显示类。
 
-   ```
+   ```screen
    "Java"
    public class CustomDisplayView implements AGConnectAppMessagingDisplay {
    	@Override
@@ -122,7 +122,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    }
    ```
 
-   ```
+   ```screen
    "Kotlin"
    class CustomDisplayView : AGConnectAppMessagingDisplay {
    	override fun displayMessage(message: AppMessage, callback: AGConnectAppMessagingCallback) {
@@ -138,25 +138,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
      * 在消息消失时回调[onMessageDismiss](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessagingcallback-android-0000001059041584#section681112342412)。
 2. 调用[AGConnectAppMessaging.addCustomView](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessaging-android-0000001057483901#section18491751124520)添加自定义显示类。
 
-   <br />
-
-   ```
+   ```screen
    "Java"
    CustomDisplayView view = new CustomDisplayView();
    AGConnectAppMessaging.getInstance().addCustomView(view);
    ```
 
-   ```
+   ```screen
    "Kotlin"
    var view = CustomDisplayView()
    AGConnectAppMessaging.getInstance().addCustomView(view);
    ```
 
-   <br />
-
    对于自定义布局的消息，你可以通过消息类型来对三种消息分别设置不同的显示样式：
 
-   ```
+   ```screen
    "Java"
    public class CustomDisplayView implements AGConnectAppMessagingDisplay {
    	@Override
@@ -174,7 +170,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    }
    ```
 
-   ```
+   ```screen
    "Kotlin"
    class CustomDisplayView : AGConnectAppMessagingDisplay {
    	override fun displayMessage(message: AppMessage, callback: AGConnectAppMessagingCallback) {
@@ -191,12 +187,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 3. （可选）如果您需要恢复消息的默认布局，可以调用[AGConnectAppMessaging.removeCustomView](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agconnectappmessaging-android-0000001057483901#section10386172618466)移除自定义布局。
 
-   ```
+   ```screen
    "Java"
    AGConnectAppMessaging.getInstance().removeCustomView();
    ```
 
-   ```
+   ```screen
    "Kotlin"
    AGConnectAppMessaging.getInstance().removeCustomView();
    ```

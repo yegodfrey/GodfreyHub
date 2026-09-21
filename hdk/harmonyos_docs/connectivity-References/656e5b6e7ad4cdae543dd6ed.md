@@ -10,13 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/hisigh
 |:-----------------------------------------------------------------------------------|
 |public class HiSightCapability implements Parcelable 投屏能力类。主要用于大屏侧APK配置大屏端设备支持的投屏能力。|
 
-#### Public Constructor Summary
+## Public Constructor Summary
 
 |Constructor Name|
 |:----------------------------------------------------------------------------------------------------------------------------------------------|
 |public [HiSightCapability](#section1980913561652)(int screenWidth, int screenHeight, int videoWidth, int videoHeight) 构造出一个HiSightCapability对象。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -46,15 +46,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-References/hisigh
 |boolean|[getIsSupportRemoteCtrl](#section14828183316143)() 获取是否支持反向控制能力。|
 |void|[setIsSupportRemoteCtrl](#section105451646101512)(boolean isSupportRemoteCtrl) 设置是否支持反向控制能力（用如鼠标，键盘，遥控器，触摸控件等硬件设备以操作大屏幕，进而控制小屏幕的能力）。|
 
-#### Public Constructors
+## Public Constructors
 
-#### HiSightCapability(int screenWidth, int screenHeight, int videoWidth, int videoHeight)
+### HiSightCapability(int screenWidth, int screenHeight, int videoWidth, int videoHeight)
 
 |Constructor|
 |:---------------------------------------------------------------------------------------------------------------------|
 |public HiSightCapability(int screenWidth, int screenHeight, int videoWidth, int videoHeight) 构造出一个HiSightCapability对象。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:----------|
@@ -63,307 +63,307 @@ Parameters
 |videoWidth|视频分辨率宽。|
 |videoHeight|视频分辨率高。|
 
-#### Public Methods
+## Public Methods
 
-#### MediaFormatInteger(String name, int value)
+### MediaFormatInteger(String name, int value)
 
 |Method|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setMediaFormatInteger(String name, int value) 设置多媒体配置项，会在启动解码器时设置到MediaFormat中进行解码器配置，启动解码器低时延策略，对应MediaFormat.setInteger(String name, int value)方法。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:-------------------------------|
 |name|android.media.MediaFormat定义的有效键。|
 |value|int型数值。|
 
-#### MediaFormatFloat(String name, float value)
+### MediaFormatFloat(String name, float value)
 
 |Method|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setMediaFormatFloat(String name, float value) 设置多媒体配置项，会在启动解码器时设置到MediaFormat中进行解码器配置，启动解码器低时延策略，对应MediaFormat.setFloat(String name, float value)方法。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:-------------------------------|
 |name|android.media.MediaFormat定义的有效键。|
 |value|float型数值。|
 
-#### MediaFormatLong(String name, long value)
+### MediaFormatLong(String name, long value)
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setMediaFormatLong(String name, long value) 设置多媒体配置项，会在启动解码器时设置到MediaFormat中进行解码器配置，启动解码器低时延策略，对应MediaFormat.setLong(String name, long value)方法。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:-------------------------------|
 |name|android.media.MediaFormat定义的有效键。|
 |value|long型数值。|
 
-#### MediaFormatString(String name, String value)
+### MediaFormatString(String name, String value)
 
 |Method|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public void setMediaFormatString(String name, String value) 设置多媒体配置项，会在启动解码器时设置到MediaFormat中进行解码器配置，启动解码器低时延策略，对应MediaFormat.setString(String name, String value)方法。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:-------------------------------|
 |name|android.media.MediaFormat定义的有效键。|
 |value|String型数值。|
 
-#### MediaCodecConfigureFlag(int flag)
+### MediaCodecConfigureFlag(int flag)
 
 |Method|
 |:------------------------------------------------------------------------------------------------------------|
 |public void setMediaCodecConfigureFlag(int flag) 设置多媒体配置项，会在启动解码器时在MediaCodec.configure()中进行解码器配置，启动解码器低时延策略。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|
 |flag|int型参数。|
 
-#### getScreenWidth()
+### getScreenWidth()
 
 |Method|
 |:-------------------------------------------------|
 |public int getScreenWidth() @reserved 获取屏幕物理分辨率宽度。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:----------|
 |int|屏幕物理分辨率宽度。|
 
-#### setScreenWidth(int screenWidth)
+### setScreenWidth(int screenWidth)
 
 |Method|
 |:--------------------------------------------------------------|
 |public void setScreenWidth(int screenWidth) @reserved 设置屏幕分辨率宽。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----------|:----------|
 |screenWidth|屏幕物理分辨率宽度。|
 
-#### getScreenHeight()
+### getScreenHeight()
 
 |Method|
 |:--------------------------------------------------|
 |public int getScreenHeight() @reserved 获取屏幕物理分辨率高度。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:----------|
 |int|屏幕物理分辨率高度。|
 
-#### setScreenHeight(int screenHeight)
+### setScreenHeight(int screenHeight)
 
 |Method|
 |:-------------------------------------------------------------------|
 |public void setScreenHeight(int screenHeight) @reserved 设置屏幕物理分辨率高度。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:----------|
 |screenHeight|屏幕物理分辨率高度。|
 
-#### getVideoWidth()
+### getVideoWidth()
 
 |Method|
 |:---------------------------------------|
 |public int getVideoWidth() 获取视频流的宽（分辨率）。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:----------|
 |int|视频流的宽（分辨率）。|
 
-#### setVideoWidth(int videoWidth)
+### setVideoWidth(int videoWidth)
 
 |Method|
 |:------------------------------------------------------|
 |public void setVideoWidth(int videoWidth) 设置视频流的宽（分辨率）。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:-------------------------|
 |videoWidth|视频流的宽（分辨率）。如1080P设置：1920 。|
 
-#### getVideoHeight()
+### getVideoHeight()
 
 |Method|
 |:----------------------------------------|
 |public int getVideoHeight() 获取视频流的高（分辨率）。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:----------|
 |int|视频流的高（分辨率）。|
 
-#### setVideoHeight(int videoHeight)
+### setVideoHeight(int videoHeight)
 
 |Method|
 |:--------------------------------------------------------|
 |public void setVideoHeight(int videoHeight) 设置视频流的高（分辨率）。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----------|:------------------------|
 |videoHeight|视频流的高（分辨率）。如1080P设置：1080。|
 
-#### getVideoCodecType()
+### getVideoCodecType()
 
 |Method|
 |:-------------------------------------------------|
 |public int getVideoCodecType() @reserved 获取视频编码方式。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:----------|
 |int|获取视频编码方式。|
 
-#### setVideoCodecType(int videoCodecType)
+### setVideoCodecType(int videoCodecType)
 
 |Method|
 |:-----------------------------------------------------------------------------------|
 |public void setVideoCodecType(int videoCodecType) @reserved 设置视频编码方式。例如：H265/H264硬解码|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------------|:----------|
 |videoCodecType|视频编码方式。|
 
-#### getVideoFps()
+### getVideoFps()
 
 |Method|
 |:---------------------------------|
 |public int getVideoFps() 获取投屏显示帧率。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:----------|
 |int|投屏显示帧率。|
 
-#### setVideoFps(int videoFps)
+### setVideoFps(int videoFps)
 
 |Method|
 |:----------------------------------------------|
 |public void setVideoFps(int videoFps) 设置投屏显示帧率。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------|
 |videoFps|投屏显示帧率。|
 
-#### getVideoGop()
+### getVideoGop()
 
 |Method|
 |:------------------------------------|
 |public int getVideoGop() 获取投屏视频流I帧间隔。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:--------------|
 |int|投屏视频流I帧间隔。单位：秒。|
 
-#### setVideoGop(int videoGop)
+### setVideoGop(int videoGop)
 
 |Method|
 |:-------------------------------------------------|
 |public void setVideoGop(int videoGop) 设置投屏视频流I帧间隔。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:--------------|
 |videoGop|投屏视频流I帧间隔。单位：秒。|
 
-#### getDisplayDpi()
+### getDisplayDpi()
 
 |Method|
 |:---------------------------------------------|
 |public int getDisplayDpi() @reserved 获取显示Dpi值。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:----------|
 |int|显示Dpi值。|
 
-#### setDisplayDpi(int displayDpi)
+### setDisplayDpi(int displayDpi)
 
 |Method|
 |:------------------------------------------------------------|
 |public void setDisplayDpi(int displayDpi) @reserved 设置显示Dpi值。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|
 |int|显示Dpi值。|
 
-#### getVideoBitrate()
+### getVideoBitrate()
 
 |Method|
 |:--------------------------------------|
 |public int getVideoBitrate() 获取投屏视频流码率。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:---|:----------|
 |int|投屏视频流码率。|
 
-#### setVideoBitrate(int videoBitrate)
+### setVideoBitrate(int videoBitrate)
 
 |Method|
-|:-------------------------------------------------------|
-|public void setVideoBitrate(int videoBitrate) 设置投屏视频流码率。|
+|:------------------------------------------------------|
+|public voidsetVideoBitrate(int videoBitrate) 设置投屏视频流码率。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----------|:----------|
 |videoBitrate|投屏视频流码率。|
 
-#### getIsSupportRemoteCtrl ()
+### getIsSupportRemoteCtrl ()
 
 |Method|
 |:---------------------------------------------------------------------------------------------|
 |public boolean getIsSupportRemoteCtrl () 获取是否支持反向控制能力（用如鼠标，键盘，遥控器，触摸控件等硬件设备以操作大屏幕，进而控制小屏幕的能力）。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:------|:----------------------------------|
 |boolean|是否支持反向控制能力。 * True：支持。 * False：不支持。|
 
-#### setIsSupportRemoteCtrl(boolean isSupportRemoteCtrl)
+### setIsSupportRemoteCtrl(boolean isSupportRemoteCtrl)
 
 |Method|
-|:----------------------------------------------------------------------------|
-|public void setIsSupportRemoteCtrl(boolean isSupportRemoteCtrl) 设置是否支持反向控制能力。|
+|:---------------------------------------------------------------------------|
+|public voidsetIsSupportRemoteCtrl(boolean isSupportRemoteCtrl) 设置是否支持反向控制能力。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------------------|:----------------------------------|

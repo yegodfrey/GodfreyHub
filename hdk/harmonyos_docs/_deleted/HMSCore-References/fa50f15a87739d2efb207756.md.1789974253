@@ -1,0 +1,17 @@
+---
+name: document/cn/HMSCore-References/overview-0000001052461645
+title: Overview
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/overview-0000001052461645
+---
+
+# Overview
+
+包含回调函数接口
+
+## Interface Summary
+
+|Interface|Description|
+|:------------------------------------------------------------------------------------------------------------------------|:---------------------|
+|[IuniversalCallback](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/iuniversalcallback-0000001229030123)|通用回调（数据和异常信息分离，方便三方解析）|
+|[ResultCallback](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/resultcallback-0000001071549451)|通用的回调返回|
+

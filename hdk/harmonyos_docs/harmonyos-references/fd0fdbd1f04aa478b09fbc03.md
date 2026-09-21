@@ -6,31 +6,33 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 # OH_Drawing_FontDescriptor
 
-```
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
+```c
 typedef struct OH_Drawing_FontDescriptor {...} OH_Drawing_FontDescriptor
 ```
 
-#### 概述
+## 概述
 
 描述系统字体详细信息的结构体。
 
-起始版本： 12
+**起始版本：** 12
 
-相关模块： [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)
+**相关模块：** [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)
 
-所在头文件： [drawing_text_typography.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h)  
+**所在头文件：** [drawing_text_typography.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h)
 
-#### 汇总
+## 汇总
 
-#### 成员变量
+### 成员变量
 
 |名称|描述|
-|:--------------------|:----------------------------------------|
-|char\* path|系统字体的文件路径。|
-|char\* postScriptName|唯一标识字体的名称。|
-|char\* fullName|系统字体的名称。|
-|char\* fontFamily|系统字体的字体家族。|
-|char\* fontSubfamily|系统字体的子字体家族。|
+|:-------------------|:----------------------------------------|
+|char* path|系统字体的文件路径。|
+|char* postScriptName|唯一标识字体的名称。|
+|char* fullName|系统字体的名称。|
+|char* fontFamily|系统字体的字体家族。|
+|char* fontSubfamily|系统字体的子字体家族。|
 |int weight|系统字体的粗细程度。|
 |int width|系统字体的宽窄风格属性。|
 |int italic|系统字体倾斜度。|

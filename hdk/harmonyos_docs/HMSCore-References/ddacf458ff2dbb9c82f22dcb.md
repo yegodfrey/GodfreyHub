@@ -6,14 +6,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/account-apk
 
 # Constant-values
 
-#### com.huawei.hms.support.hwid.request.HuaweiIdAuthParams
+## com.huawei.hms.support.hwid.request.HuaweiIdAuthParams
 
 |Qualifier and Type|Constant Field|Value|
 |:-------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------|
 |public static final HuaweiIdAuthParams|[DEFAULT_AUTH_REQUEST_PARAM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-support-hwid-request-huaweiidauthparams-0000001050048464#section1571192891114)|new HuaweiIdAuthParamsHelper().setOpenId().setProfile().createParams()|
 |public static final HuaweiIdAuthParams|[DEFAULT_AUTH_REQUEST_PARAM_GAME](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-support-hwid-request-huaweiidauthparams-0000001050048464#section0342182514125)|new HuaweiIdAuthParamsHelper().setScopeList(SCOPE_GAMES).createParams()|
 
-#### com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton
+## com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton
 
 |Qualifier and Type|Constant Field|Value|
 |:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----|
@@ -28,7 +28,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/account-apk
 |public static final int|[CORNER_RADIUS_MEDIUM](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-support-hwid-ui-huaweiidauthbutton-0000001050048570#section729205614472)|-2|
 |public static final int|[CORNER_RADIUS_SMALL](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-support-hwid-ui-huaweiidauthbutton-0000001050048570#section925923194818)|-3|
 
-#### com.huawei.hms.support.sms.common.ReadSmsConstant
+## com.huawei.hms.support.sms.common.ReadSmsConstant
 
 |Qualifier and Type|Constant Field|Value|
 |:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
@@ -36,7 +36,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/account-apk
 |public static final String|[EXTRA_STATUS](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-support-sms-common-readsmsconstant-0000001050048610#section1424743618202)|"com.huawei.hms.auth.api.phone.EXTRA_STATUS"|
 |public static final String|[READ_SMS_BROADCAST_ACTION](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/account-support-sms-common-readsmsconstant-0000001050048610#section1239114452017)|"com.huawei.hms.auth.api.phone.SMS_RETRIEVED"|
 
-#### com.huawei.hms.support.account.request.AccountAuthParams
+## com.huawei.hms.support.account.request.AccountAuthParams
 
 |Qualifier and Type|Constant Field|Value|
 |:------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|

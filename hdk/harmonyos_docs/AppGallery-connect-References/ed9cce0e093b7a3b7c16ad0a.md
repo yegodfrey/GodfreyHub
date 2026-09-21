@@ -6,30 +6,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # 更新商品订阅分组信息
 
-#### 功能介绍
+## 功能介绍
 
-此接口用于更新商品订阅分组信息。  
+此接口用于更新商品订阅分组信息。
 
-#### 使用约束
+## 使用约束
 
-接口调用者的角色：账号持有者、管理员、APP管理员、运营。  
+接口调用者的角色：账号持有者、管理员、APP管理员、运营。
 
-#### 接口原型
+## 接口原型
 
 |承载协议|HTTPS PUT|
-|接口方向|开发者服务器-\>数字商品服务器|
+|-----|------------------------------------------------------------------------------------------|
+|接口方向|开发者服务器->数字商品服务器|
 |接口URL|https://connect-api.cloud.huawei.com/api/pms/product-price-service/v2/manage/product/group|
 |数据格式|请求消息：Content-Type: application/json 响应消息：Content-Type: application/json|
-|-----|------------------------------------------------------------------------------------------|
 
-#### 请求参数
+## 请求参数
 
-#### Header
+### Header
 
-![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20250806180211.92888714953287370758019117078702:50001231000000:2800:486FD0494D954B3E42C4DB20D5943D7169104A9F3F35AA3D82FDAEDB8DF976AF.png)  
-API Client和OAuth Client区别参见[使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114)。
+> 说明
+>
+> API Client和OAuth Client区别参见[使用入门](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114)。
 
-API Client方式  
+**API Client方式**
 
 |参数|必选(M)/可选(O)|类型|描述|
 |:------------|:----------|:-----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -37,25 +38,25 @@ API Client方式
 |Authorization|M|String|认证信息，格式为"Authorization: Bearer ${access_token}"。access_token为[获取Token](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-obtain_token-0000001158365043)中获取的access_token。|
 |appId|M|String|应用ID，获取方法参考[查询应用信息](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo)。|
 
-OAuth Client方式  
+**OAuth Client方式**
 
 |参数名称|必选(M)/可选(O)|类型|参数说明|
 |:----------|:----------|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |oauth2Token|M|String|认证信息，传入[获取用户授权码](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section949717114392)中获取的Access Token。|
 |appId|M|String|应用ID，获取方法参考[查询应用信息](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/appgallery_queryappinfo)。|
 
-#### Body
+### Body
 
 |参数名称|必选(M)/可选(O)|类型|参数说明|
 |:--------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|
 |requestId|M|String(64)|请求序列，开发者自定义唯一标识符。|
 |resource|M|[ProductGroupInfo](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-pgroupinfo-harmonyosnext-0000002131508868)|商品分组信息。|
 
-#### 请求示例
+## 请求示例
 
 以API Client为例：
 
-```
+```screen
 PUT https://connect-api.cloud.huawei.com/api/pms/product-price-service/v2/manage/product/group
 Content-Type: application/json
 client_id: ***
@@ -72,15 +73,15 @@ appId: 1000001
 }
 ```
 
-#### 响应参数
+## 响应参数
 
 |参数名称|必选(M)/可选(O)|类型|参数说明|
 |:----|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------|:------------------|
 |error|M|[ErrorResult](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-pms-errorresult-harmonyosnext-0000002131350724)|包含返回码及描述信息的JSON字符串。|
 
-#### 响应示例
+## 响应示例
 
-```
+```screen
 {
 	"error": {
 		"errorCode": 0,
@@ -89,9 +90,9 @@ appId: 1000001
 }
 ```
 
-#### 调用示例
+## 调用示例
 
-```
+```screen
 "Java"
 public static ProductGroupUpdateResp updateProductGroupInfo(String domain, String clientId, String authorization, 
     String appId, ProductGroupUpdateReq request) { 

@@ -6,22 +6,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1610
 
 # 多任务切换应用时，页面闪屏
 
-#### 问题现象
+## 问题现象
 
 从其他应用切换到当前应用时，弹窗重新弹出，页面闪屏。
 
-![](https://media:101782461526859643 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/kgCZ9UqQR0SIXFYoDMSNhw/zh-cn_image_0000002628613380.png?HW-CC-KV=V1&HW-CC-Date=20260920T114734Z&HW-CC-Expire=31536000000&HW-CC-Sign=8D18094C8D8274B71E5E9E8B27D453112A099274A2769B23A18F548D89714271 "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * 自定义组件的生命周期包括[onPageShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpageshow)和[onPageHide](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpagehide)，它们在页面每次显示和隐藏时触发一次。
-* [自定义弹窗 (CustomDialog)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)通过CustomDialogController类显示自定义弹窗。使用弹窗组件时，优先考虑自定义弹窗，便于弹窗样式与内容的自定义。  
+* [自定义弹窗 (CustomDialog)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box)通过CustomDialogController类显示自定义弹窗。使用弹窗组件时，优先考虑自定义弹窗，便于弹窗样式与内容的自定义。
 
-#### 问题定位
+## 问题定位
 
 该页面搜索onPageShow和onPageHide，查看页面每次显示和隐藏时弹窗的设置。页面设置为页面隐藏时关闭弹窗，页面显示时重新打开弹窗。
 
-```
+```ts
 /*切换到其他应用时不关闭自定义弹窗，切换到其他应用再切换回来，会发现有闪屏现象
 这是因为在页面隐藏时关闭了弹窗，页面显示时重新打开了弹窗
 导致切换回该页面的一瞬间，弹窗是处于未打开的状态，此时页面亮度正常（弹窗处于打开状态时页面较暗）
@@ -35,7 +35,7 @@ struct SplashScreen {
     customStyle: true
   });
 
-  // 此处onPageShow和onPageHide使用不当，使弹窗多次隐藏和显示，会导致闪屏
+ // 此处onPageShow和onPageHide使用不当，使弹窗多次隐藏和显示，会导致闪屏
   onPageShow(): void {
     this.dialogController.open();
   }
@@ -46,25 +46,25 @@ struct SplashScreen {
 
   build() {
     Column() {
-      // 页面内容
+    // 页面内容
     }
   }
 
   @Builder Dialog(){
-    // 弹窗内容
+  // 弹窗内容
   }
 }
 ```
 
-#### 分析结论
+## 分析结论
 
-页面设置为页面隐藏时关闭弹窗，页面显示时重新打开弹窗，导致页面出现闪屏现象。  
+页面设置为页面隐藏时关闭弹窗，页面显示时重新打开弹窗，导致页面出现闪屏现象。
 
-#### 修改建议
+## 修改建议
 
 无需在页面隐藏时关闭弹窗，页面显示时重新打开弹窗，而是使用aboutToAppear使弹窗只在页面加载完成时出现一次。
 
-```
+```ts
 @Entry
 @Component
 struct SplashScreen {
@@ -74,7 +74,7 @@ struct SplashScreen {
     customStyle: true
   });
 
-  // 不在页面隐藏时关闭弹窗和页面显示时重新打开弹窗
+ // 不在页面隐藏时关闭弹窗和页面显示时重新打开弹窗
   aboutToAppear(): void {
     this.dialogController.open();
   }
@@ -148,4 +148,5 @@ struct SplashScreen {
 
 效果图如下：
 
-![](https://media:101782461527008644 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/nsi--VxCTpGKJ4jt86qsrA/zh-cn_image_0000002658972593.png?HW-CC-KV=V1&HW-CC-Date=20260920T114734Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8A05E204605FA93B5C855CF7A63505B4D8EEC996B0D7C96184FB1C3F3EF5AE3 "点击放大")
+

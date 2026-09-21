@@ -6,35 +6,37 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-b
 
 # network_boost.h
 
-#### 概述
+> phone 6.0.2(22)+ | 2in1 6.0.2(22)+ | tablet 6.0.2(22)+
+
+## 概述
 
 声明用于网络加速的API。提供基本的函数、结构体和const定义。
 
-引用文件： \<NetworkBoostKit/network_boost.h\>
+**引用文件：** <NetworkBoostKit/network_boost.h>
 
-库： libnetwork_boost.so
+**库：** libnetwork_boost.so
 
-系统能力： SystemCapability.Communication.NetworkBoost.Core
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
 
-起始版本： 6.0.2(22)
+**起始版本：** 6.0.2(22)
 
-相关模块： [NetworkBoost](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview)  
+**相关模块：** [NetworkBoost](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview)
 
-#### 汇总
+## 汇总
 
-#### 结构体
+## 结构体
 
 |名称|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------------|:--------|
 |struct [NetworkBoost_SceneDesc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-struct-scene_desc)|业务场景描述信息。|
 
-#### 枚举
+## 枚举
 
 |名称|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|
 |[NetworkBoost_SceneEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview#networkboost_sceneevent){ NB_SCENE_EVENT_ENTER = 0, NB_SCENE_EVENT_UPDATE = 1, NB_SCENE_EVENT_LEAVE = 2 }|业务事件枚举。|
 
-#### 函数
+## 函数
 
 |名称|描述|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|

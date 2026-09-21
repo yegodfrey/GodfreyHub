@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-over
 
 # AR Engine简介
 
-AR Engine（AR引擎服务）是一个用于在HarmonyOS上构建增强现实应用的引擎，提供了运动跟踪、环境跟踪等空间计算能力。  
+AR Engine（AR引擎服务）是一个用于在HarmonyOS上构建增强现实应用的引擎，提供了运动跟踪、环境跟踪等空间计算能力。
 
-#### 能力介绍
+## 能力介绍
 
 AR Engine主要包含运动跟踪与平面识别特性、平面语义及物体语义特性、环境Mesh识别特性、深度估计特性、图像跟踪特性、高精几何重建特性、人脸识别与跟踪特性、人体骨骼点识别与跟踪特性。
 
-通过这些能力，应用可以实现虚拟世界与现实世界的融合，给用户提供全新的视觉体验和交互方式。  
+通过这些能力，应用可以实现虚拟世界与现实世界的融合，给用户提供全新的视觉体验和交互方式。
 
-#### 环境识别与运动跟踪能力
+### 环境识别与运动跟踪能力
 
 * [运动跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-pose-conversion)：实时获取设备位置和姿态。
 * [平面识别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane-conversion)：识别环境中的平面。
@@ -23,23 +23,23 @@ AR Engine主要包含运动跟踪与平面识别特性、平面语义及物体�
 * [物体语义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane-shape-conversion)：识别平面上的物体形状。
 * [环境Mesh识别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-mesh-conversion)：获取环境Mesh数据。
 * [深度估计](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-depth-conversion)：获取环境的深度信息。
-* [高精几何重建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-volume-measurement-conversion)：高精几何重建主要包含稠密点云绘制、体积测量、空间识别三大能力。  
+* [高精几何重建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-volume-measurement-conversion)：高精几何重建主要包含稠密点云绘制、体积测量、空间识别三大能力。
 
-#### 人体骨骼识别与跟踪能力
+### 人体骨骼识别与跟踪能力
 
-* [人体骨骼点识别与跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-body-conversion)：识别环境中的人体骨骼点信息。  
+* [人体骨骼点识别与跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-body-conversion)：识别环境中的人体骨骼点信息。
 
-#### 人脸识别与跟踪能力
+### 人脸识别与跟踪能力
 
-* [人脸识别与跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-face-conversion)：识别环境中的人脸信息。  
+* [人脸识别与跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-face-conversion)：识别环境中的人脸信息。
 
-#### 图像识别与跟踪能力
+### 图像识别与跟踪能力
 
-* [图像跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-image-track-conversion)：识别环境中已预置在AR Engine中的图像并输出图像位置和姿态。  
+* [图像跟踪](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-image-track-conversion)：识别环境中已预置在AR Engine中的图像并输出图像位置和姿态。
 
-#### 坐标系说明
+## 坐标系说明
 
-#### AR Engine重力对齐世界坐标系
+### AR Engine重力对齐世界坐标系
 
 * 以相机启动时相机中心为坐标原点；
 
@@ -49,11 +49,11 @@ AR Engine主要包含运动跟踪与平面识别特性、平面语义及物体�
 
 * 设备水平左右移动为Z轴，向右+Z，向左-Z。
 
-图1 重力对齐世界坐标系示意图
+**图1** 重力对齐世界坐标系示意图
 
-![](https://media:401788444139403413)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/m41JXrTtTf-uzNrLk7NAUw/zh-cn_image_0000002733275008.png?HW-CC-KV=V1&HW-CC-Date=20260917T084545Z&HW-CC-Expire=31536000000&HW-CC-Sign=EF844A9122407F8A2DDC0ECD137870AF040B083F7DDB63B5EC258900FDAA4878)
 
-#### AR Engine重力对齐北向坐标系
+### AR Engine重力对齐北向坐标系
 
 * 以相机启动时相机中心为坐标原点；
 
@@ -65,11 +65,11 @@ AR Engine主要包含运动跟踪与平面识别特性、平面语义及物体�
 
 * 重力对齐北向坐标系为固定坐标系，不受设备位姿变化影响。
 
-图2 重力对齐北向坐标系示意图
+**图2** 重力对齐北向坐标系示意图
 
-![](https://media:401788444139437414)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/th-tv2jbRY-aUbD5bwkq-g/zh-cn_image_0000002733434888.png?HW-CC-KV=V1&HW-CC-Date=20260917T084545Z&HW-CC-Expire=31536000000&HW-CC-Sign=43A33F1745670C09128031A98F41689617EB2B6E66BFB2083BF4734776BFE7A4)
 
-#### AGP世界坐标系
+### AGP世界坐标系
 
 * 以相机启动时相机中心为坐标原点；
 
@@ -79,11 +79,11 @@ AR Engine主要包含运动跟踪与平面识别特性、平面语义及物体�
 
 * 设备水平左右移动为X轴，向左+X，向右-X。
 
-图3 AGP世界坐标系示意图
+**图3** AGP世界坐标系示意图
 
-![](https://media:401788444139477415)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/ioBtSasYQOO4OQLV3f6K5g/zh-cn_image_0000002762994409.png?HW-CC-KV=V1&HW-CC-Date=20260917T084545Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A62840527787F8CF1AF71B4031936E75593F485387D2CC10C379F137445F059)
 
-#### 约束与限制
+## 约束与限制
 
 * 在调用AR Engine能力前，需要先通过[canIUse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#使用caniuse判断syscap是否可调用)查询您的目标设备是否支持SystemCapability.AREngine.Core系统能力。
 
@@ -97,10 +97,11 @@ AR Engine主要包含运动跟踪与平面识别特性、平面语义及物体�
   两种方式均返回对应的特性是否支持，具体使用方式参考各个特性的示例代码。
 * 支持机型的产品型号也可以参考[社区问答贴](https://developer.huawei.com/consumer/cn/forum/topic/0204192741933553355?fid=0104164651529951067)。
 
-#### 支持的国家/地区
+## 支持的国家/地区
 
-本Kit当前仅支持在中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）接入使用。  
+本Kit当前仅支持在中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）接入使用。
 
-#### 模拟器支持情况
+## 模拟器支持情况
 
-本Kit暂不支持模拟器。  
+本Kit暂不支持模拟器。
+

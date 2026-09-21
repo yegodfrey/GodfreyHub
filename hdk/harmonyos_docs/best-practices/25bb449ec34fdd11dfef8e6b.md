@@ -6,23 +6,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-shared-bic
 
 # 快捷骑行体验
 
-#### 概述
+## 概述
 
-本场景解决方案涉及共享租赁、即时配送等应用，以共享单车为例，使用实况窗、地图导航和统一扫码等技术，为消费者提供更好的骑行体验。  
+本场景解决方案涉及共享租赁、即时配送等应用，以共享单车为例，使用实况窗、地图导航和统一扫码等技术，为消费者提供更好的骑行体验。
 
-#### 效果展示
+## 效果展示
 
-![](https://media:201788187547821772)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/Es4-jiwNQZWJCAupQRNQTg/zh-cn_image_0000002229450033.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=9DC6365337344D9D8261C6BBD311F6D4166CA7D16B007B5EC2841361A24204A2)
 
-#### 场景说明
+## 场景说明
 
-#### 场景整体介绍
-
-<br />
+### 场景整体介绍
 
 为了简化骑行流程，提升用户体验，建议如下：
-
-<br />
 
 1. 用户可以从应用内或者系统扫码入口进行扫码，直接进入共享单车解锁页面。
 
@@ -30,67 +26,63 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-shared-bic
 
 3. 完成还车、支付等操作后，实况窗状态实时更新。
 
-<br />
+这样，用户无需重复寻找应用和功能入口，整个流程更加简便。
 
-这样，用户无需重复寻找应用和功能入口，整个流程更加简便。  
-
-#### 场景优势
+### 场景优势
 
 本场景结合提供的实况窗、地图导航、扫码等系统能力，可以带给用户更加便捷高效的体验。具体优势如下：
 
 1.使用实况窗技术帮助用户聚焦任务，快速查看和即时处理。支持在锁屏、通知中心显示卡片，在状态栏显示胶囊，点击胶囊后展开悬浮卡片，方便用户查看重点信息。多种显示方式确保信息即时触达，减少用户进出应用或服务页面的次数。
 
-2.基于Map Kit实现个性化地图呈现、地图搜索和路线规划等功能，提供缩放、旋转、移动等流畅的手势交互体验。  
+2.基于Map Kit实现个性化地图呈现、地图搜索和路线规划等功能，提供缩放、旋转、移动等流畅的手势交互体验。
 
-#### 场景分析
+## 场景分析
 
-#### 典型场景
+### 典型场景
 
-|--|---------|--------------------|------------------------------|
-|编号|场景名称|描述|实现方案|
+|------|---------|--------------------|------------------------------|
+|**编号**|**场景名称**|**描述**|**实现方案**|
 |1|扫码解锁|首页和共享单车页面均可扫码直达解锁页面。|基于ScanKit能够快速实现扫码能力|
 |2|地图规划路径|选中目的地，展示最短路径。|基于MapKit能够快速实现路径规划和路线绘制能力|
 |3|实况窗展示骑行状态|骑行过程中，用户需要查看骑行状态。|使用实况窗，用户在锁屏状态下也能查看骑行状态，无需解锁应用。|
 
-#### 场景实现
+## 场景实现
 
-#### 业务流程图
+### 业务流程图
 
 左图展示了当前骑行场景的流程，右图展示了优化后的流程。优化后，省去了在应用间切换和寻找功能入口的步骤，简化了用户操作，提升了用户体验。
 
-![](https://media:201788187547864773)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/q9vTsA7_QOSTUkP7i2vsQg/zh-cn_image_0000002193850172.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=EBB1A66362CC48B58723D5DD3C495214B67A79A80FA7DC80D32D7EA6D93AB382)
 
-#### 骑行状态图
+### 骑行状态图
 
-![](https://media:201788187547911774)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/xdkGug1rQh-_d3VVOZR0bw/zh-cn_image_0000002194009740.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=756633DA4227D3C412766D233D1A0F3E722147C1F20A2BAF55F2B5847F89CD83)
 
-#### 时序图
+### 时序图
 
-![](https://media:201788187547963775 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/50H4-l0cTtuHqjpTZ5MBsQ/zh-cn_image_0000002193850156.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=4F969E113DBFC70769C0AC3F7A38255C024A7A49C2D6B3615E576C0B546F4F62 "点击放大")
 
-#### 扫码解锁
+## 扫码解锁
 
-#### 效果展示
+### 效果展示
 
 在首页或者共享单车页面，点击扫码进入扫码界面，可以使用后置摄像头进行扫码，也可以点击图库选择二维码图片进行扫码。"扫码直达"相关的使用请参见"[接入扫码直达服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scan-directservice)"。
 
-<br />
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/5U9uc5QkR8Gb8R9tv9TUrQ/zh-cn_image_0000002229335549.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=16ABB099F49709FF3E994CEAD4126853684A0FD39382DED70C6CBBCB48670C27)
 
-![](https://media:201788187548077776)  
-
-#### 时序图
+### 时序图
 
 主要业务流程如下：
 
-![](https://media:201788187548106777 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/OYwCBEEKQNqxpdAsRleFPA/zh-cn_image_0000002193850148.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA44F1D3E62965F546DC3A948252DC565BCD499BE7FE1C6212AB3BCAA5602962 "点击放大")
 
-#### 关键点说明
+### 关键点说明
 
 1、使用[Scan Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scan-kit-guide)实现扫码能力，Scan Kit应用了多项计算机视觉技术和AI算法技术，不仅实现了远距离自动扫码，同时还针对多种复杂扫码场景（如暗光、污损、模糊、小角度、曲面码等）做了识别优化，提升扫码成功率与用户体验。
 
 2、在Entry模块的module.json5文件的requestPermissions字段中添加ohos.permission.CAMERA权限，以申请系统相机权限。
 
-```
+```typescript
   "requestPermissions": [
     // ...
     {
@@ -107,11 +99,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-shared-bic
 },
 ```
 
-3、支持多种识码类型，常用的是二维码，也支持条形码扫描。  
+3、支持多种识码类型，常用的是二维码，也支持条形码扫描。
 
-#### 关键代码片段
+### 关键代码片段
 
-```
+```typescript
 import { scanBarcode, scanCore } from '@kit.ScanKit';
 import { CyclingConstants, CyclingStatus } from '../constants/CyclingConstants';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -141,39 +133,37 @@ export class ScanUtil {
 }
 ```
 
-#### 地图路径规划
+## 地图路径规划
 
-#### 效果展示
+### 效果展示
 
 进入找车页面后，可以点击任意位置模拟自行车的所在地，地图将进行步行路线规划并增加标记点。
 
-<br />
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/EqBpg2yXTwGGOGE3rvL_-g/zh-cn_image_0000002193850168.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=8148074AA376A43D4A01F572B9375CF510F90AA6C8280DC8F529CE774F88BD91)
 
-![](https://media:201788187548167778)  
+### 时序图
 
-#### 时序图
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/SgOxCbVVQ0yzv1-kw9UxEA/zh-cn_image_0000002194009744.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=2FA98C4A563678C2713D03FEDF3224DC22E4F2E94BF340426D0181162FDBFE72 "点击放大")
 
-![](https://media:201788187548197779 "点击放大")  
-
-#### 关键点说明
+### 关键点说明
 
 1、使用[Map Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-kit-guide)实现地图能力，Map Kit可以帮助开发者实现个性化地图呈现、地图搜索和路线规划等功能，轻松完成地图构建工作。
 
 2、参考文档[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)去AppGallery Connect开通地图服务。注意要在工程中entry模块的module.json5文件中配置client_id。
 
-3、启用"我的位置"之前，确保应用已获取用户定位权限。需要申请ohos.permission.LOCATION和ohos.permission.APPROXIMATELY_LOCATION权限。  
+3、启用"我的位置"之前，确保应用已获取用户定位权限。需要申请ohos.permission.LOCATION和ohos.permission.APPROXIMATELY_LOCATION权限。
 
-#### 关键代码片段
+### 关键代码片段
 
 1、导入Map Kit
 
-```
+```typescript
 import { MapComponent, mapCommon, map } from '@kit.MapKit';
 ```
 
 2、集成地图组件，初始化地图页面
 
-```
+```typescript
 aboutToAppear(): void {
   // initialize map
   this.callback = async (err, mapController) => {
@@ -241,7 +231,7 @@ aboutToAppear(): void {
 
 3、向用户申请授予定位权限，启动"我的位置"功能
 
-```
+```typescript
 requestPermissions(): void {
   let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
   atManager.requestPermissionsFromUser(this.getUIContext().getHostContext() as common.UIAbilityContext,
@@ -274,7 +264,7 @@ requestPermissions(): void {
 
 4、监听点击事件
 
-```
+```typescript
 this.mapController.on('mapClick', async (position) => {
   this.mapController?.clear();
   this.marker?.remove();
@@ -292,8 +282,9 @@ this.mapController.on('mapClick', async (position) => {
 
 5、启动步行路径规划
 
-```
-public static async walkingRoutes(position: mapCommon.LatLng, myPosition?: mapCommon.LatLng) {
+```screen
+public static async walkingRoutes(position: mapCommon.LatLng,
+  myPosition?: mapCommon.LatLng): Promise<navi.RouteResult | undefined> {
   let params: navi.RouteParams = {
     origins: [myPosition!],
     destination: position,
@@ -312,12 +303,12 @@ public static async walkingRoutes(position: mapCommon.LatLng, myPosition?: mapCo
 
 6、绘制路线
 
-```
+```screen
 public static async paintRoute(routeResult: navi.RouteResult, mapPolyline?: map.MapPolyline,
-  mapController?: map.MapComponentController) {
+  mapController?: map.MapComponentController): Promise<void> {
   mapPolyline?.remove();
   let polylineOption: mapCommon.MapPolylineOptions = {
-    points: routeResult.routes[0].overviewPolyline!,
+    points: routeResult.routes[NUM_ZERO].overviewPolyline!,
     clickable: true,
     startCap: mapCommon.CapStyle.BUTT,
     endCap: mapCommon.CapStyle.BUTT,
@@ -328,7 +319,7 @@ public static async paintRoute(routeResult: navi.RouteResult, mapPolyline?: map.
     zIndex: 10,
     gradient: false,
     color: 0xFF2970FF
-  }
+  };
   try {
     mapPolyline = await mapController?.addPolyline(polylineOption);
   } catch (error) {
@@ -337,39 +328,37 @@ public static async paintRoute(routeResult: navi.RouteResult, mapPolyline?: map.
 }
 ```
 
-#### 实况窗展示骑行状态
+## 实况窗展示骑行状态
 
-#### 效果展示
+### 效果展示
 
 点击解锁后，实况窗显示骑行状态。完成还车、支付等操作后，实况窗的状态实时更新。支持在锁屏、通知中心显示卡片，状态栏显示胶囊形态。点击状态栏的胶囊后，展开悬浮卡片，方便用户查看骑行状态。
 
-<br />
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/sgQymlj7TjGyfAHdtAM7cA/zh-cn_image_0000002229335553.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D95954CD29B13C4A9920BB6F42246A4658431645B3B5B7C5C0DBBA969E490FB)
 
-![](https://media:201788187548355780)  
+### 时序图
 
-#### 时序图
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/iuUL7ZB1RSKkMU6AwSDmdw/zh-cn_image_0000002194009760.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=4C336AAA4D8807D0F8F22B7CC4FF3123570EE16DF57919DA43C663EA2FF8CBAB "点击放大")
 
-![](https://media:201788187548384781 "点击放大")  
-
-#### 关键点说明
+### 关键点说明
 
 1、使用Live View Kit实现实况窗服务，支持应用在设备的关键界面展示订单或服务的实时状态信息。
 
 2、参考文档[申请实况窗正式权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/liveview-formal-authority)去AppGallery Connect开通实况窗服务。
 
-3、此场景中仅使用了本地实况窗的能力。本地更新或结束实况窗依赖于您的应用进程。若业务需要，可使用Push Kit远程更新或结束实况窗。  
+3、此场景中仅使用了本地实况窗的能力。本地更新或结束实况窗依赖于您的应用进程。若业务需要，可使用Push Kit远程更新或结束实况窗。
 
-#### 关键代码片段
+### 关键代码片段
 
 1、导入Live View Kit
 
-```
-import { liveViewManager } from '@kit.LiveViewKit';
+```screen
+import type { liveViewManager } from '@kit.LiveViewKit';
 ```
 
 2、创建实况窗
 
-```
+```typescript
 public async startLiveView(context: LiveViewContext,
   liveViewEnvironment?: LiveViewEnvironment): Promise<liveViewManager.LiveViewResult | undefined> {
   // build liveView
@@ -388,7 +377,7 @@ public async startLiveView(context: LiveViewContext,
 
 3、更新和结束实况窗
 
-```
+```typescript
 public async updateLiveView(status: number,
   context: LiveViewContext): Promise<liveViewManager.LiveViewResult | undefined> {
   // update liveView
@@ -448,7 +437,7 @@ public async updateLiveView(status: number,
 
 4、开发用户自定义沉浸态实况窗
 
-```
+```typescript
 export default class LiveViewLockScreenExtAbility extends LiveViewLockScreenExtensionAbility {
   onCreate() {
     hilog.info(0x0000, 'LiveViewLockScreenTag', 'LiveViewLockScreenExtAbility onCreate begin.');
@@ -482,7 +471,7 @@ export default class LiveViewLockScreenExtAbility extends LiveViewLockScreenExte
 
 5、在LiveViewDataBuilder中配置沉浸态实况窗参数
 
-```
+```typescript
 this.primary = {
   title: '',
   content: [
@@ -502,7 +491,7 @@ this.primary = {
 
 6、在module.json5中配置拓展的ability
 
-```
+```typescript
 "extensionAbilities": [
   {
     "name": "LiveViewLockScreenExtAbility",
@@ -513,6 +502,7 @@ this.primary = {
 ],
 ```
 
-#### 示例代码
+## 示例代码
 
-* [基于实况窗和扫码功能实现快捷触达的骑行场景](https://gitcode.com/HarmonyOS_Samples/bicycle-sharing)  
+* [基于实况窗和扫码功能实现快捷触达的骑行场景](https://gitcode.com/HarmonyOS_Samples/bicycle-sharing)
+

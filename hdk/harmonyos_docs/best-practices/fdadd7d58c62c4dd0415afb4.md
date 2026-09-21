@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reasonable
 
 # 传感器资源合理使用
 
-应用退至后台时，禁止使用传感器资源。若有正常业务需求，申请后台长时任务后，可在锁屏状态下获取传感器信息。  
+应用退至后台时，禁止使用传感器资源。若有正常业务需求，申请后台长时任务后，可在锁屏状态下获取传感器信息。
 
-#### 约束
+## 约束
 
-应用退至后台时，禁止使用传感器资源。若有正常业务需求，申请后台长时任务后，可在锁屏状态下获取传感器信息。  
+应用退至后台时，禁止使用传感器资源。若有正常业务需求，申请后台长时任务后，可在锁屏状态下获取传感器信息。
 
-#### 示例
+## 示例
 
-```
+```typescript
 import { UIAbility } from '@kit.AbilityKit';
 import { sensor } from '@kit.SensorServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -48,4 +48,5 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-有关传感器开发相关接口的使用，详情可以参考[传感器开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sensor-guidelines)。  
+有关传感器开发相关接口的使用，详情可以参考[传感器开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sensor-guidelines)。
+

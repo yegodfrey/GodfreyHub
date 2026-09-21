@@ -1,0 +1,18 @@
+---
+name: document/cn/HMSCore-Examples/server-sample-code-0000001056563536
+title: 服务端示例代码
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/server-sample-code-0000001056563536
+---
+
+# 服务端示例代码
+
+## 流量变现服务报表API
+
+该工程演示如何用Java代码调用广告服务API，通过该Demo可以实现：
+
+通过API获取流量变现收益数据，包括请求量、返回量、点击率、展示率等。
+
+|名称|Gitee|GitHub|
+|:--------------|:-------------------------------------------------|:--------------------------------------------------|
+|流量变现服务报表API示例代码|[链接](https://gitee.com/hms-core/hms-ads-severdemo)|[链接](https://github.com/HMS-Core/hms-ads-severdemo)|
+

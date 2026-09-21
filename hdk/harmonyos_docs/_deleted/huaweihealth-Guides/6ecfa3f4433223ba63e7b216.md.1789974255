@@ -1,0 +1,40 @@
+---
+name: document/cn/huaweihealth-Guides/start-temperature-measurement-0000002376514437
+title: 拉起体温测量
+uri: https://developer.huawei.com/consumer/cn/doc/huaweihealth-Guides/start-temperature-measurement-0000002376514437
+---
+
+# 拉起体温测量
+
+穿戴设备提供测量体温的能力，通过行业SDK可以拉起穿戴设备上的体温应用进行体温测量。
+> 说明
+>
+> 单次测量最长等待时间为5分钟，如果超过5分钟未进行测量将会返回测量超时状态码407。在测量等待时间内，如再次下发血氧或体温测量将会返回业务冲突状态码11。
+
+1. 导入相关模块。
+2. 调用[industryServiceClient](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section7749131442313)中的[getDeviceManager](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section17822141183313)方法获取[DeviceManager](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section2045012381872)对象。
+3. 调用[DeviceManager](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section2045012381872)对象的[getDevices](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section1558035984613)方法获取穿戴设备列表。
+4. 调用[Device](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section4106204316283)对象的[startDeviceAbility](https://developer.huawei.com/consumer/cn/doc/health-References/industryservice-0000002441251357#section260419244581)方法拉起体温测量。
+
+   ```screen
+   // 导入相关模块
+   import {IndustryService, industryServiceClient} from '@huawei-cbg/health-industry-sdk';
+   import { BusinessError } from '@ohos.base';
+
+   // 通过industryServiceClient获取DeviceManager对象，然后通过DeviceManager对象获取Device对象
+   industryServiceClient.getDeviceManager(getContext(this)).getDevices().then(devices => devices?.[0])
+     .then((device: IndustryService.Device) => {
+       // 调用Device对象的startDeviceAbility方法拉起体温测量
+       device.startDeviceAbility(IndustryService.DeviceAbilityType.TEMPERATURE_MEASURE, (measureResult: number) => {
+         // 拉起体温测量成功, 打印返回的测量结果
+         console.info(`Succeeded in starting the temperature measurement, result is ${measureResult}.`);
+       }).catch((err: BusinessError) => {
+         // 拉起体温测量失败
+         console.error(`Failed to start the temperature measurement. Code is ${err.code}, message is ${err.message}.`);
+       });
+     }).catch((err: BusinessError) => {
+       // 获取穿戴设备列表失败
+       console.error(`Failed to get devices. Code is ${err.code}, message is ${err.message}.`);
+     });
+   ```
+

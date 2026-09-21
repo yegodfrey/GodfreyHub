@@ -6,9 +6,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # Region
 
-归属地地址枚举类。  
+归属地地址枚举类。
 
-#### Parameters
+## Parameters
 
 |Name|Value|Description|
 |:--------|:----|:----------|

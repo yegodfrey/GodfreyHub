@@ -6,45 +6,48 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanag
 
 # fileManagerService
 
+> phone 5.0.5(17)+ | 2in1 5.0.5(17)+ | tablet 5.0.5(17)+
+
 fileManagerService模块提供删除文件到回收站、获取文件图标及解析文件快捷方式的能力。
 
-起始版本： 5.0.5(17)  
+**起始版本：** 5.0.5(17)
 
-#### 导入模块
+## 导入模块
 
-```
+```typescript
 import { fileManagerService } from '@kit.FileManagerServiceKit';
 ```
 
-#### fileManagerService.deleteToTrash
+## fileManagerService.deleteToTrash
 
-deleteToTrash(uri: string): Promise\<string\>
+deleteToTrash(uri: string): Promise<string>
 
-以异步方法删除文件到回收站，返回删除后路径。使用Promise异步回调。  
-![](https://media:401788444903319972)  
-此接口参数uri的具体使用方式参见用户文件uri介绍中的[文档类URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#文档类uri)。
+以异步方法删除文件到回收站，返回删除后路径。使用Promise异步回调。
+> 注意
+>
+> 此接口参数uri的具体使用方式参见用户文件uri介绍中的[文档类URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#文档类uri)。
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.FileManagement.FileManagerService.Core
+**系统能力**：SystemCapability.FileManagement.FileManagerService.Core
 
-起始版本： 5.0.5(17)
+**起始版本：** 5.0.5(17)
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:--|:-----|:-|:--------|
 |uri|string|是|待删除文件的uri|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:----------------|:-------------------------|
-|Promise\<string\>|Promise对象，返回文件删除到回收站后的uri。|
+|:--------------|:-------------------------|
+|Promise<string>|Promise对象，返回文件删除到回收站后的uri。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-errorcode)。  
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-errorcode)。
 
 |错误码ID|错误信息|
 |:-------------------------------------------------------------------------------------------------------------|:-------------------------|
@@ -54,9 +57,9 @@ deleteToTrash(uri: string): Promise\<string\>
 |1014000003|No space left on device.|
 |1014000004|System inner fail.|
 
-示例代码：
+**示例代码：**
 
-```
+```typescript
 import { fileManagerService } from '@kit.FileManagerServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -75,35 +78,35 @@ async function deleteFile() {
 }
 ```
 
-#### fileManagerService.getFileIconSync
+## fileManagerService.getFileIconSync
 
-getFileIconSync(fileType: string): string \| Resource
+getFileIconSync(fileType: string): string | Resource
 
 根据文件类型获取文件图标。
 
-需要权限：ohos.permission.GET_FILE_ICON
+**需要权限**：ohos.permission.GET_FILE_ICON
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.FileManagement.FileManagerService.Core
+**系统能力**：SystemCapability.FileManagement.FileManagerService.Core
 
-起始版本： 5.0.5(17)
+**起始版本：** 5.0.5(17)
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:-----|:-|:------------------------------------------------------------------------------------------------------------------------|
 |fileType|string|是|文件类型对应的UTD-ID，详见[图标格式说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-iconformat)|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:--------------------------------------------------------------------------------------------------------|:-----------------|
-|string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|文件图标的Base64编码或资源对象|
+|:-------------------------------------------------------------------------------------------------------|:-----------------|
+|string | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|文件图标的Base64编码或资源对象|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-errorcode)。  
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-errorcode)。
 
 |错误码ID|错误信息|
 |:-------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -111,9 +114,9 @@ getFileIconSync(fileType: string): string \| Resource
 |[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)|Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed.|
 |1014000004|System inner fail.|
 
-示例代码：
+**示例代码：**
 
-```
+```typescript
 import { fileManagerService } from '@kit.FileManagerServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { uniformTypeDescriptor } from '@kit.ArkData';
@@ -154,35 +157,35 @@ struct Index {
 }
 ```
 
-#### fileManagerService.getFileIcon
+## fileManagerService.getFileIcon
 
-getFileIcon(fileType: string): Promise\<string \| Resource\>
+getFileIcon(fileType: string): Promise<string | Resource>
 
 根据文件类型获取文件图标。使用Promise异步回调。
 
-需要权限：ohos.permission.GET_FILE_ICON
+**需要权限**：ohos.permission.GET_FILE_ICON
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.FileManagement.FileManagerService.Core
+**系统能力**：SystemCapability.FileManagement.FileManagerService.Core
 
-起始版本： 5.0.5(17)
+**起始版本：** 5.0.5(17)
 
-参数：  
+**参数：**
 
 |参数名|类型|必填|说明|
 |:-------|:-----|:-|:------------------------------------------------------------------------------------------------------------------------|
 |fileType|string|是|文件类型对应的UTD-ID，详见[图标格式说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-iconformat)|
 
-返回值：  
+**返回值：**
 
 |类型|说明|
-|:-------------------------------------------------------------------------------------------------------------------|:------------------------------|
-|Promise\<string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)\>|Promise对象，返回文件图标的Base64编码或资源对象。|
+|:----------------------------------------------------------------------------------------------------------------|:------------------------------|
+|Promise<string | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)>|Promise对象，返回文件图标的Base64编码或资源对象。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-errorcode)。  
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-errorcode)。
 
 |错误码ID|错误信息|
 |:-------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -190,9 +193,9 @@ getFileIcon(fileType: string): Promise\<string \| Resource\>
 |[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)|Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed.|
 |1014000004|System inner fail.|
 
-示例代码：
+**示例代码：**
 
-```
+```typescript
 import { fileManagerService } from '@kit.FileManagerServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { uniformTypeDescriptor } from '@kit.ArkData';
@@ -236,42 +239,42 @@ struct Index {
 }
 ```
 
-#### fileManagerService.parseShortcut
+## fileManagerService.parseShortcut
 
-parseShortcut(linkUri: string): Promise\<string\>
+parseShortcut(linkUri: string): Promise<string>
 
 根据快捷方式文件的URI解析出对应原文件的URI。使用Promise异步回调。
 
-模型约束：此接口仅可在Stage模型下使用。
+**模型约束**：此接口仅可在Stage模型下使用。
 
-系统能力：SystemCapability.FileManagement.FileManagerService.Core
+**系统能力**：SystemCapability.FileManagement.FileManagerService.Core
 
-起始版本：6.1.0(23)
+**起始版本**：6.1.0(23)
 
-参数：  
+**参数**：
 
 |参数名|类型|必填|说明|
 |:------|:-----|:-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |linkUri|string|是|快捷方式文件的URI，调用方对该文件需要有读权限。具体使用方式参见用户文件URI介绍中的[文档类URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#文档类uri)，快捷方式文件URI的后缀必须为".hlink"。|
 
-返回值：  
+**返回值**：
 
 |类型|说明|
-|:----------------|:---------------------|
-|Promise\<string\>|Promise对象，返回对应原文件的URI。|
+|:--------------|:---------------------|
+|Promise<string>|Promise对象，返回对应原文件的URI。|
 
-错误码：
+**错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-errorcode)。  
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-errorcode)。
 
 |错误码ID|错误信息|
 |:---------|:-------------------------|
 |1014000002|No such file or directory.|
 |1014000005|Invalid shortcut file.|
 
-示例代码：
+**示例代码**：
 
-```
+```typescript
 import { fileManagerService } from '@kit.FileManagerServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 

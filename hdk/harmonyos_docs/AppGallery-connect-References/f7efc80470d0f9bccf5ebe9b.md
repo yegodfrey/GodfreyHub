@@ -6,7 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 
 # Publishing API
 
-<br />
-
-* [HarmonyOS 5及以上](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-harmonyos-0000002093065194)  
-* [Android](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-0000001150409957)  
+* **[HarmonyOS 5及以上](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-harmonyos-0000002093065194)**   
+* **[Android](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agcapi-publishingapi-0000001150409957)**   

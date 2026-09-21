@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:---------------------------------------------------------------------------------|
 |public readonly struct ChildEntityChangedEvent : IEvent 子实体变化事件结构体，当实体的子实体发生变化时触发。|
 
-#### Property Summary
+## Property Summary
 
 |Name|Type|Description|
 |:----------|:--------------------|:----------|
@@ -22,9 +22,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |Entity|IEntity|只读属性。父实体引用。|
 |ChildEntity|IEntity|只读属性。子实体引用。|
 
-Sample Code
+**Sample Code**
 
-```
+```screen
 // 定义子实体变更事件处理器，可访问事件字段和属性
 Action<EntityDestroyedEvent> entityDestroyed = (evt) =>
 {

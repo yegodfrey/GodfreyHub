@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:---------------------------|
 |public class Player 房间内玩家信息。|
 
-#### Properties
+## Properties
 
 |Name|Type|Description|
 |:----------|:-----|:--------------------------|

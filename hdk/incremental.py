@@ -447,7 +447,7 @@ def _run(no_recheck, skip_delete, limit):
                 if not skip_delete:
                     soft_delete(n, s, fetched, hashes)
                 stats["deleted"] += 1
-                tag = "（已移到 _deleted）" if not args.skip_delete else "（--skip-delete 未删除）"
+                tag = "（已移到 _deleted）" if not skip_delete else "（--skip-delete 未删除）"
                 print(f"[DELETE] {n} {tag}", flush=True)
             else:
                 print(f"[keep] {n} 二次确认仍存在，保留", flush=True)

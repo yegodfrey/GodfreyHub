@@ -6,21 +6,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1317
 
 # CanvasRenderingContext2D是否可以绘制GIF动画
 
-#### 问题现象
+## 问题现象
 
-CanvasRenderingContext2D对象中的drawImage方法是否可以绘制GIF动画，如果可以，绘制的动画转成PixelMap是否依然有效？  
+CanvasRenderingContext2D对象中的drawImage方法是否可以绘制GIF动画，如果可以，绘制的动画转成PixelMap是否依然有效？
 
-#### 效果预览
+## 效果预览
 
-![](https://media:201786586162014692 "点击放大")  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/K3IVCHbmS-qKwP0u1ARGEA/zh-cn_image_0000002628599106.png?HW-CC-KV=V1&HW-CC-Date=20260917T085939Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A0993ED9F876C6D2172F86450B9ADE63513D22451EF96167CCE682F6D0A206F "点击放大")
 
-#### 背景知识
+## 背景知识
 
 * [CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)可用于在[Canvas画布组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)上进行绘制，绘制对象可以是图形、文本、线段、图片等。
 * CanvasRenderingContext2D中[drawImage方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#drawimage)用于在Canvas上绘制图片。它可以接受多种参数形式的图片资源，包括[ImageBitmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagebitmap)、[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-image)、[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)等。CanvasRenderingContext2D中[getPixelMap方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-common-method#getpixelmap)可以以当前Canvas指定区域内的像素创建PixelMap对象。
-* [packToFileFromPixelmapSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker#packtofilefrompixelmapsequence18)可以将多个PixelMap编码成GIF文件。  
+* [packToFileFromPixelmapSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker#packtofilefrompixelmapsequence18)可以将多个PixelMap编码成GIF文件。
 
-#### 解决方案
+## 解决方案
 
 drawImage方法本身可以用于绘制静态图片，而对于GIF动画文件，通常需要使用其他方法来实现动画效果。例如，可以通过定时器和定期刷新Canvas上的图像内容。或者使用专门的动画库来管理动画帧的绘制。
 
@@ -30,7 +30,7 @@ drawImage方法本身可以用于绘制静态图片，而对于GIF动画文件�
 
 以下示例通过渐变色定时刷新来实现绘制GIF动画效果：
 
-```
+```ts
 @Entry
 @Component
 struct Picture {
@@ -95,4 +95,5 @@ struct Picture {
 }
 ```
 
-如果想将GIF动画保存至沙箱中，可以通过getPixelMap截取每一帧的像素，对像素进行转码png格式图片，获取图片的PixelMap，再通过packToFileFromPixelmapSequence将多个PixelMap编码成GIF文件。可参考[多张图片合成GIF动图](https://developer.huawei.com/consumer/cn/doc/architecture-guides/gif_generator-0000002330170016)。  
+如果想将GIF动画保存至沙箱中，可以通过getPixelMap截取每一帧的像素，对像素进行转码png格式图片，获取图片的PixelMap，再通过packToFileFromPixelmapSequence将多个PixelMap编码成GIF文件。可参考[多张图片合成GIF动图](https://developer.huawei.com/consumer/cn/doc/architecture-guides/gif_generator-0000002330170016)。
+

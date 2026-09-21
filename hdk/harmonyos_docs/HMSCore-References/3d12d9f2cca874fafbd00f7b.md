@@ -10,34 +10,34 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/destpoiattr
 |:--------------------------------------|
 |public class DestPoiAttri 目的地POI点属性信息类。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:------------------------------------------------------------|
 |void|[setLangCode](#section17187141572618)(String langCode) 设置语言码。|
 |void|[setPoiName](#section15593154485)(String poiName) 设置地理位置名称。|
 
-#### Public Methods
+## Public Methods
 
-#### setLangCode
+### setLangCode
 
 |Method|
 |:----------------------------------------------|
 |public void setLangCode(String langCode) 设置语言码。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-------|:----------|
 |langCode|语言码。|
 
-#### setPoiName
+### setPoiName
 
 |Method|
 |:-----------------------------------------------|
 |public void setPoiName(String poiName) 设置地理位置名称。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:------|:----------|

@@ -6,20 +6,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-integrate-service
 
 # 集成服务
 
-部分开发类服务需要您集成对应的SDK，您需要在您的应用中调用SDK的接口实现对应功能。  
+部分开发类服务需要您集成对应的SDK，您需要在您的应用中调用SDK的接口实现对应功能。
 
-#### AppGallery Connect开发服务
+## AppGallery Connect开发服务
 
-需要集成SDK或进行服务端开发的AGC开发服务如下表，具体集成方法请参考各服务的集成文档。  
+需要集成SDK或进行服务端开发的AGC开发服务如下表，具体集成方法请参考各服务的集成文档。
 
 |分类|服务|说明|
-|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|云开发 <br />|[认证服务](https://developer.huawei.com/consumer/cn/agconnect/auth-service)|认证服务可以帮助您统一管理包括华为帐号、微信、邮箱、匿名帐号等多种帐号类型的用户，使您免于自行搭建用户认证系统。|
-|云开发 <br />|[云函数](https://developer.huawei.com/consumer/cn/agconnect/cloud-function)|云函数是一项Serverless计算服务，提供FaaS（Function as a Service）能力，一方面云函数将开发测试的对象聚焦到函数级别，可以帮助您大幅简化应用开发与运维相关的事务，另一方面您可以通过在应用中集成云函数SDK，便捷操作云数据库、云存储等，提升业务功能构建的便利性。|
-|云开发 <br />|[云数据库](https://developer.huawei.com/consumer/cn/agconnect/cloud-base)|云数据库是一款端云协同的数据库产品，提供端云数据的协同管理、统一的数据模型和丰富的数据管理API接口等能力。在保证数据的可用性、可靠性、一致性，以及安全等特性基础上，能够实现数据在客户端和云端之间的无缝同步，并为应用提供离线支持，以帮助开发者快速构建端云、多端协同的应用。|
-|云开发 <br />|[云存储](https://developer.huawei.com/consumer/cn/agconnect/cloud-storage)|云存储是一种可伸缩、免维护的云端存储服务，您可以用于存储图片、音频、视频或其他由用户生成的内容。借助云存储服务，您可以无需关心存储服务器的开发、部署、运维、扩容等事务，大大降低了应用使用存储的门槛，让您可以专注于应用的业务能力构建，助力您的商业成功。|
-|云开发 <br />|[云托管](https://developer.huawei.com/consumer/cn/agconnect/cloud-hosting)|云托管服务是一项提供内容托管的服务，包括网站托管和存储加速功能，为用户提供安全快速的内容访问能力。云托管服务提供了方便快捷的网页应用部署能力，您只需聚焦界面交互、页面样式和业务逻辑，无需关注域名申请、证书管理等安全配置，也不需要关注页面分发，即可构建高安全、快速访问的网站。|
-|云开发 <br />|[预加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview)|适用于应用安装后首页或任意页面的加载提速，可提前加载资源数据到本地进行缓存，有效提升应用页面打开速度，改善用户体验。|
+|:--|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|云开发|[认证服务](https://developer.huawei.com/consumer/cn/agconnect/auth-service)|认证服务可以帮助您统一管理包括华为帐号、微信、邮箱、匿名帐号等多种帐号类型的用户，使您免于自行搭建用户认证系统。|
+|云开发|[云函数](https://developer.huawei.com/consumer/cn/agconnect/cloud-function)|云函数是一项Serverless计算服务，提供FaaS（Function as a Service）能力，一方面云函数将开发测试的对象聚焦到函数级别，可以帮助您大幅简化应用开发与运维相关的事务，另一方面您可以通过在应用中集成云函数SDK，便捷操作云数据库、云存储等，提升业务功能构建的便利性。|
+|云开发|[云数据库](https://developer.huawei.com/consumer/cn/agconnect/cloud-base)|云数据库是一款端云协同的数据库产品，提供端云数据的协同管理、统一的数据模型和丰富的数据管理API接口等能力。在保证数据的可用性、可靠性、一致性，以及安全等特性基础上，能够实现数据在客户端和云端之间的无缝同步，并为应用提供离线支持，以帮助开发者快速构建端云、多端协同的应用。|
+|云开发|[云存储](https://developer.huawei.com/consumer/cn/agconnect/cloud-storage)|云存储是一种可伸缩、免维护的云端存储服务，您可以用于存储图片、音频、视频或其他由用户生成的内容。借助云存储服务，您可以无需关心存储服务器的开发、部署、运维、扩容等事务，大大降低了应用使用存储的门槛，让您可以专注于应用的业务能力构建，助力您的商业成功。|
+|云开发|[云托管](https://developer.huawei.com/consumer/cn/agconnect/cloud-hosting)|云托管服务是一项提供内容托管的服务，包括网站托管和存储加速功能，为用户提供安全快速的内容访问能力。云托管服务提供了方便快捷的网页应用部署能力，您只需聚焦界面交互、页面样式和业务逻辑，无需关注域名申请、证书管理等安全配置，也不需要关注页面分发，即可构建高安全、快速访问的网站。|
+|云开发|[预加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-prefetch-overview)|适用于应用安装后首页或任意页面的加载提速，可提前加载资源数据到本地进行缓存，有效提升应用页面打开速度，改善用户体验。|
 |构建|[Dynamic Ability](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-dynamicability-introduction-0000001057944549)|Dynamic Ability是华为应用市场基于Android App Bundle技术实现的动态加载特性的一套解决方案，第三方应用通过集成Dynamic Ability SDK，可以在需要时动态从华为应用市场下载应用的某个特性或语言包，从而减少不必要的网络流量与终端设备存储空间消耗。|
 |构建|[Connect API](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-overview-0000001158245083)|Connect API是一套RESTful API，利用这些API，您可以定制AppGallery Connect提供的服务，或是实现流程自动化，从而提升工作效率。|
 |增长|[A/B测试](https://developer.huawei.com/consumer/cn/agconnect/abtest-introduction)|使用A/B测试，可以让科学的实验数据来帮助您优化应用体验、提升关键转化及增长指标。您可以为不同的用户群体创建一组或多组对比实验，通过实验得出关键对比数据，选择更符合用户需求的应用界面、文案、产品功能或营销活动，从而根据用户反馈做出方案选择，提高决策准确率，降低决策风险。|
@@ -27,7 +27,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-integrate-service
 |增长|[应用内消息](https://developer.huawei.com/consumer/cn/agconnect/app-messaging)|应用内消息可以在用户使用应用时，基于用户使用情景向用户发送有针对性的消息，鼓励用户使用应用的某些关键功能，也可以借助应用内消息发送更具吸引力的营销内容，增强用户粘性。|
 |增长|[App Linking](https://developer.huawei.com/consumer/cn/agconnect/App-linking)|App Linking是一种支持Android、iOS、Web等多种平台的跳转链接，无论用户是否已经安装您的应用，App Linking都能够按照您指定的方式进行跳转。用户在Android或iOS设备上点击App Linking后，即可跳转到链接指定的内容。用户在PC端浏览器中打开相同的链接地址，也可以跳转到网站上的同等内容。|
 |增长|[应用下载直达](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agdlink-introduction-0000001164321879)|应用下载直达是华为应用市场对外提供的官方下载服务，广告平台、媒体、开发者等均可通过应用下载直达服务安全、快捷推广应用，并可通过数据归因对推广效果进行数据分析。|
-|质量|[崩溃](https://developer.huawei.com/consumer/cn/agconnect/crash)|崩溃服务是一个功能强大、轻量级的崩溃解决方案。它能帮助您快速发现、定位、解决应用崩溃（又称闪退）问题，其使用非常简便，无需开发任何代码即可实现可视化数据报告的实时查看。|
 |质量|[性能管理](https://developer.huawei.com/consumer/cn/agconnect/apm)|性能管理（APM，App Performance Management）服务提供分钟级应用性能监控能力，您可以在AGC查看和分析APM收集到的应用性能数据，实时全面掌握应用在线的性能表现，帮助您快速闭环应用的性能问题，持续提升应用的用户体验。|
 |质量|[云测试](https://developer.huawei.com/consumer/cn/agconnect/cloud-test)|华为云测试致力于为您提供便捷的一站式移动应用测试服务，解决您在移动应用开发、测试过程中面临的成本、技术和效率问题，保障您的App在华为手机上获得优质的用户体验。华为云测试为您提供了华为热门移动终端设备，有针对性地向您提供应用在华为手机上的兼容性测试、稳定性测试、性能测试和功耗测试，快速出具专业且详细的测试报告，帮助您提前发现并精准定位解决应用在华为手机上运行的各种问题。|
 |质量|[云调试](https://developer.huawei.com/consumer/cn/agconnect/cloud-adjust)|华为云调试致力于为您免费提供高效的云端设备调试解决方案，解决您设备机型不足、设备管理困难及bug无法复现等问题，降低您的采购及管理成本。华为云调试提供不同型号的机型，让您可随时随地直观了解应用在不同机型上的运行表现。|
@@ -36,9 +35,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-integrate-service
 |盈利|[联运服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/appgallerykit-introduction-0000001055521414)|联运服务是指华为和开发者在华为应用市场联合运营应用，并进行分成的合作服务。华为向您提供华为应用市场平台能力接入、数据报表、活动运营、用户运营等一系列服务，您可以借此获取多种优质华为应用市场推荐资源。|
 |盈利|[付费下载](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/appgallerykit-paidapps-introduction-0000001073582987)|付费下载是华为为开发者和消费者推出的精品应用付费下载服务，支持多种多样的支付渠道，为消费者提供优质的精品应用，同时也为开发者变现提供了更好的途径。|
 
-#### HMS Core开发服务
+## HMS Core开发服务
 
-需要集成SDK或进行服务端开发的HMS Core开发服务如下表。  
+需要集成SDK或进行服务端开发的HMS Core开发服务如下表。
 
 |分类|能力名称|描述|
 |:-----------|:----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------|
@@ -68,7 +67,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-integrate-service
 |Graphics|[HUAWEI AR Engine](https://developer.huawei.com/consumer/cn/hms/huawei-arengine/)|为您的应用提供运动跟踪、人体和人脸跟踪、环境跟踪等AR能力，助力应用融合虚拟世界与现实世界，打造全新的视觉体验和交互方式。|
 |Graphics|[图形计算服务](https://developer.huawei.com/consumer/cn/hms/huawei-computer-graphics/)|提供高性能的渲染框架，图形渲染组件，以及前沿计算机图形学、计算机视觉和深度学习相结合的技术研究成果。|
 |Graphics|[游戏加速能力](https://developer.huawei.com/consumer/cn/game-kit)|通过游戏App给系统提供精细化场景信息、配置信息、网络信息等，系统给游戏App反馈系统状态信息等，使得双方能够利用这些信息进行更紧密和深入的协作，在系统资源有限的情况下进一步改善玩家的游戏体验。|
-|Graphics|[图形引擎服务](https://developer.huawei.com/consumer/cn/hms/huawei-scenekit/)|提供高性能、低功耗的3D图形渲染引擎。为游戏、AR\&VR等应用提供易于使用的渲染接口，给用户带来精致酷炫的视觉体验。|
+|Graphics|[图形引擎服务](https://developer.huawei.com/consumer/cn/hms/huawei-scenekit/)|提供高性能、低功耗的3D图形渲染引擎。为游戏、AR&VR等应用提供易于使用的渲染接口，给用户带来精致酷炫的视觉体验。|
 |Graphics|[HUAWEI VR](https://developer.huawei.com/consumer/cn/vr)|是面向VR内容开发者开放的一站式内容开发和上传平台。通过集成VR Engine SDK，直接为消费者提供内容。|
 |Media|[音频编辑服务](https://developer.huawei.com/consumer/cn/hms/huawei-audio-editor/)|华为提供丰富的音频编辑能力，用于语音、音乐创作、配乐等场景，通过集成音频编辑服务，您的应用可轻松实现变声、降噪、音源分离，空间渲染和AI配音等音频编辑功能。|
 |Media|[音频能力](https://developer.huawei.com/consumer/cn/audioengine)|提供了低延时K歌耳返、多路录音等增强音频体验能力。通过集成华为Audio Engine，您的应用可以便捷的使用华为K歌耳返等功能，带来更加完美的K歌体验。|

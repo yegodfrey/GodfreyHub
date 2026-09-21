@@ -14,17 +14,16 @@ DevEco Studio提供了应用与元服务体检工具AppAnalyzer，用于对应�
 
 当前支持以下体检模式。
 
-* 场景化体检：支持页面滑动、页面间转场、冷启动、UX多设备适配等多种测试场景，开发者可以基于实际的应用场景进行测试，具体请参考[场景化体检](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-app-analyzer-scenes)。
+* **场景化体检** ：支持页面滑动、页面间转场、冷启动、UX多设备适配等多种测试场景，开发者可以基于实际的应用场景进行测试，具体请参考[场景化体检](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-app-analyzer-scenes)。
 
-<!-- -->
 
-* 规则体检：支持兼容性、性能、功耗等多种测试类型，开发者可自主选择不同的规则进行测试，具体请参考[规则体检](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-app-analyzer-rules)。
-* 上架前体检：针对上架阻塞问题进行快速检测，提前发现可能影响上架的问题，检测完成之后可以上传检测结果，用于应用市场上架参考，提升上架效率，具体请参考[上架前体检](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-app-analyzer-before-appgallery)。该功能从DevEco Studio 6.0.0 Beta1版本开始支持。
-* 上架合规体检：针对AppGallery应用的上架合规要求进行检测，提前发现需要重点关注的合规事项，了解应做和不应做的事项，避免常见误区，具体请参考[上架合规体检](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-app-analyzer-ag-policy)。该功能从DevEco Studio 6.1.0 Beta1版本开始支持。
+* **规则体检** ：支持兼容性、性能、功耗等多种测试类型，开发者可自主选择不同的规则进行测试，具体请参考[规则体检](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-app-analyzer-rules)。
+* **上架前体检** ：针对上架阻塞问题进行快速检测，提前发现可能影响上架的问题，检测完成之后可以上传检测结果，用于应用市场上架参考，提升上架效率，具体请参考[上架前体检](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-app-analyzer-before-appgallery)。该功能从DevEco Studio 6.0.0 Beta1版本开始支持。
+* **上架合规体检** ：针对AppGallery应用的上架合规要求进行检测，提前发现需要重点关注的合规事项，了解应做和不应做的事项，避免常见误区，具体请参考[上架合规体检](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-app-analyzer-ag-policy)。该功能从DevEco Studio 6.1.0 Beta1版本开始支持。
 
-#### 使用约束
+## 使用约束
 
-#### 支持的设备
+### 支持的设备
 
 |体检模式|支持设备|备注|
 |:-----|:-------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,6 +33,7 @@ DevEco Studio提供了应用与元服务体检工具AppAnalyzer，用于对应�
 |上架合规体检|支持所有手机真机。|6.1.1 Beta1之前的版本，仅支持直板机。从6.1.1 Beta1版本开始，支持所有手机真机。|
 |云测试|远程真机|如果没有本地设备，从6.1.0 Beta2版本开始，支持选择远程真机进行云测试，关于云测试的介绍、支持测试的范围请参考[云测试](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cloudtest-introduction-0000002255036400)。 在AppAnalyzer上进行云测试时，操作步骤和其他体检模式类似，仅需将设备改为远程真机，具体可参考[场景化体检](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-app-analyzer-scenes)。 AppAnalyzer会将APP包上传至AppGallery，测试完成后，可在[历史报告](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-app-analyzer-history-reports)中查看检测结果，报告的内容请参考[查看测试报告](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cloudtest-viewreport-0000002289646669)。|
 
-#### 支持的国家/地区
+### 支持的国家/地区
 
-仅支持在中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）使用。  
+仅支持在中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）使用。
+

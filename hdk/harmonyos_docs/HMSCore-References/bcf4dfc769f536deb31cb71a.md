@@ -10,29 +10,29 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/ios-hmapser
 |:------------------------------------------|
 |@interface HMapService : NSObject 设置地图的国家码。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:-----------------------------------|
 |instancetype|[shared](#section490110481519) 获取单例。|
 
-#### Public Property Summary
+## Public Property Summary
 
 |Qualifier and Type|Property name and Description|
-|:-------------------------------------|:----------------------------|
-|@property (nonatomic,copy) NSString \*|countryCode 设置地图的国家码。|
+|:------------------------------------|:----------------------------|
+|@property (nonatomic,copy) NSString *|countryCode 设置地图的国家码。|
 
-#### Public Methods
+## Public Methods
 
-#### shared
+## shared
 
 |Method|
 |:----------------------------|
 |+ (instancetype) shared 获取单例。|
 
-Returns  
+**Return** **s**
 
-|Type|Description|
-|:-----------|:----------|
+|**Type**|**Description**|
+|:-----------|:--------------|
 |instancetype|获取单例。|
 

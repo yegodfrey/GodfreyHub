@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |:-----------------------------------------------------------|
 |public class AGCException extends Exception Server SDK基本异常类。|
 
-#### Method Summary
+## Method Summary
 
 |Return|Method|
 |:-----------|:----------------------------------------------------------------------------------------------------------|
@@ -19,70 +19,70 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/
 |AGCException|public [AGCException(Throwable e)](#section12785555172718) AGCException构造器，参数Throwable。|
 |AGCException|public [AGCException(String msg, Throwable e)](#section145021410182914) AGCException构造器，参数String、Throwable。|
 
-#### Methods
+## Methods
 
-#### AGCException()
+### AGCException()
 
 |Method|
 |:----------------------------------------|
 |public AGCException() AGCException构造器，空参。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|
 |[AGCException](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-server-common-exception-agcexception-0000001475986781)|Server SDK基本异常类。|
 
-#### AGCException(String msg)
+### AGCException(String msg)
 
 |Method|
 |:-------------------------------------------------|
 |AGCException(String msg) AGCException构造器，参数String。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|
 |msg|异常说明信息。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|
 |[AGCException](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-server-common-exception-agcexception-0000001475986781)|Server SDK基本异常类。|
 
-#### AGCException(Throwable e)
+### AGCException(Throwable e)
 
 |Method|
 |:-----------------------------------------------------|
 |AGCException(Throwable e) AGCException构造器，参数Throwable。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|
 |e|异常对象。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|
 |[AGCException](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-References/agccore-server-common-exception-agcexception-0000001475986781)|Server SDK基本异常类。|
 
-#### AGCException(String msg, Throwable e)
+### AGCException(String msg, Throwable e)
 
 |Method|
 |:------------------------------------------------------------------------|
 |AGCException(String msg, Throwable e) AGCException构造器，参数String，Throwable。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---|:----------|
 |msg|异常说明信息。|
 |e|异常对象。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|

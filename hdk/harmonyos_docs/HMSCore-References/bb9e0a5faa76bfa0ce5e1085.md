@@ -13,7 +13,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/locationlis
 
 示例：
 
-```
+```codeblock
 {
     "locationList": [
         {

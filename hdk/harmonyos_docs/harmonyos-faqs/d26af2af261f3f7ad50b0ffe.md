@@ -6,20 +6,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-pdf-3
 
 # 在预览模式下，如何一键删除所有PDF标注
 
-#### 问题现象
+## 问题现象
 
-HarmonyOS官方文档当前只支持指定页面和标注进行对应的删除操作，没有一键删除所有PDF标注的API可供使用。  
+HarmonyOS官方文档当前只支持指定页面和标注进行对应的删除操作，没有一键删除所有PDF标注的API可供使用。
 
-#### 背景知识
+## 背景知识
 
-[PDF Kit（PDF服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-kit-guide)包含[pdfService能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfservice-implements)和[PdfView预览组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-implements)。其中[PdfView预览组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-implements)提供了文档预览功能，如：PDF文档预览、高亮显示、搜索关键字、[批注](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-annotation)等场景。  
+[PDF Kit（PDF服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-kit-guide)包含[pdfService能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfservice-implements)和[PdfView预览组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-implements)。其中[PdfView预览组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-implements)提供了文档预览功能，如：PDF文档预览、高亮显示、搜索关键字、[批注](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-annotation)等场景。
 
 |约束与限制|说明|
 |:-------|:------------------------------------------------------------------------------------------------------------------------------------------|
 |支持的国家和地区|当前PDF Kit仅支持中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。|
 |模拟器支持的情况|当前PDF Kit支持模拟器开发，但与真机存在部分能力差异，详情请参见"[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification)"。|
 
-#### 解决方案
+## 解决方案
 
 1. 确保在工程目录"src/main/resources/rawfile"里存在需要被批注的文档。
 2. 使能删除线、高亮等批注能力。
@@ -31,7 +31,7 @@ HarmonyOS官方文档当前只支持指定页面和标注进行对应的删除�
 
 完整示例参考如下：
 
-```
+```ts
 import { fileIo } from '@kit.CoreFileKit';
 import { pdfViewManager, pdfService, PdfView } from '@kit.PDFKit';
 import { common } from '@kit.AbilityKit';
@@ -61,13 +61,13 @@ struct delAnnotation {
   }
 
   aboutToAppear(): void {
-    // 获取沙箱目录
+  // 获取沙箱目录
     let dir: string = this.context.filesDir;
     let filePath: string = dir + '/test.pdf'; // 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改
     try {
       let res = fileIo.accessSync(filePath);
       if (!res) {
-        // 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改
+      // 需要在工程目录src/main/resources/rawfile里添加pdf文档，本例取名为test.pdf，请按实际修改
         let content: Uint8Array = this.context.resourceManager.getRawFileContentSync('test.pdf');
         let fdSand =
           fileIo.openSync(filePath, fileIo.OpenMode.WRITE_ONLY | fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC);
@@ -78,12 +78,12 @@ struct delAnnotation {
       console.error('pdf file access error' + error.message);
     }
 
-    // 获取原始pdf批注数量，后续删除自己添加的批注，从此索引开始
+  // 获取原始pdf批注数量，后续删除自己添加的批注，从此索引开始
     let loadResult = this.pdfDocument.loadDocument(filePath);
     if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
       let pageCount: number = this.pdfDocument.getPageCount();
       for (let pageIndex = 0; pageIndex < pageCount; pageIndex++) {
-        // 初始化手动标注数量
+     // 初始化手动标注数量
         this.manualAnnNumRecord[pageIndex] = 0;
         let page: pdfService.PdfPage = this.pdfDocument.getPage(pageIndex);
         let annotations: Array<pdfService.PdfAnnotation> = page.getAnnotations();
@@ -97,21 +97,21 @@ struct delAnnotation {
     }
 
     (async () => {
-      // 该监听方法只能在文档加载前调用一次
+    // 该监听方法只能在文档加载前调用一次
       this.controller.registerPageCountChangedListener((pageCount: number) => {
         console.info('page count is %s', pageCount.toString());
       });
       let loadResult: pdfService.ParseResult = await this.controller.loadDocument(filePath);
-      // 注意：这里刚加载文档，请不要在这里立即设置PDF文档的预览方式
+   // 注意：这里刚加载文档，请不要在这里立即设置PDF文档的预览方式
       if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
-        // 添加删除线批注
+   // 添加删除线批注
         this.controller.enableAnnotation(pdfViewManager.SupportedAnnotationType.STRIKETHROUGH, 0xFFFF0000);
       }
     })();
-    // 注册监听批注事件
+ // 注册监听批注事件
     this.controller.registerAnnotationChangedListener((annotationChange: pdfViewManager.AnnotationChangedParam) => {
       if (annotationChange.controlType === 0) {
-        // ADD-0, MOD-1, DEL-2
+      // ADD-0, MOD-1, DEL-2
         for (let i = 0; i < annotationChange.pageIndexArray.length; i++) {
           this.manualAnnNumRecord[annotationChange.pageIndexArray[i]]++;
           console.info('annotationChange, pageIndex is %d, manualAnnNumRecord is %d',
@@ -120,7 +120,7 @@ struct delAnnotation {
       }
       console.info('annotation controlType is %s', this.annotationControlType[annotationChange.controlType]);
     });
-    // 监听选中的批注信息
+  // 监听选中的批注信息
     this.controller.registerAnnotationSelectedListener((annot: pdfViewManager.SelectedAnnotation | undefined) => {
       console.info('annotation index %d, page index %d', annot?.annotationIndex, annot?.pageIndex);
     });
@@ -128,7 +128,7 @@ struct delAnnotation {
 
   build() {
     Column() {
-      // 加载PdfView组件进行预览
+  // 加载PdfView组件进行预览
       PdfView({
         controller: this.controller,
         pageFit: pdfService.PageFit.FIT_WIDTH,
@@ -148,7 +148,7 @@ struct delAnnotation {
         this.delAllAnn(); // 删除新增的所有批注
       })
 
-      // 点击后调用saveDocument保存修改后的PDF，记录日志。
+    // 点击后调用saveDocument保存修改后的PDF，记录日志。
       Button('保存文件')
         .onClick(async () => {
           let dir: string = this.context.filesDir;

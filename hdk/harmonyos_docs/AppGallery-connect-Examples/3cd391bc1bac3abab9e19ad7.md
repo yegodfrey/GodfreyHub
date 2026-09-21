@@ -6,17 +6,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Examples/ag
 
 # iOS
 
-该Xcode工程包含了Objective-C/SWIFT语言的示例代码，提供了远程配置功能。  
+该Xcode工程包含了Objective-C/SWIFT语言的示例代码，提供了远程配置功能。
 
 |名称|Gitee|GitHub|
 |:--------------------|:------------------------------------------------------------------------------|:------------------------------------------------------------------------------|
 |Objective-C/SWIFT示例代码|[链接](https://gitee.com/appgallery_connect/agc-demos/tree/main/iOS/remoteconfig)|[链接](https://github.com/AppGalleryConnect/agc-demos/tree/main/iOS/remoteconfig)|
 
-![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20211116102813.37785895357159148530647883877208:50521115031108:2800:96A3DED953740C442BC7DC53F10142AD1A43B0CBC62BBC3332CCC34D9D81CBF4.png?needInitFileName=true?needInitFileName=true)  
-如果您需要直接运行示例代码，请注意以下两点：
-
-1. 必须下载自己应用的agconnect-services.plist文件，拷贝到示例工程的根目录下。
-
-2. 需要执行 'pod install' 命令为工程添加依赖库。
-
-详细说明请参考示例工程中的README文件。
+> 说明
+>
+> 如果您需要直接运行示例代码，请注意以下两点：
+>
+> 1. 必须下载自己应用的agconnect-services.plist文件，拷贝到示例工程的根目录下。
+>
+> 2. 需要执行 'pod install' 命令为工程添加依赖库。
+>
+> 详细说明请参考示例工程中的README文件。

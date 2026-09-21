@@ -6,13 +6,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-Guides/videoportrait-ocr-
 
 # 开发指南
 
-#### 应用开发
+## 应用开发
 
-#### 必须导入类
+### 必须导入类
 
 在使用视频人像分割API时，将实现视频人像分割的相关的类添加至工程。
 
-```
+```screen
 import com.huawei.hiai.vision.image.segmentation.ImageSegmentation; // 加载图像分割方法类
 import com.huawei.hiai.vision.common.VisionImage; // 加载输入数据类
 import com.huawei.hiai.vision.visionkit.image.ImageResult; // 加载返回结果类
@@ -26,11 +26,11 @@ import com.huawei.hiai.vision.common.VisionCallback;
 import com.huawei.hiai.pdk.pluginservice.ILoadPluginCallback;
 ```
 
-#### 开发
+### 开发
 
 1. 应用VisionBase静态类进行初始化，获取服务连接的结果。
 
-   ```
+   ```screen
    VisionBase.init(MainActivity.this, new ConnectionCallback(){
        @Override
        public void onServiceConnect(){
@@ -46,13 +46,13 @@ import com.huawei.hiai.pdk.pluginservice.ILoadPluginCallback;
 
 2. 定义mImageSegmentation实例，将此应用的Context当做入参。
 
-   ```
+   ```screen
    ImageSegmentation mImageSegmentation = new ImageSegmentation(mContext);
    ```
 
 3. 设置参数。
 
-   ```
+   ```screen
    SegConfiguration mSegmentationConfiguration = new SegConfiguration.Builder()
        .setProcessMode(VisionConfiguration.MODE_IN)
        .setSegmentationType(SegConfiguration.TYPE_PORTRAIT_SEGMENTATION_VIDEO)
@@ -63,7 +63,7 @@ import com.huawei.hiai.pdk.pluginservice.ILoadPluginCallback;
 
 4. 定义VisionImageMetadata。视频人像分割不支持传入图片，默认旋转角度是270°。
 
-   ```
+   ```screen
    VisionImageMetadata.Builder builder = new VisionImageMetadata.Builder();
    builder.setFormat(17); // nv21格式
    builder.setHeight(mHeight);
@@ -74,13 +74,13 @@ import com.huawei.hiai.pdk.pluginservice.ILoadPluginCallback;
 
 5. 设置进行人像分割图像的byte数组。
 
-   ```
+   ```screen
    VisionImage image = VisionImage.fromByteArray(mybytes, metadata);
    ```
 
 6. 懒加载进行插件下载，通过getAvailability()函数获取是否需要下载插件。如果需要，可通过loadPlugin()来进行插件下载。
 
-   ```
+   ```screen
    int availability = imageSegmentation.getAvailability();
    if (availability == HwHiAIResultCode.AIRESULT_PLUGIN_PENDING_UPDATE) {
        Lock lock = new ReentrantLock();
@@ -100,20 +100,20 @@ import com.huawei.hiai.pdk.pluginservice.ILoadPluginCallback;
 
 7. 调用方法doSegmentation进行人像分割。
 
-   ```
+   ```screen
    ImageResult srt = new ImageResult();
    int rltCode = mImageSegmentation.doSegmentation(image, srt, null);
    ```
 
 8. 调用方法getBytes得到人像分割结果。
 
-   ```
+   ```screen
    byte[] values = srt.getByteArray();
    ```
 
 9. 生成Bitmap进行分割结果保存。
 
-   ```
+   ```screen
    private static final int A_CHANNEL_PIXEL_MASK = 0xFF;
    private static final int A_CHANNEL_RIGHT_SHIFT_INDEX = 24;
    private static final int HUMAN_VALUE_THRESHOLD = 50;

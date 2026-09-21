@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-background-au
 
 # PlayBackgroundAudio
 
-#### has.playBackgroundAudio
+## has.playBackgroundAudio
 
 has.playBackgroundAudio(Object object)
 
@@ -14,17 +14,17 @@ has.playBackgroundAudio(Object object)
 
 返回桌面，仍保持播放；当遇到其他应用/元服务的音视频源，将暂停播放原有播放的音视频源。
 
-起始版本： 1.0.9
+**起始版本：** 1.0.9
 
-需要权限： 开启后台音频播放，需要如下配置：
+**需要权限：** 开启后台音频播放，需要如下配置：
 
-* 在module.json5中声明ohos.permission.KEEP_BACKGROUND_RUNNING权限。
+* 在module.json5中声明**ohos.permission.KEEP_BACKGROUND_RUNNING**权限。
 
-* 在module.json5中声明backgroundModes配置项。
+* 在module.json5中声明**backgroundModes**配置项。
 
 module.json5：
 
-```
+```json
 "module": {
   "abilities": [
     {
@@ -36,17 +36,17 @@ module.json5：
 }
 ```
 
-* 在[app.json](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/appjson-global-config)中配置requiredBackgroundModes属性。
+* 在[app.json](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/appjson-global-config)中配置**requiredBackgroundModes**属性。
 
 app.json：
 
-```
+```json
 "requiredBackgroundModes": ["audio"]
 ```
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:----------|:-------|:-|:--------------------------------------------------------------------------|
@@ -57,9 +57,19 @@ app.json：
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+|错误码|错误信息|
+|:-------|:--------------------------------------------------------------------------------------------------------------------------------|
+|101|AVPlayer is not initialized.|
+|102|dataUrl is invalid or inaccessible.|
+|70002205|state is not play.|
+|70002202|AVPlayer play error.|
+|70002206|AVPlayer can not reset.|
+|70002203|AVPlayer reset error.|
+|70002201|playBackgroundAudio error. 更多错误信息参考：[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)|
 
-```
+**示例：**
+
+```js
 has.playBackgroundAudio({
   dataUrl: 'https://www.example.com/test.mp3', // 此处仅为样例，请开发者更换为可用的网址
   title: '音乐标题',
@@ -76,17 +86,17 @@ has.playBackgroundAudio({
 });
 ```
 
-#### has.pauseBackgroundAudio
+## has.pauseBackgroundAudio
 
 has.pauseBackgroundAudio(Object object)
 
 暂停播放音乐。
 
-起始版本： 1.0.9
+**起始版本：** 1.0.9
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |属性|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -94,9 +104,18 @@ has.pauseBackgroundAudio(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**错误码信息：**
 
-```
+|错误码|错误信息|
+|:-------|:---------------------------------------------------------------------------------------------------------------------------------|
+|101|AVPlayer is not initialized.|
+|102|AVPlayer can not be paused.|
+|70002402|AVPlayer pause error.|
+|70002401|pauseBackgroundAudio error. 更多错误信息参考：[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)|
+
+**示例：**
+
+```js
 has.pauseBackgroundAudio({
   success: () => {
     console.info('pauseBackgroundAudio success');
@@ -110,17 +129,17 @@ has.pauseBackgroundAudio({
 });
 ```
 
-#### has.seekBackgroundAudio
+## has.seekBackgroundAudio
 
 has.seekBackgroundAudio(Object object)
 
 控制音乐播放进度。
 
-起始版本： 1.0.9
+**起始版本：** 1.0.9
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |属性|类型|必填|描述|
 |:-------|:-------|:-|:--------------------------------|
@@ -129,9 +148,17 @@ has.seekBackgroundAudio(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**错误码信息：**
 
-```
+|错误码|错误信息|
+|:-------|:--------------------------------------------------------------------------------------------------------------------------------|
+|101|AVPlayer is not initialized.|
+|70002302|state is not seek.|
+|70002301|seekBackgroundAudio error. 更多错误信息参考：[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)|
+
+**示例：**
+
+```js
 has.seekBackgroundAudio({
   position: 30,
   success: () => {
@@ -146,17 +173,17 @@ has.seekBackgroundAudio({
 });
 ```
 
-#### has.stopBackgroundAudio
+## has.stopBackgroundAudio
 
 has.stopBackgroundAudio(Object object)
 
 停止播放音乐。
 
-起始版本： 1.0.9
+**起始版本：** 1.0.9
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |属性|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -164,9 +191,18 @@ has.stopBackgroundAudio(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-示例：
+**错误码信息：**
 
-```
+|错误码|错误信息|
+|:-------|:--------------------------------------------------------------------------------------------------------------------------------|
+|101|AVPlayer is not initialized.|
+|102|AVPlayer can not be stop.|
+|70002502|AVPlayer stop error.|
+|70002501|stopBackgroundAudio error. 更多错误信息参考：[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)|
+
+**示例：**
+
+```js
 has.stopBackgroundAudio({
   success: () => {
     console.info('stopBackgroundAudio success');
@@ -180,17 +216,17 @@ has.stopBackgroundAudio({
 });
 ```
 
-#### has.getBackgroundAudioPlayerState
+## has.getBackgroundAudioPlayerState
 
 has.getBackgroundAudioPlayerState(Object object)
 
 获取后台音乐播放状态。
 
-起始版本： 1.0.9
+**起始版本：** 1.0.9
 
-参数：
+**参数：**
 
-参数为Object对象，包括以下字段。  
+参数为Object对象，包括以下字段。
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:------------------------|
@@ -198,7 +234,7 @@ has.getBackgroundAudioPlayerState(Object object)
 |fail|function|否|接口调用失败的回调函数。|
 |complete|function|否|接口调用结束的回调函数（调用成功、失败都会执行）。|
 
-success返回值：  
+**success返回值：**
 
 |参数|类型|描述|
 |:--------------|:-----|:---------------------------|
@@ -208,9 +244,16 @@ success返回值：
 |downloadPercent|number|音频的下载进度百分比，只有在音乐播放中时返回。|
 |dataUrl|string|歌曲数据链接，只有在音乐播放中时返回。|
 
-示例：
+**错误码信息：**
 
-```
+|错误码|错误信息|
+|:-------|:-----------------------------------|
+|101|AVPlayer is not initialized.|
+|70002101|getBackgroundAudioPlayerState error.|
+
+**示例：**
+
+```js
 has.getBackgroundAudioPlayerState({
   success: (res) => {
     console.info('getBackgroundAudioPlayerState success', res);
@@ -224,89 +267,89 @@ has.getBackgroundAudioPlayerState({
 });
 ```
 
-#### has.onBackgroundAudioPlay
+## has.onBackgroundAudioPlay
 
 has.onBackgroundAudioPlay(function callback)
 
 监听音乐播放事件。
 
-起始版本： 1.0.9
+**起始版本：** 1.0.9
 
-参数：  
+**参数：**
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:-----------|
 |callback|function|是|音乐播放事件的监听函数。|
 
-示例：
+**示例：**
 
-```
+```js
 has.onBackgroundAudioPlay(() => {
   console.info('onBackgroundAudioPlay callback triggered');
 });
 ```
 
-#### has.onBackgroundAudioPause
+## has.onBackgroundAudioPause
 
 has.onBackgroundAudioPause(function callback)
 
 监听音乐暂停事件。
 
-起始版本： 1.0.9
+**起始版本：** 1.0.9
 
-参数：  
+**参数：**
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:-----------|
 |callback|function|是|音乐暂停事件的监听函数。|
 
-示例：
+**示例：**
 
-```
+```js
 has.onBackgroundAudioPause(() => {
   console.info('onBackgroundAudioPause callback triggered');
 });
 ```
 
-#### has.onBackgroundAudioStop
+## has.onBackgroundAudioStop
 
 has.onBackgroundAudioStop(function callback)
 
 监听音乐停止事件。
 
-起始版本： 1.0.9
+**起始版本：** 1.0.9
 
-参数：  
+**参数：**
 
 |参数|类型|必填|描述|
 |:-------|:-------|:-|:-----------|
 |callback|function|是|音乐停止事件的监听函数。|
 
-示例：
+**示例：**
 
-```
+```js
 has.onBackgroundAudioStop(() => {
   console.info('onBackgroundAudioStop callback triggered');
 });
 ```
 
-#### has.getBackgroundAudioManager
+## has.getBackgroundAudioManager
 
 has.getBackgroundAudioManager(): BackgroundAudioManager
 
 获取全局唯一的背景音频管理器。支持后台音频播放，元服务切入后台，如果音频处于播放状态，可以继续播放。
 
-起始版本： 1.0.9
+**起始版本：** 1.0.9
 
-需要权限： 开启后台音频播放，需要如下配置：
+**需要权限：** 开启后台音频播放，需要如下配置：
 
-* 在module.json5中声明ohos.permission.KEEP_BACKGROUND_RUNNING权限。
+* 在module.json5中声明**ohos.permission.KEEP_BACKGROUND_RUNNING**权限。
 
-* 在module.json5中声明backgroundModes配置项。
+* 在module.json5中声明**backgroundModes**配置项。
 
 module.json5：
 
-```
+```json
 "module": {
   "abilities": [
     {
@@ -318,21 +361,21 @@ module.json5：
 }
 ```
 
-* 在[app.json](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/appjson-global-config)中配置requiredBackgroundModes属性。
+* 在[app.json](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/appjson-global-config)中配置**requiredBackgroundModes**属性。
 
   app.json：
 
-  ```
+  ```json
   "requiredBackgroundModes": ["audio"]
   ```
 
-返回值：
+**返回值：**
 
 返回[BackgroundAudioManager](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/apis-background-audio-manager)对象。
 
-示例：
+**示例：**
 
-```
+```js
 const backgroundAudioManager = has.getBackgroundAudioManager();
 ```
 

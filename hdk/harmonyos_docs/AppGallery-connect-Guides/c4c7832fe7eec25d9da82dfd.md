@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/api-
 
 # API参考
 
-* [Check](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/appgallerykit-paidapps-check-0000001073193403)  
-* [错误码](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/appgallerykit-paidapps-errorcode-0000001074551186)  
+* **[Check](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/appgallerykit-paidapps-check-0000001073193403)**   
+* **[错误码](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/appgallerykit-paidapps-errorcode-0000001074551186)**   

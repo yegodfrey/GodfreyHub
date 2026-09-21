@@ -10,13 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mlremotetextse
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |com.huawei.hms.mlsdk.text.MLRemoteTextSetting 文本分析器设置类：设置文本分析器（MLTextAnalyzer）云端检测的属性，用于调用云端API接口检测图像中的文本。分析器属性包括： * 预置的语种，正确地预置分析器语种，可以使检测更快速更准确。 * 云端检测模式，分为稀疏文本检测模式和密集文本检测模式，分析器会根据检测模式调用不同的云端文本检测API接口。 * 是否校验证书指纹，设置为true后只允许能通过校验的已注册应用访问文本检测的云端API接口。 * 文本边界返回格式，可设置为NGON或者ARC。NGON：返回四边形的四个顶点坐标；ARC：返回文本排列为弧形的多边形边界的顶点，最多可返回72个顶点的坐标。|
 
-#### Nested Class Summary
+## Nested Class Summary
 
 |Qualifier and Type|Class Name and Description|
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |static class|[MLRemoteTextSetting.Factory](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlremotetextsettingfactory-0000001050169409#section12583614446) 创建云端文本检测配置器的实例，用于设置云端文本检测的属性。|
 
-#### Public Field Summary
+## Public Field Summary
 
 |Qualifier and Type|Field and Description|
 |:-----------------|:-----------------------------------------------------|
@@ -25,105 +25,105 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mlremotetextse
 |int|[OCR_COMPACT_SCENE](#section498163612420) 密集文本类型，如说明书。|
 |int|[OCR_LOOSE_SCENE](#section81044294215) 稀疏文本类型，如名片。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:-----------------|:---------------------------------------------------------------|
 |boolean|[equals](#section124181952154214)(Object object) 判断输入实例是否与本实例相等。|
 |String|[getBorderType](#section676112920430)() 获取文本边界坐标形式。|
-|List\<String\>|[getLanguageList](#section44766255430)() 获取预置的语种。|
+|List<String>|[getLanguageList](#section44766255430)() 获取预置的语种。|
 |int|[getTextDensityScene](#section1720213815434)() 获取检测模式。|
 |int|[hashCode](#section10522185444312)() 获取当前实例的哈希值。|
 
-#### Public Fields
+## Public Fields
 
-#### ARC
+### ARC
 
 |Field|
 |:-----------------------------------------------------------|
 |public static final String ARC 多边形文本边界。 Constant Value："ARC"|
 
-#### NGON
+### NGON
 
 |Field|
 |:-------------------------------------------------------------|
 |public static final String NGON 四边形文本边界。 Constant Value："NGON"|
 
-#### OCR_COMPACT_SCENE
+### OCR_COMPACT_SCENE
 
 |Field|
 |:----------------------------------------------------------------------|
 |public static final int OCR_COMPACT_SCENE 密集文本类型，如说明书。 Constant Value：2|
 
-#### OCR_LOOSE_SCENE
+### OCR_LOOSE_SCENE
 
 |Field|
 |:-------------------------------------------------------------------|
 |public static final int OCR_LOOSE_SCENE 稀疏文本类型，如名片。 Constant Value：1|
 
-#### Public Methods
+## Public Methods
 
-#### equals(Object object)
+### equals(Object object)
 
 |Method|
 |:---------------------------------------------------|
 |public boolean equals(Object object) 判断输入实例是否与本实例相等。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:-----|:----------|
 |object|对比的实例。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:------|:------------------------------|
 |boolean|* true：两个实例相等。 * false：两个实例不相等。|
 
-#### getBorderType()
+### getBorderType()
 
 |Method|
 |:----------------------------------------|
 |public String getBorderType() 获取文本边界坐标形式。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:-----|:--------------------------------------------------------------------------|
 |String|返回文本边界坐标形式。 * NGON：文本边界为四边形的四个顶点坐标。 * ARC：文本排列为弧形的多边形边界的顶点，最多可返回多达72个顶点的坐标。|
 
-#### getLanguageList()
+### getLanguageList()
 
 |Method|
-|:-----------------------------------------------|
-|public List\<String\> getLanguageList() 获取预置的语种。|
+|:---------------------------------------------|
+|public List<String> getLanguageList() 获取预置的语种。|
 
-Returns  
+**Returns**
 
 |Type|Description|
-|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|List\<String\>|返回语种列表，语种使用语言代码表示："en"（英），"zh"（中），"ja"（日），"ko"（韩），"ru"（俄），"de"（德），"fr"（法），"it"（意大利），"pt"（葡萄牙），"es"（西班牙），"pl"（波兰），"no"（挪威），"sv"（瑞典），"da"（丹麦），"tr"（土耳其），"fi"（芬兰），"th"（泰语），"ar"（阿拉伯语），"hi"（印地语）。|
+|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|List<String>|返回语种列表，语种使用语言代码表示："en"（英），"zh"（中），"ja"（日），"ko"（韩），"ru"（俄），"de"（德），"fr"（法），"it"（意大利），"pt"（葡萄牙），"es"（西班牙），"pl"（波兰），"no"（挪威），"sv"（瑞典），"da"（丹麦），"tr"（土耳其），"fi"（芬兰），"th"（泰语），"ar"（阿拉伯语），"hi"（印地语）。|
 
-#### getTextDensityScene()
+### getTextDensityScene()
 
 |Method|
 |:---------------------------------------|
 |public int getTextDensityScene() 获取检测模式。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:------------------------------------------------------------|
 |int|返回检测模式。 * OCR_LOOSE_SCENE：稀疏文本模式。 * OCR_COMPACT_SCENE：密集文本模式。|
 
-#### hashCode()
+### hashCode()
 
 |Method|
 |:--------------------------------|
 |public int hashCode() 获取当前实例的哈希值。|
 
-Returns  
+**Returns**
 
 |Type|Description|
 |:---|:----------|

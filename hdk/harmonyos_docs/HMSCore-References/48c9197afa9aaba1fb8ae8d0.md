@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/zoompoint-0
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public class ZoomPoint 比例尺缩放点对象，在调用[MapNaviListener](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/mapnavilistener-0000001212215832)类的[onAutoZoomUpdate](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/mapnavilistener-0000001212215832#section15934380316)方法时会返回该类型的实例。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|
@@ -20,63 +20,63 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/zoompoint-0
 |[NaviLatLng](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/navilatlng-0000001212527432)|[getPoint](#section11894529115514)() 坐标点。|
 |int|[getType](#section7603022114010)() 缩放类型。|
 
-#### Public Methods
+## Public Methods
 
-#### getCircumference
+### getCircumference
 
 |Method|
 |:--------------------------------------|
 |public float getCircumference() 获取环岛周长。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:----|:----------|
 |float|环岛周长。|
 
-#### getManeuverId
+### getManeuverId
 
 |Method|
 |:----------------------------------|
 |public int getManeuverId() 获取机动点标识。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:---|:----------|
 |int|机动点标识。|
 
-#### getManeuverType
+### getManeuverType
 
 |Method|
 |:----------------------------------------------------------------------------------------------------------------------------------------------|
 |public [ManeuverType](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/maneuvertype-0000001257368667) getManeuverType() 获取机动点类型。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:------------------------------------------------------------------------------------------------------------|:----------|
 |[ManeuverType](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/maneuvertype-0000001257368667)|机动点类型。|
 
-#### getPoint
+### getPoint
 
 |Method|
 |:---------------------------------------------------------------------------------------------------------------------------------|
 |public [NaviLatLng](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/navilatlng-0000001212527432) getPoint() 获取坐标点。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:--------------------------------------------------------------------------------------------------------|:----------|
 |[NaviLatLng](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/navilatlng-0000001212527432)|坐标点。|
 
-#### getType
+### getType
 
 |Method|
 |:------------------------------|
 |public String getType() 获取缩放类型。|
 
-Returns  
+**Return** **s**
 
 |Type|Description|
 |:-----|:----------|

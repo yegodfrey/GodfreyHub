@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wal
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public final class PassStatus.Builder 用于创建[PassStatus](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wallet-pass-passstatus-0000001050986373)对象。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
 |:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -19,69 +19,69 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wal
 |PassStatus.Builder|[setExpireTime(String expireTime)](#section1273134914818) 设置卡劵的过期时间。|
 |[PassStatus](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wallet-pass-passstatus-0000001050986373)|[build()](#section11291453134819) 创建[PassStatus](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wallet-pass-passstatus-0000001050986373)对象。|
 
-#### Public Methods
+## Public Methods
 
-#### public PassStatus.Builder setState(String state)
+### public PassStatus.Builder setState(String state)
 
 |Method|
 |:---------------------------------------------------------------|
 |public PassStatus.Builder setState(String state) 设置卡劵的状态值(必选字段)。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------|
 |state|卡劵的状态值。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-----------------|:--------------------|
 |PassStatus.Builder|PassStatus.Builder对象。|
 
-#### public PassStatus.Builder setEffectTime(String effectTime)
+### public PassStatus.Builder setEffectTime(String effectTime)
 
 |Method|
 |:-------------------------------------------------------------------------|
 |public PassStatus.Builder setEffectTime(String effectTime) 设置卡劵的有效期(必选字段)。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:-----------------------------------------------|
 |effectTime|卡劵的有效期生效时间。格式为UTC格式如下: yyyy-MM-ddTHH:mm:ss.SSSZ。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-----------------|:--------------------|
 |PassStatus.Builder|PassStatus.Builder对象。|
 
-#### public PassStatus.Builder setExpireTime(String expireTime)
+### public PassStatus.Builder setExpireTime(String expireTime)
 
 |Method|
 |:--------------------------------------------------------------------------|
 |public PassStatus.Builder setExpireTime(String expireTime) 设置卡劵的过期时间(必选字段)。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:---------|:--------------------------------------------|
 |expireTime|卡劵的过期时间。格式为UTC格式如下: yyyy-MM-ddTHH:mm:ss.SSSZ。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:-----------------|:--------------------|
 |PassStatus.Builder|PassStatus.Builder对象。|
 
-#### public PassStatus build()
+### public PassStatus build()
 
 |Method|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |public PassStatus build() 创建[PassStatus](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-hms-wallet-pass-passstatus-0000001050986373)对象。|
 
-Return  
+**Return**
 
 |Type|Description|
 |:----------------------------------------------------------------------------------------------------------------------------|:------------|

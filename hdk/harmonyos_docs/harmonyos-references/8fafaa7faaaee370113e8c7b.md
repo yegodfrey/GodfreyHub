@@ -6,35 +6,38 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-k
 
 # @ohos.multimodalInput.keyCode (键值)
 
-按键设备的键值，按键设备包括键盘、光盘、游戏手柄等。  
-![](https://media:401788445549077098)  
-* 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。  
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
-#### 导入模块
+按键设备的键值，按键设备包括键盘、光盘、游戏手柄等。
+> 说明
+>
+> * 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-```
+## 导入模块
+
+```js
 import { KeyCode } from '@kit.InputKit';
 ```
 
-#### KeyCode
+## KeyCode
 
 键值。
 
-系统能力： SystemCapability.MultimodalInput.Input.Core  
+**系统能力**：SystemCapability.MultimodalInput.Input.Core
 
 |名称|值|说明|
-|:-----------------------------------|:---|:--------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-----------------------------------|:---|:------------------------------------------------------------------------------------------------------------------------------------------------------|
 |KEYCODE_FN|0|功能（Fn）键。|
 |KEYCODE_UNKNOWN|-1|未知按键。|
 |KEYCODE_HOME|1|功能（Home）键。|
 |KEYCODE_BACK|2|返回键。|
 |KEYCODE_SEARCH^13+^|9|搜索键。|
-|KEYCODE_MEDIA_PLAY_PAUSE|10|多媒体键：播放/暂停。 与KEYCODE_PLAYPAUSE的区别为： KEYCODE_PLAYPAUSE是较早的定义，KEYCODE_MEDIA_PLAY_PAUSE为现代媒体键设备设计，常见于较新的媒体键设备。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|KEYCODE_MEDIA_STOP|11|光盘停止键。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|KEYCODE_MEDIA_NEXT|12|多媒体键：下一首。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|KEYCODE_MEDIA_PREVIOUS|13|多媒体键：上一首。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|KEYCODE_MEDIA_REWIND|14|多媒体键：快退。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|KEYCODE_MEDIA_FAST_FORWARD|15|多媒体键：快进。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
+|KEYCODE_MEDIA_PLAY_PAUSE|10|多媒体键：播放/暂停。 与KEYCODE_PLAYPAUSE的区别为： KEYCODE_PLAYPAUSE是较早的定义，KEYCODE_MEDIA_PLAY_PAUSE为现代媒体键设备设计，常见于较新的媒体键设备。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|KEYCODE_MEDIA_STOP|11|光盘停止键。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|KEYCODE_MEDIA_NEXT|12|多媒体键：下一首。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|KEYCODE_MEDIA_PREVIOUS|13|多媒体键：上一首。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|KEYCODE_MEDIA_REWIND|14|多媒体键：快退。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|KEYCODE_MEDIA_FAST_FORWARD|15|多媒体键：快进。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
 |KEYCODE_VOLUME_UP|16|音量增加键。|
 |KEYCODE_VOLUME_DOWN|17|音量减小键。|
 |KEYCODE_POWER|18|电源键。|
@@ -53,7 +56,7 @@ import { KeyCode } from '@kit.InputKit';
 |KEYCODE_7|2007|按键'7'。|
 |KEYCODE_8|2008|按键'8'。|
 |KEYCODE_9|2009|按键'9'。|
-|KEYCODE_STAR|2010|按键'\*'。|
+|KEYCODE_STAR|2010|按键'*'。|
 |KEYCODE_POUND|2011|按键'#'。|
 |KEYCODE_DPAD_UP|2012|导航键：向上。|
 |KEYCODE_DPAD_DOWN|2013|导航键：向下。|
@@ -99,14 +102,14 @@ import { KeyCode } from '@kit.InputKit';
 |KEYCODE_ENVELOPE|2053|电子邮件功能键，此键用于启动电子邮件应用程序。|
 |KEYCODE_ENTER|2054|回车键。|
 |KEYCODE_DEL|2055|退格键。|
-|KEYCODE_GRAVE|2056|按键'\`'。|
+|KEYCODE_GRAVE|2056|按键'`'。|
 |KEYCODE_MINUS|2057|按键'-'。|
 |KEYCODE_EQUALS|2058|按键'='。|
-|KEYCODE_LEFT_BRACKET|2059|按键'\['。|
-|KEYCODE_RIGHT_BRACKET|2060|按键'\]'。|
-|KEYCODE_BACKSLASH|2061|按键'\\'。|
+|KEYCODE_LEFT_BRACKET|2059|按键'['。|
+|KEYCODE_RIGHT_BRACKET|2060|按键']'。|
+|KEYCODE_BACKSLASH|2061|按键'\'。|
 |KEYCODE_SEMICOLON|2062|按键';'。|
-|KEYCODE_APOSTROPHE|2063|按键''' (单引号)。|
+|KEYCODE_APOSTROPHE|2063|按键'''（单引号）。|
 |KEYCODE_SLASH|2064|按键'/'。|
 |KEYCODE_AT|2065|按键'@'。|
 |KEYCODE_PLUS|2066|按键'+'。|
@@ -128,8 +131,8 @@ import { KeyCode } from '@kit.InputKit';
 |KEYCODE_MOVE_END|2082|光标移动到末尾键。|
 |KEYCODE_INSERT|2083|插入键。|
 |KEYCODE_FORWARD|2084|前进键。|
-|KEYCODE_MEDIA_PLAY|2085|多媒体键：播放。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
-|KEYCODE_MEDIA_PAUSE|2086|光盘暂停键。 元服务API： 从API version 12开始，该接口支持在元服务中使用。|
+|KEYCODE_MEDIA_PLAY|2085|多媒体键：播放。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
+|KEYCODE_MEDIA_PAUSE|2086|光盘暂停键。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
 |KEYCODE_MEDIA_CLOSE|2087|光盘关闭键。|
 |KEYCODE_MEDIA_EJECT|2088|光盘弹出键。|
 |KEYCODE_MEDIA_RECORD|2089|多媒体键：录音。|
@@ -157,7 +160,7 @@ import { KeyCode } from '@kit.InputKit';
 |KEYCODE_NUMPAD_8|2111|小键盘按键'8'。|
 |KEYCODE_NUMPAD_9|2112|小键盘按键'9'。|
 |KEYCODE_NUMPAD_DIVIDE|2113|小键盘按键'/'。|
-|KEYCODE_NUMPAD_MULTIPLY|2114|小键盘按键'\*'。|
+|KEYCODE_NUMPAD_MULTIPLY|2114|小键盘按键'*'。|
 |KEYCODE_NUMPAD_SUBTRACT|2115|小键盘按键'-'。|
 |KEYCODE_NUMPAD_ADD|2116|小键盘按键'+'。|
 |KEYCODE_NUMPAD_DOT|2117|小键盘按键'.'。|
@@ -193,8 +196,8 @@ import { KeyCode } from '@kit.InputKit';
 |KEYCODE_MACRO|2610|宏键。|
 |KEYCODE_NUMPAD_PLUSMINUS|2611|数字键盘上的加号/减号键。|
 |KEYCODE_SCALE|2612|扩展键。|
-|KEYCODE_HANGUEL|2613|日文韩语键。|
-|KEYCODE_HANJA|2614|日文汉语键。|
+|KEYCODE_HANGUEL|2613|韩文键。|
+|KEYCODE_HANJA|2614|韩文汉字键。|
 |KEYCODE_YEN|2615|日元键。|
 |KEYCODE_STOP|2616|停止键。|
 |KEYCODE_AGAIN|2617|重复键。|
@@ -265,10 +268,10 @@ import { KeyCode } from '@kit.InputKit';
 |KEYCODE_VIDEO|2683|视频键。|
 |KEYCODE_MEMO|2684|备忘录键。|
 |KEYCODE_CALENDAR|2685|日历键。|
-|KEYCODE_RED|2686|红色指示器。|
-|KEYCODE_GREEN|2687|绿色指示器。|
-|KEYCODE_YELLOW|2688|黄色指示器。|
-|KEYCODE_BLUE|2689|蓝色指示器。|
+|KEYCODE_RED|2686|红色指示器键。|
+|KEYCODE_GREEN|2687|绿色指示器键。|
+|KEYCODE_YELLOW|2688|黄色指示器键。|
+|KEYCODE_BLUE|2689|蓝色指示器键。|
 |KEYCODE_CHANNELUP|2690|频道向上键。|
 |KEYCODE_CHANNELDOWN|2691|频道向下键。|
 |KEYCODE_LAST|2692|末尾键。|
@@ -287,16 +290,16 @@ import { KeyCode } from '@kit.InputKit';
 |KEYCODE_PRESENTATION|2705|演示文稿键。|
 |KEYCODE_DATABASE|2706|数据库键。|
 |KEYCODE_NEWS|2707|新闻键。|
-|KEYCODE_VOICEMAIL|2708|语音信箱。|
-|KEYCODE_ADDRESSBOOK|2709|通讯簿。|
+|KEYCODE_VOICEMAIL|2708|语音信箱键。|
+|KEYCODE_ADDRESSBOOK|2709|通讯簿键。|
 |KEYCODE_MESSENGER|2710|通信键。|
 |KEYCODE_BRIGHTNESS_TOGGLE|2711|亮度切换键。|
 |KEYCODE_SPELLCHECK|2712|拼写检查键。|
-|KEYCODE_COFFEE|2713|终端锁/屏幕保护程序。|
+|KEYCODE_COFFEE|2713|终端锁/屏幕保护程序键。|
 |KEYCODE_MEDIA_REPEAT|2714|媒体循环键。|
 |KEYCODE_IMAGES|2715|图像键。|
 |KEYCODE_BUTTONCONFIG|2716|按键配置键。|
-|KEYCODE_TASKMANAGER|2717|任务管理器。|
+|KEYCODE_TASKMANAGER|2717|任务管理器键。|
 |KEYCODE_JOURNAL|2718|日志按键。|
 |KEYCODE_CONTROLPANEL|2719|控制面板键。|
 |KEYCODE_APPSELECT|2720|应用程序选择键。|
@@ -311,10 +314,10 @@ import { KeyCode } from '@kit.InputKit';
 |KEYCODE_KBDINPUTASSIST_NEXTGROUP|2729|键盘输入Assist_Next，切换输入组中下一个输入法。|
 |KEYCODE_KBDINPUTASSIST_ACCEPT|2730|键盘输入Assist_Accept。|
 |KEYCODE_KBDINPUTASSIST_CANCEL|2731|键盘输入Assist_Cancel。|
-|KEYCODE_MOUSE_ASSISTANT|2732|鼠标AI助手键。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。|
-|KEYCODE_MOUSE_INTELLIGENCE_SELECTION|2733|鼠标智慧框选键。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。|
-|KEYCODE_AOD_SINGLE_CLICK|2740|手机触摸屏单击事件，在熄屏显示状态下使用。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。|
-|KEYCODE_FRONT|2800|挡风玻璃除雾器开关。|
+|KEYCODE_MOUSE_ASSISTANT|2732|鼠标AI助手键。 **起始版本：** 26.0.0 **模型约束：** 此接口仅可在Stage模型下使用。|
+|KEYCODE_MOUSE_INTELLIGENCE_SELECTION|2733|鼠标智慧框选键。 **起始版本：** 26.0.0 **模型约束：** 此接口仅可在Stage模型下使用。|
+|KEYCODE_AOD_SINGLE_CLICK|2740|手机触摸屏单击事件，在熄屏显示状态下使用。 **起始版本：** 26.0.0 **模型约束：** 此接口仅可在Stage模型下使用。|
+|KEYCODE_FRONT|2800|挡风玻璃除雾器开关键。|
 |KEYCODE_SETUP|2801|设置键。|
 |KEYCODE_WAKEUP|2802|唤醒键。|
 |KEYCODE_SENDFILE|2803|发送文件按键。|
@@ -344,7 +347,7 @@ import { KeyCode } from '@kit.InputKit';
 |KEYCODE_F24|2827|按键'F24'。|
 |KEYCODE_PROG3|2828|程序键3。|
 |KEYCODE_PROG4|2829|程序键4。|
-|KEYCODE_DASHBOARD|2830|仪表板。|
+|KEYCODE_DASHBOARD|2830|仪表板键。|
 |KEYCODE_SUSPEND|2831|挂起键。|
 |KEYCODE_HP|2832|高阶路径键。|
 |KEYCODE_SOUND|2833|音量键。|
@@ -356,26 +359,26 @@ import { KeyCode } from '@kit.InputKit';
 |KEYCODE_SWITCHVIDEOMODE|2841|在可用视频之间循环输出（监视器/LCD/TV输出/等）。|
 |KEYCODE_BATTERY|2842|电池按键。|
 |KEYCODE_BLUETOOTH|2843|蓝牙按键。|
-|KEYCODE_WLAN|2844|无线局域网。|
+|KEYCODE_WLAN|2844|无线局域网键。|
 |KEYCODE_UWB|2845|超宽带控制键。|
 |KEYCODE_WWAN_WIMAX|2846|移动网络控制键。|
-|KEYCODE_RFKILL|2847|控制所有收音机的键。|
+|KEYCODE_RFKILL|2847|控制所有无线设备的键。|
 |KEYCODE_CHANNEL|3001|向上频道键。|
-|KEYCODE_BTN_0|3100|按键0。|
-|KEYCODE_BTN_1|3101|按键1。|
-|KEYCODE_BTN_2|3102|按键2。|
-|KEYCODE_BTN_3|3103|按键3。|
-|KEYCODE_BTN_4|3104|按键4。|
-|KEYCODE_BTN_5|3105|按键5。|
-|KEYCODE_BTN_6|3106|按键6。|
-|KEYCODE_BTN_7|3107|按键7。|
-|KEYCODE_BTN_8|3108|按键8。|
-|KEYCODE_BTN_9|3109|按键9。|
+|KEYCODE_BTN_0|3100|按钮'0'。|
+|KEYCODE_BTN_1|3101|按钮'1'。|
+|KEYCODE_BTN_2|3102|按钮'2'。|
+|KEYCODE_BTN_3|3103|按钮'3'。|
+|KEYCODE_BTN_4|3104|按钮'4'。|
+|KEYCODE_BTN_5|3105|按钮'5'。|
+|KEYCODE_BTN_6|3106|按钮'6'。|
+|KEYCODE_BTN_7|3107|按钮'7'。|
+|KEYCODE_BTN_8|3108|按钮'8'。|
+|KEYCODE_BTN_9|3109|按钮'9'。|
 |KEYCODE_DAGGER_CLICK^18+^|3211|智能手表智感窗按键单击。|
 |KEYCODE_DAGGER_DOUBLE_CLICK^18+^|3212|智能手表智感窗按键双击。|
 |KEYCODE_DAGGER_LONG_PRESS^18+^|3213|智能手表智感窗按键长按。|
 |KEYCODE_DIV^20+^|3220|智能手表左按键。|
-|KEYCODE_XKEY|3232|自定义快捷键。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。|
-|KEYCODE_FINGERPRINT_SLIDE_UP|3233|智控键上滑。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。|
-|KEYCODE_FINGERPRINT_SLIDE_DOWN|3234|智控键下滑。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。|
+|KEYCODE_XKEY|3232|自定义快捷键。 **起始版本：** 26.0.0 **模型约束：** 此接口仅可在Stage模型下使用。|
+|KEYCODE_FINGERPRINT_SLIDE_UP|3233|智控键上滑。 **起始版本：** 26.0.0 **模型约束：** 此接口仅可在Stage模型下使用。|
+|KEYCODE_FINGERPRINT_SLIDE_DOWN|3234|智控键下滑。 **起始版本：** 26.0.0 **模型约束：** 此接口仅可在Stage模型下使用。|
 

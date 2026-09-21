@@ -12,17 +12,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/1190
 
 本协议未尽事宜，按照[《华为开发者服务协议》](https://developer.huawei.com/consumer/cn/doc/20201)和[《华为APIs使用协议》](https://developer.huawei.com/consumer/cn/doc/distribution/app/20209)执行。如本协议与[《华为开发者服务协议》](https://developer.huawei.com/consumer/cn/doc/20201)和[《华为APIs使用协议》](https://developer.huawei.com/consumer/cn/doc/distribution/app/20209)中的条款发生冲突的，仅在华为短信服务的范围内，以本协议为准。
 
-<br />
-
-#### 定义
+## **定义**
 
 除非本协议另有规定，本协议中的术语与[《华为开发者服务协议》](https://developer.huawei.com/consumer/cn/doc/20201)和[《华为APIs使用协议》](https://developer.huawei.com/consumer/cn/doc/distribution/app/20209)中的术语含义相同。如无特别说明，下列术语在本协议中的含义为：
 
-1.1 "华为国内短信服务"（以下简称"本服务"）：指华为向开发者提供的一种通信服务能力，开发者可以使用本服务发送短信给拥有中国大陆地区手机号码的最终用户。
+1.1 **"华为国内短信服务"** （以下简称**"本服务"**）：指华为向开发者提供的一种通信服务能力，开发者可以使用本服务发送短信给拥有中国大陆地区手机号码的最终用户。
 
-<br />
-
-#### 权利和义务
+## **权利和义务**
 
 2.1 您的权利和义务
 
@@ -54,15 +50,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/1190
 
 2.2.7 华为可能收集有关您使用本服务的诊断信息，以帮助改进本服务。
 
-<br />
-
-#### 隐私
+## **隐私**
 
 在向您提供本服务时，华为将作为您的数据处理方，根据[《AppGallery Connect数据处理附录》](https://developer.huawei.com/consumer/cn/doc/20215)（即《华为国内短信服务使用协议》和[《华为开发者服务协议》](https://developer.huawei.com/consumer/cn/doc/20201)中的一部分）来处理最终用户的个人数据。
 
-<br />
-
-#### 免责声明
+## **免责声明**
 
 4.1 对于因政府行为、运营商政策及价格调整、管控及网络技术原因、通讯网络故障、黑客袭击等不可抗力因素，导致本服务中断等情况，您应予以理解，华为无需承担任何责任。
 
@@ -70,9 +62,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/1190
 
 4.3 在提前通知您进行业务迁移或业务暂停后，华为及其供应商实施的操作维护，包含但不限于故障处理、系统升级、系统调优、系统扩容等导致本服务不可用，您应予以理解，华为无需承担任何责任。
 
-<br />
-
-#### 协议终止
+## **协议终止**
 
 5.1 任何一方终止[《华为开发者服务协议》](https://developer.huawei.com/consumer/cn/doc/20201)或[《华为APIs使用协议》](https://developer.huawei.com/consumer/cn/doc/distribution/app/20209)后，本协议将在同一终止日期自行终止。
 
@@ -82,14 +72,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/1190
 
 5.4 协议双方签订的[《华为开发者服务协议》](https://developer.huawei.com/consumer/cn/doc/20201)和[《华为APIs使用协议》](https://developer.huawei.com/consumer/cn/doc/distribution/app/20209)不会随着本协议终止而自动终止。
 
-<br />
-
-#### 分发区域和签约主体
+## **分发区域和签约主体**
 
 本协议项下分发区域和签约主体按照[《华为APIs使用协议》](https://developer.huawei.com/consumer/cn/doc/20209)"签约主体"条款执行。
 
-<br />
+## **法律适用及争议解决**
 
-#### 法律适用及争议解决
+本协议项下法律适用和争议解决按照[《华为APIs使用协议》](https://developer.huawei.com/consumer/cn/doc/20209)"法律适用和争议解决"条款执行。
 
-本协议项下法律适用和争议解决按照[《华为APIs使用协议》](https://developer.huawei.com/consumer/cn/doc/20209)"法律适用和争议解决"条款执行。  

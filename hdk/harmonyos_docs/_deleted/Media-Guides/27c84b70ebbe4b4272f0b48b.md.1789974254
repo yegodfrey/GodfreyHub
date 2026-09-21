@@ -1,0 +1,42 @@
+---
+name: document/cn/Media-Guides/dev-process-0000001051069604
+title: 使用入门
+uri: https://developer.huawei.com/consumer/cn/doc/Media-Guides/dev-process-0000001051069604
+---
+
+# 使用入门
+
+## 快速上手
+
+在您正式开发应用之前，可以通过[codelab](https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/HMSAudioKit)快速体验一个应用的开发过程。
+
+## 开发环境
+
+* JDK 1.8.211及以上
+* 安装Android Studio 3.6.1及以上
+  * minSdkVersion 19及以上
+  * targetSdkVersion 31（推荐）
+  * compileSdkVersion 30（推荐）
+  * Gradle 4.6及以上（推荐）
+* 测试应用的设备：EMUI 4.0及以上的华为手机。
+
+如果同时使用多个HMS Core的服务，则需要使用各个Kit对应的最大值
+
+## 开发流程
+
+您需要按照如下流程完成应用的开发工作。
+
+|序号|步骤|说明|
+|:-|:------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|1|[配置AppGallery Connect](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/config-agc-0000001050709636)|在开发应用前，需要在AppGallery Connect中配置相关信息。包括：[注册成为开发者](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/config-agc-0000001050709636#section1464519554325)、[创建应用](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/config-agc-0000001050709636#section15850522183317)。|
+|2|[集成Audio SDK](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/integrating-sdk-0000001050989687)|在开发应用前，您需要将Audio SDK集成到您的开发环境中。|
+|3|[配置混淆脚本](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/config-obfuscation-scripts-0000001051069606)|编译APK前需要配置混淆配置文件，避免混淆HMS Core SDK导致功能异常。|
+|4|[添加权限](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/add-permissions-0000001050749669)|在"AndroidManifest.xml"文件中配置应用所需权限。|
+|5|[音频播放管理](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/classhwaudioplayermanager-0000001144518154)|应用的基础播放开发工作，包括播放、暂停、上一首、下一首等。|
+|5|[音频配置管理](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/classhwaudioconfigmanager-0000001190478057)|实现缓冲区管理、通知栏设置和播放队列保存设置。|
+|5|[音频队列管理](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/classhwaudioqueuemanager-0000001190318213)|实现音频队列管理，包括保存列表、删除列表、增加列表的音频内容等。|
+|5|[播放状态回调](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/interfacehwaudiostatuslistener-0000001144358362)|歌曲信息、歌曲队列、缓冲进度等发生变化时实现页面的刷新。|
+|5|[音频音效管理](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/classhwaudioeffectmanager-0000001144518156)|提供多种普通及精选音效，也可以自定义音效。|
+|6|[开发后自检](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/pre-release-check-0000001050989689)|华为提供对应用自动检查的能力。|
+|7|[上架申请](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/app-release-0000001050442681)|开发完成后需要在AppGallery Connect中将应用信息补充完整并提交上架申请。|
+

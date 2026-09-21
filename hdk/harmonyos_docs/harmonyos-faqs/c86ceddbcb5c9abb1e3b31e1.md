@@ -6,15 +6,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-894
 
 # Image加载本地图片
 
-#### 问题现象
+## 问题现象
 
-如何使用Image组件加载本地图片？  
+如何使用Image组件加载本地图片？
 
-#### 背景知识
+## 背景知识
 
-[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)：Image为图片组件，常用于在应用中显示图片。Image支持加载[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)、[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)和[DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#drawabledescriptor10)类型的数据源，支持png、jpg、jpeg、bmp、svg、webp、gif和heif类型的图片格式，不支持apng和svga格式。  
+[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)：Image为图片组件，常用于在应用中显示图片。Image支持加载[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)、[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)和[DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#drawabledescriptor10)类型的数据源，支持png、jpg、jpeg、bmp、svg、webp、gif和heif类型的图片格式，不支持apng和svga格式。
 
-#### 解决方案
+## 解决方案
 
 * 方案一、通过Resource资源管理加载（推荐）。
   * 将图片放置在resources/base/media或resources/rawfile目录下。
@@ -35,21 +35,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-894
 * 方案三、通过base64字符串加载。(注意：需要将this.base64ImageData替换成对应的图片资源)
   * 实现方式：
 
-    ```
+    ```ts
     Image('data:image/jpg;base64,' + this.base64ImageData)
     ```
 
   * 特点：
     * 适合加载小型图片或需要动态生成的图片。
-* 需注意字符串长度对性能的影响。  
+    * 需注意字符串长度对性能的影响。
 
-#### 常见FAQ
+## 常见FAQ
 
 Q：Image组件如何加载apng图片？
 
-A：可以通过[ohos_apng](https://gitee.com/openharmony-sig/ohos_apng)库来实现。  
+A：可以通过[ohos_apng](https://gitee.com/openharmony-sig/ohos_apng)库来实现。
 
-#### 总结
+## 总结
 
 |方案|适用场景|跨模块支持|动态路径|资源校验|性能优化|
 |:-----------|:------------|:----|:---|:---|:---|
@@ -62,4 +62,5 @@ A：可以通过[ohos_apng](https://gitee.com/openharmony-sig/ohos_apng)库来�
 
 * 通用图片推荐使用Resource资源管理。
 * 需要动态加载时选择本地路径引用。
-* 优先使用官方推荐的Resource和rawfile方式以保证兼容性和稳定性。  
+* 优先使用官方推荐的Resource和rawfile方式以保证兼容性和稳定性。
+

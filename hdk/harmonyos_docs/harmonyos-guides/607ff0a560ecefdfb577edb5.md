@@ -6,16 +6,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
 
 # 使用RSA非对称密钥加解密(ArkTS)
 
-对应的算法规格请查看[非对称密钥加解密算法规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-encryption-decryption#rsa)。  
+对应的算法规格请查看[非对称密钥加解密算法规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-encryption-decryption#rsa)。
 
-#### 使用RSA非对称密钥（PKCS1模式）加解密
+## 使用RSA非对称密钥（PKCS1模式）加解密
 
-加密
+**加密**
 
 1. 调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)、[AsyKeyGenerator.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair-1)，生成RSA密钥类型为RSA1024、素数个数为2的非对称密钥对（KeyPair）。KeyPair对象中包括公钥PubKey、私钥PriKey。
 
    如何生成RSA非对称密钥对，开发者可参考下文示例，并结合[非对称密钥生成和转换规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-generation-conversion#rsa)和[随机生成非对称密钥对](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-asym-key-pair-randomly)理解，参考文档与当前示例可能存在入参差异，请在阅读时注意区分。
-2. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'RSA1024\|PKCS1'，创建非对称密钥类型为RSA1024、填充模式为PKCS1的Cipher实例，用于完成加解密操作。
+2. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'RSA1024|PKCS1'，创建非对称密钥类型为RSA1024、填充模式为PKCS1的Cipher实例，用于完成加解密操作。
 
 3. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（cryptoFramework.CryptoMode.ENCRYPT_MODE），指定加密密钥（KeyPair.PubKey），初始化加密Cipher实例。
 
@@ -25,7 +25,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
    * doFinal输出结果可能为null，在访问具体数据前，需要先判断结果是否为null，避免产生异常。
    * 当数据量较大时，可以多次调用doFinal，即[分段加解密](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-asym-encrypt-decrypt#使用rsa非对称密钥分段加解密)。
 
-解密
+**解密**
 
 1. 由于RSA算法的Cipher实例不支持重复init操作，需要调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，重新生成Cipher实例。
 
@@ -35,7 +35,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
 
 * 异步方法示例：
 
-  ```
+  ```TypeScript
   import { cryptoFramework } from '@kit.CryptoArchitectureKit';
   import { buffer } from '@kit.ArkTS';
 
@@ -122,7 +122,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
 
 * 同步方法示例：
 
-  ```
+  ```TypeScript
   import { cryptoFramework } from '@kit.CryptoArchitectureKit';
   import { buffer } from '@kit.ArkTS';
 
@@ -207,14 +207,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
   }
   ```
 
-#### 使用RSA非对称密钥分段加解密
+## 使用RSA非对称密钥分段加解密
 
-加密
+**加密**
 
 1. 调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)、[AsyKeyGenerator.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair-1)，生成RSA密钥类型为RSA1024、素数个数为2（不填默认）的非对称密钥对（KeyPair）。KeyPair对象中包括公钥PubKey、私钥PriKey。
 
    如何生成RSA非对称密钥对，开发者可参考下文示例，并结合[非对称密钥生成和转换规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-generation-conversion#rsa)和[随机生成非对称密钥对](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-asym-key-pair-randomly)理解，参考文档与当前示例可能存在入参差异，请在阅读时注意区分。
-2. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'RSA1024\|PKCS1'，创建非对称密钥类型为RSA1024、填充模式为PKCS1的Cipher实例，用于完成加解密操作。
+2. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'RSA1024|PKCS1'，创建非对称密钥类型为RSA1024、填充模式为PKCS1的Cipher实例，用于完成加解密操作。
 
 3. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（cryptoFramework.CryptoMode.ENCRYPT_MODE），指定加密密钥（KeyPair.PubKey），初始化加密Cipher实例。
 
@@ -222,11 +222,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
 
    doFinal输出结果可能为null，在访问具体数据前，需要先判断结果是否为null，避免产生异常。
 
-   此处将明文按64个字节一组拆分，多次加密。使用1024位密钥，每次将生成128字节密文。  
-   ![](https://media:401788444749314326)  
-   非对称密钥的分段加解密是指当明文大于单次加解密支持的数据长度时，需要将待加解密数据分为合适长度的数据段，并对每个数据段执行加解密操作。详细介绍可见[非对称分段加解密介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-encryption-decryption#非对称加解密)。
+   此处将明文按64个字节一组拆分，多次加密。使用1024位密钥，每次将生成128字节密文。
+   > 说明
+   >
+   > 非对称密钥的分段加解密是指当明文大于单次加解密支持的数据长度时，需要将待加解密数据分为合适长度的数据段，并对每个数据段执行加解密操作。详细介绍可见[非对称分段加解密介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-encryption-decryption#非对称加解密)。
 
-解密
+**解密**
 
 1. 由于RSA算法的Cipher实例不支持重复init操作，需要调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，重新生成Cipher实例。
 
@@ -236,7 +237,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
 
 * 异步方法示例：
 
-  ```
+  ```TypeScript
   import { cryptoFramework } from '@kit.CryptoArchitectureKit';
   import { buffer } from '@kit.ArkTS';
 
@@ -305,7 +306,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
 
 * 同步方法示例：
 
-  ```
+  ```TypeScript
   import { cryptoFramework } from '@kit.CryptoArchitectureKit';
   import { buffer } from '@kit.ArkTS';
 
@@ -372,14 +373,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
   }
   ```
 
-#### 使用RSA非对称密钥（PKCS1_OAEP模式）加解密
+## 使用RSA非对称密钥（PKCS1_OAEP模式）加解密
 
-加密
+**加密**
 
 1. 调用[cryptoFramework.createAsyKeyGeneratorBySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygeneratorbyspec10)、[AsyKeyGeneratorBySpec.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair10)，指定密钥参数，生成RSA非对称密钥对（KeyPair）。
 
    如何生成RSA非对称密钥对，开发者可参考下文示例，并结合[非对称密钥生成和转换规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-generation-conversion#rsa)和[指定密钥参数生成非对称密钥对](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-asym-key-pair-from-key-spec)理解，参考文档与当前示例可能存在入参差异，请在阅读时注意区分。
-2. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'RSA2048\|PKCS1_OAEP\|SHA256\|MGF1_SHA1'，创建非对称密钥类型为RSA2048、填充模式为PKCS1_OAEP、摘要算法为SHA256、掩码摘要为MGF1_SHA1的RSA密钥的Cipher实例，用于完成加解密操作。
+2. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'RSA2048|PKCS1_OAEP|SHA256|MGF1_SHA1'，创建非对称密钥类型为RSA2048、填充模式为PKCS1_OAEP、摘要算法为SHA256、掩码摘要为MGF1_SHA1的RSA密钥的Cipher实例，用于完成加解密操作。
 
 3. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（cryptoFramework.CryptoMode.ENCRYPT_MODE），指定加密密钥（KeyPair.PubKey），初始化加密Cipher实例。
 
@@ -388,7 +389,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
 
 5. 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，传入明文，获取加密后的数据。
 
-解密
+**解密**
 
 1. 由于RSA算法的Cipher实例不支持重复init操作，需要调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，重新生成Cipher实例。
 
@@ -400,7 +401,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
 
 * 异步方法示例：
 
-  ```
+  ```TypeScript
   import { cryptoFramework } from '@kit.CryptoArchitectureKit';
   import { buffer } from '@kit.ArkTS';
 
@@ -493,7 +494,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-as
 
 * 同步方法示例：
 
-  ```
+  ```TypeScript
   import { cryptoFramework } from '@kit.CryptoArchitectureKit';
   import { buffer } from '@kit.ArkTS';
   // 根据密钥参数属性构造RSA非对称密钥对密钥参数

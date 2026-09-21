@@ -6,24 +6,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-51
 
 # 如何通过SVG字符串加载图片
 
-#### 问题现象
+## 问题现象
 
-通过其他三方库生成的SVG字符串，需要使用Image组件进行加载，如何实现？  
+通过其他三方库生成的SVG字符串，需要使用Image组件进行加载，如何实现？
 
-#### 背景知识
+## 背景知识
 
 * [Image组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)可显示矢量图（SVG格式的图片），SVG标签文档请参考[SVG标签说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-svg)。如果SVG图片没有原始大小，需要给Image组件设置宽高，否则不显示。SVG图片不支持通过image标签引用svg格式和gif格式的本地其他图片。
-* 加载SVG图片目前可行的方法有很多，例如下载为SVG文件，然后通过文件读取；或者解析为Uint8Array，然后转为[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)进行加载，目前转为PixelMap方式可行性更高。  
+* 加载SVG图片目前可行的方法有很多，例如下载为SVG文件，然后通过文件读取；或者解析为Uint8Array，然后转为[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)进行加载，目前转为PixelMap方式可行性更高。
 
-#### 解决方案
+## 解决方案
 
 需要显示的SVG图片样例效果预览：
 
-![](https://media:101782441944008144 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/oxRpaxLaRuWZNRIH_gJOIg/zh-cn_image_0000002658911825.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=02FC3B7CF2AEE23AA55F5D4B97B1E02892B18744460BDA343EC09F069BA05F1E "点击放大")
 
 首先可以使用[TextEncoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#textencoder)类的[encodeInto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#encodeinto9)方法，将SVG字符串转化为Uint8Array类型，然后使用[createImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagesource9-2)通过buffer创建ImageSource实例，最后使用[createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#createpixelmap7)返回结果。
 
-```
+```ts
 import { image } from '@kit.ImageKit';
 import { util } from '@kit.ArkTS';
 
@@ -31,7 +31,7 @@ import { util } from '@kit.ArkTS';
 @Component
 struct Index {
   @State pixelMap: image.PixelMap | undefined = undefined;
-  // 将以下内容替换成从三方库得到的SVG字符串
+ // 将以下内容替换成从三方库得到的SVG字符串
   svgContent = '';
 
   async uint8ArrayToPixelMap(svg: string): Promise<image.PixelMap> {

@@ -10,55 +10,55 @@ uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/mlscenedetecti
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |com.huawei.hms.mlsdk.scd.MLSceneDetectionAnalyzer 创建场景识别分析器有两种方式： * MLSceneDetectionAnalyzerFactory.getInstance().getSceneDetectionAnalyzer() * MLSceneDetectionAnalyzerFactory.getInstance().getSceneDetectionAnalyzer(MLSceneDetectionAnalyzerSetting） 前者使用MLSceneDetectionAnalyzerSetting中设置的默认值，后者可自定义配置项。|
 
-#### Public Method Summary
+## Public Method Summary
 
 |Qualifier and Type|Method Name and Description|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|SparseArray\<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)\>|[analyseFrame](#section4629125912345)([MLFrame](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlframe-0000001050167430) frame) 使用同步方法检测输入图像中的场景信息。|
-|Task\<List\<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)\>\>|[asyncAnalyseFrame](#section1632191815358)([MLFrame](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlframe-0000001050167430) frame) 使用异步方法检测输入图像中的场景信息。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|SparseArray<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)>|[analyseFrame](#section4629125912345)([MLFrame](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlframe-0000001050167430) frame) 使用同步方法检测输入图像中的场景信息。|
+|Task<List<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)>>|[asyncAnalyseFrame](#section1632191815358)([MLFrame](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlframe-0000001050167430) frame) 使用异步方法检测输入图像中的场景信息。|
 |void|[stop](#section51951213810)() 释放分析器使用的资源。|
 
-#### Public Methods
+## Public Methods
 
-#### analyseFrame(MLFrame frame)
+### analyseFrame(MLFrame frame)
 
 |Method|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public SparseArray\<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)\> analyseFrame([MLFrame](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlframe-0000001050167430) frame) 使用同步方法检测输入图像中的场景信息。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public SparseArray<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)> analyseFrame([MLFrame](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlframe-0000001050167430) frame) 使用同步方法检测输入图像中的场景信息。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------|
 |frame|待检测图像。|
 
-Returns  
+**Returns**
 
 |Type|Description|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-|SparseArray\<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)\>|检测结果。|
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+|SparseArray<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)>|检测结果。|
 
-#### asyncAnalyseFrame(MLFrame frame)
+### asyncAnalyseFrame(MLFrame frame)
 
 |Method|
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|public Task\<List\<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)\>\> asyncAnalyseFrame([MLFrame](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlframe-0000001050167430) frame) 使用异步方法检测输入图像中的场景信息。接口返回的错误码可以参见[错误码](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlsdkscd-errorcode-0000001058769232)进行处理。|
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|public Task<List<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)>> asyncAnalyseFrame([MLFrame](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlframe-0000001050167430) frame) 使用异步方法检测输入图像中的场景信息。接口返回的错误码可以参见[错误码](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlsdkscd-errorcode-0000001058769232)进行处理。|
 
-Parameters  
+**Parameters**
 
 |Name|Description|
 |:----|:----------|
 |frame|待检测图像。|
 
-Returns  
+**Returns**
 
 |Type|Description|
-|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-|Task\<List\<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)\>\>|检测结果。|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+|Task<List<[MLSceneDetection](https://developer.huawei.com/consumer/cn/doc/development/hiai-References/mlscenedetectionresult-0000001054373028)>>|检测结果。|
 
-Sample code：
+**Sample code：**
 
-```
+```screen
 // 创建场景识别分析器。
 MLSceneDetectionAnalyzer analyzer = MLSceneDetectionAnalyzerFactory.getInstance().getSceneDetectionAnalyzer();
 // 通过bitmap创建MLFrame，建议图片尺寸不小于224*224像素，不大于4096*4096像素。
@@ -89,7 +89,7 @@ task.addOnSuccessListener(new OnSuccessListener<List<MLSceneDetection>>() {
 });
 ```
 
-#### stop()
+### stop()
 
 |Method|
 |:-----------------------------|

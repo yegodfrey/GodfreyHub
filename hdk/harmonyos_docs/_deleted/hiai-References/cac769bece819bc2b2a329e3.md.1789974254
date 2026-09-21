@@ -1,0 +1,24 @@
+---
+name: document/cn/hiai-References/format-0000001138937763
+title: Format
+uri: https://developer.huawei.com/consumer/cn/doc/hiai-References/format-0000001138937763
+---
+
+# Format
+
+> 说明
+>
+> 此接口从DDK 5.0.1.0版本起废弃。
+
+|Enum Info|
+|:----------------|
+|Tensor维度排列格式枚举定义。|
+
+## Enum Value Summary
+
+|Enum Value and Description|Value|
+|:-------------------------|:----|
+|NCHW|0|
+|NHWC|1|
+|ND|2|
+
