@@ -11,6 +11,22 @@ interface VisualIssue {
   message: string;
 }
 
+/**
+ * 测量值上报(D-1/拍板项三的配套面, 2026-09-21): 比较器对每一份声明的证据记下
+ * "量到了什么", 无论该证据本轮是否参与计分——为判定相的离线可评铺路
+ * (变体"基线必须同场采到"的机制目前只覆盖布局树与主题配对, 字体等轴先有测量值可查)。
+ * scored=false 的条目不进 checks/passed, 绝不以"量过"冒充"判过"。
+ */
+export interface VisualMeasurement {
+  id: string;
+  kind: "dark-render" | "theme-delta" | "structural-equivalence";
+  /** true = 该条证据以成对事实进入了位移判定计分; false = 仅测量(退役探针/未配对或
+   *  采样失败的锚), 绝不以"量过"冒充"判过"。 */
+  scored: boolean;
+  values: Record<string, number | string>;
+  note?: string;
+}
+
 export interface VisualCompareResult {
   status: "passed" | "failed";
   summary: {
@@ -18,8 +34,17 @@ export interface VisualCompareResult {
     passed: number;
     failed: number;
     mismatchRatio?: number;
+    /**
+     * D-1 dark 轴时序门(2026-09-21, OPEN_ITEMS_LEDGER §E-7/死规则② 的比较器侧落地):
+     * 主题维度计分的显式状态。scored=themeDeltas 已声明且同场浅色基线在场, 位移判定
+     * 真跑了; unpaired=声明了 themeDeltas 但没拿到基线(theme-baseline-missing 红);
+     * notDeclared=spec 未声明 themeDeltas, 主题维度本轮**不参与计分**——宁可明说
+     * "没判", 不拿退役探针/无阈值身份重记一遍假绿。
+     */
+    themeAxis: "scored" | "unpaired" | "notDeclared";
   };
   issues: VisualIssue[];
+  measurements: VisualMeasurement[];
   reportJson: string;
   reportMarkdown: string;
 }
@@ -452,33 +477,35 @@ function contrastProbeCheck(image: PNG, layout: any, rule: any): string | null {
 }
 
 /**
- * C09 暗色非空渲染探针（已退役的主题轴断言，见 GFSoftware visual-spec.schema.json 的
+ * C09 暗色非空渲染测量（已退役的主题轴断言，见 GFSoftware visual-spec.schema.json 的
  * darkRenderProbes 注记）：暗色变体必须真的是暗色、有渲染内容、且没有大面积纯白异常块。
- * 整屏取样、不锚定、不与浅色捕获成对——结构上不可能失败，因此不再被任何维度消费；
- * 主题轴证据由 themeDeltaCheck（themeDeltas）承载。
+ * 整屏取样、不锚定、不与浅色捕获成对——"这一屏平均偏黑"曾是深色契约的全部断言（死规则②
+ * 的空探针形态），C09 已迁至 themeDeltaCheck（themeDeltas，锚定成对+阈值判定）。
+ *
+ * D-1 dark 轴时序门（2026-09-21 裁决，本函数是门的落点）：**没有 themeDeltas 不给主题
+ * 维度计分**。本探针不再执行阈值判定、不再占 checks 检查位（compareVisualSpec 的
+ * darkRenderProbes 分支只调本函数记测量值）；spec 未声明 themeDeltas 的检查点，主题维度
+ * 不参与计分——绝不拿"median luma 偏黑"这类无阈值身份把深色契约重记一遍假绿。
+ * 测量值照记（scored=false），判定相离线可评；历史上在此判定的三个阈值
+ * （median≤0.2、content≥0.005、pureWhite≤0.02）随退役一并移交离线判读，不再有任何计分语义。
  */
-function darkRenderProbeCheck(image: PNG, rule: any): string | null {
-  const maxDarkMedianLuma = Number(rule.maxDarkMedianLuma ?? 0.2);
-  const minContentFraction = Number(rule.minContentFraction ?? 0.005);
-  const maxPureWhiteFraction = Number(rule.maxPureWhiteFraction ?? 0.02);
+function measureDarkRender(image: PNG, rule: any): Record<string, number> {
   const pureWhiteLuma = Number(rule.pureWhiteLuma ?? 0.92);
   const contentLumaDelta = Number(rule.contentLumaDelta ?? 0.06);
   const lumas = sampledLumas(image, 0, 0, image.width - 1, image.height - 1, 20000);
-  if (lumas.length < 64) return "dark-render probe sampled too few pixels";
+  if (lumas.length < 64) {
+    return { sampledPixels: lumas.length, sampleError: 1 };
+  }
   const sorted = [...lumas].sort((a, b) => a - b);
   const median = percentileLuma(sorted, 0.5);
-  if (median > maxDarkMedianLuma) {
-    return `median luma ${median.toFixed(3)} exceeds the dark threshold ${maxDarkMedianLuma}`;
-  }
   const content = lumas.filter((luma) => Math.abs(luma - median) > contentLumaDelta).length / lumas.length;
-  if (content < minContentFraction) {
-    return `only ${(content * 100).toFixed(2)}% of pixels carry content; the dark render looks empty`;
-  }
   const pureWhite = lumas.filter((luma) => luma > pureWhiteLuma).length / lumas.length;
-  if (pureWhite > maxPureWhiteFraction) {
-    return `${(pureWhite * 100).toFixed(2)}% of pixels are near-white (limit ${maxPureWhiteFraction * 100}%); check the dark variant`;
-  }
-  return null;
+  return {
+    sampledPixels: lumas.length,
+    medianLuma: Number(median.toFixed(4)),
+    contentFraction: Number(content.toFixed(4)),
+    pureWhiteFraction: Number(pureWhite.toFixed(4)),
+  };
 }
 
 /** 锚点界框内按 sample 比例取圆盘区域的中位色（与 colorDominanceCheck 同一采样语义）。 */
@@ -500,6 +527,46 @@ function medianColorAt(image: PNG, bounds: Bounds, sample: any): Pixel {
   return medianPixel(samples);
 }
 
+/** 锚点定位(只读布局树): 返回界框与其原文; 采样失败返回 error 文案供判定与测量共用。 */
+function locateThemeAnchor(layout: any, rule: any):
+  { bounds: Bounds; boundsText: string } | { error: string } {
+  const match = rule?.match ?? {};
+  const nodeId = String(match.id ?? "");
+  const node = findLayoutNode(layout, nodeId, match.exact !== false);
+  if (!node) return { error: "semantic node is missing or not unique: " + nodeId };
+  const bounds = parseBounds(node?.attributes?.bounds ?? node?.bounds);
+  if (!bounds) return { error: "semantic node has invalid bounds: " + nodeId };
+  return { bounds, boundsText: `[${bounds.left},${bounds.top}][${bounds.right},${bounds.bottom}]` };
+}
+
+function isThemeAnchorError(value: ReturnType<typeof locateThemeAnchor>): value is { error: string } {
+  return (value as { error?: string }).error !== undefined;
+}
+
+/** 在指定帧的指定界框上取圆盘中位色采样(定位与采样分离, 两侧各用各的帧)。 */
+function sampleAnchorAt(image: PNG, bounds: Bounds, rule: any): { rgb: Pixel; luma: number } {
+  const rgb = medianColorAt(image, bounds, rule?.sample ?? {});
+  return { rgb, luma: linearizedLuma(rgb) };
+}
+
+/** 主题位移判定的测量值字段（判定与出账共用，见 VisualMeasurement）。 */
+function themeDeltaMeasurement(id: string, variant: {
+  rgb: { r: number; g: number; b: number }; luma: number; boundsText: string;
+}, baseline: { rgb: { r: number; g: number; b: number }; luma: number; boundsText: string } | null): VisualMeasurement {
+  const values: Record<string, number | string> = {
+    variantRgb: `${variant.rgb.r},${variant.rgb.g},${variant.rgb.b}`,
+    variantLuma: Number(variant.luma.toFixed(4)),
+    variantBounds: variant.boundsText,
+  };
+  if (baseline !== null) {
+    values.baselineRgb = `${baseline.rgb.r},${baseline.rgb.g},${baseline.rgb.b}`;
+    values.baselineLuma = Number(baseline.luma.toFixed(4));
+    values.baselineBounds = baseline.boundsText;
+    values.lumaShift = Number(Math.abs(variant.luma - baseline.luma).toFixed(4));
+  }
+  return { id, kind: "theme-delta", scored: baseline !== null, values };
+}
+
 /**
  * C09 主题位移判定（themeDeltas，主题轴证据的唯一承载）：
  * 锚定成对的浅色/深色采样对——同一锚点在深色变体帧与同场浅色基线帧上各取中位色，
@@ -512,60 +579,75 @@ function medianColorAt(image: PNG, bounds: Bounds, sample: any): Pixel {
  *     默认（12）同一量级——低于这个幅度的"位移"分不清是主题翻转还是采样噪声。
  *   - maxChannelDelta 默认不启用（undefined）：深浅两侧走不同色板 token 的合法翻色
  *     （如强调色换轴）逐通道位移可以很大；上限是可选的采样有效性加强，由 spec 声明。
+ *
+ * 返回判定文案（null=通过）与测量值；测量值无论判定结果如何都随报告出账。
  */
 function themeDeltaCheck(variant: PNG, baseline: PNG, variantLayout: any, baselineLayout: any,
-  rule: any): string | null {
+  rule: any): { message: string | null; measurement: VisualMeasurement } {
   const match = rule?.match ?? {};
   const nodeId = String(match.id ?? "");
-  const variantNode = findLayoutNode(variantLayout, nodeId, match.exact !== false);
-  if (!variantNode) return "semantic node is missing or not unique: " + nodeId;
-  const variantBounds = parseBounds(variantNode?.attributes?.bounds ?? variantNode?.bounds);
-  if (!variantBounds) return "semantic node has invalid bounds: " + nodeId;
+  const variantLocated = locateThemeAnchor(variantLayout, rule);
+  if (isThemeAnchorError(variantLocated)) {
+    return {
+      message: variantLocated.error,
+      measurement: { id: nodeId, kind: "theme-delta", scored: false,
+        values: { variantSampleError: variantLocated.error } },
+    };
+  }
+  const variantSide = {
+    ...sampleAnchorAt(variant, variantLocated.bounds, rule),
+    boundsText: variantLocated.boundsText,
+  };
 
   // 浅色基线的锚点定位：基线布局树在场就分别定位（锚点两侧各用自己的几何），
   // 缺席则复用变体 bounds——那是 spec 声明 structuralEquivalentTo.geometryInvariant
-  // 时由结构差分另行背书的前提，这里不重复强制。
-  let baselineBounds = variantBounds;
+  // 时由结构差分另行背书的前提，这里不重复强制；bounds 复用, 帧仍是基线帧。
+  let baselineLocated: ReturnType<typeof locateThemeAnchor> = variantLocated;
   if (baselineLayout) {
-    const baselineNode = findLayoutNode(baselineLayout, nodeId, match.exact !== false);
-    if (!baselineNode) {
-      return `theme anchor '${nodeId}' is missing or not unique in the baseline layout`;
+    baselineLocated = locateThemeAnchor(baselineLayout, rule);
+    if (isThemeAnchorError(baselineLocated)) {
+      // 基线侧定位失败与变体侧措辞区分开: 编排/声明错误各说各的, 不共用一句含混文案。
+      const reason = baselineLocated.error.includes("invalid bounds")
+        ? "has invalid bounds in the baseline layout"
+        : "is missing or not unique in the baseline layout";
+      return {
+        message: `theme anchor '${nodeId}' ${reason}`,
+        measurement: themeDeltaMeasurement(nodeId, variantSide, null),
+      };
     }
-    const parsed = parseBounds(baselineNode?.attributes?.bounds ?? baselineNode?.bounds);
-    if (!parsed) return `theme anchor '${nodeId}' has invalid bounds in the baseline layout`;
-    baselineBounds = parsed;
   }
+  const baselineSide = {
+    ...sampleAnchorAt(baseline, baselineLocated.bounds, rule),
+    boundsText: baselineLocated.boundsText,
+  };
 
-  const sample = rule?.sample ?? {};
-  const variantColor = medianColorAt(variant, variantBounds, sample);
-  const baselineColor = medianColorAt(baseline, baselineBounds, sample);
-
+  const measurement = themeDeltaMeasurement(nodeId, variantSide, baselineSide);
   const minShift = Number(rule.minMedianLumaShift ?? 0.06);
-  const variantLuma = linearizedLuma(variantColor);
-  const baselineLuma = linearizedLuma(baselineColor);
-  const shift = Math.abs(variantLuma - baselineLuma);
+  const shift = Math.abs(variantSide.luma - baselineSide.luma);
   if (shift < minShift) {
-    return `theme shift ${shift.toFixed(4)} is below the required ${minShift} ` +
-      `(variant rgb ${variantColor.r},${variantColor.g},${variantColor.b} vs baseline rgb ` +
-      `${baselineColor.r},${baselineColor.g},${baselineColor.b}) — the theme axis did not move this anchor`;
+    return { message: `theme shift ${shift.toFixed(4)} is below the required ${minShift} ` +
+      `(variant rgb ${variantSide.rgb.r},${variantSide.rgb.g},${variantSide.rgb.b} vs baseline rgb ` +
+      `${baselineSide.rgb.r},${baselineSide.rgb.g},${baselineSide.rgb.b}) — the theme axis did not move this anchor`,
+      measurement };
   }
   const maxChannelDelta = rule.maxChannelDelta;
   if (maxChannelDelta !== undefined && maxChannelDelta !== null) {
     const cap = Number(maxChannelDelta);
     const deltas: [string, number][] = [
-      ["red", Math.abs(variantColor.r - baselineColor.r)],
-      ["green", Math.abs(variantColor.g - baselineColor.g)],
-      ["blue", Math.abs(variantColor.b - baselineColor.b)],
+      ["red", Math.abs(variantSide.rgb.r - baselineSide.rgb.r)],
+      ["green", Math.abs(variantSide.rgb.g - baselineSide.rgb.g)],
+      ["blue", Math.abs(variantSide.rgb.b - baselineSide.rgb.b)],
     ];
     for (const [channel, delta] of deltas) {
       if (delta > cap) {
-        return `channel delta ${delta} on ${channel} exceeds the sampling cap ${cap} ` +
-          `(variant rgb ${variantColor.r},${variantColor.g},${variantColor.b} vs baseline rgb ` +
-          `${baselineColor.r},${baselineColor.g},${baselineColor.b}) — the anchored area is not the same content`;
+        return { message: `channel delta ${delta} on ${channel} exceeds the sampling cap ${cap} ` +
+          `(variant rgb ${variantSide.rgb.r},${variantSide.rgb.g},${variantSide.rgb.b} vs baseline rgb ` +
+          `${baselineSide.rgb.r},${baselineSide.rgb.g},${baselineSide.rgb.b}) — the anchored area is not the same content`,
+          measurement };
       }
     }
   }
-  return null;
+  return { message: null, measurement };
 }
 
 function colorDominanceCheck(image: PNG, layout: any, rule: any): string | null {
@@ -656,6 +738,8 @@ export function compareVisualSpec(opts: {
   if (spec?.schemaVersion !== 1) throw new Error("visual spec schemaVersion must be 1");
   const actual = PNG.sync.read(fs.readFileSync(actualPath));
   const issues: VisualIssue[] = [];
+  const measurements: VisualMeasurement[] = [];
+  let themeAxis: "scored" | "unpaired" | "notDeclared" = "notDeclared";
   let checks = 0;
   let mismatchRatio: number | undefined;
 
@@ -707,29 +791,50 @@ export function compareVisualSpec(opts: {
     const message = contrastProbeCheck(actual, layout, rule);
     if (message) issues.push({ id: String(rule.id ?? "contrast-probe"), message });
   }
+  // D-1 dark 轴时序门（见 measureDarkRender 头注）：退役探针只记测量值, 不占检查位。
+  // spec 未声明 themeDeltas 时主题维度就此不参与计分(themeAxis=notDeclared);
+  // 一份只声明 darkRenderProbes 的 spec 将没有任何可执行检查位, 会在下方
+  // "no executable checks" 处显式失败——空探针封不出 passed, 正是死规则②要的形状。
   for (const rule of darkRenderRules) {
-    checks++;
-    const message = darkRenderProbeCheck(actual, rule);
-    if (message) issues.push({ id: String(rule.id ?? "dark-render-probe"), message });
+    measurements.push({
+      id: String(rule.id ?? "dark-render-probe"),
+      kind: "dark-render",
+      scored: false,
+      values: measureDarkRender(actual, rule),
+      note: "已退役的主题轴探针(死规则②空探针): 只测量不计分, 主题轴证据由 themeDeltas 承载",
+    });
   }
   // 主题位移判定（themeDeltas）：同场浅色基线帧必须由调用方提供。声明了成对却拿不到
   // 基线捕获是编排缺口 —— 显式 theme-baseline-missing 红，与 structural-baseline-missing
   // 同一条纪律；基线布局树若随结构性差分一起提供了，浅色锚点就按它自己的几何定位。
+  // 未配对时变体侧锚点采样值照记（scored=false）——"本轮判不了"与"什么都没量到"
+  // 是两句话，报告里都要说出口（离线可评的最低要求）。
   if (themeDeltaRules.length > 0) {
     if (!opts.themeBaselineActualPath) {
+      themeAxis = "unpaired";
       checks += themeDeltaRules.length;
       issues.push({ id: "theme-baseline-missing",
         message: `spec declares ${themeDeltaRules.length} themeDeltas pair(s) but this run provided no ` +
           "same-campaign light capture (--baseline-actual); paired theme evidence cannot be judged" });
+      for (const rule of themeDeltaRules) {
+        const located = locateThemeAnchor(layout, rule);
+        measurements.push(isThemeAnchorError(located)
+          ? { id: String(rule.id ?? "theme-delta"), kind: "theme-delta", scored: false,
+            values: { variantSampleError: located.error } }
+          : themeDeltaMeasurement(String(rule.id ?? "theme-delta"),
+            { ...sampleAnchorAt(actual, located.bounds, rule), boundsText: located.boundsText }, null));
+      }
     } else {
+      themeAxis = "scored";
       const baselinePng = PNG.sync.read(fs.readFileSync(path.resolve(opts.themeBaselineActualPath)));
       const baselineLayout = opts.structuralBaselineLayoutPath
         ? readJson(path.resolve(opts.structuralBaselineLayoutPath))
         : null;
       for (const rule of themeDeltaRules) {
         checks++;
-        const message = themeDeltaCheck(actual, baselinePng, layout!, baselineLayout, rule);
-        if (message) issues.push({ id: String(rule.id ?? "theme-delta"), message });
+        const outcome = themeDeltaCheck(actual, baselinePng, layout!, baselineLayout, rule);
+        if (outcome.message) issues.push({ id: String(rule.id ?? "theme-delta"), message: outcome.message });
+        measurements.push(outcome.measurement);
       }
     }
   }
@@ -803,6 +908,23 @@ export function compareVisualSpec(opts: {
         for (const issue of diff.issues) {
           issues.push({ id: issue.id, message: issue.message });
         }
+        // 测量值(离线可评): 布局树轴之外, 字体/locale 轴的变体spec也走这份声明;
+        // 出现序列与双方 bounds 原文随报告出账, 供判定相离线复评(不新增判定语义)。
+        measurements.push({
+          id: structural.baselineName ?? "baseline",
+          kind: "structural-equivalence",
+          scored: true,
+          values: {
+            comparedAnchors: diff.comparedAnchors,
+            siblingPairs: diff.siblingPairs,
+            baselineOrder: diff.baselineOrder,
+            variantOrder: diff.variantOrder,
+            ...(diff.sharedAnchorBounds.length > 0
+              ? { anchorBounds: diff.sharedAnchorBounds.map((entry) =>
+                `${entry.anchor} baseline=${entry.baseline ?? "n/a"} variant=${entry.variant ?? "n/a"}`).join("; ") }
+              : {}),
+          },
+        });
       }
     }
   }
@@ -812,8 +934,15 @@ export function compareVisualSpec(opts: {
   const reportMarkdown = path.join(outputDir, "visual-report.md");
   const result: VisualCompareResult = {
     status: issues.length === 0 ? "passed" : "failed",
-    summary: { checks, passed: checks - issues.length, failed: issues.length, ...(mismatchRatio === undefined ? {} : { mismatchRatio }) },
+    summary: {
+      checks,
+      passed: checks - issues.length,
+      failed: issues.length,
+      themeAxis,
+      ...(mismatchRatio === undefined ? {} : { mismatchRatio }),
+    },
     issues,
+    measurements,
     reportJson,
     reportMarkdown,
   };
@@ -824,9 +953,16 @@ export function compareVisualSpec(opts: {
     `- Status: ${result.status}`,
     `- Checks: ${checks}`,
     `- Failed: ${issues.length}`,
+    `- Theme axis: ${themeAxis}`,
     ...(mismatchRatio === undefined ? [] : [`- Mismatch ratio: ${mismatchRatio}`]),
     "",
     ...(issues.length === 0 ? ["No issues."] : issues.map((issue) => `- ${issue.id}: ${issue.message}`)),
+    ...(measurements.length === 0 ? [] : [
+      "",
+      "## Measurements",
+      ...measurements.map((measurement) => `- [${measurement.kind}] ${measurement.id}` +
+        ` (scored=${measurement.scored}): ` + JSON.stringify(measurement.values)),
+    ]),
     "",
   ].join("\n");
   fs.writeFileSync(reportMarkdown, markdown, "utf8");

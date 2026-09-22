@@ -287,7 +287,11 @@ test("contrast probes pass high-contrast text and reject low-contrast text", () 
   assert.match(failing.issues[0].message, /contrast .* is below the required/);
 });
 
-// ── C09 darkRenderProbes：暗色非空过，纯黑洞(无内容)与大面积纯白都红 ────────────
+// ── C09 darkRenderProbes：D-1 时序门——退役探针只测量不计分 ────────────────────
+// 死规则②/vacuity gate 的比较器侧落地(2026-09-21): 没有 themeDeltas 不给主题维度计分。
+// "这一屏平均偏黑"曾是深色契约的全部断言(空探针), C09 已迁至 themeDeltas(锚定成对+阈值);
+// 本组钉住三件事: 只声明退役探针的 spec 封不出 passed / 探针测量值照记(scored=false) /
+// 测量值绝不进 checks, 无论画面偏黑还是纯白都不改变 status。
 function writeDarkPng(file, variant) {
   const image = new PNG({ width: 80, height: 50 });
   for (let y = 0; y < image.height; y++) {
@@ -306,40 +310,60 @@ function writeDarkPng(file, variant) {
   fs.writeFileSync(file, PNG.sync.write(image));
 }
 
-test("dark render probes accept dark content and reject void or white-flash renders", () => {
+test("a spec whose only declaration is the retired dark-render probe has no executable checks", () => {
+  // 空探针封不出 passed: 退役探针不占检查位后, 只带它的 spec 没有任何可执行检查, 显式失败。
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-visual-dark-"));
   const spec = path.join(root, "spec.json");
   fs.writeFileSync(spec, JSON.stringify({
     schemaVersion: 1,
     darkRenderProbes: [{ id: "dark-non-empty" }],
   }));
-  const run = (name, variant) => compareVisualSpec({
-    specPath: spec, actualPath: path.join(root, `${name}.png`),
-    outputDir: path.join(root, `${name}-report`),
-  });
-  fs.writeFileSync(path.join(root, "content.png"), (() => {
-    const image = new PNG({ width: 80, height: 50 });
-    writeDarkPng(path.join(root, "content.png"), "content");
-    return fs.readFileSync(path.join(root, "content.png"));
-  })());
-  const content = run("content");
+  const actual = path.join(root, "content.png");
+  writeDarkPng(actual, "content");
+  assert.throws(() => compareVisualSpec({
+    specPath: spec, actualPath: actual, outputDir: path.join(root, "report"),
+  }), /no executable checks/);
+});
+
+test("retired dark-render probes report measurements without scoring", () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-visual-dark-"));
+  // 退役探针与一个真检查位(layoutContainments)同场: 测量值随报告出账但不进 checks,
+  // 画面偏黑(content)与纯白(white)两种测量结果都不改变判定。
+  const spec = path.join(root, "spec.json");
+  const layout = path.join(root, "layout.json");
+  fs.writeFileSync(layout, JSON.stringify({
+    attributes: { id: "root", bounds: "[0,0][80,50]" },
+    children: [{ attributes: { id: "quiz.statistics.scope", bounds: "[10,10][70,40]" }, children: [] }],
+  }));
+  fs.writeFileSync(spec, JSON.stringify({
+    schemaVersion: 1,
+    darkRenderProbes: [{ id: "dark-non-empty" }],
+    layoutContainments: [{ id: "stay-in-frame", match: { id: "quiz.statistics.scope", exact: true } }],
+  }));
+  const run = (name, variant) => {
+    const actual = path.join(root, `${name}.png`);
+    writeDarkPng(actual, variant);
+    return compareVisualSpec({
+      specPath: spec, actualPath: actual, layoutPath: layout,
+      outputDir: path.join(root, `${name}-report`),
+    });
+  };
+  const content = run("content", "content");
+  const white = run("white", "white");
   assert.equal(content.status, "passed", JSON.stringify(content.issues));
-
-  fs.writeFileSync(path.join(root, "void.png"), (() => {
-    writeDarkPng(path.join(root, "void.png"), "empty");
-    return fs.readFileSync(path.join(root, "void.png"));
-  })());
-  const voided = run("void");
-  assert.equal(voided.status, "failed");
-  assert.match(voided.issues[0].message, /looks empty/);
-
-  fs.writeFileSync(path.join(root, "white.png"), (() => {
-    writeDarkPng(path.join(root, "white.png"), "white");
-    return fs.readFileSync(path.join(root, "white.png"));
-  })());
-  const white = run("white");
-  assert.equal(white.status, "failed");
-  assert.match(white.issues[0].message, /median luma|near-white/);
+  assert.equal(white.status, "passed", JSON.stringify(white.issues),
+    "纯白画面是离线判读的输入, 不再是比较器的红——主题计分只认 themeDeltas");
+  assert.equal(content.summary.themeAxis, "notDeclared", "没声明 themeDeltas, 主题维度不参与计分");
+  assert.equal(content.summary.checks, 1, "退役探针不占检查位, 只剩 layoutContainment 一个检查位");
+  const measurement = content.measurements.find((entry) => entry.kind === "dark-render");
+  assert.ok(measurement, "dark-render measurement must be reported");
+  assert.equal(measurement.scored, false);
+  assert.match(String(measurement.note), /退役/);
+  assert.ok(measurement.values.medianLuma < 0.2,
+    `dark content median luma must read dark, got ${measurement.values.medianLuma}`);
+  const whiteMeasurement = white.measurements.find((entry) => entry.kind === "dark-render");
+  assert.ok(whiteMeasurement.values.medianLuma > 0.9, "纯白画面的测量值必须与暗色内容可区分");
+  assert.equal(content.summary.checks, white.summary.checks, "测量值差异不得改变计分");
 });
 
 // —— themeDeltas：主题位移判定（C09 的新牙，§E-7 时序门的生产侧）——
@@ -391,6 +415,12 @@ test("theme delta accepts an anchored pair whose luma moved at least the documen
     themeBaselineActualPath: f.baseline,
   });
   assert.equal(result.status, "passed", JSON.stringify(result.issues));
+  assert.equal(result.summary.themeAxis, "scored", "配对在场, 主题维度真实计分");
+  const measurement = result.measurements.find((entry) => entry.kind === "theme-delta");
+  assert.ok(measurement, "theme-delta measurement must be reported");
+  assert.equal(measurement.scored, true);
+  assert.ok(Number(measurement.values.lumaShift) >= 0.06, `measured shift, got ${measurement.values.lumaShift}`);
+  assert.match(String(measurement.values.baselineRgb), /^240,240,240$/);
 });
 
 test("theme delta rejects a variant whose anchor did not move against the light capture", () => {
@@ -424,6 +454,13 @@ test("theme deltas without a same-campaign light capture fail as theme-baseline-
   assert.equal(result.status, "failed");
   assert.deepEqual(result.issues.map((issue) => issue.id), ["theme-baseline-missing"]);
   assert.equal(result.summary.checks, 1, "声明的每一条配对都占一个检查位");
+  assert.equal(result.summary.themeAxis, "unpaired", "声明了配对但没拿到基线, 主题维度没有计分资格");
+  // "本轮判不了"不等于"什么都没量到": 变体侧锚点采样值照记(scored=false), 离线可评。
+  const measurement = result.measurements.find((entry) => entry.kind === "theme-delta");
+  assert.ok(measurement);
+  assert.equal(measurement.scored, false);
+  assert.equal(measurement.values.baselineRgb, undefined, "没拿到基线就不得伪造基线测量值");
+  assert.match(String(measurement.values.variantRgb), /^30,80,140$/);
 });
 
 test("theme delta rejects a declared anchor that is missing from the layout", () => {

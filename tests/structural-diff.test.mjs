@@ -90,11 +90,47 @@ test("an extra anchor is a structural drift that demands an explicit exemption",
   );
 });
 
-test("relative order is compared across differently nested trees", () => {
+test("order contract is scoped to sibling sets: cross-subtree swaps are outside it", () => {
+  // 拍板项三裁决(2026-09-21): 顺序契约只看同父兄弟序。a.first/a.second 分属两棵子树
+  // (不同父), 整棵子树换位使它们的跨子树先后翻转——不属本契约, 不判红。
+  // (旧实现按全树出现序列比较, 会把这种形状误红。)
   const baseline = tree3([["a.first"], ["a.second"]]);
   const swapped = tree3([["a.second"], ["a.first"]]);
-  assert.equal(structural.diffStructuralLayout(baseline, swapped).status, "failed");
-  assert.equal(structural.diffStructuralLayout(baseline, tree3([["a.first"], ["a.second"]])).status, "passed");
+  const result = structural.diffStructuralLayout(baseline, swapped);
+  assert.equal(result.status, "passed", JSON.stringify(result.issues));
+  assert.ok(!result.issues.some((issue) => issue.id === "structural-order-changed"));
+});
+
+test("a same-parent swap inside a nested subtree is still an order change", () => {
+  // 同父判定跟深度无关: 两个锚点在同一子树容器下互为兄弟, 左右互换必须红。
+  const nested = (first, second) => [{
+    attributes: { bounds: "[0,0][100,200]" },
+    children: [{
+      attributes: { bounds: "[0,0][100,100]" },
+      children: [{ attributes: { id: first }, children: [] }, { attributes: { id: second }, children: [] }],
+    }],
+  }];
+  const result = structural.diffStructuralLayout(
+    nested("a.first", "a.second"), nested("a.second", "a.first"));
+  assert.equal(result.status, "failed");
+  assert.deepEqual(result.issues.map((issue) => issue.id), ["structural-order-changed"]);
+});
+
+test("sibling-membership change (container split) is not an order issue", () => {
+  // 基线里 a.home.card 与 a.home.power 同父; 变体把 a.home.power 挪进一个新容器
+  // (不再同父)。该对只在一边同父 => 不判顺序; 两锚点双边都在 => 也没有 missing/extra。
+  const baseline = layout([["a.home.card"], ["a.home.power"]]);
+  const split = [{
+    attributes: { bounds: "[0,0][100,200]" },
+    children: [
+      { attributes: { id: "a.home.card" }, children: [] },
+      { attributes: { bounds: "[0,60][100,100]" },
+        children: [{ attributes: { id: "a.home.power" }, children: [] }] },
+    ],
+  }];
+  const result = structural.diffStructuralLayout(baseline, split,
+    { declaredAnchors: ["a.home.card", "a.home.power"] });
+  assert.equal(result.status, "passed", JSON.stringify(result.issues));
 });
 
 test("absolute pre-order shift from new leading nodes stays relative-order equivalent (Goread navigator-dark)", () => {
@@ -115,14 +151,17 @@ test("absolute pre-order shift from new leading nodes stays relative-order equiv
 });
 
 test("a real reordering of shared anchors is still a structural failure", () => {
+  // 三个锚点都是根的兄弟: power/footer 换位 = 同父兄弟序翻转, 必须红;
+  // 报文按对给出双方该对的次序, 可诊断性与旧全树序列报文等价。
   const result = structural.diffStructuralLayout(
     layout([["a.home.card"], ["a.home.power"], ["a.home.footer"]]),
     layout([["a.home.card"], ["a.home.footer"], ["a.home.power"]]),
   );
   assert.equal(result.status, "failed");
   assert.deepEqual(result.issues.map((issue) => issue.id), ["structural-order-changed"]);
-  assert.match(result.issues[0].message, /a\.home\.card,a\.home\.power,a\.home\.footer/);
-  assert.match(result.issues[0].message, /a\.home\.card,a\.home\.footer,a\.home\.power/);
+  assert.match(result.issues[0].message, /锚点相对顺序改变/);
+  assert.match(result.issues[0].message, /基线\[a\.home\.power,a\.home\.footer\]/);
+  assert.match(result.issues[0].message, /变体\[a\.home\.footer,a\.home\.power\]/);
 });
 
 test("a new node inserted mid-tree does not disturb the relative order of the surviving pairs", () => {
@@ -137,6 +176,45 @@ test("a new node inserted mid-tree does not disturb the relative order of the su
   const contracted = structural.diffStructuralLayout(baseline, midInsert,
     { declaredAnchors: [...declared, "v2.new.section"] });
   assert.deepEqual(contracted.issues.map((issue) => issue.id), ["structural-extra-anchor"]);
+});
+
+test("extractOrderedAnchors records parent paths that scope the sibling sets", () => {
+  // 同父判定的底座: 根锚点与子树锚点、不同窗口根下的锚点各自不同父。
+  // 路径字面量是树内实现细节, 契约只承诺"相等 ⟺ 同父"。
+  const entries = structural.extractOrderedAnchors([{
+    attributes: { id: "win.root" },
+    children: [
+      { attributes: { id: "a.direct" }, children: [] },
+      { attributes: { bounds: "[0,0][10,10]" },
+        children: [{ attributes: { id: "a.nested" }, children: [] }] },
+    ],
+  }, {
+    attributes: { id: "win.second" },
+    children: [{ attributes: { id: "a.other.window" }, children: [] }],
+  }]);
+  const parentOf = (id) => entries.get(id).parentPath;
+  assert.notEqual(parentOf("a.direct"), parentOf("a.nested"), "深度不同的两枚锚点不同父");
+  assert.notEqual(parentOf("win.root"), parentOf("a.direct"), "父与子不同父");
+  assert.notEqual(parentOf("a.direct"), parentOf("a.other.window"), "不同窗口根下的锚点不同父");
+  assert.equal(typeof parentOf("a.direct"), "string");
+});
+
+test("diff result carries measured orders and bounds for offline evaluation", () => {
+  // 测量值(不参与判定): 出现序列 / 同父对数 / 双方 bounds 原文, 供判定相离线复评。
+  const result = structural.diffStructuralLayout(
+    layout([["a.home.card", "[0,0][100,50]"], ["a.home.power", "[0,60][100,100]"]]),
+    layout([["v2.new"], ["a.home.card", "[0,0][100,50]"], ["a.home.power", "[0,60][100,100]"]]),
+    { declaredAnchors: ["a.home.card", "a.home.power"] },
+  );
+  assert.equal(result.status, "passed");
+  assert.equal(result.comparedAnchors, 2);
+  assert.equal(result.siblingPairs, 1, "共同锚点里只有 card/power 一对同父");
+  assert.equal(result.baselineOrder, "a.home.card,a.home.power");
+  assert.equal(result.variantOrder, "a.home.card,a.home.power");
+  assert.deepEqual(result.sharedAnchorBounds, [
+    { anchor: "a.home.card", baseline: "[0,0][100,50]", variant: "[0,0][100,50]" },
+    { anchor: "a.home.power", baseline: "[0,60][100,100]", variant: "[0,60][100,100]" },
+  ]);
 });
 
 test("geometry drift is measured in vp against densityPixels and honors tolerance", () => {
@@ -224,6 +302,15 @@ test("compareVisualSpec merges structural issues into the visual report", () => 
   });
   assert.ok(!passed.issues.some((issue) => issue.id.startsWith("structural-")),
     "equal structures on declared anchors must not raise structural issues");
+  // 结构测量值随报告出账(离线可评): 出现序列与双方 bounds 都在, 即使判定为 passed。
+  const structuralMeasurement = passed.measurements.find((m) => m.kind === "structural-equivalence");
+  assert.ok(structuralMeasurement, "structural-equivalence measurement must be reported");
+  assert.equal(structuralMeasurement.scored, true);
+  assert.equal(structuralMeasurement.id, "clash-home-layout");
+  assert.equal(structuralMeasurement.values.siblingPairs, 1);
+  assert.equal(structuralMeasurement.values.baselineOrder, "a.home.card,a.home.extra");
+  assert.equal(structuralMeasurement.values.variantOrder, "a.home.card,a.home.extra");
+  assert.match(String(structuralMeasurement.values.anchorBounds), /a\.home\.card baseline=\[0,0\]\[300,150\] variant=\[0,0\]\[300,150\]/);
 
   // 变体丢了 a.home.extra -> 深色模式丢控件类回归被结构性差分钉住。
   fs.writeFileSync(variantLayoutFile, JSON.stringify(layout([["a.home.card", "[0,0][300,150]"]])));

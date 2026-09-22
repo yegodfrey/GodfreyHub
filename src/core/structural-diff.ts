@@ -8,8 +8,16 @@
 //     "geometryInvariant": true,              // 锚点几何是否必须不变(默认 false)
 //     "geometryToleranceVp": 1                // 几何容差(默认 1vp)
 //   }
-// 语义(按轴适用性): 锚点集合相等 + 相对顺序相等对 theme/locale/字号轴都成立;
+// 语义(按轴适用性): 锚点集合相等 + 同父兄弟相对次序相等对 theme/locale/字号轴都成立;
 // 几何不变只对 theme/字号成立——locale 必然改变文本度量, 禁止跨语言断言几何。
+//
+// 顺序契约的精确形状(2026-09-21 拍板项三裁决, 本文件是语义真源):
+//   只比较"同一父节点下"(兄弟集合内)锚点对的左右次序; 同父下 A 在 B 前/后的关系
+//   不变即不红。三个由此派生的不判红形态, 各有更合适的把守者:
+//     - 绝对先序序号整体漂移(Goread v2 深色树前置新增 id 节点): 相对次序未变, 不红;
+//     - 非同父锚点对(不同子树)的先后翻转(整棵子树换位): 不属本契约, 不红;
+//     - 兄弟集合成员变化(容器拆分/合并使 A、B 在一棵树同父另一棵不同父): 该对不判,
+//       由 missing/extra-anchor 与几何断言各自把守。
 
 export interface StructuralRect { left: number; top: number; right: number; bottom: number }
 
@@ -37,9 +45,15 @@ export interface StructuralDiffResult {
   comparedAnchors: number;
   issues: StructuralIssue[];
   summaryText: string;
+  /** 测量值(离线可评, 不参与判定): 共同锚点在双方树中的出现序列与同父判定对数。 */
+  baselineOrder: string;
+  variantOrder: string;
+  siblingPairs: number;
+  /** 测量值(离线可评, 不参与判定): 共同锚点双方原始 bounds 字符串(解析不出则缺该侧)。 */
+  sharedAnchorBounds: { anchor: string; baseline?: string; variant?: string }[];
 }
 
-interface LayoutEntry { order: number; bounds: StructuralRect | undefined }
+export interface LayoutEntry { order: number; parentPath: string; bounds: StructuralRect | undefined }
 
 function parseBounds(text: unknown): StructuralRect | undefined {
   if (typeof text !== "string") return undefined;
@@ -49,42 +63,73 @@ function parseBounds(text: unknown): StructuralRect | undefined {
   return { left, top, right, bottom };
 }
 
-/** 先序遍历提取带顺序与几何的语义锚点; 同一 anchor 以首个出现为准。 */
+/**
+ * 先序遍历提取带顺序/父路径/几何的语义锚点; 同一 anchor 以首个出现为准。
+ * parentPath 是**父节点**的结构路径(子索引串): 同一父节点下的锚点(兄弟集合)共享同一条;
+ * 不同窗口根各配一个独立虚父, 跨窗口锚点不同父。路径字面量只在一棵树内部做相等比较,
+ * 从不跨树比较——上方插入节点会平移路径, 但"这两枚锚点是否同父"的树内判定不受影响。
+ */
 export function extractOrderedAnchors(raw: unknown): Map<string, LayoutEntry> {
   const entries = new Map<string, LayoutEntry>();
   let order = 0;
-  const visit = (node: unknown): void => {
+  const visit = (node: unknown, ownPath: string, parentPath: string): void => {
     if (!node || typeof node !== "object") return;
     const attrs = (node as { attributes?: Record<string, unknown> }).attributes ?? {};
     for (const key of ["id", "identifier"]) {
       const value = attrs[key];
       if (typeof value === "string" && value.length > 0 && !entries.has(value)) {
-        entries.set(value, { order: order++, bounds: parseBounds(attrs.bounds) });
+        entries.set(value, { order: order++, parentPath, bounds: parseBounds(attrs.bounds) });
       }
     }
     const children = (node as { children?: unknown }).children;
-    if (Array.isArray(children)) for (const child of children) visit(child);
+    if (Array.isArray(children)) {
+      children.forEach((child, index) => visit(child, `${ownPath}.${index}`, ownPath));
+    }
   };
   const roots = Array.isArray(raw) ? raw : [raw];
-  for (const root of roots) visit(root);
+  roots.forEach((root, windowIndex) => visit(root, `w${windowIndex}`, `r${windowIndex}`));
   return entries;
 }
 
 /**
- * relativeOrder 语义(2026-09 修复 Goread navigator-dark 收据误撤销回归):
- * 只比较共同锚点在树中的"相互先后关系", 不比较绝对先序序号。
- * 反例(旧实现): 变体在锚点之前多出 N 个带 id 节点(Goread v2 改名后深色布局树
- * 新增 6-8 个 id 节点)会把所有锚点的绝对序号整体后移, 而相对次序并未改变——
- * 按绝对序号判等会把"顺序未变"误判为 changed, 撤销一条合法的 passed 收据。
- * 实现: 返回 anchors 在该树中按出现次序排列的 id 序列(仅含树中存在的锚点)。
- * 两树对该序列相等 ⟺ 任两枚共同锚点的先后关系在两树中一致 ⟺ 相对顺序等价
- * (等价于共同锚点子序列的 LCS 为全长/两排列逆序对数为 0, 取此最小实现)。
- * 调用方保证 anchors 均存在于 reference(传入前已按双边存在过滤)。
+ * siblingOrderPairs 语义(2026-09-21 拍板项三裁决, 最终形状):
+ * 只登记"同一父节点下"(兄弟集合内)锚点对的左右次序, 不比较绝对先序序号。
+ * 历史: 原实现按绝对序号判等, Goread v2 改名(HAP 20c556d0→41b3b711)后深色布局树
+ * 多出 6-8 个带 id 节点把所有锚点绝对序号整体后移, "顺序未变"被误判为 changed,
+ * 撤销一条合法 passed 收据; 第一轮修复(8ed29f053)改为比较共同锚点的全树出现序列,
+ * 解决了绝对漂移但仍是全树序——跨子树先后(整棵子树换位)会被误红。
+ * 最终语义(见文件头): 同父下 A 在 B 前/后的关系不变即不红。返回
+ * key="字典序小id|字典序大id", value=字典序小的锚点在该树中是否先出现;
+ * 调用方保证 anchors 均存在于 reference。判定: 某对在两树都登记为同父且方向相反
+ * 才红; 只在一棵树同父的对(容器拆分/合并)不判, 交给 missing/extra/几何把守。
  */
-function relativeOrder(reference: Map<string, LayoutEntry>, anchors: string[]): string {
-  return [...anchors]
-    .sort((a, b) => reference.get(a)!.order - reference.get(b)!.order)
-    .join(",");
+function siblingOrderPairs(reference: Map<string, LayoutEntry>,
+  anchors: string[]): Map<string, boolean> {
+  const byParent = new Map<string, string[]>();
+  for (const anchor of anchors) {
+    const entry = reference.get(anchor);
+    if (!entry) continue;
+    const group = byParent.get(entry.parentPath) ?? [];
+    group.push(anchor);
+    byParent.set(entry.parentPath, group);
+  }
+  const pairs = new Map<string, boolean>();
+  for (const group of byParent.values()) {
+    const ordered = [...group].sort((a, b) => reference.get(a)!.order - reference.get(b)!.order);
+    for (let i = 0; i < ordered.length; i++) {
+      for (let j = i + 1; j < ordered.length; j++) {
+        const first = ordered[i]!, second = ordered[j]!;
+        const [lesser, greater] = first < second ? [first, second] : [second, first];
+        pairs.set(`${lesser}|${greater}`, first === lesser);
+      }
+    }
+  }
+  return pairs;
+}
+
+/** bounds 测量值原文(离线可评), 与布局树 attributes.bounds 同一形状。 */
+function rectText(rect: StructuralRect): string {
+  return `[${rect.left},${rect.top}][${rect.right},${rect.bottom}]`;
 }
 
 function boundsDeltaVp(a: StructuralRect, b: StructuralRect, densityPixels: number): number {
@@ -159,13 +204,35 @@ export function diffStructuralLayout(baselineRaw: unknown, variantRaw: unknown,
   }
 
   const shared = allAnchors.filter((anchor) => baseline.has(anchor) && variant.has(anchor));
-  // 相对顺序比较的是共同锚点在各自树中的出现序列(与绝对先序序号无关, 见 relativeOrder 头注释)。
-  const baselineOrder = relativeOrder(baseline, shared);
-  const variantOrder = relativeOrder(variant, shared);
-  if (baselineOrder !== variantOrder) {
-    issues.push({ id: "structural-order-changed",
-      message: `锚点相对顺序改变: 基线[${baselineOrder}] 变体[${variantOrder}]` });
+  // 顺序判定(见文件头与 siblingOrderPairs 注): 只红"两树都同父且方向相反"的对。
+  const baselinePairs = siblingOrderPairs(baseline, shared);
+  const variantPairs = siblingOrderPairs(variant, shared);
+  const flipped: string[] = [];
+  for (const [pairKey, baselineLesserFirst] of baselinePairs) {
+    const variantLesserFirst = variantPairs.get(pairKey);
+    if (variantLesserFirst === undefined || variantLesserFirst === baselineLesserFirst) continue;
+    const [lesser, greater] = pairKey.split("|");
+    const baselineOrder = baselineLesserFirst ? `${lesser},${greater}` : `${greater},${lesser}`;
+    const variantOrder = baselineLesserFirst ? `${greater},${lesser}` : `${lesser},${greater}`;
+    flipped.push(`'${pairKey.replace("|", "'/'")}' 基线[${baselineOrder}] 变体[${variantOrder}]`);
   }
+  if (flipped.length > 0) {
+    issues.push({ id: "structural-order-changed",
+      message: `锚点相对顺序改变(同父兄弟序): ${flipped.join("; ")}` });
+  }
+
+  // 测量值(离线可评, 不参与判定): 出现序列 / 同父对数 / 双方 bounds 原文。
+  const anchorOrderBy = (tree: Map<string, LayoutEntry>): string =>
+    [...shared].sort((a, b) => tree.get(a)!.order - tree.get(b)!.order).join(",");
+  const baselineMeasuredOrder = anchorOrderBy(baseline);
+  const variantMeasuredOrder = anchorOrderBy(variant);
+  const sharedAnchorBounds = shared.map((anchor) => ({
+    anchor,
+    ...(baseline.get(anchor)!.bounds
+      ? { baseline: rectText(baseline.get(anchor)!.bounds!) } : {}),
+    ...(variant.get(anchor)!.bounds
+      ? { variant: rectText(variant.get(anchor)!.bounds!) } : {}),
+  }));
 
   if (options.geometryInvariant === true) {
     if (!(options.densityPixels !== undefined && options.densityPixels > 0)) {
@@ -197,7 +264,12 @@ export function diffStructuralLayout(baselineRaw: unknown, variantRaw: unknown,
     comparedAnchors: shared.length,
     issues,
     summaryText: `structural-diff vs ${baselineName}: anchors=${shared.length}, ` +
+      `siblingPairs=${baselinePairs.size}, ` +
       `issues=${issues.length}${issues.length > 0 ? " (" + issues.map((i) => i.id).join(",") + ")" : ""}`,
+    baselineOrder: baselineMeasuredOrder,
+    variantOrder: variantMeasuredOrder,
+    siblingPairs: baselinePairs.size,
+    sharedAnchorBounds,
   };
 }
 
