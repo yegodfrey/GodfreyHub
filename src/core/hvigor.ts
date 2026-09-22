@@ -2,10 +2,16 @@ import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
 import { spawn } from "node:child_process";
+import { randomUUID } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { lock } from "proper-lockfile";
-import { run, sleep, tail, type RunResult } from "./proc.js";
+import { run, sleep, tail, terminateProcessTree, type RunResult } from "./proc.js";
 import { abortableSleep, AbortedError } from "./sync.js";
+import {
+  buildLeaseMeta, deleteLeaseMetaIfToken, leaseFilePath, startHeartbeat, startLeaseWatchdog,
+  registerActiveLease, unregisterActiveLease, writeLeaseMeta,
+  type HeartbeatHandle, type HeartbeatStopReason,
+} from "./lease-watchdog.js";
 import { toolchain } from "./paths.js";
 import { resolveTarget, isEmulatorTarget, isValidHdcPort, bundleListedInstalled, MIN_HDC_PORT, MAX_HDC_PORT } from "./emulator.js";
 import { loadConfig, type ProjectEntry, type TestFramework } from "./registry.js";
@@ -62,6 +68,9 @@ const DEVICE_LEASE_RELEASE = "GF_DEVICE_LEASE_RELEASE";
  * Hold the same per-device Windows mutex used by the family Instrument runner.
  * Builds may proceed in parallel, but install/uninstall/start cannot replace an
  * application while an authoritative test or visual capture owns that target.
+ *
+ * 命名互斥体层之上叠加租约元数据层(q7): 活持锁者的互斥体获取/释放路径零变化; 元数据
+ * 写入/心跳/看门狗全部是附加信息层, 任何失败都只降级为"回到纯互斥体模型", 不改变原行为。
  */
 export async function withDeviceLease<T>(serial: string, signal: AbortSignal | undefined,
   body: () => Promise<T>): Promise<T> {
@@ -75,10 +84,16 @@ export async function withDeviceLease<T>(serial: string, signal: AbortSignal | u
   if (!fs.existsSync(leaseScript)) {
     throw new Error("device lease host is missing: " + leaseScript);
   }
+  // 孤儿租约看门狗随取锁路径懒启动(幂等/unref): 本请求等互斥体的同时就能回收前一个
+  // Hub 崩溃留下的孤儿租约, 把"陈锁死等"压到 TTL+扫描周期量级。
+  startLeaseWatchdog();
   const powershell = process.env.GF_POWERSHELL_PATH?.trim() || "powershell.exe";
+  // leaseToken 贯穿两层锁: Node 生成 -> 宿主 -LeaseToken 参数(READY 行回显握手) ->
+  // 租约元数据; 释放/看门狗接管都必须 token 匹配。
+  const leaseToken = randomUUID();
   const child = spawn(powershell, [
     "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
-    "-File", leaseScript, "-Serial", serial,
+    "-File", leaseScript, "-Serial", serial, "-LeaseToken", leaseToken,
   ], { stdio: ["pipe", "pipe", "pipe"], windowsHide: true });
   let stdout = "";
   let stderr = "";
@@ -87,9 +102,11 @@ export async function withDeviceLease<T>(serial: string, signal: AbortSignal | u
   let cancelled = false;
   let resolveClosed: (() => void) | undefined;
   const closedPromise = new Promise<void>((resolve) => { resolveClosed = resolve; });
+  // MCP 请求级取消 -> AbortSignal -> 整树终止宿主(taskkill /T /F): 宿主死亡让命名互斥体
+  // 走 ABANDONED 交接, 等待方即刻接管, 而不是等满 6 小时互斥体超时。
   const abort = () => {
     cancelled = true;
-    if (!closed) child.kill();
+    if (!closed) terminateProcessTree(child);
   };
   if (signal?.aborted) abort();
   signal?.addEventListener("abort", abort, { once: true });
@@ -116,19 +133,59 @@ export async function withDeviceLease<T>(serial: string, signal: AbortSignal | u
         }
       });
     });
-    if (signal?.aborted) throw new Error("Device deployment cancelled while waiting for its target lease.");
-    return await body();
+    // READY 握手: 宿主回显 token 才能确认"持互斥体的宿主"与"元数据写入者"是同一对
+    // 请求; 旧宿主(无 token)按 includes 判定兼容, 不拒绝。
+    const readyLine = stdout.slice(stdout.indexOf(DEVICE_LEASE_READY)).split(/\r?\n/)[0];
+    const echoedToken = readyLine.includes(":") ? readyLine.slice(readyLine.indexOf(":") + 1).trim() : "";
+    if (echoedToken !== "" && echoedToken !== leaseToken) {
+      throw new Error("device lease host echoed a mismatched lease token: " + echoedToken);
+    }
+    let heartbeat: HeartbeatHandle | null = null;
+    let leaseLost: HeartbeatStopReason | null = null;
+    try {
+      // 租约元数据层(纯附加): 写失败/心跳构造失败只降级为纯互斥体模型, 绝不影响活持锁路径。
+      const meta = await buildLeaseMeta({
+        serial,
+        leaseToken,
+        transactionId: `tx-${process.pid}-${randomUUID().slice(0, 8)}`,
+        holderPid: child.pid ?? 0,
+        holderProcessName: path.basename(powershell, ".exe"),
+      });
+      writeLeaseMeta(leaseFilePath(serial), meta);
+      registerActiveLease(serial);
+      heartbeat = startHeartbeat(leaseFilePath(serial), leaseToken, meta.heartbeatIntervalMs);
+      void heartbeat.stopped().then((reason) => {
+        // 心跳侧停写 = 本租约已被接管/删除/连续写失败: 记录丢失状态, 释放路径跳过
+        // 元数据删除(现场属于接管理者), 不反向掩盖 body() 的业务结果。
+        if (reason !== "requested") leaseLost = reason;
+      });
+    } catch (e) {
+      console.error("[device-lease] metadata layer unavailable, continuing on mutex-only path: " +
+        (e as Error)?.message);
+    }
+    try {
+      if (signal?.aborted) throw new Error("Device deployment cancelled while waiting for its target lease.");
+      return await body();
+    } finally {
+      if (heartbeat) {
+        try { heartbeat.stop(); } catch { /* 已 settle */ }
+      }
+      unregisterActiveLease(serial);
+      if (!leaseLost) {
+        try { deleteLeaseMetaIfToken(serial, leaseToken); } catch { /* best effort */ }
+      }
+    }
   } finally {
     signal?.removeEventListener("abort", abort);
     if (!closed) {
       if (cancelled) {
-        child.kill();
+        terminateProcessTree(child);
       } else {
         try {
           if (!child.stdin.destroyed) child.stdin.end(DEVICE_LEASE_RELEASE + "\n");
         } catch { /* 已销毁的流: 直接 kill */ }
         await Promise.race([closedPromise, sleep(5000)]);
-        if (!closed) child.kill();
+        if (!closed) terminateProcessTree(child);
       }
     }
   }
