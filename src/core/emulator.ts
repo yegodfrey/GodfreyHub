@@ -4,7 +4,6 @@ import path from "node:path";
 import { randomUUID } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { run, runDetached, sleep, tail } from "./proc.js";
-import { resolvePwshPath } from "./pwsh.js";
 import { toolchain } from "./paths.js";
 import { KeyedMutex } from "./sync.js";
 
@@ -118,7 +117,7 @@ function emulatorCrashDiagnostic(name: string): string {
 
 function ps1(args: string[]): Promise<{ code: number; out: string }> {
   const file = path.join(pkgRoot(), "scripts", "win_windows.ps1");
-  return run(resolvePwshPath(), ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", file, ...args], { timeoutMs: 300000 });
+  return run(process.env.GF_POWERSHELL_PATH?.trim() || "pwsh", ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", file, ...args], { timeoutMs: 300000 });
 }
 
 interface WindowsEmulatorLaunchStatus {

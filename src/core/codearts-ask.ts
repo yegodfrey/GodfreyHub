@@ -2,7 +2,6 @@ import { existsSync, statSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { run, tail } from "./proc.js";
-import { resolvePwshPath } from "./pwsh.js";
 
 // codearts_ask 核心: 把"问 CodeArts GLM 模型"封装成可注入、可 redact 的子进程调用。
 // 调用链(已实证可用): %USERPROFILE%\.codeartsdoer\installers\bin\codearts.exe
@@ -97,7 +96,7 @@ export function parseCredentialStdout(out: string): string | null {
  * 缺失/空 → null。失败路径绝不透传原始输出(可能含凭据密文), 只给退出码。
  */
 export async function readUserEnvCredential(name: string): Promise<string | null> {
-  const ps = resolvePwshPath();
+  const ps = process.env.GF_POWERSHELL_PATH?.trim() || "pwsh";
   const script =
     "$v=[Environment]::GetEnvironmentVariable('" + name + "','User'); " +
     "if($null -ne $v -and $v.Length -gt 0){ " +

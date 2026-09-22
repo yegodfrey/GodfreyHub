@@ -6,7 +6,6 @@ import { randomUUID } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { lock } from "proper-lockfile";
 import { run, sleep, tail, terminateProcessTree, type RunResult } from "./proc.js";
-import { resolvePwshPath } from "./pwsh.js";
 import { abortableSleep, AbortedError } from "./sync.js";
 import {
   buildLeaseMeta, deleteLeaseMetaIfToken, leaseFilePath, startHeartbeat, startLeaseWatchdog,
@@ -88,7 +87,7 @@ export async function withDeviceLease<T>(serial: string, signal: AbortSignal | u
   // 孤儿租约看门狗随取锁路径懒启动(幂等/unref): 本请求等互斥体的同时就能回收前一个
   // Hub 崩溃留下的孤儿租约, 把"陈锁死等"压到 TTL+扫描周期量级。
   startLeaseWatchdog();
-  const powershell = resolvePwshPath();
+  const powershell = process.env.GF_POWERSHELL_PATH?.trim() || "pwsh";
   // leaseToken 贯穿两层锁: Node 生成 -> 宿主 -LeaseToken 参数(READY 行回显握手) ->
   // 租约元数据; 释放/看门狗接管都必须 token 匹配。
   const leaseToken = randomUUID();

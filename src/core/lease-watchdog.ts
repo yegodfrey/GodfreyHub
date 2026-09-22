@@ -34,7 +34,6 @@ import { createHash, randomUUID } from "node:crypto";
 import { execFile } from "node:child_process";
 import { Worker } from "node:worker_threads";
 import { sleep } from "./proc.js";
-import { resolvePwshPath } from "./pwsh.js";
 
 export interface LeaseMeta {
   /** q7 元数据版本。 */
@@ -206,7 +205,7 @@ const PROBE_CACHE_TTL_MS = 2000;
 const probeCache = new Map<number, { startMs: number; probedAt: number }>();
 
 function powershellExe(): string {
-  return resolvePwshPath();
+  return process.env.GF_POWERSHELL_PATH?.trim() || "pwsh";
 }
 
 /**
