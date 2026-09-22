@@ -446,7 +446,7 @@ try {
 
     # ---- campaign budget: the handed-in declarations ARE the budget (§E-3 option A) ----
     function Get-GfLegacyBudgetForTest([int]$ClassCount) {
-        return [Math]::Min(14400, 600 + 180 * [Math]::Max(1, $ClassCount))
+        return [Math]::Min(15000, 600 + 180 * [Math]::Max(1, $ClassCount))
     }
     $declaredBudgetSuites = @(
         [pscustomobject]@{ id = 'declared-a'; timeoutSec = 2000
@@ -479,7 +479,7 @@ try {
     $overclaimBudget = Get-GfInstrumentCampaignBudget -Suites @(
         [pscustomobject]@{ id = 'huge'; timeoutSec = 20000; executor = [pscustomobject]@{ testClasses = @('X') } }
     ) -RunClassCount 1
-    Assert-GfSelfTest ($overclaimBudget.BudgetSec -eq 14400 -and $overclaimBudget.CapApplied) `
+    Assert-GfSelfTest ($overclaimBudget.BudgetSec -eq 15000 -and $overclaimBudget.CapApplied) `
         'an over-claiming declaration is capped, and the cap must be reported as applied.'
     $emptyRunBudget = Get-GfInstrumentCampaignBudget -Suites @() -RunClassCount 4
     Assert-GfSelfTest ($emptyRunBudget.BudgetSec -eq 1320) `

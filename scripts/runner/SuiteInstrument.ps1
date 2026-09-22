@@ -3,7 +3,7 @@
 function Get-GfInstrumentCampaignBudget {
     <#
       campaign 总截止的预算来源（Docs/OPEN_ITEMS_LEDGER.md §E-3 裁决 A：声明即预算）。
-      旧实现只看类数 min(14400, 600 + 180 × 类数)，于是注册表里逐家写的 timeoutSec
+      旧实现只看类数 min(15000, 600 + 180 × 类数)，于是注册表里逐家写的 timeoutSec
       在执行面上什么都不买——§E-3 记的正是这条背离（六家声明之和普遍是被授予预算的
       1.1~7.4 倍，"调了但不生效"）。裁决 A 把预算改为由**递进来的声明**决定：
 
@@ -28,7 +28,7 @@ function Get-GfInstrumentCampaignBudget {
         [int]$RunClassCount = 0
     )
 
-    $capSec = 14400
+    $capSec = 15000
     $baseSec = 600
     $fallbackPerClassSec = 180
 
