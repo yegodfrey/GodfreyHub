@@ -1174,6 +1174,46 @@
         "action"
       ],
       "additionalProperties": false
+    },
+    "codearts_ask": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "description": "要问的问题; 建议给出明确的 ArkTS/HarmonyOS 语境(版本/API/期望行为)"
+        },
+        "files": {
+          "description": "随问题附上的源码文件: 仓库相对路径数组(相对当前在册项目 repoRoot; 也接受绝对路径), 逐个校验存在",
+          "maxItems": 20,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "thinking": {
+          "default": true,
+          "description": "启用思考模式(--thinking), 默认 true",
+          "type": "boolean"
+        },
+        "model": {
+          "description": "模型(provider/id), 默认 huaweicloud-maas/glm-5.2-sft-harmony",
+          "type": "string"
+        },
+        "timeoutSec": {
+          "description": "超时秒数, 默认 600; 超时自动杀进程树",
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 3600
+        }
+      },
+      "required": [
+        "question",
+        "thinking"
+      ],
+      "additionalProperties": false
     }
   }
 }

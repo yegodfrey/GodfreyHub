@@ -16,6 +16,7 @@ import { hnEvidenceTools } from "../dist/tools/hn-evidence.js";
 import { hnTraceTools } from "../dist/tools/hn-trace.js";
 import { hnUxTools } from "../dist/tools/hn-ux.js";
 import { hnCdpTools } from "../dist/tools/hn-cdp.js";
+import { codeartsAskTools } from "../dist/tools/codearts-ask.js";
 
 // 工具注册表快照（M0·C-4.5）：注册表拆在 11 个 src/tools/ 文件里，任何一处 zod 入参
 // schema 的形状变化都会直接改变客户端可见的 MCP 契约，却只有 smoke 兜底——文档漂移
@@ -41,6 +42,7 @@ const ALL_TOOLS = [
   ...hnTraceTools,
   ...hnUxTools,
   ...hnCdpTools,
+  ...codeartsAskTools,
 ];
 
 const snapshotPath = path.join(path.dirname(fileURLToPath(import.meta.url)), "tool-registry.snapshot.json");
