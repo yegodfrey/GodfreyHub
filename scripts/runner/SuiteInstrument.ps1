@@ -1,5 +1,102 @@
 ﻿# GfDeviceRunner 分块 5/5: ArkTS instrument 套件/campaign 与 Hypium 业务旅程执行器。
 
+# 流式 GF 标记采集通道（family/runner 3d1aeeaa9 GFTEXT 流式先例在 instrument 车道的移植）。
+# 病灶：hilog 环形缓冲全域共享，而本执行器在整场收尾才 'hilog -x' 整缓冲重读一次——长战役
+# 里设备早先发射的 GF 标记（如 Stargaze sky-interaction 手势收尾时 skysdk 唯一发射点发出的
+# GF_PERFORMANCE_METRICS）早被自家后续流量冲出缓冲，performance 层只能判
+# 'did not emit GF_PERFORMANCE_METRICS'（无证据红）。'hilog -e GF_'（无 -x，follow 模式）
+# 边发边读落 sidecar，采集窗口从"整场"归零；收工停流后把 fresh 行按 hilog 时间戳
+# **归位插排**进尾部 dump（与 dump 同一份整行去重契约，两路不产重复行）。归位而不是尾追加：
+# marker 解析取"文件序最后一条 complete 标记"，尾追加会把流通道早抓的旧标记排到 dump 里
+# 更新的标记之后，末位语义被倒置（family 侧 0923b 实测同形事故）。'-e' 是设备端子串过滤
+# （不支持字符类/交替，15557 实测 [R]ender 零命中而 Render 命中），取家族标记词汇前缀 GF_：
+# GF_PERFORMANCE_METRICS / GF_UI_CLOSURE / GF_TEXT_* / GF_TEST_BLOCKED / GF_JOURNEY_PROOF /
+# GF_MATRIX_COVERAGE / GF_STABILITY_METRICS 全覆盖且与发射方 tag 无关；尾部 dump 兜底
+# 原样保留，流通道任何失败只降级回今天的形状，判定语义零变化。
+function Start-GfHilogMarkerStream {
+    param(
+        [Parameter(Mandatory = $true)][string]$Hdc,
+        [Parameter(Mandatory = $true)][string]$Serial,
+        [Parameter(Mandatory = $true)][string]$StreamPath
+    )
+    Remove-Item -LiteralPath $StreamPath -Force -ErrorAction SilentlyContinue
+    Remove-Item -LiteralPath "$StreamPath.err" -Force -ErrorAction SilentlyContinue
+    try {
+        return Start-Process -FilePath $Hdc `
+            -ArgumentList @('-t', $Serial, 'shell', 'hilog -e GF_') `
+            -PassThru -NoNewWindow -RedirectStandardOutput $StreamPath `
+            -RedirectStandardError "$StreamPath.err"
+    } catch {
+        # hdc 无法作为独立进程启动（自检桩）：退回 dump-only，与历史行为完全一致。
+        return $null
+    }
+}
+
+function Stop-GfHilogMarkerStream {
+    param([AllowNull()][object]$StreamProcess)
+    if ($null -eq $StreamProcess) { return 'not-started' }
+    if ($StreamProcess.HasExited) { return 'stream-exited-early' }
+    # 整树终止（taskkill 同 campaign 终止形状）：设备端 hilog follow 随 hdc 会话一起结束。
+    & taskkill.exe /PID $StreamProcess.Id /T /F 2>$null | Out-Null
+    return 'stopped'
+}
+
+function Get-GfHilogLineTimestamp([string]$Line) {
+    if ([string]$Line -match '^(\d\d-\d\d \d\d:\d\d:\d\d\.\d+)') { return $Matches[1] }
+    return $null
+}
+
+function Merge-GfHilogMarkerStream {
+    param(
+        [AllowNull()][string]$StreamPath,
+        [AllowNull()][AllowEmptyCollection()][object[]]$HilogLines = @()
+    )
+    # 把流式 sidecar 的 fresh 行归位插排进尾部 dump。返回
+    # { Lines = 插排后的完整行集; MergedCount = 新并入行数 }。
+    # 去重键 = 去掉行尾 \r 的整行：dump 行经 PowerShell 管道、sidecar 行经文件读取，
+    # 同一条 hilog 行在两条路径里必须长成同一个键，去重才真的去得掉。
+    $outcome = [pscustomobject]@{ Lines = @($HilogLines); MergedCount = 0 }
+    if ([string]::IsNullOrWhiteSpace($StreamPath) -or -not (Test-Path -LiteralPath $StreamPath)) {
+        return $outcome
+    }
+    $streamLines = [Collections.Generic.List[string]]::new()
+    try {
+        foreach ($raw in @(Get-Content -LiteralPath $StreamPath -Encoding utf8 -ErrorAction SilentlyContinue)) {
+            $line = ([string]$raw).TrimEnd("`r")
+            if (-not [string]::IsNullOrWhiteSpace($line)) { $streamLines.Add($line) }
+        }
+    } catch {
+        return $outcome
+    }
+    if ($streamLines.Count -eq 0) { return $outcome }
+    $seen = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+    foreach ($existing in @($HilogLines)) {
+        if ($null -ne $existing) { [void]$seen.Add(([string]$existing).TrimEnd("`r")) }
+    }
+    $fresh = [Collections.Generic.List[string]]::new()
+    foreach ($line in $streamLines) {
+        if ($seen.Add($line)) { $fresh.Add($line) }
+    }
+    if ($fresh.Count -eq 0) { return $outcome }
+    $merged = [Collections.Generic.List[string]]::new()
+    $j = 0
+    foreach ($line in @($HilogLines)) {
+        $lineKey = Get-GfHilogLineTimestamp ([string]$line)
+        while ($j -lt $fresh.Count) {
+            $streamKey = Get-GfHilogLineTimestamp $fresh[$j]
+            # 无 hilog 时间戳的行（外来前缀/告警）不触发插排：fresh 行统一排它后面，
+            # 保持 dump 自身的时间序不被冲散（与 family 先例同一契约）。
+            if ($null -eq $lineKey -or $null -eq $streamKey -or $streamKey -gt $lineKey) { break }
+            $merged.Add($fresh[$j]); $j++
+        }
+        $merged.Add([string]$line)
+    }
+    while ($j -lt $fresh.Count) { $merged.Add($fresh[$j]); $j++ }
+    $outcome.Lines = @($merged)
+    $outcome.MergedCount = $fresh.Count
+    return $outcome
+}
+
 function Get-GfInstrumentCampaignBudget {
     <#
       campaign 总截止的预算来源（Docs/OPEN_ITEMS_LEDGER.md §E-3 裁决 A：声明即预算）。
@@ -164,12 +261,24 @@ function Invoke-GfInstrumentSuite {
     $testOutput = [Collections.Generic.List[string]]::new()
     $scopeFailures = [Collections.Generic.List[string]]::new()
     $hilog = @()
+    $hilogStream = $null
+    $hilogStreamPath = ''
     try {
         Enable-GfDeviceScreenKeepOn $hdc $device.Serial
         $screenGuardEnabled = $true
         try {
             & $hdc -t $device.Serial shell hilog -r 2>$null | Out-Null
         } catch { }
+        # 流式 GF 标记通道开场：紧随 hilog -r（清缓冲 = 窗口起点）与整场同窗，边发边读。
+        # 哨兵入账：本场是否有过流通道、以何种方式收场，在套件日志里直接对账。
+        $hilogStreamToken = ($device.Serial -replace '[^A-Za-z0-9_.-]', '_')
+        $hilogStreamPath = Join-Path $ArtifactDir "hilog-stream-$hilogStreamToken.log"
+        $hilogStream = Start-GfHilogMarkerStream -Hdc $hdc -Serial $device.Serial -StreamPath $hilogStreamPath
+        if ($null -eq $hilogStream) {
+            $testOutput.Add("===== hilog stream: not-started (dump-only fallback) =====")
+        } else {
+            $testOutput.Add("===== hilog stream: started pid=$($hilogStream.Id) =====")
+        }
 
         # The first suite in an App/device campaign performs the authoritative
         # clean build + fresh install. Later suites consume the exact installed
@@ -527,6 +636,18 @@ function Invoke-GfInstrumentSuite {
             $ErrorActionPreference = $previousErrorPreference
         }
     }
+
+    # 停流 + 归位插排：成败两条路径都先拿到尾部 dump（try/catch 各自的 hilog -x），
+    # 再在这里把流式 sidecar 的 fresh GF 标记行并回 $hilog——后续 marker/闭包/溢出
+    # 解析的输入从此不受缓冲驱逐影响；dump 兜底原样保留，语义只增不改。
+    $hilogStreamStop = Stop-GfHilogMarkerStream -StreamProcess $hilogStream
+    if ($hilogStreamStop -eq 'stream-exited-early') {
+        # 流通道早退必须吵：本场只剩 dump 兜底，缓冲驱逐窗口回来了。
+        Write-Warning "  HILOG STREAM $SuiteKey - stream exited early; dump-only fallback"
+    }
+    $hilogStreamMerge = Merge-GfHilogMarkerStream -StreamPath $hilogStreamPath -HilogLines $hilog
+    $hilog = @($hilogStreamMerge.Lines)
+    $testOutput.Add("===== hilog stream: merged=$($hilogStreamMerge.MergedCount) stop=$hilogStreamStop =====")
 
     if ($null -ne $primaryExecutionError) {
         $suiteWatch.Stop()
