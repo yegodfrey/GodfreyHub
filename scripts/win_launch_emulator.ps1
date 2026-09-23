@@ -14,6 +14,21 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+# UITest testmode pre-boot write for the emu provisioning path (emu-testmode.ps1):
+# this launcher is the boot hook every emu_create -start / emu_start goes through,
+# and the watcher loop below drives the "earliest-online-moment idempotent write".
+# Best-effort: a load/state failure only drops this feature, never boot or window
+# naming. GF_EMU_TESTMODE_DISABLE=1 turns the whole thing off (touches no device).
+$script:gfEmuTestmode = $null
+try {
+    if ($env:GF_EMU_TESTMODE_DISABLE -ne '1') {
+        . (Join-Path $PSScriptRoot 'emu-testmode.ps1')
+        $script:gfEmuTestmode = New-GfEmuTestmodeState -EmulatorExecutable $Executable -InstanceName $InstanceName
+    }
+} catch {
+    $script:gfEmuTestmode = $null
+}
+
 function ConvertTo-NativeArgument {
   param([AllowEmptyString()][string]$Value)
 
@@ -97,6 +112,11 @@ function Set-ExactProcessWindowTitle {
   $deadline = (Get-Date).AddMinutes(4)
   while ((Get-Date) -lt $deadline) {
     if ($process.HasExited) { exit $process.ExitCode }
+    if ($null -ne $script:gfEmuTestmode -and -not $script:gfEmuTestmode.Finished) {
+      # One step per tick (port attribution / wait-online / param write); any error
+      # drops the feature and never touches the boot path.
+      try { [void](Update-GfEmuTestmodeState -State $script:gfEmuTestmode) } catch { $script:gfEmuTestmode.Finished = $true }
+    }
     Set-ExactProcessWindowTitle -TargetProcessId ([uint32]$process.Id) -Title $InstanceName | Out-Null
     Start-Sleep -Seconds 2
     $process.Refresh()
