@@ -15,6 +15,7 @@ import {
 import { toolchain } from "./paths.js";
 import { resolveTarget, isEmulatorTarget, isValidHdcPort, bundleListedInstalled, MIN_HDC_PORT, MAX_HDC_PORT } from "./emulator.js";
 import { loadConfig, type ProjectEntry, type TestFramework } from "./registry.js";
+import { sha256File } from "./prepare-cache.js";
 import JSON5 from "json5";
 
 // 构建+部署(移植自各项目 build.ps1, 契约保持一致):
@@ -33,6 +34,12 @@ export function resolveTestTarget(raw: string | undefined | null): TestFramework
   return raw;
 }
 
+export interface PrebuiltProvenance {
+  transcriptSha256?: string;  // 权威构建转录全文的 sha256(meta.buildTranscript.sha256)
+  builtAtUtc?: string;        // 权威构建完成时间
+  inputsHash?: string;        // 发布方内容身份摘要(产物 sha256 派生)
+}
+
 export interface BuildOpts {
   product?: string;
   buildMode?: string;
@@ -47,6 +54,14 @@ export interface BuildOpts {
   freshInstall?: boolean; // 测试事务先卸载同 bundle，避免旧签名/旧测试模块污染本次结果
   otherBundles?: string[]; // 防污染校验: 其他在册项目的 bundle
   signal?: AbortSignal;  // MCP 请求级取消: 客户端取消/断连时终止 hvigor/ohpm 子进程树
+  // 构建一次、分发多机: 调用方(--from-cache)携带已核验字节的产物直通部署段——
+  // 跳过 ohpm/clean/assembleHap/产物选取与工程构建锁(共享构建输出零触碰), 目标解析、
+  // 签名分类、freshInstall、otherBundles、设备租约与安装事务与构建路径完全同一份实现。
+  prebuilt?: {
+    hap: string;
+    testHaps: { framework: string; module: string; hap: string }[];
+    provenance?: PrebuiltProvenance;
+  };
 }
 
 export interface BuildResult {
@@ -56,6 +71,7 @@ export interface BuildResult {
   target?: string;
   targetType?: "emulator" | "device";
   unsignedFallback?: boolean;
+  prebuilt?: boolean;
   log: string;
 }
 
@@ -475,7 +491,10 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts, deps:
     fs.writeFileSync(logFile, logLines.join("\n") + "\n", "utf8");
   };
 
-  if (!tc.hvigorwJs) return { code: 1, log: "未找到 hvigorw.js, 请确认 DevEco Studio 已安装或设置 DEVECO_PATH" };
+  // hvigorw.js 只被构建面消费; prebuilt 缓存分发只做安装事务, 不应因构建工具缺席被拒。
+  if (!opts.prebuilt && !tc.hvigorwJs) {
+    return { code: 1, log: "未找到 hvigorw.js, 请确认 DevEco Studio 已安装或设置 DEVECO_PATH" };
+  }
   if (opts.port !== undefined && !isValidHdcPort(opts.port)) {
     return { code: 1, log: "port 必须是 " + MIN_HDC_PORT + "-" + MAX_HDC_PORT + " 的整数(模拟器 hdc 端口官方范围)" };
   }
@@ -522,7 +541,152 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts, deps:
     }
   }
 
-  const code = await withLock(path.join(WORK_DIR, ".locks", "build_" + entry.name + ".lock"), opts.signal, async () => {
+  // prebuilt 直通校验(构建一次、分发多机的消费路径): 字节必须在场且满足步骤 0 定下的
+  // 目标签名分类——真机 requireSigned 门禁与构建路径逐字一致。sha256 当场入账到日志,
+  // 供 prepare.log 与缓存 meta 的构建转录摘要对账。
+  let prebuiltArtifacts: { hap: string; testHaps: { framework: string; module: string; hap: string }[] } | undefined;
+  if (opts.prebuilt) {
+    const candidates = [
+      { what: "生产 HAP", file: path.resolve(opts.prebuilt.hap) },
+      ...opts.prebuilt.testHaps.map((t) => ({ what: `ohosTest HAP(${t.module})`, file: path.resolve(t.hap) })),
+    ];
+    const missing = candidates.filter((c) => !fs.existsSync(c.file) || !fs.statSync(c.file).isFile());
+    if (missing.length > 0) {
+      log("prebuilt 产物缺失:\n  " + missing.map((m) => `${m.what}: ${m.file}`).join("\n  "));
+      return { code: 1, prebuilt: true, log: logLines.join("\n") };
+    }
+    if (requireSigned) {
+      const unsigned = candidates.filter((c) => !isSignedHap(c.file));
+      if (unsigned.length > 0) {
+        log("错误: 真机部署需要 signed HAP, 但缓存产物为 unsigned:\n  " +
+          unsigned.map((m) => `${m.what}: ${m.file}`).join("\n  ") +
+          "; 请确认权威构建来源配置了 debug 签名");
+        return { code: 1, prebuilt: true, log: logLines.join("\n") };
+      }
+    }
+    for (const c of candidates) {
+      log("prebuilt 产物 " + c.what + ": " + c.file + " (sha256=" + sha256File(c.file) + ")");
+    }
+    const provenance = opts.prebuilt.provenance;
+    if (provenance && (provenance.transcriptSha256 || provenance.builtAtUtc || provenance.inputsHash)) {
+      log("prebuilt 来源: 本次运行的权威干净构建缓存" +
+        (provenance.builtAtUtc ? "; builtAtUtc=" + provenance.builtAtUtc : "") +
+        (provenance.transcriptSha256 ? "; 构建转录sha256=" + provenance.transcriptSha256 : "") +
+        (provenance.inputsHash ? "; inputsHash=" + provenance.inputsHash : ""));
+    }
+    prebuiltArtifacts = {
+      hap: candidates[0].file,
+      testHaps: opts.prebuilt.testHaps.map((t, i) => ({
+        framework: t.framework, module: t.module, hap: candidates[i + 1].file,
+      })),
+    };
+    hapPath = prebuiltArtifacts.hap;
+    testHaps = prebuiltArtifacts.testHaps;
+  }
+
+  // 5. 部署(目标已在步骤 0 解析): 权威构建与 prebuilt 缓存分发两条路径共用同一份安装
+  // 事务实现——签名/重试/防污染/卸载重装/启动语义零分叉, 差别只在字节来源。
+  const deployArtifacts = async (
+    hap: string,
+    deployTests: { framework: string; module: string; hap: string }[],
+  ): Promise<number> => {
+    const hdcTarget = deployTarget!;
+    return await withDeviceLease(hdcTarget, opts.signal, async () => {
+    const refreshedTarget = await ensureHdcTargetOnline(tc.hdc, hdcTarget, runCommand, opts.signal);
+    if (!refreshedTarget.online) {
+      log("部署前目标已离线且无法恢复: " + hdcTarget + "; " + refreshedTarget.detail);
+      return 3;
+    }
+    if (refreshedTarget.reconnected) log("部署前已重新连接目标: " + hdcTarget);
+    const installHap = async (artifact: string) => {
+      let result = await runCommand(
+        tc.hdc,
+        ["-t", hdcTarget, "install", "-r", artifact],
+        { timeoutMs: 120000, signal: opts.signal },
+      );
+      if (!isHdcCommandSuccessful(result.code, result.out) &&
+          isRetryableHdcInfrastructureFailure(result.out)) {
+        const ready = await ensureHdcTargetOnline(tc.hdc, hdcTarget, runCommand, opts.signal);
+        if (ready.online) {
+          log("设备安装服务发生瞬态故障; 保持精确目标并重试一次");
+          await abortableSleep(3000, opts.signal);
+          result = await runCommand(
+            tc.hdc,
+            ["-t", hdcTarget, "install", "-r", artifact],
+            { timeoutMs: 120000, signal: opts.signal },
+          );
+        }
+      }
+      return result;
+    };
+    // 防污染校验: 目标装有其他在册项目应用则警告(确认目标确实是同名实例/预期真机)。
+    // 用整串精确匹配: 子串包含会把 com.example.app 误报成装有 com.example.app2。
+    if ((opts.otherBundles ?? []).length > 0) {
+      const apps = await runCommand(tc.hdc, ["-t", hdcTarget, "shell", "bm", "dump", "-a"], { timeoutMs: 60000, signal: opts.signal });
+      const conflict = (opts.otherBundles!).filter((b) => bundleListedInstalled(apps.out, b));
+      if (conflict.length > 0) {
+        log("警告: 目标 " + hdcTarget + " 已装有其他项目应用 (" + conflict.join(", ") + "), 请确认该目标正确");
+      }
+    }
+    if (opts.freshInstall) {
+      log("测试事务卸载旧 bundle: " + entry.bundle);
+      const uninstall = await runCommand(
+        tc.hdc,
+        ["-t", hdcTarget, "uninstall", "-n", entry.bundle],
+        { timeoutMs: 120000, signal: opts.signal },
+      );
+      log(tail(uninstall.out, 5));
+      const alreadyAbsent = isHdcBundleAbsent(uninstall.out);
+      if (!isHdcCommandSuccessful(uninstall.code, uninstall.out) && !alreadyAbsent) {
+        log("测试事务卸载旧 bundle 失败 (exit=" + uninstall.code + ")");
+        return 2;
+      }
+    }
+    log("安装到 " + hdcTarget + " ...");
+    const inst = await installHap(hap);
+    log(tail(inst.out, 5));
+    if (!isHdcCommandSuccessful(inst.code, inst.out)) {
+      log("安装失败 (exit=" + inst.code + "); 若设备刚启动可稍后重试, 或换 port");
+      return 2;
+    }
+    log("生产 HAP 安装成功");
+    // buildTests 的契约是“本次构建出的生产 HAP 与测试 HAP 一起部署到同一精确目标”。
+    // 过去这里只返回测试产物路径，家族 runner 又维护了一套安装逻辑，导致签名、目标和重试
+    // 规则分裂。测试 HAP 现在只在此处安装，所有上层入口共享同一实现。
+    for (const testHap of deployTests) {
+      log("安装 " + testHap.framework + " ohosTest HAP: " + testHap.hap);
+      const testInstall = await installHap(testHap.hap);
+      log(tail(testInstall.out, 5));
+      if (!isHdcCommandSuccessful(testInstall.code, testInstall.out)) {
+        log(testHap.framework + " ohosTest HAP 安装失败 (exit=" + testInstall.code + ")");
+        return 2;
+      }
+    }
+    if (deployTests.length > 0) log("全部测试 HAP 安装成功");
+    if (!opts.skipStart) {
+      log("启动 " + entry.bundle + "/" + entry.ability + " ...");
+      const st = await runCommand(tc.hdc, ["-t", hdcTarget, "shell", "aa", "start", "-b", entry.bundle, "-a", entry.ability], { timeoutMs: 60000, signal: opts.signal });
+      if (!isHdcCommandSuccessful(st.code, st.out)) { log("启动失败 (exit=" + st.code + ")"); return 2; }
+      log("启动成功");
+    }
+    log("========== " + entry.name + " 构建+部署完成 ==========");
+    return 0;
+    });
+  };
+
+  const code = prebuiltArtifacts
+    ? await (async () => {
+        // prebuilt 路径不取工程构建锁: 不跑 ohpm/hvigor、不触碰共享构建输出, 唯一需要
+        // 串行化的设备事务已由 withDeviceLease(设备租约)覆盖; 继续持锁只会把各设备的
+        // 纯安装事务串回一条队。
+        if (opts.noDeploy) {
+          log("========== prebuilt 直通完成(跳过部署) ==========");
+          return 0 as const;
+        }
+        log("========== 部署 " + entry.name + " (prebuilt 缓存分发; 跳过 ohpm/clean/assembleHap) ==========");
+        return await deployArtifacts(prebuiltArtifacts.hap, prebuiltArtifacts.testHaps);
+      })()
+    : await withLock(path.join(WORK_DIR, ".locks", "build_" + entry.name + ".lock"), opts.signal, async () => {
     log("========== 构建 " + entry.name + " (product=" + product + " buildMode=" + buildMode + ") ==========");
 
     // 1. ohpm install(全局锁串行)
@@ -682,91 +846,19 @@ export async function buildAndDeploy(entry: ProjectEntry, opts: BuildOpts, deps:
       }
     }
 
-    // 5. 部署(目标已在步骤 0 解析)
+    // 5. 部署(目标已在步骤 0 解析; 实现与 prebuilt 缓存分发共用 deployArtifacts)
     if (opts.noDeploy) { log("========== 构建完成(跳过部署) =========="); return 0; }
-    const hdcTarget = deployTarget!;
-    return await withDeviceLease(hdcTarget, opts.signal, async () => {
-    const refreshedTarget = await ensureHdcTargetOnline(tc.hdc, hdcTarget, run, opts.signal);
-    if (!refreshedTarget.online) {
-      log("部署前目标已离线且无法恢复: " + hdcTarget + "; " + refreshedTarget.detail);
-      return 3;
-    }
-    if (refreshedTarget.reconnected) log("部署前已重新连接目标: " + hdcTarget);
-    const installHap = async (artifact: string) => {
-      let result = await runCommand(
-        tc.hdc,
-        ["-t", hdcTarget, "install", "-r", artifact],
-        { timeoutMs: 120000, signal: opts.signal },
-      );
-      if (!isHdcCommandSuccessful(result.code, result.out) &&
-          isRetryableHdcInfrastructureFailure(result.out)) {
-        const ready = await ensureHdcTargetOnline(tc.hdc, hdcTarget, run, opts.signal);
-        if (ready.online) {
-          log("设备安装服务发生瞬态故障; 保持精确目标并重试一次");
-          await abortableSleep(3000, opts.signal);
-          result = await runCommand(
-            tc.hdc,
-            ["-t", hdcTarget, "install", "-r", artifact],
-            { timeoutMs: 120000, signal: opts.signal },
-          );
-        }
-      }
-      return result;
-    };
-    // 防污染校验: 目标装有其他在册项目应用则警告(确认目标确实是同名实例/预期真机)。
-    // 用整串精确匹配: 子串包含会把 com.example.app 误报成装有 com.example.app2。
-    if ((opts.otherBundles ?? []).length > 0) {
-      const apps = await runCommand(tc.hdc, ["-t", hdcTarget, "shell", "bm", "dump", "-a"], { timeoutMs: 60000, signal: opts.signal });
-      const conflict = (opts.otherBundles!).filter((b) => bundleListedInstalled(apps.out, b));
-      if (conflict.length > 0) {
-        log("警告: 目标 " + hdcTarget + " 已装有其他项目应用 (" + conflict.join(", ") + "), 请确认该目标正确");
-      }
-    }
-    if (opts.freshInstall) {
-      log("测试事务卸载旧 bundle: " + entry.bundle);
-      const uninstall = await run(
-        tc.hdc,
-        ["-t", hdcTarget, "uninstall", "-n", entry.bundle],
-        { timeoutMs: 120000, signal: opts.signal },
-      );
-      log(tail(uninstall.out, 5));
-      const alreadyAbsent = isHdcBundleAbsent(uninstall.out);
-      if (!isHdcCommandSuccessful(uninstall.code, uninstall.out) && !alreadyAbsent) {
-        log("测试事务卸载旧 bundle 失败 (exit=" + uninstall.code + ")");
-        return 2;
-      }
-    }
-    log("安装到 " + hdcTarget + " ...");
-    const inst = await installHap(hap);
-    log(tail(inst.out, 5));
-    if (!isHdcCommandSuccessful(inst.code, inst.out)) {
-      log("安装失败 (exit=" + inst.code + "); 若设备刚启动可稍后重试, 或换 port");
-      return 2;
-    }
-    log("生产 HAP 安装成功");
-    // buildTests 的契约是“本次构建出的生产 HAP 与测试 HAP 一起部署到同一精确目标”。
-    // 过去这里只返回测试产物路径，家族 runner 又维护了一套安装逻辑，导致签名、目标和重试
-    // 规则分裂。测试 HAP 现在只在此处安装，所有上层入口共享同一实现。
-    for (const testHap of testHaps ?? []) {
-      log("安装 " + testHap.framework + " ohosTest HAP: " + testHap.hap);
-      const testInstall = await installHap(testHap.hap);
-      log(tail(testInstall.out, 5));
-      if (!isHdcCommandSuccessful(testInstall.code, testInstall.out)) {
-        log(testHap.framework + " ohosTest HAP 安装失败 (exit=" + testInstall.code + ")");
-        return 2;
-      }
-    }
-    if ((testHaps ?? []).length > 0) log("全部测试 HAP 安装成功");
-    if (!opts.skipStart) {
-      log("启动 " + entry.bundle + "/" + entry.ability + " ...");
-      const st = await runCommand(tc.hdc, ["-t", hdcTarget, "shell", "aa", "start", "-b", entry.bundle, "-a", entry.ability], { timeoutMs: 60000, signal: opts.signal });
-      if (!isHdcCommandSuccessful(st.code, st.out)) { log("启动失败 (exit=" + st.code + ")"); return 2; }
-      log("启动成功");
-    }
-    log("========== " + entry.name + " 构建+部署完成 ==========");
-    return 0;
-    });
+    return await deployArtifacts(hapPath!, testHaps ?? []);
   });
 
-  return { code: code as 0 | 1 | 2 | 3, hap: hapPath, testHaps, target: deployTarget, targetType, unsignedFallback, log: logLines.join("\n") };
+  return {
+    code: code as 0 | 1 | 2 | 3,
+    hap: hapPath,
+    testHaps,
+    target: deployTarget,
+    targetType,
+    unsignedFallback,
+    ...(prebuiltArtifacts ? { prebuilt: true } : {}),
+    log: logLines.join("\n"),
+  };
 }

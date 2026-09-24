@@ -82,7 +82,7 @@ function Restore-GfDeviceScreenKeepOn([string]$Hdc, [string]$Serial) { }
 $script:GfPreparationShouldFail = $false
 $script:GfPreparationCalls = 0
 $script:GfSelfTestArtifactRoot = ''
-function Invoke-GfInstrumentPreparation([string]$AppName, [string]$Serial, [string]$TestTarget) {
+function Invoke-GfSelfTestPreparation([string]$AppName, [string]$Serial, [string]$TestTarget) {
     $script:GfPreparationCalls++
     if ($script:GfPreparationShouldFail) {
         $failure = [InvalidOperationException]::new('synthetic preparation failure')
@@ -100,6 +100,11 @@ function Invoke-GfInstrumentPreparation([string]$AppName, [string]$Serial, [stri
         testHaps = @([pscustomobject]@{ framework = $TestTarget; module = 'entry'; hap = $testHap })
         target = $Serial
     } | ConvertTo-Json -Compress -Depth 5)
+}
+# 薄委托: run-prepare-cache 场景会在中途用真实现(重新 dot-source PreparationVisual.ps1)
+# 顶替本函数, 场景结束后用这一形状把 fake 换回来。
+function Invoke-GfInstrumentPreparation([string]$AppName, [string]$Serial, [string]$TestTarget) {
+    Invoke-GfSelfTestPreparation -AppName $AppName -Serial $Serial -TestTarget $TestTarget
 }
 function Invoke-GfHdcChecked {
     param([Parameter(ValueFromRemainingArguments = $true)][object[]]$Arguments)
@@ -721,15 +726,198 @@ try {
     $script:GfFakeBundleInstalled = $true
     $Global:GfReusePrepare = $false
 
+    # ---- run 作用域 prepare 缓存: 发布 / 命中 / 失败回退(构建一次、分发多机) ----
+    # 用 fake node(=pwsh) + fake provider 脚本驱动真实现: 无 --from-cache 时做"权威构建"
+    # (每次产出不同字节); 带 --from-cache 时按 meta 回放缓存字节, 可注入退出码 3 演练
+    # 安装事务失败后的单次权威回退。GF_GODFREYHUB_PREPARE_CACHE_DIR 未设时真实现必须
+    # 零介入(不创建缓存目录)。
+    $savedPrepareCacheDir = [string]$env:GF_GODFREYHUB_PREPARE_CACHE_DIR
+    $savedSelfTestNode = [string]$env:GF_GODFREYHUB_NODE
+    $savedSelfTestProvider = [string]$env:GF_GODFREYHUB_DEVICE_PREPARE
+    $runCacheRoot = Join-Path $tempRoot 'run-prepare-cache'
+    $prepareMarkersPath = Join-Path $tempRoot 'prepare-markers.txt'
+    Set-Content -LiteralPath $prepareMarkersPath -Value '' -NoNewline -Encoding UTF8
+    $fakePrepareNode = (Get-Command pwsh).Source
+    $fakePrepareProvider = Join-Path $tempRoot 'fake-prepare-provider.ps1'
+    @'
+param([Parameter(ValueFromRemainingArguments = $true)][string[]]$Rest)
+$ErrorActionPreference = 'Stop'
+$fromCache = ''
+for ($i = 0; $i -lt $Rest.Count; $i++) {
+    if ($Rest[$i] -eq '--from-cache' -and $i + 1 -lt $Rest.Count) { $fromCache = [string]$Rest[$i + 1] }
+}
+if ($env:GF_SELFTEST_PREPARE_MARKERS) {
+    [IO.File]::AppendAllText($env:GF_SELFTEST_PREPARE_MARKERS,
+        $(if ($fromCache) { 'cache' } else { 'build' }) + "`n")
+}
+if ($fromCache) {
+    if ($env:GF_SELFTEST_CACHE_FAIL -eq '1') { exit 3 }
+    $meta = Get-Content -Raw -LiteralPath $fromCache | ConvertFrom-Json
+    $entry = Split-Path -Parent $fromCache
+    [pscustomobject]@{
+        code = 0
+        hap = (Join-Path $entry ([string]$meta.hap))
+        testHaps = @($meta.testHaps | ForEach-Object {
+            [pscustomobject]@{ framework = $_.framework; module = $_.module; hap = (Join-Path $entry ([string]$_.hap)) }
+        })
+        prebuilt = $true
+    } | ConvertTo-Json -Compress -Depth 6
+    exit 0
+}
+$artifactRoot = $env:GF_SELFTEST_ARTIFACT_ROOT
+[IO.Directory]::CreateDirectory($artifactRoot) | Out-Null
+$appHap = Join-Path $artifactRoot 'app.hap'
+$testHap = Join-Path $artifactRoot 'test.hap'
+[IO.File]::WriteAllText($appHap, 'app-' + [guid]::NewGuid().ToString('N'))
+[IO.File]::WriteAllText($testHap, 'test-' + [guid]::NewGuid().ToString('N'))
+[pscustomobject]@{
+    code = 0
+    hap = $appHap
+    testHaps = @([pscustomobject]@{ framework = 'ArkTS'; module = 'entry'; hap = $testHap })
+    log = "fake build transcript line A`nfake build transcript line B"
+} | ConvertTo-Json -Compress -Depth 6
+exit 0
+'@ | Set-Content -LiteralPath $fakePrepareProvider -Encoding UTF8
+    $env:GF_GODFREYHUB_NODE = $fakePrepareNode
+    $env:GF_GODFREYHUB_DEVICE_PREPARE = $fakePrepareProvider
+    $env:GF_SELFTEST_PREPARE_MARKERS = $prepareMarkersPath
+    $env:GF_SELFTEST_CACHE_FAIL = '0'
+    . (Join-Path $PSScriptRoot 'runner/PreparationVisual.ps1')
+    $countBuildMarkers = {
+        @((Get-Content -LiteralPath $prepareMarkersPath) | Where-Object { $_ -eq 'build' }).Count
+    }
+    $countCacheMarkers = {
+        @((Get-Content -LiteralPath $prepareMarkersPath) | Where-Object { $_ -eq 'cache' }).Count
+    }
+    $providerJsonOf = {
+        param([object[]]$Lines)
+        @(@($Lines) | Where-Object { [string]$_.TrimStart().StartsWith('{') }) | Select-Object -Last 1
+    }
+
+    # 0) 缓存未配置: 权威构建且零缓存痕迹(与今天行为完全一致)。
+    [Environment]::SetEnvironmentVariable('GF_GODFREYHUB_PREPARE_CACHE_DIR', $null, 'Process')
+    $env:GF_SELFTEST_ARTIFACT_ROOT = Join-Path $tempRoot 'cache-off-artifacts'
+    $offOutput = @(Invoke-GfInstrumentPreparation -AppName 'CacheApp' -Serial $device.Serial -TestTarget 'ArkTS')
+    Assert-GfSelfTest ((& $countBuildMarkers) -eq 1 -and (& $countCacheMarkers) -eq 0) `
+        'an unconfigured run cache must still route one authoritative clean build.'
+    Assert-GfSelfTest ($offOutput[0] -match 'preparation source: authoritative-clean-build \(run prepare cache not configured\)') `
+        'the preparation source header must state the cache is not configured.'
+    Assert-GfSelfTest (-not (Test-Path -LiteralPath $runCacheRoot)) `
+        'an unconfigured run cache must not create any cache directory.'
+
+    # 1) 冷缓存: 权威构建一次, 产物+meta(sha256/转录摘要)+DONE 以原子重命名发布。
+    $env:GF_GODFREYHUB_PREPARE_CACHE_DIR = $runCacheRoot
+    $env:GF_SELFTEST_ARTIFACT_ROOT = Join-Path $tempRoot 'cache-cold-artifacts'
+    $coldOutput = @(Invoke-GfInstrumentPreparation -AppName 'CacheApp' -Serial $device.Serial -TestTarget 'ArkTS')
+    $cacheEntryDir = Join-Path $runCacheRoot 'CacheApp-ArkTS'
+    Assert-GfSelfTest ((& $countBuildMarkers) -eq 2) `
+        'a cold-cache run must perform exactly one additional authoritative build.'
+    Assert-GfSelfTest ((Test-Path -LiteralPath (Join-Path $cacheEntryDir 'DONE')) -and
+        (Test-Path -LiteralPath (Join-Path $cacheEntryDir 'meta.json')) -and
+        (Test-Path -LiteralPath (Join-Path $cacheEntryDir 'haps\app.hap'))) `
+        'a cold-cache build must publish bytes, meta and the DONE marker atomically.'
+    $cacheMeta = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $cacheEntryDir 'meta.json') | ConvertFrom-Json
+    Assert-GfSelfTest (@($cacheMeta.artifacts).Count -eq 2 -and
+        @(@($cacheMeta.artifacts) | Where-Object { $_.sha256 -notmatch '^[a-f0-9]{64}$' }).Count -eq 0) `
+        'the published meta must carry per-artifact sha256 for every distributed byte.'
+    Assert-GfSelfTest ([string]$cacheMeta.buildTranscript.sha256 -match '^[a-f0-9]{64}$' -and
+        @($cacheMeta.buildTranscript.tail).Count -eq 2) `
+        'the published meta must digest the authoritative build transcript for correlation.'
+    Assert-GfSelfTest ($coldOutput[0] -match 'preparation source: authoritative-clean-build \(cache miss' -and
+        $coldOutput[0] -match 'prepare-cache published') `
+        'a cache miss must label the authoritative build and its publish outcome.'
+    $publishedHapText = [IO.File]::ReadAllText((Join-Path $cacheEntryDir 'haps\app.hap'))
+
+    # 2) 暖命中: 不再构建, --from-cache 只做安装事务, 字节与发布字节逐字相同。
+    $env:GF_SELFTEST_ARTIFACT_ROOT = Join-Path $tempRoot 'cache-warm-artifacts'
+    $warmOutput = @(Invoke-GfInstrumentPreparation -AppName 'CacheApp' -Serial $device.Serial -TestTarget 'ArkTS')
+    Assert-GfSelfTest ((& $countBuildMarkers) -eq 2 -and (& $countCacheMarkers) -eq 1) `
+        'a warm-cache hit must consume the cache instead of building again.'
+    Assert-GfSelfTest (-not (Test-Path -LiteralPath (Join-Path $tempRoot 'cache-warm-artifacts'))) `
+        'a warm-cache hit must not produce any fresh build bytes.'
+    Assert-GfSelfTest ($warmOutput[0] -match 'preparation source: run-cache') `
+        'a warm-cache hit must label the distributed source.'
+    $warmJson = & $providerJsonOf $warmOutput
+    Assert-GfSelfTest (-not [string]::IsNullOrWhiteSpace([string]$warmJson))
+    $warmResult = [string]$warmJson | ConvertFrom-Json
+    Assert-GfSelfTest ([bool]$warmResult.prebuilt -and
+        ([IO.File]::ReadAllText([string]$warmResult.hap) -eq $publishedHapText)) `
+        'a warm-cache install must deploy exactly the published cached bytes.'
+
+    # 3) 缓存安装事务失败 → 恰好一次权威回退(绕过缓存), 绝不循环。
+    $env:GF_SELFTEST_CACHE_FAIL = '1'
+    $env:GF_SELFTEST_ARTIFACT_ROOT = Join-Path $tempRoot 'cache-fallback-artifacts'
+    $fallbackOutput = @(Invoke-GfInstrumentPreparation -AppName 'CacheApp' -Serial $device.Serial -TestTarget 'ArkTS')
+    $env:GF_SELFTEST_CACHE_FAIL = '0'
+    Assert-GfSelfTest ((& $countCacheMarkers) -eq 2 -and (& $countBuildMarkers) -eq 3) `
+        'a failed cache install must fall back to exactly one authoritative build (cache consumed once, never retried).'
+    Assert-GfSelfTest ($fallbackOutput[0] -match 'preparation source: cache-hit-fallback-clean-build') `
+        'the fallback must label its provenance.'
+    Assert-GfSelfTest (@($fallbackOutput | Where-Object { $_ -match 'falling back to one authoritative clean build' -and
+        $_ -match 'cache bypassed, no retry' }).Count -ge 1 -and
+        @($fallbackOutput | Where-Object { $_ -match '----- failed cache-hit transcript -----' }).Count -eq 1) `
+        'the fallback transcript must embed the failed cache-hit transcript exactly once.'
+    Assert-GfSelfTest (([IO.File]::ReadAllText((Join-Path $cacheEntryDir 'haps\app.hap')) -eq $publishedHapText)) `
+        'the fallback build must never overwrite the published cache entry.'
+
+    # 4) 畸形条目 = 未命中 → 权威构建; 发布让位于已存在条目(绝不覆盖)。
+    $savedMetaText = [IO.File]::ReadAllText((Join-Path $cacheEntryDir 'meta.json'))
+    Set-Content -LiteralPath (Join-Path $cacheEntryDir 'meta.json') -Value '{ broken' -Encoding UTF8
+    $env:GF_SELFTEST_ARTIFACT_ROOT = Join-Path $tempRoot 'cache-corrupt-artifacts'
+    $corruptOutput = @(Invoke-GfInstrumentPreparation -AppName 'CacheApp' -Serial $device.Serial -TestTarget 'ArkTS')
+    Assert-GfSelfTest ((& $countBuildMarkers) -eq 4 -and $corruptOutput[0] -match 'cache miss') `
+        'a corrupt cache entry must be treated as a miss and force an authoritative build.'
+    Assert-GfSelfTest ($corruptOutput[0] -match 'prepare-cache publish skipped: key already published') `
+        'a rebuild must never overwrite an existing cache entry.'
+    # 5) meta 修复后条目重新可命中(字节从未损坏, 只有 meta 被改写)。
+    [IO.File]::WriteAllText((Join-Path $cacheEntryDir 'meta.json'), $savedMetaText)
+    $env:GF_SELFTEST_ARTIFACT_ROOT = Join-Path $tempRoot 'cache-repair-artifacts'
+    $repairOutput = @(Invoke-GfInstrumentPreparation -AppName 'CacheApp' -Serial $device.Serial -TestTarget 'ArkTS')
+    Assert-GfSelfTest ($repairOutput[0] -match 'preparation source: run-cache' -and (& $countCacheMarkers) -eq 3) `
+        'a repaired meta must make the cache entry consumable again.'
+
+    # 恢复: 环境变量与 fake preparation, 后续场景与今天完全同形。
+    if ([string]::IsNullOrWhiteSpace($savedPrepareCacheDir)) {
+        [Environment]::SetEnvironmentVariable('GF_GODFREYHUB_PREPARE_CACHE_DIR', $null, 'Process')
+    } else {
+        $env:GF_GODFREYHUB_PREPARE_CACHE_DIR = $savedPrepareCacheDir
+    }
+    if ([string]::IsNullOrWhiteSpace($savedSelfTestNode)) {
+        [Environment]::SetEnvironmentVariable('GF_GODFREYHUB_NODE', $null, 'Process')
+    } else {
+        $env:GF_GODFREYHUB_NODE = $savedSelfTestNode
+    }
+    if ([string]::IsNullOrWhiteSpace($savedSelfTestProvider)) {
+        [Environment]::SetEnvironmentVariable('GF_GODFREYHUB_DEVICE_PREPARE', $null, 'Process')
+    } else {
+        $env:GF_GODFREYHUB_DEVICE_PREPARE = $savedSelfTestProvider
+    }
+    [Environment]::SetEnvironmentVariable('GF_SELFTEST_PREPARE_MARKERS', $null, 'Process')
+    [Environment]::SetEnvironmentVariable('GF_SELFTEST_ARTIFACT_ROOT', $null, 'Process')
+    [Environment]::SetEnvironmentVariable('GF_SELFTEST_CACHE_FAIL', $null, 'Process')
+    function Invoke-GfInstrumentPreparation([string]$AppName, [string]$Serial, [string]$TestTarget) {
+        Invoke-GfSelfTestPreparation -AppName $AppName -Serial $Serial -TestTarget $TestTarget
+    }
+
     # ---- uitest daemon mid-lease recovery (exactly one restart per capture) ----
     # 实测场景：应用内 uitest daemon 在长租约中途死掉后，此后每个检查点的
     # screenCap/dumpLayout 都立刻 [Fail]，一场 campaign 只剩"零捕获尸体"。
     # 这里只用合成输入验证恢复通道：一次重启、只重试失败的那一步、
     # 第二次失败必须终止（绝不成环），且结果三态可被家族侧读到。
+    # 合成帧必须是完整 PNG（签名 + IEND 尾）：sweep 现在在 recv 后就地校验完整性，
+    # 不完整帧会触发文档化的一次 screenCap 重采（见 daemon-epsilon/zeta 两场景）。
+    function Get-GfSyntheticCompletePngBytes {
+        $sig = [byte[]](0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A)
+        $filler = [Text.Encoding]::ASCII.GetBytes('gf-synthetic-frame-filler-0123456789ABCDEF')
+        $tail = [Text.Encoding]::ASCII.GetBytes('IEND')
+        return [byte[]]($sig + $filler + [byte[]](0, 0, 0, 0) + $tail + [byte[]](0xAE, 0x42, 0x60, 0x82))
+    }
     $script:GfDaemonRecoveryCommands = [Collections.Generic.List[string]]::new()
     $script:GfDaemonRecoveryMarkerName = ''
     $script:GfDaemonRecoveryScreenCapFailures = 0
     $script:GfDaemonRecoveryDumpFailures = 0
+    $script:GfDaemonRecoveryIncompletePng = 'none'
+    $script:GfDaemonRecoveryPngPulls = 0
     function Invoke-GfDaemonRecoveryHilog {
         param([Parameter(ValueFromRemainingArguments = $true)][object[]]$Arguments)
         Write-Output ('[GFVISUAL_CHECKPOINT] {"name":"' + $script:GfDaemonRecoveryMarkerName +
@@ -762,7 +950,15 @@ try {
                 if ($target -match '\.json$') {
                     [IO.File]::WriteAllText($target, '{"elements":[{"id":"anchor-a"}]}')
                 } else {
-                    [IO.File]::WriteAllText($target, 'synthetic-png-bytes')
+                    $script:GfDaemonRecoveryPngPulls += 1
+                    if ($script:GfDaemonRecoveryIncompletePng -eq 'always' -or
+                        ($script:GfDaemonRecoveryIncompletePng -eq 'first' -and
+                            $script:GfDaemonRecoveryPngPulls -eq 1)) {
+                        # night-0923 实测形状：uitest screenCap 静默落了 0 字节文件。
+                        [IO.File]::WriteAllBytes($target, [byte[]]@())
+                    } else {
+                        [IO.File]::WriteAllBytes($target, (Get-GfSyntheticCompletePngBytes))
+                    }
                 }
             }
             return @('FileTransferFinish')
@@ -770,11 +966,14 @@ try {
         return @()
     }
     function Invoke-GfDaemonRecoveryCase {
-        param([string]$CaseName, [int]$ScreenCapFailures, [int]$DumpFailures)
+        param([string]$CaseName, [int]$ScreenCapFailures, [int]$DumpFailures,
+            [ValidateSet('none', 'first', 'always')][string]$IncompletePng = 'none')
         $script:GfDaemonRecoveryCommands = [Collections.Generic.List[string]]::new()
         $script:GfDaemonRecoveryMarkerName = $CaseName
         $script:GfDaemonRecoveryScreenCapFailures = $ScreenCapFailures
         $script:GfDaemonRecoveryDumpFailures = $DumpFailures
+        $script:GfDaemonRecoveryIncompletePng = $IncompletePng
+        $script:GfDaemonRecoveryPngPulls = 0
         $captures = @{}
         $sink = [Collections.Generic.List[string]]::new()
         Invoke-GfVisualMarkerSweep -Hdc 'Invoke-GfDaemonRecoveryHilog' -Serial $device.Serial `
@@ -831,6 +1030,26 @@ try {
             'a lane that survives the single restart must be recorded as a confirmed dead lane.'
         Assert-GfSelfTest ($dead.Sink -match 'daemonRestart=failed') `
             'the exhausted-restart outcome must be observable in the same log line.'
+
+        # 4) Incomplete PNG on first pull (night-0923 实测 0 字节帧)：恰好一次 screenCap
+        #    重采 + 重 recv，不重启 daemon，重采后的完整帧照常入账。
+        $epsilon = Invoke-GfDaemonRecoveryCase -CaseName 'daemon-epsilon' -ScreenCapFailures 0 `
+            -DumpFailures 0 -IncompletePng 'first'
+        Assert-GfSelfTest ($epsilon.ScreenCaps -eq 2 -and $epsilon.Restarts -eq 0 -and
+            $epsilon.Dumps -eq 1) `
+            'an incomplete PNG must trigger exactly one screenCap re-capture, never a daemon restart.'
+        Assert-GfSelfTest ([string]$epsilon.Capture.status -eq 'captured' -and
+            [string]$epsilon.Capture.error -eq '') `
+            'a complete re-captured frame must bank as captured with no error.'
+
+        # 5) Still-incomplete after the single re-capture: infrastructure failure, no third attempt.
+        $zeta = Invoke-GfDaemonRecoveryCase -CaseName 'daemon-zeta' -ScreenCapFailures 0 `
+            -DumpFailures 0 -IncompletePng 'always'
+        Assert-GfSelfTest ($zeta.ScreenCaps -eq 2) `
+            'an always-incomplete lane gets exactly two screenCap attempts, never a third.'
+        Assert-GfSelfTest ([string]$zeta.Capture.status -eq 'infrastructure' -and
+            $zeta.Capture.error -match 'incomplete PNG capture') `
+            'a lane that stays incomplete after the retry must be recorded as an infrastructure failure.'
     } finally {
         Set-Item -LiteralPath function:\Invoke-GfHdcChecked -Value $gfHdcCheckedOriginal
     }
@@ -859,7 +1078,8 @@ try {
             if ($target -match '\.json$') {
                 [IO.File]::WriteAllText($target, '{"elements":[{"id":"anchor-a"}]}')
             } else {
-                [IO.File]::WriteAllText($target, 'synthetic-png-bytes')
+                # sweep 在 recv 后校验 PNG 完整性，合成帧必须过闸（签名 + IEND 尾）。
+                [IO.File]::WriteAllBytes($target, (Get-GfSyntheticCompletePngBytes))
             }
         }
         return @('ok')
@@ -921,4 +1141,4 @@ try {
     }
 }
 
-Write-Output 'GfDeviceRunner SelfTest: PASS (inventory pruning + system prerequisites + collection shapes + Instrument visual and infrastructure isolation + prepare-cache reuse gating + single uitest daemon restart recovery + duplicate marker adjudication).'
+Write-Output 'GfDeviceRunner SelfTest: PASS (inventory pruning + system prerequisites + collection shapes + Instrument visual and infrastructure isolation + prepare-cache reuse gating + run prepare-cache publish/hit/fallback + single uitest daemon restart recovery + duplicate marker adjudication).'

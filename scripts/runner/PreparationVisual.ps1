@@ -1,4 +1,160 @@
 ﻿# GfDeviceRunner 分块 3/5: 构建/安装预备事务与视觉/失败证据采集(campaign 准备、marker sweep、检查点、矩阵维度)。
+# ---- run 作用域 prepare 缓存(构建一次、分发多机) ----------------------------
+# GF_GODFREYHUB_PREPARE_CACHE_DIR 非空时启用: 键=<App>-<TestTarget>(无设备维度),
+# 条目 = <cacheDir>/<key>/{haps/, meta.json, DONE}。同一次运行内, 首个进入全局构建
+# 互斥锁的车道照旧做权威 from-zero 干净构建, 成功后以「临时目录→原子重命名」发布;
+# 其余车道命中后经 provider --from-cache 只做安装事务。跨设备字节一致性由双重
+# sha256 结构性保证: 发布方逐文件摘要写入 meta, 消费方(CLI)安装前逐文件复核, 任一
+# 不符即退回一次权威构建。变量未设时本节零介入, 行为与今天完全一致。
+function Get-GfRunPrepareCacheDir {
+    # 未设置/空串按"缓存停用"处理; StrictMode 下读不存在的 env 变量返回 $null 不抛。
+    $dir = [string]$env:GF_GODFREYHUB_PREPARE_CACHE_DIR
+    if ([string]::IsNullOrWhiteSpace($dir)) { return '' }
+    return $dir.Trim()
+}
+
+function Get-GfRunPrepareCacheKey([string]$AppName, [string]$TestTarget) {
+    $safeApp = $AppName -replace '[^A-Za-z0-9_.-]', '_'
+    return "$safeApp-$TestTarget"
+}
+
+function Get-GfRunPrepareCacheEntry([string]$CacheDir, [string]$AppName, [string]$TestTarget) {
+    # 命中 = DONE 标记在场 + meta 可解析且归属匹配 + 产物文件在场。这里只做廉价门槛;
+    # 字节级 sha256 复核由 CLI --from-cache 在安装前执行, 截断/篡改条目在那一步被拒。
+    $key = Get-GfRunPrepareCacheKey -AppName $AppName -TestTarget $TestTarget
+    $entryDir = Join-Path $CacheDir $key
+    try {
+        if (-not (Test-Path -LiteralPath (Join-Path $entryDir 'DONE') -PathType Leaf)) { return $null }
+        $metaPath = Join-Path $entryDir 'meta.json'
+        if (-not (Test-Path -LiteralPath $metaPath -PathType Leaf)) { return $null }
+        $meta = Get-Content -Raw -Encoding UTF8 -LiteralPath $metaPath | ConvertFrom-Json
+        if ($null -eq $meta -or [int]$meta.version -ne 1) { return $null }
+        if ([string]$meta.app -ne $AppName -or [string]$meta.testTarget -ne $TestTarget) { return $null }
+        foreach ($artifact in @($meta.artifacts)) {
+            $relative = [string]$artifact.file
+            if ([string]::IsNullOrWhiteSpace($relative)) { return $null }
+            if (-not (Test-Path -LiteralPath (Join-Path $entryDir $relative) -PathType Leaf)) { return $null }
+        }
+        return [pscustomobject]@{ Key = $key; EntryDir = $entryDir; MetaPath = $metaPath; Meta = $meta }
+    } catch {
+        # 任何畸形条目一律按未命中处理, 回落权威构建。
+        return $null
+    }
+}
+
+function Publish-GfRunPrepareCache([string]$CacheDir, [string]$AppName, [string]$TestTarget,
+    [string[]]$ProviderOutput) {
+    # 从 provider 成功输出的 JSON 清单(hap/testHaps/log)取产物, 连同 meta(逐文件 sha256
+    # + inputsHash + 构建转录摘要)与 DONE 标记写入临时目录后整体原子重命名。发布失败只
+    # 警告不抛: 缓存是加速面, 绝不能把一次成功的权威构建变成车道失败。
+    $key = Get-GfRunPrepareCacheKey -AppName $AppName -TestTarget $TestTarget
+    $entryDir = Join-Path $CacheDir $key
+    if (Test-Path -LiteralPath $entryDir) {
+        return "prepare-cache publish skipped: key already published ($key)"
+    }
+    $jsonLine = @($ProviderOutput | Where-Object { $_.TrimStart().StartsWith('{') }) | Select-Object -Last 1
+    if ([string]::IsNullOrWhiteSpace([string]$jsonLine)) {
+        return 'prepare-cache publish skipped: provider returned no JSON manifest'
+    }
+    $tempDir = Join-Path $CacheDir ("$key.tmp-" + [guid]::NewGuid().ToString('N'))
+    try {
+        $provider = [string]$jsonLine | ConvertFrom-Json
+        $artifactPaths = [Collections.Generic.List[string]]::new()
+        if (-not [string]::IsNullOrWhiteSpace([string]$provider.hap)) {
+            $artifactPaths.Add([IO.Path]::GetFullPath([string]$provider.hap))
+        }
+        foreach ($testHap in @(Get-GfCollectionProperty -InputObject $provider -Name 'testHaps')) {
+            $p = [string]$testHap.hap
+            if (-not [string]::IsNullOrWhiteSpace($p)) { $artifactPaths.Add([IO.Path]::GetFullPath($p)) }
+        }
+        if ($artifactPaths.Count -lt 2) {
+            return "prepare-cache publish skipped: expected production and ohosTest HAPs, found $($artifactPaths.Count)"
+        }
+        # 构建转录摘要: 把分发字节与权威构建转录结构性关联(sha256/行数/尾行)。
+        $transcriptText = [string]$provider.log
+        $transcriptSha = ''
+        $transcriptLines = 0
+        $transcriptTail = @()
+        if (-not [string]::IsNullOrWhiteSpace($transcriptText)) {
+            $transcriptSplit = @($transcriptText -split "`n")
+            $transcriptLines = $transcriptSplit.Count
+            $transcriptTail = @($transcriptSplit | Select-Object -Last 10)
+            $sha = [Security.Cryptography.SHA256]::Create()
+            try {
+                $transcriptSha = ([BitConverter]::ToString(
+                    $sha.ComputeHash([Text.Encoding]::UTF8.GetBytes($transcriptText))) -replace '-', '').ToLowerInvariant()
+            } finally { $sha.Dispose() }
+        }
+        [IO.Directory]::CreateDirectory($tempDir) | Out-Null
+        [IO.Directory]::CreateDirectory((Join-Path $tempDir 'haps')) | Out-Null
+        $artifacts = @()
+        $relativeBySource = @{}
+        foreach ($artifactPath in $artifactPaths) {
+            if (-not (Test-Path -LiteralPath $artifactPath -PathType Leaf)) {
+                throw "prepared artifact disappeared before cache publish: $artifactPath"
+            }
+            $identity = $artifactPath.ToLowerInvariant()
+            if ($relativeBySource.ContainsKey($identity)) { continue }
+            $relative = 'haps/' + [IO.Path]::GetFileName($artifactPath)
+            if ($relativeBySource.ContainsValue($relative)) {
+                # 同名不同源(理论形状): 保险丝——放弃发布, 权威构建路径不受影响。
+                throw "artifact basename collision in cache staging: $relative"
+            }
+            [IO.File]::Copy($artifactPath, (Join-Path $tempDir ('haps\' + [IO.Path]::GetFileName($artifactPath))), $true)
+            $artifactSha = (Get-FileHash -Algorithm SHA256 -LiteralPath $artifactPath).Hash.ToLowerInvariant()
+            $artifacts += [pscustomobject]@{ file = $relative; sha256 = $artifactSha }
+            $relativeBySource[$identity] = $relative
+        }
+        $hapRelative = $relativeBySource[[IO.Path]::GetFullPath([string]$provider.hap).ToLowerInvariant()]
+        $testHapRecords = @(Get-GfCollectionProperty -InputObject $provider -Name 'testHaps' | ForEach-Object {
+            [pscustomobject]@{
+                framework = [string]$_.framework
+                module = [string]$_.module
+                hap = $relativeBySource[[IO.Path]::GetFullPath([string]$_.hap).ToLowerInvariant()]
+            }
+        })
+        # inputsHash = 条目内容身份摘要(app/testTarget/产物 sha256 集合派生)。
+        $identityText = 'v1|' + $AppName + '|' + $TestTarget + '|' +
+            ((@($artifacts) | ForEach-Object { $_.sha256 } | Sort-Object) -join ',')
+        $identitySha = [Security.Cryptography.SHA256]::Create()
+        try {
+            $inputsHash = ([BitConverter]::ToString(
+                $identitySha.ComputeHash([Text.Encoding]::UTF8.GetBytes($identityText))) -replace '-', '').ToLowerInvariant()
+        } finally { $identitySha.Dispose() }
+        $meta = [ordered]@{
+            version = 1
+            app = $AppName
+            testTarget = $TestTarget
+            cacheKey = $key
+            builtAtUtc = (Get-Date).ToUniversalTime().ToString('o')
+            source = 'authoritative-clean-build'
+            inputsHash = $inputsHash
+            hap = $hapRelative
+            testHaps = $testHapRecords
+            artifacts = $artifacts
+            buildTranscript = [ordered]@{
+                sha256 = $transcriptSha
+                lineCount = $transcriptLines
+                tail = $transcriptTail
+            }
+        }
+        [IO.File]::WriteAllText((Join-Path $tempDir 'meta.json'), ($meta | ConvertTo-Json -Depth 8),
+            [Text.UTF8Encoding]::new($false))
+        # DONE 最后写: 命中判定只认「DONE + meta + 字节」齐整的条目; 同卷目录重命名保证
+        # 其他车道永远看不到半写状态。
+        [IO.File]::WriteAllText((Join-Path $tempDir 'DONE'), $key, [Text.UTF8Encoding]::new($false))
+        [IO.Directory]::Move($tempDir, $entryDir)
+        return "prepare-cache published: key=$key artifacts=$($artifacts.Count) inputsHash=$inputsHash"
+    } catch {
+        Write-Warning "GfDeviceRunner: prepare-cache publish failed for $AppName/${TestTarget}: $($_.Exception.Message)"
+        return "prepare-cache publish failed: $($_.Exception.Message)"
+    } finally {
+        if (Test-Path -LiteralPath $tempDir) {
+            try { [IO.Directory]::Delete($tempDir, $true) } catch { Write-Warning "prepare-cache temp staging residue: $tempDir" }
+        }
+    }
+}
+
 function Invoke-GfInstrumentPreparation([string]$AppName, [string]$Serial,
     [ValidateSet('ArkTS', 'Cangjie')][string]$TestTarget) {
     $node = [string]$env:GF_GODFREYHUB_NODE
@@ -9,6 +165,14 @@ function Invoke-GfInstrumentPreparation([string]$AppName, [string]$Serial,
         -not (Test-Path -LiteralPath $provider -PathType Leaf)) {
         throw 'GfDeviceRunner: Instrument execution requires a clean build/deploy provider; the caller must inject one.'
     }
+    # run 缓存判定在互斥锁外做快照, 发布/命中事务全部在既有构建互斥锁内完成: 全局
+    # 构建互斥锁(GODFREYHUB_BUILD_MUTEX_NAME)串行化了"检查-构建-发布/消费"的整个
+    # 临界区, 这正是"每 (App, TestTarget) 每次运行只构建一次"的单飞来源。
+    $cacheDir = Get-GfRunPrepareCacheDir
+    $cacheEntry = $null
+    if ($cacheDir -ne '') {
+        $cacheEntry = Get-GfRunPrepareCacheEntry -CacheDir $cacheDir -AppName $AppName -TestTarget $TestTarget
+    }
     # Device lanes may execute concurrently, but build preparation runs inside one
     # cross-process mutex so a single writer owns the shared build outputs. The
     # caller names the serial domain (GODFREYHUB_BUILD_MUTEX_NAME); this runner only
@@ -17,9 +181,45 @@ function Invoke-GfInstrumentPreparation([string]$AppName, [string]$Serial,
         $previousLeaseSerial = [Environment]::GetEnvironmentVariable('GF_DEVICE_LEASE_HELD_SERIAL', 'Process')
         try {
             $env:GF_DEVICE_LEASE_HELD_SERIAL = $Serial
-            $lines = @(& $node $provider --app $AppName --target $Serial --test-target $TestTarget 2>&1)
+            $source = 'authoritative-clean-build'
+            $publishNote = ''
+            $lines = $null
+            if ($null -ne $cacheEntry) {
+                $lines = @(& $node $provider --app $AppName --target $Serial --test-target $TestTarget `
+                    --from-cache $cacheEntry.MetaPath 2>&1)
+                if ($LASTEXITCODE -ne 0) {
+                    # 失败安全: 缓存命中后的安装事务失败 → 退回**一次**完整 provider 构建
+                    # (绕过缓存, 不再发布、不再回到缓存路径), 失败即按既有路径上抛。绝不循环。
+                    $source = 'cache-hit-fallback-clean-build'
+                    $failedTranscript = @($lines | ForEach-Object { [string]$_ })
+                    $lines = @(
+                        '===== prepare-cache install failed; falling back to one authoritative clean build (cache bypassed, no retry) =====',
+                        '----- failed cache-hit transcript -----'
+                        $failedTranscript
+                        '----- fallback authoritative clean-build transcript -----'
+                    ) + @(& $node $provider --app $AppName --target $Serial --test-target $TestTarget 2>&1)
+                } else {
+                    $source = 'run-cache'
+                }
+            } else {
+                $lines = @(& $node $provider --app $AppName --target $Serial --test-target $TestTarget 2>&1)
+                if ($LASTEXITCODE -eq 0 -and $cacheDir -ne '') {
+                    $publishNote = [string](Publish-GfRunPrepareCache -CacheDir $cacheDir `
+                        -AppName $AppName -TestTarget $TestTarget -ProviderOutput @($lines | ForEach-Object { [string]$_ }))
+                }
+            }
+            $key = Get-GfRunPrepareCacheKey -AppName $AppName -TestTarget $TestTarget
+            $header = if ($source -eq 'run-cache') {
+                "===== preparation source: run-cache (installed bytes distributed from this run's cache; key=$key) ====="
+            } elseif ($source -eq 'cache-hit-fallback-clean-build') {
+                "===== preparation source: cache-hit-fallback-clean-build (authoritative from-zero rebuild after a failed cache install; key=$key) ====="
+            } elseif ($cacheDir -ne '') {
+                "===== preparation source: authoritative-clean-build (cache miss; key=$key; $publishNote) ====="
+            } else {
+                "===== preparation source: authoritative-clean-build (run prepare cache not configured) ====="
+            }
             [pscustomobject]@{
-                Output = @($lines | ForEach-Object { [string]$_ })
+                Output = @(@([string]$header) + @($lines | ForEach-Object { [string]$_ }))
                 ExitCode = $LASTEXITCODE
             }
         } finally {
@@ -126,6 +326,25 @@ function Invoke-GfHdcChecked([string]$Hdc, [string]$Serial, [string[]]$Arguments
         throw "GfDeviceRunner: hdc $Phase failed on ${Serial}: $($output -join ' ')"
     }
     return $output
+}
+
+function Test-GfPngComplete([string]$Path) {
+    # PNG 完整性 = 8 字节签名 + 末尾 IEND 块（'IEND' + 固定 CRC 共收尾 12 字节）。
+    # 截断帧的 pngjs 崩溃（"read requests waitng on finished stream"）只能事后归因，
+    # 这里在 recv 之后就地把完整性证完。读不到/不足 60 字节一律按不完整。
+    try {
+        $info = Get-Item -LiteralPath $Path -ErrorAction Stop
+        if ($info.Length -lt 60) { return $false }
+        $bytes = [IO.File]::ReadAllBytes($Path)
+        $sig = [byte[]](0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A)
+        for ($i = 0; $i -lt 8; $i++) {
+            if ($bytes[$i] -ne $sig[$i]) { return $false }
+        }
+        $tailText = [Text.Encoding]::ASCII.GetString($bytes[($bytes.Length - 12)..($bytes.Length - 1)])
+        return $tailText -like '*IEND*'
+    } catch {
+        return $false
+    }
 }
 
 # 捕获窗口里的 `uitest screenCap` / `uitest dumpLayout` 走的是应用内 uitest daemon；
@@ -281,6 +500,21 @@ function Invoke-GfVisualMarkerSweep {
                 -Phase "uitest dumpLayout for $name"
             Invoke-GfHdcChecked $Hdc $Serial @('file', 'recv', $remotePng, $capture.png) `
                 "screen receive for $name" | Out-Null
+            if (-not (Test-GfPngComplete -Path $capture.png)) {
+                # 截断/空帧（uitest screenCap 静默失败或仍在写时 recv 已返回）单次重采：
+                # night-0923 实测 clash-home-dark@5563 落成 0 字节 png、视觉比较器在 pngjs
+                # 崩出裸 exit=1。重做 screenCap + 重 recv 一次；仍不完整按基础设施失败出账，
+                # 绝不把半帧/空帧 PNG 送进视觉比较器。
+                Start-Sleep -Milliseconds 500
+                Invoke-GfUitestCaptureStep -Hdc $Hdc -Serial $Serial -Capture $capture `
+                    -Arguments @('shell', 'uitest', 'screenCap', '-p', $remotePng) `
+                    -Phase "uitest screenCap retry for $name (first pull was an incomplete PNG)"
+                Invoke-GfHdcChecked $Hdc $Serial @('file', 'recv', $remotePng, $capture.png) `
+                    "screen re-receive for $name" | Out-Null
+                if (-not (Test-GfPngComplete -Path $capture.png)) {
+                    throw "incomplete PNG capture for $name (signature/IEND trailer missing after retry)"
+                }
+            }
             Invoke-GfHdcChecked $Hdc $Serial @('file', 'recv', $remoteJson, $capture.layout) `
                 "layout receive for $name" | Out-Null
             $layoutText = [IO.File]::ReadAllText($capture.layout)
