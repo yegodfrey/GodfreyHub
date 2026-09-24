@@ -583,3 +583,255 @@ test("containment scan fails loudly when the declared tree has no parsable viewp
   layout.attributes.bounds = "not-a-rect";
   assert.throws(() => runContainment(layout), /invalid viewport bounds/);
 });
+
+// ── C05 双簇分离（2026-09-23）：percentile 盲区缺陷的两具钉子 ─────────────────
+//
+// 旧实现取 p95/p05 分位：墨水占比低于 5% 分位覆盖时 p95=p05=背景 → 1.00:1 假红。
+// 2026-09-23 nightly 实测：EchoBridge 取消按钮 98.5% 白底 + 深色"取消"标签（真实 ≈17:1）
+// 5/5 设备判 1.00:1；home-download-label 墨水占比 3.8%-6.4% 跨着 5% 线，红绿由占比决定。
+// 本组夹具把墨水占比钉在 ~1%（远低于任何分位线），旧探针在此几何上必红、新探针必绿；
+// 同时钉住反面：真低对比墨水、文字未渲染、纯噪声三种形态必须仍然红。
+
+function writeInkLabelPng(file, { background, ink, inkRects }) {
+  const image = new PNG({ width: 200, height: 64 });
+  for (let y = 0; y < image.height; y++) {
+    for (let x = 0; x < image.width; x++) {
+      const i = (y * image.width + x) * 4;
+      const isInk = inkRects.some(([rx, ry, rw, rh]) => x >= rx && x < rx + rw && y >= ry && y < ry + rh);
+      const [r, g, b] = isInk ? ink : background;
+      image.data[i] = r;
+      image.data[i + 1] = g;
+      image.data[i + 2] = b;
+      image.data[i + 3] = 255;
+    }
+  }
+  fs.writeFileSync(file, PNG.sync.write(image));
+}
+
+function inkLabelFixture(root, pngOptions) {
+  const actual = path.join(root, "actual.png");
+  const layout = path.join(root, "layout.json");
+  const spec = path.join(root, "spec.json");
+  writeInkLabelPng(actual, pngOptions);
+  // 锚点即按钮本体；两块 24×2 墨水 ≈ 采样区 1.0% 面积（旧 p95/p05 在此判 1.00:1 假红）。
+  fs.writeFileSync(layout, JSON.stringify({
+    attributes: { id: "root", bounds: "[0,0][200,64]" },
+    children: [{ attributes: { id: "echo.cancel", bounds: "[0,0][200,64]" }, children: [] }],
+  }));
+  fs.writeFileSync(spec, JSON.stringify({
+    schemaVersion: 1,
+    contrastProbes: [{
+      id: "cancel-label-contrast", match: { id: "echo.cancel", exact: true },
+      minRatio: 3, sampleInsetRatio: 0.1,
+    }],
+  }));
+  return { root, actual, layout, spec };
+}
+
+const inkGlyphRects = [[88, 30, 24, 2], [88, 36, 24, 2]];
+
+test("contrast dual-cluster recovers a tiny ink label that percentile sampling judged blind", () => {
+  // 缺陷 1 正样本：98.5%+ 背景 + ~1% 深色墨水（白底深标，取消按钮形态）。
+  // 旧 p95/p05：墨水 < 5% 线 → p95=p05=白 → 1.00:1 假红；双簇分离：白簇 vs 墨簇 ≈ 15:1。
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-contrast-ink-"));
+  const f = inkLabelFixture(root, { background: [255, 255, 255], ink: [40, 40, 40], inkRects: inkGlyphRects });
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(root, "report"),
+  });
+  assert.equal(result.status, "passed", JSON.stringify(result.issues));
+});
+
+test("contrast dual-cluster recovers white-on-red ink regardless of which side is darker", () => {
+  // 缺陷 1 第二形态（红底白标, home-download/login 形态）：墨水在亮侧也必须被聚出来。
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-contrast-red-"));
+  const f = inkLabelFixture(root, { background: [211, 63, 46], ink: [255, 255, 255], inkRects: inkGlyphRects });
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(root, "report"),
+  });
+  assert.equal(result.status, "passed", JSON.stringify(result.issues));
+});
+
+test("contrast dual-cluster still rejects genuinely low-contrast ink", () => {
+  // 真低对比（浅灰墨水压灰白底，簇分离但比值不足）必须仍然红——修复不是放水。
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-contrast-low-"));
+  const f = inkLabelFixture(root, { background: [240, 240, 240], ink: [200, 200, 200], inkRects: inkGlyphRects });
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(root, "report"),
+  });
+  assert.equal(result.status, "failed");
+  assert.match(result.issues[0].message, /contrast 1\.4[0-9]:1 is below the required 3:1/);
+  assert.match(result.issues[0].message, /ink luma/);
+});
+
+test("contrast dual-cluster rejects an anchor whose label never rendered", () => {
+  // 全背景无墨水 = 文字没渲染：与低对比同罪，显式红，绝不因"分不出簇"放行。
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-contrast-empty-"));
+  const f = inkLabelFixture(root, { background: [240, 240, 240], ink: [240, 240, 240], inkRects: inkGlyphRects });
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(root, "report"),
+  });
+  assert.equal(result.status, "failed");
+  assert.match(result.issues[0].message, /no distinct ink cluster rendered/);
+});
+
+test("contrast dual-cluster ignores stray noise pixels below the ink floor", () => {
+  // 防噪下限：1-2 个离群像素不构成墨水簇（minInkSamples 下限），照红。
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-contrast-noise-"));
+  const f = inkLabelFixture(root, { background: [240, 240, 240], ink: [0, 0, 0], inkRects: [[30, 30, 2, 1]] });
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(root, "report"),
+  });
+  assert.equal(result.status, "failed");
+  assert.match(result.issues[0].message, /no distinct ink cluster rendered/);
+});
+
+// ── C07 声明半径包络（2026-09-23）：圆角探针几何竞态缺陷的钉子 ────────────────
+//
+// 旧实现对所有断言按固定比例（sampleInsetRatio）取角点样本：圆弧切口对角深度 =
+// (√2−1)×绘制半径，大卡片上取样点落进弧内卡面 → 误判"无圆角"（manual-dialog-card-radius，
+// nightly 3/5 设备红，目检圆角已渲染）。新语义：声明 radiusRatio 时切口包络从声明半径推导
+// （radiusRatio × min(宽,高)），沿对角线双点取证——包络内有切口背景 + 弧内是渲染卡面。
+// 夹具按 nightly 实测比例缩小：卡片 min 760、声明半径 0.08（60.8px）、**绘制半径只有 20**
+// （绘制 < 声明 3 倍，正是 manual-dialog 卡片的形态：旧取样 (1.5%×760) 对角 16.1px 落在
+// 8.3px 深的切口之外 → 必红；新包络扫描在切口内命中背景 → 绿）。
+
+function writeCardPng(file, drawnRadius) {
+  const image = new PNG({ width: 960, height: 800 });
+  const left = 20, top = 20, right = 940, bottom = 780;
+  const insideRounded = (x, y) => {
+    if (x < left || x >= right || y < top || y >= bottom) return false;
+    const cx = Math.max(left + drawnRadius, Math.min(right - drawnRadius - 1, x));
+    const cy = Math.max(top + drawnRadius, Math.min(bottom - drawnRadius - 1, y));
+    return Math.hypot(x - cx, y - cy) <= drawnRadius;
+  };
+  for (let y = 0; y < image.height; y++) {
+    for (let x = 0; x < image.width; x++) {
+      const i = (y * image.width + x) * 4;
+      // 背景 = 对话框遮罩混色（nightly 5563 实测 ≈ 165,166,171）；卡面纯白。
+      const [r, g, b] = insideRounded(x, y) ? [255, 255, 255] : [165, 166, 171];
+      image.data[i] = r;
+      image.data[i + 1] = g;
+      image.data[i + 2] = b;
+      image.data[i + 3] = 255;
+    }
+  }
+  fs.writeFileSync(file, PNG.sync.write(image));
+}
+
+function cardFixture(root, drawnRadius, ruleExtra) {
+  const actual = path.join(root, "actual.png");
+  const layout = path.join(root, "layout.json");
+  const spec = path.join(root, "spec.json");
+  writeCardPng(actual, drawnRadius);
+  fs.writeFileSync(layout, JSON.stringify({
+    attributes: { id: "root", bounds: "[0,0][960,800]" },
+    children: [{ attributes: { id: "echo.manual.card", bounds: "[20,20][940,780]" }, children: [] }],
+  }));
+  fs.writeFileSync(spec, JSON.stringify({
+    schemaVersion: 1,
+    roundedRectangles: [{
+      id: "manual-card-radius", match: { id: "echo.manual.card", exact: true },
+      ...ruleExtra,
+    }],
+  }));
+  return { root, actual, layout, spec };
+}
+
+const manualDialogRule = {
+  radiusRatio: 0.08, sampleInsetRatio: 0.015,
+  minSurfaceDelta: 2, minCornerSeparation: 1, requiredCorners: 4,
+};
+
+test("rounded rectangles accept a rendered corner even when the drawn radius trails the declared ratio", () => {
+  // 缺陷 2 正样本：绘制半径 20 ≪ 声明 60.8（真机形态）——旧固定取样点已落进卡面，假红；
+  // 新语义按声明包络取证，四角双点证据齐全 → 绿。目检已渲染的圆角不再被取样几何误杀。
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-rounded-card-"));
+  const f = cardFixture(root, 20, manualDialogRule);
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(root, "report"),
+  });
+  assert.equal(result.status, "passed", JSON.stringify(result.issues));
+});
+
+test("rounded rectangles still reject a square card when a radius is declared", () => {
+  // 直角卡片必须仍然红——修复不是放水：包络内扫不到切口背景，四角取证全空。
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-rounded-square-"));
+  const f = cardFixture(root, 0, manualDialogRule);
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(root, "report"),
+  });
+  assert.equal(result.status, "failed");
+  assert.match(result.issues[0].message, /only 0\/4 corners show a background notch/);
+});
+
+test("rounded rectangles reject a card whose surface was never rendered", () => {
+  // 表面未渲染（整块背景）：包络内扫不到与"卡面"参考色的任何差异（A 失败），红。
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-rounded-ghost-"));
+  const f = cardFixture(root, 20, manualDialogRule);
+  const image = PNG.sync.read(fs.readFileSync(f.actual));
+  for (let i = 0; i < image.data.length; i += 4) {
+    image.data[i] = 165; image.data[i + 1] = 166; image.data[i + 2] = 171; image.data[i + 3] = 255;
+  }
+  fs.writeFileSync(f.actual, PNG.sync.write(image));
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(root, "report"),
+  });
+  assert.equal(result.status, "failed");
+  assert.match(result.issues[0].message, /only 0\/4 corners show a background notch/);
+});
+
+test("rules without a declared radius keep the legacy sampling behavior verbatim", () => {
+  // 向后兼容：radiusRatio 缺席的存量断言走旧探针路径（含旧缺省与旧文案），逐字节不变。
+  const roundedRoot = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-rounded-legacy-"));
+  const rounded = cardFixture(roundedRoot, 0, { sampleInsetRatio: 0.025, requiredCorners: 4 });
+  // 旧路径对整幅同色的"卡片"（无圆角也无对比）判红，文案必须是旧措辞。
+  const legacyFail = compareVisualSpec({
+    specPath: rounded.spec, actualPath: rounded.actual, layoutPath: rounded.layout,
+    outputDir: path.join(roundedRoot, "report"),
+  });
+  assert.equal(legacyFail.status, "failed");
+  assert.match(legacyFail.issues[0].message, /only 0\/4 corners retain a distinct rounded cut-out/);
+
+  const legacyRoot = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-rounded-legacy2-"));
+  const f2 = cardFixture(legacyRoot, 20, { sampleInsetRatio: 0.025, requiredCorners: 4 });
+  // 同一"绘制<声明"几何，无声明半径就仍是旧语义：取样点落卡面 → 依旧红（兼容即不换判定）。
+  const legacyUnchanged = compareVisualSpec({
+    specPath: f2.spec, actualPath: f2.actual, layoutPath: f2.layout,
+    outputDir: path.join(legacyRoot, "report"),
+  });
+  assert.equal(legacyUnchanged.status, "failed");
+  assert.match(legacyUnchanged.issues[0].message, /corners retain a distinct rounded cut-out/);
+});
+
+test("legacy rounded rule still accepts the existing reference fixture shape", () => {
+  // 旧路径正样本钉死：既有 60×30 参考夹具（画出的 8px 圆角）在无声明半径时照样过。
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "godfrey-rounded-legacy-ok-"));
+  const actual = path.join(root, "actual.png");
+  const layout = path.join(root, "layout.json");
+  const spec = path.join(root, "spec.json");
+  writePng(actual, true);
+  fs.writeFileSync(layout, JSON.stringify({
+    attributes: { id: "root", bounds: "[0,0][80,50]" },
+    children: [{ attributes: { id: "quiz.statistics.scope", bounds: "[10,10][70,40]" }, children: [] }],
+  }));
+  fs.writeFileSync(spec, JSON.stringify({
+    schemaVersion: 1,
+    roundedRectangles: [{
+      id: "radius", match: { id: "quiz.statistics.scope", exact: true },
+      sampleInsetRatio: 0.025, minSurfaceDelta: 2, minCornerSeparation: 1, requiredCorners: 4,
+    }],
+  }));
+  const result = compareVisualSpec({
+    specPath: spec, actualPath: actual, layoutPath: layout,
+    outputDir: path.join(root, "report"),
+  });
+  assert.equal(result.status, "passed", JSON.stringify(result.issues));
+});

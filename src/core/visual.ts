@@ -53,6 +53,21 @@ function readJson(file: string): any {
   return JSON.parse(fs.readFileSync(file, "utf8").replace(/^\uFEFF/, ""));
 }
 
+/**
+ * 读取并解析比较用 PNG。截断/损坏的采集帧（典型： uitest 仍在写时 host 已 recv，
+ * nightly 实测 "There are some read requests waitng on finished stream"）此前以
+ * pngjs 内部栈崩出，编排侧只能看到裸 exit=1；这里换成可归因的具名错误。
+ */
+function readPngFile(file: string): PNG {
+  const buffer = fs.readFileSync(file);
+  try {
+    return PNG.sync.read(buffer);
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : String(error);
+    throw new Error(`visual capture unreadable (truncated or corrupt PNG): ${file}: ${detail}`);
+  }
+}
+
 function parseBounds(value: unknown): Bounds | null {
   if (typeof value !== "string") return null;
   const match = value.match(/^\[(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)\]\[(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)\]$/);
@@ -322,15 +337,35 @@ function maxDistanceInRect(image: PNG, reference: Pixel, left: number, top: numb
   return maximum;
 }
 
-function roundedRectangleCheck(image: PNG, layout: any, rule: any): string | null {
-  const match = rule?.match ?? {};
-  const node = findLayoutNode(layout, String(match.id ?? ""), match.exact !== false);
-  if (!node) return "semantic node is missing or not unique: " + String(match.id ?? "");
-  const bounds = parseBounds(node?.attributes?.bounds ?? node?.bounds);
-  if (!bounds) return "semantic node has invalid bounds: " + String(match.id ?? "");
+/** 界框内四个偏心点的中位色（roundedOutlineCheck 的既有采样法，圆角取证共用）：容忍
+ * 单点踩上前景内容——4 点中位后 1 个离群值不改变结果。 */
+function interiorReference(image: PNG, bounds: Bounds): Pixel {
   const width = bounds.right - bounds.left;
   const height = bounds.bottom - bounds.top;
-  if (width < 4 || height < 4) return "semantic node is too small for a rendered shape check";
+  return medianPixel([
+    pixelAt(image, bounds.left + width * 0.18, bounds.top + height * 0.50),
+    pixelAt(image, bounds.left + width * 0.82, bounds.top + height * 0.50),
+    pixelAt(image, bounds.left + width * 0.35, bounds.top + height * 0.28),
+    pixelAt(image, bounds.left + width * 0.65, bounds.top + height * 0.72),
+  ]);
+}
+
+/** (cx,cy) 处 3×3 邻域的中位色（边界钳制），抗单像素抗锯齿抖动。 */
+function patchMedian(image: PNG, cx: number, cy: number): Pixel {
+  return medianPixel([
+    pixelAt(image, cx - 1, cy - 1), pixelAt(image, cx, cy - 1), pixelAt(image, cx + 1, cy - 1),
+    pixelAt(image, cx - 1, cy), pixelAt(image, cx, cy), pixelAt(image, cx + 1, cy),
+    pixelAt(image, cx - 1, cy + 1), pixelAt(image, cx, cy + 1), pixelAt(image, cx + 1, cy + 1),
+  ]);
+}
+
+/**
+ * 旧版圆角探针（按界框尺寸的固定比例取角点/内点样本），保留给**未声明半径**的存量
+ * 断言：行为逐字节不变（含 radiusRatio 缺省 0.25 的旧缺省），见向后兼容注记。
+ */
+function legacyRoundedRectangleCheck(image: PNG, bounds: Bounds, rule: any): string | null {
+  const width = bounds.right - bounds.left;
+  const height = bounds.bottom - bounds.top;
   const size = Math.min(width, height);
   const radius = Math.max(2, size * Number(rule.radiusRatio ?? 0.25));
   const inset = Math.max(1, size * Number(rule.sampleInsetRatio ?? 0.025));
@@ -354,6 +389,81 @@ function roundedRectangleCheck(image: PNG, layout: any, rule: any): string | nul
   return separated >= required ? null : `only ${separated}/${required} corners retain a distinct rounded cut-out`;
 }
 
+/**
+ * C07 圆角矩形探针（2026-09-23 起对声明了半径的断言为"声明半径包络 + 双点取证"语义）。
+ *
+ * 旧实现对**所有**断言都按界框尺寸的固定比例（sampleInsetRatio，典型 1.5%/2.5%）在对角线
+ * 上取一个角点样本，与圆弧切口的存在性无关：圆弧切口对角深度 = (√2−1)×绘制半径（nightly
+ * 实测各设备绘制半径 37-63px 随密度缩放，echobridge-manual-dialog 卡片上取样点已落进圆弧
+ * 内侧的白色卡面），探针于是误判"无圆角"（manual-dialog-card-radius，3/5 设备红，目检圆角
+ * 实际已渲染）。取样比例与圆角几何没有关系，是探针缺陷不是产品缺陷。
+ *
+ * 新语义（spec 声明了 radiusRatio 时）：半径从声明推导（radiusRatio × min(宽,高)，px 与
+ * 布局界框同单位；声明若以 vp 计需先乘密度换算成 px），切口深度包络随之确定：
+ *   - 对角切口深度上界 D = (√2−1)×r（圆角切口的几何极值）；
+ *   - 沿角部对角线在 [d0, d1]（d0 = max(1, D/4)，d1 = D + max(2, r×15%)，后项为抗锯齿余量）
+ *     做 3×3 中位采样扫描，每角取证两点：
+ *       A. 切口证据——包络内存在与卡面参考色距离 ≥ 阈值的背景样本（切口背景探进包络，
+ *          直角没有：直角的整条包络都是卡面）；
+ *       B. 卡面证据——预期弧线内侧参考色（四偏心点中位，与 roundedOutlineCheck 同法）
+ *          与角外 2px 背景参考色距离 ≥ 阈值（该角真的渲染出了表面，不是整块背景）。
+ *   - 卡面参考不取中心单像素（会踩内容），取既有四偏心点中位；样本用 3×3 中位抗 AA。
+ * 判定方向与旧语义一致：A 失败 = 直角（该角没有圆角），B 失败 = 表面未渲染；两者都过
+ * 才算该角"retain a distinct rounded cut-out"。声明半径只用来圈定取证包络，不要求绘制
+ * 半径与声明相等——已渲染圆角不因半径误差误红：绘制半径比声明更大时切口更深，A 在包络内
+ * 照常命中背景、B 用独立的内部参考不受影响；绘制半径更小时切口更浅，扫描起点贴近角部，
+ * A 照样命中切口内的背景段。
+ *
+ * 向后兼容：spec 未声明半径（radiusRatio 字段缺席）的旧断言走 legacyRoundedRectangleCheck，
+ * 行为逐字节不变。现有 family spec 的 roundedRectangles 全部声明了 radiusRatio，全部走新语义。
+ */
+function roundedRectangleCheck(image: PNG, layout: any, rule: any): string | null {
+  const match = rule?.match ?? {};
+  const node = findLayoutNode(layout, String(match.id ?? ""), match.exact !== false);
+  if (!node) return "semantic node is missing or not unique: " + String(match.id ?? "");
+  const bounds = parseBounds(node?.attributes?.bounds ?? node?.bounds);
+  if (!bounds) return "semantic node has invalid bounds: " + String(match.id ?? "");
+  const width = bounds.right - bounds.left;
+  const height = bounds.bottom - bounds.top;
+  if (width < 4 || height < 4) return "semantic node is too small for a rendered shape check";
+
+  // 未声明半径的存量断言保持旧探针行为（radiusRatio 缺省 0.25 的旧缺省也在旧路径里）。
+  if (rule.radiusRatio === undefined || rule.radiusRatio === null) {
+    return legacyRoundedRectangleCheck(image, bounds, rule);
+  }
+
+  const size = Math.min(width, height);
+  const declaredRadius = Math.max(1, size * Number(rule.radiusRatio));
+  const notchDepth = (Math.SQRT2 - 1) * declaredRadius;
+  const scanStart = Math.max(1, notchDepth * 0.25);
+  const scanEnd = notchDepth + Math.max(2, declaredRadius * 0.15);
+  const deltaFloor = Math.max(Number(rule.minSurfaceDelta ?? 2), Number(rule.minCornerSeparation ?? 1));
+  const face = interiorReference(image, bounds);
+  const corners = [
+    { sx: 1, sy: 1, x: bounds.left, y: bounds.top },
+    { sx: -1, sy: 1, x: bounds.right, y: bounds.top },
+    { sx: 1, sy: -1, x: bounds.left, y: bounds.bottom },
+    { sx: -1, sy: -1, x: bounds.right, y: bounds.bottom },
+  ];
+  let separated = 0;
+  for (const corner of corners) {
+    // A. 切口证据：声明半径包络内的对角扫描里必须出现背景（与卡面参考距离足够远的样本）。
+    let notchSeen = false;
+    for (let d = Math.ceil(scanStart); d <= Math.floor(scanEnd); d++) {
+      const sample = patchMedian(image,
+        corner.x + corner.sx * (d / Math.SQRT2), corner.y + corner.sy * (d / Math.SQRT2));
+      if (distance(sample, face) >= deltaFloor) { notchSeen = true; break; }
+    }
+    // B. 卡面证据：弧线内侧参考色与角外 2px 背景参考色可分 = 表面真的渲染出来了。
+    const outside = patchMedian(image, corner.x - corner.sx * 2, corner.y - corner.sy * 2);
+    if (notchSeen && distance(face, outside) >= deltaFloor) separated++;
+  }
+  const required = Number(rule.requiredCorners ?? 4);
+  return separated >= required ? null
+    : `only ${separated}/${required} corners show a background notch inside the declared radius ` +
+      `envelope with a rendered surface inside the arc`;
+}
+
 function roundedOutlineCheck(image: PNG, layout: any, rule: any): string | null {
   const match = rule?.match ?? {};
   const node = findLayoutNode(layout, String(match.id ?? ""), match.exact !== false);
@@ -367,12 +477,7 @@ function roundedOutlineCheck(image: PNG, layout: any, rule: any): string | null 
   const band = Math.max(2, size * Number(rule.strokeSearchRatio ?? 0.025));
   const clearDepth = Math.max(2, size * Number(rule.cornerClearRatio ?? 0.025));
   const minStrokeDelta = Number(rule.minStrokeDelta ?? 12);
-  const interior = medianPixel([
-    pixelAt(image, bounds.left + width * 0.18, bounds.top + height * 0.50),
-    pixelAt(image, bounds.left + width * 0.82, bounds.top + height * 0.50),
-    pixelAt(image, bounds.left + width * 0.35, bounds.top + height * 0.28),
-    pixelAt(image, bounds.left + width * 0.65, bounds.top + height * 0.72),
-  ]);
+  const interior = interiorReference(image, bounds);
   const edgeSpan = Math.max(4, Math.min(width, height) * 0.20);
   const edgeDeltas = [
     maxDistanceInRect(image, interior, (bounds.left + bounds.right) / 2 - edgeSpan, bounds.top - band,
@@ -444,14 +549,47 @@ function sampledLumas(image: PNG, left: number, top: number, right: number, bott
   return lumas;
 }
 
+/** 与 sampledLumas 同一网格采样, 但保留像素本体(对比度探针聚簇需要 luma 之外的原始色)。 */
+function sampledColors(image: PNG, left: number, top: number, right: number, bottom: number,
+  cap: number): Pixel[] {
+  const width = Math.max(1, right - left);
+  const height = Math.max(1, bottom - top);
+  const step = Math.max(1, Math.floor(Math.sqrt((width * height) / cap)));
+  const samples: Pixel[] = [];
+  for (let y = top; y <= bottom; y += step) {
+    for (let x = left; x <= right; x += step) {
+      samples.push(pixelAt(image, x, y));
+    }
+  }
+  return samples;
+}
+
 function percentileLuma(sorted: number[], fraction: number): number {
   const index = Math.max(0, Math.min(sorted.length - 1, Math.round(sorted.length * fraction)));
   return sorted[index];
 }
 
 /**
- * C05 文字对比度探针：在锚点 bounds 内按亮度分位取文本/背景两极，
- * 以 WCAG 相对亮度比断言最低对比度（正文 4.5:1，大字 3:1）。
+ * C05 文字对比度探针（2026-09-23 起为"双簇分离"语义）。
+ *
+ * 旧实现取采样区亮度的 p95/p05 分位算对比度。分位线锚死在占比上：墨水占比低于 5% 分位
+ * 覆盖时 p95=p05=背景色，真实对比度被压成 1.00:1 假红（2026-09-23 nightly 实测反例：
+ * EchoBridge 取消按钮 98.5% 纯白底 + 深色"取消"标签，真实 WCAG ≈17:1，探针判 1.00:1，
+ * 5/5 设备确定性复现；home-download-label 的墨水占比 3.8%-6.4% 跨着 5% 线，红绿完全由
+ * 占比决定）。占比分位与"文字是否可读"没有几何关系，是探针缺陷不是产品缺陷。
+ *
+ * 新语义：在锚点采样区内聚出**背景主簇**与**墨水簇**（最远离背景的簇），以两簇均值算
+ * WCAG 对比度；墨水占比只需 > 0 且有最低样本数下限（minInkSamples，防单点噪声冒充墨水）。
+ *   1. 背景主簇：64 桶 luma 直方图取峰值桶 ±1 的均值——占比最大的那一团就是背景；
+ *   2. 墨水种子：背景两侧（luma 低于/高于 bg±inkSeparation）取极值距离更远的一侧均值；
+ *   3. Lloyd 精化：全体样本按最近心重归属、重算两心（固定轮数，确定性）——抗锯齿过渡带
+ *      被就近拆开，不会把背景渐变误并进墨水，也不会把墨水稀释进背景；
+ *   4. 精化后两心分离不足 inkSeparation 或墨水样本数低于下限 = 无可辨文字 = 显式红
+ *      （文字没渲染与低对比同罪，绝不因"分不出簇"而放行）。
+ * 聚簇只用 luma：WCAG 对比度由相对亮度定义，同亮度异色相的文字对比度本来就是 1:1，
+ * luma 聚不出分离即判红，恰是正确判定，无需色距参与判决。
+ * 真正的低对比文字（浅灰字压白底）两簇照样分离、比值照样低于阈值——判红语义不变。
+ * spec 断言面不变：锚点、minRatio、sampleInsetRatio 照旧；新增字段全部可选带默认。
  */
 function contrastProbeCheck(image: PNG, layout: any, rule: any): string | null {
   const match = rule?.match ?? {};
@@ -463,17 +601,66 @@ function contrastProbeCheck(image: PNG, layout: any, rule: any): string | null {
   const height = bounds.bottom - bounds.top;
   if (width < 4 || height < 4) return "semantic node is too small for a contrast check";
   const inset = Math.max(1, Math.min(width, height) * Number(rule.sampleInsetRatio ?? 0.06));
-  const lumas = sampledLumas(image,
+  const samples = sampledColors(image,
     Math.floor(bounds.left + inset), Math.floor(bounds.top + inset),
     Math.ceil(bounds.right - inset), Math.ceil(bounds.bottom - inset), 4000);
-  if (lumas.length < 16) return "contrast probe sampled too few pixels";
-  lumas.sort((a, b) => a - b);
-  const dark = percentileLuma(lumas, 0.05);
-  const light = percentileLuma(lumas, 0.95);
-  const ratio = (light + 0.05) / (dark + 0.05);
+  if (samples.length < 16) return "contrast probe sampled too few pixels";
+  const lumas = samples.map(linearizedLuma);
+
+  // 1. 背景主簇 = luma 直方图峰值桶 ±1 的均值。
+  const bins = 64;
+  const histogram = new Array<number>(bins).fill(0);
+  for (const luma of lumas) histogram[Math.min(bins - 1, Math.max(0, Math.floor(luma * bins)))]++;
+  let peak = 0;
+  for (let i = 1; i < bins; i++) if (histogram[i] > histogram[peak]) peak = i;
+  let bgSum = 0, bgCount = 0;
+  for (let i = 0; i < samples.length; i++) {
+    const bin = Math.min(bins - 1, Math.max(0, Math.floor(lumas[i] * bins)));
+    if (bin >= peak - 1 && bin <= peak + 1) { bgSum += lumas[i]; bgCount++; }
+  }
+  let background = bgCount > 0 ? bgSum / bgCount : percentileLuma([...lumas].sort((a, b) => a - b), 0.5);
+
+  // 2. 墨水种子 = 最远离背景的那一侧（低侧/高侧）超出分离带的样本均值。
+  const inkSeparation = Number(rule.inkSeparation ?? 0.06);
+  let inkLowSum = 0, inkLowCount = 0, inkHighSum = 0, inkHighCount = 0;
+  let lowExtreme = 0, highExtreme = 0;
+  for (const luma of lumas) {
+    if (luma < background - inkSeparation) { inkLowSum += luma; inkLowCount++; }
+    if (luma > background + inkSeparation) { inkHighSum += luma; inkHighCount++; }
+    if (luma < lowExtreme) lowExtreme = luma;
+    if (luma > highExtreme) highExtreme = luma;
+  }
+  const lowDistance = inkLowCount > 0 ? background - lowExtreme : -1;
+  const highDistance = inkHighCount > 0 ? highExtreme - background : -1;
+  const pickLow = lowDistance >= highDistance;
+  let ink = pickLow
+    ? (inkLowCount > 0 ? inkLowSum / inkLowCount : background)
+    : (inkHighCount > 0 ? inkHighSum / inkHighCount : background);
+
+  // 3. Lloyd 精化（固定轮数）：全体样本就近归属后重算两心。
+  for (let round = 0; round < 4; round++) {
+    let bgSum2 = 0, bgCount2 = 0, inkSum2 = 0, inkCount2 = 0;
+    for (const luma of lumas) {
+      if (Math.abs(luma - background) <= Math.abs(luma - ink)) { bgSum2 += luma; bgCount2++; }
+      else { inkSum2 += luma; inkCount2++; }
+    }
+    if (bgCount2 === 0 || inkCount2 === 0) break;
+    background = bgSum2 / bgCount2;
+    ink = inkSum2 / inkCount2;
+  }
+
+  // 4. 判定：墨水簇必须有足够样本且与背景真的分离，否则按对比度不足红。
   const minRatio = Number(rule.minRatio ?? 4.5);
-  return ratio >= minRatio ? null
-    : `contrast ${ratio.toFixed(2)}:1 is below the required ${minRatio}:1 (p95 luma ${light.toFixed(3)}, p05 luma ${dark.toFixed(3)})`;
+  const minInkSamples = Math.max(1, Number(rule.minInkSamples ?? 4));
+  const inkCount = lumas.filter((luma) => Math.abs(luma - ink) < Math.abs(luma - background)).length;
+  const unresolvable = inkCount < minInkSamples || Math.abs(background - ink) < inkSeparation;
+  const ratio = (Math.max(background, ink) + 0.05) / (Math.min(background, ink) + 0.05);
+  if (ratio >= minRatio && !unresolvable) return null;
+  const effectiveRatio = unresolvable ? 1 : ratio;
+  const inkNote = unresolvable
+    ? `; no distinct ink cluster rendered (ink samples ${inkCount}/${lumas.length})`
+    : ` (background luma ${background.toFixed(3)}, ink luma ${ink.toFixed(3)}, ink samples ${inkCount}/${lumas.length})`;
+  return `contrast ${effectiveRatio.toFixed(2)}:1 is below the required ${minRatio}:1${inkNote}`;
 }
 
 /**
@@ -736,7 +923,7 @@ export function compareVisualSpec(opts: {
   const outputDir = path.resolve(opts.outputDir);
   const spec = readJson(specPath);
   if (spec?.schemaVersion !== 1) throw new Error("visual spec schemaVersion must be 1");
-  const actual = PNG.sync.read(fs.readFileSync(actualPath));
+  const actual = readPngFile(actualPath);
   const issues: VisualIssue[] = [];
   const measurements: VisualMeasurement[] = [];
   let themeAxis: "scored" | "unpaired" | "notDeclared" = "notDeclared";
@@ -746,7 +933,7 @@ export function compareVisualSpec(opts: {
   if (spec.baselineImage) {
     checks++;
     const baselinePath = path.resolve(path.dirname(specPath), String(spec.baselineImage));
-    const baseline = PNG.sync.read(fs.readFileSync(baselinePath));
+    const baseline = readPngFile(baselinePath);
     mismatchRatio = baselineMismatch(actual, baseline, spec.tolerance ?? {}, spec.ignoreRegions ?? []);
     const maxRatio = Number(spec?.tolerance?.maxMismatchRatio ?? 0);
     if (mismatchRatio > maxRatio) {
@@ -826,7 +1013,7 @@ export function compareVisualSpec(opts: {
       }
     } else {
       themeAxis = "scored";
-      const baselinePng = PNG.sync.read(fs.readFileSync(path.resolve(opts.themeBaselineActualPath)));
+      const baselinePng = readPngFile(path.resolve(opts.themeBaselineActualPath));
       const baselineLayout = opts.structuralBaselineLayoutPath
         ? readJson(path.resolve(opts.structuralBaselineLayoutPath))
         : null;
