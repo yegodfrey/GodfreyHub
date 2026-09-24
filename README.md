@@ -159,7 +159,7 @@ npm run hooks:install          # 新克隆后安装本仓 pre-push 推送自守�
 技能包根默认探测本包同级 `harmony-next.skills/harmony-next`（含 SKILL.md 的克隆），或用 `GODFREYHUB_HN_SKILL_ROOT` 指定；上游脚本解释器默认 `python`，可经 `GODFREYHUB_HN_PYTHON` 覆盖。`hn_ux_audit` 依赖 cv2/numpy/scipy/skimage 等重包，建议用专用 venv 并经 `GODFREYHUB_UX_PYTHON`（或 `python` 参数）注入；`hn_trace` 的 trace_streamer 自动从 DevEco 安装目录解析，非默认安装路径先设 `DEVECO_PATH`。
 
 ### hdk_* 离线文档（完整语料随包分发）
-`hdk_search_documents` / `hdk_get_document`：HarmonyOS（27077 篇）+ 仓颉（374 篇）文档全文检索，直查 FTS5 词元索引。查询先做全词元 AND，不足时允许缺一个词元；标题和摘要保持 Markdown 原文可读格式。搜索 `limit` 强制限制在 1–100；正文默认每次最多返回 20000 字符，结果中的 `nextOffset` 可用于继续读取（单次可设 1000–50000）。
+`hdk_search_documents` / `hdk_get_document`：HarmonyOS（41476 篇，含华为侧 `cangjie-*` 鸿蒙仓颉开发文档）+ 仓颉语言官方文档（378 篇，`cj-docs.gitcode.com` 最新非 beta 版本 `1.2.0`）全文检索，直查 FTS5 词元索引；权威计数以 `hdk/harmonyos_docs/manifest.json`、`hdk/cangjie_docs/manifest.json` 为准。查询先做全词元 AND，不足时允许缺一个词元；标题和摘要保持 Markdown 原文可读格式。搜索 `limit` 强制限制在 1–100；正文默认每次最多返回 20000 字符，结果中的 `nextOffset` 可用于继续读取（单次可设 1000–50000）。
 
 语料与更新脚本完整收编在仓库 [`hdk/`](hdk/) 目录（`harmonyos_docs/` + `cangjie_docs/` + 爬虫/索引器 `hdk.py` 等），克隆即得；FTS 二进制索引（`hdk/.mcp_cache/`）不入 git，新克隆后跑一次重建即可：
 

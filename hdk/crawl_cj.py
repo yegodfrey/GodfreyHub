@@ -42,9 +42,11 @@ STATE = os.path.join(HERE, "crawl_cj_state.json")
 LOCK = os.path.join(HERE, "crawl_cj.lock")
 LOCK_MAX_AGE = 40 * 60
 
-# 仓颉文档站点：版本化路径。默认 1.1.3；升级版本时用环境变量 HDK_CJ_VER 覆盖
+# 仓颉文档站点：版本化路径。默认只镜像最新非 beta 版本（当前 1.2.0）；
+# 升级版本时用环境变量 HDK_CJ_VER 覆盖，随后必须清掉 crawl_cj_state.json 重爬，
+# 因为旧版本的路径不会再命中 PAGE_RE，种子展开分支会被非空 discovered 卡住。
 # （SRC_BASE / PAGE_RE / SIDEBAR_SEED 等派生自本模块级 VER，须在 import 前设置）。
-VER = os.environ.get("HDK_CJ_VER", "1.1.3")
+VER = os.environ.get("HDK_CJ_VER", "1.2.0")
 SRC_BASE = f"https://cj-docs.gitcode.com/zh/{VER}/"
 HOST = "https://cj-docs.gitcode.com"
 
