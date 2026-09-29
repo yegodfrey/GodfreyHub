@@ -707,7 +707,7 @@ function medianColorAt(image: PNG, bounds: Bounds, sample: any): Pixel {
   for (let y = Math.max(0, Math.floor(centerY - radius));
     y <= Math.min(image.height - 1, Math.ceil(centerY + radius)); y++) {
     for (let x = Math.max(0, Math.floor(centerX - radius));
-      x <= Math.min(image.width - 1, Math.ceil(centerX + radius)); x++) {
+      x <= Math.min(image.height - 1, Math.ceil(centerX + radius)); x++) {
       samples.push(pixelAt(image, x, y));
     }
   }
@@ -766,8 +766,6 @@ function themeDeltaMeasurement(id: string, variant: {
  *     默认（12）同一量级——低于这个幅度的"位移"分不清是主题翻转还是采样噪声。
  *   - maxChannelDelta 默认不启用（undefined）：深浅两侧走不同色板 token 的合法翻色
  *     （如强调色换轴）逐通道位移可以很大；上限是可选的采样有效性加强，由 spec 声明。
- *   - minChannelShifts 默认不启用（undefined）：可选的方向性逐通道位移判据（等亮度色相
- *     旋转轴的承载门，见分支内注记）。启用时通道判据独占判定，上两个阈值让位。
  *
  * 返回判定文案（null=通过）与测量值；测量值无论判定结果如何都随报告出账。
  */
@@ -811,39 +809,6 @@ function themeDeltaCheck(variant: PNG, baseline: PNG, variantLayout: any, baseli
   };
 
   const measurement = themeDeltaMeasurement(nodeId, variantSide, baselineSide);
-  // 方向性逐通道位移（可选，spec 逐对声明 minChannelShifts）：夜轴若走"等亮度色相旋转"
-  // （如 Stargaze 夜面蓝暗→红外红，S20 实测圆盘中位 luma 位移全网格 ≤0.0115，阈值 0.06
-  // 在任何采样点都不可达），luma 门对该轴恒假红。声明本字段时判定由通道判据承载、luma 门
-  // 让位（不叠加；maxChannelDelta 采样帽同批不参与——通道地板与通道帽同用自相矛盾）。
-  // 语义：shift=variant−baseline（带方向），required<0 要求 shift<=required（该通道至少
-  // 变暗 |required| 级）、required>0 要求 shift>=required（至少变亮 required 级）——即
-  // |Δchannel| 下限，符号钉方向；**全部**声明通道各自达标才过（AND），任一不达标即红
-  // （fail-closed：通道是维度非复本，假绿是不可见错误形态）。只认 red/green/
-  // blue 三个键；未声明（缺省/空对象）不进入本分支，判定路径与测量值逐字节同旧。
-  const minChannelShifts = rule.minChannelShifts as Record<string, number> | undefined | null;
-  const declaredFloor = minChannelShifts !== undefined && minChannelShifts !== null &&
-    typeof minChannelShifts === "object" ? minChannelShifts : {};
-  const declaredChannels = ([["red", "r"], ["green", "g"], ["blue", "b"]] as const)
-    .filter(([channel]) => declaredFloor[channel] !== undefined && declaredFloor[channel] !== null);
-  if (declaredChannels.length > 0) {
-    const channelShifts = declaredChannels.map(([channel, key]) => {
-      const required = Number(declaredFloor[channel]);
-      const actual = variantSide.rgb[key] - baselineSide.rgb[key];
-      const margin = required < 0 ? required - actual : actual - required;
-      return { channel, actual, required, margin };
-    });
-    measurement.values.channelShifts = channelShifts.map(({ channel, actual }) =>
-      `${channel}:${actual >= 0 ? "+" : ""}${actual}`).join(" ");
-    // margin = 达标裕量（≥0 即该通道达标）；AND：全通道达标才过，报裕量最差（最小）的通道。
-    const worst = channelShifts.reduce((a, b) => (b.margin < a.margin ? b : a));
-    if (worst.margin < 0) {
-      return { message: `channel shift ${worst.actual} on ${worst.channel} does not reach the required ` +
-        `${worst.required} (variant rgb ${variantSide.rgb.r},${variantSide.rgb.g},${variantSide.rgb.b} ` +
-        `vs baseline rgb ${baselineSide.rgb.r},${baselineSide.rgb.g},${baselineSide.rgb.b}) — ` +
-        `the theme axis did not move this anchor`, measurement };
-    }
-    return { message: null, measurement };
-  }
   const minShift = Number(rule.minMedianLumaShift ?? 0.06);
   const shift = Math.abs(variantSide.luma - baselineSide.luma);
   if (shift < minShift) {

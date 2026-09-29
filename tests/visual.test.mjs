@@ -446,51 +446,6 @@ test("theme delta honors a per-pair maxChannelDelta sampling cap", () => {
   assert.match(result.issues[0].message, /exceeds the sampling cap/);
 });
 
-test("theme delta passes an equal-luma hue rotation via minChannelShifts", () => {
-  // 等亮度色相旋转（S20 rS7 shell-night 真实圆盘中位：18,1,2 vs 5,12,22，luma shift
-  // 0.0020 远低于 0.06，luma 门恒红）——声明逐通道位移下限后由通道判据承载：蓝暗 ≥12 级、
-  // 绿暗 ≥8 级，ΔB=-20/ΔG=-11 双通道各自达标（AND）才过。luma 门让位，不再叠加。
-  const f = themeFixture([18, 1, 2], [5, 12, 22],
-    anchoredPair({ minChannelShifts: { blue: -12, green: -8 } }));
-  const result = compareVisualSpec({
-    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
-    themeBaselineActualPath: f.baseline,
-  });
-  assert.equal(result.status, "passed", JSON.stringify(result.issues));
-  const measurement = result.measurements.find((entry) => entry.kind === "theme-delta");
-  assert.ok(measurement && measurement.scored);
-  assert.ok(Number(measurement.values.lumaShift) < 0.06, "luma 门必须让位：位移仍低于 0.06");
-  assert.match(String(measurement.values.channelShifts), /blue:-20/);
-});
-
-test("theme delta rejects zero displacement even when minChannelShifts is declared", () => {
-  // 零位移样例（S20 location-night 锚不参与主题轴：两侧 248,249,250）必须仍红——
-  // 通道判据不是免检金牌：AND 语义下没有任何声明通道达到位移下限就红。
-  const f = themeFixture([248, 249, 250], [248, 249, 250],
-    anchoredPair({ minChannelShifts: { blue: -30, green: -20 } }));
-  const result = compareVisualSpec({
-    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
-    themeBaselineActualPath: f.baseline,
-  });
-  assert.equal(result.status, "failed");
-  assert.match(result.issues[0].message, /channel shift 0 on (blue|green) does not reach the required/);
-});
-
-test("minChannelShifts rejects when one declared channel reaches its floor but another does not", () => {
-  // AND 关键牙齿：单通道达标、单通道不达标必须红（OR 语义下这里会假绿）。
-  // ΔB=-14 达到 -12 下限（边界含等于）、ΔG=0 未达 -8——全通道须达标，红。
-  // luma shift 0.0004 < 0.06，证明判定确实由通道判据承载（luma 门未参与）。
-  const f = themeFixture([5, 12, 8], [5, 12, 22],
-    anchoredPair({ minChannelShifts: { blue: -12, green: -8 } }));
-  const result = compareVisualSpec({
-    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
-    themeBaselineActualPath: f.baseline,
-  });
-  assert.equal(result.status, "failed");
-  assert.match(result.issues[0].message,
-    /channel shift 0 on green does not reach the required -8/);
-});
-
 test("theme deltas without a same-campaign light capture fail as theme-baseline-missing", () => {
   const f = themeFixture([30, 80, 140], [240, 240, 240], anchoredPair());
   const result = compareVisualSpec({
