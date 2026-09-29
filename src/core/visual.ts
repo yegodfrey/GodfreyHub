@@ -707,7 +707,7 @@ function medianColorAt(image: PNG, bounds: Bounds, sample: any): Pixel {
   for (let y = Math.max(0, Math.floor(centerY - radius));
     y <= Math.min(image.height - 1, Math.ceil(centerY + radius)); y++) {
     for (let x = Math.max(0, Math.floor(centerX - radius));
-      x <= Math.min(image.height - 1, Math.ceil(centerX + radius)); x++) {
+      x <= Math.min(image.width - 1, Math.ceil(centerX + radius)); x++) {
       samples.push(pixelAt(image, x, y));
     }
   }
@@ -766,6 +766,15 @@ function themeDeltaMeasurement(id: string, variant: {
  *     默认（12）同一量级——低于这个幅度的"位移"分不清是主题翻转还是采样噪声。
  *   - maxChannelDelta 默认不启用（undefined）：深浅两侧走不同色板 token 的合法翻色
  *     （如强调色换轴）逐通道位移可以很大；上限是可选的采样有效性加强，由 spec 声明。
+ *   - minChannelShifts（可选，方向性逐通道位移下限）：等亮度色相旋转轴的承载门。深色
+ *     色板的合法翻色可以是 navy↔infrared 这类纯色相旋转——WCAG 线性亮度守恒（实测
+ *     rS8c：|Δluma| ≤ 0.005），luma 轴 0.06 下限对它**结构不可达**，判据必须换到通道轴。
+ *     键只认 red/green/blue，值为该通道 variant−baseline 的带方向下限：正值要求至少变亮
+ *     该值级，负值要求至少变暗 |值| 级。聚合语义钉 AND（fail-closed）：每条声明通道各自
+ *     达标才过，任一不达标即红，红文案指认 margin 差距最大的最差通道——通道是维度非
+ *     复本，OR 下"单通道达标单通道不达标"的假绿是不可见错误形态（S47 业主裁）。声明后
+ *     通道判据**独占判定**，minMedianLumaShift 与 maxChannelDelta 让位不叠加；声明了
+ *     字段却无一条可认键（空对象/全未知键）显式红——schema 拒收的声明不得静默退回 luma 门。
  *
  * 返回判定文案（null=通过）与测量值；测量值无论判定结果如何都随报告出账。
  */
@@ -809,6 +818,49 @@ function themeDeltaCheck(variant: PNG, baseline: PNG, variantLayout: any, baseli
   };
 
   const measurement = themeDeltaMeasurement(nodeId, variantSide, baselineSide);
+
+  // minChannelShifts 方向性逐通道判据（语义与 family/visual-spec.schema.json 逐字对齐）：
+  // 声明即独占判定（luma 门与采样帽让位），带方向下限、AND 聚合、fail-closed。
+  const declaredShifts = rule.minChannelShifts;
+  if (declaredShifts !== undefined && declaredShifts !== null) {
+    const channelOf = (name: string): number =>
+      name === "red" ? variantSide.rgb.r - baselineSide.rgb.r :
+      name === "green" ? variantSide.rgb.g - baselineSide.rgb.g :
+      variantSide.rgb.b - baselineSide.rgb.b;
+    const bounds = (["red", "green", "blue"] as const)
+      .filter((channel) => declaredShifts[channel] !== undefined && declaredShifts[channel] !== null)
+      .map((channel) => {
+        const bound = Number(declaredShifts[channel]);
+        const shift = channelOf(channel);
+        // margin ≥ 0 = 达标：正下限看 shift−bound（至少变亮），负下限看 bound−shift（至少变暗）。
+        return { channel, bound, shift, margin: bound >= 0 ? shift - bound : bound - shift };
+      });
+    if (bounds.length === 0) {
+      return { message: "minChannelShifts declares no red/green/blue bound — an empty or " +
+        "unknown-key declaration must not silently fall back to the luma gate",
+        measurement };
+    }
+    for (const entry of bounds) {
+      measurement.values[`${entry.channel}Shift`] = entry.shift;
+    }
+    const failures = bounds.filter((entry) => entry.margin < 0)
+      .sort((a, b) => a.margin - b.margin);
+    if (failures.length > 0) {
+      // AND 聚合的最差通道 = margin 最负者；红文案指认它，其余通道照常出测量值。
+      const worst = failures[0];
+      const expectation = worst.bound >= 0
+        ? `move up (brighten) by at least ${worst.bound}`
+        : `move down (darken) by at least ${Math.abs(worst.bound)}`;
+      return { message: `theme channel shift on ${worst.channel} is ${worst.shift} but the declared ` +
+        `directional bound requires it to ${expectation} (margin ${worst.margin}; variant rgb ` +
+        `${variantSide.rgb.r},${variantSide.rgb.g},${variantSide.rgb.b} vs baseline rgb ` +
+        `${baselineSide.rgb.r},${baselineSide.rgb.g},${baselineSide.rgb.b}) — the declared ` +
+        `channel axis did not move as required on this anchor`,
+        measurement };
+    }
+    return { message: null, measurement };
+  }
+
   const minShift = Number(rule.minMedianLumaShift ?? 0.06);
   const shift = Math.abs(variantSide.luma - baselineSide.luma);
   if (shift < minShift) {

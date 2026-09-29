@@ -474,6 +474,75 @@ test("theme delta rejects a declared anchor that is missing from the layout", ()
   assert.match(result.issues[0].message, /semantic node is missing or not unique/);
 });
 
+// —— minChannelShifts：方向性逐通道位移下限（等亮度色相旋转轴，schema 语义的生产侧）——
+//
+// 深色色板的合法翻色可以是 navy↔infrared 纯色相旋转：WCAG 线性亮度守恒（本夹具对
+// (20,24,40)→(40,12,8) 的 |Δluma| ≈ 0.002，远低于 luma 门默认 0.06），luma 轴对它结构
+// 不可达。语义钉（family/visual-spec.schema.json themeDelta.minChannelShifts 逐字）：
+// 带方向下限（正=至少变亮，负=至少变暗）、AND 聚合 fail-closed、声明后独占判定。
+const hueFlipPair = (extra = {}) => [{
+  id: "theme-hue-flip", match: { id: "quiz.statistics.scope", exact: true },
+  comparedTo: "quiz-statistics",
+  minChannelShifts: { red: 10, green: -8, blue: -25 }, ...extra,
+}];
+
+test("theme delta carries an equal-luma hue flip whose declared channels all moved as required", () => {
+  // shifts: red +20, green −12, blue −32 —— 全部达标；luma 位移 0.002 < 0.06 不得拦
+  // （声明后通道判据独占，luma 门让位）；maxChannelDelta 同样让位（blue |32| > 10 也不红）。
+  const f = themeFixture([40, 12, 8], [20, 24, 40],
+    hueFlipPair({ maxChannelDelta: 10 }));
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
+    themeBaselineActualPath: f.baseline,
+  });
+  assert.equal(result.status, "passed", JSON.stringify(result.issues));
+  assert.equal(result.summary.themeAxis, "scored");
+  const measurement = result.measurements.find((entry) => entry.kind === "theme-delta");
+  assert.equal(measurement.values.redShift, 20, "带方向通道位移必须出账（离线可评）");
+  assert.equal(measurement.values.greenShift, -12);
+  assert.equal(measurement.values.blueShift, -32);
+});
+
+test("theme delta rejects a hue flip where one declared channel met its bound and another did not", () => {
+  // 反₁（AND 的关键牙，OR 下假绿）：green/blue 达标、red +20 < 30 不达标 → 必须红，
+  // 红文案指认最差通道（margin 最负者）。
+  const f = themeFixture([40, 12, 8], [20, 24, 40],
+    hueFlipPair({ minChannelShifts: { red: 30, green: -8, blue: -25 } }));
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
+    themeBaselineActualPath: f.baseline,
+  });
+  assert.equal(result.status, "failed");
+  assert.match(result.issues[0].message, /theme channel shift on red is 20/);
+  assert.match(result.issues[0].message, /move up \(brighten\) by at least 30/);
+});
+
+test("theme delta rejects a channel that moved far but in the wrong direction", () => {
+  // 方向语义：red +20 位移很大，但声明下限 −5 要求变暗 → margin −25，红。
+  const f = themeFixture([40, 12, 8], [20, 24, 40],
+    hueFlipPair({ minChannelShifts: { red: -5, green: -8, blue: -25 } }));
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
+    themeBaselineActualPath: f.baseline,
+  });
+  assert.equal(result.status, "failed");
+  assert.match(result.issues[0].message, /theme channel shift on red is 20/);
+  assert.match(result.issues[0].message, /move down \(darken\) by at least 5/);
+});
+
+test("theme delta refuses a minChannelShifts declaration with no recognized key", () => {
+  // schema 拒收空对象/未知键（minProperties/additionalProperties）；比较器侧 fail-closed：
+  // 这种声明不得静默退回 luma 门（写了不会执行的约束与没写无法区分 = 假绿形态）。
+  const f = themeFixture([40, 12, 8], [20, 24, 40],
+    hueFlipPair({ minChannelShifts: {} }));
+  const result = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout, outputDir: path.join(f.root, "report"),
+    themeBaselineActualPath: f.baseline,
+  });
+  assert.equal(result.status, "failed");
+  assert.match(result.issues[0].message, /declares no red\/green\/blue bound/);
+});
+
 // —— C15 containmentProbes：整树包含扫描（R1 溢出窗口 + R2 溢出容器）——
 //
 // 判据真源在 GFSoftware family/ui-dump-diagnostics.mjs 的 R1/R2（src/core/visual.ts 的
