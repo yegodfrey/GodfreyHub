@@ -102,11 +102,30 @@ test("emu_start exposes data-preserving cold boot recovery", () => {
 
   assert.match(tools,
     /bootMode: z\.enum\(\["coldboot", "snapshot", "reset"\]\)/);
-  assert.match(tools, /startInstance\(args\.name, args\.port, ctx\.signal, args\.bootMode\)/);
   assert.match(source,
     /args\.push\("-bootmode", bootMode\)[\s\S]*?args\.push\("-hdcPort", String\(port\)\)/,
     "boot mode must stay adjacent to the instance name before transport options");
   assert.match(source, /coldboot、snapshot 或 reset/);
+});
+
+test("emu_start acknowledges in-window boots and keeps slow boots alive in the background", async () => {
+  const tools = fs.readFileSync(new URL("../src/tools/emulator.ts", import.meta.url), "utf8");
+
+  // 启动作业不得绑请求 signal：客户端断开(/超时)不得把正常启动误报成失败
+  // （2026-10-01 事故：18s 客户端超时 → ctx.signal 中止等待 → 抛"等待上线超时(240s)"假失败，
+  //   而模拟器实际在几分钟后正常上线）。
+  assert.match(tools, /startInstanceAcked\(args\.name, args\.port, args\.bootMode\)/);
+  assert.doesNotMatch(tools, /startInstanceAcked\([^)]*ctx\.signal/);
+  assert.match(tools, /await startInstanceAcked/);
+  // 确认窗外返回结构化 booting（可收割），而不是把 240s 阻塞在请求里被客户端掐断。
+  assert.match(tools, /status: "booting"/);
+  assert.match(tools, /BOOT_ACK_WINDOW_MS/);
+  assert.equal(emulator.BOOT_ACK_WINDOW_MS, 15000);
+  assert.equal(emulator.bootOutcome("no-such-instance"), undefined);
+  // 同实例在途作业幂等：二次调用收割同一启动，不重复拉起。
+  assert.match(emulator.startInstanceAcked.toString(), /bootJobs\.get\(name\)/);
+  // emu_list 暴露 booting 位供轮询方区分"已停"与"正在启动"。
+  assert.match(tools, /bootOutcome\(i\.name\)\?\.status === "booting"/);
 });
 
 test("emulator target classification: 127.0.0.1 ports are emulators, serials are real devices", () => {

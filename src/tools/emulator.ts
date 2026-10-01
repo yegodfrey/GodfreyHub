@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { defineTool, type ToolDefinition } from "./types.js";
 import {
-  listInstanceDetails, onlineDevicesClassified, startInstance, stopInstance,
-  listImages, createInstance, deleteInstance, enableUiTest, BOOT_WAIT_TIMEOUT_MS,
+  listInstanceDetails, onlineDevicesClassified, startInstanceAcked, bootOutcome,
+  stopInstance, listImages, createInstance, deleteInstance, enableUiTest, BOOT_ACK_WINDOW_MS,
 } from "../core/emulator.js";
 
 // emu_*: 模拟器生命周期(7 个工具)。启停/创建/删除的并发互斥在 core 层实施。
@@ -16,22 +16,35 @@ export const emulatorTools: ToolDefinition[] = [
     inputSchema: {},
     handler: async () => {
       const [instances, online] = await Promise.all([listInstanceDetails(), onlineDevicesClassified()]);
-      return { instances, onlineDevices: [...online.emulators, ...online.realDevices], emulators: online.emulators, realDevices: online.realDevices };
+      // booting 位: 该实例有在途后台启动作业时, Emulator -details 的 running 仍为 false,
+      // 调用方需要这一位区分"已停"与"正在启动(稍后收割)"。
+      const withBoot = instances.map((i) => {
+        const booting = bootOutcome(i.name)?.status === "booting";
+        return booting ? { ...i, booting: true } : i;
+      });
+      return { instances: withBoot, onlineDevices: [...online.emulators, ...online.realDevices], emulators: online.emulators, realDevices: online.realDevices };
     },
   }),
 
   defineTool({
     name: "emu_start",
-    description: "启动模拟器实例并等待 hdc 上线, 窗口自动改名为实例名。不给 port 时自动探测新上线设备；快照损坏时可用 coldboot 保留数据冷启动。",
+    description: "启动模拟器实例: 15s 确认窗内 hdc 上线则返回 target；分钟级启动返回 status=booting 并在后台继续等待(客户端超时友好; 再次调用收割同一在途启动, 不重复拉起)。快照损坏时可用 coldboot 保留数据冷启动。",
     inputSchema: {
       name: z.string().describe("实例名(emu_list 中的 name)"),
       port: z.number().min(10000).max(16555).optional().describe("可选约定 hdc 端口(10000-16555)"),
       bootMode: z.enum(["coldboot", "snapshot", "reset"]).optional().describe("可选启动模式；coldboot 保留 userdata，reset 会重置数据"),
     },
-    handler: async (args, ctx) => {
-      const target = await startInstance(args.name, args.port, ctx.signal, args.bootMode);
-      if (!target) throw new Error("实例 '" + args.name + "' 启动后等待 hdc 上线超时(" + Math.round(BOOT_WAIT_TIMEOUT_MS / 1000) + "s)");
-      return { instance: args.name, target };
+    handler: async (args) => {
+      const r = await startInstanceAcked(args.name, args.port, args.bootMode);
+      if (r.status === "online") return { instance: args.name, target: r.target, status: "online" };
+      if (r.status === "booting") {
+        return {
+          instance: args.name, target: "", status: "booting",
+          out: "确认窗 " + Math.round(BOOT_ACK_WINDOW_MS / 1000) + "s 内未 hdc 上线——启动仍在后台继续(分钟级属正常)。"
+            + "稍后用 emu_list(booting 位)或 hdc list targets 确认；再次 emu_start 会收割同一在途启动, 不会重复拉起。",
+        };
+      }
+      throw new Error("模拟器 '" + args.name + "' 启动失败: " + (r.error || "未知错误"));
     },
   }),
 

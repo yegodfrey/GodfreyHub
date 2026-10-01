@@ -557,6 +557,57 @@ export function startInstance(name: string, port?: number, signal?: AbortSignal,
   return instanceMutex.run("emu:" + name, () => startInstanceCore(name, port, signal, bootMode));
 }
 
+// ---- emu_start 客户端超时友好层（2026-10-01）----
+// 启动是分钟级动作(官方冷启动实测上限 BOOT_WAIT_TIMEOUT_MS=240s), 而 MCP 客户端通常
+// ~18s 就掐断请求。旧行为把整段等待阻塞在请求里: 客户端只见 "timed out"(读作失败),
+// 启动却在后台继续——结果语义含糊; 且请求取消(ctx.signal)会连 waitInstanceStart 一起
+// 取消, 把一次完全正常的启动误报成失败。本层把启动改为后台作业 + 确认窗:
+//   * 作业不绑任何请求 signal——客户端断开不影响启动本身;
+//   * 同实例在途作业幂等收割: 二次 emu_start 不重复拉起、不在 mutex 上白排队;
+//   * 确认窗(默认 15s)内完成则返回真实结果, 否则返回 status=booting,
+//     调用方稍后用 emu_list(booting 位)或再次 emu_start 收割结果。
+export interface EmulatorStartAck {
+  status: "online" | "booting" | "failed";
+  target?: string;
+  error?: string;
+}
+
+export const BOOT_ACK_WINDOW_MS = 15_000;
+
+const bootJobs = new Map<string, Promise<string>>();
+const bootOutcomes = new Map<string, EmulatorStartAck & { settledAt: number }>();
+
+export function bootOutcome(name: string): (EmulatorStartAck & { settledAt: number }) | undefined {
+  return bootOutcomes.get(name);
+}
+
+function trackBootJob(name: string, port?: number, bootMode?: string): Promise<string> {
+  const job = startInstance(name, port, undefined, bootMode);
+  bootJobs.set(name, job);
+  job.then(
+    (target) => { bootOutcomes.set(name, { status: "online", target, settledAt: Date.now() }); },
+    (error) => {
+      bootOutcomes.set(name, {
+        status: "failed",
+        error: error instanceof Error ? error.message : String(error),
+        settledAt: Date.now(),
+      });
+    },
+  ).finally(() => { if (bootJobs.get(name) === job) bootJobs.delete(name); });
+  return job;
+}
+
+export async function startInstanceAcked(name: string, port?: number, bootMode?: string,
+  ackWaitMs = BOOT_ACK_WINDOW_MS): Promise<EmulatorStartAck> {
+  let job = bootJobs.get(name);
+  if (!job) job = trackBootJob(name, port, bootMode);
+  return Promise.race([
+    job.then((target) => ({ status: "online" as const, target }),
+      (error) => ({ status: "failed" as const, error: error instanceof Error ? error.message : String(error) })),
+    sleep(ackWaitMs).then(() => ({ status: "booting" as const })),
+  ]);
+}
+
 async function stopInstanceCore(name: string): Promise<{ ok: boolean; out: string }> {
   const tc = toolchain();
   if (!tc.emulator) return { ok: false, out: "未找到 Emulator.exe (DevEco Studio 未安装或路径未配置)" };

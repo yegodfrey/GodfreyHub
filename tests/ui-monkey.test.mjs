@@ -119,6 +119,9 @@ test("main writes a violation and exits nonzero when the device is unreachable",
   });
   const code = monkey.main([
     "--pages", registry, "--bundle", "com.clash.app",
+    // 钉死不可达 target：本测试的前提是"设备不可达"，不能依赖宿主恰好没有在线模拟器
+    // （2026-10-01：宿主有在线设备+被测包在装时此步会真跑成功 → 退 0 → 假红）。
+    "--target", "127.0.0.1:1",
     "--steps", "1", "--seed", "7", "--out", path.join(dir, "out"),
   ]);
   assert.equal(code, 1);
