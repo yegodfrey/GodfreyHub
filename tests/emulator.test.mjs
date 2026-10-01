@@ -301,3 +301,25 @@ test("Windows emulator command-line parser accepts quoted start switches", {
   assert.equal(parse('Emulator.exe -start Quiz'), "Quiz");
   assert.equal(parse('Emulator.exe "-start" "Stargaze"'), "Stargaze");
 });
+
+test("emu_enable_uitest follows the official set-reboot-verify sequence", () => {
+  const source = fs.readFileSync(new URL("../src/core/emulator.ts", import.meta.url), "utf8");
+  // 官方语义(hdk cj-apis-ui_test 准备工作): param set persist.ace.testmode.enabled 1
+  // 之后必须重启设备, ace 使能才落地。2026-10-01 rS12e 二发实测: 只 set 不重启,
+  // dumpLayout 服务级探针仍过, 但 in-app Driver.create() 解析 null(14 条 unavailable)。
+  const fnStart = source.indexOf("export async function enableUiTest");
+  const fnEnd = source.indexOf("export async function renameWindows", fnStart);
+  const fn = source.slice(fnStart, fnEnd);
+  const setIdx = fn.indexOf("param set persist.ace.testmode.enabled 1");
+  const rebootIdx = fn.indexOf('"shell", "reboot"');
+  const waitIdx = fn.indexOf("await waitOnline(t)");
+  const rereadIdx = fn.indexOf("const verified = (await readParam()) === ");
+  assert.ok(setIdx >= 0, "the set step must exist");
+  assert.ok(rebootIdx > setIdx, "reboot must follow the set step (official sequence)");
+  assert.ok(waitIdx > rebootIdx, "wait-for-online must follow the reboot");
+  assert.ok(rereadIdx > waitIdx, "param re-read must follow the reboot");
+  assert.match(source, /rebooted: boolean/, "the result must report whether a reboot ran");
+  // 幂等路径不重启: 参数已为 1 时直接返回且 rebooted=false。
+  const idem = fn.slice(fn.indexOf("(await readParam()) === \"1\""), fn.indexOf("(await readParam()) === \"1\"") + 400);
+  assert.match(idem, /rebooted: false/, "the already-enabled path must not reboot");
+});

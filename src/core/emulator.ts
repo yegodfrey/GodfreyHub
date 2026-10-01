@@ -634,6 +634,8 @@ export interface UiTestEnableResult {
   ok: boolean;
   alreadyEnabled: boolean;
   verified: boolean;
+  /** 本次是否执行了官方要求的生效重启(set 后必须重启设备, ace 使能才落地)。 */
+  rebooted: boolean;
   target?: string;
   out: string;
 }
@@ -642,6 +644,9 @@ export interface UiTestEnableResult {
 // 幂等: 已为 1 直接返回。注意: 部分商业模拟器镜像上 shell 域对 persist.ace.*
 // 无读写权限(param set 假成功, param get 返回 1002), 此时无法真正使能,
 // 返回 verified=false 如实报告, 由调用方用 Driver 套件实测确认。
+// 生效重启报文的换行助手(以码点构造, 不在源码里写转义串)。
+function nlSep(): string { return String.fromCharCode(10); }
+
 export async function enableUiTest(target?: string): Promise<UiTestEnableResult> {
   const tc = toolchain();
   const targets = await onlineAllTargets();
@@ -649,7 +654,7 @@ export async function enableUiTest(target?: string): Promise<UiTestEnableResult>
   const t = target ?? (targets.length === 1 ? targets[0] : undefined);
   if (!t) {
     return {
-      ok: false, alreadyEnabled: false, verified: false,
+      ok: false, alreadyEnabled: false, verified: false, rebooted: false,
       out: targets.length === 0
         ? "无在线设备"
         : "多台设备在线(" + targets.join(", ") + "), 必须显式指定 target",
@@ -660,16 +665,27 @@ export async function enableUiTest(target?: string): Promise<UiTestEnableResult>
     return r.out.trim();
   };
   if ((await readParam()) === "1") {
-    return { ok: true, alreadyEnabled: true, verified: true, target: t, out: "testmode 已使能" };
+    return { ok: true, alreadyEnabled: true, verified: true, rebooted: false, target: t, out: "testmode 已使能(未重启; 若 Driver.create() 仍为 null, 请重启该设备一次后复测——参数已在位, 幂等路径不重复重启)" };
   }
   const setRes = await run(tc.hdc, ["-t", t, "shell",
     "param set persist.ace.testmode.enabled 1; param set persist.sys.suspend_manager_enabled 0"],
     { timeoutMs: 30000 });
+  // 官方序列的第二半(hdk cj-apis-ui_test 准备工作): set 后必须重启设备, ace 使能才落地。
+  // 只 set 不重启 = 参数在场但 Driver.create() 解析 null(rS12e 二发 14 条 unavailable 实测)。
+  const rebootRes = await run(tc.hdc, ["-t", t, "shell", "reboot"], { timeoutMs: 30000 });
+  const backOnline = await waitOnline(t);
+  if (!backOnline) {
+    return {
+      ok: false, alreadyEnabled: false, verified: false, rebooted: true, target: t,
+      out: tail(setRes.out, 3) + " 生效重启已下发但设备 " + Math.round(BOOT_WAIT_TIMEOUT_MS / 1000) + "s 内未回线——检查实例状态后重试; 参数已持久化。",
+    };
+  }
   const verified = (await readParam()) === "1";
   const note = verified
-    ? "使能成功(suspend_manager 已置 0); 部分镜像需重启目标后生效"
-    : "param set 已执行但无法读回确认: 该镜像 shell 可能对 persist.ace.* 无读写权限(set 假成功/get 1002), testmode 可能未真正使能。请用 Driver 套件实测确认; 若 Driver.create() 返回 null 即未使能, 需换调试镜像或在设备端完成 UITest 首次设置";
-  return { ok: verified, alreadyEnabled: false, verified, target: t, out: tail(setRes.out, 5) + "\n" + note };
+    ? "使能成功: 参数持久化 + 生效重启完成(官方序列); Driver 套件可直接使用"
+    : "param set 已执行且已按官方序列重启, 但读回仍非 1: 该镜像 shell 可能对 persist.ace.* 无读写权限(set 假成功/get 1002), testmode 未真正使能。需换调试镜像或在设备端完成 UITest 首次设置"
+  return { ok: verified, alreadyEnabled: false, verified, rebooted: true, target: t,
+    out: tail(setRes.out, 5) + " [reboot exit=" + rebootRes.code + " backOnline=" + backOnline + "]" + nlSep() + note };
 }
 
 export async function renameWindows(name?: string): Promise<{ ok: boolean; out: string }> {

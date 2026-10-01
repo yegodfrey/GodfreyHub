@@ -57,7 +57,7 @@ export const emulatorTools: ToolDefinition[] = [
 
   defineTool({
     name: "emu_enable_uitest",
-    description: "使能设备 UITest testmode(persist.ace.testmode.enabled=1, Instrument Test/Driver 的官方一次性前置; 幂等, 无权限镜像返回 verified=false)。",
+    description: "使能设备 UITest testmode(persist.ace.testmode.enabled=1)。按官方序列执行: set 参数后自动重启设备并等回线再复验(重启约 1-2 分钟)——只 set 不重启时 Driver.create() 为 null。幂等: 参数已为 1 时不重复重启。部分镜像 set 假成功(get 1002)时 verified=false 如实报告。",
     inputSchema: { target: targetProp },
     handler: async (args) => enableUiTest(args.target || undefined),
   }),
