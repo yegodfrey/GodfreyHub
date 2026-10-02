@@ -228,7 +228,17 @@ test("runHarmonyTests fails when hvigor succeeds but the test report contains er
 
     assert.equal(result.success, false);
     assert.notEqual(result.code, 0);
-    assert.match(result.log, /4 test errors/i);
+    // 失败时把报告查找的两侧事实全量带出(路径形态/在盘性/mtime/collect 读数),
+    // 干净 runner 上的潜伏假设一次显影, 不做盲猜。
+    const reportDiagnostics = JSON.stringify({
+      root,
+      resultFile,
+      resultFileExists: fs.existsSync(resultFile),
+      resultFileMtimeMs: fs.existsSync(resultFile) ? fs.statSync(resultFile).mtimeMs : null,
+      reports: result.reports ?? null,
+      logTail: result.log?.slice(-400),
+    }, null, 2);
+    assert.match(result.log, /4 test errors/i, reportDiagnostics);
     assert.equal(result.reports.entry.testResultFile, resultFile);
   } finally {
     fs.rmSync(root, { recursive: true, force: true });

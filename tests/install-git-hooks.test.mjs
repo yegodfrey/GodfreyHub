@@ -43,9 +43,16 @@ test('installer resolves a relative -RepoRoot into an absolute hook path', { ski
 
     const hook = path.join(repo, '.git', 'hooks', 'pre-push');
     const installed = fs.readFileSync(hook, 'utf8');
-    const expectedRoot = repo.replaceAll('\\', '/');
-    assert.ok(installed.includes(`cd "${expectedRoot}"`),
-      `hook must carry the absolute repo root, got: ${installed}`);
+    // 断言语义 = 「钩子 cd 进的是这个仓库的绝对路径」：两侧都走 realpath 归一——
+    // 干净 runner 上 os.tmpdir() 可能给出 8.3 短名/不同大小写形态, 安装器(Resolve-Path)
+    // 与 Node(path.join) 对同一目录会产生字面不同的合法绝对路径, 字面比较会假红
+    // (run 37074198235 实测)。语义不变: 绝对性 + 归一后指向同一目录。
+    const cdLine = installed.split('\n').find((line) => line.startsWith('cd '));
+    const hookRoot = cdLine?.match(/^cd "(.+)" \|\| exit 1$/)?.[1] ?? null;
+    assert.ok(hookRoot && path.isAbsolute(hookRoot),
+      `hook must carry an absolute repo root, got: ${JSON.stringify(installed)}`);
+    assert.equal(fs.realpathSync.native(hookRoot), fs.realpathSync.native(repo),
+      `hook must cd into the repo itself\nhookRoot=${JSON.stringify(hookRoot)}\nrepo=${JSON.stringify(repo)}`);
     assert.ok(!installed.includes('__GF_REPO_ROOT__'), 'placeholder must be substituted');
     assert.ok(!installed.includes('\r'), 'installed sh hook must be free of CR');
 
