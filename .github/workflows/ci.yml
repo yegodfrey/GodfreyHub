@@ -23,8 +23,12 @@ defaults:
 
 jobs:
   test:
-    name: npm build + test (windows-latest)
-    runs-on: windows-latest
+    name: npm build + test (windows)
+    # windows-2022 而非 windows-latest: latest 已指 VS2026(v18) 镜像, better-sqlite3 的
+    # node-gyp(10/11)不识别该版本 → 源编译必死; 2022 镜像的 VS2022(v17)可被识别。
+    # (node 20 + 预编译也不可行: better-sqlite3 13 的 install 脚本就是 node-gyp rebuild,
+    #  首跑/二跑实测两次撞死在源编译, 见 run 37071501907 / 37073818601。)
+    runs-on: windows-2022
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,7 +38,7 @@ jobs:
         with:
           # Node 20: better-sqlite3 需原生模块, runner 预装 VS18 太新(node-gyp 11.5 不识别),
           # 源编译必死; Node 20 走 prebuilt 二进制绕开编译。engines>=18 兼容。
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
