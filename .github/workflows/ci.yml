@@ -32,7 +32,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          # Node 20: better-sqlite3 需原生模块, runner 预装 VS18 太新(node-gyp 11.5 不识别),
+          # 源编译必死; Node 20 走 prebuilt 二进制绕开编译。engines>=18 兼容。
+          node-version: 20
           cache: npm
 
       - name: Install dependencies
