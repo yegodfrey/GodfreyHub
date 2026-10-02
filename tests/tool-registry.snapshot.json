@@ -109,6 +109,10 @@
         "testTarget": {
           "description": "buildTests 时指定 framework: ArkTS/Cangjie, 省略=全部",
           "type": "string"
+        },
+        "hapPath": {
+          "description": "外部 HAP 直通部署(绝对路径): 跳过构建段, 字节在场校验+sha256 入账后走同一安装事务; 与 clean/noOhpm/buildTests/noDeploy 互斥",
+          "type": "string"
         }
       },
       "additionalProperties": false

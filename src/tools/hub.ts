@@ -14,6 +14,16 @@ import { verifyEnv } from "../core/verify.js";
 
 // hub_*: 项目注册/git 同步/构建部署/测试(7 个工具)
 
+// hapPath 直通部署跳过整个构建段(ohpm/clean/assembleHap/工程构建锁), 构建参数传了只会
+// 制造"参数看似生效、实际被忽略"的假象——在 MCP 边界具名拒绝。不放在 buildAndDeploy:
+// 内部可信通路(device-prepare --from-cache)本来就无条件传 clean/buildTests 再叠 prebuilt,
+// 靠"prebuilt 模式忽略构建参数"的既有语义工作, 硬守卫会打死缓存分发。
+export function assertHapPathCompatible(args: { hapPath?: string; clean?: boolean; noOhpm?: boolean; buildTests?: boolean; noDeploy?: boolean }): void {
+  if (args.hapPath && (args.clean || args.noOhpm || args.buildTests || args.noDeploy)) {
+    throw new Error("hapPath 直通部署跳过构建段, 与 clean/noOhpm/buildTests/noDeploy 互斥");
+  }
+}
+
 export const hubTools: ToolDefinition[] = [
   defineTool({
     name: "hub_status",
@@ -110,7 +120,7 @@ export const hubTools: ToolDefinition[] = [
 
   defineTool({
     name: "hub_build",
-    description: "构建并按目标类型部署: 目标为模拟器(设备名实例/项目同名实例/127.0.0.1 端口)一律用 unsigned 产物(签名不阻塞); 目标为真机(在线序列号/无线 IP, 自动反推或 device 指定)必须 signed 且仅限 debug 产品(debug 自动签名, 签名缺失报错不回退)。模拟器按设备名实例契约拉起(不再自动创建项目同名实例)。流程: ohpm install -> hvigor assembleHap -> 目标解析 -> 防污染校验 -> 安装启动。",
+    description: "构建并按目标类型部署: 目标为模拟器(设备名实例/项目同名实例/127.0.0.1 端口)一律用 unsigned 产物(签名不阻塞); 目标为真机(在线序列号/无线 IP, 自动反推或 device 指定)必须 signed 且仅限 debug 产品(debug 自动签名, 签名缺失报错不回退)。模拟器按设备名实例契约拉起(不再自动创建项目同名实例)。流程: ohpm install -> hvigor assembleHap -> 目标解析 -> 防污染校验 -> 安装启动。外部已构建产物可用 hapPath 直通部署(跳过构建段, 目标解析/签名门禁/防污染事务同一份)。",
     inputSchema: {
       project: z.string().optional().describe("项目名, 省略=当前项目"),
       product: z.string().optional().describe("默认 debug; 真机部署仅支持 debug"),
@@ -123,10 +133,12 @@ export const hubTools: ToolDefinition[] = [
       skipStart: z.boolean().optional().describe("只安装不启动"),
       buildTests: z.boolean().optional().describe("额外构建 ohosTest 测试包"),
       testTarget: z.string().optional().describe("buildTests 时指定 framework: ArkTS/Cangjie, 省略=全部"),
+      hapPath: z.string().optional().describe("外部 HAP 直通部署(绝对路径): 跳过构建段, 字节在场校验+sha256 入账后走同一安装事务; 与 clean/noOhpm/buildTests/noDeploy 互斥"),
     },
     handler: async (args, ctx) => {
       const r = resolveProject(args.project || undefined);
       if ("error" in r) throw new Error(r.error);
+      assertHapPathCompatible(args);
       const opts: BuildOpts = {
         product: args.product || undefined,
         buildMode: args.buildMode || undefined,
@@ -139,6 +151,8 @@ export const hubTools: ToolDefinition[] = [
         buildTests: args.buildTests,
         testTarget: resolveTestTarget(args.testTarget),
         otherBundles: allBundlesExcept(loadConfig(), r.entry.bundle),
+        // 外部产物直通: 互斥校验在 buildAndDeploy 唯一入口(hvigor.ts)统一具名拒绝。
+        ...(args.hapPath ? { prebuilt: { hap: args.hapPath, testHaps: [] } } : {}),
         signal: ctx.signal,
       };
       const res = await buildAndDeploy(r.entry, opts);

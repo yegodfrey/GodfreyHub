@@ -1,0 +1,52 @@
+name: CI (windows)
+
+# 最小质量门: 等效于本仓 pre-push 钩子(npm test)上云。GodfreyHub 被家族仓按
+# runnerSurfaceHash 逐字节钉定, 地基红而无人知是结构性风险——这里就是哨。
+# pwsh 腿测试依赖 PowerShell 7(windows runner 预装); 缺 jieba 等环境件的测试
+# 经 tests/env-guard.mjs 自动 skip, 不塞假绿也不环境红。
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: npm build + test (windows-latest)
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # npm test 自带 npm run build(build-stamp 确定性戳 + tsc), 显式跑一遍让编译错误
+      # 在自己的步骤里红, 不与测试失败混在一起。
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm test
+
+      # 观测面(非家族钉扎面, 见脚本头注释): 让每个 run 自报执行面指纹, 漂移可对比。
+      - name: Surface manifest
+        if: always()
+        run: node scripts/print-surface-manifest.mjs >> "$GITHUB_STEP_SUMMARY"
