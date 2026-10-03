@@ -568,17 +568,18 @@ async function runHarmonyTestsExclusive(
   const startedAt = Date.now();
   // 新鲜度同域标记（run 37079592654 实证）：部分 CI 文件系统的 mtime 相对墙钟有秒级
   // 滞后（实测报告写入后 mtime 落后 9.45s），「报告 mtime >= 墙钟起点」的纯墙钟比较
-  // 会把本次刚写的报告误判陈旧。改为 hvigor 前在同一 FS 落标记文件、取其 mtime 作
-  // notBefore——FS↔FS 时序单调、偏移抵消；上一轮报告仍远早于标记，「拒旧报告」语义
-  // 不变。标记即写即删，不在工程树留痕。
+  // 会把本次刚写的报告误判陈旧。双层防御：①同 FS 落标记文件取其 mtime，FS↔FS 时序
+  // 单调、系统性偏移抵消；②叠加 15s 墙钟容差，吸收两次写入之间的滞后差——上一轮
+  // 报告距本轮以分钟计，容差不放走真旧报告，「拒旧报告」语义不变。标记即写即删。
+  const FS_SKEW_TOLERANCE_MS = 15_000;
   const freshnessMarker = path.join(entry.harmonyRoot, ".test", ".gf-freshness-marker");
-  let notBeforeMs = startedAt;
+  let notBeforeMs = startedAt - FS_SKEW_TOLERANCE_MS;
   try {
     fs.mkdirSync(path.dirname(freshnessMarker), { recursive: true });
     fs.writeFileSync(freshnessMarker, String(startedAt), "utf8");
-    notBeforeMs = fs.statSync(freshnessMarker).mtimeMs;
+    notBeforeMs = Math.min(notBeforeMs, fs.statSync(freshnessMarker).mtimeMs);
   } catch {
-    notBeforeMs = startedAt;
+    /* 标记失败退回墙钟-容差 */
   } finally {
     try { fs.rmSync(freshnessMarker, { force: true }); } catch { /* 尽力清理 */ }
   }
