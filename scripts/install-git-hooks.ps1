@@ -29,7 +29,13 @@ $resolvedRepoRoot = Resolve-Path -LiteralPath $RepoRoot -ErrorAction SilentlyCon
 if ($null -eq $resolvedRepoRoot) {
     throw "install-git-hooks: -RepoRoot disappeared during installation: $RepoRoot"
 }
-$RepoRoot = $resolvedRepoRoot.Path
+# Canonicalize through the filesystem: Get-Item FullName expands 8.3 short names
+# (RUNNER~1 → runneradmin) and normalizes casing. Without this, callers that pass
+# a short-form absolute path (node os.tmpdir() on some CI runners) produce hook
+# content differing from the long-form first install, and the content-compared
+# idempotent re-run would report "installed" forever instead of "unchanged"
+# (run 37074198235 实测). Resolve-Path alone does NOT expand short names.
+$RepoRoot = (Get-Item -LiteralPath $resolvedRepoRoot.Path).FullName
 $resolvedTemplateDir = Resolve-Path -LiteralPath $TemplateDir -ErrorAction SilentlyContinue |
     Select-Object -First 1
 if ($null -ne $resolvedTemplateDir) { $TemplateDir = $resolvedTemplateDir.Path }

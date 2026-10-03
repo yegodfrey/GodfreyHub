@@ -59,7 +59,8 @@ test('installer resolves a relative -RepoRoot into an absolute hook path', { ski
     // Content-compared re-run is a no-op, so gate self-heal stays cheap.
     const again = runInstaller(['-RepoRoot', repo, '-TemplateDir', templates], parent);
     assert.equal(again.status, 0, again.stdout + again.stderr);
-    assert.match(again.stdout, /unchanged: pre-push/, again.stdout);
+    assert.match(again.stdout, /unchanged: pre-push/, again.stdout +
+      '\nhook=' + JSON.stringify(fs.readFileSync(hook, 'utf8')));
   } finally {
     fs.rmSync(parent, { recursive: true, force: true });
   }
