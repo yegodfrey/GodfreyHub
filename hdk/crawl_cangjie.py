@@ -128,5 +128,14 @@ def write_doc(catalog, meta, html):
         + "---\n\n"
         + md
     )
+    # 内容未变不落盘（2026-10-03）：上游排版零抖动反复 atomic_write 会让已跟踪语料
+    # 的工作树持续变脏（实测单轮 4977 件漂移），同步提交噪音淹没有效变更。
+    if os.path.exists(fp):
+        try:
+            with open(fp, 'r', encoding='utf-8') as existing:
+                if existing.read() == text:
+                    return fp
+        except OSError:
+            pass  # 读不了（编码/权限）就按原路径覆写
     hdk_io.atomic_write_text(fp, text)
     return fp
