@@ -1,4 +1,4 @@
-#Requires -PSEdition Core
+﻿#Requires -PSEdition Core
 # install-git-hooks - idempotent installation of caller-supplied git hook templates.
 #
 # Reads the templates under -TemplateDir, substitutes the repo root and writes them
