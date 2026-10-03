@@ -1,3 +1,14 @@
 # POSIX sh 拒绝 CRLF，钩子模板必须在任何平台的检出处都是 LF
 # （install-git-hooks.ps1 写入前也会归一，这里保证直接查看/执行模板时同样可用）。
 scripts/git-hooks/* text eol=lf
+
+# ---- 执行面钉扎字节稳定性（family/runner/GfToolchain runnerSurfaceHash 契约）----
+# 家族侧 surface hash 按「工作树原始字节」哈希 scripts 执行面；不同平台的 git 换行
+# 策略不同（本机 autocrlf=CRLF、干净 CI 检出=LF）会让同一提交产生两套字节 → 跨机
+# 钉扎失效。这里把执行面字节钉死，任何平台检出逐字节一致——CI 挂载腿的前提。
+scripts/*.ps1 text eol=crlf
+scripts/*.psm1 text eol=crlf
+scripts/*.mjs text eol=crlf
+scripts/runner/*.ps1 text eol=crlf
+scripts/runner/*.psm1 text eol=crlf
+scripts/runner/*.mjs text eol=crlf

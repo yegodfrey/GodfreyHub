@@ -8,6 +8,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "newLine": "crlf",
     "forceConsistentCasingInFileNames": true,
     "declaration": false,
     "sourceMap": false
