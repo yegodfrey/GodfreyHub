@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1250
 
 应用启动后，在页面内容出现前显示黑屏。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/6t908K0RT3GZoKdIEftigw/zh-cn_image_0000002628755348.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=6F31186AF012094882A416594F1E6496945292713B4C00E088F2F0CD786CD2A3 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/6t908K0RT3GZoKdIEftigw/zh-cn_image_0000002628755348.png?HW-CC-KV=V1&HW-CC-Date=20260929T074336Z&HW-CC-Expire=31536000000&HW-CC-Sign=D8DFBDB19A39E507529F184355B0B7B6F037421CC63BBAA0A79911EAE20E3602 "点击放大")
 
 ## 背景知识
 
@@ -86,5 +86,5 @@ struct StartDemo {
 
 效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/GyRUb1cBRPOu0q9cL2kKog/zh-cn_image_0000002658954669.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=7DBB3E8897B9F41484856FD2E82A74FCBD5A7B77E9835A7FC6406A3AD932F7D4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/GyRUb1cBRPOu0q9cL2kKog/zh-cn_image_0000002658954669.png?HW-CC-KV=V1&HW-CC-Date=20260929T074336Z&HW-CC-Expire=31536000000&HW-CC-Sign=422CC54745F67514928FD44DE2CA05DB5727934DEBC8E176D3C9E437C8A15DCE "点击放大")
 

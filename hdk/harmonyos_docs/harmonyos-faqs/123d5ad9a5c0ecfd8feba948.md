@@ -20,7 +20,7 @@ Rcp {"code":errCode,"data":"errInfo xxx","extendInfo":{"httpPhase":"111100","dns
 
    一次完整的HTTPS请求过程如下图所示，包括构造网络请求、DNS解析、TCP握手、TLS握手、发送HTTP请求、服务器处理并生成响应、客户端接收响应数据、TCP四次挥手。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/lGnwAQLoRoyA-SIHpHcH0Q/zh-cn_image_0000002661541099.png?HW-CC-KV=V1&HW-CC-Date=20260920T114746Z&HW-CC-Expire=31536000000&HW-CC-Sign=A8B4A4355828D46D3191530643BB5ED8D415011074A58B65BCBBF5527D97FC42 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/lGnwAQLoRoyA-SIHpHcH0Q/zh-cn_image_0000002661541099.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=AD67FD301241513AFA2FF094BA7208DC14AA3B6BA58D3A43B46C7C93B86EF5D9 "点击放大")
    1. **构造网络请求**
 
       RCP模块中[Request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp#request)的参数包含请求地址、请求方法、请求头、请求内容、请求cookie等，通过请求参数的设置来构造网络请求。

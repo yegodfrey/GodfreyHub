@@ -14,11 +14,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1493
 
 问题1效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/iOsHcGtvQUS3o8AX5y3gjg/zh-cn_image_0000002658845079.png?HW-CC-KV=V1&HW-CC-Date=20260920T114744Z&HW-CC-Expire=31536000000&HW-CC-Sign=3964EE8007A10B9DD2E045B8A4E2BF924242520BF05982D357ACAB9F629CCAB4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/iOsHcGtvQUS3o8AX5y3gjg/zh-cn_image_0000002658845079.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=289D0ABC0AD14D17CBF61C7113E538BD59D6DAF3B8627D340996C53A3B7FC02E "点击放大")
 
 问题2效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/ceUlwK5ESE6pAny9PMaHlg/zh-cn_image_0000002628765708.png?HW-CC-KV=V1&HW-CC-Date=20260920T114744Z&HW-CC-Expire=31536000000&HW-CC-Sign=DC3DA2529AF4D28B695B4CAB01836E6C2CA34F4E4A2783E96DB30917A901BA28 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/ceUlwK5ESE6pAny9PMaHlg/zh-cn_image_0000002628765708.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=044EFCAAB97E4F1D157A8FB4C33BB97CED23008029C8D86B3F9862585BD73F40 "点击放大")
 
 ## 背景知识
 
@@ -58,7 +58,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1493
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/RxhwmEbEQ2-KXHD7I4JXWg/zh-cn_image_0000002658965033.png?HW-CC-KV=V1&HW-CC-Date=20260920T114744Z&HW-CC-Expire=31536000000&HW-CC-Sign=0FFEDC3D008B48851F4D0EC2D3EA733A2093E49AC85A1972A174336AD83ED903 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/RxhwmEbEQ2-KXHD7I4JXWg/zh-cn_image_0000002658965033.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=09876BA7EB576B3B55CF0693A38C490C73CED3F487B24BB0BE9FB3FB253AC28D "点击放大")
 
   问题2：Flex方向为Row时同理，设置宽度为auto，使Flex自适应子组件布局的宽度。
 
@@ -87,7 +87,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1493
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/AqnucAeOQPmnZultTIqxAA/zh-cn_image_0000002628605828.png?HW-CC-KV=V1&HW-CC-Date=20260920T114744Z&HW-CC-Expire=31536000000&HW-CC-Sign=5FB250850708E126629D830D44196854A37E0584F2BE8183456E4EB2845E891B "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/AqnucAeOQPmnZultTIqxAA/zh-cn_image_0000002628605828.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C2651F1CF8A33A7728743EE8A3C2C06189CF0C795D74D487A4D9D6051A44EEC "点击放大")
 * **方案二** ：Flex主轴方向长度默认设置'100%'，子组件布局完成时通过onSizeChange/onAreaChange获取尺寸信息，根据子组件尺寸设置Flex主轴方向长度。
 
   问题1：Flex方向为Column时，通过onSizeChange获取子组件高度，设置Flex高度。
@@ -122,7 +122,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1493
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/p-eTNGliQ16fM4H1R9rlEQ/zh-cn_image_0000002658845081.png?HW-CC-KV=V1&HW-CC-Date=20260920T114744Z&HW-CC-Expire=31536000000&HW-CC-Sign=5DF674BF6B0EB143A811A4B0BFA1334D041B2238AD79FCD81D5C33988A9243EB "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/p-eTNGliQ16fM4H1R9rlEQ/zh-cn_image_0000002658845081.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=5EC07203B51715B5567B2ACCD86CFAFDDA85EB7A94966F39FCC2593D31739261 "点击放大")
 
   问题2：Flex方向为Row时，通过onSizeChange获取子组件宽度，设置Flex宽度。
 
@@ -156,5 +156,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1493
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/i3jifXYhQCud2muvSI2Gmw/zh-cn_image_0000002628765710.png?HW-CC-KV=V1&HW-CC-Date=20260920T114744Z&HW-CC-Expire=31536000000&HW-CC-Sign=34F4D7B0B93C0F8579273CDA32F42850543C761A3161A6EB47720819E16A7BF4 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/i3jifXYhQCud2muvSI2Gmw/zh-cn_image_0000002628765710.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=ADEEBAE78287DE8C2CF30ECA8B0F968FEB06C6657A09B2081ABF4E37CEE80421 "点击放大")
 

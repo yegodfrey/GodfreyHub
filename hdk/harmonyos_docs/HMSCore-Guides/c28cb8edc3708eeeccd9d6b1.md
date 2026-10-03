@@ -57,31 +57,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-sdk-map
 [图1](#ZH-CN_TOPIC_0000001061781411__fig1976115420519)和[图2](#ZH-CN_TOPIC_0000001061781411__fig73009201525)分别展示了黑夜样式和简单样式的地图效果：
 
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**图1**黑夜样式地图 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/f-tZZxXIQA-N_0whgDwbOQ/zh-cn_image_0000001244690449.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=962DB03380597E234D2451AF265B0217B7D81EC7BBE231B9EBFD4B4881C63C51 "点击放大") 黑夜样式JSON文件地址： [mapstyle_night_hms.json](https://github.com/HMS-Core/hms-mapkit-demo-java/blob/master/java/app/src/main/res/raw/mapstyle_night_hms.json)|**图2**简单样式地图 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/qiqMnVqzStqyCOOiX03tcQ/zh-cn_image_0000001244690495.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=C05F304254D166188F42FD1E6FECFA00F144AD3073112C6C746475383744AEB7 "点击放大") 简单样式JSON文件地址： [mapstyle_grayscale_hms.json](https://github.com/HMS-Core/hms-mapkit-demo-java/blob/master/java/app/src/main/res/raw/mapstyle_grayscale_hms.json)|
+|**图1**黑夜样式地图 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/f-tZZxXIQA-N_0whgDwbOQ/zh-cn_image_0000001244690449.png?HW-CC-KV=V1&HW-CC-Date=20260922T085431Z&HW-CC-Expire=31536000000&HW-CC-Sign=A662C429129D492E26AF098F38F3070FFAE620377D467462E4A357B9293CEDDF "点击放大") 黑夜样式JSON文件地址： [mapstyle_night_hms.json](https://github.com/HMS-Core/hms-mapkit-demo-java/blob/master/java/app/src/main/res/raw/mapstyle_night_hms.json)|**图2**简单样式地图 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/qiqMnVqzStqyCOOiX03tcQ/zh-cn_image_0000001244690495.png?HW-CC-KV=V1&HW-CC-Date=20260922T085431Z&HW-CC-Expire=31536000000&HW-CC-Sign=E2893CA142A0B7E4CDA6EE5E77B7CDEA37AECA2999AEA955CDE80A156300FDFC "点击放大") 简单样式JSON文件地址： [mapstyle_grayscale_hms.json](https://github.com/HMS-Core/hms-mapkit-demo-java/blob/master/java/app/src/main/res/raw/mapstyle_grayscale_hms.json)|
 
 ## 设置样式ID
 
 1. 登录[Petal Maps Studio](https://developer.petalmaps.com/console/studio/StyleEditor)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/YDsSFQ6wSpOoAdZ8U6nATA/zh-cn_image_0000001124253751.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=BDA9FE2C311E3BA8237AE3D4B118F54DC044692FDBA95328893CBB28D8F92A9A "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/YDsSFQ6wSpOoAdZ8U6nATA/zh-cn_image_0000001124253751.png?HW-CC-KV=V1&HW-CC-Date=20260922T085431Z&HW-CC-Expire=31536000000&HW-CC-Sign=729642516F54E553C44C8B46FC6FE9CD3825FAC6B60AE3438E5818546B61E150 "点击放大")
 
 2. 点击"Create map"创建自定义样式。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/O4O31R9DREKsKcJge6Shlw/zh-cn_image_0000001124154287.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=62893930434FAD3721BEE4932F02814B36E58D01CDBDB5B3EEC2D827B4685EAC "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/O4O31R9DREKsKcJge6Shlw/zh-cn_image_0000001124154287.png?HW-CC-KV=V1&HW-CC-Date=20260922T085431Z&HW-CC-Expire=31536000000&HW-CC-Sign=A52852B6EED54F6A2355A137DDB4B68A1F14F5979D5E305795DEAB5B1A20F716 "点击放大")
 
 3. 导入JSON样式文件，点击"Import"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/3em2lJgtRZixmelblQ3ASA/zh-cn_image_0000001124096853.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=1D5F502D76CB883DF8AC6F78CD2160D5CFC39D98D721F9B9F398D7A60050EFC2 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/3em2lJgtRZixmelblQ3ASA/zh-cn_image_0000001124096853.png?HW-CC-KV=V1&HW-CC-Date=20260922T085431Z&HW-CC-Expire=31536000000&HW-CC-Sign=3F2607B6480F9D203CE2A4AC59142845DBEC9FBA093500399F9D722B694966E8 "点击放大")
 
 4. 在编辑器里修改样式。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/DHBQJ7ZQQDeNH39grgOaCA/zh-cn_image_0000001078595766.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=717A864E819CB1429A7AB8E15D57638AADBF0F18615381632733F4D301EE0F39 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/DHBQJ7ZQQDeNH39grgOaCA/zh-cn_image_0000001078595766.png?HW-CC-KV=V1&HW-CC-Date=20260922T085431Z&HW-CC-Expire=31536000000&HW-CC-Sign=3FB2864D63799EBCF845F80436ECF690788AA83D4E95ADEC36AE3FC45D0F0E57 "点击放大")
 
 5. 点击"SAVE"生成预览ID，预览ID在编辑样式时会重新生成，您可以通过预览ID测试样式效果。点击"PUBLISH"发布生成样式ID，样式ID是唯一ID，一旦发布生效不会变化。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/LIUsCh6TTiGlc-fYoMXvMA/zh-cn_image_0000001124096833.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=DF58734A63E107D9E77A883BA48E0F304F3063CD39AB63C8F3EC7EB95AD77D5C "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/LIUsCh6TTiGlc-fYoMXvMA/zh-cn_image_0000001124096833.png?HW-CC-KV=V1&HW-CC-Date=20260922T085431Z&HW-CC-Expire=31536000000&HW-CC-Sign=668CE5F3ECC6A490E9E8F27F5F7A541E54B80794E26788D63548008A077080E9 "点击放大")
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/NNLTLuVOTJekYwdKlLb-7Q/zh-cn_image_0000001124154281.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=CF2DFEE7D21A2F000D78EFBE941CD893E7CD4DCA8208D9BA1AC621A68EEEAF3D "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/NNLTLuVOTJekYwdKlLb-7Q/zh-cn_image_0000001124154281.png?HW-CC-KV=V1&HW-CC-Date=20260922T085431Z&HW-CC-Expire=31536000000&HW-CC-Sign=B6C8FF62968C770D157C89343ACD0B97E1C6BB51CA172FBF43522EF197FD8BC4 "点击放大")
 
 Android SDK提供两种方式设置预览ID或样式ID：创建地图前、创建地图后。
 

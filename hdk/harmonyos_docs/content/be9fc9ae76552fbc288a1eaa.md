@@ -24,7 +24,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/voicecommand-000000249
 
 |  |锁屏（Lockscreen）|桌面（Wallpaper）|一镜到底（LongTake）|百变卡片（Widget）|充电动效（ChargingSkin）|
 |:---|:------------:|:-----------:|:------------:|:----------:|:----------------:|
-|是否支持|√|x|x|√|x|
+|是否支持|√|x|x|x|x|
 [**表1** **支持根标签**]
 
 |  |直板机|折叠屏|平板|
@@ -50,7 +50,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/voicecommand-000000249
 >
 > 1. 设计触发识别入口时，建议只在Button->trigger内使用。
 >
-> 2. 需要使用统一的小艺图标（[小艺入口图标.zip](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260828133617.57332288545948856301141998723929:50001231000000:2800:C9D51269A04E4083DF47C87F929D74EBBE10407BE59155A2CC2965CA2A522A63.zip?needInitFileName=true)），作为启用小艺的入口。
+> 2. 需要使用统一的小艺图标（[小艺入口图标.zip](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260924174601.53338063804833084585831949192550:50001231000000:2800:C9E18E5B9367D7FB8B942421CDF9C377532764DA09D8B914096FCA6F5C3A6D86.zip?needInitFileName=true)），作为启用小艺的入口。
 >
 > 3. 一个根标签下，仅支持一个AI语音命令。
 >

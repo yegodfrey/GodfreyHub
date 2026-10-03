@@ -76,7 +76,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/0tnoYO-bSK-Wty3ivZYf7Q/zh-cn_image_0000002733273640.png?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=77720D784CACE44104D4A46A4BC1A1CD6DE7C76316219AC90455ECD6BF1419BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/CSQb2eMGS6-UARUIomxPqA/zh-cn_image_0000002749491816.png?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=FD407EBF2B0700580314DCF72632B3A58A46E8A97FE7D9751C69C6AC9898A3F1)
 
 在上述代码中，点击Text组件增加age的值时，不会触发UI刷新。原因在于现有的状态管理框架无法观测到嵌套类中属性age的值变化。V1版本的解决方案是使用[@ObjectLink装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)与自定义组件来实现观测。
 
@@ -137,7 +137,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/o7ogGJhwQv2fXMIrNLnFxw/zh-cn_image_0000002733433518.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=D0B558997E69AE4AF4CEC204504C321CAC45A1C5C21AD1067E6E86A2128C9C74)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/VyDbPXAJSKSL8Ri6CvnbKg/zh-cn_image_0000002779090873.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=1F0DD725CEBFEC73489C32D5875D58A5EF4708F80C5B6B0A4E08DCA548EB958B)
 
 通过这种方式虽然能够实现对嵌套类中属性变化的观测，但是当嵌套层级较深时，代码将会变得十分复杂，易用性差。因此推出类装饰器@ObservedV2与成员变量装饰器@Trace，增强对嵌套类中属性变化的观测能力。
 
@@ -189,7 +189,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/zVJdggimRx-vxsUbAh9gug/zh-cn_image_0000002762993043.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A0057B9F956055E08FEA74E5DE25BEDB68A756F3E98AA909AF1958F9E9E03C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/nc4WoCqSSMGugpvowMQ5lA/zh-cn_image_0000002778931017.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=65D0B76ACC0AFB595D331DB58934491188901B90D2CC5FCE7FEC3CA6780840E2)
 
 * 在继承类中使用@Trace装饰的属性具有被观测变化的能力。
 
@@ -222,7 +222,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/RyQJqEpIQ9yfJCr5lPEy4w/zh-cn_image_0000002762833157.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=071E77BEA16848FA067F4C9A70880634217E2108C36FCE453A368029C9575B82)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/S1wPVojySFSUV9be-YwKYg/zh-cn_image_0000002749331934.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=35F14086033FA57376E0EC97700DB176AF8C381E52D596873C33AD30774F0FF6)
 
 * 类中使用@Trace装饰的静态属性具有被观测变化的能力。
 
@@ -250,7 +250,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/1x9kBzzlQ0iUp7DCu9aCqg/zh-cn_image_0000002733273642.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=FBFE21B1C74696D559D0D2C39931315D4F5ACA4F86EC3DBBF11B20E67CEE5608)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/xeusCPEaSHOC8o6ZFIHCnw/zh-cn_image_0000002749491818.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=D6B1DEA52250980602E0B26E8967B8EC760178E5AEB7A603AD6316F482F87E84)
 
 * @Trace装饰内置类型时，可以观测各自API导致的变化：
 
@@ -301,7 +301,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/JWU2hUPSRJCspXAXxESHlg/zh-cn_image_0000002733433520.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=D09B15EC46A21C45923E2C6DC86696BCF125477665F5895A2C1ED601161B7DD2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/bTlDcW1mQYWyVlPZjJzdRw/zh-cn_image_0000002779090875.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=C2C8AF6584CE754A99B20547EE25900FD16BA4B5C1C1A9578A3E018516668A2C)
 
 * @ObservedV2仅能装饰class，无法装饰自定义组件。
 
@@ -399,7 +399,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/e0kwqeqcRSmHZuBBPRQ8dw/zh-cn_image_0000002762993045.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=FBD656E96C70DB36ECBE2B777AEFF7B32B8BE8BBD5A87CB85DB194DE8616905F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/CXNsyGn2RBexHO0KcdENJw/zh-cn_image_0000002778931019.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=D9807661A05C827AE9CE75A4C4188036642CD7A0FE74C41FD068160495C7F4AE)
 
 * 继承自@ObservedV2的类无法和@State等V1的装饰器混用，运行时报错。
 
@@ -533,7 +533,7 @@ struct Page {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/mKwKzxhGTlGVBVGLwhZeyw/zh-cn_image_0000002762833159.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=BBA86D004E7A99AE6A22094103794BF2D4B644B75841F3741ECE85CDA7877CE1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/EsIeGtQkRhaBTAeRs9pMNQ/zh-cn_image_0000002749331936.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=E294092DB7CF2878F27763058A3302F1D57D7B9861F679C750B8E270822A0483)
 
 ### 继承类场景
 
@@ -541,7 +541,7 @@ struct Page {
 
 以下例子中，声明class GrandFather、Father、Uncle、Son、Cousin，继承关系如下图。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/Pu6YgbrBT36WrO74WLtnCg/zh-cn_image_0000002733273644.png?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=7EE7B1778E714E44BCD7D9172AAB03EB8016D652BCF0003442006EC0BFAF2E53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/Tq1EXIJuT4Sh_JnaWjBQbw/zh-cn_image_0000002749491820.png?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=D539019BB3BA62AD1A6E8428A3814EB8C5E559D9B6C7DFA8844976756D0730E0)
 
 创建类Son和类Cousin的实例，点击Button('change Son age')和Button('change Cousin age')可以触发UI的刷新。
 
@@ -629,7 +629,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/W3rD_uk4QlSVXGEQJ-qKdw/zh-cn_image_0000002733433522.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=EB2A95D89B4A5A87565581CE80C34FB0562C3D63B17C6ECDC353888F428401DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/Wl3cTMFfQN2PJfzWyoVYyQ/zh-cn_image_0000002779090877.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=4CF228303C789834D6FF7E3F2A16A099972A979173D0A45F43B4FD8C8CCF7ECD)
 
 在继承场景中，不建议在子类中重复声明与父类同名的@Trace属性，否则可能导致非预期的依赖收集。详情请参考[延迟加载场景下父子类同名@Trace属性导致非预期的依赖收集](#延迟加载场景下父子类同名trace属性导致非预期的依赖收集)。
 
@@ -763,7 +763,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/iCnuZqXfSvONHFRBsEHtfA/zh-cn_image_0000002762993047.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=C75AE9B4A79DF8A5A734BA73220A7FF259C138BC36C073F9C3E894C778D7ED41)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/90yXrPi8QUmCBJRsEV2DMw/zh-cn_image_0000002778931021.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=E1483BC3B235921E3446AB25B9FB16FF1A2E6FD7DB9378B473E9E79B60C72552)
 
 ### @Trace装饰对象数组
 
@@ -841,7 +841,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/bXLq-fJdR1-T8xKudEpyDQ/zh-cn_image_0000002762833161.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=4607001DF644700B20B46E427F7B5CF73158B22F84D8CE9F287293D000974D21)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/YeheOXjTRr-4SjmiEtP65w/zh-cn_image_0000002749331938.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7DCC2623FB755BA0F2422C2C85711FCFA8C14768AE759E8F8DF107C6F044512)
 
 ### @Trace装饰Map类型
 
@@ -910,7 +910,7 @@ struct MapSample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/BLpFxtbSRAyBes-xtyfFag/zh-cn_image_0000002733273646.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=980D9957103F21C6363B3E64AFEB9C31FE33CE153D6E39779E1EBB6538473664)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/zkjUZ1jJT4CdNxMwfv_nNQ/zh-cn_image_0000002749491822.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=A41CB93533CF325CA77E8FB2DFDAF02190D02AC0994A445D691A0C8893A58D01)
 
 ### @Trace装饰Set类型
 
@@ -970,7 +970,7 @@ struct SetSample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/9ExkdYnpRFCL5_0biqSFiQ/zh-cn_image_0000002733433524.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=9363F3E5E6D1D9AFFCB17E1288C256A0A14D8CE663AFA4037A4936BE87E57DB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/ew5tzH1sTTmPpBwD3HvCjQ/zh-cn_image_0000002779090879.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=E50858046BB2D822DD0B815ACA53967117AC12C21E85C3F1009646049E78EB25)
 
 ### @Trace装饰Date类型
 
@@ -1026,7 +1026,7 @@ struct DateSample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/-ZwBdGvOR4W1jx4j-bhdoA/zh-cn_image_0000002762993049.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=2B439FB362AEEE47512BA1F2FE6F1D85D388B23315ED63A13B8B2B39CE8DCCDE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/X_cZtj3JS8a56AMjmgXopA/zh-cn_image_0000002778931023.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=C41B896BC0CFE1599E209E92496C6FDFB4BDB0E3F8078974CC61C9748054CE55)
 
 ## 常见问题
 
@@ -1226,7 +1226,7 @@ struct SerializationAndDeserialization {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/Q4JCYLrRRm6WRAbvyOcYow/zh-cn_image_0000002762833163.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=F48E327DE016B1D3098B09CF2FA356C7128782C82585F92D4D5434DA3AB3F0B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/eCgxArGmSoqBOOS8M4sl_g/zh-cn_image_0000002749331940.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=EE5C3034A05FB1896BBF1AC7780F792591F1B5B55921642B6B4887395FD1C667)
 
 ### router传递的@ObservedV2类型显示异常
 
@@ -1371,7 +1371,7 @@ struct Detail {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/p83s89UuRCq8G_trJcbwGw/zh-cn_image_0000002733273648.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C40168309F30211687E5E69AB77C13AB173CC791EC1CDFD201A4A606F70F3EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/kWIE7yR_SkOhHFyw_4xxQw/zh-cn_image_0000002749491824.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=290612D9F1829C4A1C232DEE532DC677614B85C7C791B30DC23E22CC2268131F)
 
 ### 延迟加载场景下父子类同名@Trace属性导致非预期的依赖收集
 
@@ -1457,5 +1457,5 @@ export class Child extends Parent {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/w_leQz_1QuiDlpXPONIekQ/zh-cn_image_0000002733433526.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084558Z&HW-CC-Expire=31536000000&HW-CC-Sign=5DFA1314769DEEBD6104875512F3324A17A66829A4444F184B123D68EEF4603C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/DACx7VPSRXGXeupPVZXkYA/zh-cn_image_0000002779090881.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=785DF700119C91D908DF0149E9EF43148765467623B36A90463DD27B83EE275C)
 

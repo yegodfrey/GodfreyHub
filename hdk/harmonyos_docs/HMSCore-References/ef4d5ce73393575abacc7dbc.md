@@ -31,10 +31,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner
 * **Request Body**
 
   |参数|是否必填|参数类型|描述|
-  |:----------|:---|:-----|:---------------------------------|
+  |:------------------|:---|:-----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   |externalNo|是|String|外部平台关联编号（externalNo）由商户生成，最大长度为64。|
   |mercName|是|String|子商户名。|
-  |callbackUrl|是|String|回调通知地址。|
+  |callbackUrl|否|String|回调通知地址。|
+  |invitedMercCertType|否|String|商户证件类型。 * 11：营业执照（三证合一）|
+  |invitedMercCertNo|否|String|加密后的商户证件号。最大长度44。 > 注意 > * 敏感字段使用sessionKey加密，具体参见[敏感信息处理](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-sensitive-information-handle-0000001588934001)。 > * invitedMercCertType传递时，该字段必填。|
 
 * **请求示例**
 

@@ -36,7 +36,7 @@ HiAppEvent是系统为应用开发者提供的事件订阅和事件打点机制�
 
 应用调用HiAppEvent的addWatcher接口订阅系统事件并创建共享目录。当应用进程发生故障时，DFX系统捕获相关信息，生成事件和日志，并写入到共享目录。HiAppEvent监听到事件后，将事件回调给应用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/sXWxAxs8RgOe7Tras8TpZg/zh-cn_image_0000002762834347.png?HW-CC-KV=V1&HW-CC-Date=20260917T084601Z&HW-CC-Expire=31536000000&HW-CC-Sign=EE49551C7B4F3B6964FFED26F03DE03076EF3C9C1E4292346ED51EDA95549E06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/U1M8qVUvQXO--pa2KLkWlQ/zh-cn_image_0000002749333222.png?HW-CC-KV=V1&HW-CC-Date=20260929T121706Z&HW-CC-Expire=31536000000&HW-CC-Sign=302AE394C796B30516E68AAF56CD9F39953529F2B1BBD23389AB4C7A8CF7C421)
 
 ### 应用事件订阅机制
 
@@ -44,7 +44,7 @@ HiAppEvent是系统为应用开发者提供的事件订阅和事件打点机制�
 
 HiAppEvent通过事件领域和事件名称关联应用事件，并通过addWatcher接口设置的回调方式将事件回调给应用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/W7DvX2ULSBGm80kkSUgjzg/zh-cn_image_0000002733274832.png?HW-CC-KV=V1&HW-CC-Date=20260917T084601Z&HW-CC-Expire=31536000000&HW-CC-Sign=2B7FBB87B07774964C2DF42B74F6425DB6DE00663D0961D1B3B6203D6DFB475D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/-pA7sYQPQO-TVpM83b4byg/zh-cn_image_0000002749493106.png?HW-CC-KV=V1&HW-CC-Date=20260929T121706Z&HW-CC-Expire=31536000000&HW-CC-Sign=5BF6E9631D975E52BF55CB74B97D281FBD5CA985ED056187BDE101834997F8EE)
 > 说明
 >
 > 若应用已订阅到相关事件，但在触发回调前应用退出，则未回调的事件会在应用下次启动调用addWatcher后进行回调。例如订阅崩溃事件场景，在应用崩溃退出后，下次启动调用addWatcher后执行事件回调。

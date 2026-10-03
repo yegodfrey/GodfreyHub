@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_youhua_dpa05-000
 
 DPA功能涉及商品库对接、Marketing API对接、创意模板开发等对接及开发，大致可分为对接准备、权限申请及接口对接、广告投放三个环节，具体流程如下所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/1gb_IjN0SpuIhuuQ_f3yjw/zh-cn_image_0000001932970625.png?HW-CC-KV=V1&HW-CC-Date=20260918T093102Z&HW-CC-Expire=31536000000&HW-CC-Sign=6B92767F6828FB9DA0D91AFE102BFDD0B2723F7949201B5F87E5195DC7E1F8FD "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/1gb_IjN0SpuIhuuQ_f3yjw/zh-cn_image_0000001932970625.png?HW-CC-KV=V1&HW-CC-Date=20260928T100504Z&HW-CC-Expire=31536000000&HW-CC-Sign=837E5E0988003DD20E5BD4C9256AD8F636B7F8522DF0922DA99CDF6789E2B264 "点击放大")
 
 ## 流程说明
 

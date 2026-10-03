@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/learn-guidance-0000001
 
 在这里，将为您介绍怎么高效学习华为主题的整体业务，能找到合适的业务去输出产物。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/D9-k4KaWRAiUvLEXeuYQYQ/zh-cn_image_0000001074050075.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=27E0523CC5E507360F05574A375E9F70B7F3DABACDA1632BAD61733BB0748044 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/D9-k4KaWRAiUvLEXeuYQYQ/zh-cn_image_0000001074050075.jpg?HW-CC-KV=V1&HW-CC-Date=20260924T094630Z&HW-CC-Expire=31536000000&HW-CC-Sign=45A640DFE1A5437FA26CC741A58F21993E91691350670AC7F018022E626D74AB "点击放大")
 
 ## 1. 入门级
 
@@ -25,7 +25,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/learn-guidance-0000001
 
 您只需要设计一张图就可以完成壁纸的制作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/ngJxuJdVTL2UKxNvJLHcQA/zh-cn_image_0000001074169969.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=D92EADACB5C821457E09E3C93E5D4B3EE56EE31B953C49FE4752858C1DD1D48D "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/ngJxuJdVTL2UKxNvJLHcQA/zh-cn_image_0000001074169969.jpg?HW-CC-KV=V1&HW-CC-Date=20260924T094630Z&HW-CC-Expire=31536000000&HW-CC-Sign=5EEFE1D5A3CDDCBF864B540CA163A178458ADF8FA6411DAEF0163D986758365C "点击放大")
 
 学习建议：
 
@@ -39,7 +39,7 @@ c. 如果你想知道怎么上传壁纸 ，可查看[上传指南](https://devel
 
 动态壁纸是具备特殊动效的壁纸，创意新颖。用户可在华为主题App里的动态壁纸栏目里挑选自己喜欢的动态壁纸，并可购买或免费下载，设置成自己手机的锁屏界面或者桌面背景，使手机更具有趣味性。华为主题目前已上线海量精品动态壁纸。您只需要准备一个MP4文件就可以制作动态壁纸了。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/IBBhc1RSRRyutpJ-ovFU0A/zh-cn_image_0000001077494856.gif?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=24F4D207A4E5D6A924ACF46AFD70EDA362F3B436D2B35BA4CA4BAA1FF10BF1BC "点击放大") ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/e9aN7zivRfajSixhHsd09Q/zh-cn_image_0000001077654462.gif?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=273398091385C639DEE267F42A6DE0C1F332EE608B1709F3A8B1899392B2969B) ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/HoKoeLxnRkqLw-poxVtFWQ/zh-cn_image_0000001092790227.gif?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=93E4C1E3A20786AA89D21089A792D3C5BFFA1FB8F0F05971118274506ECC2D8C) ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/IaY59MsmQAqvUAXGnFQGuw/zh-cn_image_0000001077814438.gif?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=FD20BB70C6BFC9F891F341E4884375D33AEEBA6B0F01D694563DA9BD44EE2C56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/IBBhc1RSRRyutpJ-ovFU0A/zh-cn_image_0000001077494856.gif?HW-CC-KV=V1&HW-CC-Date=20260924T094630Z&HW-CC-Expire=31536000000&HW-CC-Sign=D980F6A517199794FC5D21A14B2012F91BDB715CDEB90339816106849B6E9E77 "点击放大") ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/e9aN7zivRfajSixhHsd09Q/zh-cn_image_0000001077654462.gif?HW-CC-KV=V1&HW-CC-Date=20260924T094630Z&HW-CC-Expire=31536000000&HW-CC-Sign=FEE4945A603D8C531EE548F77439964D552F6ACA59EF4190EAB188C1133ADAC5) ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/HoKoeLxnRkqLw-poxVtFWQ/zh-cn_image_0000001092790227.gif?HW-CC-KV=V1&HW-CC-Date=20260924T094630Z&HW-CC-Expire=31536000000&HW-CC-Sign=6D7044A579FB9E553A33E7A0FCD4E8E1CE636ABD33D46889AC97E63FA88C8A59) ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/IaY59MsmQAqvUAXGnFQGuw/zh-cn_image_0000001077814438.gif?HW-CC-KV=V1&HW-CC-Date=20260924T094630Z&HW-CC-Expire=31536000000&HW-CC-Sign=C7D4AA7E5633D9B51F4578BC1AB1BD63B23A3A6FF4439D8203A01C6C8AE7CAE8)
 
 学习建议：
 
@@ -67,7 +67,7 @@ AOD熄屏显示是用图片设计成熄屏显示，点亮时间和通知，方�
 
 您只需要设计时间/时钟图片/一张背景图就可以完成AOD的制作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/bUfHdCeGQNO5ELu1HkjbQg/zh-cn_image_0000001075052316.png?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D9BD0449837794E94033EBF772018A24736A75C42F8230944C1F9AD158C7FB8 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/bUfHdCeGQNO5ELu1HkjbQg/zh-cn_image_0000001075052316.png?HW-CC-KV=V1&HW-CC-Date=20260924T094630Z&HW-CC-Expire=31536000000&HW-CC-Sign=63EE0384D08DFC4FCCEA098ED3A7C2E041F3DB64E2AA7013016DCA91F06BF3DE "点击放大")
 
 学习建议:
 
@@ -93,7 +93,7 @@ AOD熄屏显示是用图片设计成熄屏显示，点亮时间和通知，方�
 
 您需要提前设计好锁屏图片，壁纸，图标，气泡等资源，设计好后就可以导入手机主题工具快速制作手机主题了。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/ehCmCPpZROivmEFPS2JnXg/zh-cn_image_0000001075530262.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B36F064123E7A8CA93C80232007C3653D52FBD14AA19A70813D34F98100DAA2 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/ehCmCPpZROivmEFPS2JnXg/zh-cn_image_0000001075530262.jpg?HW-CC-KV=V1&HW-CC-Date=20260924T094630Z&HW-CC-Expire=31536000000&HW-CC-Sign=14805F2AEF6AA65F628A944547FF9A1369B236E6E13A20FEFF9C48DEA0166A1F "点击放大")
 
 手机主题根据EMUI系统可分为：
 
@@ -116,7 +116,7 @@ d. 如果你想知道怎么上传手机主题，可查看[上传指南](https://
 
 表盘主题是对华为系列手表以及手环界面进行美化设计。用户可在华为运动健康App里的表盘市场栏目里挑选自己喜欢的主题，购买或者免费下载，并应用在自己的手表或者手环上，为表上显示的信息多样化，并具有设计性。目前已上线海量精品表盘主题，为用户提供个性化选择。您需要提前设计好背景图，指针，时间切图等，设计好后这些资源就可以导入表盘工具快速制作表盘主题了。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/LZs1rnyjSyejPRMKIgDZtA/zh-cn_image_0000001077654650.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T081232Z&HW-CC-Expire=31536000000&HW-CC-Sign=929D12565CBC7F596061191FB751306248A055A988720050590DACEAD8384949 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/LZs1rnyjSyejPRMKIgDZtA/zh-cn_image_0000001077654650.jpg?HW-CC-KV=V1&HW-CC-Date=20260924T094630Z&HW-CC-Expire=31536000000&HW-CC-Sign=AA4B253ED32DC1A490EAA2B8AF3BDA9CE5CE2A2531EE0069B0DAD3457BA00676 "点击放大")
 
 表盘现在分为：
 

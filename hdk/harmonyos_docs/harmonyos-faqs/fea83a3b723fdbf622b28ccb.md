@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-share-1
 
 应用内点击分享，可通过华为分享将页面链接分享到其他华为手机，但是在手机收到的就是一个链接文字，而且只有WPS能打开，并不能跳转应用市场下载该应用，从应用内打开页面，方便阅读。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/krC7A31lR9WAPPPminLUdQ/zh-cn_image_0000002628554414.png?HW-CC-KV=V1&HW-CC-Date=20260920T112702Z&HW-CC-Expire=31536000000&HW-CC-Sign=3EEF5658DE24EDAB150F66A50B0D83B484309A3BAAC787FB928BAEE9CD3C3F52 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/krC7A31lR9WAPPPminLUdQ/zh-cn_image_0000002628554414.png?HW-CC-KV=V1&HW-CC-Date=20260929T032806Z&HW-CC-Expire=31536000000&HW-CC-Sign=EA3C25DE88312EEC43B46144181CA14B9F6EB7539329BD47A7D339AB273D8465 "点击放大")
 
 ## 背景知识
 

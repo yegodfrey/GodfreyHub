@@ -9,17 +9,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/bp-functions-target-
 ## 进入定向管理页面
 
 1. 登录[华为应用市场应用推广平台](https://ads.huawei.com/cn/)。
-2. 点击"工具"页签，在"投放辅助"中选择"应用推广定向管理"，进入"应用推广定向管理"页面。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/4RRhHIrySRyqSpeti6_ePg/zh-cn_image_0000002525057180.png?HW-CC-KV=V1&HW-CC-Date=20260918T084031Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E1EC1E54D861BDDF4A8A398CECAFEB4A4B37467F371DEFDC397BE3B987C0D83 "点击放大")
+2. 点击"工具"页签，在"投放辅助"中选择"应用推广定向管理"，进入"应用推广定向管理"页面。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/4RRhHIrySRyqSpeti6_ePg/zh-cn_image_0000002525057180.png?HW-CC-KV=V1&HW-CC-Date=20260929T074631Z&HW-CC-Expire=31536000000&HW-CC-Sign=169DF61BF5CC9BD18667FF3D10047BC68E4EE4ADC9CA2B212785DD99E617A3E8 "点击放大")
 
 ## 创建定向
 
 点击"新建定向"，选择创建定向包的方式。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/XKXSw49HR4CvSOjT5zvVwg/zh-cn_image_0000002556097571.png?HW-CC-KV=V1&HW-CC-Date=20260918T084031Z&HW-CC-Expire=31536000000&HW-CC-Sign=F8AFF080D6F7FEE867BEBB08291CF631513874BAFD980C9209AB0BAD583EB74E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/XKXSw49HR4CvSOjT5zvVwg/zh-cn_image_0000002556097571.png?HW-CC-KV=V1&HW-CC-Date=20260929T074631Z&HW-CC-Expire=31536000000&HW-CC-Sign=1F0E52C33C5369CCC11E4BF3BE60A03A7291BD9517825F11B828447438C30113 "点击放大")
 
 ### 标签新建
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/EgyynH2SRVuP5MmbQYgr_g/zh-cn_image_0000002524897706.png?HW-CC-KV=V1&HW-CC-Date=20260918T084031Z&HW-CC-Expire=31536000000&HW-CC-Sign=ED4B05E67F257DA1F93000BB80CF3BE260AEAE94DD5DC1DD3115914AAC270C36 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/EgyynH2SRVuP5MmbQYgr_g/zh-cn_image_0000002524897706.png?HW-CC-KV=V1&HW-CC-Date=20260929T074631Z&HW-CC-Expire=31536000000&HW-CC-Sign=C99EA8C0FDBABD7E04B557D46B34249DA614CD428D7B53BDEBE3EED034E3A99B "点击放大")
 
 点击"创建"，随即保存在定向管理页中。
 
@@ -44,7 +44,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/bp-functions-target-
 
 开发者可以自行上传设备OAID列表创建定向包。勾选：换机场景拓展覆盖，表示把换机、同账号的所有设备号，也加到该定向包中。由于隐私合规的原因，文件上传方式创建人群包，不再支持使用IMEI设备号，请使用OAID设备号。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/U4g66kdjSxecd7H-SNBnfg/zh-cn_image_0000002555977603.png?HW-CC-KV=V1&HW-CC-Date=20260918T084031Z&HW-CC-Expire=31536000000&HW-CC-Sign=DF27389C936BF8A442DAC9E3153870D35A5BE90522C00DC41FAC9396678E61D4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/U4g66kdjSxecd7H-SNBnfg/zh-cn_image_0000002555977603.png?HW-CC-KV=V1&HW-CC-Date=20260929T074631Z&HW-CC-Expire=31536000000&HW-CC-Sign=B12F126F434FDB704A8B75E7B33875DBB3D5069C9DD5CDB17E0E1C67200FA378 "点击放大")
 
 1. 点击"OAID(SHA256加密)"页签。 注意
    > * 必须在上传文件前，点击 "OAID(SHA256加密)"页签，以便系统将文件类型传递给后端数据处理模块。
@@ -60,7 +60,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/bp-functions-target-
 
 ### 用户行为
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/kjAm24xcQ_iYp5BbbeQljA/zh-cn_image_0000002525057654.png?HW-CC-KV=V1&HW-CC-Date=20260918T084031Z&HW-CC-Expire=31536000000&HW-CC-Sign=567D0E549458553AF3D2EC712B6BEDE4C807C97E674C209D126CAFA494E319CF "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/kjAm24xcQ_iYp5BbbeQljA/zh-cn_image_0000002525057654.png?HW-CC-KV=V1&HW-CC-Date=20260929T074631Z&HW-CC-Expire=31536000000&HW-CC-Sign=98B4181FEE1F967538FD9B83F85B784EB019673139FF41805B21E2C9986CAD47 "点击放大")
 
 具体设置项说明如下表。
 
@@ -79,13 +79,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/bp-functions-target-
 
 如果进入页面时，界面弹出如下弹框，则表示当前您的账号下没有转化数据的数据源，则需要完成转化数据回传功能。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/spWeoTx0Rj2tYVsQqHUhag/zh-cn_image_0000002556097573.png?HW-CC-KV=V1&HW-CC-Date=20260918T084031Z&HW-CC-Expire=31536000000&HW-CC-Sign=DE26B589C7E2BAACD739D79B1215D787B9C02818C2F106E8A485B8EF020C02E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/spWeoTx0Rj2tYVsQqHUhag/zh-cn_image_0000002556097573.png?HW-CC-KV=V1&HW-CC-Date=20260929T074631Z&HW-CC-Expire=31536000000&HW-CC-Sign=E11B49A830FBA377791DA024FA654B9040927B90E06CA8E0D8CC66E15CC55217)
 
 ### 交并差计算
 
 您可选择自己创建并保存或者运营人员提前创建的已有定向包，添加至"包含以下人群包"或者"排除以下人群包"的框中，并选择每个框内定向包之间的组合方式。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/8afq69DXSZW5KuJdcWIn3w/zh-cn_image_0000002524897708.png?HW-CC-KV=V1&HW-CC-Date=20260918T084031Z&HW-CC-Expire=31536000000&HW-CC-Sign=8F489B9AE13DE788047A064717196C941DE5643138098B6AA05F33C6805A2FBE "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/8afq69DXSZW5KuJdcWIn3w/zh-cn_image_0000002524897708.png?HW-CC-KV=V1&HW-CC-Date=20260929T074631Z&HW-CC-Expire=31536000000&HW-CC-Sign=2B044D88E4CA95DA3203F37CA46321F3F4AE29FE149625FE7D77405F2692D421 "点击放大")
 
 ### 智能扩展
 
@@ -94,7 +94,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/bp-functions-target-
 >
 > 智能扩展暂不支持交并差计算的能力。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/rAGE_djGTmy98HGhD29bVg/zh-cn_image_0000002555977607.png?HW-CC-KV=V1&HW-CC-Date=20260918T084031Z&HW-CC-Expire=31536000000&HW-CC-Sign=4323D5CEB0CB0C0D74F78BCF660A2997D7A02D09B3E3106DBEAD0643BE8F44E3 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/rAGE_djGTmy98HGhD29bVg/zh-cn_image_0000002555977607.png?HW-CC-KV=V1&HW-CC-Date=20260929T074631Z&HW-CC-Expire=31536000000&HW-CC-Sign=B63A3D2FD56493FB2E1E9907A560923590215A18DE83C90CFFA005D9C57B8D2E "点击放大")
 
 智能扩展定向填写说明：
 

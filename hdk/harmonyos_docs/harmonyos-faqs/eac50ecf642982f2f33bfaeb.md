@@ -96,7 +96,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1450
 
   效果图如下：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/yyRFoPfzT8-pK-a7VPHtug/zh-cn_image_0000002658843529.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=D2E2EC5F52EE374B51EC405F7CA82550857545B3CF525C042D878A712D2D6D9D "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/yyRFoPfzT8-pK-a7VPHtug/zh-cn_image_0000002658843529.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=9C45BBA56FF14CC9AE0C31AEBFB86510D04E5F49D887E04C3815321D97D07F18 "点击放大")
 * 方案二：在entry页面的根组件下设置透明度属性opacity，实现当前页面整体透明度变化，示例代码如下：
 
   ```ts
@@ -124,7 +124,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1450
 
   效果图如下：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/Ci_DsSBxQRmoBpBa0KEbRA/zh-cn_image_0000002628764162.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=7316CAA1B1595239DD030C881CD1EA099E3AB0EE7CB20AC46B29DF0E9DB04C28 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/Ci_DsSBxQRmoBpBa0KEbRA/zh-cn_image_0000002628764162.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=8D3B69E085FA71828FA9F78F24158AA800718996A6FAB7583F296FDFF23C4A16 "点击放大")
 * 方案三：由于官方已不推荐使用@ohos.router页面路由，建议使用Navigation完成页面跳转，可以通过NavDestination组件中的NavDestinationMode.DIALOG来设置透明，实现拉起弹窗的全透明效果，使用说明具体如下：
 
   |名称|值|说明|
@@ -195,7 +195,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1450
 
   效果图如下：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/Vgl98R4iQWWBIWYUuKU2Pg/zh-cn_image_0000002658963481.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=13AF5E69B492C58DCD18AD15FA8FF2901CB12412FD7BF9443B002BF0845AE86F "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/Vgl98R4iQWWBIWYUuKU2Pg/zh-cn_image_0000002658963481.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=1A9D842725408935865E33DD9D6DB1D682D0B84F3EE6F6C05B2242A5487CCD77 "点击放大")
 * 方案四：A页面弹出B页面，将B页面作为一个子窗口加载并设置其组件背景为半透明，可以看到A页面内容。 示例代码如下：
 
   页面A代码实现：
@@ -288,7 +288,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1450
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/uCCSohPnQy6Wlko-Lw4wbg/zh-cn_image_0000002628604262.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=CC09BF08B1B9DD98E64B760E8EF40DEAC5F6B0AD458990D5FAF011619A463F77 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/uCCSohPnQy6Wlko-Lw4wbg/zh-cn_image_0000002628604262.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=61AEC4C80D664E7172AFE71D9F13E0AA659153209E7ABDABA9678D92CFF28BB3 "点击放大")
 
 ### 场景二
 
@@ -345,7 +345,7 @@ struct ScrollExample {
 
 效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/vtqAUzdYRrGJyyiswQ_TNQ/zh-cn_image_0000002658843531.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=2C8EDA3309EA852BF58818DFD79B9C25C9A2A8CFC9A5FA2304D7DCEFFFD14C66 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/vtqAUzdYRrGJyyiswQ_TNQ/zh-cn_image_0000002658843531.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=B3B10DBCCE6EEF4B038FECC2B924AB1A78C834D1ED6F481FECDFF4A3DABA80D6 "点击放大")
 
 ## 常见FAQ
 

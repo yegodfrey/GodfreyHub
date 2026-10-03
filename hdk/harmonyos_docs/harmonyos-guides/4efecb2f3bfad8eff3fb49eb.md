@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-acce
 
 基于OpenGL ES图形API平台，超帧外插模式的主要业务流程如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/fnX2M9O0QtidSW_OozYJig/zh-cn_image_0000002733275116.png?HW-CC-KV=V1&HW-CC-Date=20260917T084545Z&HW-CC-Expire=31536000000&HW-CC-Sign=F4D5D65428204136FD8D3D99F28E26A1EE153FB3461E5672DDA2C1F88A2CF821)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/4GIcX5OJTsS220276xHhCQ/zh-cn_image_0000002749493380.png?HW-CC-KV=V1&HW-CC-Date=20260929T121648Z&HW-CC-Expire=31536000000&HW-CC-Sign=08C74B92A138F27CD38FC04EFC4CC2CF6E32BFB300D3CE4680BE9668CC334373)
 
 1. 用户进入超帧适用的游戏场景。
 

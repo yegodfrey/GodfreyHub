@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-895
 
 问题效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/vekZBIQ5RqOsRB0s_UjIXQ/zh-cn_image_0000002658918867.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=64FBB4D1C4990A9042464B31D2707D2B4EE28D14E8939DFCC8F44D7C0AC25677 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/vekZBIQ5RqOsRB0s_UjIXQ/zh-cn_image_0000002658918867.png?HW-CC-KV=V1&HW-CC-Date=20260929T074340Z&HW-CC-Expire=31536000000&HW-CC-Sign=59FAFC51B35A8C9C10556B45EF0E41B3D7EF1AB31DF3DFAD4F1FBDE653A0287D "点击放大")
 
 ## 背景知识
 
@@ -81,7 +81,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-895
 
    效果预览：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Wl3jZ8E6RfmIkhD35-GEsQ/zh-cn_image_0000002628399650.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=F794826ABBDF4EB1192CC4E37562714EEC83A03AFFBE2024A496B632C465AC36 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Wl3jZ8E6RfmIkhD35-GEsQ/zh-cn_image_0000002628399650.png?HW-CC-KV=V1&HW-CC-Date=20260929T074340Z&HW-CC-Expire=31536000000&HW-CC-Sign=0BBC3EC30CE69A2CF1BA7BF8C2A3585F4E41F33BAC801E8F3B6E4482C2082119 "点击放大")
 2. 如果Span组件是一组公共的特性，则可以通过@Builder装饰器把公共的部分抽取出来。
 
    ```ts
@@ -137,7 +137,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-895
 
    效果预览：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/okcsi1iGQ-6LJVVOisumwA/zh-cn_image_0000002658798917.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8292F7B9962B6C93F99B20F1350C9560EA19F76BE59927DAD60033FA32EE686 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/okcsi1iGQ-6LJVVOisumwA/zh-cn_image_0000002658798917.png?HW-CC-KV=V1&HW-CC-Date=20260929T074340Z&HW-CC-Expire=31536000000&HW-CC-Sign=FB992FC7AE53F12F1AC7EE5BE5AC7D79EFB186F2D7DFC364606C73A0A4D612E4 "点击放大")
 3. 如果需要使用自定义组件，应该选择支持自定义子组件的组件，比如Column组件。
 
    ```ts
@@ -200,7 +200,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-895
 
    效果预览：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/zOcuOjfhQWuPgnUyaaBuxg/zh-cn_image_0000002628559556.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=2F0C73BD3757BB7EE3DD5F2DAC6A3C78ACFBD18814DA7B173CFDC30E2690AD86 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/zOcuOjfhQWuPgnUyaaBuxg/zh-cn_image_0000002628559556.png?HW-CC-KV=V1&HW-CC-Date=20260929T074340Z&HW-CC-Expire=31536000000&HW-CC-Sign=498E3AFC64E176CAA187E0E59D3750B400E4FFA690D5CADCCC24DDCAFCB393FD "点击放大")
 
 ## 总结
 

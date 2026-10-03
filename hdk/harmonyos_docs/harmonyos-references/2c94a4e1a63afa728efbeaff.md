@@ -321,7 +321,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### Extend
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/oQGo_dHCTI2QBj-__8PurA/zh-cn_image_0000002733277544.png?HW-CC-KV=V1&HW-CC-Date=20260917T084622Z&HW-CC-Expire=31536000000&HW-CC-Sign=0B330EB3C0987C43C00C5089717CC1E168100F4CD2A781681D4E5133E89EF510)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/LIt7nlyTRc-Eaf_gYp0Q_g/zh-cn_image_0000002778935125.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=8D7700EF871E91638B9E04AD090D5817200360D3E05854138FD78C9F572F1226)
 
 * 1 实况卡片辅助区类型，对应type字段：
   * 当辅助区类型为1时，辅助区显示普通文本，使用API字段text传入文本内容。
@@ -340,7 +340,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### Game
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/pFEC70OORQSF5Ge7j21VLg/zh-cn_image_0000002733437416.png?HW-CC-KV=V1&HW-CC-Date=20260917T084622Z&HW-CC-Expire=31536000000&HW-CC-Sign=A90AB97658C2649D7A998958E5C8FF936C5032DC1D372873F5FCF6A6DBA954A4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/5vPmmEiKSdSmkwMQuGjRqg/zh-cn_image_0000002749336040.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=62CFAC2A2FC267E75F8BEEB04A1AF7F78855B1D20DB8FA102760D63C37035003)
 
 * 1 左侧队伍名称，对应host中的[name](#team)字段。
 * 2 左侧队伍图标，对应host中的[icon](#team)和[iconUrl](#team)字段。
@@ -387,10 +387,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 |图示|说明|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/8ZJGAauzSBig3F4n_twvhg/zh-cn_image_0000002762996939.png?HW-CC-KV=V1&HW-CC-Date=20260917T084622Z&HW-CC-Expire=31536000000&HW-CC-Sign=B90B94C65532E6E9E6965A357F9DF4F108E4EE148D05B0FEB845971C091E9D87)|定义实况胶囊基本属性的基类： · 1 胶囊布局类型，对应type字段。 · 2 实况胶囊的图标，对应icon和iconUrl字段。 · 3 实况胶囊的尾部图标，对应tailIcon和tailIconUrl字段。 · 4 实况胶囊副文本是否展示，对应isContentDisplayed字段。 · 5 实况胶囊尾部图标是否展示，对应isTailIconDisplayed字段。|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/fyVTvL5pRJag_eW3XFdHiQ/zh-cn_image_0000002762837057.png?HW-CC-KV=V1&HW-CC-Date=20260917T084622Z&HW-CC-Expire=31536000000&HW-CC-Sign=05C846F89C2741CBD8CFDC6373488BC156C0DD3294D04D5943FB8CEAAE52EDF2)|type为1时展示该内容： · 1 胶囊状态主文本，对应title字段。 · 2 胶囊内容，对应content字段。|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/zD3QyKtjSmalVu4u1xxpIQ/zh-cn_image_0000002733277546.png?HW-CC-KV=V1&HW-CC-Date=20260917T084622Z&HW-CC-Expire=31536000000&HW-CC-Sign=DB6358938C2953293514BA9DB704E0097BCED02B9969F5DDEE991246D3FD7F0E)|type为2时展示该内容： · 1 胶囊内容，对应content字段。 · 2 胶囊计时器初始值，对应capsuleTimer中的[time](#capsuletimer)字段。 · 3 是否倒计时显示计时器，对应capsuleTimer中的[countDown](#capsuletimer)字段。 · 4 胶囊计时器是否暂停，对应capsuleTimer中的[pause](#capsuletimer)字段。|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/RaXtpEerQMGpmrjafiMfTg/zh-cn_image_0000002733437418.png?HW-CC-KV=V1&HW-CC-Date=20260917T084622Z&HW-CC-Expire=31536000000&HW-CC-Sign=429A508F6DBCFA6032A5808C3EBA0A05213CD531591CEF5DBD62B65D1A1C05E6)|type为3时展示该内容： · 1 进度最大值，对应progress中的[max](#progress)字段。 · 2 进度当前值，对应progress中的[progress](#progress)字段。 · 3 进度显示类型，对应progress中的[indeterminate](#progress)字段。 · 4 胶囊内容，对应content字段。|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/L2uneXX0TNCyJkes5pjUQw/zh-cn_image_0000002749495926.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=F556075AF4C2A004EAE1BF146F67E04883E898D59EB5F4D8E92A7B2534F158C8)|定义实况胶囊基本属性的基类： · 1 胶囊布局类型，对应type字段。 · 2 实况胶囊的图标，对应icon和iconUrl字段。 · 3 实况胶囊的尾部图标，对应tailIcon和tailIconUrl字段。 · 4 实况胶囊副文本是否展示，对应isContentDisplayed字段。 · 5 实况胶囊尾部图标是否展示，对应isTailIconDisplayed字段。|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/0Byj9bIZQrWh6iMpSjOqjA/zh-cn_image_0000002779094981.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=ECF4CD6A3F963999C22C7F34F73584BCF8E558C582BB260E891B2EB25F548539)|type为1时展示该内容： · 1 胶囊状态主文本，对应title字段。 · 2 胶囊内容，对应content字段。|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/HJcgtdxUQEiCKivoXcP16g/zh-cn_image_0000002778935127.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=4FB9CDC9D7525CAF4953A829BFE7150E626F82F8D8739C0C9E2FDE3CFB2EF44A)|type为2时展示该内容： · 1 胶囊内容，对应content字段。 · 2 胶囊计时器初始值，对应capsuleTimer中的[time](#capsuletimer)字段。 · 3 是否倒计时显示计时器，对应capsuleTimer中的[countDown](#capsuletimer)字段。 · 4 胶囊计时器是否暂停，对应capsuleTimer中的[pause](#capsuletimer)字段。|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/bKKLSwG4RfeuzmQZnTb5JQ/zh-cn_image_0000002749336042.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=418FE7BCAD0754EF46568D74F8D0271630C9CFE6A75BD6E5B884940CFA252D09)|type为3时展示该内容： · 1 进度最大值，对应progress中的[max](#progress)字段。 · 2 进度当前值，对应progress中的[progress](#progress)字段。 · 3 进度显示类型，对应progress中的[indeterminate](#progress)字段。 · 4 胶囊内容，对应content字段。|
 
 |参数|是否必选|参数类型|描述|
 |:------------------|:---|:-----------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -419,7 +419,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### SingleTextBlock
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/6lDbRGl4TOeTe50zf9EHsQ/zh-cn_image_0000002762996941.png?HW-CC-KV=V1&HW-CC-Date=20260917T084622Z&HW-CC-Expire=31536000000&HW-CC-Sign=76DCBAAA729D8A434999F299739A7E027FD598D7CA5A11211765E870EFCFDBA1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/hruhIW3STfWnihCJsi7CqA/zh-cn_image_0000002749495928.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=2C50D623A2D7C8A2750455A784409F4E585AFC7E0C31A1AD8DE6CC8E5F72DD99)
 
 * 1 辅助标记文本，对应firstLine字段。
 * 2 强调文本内容，对应secondLine字段。
@@ -434,7 +434,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### FirstTextBlock
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/jDazOrw-TCCvN012LWlRQQ/zh-cn_image_0000002762837059.png?HW-CC-KV=V1&HW-CC-Date=20260917T084622Z&HW-CC-Expire=31536000000&HW-CC-Sign=8A9D69060956759EABD6352866C38F1F2BE476B03E3A4F4153766DDF4C8BC1F1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/0JeUL3teQMeIMQ6bihcDoA/zh-cn_image_0000002779094983.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=86C93AC361D1319D2F73AE8736C123F220AE29EC209EE127CCDAAF1A5EEE6E59)
 
 * 1 左侧首行文本，对应firstLine字段。
 * 2 左侧次行文本内容，对应secondLine字段。
@@ -449,7 +449,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### LastTextBlock
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/3fMAGDKzQF-KiPlKDZo1mQ/zh-cn_image_0000002733277548.png?HW-CC-KV=V1&HW-CC-Date=20260917T084622Z&HW-CC-Expire=31536000000&HW-CC-Sign=3FD95628A503B94DEDBEBC8DB9EE22C8BF14492502BA06C4AF4219D0ED2528F5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/ZNqE_vw_QmuwAXoZyBop6Q/zh-cn_image_0000002778935129.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=1714B65DE04A8E472EC0CB45F8D0F8F6A141154F6B69CBE66C234FEFEAC9FB40)
 
 * 3 右侧首行文本，对应firstLine字段。
 * 4 右侧次行文本内容，对应secondLine字段。
@@ -469,7 +469,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### RichProgress
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/w_p7c7stT5yO_nJMHKFEVQ/zh-cn_image_0000002733437420.png?HW-CC-KV=V1&HW-CC-Date=20260917T084622Z&HW-CC-Expire=31536000000&HW-CC-Sign=7060B24BA960059FD00C63ACD9BDBE58A1DC64AB1CE5D6C33E964EB0D9094413)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/rk-2umOLRfC8h1fcJniu4w/zh-cn_image_0000002749336044.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=63BCD7B545064500443A7AF27736C9E2FE37097BBFE8338BB7C718B3DDF1A361)
 
 * 1 进度百分比，对应progress字段。
 * 2 进度指示器左侧的进度点及节点图标的颜色，对应color字段。
@@ -497,7 +497,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### ExternalData
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/lEMSquFsT_OCLRl1CZd8VQ/zh-cn_image_0000002762996943.png?HW-CC-KV=V1&HW-CC-Date=20260917T084622Z&HW-CC-Expire=31536000000&HW-CC-Sign=503B99E0FF123731042A64D9D9DCDF1A023E925C8A1A4B3030E59E7EAB75960F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/KqACdWDGT5e-riXIkpRiUA/zh-cn_image_0000002749495930.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=D2828D3D49717229B077205AA65D39366AFEA803E23C2BFB621C34E0A14528B6)
 
 * 1 自定义的外屏通知标题，对应title字段。
 * 2 自定义的外屏通知内容，对应body字段。

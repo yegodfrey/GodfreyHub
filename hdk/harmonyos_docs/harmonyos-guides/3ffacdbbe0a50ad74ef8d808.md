@@ -187,11 +187,11 @@ struct WebComponent {
 
    **图1** Web组件网页默认软键盘避让模式
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/MhjNLAEGTAmnwyB_FkAsvA/zh-cn_image_0000002733274444.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=C10823D12F049E2E331F954660BD42A0AF03544991DF7F97C6D51D23EEEBBA4A)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/gGUQs2ALRjaCeSoNvl-iWA/zh-cn_image_0000002749492726.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=11F5ABEDD3D226BE464AC0FAA9709E56432CA99141806FD986542E9E4DFB4A18)
 
    **图2** Web组件网页跟随ArkUI软键盘避让模式
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/4Wdo55s6Q9G8z-rupiQ5kg/zh-cn_image_0000002733434326.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=6CBAC9875488413206808625106F5CD8C16E8B848C3CE42EC616B739AC7C074B)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/S9p88abNSKa0ffO-Gk6rrQ/zh-cn_image_0000002779091785.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=6DA4FC2537ADCC3F553643806DB1E27AADA685BF7F79B8C6278C294D96E1ABB7)
 2. 在UIContext的键盘避让模式为Offset模式时，应用可通过[WebKeyboardAvoidMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#webkeyboardavoidmode12)设置ArkWeb组件的键盘避让模式。Web组件的[WebKeyboardAvoidMode()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#webkeyboardavoidmode12)接口优先级高于W3C侧virtualKeyboard.overlayContent。
 
    * RESIZE_VISUAL：仅调整可视视口的大小，而不调整布局视口的大小。
@@ -233,7 +233,7 @@ struct WebComponent {
 
    **图3** Web组件网页自身软键盘避让模式
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/nZo1I7D6SL6jzF3c0vvrJg/zh-cn_image_0000002762993849.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=81660F27AB681B5944676AA41EA1093B6333C1FB7B856B4E46E6A10533E6DAA8)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/j9X-VOPASDG6pmXqk6659A/zh-cn_image_0000002778931927.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=E9C539C1E8E801A98FD4BE2EA620C2E841C7A4C8A5D44373FF9125C9007E15F2)
 3. 在软键盘弹出时，为使Web组件不发生避让行为，可通过调用[expandSafeArea()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-expand-safe-area#expandsafearea)设置Web组件扩展安全区域。更多详细示例可参考[网页中安全区域计算和避让适配](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-safe-area-insets)。
 
    ```ts
@@ -439,13 +439,13 @@ ArkWeb自定义键盘的示例效果如图4、图5和图6所示。
 
 **图4** ArkWeb自定义键盘数字键盘
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/4WEse2plSCm2t2CxuT_yow/zh-cn_image_0000002762833963.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=A003CBAF46BEA032CC09EDD87C6929FE6737E7F8910DA09F22FA9CD76CF7F333)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/fIAvfuifSiy5nUM-6ucMQQ/zh-cn_image_0000002749332844.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=34E3462B77C13F5E77730FCB608CECAF42B73A8DEA4900C08716656D37340BDD)
 
 **图5** ArkWeb自定义键盘字母键盘
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/qssLq3r3ScOsAb7iWWYL8Q/zh-cn_image_0000002733274446.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=26ED39A15FCE15CD4C18155C342CDFC38757935FB53CF8DDD704DF1FC8D295C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/Q3spVk1EQY-P6BFVA4sOKg/zh-cn_image_0000002749492728.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=3FCE3A28C5158C7B348ABE7DE03D81111ACCE383BEA32B30A93E657AE7C49479)
 
 **图6** ArkWeb自定义键盘符号键盘
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/AvvpnGuNQwm5gmcq_qKfjg/zh-cn_image_0000002733434328.png?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=666662FA4C35E55A32AB3789C5B79A73611AAAE63BD1368C74C8AFACC6C2C7EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/4mmsUzsuRTuyP978Exsn2w/zh-cn_image_0000002779091787.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=D22F125BACAB2A05477AD0F3F81DBD54A5021574D7067E0A1ABF7404E55FCB44)
 

@@ -10,7 +10,7 @@ Reader Kit的交互能力已经集成了手指点击和触摸滑动翻页，如�
 
 ## 业务流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/R3NUCItLSmKsMvzM9Lt36A/zh-cn_image_0000002762835089.png?HW-CC-KV=V1&HW-CC-Date=20260917T084551Z&HW-CC-Expire=31536000000&HW-CC-Sign=47388BD74806DDC6F6CCBE8F56CC01AECE049E4ED980E0B0CC1AF3EE5EC278E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/Jwfu93ymR5mk2LwzhVUAPA/zh-cn_image_0000002749333954.png?HW-CC-KV=V1&HW-CC-Date=20260929T121651Z&HW-CC-Expire=31536000000&HW-CC-Sign=1F4D3E91BF7D10731F953AE13EF6DA232D985B4A9456EA1ED95EADF863AB0C36)
 
 ## 接口说明
 

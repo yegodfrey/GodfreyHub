@@ -24,7 +24,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_toufang01-000000
 >
 > 3、一个账户下，计划、任务和创意每月的创建上限为50000、50000和250000；一个账户下总的未删除的计划、任务和创意数量上限分别为100000、100000和250000。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/H98euv4ZSBSbnDjQZRKM-w/zh-cn_image_0000002313593248.png?HW-CC-KV=V1&HW-CC-Date=20260918T093100Z&HW-CC-Expire=31536000000&HW-CC-Sign=4586FE8182E0831CAFE952907F982C5B9C4546D0954F3066F721AF43787896C2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/H98euv4ZSBSbnDjQZRKM-w/zh-cn_image_0000002313593248.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=C493B72CE9356FE81A72D50121BBA5DDBF64ED00728F53B772BA003EDB43FB34)
 
 * **计划**：在推广计划级别，您可以根据营销目标设置将您的哪类产品以何种广告形式投放到哪个广告网络，并为您的计划设置日预算。计划创建完成后，除计划名称和计划日预算外，其他设置不支持修改。
 * **任务**：在任务级别，您可以设置待推广的产品详情、投放类型、投放版位、投放时间、出价等，还可以设置地域、性别、年龄、设备、人群受众等定向条件。
@@ -32,7 +32,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_toufang01-000000
 
 ## 账户日预算
 
-您可以通过投放端首页进行广告账户日预算设置，用于控制广告账户的每日消耗。账户日预算生效时间可以选择当日生效和次日生效，日预算类型可以选择不限日预算和限定日预算。![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/kOrq8c81Rre9K88-gK9m2g/zh-cn_image_0000002313433484.png?HW-CC-KV=V1&HW-CC-Date=20260918T093100Z&HW-CC-Expire=31536000000&HW-CC-Sign=17A5EE7A62CE481B54DD07EFBC44563CC323F4794453BE46295278B99D723B3A "点击放大")
+您可以通过投放端首页进行广告账户日预算设置，用于控制广告账户的每日消耗。账户日预算生效时间可以选择当日生效和次日生效，日预算类型可以选择不限日预算和限定日预算。![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/kOrq8c81Rre9K88-gK9m2g/zh-cn_image_0000002313433484.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=EF57B0C1AC2E094BBF056D7CD91F170845E21C4CE5DBAFDE22634882FA3A69ED "点击放大")
 
 **账户日预算填写说明：**
 
@@ -48,9 +48,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_toufang01-000000
 
 1. 创建广告计划。
 
-   登录[鲸鸿动能广告平台](https://ads.huawei.com/usermgtportal/home/index.html#/)后，在首页单击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/gZw4NZAhQr2K51q1bOGLYA/zh-cn_image_0000002347472197.png?HW-CC-KV=V1&HW-CC-Date=20260918T093100Z&HW-CC-Expire=31536000000&HW-CC-Sign=10D16BD48DA3A3AE2E03CFD697E768C52596BF0543E1C8D0553FB511D8B75B0D)，选择"创建计划"，进行新计划创建。创建计划时，您可以设置采买模式、营销目标、计划类型、投放网络、推广产品、日预算及推广计划名称等信息。
+   登录[鲸鸿动能广告平台](https://ads.huawei.com/usermgtportal/home/index.html#/)后，在首页单击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/gZw4NZAhQr2K51q1bOGLYA/zh-cn_image_0000002347472197.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=B4489049D8CECEF54A2918D9C36C0EA77F0CD4EC7C38CF32885F13205B4AB1C6)，选择"创建计划"，进行新计划创建。创建计划时，您可以设置采买模式、营销目标、计划类型、投放网络、推广产品、日预算及推广计划名称等信息。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/h8Jc0Q_kQr6D4opnMs5mNw/zh-cn_image_0000002555791328.png?HW-CC-KV=V1&HW-CC-Date=20260918T093100Z&HW-CC-Expire=31536000000&HW-CC-Sign=60373C7DD2598CBF1E7C72739DBFD97CC1C9ABC3C6B737BD3236C47E66EBEE9D)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/h8Jc0Q_kQr6D4opnMs5mNw/zh-cn_image_0000002555791328.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=B05392A3007198512D5CDEAC1503B8DA155FEDC07A221B63AA4E66004744691C)
    * **采买模式** ：默认选择竞价模式，在终端用户每次发起广告请求时，您的广告需要和其它广告主的广告进行竞价，鲸鸿动能广告会按照竞价eCPM进行排序，eCPM高的任务会获得本次展示机会。其中合约广告需联系鲸鸿动能平台进行创建，详情请参考[简介](https://developer.huawei.com/consumer/cn/doc/promotion/ads-heyuejianjie-0000001789911665)。
    * **营销目标** ：您通过此广告希望达成的推广目的，选定营销目标后，系统会只展示支持此营销目标的计划类型和投放网络，并在投放过程中根据您的营销目标进行投放优化。
      * **应用推广**：吸引更多用户下载安装应用或促进应用用户活跃度。
@@ -111,7 +111,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_toufang01-000000
        * 多个时间段：如果您希望广告每天的投放时间都不同，以一周为维度，您可以在周一设置一段时间，周二设置一段时间，设置完成后，这一周将会以此时间段投放广告。
      * **出价：**按照竞价目标（曝光、点击、转化等），设置广告出价。
      * **任务名称**：设置一个清晰易懂的任务名称，方便您在广告账户中轻松找到这个任务，例如：任务类型+推广产品+推广国家+版位+出价方式。
-   * 如果您希望在已有的计划下增加新的任务，可以在首页单击 "创建"->"创建任务"，在弹出窗口中选择已有计划。新创建的任务将被添加到您选择的计划下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/ykD7rDeuSd-AHcqrUeEk-A/zh-cn_image_0000002313593252.png?HW-CC-KV=V1&HW-CC-Date=20260918T093100Z&HW-CC-Expire=31536000000&HW-CC-Sign=011038AF570DBF87F3418372ADFF9924608C4BC96EBF3D9F0A8438C78ED05CBF "点击放大")
+   * 如果您希望在已有的计划下增加新的任务，可以在首页单击 "创建"->"创建任务"，在弹出窗口中选择已有计划。新创建的任务将被添加到您选择的计划下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/ykD7rDeuSd-AHcqrUeEk-A/zh-cn_image_0000002313593252.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=5484CCB7A78D51E46234663A5FCC8CA095F7880AE7C42587024B8F2C86A8F1A4 "点击放大")
 
 3. 添加广告创意。
 
@@ -121,7 +121,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_toufang01-000000
 
 4. 单击提交，提交后会弹出预览您创建的创意信息，确认无误点击确认即可完成创意创建。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/wDeMMmcOTQ6PkPOlFXXnrA/zh-cn_image_0000002313433488.png?HW-CC-KV=V1&HW-CC-Date=20260918T093100Z&HW-CC-Expire=31536000000&HW-CC-Sign=98A0674EC6BD5E1BC46B990D408F9E4D7068053184B01F27D99372C26567DC2F "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/wDeMMmcOTQ6PkPOlFXXnrA/zh-cn_image_0000002313433488.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C636267E6AA13A1E866EFAB33E627226FEFB9DBD2F93FF52C4FD888B0DB5862 "点击放大")
 
 5. 提交创意审核，审核通过后，广告将会正常投放。
 

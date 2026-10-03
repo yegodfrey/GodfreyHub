@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/pdf_to_lon
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/8rikaGV_TiKGgWqtm4bKIw/zh-cn_image_0000002555507663.png?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=8FE270899EB723EF978F4D757095907092EA6EA1BE3006DDE74224EB30CE0C44 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/TNRrrWD2Su-lnWDPCnEz7w/zh-cn_image_0000002631150844.png?HW-CC-KV=V1&HW-CC-Date=20260924T062300Z&HW-CC-Expire=31536000000&HW-CC-Sign=138DCB1C1C3479A045F862C08CE832FA1EA1BB2E6F2611DD370862BF2F48F0FE "点击放大")
 
 ## 实现思路
 
@@ -169,7 +169,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/pdf_to_lon
 
 [Interface(PixelMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)
 
-## 代码下载
+## 示例代码
 
-[试题PDF转长图保存示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626163531.28109022695304020169917643803588:50001231000000:2800:5BB820B7CD6280A0843CC505F45B2F1F9D382897374B0271C09887F71841453D.zip?needInitFileName=true)
+[试题PDF转长图保存示例代码](https://gitcode.com/scenario_samples/Pdf2LongImage)
 

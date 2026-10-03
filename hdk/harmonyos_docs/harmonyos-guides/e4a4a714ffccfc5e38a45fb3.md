@@ -17,7 +17,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 
 ## 业务流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/ShYoEzu9RCeJ-Juk1nlbdg/zh-cn_image_0000002733434560.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084604Z&HW-CC-Expire=31536000000&HW-CC-Sign=10238E2EA1BF3881BB5F2662E982CC44EAC24068D1BA402FA3D6F96147273C50)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/R76oT2FFQj2mZJr0YoSWyA/zh-cn_image_0000002779092017.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121703Z&HW-CC-Expire=31536000000&HW-CC-Sign=8BEEB486405466ECD8EAC0CA656BAC54566123393F5F0838F9E95C509C20AE49)
 
 数字盾开通时，需由应用服务器、应用客户端、Universal Keystore Kit和Device Security Kit共同协作完成。流程如下：
 
@@ -44,7 +44,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 
 下图为开通数字盾服务时对应的TUI（Trusted User Interface）界面示例，其中密码长度、对应TUI应用图标以及当前应用场景说明均由开发者调用接口时传入，当设置盾密码长度不符合要求、密码强度低、两次密码设置不一致时，均会有对应失败报错提醒。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/YqrdY4gDTe2U418yLUu2Rg/zh-cn_image_0000002762994083.png?HW-CC-KV=V1&HW-CC-Date=20260917T084604Z&HW-CC-Expire=31536000000&HW-CC-Sign=587A5E0B19308921A6ED97426B7AD1CAD3E68489E5D36276AEF0A858DCC918FF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/VDMfNkFtRbKxpGiK-_i8ZA/zh-cn_image_0000002778932159.png?HW-CC-KV=V1&HW-CC-Date=20260929T121703Z&HW-CC-Expire=31536000000&HW-CC-Sign=F34890B2020FAF37E87F25AC9DE10600CB2D0D440A82131611F083147DA640A6)
 
 ## 开发步骤
 

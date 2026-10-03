@@ -85,29 +85,29 @@ CPT（Cost per Time）即按时长付费。
 
 华为应用市场应用推广围绕华为应用市场、云文件夹、浏览器、全局搜索、负一屏等场景构筑华为终端应用分发体系，推荐资源覆盖以下场景：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/lRnrZAE_QJyPKUFK1gyCeA/zh-cn_image_0000002598608421.jpg?HW-CC-KV=V1&HW-CC-Date=20260918T084030Z&HW-CC-Expire=31536000000&HW-CC-Sign=C2D839E60575D4A82FFF62757DC4FB1C12E6E217521E26B44D00B7E3F705AC54 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/lRnrZAE_QJyPKUFK1gyCeA/zh-cn_image_0000002598608421.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T074630Z&HW-CC-Expire=31536000000&HW-CC-Sign=8EE91CBDC6B46091FBCD18E314BB0F6E6024BFD09EAF9E58E702FF03CB78785D "点击放大")
 
 ### 搜索资源
 
 华为应用市场应用推广搜索资源覆盖搜索中、搜索后两大围绕搜索框产生搜索行为的场景。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/IP6ruMxPRfCdiA6gYtMhtA/zh-cn_image_0000002598447929.jpg?HW-CC-KV=V1&HW-CC-Date=20260918T084030Z&HW-CC-Expire=31536000000&HW-CC-Sign=9B08A0E981355DA5F180136F0112830A46CB8E1C87095EC7A41B774BC2A9BC4A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/IP6ruMxPRfCdiA6gYtMhtA/zh-cn_image_0000002598447929.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T074630Z&HW-CC-Expire=31536000000&HW-CC-Sign=55F9A0CA3AAA80A1C15C0E5E4E4152BC3364314E186E2D8617190F8DA5005AAD "点击放大")
 
 ### 创意资源
 
 创意资源是一种图文类推广，合作伙伴可根据自身推广的应用的需求或特点，制作上传自定义图片或视频素材，有利于帮助用户更直观地了解您的应用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/w0jQDiHPR1-nWVyzWWDQBg/zh-cn_image_0000001515626249.png?HW-CC-KV=V1&HW-CC-Date=20260918T084030Z&HW-CC-Expire=31536000000&HW-CC-Sign=996D94E0395A377B70FEDEDA8E06AC64536172F48400A83B08BE86EE50D52980)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/w0jQDiHPR1-nWVyzWWDQBg/zh-cn_image_0000001515626249.png?HW-CC-KV=V1&HW-CC-Date=20260929T074630Z&HW-CC-Expire=31536000000&HW-CC-Sign=6761E779483E66AA35A3B90E72961D360619F331B1971D56FFD401BC70AC6717)
 
 ### 品效资源
 
 品牌效果类资源，满足合作伙伴拉新、促活、成交等多种推广投放需求，提升用户对品牌的认可度和美誉度，进一步提高品牌价值及影响力。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/ww8KRUNQThyK3Oi4ICb2kQ/zh-cn_image_0000001937244717.png?HW-CC-KV=V1&HW-CC-Date=20260918T084030Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB90969778652C8614501F7EFB0E90BA46ACBE5887DDAA97A880E85BBCC26C92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/ww8KRUNQThyK3Oi4ICb2kQ/zh-cn_image_0000001937244717.png?HW-CC-KV=V1&HW-CC-Date=20260929T074630Z&HW-CC-Expire=31536000000&HW-CC-Sign=201317B20DC27CA265957518C23A2F8EF9ACFB0C0CE2A88E9199D1359EB0FF17)
 
 ## 推广流程
 
 开发者在开启投放之前需要在开发者联盟后台完成账号注册，实名认证，AppGallery Connect后台完成应用上架，再进入应用推广后台申请推广评测。需要注意的是，目前仅支持企业开发者申请华为应用市场应用推广。完成推广评测和充值之后，即可创建任务，开启推广。开发者在任务开启后，可随时在后台报表查看推广数据，并进行后续优化。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/wMXadLB-S0G0zamBnIGLMQ/zh-cn_image_0000001309390326.png?HW-CC-KV=V1&HW-CC-Date=20260918T084030Z&HW-CC-Expire=31536000000&HW-CC-Sign=5581DFB0C51E9730176DA76D47C0D8345384FFB8861A9DCD7D088C30F45567DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/wMXadLB-S0G0zamBnIGLMQ/zh-cn_image_0000001309390326.png?HW-CC-KV=V1&HW-CC-Date=20260929T074630Z&HW-CC-Expire=31536000000&HW-CC-Sign=7D895F7D2FF8CC75AAC8F94A3F92B45E7084745E8A406E40AE2896023E0FAC96)
 

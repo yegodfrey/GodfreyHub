@@ -20,11 +20,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performanc
 
 1. 查看帧率信息。 首先查看屏幕刷新率，Frame泳道下的Display Vsync子泳道会显示对应时间段的屏幕刷新率，支持对框选的时间段内的vsync进行分布统计，如下图中，屏幕刷新率为119Hz。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/XlZl4Wb8RbucUsleLJWBew/zh-cn_image_0000002658914329.png?HW-CC-KV=V1&HW-CC-Date=20260909T172716Z&HW-CC-Expire=31536000000&HW-CC-Sign=8F38EF4B5927F1E20004D979B2A1113B49B699889332C8C32E83669F523F6FD8 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/MmKZzl8yT3aQp9olGLYpAA/zh-cn_image_0000002658914329.png?HW-CC-KV=V1&HW-CC-Date=20260920T112701Z&HW-CC-Expire=31536000000&HW-CC-Sign=9C73FFE8B9E12CC70009B38D7EB2B02574B22705D3950C354F711DE3635E65BE "点击放大")
 
    然后查看应用主线程请求绘制渲染的周期，Trace中找到应用包名的泳道，通过H:SendCommands关键字查看应用发送的渲染请求，其中相邻的两个transactionFlag的时间间距，就是主线程请求绘制渲染的周期。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/ti8FaSnCTF-Nrr5RRG27Tw/zh-cn_image_0000002658794375.png?HW-CC-KV=V1&HW-CC-Date=20260909T172716Z&HW-CC-Expire=31536000000&HW-CC-Sign=064620E10A69B014D41780EDD5D15203F6A6A97DF2732B4C5CA1C9C1443DEDC2 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/LC0bjKoSQZq2wvOIAtnw0A/zh-cn_image_0000002658794375.png?HW-CC-KV=V1&HW-CC-Date=20260920T112701Z&HW-CC-Expire=31536000000&HW-CC-Sign=B57B6E12C6F50CBFDA051E7DD3323420A75379E366CD88A16D6C4594609E0F8B "点击放大")
 
    正常情况下主线程请求绘制渲染周期（如8.3ms）会与屏幕刷新率（如120Hz）对应，但如果主线程在执行耗时操作时，会导致两次请求绘制渲染的时间间隔变长，在120Hz屏幕刷新率下应用绘制的帧率少于120，出现卡顿、丢帧的情况。
 2. 查看滑动手势事件是否使用animateTo。 抓取日志发现使用了PanGesture滑动手势事件：
@@ -35,9 +35,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performanc
 
    通过Trace发现只能看到多次状态变量刷新，在应用收到手指离开屏幕的事件处，仅更新页面偏移状态，没有调用animateTo启动动画：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/I0_gwDILQsimFCQKgbt7IQ/zh-cn_image_0000002628555010.png?HW-CC-KV=V1&HW-CC-Date=20260909T172716Z&HW-CC-Expire=31536000000&HW-CC-Sign=89FDD3679C043A876FE68F71268A02FD61327C28CB6B10E76A70B33A5CC813AE "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/8lJUMAeURZytOPraLJHAOw/zh-cn_image_0000002628555010.png?HW-CC-KV=V1&HW-CC-Date=20260920T112701Z&HW-CC-Expire=31536000000&HW-CC-Sign=E22BEE3579CDBE650FD45CB49B20C0E99DBFB3D96D9C60B75C54591FAB827A5F "点击放大")
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/Q93eaPGEQiighxU6cY76fg/zh-cn_image_0000002628395110.png?HW-CC-KV=V1&HW-CC-Date=20260909T172716Z&HW-CC-Expire=31536000000&HW-CC-Sign=52D1730EEC60E409E686A9F8E045C10835CB7DF519128248FB77A891F25402ED "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/kaa0JYTdQe68cEkrGnEMOQ/zh-cn_image_0000002628395110.png?HW-CC-KV=V1&HW-CC-Date=20260920T112701Z&HW-CC-Expire=31536000000&HW-CC-Sign=5AEDC654086D21D7E54A7AFE71EAE0E3342EBBFE3B647F69DB7266B59D51A30C "点击放大")
 
 ## 分析结论
 
@@ -45,5 +45,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performanc
 
 ## 修改建议
 
-在滑动离手后增加滑动动效，可参考[长图滑动的惯性滚动效果](https://developer.huawei.com/consumer/cn/doc/architecture-guides/inertial_sliding-0000002308946264)。
+在滑动离手后增加滑动动效。
 

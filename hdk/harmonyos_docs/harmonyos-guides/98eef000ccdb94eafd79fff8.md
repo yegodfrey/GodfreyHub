@@ -30,7 +30,7 @@ XEngine Kit针对折叠屏设备推出"控显分离"创新方案。在设备展�
 
 ## 业务流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/ZQMbwV6iQ-Shjqc6-gtEuw/zh-cn_image_0000002762834667.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084545Z&HW-CC-Expire=31536000000&HW-CC-Sign=6FBC39A810002152C555B131DF80082362DBD5D56C0BCD0D2B886BAE189C6063)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/zKl9UhdYS46IXW7nocbpAw/zh-cn_image_0000002749333534.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121647Z&HW-CC-Expire=31536000000&HW-CC-Sign=0CF67C5E436285DF5C48ED6DBE42FC6EEFD5F01566C0F680B30295D0532A1133)
 
 1. 环境配置：游戏应用需首先在module.json5配置文件中声明控显分离特性，以启用系统级的适配能力。
 
@@ -105,7 +105,7 @@ XEngine Kit针对折叠屏设备推出"控显分离"创新方案。在设备展�
        static bool isSystemSupport = false;
        // 设备状态，用于描述当前状态是否允许启用该特性（例如折叠机展开态允许，折叠态不允许）
        static XEG_ControlDisplaySeparationStatus status = XEG_ControlDisplaySeparationStatus::UNAVAILABLE;
-       // 用户配置开关，用于描述用户或者游戏本身是否打开该特性（目前默认打开，实际使用根据用户）
+       // 用户配置开关，用于描述用户或者游戏本身是否打开该特性（目前默认关闭）
        static bool isFeatureOn = false;
        // 特性使能开关，用于描述当前场景是否使能控显分离（例如：游戏大厅场景不使能，游戏对局内使能）
        static bool isActive = false;

@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-integrate
 
 在接入消耗型/非消耗型商品购买能力前，需要提前[配置商品信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-config-product)。用户在应用内购买时，应用拉起IAP Kit的收银台，收银台处会展示商品名称、商品价格等信息，用户根据需求完成商品购买。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/Qo0eWNxHSWmIfBwZTpwhIQ/zh-cn_image_0000002762994747.png?HW-CC-KV=V1&HW-CC-Date=20260917T084549Z&HW-CC-Expire=31536000000&HW-CC-Sign=D79BE5ADA00CBAF9408AD0E265054F12CDD3C112BD79B0E022C3B89898501609)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/VqSydPZ5Rh6xYVuxojFHlg/zh-cn_image_0000002778932803.png?HW-CC-KV=V1&HW-CC-Date=20260929T121653Z&HW-CC-Expire=31536000000&HW-CC-Sign=DEB956307BD2F7EA07849FB259A15DE9D6E8616797B57B740CD791E724DE276B)
 
 ## 提供优惠
 
@@ -35,7 +35,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-integrate
 >
 > 如下业务流程对于单机应用同样适用。在单机应用中，应用服务器和应用客户端的交互放在应用客户端完成，应用服务器和IAP服务器交互的部分可不处理。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/MHciQ8AmREyzHsgshkXgKw/zh-cn_image_0000002762834859.png?HW-CC-KV=V1&HW-CC-Date=20260917T084549Z&HW-CC-Expire=31536000000&HW-CC-Sign=B6353D72190BC596CBCF0FFEBE6E08958EBEF6ECD3459E2B977E8428CCDF45A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/b48ncyohTEWOOaOBzXvPEA/zh-cn_image_0000002749333722.png?HW-CC-KV=V1&HW-CC-Date=20260929T121653Z&HW-CC-Expire=31536000000&HW-CC-Sign=E81815EE8D22E71772C00728C9BA887ECCDF33CAB824E5213DC40B41F9B282DC)
 
 **展示商品**
 
@@ -109,9 +109,9 @@ import Logger from '../common/Logger';
     const queryEnvCode = await this.queryEnv();
     if (queryEnvCode !== 0) {
       let queryEnvFailedText = 'This app does not support iap';
-      if (queryEnvCode === iap.IAPErrorCode.ACCOUNT_NOT_LOGGED_IN) {
+      if (queryEnvCode === iap.IAPErrorCode.ACCOUNT_TERRITORY_NOT_SUPPORTED) {
         // 如果接口返回错误码"1001860054 用户账号所在服务地不在IAP Kit支持结算的国家/地区中"，应用需隐藏相关IAP功能入口
-        queryEnvFailedText = 'Go to Settings and log in to your Huawei ID and try again.';
+        queryEnvFailedText = 'The country or region of the signed-in HUAWEI ID does not support IAP.';
       }
       this.showFailedPage(queryEnvFailedText);
       return;

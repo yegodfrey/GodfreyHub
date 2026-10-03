@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avrecor
 
 **图1** 录制状态变化示意图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/FSHIuB2NQ7eAXAGm6eHwlg/zh-cn_image_0000002733274970.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=BC5895BB1AA267E4D4F62C3832C48245B54C00836E0C1212F392E50AE08521AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/GThhzJkLT2az1kV7gcxEbA/zh-cn_image_0000002749493238.png?HW-CC-KV=V1&HW-CC-Date=20260929T121650Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8FB36873E850F1C4C607916B7A04A64277AC72348DDE1FC1AFFAB03B267E306)
 
 状态的详细说明请参考[AVRecorderState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avrecorderstate9)。
 

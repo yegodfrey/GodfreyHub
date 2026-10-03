@@ -28,9 +28,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-buildin
 
 **图1** 页面布局分解
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/pJZ9CE2RQz69v6_B99cGMQ/zh-cn_image_0000002762993699.png?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=A38AA483D2387755F91E819536EE68698C95D208609824BD4912FDB93CCB2FAF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/X8pSUQaLSdK_p3kYidqINQ/zh-cn_image_0000002778931781.png?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=55ACDB7280386ED0371FD6C6C23FC667E10DBA7E8380D3C0632ABAF5B618A674)
 
 **图2** 留言区布局分解
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/WcEVlS9pRBG27CVZCiVaqA/zh-cn_image_0000002762833815.png?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=53FE16FCB91A34FA3B8130574FFD81B5882CB80537AF84F8BB376D5AFC7E3B8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/ZrAz9Tg9TdSHZI36tcmQwA/zh-cn_image_0000002749332698.png?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=CD0B300DA481381269278178E86EE6817B73E499AD32F981FA84E6495A7EE277)
 

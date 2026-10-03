@@ -23,13 +23,13 @@ ArcButton({
 })
 ```
 
-其中，[label](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮文字，[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮类型，[styleMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮样式。
+其中，[label](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮文字，[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮位置，[styleMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮样式。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/b3hjsO2bSFK-WRNxeEfXgg/zh-cn_image_0000002733433920.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=2625D4C253D13DAA1B363F9B21A98A02A0B84F2874BD172655FE99C7615A85B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/GEkLqxtcSESzvDg7F6xuSQ/zh-cn_image_0000002779091315.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=8419C9DEAE4415E89CCA108C2D19187D953367EB6CB72F500763194EFF201A9C)
 
 ## 设置按钮类型
 
-ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮类型。
+ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮位置。
 
 * 下弧形按钮（默认类型）。
 
@@ -47,7 +47,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/EeKWrJt_QT65bg6tRTO05A/zh-cn_image_0000002762993443.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=E49057A2023B7F1FCC35ED20A6FCB343E5608F7958E4B201817C0CA0078B6FD5)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/_kXZwlZaRMmvz2gTxNVjeQ/zh-cn_image_0000002778931457.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=CA5FB2CCE2AE7C7549A38C681B42750E2473A3A68EC4D4B75875115DE2B5B50B)
 * 上弧形按钮。
 
   通过将[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置为ArcButtonPosition.TOP_EDGE，可以将按钮设置为上弧形按钮。
@@ -63,7 +63,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/XLtpiJOhTJWGhx5NmdDYRw/zh-cn_image_0000002762833555.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=83A904BE763598C485C39E1E1A98010D2C14A3F6A717603EFB5EDCBDBAECF4C3)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/4a_zLPFTQSuidmtG31dJTg/zh-cn_image_0000002749332376.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=B725ED42031F480F2AB5847C4AD8332EB737B9D2841A340A585C1A1C51E67688)
 
 ## 自定义样式
 
@@ -81,7 +81,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/lbYKkU_IR-iOSq-XnX71Fw/zh-cn_image_0000002733274040.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=C843C9254DB34030E51631B55F41CABAFA61BE666810CE8E7DF68D2B79207F04)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/iGmGThMmRNCwewaRT-AVEw/zh-cn_image_0000002749492260.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=FB665104DBFAA870EC74C0CAF5EBCDA50482E78C2C97A17629E0156F9AF26980)
 * 设置文本颜色。
 
   使用[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的文本颜色。
@@ -97,7 +97,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/WsIGf1W0SIGmopc62z-L_g/zh-cn_image_0000002733433922.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=48C152C95C44121AD3ABBABFA949F64F40F491C7C081588C75B75D14B50B4740)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/hplIORczRp6Ycmty2ypGmA/zh-cn_image_0000002779091319.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=7DDCDE62102616B3E4F63147CFFAFA160C606A46CDEA76AAC5B7F187AD74264C)
 * 设置阴影颜色。
 
   使用[shadowEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性启用按钮阴影，并通过[shadowColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的阴影颜色。
@@ -112,7 +112,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/JCXvEMIKQtKEFlC92vqAQQ/zh-cn_image_0000002762993445.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=A40C268EF9E2B6144B72392962D9A002036BB21FBBFB5450023F5183670B5017)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/J2e51Q72Qqm2I1h4paccow/zh-cn_image_0000002778931461.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=DC71E0C07CE273DE6300419AB84EF8689951BC0F7BF2E48D23F4F058FDFC791A)
 
 ## 添加事件
 
@@ -238,5 +238,5 @@ struct BrightnessPage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/CM4iseE7Q--oPoGgXnk98Q/zh-cn_image_0000002762833557.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=C6E68CE29CA16A1F45E17A312FEE0AE7E087372092A7C2885490B18209976009)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/NXMuTmBqQ2ezRjJmAZgLTw/zh-cn_image_0000002749332380.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=375751D591D4338C7E5C51F425BF15FCF6F3BD2A7A0CDDC363F4A86BF447575B)
 

@@ -25,7 +25,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/ios-sdk-config-
 * 应用名称：仅用于应用管理，不会显示在终端用户界面上。
 * App Store ID：您App Store Connect中的Apple ID。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/4i0_IhtESHiSFsxsS8JkMw/zh-cn_image_0000001204303912.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=C013CA30041E1CF4986C16FB55DE229F8C6A27C181FFB572F97EF20E3BBEEC4D "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/4i0_IhtESHiSFsxsS8JkMw/zh-cn_image_0000001204303912.png?HW-CC-KV=V1&HW-CC-Date=20260922T085430Z&HW-CC-Expire=31536000000&HW-CC-Sign=CE87C30B7FA2A902FF1224ED970E128A91FB6FC566936EA9253D0C96AB2C6B77 "点击放大")
 
 ## 打开相关服务
 
@@ -37,9 +37,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/ios-sdk-config-
 
 3. 选择API管理，找到地图服务开关，打开开关。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/kVypOBgjTxakuKfd5JgEZQ/zh-cn_image_0000001249183965.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=62F9A5209686E25B5BD7C4A9617C172432AC2CE2597325943ED8D17C5F9E5619 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/kVypOBgjTxakuKfd5JgEZQ/zh-cn_image_0000001249183965.png?HW-CC-KV=V1&HW-CC-Date=20260922T085430Z&HW-CC-Expire=31536000000&HW-CC-Sign=F2C21260CC1E7D8AC879BB094909431870F69B4C56429EE0E562CD45787D7F5A "点击放大")
 
 开通服务后，您可以在"项目设置"配置数据处理位置和[数据处理位置策略](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-datalocation-strategy-0000001283213602)，具体操作步骤请参见[数据处理位置](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-datalocation-0000001160439813)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/VyjJPhI3TIe5tea4r3ebiA/zh-cn_image_0000001327201104.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=F2C1728FAA28B167D79140DB1E6321886936435CF8BFFA9DA7FDC9A92ECECBEE "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/VyjJPhI3TIe5tea4r3ebiA/zh-cn_image_0000001327201104.png?HW-CC-KV=V1&HW-CC-Date=20260922T085430Z&HW-CC-Expire=31536000000&HW-CC-Sign=399483144F46345D7BE8206915296718C04B9995598B3F1B11BCE0BEA6CA2037 "点击放大")
 

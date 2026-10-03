@@ -18,5 +18,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-143
   在HarmonyOS系统架构中，ArkTS作为核心开发语言，其运行时环境与工具链通常归属开发支持层；ArkUI等上层框架属于应用框架层，SDK则通过系统服务层提供的能力封装形成开发接口；ArkTS语言可以通过import语法加载并调用相应系统能力，让开发者更高效地开发HarmonyOS应用。
 * **HarmonyOS架构的ArkTS、ArkUI及HarmonyOS SDK框架层级：**
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/BoSpBea6R3GtIxna-hkNCA/zh-cn_image_0000002624635782.png?HW-CC-KV=V1&HW-CC-Date=20260920T114733Z&HW-CC-Expire=31536000000&HW-CC-Sign=8003CB9F400F3A33CEF48B7F9A996134A13C8800572B98FB3DD4192EE509906B)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/BoSpBea6R3GtIxna-hkNCA/zh-cn_image_0000002624635782.png?HW-CC-KV=V1&HW-CC-Date=20260929T074332Z&HW-CC-Expire=31536000000&HW-CC-Sign=3DCABD0171A2309493492F2B0D4577A7F7283E93D7087A82C7CE6C84C92D8C73)
 

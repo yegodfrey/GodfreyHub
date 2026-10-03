@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/reso
 
 # 图说资源包预下载
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/QYIGv7DHR8upOf5Ip2Fvow/zh-cn_image_0000002181858657.png?HW-CC-KV=V1&HW-CC-Date=20260909T170811Z&HW-CC-Expire=31536000000&HW-CC-Sign=37320B4FD99A1845D8E0C1EC01379FAECA00829AC80A62A132E2A968F23E6F46)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/QYIGv7DHR8upOf5Ip2Fvow/zh-cn_image_0000002181858657.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=C7BF411CC307B4258632A83953B72669D8DB497076D391824062C64703BA2067)
 

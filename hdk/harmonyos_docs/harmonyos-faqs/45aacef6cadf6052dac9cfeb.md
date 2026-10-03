@@ -92,7 +92,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1016
 
 问题现象效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/fKGmNDA9QiyylHISMbqy2w/zh-cn_image_0000002658804047.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=4B78BEB726EC3A94F05286B7F8E900AA9B3F14C3294912025B6B2EDA70F565A7 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/fKGmNDA9QiyylHISMbqy2w/zh-cn_image_0000002658804047.png?HW-CC-KV=V1&HW-CC-Date=20260929T074344Z&HW-CC-Expire=31536000000&HW-CC-Sign=57E3DC19C97BF46E29060339A37D81D5195783BC9C4B95E73F48851DD490ED95 "点击放大")
 
 ## 背景知识
 
@@ -226,5 +226,5 @@ struct SetPage {
 
 效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/FGPpFZTzQ6CLaWvZ_-APKQ/zh-cn_image_0000002628404778.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=224C42E453F5EC3B91D84689789E92F9849F58C04357DD34A60E7F7ED713F6EE "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/FGPpFZTzQ6CLaWvZ_-APKQ/zh-cn_image_0000002628404778.png?HW-CC-KV=V1&HW-CC-Date=20260929T074344Z&HW-CC-Expire=31536000000&HW-CC-Sign=1FAA5BD796C7C06AB845AE70C984CD6B6903659995A1DD17BD2C3334DCD703B5 "点击放大")
 

@@ -26,5 +26,5 @@ oCPC支持"稳定拿量、优先跑量、优先低成本"3种不同的投放策�
 1. 创建任务时，选择竞价目标为"转化"，付费方式为"oCPC"。
 2. 选择**投放策略**，根据实际需求输入"转化目标"、"期望转化成本"等参数创建任务。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/ywEjeme8TTKCNfQByNBqQw/zh-cn_image_0000002579476506.png?HW-CC-KV=V1&HW-CC-Date=20260918T093102Z&HW-CC-Expire=31536000000&HW-CC-Sign=A753DCA98DDC39EAC7459DBF1CCA8EF0C7BB9BC40AD4B60EA5C5E2BECEF92703)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/ywEjeme8TTKCNfQByNBqQw/zh-cn_image_0000002579476506.png?HW-CC-KV=V1&HW-CC-Date=20260928T100503Z&HW-CC-Expire=31536000000&HW-CC-Sign=F18C6F57FCD9694683ED773075E9F95A1A19616A351C69AF5F344AFDCE79D99D)
 

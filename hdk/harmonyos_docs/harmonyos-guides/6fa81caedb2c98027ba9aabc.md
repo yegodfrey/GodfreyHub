@@ -148,7 +148,7 @@ Button('Change state variable')
 
 如下图所示，展示V1和V2组件状态变量更新差异的流程图，相比V1状态管理，V2状态管理在状态变量变化时，会异步标脏组件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/sIzyvUR5RfWnfnWgD6UXlA/zh-cn_image_0000002733273566.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=8F1C8DAA2467A924D719FEBAF0A107185F003D602CF8A7BF0027C22DB5010D9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/cQoSQl2oTj6CD-XtyqmyZA/zh-cn_image_0000002749491744.png?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=267571E138E76474631DBCEC426784C258555C90904115CD0A66F06FD5251746)
 
 ### V1组件的更新
 

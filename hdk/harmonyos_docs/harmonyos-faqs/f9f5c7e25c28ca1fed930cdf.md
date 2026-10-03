@@ -54,7 +54,7 @@ struct Index {
 
 下面是字符显示不全的效果图。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/2SEPNyy0S1eVsr7otmjPEQ/zh-cn_image_0000002628401232.png?HW-CC-KV=V1&HW-CC-Date=20260920T114744Z&HW-CC-Expire=31536000000&HW-CC-Sign=F89E9C5369BA7E23A3228AEF85715AF0561CF0190B902E816D86125623704CFE "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/2SEPNyy0S1eVsr7otmjPEQ/zh-cn_image_0000002628401232.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=81888A23D22E09C9894F47E6EC2FEF240A7964A2CC9BC1813AE8BBF68C3E62FE "点击放大")
 
 ## 背景知识
 
@@ -119,5 +119,5 @@ struct StretchDemo {
 
 效果图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/f7PCnLzqQISMVYjs2Kn1QQ/zh-cn_image_0000002658800497.png?HW-CC-KV=V1&HW-CC-Date=20260920T114744Z&HW-CC-Expire=31536000000&HW-CC-Sign=142235035A49C7700BDE21E2AC1400F6B8CCE5688925316242117CE189DBE08E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/f7PCnLzqQISMVYjs2Kn1QQ/zh-cn_image_0000002658800497.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=74016635855C3C7761E7D2A395899C12B6E17A4D17F380103602349FB90D96FD "点击放大")
 

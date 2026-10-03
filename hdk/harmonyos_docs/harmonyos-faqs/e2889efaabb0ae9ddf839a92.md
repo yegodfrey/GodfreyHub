@@ -86,7 +86,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-708
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/LhxJ-6l-TKCduwZ4m13Nsg/zh-cn_image_0000002669866387.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=C8284139D3DD69FBA57C917F995241015609D70ED799CE29F18C6C9B10B9514D "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/LhxJ-6l-TKCduwZ4m13Nsg/zh-cn_image_0000002669866387.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=31EFB246B0B81E8EB94FA8DD6292C27B5B3476D99797E01E5DDFC08244A089A2 "点击放大")
 * 场景2：首页跳转至其他页面之后，经过其他页面多次跳转，再立马返回首页。 由于需要立马返回首页，无法一步步将路由栈中页面逐个出栈，所以无法通过出栈时的onPop回调，拿到上一个页面出栈时携带的参数。且首页无法推入路由栈，不能使用push类方法跳转，也没有onReady生命周期，所以也无法在onReady接收其他子页的传参。
 
   现提供两种方式完成跳转，并将参数携带回首页。
@@ -203,7 +203,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-708
 
        效果预览：
 
-       ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/d06TsV_ITdCLnVxFjHuR9g/zh-cn_image_0000002669990323.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=5C99ACF5E39F0D45089A06A394302D87AC83455A26C53A37DF4CC29401EB24F8 "点击放大")
+       ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/d06TsV_ITdCLnVxFjHuR9g/zh-cn_image_0000002669990323.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=CB41E41DBBCED83D22CEC42B6B09FD558A834972CC45801E6F38D01716B7F356 "点击放大")
   * 方案2：在首页的aboutToAppear订阅事件，在clear清除路由栈时通过订阅的事件将参数传递回首页。
 
     ```ts
@@ -291,7 +291,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-708
 
     效果预览：
 
-    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/qTF6H_buTmykzChGBfUAQA/zh-cn_image_0000002639837140.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=D6DD0CC15F8B34EF5B0D4AA2B5D49A96B4B6AF573D8EE8899187F2E66A7C7862 "点击放大")
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/qTF6H_buTmykzChGBfUAQA/zh-cn_image_0000002639837140.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=0ABCDA0A06055E475153F0845D254E526FCAF3C6252F1AA45C0187EC814086D0 "点击放大")
 
 ## 常见FAQ
 

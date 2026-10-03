@@ -133,7 +133,7 @@ struct CustomScale {
 
 实现效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/h1aYfZxUQ-2nO9EULRN3aA/zh-cn_image_0000002628394370.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=6DE9BE1D1B7307E690E6D02534EC998EE7BE25CF29A1683A2674085B5D8689D4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/h1aYfZxUQ-2nO9EULRN3aA/zh-cn_image_0000002628394370.png?HW-CC-KV=V1&HW-CC-Date=20260929T032805Z&HW-CC-Expire=31536000000&HW-CC-Sign=5516C2F94405D35ED24A054CE49D8AAB7246B1A40992337F85244C6C93F29A81 "点击放大")
 
 ## 常见FAQ
 

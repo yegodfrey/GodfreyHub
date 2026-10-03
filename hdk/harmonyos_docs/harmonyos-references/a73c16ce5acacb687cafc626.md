@@ -497,8 +497,7 @@ createNormalOsAccount(admin: Want, name: string): Promise<osAccount.OsAccountInf
 
 ```ts
 import { accountManager } from '@kit.MDMKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { osAccount } from '@kit.BasicServicesKit';
+import { BusinessError, osAccount } from '@kit.BasicServicesKit';
 import { Want } from '@kit.AbilityKit';
 
 let wantTemp: Want = {
@@ -561,8 +560,7 @@ removeOsAccount(admin: Want, accountId: number): Promise<void>
 
 ```ts
 import { accountManager } from '@kit.MDMKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { osAccount } from '@kit.BasicServicesKit';
+import { BusinessError, osAccount } from '@kit.BasicServicesKit';
 import { Want } from '@kit.AbilityKit';
 
 let wantTemp: Want = {
@@ -630,8 +628,7 @@ activateOsAccount(admin: Want, accountId: number): Promise<void>
 
 ```ts
 import { accountManager } from '@kit.MDMKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { osAccount } from '@kit.BasicServicesKit';
+import { BusinessError, osAccount } from '@kit.BasicServicesKit';
 import { Want } from '@kit.AbilityKit';
 
 let wantTemp: Want = {

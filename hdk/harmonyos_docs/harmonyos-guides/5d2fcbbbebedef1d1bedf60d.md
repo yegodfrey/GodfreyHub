@@ -38,7 +38,7 @@ hdc shell
 bm dump -n com.example.myapplication | grep fingerprint
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/LrNmdCxsS8av5ji88ZrKJg/zh-cn_image_0000002733433258.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=A54B6DA42C05A683992AF91C2A256E1D53D2424D0BCF294885213757F48FFFF7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/vStg4kjUTsuA-F2LhkmNOg/zh-cn_image_0000002779090625.png?HW-CC-KV=V1&HW-CC-Date=20260929T121646Z&HW-CC-Expire=31536000000&HW-CC-Sign=66A2BD1D5018E7E20ADB45F043CA2649A9F19AB9B367296D3783D5D8B1424925)
 
 * 通过.cer证书文件获取，可以参考[APP备案FAQ](https://developer.huawei.com/consumer/cn/doc/app/50130)中HarmonyOS应用/元服务如何获取公钥和签名信息，指纹信息使用哈希算法SHA-1生成。
 
@@ -83,7 +83,7 @@ hdc shell
 bm dump -n com.example.myapplication | grep appIdentifier
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/EaDsEXGBQXKQf9acBjE22A/zh-cn_image_0000002762992785.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=7305D2A02A9F8E9307D3C8951677452AB5A6D222AB6BD2D7E9C6D119E7E66509)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/wacuOON8S3Wr6c4UiZkDCg/zh-cn_image_0000002778930769.png?HW-CC-KV=V1&HW-CC-Date=20260929T121646Z&HW-CC-Expire=31536000000&HW-CC-Sign=14222D2142C386907523A964EF2D058F6692C28669588FE09BF1185CE992772C)
 
 ## 什么是appId
 
@@ -119,7 +119,7 @@ hdc shell
 bm dump -n ohos.app.hap.myapplication |grep '"appId":'
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/4KOi4yEOQUu6fAa1OMyl9A/zh-cn_image_0000002762832901.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=858AC26DDD5F7091C94FF0075BD747B3444AD5BB32C8064100A52A5531135849)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/ZZAlBE3pQnKyniqGoZyI4A/zh-cn_image_0000002749331686.png?HW-CC-KV=V1&HW-CC-Date=20260929T121646Z&HW-CC-Expire=31536000000&HW-CC-Sign=CE727D43ABDC30574D961BEE33E41ED9A8D781F68D2AFFA46B07F99044E6E3E9)
 
 ## 应用的uid
 
@@ -137,7 +137,7 @@ hdc shell
 bm dump -n ohos.app.hap.myapplication |grep uid
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/GPKt-_s_T4aiRIti1LHb9Q/zh-cn_image_0000002733273384.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=55E38832254E304583BF63B70A9F22212779F9592325E2BC1E2D3F09B2A9B333)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/by00OCGjS92gAfrEZn953A/zh-cn_image_0000002749491570.png?HW-CC-KV=V1&HW-CC-Date=20260929T121646Z&HW-CC-Expire=31536000000&HW-CC-Sign=8D1E65CCF399BB6FBAD958262112E29E0735EC94A889707687F24A6D82D76F9C)
 
 * 可以调用[bundleManager.getBundleInfoForSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)获取自身的BundleInfo应用包信息，示例代码可以参考[如何获取应用信息中的appId](#如何获取应用信息中的appid)，取值方式为bundleInfo.appInfo.uid。
 
@@ -149,7 +149,7 @@ HSP模块和HAR模块被调用时，主要的区别在Module2（HSP/HAR）模块
 
    如图所示，编译构建后，HAR模块被打包到各个模块之中，所以其入口模块仍然是HAP模块，napi_load_module_with_info中第2个参数的模块名称要填HAP模块中oh-package.json5中定义的依赖HAR的名称，而不是HAR模块的实际名称。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/8-HGmQgpQzejlS9NiOnP1w/zh-cn_image_0000002733433260.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D08695DBD353E6A909405715292565825C36CEFE1C4A081FEAA562137363B74)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/utCfERCnQM62foRUP6xB3g/zh-cn_image_0000002779090627.png?HW-CC-KV=V1&HW-CC-Date=20260929T121646Z&HW-CC-Expire=31536000000&HW-CC-Sign=3005279DD48E06F6F41B20CF558B1A23EC8BC1BEA7C07C4A85786DE5CA31CDA7)
 2. 被调用模块Module2是HSP
 
    当被调用模块Module2是HSP，HSP是独立的模块，其入口模块就是HSP本模块，所以napi_load_module_with_info第2个参数的模块名就是它自己的模块名。

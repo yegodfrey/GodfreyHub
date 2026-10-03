@@ -144,9 +144,9 @@ export struct ListTest {
   ```
 
 * 开动效直接跳到目标位置和先关动效跳到附近位置再开启动效跳转到目标位置对比，通过DevEco Studio的Profiler抓取launch数据可以得到如下，可以明显看出实现了性能优化。
-  * 直接跳转： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/J0aIbq9_TEOoibgXElbJJQ/zh-cn_image_0000002658793543.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=19A5EE7B2B31F81F06D7CDF586EAE57FEA205936A5A160C436B398B42EC2EF3D "点击放大")
+  * 直接跳转： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/J0aIbq9_TEOoibgXElbJJQ/zh-cn_image_0000002658793543.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=2BAFF406588E03E1F36E8D8EFD513D5580D53A9ECF89A1EC5DC1F5147511252B "点击放大")
 
-  * 间接跳转： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/jCVw54aURUei9X6qRWkoug/zh-cn_image_0000002628554176.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=3CBE178285ACD2B2595C7332BB52CA6D292992E5EEB4EE4391C43F544124D39E "点击放大")
+  * 间接跳转： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/jCVw54aURUei9X6qRWkoug/zh-cn_image_0000002628554176.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=44B91D24A3362893D1FB5184F7072922AC4903AF759F3C0DE756EB1F79AB1F32 "点击放大")
 
   * 数据对比：
 
@@ -159,5 +159,5 @@ export struct ListTest {
 
     |优化前|优化后|
     |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    |![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/S_dfrmu9RVuO0VW1bWrLbg/zh-cn_image_0000002628394278.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=9E28F556B786D2E36A03402ECB177D60391C987A070E2AFC96F286C60F060A1E "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/kK65k8ShRguJ6lgSNJ_x6w/zh-cn_image_0000002658913493.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=9BDF2B40D94BFC64EE1DE2D8847997EABBF373282C2B5A1C75FA6B424150F1A8 "点击放大")|
+    |![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/S_dfrmu9RVuO0VW1bWrLbg/zh-cn_image_0000002628394278.gif?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=33A9AADB1D70E382D45C019E4B6E77640F06D9D86929998B0087E2AB1D2EE07C "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/kK65k8ShRguJ6lgSNJ_x6w/zh-cn_image_0000002658913493.gif?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=CA9DCA06F1F4DE1E87758D9D2BD4B03F9AB8A142C4F97CE0F8C69161F3BF9F5D "点击放大")|
 

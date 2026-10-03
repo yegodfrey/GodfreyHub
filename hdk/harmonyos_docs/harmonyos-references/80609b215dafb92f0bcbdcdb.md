@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-contai
 
 > phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
-该组件用于实现支持懒加载的垂直线性布局，其父组件仅限于[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)或[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)，并支持使用自定义组件或[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)组件封装后应用在上述组件中。
+该组件用于实现支持懒加载的垂直线性布局，其父组件仅限于[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)或[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)，并支持使用[自定义组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)或[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)组件封装后应用在上述组件中。
 
 该组件支持嵌套懒加载容器[LazyVGridLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout)、[LazyVWaterFlowLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvwaterflowlayout)及其自身LazyColumnLayout。
 
@@ -336,7 +336,7 @@ struct LazyColumnLayoutSample1 {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/uU3ufVWLQcGQZhFqNWf8gw/zh-cn_image_0000002762835733.png?HW-CC-KV=V1&HW-CC-Date=20260917T084628Z&HW-CC-Expire=31536000000&HW-CC-Sign=2DBE602A3FC5EE5DCE380E064E1FA46F9DCA02B29CFF045B4AFB376A1BEA0010)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/aO60-s_rTu2lBAMh4utQgw/zh-cn_image_0000002749334680.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=55C1BA1EE49899D93CFDA7CCC5BA25DC8C29FCBD0ACF6491318C732F32D6049A)
 
 ### 示例2（设置头部组件或尾部组件及吸附效果）
 
@@ -507,5 +507,5 @@ export class MyDataSource<T> extends BasicDataSource<T> {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/8UusStlGQ7GzDbWtSwM2bQ/zh-cn_image_0000002733276222.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084628Z&HW-CC-Expire=31536000000&HW-CC-Sign=CD354AA89D26CA18B868521D8B323E512593E880411B7B21EDEA2F99E2BFC8AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/8Io3OyXqT-60-DCuRx1WTw/zh-cn_image_0000002749494564.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A7F74E320E8A0CF661901CEEF5EA7F96B313F000AFDDA13846D75D4697F52FD)
 

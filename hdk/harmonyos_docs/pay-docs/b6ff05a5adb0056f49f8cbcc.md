@@ -26,13 +26,13 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 请超级管理员登录华为支付商户平台，进入【商户中心】->【产品功能】->【AppID管理】页面关联操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/Ltt7xA3pQvmHP-KtP8El6g/zh-cn_image_0000002557114811.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=AEB3CE0D4F13917D4AAC3D662E2A4FBA4C578C29C81962EE1287FCCD755D6879 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/Ltt7xA3pQvmHP-KtP8El6g/zh-cn_image_0000002557114811.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=E28CA83B441164890C219A1A4F35FF4FB55EB9B5D865D6F7806D86E7ABB06307 "点击放大")
 
 * **若您的AppID认证主体与本商户号主体一致**
 
 点击【新增关联AppID】按钮，根据页面提示填写相关信息后，勾选《华为支付商户号与APPID授权协议》，提交申请后即完成AppID关联。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/6EBthQa7Rkm7EIqSI-ne-g/zh-cn_image_0000002563602367.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=752089AB6B8238CE2F066CD3FE982D934F6399BC0FDD99FD528876E674E4F405 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/6EBthQa7Rkm7EIqSI-ne-g/zh-cn_image_0000002563602367.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E34215DBB3FE8E06F81209F238F34C11DDA347F71309CDE3EBEE385A0EA08BC "点击放大")
 
 * **若您的AppID认证主体与本商户号主体不一致**，分为两步：
 
@@ -40,7 +40,7 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 点击【新增关联AppID】按钮，根据页面提示填写相关信息后，勾选《华为支付商户号与APPID授权协议》和《联合营运承诺函》，并提交申请。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/LAsLWPELS_i-Jzv94qwwKA/zh-cn_image_0000002526154898.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=9D47AED8C25828AF8D5926E9935B1CBBFF469DF995B633BCFE5080CEA73B8963 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/LAsLWPELS_i-Jzv94qwwKA/zh-cn_image_0000002526154898.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=BD9EB8000D8493BC9D0679AD7A800C9C8D808B7EEB26F2CFBC49CBFCD0268556 "点击放大")
 > 注意
 >
 > AppID认证主体与本商户号主体不一致，华为支付商户平台暂不支持直接关联AppID，请联系您的对接人开通权限后再申请。
@@ -49,16 +49,16 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 待华为支付系统自动审核通过后刷新页面，根据系统提示语，请AppID管理员可登录[AppGallery Connect 网站](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，进入【我的项目】，在项目列表找到待查项目，点击项目-.选择待查应用-点击盈利（或者支付与交易）-鸿蒙支付服务-支付服务（非虚拟类）-去开通，查找待绑定商户号，点击去授权，根据页面提示完成授权关联。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/3LeDxxekRjmGUidbAdNtRQ/zh-cn_image_0000002526154916.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=4BC3BE0C0AE7C4A47278CA786500D2CA62AD4E2CBBE822AC8F8F814EA5B1A3EE "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/3LeDxxekRjmGUidbAdNtRQ/zh-cn_image_0000002526154916.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=E43A93A33F9CFDB2231023FC0CFACAA8468D469BFAE29E201B7A3F14B9C1A140 "点击放大")
 
 **图1**若您的应用为元服务   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/wuQUBWU6SVKPB48vlP-Gvw/zh-cn_image_0000002534560210.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=D2E5EDF651990102C38324835C96E538AAD66911059963705A4AB89388885243 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/wuQUBWU6SVKPB48vlP-Gvw/zh-cn_image_0000002534560210.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=8258A37F8DC08C81FF6452CC9EE703E429790B8A083673F38763DAF98DAD4974 "点击放大")
 
 **图2**若您的应用为APP
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/FURsKuUIT2CLOxAxVSjo-A/zh-cn_image_0000002525994954.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=3093CB310DDE1D3F91018EDF937ACC5D5C4BACA0FBA57506BC69A37CCB13A8DD "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/FURsKuUIT2CLOxAxVSjo-A/zh-cn_image_0000002525994954.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=D596F84873EFC1D7BA2A8AC45DF7332C499A570115C1E3C0074AA99B162C2016 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/0tngUXoiQZ-MnO1-NA50PQ/zh-cn_image_0000002534720564.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=1C4254AAC0127D957A2F58C8C0DED1016B11CFA685861ED4F907435ACD1030EA "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/0tngUXoiQZ-MnO1-NA50PQ/zh-cn_image_0000002534720564.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=DAF570338B49DE12EA8AA10D52405BCEBB113892AA80697960A02A97C024E50E "点击放大")
 
 ## 平台类商户AppID关联
 
@@ -66,13 +66,13 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 请超级管理员登录华为支付商户平台，进入【商户中心】->【产品功能】->【AppID管理】页面进行关联操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/WxcLwi3ATs2EfyEnttkWbA/zh-cn_image_0000002557234773.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=B5DAA8DBE5103DC456C7E999BBF01E2C5D9E584D253B0836C5C8B601D6AFCD6B "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/WxcLwi3ATs2EfyEnttkWbA/zh-cn_image_0000002557234773.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=11306AD6153BAA5DC8C7F5ACFCED754A121F8A193610D3558D0DD5A0914191E3 "点击放大")
 
 * **若您的AppID认证主体与本商户号主体一致**
 
 点击【新增关联AppID】按钮，根据页面提示填写相关信息后，勾选《华为支付商户号与APPID授权协议》，提交申请后即完成AppID关联。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/YUytdlCsRgmCjPv1YwEWyw/zh-cn_image_0000002532762738.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=7983ADF3EECA7F7D024A8BA38E55A22FE6AB047F34074FBA8C668DEF92E7FA7B "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/YUytdlCsRgmCjPv1YwEWyw/zh-cn_image_0000002532762738.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=039C29FCA675D3AFA8176F57E56AFB73F8EBCC4ED2FFE7030704435A83445861 "点击放大")
 
 * **若您的AppID认证主体与本商户号主体不一致**，分为两步：
 
@@ -80,7 +80,7 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 点击【新增关联AppID】按钮，根据页面提示填写相关信息后，勾选《华为支付商户号与APPID授权协议》和《联合营运承诺函》，提交申请。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/Q1tHxGpwR0ePy9Sm7xo-fQ/zh-cn_image_0000002557114813.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=61489272A51D00674B633A499F32E43BF069A3F0179E59EC0499020D74B2B98D "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/Q1tHxGpwR0ePy9Sm7xo-fQ/zh-cn_image_0000002557114813.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=8ED923E3E25EFA8CB271901A915158AA4A9CCF81CB3F07044A3259DDD76BD2BD "点击放大")
 > 注意
 >
 > AppID认证主体与本商户号主体不一致，华为支付商户平台暂不支持直接关联AppID，请联系您的对接人开通权限后再申请。
@@ -89,16 +89,16 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 待华为支付系统自动审核通过后刷新页面，根据系统提示语，请AppID管理员登录[AppGallery Connect 网站](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，进入【我的项目】，在项目列表找到待查项目，点击项目-.选择待查应用-点击盈利（或者支付与交易）-鸿蒙支付服务-支付服务（非虚拟类）-去开通，查找待绑定商户号，点击去授权，根据页面提示完成授权关联。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/JZ9KOEnRQ564U3uPJou5-w/zh-cn_image_0000002526154896.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A21D810C2E5B63C5B664AC45E5069214CED32E6658F9903AE21CEAA3FC3933A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/JZ9KOEnRQ564U3uPJou5-w/zh-cn_image_0000002526154896.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=2DC6578527A3B692300F267276614AC6DE83DF1E9B4925B289395433245FF8B2 "点击放大")
 
 **图3**若您的应用为APP
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/L_Ol22NPTvqUaksG8ACBvg/zh-cn_image_0000002565474839.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=51BAD946A95A00C3B0CEAB133F24C28E11CFCCC74CC3C423F4A1DDA57B9ADC6E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/L_Ol22NPTvqUaksG8ACBvg/zh-cn_image_0000002565474839.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=BB1A381567BAAD16E4DFA3A45F932CAD5B4CABF225180D6247631B90C1FCF4DA "点击放大")
 
 **图4**若您的应用为元服务   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/E1Y9pwXMS9Kp7OMx8iBlMQ/zh-cn_image_0000002534555032.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=3DEEF0C03CF6C31F5F9ECADD02CD1FA0D64BB7CBDC8983A50C9FD54C6AB2C0DC "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/E1Y9pwXMS9Kp7OMx8iBlMQ/zh-cn_image_0000002534555032.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=1F2B9B395654364E4A09F079A62A96AA724EFCED49902F396DA3C074D758A463 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/oE81KVZTR4qEAxgeof6_gw/zh-cn_image_0000002565554949.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=B122AB91667B44BD1BE490896BDA9801779C2254F983AC241575E2D608CB8E8F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/oE81KVZTR4qEAxgeof6_gw/zh-cn_image_0000002565554949.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=7F5E102B8755D7A4E11362AF047B69E90887291B3398FF393E10D2376A3BEE4C "点击放大")
 
 ## 服务商AppID关联
 
@@ -106,13 +106,13 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 请超级管理员登录华为支付商户平台，进入【商户中心】->【产品功能】->【AppID管理】->【服务商绑定的AppID】页面进行关联操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/U_fvFFn8SkyYJ4SXChjLxQ/zh-cn_image_0000002525994956.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=31F8DB470791A3B2E8459766CFDDCD5C505938FC425C73DA3C821BADAF5872A2 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/U_fvFFn8SkyYJ4SXChjLxQ/zh-cn_image_0000002525994956.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=0A3B9375AED5A189603FEF1ED97099767691CDFFD4757506530AC4CF5BE1714B "点击放大")
 
 * **若您的AppID认证主体与本商户号主体一致**
 
 点击【新增关联AppID】按钮，根据页面提示填写相关信息后，勾选《华为支付商户号与APPID授权协议》，提交申请后即完成AppID关联。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/NV8GLi2fTHqKt7MA5BLcpg/zh-cn_image_0000002563611347.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=B528B87FA76938375D2251D2C32BAEEC593AF4FDE0DE66702B35875FD172A43A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/NV8GLi2fTHqKt7MA5BLcpg/zh-cn_image_0000002563611347.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=E65BE840A199EBEA190D34806280B938D7C33490180EBBD8E843B2573D3F67BC "点击放大")
 
 * **若您的AppID认证主体与本商户号主体不一致**，分为两步：
 
@@ -120,7 +120,7 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 点击【新增关联AppID】按钮，根据页面提示填写相关信息后，勾选《华为支付商户号与APPID授权协议》和《联合营运承诺函》，提交申请。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/bkanl_dkRUSuzYf3eGfecg/zh-cn_image_0000002532611728.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=59A290DFF33E497D6496CB0D7CB9D3BF5F98C5DACE91FFFEF29D511BDEFC98BA "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/bkanl_dkRUSuzYf3eGfecg/zh-cn_image_0000002532611728.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=07CCF37BD9E22527D00D9BBA29722FE578F8E1856E8A238656BFAE0653E52FC1 "点击放大")
 > 注意
 >
 > AppID认证主体与本商户号主体不一致，华为支付商户平台暂不支持直接关联AppID，请联系您的对接人开通权限后再申请。
@@ -129,16 +129,16 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 待华为支付系统自动审核通过后刷新页面，根据系统提示语，请AppID管理员登录[AppGallery Connect 网站](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，进入【我的项目】，在项目列表找到待查项目，点击项目-.选择待查应用-点击盈利（或者支付与交易）-鸿蒙支付服务-支付服务（非虚拟类）-去开通，查找待绑定商户号，点击去授权，根据页面提示完成授权关联。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/TpLdtlqqRCGG30x0VQwCdw/zh-cn_image_0000002534709628.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=8DFBCD986B552260193A0C76B5CB64619ED5F788FDA401BCD1317FD6069B9FD5 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/TpLdtlqqRCGG30x0VQwCdw/zh-cn_image_0000002534709628.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B76639A0EBAA977D0A35CA25E275A6F933BED439BBF640840E8967700025D91 "点击放大")
 
 **图5**若您的应用为APP
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/NCAGYQQJRs6dBjCXbatSIw/zh-cn_image_0000002534556908.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=2FFF414416F109349E26DC7686B97EA58C856540B1E5F970E7122097FE4772E1 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/NCAGYQQJRs6dBjCXbatSIw/zh-cn_image_0000002534556908.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=7EDEBE2542E9C38EAA4337CF79567D873F61D4C7C07CD941B13EB353CF65FD46 "点击放大")
 
 **图6**若您的应用为元服务   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/BjvuTCbtRMO2O2mQGkVH-w/zh-cn_image_0000002534716842.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA8B06A2D9082AE5248A3FBFAB37C902A4B4D1F4C76A2061E1CA2FA9EBCBD178 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/BjvuTCbtRMO2O2mQGkVH-w/zh-cn_image_0000002534716842.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=0C1B707C3366164EE6A4841F4A236BFFA8115F07BCAECA199C96ABE9934AD3E8 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/zLx-TcTuQcuN98yb3ij6gg/zh-cn_image_0000002565476711.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=8A715B7A5FB879E482ACC58719F0A89B9DD9E379F0EC61A2CB10D3797B7C4B3B "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/zLx-TcTuQcuN98yb3ij6gg/zh-cn_image_0000002565476711.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=965AD1A32399FCCF8A3B6DD682FCA2F6868F50CA9301D0A4DE1F5FC43473B0A4 "点击放大")
 
 ## 服务商下特约商户AppID关联
 
@@ -146,7 +146,7 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 请服务商超级管理员录华为支付商户平台，进入【商户中心】->【产品功能】->【AppID管理】->【特约商户绑定的AppID】页面进行关联操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/FERHGtF_Tmi2DluRRECgwQ/zh-cn_image_0000002526154900.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC90A459BC4C5EC889442A12B62CC23D3AE7F8CF8D6204D3DFE4CE514C2F10AB "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/FERHGtF_Tmi2DluRRECgwQ/zh-cn_image_0000002526154900.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=29190507C2191704750D7B2B4DFBED449FA9485150EEC959545C10FEE2EF5FEF "点击放大")
 
 * **若您的AppID认证主体与本商户号主体一致**，分为两步：
 
@@ -154,19 +154,19 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 请服务商超级管理员登录华为支付商户平台，进入【商户中心】->【产品功能】->【AppID管理】->【特约商户绑定的AppID】页面，查询选择特约商户，点击"邀请绑定"，根据页面提示填写相关AppID信息，向该特约商户发起绑定AppID的邀请。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/AG39vsRYTTanNLPi9K5TJg/zh-cn_image_0000002557114827.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=93C3697EB888497DFF29F585F1B80DC9F90875E44249ADFE088970DF2286433E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/AG39vsRYTTanNLPi9K5TJg/zh-cn_image_0000002557114827.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=9F6B9D6AA4B481999DD18BD0369EE0C239BC8ADFC6167C32F8D70763D5721BE1 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/mBJC-zz4SiauKQJ2fa_Rsw/zh-cn_image_0000002526154894.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=E948B8D9DC604A512587E63AE6B0CC94C34E5CAEE964F0A205EACC357993618D "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/mBJC-zz4SiauKQJ2fa_Rsw/zh-cn_image_0000002526154894.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=6FFFA84ECB90E56E5A9B277D1F832B41B8749C3EBAF1F0F65D8C4D8CE7BC6224 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/M-6AsJmeSCuBSqPB3RYviw/zh-cn_image_0000002532777966.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=6E1180A98C735D8A230FF9E7762F06C39C077EC1A4B3C5D1E64C664E5741B91F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/M-6AsJmeSCuBSqPB3RYviw/zh-cn_image_0000002532777966.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=198C8FE72035E06C3BD0B641FBD46CA8C2D70AF3C6273212110A8A9120A1BE51 "点击放大")
 
 **第2步：特约商户登录华为支付商户平台确认绑定**
 
 请特约商户超级管理员登录华为支付商户平台，进入【商户中心】->【产品功能】->【AppID管理】页面确认绑定。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/77kvPFuSRaKY8WTS743-HQ/zh-cn_image_0000002557234797.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=38B3F08531D962E03D9CA53FEB8BDB823614A0FCCAD41870490289E18B3061D8 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/77kvPFuSRaKY8WTS743-HQ/zh-cn_image_0000002557234797.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=CA08906F2DFA43170EAA5198CD8B00B010635F543A80AFB883DC0FE38ADA6273 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/nx-_z20LSSqiPUNUcCSPTg/zh-cn_image_0000002563617899.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=44C8D8F0F32DFC95F2B70BD4781C18BD4B430705A54111A565C19F9EFFDE129C "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/nx-_z20LSSqiPUNUcCSPTg/zh-cn_image_0000002563617899.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=D19DB8FE2F4614A093DD2BBF5305D4D853DF5A43E66923D4036284FB0CC52F50 "点击放大")
 
 * **若您的AppID认证主体与本商户号主体不一致**，分为三步：
 
@@ -174,34 +174,34 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 请服务商超级管理员登录华为支付商户平台，进入【商户中心】->【产品功能】->【AppID管理】->【特约商户绑定的AppID】页面，查询选择特约商户，点击"邀请绑定"，根据页面提示填写相关AppID信息，向该特约商户发起绑定AppID的邀请。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/cCMv2nMDSAyS8gJtZduEJQ/zh-cn_image_0000002525994940.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=983E1527A8E0A90EEDFD3E44035702CDAF16478CE60BA5952292F27C4F4F0D08 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/cCMv2nMDSAyS8gJtZduEJQ/zh-cn_image_0000002525994940.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=2920D80C764819FB539D44E1B1979AF3AEAEDD1E53C9B2443746F9A41F718CFD "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/d5ADbGImRnS6dxEN84jwPQ/zh-cn_image_0000002525994934.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=C6FB20A7C96D43C5AA160B0BB0B0520AFCCFA89D08C5ABBA0A83FF45F0BFC7D4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/d5ADbGImRnS6dxEN84jwPQ/zh-cn_image_0000002525994934.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=C48A6AE387B4144F6C67EB8DBB09D4038D164094ADB84E8962C9CC44B3BEAC96 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/D8w0jBrJTYWZaTuOWqyHog/zh-cn_image_0000002532778148.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=8803DACD4DDE6F4F58019BEA96711E14B1676A378EC575FA6159DCE40B475C39 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/D8w0jBrJTYWZaTuOWqyHog/zh-cn_image_0000002532778148.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C31AC3F864A7F71D0FAB484273D969116F0BE98102B0FAE05D483116993AA20 "点击放大")
 
 **第2步：特约商户登录华为支付商户平台确认绑定**
 
 请特约商户超级管理员登录华为支付商户平台，进入【商户中心】->【产品功能】->【AppID管理】页面确认绑定。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/qfPdXts1RbavIHmvgXbYBg/zh-cn_image_0000002557234783.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=B45D9CCABC9AF99319EC2925A61A6D63C3AA8ED0063234490C287CF462DB30F6 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/qfPdXts1RbavIHmvgXbYBg/zh-cn_image_0000002557234783.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E542EBBFAF3CFD44042D954C763C1B09DB92D981494BBCC23EFFFF987DB7E37 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/zPp-zk2qRBWnV0GyhDWONg/zh-cn_image_0000002532778366.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=C80931FFBA241E1448208B74B47DB4B31BD9726B9722FD4ADE622F5F763D5E5D "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/zPp-zk2qRBWnV0GyhDWONg/zh-cn_image_0000002532778366.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=7DEBFC090D4D402F15094F05DF14D3C5A2C5474313C30A604EB77CA5913588C8 "点击放大")
 
 **第3步：AppID管理员登录** [AppGallery Connect 网站](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)**授权**
 
 待华为支付系统自动审核通过后刷新页面，根据系统提示语，请AppID管理员登录[AppGallery Connect 网站](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，进入【我的项目】，在项目列表找到待查项目，点击项目-选择待查应用-点击盈利（或者支付与交易）-鸿蒙支付服务-支付服务（非虚拟类）-去开通，查找待绑定商户号，点击去授权，根据页面提示完成授权关联。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/3swyTEpFRKqBq5FeoeYJlQ/zh-cn_image_0000002526154914.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=96D1977B8BC140431739D34EBAE1943082D1B7413716E50A8B66AAC260C9A4C2 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/3swyTEpFRKqBq5FeoeYJlQ/zh-cn_image_0000002526154914.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=662C4FD06086D5B8871A074CBD627D0844491BC98A01DABCFFAA034192EF3243 "点击放大")
 
 **图7**若您的应用为APP
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/fhaNQWmyRLK9Ru8kUkI8hA/zh-cn_image_0000002534558644.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=7BF8D438EA11DE79C12CDD0DA75B18F623F33A3799B18587CAFBFF669B0C2F23 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/fhaNQWmyRLK9Ru8kUkI8hA/zh-cn_image_0000002534558644.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=86C27CD041213754B43EE5CF0206F562A850BFEFB7130E13CD3788281DC821EB "点击放大")
 
 **图8**若您的应用为元服务   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/nbiBWMPlRkOZHybwjeSbWg/zh-cn_image_0000002534718594.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=E136D2C6C533A277461D78453F74A3CF9A3635BCC26728D8BAF54220D7383425 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/nbiBWMPlRkOZHybwjeSbWg/zh-cn_image_0000002534718594.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=E8BF81FE6EFA473597E55E14649FCA8E584F9B4F409A7DE33F06BFF63A1F0D0C "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/fTLFakUdQ9OPFp6B3K4SDw/zh-cn_image_0000002565478463.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=611A45E02FED00E81B34BE98A94549B422835AE5D6FF074F73711A6685580009 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/fTLFakUdQ9OPFp6B3K4SDw/zh-cn_image_0000002565478463.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=571E674C6BBD73AD40D283851C70C6F093101AB1241D91E56966A39A9B9EC363 "点击放大")
 > 注意
 >
 > 1.商户主体类型为个人的特约商户不支持绑定AppID
@@ -228,18 +228,18 @@ AppID：由华为AGC生态分配给应用的唯一凭证，包含移动应用、
 
 请AppID管理员登录[AppGallery Connect 网站](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，进入【我的项目】，在项目列表找到待查项目，点击项目-.选择待查应用-点击盈利（或者支付与交易）-鸿蒙支付服务-支付服务（非虚拟类）-去开通，查找待绑定商户号，点击去授权，根据页面提示完成授权关联。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/t5x_5Wi8R8i7_Vbwe2XaMA/zh-cn_image_0000002525994960.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=D047A66A4041281C8B3CC5FC4AFAEBBA44C99F06436163477A745EEC94985341 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/t5x_5Wi8R8i7_Vbwe2XaMA/zh-cn_image_0000002525994960.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=0AD0E503807B1542C6369CDC4F23B5354835A0A82DB68C3C9B174D94E3464D2F "点击放大")
 
 **图9**若您的应用为元服务   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/IGj003hwRJCiI6gMuD0xtg/zh-cn_image_0000002565473279.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=8067779C573310551C15227D604FFDF45CA62454D00B409B0215CD72973544C8 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/IGj003hwRJCiI6gMuD0xtg/zh-cn_image_0000002565473279.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=193DF16C5D545EE5C82B1A85F614B86450E76923C5AF6CD55C941461796F5811 "点击放大")
 
 **图10**若您的应用为APP
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/UqwvMbR7SIixBi-SJ1ydrg/zh-cn_image_0000002526154904.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=061DE3243F339DAA8768D51540B2ED3F378894388EAC2BFAC73AA247508962C3 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/UqwvMbR7SIixBi-SJ1ydrg/zh-cn_image_0000002526154904.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A8825FABE3706CDC6E19E4AC8BC636F9AEB33017B60ABE30A7685590CBD71FD "点击放大")
 
 ## 找不到"支付服务（非虚拟类）"菜单或AppID关联授权的页面怎么处理？
 
 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站选择对应的项目后，在'全部功能'中搜索"鸿蒙支付服务"并固定到菜单导航栏中。在"支付服务（非虚拟类）> 待关联商户号"选择对应的商户点击"授权"即可。可参考下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/UgMxbr78QzWpD0NBNhOy3A/zh-cn_image_0000002557234767.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=C3DE6718CB5ACEA5D5CCCC4768CB114A98DD2A82688246D39A9964A729BE5669 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/UgMxbr78QzWpD0NBNhOy3A/zh-cn_image_0000002557234767.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=F1FD4FC47E7E036853608FF4374A8081FF1EDA137DAEEE5BC82A29A0D493D9B0 "点击放大")
 

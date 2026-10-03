@@ -51,7 +51,7 @@ AVCodec支持的视频编码格式请参考[视频编码](https://developer.huaw
 
 **图1** 状态机调用关系示意图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/qmzB93mqQhu2goEy4fuEJg/zh-cn_image_0000002733274884.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=F2D857A38E209061801089D5C7E771D261BB0AD075665AE69CEFE69E97D00824)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/WqwIQ2PwRZCK72vHeyP-4A/zh-cn_image_0000002749493156.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=B673396C3185B1966AF871CD5141EB95254D04066634C5BD6C9C4EB322976029)
 
 ## 开发指导
 
@@ -63,7 +63,7 @@ AVCodec支持的视频编码格式请参考[视频编码](https://developer.huaw
 
 * 实线表示必选。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/UXKXHTw1RTmEPP-dP2C9Yw/zh-cn_image_0000002733434764.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=F71E8CE5DC9CD775BF8026B318BCDB6F34BC1B827EF721A8F435E3BF2437D04B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/967-sONkTQqcx8J8f55ygg/zh-cn_image_0000002779092215.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=D1EEE26BA417B84F4C6786661B964F591B3FEF5CC578C8E0CFD825F699A263B6)
 
 ### 在 CMake 脚本中链接动态库
 
@@ -806,7 +806,7 @@ target_link_libraries(sample PUBLIC libnative_media_venc.so)
 
    **图3** NV12图像排布示意图
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/vtj4P1y7StyBaaJSmFoknw/zh-cn_image_0000002762994285.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=4741BC3A78DA2EEE387F80C3ED02D92A21FE1B62B9BD4C00FE9C629E4D26B802)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/AWJybbrjQBmSpkVXwzNuOA/zh-cn_image_0000002778932357.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=A4711E0C051538AF8F1CE410BF8F075AC82850744FBA6228AF72486176DAE9E4)
 
    添加头文件。
 
@@ -877,11 +877,11 @@ target_link_libraries(sample PUBLIC libnative_media_venc.so)
 
    **图4** YUVI420图像排布示意图
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/X-dv9tAPSn6rkyo8tdkJhw/zh-cn_image_0000002762834401.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=4415EFCD4B252E71EBAFFDDC4BC87E17866685C5E18CEFA9B2F644072C41164C)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/4zqJKKv4TZGCKaBWLvwaFQ/zh-cn_image_0000002749333274.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=41ABC5A336D9BF87881A5B4CAD031A7FB28AB657FD1757F56786FB87622C48D9)
 
    **图5** RGBA1010102图像排布示意图
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/4SuC64F3RNWsAAAM79clEQ/zh-cn_image_0000002733274886.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=0497A1AA4AFA9111CADC9CE2540D37A125AB560415DACA8E476FFDA3141BB754)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/tbi6pTBaR9un60_URRxvoA/zh-cn_image_0000002749493158.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=7BF0A178FE6248B3C5B48CE87E3CD48F15CE61B3005936EA3A49C4FF8D296E5F)
 9. 通知编码器结束。
 
    在编码过程中，当最后一帧数据被送入编码输入队列时，需要设置bufferInfo的flag标识为AVCODEC_BUFFER_FLAGS_EOS，通知编码器输入结束。

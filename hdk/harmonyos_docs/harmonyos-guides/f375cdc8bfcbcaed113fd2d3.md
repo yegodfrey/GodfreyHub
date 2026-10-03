@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-vecto
 
 按元素求最小值，公式表达如下，其中PAR表示矢量计算单元一个迭代能够处理的元素个数：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/PdF3LApSTom4XkED1Tn01w/zh-cn_image_0000002762995133.png?HW-CC-KV=V1&HW-CC-Date=20260917T084543Z&HW-CC-Expire=31536000000&HW-CC-Sign=755C932C93AAFA6A7D48B2870AD537550F74D17DE272B8B6E7D28BCD0708176F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/03hiMuOIRBaA6uOoMmj2ag/zh-cn_image_0000002778933199.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC9C07363D0D2537B55C0CBF0A9227CE8BDAF913E8EFC2B4B24B3012EC826FEE)
 
 ## 函数原型
 

@@ -15,11 +15,11 @@ Text组件绑定自定义菜单如何实现以下效果：
 
 问题效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/VycHdmELR7S69-C6mIMM5g/zh-cn_image_0000002658795071.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=45740D4B98854AE178DD792AB69A9A433F512D0EE94B1F773140612909CE8169 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/VycHdmELR7S69-C6mIMM5g/zh-cn_image_0000002658795071.png?HW-CC-KV=V1&HW-CC-Date=20260929T074340Z&HW-CC-Expire=31536000000&HW-CC-Sign=889C5D5FDD4B8AC5EF32362104E70B3CAE5DD430656638090F625E7F885F0EAA "点击放大")
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/UHS5Z8rQQmCU0mIpMR0CSw/zh-cn_image_0000002628555700.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=C78337CD26C44739CA6F54534EBAB2388E93BE6D330650BAAAF55C28BA4C7ED3 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/UHS5Z8rQQmCU0mIpMR0CSw/zh-cn_image_0000002628555700.png?HW-CC-KV=V1&HW-CC-Date=20260929T074340Z&HW-CC-Expire=31536000000&HW-CC-Sign=65306134EBC5C59E7C93A990B4791AA20CC86FBBB14D4DA1E6F2AB9DEFE17843 "点击放大")
 
 ## 背景知识
 

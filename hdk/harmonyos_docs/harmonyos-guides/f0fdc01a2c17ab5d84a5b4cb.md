@@ -40,7 +40,7 @@ HarmonyOS Node-API提供了一系列[线程安全函数](https://developer.huawe
 
 **调用流程图**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/8cMXoDe2SrCpBFLhj9BIzg/zh-cn_image_0000002733435774.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=617969299439475C617E3218EF529ED7D9784B50D8A845F036F02CC567F4C7B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/vx-bsI1MRt-cJ1DnhKUSFg/zh-cn_image_0000002779093219.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=2AF5BEA5A196F15E529BC9C07BEC954FE8AE2916A1868DFC29EA281D390886E6)
 
 首先ArkTS侧会传递一个回调函数到Native侧，然后在Native侧创建一个线程安全函数，此线程安全函数会绑定一个回调函数（通过napi_call_threadsafe_function()调用线程安全函数时，会触发该回调函数），接着需要保存后续需要用到的上下文信息及参数，然后拆分子线程（子线程绑定了要用到的上下文信息及参数）。
 
@@ -61,7 +61,7 @@ libuv库提供了一个函数uv_async_send()，用于在非阻塞事件循环中
 
 **调用流程图**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/goMSvfAMSZWTn06VeLDuDg/zh-cn_image_0000002762995297.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=26E67E2FD1F6A3AEFCA9D2FA148B5A0D24868BD2F31E232C18D76B128B4A39D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/0pBxPz7FT0GjNs8csCTHZg/zh-cn_image_0000002778933363.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=070F5660EBBEF3138F81C5B3DEB3FA2968E41B6ACFC83B32927496F9FF9452AB)
 
 首先ArkTS侧会传递一个回调函数到Native侧，Native侧接收到后会保存后续需要用到的上下文信息及参数，接着通过napi_get_uv_event_loop()接口获取主线程Loop，该Loop会在主线程中执行，然后初始化async句柄并绑定后续需要在主线程调用的回调函数，运行Loop。接着拆分子线程（子线程绑定了要用到的上下文信息及参数）。
 
@@ -180,7 +180,7 @@ Native侧子线程分配到系统资源之后在子线程中调用uv_async_send(
 
 **结果展示**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/dxd8x6WHRw2jfZBDFeFwcA/zh-cn_image_0000002762835411.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=AC68A8CFC9B5639B5625F604F9A808D45CB857B8FC5733D5C25B064969E34323)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/Ws1NIf4CRZWCsb0jLtujsA/zh-cn_image_0000002749334278.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=2B025286E48D63643C4F95B7CCE7E98B8E6271C53C20162ADFF130F580984785)
 
 ### 基于libuv异步库的uv_async_send方法实现
 
@@ -297,7 +297,7 @@ Native侧子线程分配到系统资源之后在子线程中调用uv_async_send(
 
 **结果展示**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/P9IdAFihR8qky2vv9J5Upw/zh-cn_image_0000002733275898.png?HW-CC-KV=V1&HW-CC-Date=20260917T084544Z&HW-CC-Expire=31536000000&HW-CC-Sign=8F960BF06D52B60C143E0166386F4B7464EAE692B1285126886342467BEE654A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/u4KZJB00Qk6pPF3jfuOXBQ/zh-cn_image_0000002749494164.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=09BB7C274378441E8B52DF2D0EC324A2D8761DDDD86F0C7A511135F55AEBA7B3)
 
 ## 常见问题
 

@@ -229,7 +229,7 @@ struct TouchExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/Eu_oeAqdR72lM3lE_A7qRg/zh-cn_image_0000002762835517.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084645Z&HW-CC-Expire=31536000000&HW-CC-Sign=EFA8E5DACBAC7EBE61BEA7EDC3D1D3CD895341457A1328C5CC8C945484511AA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/RStJ8QpkTumf8UKXANUWvA/zh-cn_image_0000002749334384.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=D6831F06B5B258690DF5DF063B24850DC57974CB670502F99769124B71FA91BF)
 
 ### 示例2（获取组件实时位置）
 
@@ -264,5 +264,5 @@ struct GetCurrentLocalPositionExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/uAsvsVVdSXysWYYCTa7aiA/zh-cn_image_0000002733276008.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084645Z&HW-CC-Expire=31536000000&HW-CC-Sign=26F69CA539D30CAD13DB76E02547A015F7F3D68590EA57085102F37D31BA6410)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/RBEYgoyYSCqYNefZtasWOQ/zh-cn_image_0000002749494270.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=58A460F029213F1FBC0DBB8FF047C5037FC4F942C1AC10EBBCCC49B467E12F9E)
 

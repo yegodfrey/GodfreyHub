@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1322
 
 使用CanvasRenderingContext2D绘制长文本时，这些长文本既没有换行符，也没有空格符，如何对绘制的文本进行自动换行？效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/UBEmRlnjSXuqm1tgTU0wzg/zh-cn_image_0000002658838901.png?HW-CC-KV=V1&HW-CC-Date=20260920T114735Z&HW-CC-Expire=31536000000&HW-CC-Sign=C5BC04B8E3173922908CD96295657E5FBB0638DBA87E8ABCF63F0C3F5068747E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/UBEmRlnjSXuqm1tgTU0wzg/zh-cn_image_0000002658838901.png?HW-CC-KV=V1&HW-CC-Date=20260929T074334Z&HW-CC-Expire=31536000000&HW-CC-Sign=EAD93BCEF044F6C19D2EC876058B45339F5EC74091E5D200B6E99DF951352A9D "点击放大")
 
 ## 背景知识
 

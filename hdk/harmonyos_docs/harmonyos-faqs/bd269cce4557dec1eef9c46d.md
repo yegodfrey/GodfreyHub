@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery
 
 版本包上传成功后，在新版本发布选择版本包时，无法勾选新版本包，提示"该状态为较低版本包，不能选择使用"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/dDe9mBdBR1CLB7KXPF8o3Q/zh-cn_image_0000002628394610.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC7D3E6BD96E4DE9F8D7763D28BB6C0D2D0E509B55C9B62B06B3253BA4636B75 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/dDe9mBdBR1CLB7KXPF8o3Q/zh-cn_image_0000002628394610.png?HW-CC-KV=V1&HW-CC-Date=20260929T032806Z&HW-CC-Expire=31536000000&HW-CC-Sign=111E7462EF51D91A1F4EEE99993E3057966AB9D9DCB492C3F6D7221D6F340FAE "点击放大")
 
 ## 背景知识
 
@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery
 
 ## 问题定位
 
-* 查看应用当前在架版本号，为12920000。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/xTKcIMxbQSKpE9wrN2EvGw/zh-cn_image_0000002628554500.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=5260B123A733801718F16FE99AE8B8DB8BEDEB17E342714F626B3C3973613ACB "点击放大")
+* 查看应用当前在架版本号，为12920000。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/xTKcIMxbQSKpE9wrN2EvGw/zh-cn_image_0000002628554500.png?HW-CC-KV=V1&HW-CC-Date=20260929T032806Z&HW-CC-Expire=31536000000&HW-CC-Sign=757C95991393F0E2646184C47251E21825DD599A8CD45B98818E7448712787E4 "点击放大")
 
 * 问题现象中可以知道新上传的包版本为11940000。
 

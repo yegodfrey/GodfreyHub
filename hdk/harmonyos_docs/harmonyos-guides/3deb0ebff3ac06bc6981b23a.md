@@ -45,7 +45,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera
        #include "ohcamera/video_output.h"
        #include "napi/native_api.h"
        #include "ohcamera/camera_manager.h"
-       #include "common/log_common.h"
 
 2. 在CMake脚本中链接相关动态库。
 

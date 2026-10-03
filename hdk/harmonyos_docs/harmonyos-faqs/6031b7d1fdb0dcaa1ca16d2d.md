@@ -72,11 +72,11 @@ class JumpTrans {
 
 问题效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/UAFfOda8S3G5Mzf8b-sYwA/zh-cn_image_0000002628394280.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114741Z&HW-CC-Expire=31536000000&HW-CC-Sign=CD6BBFCA9FDB69C90EF499ED2CD6059C372CE3FA71B053D52D57BA0EB6642BF5 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/UAFfOda8S3G5Mzf8b-sYwA/zh-cn_image_0000002628394280.gif?HW-CC-KV=V1&HW-CC-Date=20260929T074338Z&HW-CC-Expire=31536000000&HW-CC-Sign=95DBC2D55054502CC2AC1BB6694E33FC891658F427E94FF3A4B71B4E7BB334B7 "点击放大")
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/AsEgnbwFS02KATkuWlin1Q/zh-cn_image_0000002658913495.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114741Z&HW-CC-Expire=31536000000&HW-CC-Sign=A2F3DA1350AFB26ADC2B8528E68CB9AA8435834FC6A13E6A553995ADA229EEC9 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/AsEgnbwFS02KATkuWlin1Q/zh-cn_image_0000002658913495.gif?HW-CC-KV=V1&HW-CC-Date=20260929T074338Z&HW-CC-Expire=31536000000&HW-CC-Sign=664857EF743372BFDC7F8E8980033177316B2BA69BC6645B0377125697420C5F "点击放大")
 
 ## 背景知识
 

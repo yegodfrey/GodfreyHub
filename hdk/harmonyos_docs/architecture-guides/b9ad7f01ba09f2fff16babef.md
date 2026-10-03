@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/red_envelo
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/3f4RIIcRS1W6i2pORu1X_w/zh-cn_image_0000002517031548.gif?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=F494BD5182A5FFC4684038033E189A012CA4B6C7E09E011F7ECAA77A9334C095 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/j2K_XNSfQemNNDI47eY_GA/zh-cn_image_0000002631310546.gif?HW-CC-KV=V1&HW-CC-Date=20260924T065100Z&HW-CC-Expire=31536000000&HW-CC-Sign=6EDCBABCE7B37B0EA69E505F642D1CAC25AEAEEF778EF04E6B6ABA9558057D33 "点击放大")
 
 ## 实现思路
 
@@ -114,7 +114,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/red_envelo
 
 [帧动画(ohos.animator)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-animator)
 
-## 代码下载
+## 示例代码
 
-[红包雨示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626173526.36228960044985254868036330590782:50001231000000:2800:8C106982ADF604ECA6558798322D71443B9690A79AFC121217A7FCAA4399DA09.zip?needInitFileName=true)
+[红包雨示例代码](https://gitcode.com/scenario_samples/RedEnvelopeRain)
 

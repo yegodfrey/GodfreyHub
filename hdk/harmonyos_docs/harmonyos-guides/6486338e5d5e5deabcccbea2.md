@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-acce
 
 基于OpenGL ES图形API平台，系统送显模式的主要业务流程如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/LR2MVZ8iScWtWafRRoreRg/zh-cn_image_0000002733434996.png?HW-CC-KV=V1&HW-CC-Date=20260917T084545Z&HW-CC-Expire=31536000000&HW-CC-Sign=4EC084469C6D63E13807850171D05CD59509E8B5916015DF7B6E7EE91CB97D11)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/siEzZ50FR9SdqBM1Bi-ioA/zh-cn_image_0000002779092441.png?HW-CC-KV=V1&HW-CC-Date=20260929T121648Z&HW-CC-Expire=31536000000&HW-CC-Sign=81B7A0A2F2B33062F46F7D0CDCC807964E157C1E7B379642CA6662062C5A7A8E)
 
 1. 用户进入超帧适用的游戏场景。
 

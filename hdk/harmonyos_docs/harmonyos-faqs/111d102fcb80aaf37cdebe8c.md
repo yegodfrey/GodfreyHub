@@ -20,11 +20,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-38
 
 由于PixelMap.crop方法操作PixelMap自身而不是返回副本，一张图裁剪为多张小图时，需要将原图拷贝后再剪切的方式处理，大量的复制拷贝增加了处理耗时，参考[PixelMap深拷贝案例](https://gitee.com/harmonyos_samples/image-depth-copy)。实现逻辑如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/hfc8SHdGRNWiitTi5-kYmQ/zh-cn_image_0000002658911815.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=4F1DADCCB68786D99EDFE14634AD561E4F7F3159A2A002078A7B01810BA47A51 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/hfc8SHdGRNWiitTi5-kYmQ/zh-cn_image_0000002658911815.png?HW-CC-KV=V1&HW-CC-Date=20260929T032804Z&HW-CC-Expire=31536000000&HW-CC-Sign=67D23084212E34120418AE0E73637BA075D4CBDFEB4124EE68D2924DF095BEAB "点击放大")
 
 实现一张图片的高效裁剪，可以使用PixelMap.readPixels，传入area参数仅读取裁剪范围，再使用writePixels写入新图片。此时仅复制了必须的裁剪结果数据，降低大量复制消耗并且可以省略复制后的裁剪步骤，操作示意图及步骤如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/SpDVVciwRdy6p8QmvNPt3Q/zh-cn_image_0000002628392608.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=6746C12BDB5E112E9C3DCE2D693ED57D146D925B82DD67212BF1DAB10DCC0C7E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/SpDVVciwRdy6p8QmvNPt3Q/zh-cn_image_0000002628392608.png?HW-CC-KV=V1&HW-CC-Date=20260929T032804Z&HW-CC-Expire=31536000000&HW-CC-Sign=A64E737C9A2A4C3130C0E94D694F2D112DDC191BFE83B11ED3DC83E241114F8A "点击放大")
 
 1. 获取需要裁剪的PixelMap通过readPixels读取裁剪区域数据。
 2. 使用writePixels将读取到的数据写入空白PixelMap，生成小图。

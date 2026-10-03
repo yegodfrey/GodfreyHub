@@ -442,7 +442,7 @@ struct TransitionEffectExample1 {
 
 示意图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/r61iTgjNQYO9Vt6BOmduQQ/zh-cn_image_0000002762996005.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084640Z&HW-CC-Expire=31536000000&HW-CC-Sign=61CFCDC9CBE2352E2530F406574D5DCB55ACE7AF90B67FE76A172265AEA9933C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/ii8Dh02NTMGh6hJ2jOzt5A/zh-cn_image_0000002749495000.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121724Z&HW-CC-Expire=31536000000&HW-CC-Sign=BE16707FBA99FDBE3D507EF5DCD22B652388F6EB1517D2D5C87BD161546F5428)
 
 ### 示例2（使用不同接口实现图片出现消失）
 
@@ -505,7 +505,7 @@ struct TransitionEffectExample2 {
 
 示意图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/opbkpSv1R72mbKbKBPK0SA/zh-cn_image_0000002762836121.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084640Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D67D15349DF4B9EEF6E82AF0A98E2F610C5E5CB21ADA119255310C187A7B8B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/0ABeeYq7RdWyUGBSfVLxRg/zh-cn_image_0000002779094057.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121724Z&HW-CC-Expire=31536000000&HW-CC-Sign=39327D442CAC3616C80839CE948E504E185BD6ACAE832E976858D63B3BE1A659)
 
 ### 示例3（设置父子组件为transition）
 
@@ -566,7 +566,7 @@ struct TransitionEffectExample3 {
 
 示意图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/r5-sx6uFSOaiK2Id8CFQuw/zh-cn_image_0000002733276610.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084640Z&HW-CC-Expire=31536000000&HW-CC-Sign=B6594E269A26277004D4126A3561476E5E1B18AC326DE504CA66A2C3BB8E1C4A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/TXViVGVETc6viufuqxn0JA/zh-cn_image_0000002778934201.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121724Z&HW-CC-Expire=31536000000&HW-CC-Sign=9F3A5ADFA2B9C21685B2D5D6628316F350D8B255EC8C33F5D353CFDED9B42C84)
 
 ### 示例4（visibility切换时的双动画复合效果）
 
@@ -605,5 +605,5 @@ struct TransitionVisibilityExample {
 
 示意图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/2SizTL1XRMyN2rjzwtFNNw/zh-cn_image_0000002733436486.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084640Z&HW-CC-Expire=31536000000&HW-CC-Sign=9413E256A77754D2A09C758709B7D580B265E089C1BCCF30728C0E3F060F187E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/Rxz_hyFXRZqDL1r8i40rdg/zh-cn_image_0000002749335118.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121724Z&HW-CC-Expire=31536000000&HW-CC-Sign=6547EFE6F69FBA29059E4EEFF21CDCF657EEEA0D30C8F171EB2BBE2199752815)
 

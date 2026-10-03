@@ -80,7 +80,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/venus-00000010632996
   * **链接**：您可以在落地页中添加跳转链接，用户进入落地页后点击链接即可完成跳转。
   * **动态商品** ：点击组件区域即可触发应用下载，此组件初始状态包含4个商品，每个商品区域为一块下载热区，即有4个下载区域。您可以下拉选择投放区域，设置动态商品样式（分为单列、双列、三列）和展示商品数量（4-20个），商品模板直接拉取商品库中的商品主图、描述、现价、原价、应用直达链接等商品信息，并支持修改标签、按钮文案，保存提交审核。
 
-    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/5KMCDTlxTAeiCbc7arzDKw/zh-cn_image_0000001363204716.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=9CD252B380AEEB80C9078523B0721BE97F1111FB40EC8E9240F673F54D779721)
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/5KMCDTlxTAeiCbc7arzDKw/zh-cn_image_0000001363204716.png?HW-CC-KV=V1&HW-CC-Date=20260929T073030Z&HW-CC-Expire=31536000000&HW-CC-Sign=989F90BCB2306780435259483F79BCA08A75C750EF55068B97BC00DA99E6F269)
     * 商品信息：
       * 商品图：自动拉取商品中心的商品图，默认显示商品主图。
       * 描述：默认显示您在商品中心填写的商品名称，可设置颜色和字号，顶多只显示两行文案。
@@ -100,11 +100,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/venus-00000010632996
 
   如果您未创建表单，单击"新建表单"，即可进入页面设置悬浮；如果您已创建表单，单击"表单管理"，进入表单页面，选择相应表单并单击"编辑"，即可设置页面悬浮。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/mXEi4e0BQi6TiwnhEz5gUQ/zh-cn_image_0000001456606626.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=01EFED93A2151BF20D2F01D54FB201A71B96FAAB5037F5B11990524C13CEE05D)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/mXEi4e0BQi6TiwnhEz5gUQ/zh-cn_image_0000001456606626.png?HW-CC-KV=V1&HW-CC-Date=20260929T073030Z&HW-CC-Expire=31536000000&HW-CC-Sign=645CDA1473564487D415EE4F366460AF97744324F4CC1B0537E95328CCC6E176)
 
   表单提供常规表单与分步式置底表单，支持多种表单内容样式，同时支持提交跳转链接页面；其中分步式置底表单为底部悬浮表单，滑动落地页时表单持续固定在底部，地区/经销商支持分步提交填写。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/m1D5-E5YRoWg-ZvRYtOBfA/zh-cn_image_0000001673880537.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE4660ED2C52C624C2DD2F0A57E085C5DC7140CB3CFAE4496D4E96832F1E160D "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/m1D5-E5YRoWg-ZvRYtOBfA/zh-cn_image_0000001673880537.png?HW-CC-KV=V1&HW-CC-Date=20260929T073030Z&HW-CC-Expire=31536000000&HW-CC-Sign=83063666D676EFCAA6CF67090D39B525964DEFB8DB0629AD82998BE468CD60D0 "点击放大")
 
 
 * **排版组件** ：
@@ -117,7 +117,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/venus-00000010632996
 
 ## 创建落地页流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/dHlTFP2DTy6Pj2rLh9HL8Q/zh-cn_image_0000001192367482.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=86592ECA0E5ABEE1A2B463A2596FB291445579187BB40F8826D71E30A3CA6E2A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/dHlTFP2DTy6Pj2rLh9HL8Q/zh-cn_image_0000001192367482.png?HW-CC-KV=V1&HW-CC-Date=20260929T073030Z&HW-CC-Expire=31536000000&HW-CC-Sign=DDFD743707B448006449850EFE0D6A8209715D5187154A0F7565F308A196A0C1)
 
 目前您可以创建"应用下载落地页"和"网页落地页"。
 
@@ -139,15 +139,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/venus-00000010632996
 
 2. 使用模板并编辑落地页。
 
-   单击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/0saz4KdGToulNzMxouqJRA/zh-cn_image_0000001227227267.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=403645AF21E9B3CEFE69768FFDD14C6F9264220F320CA86B008A2D202444D269 "点击放大")"进入空白模板编辑页面，或者根据您的推广产品选择合适的行业模板，鼠标放置模板上方，单击"**预览** "线上预览模板样式，单击"**使用**"进入模板落地页编辑页面。
+   单击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/0saz4KdGToulNzMxouqJRA/zh-cn_image_0000001227227267.png?HW-CC-KV=V1&HW-CC-Date=20260929T073030Z&HW-CC-Expire=31536000000&HW-CC-Sign=A5F3E31DD675638155DDAFA6DCE4160C1086175CB39B857A748A637BE093436B "点击放大")"进入空白模板编辑页面，或者根据您的推广产品选择合适的行业模板，鼠标放置模板上方，单击"**预览** "线上预览模板样式，单击"**使用**"进入模板落地页编辑页面。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/c_9BRbM-R7u8trMlytBcbw/zh-cn_image_0000001458004705.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=37C920C23EAA445AB149FF1C35A396FBFDD51ACEFA619D744005133E7738BF10 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/c_9BRbM-R7u8trMlytBcbw/zh-cn_image_0000001458004705.png?HW-CC-KV=V1&HW-CC-Date=20260929T073030Z&HW-CC-Expire=31536000000&HW-CC-Sign=107FD92DF3AFD3C9180C28029D4C7B03B636D1F45BD8CD6BB52C3A78D7221D02 "点击放大")
 
    落地页编辑页面分为3个区域，左侧为组件展示区，中部为页面编辑区，右侧为组件编辑区。单击或拖拽左侧的组件进入页面编辑区，在页面右侧进行组件内容、排版等设置。
 
    若使用行业模板建站，可直接在页面右侧组件编辑区替换相应组件内容。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/4jT7kYxvR9i3jMooH3pQIg/zh-cn_image_0000001181709120.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=A54BB5F25E29647F90FDEB62D5BD3F3728D536A4FEB6DC4EB722BD5DA24AEC3C)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/4jT7kYxvR9i3jMooH3pQIg/zh-cn_image_0000001181709120.png?HW-CC-KV=V1&HW-CC-Date=20260929T073030Z&HW-CC-Expire=31536000000&HW-CC-Sign=97C19FEC6A3A0F5CB428E76C37CE9E53AB4B27EAF99EC95BF7FC11AB1F715909)
 
 3. 调整落地页组件。
 
@@ -166,7 +166,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/venus-00000010632996
 1. 智能建站：单击"**工具** "-**>"创意中心"->** "**落地页工具** "**->** "**维纳斯落地页**"，进入维纳斯落地页工具界面。
 2. 单击"**自由布局**"的空白模板，单击左上角"智能建站",输入应用ID，选择模板，一键生成相应的应用下载落地页。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/2psG1564QsKGorPDdQH4Tw/zh-cn_image_0000001181869096.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=C67A8626DDA68C62868E37EBBFF8948C4C43FCF6076CA0E97C20BEF74A4AB81D)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/2psG1564QsKGorPDdQH4Tw/zh-cn_image_0000001181869096.png?HW-CC-KV=V1&HW-CC-Date=20260929T073030Z&HW-CC-Expire=31536000000&HW-CC-Sign=7D5855A871D2E7A1EDF1C1AC486E9E31BF432434B5E086532832ED8C7E4E586D)
 
 ## 审核状态说明
 
@@ -200,7 +200,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/venus-00000010632996
 
   单击"**数据分析** "->"**数据概览**"，您可以查看落地页浏览量、独立访客量、跳出率、平均浏览时长、下载量、下载率、安装量、安装率、日历预约成功量、日历预约成功率等详细数据，曲线图可以通过任意两个维度数据进行对比。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/zDhbUIRwTRCm7ea4QI3GHg/zh-cn_image_0000001182027650.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=021B5F5A9B9ACD4D2E20B6F7D33E863ACF886368647F23CA0E99AEF7CC855E74)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/zDhbUIRwTRCm7ea4QI3GHg/zh-cn_image_0000001182027650.png?HW-CC-KV=V1&HW-CC-Date=20260929T073030Z&HW-CC-Expire=31536000000&HW-CC-Sign=51E6D52D51A7F676588DCBA8A324369B517DC824AD7363368DA09B7459583004)
   * **浏览量**：落地页总访问次数。
   * **独立访客量**：访问落地页的访客数，一天内相同访客多次访问记录只记一次。
   * **跳出率**：访问落地页无操作离开网站的次数/总浏览量。

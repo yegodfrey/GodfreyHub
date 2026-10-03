@@ -124,7 +124,7 @@ scrollTo、scrollBy和scrollToIndex可实现通用滚动控制，scrollToItemInG
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/7Kslhxg7RKOxzjWntOQ1xQ/zh-cn_image_0000002658911917.png?HW-CC-KV=V1&HW-CC-Date=20260920T114741Z&HW-CC-Expire=31536000000&HW-CC-Sign=DC2F484A0CF5E5DAC154937EBD231821EE6EB06E862F923D87E7EDB98767262B "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/7Kslhxg7RKOxzjWntOQ1xQ/zh-cn_image_0000002658911917.png?HW-CC-KV=V1&HW-CC-Date=20260929T074338Z&HW-CC-Expire=31536000000&HW-CC-Sign=86DB5ECF582D68616A703C530C4E7CF838F7CB71D01A9F9B34BA08884B3DE064 "点击放大")
 * **场景二** ：多层级分组结构，精准跳转至某个特定的分组中的某一项。
 
   使用scrollToItemInGroup定位到分组列表中指定分组内的目标项。
@@ -239,7 +239,7 @@ scrollTo、scrollBy和scrollToIndex可实现通用滚动控制，scrollToItemInG
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/6pbb4W2BTAqjQLwRo5ikfA/zh-cn_image_0000002628392708.png?HW-CC-KV=V1&HW-CC-Date=20260920T114741Z&HW-CC-Expire=31536000000&HW-CC-Sign=23A8706C298596A1F19063E13A2C5FF0F5B3977933D08234420A29D917684D49 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/6pbb4W2BTAqjQLwRo5ikfA/zh-cn_image_0000002628392708.png?HW-CC-KV=V1&HW-CC-Date=20260929T074338Z&HW-CC-Expire=31536000000&HW-CC-Sign=B0A9D724BBC241BD8046DAEE89927BC832073AFAE1B54C7074728E89D8D7C2EB "点击放大")
 
 ## 总结
 

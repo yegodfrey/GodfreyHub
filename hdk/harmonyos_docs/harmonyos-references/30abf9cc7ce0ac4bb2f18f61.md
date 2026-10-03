@@ -150,7 +150,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/-cSCccK7Rf6elgQe0gQ5XQ/zh-cn_image_0000002762836213.png?HW-CC-KV=V1&HW-CC-Date=20260917T084642Z&HW-CC-Expire=31536000000&HW-CC-Sign=DD7840D269F6ABDE4572DC8D0B9F42F46454C87072742DBDEBAF0CB71C4B17C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/_gzE5f2iSVuaC2AsZpkiNA/zh-cn_image_0000002779094147.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=A71AEEA2E608EABA509B6DF8C591130D07CF46E64C4EF8AA9DFF2676E179079F)
 
 ### 示例2（右侧自定义按钮播报）
 
@@ -245,7 +245,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/HlSuqUpLSbqDZyTttxJoXw/zh-cn_image_0000002733276700.png?HW-CC-KV=V1&HW-CC-Date=20260917T084642Z&HW-CC-Expire=31536000000&HW-CC-Sign=894C969644567FF7F4066286C0EB0D890AF095AD05A82C8E25A7EB4F2D77AC68)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/eXX8P786QyeBGzgqUq81Zg/zh-cn_image_0000002778934291.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=42F6FC2581A5D75A98DFEAED975AF33A3AF2013DE329849956AF9B679579BC6D)
 
 ### 示例3（设置Symbol类型图标）
 
@@ -327,5 +327,5 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/LBMtmJQaQMWcwyrcd3oAWQ/zh-cn_image_0000002733436576.png?HW-CC-KV=V1&HW-CC-Date=20260917T084642Z&HW-CC-Expire=31536000000&HW-CC-Sign=C853701F36D5B072B99B77D668D4CE43D86850149473C304F92AFBE7BCAAE833)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/PmITzHyAQMiP1oW2k-r15w/zh-cn_image_0000002749335208.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=57020524397AA8A1082B5CD0824CBFD607F301C35ED4D796C1DA0DCA8E438102)
 

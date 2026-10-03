@@ -71,7 +71,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/design-guides/system-features-
 |11 寸以下平板|9:16，3:4|3:2|
 |11 寸以上平板|9:18，3:4|3:2|
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/V2rBKeD_TeuCPRzTDoab6g/zh-cn_image_0000001748633032.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=3DF2490E4CED361374E76A4A0EC9CC5C552DF5A1E38BF27B84BA63001C8671B4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/V2rBKeD_TeuCPRzTDoab6g/zh-cn_image_0000001748633032.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=52D20C3DE4D0CC1A5AF5FB3CC26CBA90D82A46EF602EE304A29136CFECDDEE47 "点击放大")
 
 **平板上的自由浮窗适配**
 
@@ -87,15 +87,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/design-guides/system-features-
 * 应用全屏显示时是底部导航的，3:2 的横向悬浮窗也保持底部导航。
 
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/PliI-yuMQ-SjUp-Gr00urg/zh-cn_image_0000001749117800.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=CADB0D5239E61A50C3D2F4FEE735B553C467996E12B26BB12D45739DEF8B87C5 "点击放大")|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/PliI-yuMQ-SjUp-Gr00urg/zh-cn_image_0000001749117800.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=1A32749DC16B5DCCC9D6333A5A5D6E9D486C10DD5F06746435AB25358DA82283 "点击放大")|
 |3:2 的横向悬浮窗保持侧边导航的示例|
 
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/_HXsSyqFQy66ePBD6UUS9w/zh-cn_image_0000001796077517.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=CC4C6E23A2D2FAC003CB2948B749AEC4DB5426CF5A64D9626C87B8F760224887 "点击放大")|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/_HXsSyqFQy66ePBD6UUS9w/zh-cn_image_0000001796077517.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=62647B621991C6F6FD1DD3DCDE8F0E842A59CFBB19F1DF9C8C95864AC09D0F38 "点击放大")|
 |竖向悬浮窗底部导航的示例|
 
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/ETTWIIPYS4WX9PJ5Z26owA/zh-cn_image_0000001749276684.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=63B6DA824B1FC11327CFC806BDB70F661508E8AC47CEC12E1288932C9F3893F7 "点击放大")|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/ETTWIIPYS4WX9PJ5Z26owA/zh-cn_image_0000001749276684.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=8EB6C459766E8BFD865C0E84BEC60211F4C7461F29D8C59E6CC7158F24697BA5 "点击放大")|
 |应用全屏显示时是底部导航的，在 3:2 的横向悬浮窗保持底部导航的示例|
 
 **分栏的适配**
@@ -103,11 +103,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/design-guides/system-features-
 应用全屏显示时有分栏布局的，3:2 的横向悬浮窗也保持分栏布局显示。切换至竖向悬浮窗时，不再分栏显示。
 
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/nPJchcxwQt23HLwsnTJJpQ/zh-cn_image_0000001749276088.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=30590BF6C06A696B3FE74A867DD19172CAF63BEE6DA4DA14FAF6B235CD827718 "点击放大")|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/nPJchcxwQt23HLwsnTJJpQ/zh-cn_image_0000001749276088.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=858775382A82DE5511ED3E7FE02E0A7679455E3088D4AD099661FBD3D99BE462 "点击放大")|
 |应用全屏显示时是分栏布局的，在 3:2 的横向悬浮窗保持分栏布局的示例|
 
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/Wv6Va3TdSwS90pZ62Kh4BA/zh-cn_image_0000001796195965.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=848F930D0AB4DF86B366ED56C7E6E54F180E72C176C443436A334BDC62E887EA "点击放大")|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/Wv6Va3TdSwS90pZ62Kh4BA/zh-cn_image_0000001796195965.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=2DD17C23C4465DA61049A7AA4B73415DAC2F01D4450C7A06E2B769AF1D89C5F0 "点击放大")|
 |竖向悬浮窗不再分栏显示的示例|
 
 ### 悬浮窗类型
@@ -118,7 +118,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/design-guides/system-features-
 * 任务悬浮窗：悬浮窗承载一个特定的任务，悬浮窗内只能执行本任务相关的功能。 任务悬浮窗一般不带底部页签，无法切换至其他功能。
 
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/_nlBEsfASwOH0RoLpo5hig/zh-cn_image_0000001748474148.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA8D433E555A898B98C68FB6C56A9FDADF9EDE394F69737A0C526B5F381AE4C4 "点击放大") 应用悬浮窗|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/mEJTSumJShyBfwUqYvNLCQ/zh-cn_image_0000001795513885.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=54A9F94D22E1AD4B14C314F910156103B9EB300EFD6F816FA25E4FA19E5C5CC8 "点击放大") 任务悬浮窗|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/_nlBEsfASwOH0RoLpo5hig/zh-cn_image_0000001748474148.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=E6D7B86FF62529EBED33056E19EB949A89E6C0E60B55DBF94638B79284B4E258 "点击放大") 应用悬浮窗|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/mEJTSumJShyBfwUqYvNLCQ/zh-cn_image_0000001795513885.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=73582000CB466B1FB47DF0A7F67C42215C4C89AF19D2B72C12DD3413BF9EFCB8 "点击放大") 任务悬浮窗|
 
 ### 悬浮窗的应用
 
@@ -156,7 +156,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/design-guides/system-features-
 * 上下分屏适合视频、游戏、会议等横向布局内容的任务并行，例如一边看视频一边 IM 对话等。
 
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/_n5yrv6rRcuLbnV48oXPmg/zh-cn_image_0000001795513889.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=3395A0FCD539EAA5440691B2EBAA8E32511CBDF6105D65088F18BA522B83BB6A "点击放大") 左右分屏|上下分屏|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/_n5yrv6rRcuLbnV48oXPmg/zh-cn_image_0000001795513889.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=AC3470F9F5512CF3F91DF8215968033A278C65E05F0CD07509DE42C5FE1DEE07 "点击放大") 左右分屏|上下分屏|
 
 **上下分屏的布局适配**
 
@@ -164,7 +164,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/design-guides/system-features-
 
 支持直板机横屏的应用，需要按照横屏布局进行适配显示。以下为参考示例。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/rrZft2MBQhm9wxBnxhc6hQ/zh-cn_image_0000001795392953.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=621661CBAA0B827031B511035F272F6B7E0F57E9619CCA0A9CF4179F039F57B8 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/rrZft2MBQhm9wxBnxhc6hQ/zh-cn_image_0000001795392953.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=6249FEB4BF4301888A3420F3F499E4BB3FC19CFB64CFA301218754034FD52858 "点击放大")
 
 图库的上下分屏适配示例
 
@@ -176,7 +176,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/design-guides/system-features-
 * 任务分屏：单个应用内的不同任务组成的分屏，两侧屏幕可以同时展示不同的任务或都展示同一个任务。例如当前正在全屏使用备忘录，再在侧边栏长按后拖出备忘录应用图标，将备忘录的两个笔记任务形成分屏。支持多实例的应用，可以实现任务分屏。
 
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/YmWcPfwISBGRf4GumV-HDg/zh-cn_image_0000001748474160.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=C1863167D70105A4FE10B0B28F9D1B101A9014872AC5837903CFA9E8EDD02CE4 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/TxSmtx6vSviB15ZqZDzk_w/zh-cn_image_0000001795513893.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=E82188D57CAC6C4476AF351C9C6D3C25FEAADE93432F0C5C19801DA9197FFA3D "点击放大")|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/YmWcPfwISBGRf4GumV-HDg/zh-cn_image_0000001748474160.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=2CF66DF50F013EBF147C659A55D16E36948BC35A53A952C5F845B6B93765A48A "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/TxSmtx6vSviB15ZqZDzk_w/zh-cn_image_0000001795513893.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A880A9A4FEF56C32E831C5074AB132D821001D598A70CABF99E90E0CAA64DF8 "点击放大")|
 |应用分屏|任务分屏|
 
 ### 分屏的应用
@@ -188,7 +188,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/design-guides/system-features-
 * 一步分屏手势触发
 * 应用内 Dock 触发
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/KSmQk7z3Q-66DHKsqw088w/zh-cn_image_0000001748633048.png?HW-CC-KV=V1&HW-CC-Date=20260920T063630Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF45CD3A731FE406E722837E43E5316492B4DE2061A1BB5CDE14D2223FCCF17F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/KSmQk7z3Q-66DHKsqw088w/zh-cn_image_0000001748633048.png?HW-CC-KV=V1&HW-CC-Date=20260928T030430Z&HW-CC-Expire=31536000000&HW-CC-Sign=909AE691B237D7039955B2444453BE00BAD3BD7027A551E1C5CB455791303CDA "点击放大")
 
 通过分屏进行两个应用任务并行的示例
 

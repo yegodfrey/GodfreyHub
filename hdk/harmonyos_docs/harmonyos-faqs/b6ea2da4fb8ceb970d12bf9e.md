@@ -21,7 +21,7 @@ function deepLinkApp() {
 
 问题现象如图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/0zhUYCr0ROmFAkQiOc_NaQ/zh-cn_image_0000002628789250.png?HW-CC-KV=V1&HW-CC-Date=20260920T114735Z&HW-CC-Expire=31536000000&HW-CC-Sign=5D6241164052C80F4F15FBC61AA1745B7EA94EB3233EFD935F0440C20659EC79 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/0zhUYCr0ROmFAkQiOc_NaQ/zh-cn_image_0000002628789250.png?HW-CC-KV=V1&HW-CC-Date=20260929T074335Z&HW-CC-Expire=31536000000&HW-CC-Sign=181629442300E371BD3E62A8909F374ED5D0EA977E70ADCFCF49E34F302FCC41 "点击放大")
 
 ## 解决方案
 

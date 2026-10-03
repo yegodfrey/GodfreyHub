@@ -206,7 +206,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-c
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/BlFnjgt-R0mfn_vneulc7w/zh-cn_image_0000002733436902.png?HW-CC-KV=V1&HW-CC-Date=20260917T084644Z&HW-CC-Expire=31536000000&HW-CC-Sign=438A097B6336E2523E03DB1D34A0ADA08FB4EF5620DB82D50C256C7DD748197B)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/LOAEYDPCRG-2iVz5b5ls3Q/zh-cn_image_0000002749335530.png?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=5AD362EA66EB66C05B521BC9A658092AC88D6147B6C30ABAC20DEF469D038F13)
 2. 柱状图
 
    ```html
@@ -267,5 +267,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-c
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/WfCUn0LkTISkeJfWoa1s6g/zh-cn_image_0000002762996423.png?HW-CC-KV=V1&HW-CC-Date=20260917T084644Z&HW-CC-Expire=31536000000&HW-CC-Sign=CA53EE8F08BD93AFC6124B178D3DBD5F0DAD62F39CA0CBDE27C822073396983E)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/bllXDC4PSHmT9iEipMCGkw/zh-cn_image_0000002749495414.png?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=7788CAA2DF697A704AB5BEBE765E2061CFD700DE9CE800D5D593D2CED719686C)
 

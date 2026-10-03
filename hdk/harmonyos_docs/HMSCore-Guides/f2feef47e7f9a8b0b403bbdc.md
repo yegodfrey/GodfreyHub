@@ -48,5 +48,5 @@ JavaScript API目前支持以下平台下的浏览器：
 
 自2021年1月1日起，华为地图服务对部分接口制定了收费方案，详情请参见[服务定价](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/about-charging-0000001051637068)。请到"我的项目 > 我的套餐"，进行套餐升级。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/jFcQZyLtTyKtpYsJawqSVg/zh-cn_image_0000001081536101.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=2458DDB0678DCA2B94413BDEC716EE4C4E765A9A4B9AF5FFB2388240EDF47D29 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/jFcQZyLtTyKtpYsJawqSVg/zh-cn_image_0000001081536101.png?HW-CC-KV=V1&HW-CC-Date=20260922T085430Z&HW-CC-Expire=31536000000&HW-CC-Sign=2972EA20B31B419EA2EB67BB924E0153C13F54E5B586B9BB6F3475DC12EE4595 "点击放大")
 

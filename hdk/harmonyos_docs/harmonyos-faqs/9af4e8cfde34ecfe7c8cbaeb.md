@@ -73,7 +73,7 @@ HarmonyOS中的Text控件无法手动设置isSelected参数，导致无法判断
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/Efug3i0sSkWk4csuHZ73LQ/zh-cn_image_0000002658791761.png?HW-CC-KV=V1&HW-CC-Date=20260920T114737Z&HW-CC-Expire=31536000000&HW-CC-Sign=3B75A795D9D2D8031201AB85E34EB5D6A7BF243FC30273A9EEBF4CC95C9E72FE "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/Efug3i0sSkWk4csuHZ73LQ/zh-cn_image_0000002658791761.png?HW-CC-KV=V1&HW-CC-Date=20260929T074337Z&HW-CC-Expire=31536000000&HW-CC-Sign=C09256D1AEAE314819D6299D88CB62B78B933ED4C58086C20C67AA19A6925430 "点击放大")
 * **方案二：attributeModifier动态属性设置多态样式：** **具体操作步骤如下** ：
   1. 通过创建继承动态属性attributeModifier的类，设置Text组件的多态样式属性。
   2. 以@ObservedV2与@Trace装饰器装饰类和属性，以观测动态属性值的变化并刷新UI。
@@ -173,7 +173,7 @@ HarmonyOS中的Text控件无法手动设置isSelected参数，导致无法判断
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/3m59_n3-SLeBYkOWFMJwzg/zh-cn_image_0000002628552378.png?HW-CC-KV=V1&HW-CC-Date=20260920T114737Z&HW-CC-Expire=31536000000&HW-CC-Sign=414E8B4696FF99820F5BDD5C8A50AE50D172C3C22C92BB05A8E26FE0254226DC "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/3m59_n3-SLeBYkOWFMJwzg/zh-cn_image_0000002628552378.png?HW-CC-KV=V1&HW-CC-Date=20260929T074337Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA3D1DFD2618B5447C3C8F674FB04F5D2052B378CEFB423E3E030F0F3BC16DFC "点击放大")
   * **方案三：其他多选框实现：**
     * 若要实现更标准的切换选框，推荐使用[Toggle组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-switch)：Toggle组件提供状态按钮样式、勾选框样式和开关样式，一般用于两种状态之间的切换。
     * 若要实现更标准的多选框，推荐使用[Checkbox组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox)：Checkbox提供多选框组件，通常用于某选项的打开或关闭。

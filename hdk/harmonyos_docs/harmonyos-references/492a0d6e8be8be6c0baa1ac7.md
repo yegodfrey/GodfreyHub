@@ -45,5 +45,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 </div>
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/Gs2a6I2bQG-mI0dXNX0BMw/zh-cn_image_0000002762996257.png?HW-CC-KV=V1&HW-CC-Date=20260917T084648Z&HW-CC-Expire=31536000000&HW-CC-Sign=CEFF3618C267D02782887A687917354BA1CE0970AB2A8742999B50434E234FCC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/xufJp1tFTCCZ8GU7MSa3tg/zh-cn_image_0000002749495248.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=C66F5785DBB1D2C0B26DF068BF6BE669A2DDF492808DD12A5F33464A36DCFCAA)
 

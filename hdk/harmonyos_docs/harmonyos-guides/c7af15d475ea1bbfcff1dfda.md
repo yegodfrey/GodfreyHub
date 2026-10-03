@@ -12,13 +12,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-f
 
 效果如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/t366fxKNTlaQaQNO5bixww/zh-cn_image_0000002762835287.png?HW-CC-KV=V1&HW-CC-Date=20260917T084541Z&HW-CC-Expire=31536000000&HW-CC-Sign=B619C0ED482FFB3C777460D51A83DF5FAE7A5109965966834874D4AB8DA980C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/GmWcKt0yTfyn6KsjAsKlMw/zh-cn_image_0000002749334156.png?HW-CC-KV=V1&HW-CC-Date=20260929T121644Z&HW-CC-Expire=31536000000&HW-CC-Sign=68AA934DA19C3C97A0E5018F021C23AAD4AB387575F1701D878C7275189A0EEA)
 
 ## 世界坐标系
 
 以下方图片指示坐标系辅助表示人脸朝向。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/rLK71K_eQBWHf0ZMTq0ELg/zh-cn_image_0000002733275774.png?HW-CC-KV=V1&HW-CC-Date=20260917T084541Z&HW-CC-Expire=31536000000&HW-CC-Sign=585F58DED1719A0C892AB9DC876B4F4C7EE49CF86787FDE8E8668AB9BD1A3C77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/wBZOYb8dSOauaojzNOt45A/zh-cn_image_0000002749494042.png?HW-CC-KV=V1&HW-CC-Date=20260929T121644Z&HW-CC-Expire=31536000000&HW-CC-Sign=6098706EFF64128037F4AFB8E8499D50D3D14FA774EDF510451BF6D3AD1638E4)
 
 ## 开发步骤
 

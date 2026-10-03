@@ -24,8 +24,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/custom-dialog
 
 |交互诉求|效果图|交互诉求|效果图|交互诉求|效果图|
 |:--------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|是否允许**侧滑手势关闭弹窗**，由交互决定，不让用户太轻易退出。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/gfg1cE8QQL2G0MUKQyqXdg/zh-cn_image_0000002762833603.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=956FE6DCAFFFEABA3C9898778279E38EDBC4747348D6A4ED1DDE3C1914B676E7)|**点击弹窗外是否关闭弹窗**，弹窗内容比较关键或重要时，为确保用户关注并处理，可能不允许点击弹窗外关闭。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/zw2iExkiQZGMvdi8zOq7yQ/zh-cn_image_0000002733274088.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=5C9DBFDDE0EF7B6AF5E4D7A703A44AEAF2E9B6D0B1D03E7737E13908BDBE8B2F)|是否需要**自定义配置进出场动画**以及动画类型。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/5bWvulboSN-nwMqThHXF_Q/zh-cn_image_0000002733433972.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB13FA9ADEC281ACE0D9245E093D4884E944338BD06B5C4DBF163FAB6E436509)|
-|弹窗的内容是否需要在**跳转后，保留在之前页面**，如隐私弹窗。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/9p8FNlS9QxGKvwXfxkbsbg/zh-cn_image_0000002762993493.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=D6F67A84E6EB7B5500D8BA03737C7D3333EADF7CF1DE98FE67EBF9C17F3A8981)|是否抢占焦点，部分使用dialog实现的自定义弹窗在**弹出时会抢占焦点**，导致键盘被收起再弹出。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/Ps5rLVb0QH6H8hq4F57K5w/zh-cn_image_0000002762833605.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=BE9CFEA942DE39FBA768F50F8A7A8309D531AAFF3FE9E1A28E483EB7FC666419)|是否需要弹窗**与键盘避让**，为了确保在键盘弹窗时，弹窗及其内容不会被遮挡，也有不需要避让的场景，例如评论回复弹窗。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/DqNSCls9QKCP_AdvkRotsg/zh-cn_image_0000002733274090.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=38AD29F79BD74DBB89D27623820DBCCEE9A26CF04FFE92B215ECAB905A50CE14)|
+|是否允许**侧滑手势关闭弹窗**，由交互决定，不让用户太轻易退出。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/TcXrmtArTguSVsrONVXafw/zh-cn_image_0000002749332476.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=ACEB28827C12F86C914282521A48BB7988E7A908FE84FE2C2F1897264B6BEF2C)|**点击弹窗外是否关闭弹窗**，弹窗内容比较关键或重要时，为确保用户关注并处理，可能不允许点击弹窗外关闭。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/mGdeGN2cTqyK1NiKZltljA/zh-cn_image_0000002749492360.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=24FB88657529C7EBE8AC18E3C815FA492633C600F8A2E8979D2C2EB981286DE5)|是否需要**自定义配置进出场动画**以及动画类型。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/UudIfy1pRRyAhoeO6fP-xg/zh-cn_image_0000002779091417.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=48DC8C7AFF8D5F6918ADCE3BADFF8E6C22ABC93FA858E2C0412CBBBE95BF1558)|
+|弹窗的内容是否需要在**跳转后，保留在之前页面**，如隐私弹窗。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/g7rWZhJcTiaCrRrEQxy5Cg/zh-cn_image_0000002778931561.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=C37FBD5D32EF465DF00973E1987DDB6C39B6384607D291A857AE4FD73F825987)|是否抢占焦点，部分使用dialog实现的自定义弹窗在**弹出时会抢占焦点**，导致键盘被收起再弹出。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/C8Qm-4vlQce9JYyxzn9ICw/zh-cn_image_0000002749332480.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=32BF81D0514BE16A7C35E91327AA4EFBA171FC039B2433A59E1A5C3DD77AA417)|是否需要弹窗**与键盘避让**，为了确保在键盘弹窗时，弹窗及其内容不会被遮挡，也有不需要避让的场景，例如评论回复弹窗。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/MjkJ0L9kTTCVOn_-njq7nw/zh-cn_image_0000002749492364.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=F6DD817E868F051FFB5D9104E71DC21D9A520EC53A0C77F2D06E2D8B51D7090B)|
 
 ### 能力支持情况
 
@@ -84,7 +84,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/custom-dialog
 
 图文提示弹窗常用于显示用户操作的结果，如成功或失败提示，也可以在等待系统响应时展示加载动画等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/R_Xov3sfT0GiD8_WwAXIzg/zh-cn_image_0000002733433974.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=63B8646CB03F7008F858FCD1F9C7CC699E324CFD30195C3145FA1EB319768969)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/noVn9ySdQrO4UnMiumJdQw/zh-cn_image_0000002779091423.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=B99502FFCABE52CC678EFDD4BC8F2BA14D91786ADE18F9D641E7DE66EBECBA5F)
 
 **实现方案**
 
@@ -147,7 +147,7 @@ PromptActionClass.setOptions({
 
 隐私弹窗主要用于确保法律合规性，要求应用在收集用户数据前必须获得用户的同意。当用户打开隐私弹窗时，可以通过点击弹窗内的超链接跳转至详细的隐私协议页面。返回后，隐私弹窗依旧保持显示状态，确保用户能够在充分了解相关信息的基础上做出选择。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/ptPmxmW5TDO71ENdlAIXIQ/zh-cn_image_0000002762993495.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=B2DE168E201DA9DE1C5325340DC2D05E653B8D338ADD9D772FD49CFAFAC83708)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/Umhgb-15Sd6amzSMkmuMsg/zh-cn_image_0000002778931565.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=640C04833270C73FF05E2E5B1B1476B8D17CF4270958A1E2AFB1533061B554D4)
 
 在隐私页面中，需要关注的点主要有两个：
 
@@ -271,7 +271,7 @@ API version 16之前的版本，可以使用NavDestinationMode.DIALOG弹窗实�
 
 展示进度条的弹窗是一种常见的弹窗组件，用于在耗时操作中向用户反馈任务进度，此类弹窗中主要涉及的特点在于弹窗与页面之间的数据交互，刷新弹窗的内容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/DXzOBWtySpuDO-COh-n0IA/zh-cn_image_0000002762833607.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A759F50DA4CEC2952BBB7A1FEC64CE0C4827A8477CE78C7CC0419F249EC5114)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/-Xmy8xAORUebA__OnPlADA/zh-cn_image_0000002749332482.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=97C1129EE1C32280CF8844935E3F4BE3A6E6A9C341BBAF7F4249E4B393438186)
 
 **实现方案**
 
@@ -338,7 +338,7 @@ API version 16之前的版本，可以使用NavDestinationMode.DIALOG弹窗实�
 
 操作栏弹窗通常是指在应用界面中，用户点击操作栏（如右上角的"更多"按钮）后触发的半模态菜单，通常具备分享、增删改查类功能。操作列表弹窗的内容主体是列表，分为固定高度，可变高度两种。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/65G1YBzmRrewX4Eqig7iJA/zh-cn_image_0000002733274092.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=79311EAB449A09392C61C2BD90BD54D97B1FB49B20F6AC46B42C62FCCBE656AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/5Cho8yAbRK-XZEiOcaam5Q/zh-cn_image_0000002749492366.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB563B1E547F56C890181013B2DC3DBD25F458459D460B93FA215C2F48BF8C55)
 
 **实现方案**
 
@@ -393,7 +393,7 @@ API version 16之前的版本，可以使用NavDestinationMode.DIALOG弹窗实�
     })
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/67BQtJ8YRJG5M31c78N8qw/zh-cn_image_0000002733433976.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=26E25732108E709D63AE422FAF38366CA98FB1345B27B6BCCB06A677A5E7BBC2)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/67gTg78iQI2zSOsh-YcHUg/zh-cn_image_0000002779091425.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=91366763F8B637C50F26F866EECC05893F0843A9C041FACBB2A42A7F6CF3F904)
 
 ### 实现评论回复弹窗
 

@@ -113,7 +113,7 @@ struct OffscreenCanvasPage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/Cg8Xfz32QtGuxBYfiWE0Pw/zh-cn_image_0000002762995937.png?HW-CC-KV=V1&HW-CC-Date=20260917T084643Z&HW-CC-Expire=31536000000&HW-CC-Sign=A0DDF389E9BB6587BD04AA51F13565FCC02C9C25ED30FAF7BAD22BE133B612BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/Hijg_TUWS16RsSWjMtDcvA/zh-cn_image_0000002779093991.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=B2E7767A295F92F9CAC58A53D2D7AFA1C3AE7B495A5A2EBB11B24B148ACE867C)
 
 ### height
 
@@ -151,7 +151,7 @@ struct OffscreenCanvasPage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/uZe6EyEBSXazaj4Q4OhTKg/zh-cn_image_0000002762836055.png?HW-CC-KV=V1&HW-CC-Date=20260917T084643Z&HW-CC-Expire=31536000000&HW-CC-Sign=ACF3714FE8B63C426FD69DA474A66FEBBFA4630223079A5E9744EB4A59786410)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/b5XVrTB1RryhKdo_gvETLw/zh-cn_image_0000002778934135.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=06F8AFEED7778AC0F5A53ECF186BA5BBE9394C84791AFE019373506B64B85273)
 
 ## 方法
 
@@ -212,7 +212,7 @@ struct OffscreenCanvasPage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/GAV5nPfzRAiAUkJj3mgdMw/zh-cn_image_0000002733276544.png?HW-CC-KV=V1&HW-CC-Date=20260917T084643Z&HW-CC-Expire=31536000000&HW-CC-Sign=D4378EEA497809A19FDF856A52CDECAB19CE5F81DD46C7756DAFA7724FC40858)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/Yv901WCaTz2dy7-Vt6gBbQ/zh-cn_image_0000002749335052.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=20F6AE1AF29DEF98E36AE16F524EB19930DDE9873ED7B29533167E8352B83FE9)
 
 ### getContext^10+^
 
@@ -293,7 +293,7 @@ struct OffscreenCanvasExamplePage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/34KbyP-BTo6QrR-nQah7sQ/zh-cn_image_0000002733436418.png?HW-CC-KV=V1&HW-CC-Date=20260917T084643Z&HW-CC-Expire=31536000000&HW-CC-Sign=3E5A34FCE468430573A6CA08F0E9CD39F19B48E4C380F5E4B5C348DD732F452C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/GfKrizjjRHmtHUJpc3apmg/zh-cn_image_0000002749494936.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=1CAEC706F976645BC79B0ECB53F140F07320F974A1DCBE16DA446CC7D71AB119)
 
 ## OffscreenCanvas支持并发线程绘制
 
@@ -405,5 +405,5 @@ workerPort.onmessage = (e: MessageEvents) => {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/vqKHJ2XnTJmZpBICOuDEiQ/zh-cn_image_0000002762995941.png?HW-CC-KV=V1&HW-CC-Date=20260917T084643Z&HW-CC-Expire=31536000000&HW-CC-Sign=93930A29A3F23133EC2CD41642CCB3521B9E7297BEC17DDC47462B1B71FAAE06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/TgiW6RifRCershYPKTchfQ/zh-cn_image_0000002779093993.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=184CD8D4025FE8FCDC5393F7E9D4557C2E997E86AA8B60D528EC426D2D79D3D4)
 

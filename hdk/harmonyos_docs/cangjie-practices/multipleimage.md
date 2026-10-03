@@ -21,7 +21,7 @@ nodePath: 实践 / 使用Swiper组件实现轮播图
 
 在一些短视频平台上，经常能看到由图片和文字组合而成的作品集。这些作品集通常由多张图片构成，支持自动轮播。当作品自动播放时，图片会每隔几秒自动切换到下一张，且下方的进度条进度与每张图片的停留时间相匹配。效果如图所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/umsNlskqTzCpRvqWTdtxgQ/zh-cn_image_0000002669680999.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111119Z&HW-CC-Expire=86400&HW-CC-Sign=D37930F64D83BA2B21E780B7E7DEFF39273905460F65F7F8FFDEF32331B965B6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/umsNlskqTzCpRvqWTdtxgQ/zh-cn_image_0000002669680999.gif?HW-CC-KV=V1&HW-CC-Date=20260930T174028Z&HW-CC-Expire=86400&HW-CC-Sign=A1F069DE9287D7E19F1823636E3A09D93EFA4CC6681B617CFF246AD5EDF9CB30)
 
 #### [h2]实现原理
 
@@ -66,7 +66,7 @@ nodePath: 实践 / 使用Swiper组件实现轮播图
 
 示意效果如下图所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/4qjBjGP6RDitUMzFc1PDOw/zh-cn_image_0000002669560887.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111119Z&HW-CC-Expire=86400&HW-CC-Sign=DB9E603F0F014CFE07356CD02076D3C0E21AF67DCACB123486360E07DDD70E51)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/4qjBjGP6RDitUMzFc1PDOw/zh-cn_image_0000002669560887.gif?HW-CC-KV=V1&HW-CC-Date=20260930T174028Z&HW-CC-Expire=86400&HW-CC-Sign=17185A372A2BD40A1959B5166A4830422136E14B442F5242DBE5C79272AFB5E1)
 
   2. 创建进度条自定义组件progressComponent。代码中，this.progressData为图片集合的数组，this.currentIndex为当前播放的图片在图片集合数组中的索引，index为进度条对应的图片在图片集合数组中的索引。当this.currentIndex > index时，表示图片集合数组中索引0-index的进度条都是已完成状态。
          
@@ -120,11 +120,11 @@ nodePath: 实践 / 使用Swiper组件实现轮播图
 
 示意效果如下图所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/GizL5nMnT5qsq6J8LKfJGQ/zh-cn_image_0000002639680938.gif?HW-CC-KV=V1&HW-CC-Date=20260921T111119Z&HW-CC-Expire=86400&HW-CC-Sign=D5702DCFA47DE14B5847E65590BDBE5376E1E20DAF2DFD37F7D8CCC1D35E3CC3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/GizL5nMnT5qsq6J8LKfJGQ/zh-cn_image_0000002639680938.gif?HW-CC-KV=V1&HW-CC-Date=20260930T174028Z&HW-CC-Expire=86400&HW-CC-Sign=84E7BA02C25E21F1ADD0D410C97E86200EBB2A99A033024D21CB21D5B3170C34)
 
 
 
 
 #### 示例代码
 
-[使用Swiper组件实现轮播图示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183054.61281472229706968767429344437648:20260922191119:2800:7D4FA276458EDC0410906091E9527CDD26D3AFAF71992A09B883D8A119733DF2.zip?needInitFileName=true)
+[使用Swiper组件实现轮播图示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183054.61281472229706968767429344437648:20261002014028:2800:DA3D6264B0C6FA9C807B2EB877D9638DB148EB6805DE5BD0B2C999220E7CFD59.zip?needInitFileName=true)

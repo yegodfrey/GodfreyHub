@@ -16,7 +16,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/pay-docs/hwzf-yanzhengzhiyin-0
 
 **图1**账户验证
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/b24HNhI0THyGbmi3xKGKSg/zh-cn_image_0000002557114779.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=4ADD9016A736B904F0AEB5352DC51F696A4088A770064F4693635F4A4FA381D8 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/b24HNhI0THyGbmi3xKGKSg/zh-cn_image_0000002557114779.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=4D6C69FC81F8D5A5777FA27D57246B3FE71DDBB6E8CC85A61A8EE42CE7C3AA76 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/rXQrhACjT1adztVPQFrp3A/zh-cn_image_0000002526154854.png?HW-CC-KV=V1&HW-CC-Date=20260921T064300Z&HW-CC-Expire=31536000000&HW-CC-Sign=5B218EE1ADAA6587D0EC32F811DF697249338DAB66F534458E75E38F75FF2A28 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/rXQrhACjT1adztVPQFrp3A/zh-cn_image_0000002526154854.png?HW-CC-KV=V1&HW-CC-Date=20260924T101900Z&HW-CC-Expire=31536000000&HW-CC-Sign=1F932E09FC84CE73A8B88DDCD830B2B28C03F233EC394C0D64E0DFAB1FAE94C0 "点击放大")
 

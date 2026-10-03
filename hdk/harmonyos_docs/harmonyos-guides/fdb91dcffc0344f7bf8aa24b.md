@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-faultlog-
 
 1. 打开FaultLog窗口，双击appfreeze日志，**Fault Info** 右侧会出现**Fault Analysis** 页签。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/ZjLxMyIYTl2v3SjlBPHuPg/zh-cn_image_0000002701823942.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=559E98C43BFDEDFED2BFA9618781685C0860F86D72B0A13B5C4ACFFFA1668A7A)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/ZQwTDQ_6TgKB2aUkOpEmmw/zh-cn_image_0000002701823942.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=BD18F8208EEDC746B809029AD75123EC7AF637870B5307F0D309C5DCE13F9E3B)
 2. 点击**Fault Analysis** 页签，会展示结构化的日志信息。
    * 页面上方的字段对应了FaultLog中的字段，具体对应关系请参考[字段说明](#section6678213185017)。
    * 页面下方包含Stacks、Logs、Binder Communication、System等页签，具体如下。
@@ -22,7 +22,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-faultlog-
      * **3s/6s Compare** ：从DevEco Studio 6.0.2 Beta1版本开始，新增3s/6s Compare页签，用于对[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s应用主线程卡死超时)类型的AppFreeze问题，展示3s和6s时间点的主线程堆栈日志，具体请参考[查看3s/6s堆栈日志](#section699194455215)。
      * **Main Thread Task Queue** ：从DevEco Studio 6.1.1 Beta1版本开始，新增Main Thread Task Queue页签，对应AppFreeze日志中的[EventHandler信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#日志主干通用信息)，用于展示主线程的任务队列，包括历史任务和待调度任务，具体请参考[查看主线程任务队列信息](#section3149310135314)。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/tiec3O9RRnSviGBu6yAP7Q/zh-cn_image_0000002731543217.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=A9D089A2C81F9B51FB885ECF8BE4DE178095028C3C650520D13689DFCFD9DBF2)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/KeDcZwnGSUuGFntU3yn9Dw/zh-cn_image_0000002731543217.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=832F3D5B65308C5BBEAA4EC1C1E3F6E26D03645C4644644E738606C3115BC96B)
 
 ## 字段说明
 
@@ -47,7 +47,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-faultlog-
 
 Stacks页签用于查看AppFreeze中的堆栈信息，并以线程为单元进行折叠，点击展开按钮，可以展开对应线程。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/fiJzt9fRSR-5JnnqsrwySA/zh-cn_image_0000002731383243.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=5CCDB87536A410D5AD0B3312DCC40C2D24FA18DD87CBB7242D8F0EE86448E487)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/P6Ek80bwQemhbtdiCtqSzA/zh-cn_image_0000002731383243.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=AD32EDB489B65B4A4FFAC3E4E8FDC90F866B7999E07BCD25781B80D5C786F515)
 
 图中标注1的勾选框是展开应用堆栈，标注2的勾选框是展开系统堆栈，两个勾选框一共组成了四种状态，具体如下表。
 
@@ -63,7 +63,7 @@ Stacks页签用于查看AppFreeze中的堆栈信息，并以线程为单元进�
 
 Logs页签用于查看AppFreeze中的HiLog日志，支持日志级别的过滤和搜索。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/flfr6GEZTO2dLXufl-zC0g/zh-cn_image_0000002731383241.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=5D23FDC0BE241091BD799C2C4A5CE584B9F9D8F1D108370B31C2D09D5609B404)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/l5BcOyTnSh6bx-DPQEaelQ/zh-cn_image_0000002731383241.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=0B07215F2855BEBC91D004187563E4BBC343A49BB1DDA38B05B85494C8883A7F)
 
 ## 查看Binder通信信息
 
@@ -75,7 +75,7 @@ Binder Communication页签包含以下内容：
 
 ② 查看各进程Binder资源信息，包括进程ID/名称、当前IPC请求数、已启动IPC线程数、最大IPC线程数等，当进程资源紧张时会高亮显示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/aLI9-NphQx2MPoQhlVFYFg/zh-cn_image_0000002731543215.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=DF5CEB36FC445C5ADA593792408D6D69F96024D44E5A4D7273DD786C05B1D20F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/eoFdQRraQzygsAtKSZ5jZw/zh-cn_image_0000002731543215.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=09604367446DAA90B9C408860FFD49FAC83BDCFCB12CB30A70DF93E96F5C112A "点击放大")
 
 ## 查看高负载CPU/内存日志信息
 
@@ -89,7 +89,7 @@ Binder Communication页签包含以下内容：
 
 ③：选中柱状图后，显示相关的日志。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/E09bK_PMTmq8f3MQfVRdCQ/zh-cn_image_0000002701664022.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=0A8C0F220174C549177D0738BF55D9AC284C3555DE2B67987F5C7B9922A58F18 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/WXZ6xeweSmO9vBCeEAY-Hw/zh-cn_image_0000002701664022.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=D0F924BBCD7BD46B1CA26C6A33E568E570BF197D13417F1CCC848062C7641755 "点击放大")
 
 如下是内存的相关日志。
 
@@ -99,7 +99,7 @@ Binder Communication页签包含以下内容：
 
 ③：选中柱状图后，显示相关的日志。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/lcqe1g03SNevYmPs54jRkw/zh-cn_image_0000002701664018.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=74A8DF68D8F4F8C6FB7A72B03CFD2E0358F443E9878F3301107F0D8F3D6A0013 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/breQWiHhQjiJb5XWhlgEJQ/zh-cn_image_0000002701664018.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=585FB654249B65092F4968C33CC7EC1602616C66975E4B03B3E81100852148CC "点击放大")
 
 ## 查看采样栈数据信息
 
@@ -118,17 +118,17 @@ Binder Communication页签包含以下内容：
 
 Sampling Stack页签默认展示堆栈水平条形图，按照堆栈的出现频率从高到低排序，条形图最后的数字是堆栈出现的次数，并通过不同颜色标识应用堆栈和系统堆栈，可通过左上角的勾选框选择查看对应的堆栈。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/g2pYUXlOQz6zaWZLK6yz6A/zh-cn_image_0000002701823944.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=A37733D227C6081ACC050B88C632FD0BE24B65DAFD7CF24DE2C441A767689409)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/0g-rRMFaTB-E3o4KMPR6mw/zh-cn_image_0000002701823944.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=2871DB6DA9FE4328E52010A3F59303D2FF55DEF9B973BD58370B9A88D8F38DF1)
 
 点击切换图表类型按钮，可切换到堆栈火焰图，并通过不同颜色标识堆栈类型，其中红色代表异常堆栈。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/93DSg-JCS9a_p7U6S2nmaA/zh-cn_image_0000002701823940.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=D4F2B2BC773DB482B6057960AEC63D403C7CCE80B8BD601564938E68DD375305)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/ce-pSf1ATjWmDRJ7ZwbR4g/zh-cn_image_0000002701823940.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=4452F313B653DA7A415D644AD7E8FCA00B256DF74239350C6BE7AF152AF358AB)
 
 ## 查看3s/6s堆栈日志
 
 从DevEco Studio 6.0.2 Beta1版本开始，新增3s/6s Compare页签，用于对[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s应用主线程卡死超时)类型的AppFreeze问题，展示3s和6s时间点的主线程堆栈日志，并标识栈帧中可能的故障处。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/by4hEFlYQlKUgy7IMQQMGw/zh-cn_image_0000002701664020.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=CE0BABD593F93E98EB00ADD190D4D14CBC137B90B16E1AACE4B7BFE7FDF2AC55)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/pn5xtVGTS1Czxl_JOaAiCQ/zh-cn_image_0000002701664020.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=408296AF863BC112650B3713A096F6E621AD9D1C27339AF3170B0EE5C611FDD3)
 
 如果不是THREAD_BLOCK_6S类型的AppFreeze问题，不会展示3s/6s Compare页签。
 
@@ -144,5 +144,5 @@ Sampling Stack页签默认展示堆栈水平条形图，按照堆栈的出现频
 
 ④ 支持切换查看3s和6s时间点的任务信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/eOpoS9KjSCWQY_JZMnDu6w/zh-cn_image_0000002731383239.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=13E5464C629BA3A7C8818F8C4B56B3851C152B79C236F17797F3032B57655E79)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/TcbQKc7CQXOUbDoFhKzj-Q/zh-cn_image_0000002731383239.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=14628D7823A6EE8309A36437BE761813AF517245A4DEEE5D3749220F83B70B9D)
 

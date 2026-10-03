@@ -28,7 +28,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusi
 
 ## 效果图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/0CiqkV0kRVevXIc6ujotvA/zh-cn_image_0000002762994993.png?HW-CC-KV=V1&HW-CC-Date=20260917T084550Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A84274B2037D230733F8C2872A4E6A38A55BBB0C28C0D7C3DA3515B7A1EACF3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/lOU-uNbxQwaETeUQDFe0WQ/zh-cn_image_0000002778933057.png?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=34F86C2D5AFD5BB3802DE951B61195256B99E142A4EDA94B557D1F8F867EA3E2)
 
 ## 示例代码
 

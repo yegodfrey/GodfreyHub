@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-503
 
 期望只能向右滑动，实际在使用onGestureRecognizerJudgeBegin拦截滑动手势时，先向右滑动不松手，再快速向左滑动Swiper组件会向左滑动并翻页与预期不符。具体现象如下图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/wpneRZIqSGCcLfRD4HTklQ/zh-cn_image_0000002628388618.png?HW-CC-KV=V1&HW-CC-Date=20260920T114741Z&HW-CC-Expire=31536000000&HW-CC-Sign=F66DF6C5D9AE9A95D720A1C864705A935148F1F4AE2090B19C31DCE8DC72DED9 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/wpneRZIqSGCcLfRD4HTklQ/zh-cn_image_0000002628388618.png?HW-CC-KV=V1&HW-CC-Date=20260929T074338Z&HW-CC-Expire=31536000000&HW-CC-Sign=B806358D66C04E234F84CCC814EC81E50F04D1987B828FEA7006D899B6AAA76D "点击放大")
 
 问题代码如下：
 
@@ -68,7 +68,7 @@ struct Index {
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ntikjJMnSK-9LfXQkKF3lw/zh-cn_image_0000002628548518.png?HW-CC-KV=V1&HW-CC-Date=20260920T114741Z&HW-CC-Expire=31536000000&HW-CC-Sign=279F75B0D8F63CECF0A16B227A450C67D76BF2845868BF5E066724063F7B721A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ntikjJMnSK-9LfXQkKF3lw/zh-cn_image_0000002628548518.png?HW-CC-KV=V1&HW-CC-Date=20260929T074338Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A8AA1DBACDBF603D2F92FC263CF908F722F06E00412010DF21BB1B67015270F "点击放大")
 
 ## 背景知识
 

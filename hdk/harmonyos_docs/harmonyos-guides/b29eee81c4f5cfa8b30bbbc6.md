@@ -197,16 +197,16 @@ lycium是一款协助开发者通过shell语言实现C/C++三方库快速交叉�
 
    如下图所示，xxx代表三方库名称，xxx文件夹下包含了aarch64架构以及arm架构两种方式生成的二进制文件，每种架构目录下包含了该库的头文件目录include以及二进制文件目录lib。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/Vm5XMHY5QYy-tM3PhDnVsQ/zh-cn_image_0000002733435768.png?HW-CC-KV=V1&HW-CC-Date=20260917T084543Z&HW-CC-Expire=31536000000&HW-CC-Sign=638ADF37F64B30138A6C3C8126A3DAEEED954D81998D3E357189423F7DA93FEB)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/-7UwgQFASgqhSeO2CKMAog/zh-cn_image_0000002779093213.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=B5FD6C3F6E3D1846E183BEA3F2BCBE09B50F02E5A7DD2EFAE80ED15F542C11F0)
 
    如果三方库二进制文件为so文件，还需要将so文件拷贝到工程目录的entry/libs/${OHOS_ARCH}/目录下，如下图：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/uLj4aFuUT3KaMUNJiaj9lw/zh-cn_image_0000002762995291.png?HW-CC-KV=V1&HW-CC-Date=20260917T084543Z&HW-CC-Expire=31536000000&HW-CC-Sign=CC05F748D231D93AFA62B2D73D2D6159E8BD44A48D7B5BA978FC9DC2C94D9D98)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/Klm7tHsKTCmwfXDLIh1QPQ/zh-cn_image_0000002778933357.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=C6FDF3218F753F587232F6ED21851ADEE9017B5B5110C6EFDA26DD4CC7493317)
 
    动态库引用注意事项：
    1. 应用在引用动态库的时候是通过soname来查找的，所以开发者需要将名字为soname的库文件拷贝到entry/libs/${OHOS_ARCH}/目录下（soname查看方法：${OHOS_SDK}/native/llvm/bin/llvm-readelf -d libxxx.so）。
 
-      ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/s2ZJ30_qSsCAUTNG4AUS3Q/zh-cn_image_0000002762835405.png?HW-CC-KV=V1&HW-CC-Date=20260917T084543Z&HW-CC-Expire=31536000000&HW-CC-Sign=6EC1596A88C944F1DA2D968A029933A0B5ED18A20AD711516E0AD9B4EA997CD9)
+      ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/QILscJhiQx6EbUI9Od_-sA/zh-cn_image_0000002749334272.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=CE52FB71EB73D15317D0DDD289C82FBBF10E2BFC8BAC40F871ADA887D3CA5EC4)
    2. 正确拷贝so文件。
 
       拷贝方法：不通过压缩直接将so文件拷贝到windows，或将so文件压缩成.zip格式拷贝到windows，正确拷贝so文件后，so文件大小应该与原库实体文件大小一致。
@@ -228,7 +228,7 @@ lycium是一款协助开发者通过shell语言实现C/C++三方库快速交叉�
      target_link_libraries(entry PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/xxx/${OHOS_ARCH}/lib/libxxx.so)
      ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/TkPmW7fIQySVRpo3eMbiGA/zh-cn_image_0000002733275890.png?HW-CC-KV=V1&HW-CC-Date=20260917T084543Z&HW-CC-Expire=31536000000&HW-CC-Sign=E81CBAE536655D3557F3ADE3DEE9363598940BCF898859FF2FEF4C3772DB31C3)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/J2ycp6oQRZagMSAEh6WDwA/zh-cn_image_0000002749494158.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=1DE757CA7E45858B425298BB46077B250BE087B86814B72392FD1F5FDB2AF27F)
 3. 配置头文件路径。
 
    在cpp目录的CMakeLists.txt文件中添加对应target_include_directories即可：
@@ -237,6 +237,6 @@ lycium是一款协助开发者通过shell语言实现C/C++三方库快速交叉�
    target_include_directories(entry PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/xxx/${OHOS_ARCH}/include)
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/XR0fDzUHRZGTbvrDfPRWJg/zh-cn_image_0000002733435770.png?HW-CC-KV=V1&HW-CC-Date=20260917T084543Z&HW-CC-Expire=31536000000&HW-CC-Sign=96505EF546B13DC530C523ADE7BA4B52156E53C23B631A07A4CED8841E5FC66B)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/sf_botkSSXqCUnhJf6vdZQ/zh-cn_image_0000002779093215.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=53C2DE4B528CE7791F47E9F8CB0B7B3DAEF3055228F13304E8ABA4046F781922)
 4. 配置完三方库的链接和头文件路径后，开发者即可根据自身业务逻辑，在应用中调用三方库接口，详细请参考：[三方动态链接库（.so）集成开发实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dynamic-link-library)。
 

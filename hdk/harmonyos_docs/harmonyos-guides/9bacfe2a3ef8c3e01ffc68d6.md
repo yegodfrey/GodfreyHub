@@ -280,5 +280,5 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/j0z2wzlyTp6KV0IUq4sBjw/zh-cn_image_0000002733434088.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=D9AD7757673A36E7A219AC44E48E232BD05F0E48449DCC85A22F8023DE5ED06D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/Am2qUE0RTsyJz4YCcc2pWA/zh-cn_image_0000002779091551.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=56341D1342C8158520775E5AC2BC33EF196C6693A8FA5253BF47D24920DF6B13)
 

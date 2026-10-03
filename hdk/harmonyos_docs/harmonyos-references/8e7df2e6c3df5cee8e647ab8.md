@@ -9,7 +9,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/drm-struc
 * **[DRM_MediaKeyRequestInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-mediakeyrequestinfo)**   
 * **[DRM_MediaKeyRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-mediakeyrequest)**   
 * **[DRM_Statistics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-statistics)**   
-* **[DRM_OfflineMediaKeyIdArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-offlinemediakeyidarray)**   
+* **[DRM_OfflineMediakeyIdArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-offlinemediakeyidarray)**   
 * **[DRM_KeysInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-keysinfo)**   
 * **[DRM_MediaKeyStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-mediakeystatus)**   
 * **[DRM_PsshInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-psshinfo)**   

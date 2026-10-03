@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/word_spell
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/Ub4i-7QlT_eyLKaUGAgQWw/zh-cn_image_0000002517032034.png?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=4F291AC443A5F07F08B105FE352FA50684AC94C4B98C115F79FD7E280DA7BEA4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/v5eifdUQQ0-LHNeuwrUTCA/zh-cn_image_0000002631309884.png?HW-CC-KV=V1&HW-CC-Date=20260924T062300Z&HW-CC-Expire=31536000000&HW-CC-Sign=43E066AEAC499C15F027CB713FE4C76B753C3A3567D20667DFAD7C4806447C02 "点击放大")
 
 ## 实现思路
 
@@ -102,7 +102,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/word_spell
 
 [Interface(AVPlayer)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)
 
-## 代码下载
+## 示例代码
 
-[单词拼写练习示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626163533.92912577432971700317909333994408:50001231000000:2800:C9CCC7759AA46F8E21768ECCAD68BB0A86FE2251993C7ED90F2C56B0EC4FEE00.zip?needInitFileName=true)
+[单词拼写练习示例代码](https://gitcode.com/scenario_samples/WordSpelling)
 

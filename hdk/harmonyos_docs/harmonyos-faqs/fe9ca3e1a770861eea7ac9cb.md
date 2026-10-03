@@ -70,5 +70,5 @@ struct CanvasDrawRoundedRectangle {
 
 实现效果图如下所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/U5ewIVfVQgGGAHNTEFt_jg/zh-cn_image_0000002624635838.png?HW-CC-KV=V1&HW-CC-Date=20260920T114736Z&HW-CC-Expire=31536000000&HW-CC-Sign=B974BDBBD00BDBCE9A1F45DECB66E42FDD0B09EC7CB0123BB3C5B2806AD03527)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/U5ewIVfVQgGGAHNTEFt_jg/zh-cn_image_0000002624635838.png?HW-CC-KV=V1&HW-CC-Date=20260929T074336Z&HW-CC-Expire=31536000000&HW-CC-Sign=4F0BF8FE29D87EA6E0E9241210464ADC748B480D30ADB9A4F223CD6AD77C4631)
 

@@ -25,7 +25,7 @@ AppGallery Kit为使用动态图标的应用客户端提供查询动态图标信
 
 ## 业务流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/_musi9FpQPmbU-GaMbNCDw/zh-cn_image_0000002733435088.png?HW-CC-KV=V1&HW-CC-Date=20260917T084551Z&HW-CC-Expire=31536000000&HW-CC-Sign=11E8EA5BC11F2853AEAEE335FBA769E0C55D024EE1AD601DD1741ECEE21C588A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/r9VtzM59QJSZtTMpXi0dsg/zh-cn_image_0000002779092531.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=19536E9C9F466DA8EA25431E458FB66289A4263F3B01696DE08C707CB33A6372)
 
 ### 查询动态图标信息
 
@@ -61,7 +61,7 @@ AppGallery Kit为使用动态图标的应用客户端提供查询动态图标信
 
 * 图标管理服务不支持模拟器，请使用真机调试。
 
-* 图标管理服务支持Phone、Tablet、PC/2in1设备。并且从5.1.1(18)版本开始，新增支持Wearable设备；从5.1.1(19)版本开始，新增支持TV设备。
+* 图标管理服务支持Phone、Tablet、PC/2in1设备。并且从5.1.0(18)版本开始，新增支持Wearable设备；从5.1.1(19)版本开始，新增支持TV设备。
 
 ## 接口说明
 

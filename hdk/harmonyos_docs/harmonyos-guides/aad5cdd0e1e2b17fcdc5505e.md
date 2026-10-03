@@ -20,15 +20,15 @@ Share Kit提供的[SampleCode示例工程](https://gitcode.com/harmonyos_samples
 
 **图1** 手机分享面板效果图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/NpBPjhbRTU2-9ALoR6Pfvw/zh-cn_image_0000002733275604.png?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=73FC6DC9EE02F892D1131BB0A363FA698BF6018194B061C0F9B650E39B204789)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/2n3Qx4UeREC70TxFWFRC4Q/zh-cn_image_0000002749493874.png?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=FE6B97668A433129ABB3BAB662AD46F925FAC05D45F0F29789441597FE44D853)
 
 **图2** 手机碰一碰跨端发起华为分享效果图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/v_NiM4wBQi29ybiaOp3RHA/zh-cn_image_0000002733435486.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=9F0CA8BB80BA68BBEF87EA52A08BEB21AE86B5BF874EFDE980911E84C207AC6E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/oCD_fpHQTr2Z8CfG7FhC_w/zh-cn_image_0000002779092929.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=734C8E5A6E851309DB4E39EE73536709E16087F668457370A8D93BA7FD5BD77E)
 
 **图3** 手机与PC/2in1设备碰一碰分享效果图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/llHQsdMaT4-cBns_-E2o_g/zh-cn_image_0000002762995009.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=2F4378800C907F90E203B7E1D8C578B152F1249FF391430C840F83D63E46894E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/sCs-5ZPDSRCtOcBbj_jOQA/zh-cn_image_0000002778933073.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7BBBA6C83B3AB91024353D6F81E4A86933037CC760E19810E310D233F5BD398)
 
 ## 基本概念
 
@@ -61,7 +61,7 @@ Share Kit提供的[SampleCode示例工程](https://gitcode.com/harmonyos_samples
 
 **图4** 分享运行机制
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/uokdJjfWQiW_0HgqS0gNlA/zh-cn_image_0000002762835121.png?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A8F8CA8E8A39237E0EF0656740F7BB8441F38D594455B3E5116B77F0164FA85)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/kyQ8Hg75TU6m3n_CVp_hWw/zh-cn_image_0000002749333988.png?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=417B2A059F91126F9C730165E977FB41EC6A1E363D069F9FAF446E8CC4B00646)
 
 |应用类型|相关逻辑|
 |:---|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

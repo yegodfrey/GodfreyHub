@@ -12,7 +12,7 @@ AR Engine提供了64种包含眼睛、眉毛、眼球、嘴巴、舌头等主要
 
 **图1** 人脸拓扑点示意图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Nw2vCgR7TlunJLUAkF37mA/zh-cn_image_0000002733275018.png?HW-CC-KV=V1&HW-CC-Date=20260917T084545Z&HW-CC-Expire=31536000000&HW-CC-Sign=1CDB638EB747A490EAA9461A4BD855F778A426A38510AC8D899BD5CCBF143775)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/cFAx-IzkQSKNXqT0DjmlDQ/zh-cn_image_0000002749493286.png?HW-CC-KV=V1&HW-CC-Date=20260929T121647Z&HW-CC-Expire=31536000000&HW-CC-Sign=E0EEC6B0D11AFA71DDA9860A807470DF60EE6FF5C2AAE47768138787A1902812)
 > 说明
 >
 > 本功能仅提供能力，接入该功能不构成对产品的质量保证或任何承诺，详见[AR Engine人脸跟踪功能技术局限性及免责声明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-appendix#ar-engine人脸跟踪功能技术局限性及免责声明)。

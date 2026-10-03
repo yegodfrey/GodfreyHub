@@ -58,7 +58,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/d_ZkqdRDSK-OyhkTkMtXgg/zh-cn_image_0000002658849565.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F4E27ABB0F941F370CF0ADF71870D03B6836C9D68B6903ABB2C3DFE77B46D69 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/d_ZkqdRDSK-OyhkTkMtXgg/zh-cn_image_0000002658849565.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=C7C6D893A4BEF820C8CAD8D80FC5D2A8E1893A00E3F82606661EF9B948CEFFB7 "点击放大")
 * **场景二** ：Button设置disabled多态样式会受到Button组件禁用控制属性样式影响导致显示颜色偏淡，建议用Text组件多态样式代替Button组件实现想要的效果。
 
   ```ts
@@ -167,7 +167,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/_vodlE8BRrGC8BuffO86Yw/zh-cn_image_0000002628770200.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=A4AFA5F181A72DB69332EDFC2C9F30A9CE35E3C9804DF491C0E9E126B2F95E39 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/_vodlE8BRrGC8BuffO86Yw/zh-cn_image_0000002628770200.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=B4D4F86E8CE8884D88FCC61A7F8318ACD2DF35179B7B149B297082D32E2F8D12 "点击放大")
 * **场景三** ：Button默认有背景色，直接设置渐变色会影响渐变效果，解决方案是设置渐变色的同时设置Button组件背景色为透明。
 
   ```ts
@@ -224,7 +224,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/BEwXTFK2T6Gfcq5Y-hONDQ/zh-cn_image_0000002658969523.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=7FD37E16C363047A3220A4081B6BB6043074E2B35F1F7AD95ED0D1B31137D65D "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/BEwXTFK2T6Gfcq5Y-hONDQ/zh-cn_image_0000002658969523.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=AD9615300A24011F4F5C4B1422E8D5B791A96E32E958DECF11E85F4A69848A2B "点击放大")
 * **场景四** ：Button组件可以设置不透明度属性达到置灰效果，如设置不透明度属性opacity(0.4)实现与禁用控制属性enabled(false)时的相同样式效果。
 
   ```ts
@@ -250,7 +250,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/W_DFsSmYSNmyh7kHj5vzIw/zh-cn_image_0000002628610304.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=C59D0EB694D9C1D00EEA4BEF933670982EE2681AFE7F39B244ECDD18391A386B "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/W_DFsSmYSNmyh7kHj5vzIw/zh-cn_image_0000002628610304.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=A79890CC5456F6C5D1668822E779F2BE54E94EF4DACA3F06B8495EB8A0835CE3 "点击放大")
 * **场景五** ：定义调色板数据源，用数组存储自定义颜色，通过@State响应式状态管理维护当前选中颜色的索引，实现状态与视图的双向联动。用Flex和ForEach组件完成调色板布局。给按钮和调色板都绑定点击事件，点击按钮时索引递增，超出数组长度自动重置，循环遍历调色板；点击调色板色块通过当前索引值，切换到对应颜色。
 
   ```ts
@@ -326,7 +326,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/r3x6W1g4Tk2f1Cw3eE-qMQ/zh-cn_image_0000002658849567.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=D94C8AA1E990E0EA6009D53B16BB02F7417FDA79B9A967BD28B96F9739A6A9B2 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/r3x6W1g4Tk2f1Cw3eE-qMQ/zh-cn_image_0000002658849567.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=028FD8DDC7C0D49B60F9504522C53AB5DB1D6498C6C3E9E34EAF4C5BC341AC3C "点击放大")
 * **场景六** ：使用stateStyles属性方法可以依据组件的内部状态的不同，快速设置不同样式，使用此方法将各个状态下的背景设为透明，此外通过stateEffect属性设置组件是否开启按压态显示效果。stateEffect默认值为true，将其设置为false即可关闭按压效果。
 
   ```ts
@@ -391,7 +391,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1585
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/aS6b3K3jSpyQ1vTP4267rA/zh-cn_image_0000002628770202.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=1142AA8FCC11E6710D9AA1C82A0600124DA571DEAA9B1C4C6CA8CD539433F99F "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/aS6b3K3jSpyQ1vTP4267rA/zh-cn_image_0000002628770202.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=AA684BBABD8980FB5630E70044F745FB3B63BDCF4681522C8FFE4EC6153FD90C "点击放大")
 
 ## 常见FAQ
 

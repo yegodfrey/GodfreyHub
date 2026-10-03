@@ -257,7 +257,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/5OzxqSXXQd2bwYHdE_fv7Q/zh-cn_image_0000002762996203.png?HW-CC-KV=V1&HW-CC-Date=20260917T084646Z&HW-CC-Expire=31536000000&HW-CC-Sign=F3E837A0351C57FCF5FF6022F78CB6758E7027C1E0C70ABF1D3540D9E904CC83)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/Oq5C9LvYShyQSTT8QJfKPQ/zh-cn_image_0000002749495194.png?HW-CC-KV=V1&HW-CC-Date=20260929T121736Z&HW-CC-Expire=31536000000&HW-CC-Sign=AD879BA020A3FE35E9D2F10C5365AE284754D6C101CFC254C13F003D77FF443B)
 2. 柱状图
 
    ```html
@@ -325,7 +325,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/G0PZquSZT-W_9CHrD7SA3g/zh-cn_image_0000002762836317.png?HW-CC-KV=V1&HW-CC-Date=20260917T084646Z&HW-CC-Expire=31536000000&HW-CC-Sign=C52ABC0628ABB0D595A6EF198D318F6CAFDE6522917E7EE8C63C4616FFB308D2)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/Jn15xxSZR1OwtQU0OqCkew/zh-cn_image_0000002779094251.png?HW-CC-KV=V1&HW-CC-Date=20260929T121736Z&HW-CC-Expire=31536000000&HW-CC-Sign=CAEF23ABEEB7221B4D65B6C22448E249BFBEB8DEA862F2F58AB664243570D213)
 3. 量规图
 
    ```html
@@ -354,7 +354,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/kPp0pHXGT7aPgwdX3UHJNg/zh-cn_image_0000002733276806.png?HW-CC-KV=V1&HW-CC-Date=20260917T084646Z&HW-CC-Expire=31536000000&HW-CC-Sign=0C709E0F0B4659D0EACDE2728906E62395D9D167234CE41F2F692379425DF279)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/TMkn0Yi1QWGBuVO6UPl0Ag/zh-cn_image_0000002778934395.png?HW-CC-KV=V1&HW-CC-Date=20260929T121736Z&HW-CC-Expire=31536000000&HW-CC-Sign=3F85A69ECB7FAECDD3A2527E239BE92EE83047467C5249019121A5E221FCB26E)
 4. 进度类、加载类、占比类圆形图表
 
    ```html
@@ -430,5 +430,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/xAwZ0j-sQpKuIPa-kvOKNg/zh-cn_image_0000002733436680.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084646Z&HW-CC-Expire=31536000000&HW-CC-Sign=8A17FD47C1A9EA7D99BA421C8BC30EC7F2EF662CED1541774D6E8C03A5E20603)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/2wUAdwBcQDeqwcigmYIWrw/zh-cn_image_0000002749335312.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121736Z&HW-CC-Expire=31536000000&HW-CC-Sign=F50C5171095C47DF1EA6A1449330F59DE094BC05BEF1167AA719AD98FB6213C1)
 

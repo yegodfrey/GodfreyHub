@@ -37,7 +37,7 @@ RAG（Retrieval-Augmented Generation，检索增强生成）模块提供基于�
 
 ### UML类图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/qqH-krimTCCxHj4y5FdNHg/zh-cn_image_0000002733277140.png?HW-CC-KV=V1&HW-CC-Date=20260917T084624Z&HW-CC-Expire=31536000000&HW-CC-Sign=42D62331EDFDBAF3F1AE6728B6ECE55D17A35BC9012938CE33D44136EDE42242)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/-0dierMDR0m2YBiwBSDLgQ/zh-cn_image_0000002778934725.png?HW-CC-KV=V1&HW-CC-Date=20260929T121730Z&HW-CC-Expire=31536000000&HW-CC-Sign=899C8B569DCBC62C90D9379513CB1A090914140C5CDBBC31C1A8CD00A5CD385D)
 
 ## 导入模块
 

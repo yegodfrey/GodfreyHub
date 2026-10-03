@@ -367,7 +367,7 @@ struct ScrollExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/0ZwBiYwzQXOf_qwJIXZnGw/zh-cn_image_0000002762995421.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=563C3D716714655607D945683C6603F714E29EF99BB14C78DF9B2A6B663A655D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/ugKvyzdGTsqMVKfMfEVI8Q/zh-cn_image_0000002778933485.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=2CB5FA9A44F192C0A06B48D1A7D80AA160AD8D915D0D246A6F29C99A3D654548)
 
 ### 示例3 (设置measureFromViewport子组件超出父组件显示)
 
@@ -480,5 +480,5 @@ struct OnVisibleAreaChangeSample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/JXqy5LGWRH2b8WJm75KxvA/zh-cn_image_0000002762835533.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084647Z&HW-CC-Expire=31536000000&HW-CC-Sign=1846B0323E73C5A8933562536044B6928877B5DF972D6055F1DE4E998E2E2AC7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/ZaJhdbbWTmyjSItbnBEoBQ/zh-cn_image_0000002749334400.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=BE7C399125885F8587BF760CE41AD0EBA68A2A58143999989C389690D7749A56)
 

@@ -101,5 +101,5 @@ struct HitTestBehaviorExample {
 
 运行结果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/KbxogUPqTDKnIYDOVuaktA/zh-cn_image_0000002631375376.png?HW-CC-KV=V1&HW-CC-Date=20260920T114745Z&HW-CC-Expire=31536000000&HW-CC-Sign=3851BF31614B2DA11403BDA4C75E0228F37E26CDE94533C3933D71D6FAC10040 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/KbxogUPqTDKnIYDOVuaktA/zh-cn_image_0000002631375376.png?HW-CC-KV=V1&HW-CC-Date=20260929T074343Z&HW-CC-Expire=31536000000&HW-CC-Sign=9D43D94DFB6380E55B6B797EDCF477C565CA41DE30A81F417D33D2EC6ECC33FA "点击放大")
 

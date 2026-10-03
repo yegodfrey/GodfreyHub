@@ -21,5 +21,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_gongju14_3-00000
 
   单击落地页名称支持编辑更改，更改落地页名称不触发审核。单击右侧操作栏的"编辑"，进入落地页编辑页面，通过审核的在投落地页支持编辑，不影响在投任务，如落地页更新审核通过，审核通过后的页面会自动替换。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/qdiHK5LySwquMzZhvtaf4g/zh-cn_image_0000001477427409.png?HW-CC-KV=V1&HW-CC-Date=20260918T093103Z&HW-CC-Expire=31536000000&HW-CC-Sign=43C404B1237BB468E6E0ED19FE6D3BD7A075AB5391824D5CC591BA668436C697 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/qdiHK5LySwquMzZhvtaf4g/zh-cn_image_0000001477427409.png?HW-CC-KV=V1&HW-CC-Date=20260928T100504Z&HW-CC-Expire=31536000000&HW-CC-Sign=D66C5CB74DCDC83BB9249770B399735C9ECE53473C0D5DC1B687B907F4C113C2 "点击放大")
 

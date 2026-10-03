@@ -27,7 +27,7 @@ DevEco Studio 6.1.0 Beta1之前的版本，仅支持对C++源码开启HWASan。
 
    从DevEco Studio 6.1.0 Beta1版本开始，可以同时勾选**BinXO check**，开启无源码的so文件的HWASan检测插桩。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/nd8sNK4gQ0ScI1kmGYHIww/zh-cn_image_0000002701663452.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=ED1E57075CAE5EBF339B79128E52BF7DF8293A4561E9A62B993B959E7D536BFC)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/PHg_v-gLQQGSf1DNWOQ4AA/zh-cn_image_0000002701663452.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=29EAE104BAD1458D3152D055FD9BA13D4394D83551EE8CD4A83FEE0AAC12E7F7)
 2. （可选）如果部分无源码so不需要进行HWASan检测插桩，可以在工程级或模块级build-profile.json5文件中，配置excludeSoFromBinXO字段，填写需要忽略的so列表，支持正则匹配。
 
    ```json5
@@ -46,7 +46,7 @@ DevEco Studio 6.1.0 Beta1之前的版本，仅支持对C++源码开启HWASan。
    "hwasanEnabled": true
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/gmmgMr2YTT-qklKRmasTBQ/zh-cn_image_0000002731382677.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=5C1B1EDB2030A1F22B3B08CE68B409FC0E6103EE2F7952D877ED51B496A8E438)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/-JIS8br5T0iFfLEX7RXNgg/zh-cn_image_0000002731382677.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=9808DD29FC9C010E20BF81398F90A7AB863A7C9CEA36785F179A7CABCA74D62A)
 2. 在需要开启HWASan的模块级build-profile.json5中，添加构建参数开启HWASan检测插桩。
 
    ```json5
@@ -81,8 +81,8 @@ DevEco Studio 6.1.0 Beta1之前的版本，仅支持对C++源码开启HWASan。
 
    为确保正确解析堆栈，需保留代码中的调试信息，具体请参考[注意事项](#section1665820539148)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/zwjCBVlSS4OsKKa7GoTkkw/zh-cn_image_0000002731542647.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=2EDE55D4453678482031E16313111F66E4203FC7E870FB6FD64B8C7AB7820F8F)
-3. 如果是release应用，本地无工程代码，可以使用AnalyzeStackTrace功能，提供要解析堆栈的so，解析结果为源码地址。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/c9hCqrvqTV284nS5dMc-0A/zh-cn_image_0000002701823374.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=9BA58DA90DF2D31C7EC88C2A12A1FA829120FA9425B24ED6BD80C3120DD8CA88)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/DNv-3OtORXK_cO2UpivwjQ/zh-cn_image_0000002731542647.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=D40A2B02E83F840F456711759B1E890CBC0A00ACFB2BC10CC8397C0AEDAB3877)
+3. 如果是release应用，本地无工程代码，可以使用AnalyzeStackTrace功能，提供要解析堆栈的so，解析结果为源码地址。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/MZUA0UdGTJuTNQly9T5cuw/zh-cn_image_0000002701823374.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=96EDD8A04DCCC5382EFB4ABE05C285FBA40285B47E4EF64C6405EFE648781139)
 
 ## 注意事项
 

@@ -72,5 +72,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 </toolbar>
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/AMvveOlLQqezqOn9zKNR3Q/zh-cn_image_0000002733436694.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084651Z&HW-CC-Expire=31536000000&HW-CC-Sign=0B6BEF8D614BC2553574947FBA765DD9B0CE5A5BE276173079EF1B75887BA0E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/kL5YTDakSYWxeib3eGaGOA/zh-cn_image_0000002749335326.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121739Z&HW-CC-Expire=31536000000&HW-CC-Sign=DB9F3A64554CEC294B8DD76D485C0315697591A008A0653E38CE5F0D0C3E16E0)
 

@@ -159,5 +159,5 @@ struct RichEditorExample {
 
 效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/KGP7XVAtR-aIqAMM7n2BCQ/zh-cn_image_0000002658955327.png?HW-CC-KV=V1&HW-CC-Date=20260920T114736Z&HW-CC-Expire=31536000000&HW-CC-Sign=E72E319DD1281A75E114C6A10EB50D6F1BA7C5E3C069E876C4BBB57A8AB598E6 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/KGP7XVAtR-aIqAMM7n2BCQ/zh-cn_image_0000002658955327.png?HW-CC-KV=V1&HW-CC-Date=20260929T074336Z&HW-CC-Expire=31536000000&HW-CC-Sign=F63242197CE270ACFD27B0FC90F17BF3CC9C4D100EA45580D76ECA24D6B612B6 "点击放大")
 

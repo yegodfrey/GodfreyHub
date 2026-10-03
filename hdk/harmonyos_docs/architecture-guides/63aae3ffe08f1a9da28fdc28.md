@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/grid_focus
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/nu9OIvX2SNSgZSsybQ_NRQ/zh-cn_image_0000002522791682.png?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=B1DB10F3ACD79FDC28D23E72C0B30C3112ECE092F5CD1A73214F576DE9BDF719 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/IWvzG41WQLaxNN5Zj0fdxA/zh-cn_image_0000002661509777.png?HW-CC-KV=V1&HW-CC-Date=20260924T063700Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8C61C5035AD18BFFB9C5779131F80A1F99D989368D6C76A6E0285EC1893EC95 "点击放大")
 
 ## 实现思路
 
@@ -118,7 +118,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/grid_focus
 
 [Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)
 
-## 代码下载
+## 示例代码
 
-[舒尔特方格专注力训练游戏示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626163525.59982662494817675658714803099456:50001231000000:2800:F6EBCE5961B0716A092D6FD4C762EC3FC872885193E89DAFDC8693B3BA681CE9.zip?needInitFileName=true)
+[舒尔特方格专注力训练游戏示例代码](https://gitcode.com/scenario_samples/GridFocusTraining)
 

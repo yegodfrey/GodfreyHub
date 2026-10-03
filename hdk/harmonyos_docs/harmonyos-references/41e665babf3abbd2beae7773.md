@@ -44,7 +44,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 |digitRadiusRatio|number|0.7|否|表盘数字中心到表盘中心距离 / 表盘资源边长的一半。 - 有效范围为(0, 1]。 - 该参数用于计算表盘数字在表盘上距离圆心的位置。 - 该参数可以保证同一套表盘资源在不同组件尺寸下都有同样的相对位置，而不需要针对每个组件尺寸都重新调整数字位置。 - 该参数设为1时数字会有部分区域超出表盘，建议结合表盘区域合理设置digitRadiusRatio。|
 |digitSizeRatio|number|0.08|否|表盘数字尺寸/表盘资源边长。 - 有效范围为(0, 0.142]。 - 该参数用于计算表盘数字相对表盘尺寸的大小。 - 该参数可以保证同一套表盘资源在不同组件尺寸下都有同样的相对大小，而不需要针对每个组件尺寸都重新调整字号。|
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/gfjgYoTbSne-7ZPJB_H5QQ/zh-cn_image_0000002762996447.png?HW-CC-KV=V1&HW-CC-Date=20260917T084648Z&HW-CC-Expire=31536000000&HW-CC-Sign=0CCBCD99C8BC1E5CB559DE0E0B28826BFC81D03B67E99F834DD9D5FE1897B3FF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/qTNrMPy1TPukc_hr-9bpJg/zh-cn_image_0000002749495436.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=E0F8E763CFCA5BDB832EBDE90A0372BAC8D962AF4F15A774928F23603EF58F38)
 
 ## 样式
 
@@ -121,5 +121,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 **2*4卡片**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/KsQ40zLbQGe2xXm4l9UevQ/zh-cn_image_0000002762836563.png?HW-CC-KV=V1&HW-CC-Date=20260917T084648Z&HW-CC-Expire=31536000000&HW-CC-Sign=8EFF665FA9F1082305CF14B5E423765996A4A26494433F6593A9C498796E88EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/lZ8zNiT1Ti-2yiTZzataAw/zh-cn_image_0000002779094493.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=928DF6A39FA3287D67968966FEBEF427D83D0613D47E6230BF61FC83D9920C38)
 

@@ -18,5 +18,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/50111-38
 
 ## **二、资质示例**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/uj37t7PGR22tKHC-n6hKOw/zh-cn_image_0000002532293750.png?HW-CC-KV=V1&HW-CC-Date=20260921T082901Z&HW-CC-Expire=31536000000&HW-CC-Sign=F4892E09D0A86D35AE886FCBEA307941AF2D90C5310DB92F7864778787309C12 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/uj37t7PGR22tKHC-n6hKOw/zh-cn_image_0000002532293750.png?HW-CC-KV=V1&HW-CC-Date=20260929T040100Z&HW-CC-Expire=31536000000&HW-CC-Sign=8EFD921548FF6FD4CCAB2DFB9A625D94E42A2E069A468FB0A7F616EFC8C43A8F "点击放大")
 

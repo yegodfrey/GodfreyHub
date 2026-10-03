@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-32
 
 ## 问题定位
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/z0Jj_MZ7Roer2PVU_LdJmw/zh-cn_image_0000002639837502.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=6E0D2455F73BAE14BC5A295A3877E20E656DEBFF17AD533CCC57AB808193A410 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/z0Jj_MZ7Roer2PVU_LdJmw/zh-cn_image_0000002639837502.png?HW-CC-KV=V1&HW-CC-Date=20260929T032804Z&HW-CC-Expire=31536000000&HW-CC-Sign=5814D89ADDD9F175452820756949D5ACA9ADBFA114377318CBFA590A182AE1B0 "点击放大")
 
 打开被中断的音乐播放器，可以看到提示"允许同时播放提示"，音频焦点被抢占。安全键盘启用时（如银行/支付场景），系统会强制获取音频焦点，导致音乐被暂停。
 

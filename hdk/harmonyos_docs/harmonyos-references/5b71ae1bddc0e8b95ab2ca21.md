@@ -95,7 +95,7 @@ struct SnapshotExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/MlUQiJlHQgibDjwV4Qxp-A/zh-cn_image_0000002733275926.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084646Z&HW-CC-Expire=31536000000&HW-CC-Sign=64ABCCCAF5BDC871E2C6623F42E9EE0786346DDDFC7E0BB461E4B8421A43AF3B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/ysFpM-FHTOqOum7NkbdJkQ/zh-cn_image_0000002749494190.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=25AFC0ACE179F4941200C1023B1079A5A75FEC82D4EF90FFC011F9D65536D000)
 
 ## get^12+^
 

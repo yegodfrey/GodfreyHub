@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/appmask-00
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/eag4IShQQReRZuiHJ47JMQ/zh-cn_image_0000002750222641.gif?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=3807D4EB2EC6A4778AC20148A43378275BE57B8E0782DCA80EA42399511C2A0A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/BC6jys2XSu2Fpnpxiw4WzQ/zh-cn_image_0000002750222641.gif?HW-CC-KV=V1&HW-CC-Date=20260924T062300Z&HW-CC-Expire=31536000000&HW-CC-Sign=51B9A8E0DB571951EA4FADBAF4101B3A9CBD90F54A88E28C68713F2D2BCA42F2 "点击放大")
 
 ## 实现思路
 
@@ -164,7 +164,7 @@ Q：蒙层为什么需要expandSafeArea？
 
 A：不设置expandSafeArea时蒙层只覆盖安全区内，顶部状态栏和底部导航栏区域会露出底层内容，导致上下割裂。设置后深色遮罩扩展到系统安全区外，整屏色调统一。
 
-## 代码下载
+## 示例代码
 
-[应用隐私遮罩失效示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260910130228.24154391190974287782428474434335:50001231000000:2800:B398A7BDC74B032E1738140AC035A2B66F44CEF408414924FED3C82241041893.zip?needInitFileName=true)
+[应用隐私遮罩失效示例代码](https://gitcode.com/scenario_samples/AppMask)
 

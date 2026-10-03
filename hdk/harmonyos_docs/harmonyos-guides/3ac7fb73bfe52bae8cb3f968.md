@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-scala
 
 源操作数矢量内每个元素与标量相比，如果大于标量，则取标量值；小于标量，则取源操作数；等于标量，则取源操作数值或标量值。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/AjCyd4GPS1iuHJO4dYeKMg/zh-cn_image_0000002733275734.png?HW-CC-KV=V1&HW-CC-Date=20260917T084543Z&HW-CC-Expire=31536000000&HW-CC-Sign=4D7F5A5C24B92797352C73D2AFB25F90B8F44A7074FD3EDF30DA8F96D609AAD3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/56VnGz9yQgGOT3xyajN7og/zh-cn_image_0000002749494002.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=C7CBE1A63F0B239655046CEC29F0993FB6FED8B642D4A283E9AA21CD099AF9B4)
 
 ## 函数原型
 

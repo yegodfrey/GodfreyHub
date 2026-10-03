@@ -51,7 +51,7 @@ build() {
 
 根据对日志进行分析，侧滑时onBackPressed函数未被调用，若注册了onWillDismiss函数，则onWillDismiss函数会被触发。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/07IpLXXjTkyEBuCns1eyqA/zh-cn_image_0000002628765706.png?HW-CC-KV=V1&HW-CC-Date=20260920T114742Z&HW-CC-Expire=31536000000&HW-CC-Sign=F45C32C3E06702FC9A3F37C1A40E4337A31680C50A3D6A01CD7A03FE27BE03F7 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/07IpLXXjTkyEBuCns1eyqA/zh-cn_image_0000002628765706.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=6F1036EAAADC14AF838C0F31EB219C9BA123E703455899E8B576AA16A356228F "点击放大")
 
 ## 分析结论
 

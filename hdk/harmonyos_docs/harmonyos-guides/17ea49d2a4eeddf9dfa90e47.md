@@ -12,11 +12,11 @@ JS FA应用的JS模块（entry/src/main/js/module）的典型开发目录结构�
 
 **图1** 目录结构
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/zZ56cNd2RHWfaxwxEGP8HQ/zh-cn_image_0000002733434172.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=E8EB899C00986EDD572ABAFF6EE0F0A095DE480375E97C61B6B55A55A230CB89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/xqMm4TneQxyvYzm7uqkGEg/zh-cn_image_0000002779091633.png?HW-CC-KV=V1&HW-CC-Date=20260929T121700Z&HW-CC-Expire=31536000000&HW-CC-Sign=9AB07C78841928B539A90E4E21AB32EA5E4BF5C9EC0DB1CB4963CCD9E4FE589F)
 
 **图2** [多实例](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/pageability-launch-type)资源共享目录结构
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/yiht4WFvSOGQA938Pm9mEA/zh-cn_image_0000002762993693.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=C4C97062160BAC8F6E788A1ABA0962FD65E4A1AED4A366961F731212E9832306)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/2yLWMTKqTgWUMQsldP22BA/zh-cn_image_0000002778931775.png?HW-CC-KV=V1&HW-CC-Date=20260929T121700Z&HW-CC-Expire=31536000000&HW-CC-Sign=01680130AFC116F614E57FD0FAD6C1700696B9FD018B16B2D9008BD333FCF1CE)
 
 目录结构中文件分类如下：
 

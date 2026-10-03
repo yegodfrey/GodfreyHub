@@ -100,7 +100,7 @@ aodNaviManager.isAodNaviSwitchEnabled().then((enabled: boolean) => {
 
 getAodNaviExtendCapabilities(): AodNaviExtendDataType[]
 
-获取熄屏导航服务的扩展能力集，使用Promise异步回调。不同设备可能支持不同的扩展能力，用户可以使用此接口检查支持的能力。
+获取熄屏导航服务的扩展能力集。不同设备可能支持不同的扩展能力，用户可以使用此接口检查支持的能力。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -142,7 +142,7 @@ setupAodNaviConfig(config: AodNaviConfig): Promise<void>
 
 **系统能力：** SystemCapability.PhoneService.AodNaviService
 
-**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
+**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口判断当前设备是否支持。
 
 **起始版本：** 26.0.0
 
@@ -163,14 +163,14 @@ setupAodNaviConfig(config: AodNaviConfig): Promise<void>
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-aodnavigation)。
 
 |错误码ID|错误信息|
-|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |801|Capability not supported because the device is not supported by the chip.|
 |1028300001|AOD navigation service initialization failed.|
 |1028300002|Marshalling or unmarshalling error.|
 |1028300003|Service dependency error.|
 |1028300004|The AOD navigation permission is not enabled.|
 |1028300005|The AOD navigation switch is not enabled.|
-|1028300009|Invalid AOD view data count. Possible causes: 1.Data count must be within the range of 1 to 6. 2.Data count does not match the number of configured entries. 3.Configuration includes items unsupported by the current device.|
+|1028300009|Invalid AOD view data configuration. Possible causes: 1.Data count must be within the range of 1 to 6. 2.Data count does not match the number of configured entries. 3.Configuration includes items unsupported by the current device.|
 
 **示例：**
 
@@ -316,7 +316,7 @@ setPlanRouteToAod(planRoutes: PlanRoute[], markPoints?: MarkPoint[]): Promise<vo
 
 **系统能力：** SystemCapability.PhoneService.AodNaviService
 
-**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
+**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口判断当前设备是否支持。
 
 **起始版本：** 26.0.0
 
@@ -381,7 +381,7 @@ setNaviDataToAod(eventId: string, aodNaviInteractData: AodNaviInteractData): Pro
 
 **系统能力：** SystemCapability.PhoneService.AodNaviService
 
-**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
+**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口判断当前设备是否支持。
 
 **起始版本：** 26.0.0
 
@@ -454,7 +454,7 @@ updateAodViewData(aodViewData: AodViewData): Promise<void>
 
 **系统能力：** SystemCapability.PhoneService.AodNaviService
 
-**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
+**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口判断当前设备是否支持。
 
 **起始版本：** 26.0.0
 
@@ -512,7 +512,7 @@ updateAppRecordStatus(recordStatus: AppRecordStatus): Promise<void>
 
 **系统能力：** SystemCapability.PhoneService.AodNaviService
 
-**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口调用当前设备是否支持。
+**设备行为差异：** 在支持熄屏导航功能的Phone设备上可正常调用，在不支持熄屏导航功能的Phone设备上返回801错误码，可调用[isAodNaviSupported](#aodnavimanagerisaodnavisupported)接口判断当前设备是否支持。
 
 **起始版本：** 26.0.0
 

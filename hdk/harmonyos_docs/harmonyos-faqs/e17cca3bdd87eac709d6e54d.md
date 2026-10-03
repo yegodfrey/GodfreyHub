@@ -25,7 +25,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-34
 * **场景二：使用ImageReceiver接收图片旋转。**
   * **问题现象：** 使用[ImageReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagereceiver)接收相机预览流图片，将获取到的YUV数据buffer解码成RGBA_8888的图片并进行实时送显，角度与实际拍摄角度不一致，如下图所示：
 
-    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/IxqJ4pAkSjGhd06Ub2hHpQ/zh-cn_image_0000002658911793.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=13366A17F544CDB14F964AE38B4DDB0B2CED67F693026333BB2936B1EA335252 "点击放大")
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/IxqJ4pAkSjGhd06Ub2hHpQ/zh-cn_image_0000002658911793.png?HW-CC-KV=V1&HW-CC-Date=20260929T032804Z&HW-CC-Expire=31536000000&HW-CC-Sign=A1BD3DD9BA3BEB72AC6F2282B0B09C39421E9686DBCC153FBC7E6EA3A4FFF8A9 "点击放大")
   * **解决方案：** 目前预览流角度固定后置摄像头得到的YUV数据顺时针旋转270度。可以对buffer数据再顺时针旋转90度，使用旋转后的buffer创建[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)，再进行解码等操作，核心代码见rotateYUVDegree90()方法，完整参考代码如下：
 
     ```ts
@@ -257,7 +257,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-34
 
     旋转之后的预览图像如下图所示：
 
-    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/j8xdnfApSGetHU-LZRvV2A/zh-cn_image_0000002628392580.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE7F1AF9A1EF086DD8A63F9113D3286A37201F8E453B450B4266F490CC398547 "点击放大")
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/j8xdnfApSGetHU-LZRvV2A/zh-cn_image_0000002628392580.png?HW-CC-KV=V1&HW-CC-Date=20260929T032804Z&HW-CC-Expire=31536000000&HW-CC-Sign=AF30AEDA11F65233002596D521BAAB51E451CB7BA3120E04E888DC127D82FBF6 "点击放大")
 * **场景三：视频通话旋转。**
   * **问题现象：** 两个设备之间进行视频通话，存在设备间持握方向不一致问题，导致一端看到的另一端画面是颠倒的。
   * **解决方案：** 在本端将画面转正，再通过网络发送到对端，可以使用libyuv三方库进行自绘制场景预览角度的归一化处理。

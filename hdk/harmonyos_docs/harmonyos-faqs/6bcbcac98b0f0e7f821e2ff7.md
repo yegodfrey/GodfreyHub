@@ -104,7 +104,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1644
 
        实现效果如下：
 
-       ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/EBPWHPOMSMKSWR3e-Tj8JA/zh-cn_image_0000002663720495.png?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=D99F2BB13EF9D82BC16658942D566AA651535F13D19EC1A4C3FFCF9691DDEC8E "点击放大")
+       ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/EBPWHPOMSMKSWR3e-Tj8JA/zh-cn_image_0000002663720495.png?HW-CC-KV=V1&HW-CC-Date=20260929T074337Z&HW-CC-Expire=31536000000&HW-CC-Sign=84DD5F8B2DCDD7691E0247E9D6127DE49EA2DFF88D3CCB7939DA3A9F1B1A7028 "点击放大")
   * **场景二：跳转不同页面采用不同的模式设置。**
 
     在推送子页时修改 Navigation 模式，需要单栏显示的页面设置为 false，需要分栏显示的页面设置为 true。参考场景一，修改代码如下：

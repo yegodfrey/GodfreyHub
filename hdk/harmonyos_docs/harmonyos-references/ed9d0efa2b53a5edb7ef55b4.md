@@ -74,5 +74,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 **4×4卡片**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/p-aUYWyKQ3-Xs8bk4JWNog/zh-cn_image_0000002762836559.png?HW-CC-KV=V1&HW-CC-Date=20260917T084648Z&HW-CC-Expire=31536000000&HW-CC-Sign=5B909B3BE700F203200C8AA8C05942E0878F473BA6CEA122660D0C0D42AC7F19)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/yHUm-wfpTpeuUJW-rzVu8w/zh-cn_image_0000002779094489.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=CAD5BFE7F1AAA4810A8133FE9D68A66616724ABA505110436BDBCB33CFAD453B)
 

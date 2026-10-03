@@ -24,7 +24,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/reso
 >
 > 若在"资源包预下载"页面中有状态为"审核中"、"预上线"、"已发布"、"任务暂停"的任务，您将无法点击"申请"，需要任务结束或终止后才能申请。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/EortX9zWRgKwZCUNbFHFLA/zh-cn_image_0000002449684869.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=C49C2393B7876225A07243780E6D56D6A22D867CF6F9CDEB3C2178C9AEA1C5B6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/EortX9zWRgKwZCUNbFHFLA/zh-cn_image_0000002449684869.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=2F68A910FAF321CCA4983FAB35A9F046A35FFFA548484B94427EDEBFBEC19ECA)
 
 所有任务状态说明请参见[资源包预下载任务状态说明](#section15845401415)。
 
@@ -34,7 +34,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/reso
 
 ### 设置预下载时间
 
-1. 您可以在任务创建页面中设置预下载的开始时间和结束时间。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/xm6mvLFxTCycuGgIRa5pfA/zh-cn_image_0000002449554849.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=F2C5640DBCB6F06223693DC8BA0F2176CBBE5437C5636BC8EFC1BEF087CDF874)
+1. 您可以在任务创建页面中设置预下载的开始时间和结束时间。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/xm6mvLFxTCycuGgIRa5pfA/zh-cn_image_0000002449554849.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=FC60AA993D6D83750BC348F28C932EECAF9AE0ABED59997DBAC5EB991939BD16)
 
    设置时需注意以下几点：
 
@@ -55,7 +55,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/reso
 
 ### 上传游戏资源包
 
-1. 您可以为预下载任务设置一个版本号，用于跟踪不同的游戏资源包预下载任务，版本号要求为不超过9位的整数，且必须大于已创建任务的版本号。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/zDM0UfbwTvS7iAOy7gzTWw/zh-cn_image_0000002146556760.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=D61C34AF863DC3F59F089736AB9AFDEAF72D803EB3D39CCF9E41A419A6FB996D)
+1. 您可以为预下载任务设置一个版本号，用于跟踪不同的游戏资源包预下载任务，版本号要求为不超过9位的整数，且必须大于已创建任务的版本号。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/zDM0UfbwTvS7iAOy7gzTWw/zh-cn_image_0000002146556760.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=364560CF3EE76C586C23975354C5794B30C3FA79FC06D3ADBDB4B18B2E1DEEB1)
 
 2. 您可以点击"上传资源包"栏的"选择文件"，上传提前准备好的游戏资源包。 说明
    >
@@ -69,11 +69,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/reso
    |扫描不通过，可能存在病毒|点击"删除"将游戏资源包删除，并检查包体中是否存在病毒，修复资源包后重新上传。|
    |扫描通过|表示游戏资源包上传成功。|
 
-3. （可选）在资源包列表填写三方CDN地址。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/LJgp6MImQruQwaRL4svpmg/zh-cn_image_0000001888741318.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=0EB18AFD72A1ECAF391D228B9B527A65D36C05231ADF2B7671CDE1E23CC428F0)
+3. （可选）在资源包列表填写三方CDN地址。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/LJgp6MImQruQwaRL4svpmg/zh-cn_image_0000001888741318.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=D289B1EAB11CF08B3116CCC0AF7C86A28AF4FA2A4A273D131C56A055C928376D)
 
 4. 提交游戏资源包预下载任务。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/ZtqHLuj2SV6W-i1IjfIxLw/zh-cn_image_0000001349740197.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=0E99A435E10C2D2F9A68F4972CD408C39A052854D6DACA4EA25C696B6A99D9C1)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/ZtqHLuj2SV6W-i1IjfIxLw/zh-cn_image_0000001349740197.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=41DE4CD3B05296FBC93E6D5BDAEDBB6BA74B5D687CA7095935F4509D5F0D7AEE)
    * 点击"保存草稿"可以将预下载任务保存为"草稿"状态，您可以暂时不提交任务，后续继续编辑任务后再提交，具体请参见[提交预下载任务](#section124381849103616)。
    * 点击"提交申请"可以直接将游戏资源包预下载任务提交到"预上线"状态，请参见[资源包预下载任务状态说明](#section15845401415)。
 
@@ -81,12 +81,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/reso
 
 您可以在创建游戏资源包预下载任务时点击"提交申请"直接提交。如果您保存了草稿状态的预下载任务，也可以在任务列表中重新编辑后再提交。
 
-1. 在"资源包预下载申请"页面中找到您需要提交的"草稿"状态任务，点击"操作"列中的"编辑"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/I9K3SMSbTMaFVVYySmhnfw/zh-cn_image_0000002415931040.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=1374F7C23DB87DD16BE03831223BD9746120214B1B0B0FA96F0391048F1F6A42)
+1. 在"资源包预下载申请"页面中找到您需要提交的"草稿"状态任务，点击"操作"列中的"编辑"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/I9K3SMSbTMaFVVYySmhnfw/zh-cn_image_0000002415931040.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=0B03371C4A80E71434CC157A0840A656CE38F229028A108E2EB15FFDBF401547)
 
    > 说明
    >
    > 草稿状态的任务点击"编辑"后，之前的开始时间和结束时间会自动清除，需要重新设置。
-2. 在任务填写页面中设置预下载任务执行的周期、上传游戏资源包，完成后点击"提交申请"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/K1qICa-RQPGjdR6MZZPwAg/zh-cn_image_0000001349859873.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=9CB7850B7F50DF93005782E025CDC4CE97E3EFB41FD91605CD2716869D775E9D)
+2. 在任务填写页面中设置预下载任务执行的周期、上传游戏资源包，完成后点击"提交申请"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/K1qICa-RQPGjdR6MZZPwAg/zh-cn_image_0000001349859873.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=230A118A90D3AF4232C26B584E72E5C5AB140DEACE5FA01D9C4F7305E35C9371)
 
 ## 测试预下载功能
 
@@ -104,10 +104,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/reso
    bm get -u
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/a_T2boOgTA6qvWDPMSJbrQ/zh-cn_image_0000002345035769.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=C4BF9A0277BD7A53850B934D6989EE76913944EF29BA829352B7236F6BBFF9D9)
-3. 在资源包预下载任务页面中，点击"测试设备"后的"编辑"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/ow0TGfrDSZatRx8Nob08vA/zh-cn_image_0000002449690049.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=ED2799D110293E76211D596321595E4C2F47ADC7AD8175AB82AE117C34E862B5)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/a_T2boOgTA6qvWDPMSJbrQ/zh-cn_image_0000002345035769.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=116E0C29B00519E599317FC53DE24B9C85C1401355E6FA7472DD334D3AD8403A)
+3. 在资源包预下载任务页面中，点击"测试设备"后的"编辑"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/ow0TGfrDSZatRx8Nob08vA/zh-cn_image_0000002449690049.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=CF478BE6343F405FCB1BCFF04B54F180EEEAB9ED7854F27FC93183EA81DBBEE8)
 
-4. 在输入框中最多添加10台测试设备的设备号，且使用英文逗号（,）间隔开，完成后点击"提交"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/4it5r51eTXKVba_ic7WOsw/zh-cn_image_0000002416091292.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=0468AD5482DBAC8D66857AA4B9A08E9EF5886D04D623A054AE0A2D4C7AC3EFD4)
+4. 在输入框中最多添加10台测试设备的设备号，且使用英文逗号（,）间隔开，完成后点击"提交"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/4it5r51eTXKVba_ic7WOsw/zh-cn_image_0000002416091292.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=A9464BF82F1B611DB6648AF81D6509A12AB5E15AC476D4B54911689C2766816C)
 
    当满足如下条件后，游戏资源包将自动下载至测试设备中：
    * 提交过设备号的测试设备必须满足[闲时自动更新条件](#ZH-CN_TOPIC_0000001296686470__li44449303178)。
@@ -128,14 +128,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/reso
 
 在"资源包预下载申请"页面找到"预上线"状态的任务，点击"操作"列中的"发布"，在弹出的窗口中点击"确定"。任务提交发布后状态会变为"审核中"，华为运营人员会在1~3个工作日内完成审批，审批完成后任务状态会变为"已发布"。发布游戏资源包后，在您所设定的预下载任务有效时间内，游戏资源包将会向满足自动更新的用户设备进行推送。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/rEz899aLS2uiydzOmRrHBw/zh-cn_image_0000002417007502.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=7CC68906AE6D3E59FFF0265552EEBC1F2594D654594CA62FB20CE8FF08833C59)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/rEz899aLS2uiydzOmRrHBw/zh-cn_image_0000002417007502.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=F555DFAF2688BE81298FBEF3EFC2670969DB026DC5B0F65DF85964785B546142)
 > 说明
 >
 > 如果您发现已发布的游戏资源包需要中止更新，可以主动在预下载任务列表中点击"终止"来停止任务，华为应用市场将不再对该游戏资源包进行自动下载。对于用户设备上已开始下载的游戏资源包不会立刻删除，而是在下一次启动自动更新时，删除创建时间大于7*24小时的游戏资源包。
 
 ## 资源包预下载任务状态说明
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/Fstsx02EQz6bIRng9vZ0QA/zh-cn_image_0000002178812345.png?HW-CC-KV=V1&HW-CC-Date=20260909T142511Z&HW-CC-Expire=31536000000&HW-CC-Sign=887B907C703FEE6D39A3D2582E2B2426878FF908B4C3413DCBD9C340F4F9840F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/Fstsx02EQz6bIRng9vZ0QA/zh-cn_image_0000002178812345.png?HW-CC-KV=V1&HW-CC-Date=20260929T054030Z&HW-CC-Expire=31536000000&HW-CC-Sign=A6B2EE001AB87111C6E4A8D7872F01B8B6F2C32C988CB95E5C47679394FA9C04)
 
 |序号|状态|说明|
 |:-|:----|:-------------------------------------------------|

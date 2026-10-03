@@ -24,7 +24,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-
 
 ### 数据跨设备同步机制
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/yMooxvHdQXyUWlQWPjaXJQ/zh-cn_image_0000002733433326.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=CFAA59F84FBDE4F21BFF4E5332B6DD36348F55D48FB55AE431961CD135D48EEB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/dKEML2keQ--1R2yU7uxDrA/zh-cn_image_0000002779090687.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=51D492EA1D526AC09DFC152D03789874893F4F5660AB2375EB8601E985E19B0E)
 
 业务将数据写入关系型数据库后，向数据管理服务发起同步请求。
 
@@ -50,7 +50,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-
 
 需要注意的是，该模式下不支持对其他设备同步过来的数据进行修改。这一限制旨在保障数据一致性与同步逻辑的稳定性。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/WhURYirWQPCLmfQ50T4ykA/zh-cn_image_0000002762992851.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=C502916767CD050ADED392D37F52E59E0CEA3CBE5C3F52718642E8A9B54E0842)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/SWo1lOl_SKygXCMUsazd2A/zh-cn_image_0000002778930831.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=D5DD46E4C3D721B5242E054433A272926DB35FA3E16AFB92F85D1BA87C77D0A9)
 
 **单版本表模式**
 
@@ -58,7 +58,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-
 
 使用单版本表模式跨设备同步，需要配置schema文件，指定所需同步列以及解冲突列；单版本表模式同步数据支持修改对端设备同步过来的数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/Hm_RJUuVScel7zUpNaCIZQ/zh-cn_image_0000002762832965.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084553Z&HW-CC-Expire=31536000000&HW-CC-Sign=9EBE3336F42D375B3CC39F0B2878CC4A2710D59ADE984229971594F58C292A87)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/wPHCxxUHS86VAjTjCsoBYw/zh-cn_image_0000002749331748.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE7B72E22A5C013D96C92570A504A6D54AC321605C31987F4ACFD772DC8181DF)
 
 ## 约束限制
 
@@ -369,7 +369,7 @@ schema文件为json格式，文件主要为在dbSchema字段下进行多项配�
 
     * cloudType: 表类型，为enum类型，取值范围为[ "Local", "Cloud DB", "Device DB" ]。
 
-      "Local"表示本端表。"Cloud_DB"表示端云表。"Device DB"表示设备表。
+      "Local"表示本端表。"Cloud DB"表示端云表。"Device DB"表示设备表。
 
       从API版本12开始，新增支持此字段，且此字段必填。从API版本26.0.0开始，此字段变为可选字段，不填时默认为"Local"。
     * fields：数据库表字段详细信息，array[field]。

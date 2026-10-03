@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/screentimegua
 
 ## 业务流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/EpPCCJ2gRhS81MmyCpyCwQ/zh-cn_image_0000002733435484.png?HW-CC-KV=V1&HW-CC-Date=20260917T084551Z&HW-CC-Expire=31536000000&HW-CC-Sign=EAABFDCF9B6794A5B253D09701DF91409E090863FE29FF6761BF34C951BFA01C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/6vl3N5BvTZyC6I_wsNW0oA/zh-cn_image_0000002779092927.png?HW-CC-KV=V1&HW-CC-Date=20260929T121651Z&HW-CC-Expire=31536000000&HW-CC-Sign=E5ED3717207DC16501739D006A08F5B177929E95A08B1382201056BE09F3B32D)
 
 流程说明：
 
@@ -40,7 +40,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/screentimegua
 >
 > * 如果传入的应用数组为空，限制类型为禁用清单，则不对任何应用做限制。该场景相当于没有开启有效管控。
 >
-> * 如果传入的应用数组为空，限制类型为许可清单，则对系统内置许可清单应用（电话、联系人、设置、未成年人模式）、管控发起应用本身、已授权的管控应用之外的所有应用做限制。
+> * 如果传入的应用数组为空，限制类型为许可清单，则对系统内置许可清单应用（电话、时钟、联系人、设置、未成年人模式等）、管控发起应用本身、已授权的管控应用之外的所有应用做限制。
 >
 > * 对同一个管控应用，如果反复调用该接口做限制（不管是许可清单还是禁用清单），均以最新的一次的限制来生效。
 >

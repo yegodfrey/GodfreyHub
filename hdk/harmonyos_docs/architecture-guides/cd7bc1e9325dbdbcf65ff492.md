@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/later_item
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/f4IhWNsEQgKCxTpAcOL_Tg/zh-cn_image_0000002520027640.png?HW-CC-KV=V1&HW-CC-Date=20260921T035900Z&HW-CC-Expire=31536000000&HW-CC-Sign=5FA5D8FB295CAB318988DE5B2DA8B251918CBC3604D5CE3EC8130EA2D555B639 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/i3eTQ4vjRZOjKLco202cCg/zh-cn_image_0000002661389301.png?HW-CC-KV=V1&HW-CC-Date=20260924T062300Z&HW-CC-Expire=31536000000&HW-CC-Sign=4B18650AE78A8213BD2C1A3224DC854C7C6B5A2783FC3B7C403689C97489130A "点击放大")
 
 ## 实现思路
 
@@ -109,7 +109,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/later_item
 
 [单一手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-single-gesture)
 
-## 代码下载
+## 示例代码
 
-[消息稍后处理示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626163554.66761489075249267710719382635607:50001231000000:2800:926137F6349FDBF1D77B8E547310B91A1F1F40D79E61A73D465CF528A8ACDAFC.zip?needInitFileName=true)
+[消息稍后处理示例代码](https://gitcode.com/scenario_samples/LaterItems)
 

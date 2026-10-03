@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/agent2agent-command-00
 
 Agent内底部快捷指令用户点击事件上报，需要先在小艺开放平台智能体内配置对应快捷指令：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/T2ad6CETQeuqAWuWsCIyFw/zh-cn_image_0000002640264018.png?HW-CC-KV=V1&HW-CC-Date=20260909T134906Z&HW-CC-Expire=31536000000&HW-CC-Sign=891B10CF469D8D49CFFB9CE51D0EDAA1D68F580A5278CA8B640A16E5A7AABA19 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/T2ad6CETQeuqAWuWsCIyFw/zh-cn_image_0000002640264018.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=C0BAACFE08E9DBF93C2F1F353E7CB6FCD441B2CCE003106D2CD3F2FFF3735808 "点击放大")
 
 Agent Client请求Agent Server侧的data数据结构定义：
 
@@ -32,5 +32,5 @@ UserInputInfo参数说明：
 
 底部快捷指令手机端展示效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/b0L6jMUXTCCNfMZxX7b_Bw/zh-cn_image_0000002670263907.png?HW-CC-KV=V1&HW-CC-Date=20260909T134906Z&HW-CC-Expire=31536000000&HW-CC-Sign=6BCF430638C16EA340815E244DC9F6F9C3C18AD331487B53EB3F04536D46A21A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/b0L6jMUXTCCNfMZxX7b_Bw/zh-cn_image_0000002670263907.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=43147CA29ED74ED69F7AD7F5EE38618C5CD9458A8BD59FA926918549056B5B2E "点击放大")
 

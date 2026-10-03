@@ -318,7 +318,7 @@ struct ListDrag {
 
 效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/r8l3dsLYSfmwyVdiHmUNQg/zh-cn_image_0000002691501638.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=870D8863AFABB97BA264D3D88F8D467D4F6A857D97C2EB3DFECD053652EDAA6B "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/r8l3dsLYSfmwyVdiHmUNQg/zh-cn_image_0000002691501638.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=541AD3698426D1F06793CAB4EA5DC8B1585CC997E95F36F74B8506451180F1E1 "点击放大")
 
 ## 常见FAQ
 

@@ -13,7 +13,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-13
 
 ## 背景知识
 
-* 当存在连接复用\自定义DNS规则\本地DNS缓存时，请求按如下顺序依次执行： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/biNUqo4ySwuNHuo1A5IOWQ/zh-cn_image_0000002663721703.png?HW-CC-KV=V1&HW-CC-Date=20260920T114746Z&HW-CC-Expire=31536000000&HW-CC-Sign=E04702A3B1D743986291B9AF97699C0852A122D91541C1F731E8F0ADF2FD147E "点击放大")
+* 当存在连接复用\自定义DNS规则\本地DNS缓存时，请求按如下顺序依次执行： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/biNUqo4ySwuNHuo1A5IOWQ/zh-cn_image_0000002663721703.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=38C1293FCFC41AF7B974301C3782873EDC6F2F95EB3C2EEAA05BB127F3289662 "点击放大")
 
 * [wireshark](https://github.com/wireshark/wireshark)：一款强大的网络协议分析工具，用于捕获和分析网络数据包，帮助用户深入理解和调试网络通信问题。
 * [WebNetErrorList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist#webneterrorlist)：ArkWeb的网络协议栈错误列表，其中ERR_NAME_NOT_RESOLVED表示域名无法解析。
@@ -59,15 +59,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-13
       ```
 
 3. **查看网络数据包** ，判断DNS解析请求数据包是否发出，使用dns.qry.name contains [域名]过滤pcap日志。
-   * 正常情况下，同时存在DNS请求及响应数据包： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/8YEh5D9BSJGUKBeOwvCUzQ/zh-cn_image_0000002663802523.png?HW-CC-KV=V1&HW-CC-Date=20260920T114746Z&HW-CC-Expire=31536000000&HW-CC-Sign=A6831E1F0CFE5579BC3FB9B340ACCFE4707C42DADF064BA37E9BE21383394766 "点击放大")
+   * 正常情况下，同时存在DNS请求及响应数据包： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/8YEh5D9BSJGUKBeOwvCUzQ/zh-cn_image_0000002663802523.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=B296D38B91E8FE70A4BB5E5047D2E9D19E064FF7795E012B7E92DC1776913DB5 "点击放大")
 
-   * 若请求时间点存在DNS query数据包，没有query response响应包，ICMP返回Destination unreachable，需要检查DNS服务器是否可达。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/5lVYdd2_QUm3SJIWjpBVAQ/zh-cn_image_0000002663722461.png?HW-CC-KV=V1&HW-CC-Date=20260920T114746Z&HW-CC-Expire=31536000000&HW-CC-Sign=D387C903C4CE012E85C47976834861771B442AB68EE80618511DCF19E8253268 "点击放大")
+   * 若请求时间点存在DNS query数据包，没有query response响应包，ICMP返回Destination unreachable，需要检查DNS服务器是否可达。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/5lVYdd2_QUm3SJIWjpBVAQ/zh-cn_image_0000002663722461.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=47A056761C5D40522EDEA128D651EF854ECCFA01FC905C6386E1C4BE418D64D2 "点击放大")
 
-   * 若请求时间点存在DNS query数据包，响应返回No such name [域名]，需要检查域名是否拼写正确，或更换DNS服务器。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/tXQHbI0-SAiusp8PHoqHdA/zh-cn_image_0000002633443396.png?HW-CC-KV=V1&HW-CC-Date=20260920T114746Z&HW-CC-Expire=31536000000&HW-CC-Sign=B60DABED3A2C169C6CE6350B34AF02F733C00A6A534BE4A30E1A378A0C14380A "点击放大")
+   * 若请求时间点存在DNS query数据包，响应返回No such name [域名]，需要检查域名是否拼写正确，或更换DNS服务器。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/tXQHbI0-SAiusp8PHoqHdA/zh-cn_image_0000002633443396.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=74C24A4F709D09DF442F1C4B4565AA3CC8EB8131A667F02B9F538238CD6AF7F8 "点击放大")
 
 4. **检查是否存在连接复用** ：对于HTTP/2版本，强制启用连接复用；HTTP/1.1版本中，header的Connection: keep-alive代表启用连接复用，默认开启，客户端可通过设置Connection: close显示关闭连接复用。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/MYhcRTpsQmyL5QG7ODRUPw/zh-cn_image_0000002633603292.png?HW-CC-KV=V1&HW-CC-Date=20260920T114746Z&HW-CC-Expire=31536000000&HW-CC-Sign=3834D35F8A4C844D8C5BAA3DD5B4C68F4ACF93FD8DBEBF99BFC1B36D14DDD35C "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/MYhcRTpsQmyL5QG7ODRUPw/zh-cn_image_0000002633603292.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=6DFAC5F9C6D878CE3F8140B2BC4DB953759F20EDF11C957C6901DB0DE39BC165 "点击放大")
 
 ## 分析结论
 

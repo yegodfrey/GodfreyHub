@@ -31,11 +31,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery
 
 1. 通过DevEco Studio自动签名完成申请。在自动签名的过程中，将由DevEco Studio完成向AGC申请受限权限的步骤，开发者可直接使用。
    * 在module.json5配置文件的requestPermissions标签中声明需要申请的ACL权限。具体操作可参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
-   * 使用真机设备连接开发工具DevEco Studio后，进入File > Project Structure... > Project > Signing Configs界面，勾选"Automatically generate signature"即可完成签名。如果未登录，请先单击Sign In进行登录，然后自动完成签名。申请了受限权限页面也会弹窗提示： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/q-8mrtCDRhiqcJ2KvfrzOQ/zh-cn_image_0000002728875983.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=D2D004CA0287B9373002EBE5CD1FECD66DB518793AA6753C2B2F4F9BF0B80F72 "点击放大")
+   * 使用真机设备连接开发工具DevEco Studio后，进入File > Project Structure... > Project > Signing Configs界面，勾选"Automatically generate signature"即可完成签名。如果未登录，请先单击Sign In进行登录，然后自动完成签名。申请了受限权限页面也会弹窗提示： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/q-8mrtCDRhiqcJ2KvfrzOQ/zh-cn_image_0000002728875983.png?HW-CC-KV=V1&HW-CC-Date=20260929T032806Z&HW-CC-Expire=31536000000&HW-CC-Sign=C5CC3F761D06B3E5DB83ABF7511D9C2E086848DF3D103EEE69D53DCF795EBF64 "点击放大")
 
-   * 签名完成后，将鼠标悬停在Provisioning Profile: DevEco Managed Profile后![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/YWA4-JQFRmauuKLw2Od6KQ/zh-cn_image_0000002728995927.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=4BDD28BD15DE3F44DEBEEC1E4CC2137D490B446A1BF95AA472A68CA9DBFE946B)，也可查看申请的ACL权限信息：
+   * 签名完成后，将鼠标悬停在Provisioning Profile: DevEco Managed Profile后![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/YWA4-JQFRmauuKLw2Od6KQ/zh-cn_image_0000002728995927.png?HW-CC-KV=V1&HW-CC-Date=20260929T032806Z&HW-CC-Expire=31536000000&HW-CC-Sign=73DE995BDA5CBA8B204084F33D8B9088B90E4A977F37CA84C91BFDDB727CD49F)，也可查看申请的ACL权限信息：
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/zWdJDOmnSYaHpfVCL5jUpA/zh-cn_image_0000002728995933.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=65AD5A5EB80DAB533A97E123A922C5BC9C30EF82F636A9AC5BCEECF7C1EBB84A "点击放大")
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/zWdJDOmnSYaHpfVCL5jUpA/zh-cn_image_0000002728995933.png?HW-CC-KV=V1&HW-CC-Date=20260929T032806Z&HW-CC-Expire=31536000000&HW-CC-Sign=B82C83281BD14FF4FF9AC10D6A08FF8900A792C9927263E786F779B2852D8808 "点击放大")
      > 说明
      >
      > 只有在[自动签名支持的ACL权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section5301916183411)权限列表的权限才可以通过自动签名申请。
@@ -43,12 +43,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-appgallery
 
 2. 在AGC[创建试用调试Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-apply-acl-0000002394212138#section1443958124819)，完成[申请ACL权限](https://developer.huawei.com/consumer/cn/doc/app/agc-help-apply-acl-0000002394212138)后，在审核等待期间，还可以创建试用调试Profile来提前试用您申请的这些权限。试用调试Profile有效期为5天，到期即失效。具体操作指导如下：
    * 在提交ACL权限申请后弹出的提示框中，点击"Profile页面"链接。
-   * ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/f9YvbHMqSXW9VtmlDtalIQ/zh-cn_image_0000002699237296.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=2397D4CD5A1AFD4A4C8DE1E08AE53EA9B55829D33D8E55706EF95AF63C6629FA)
-   * 进入"添加试用调试Profile"页面，配置Profile信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/6YdCLY6oREqICCSag1ZlTg/zh-cn_image_0000002728876701.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=419DFCCFBC2BE3FED3B051CB447105C09B85B8D13EFFDDC8FC24A2F9AA54A8D2 "点击放大")
+   * ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/f9YvbHMqSXW9VtmlDtalIQ/zh-cn_image_0000002699237296.png?HW-CC-KV=V1&HW-CC-Date=20260929T032806Z&HW-CC-Expire=31536000000&HW-CC-Sign=A9BF3ED02C815318F9441199F6E9C90059CE7A449CF417A7D13A69ADB4952FB9)
+   * 进入"添加试用调试Profile"页面，配置Profile信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/6YdCLY6oREqICCSag1ZlTg/zh-cn_image_0000002728876701.png?HW-CC-KV=V1&HW-CC-Date=20260929T032806Z&HW-CC-Expire=31536000000&HW-CC-Sign=90B84CDD6A69CB5F6306F82426D10857127723E781AD06D90F5B0B5519D39634 "点击放大")
 
-   * 添加ACL权限到Profile。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/mH--AUL5TqOCoVF-yhV7dw/zh-cn_image_0000002699237306.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=05BE0BE46F641DEE4BA70E930F407C142124C85F80841C827825A5B5220BA911 "点击放大")
+   * 添加ACL权限到Profile。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/mH--AUL5TqOCoVF-yhV7dw/zh-cn_image_0000002699237306.png?HW-CC-KV=V1&HW-CC-Date=20260929T032806Z&HW-CC-Expire=31536000000&HW-CC-Sign=92A02A042266937B8D63A1DA21017A2B4E923738811A0F74B7C2B7CB7DB94766 "点击放大")
 
-   * 核对Profile信息无误后，点击右上角"添加"，试用调试Profile创建成功。点击"下载"，将生成的Profile保存至本地，供后续签名使用。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/LCb7N-rXRl2m-LKhUM9HFA/zh-cn_image_0000002699077430.png?HW-CC-KV=V1&HW-CC-Date=20260920T112703Z&HW-CC-Expire=31536000000&HW-CC-Sign=A1E03A7147236215A8C1BF8B3C565F9EDC26213DF0CF451FB05D2E2AF216A96B "点击放大")
+   * 核对Profile信息无误后，点击右上角"添加"，试用调试Profile创建成功。点击"下载"，将生成的Profile保存至本地，供后续签名使用。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/LCb7N-rXRl2m-LKhUM9HFA/zh-cn_image_0000002699077430.png?HW-CC-KV=V1&HW-CC-Date=20260929T032806Z&HW-CC-Expire=31536000000&HW-CC-Sign=AEC3B46DDF0A93CE1766C49A7DE152613FE8D44211999E3C584147FF9955A100 "点击放大")
 
      > 说明
      >

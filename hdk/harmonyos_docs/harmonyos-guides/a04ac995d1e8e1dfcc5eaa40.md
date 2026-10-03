@@ -23,7 +23,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ad-redirectio
 
 广告跳转的流程图如下所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/5BRcs20FTsGY30Tf0DfH9Q/zh-cn_image_0000002762992831.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=312CD41CBFC2B9ED3FAB54B4E1E066F0EA6E14CA4D5A5EB31095C30DD6957415)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/s16dvniXQSafwOAI85BXnw/zh-cn_image_0000002778930813.png?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=547600C080C68D0E3830E8ADF290176A22161A3B41684D4E7031A5A79EAE5F22)
 
 跳转过程基于[App Linking](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-linking-startup)能力，分为几种情况：
 

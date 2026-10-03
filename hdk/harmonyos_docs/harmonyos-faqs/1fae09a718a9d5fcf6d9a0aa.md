@@ -104,7 +104,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/54mIEd72TL2nrhv-Ep2mXA/zh-cn_image_0000002628599992.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=2663F01794F2A1791EF08DB607C14BCA795E02B03813A14DFB7866586CC738C2 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/54mIEd72TL2nrhv-Ep2mXA/zh-cn_image_0000002628599992.gif?HW-CC-KV=V1&HW-CC-Date=20260929T074342Z&HW-CC-Expire=31536000000&HW-CC-Sign=A364BB75F25501C757ED20045A8ADCF88F2BEDD47E5D79AD6882EE1D1CBB2A13 "点击放大")
 * **场景二** ：雷达扫描。
   * 雷达扫描方案一：通过Stack组件叠加静态底图与动态旋转扇形图，并配合animation设置无限循环的线性动画（iterations: -1），使扇形图持续旋转实现。
 
@@ -151,7 +151,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
 
     效果预览：
 
-    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/f6oPx_iwSKWeq4ap79ddBw/zh-cn_image_0000002628759922.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=61B1296D0EAD75BF7118D674B1310E517D949B1C6F14E55EEB6EC5F14D1567D3 "点击放大")
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/f6oPx_iwSKWeq4ap79ddBw/zh-cn_image_0000002628759922.gif?HW-CC-KV=V1&HW-CC-Date=20260929T074342Z&HW-CC-Expire=31536000000&HW-CC-Sign=D637EE673315F7A4EEF8536D02A47C20A997ABC2A4A9EF835CB2A83CA8DEB134 "点击放大")
   * 雷达扫描方案二：通过Canvas组件实现雷达扫描动画效果，包含网格绘制、扫描线旋转、扇形渐变区域和随机目标点。并使用定时器驱动角度变化实现动画效果，createRadialGradient创建扫描扇形渐变效果。
 
     ```ts
@@ -263,7 +263,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
 
     效果预览：
 
-    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/3dJxLgdtSFSNQ9Gf3kGgmg/zh-cn_image_0000002658959237.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=A66278B920F8F76767F197C2711CD1591735CE7DB36FEC63E95F0BC0C054FDB1 "点击放大")
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/3dJxLgdtSFSNQ9Gf3kGgmg/zh-cn_image_0000002658959237.gif?HW-CC-KV=V1&HW-CC-Date=20260929T074342Z&HW-CC-Expire=31536000000&HW-CC-Sign=3D5929AB693C7AD8D5EE36F473E03E118768003D11B0038A60DA8C7776C633B3 "点击放大")
 
 
   * 雷达扫描方案三：通过Row的linearGradient属性创建扇形渐变效果，结合rotate动画实现扫描效果。渐变颜色使用半透明绿色模拟雷达波束，Stack容器实现图层叠加。
@@ -325,7 +325,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1333
 
     效果预览：
 
-    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/zkHcHCYbSpaqwpME-xIRGA/zh-cn_image_0000002658839285.gif?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=65904A9C00A762D7ADF12AA8B78F420F230C3359AEFC2FB78B1AA6DD870EF200 "点击放大")
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/zkHcHCYbSpaqwpME-xIRGA/zh-cn_image_0000002658839285.gif?HW-CC-KV=V1&HW-CC-Date=20260929T074342Z&HW-CC-Expire=31536000000&HW-CC-Sign=419627890F44FA81C8F59539EE5C105BA15D8602534BCD4987E019B45AE7ABAF "点击放大")
 * 整体方案对比：
 
   |方案|优点|缺点|

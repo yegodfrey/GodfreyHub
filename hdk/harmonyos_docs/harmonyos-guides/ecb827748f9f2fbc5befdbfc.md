@@ -16,7 +16,7 @@ Agent Framework Kit主要包含Function组件和A2A（Agent to Agent）协议模
 
 * Agent Framework Kit 通过标准化组件，满足应用在不同场景、不同界面下的智能体入口诉求。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/bR1DPzuqQ7CmDD_nV7_wuQ/zh-cn_image_0000002762835187.png?HW-CC-KV=V1&HW-CC-Date=20260917T084541Z&HW-CC-Expire=31536000000&HW-CC-Sign=F340F482BF01F65D85F2BFAC01EDFDFCC138CD10B82B700A3078A11D1BE32322)![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/tqSQPiExQ-OJ0E8_-VrmdA/zh-cn_image_0000002733275674.png?HW-CC-KV=V1&HW-CC-Date=20260917T084541Z&HW-CC-Expire=31536000000&HW-CC-Sign=E29E1B7C9DF6944A4E46F123EF6E141D1429C650DFDA2903D4F033D3D688FD0D)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/T0ck60J2Sn-S3brqFE2L7A/zh-cn_image_0000002749334056.png?HW-CC-KV=V1&HW-CC-Date=20260929T121643Z&HW-CC-Expire=31536000000&HW-CC-Sign=D28F953C72FBAEEB59E0CBB520DE724E3BB0D9B541EA51E447B585359B7EA559)![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/trlyIepIT8efbTaECGA--A/zh-cn_image_0000002749493942.png?HW-CC-KV=V1&HW-CC-Date=20260929T121643Z&HW-CC-Expire=31536000000&HW-CC-Sign=6F7BF579B072CAFCFBF7604B5659E2F2A3D27C3640D705089A04C24052E749B8)
 * 通过A2A模块，在应用中智能体可以作为客户端或服务端与其它应用中的智能体进行交互。例如，当一个应用内的智能体需要调用小艺智能体完成某项任务时，可以通过 A2A 协议发起请求，实现跨应用的智能体协作。同样地，当某个智能体需要向其他应用提供服务时，也可以通过 A2A 协议作为服务端响应请求，从而实现更丰富的智能体联动能力。
 
 ## 约束与限制

@@ -48,7 +48,7 @@ DatePicker可以用于在指定日期范围内选择日期，但是开发过程�
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/cU5-8QDYTu-7fZKtEWswYw/zh-cn_image_0000002628762570.png?HW-CC-KV=V1&HW-CC-Date=20260920T114735Z&HW-CC-Expire=31536000000&HW-CC-Sign=3BDFF9A02F21A8410F2F3B1F7884720D25DD3B174FB0E3A178E65648B6B26079 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/cU5-8QDYTu-7fZKtEWswYw/zh-cn_image_0000002628762570.png?HW-CC-KV=V1&HW-CC-Date=20260929T074335Z&HW-CC-Expire=31536000000&HW-CC-Sign=B30DD53D95842B30E0272D0590AC90DD922D1376816824A1DF6C522357DD598E "点击放大")
 
 
 * 场景二解决方案：使用单列联动选择器实现年的选择，多列联动选择器实现年月或月日的选择。
@@ -134,7 +134,7 @@ DatePicker可以用于在指定日期范围内选择日期，但是开发过程�
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/9cc7KtmHQheisHaOMTW6bA/zh-cn_image_0000002658961883.png?HW-CC-KV=V1&HW-CC-Date=20260920T114735Z&HW-CC-Expire=31536000000&HW-CC-Sign=37D0B88918F61C764DC7A9DC16C7E2DFCFBBC3072E66A1A62C0BB1CBD1A54756 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/9cc7KtmHQheisHaOMTW6bA/zh-cn_image_0000002658961883.png?HW-CC-KV=V1&HW-CC-Date=20260929T074335Z&HW-CC-Expire=31536000000&HW-CC-Sign=8040DB2F4DDFFBC7E2B4157376F2B557B6C26043332FCD04D41368D7A90121EF "点击放大")
 
 * 场景三解决方案：当多列联动选择器触发[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker#onchange18)时，判断如果年份发生改变，就把月份设置为之前的月。
 
@@ -209,5 +209,5 @@ DatePicker可以用于在指定日期范围内选择日期，但是开发过程�
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/ogdDIe6gRtWc4BqF_v5AJg/zh-cn_image_0000002628602672.png?HW-CC-KV=V1&HW-CC-Date=20260920T114735Z&HW-CC-Expire=31536000000&HW-CC-Sign=925595B4C240F948586839011A6E3B0D688CE2B60F075ADA5172F69ABF043317 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/ogdDIe6gRtWc4BqF_v5AJg/zh-cn_image_0000002628602672.png?HW-CC-KV=V1&HW-CC-Date=20260929T074335Z&HW-CC-Expire=31536000000&HW-CC-Sign=E22FC2CCFD2853E5CBD24D194C2FA3E8EBB3B313CF6FF225F850E1CB102B4AEC "点击放大")
 

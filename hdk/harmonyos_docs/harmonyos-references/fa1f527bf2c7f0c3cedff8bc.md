@@ -1,10 +1,10 @@
 ---
 name: document/cn/harmonyos-references/push-voip-ability
-title: VoIPExtensionAbility（应用内通话消息扩展Ability）（废弃）
+title: VoIPExtensionAbility（应用内通话消息扩展Ability）（已废弃）
 uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-voip-ability
 ---
 
-# VoIPExtensionAbility（应用内通话消息扩展Ability）（废弃）
+# VoIPExtensionAbility（应用内通话消息扩展Ability）（已废弃）
 
 > phone 5.0.0(12)+ | 2in1 6.1.0(23)+ | tablet 5.0.0(12)+
 

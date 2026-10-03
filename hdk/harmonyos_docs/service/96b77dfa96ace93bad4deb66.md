@@ -8,13 +8,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/workflow-card-00000025
 
 添加工作流后点击图中绑定图标可选择为工作流输出/结束节点绑定卡片。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/3Fep_eOMT32vN-_TiAmETg/zh-cn_image_0000002640264162.png?HW-CC-KV=V1&HW-CC-Date=20260909T172850Z&HW-CC-Expire=31536000000&HW-CC-Sign=B93DDC798F351B7AD5B5475BD0CB0DBFC654FDB15490E549C509E67BFFE1315A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/3Fep_eOMT32vN-_TiAmETg/zh-cn_image_0000002640264162.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=CF40792922E390B2218824090F8F8A78912E69C658D9ED27D8B80AF4DAA006E3 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/6nrcRc1YTrW875pJ5vstUw/zh-cn_image_0000002670104195.png?HW-CC-KV=V1&HW-CC-Date=20260909T172850Z&HW-CC-Expire=31536000000&HW-CC-Sign=B2AD1152B960715C3BC7FCB184C7C6FF61D8C1240A24F01076923E24E3B08170 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/6nrcRc1YTrW875pJ5vstUw/zh-cn_image_0000002670104195.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8502E08A67535D23BCE0DB2A49C0919233EDEA7A0C244340457416E2EF80E67 "点击放大")
 
 点击卡片可查看卡片的详细内容，如需绑定该卡片，将鼠标悬停在卡片上并点击添加按钮。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/42NG6BiLTUioJEjzqQVP8g/zh-cn_image_0000002670264051.png?HW-CC-KV=V1&HW-CC-Date=20260909T172850Z&HW-CC-Expire=31536000000&HW-CC-Sign=6659B03CB226254CAB74DFB98591A61B33B35F71A488168954676FD78B0B3FF9 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/42NG6BiLTUioJEjzqQVP8g/zh-cn_image_0000002670264051.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F533A3C8A783683719899DDA07BB35DC8EBAEC938EAF2822810BB4607ADCD25 "点击放大")
 
 支持为工作流的输出节点和结束节点绑定卡片，单节点支持绑定多张卡片，支持同一时刻输出多张卡片，支持配置答复文本和卡片的输出顺序，答复文本和卡片将按照配置顺序输出。
 
@@ -39,5 +39,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/workflow-card-00000025
 * 用户选择绑卡标识为String类型时，当绑卡标识值和输出条件中输入值完全相等时出卡，否则不出卡；
 * 用户选择绑卡标识为Array[String]类型时，当绑卡标识值包含输出条件中输入的值时出卡，否则不出卡。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/zqNEOY1kQ1Gcqt7fT-Yk8A/zh-cn_image_0000002670264053.png?HW-CC-KV=V1&HW-CC-Date=20260909T172850Z&HW-CC-Expire=31536000000&HW-CC-Sign=22FF222C60330A584456345E6E6A4757BEADBBEF1517CF7B5ACE10F5D5B86F94 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/zqNEOY1kQ1Gcqt7fT-Yk8A/zh-cn_image_0000002670264053.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=D8FCCB24F35BB1B6799BE3299BC206D7B3C690C77CAF7380B08853A9744F03D9 "点击放大")
 

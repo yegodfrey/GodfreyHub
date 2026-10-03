@@ -22,7 +22,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads-caiwujiesuanfaq-
 
 直客发票抬头默认为企业认证名称，发票内容为信息服务费。若出现公司主体变更、三证合一营业执照更换、发票类型变更等特殊情况，请在后台立即刷新发票信息，将之前未触发开票申请的订单内开票信息同步更新，已触发开票申请的订单则按旧的开票信息开票，若因填写错误造成的发票问题将不再重新开票。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/bhXN3XbJSKyzWAjAL_kGiQ/zh-cn_image_0000001923239181.png?HW-CC-KV=V1&HW-CC-Date=20260917T113900Z&HW-CC-Expire=31536000000&HW-CC-Sign=CBE7B5337C4ADE36AB149619F524295CB1B26D8AA86BADC779049C7A707D83F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/MvUXUS98SIG1b4YvZJzO1Q/zh-cn_image_0000001923239181.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=33271DEFDE54B0910A3198825586AC3F66A59805AC85AA928F26C119753685CD)
 
 **Q4：** **直客的发票什么时候寄出？**
 

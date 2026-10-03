@@ -95,7 +95,7 @@ ND2NZ转换示意图如下，样例中参数设置值和解释说明如下。
 
 **图1** Nd2Nz转换示意图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/jcVUBs58SwarjKTiNx0r6w/zh-cn_image_0000002733435624.png?HW-CC-KV=V1&HW-CC-Date=20260917T084543Z&HW-CC-Expire=31536000000&HW-CC-Sign=18448BAFD35C3A835818F820ABCE88C616F3B5BA8A8B43C1E18C75D99B70A8C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/1G4B8lRFTri66rNykxoS5A/zh-cn_image_0000002779093069.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=3467F18DB292950F7B3B6C6EBB06E8CA43FC404A5E99B476D144A645DF95E1EA)
 
 ## 支持的型号
 

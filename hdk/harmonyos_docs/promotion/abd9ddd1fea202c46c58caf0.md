@@ -35,9 +35,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/bp-start-account-000
 
 华为应用市场应用推广平台的账户体系示意图如下图所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/n6Jy9vV0S9mnsXpT4qOelg/zh-cn_image_0000002556662617.png?HW-CC-KV=V1&HW-CC-Date=20260918T084030Z&HW-CC-Expire=31536000000&HW-CC-Sign=97114F9E02615A65DE274F1AC0CB4C64F277344227AFB7467A5B44406B5EEFAA "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/n6Jy9vV0S9mnsXpT4qOelg/zh-cn_image_0000002556662617.png?HW-CC-KV=V1&HW-CC-Date=20260929T074630Z&HW-CC-Expire=31536000000&HW-CC-Sign=CA4AEDACE477937D7B533EE7FE4DD5FDB386FAF3283518988C6E1D3FCA8575B1 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/QI_Ap4WnRyOWzzzspqMQjw/zh-cn_image_0000002567817482.png?HW-CC-KV=V1&HW-CC-Date=20260918T084030Z&HW-CC-Expire=31536000000&HW-CC-Sign=1640B66AB18AD2B53B9BFA9C7B13A1D7E8F7B39278FD767AAE3AE1BE2D5D33DF "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/QI_Ap4WnRyOWzzzspqMQjw/zh-cn_image_0000002567817482.png?HW-CC-KV=V1&HW-CC-Date=20260929T074630Z&HW-CC-Expire=31536000000&HW-CC-Sign=C8B1FF25E980B21849CCF50255CDA02415AEF84D7BF9F6E940012D30DCDAD7C2 "点击放大")
 
 具体说明如下：
 

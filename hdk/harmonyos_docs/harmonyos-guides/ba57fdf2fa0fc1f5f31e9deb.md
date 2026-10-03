@@ -12,5 +12,5 @@ AR Engine可以检测场景中是否存在用户提供的图像，识别之后�
 
 **图1** 图像跟踪示意图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/nAlkt8iZTG2QoI4LSmagcA/zh-cn_image_0000002733434898.png?HW-CC-KV=V1&HW-CC-Date=20260917T084545Z&HW-CC-Expire=31536000000&HW-CC-Sign=AC8E268FECFD8CF3D9847E6EAEF99F69BA252F22C5A8865E5EC5C08E34CAC681)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/AyrLbsroQv-0RYPR3tET1A/zh-cn_image_0000002779092345.png?HW-CC-KV=V1&HW-CC-Date=20260929T121647Z&HW-CC-Expire=31536000000&HW-CC-Sign=5C2649EF883245D35E1B53CB77EFFA938C891B364A9BBF27A8CCFAC01EDB80B9)
 

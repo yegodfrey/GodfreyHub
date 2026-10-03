@@ -17,7 +17,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
 
 自定义绘制提供了五个绘制层级，从低到高依次为：内容背景层（drawBehind）、内容层（drawContent）、内容前景层（drawFront）、前景层（drawForeground）和浮层（drawOverlay）。开发者可以根据需求选择合适的层级进行绘制。自定义绘制层级图如下所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/5h3H11hMSV60G1rzqtSB9Q/zh-cn_image_0000002733434114.png?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=6FEC5CD1B2B13379A1628ECFB65E6E0AFF64AD6D589691661CCD45B03B2F0DFC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/6iK-5FtFTgijKEkbIQPw7g/zh-cn_image_0000002779091577.png?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=BE814DBF9EC785016C9650E22DB33AB88DD27F8894BDDF38BF34C438D7DCC7DE)
 
 开发者可以通过注册相应的事件类型来实现不同层级的自定义绘制，不同层级对应的枚举如下，NDK接口支持的事件类型范围请参考[ArkUI_NodeCustomEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-node-attributes-custom-attributes-h#arkui_nodecustomeventtype)枚举值。
 
@@ -35,7 +35,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
 
 以下场景基于[接入ArkTS页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page)章节，创建前置工程。内容绘制的完整示例请参考[NativeDrawPageSample](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NativeType/NativeDrawPageSample)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/VMdVa6PdQiOsGir6Hxx_tw/zh-cn_image_0000002733434168.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C041FFDEF1C531924EDAFA6CA40C8FE8B95F70DA0B1058EB0D70A364625AC93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/fhta2-dcQryUoiqBuX9xdw/zh-cn_image_0000002779091629.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=63DE97A05116C50701CF2E8DB8024CE279BB50C5E20EACB9F94DB29B58657028)
 
 1. 通过[ArkUI_NativeNodeAPI_1](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1)的[createNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1#createnode)接口，传入[ArkUI_NodeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodetype)中的ARKUI_NODE_CUSTOM枚举值创建自定义节点。
 
@@ -98,7 +98,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
 
 以下示例创建了一个自定义绘制组件，实现自定义矩形绘制、自定义绘制内容前景层和内容背景层，并支持使用[自定义布局容器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-build-custom-components#自定义布局容器)进行布局排布。完整示例请参考[NativeNodeUtilsSample](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NativeType/NativeNodeUtilsSample)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/58mHivq9SCGQlqRRvMw1mA/zh-cn_image_0000002762993689.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=969560E040F5376BA5D9A31AF05983CDFB60CC11D3A73D813304A529CA8EBBE0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/fxI98fdYQduz-hWzTgRhZw/zh-cn_image_0000002778931771.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=455DDFE34FE88A92A6E1779AAE9D0317A03F5FCD4D2E1D903E92B6C4A7569D66)
 
 图中深蓝矩形为drawFront内容前景层，浅蓝色矩形为drawContent内容层，白色矩形为drawBehind内容背景层。三层的叠加关系用于验证多层级绘制顺序是否符合预期。
 
@@ -385,11 +385,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-de
 
 未添加消息蒙层，没有前景层叠加星标装饰效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/njJZyCqBQJC-BO9yuyjC1Q/zh-cn_image_0000002762833805.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=D0ED1FC49A68F003C725D7137694CFEADAB7A064EA4FBDD9E7B2682E2DC270A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/kZPuXNeWQHmZsn4PT9yWtA/zh-cn_image_0000002749332688.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=923B20CEC3D6A2B3A4367FFFCBFE7CEB113FEB6E3A44B7C74093ECDBEAD914D9)
 
 添加消息蒙层，添加后有前景层叠加星标装饰效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/WeIMzzZRR2uMnZhf1s7G6A/zh-cn_image_0000002733274286.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084555Z&HW-CC-Expire=31536000000&HW-CC-Sign=C19DCAEC818EC06F11736B53BE21528A8FCAA20BEE7CDC1432941623C813FEBD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/UV19sXoqTmyEaPEeYCZ5zQ/zh-cn_image_0000002749492572.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=211BECDDA308EED9E4C2427C2C48A0C9AC5FA5FF571D17A08548E47F13141B07)
 
 1. 按照[多层级绘制示例](#多层级绘制示例)章节准备前置工程。
 

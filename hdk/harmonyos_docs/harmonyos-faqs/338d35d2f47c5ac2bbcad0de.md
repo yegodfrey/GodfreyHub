@@ -56,7 +56,7 @@ struct AnimateToExample {
 
 问题效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/a2DEte1MToarvlEoamInhg/zh-cn_image_0000002628605818.png?HW-CC-KV=V1&HW-CC-Date=20260920T114744Z&HW-CC-Expire=31536000000&HW-CC-Sign=CE5B30248FB4A435E391C238829DFE7F18BD6C63A8447970F7A5CEEACED96C51 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/a2DEte1MToarvlEoamInhg/zh-cn_image_0000002628605818.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=A9A33FCB695197AFB148A1A7C4FA5A67CEF2246004B928948E49DA9FB05060B8 "点击放大")
 
 ## 背景知识
 

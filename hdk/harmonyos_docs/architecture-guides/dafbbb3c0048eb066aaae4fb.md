@@ -16,7 +16,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/online_she
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/S1h_ggNqQXufG4tmqCX-kg/zh-cn_image_0000002749633349.png?HW-CC-KV=V1&HW-CC-Date=20260921T035900Z&HW-CC-Expire=31536000000&HW-CC-Sign=956659D360FE52B2260C6505DC91CA29DF0B47F71E591725FCDB5141A80BE467 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/kXv9O_AUTiyOOv4oqe-nhQ/zh-cn_image_0000002749633349.png?HW-CC-KV=V1&HW-CC-Date=20260924T062300Z&HW-CC-Expire=31536000000&HW-CC-Sign=A2190E0D84E48A093BB7C80A7422BBB6D22E5857385708927F224D837FAD8348 "点击放大")
 
 ## 实现思路
 
@@ -465,7 +465,7 @@ Q：Navigation获取路由参数有什么注意事项？
 
 A：NavPathStack的getParamByName返回Array，ArkTS禁止以unknown类型直接使用，需先整体as为Array<Record<string, string>>转型，再判断数组长度后取[0]，避免索引越界与类型错误。
 
-## 代码下载
+## 示例代码
 
-[Web在线表格场景实践示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260910131429.08136234305429308607185415096170:50001231000000:2800:1503E6F3BC9F31E5769870C758728B26E1F910D4BA8F1BA2BF07BA4A53C5B4B9.zip?needInitFileName=true)
+[Web在线表格场景实践示例代码](https://gitcode.com/scenario_samples/OnlineSheet)
 

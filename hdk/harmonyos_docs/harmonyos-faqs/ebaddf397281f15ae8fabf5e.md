@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-29
 
 **实际效果：** 当前视频播放状态未保持连续性，切换到后台后视频停止播放，返回前台后需要手动刷新页面才能恢复播放。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/jKlr0kz6R_GAvenSVC5a_w/zh-cn_image_0000002628552658.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=3EB1ACED10DCC319523D9C3762672D5D00184FFBB69F2C64AECEB2E9F3ED5FDB "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/jKlr0kz6R_GAvenSVC5a_w/zh-cn_image_0000002628552658.png?HW-CC-KV=V1&HW-CC-Date=20260929T032804Z&HW-CC-Expire=31536000000&HW-CC-Sign=52E6E98417C7FD7BF09A7094A3F1DA598B2F9F209981A0283E0E9FBEC242DA15 "点击放大")
 
 ## 背景知识
 
@@ -219,5 +219,5 @@ struct VideoControlPage {
 
 **效果预览图：**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/ZY5MIJ8mSdOxO-i94pOSYQ/zh-cn_image_0000002658911981.png?HW-CC-KV=V1&HW-CC-Date=20260920T112704Z&HW-CC-Expire=31536000000&HW-CC-Sign=B0160F7EE6D7F6BCD2FAA88A0D59247D2F531CCF8A141644C95D5CC079BFBB95 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/ZY5MIJ8mSdOxO-i94pOSYQ/zh-cn_image_0000002658911981.png?HW-CC-KV=V1&HW-CC-Date=20260929T032804Z&HW-CC-Expire=31536000000&HW-CC-Sign=EABE818C2F40DA20B82575FECC82A73234C0FB3BC13C6BE474C28CF6C5945518 "点击放大")
 

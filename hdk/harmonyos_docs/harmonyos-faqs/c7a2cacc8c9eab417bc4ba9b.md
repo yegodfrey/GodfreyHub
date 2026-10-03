@@ -7,7 +7,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-st
 # 如何将多工程的HAP打包成一个App
 
 1. 分别对不同工程的模块进行打包，执行DevEco Studio中的Build Hap指令。在outputs文件夹下获取未签名的hap包和pack.info文件。
-2. 合并所有模块的pack.info文件，生成app级别的pack.info文件，格式如下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/j1m8o_FDRKSKflFXwvzc2A/zh-cn_image_0000002654795233.png?HW-CC-KV=V1&HW-CC-Date=20260920T114733Z&HW-CC-Expire=31536000000&HW-CC-Sign=53AA3CEA2CE318DB30C3205D80D3E59C1B76EE21AD4E74E547148AA496FF0752)
+2. 合并所有模块的pack.info文件，生成app级别的pack.info文件，格式如下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/j1m8o_FDRKSKflFXwvzc2A/zh-cn_image_0000002654795233.png?HW-CC-KV=V1&HW-CC-Date=20260929T074332Z&HW-CC-Expire=31536000000&HW-CC-Sign=C6DA36D6C372D2A9B30D2E71FF3E808132107971773B311685A03044478B4AAD)
 
    summary.app为整个包的配置信息，保证唯一。summary.modules和packages取模块级别pack.info文件中相对应的第1个值填入。
 3. 在SDK toolchains工具的lib文件夹下执行以下命令打包未签名的app包：`java -jar app_packing_tool.jar --mode app --force true --pack-info-path [pack.info 文件路径] --hap-path [hap 包路径，使用逗号隔开] --out-path [输出 app 包路径，以 .app 结尾]。

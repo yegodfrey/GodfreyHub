@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-faq-5
 
 ## 通知消息被频控的可能原因
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/IU1hddmsQ_irX7akODZEig/zh-cn_image_0000002762994973.png?HW-CC-KV=V1&HW-CC-Date=20260917T084549Z&HW-CC-Expire=31536000000&HW-CC-Sign=E8D9AADC49686022B2DBF35B7B359D096F066C90ACCD81F2F1B01E7122C40224)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/aP9ACRidSW6PqdFv2qPQ2A/zh-cn_image_0000002778933035.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=846571BD241826E197595C0C363B0400D44C28E94D30D35336DC07F6A94EE41E)
 
 具体规则如下：
 

@@ -60,7 +60,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1109
 
   效果图如下：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/wWB3CMVlRgudezN5TR5Bjg/zh-cn_image_0000002628407492.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=E94E96B7B578FA0A0524AA553E92E6BDA4DB65F126CEB5CB01D98DAE76110BD4 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/wWB3CMVlRgudezN5TR5Bjg/zh-cn_image_0000002628407492.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=F6CF6507061ABE5699444E76007B814A2D673F03871E812A9BA86AF0BDCA20AD "点击放大")
 * 场景二：实现阴影扩展效果。
   1. 使用radius属性给阴影添加圆角效果与卡片圆角对齐。
   2. 给卡片外部增加一层容器，通过padding实现扩展效果，通过position实现扩展方向。
@@ -97,7 +97,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1109
 
   效果图如下：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/ZrVKrrzKTva3FjBiTyHQag/zh-cn_image_0000002628567388.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=9308C78D7264DE51A8081AADA083A62A0E66CF6A3417F13A322EBBB75BD89F97 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/ZrVKrrzKTva3FjBiTyHQag/zh-cn_image_0000002628567388.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=DC38DDB9B65B1C0DA1581CCCCEAC26471A36631E6544FF6579C0871E0EA24860 "点击放大")
 * 场景三：实现多个阴影样式。 通过父子组件嵌套实现，设置父子组件的大小，边框等完全一致，仅设置的阴影效果不一致。
 
   示例代码如下：
@@ -147,5 +147,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1109
 
   效果图如下：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/9tMixtb1RVyc9KCsntw3qA/zh-cn_image_0000002658926705.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B3B913136DE0190BF2E6BED52A7FA07953277850A17C41E224CC0B11089611E "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/9tMixtb1RVyc9KCsntw3qA/zh-cn_image_0000002658926705.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=0F66714F3240E84CE1B4E9B1324CED767A9F6A8578BA248F76406AFC4A83BF34 "点击放大")
 

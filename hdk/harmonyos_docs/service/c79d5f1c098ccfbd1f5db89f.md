@@ -54,5 +54,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/skil-cli-0000002623371
 
 在系统CLI工具列表中找到所需CLI工具，点击添加CLI工具到当前Skill
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/Qk5RgGdXQ4OAWJ7FxeONIg/zh-cn_image_0000002670264107.png?HW-CC-KV=V1&HW-CC-Date=20260909T163850Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D3857506FFC94D33254F5034CE946C711FD6A4F0E9A6188901AA67BB893B0E6 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/Qk5RgGdXQ4OAWJ7FxeONIg/zh-cn_image_0000002670264107.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=A529823B1EF0AE66B7326B1A448183B1E27C23946E227B149C3EF73136031946 "点击放大")
 

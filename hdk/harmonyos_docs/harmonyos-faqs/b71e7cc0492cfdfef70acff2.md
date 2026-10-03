@@ -19,7 +19,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-552
 ## 问题定位
 
 1. 使用[DevEco Testing](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/get-familiar)查看页面布局，发现视频是通过Web组件中的video标签展示。
-2. 根据布局排查video组件的宽度，是否与设备屏幕宽度一致。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/iFWkPyIFRTyU8KiFMFk3Pw/zh-cn_image_0000002628551556.png?HW-CC-KV=V1&HW-CC-Date=20260920T114737Z&HW-CC-Expire=31536000000&HW-CC-Sign=3DFBD83CD99F628A64EE4934E1C75D8CCB86A9F185D7EB6D8068A5EDB94771E8 "点击放大")
+2. 根据布局排查video组件的宽度，是否与设备屏幕宽度一致。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/iFWkPyIFRTyU8KiFMFk3Pw/zh-cn_image_0000002628551556.png?HW-CC-KV=V1&HW-CC-Date=20260929T074334Z&HW-CC-Expire=31536000000&HW-CC-Sign=CC29A8ED8B452F890F9FFCD5D2CAAFDB2FDA937937346E897C27C508EEE9985E "点击放大")
 
 3. 播放视频时根据关键字"This request has been blocked"排查日志，发现应用在使用了HTTPS协议的Web页面加载了使用HTTP协议的视频。
 
@@ -79,5 +79,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-552
 
    效果图如下：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/FcNbdloRQCCQ1nbDU6A8LA/zh-cn_image_0000002628391676.png?HW-CC-KV=V1&HW-CC-Date=20260920T114737Z&HW-CC-Expire=31536000000&HW-CC-Sign=1D468E3786AB2575B9E95EA9688AE9998CB0D851BD9E75BCF4C3A0092B0E0F9F "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8/v3/FcNbdloRQCCQ1nbDU6A8LA/zh-cn_image_0000002628391676.png?HW-CC-KV=V1&HW-CC-Date=20260929T074334Z&HW-CC-Expire=31536000000&HW-CC-Sign=7ABC1A3810BFDBC776271A0981087C42721FD04BF483C8CA19CF2E93C9125B7E "点击放大")
 

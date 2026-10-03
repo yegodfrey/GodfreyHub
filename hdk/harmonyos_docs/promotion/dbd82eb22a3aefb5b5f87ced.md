@@ -13,9 +13,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/settlement-terminolo
 * 授信账户：指的是您（直客）通过向鲸鸿动能广告平台申请开通授信账户（授信额度存在有效期），并分配一定的授信额度，您进行消耗后，才会产生授信账单，且需要按照"线下充值"的方式进行还款。
   * **线下充值：** 您可以通过银行转账到[指定银行账户](https://developer.huawei.com/consumer/cn/doc/promotion/settlement-overview-0000001176952305#ZH-CN_TOPIC_0000001176952305__table169021827151913)的方式进行充值，银行转账之后需要您在鲸鸿动能广告平台提交充值申请，审批通过后，还款成功。
 * 额度到期：如果您的授信额度到期，但并未进行消耗，那么您广告账户中的可用授信额度将清零，无需还款。
-* 还款完成：还款完成后，系统将恢复直客授信账户额度，您单击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/PlGZkE9pQTmxsDb7VVqgRg/zh-cn_image_0000001293856742.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C4A319DD798E18418116FA3E128BD0580BC1D40C31B18DFA2EA1D9843F2A0C8)"->"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/Z79SulZESEyJb5qpXRGkag/zh-cn_image_0000001294176154.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=A5BDE84421769806B1D873E0ACF38099184F749978A85F5498B86C0A59ABF17E "点击放大")"，即可在授信账户中查看：授信截止日期、状态、总额度、可用额度。
+* 还款完成：还款完成后，系统将恢复直客授信账户额度，您单击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/PlGZkE9pQTmxsDb7VVqgRg/zh-cn_image_0000001293856742.png?HW-CC-KV=V1&HW-CC-Date=20260929T073031Z&HW-CC-Expire=31536000000&HW-CC-Sign=496E7CB30CF6BD3E75B61AEFBE88A415E070F6504A56C39EA80E8B8C24D3D58E)"->"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/Z79SulZESEyJb5qpXRGkag/zh-cn_image_0000001294176154.png?HW-CC-KV=V1&HW-CC-Date=20260929T073031Z&HW-CC-Expire=31536000000&HW-CC-Sign=5841A48E10E40C2B9428726F85EAE4C3C1BC0B072A94796145CE14F6D71FCD57 "点击放大")"，即可在授信账户中查看：授信截止日期、状态、总额度、可用额度。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/jSHP8ST9Tb2_L0IvKvhBFQ/zh-cn_image_0000001346775773.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=C0246E8512A3122ACBFFCD15A86E4415FBC9EAA517B9229A8A7808A2BB8F9124)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/jSHP8ST9Tb2_L0IvKvhBFQ/zh-cn_image_0000001346775773.png?HW-CC-KV=V1&HW-CC-Date=20260929T073031Z&HW-CC-Expire=31536000000&HW-CC-Sign=CC0F5EEE9E9827B01F170D5313D6B8FBC9A69A7FEAA082BA03DEBED852C22610)
 * 授信通知：以下几种情况，您的账户将会收到鲸鸿动能广告平台的授信通知：
   * 额度恢复完成。
   * 授信账户额度低于20%。比例默认为20%，您也可以修改比例。
@@ -40,11 +40,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/settlement-terminolo
    > * 线下充值不支持个人银行账户充值。
    > * 线下充值仅支持企业银行账户充值，且您用来充值的银行账户必须与广告账户主体一致，否则将无法正常还款，影响授信使用。
 
-2. 在鲸鸿动能广告平台单击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/veyB7c6TQuGho7sHhCrL1Q/zh-cn_image_0000001232225476.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=8700FBE92D01477D4FF7E4C0D1B421A9A0BF4B538561537AF4EA641329A8E657)"，提交还款申请。
+2. 在鲸鸿动能广告平台单击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/veyB7c6TQuGho7sHhCrL1Q/zh-cn_image_0000001232225476.png?HW-CC-KV=V1&HW-CC-Date=20260929T073031Z&HW-CC-Expire=31536000000&HW-CC-Sign=9A60A6B3899848174422A36D41B96A1B2322400E6D42BE7F2E4DFFD5FE7A8C7D)"，提交还款申请。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/OeMQxGdNQSWZVl0UGMC4IQ/zh-cn_image_0000001293357936.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=82BD76B691C1C29A2800D138684EB967B2320819FA9ED38F11A43004CA192F55 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/OeMQxGdNQSWZVl0UGMC4IQ/zh-cn_image_0000001293357936.png?HW-CC-KV=V1&HW-CC-Date=20260929T073031Z&HW-CC-Expire=31536000000&HW-CC-Sign=816FD16024AB34A23074C3072A317ACAE4F665EC8A40410D8BAD049531AD04D0 "点击放大")
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/QeUAakIeRPGluZ_RlFvyYg/zh-cn_image_0000001437514332.png?HW-CC-KV=V1&HW-CC-Date=20260920T074030Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE70D73E98C6C71D971C059FA8B898D8D74E5447E0999A192DAC63A196E476E8 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/QeUAakIeRPGluZ_RlFvyYg/zh-cn_image_0000001437514332.png?HW-CC-KV=V1&HW-CC-Date=20260929T073031Z&HW-CC-Expire=31536000000&HW-CC-Sign=CF99DE579E8F1C40207E7E7BAFDF2E62B153764E4DB9794A53FC0AA85D55B5E4 "点击放大")
    * 充值用途：选择"授信账户还款"。
    * 充值类型：选择"线下充值"。
    * 投放区域：按照鲸鸿动能广告平台为您开票的主体进行充值。

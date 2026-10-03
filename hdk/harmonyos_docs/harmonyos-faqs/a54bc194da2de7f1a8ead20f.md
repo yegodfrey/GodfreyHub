@@ -19,9 +19,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-500
 
 ## 问题定位
 
-* 通过UIView查阅页面布局，找到跳动的内容区域，如下所示。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/VoABkKHQR9CXdAq7dsDl_Q/zh-cn_image_0000002658907555.png?HW-CC-KV=V1&HW-CC-Date=20260920T114733Z&HW-CC-Expire=31536000000&HW-CC-Sign=B1393AA91B912812D2F3301202B1B81D9A2E93C2E3B9038718E3640CD0EC647D "点击放大")
+* 通过UIView查阅页面布局，找到跳动的内容区域，如下所示。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/VoABkKHQR9CXdAq7dsDl_Q/zh-cn_image_0000002658907555.png?HW-CC-KV=V1&HW-CC-Date=20260929T074332Z&HW-CC-Expire=31536000000&HW-CC-Sign=6908EA0F78EBEA99362EA742EE475D808A28FBCFD2E8A707F965ABDC21CBCD1D "点击放大")
 
-* 查阅页面代码中Scroll组件的一级子组件的height属性，判断Scroll组件滑动到底部时，跳动区域是否会滑出Scroll组件之外，下图通过Tabs组件的tabBar模拟跳动区域，当前TabContent的区域高度大于Scroll组件展示区域，tabBar会滑出Scroll组件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/yw2ys-8_QQe4MIxFJ3pzhg/zh-cn_image_0000002628388356.png?HW-CC-KV=V1&HW-CC-Date=20260920T114733Z&HW-CC-Expire=31536000000&HW-CC-Sign=95A61E8AD9F532A51FF2682D334615E21C34FE269194BC34417D67956A240415 "点击放大")
+* 查阅页面代码中Scroll组件的一级子组件的height属性，判断Scroll组件滑动到底部时，跳动区域是否会滑出Scroll组件之外，下图通过Tabs组件的tabBar模拟跳动区域，当前TabContent的区域高度大于Scroll组件展示区域，tabBar会滑出Scroll组件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/yw2ys-8_QQe4MIxFJ3pzhg/zh-cn_image_0000002628388356.png?HW-CC-KV=V1&HW-CC-Date=20260929T074332Z&HW-CC-Expire=31536000000&HW-CC-Sign=FCCBAF95D5E6FE29C804B9E296B4318A99FC2FDC30307E3E45675FFCE4A28AF4 "点击放大")
 
 * 查阅页面代码中是否调用scrollTo方法将Scroll组件强制滚动到某个位置。
 
@@ -97,5 +97,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-500
 
 效果图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/WZTk9GitQQmjWoNr_cWCFg/zh-cn_image_0000002658787627.png?HW-CC-KV=V1&HW-CC-Date=20260920T114733Z&HW-CC-Expire=31536000000&HW-CC-Sign=6821B49618244B73D97DF7ABEF1B591B4068ECBFF756B263D920AFFD85EB70F2 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/WZTk9GitQQmjWoNr_cWCFg/zh-cn_image_0000002658787627.png?HW-CC-KV=V1&HW-CC-Date=20260929T074332Z&HW-CC-Expire=31536000000&HW-CC-Sign=A08ABE25BAF81BADC7DAD6846AC2284C22A53E5E8110E7B9735D8ADC0EA0E366 "点击放大")
 

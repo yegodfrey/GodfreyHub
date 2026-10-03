@@ -14,7 +14,7 @@ Tiling实现完成后，获取到的Tiling切分算法相关参数，会传递�
 
 **图1** Tiling实现的输入输出
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/aHNnTl8ySKuaOcUnOb0veQ/zh-cn_image_0000002733275714.png?HW-CC-KV=V1&HW-CC-Date=20260917T084542Z&HW-CC-Expire=31536000000&HW-CC-Sign=2202B0291FF22AED60D0213BCEB7F1F4B3529404484ABC7C6618D3FA17AA3820)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/jquk8g00QQKkyUDX6aHAlQ/zh-cn_image_0000002749493982.png?HW-CC-KV=V1&HW-CC-Date=20260929T121644Z&HW-CC-Expire=31536000000&HW-CC-Sign=88250F934F40DFA0A51840DFA6E1E7FDD208A6D6DADAD6B8D369817C9B4FD4AE)
 
 如上图所示，Tiling实现即为根据算子shape等信息来确定切分算法相关参数的过程，这里的算子shape等信息可以理解为是**Tiling实现的输入** ，切分算法相关参数可以理解为是**Tiling实现的输出** 。输入和输出都通过Tiling函数的参数（TilingContext* context上下文结构）来承载。也就是说，开发者可以从上下文结构中获取算子的输入、输出以及属性信息，也就是**Tiling实现的输入** ，经过Tiling计算后，获取到TilingData数据结构（切分算法相关参数）、BlockDim变量、用于选择不同的kernel实现分支的TilingKey、算子workspace的大小，也就是**Tiling实现的输出**，并将这些输出设置到上下文结构中。
 
@@ -164,7 +164,7 @@ Tiling实现开发的流程图如下。
 
 **图2** Tiling开发流程图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/XPrUa375QsaIjjd5qoblBQ/zh-cn_image_0000002733435594.png?HW-CC-KV=V1&HW-CC-Date=20260917T084542Z&HW-CC-Expire=31536000000&HW-CC-Sign=F7272F8594F42E678295BC926826280042A934E259C3049B992687007604CC05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/Is_DeW81RXGGVC58-ArlCQ/zh-cn_image_0000002779093039.png?HW-CC-KV=V1&HW-CC-Date=20260929T121644Z&HW-CC-Expire=31536000000&HW-CC-Sign=E9FB1805DBDF189100D78679C3238858908D4B483577C83D2A60D5E3AF9DD210)
 
 下面将从一个简单的Add算子为例介绍Tiling的实现流程。本样例中待处理数据的Shape大小可以平均分配到每个核上，并且可以对齐到一个datablock(32B)的大小。
 

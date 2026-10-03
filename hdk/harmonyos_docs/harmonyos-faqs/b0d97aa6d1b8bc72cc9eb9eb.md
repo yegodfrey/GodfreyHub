@@ -26,7 +26,7 @@ HAR（Harmony Archive）是静态共享包，可以包含代码、C++库、资�
 
 注：正常HAR包在工程目录中生成库模块及相关文件，如下图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/VD9VpT20R2WVDUgklR-N7A/zh-cn_image_0000002628788122.png?HW-CC-KV=V1&HW-CC-Date=20260920T114733Z&HW-CC-Expire=31536000000&HW-CC-Sign=16338C4D1D16EDB5C723080EA23407523F82B3786716F0956712ACD891A06738)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/VD9VpT20R2WVDUgklR-N7A/zh-cn_image_0000002628788122.png?HW-CC-KV=V1&HW-CC-Date=20260929T074332Z&HW-CC-Expire=31536000000&HW-CC-Sign=8ABAB8ACC4955835ED8F34286562DFCBDF0028410ADCE498F6EF67D28FFABE61)
 
 ## 分析结论
 

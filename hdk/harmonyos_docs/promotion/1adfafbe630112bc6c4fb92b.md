@@ -15,7 +15,7 @@ MyTracker根据不同的归因方式，支持的SDK版本如下，详情请参�
 
 ## 操作流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/IHvn6b1WSDmskN5oM7o98Q/zh-cn_image_0000001498833909.png?HW-CC-KV=V1&HW-CC-Date=20260920T074032Z&HW-CC-Expire=31536000000&HW-CC-Sign=60D1437EB5374136F36869FB5489B4A91C7FEE60917F06DDD546C3BCB4089046)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/IHvn6b1WSDmskN5oM7o98Q/zh-cn_image_0000001498833909.png?HW-CC-KV=V1&HW-CC-Date=20260929T073032Z&HW-CC-Expire=31536000000&HW-CC-Sign=37375E4EAE18BE34DD687DA56A91676D004A8B8FEB2DB4E4FA179CF1FE50E4DE)
 
 ## MyTracker操作步骤
 
@@ -31,9 +31,9 @@ MyTracker根据不同的归因方式，支持的SDK版本如下，详情请参�
 3. 将秘钥关联到转化跟踪平台并设置数据回传。
 
    为了将转化跟踪平台跟踪到的转化结果传递给鲸鸿动能广告平台，以便鲸鸿动能广告平台可以将转化结果用于报表统计和投放优化，您需要将获取的秘钥复制到转化跟踪平台并在转化跟踪平台上配置数据回传给鲸鸿动能广告平台。
-   * 如何获取秘钥：关联创建成功后，在已有关联列表中单击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/mqExVqnARHqMYQ92l2O0RA/zh-cn_image_0000001443019296.png?HW-CC-KV=V1&HW-CC-Date=20260920T074032Z&HW-CC-Expire=31536000000&HW-CC-Sign=699F7C93036569D0A28DBCA47A034ED11D60C6D016A85438C6B11757E3074DD1)"查看秘钥并单击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/THj0CYXtTW-94cYjY_cnwQ/zh-cn_image_0000001493179209.png?HW-CC-KV=V1&HW-CC-Date=20260920T074032Z&HW-CC-Expire=31536000000&HW-CC-Sign=284DEDB7C3BCB72DFEB78EAD70E0568687C00004A36C816285AF25DC68D4A054 "点击放大")"，将获取的秘钥复制到MyTracker。
+   * 如何获取秘钥：关联创建成功后，在已有关联列表中单击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/mqExVqnARHqMYQ92l2O0RA/zh-cn_image_0000001443019296.png?HW-CC-KV=V1&HW-CC-Date=20260929T073032Z&HW-CC-Expire=31536000000&HW-CC-Sign=A91205843A488A36098AEEC25138E9B04457F1CC987A8B95CBB38FE291C36AC1)"查看秘钥并单击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/THj0CYXtTW-94cYjY_cnwQ/zh-cn_image_0000001493179209.png?HW-CC-KV=V1&HW-CC-Date=20260929T073032Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA9E29F322323A61203C2CA5AA6D6A12E2A37664553F77365646931C1CAACC38 "点击放大")"，将获取的秘钥复制到MyTracker。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/XJEdOw92RIurm_oH7LWZZA/zh-cn_image_0000001817468973.png?HW-CC-KV=V1&HW-CC-Date=20260920T074032Z&HW-CC-Expire=31536000000&HW-CC-Sign=7188537793105D3F39C537F90EE7C146F57634B4997C53EC1E05F076126752A6)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/XJEdOw92RIurm_oH7LWZZA/zh-cn_image_0000001817468973.png?HW-CC-KV=V1&HW-CC-Date=20260929T073032Z&HW-CC-Expire=31536000000&HW-CC-Sign=A448AE67FB94B50DA1C71D753ACD22EA5214D83842E965A645F0851D330459EA)
    * 如何配置转化事件回传给鲸鸿动能广告平台：详情请参考[MyTracker操作指导](https://tracker.my.com/docs/tracking/integration/huawei-ads/about/#tracking)。
    * 如果您希望统计付费指标的金额，详情请参考[付费指标](https://developer.huawei.com/consumer/cn/doc/promotion/tracking-app-overview-0000001209244840#ZH-CN_TOPIC_0000001209244840__zh-cn_topic_0000001122291488_li132211445203517)。
 

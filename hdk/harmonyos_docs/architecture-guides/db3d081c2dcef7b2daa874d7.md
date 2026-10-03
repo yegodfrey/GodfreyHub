@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/emoji_pack
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/uhPqsTuZTlaThQybM0dKmQ/zh-cn_image_0000002631151294.png?HW-CC-KV=V1&HW-CC-Date=20260921T035900Z&HW-CC-Expire=31536000000&HW-CC-Sign=DE1929909036395CEA0EAD0CCE4A2A030583D86F031BD7ED0617E48E40BFEFF9 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/mJfCwqpdQBC12ISycvoRQg/zh-cn_image_0000002631151294.png?HW-CC-KV=V1&HW-CC-Date=20260924T063700Z&HW-CC-Expire=31536000000&HW-CC-Sign=D453A65A5DEF47D534F14A32C4BE39F977AD06F2A49F77FB8F1710267BF533A7 "点击放大")
 
 ## 实现思路
 
@@ -108,7 +108,7 @@ Image(BASE_URL + this.chatText)
 
 [网络图片加载的两种方式及常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-30)
 
-## 代码下载
+## 示例代码
 
-[表情包推荐示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728162615.37020804322468403794958884819752:50001231000000:2800:E8A7097D6944CF427A63B5B9FC5BF7CFCB80F279DAD807AA298F2790591F5DDC.zip?needInitFileName=true)
+[表情包推荐示例代码](https://gitcode.com/scenario_samples/EmojiAssociation)
 

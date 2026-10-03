@@ -77,7 +77,7 @@ NavDestination提供了两种类型。
   }
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/QyuFIQqiSQW4OZu0FDcikQ/zh-cn_image_0000002733273768.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=D7132AA672990B3253CCE551C5F15D8A755971CDA24E46CFBCA6F50631DD7608)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/ifKx8uUtSli5LzaM449btg/zh-cn_image_0000002749491970.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=8F59AC555349C2E8B5992A0DB1F732480F0C94D094F72FEFF7DC7DE42D86ECD1)
 
 ## 页面生命周期
 
@@ -85,7 +85,7 @@ NavDestination提供了两种类型。
 
 生命周期时序如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/cp75PuF4QC6Hzt6OHKASqA/zh-cn_image_0000002733433648.png?HW-CC-KV=V1&HW-CC-Date=20260917T084557Z&HW-CC-Expire=31536000000&HW-CC-Sign=8ABB553384A64AB46D9CDA0D7F7AEF2744EC278C52792955F1729C20C746E4BB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/wnxK9ZNJTIG5c-catmWATw/zh-cn_image_0000002779091027.png?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA34AA125C0646ED1898AB11AAB6D5885F7E023EF0645184D338992FAC6B9D6D)
 
 * **[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)**：在创建自定义组件后，执行其build()函数之前执行（NavDestination创建之前），允许在该方法中改变状态变量，更改将在后续执行build()函数中生效。
 * **[onWillAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#onwillappear12)**：NavDestination创建后，挂载到组件树之前执行，在该方法中更改状态变量会在当前帧显示生效。

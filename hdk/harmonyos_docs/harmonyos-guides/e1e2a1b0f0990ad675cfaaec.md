@@ -26,7 +26,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-manage-
 
 以下示例展示了单击、双击和长按输入框时，软键盘弹出效果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/e3VdsELuTTWOqFz-TK46hQ/zh-cn_image_0000002762833497.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=C059491E5EF848D33F17D691A9ED515617327C535BF11242FB02C3EAE3552319)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/YXV29532TdaP5wSRMm-pzA/zh-cn_image_0000002749332306.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=FDD5D1C1615E9ABE7A0716FDA49E81FA6472E6EDFD0AD86393448964D0DB7D96)
 
 ### 通过代码请求焦点
 
@@ -57,7 +57,7 @@ struct demo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/mIBSel0cTD2ct0rczlvUgw/zh-cn_image_0000002733273982.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=DE8DF3ABA03B4E18566A321D64D2D94544AD3C3B2F3371CABF9BA0B646688700)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/l0K6GPZ8R0irHC4DAQFUiA/zh-cn_image_0000002749492190.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=745BE21E94A1E3A7AF62A22368043D9898ABC76B366B808742ACC7C560A8A3BA)
 
 ### 使用外接键盘的按键走焦
 
@@ -86,7 +86,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/dxwUanmBSnyhRfUbXu1jnA/zh-cn_image_0000002733433864.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=38380C6553AE7B36EF3E6125C0AF1C7F56AA5D7484D14FA39A852716614F8EF3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/LROlLwFaRLyMAdk1Y8uBsQ/zh-cn_image_0000002779091247.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=D90D9ADAF559DC4151BE81DDA5E76BAF5ED2E71148AAB9FC588A672F3BE82324)
 
 ## 收起软键盘
 
@@ -132,7 +132,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/2HhOoA2XR6aCAOICOTN7Uw/zh-cn_image_0000002762993387.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=A3C9F27B52C50B4576F41EE9DE1AEDD3E4D4A695ABB9D813356C0D279F544DC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/FAh7ZGjMRFOdCPFdybOXwg/zh-cn_image_0000002778931391.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=C1D3DC088D64CC0A8EDCE9548A8AD836E980A8D33AE294B0E30D0DD5137FFCAD)
 
 ### 拖拽文本
 
@@ -162,13 +162,13 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/6Dws1F-xQBasLSo6zg4-HQ/zh-cn_image_0000002762833499.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=D21DF0457C0154DD869D3B6CA98001DEB09A225C8BAA89465923BA949E2E5C4F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/dujbEU76Qeq5h4xKjN22OQ/zh-cn_image_0000002749332308.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=BF09A4F2E0EFEE0D454D1480F4368920EF74FA4B1B72C61135B00261B12155BC)
 
 ### 接收侧滑手势
 
 下面的动图展示了"用户侧滑时软键盘收起"的场景。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/JroxXohPRKmShrueAJtLiQ/zh-cn_image_0000002733273984.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=451FE504F524ECEA0B896867F39D6B0D1901E9FFD4CC12C83F0171B6C51F6FB8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/zPbIQFG_QDe423P6H_-5Dw/zh-cn_image_0000002749492192.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C498D9401FA815CACD883D6DB9F37C518EBBC95504875668E920CBA4A3B7D7C)
 
 ### 页面发生切换
 
@@ -263,7 +263,7 @@ struct demo_text_1 {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/4yfBgceLTUKozkZh5v2BVQ/zh-cn_image_0000002733433866.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=36C85D7402EAA7E5F12BB89DE3ED9B2C718495C3E0CA727075E2E668AFF05532)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/qg0qBdQpRIy2VKFDIc5JiQ/zh-cn_image_0000002779091249.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=B043E1DA2879DE44BFC0A4B7B691D6051D4379FCD97A1E513A1F54C1F87750E9)
 
 ### 通过输入框的TextInputController退出编辑态
 
@@ -294,7 +294,7 @@ struct textInputControllerCloseKeyboard {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/HdZUxF_WTZeMyCMXMoiVBg/zh-cn_image_0000002762993389.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=D78FEDBC6F8B88EADB6B22D6D353909B91F9B710D8888DDFA3A9BD3F3971F0B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/Xh0z6vCNRb2x2H3PqtjL1w/zh-cn_image_0000002778931393.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A8AFB63CA22796AB4283CDF49932621DDAE00F129F00FE9AA065C08225E076A)
 
 ### 焦点转移到不需要软键盘的组件
 
@@ -329,7 +329,7 @@ struct requestFocusCloseKeyBoard {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/_eFPTpsyRjChjjiB8118mg/zh-cn_image_0000002762833501.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=72955B78F30C59D4988FA655E3BE0A1CB8D63419402C0A9086C44ED5D82CC028)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/DKk6D4s8RVy2rG0omg7k0A/zh-cn_image_0000002749332310.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=FC8D435B05CB6D7196CE767687BC425948A742E09BE58436C579638AD001CC47)
 
 以下示例展示了滚动容器在开始滚动时收起键盘的场景。[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)开始滚动时，调用[clearFocus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-focuscontroller#clearfocus12)方法清理焦点，焦点转移到页面根容器节点，页面根容器节点不需要软键盘，从而收起软键盘。
 
@@ -366,7 +366,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/wN_V4cDkSxmR1ZUeQpeGyg/zh-cn_image_0000002733273986.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=78DBD09F04A3D68034F478290F4A08718ADFD3FE966F2F1A55E657DEAC57D86D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/rKwLm6_nTCmJ2fvZw9otjQ/zh-cn_image_0000002749492194.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=797DEAE1E15738001EFDC9C6464C78C78D7F4289DC70B9B9A93E98F03253A4D1)
 
 ## 常见问题
 
@@ -415,7 +415,7 @@ struct demo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/76Y0V5XQRf-AioIYZjhWaA/zh-cn_image_0000002733433868.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A0F9D2DEF8E1551EDFB066D6959DA0C43E8FD98B539292F4155E9ECCA53B626)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/cb3XBa0cTCq0fWK3jnXH0A/zh-cn_image_0000002779091251.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=B9FD3A12B0FC205C84DEB8BB4CDC5497A23220CDEF7C09E37A43DC80B8ABCCC8)
 
 ### 点击发送按钮后不收起键盘
 
@@ -457,5 +457,5 @@ struct demo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/nSftwbozT0C6Eo1_IcYdsA/zh-cn_image_0000002762993391.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084556Z&HW-CC-Expire=31536000000&HW-CC-Sign=39C96353EBBC87DC061EFD470C5971F08494BA61D201A20395EC58651E15995F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/8Me21MbbQGuHLCVGX_ocZg/zh-cn_image_0000002778931395.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=3F568CB62EDD2E8E89520BB9230DE97E4F0DA88C4D61664F6447D8B0CD1D4920)
 

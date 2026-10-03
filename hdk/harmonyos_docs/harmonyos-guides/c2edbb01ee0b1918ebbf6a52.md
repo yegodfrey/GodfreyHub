@@ -187,7 +187,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-mode-o
 
 分屏模式是指应用窗口占据屏幕的某个部分，与另一个窗口同时显示的状态。当前支持应用内分屏及应用间分屏。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/nTNMCyJWTDeCHC88APrebg/zh-cn_image_0000002733274402.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=C40AEA5F3ADBC9DB8251D173ABE30E07C62470DB8EDBC0D0B341193744F7131A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/XIki1gl9RA2lUFz3dcTWdA/zh-cn_image_0000002749492684.png?HW-CC-KV=V1&HW-CC-Date=20260929T121700Z&HW-CC-Expire=31536000000&HW-CC-Sign=C33EAA557F6BB05F3243AC8CA9403B1867C277F08D28EF1D8101054B48D50392)
 
 **特点：**
 

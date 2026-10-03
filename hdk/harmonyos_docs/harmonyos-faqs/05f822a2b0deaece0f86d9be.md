@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-569
 
 使用TextAlign.Justify或TextAlign.Start均未实现两端对齐的效果，不同字符间距大小不一。如图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/EEhmsB2DSU29i1cvA2OOhg/zh-cn_image_0000002658911365.png?HW-CC-KV=V1&HW-CC-Date=20260920T114736Z&HW-CC-Expire=31536000000&HW-CC-Sign=BB58FDB2BC882E4001C4EFF690F019312991B7EBC4F799199571BE854BBB9D7C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/EEhmsB2DSU29i1cvA2OOhg/zh-cn_image_0000002658911365.png?HW-CC-KV=V1&HW-CC-Date=20260929T074336Z&HW-CC-Expire=31536000000&HW-CC-Sign=16E9043D2EB39610C5ADDF4ED5E99F9E1B29F8A2B6F14AB3C45FE3DF4A51378C)
 
 ## 背景知识
 

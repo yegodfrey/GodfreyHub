@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-overv
 
 算子入图的开发流程如下图所示，算子工程创建完成后，基于工程代码框架完成算子原型定义、Kernel侧算子实现、Host侧Tiling实现并完成算子入图开发，通过工程编译脚本完成算子的编译部署，之后即可基于图IR执行算子，比如单算子模型执行或者IR构图的方式调用自定义算子。该开发流程以[工程化算子开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-overview-of-engineering-operator)为基础，除了需要提供[算子实现](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operator-prototype-definition)中的算子实现文件外，还需要额外交付算子入图的代码文件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/D2F5Rkb-QsG6njhHshDMGw/zh-cn_image_0000002762995119.png?HW-CC-KV=V1&HW-CC-Date=20260917T084542Z&HW-CC-Expire=31536000000&HW-CC-Sign=E8C256303AF06CC795549D72339177A2C1739360C9F8CE3DA2017EAC91EFD5CC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/gCtxcEAjS1iiYmbBfMajFQ/zh-cn_image_0000002778933185.png?HW-CC-KV=V1&HW-CC-Date=20260929T121643Z&HW-CC-Expire=31536000000&HW-CC-Sign=A2C49525EDC48EE9B6FBF1BC930EC08B1C722097D2BF7CF50AAC3EB547E519F1)
 
 1. 环境准备。
 

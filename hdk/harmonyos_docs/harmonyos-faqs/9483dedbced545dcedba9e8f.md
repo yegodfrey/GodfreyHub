@@ -16,7 +16,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1067
      Add [id:9][tag:Column] to [id:11][tag:NodeContainer] with previous parent [id:8][tag:NodeContainer]
      ```
 
-  2. ArkUI Inspector工具可视化确认： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/opOTNxmpQlmeu-WLBYY3oQ/zh-cn_image_0000002688056748.png?HW-CC-KV=V1&HW-CC-Date=20260920T114739Z&HW-CC-Expire=31536000000&HW-CC-Sign=442DDF1F4C223FAF5AD2447354FE55E96C96B284CA74C0276408BB52180A8798)
+  2. ArkUI Inspector工具可视化确认： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/opOTNxmpQlmeu-WLBYY3oQ/zh-cn_image_0000002688056748.png?HW-CC-KV=V1&HW-CC-Date=20260929T074344Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F4BC3751B2D2E7EB04488FF1F8045A2FA8556859110A45B1D2E2963849256F6)
 
      如图所示，通过工具可直观看到Column(9)同时被挂载NodeContainer(8)和NodeContainer(11)，形成节点的双挂现象。
 * 场景二：NodeController节点迁移调用reuse()导致卡顿。 在使用NodeController对Web组件等复杂节点进行上下树操作时，如果节点迁移过程中调用了reuse()方法，会触发自定义组件的aboutToReuse回调，导致不必要的重建和更新，从而出现卡顿现象。典型的问题伪代码如下：

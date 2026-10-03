@@ -12,7 +12,7 @@ HarmonyOS PC上不允许后台私自运行程序，提出了托盘方案，可�
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/jmyBqYI0QTWLuGfEVWb8OA/zh-cn_image_0000002687847534.png?HW-CC-KV=V1&HW-CC-Date=20260921T084430Z&HW-CC-Expire=31536000000&HW-CC-Sign=FB03B025D7AAF5AED6DEEDD54871E0949DFFA659F6AD3C5FB91325DDEC02FC21 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/Tdy21KiFS7GzZHgmrNIwNg/zh-cn_image_0000002687847534.png?HW-CC-KV=V1&HW-CC-Date=20260924T065100Z&HW-CC-Expire=31536000000&HW-CC-Sign=233A16C047844123ED170A607B04C4BEFB0E196A035389E8B4A9095A188BFF5B "点击放大")
 
 从日志可以看出应用进入后台后，应用还在后台运行中。通过托盘退出后，应用也退出了。
 
@@ -326,7 +326,7 @@ Q：在项目中如何主动关闭托盘保活？
 
 A：由于托盘通过BackGroundAbility在后台维持着，无法直接关闭，所以要先主动关闭BackGroundAbility然后再关闭托盘。
 
-## 代码下载
+## 示例代码
 
-[PC应用通过系统托盘后台保活示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260825111433.41434876861637680280678794941531:50001231000000:2800:0DE93BE865C113E3FB77340EC804A5F05F11DFAEB9DC2712F6C974BCD3DA813F.zip?needInitFileName=true)
+[PC应用通过系统托盘后台保活示例代码](https://gitcode.com/scenario_samples/PCStatusBar)
 

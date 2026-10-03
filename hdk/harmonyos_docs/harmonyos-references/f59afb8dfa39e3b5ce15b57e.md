@@ -146,5 +146,5 @@ struct ToggleExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/SscyutN6TfaD9ACze5iQNA/zh-cn_image_0000002733276074.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084650Z&HW-CC-Expire=31536000000&HW-CC-Sign=1FFFE1ACA235811A556256AA76B6C96053D82EED6E6321203EF9B4DA619224B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/foDJy-0bQQ2u_kSJH1ud8w/zh-cn_image_0000002749494336.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121738Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA6FADD50AD09145886B1262BE8B377692ADB69A540FAB638B75283B1A2D3743)
 

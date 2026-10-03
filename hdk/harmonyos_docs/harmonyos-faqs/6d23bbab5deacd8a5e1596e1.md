@@ -95,7 +95,7 @@ A模块包含a.so，B模块包含b.so。a.so调用b.so的函数，b.so也调用a
 
 2. 将生成的.so文件（相对路径：build/default/intermediates/cmake/default/obj）移动到libs目录。 移动完成后，目录结构如下：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/NQnscVEAQWSk4PXBpsSdOA/zh-cn_image_0000002654795277.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=C728D5D9ECFB67376E6BAF74DDA8017038FFEB1F6C29A0E6BF1C7E44CA83173C "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/NQnscVEAQWSk4PXBpsSdOA/zh-cn_image_0000002654795277.png?HW-CC-KV=V1&HW-CC-Date=20260929T074336Z&HW-CC-Expire=31536000000&HW-CC-Sign=7543DA5D0D62EA395D28F5AEB37822C5485DB9078AB44C52098C2542985A2267 "点击放大")
 3. 修改CMakeLists.txt文件，将编译生成的.so文件引入到工程中。
 
    ```text

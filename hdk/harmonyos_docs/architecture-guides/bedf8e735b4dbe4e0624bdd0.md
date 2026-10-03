@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/burstshoot
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/AnnitL3bSWerjeYPnUlsAg/zh-cn_image_0000002728804358.gif?HW-CC-KV=V1&HW-CC-Date=20260921T035900Z&HW-CC-Expire=31536000000&HW-CC-Sign=DF930DB4B0AA8E12CE5FEE4A64707B738BC4B0BD3262D165AE31F1D08BE2E7E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/YCuS1G44QKmvGdB-p_gp6g/zh-cn_image_0000002728804358.gif?HW-CC-KV=V1&HW-CC-Date=20260924T065100Z&HW-CC-Expire=31536000000&HW-CC-Sign=D8F4601E7A910DDF0A20F4061E30262C89E147DAF7AC3AE121FBB996ED4E036B)
 
 ## 实现思路
 
@@ -178,7 +178,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/burstshoot
 
 [photoAccessHelper相册管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper)
 
-## 代码下载
+## 示例代码
 
-[分段式拍照与图片批量压缩上传示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260916181331.13436664910485921429053085341632:50001231000000:2800:01A56867C27BADEFB9A9007C7685E63FE8442FCC4D233752EDA589E3D11E4941.zip?needInitFileName=true)
+[分段式拍照与图片批量压缩上传示例代码](https://gitcode.com/scenario_samples/BurstShootingDemo)
 

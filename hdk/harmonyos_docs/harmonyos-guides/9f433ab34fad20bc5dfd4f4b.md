@@ -26,7 +26,7 @@ ArkAF提供三种核心能力框架，为开发者提供标准化的能力开放
 
 **图1** ArkAF架构图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/v0864ifDSHG1ghWkOEW5Sg/zh-cn_image_0000002733273434.png?HW-CC-KV=V1&HW-CC-Date=20260917T084552Z&HW-CC-Expire=31536000000&HW-CC-Sign=3244F6891D7B113636E28261A9785C3C8B99119731DA787F244CB99403EE16A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/9dvLY4r9TYWhz8WbNAX1NA/zh-cn_image_0000002749491618.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=B13B72C363DC442AE38856056F76CB0DE66B905590C5D242ED9AAFDB8BDB21ED)
 
 工作流程分为四个阶段：
 

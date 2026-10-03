@@ -112,5 +112,5 @@ export default {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/LcsIgBkgSl2xtzMgfIzrqg/zh-cn_image_0000002733276804.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084650Z&HW-CC-Expire=31536000000&HW-CC-Sign=D2896E29C73CEC3FE1C7D0AF66E06BFA0F5D6D0792B6A04AA6DD33ED1F7825B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Ng3pYrWmTmWNLNFI7OjA2Q/zh-cn_image_0000002778934393.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121739Z&HW-CC-Expire=31536000000&HW-CC-Sign=17DCDFF1A5960FF3BE452175ECB9002F97D9CE9629D5E93198AEFBE3AADF8AD6)
 

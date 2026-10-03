@@ -221,7 +221,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-previewer
 
 从DevEco Studio 6.0.0 Beta5版本开始，仅支持在预览/预览调试Stage模型的HAP/HSP时，使用文件管理的相关API，并且需要先打开**Enable file operation**开关。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/Fr-1Uhd2QouXEK8GM5EaXg/zh-cn_image_0000002731543147.png?HW-CC-KV=V1&HW-CC-Date=20260915T011702Z&HW-CC-Expire=31536000000&HW-CC-Sign=BFD4F8CB3F9334AC83807DBB3A999AF164E74C8ABA3A2509F2FE1DBA51D69B34 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/cgoXp4z9THSHdcdG1vKQlQ/zh-cn_image_0000002731543147.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=95FB456B87C1A1701AE05DCBE59319801B417E838A5054DC8528E606E10B1D91 "点击放大")
 
 |模块|API|
 |:-------------------|:-----------|

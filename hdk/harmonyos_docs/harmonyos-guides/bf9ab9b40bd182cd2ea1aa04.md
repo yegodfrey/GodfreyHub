@@ -10,8 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-access-
 
 |接入模式|接入方式&适用应用类型|效果图|
 |:---|:--------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|全接模式|**直接使用系统分享面板** 适用于华为自研应用以及对分享方式区无商业诉求的开发者，可直接使用系统面板，降低开发成本。|直接使用系统分享面板 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/9NQcOvFRQviml3Ucpc03OA/zh-cn_image_0000002762835123.png?HW-CC-KV=V1&HW-CC-Date=20260917T084549Z&HW-CC-Expire=31536000000&HW-CC-Sign=F7B73F50D6E3EFFF6C2EF6CCDA24F5E57AFCC7DC9102DD5A392E179FB8242438)|
-|半接模式|**开发者自行开发分享能力面板，并在分享面板中提供系统分享入口** 适用于分享方式区有商业诉求，或有自己独有的业务逻辑的开发者|左侧为自开发分享面板，同时提供系统分享入口，用户点击时调用系统分享面板 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/pNLPIoXyTzyqItbMANh0GQ/zh-cn_image_0000002733275608.png?HW-CC-KV=V1&HW-CC-Date=20260917T084549Z&HW-CC-Expire=31536000000&HW-CC-Sign=1778DB0795D6E7A782749232EB3514DE1D3771C6A237C07099F8B57F6600463F)|
+|全接模式|**直接使用系统分享面板** 适用于华为自研应用以及对分享方式区无商业诉求的开发者，可直接使用系统面板，降低开发成本。|直接使用系统分享面板 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/6nVBd61ZSBSwP0slwD3zZQ/zh-cn_image_0000002749333990.png?HW-CC-KV=V1&HW-CC-Date=20260929T121653Z&HW-CC-Expire=31536000000&HW-CC-Sign=16FE466ED31441B5A77E926D761E06D1BA4DD13DB78541EC325579826B0FCA5C)|
+|半接模式|**开发者自行开发分享能力面板，并在分享面板中提供系统分享入口** 适用于分享方式区有商业诉求，或有自己独有的业务逻辑的开发者|左侧为自开发分享面板，同时提供系统分享入口，用户点击时调用系统分享面板 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/cL5pZB9rTcStybKmw18WsA/zh-cn_image_0000002749493878.png?HW-CC-KV=V1&HW-CC-Date=20260929T121653Z&HW-CC-Expire=31536000000&HW-CC-Sign=ED7A2A78000790DAE4CF44E0221980DDA6505C26EA8C8FC6E205602EE2D2C470)|
 
 ## 全接模式示例代码
 

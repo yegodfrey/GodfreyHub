@@ -28,7 +28,7 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
 
 **图1** AudioRenderer状态变化示意图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/4qz6dIQORoKtIzIfA96YoA/zh-cn_image_0000002762834379.png?HW-CC-KV=V1&HW-CC-Date=20260917T084546Z&HW-CC-Expire=31536000000&HW-CC-Sign=8E959F5B56A3F692D6D1B6F1860397C6A09322708C9F4E93CA21B400055B9160)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/gfkTdAINTPSlOMphvYJamA/zh-cn_image_0000002749333254.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=D864683B0AAC0B3C4D99042D03DF8D292B9DE94A0D57DADA47C41DBC7B3ED590)
 
 ### 开发步骤及注意事项
 

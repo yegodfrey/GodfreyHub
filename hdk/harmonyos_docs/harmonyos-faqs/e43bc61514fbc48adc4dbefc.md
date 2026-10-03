@@ -24,8 +24,8 @@ YUV编码采用了明亮度和色度表示每个像素的颜色。其中Y表示�
 
 |存储格式|存储顺序简介|存储顺序图例|
 |:---|:-----------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|NV16|NV16是YUV422Semi-Planar的一种，Y分量单独存放，UV分量交错存放。UV在排列的时候，从U开始，总长度为w＊h＊2。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/rHELV0ytQKid6EzLlsrjfw/zh-cn_image_0000002628392614.png?HW-CC-KV=V1&HW-CC-Date=20260920T112705Z&HW-CC-Expire=31536000000&HW-CC-Sign=9C0776FEFB4188CE1E4CC24710EEFE1660E4C84023D5E76A69C612DD5BDE7816)|
-|YUYV|YUYV属于YUV422Interleaved的一种。事实上，Interleaved是属于Packed的，但是在422中，用Interleaved更加形象一些。在Packed内部，YUV的排列顺序是YUVY，两个Y共用一组UV。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/oli70LmHRHSZKHGtaTak7g/zh-cn_image_0000002658791879.png?HW-CC-KV=V1&HW-CC-Date=20260920T112705Z&HW-CC-Expire=31536000000&HW-CC-Sign=E66FBD2DFDA9586579B6645E62168F43ADD526CA7234C810BEB113F8D00F1FB6)|
+|NV16|NV16是YUV422Semi-Planar的一种，Y分量单独存放，UV分量交错存放。UV在排列的时候，从U开始，总长度为w＊h＊2。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/rHELV0ytQKid6EzLlsrjfw/zh-cn_image_0000002628392614.png?HW-CC-KV=V1&HW-CC-Date=20260929T032805Z&HW-CC-Expire=31536000000&HW-CC-Sign=9E1D6DA3EDCB547D8689AA036B44296B1798DE753D7ED65C556A71841E8C4CA6)|
+|YUYV|YUYV属于YUV422Interleaved的一种。事实上，Interleaved是属于Packed的，但是在422中，用Interleaved更加形象一些。在Packed内部，YUV的排列顺序是YUVY，两个Y共用一组UV。|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/oli70LmHRHSZKHGtaTak7g/zh-cn_image_0000002658791879.png?HW-CC-KV=V1&HW-CC-Date=20260929T032805Z&HW-CC-Expire=31536000000&HW-CC-Sign=612F088416B18149EC4D4670E4AEEFB434C2566843DA99641D56CE4FDA71CC85)|
 
 **三、YUV与RGB之间的转换。**
 

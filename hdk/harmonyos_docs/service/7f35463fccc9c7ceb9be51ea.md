@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/cloud-a2a-jingdong-000
 
 本文档为**云** **A2A** **智能体三方接入标准开发案例** ，以京东A2A智能体为开发范例，面向三方开发者提供完整的Agent创建配置、会话交互、账号授权全流程开发指引。文档遵循[云A2A协议技术规范](https://developer.huawei.com/consumer/cn/doc/service/agent2agent-comments-0000002500412353)，明确接口协议、鉴权规则、消息格式、会话机制及授权流程，帮助开发者快速完成合规、稳定、可上线的云A2A智能体接入开发。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/2GlTda7JSIK-t6Qtf3cJsA/zh-cn_image_0000002685901079.jpg?HW-CC-KV=V1&HW-CC-Date=20260909T144100Z&HW-CC-Expire=31536000000&HW-CC-Sign=D5CCA5CDE2C098B4E54738F9D0CFA437EC4ED4E8E7B2AD48B8BCCD94217499E3 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/2GlTda7JSIK-t6Qtf3cJsA/zh-cn_image_0000002685901079.jpg?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=326EF0E7AB720C137E26443672DF9357C9507F5A0E02A0AAC6A9C5D375C77037 "点击放大")
 
 ## 云A2A智能体创建与配置
 
@@ -16,7 +16,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/cloud-a2a-jingdong-000
 
 **登录[小艺开放平台](https://developer.huawei.com/consumer/cn/hag/hagindex.html?isInFrame=true&lang=zh_CN#/agentHome/square)，选择【新建项目】-【云A2A模式】，依次** **填写智能体名称和头像、智能体描述及支持的设备和系统。**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/13eejEFYTAOxi36GES3iXA/zh-cn_image_0000002670615143.gif?HW-CC-KV=V1&HW-CC-Date=20260909T144100Z&HW-CC-Expire=31536000000&HW-CC-Sign=C8406AB81E2A8E8443538D7FDA8B7EE44E7F56F8C21AD7E2B6C8244C5A720691 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/13eejEFYTAOxi36GES3iXA/zh-cn_image_0000002670615143.gif?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=94D22F14F1CDEC84638B6069A89E16398F28A321246C5E68ECE9C74F5B7A441D "点击放大")
 
 ### API与鉴权方式配置
 
@@ -39,7 +39,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/cloud-a2a-jingdong-000
 
 **开场对话规则**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/8eWI6wU5SpeXzS_Iacn_MQ/zh-cn_image_0000002685896565.png?HW-CC-KV=V1&HW-CC-Date=20260909T144100Z&HW-CC-Expire=31536000000&HW-CC-Sign=6A26F0B397B2117BD164EEC5B90C2950229F1FBC592DEAABFB7639E193E4B9E5 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/8eWI6wU5SpeXzS_Iacn_MQ/zh-cn_image_0000002685896565.png?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=CEC720724005E2D94B7A29394BE856C597C9D0A4D000D087CCA25398572C1F51 "点击放大")
 
 开场对话为用户首次进入Agent页面、发起首次对话前，系统自动展示的引导文案，核心设计目标：
 
@@ -47,7 +47,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/cloud-a2a-jingdong-000
 * 告知用户交互方式、可咨询/可操作的业务范围；
 * 简洁易懂，避免冗余专业术语，适配APP展示场景。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/7iB63uXXR4K_3dkx6XLDpA/zh-cn_image_0000002655982898.png?HW-CC-KV=V1&HW-CC-Date=20260909T144100Z&HW-CC-Expire=31536000000&HW-CC-Sign=8884A370DEBBA8F9D8DDF0C05511F5704465E0E74F31DBB4B73035A4710459E4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/7iB63uXXR4K_3dkx6XLDpA/zh-cn_image_0000002655982898.png?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=4D68476D4D8D622E2C10E13DB050A7305DD935094FBCF4B3CA3FD74230C443E6 "点击放大")
 
 **预置引导问题规范**
 
@@ -57,7 +57,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/cloud-a2a-jingdong-000
 * 内容要求：优先选取高频使用、核心场景、代表性强的业务问题；
 * 交互逻辑：用户点击后自动触发对话请求，调用三方Agent流式接口，返回对应响应内容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/XU4fljkCSOimaSTs9H8-oA/zh-cn_image_0000002640462572.gif?HW-CC-KV=V1&HW-CC-Date=20260909T144100Z&HW-CC-Expire=31536000000&HW-CC-Sign=456B33232449867116602685A542D8F2732709171F93C2DE56B740297D039CB6 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/XU4fljkCSOimaSTs9H8-oA/zh-cn_image_0000002640462572.gif?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=271A85FB8DF5533D90CF52BBC8A77F3F68CE540D05E19AC378B3228932C428E7 "点击放大")
 
 ## 会话状态与消息交互
 
@@ -67,7 +67,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/cloud-a2a-jingdong-000
 
 **会话分配与维持机制**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/ZNKEqWqeR_iax2Ks1hdt9g/zh-cn_image_0000002655816318.png?HW-CC-KV=V1&HW-CC-Date=20260909T144100Z&HW-CC-Expire=31536000000&HW-CC-Sign=12716BE3010D48BD3587B23E2B6FE4B23AF7BF292F9F237043FF5D1DC000DD96 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/ZNKEqWqeR_iax2Ks1hdt9g/zh-cn_image_0000002655816318.png?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=AD1C17F99DCC553DF6325B9D714D1A8BCAC4A715F169D243D9C13E66C9211017 "点击放大")
 
 云A2A智能体支持**两种客户端与服务器间会话维持方式**，开发者可根据自身服务架构选型适配，两种模式相互独立、配置规则不同。会话核心标识为平台分配的唯一sessionId，用于区分对话会话，具体两种维持机制规则如下：
 
@@ -80,7 +80,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/cloud-a2a-jingdong-000
 
 平台支持AK/SK认证、OAuth认证、APIkey认证三种鉴权模式，开发者可根据业务安全等级、服务场景选择适配方案，所有鉴权参数均在请求Header中携带。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/Z2qYMRqfT3-f8J3DA4xhCw/zh-cn_image_0000002655976436.png?HW-CC-KV=V1&HW-CC-Date=20260909T144100Z&HW-CC-Expire=31536000000&HW-CC-Sign=F74E6F8F3A2DF3FD2B67EB2C3A33B91FA82D3E66DC8B1FBA155A1554AEA6C4A4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/Z2qYMRqfT3-f8J3DA4xhCw/zh-cn_image_0000002655976436.png?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=77F888F61E1EE0A75C442461F3BD428E439242AC8E0051CC3AF0E96DA01D33B5 "点击放大")
 
 **1. AK/SK** **认证（推荐首选）**
 
@@ -148,7 +148,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/cloud-a2a-jingdong-000
 
 **授权触发与会话生成流程**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/GzgUBpGnQrizFo2VXiF1og/zh-cn_image_0000002686054791.png?HW-CC-KV=V1&HW-CC-Date=20260909T144100Z&HW-CC-Expire=31536000000&HW-CC-Sign=2190E473EEA0D6ECFCF09C4D46A51388FE1701A993BB235432F9D69C1F7744D9 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/GzgUBpGnQrizFo2VXiF1og/zh-cn_image_0000002686054791.png?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=6D4CB973A9E4B4204C6E8B3BA23EC2601A254B950516A7AC9BBDF0751FE7F126 "点击放大")
 
 1. 小艺APP加载三方Agent页面时，自动从小艺开放平台拉取已注册的Client ID，完成页面初始化授权配置；
 2. 用户在Agent内主动点击**账号授权**按钮，发起授权流程；
@@ -161,7 +161,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/cloud-a2a-jingdong-000
 
 完成账号授权后，小艺Client Agent与三方Agent的上下行交互消息体中，会自动携带授权相关字段（agentLoginSessionId、授权码、用户身份标识等），用于三方服务校验用户授权状态、关联用户账号信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/XAk7tG7mRkCWXXJvEMTD5A/zh-cn_image_0000002685892073.png?HW-CC-KV=V1&HW-CC-Date=20260909T144100Z&HW-CC-Expire=31536000000&HW-CC-Sign=BDC7D82C11C63487183429E5296D033A8674A452DF3F5703A38D090352079787 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/XAk7tG7mRkCWXXJvEMTD5A/zh-cn_image_0000002685892073.png?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=049059141013B8035577C96851638C70606023119EB74E9EF3D780E64D87DA77 "点击放大")
 
 具体消息字段结构、必填参数、数据格式、异常处理规则，可参考[云A2A协议消息指令定义](https://developer.huawei.com/consumer/cn/doc/service/agent2agent-define-0000002467293060)。
 

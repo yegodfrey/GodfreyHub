@@ -42,13 +42,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/accessibility-pro-0000
 
 背景模块的【单图】元素，上传时，如上传的图片不符合规范，可对图片进行裁剪。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/GeUuXutpTbWve7OF41EpIg/zh-cn_image_0000001783376509.png?HW-CC-KV=V1&HW-CC-Date=20260920T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=A846E3D38D0DF1923494257847607AEB478A4A0D1571060B5FC001E87B00997C "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/GeUuXutpTbWve7OF41EpIg/zh-cn_image_0000001783376509.png?HW-CC-KV=V1&HW-CC-Date=20260924T094631Z&HW-CC-Expire=31536000000&HW-CC-Sign=5EFBF34D1ACF4E0ACFB56A391E21AB7CB718D23E11101D5528377858620E54B3 "点击放大")
 
 可通过右下角缩放条和鼠标滚轮的滚动放大缩小图片
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/4dBlFJDjQtGNk1U47t4aYA/zh-cn_image_0000001736297464.png?HW-CC-KV=V1&HW-CC-Date=20260920T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=FC92A3EDC355834777154DB224AD7DBC1761A647F2ED1A526972E3F7063069D4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/4dBlFJDjQtGNk1U47t4aYA/zh-cn_image_0000001736297464.png?HW-CC-KV=V1&HW-CC-Date=20260924T094631Z&HW-CC-Expire=31536000000&HW-CC-Sign=01FEFDBC5139B6EC32795EA385D6B6D51EB2ADFE6514E6A55D11901F47DB9E4F "点击放大")
 
 确定后，生成466*466分辨率的背景单图，
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/H_tz5sxRSaKGP1-qNujS1g/zh-cn_image_0000001736456624.png?HW-CC-KV=V1&HW-CC-Date=20260920T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=B218A001F25CFFE8E7CF300D8D9BD3E7494C24E8242BF4A4BC5DFAB153CB0325 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/H_tz5sxRSaKGP1-qNujS1g/zh-cn_image_0000001736456624.png?HW-CC-KV=V1&HW-CC-Date=20260924T094631Z&HW-CC-Expire=31536000000&HW-CC-Sign=D38F4B1056406CEB78A31147A19E487ABDE1F6D1EA76BCAE08543B1FDA14FB04 "点击放大")
 

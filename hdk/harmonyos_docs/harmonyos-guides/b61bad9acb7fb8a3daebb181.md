@@ -81,26 +81,26 @@ DevEco Studio提供Hot Reload（热重载）能力，支持开发者在真机或
 * **Enable hot restart**：开启热重启。
 * **Enable Apply Changes**：开启Apply Changes。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/iUiNj2eCTMyRJhT1ehnZow/zh-cn_image_0000002731381929.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=10708FF645BAF73011F8CDB1DC23E9694B626C61AA22F036A0AB179507F60B72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/EB3DbL6CQ6-cKftYp84hag/zh-cn_image_0000002731381929.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=B60EA0F05844A3EC8805A394799E71D9A7946AB4F182CA50ED8FC830F9F0CCFA)
 
 ## 操作步骤
 
 1. 连接真机设备或模拟器。
-2. 在下拉菜单中，将运行/调试配置切换为Hot Reload的配置![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/tjeWwyYvRjSS3_GuIvjBRA/zh-cn_image_0000002701822634.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=FD6956DA186C4974CFCE1D194153215219A4C67AC270017BA8C8FFAE8BDF1BD0)。
+2. 在下拉菜单中，将运行/调试配置切换为Hot Reload的配置![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/4LuphEwwQ8mVcL954mbdXQ/zh-cn_image_0000002701822634.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7F47E88365AA3A8CD5607895E858B9C3D3A25497C73DFA9F79E3F8C545F3011)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/QrITSP-aQHGiBnCE4Hk1xw/zh-cn_image_0000002701662708.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=84BFDFB822D864EF87F900F6DE3FBC34654B1B0A07F84C6FEDA9E3C44984F3AE)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/j_iGm8qzTGqUVctbWDZPxg/zh-cn_image_0000002701662708.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=54D81764CF09510B53C7D0C730164E98C3D45FADB86ADCFA00EAA154C9605EE6)
 
 3. 运行/调试应用，请参考[使用本地真机运行应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-device)或[使用模拟器运行应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-emulator)。
 4. 修改代码后，可以通过如下操作，查看设备上修改后的显示效果。
 
-   * 方式一：点击Hot Reload![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/BZjYtz7USqKa3voiG0TN_Q/zh-cn_image_0000002701822630.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=53E22D5E1D9751A76C6FDA07074F3B9E64210A39468966C75362C30DB9D54479)按钮：
+   * 方式一：点击Hot Reload![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/uNpDImFWRR6HcOwXdMAaRQ/zh-cn_image_0000002701822630.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=39A9594EF5261DBB91DCA6B77E018288EFE173C365FF586684676F648D6445F3)按钮：
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/8ZujQMiPReqfGjnT-i54CA/zh-cn_image_0000002701822628.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=9EA6AF25CBCE88CF8FC2CB030E16886E53BEDD9DE7F0C6DF186960CAEEC25458)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/X80qs5ZkQLawfyeiSr1okA/zh-cn_image_0000002701822628.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=EAA288312F7C2C56831240F1ADACB4F278275BF91F5CAE75C8D7A24D53F6F027)
    * 方式二：通过快捷键方式触发Hot Reload：需要先在菜单栏点击**File > Settings** （macOS为**DevEco Studio > Preferences/Settings** ），选择**Tools > Actions on Save** ，勾选**Perform hot reload** ，点击**OK** 完成设置。修改代码后通过快捷键**Ctrl + S** 即可触发Hot Reload。
 
      方式二不支持Apply Changes，如需使用Apply Changes功能，请使用方式一。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/qSewMJtBTiuoz_EA01tFBw/zh-cn_image_0000002701662710.png?HW-CC-KV=V1&HW-CC-Date=20260915T011703Z&HW-CC-Expire=31536000000&HW-CC-Sign=047EBD24B4CBCF66B91BE5EBD1A47CE3C4AC4159F5471BC8A0C63FE8C4DFCF4A)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/V7fxUI6pQ7Oqhf20rUDqag/zh-cn_image_0000002701662710.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC4C960BFAC1BA8E8CA1DD12ADAB87FC6E9D2F24A3CB3AE6CBDA9FE8513F7145)
 
    成功执行热重载后，控制台会打印以下内容：
 

@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/period_cha
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/QmfqGhtfSzaV7OXkhCNQAQ/zh-cn_image_0000002517191406.gif?HW-CC-KV=V1&HW-CC-Date=20260921T035900Z&HW-CC-Expire=31536000000&HW-CC-Sign=4ECFAA35D641CB84E5B373A4E1E0BF865A3849161F4A5040AFFB668B1616DB40 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/1-XndBrTR8uOP4lsh7GYYw/zh-cn_image_0000002631151464.gif?HW-CC-KV=V1&HW-CC-Date=20260924T062300Z&HW-CC-Expire=31536000000&HW-CC-Sign=7077524AC2655EF9F8E56CE450F1512E5E40F0CD84F19218F632E695BADB9F6D "点击放大")
 
 ## 实现思路
 
@@ -79,7 +79,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/period_cha
 
 [@Watch装饰器：状态变量更改通知](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)
 
-## 代码下载
+## 示例代码
 
-[周期数据图表绘制示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626163547.05414949394302416538135557016820:50001231000000:2800:2BF360479CEADD5D9C72EF49FA2609063D4E230755D69D057A52ECD7C577EAD6.zip?needInitFileName=true)
+[周期数据图表绘制示例代码](https://gitcode.com/scenario_samples/PeriodChart)
 

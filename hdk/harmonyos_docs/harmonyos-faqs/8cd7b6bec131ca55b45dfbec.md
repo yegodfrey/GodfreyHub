@@ -12,7 +12,7 @@ A页面没有设置沉浸式模式，B页面设置了沉浸式模式。在A页�
 
 问题效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/fBo3St1YR2m-YYmyt4Wxcw/zh-cn_image_0000002628594024.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=A3AAF43F51A535B6601D867486D65E8315BB449AE890D6DE1B6B8C1075366F0B "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/fBo3St1YR2m-YYmyt4Wxcw/zh-cn_image_0000002628594024.png?HW-CC-KV=V1&HW-CC-Date=20260929T074336Z&HW-CC-Expire=31536000000&HW-CC-Sign=F20337D1003C188ABD7BF485C22492FAEBE35FB31107946CC3F97A0E17E560C6 "点击放大")
 
 ## 背景知识
 
@@ -103,7 +103,7 @@ A页面没有设置沉浸式模式，B页面设置了沉浸式模式。在A页�
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/KjiVOpQ5Soa27MjxA-FB-w/zh-cn_image_0000002628753920.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=45DF97CBB72CDA1717E6C575472441F16170BD3099F744BAF8430302943C7565 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/KjiVOpQ5Soa27MjxA-FB-w/zh-cn_image_0000002628753920.png?HW-CC-KV=V1&HW-CC-Date=20260929T074336Z&HW-CC-Expire=31536000000&HW-CC-Sign=AECF56C2AFC43DF7D00940138BC078C59DF7B2A59763D3BDC9951B4AFC079CBA "点击放大")
 * **方案二** ：使用expandSafeArea属性扩展安全区域的方案实现：
 
   单个页面实现沉浸式，优先考虑使用expandSafeArea属性扩展安全区域的方案实现，该方案只会影响当前组件的布局。PageThree页面：
@@ -161,7 +161,7 @@ A页面没有设置沉浸式模式，B页面设置了沉浸式模式。在A页�
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/9z3GU8DDTMO6fAeMyo4-Rg/zh-cn_image_0000002658953231.png?HW-CC-KV=V1&HW-CC-Date=20260920T114738Z&HW-CC-Expire=31536000000&HW-CC-Sign=2DBB0A34B91B361B42B508376F3F2991CC17D077B0E5B363FE9CB6735D91D177 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/9z3GU8DDTMO6fAeMyo4-Rg/zh-cn_image_0000002658953231.png?HW-CC-KV=V1&HW-CC-Date=20260929T074336Z&HW-CC-Expire=31536000000&HW-CC-Sign=D1039B52E0FDEFB40BC73F2245CC0B6BDDD5619BFD7E485CE553875BC5FA4A37 "点击放大")
 
 ## 常见FAQ
 

@@ -45,7 +45,7 @@ function initMap() {
 
 以上代码在48.85°N，2.35°E的位置上添加了一个label为"A"图标透明度为0.5的标记，如图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/UiqMHaajQcurx-JmZ6HzAA/zh-cn_image_0000001307743976.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=D830B409974E6026796C09EF613F61787F2873D1A16276F354328964F1B297B8 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/UiqMHaajQcurx-JmZ6HzAA/zh-cn_image_0000001307743976.png?HW-CC-KV=V1&HW-CC-Date=20260922T085430Z&HW-CC-Expire=31536000000&HW-CC-Sign=A5DEF7F905ADB56269797EF2FB3E37C0EDEDB856455AB0E6EF69CDE164CDCCF5 "点击放大")
 
 关于markerOptions支持的自定义属性见[MarkerOptions](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/js-hwmarker-0000001051070088#section046812592385)。
 
@@ -70,7 +70,7 @@ mMarker = new HWMapJsSDK.HWMarker({
 });
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/-BSzVsSAQgGKeHPYL9IZpw/zh-cn_image_0000001360824161.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=F942DD064CB0974E7EE56DF7F6801749FDBA65FA7794B4359D833C2FECDE6D2E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/-BSzVsSAQgGKeHPYL9IZpw/zh-cn_image_0000001360824161.png?HW-CC-KV=V1&HW-CC-Date=20260922T085430Z&HW-CC-Expire=31536000000&HW-CC-Sign=72BED67196B3F1122CA5512DAB6DA17B4AA3A222FD2FCE0B8ABA48126D31C3B0 "点击放大")
 
 ## 删除标记
 
@@ -187,7 +187,7 @@ function initMap() {
 ```
 
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**图1**DROP ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/FzsM0wHaSRu4XG0v35K0PA/zh-cn_image_0000001360825909.gif?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=50A6A81F3CD7B2CADECF74293FD3039B8D3C802BA112F0BB6F3733DE39FD9B5B "点击放大")|**图2**BOUNCE ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/DKkjVLkZQVubWNSqcsDJ2Q/zh-cn_image_0000001360545733.gif?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=B818324749322D5CD03E0CDB955968DD0128812288516ACBB0999A2206708943 "点击放大")|
+|**图1**DROP ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/FzsM0wHaSRu4XG0v35K0PA/zh-cn_image_0000001360825909.gif?HW-CC-KV=V1&HW-CC-Date=20260922T085430Z&HW-CC-Expire=31536000000&HW-CC-Sign=EB3CE9DE76F2D686B043CE2E308AD90C4F85DD78390EF38EC11BCEC906ACB978 "点击放大")|**图2**BOUNCE ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/DKkjVLkZQVubWNSqcsDJ2Q/zh-cn_image_0000001360545733.gif?HW-CC-KV=V1&HW-CC-Date=20260922T085430Z&HW-CC-Expire=31536000000&HW-CC-Sign=C7F69A7E368279BEF3AAADE9402767776EA6A1228EF8C14B00B53A873613A66C "点击放大")|
 
 如果使用MVVM模式的组件化开发，在将要销毁前的生命周期内需要调用marker.setAnimation(null)及时销毁动画。
 
@@ -227,5 +227,5 @@ function initMap() {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/_iXva0KxQU6QXxKtNDv2NA/zh-cn_image_0000001208670802.png?HW-CC-KV=V1&HW-CC-Date=20260917T022230Z&HW-CC-Expire=31536000000&HW-CC-Sign=A5324B54EC6A979D230502BE75DB6F12BA0811AAB00E5E8BD01B52AA17B4B768 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/_iXva0KxQU6QXxKtNDv2NA/zh-cn_image_0000001208670802.png?HW-CC-KV=V1&HW-CC-Date=20260922T085430Z&HW-CC-Expire=31536000000&HW-CC-Sign=B6C781062C0C65582BAB5B6AC05B055A0169CC7D92FBE74CDD609544A74FB435 "点击放大")
 

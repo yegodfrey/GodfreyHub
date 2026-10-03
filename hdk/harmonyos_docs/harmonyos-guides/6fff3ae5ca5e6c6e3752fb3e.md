@@ -29,7 +29,7 @@ Reason:Signal:SIGSEGV(SEGV_ACCERR)@0x0000005c5f09a280
 
 应用通过[OH_NativeXComponent_RegisterCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-xcomponent-h#oh_nativexcomponent_registercallback)接口注册的[OH_NativeXComponent_Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-callback)回调函数对象以裸指针形式保存在XComponentPattern对象中。这些回调的生命周期由应用控制。如果应用提前销毁了OH_NativeXComponent_Callback回调函数对象，将导致裸指针指向非法内存，引发Use-After-Free问题。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/8kxXwCyBRNq4IbQZ5VZQCg/zh-cn_image_0000002762833887.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=044A934E0F8E53F8E4BBA636E3BC174EE51917FD0763489362B4CE95194286FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/xIjdq49eQoiM7Hj5kYZfVA/zh-cn_image_0000002749332768.png?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=1D0D74635E6FA0133ABF2A98F727E15F293D6336E1C3B75C7CF734A52BB8B718)
 
 **解决措施**
 
@@ -71,13 +71,13 @@ OH_NativeXComponent使用裸指针管理。应用侧持有其裸指针。如果�
 
 应用闪退并生成如下jscrash崩溃栈：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/1ht-x1xEQEmlZWfyTOgLpQ/zh-cn_image_0000002733274370.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=620337412E5D490CB35B3D258EE805C75906E1C99434EEE4B17635AA76FD3CC7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/x1GH6yLqRG2_wuPWKCyRYg/zh-cn_image_0000002749492652.png?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A16F80AC39F93D3275B69AA19DF99B7F7BF1E3A7F8DC8B56C2CFD15C2154919)
 
 **可能原因**
 
 报错发生在@Consume初始化阶段，原因是@Consume初始化时仅通过key匹配对应的@Provide变量。如果未找到对应的@Provide，就会出现报错（missing @Provide）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/TACu24TdSKGdwQiaTRUmSA/zh-cn_image_0000002733434250.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=12723D798D0F9C456EA8DF47677FD0C5ADB5AAA14C719A7EC1FBDC6CBBABA5ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/t7IXgcGYTtSifXDBpIRVSw/zh-cn_image_0000002779091711.png?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=2450BACE74D6F4E9999EFF49FFA68F9945C48C33F6DDF46756FD08D10B47F686)
 
 **解决措施**
 
@@ -93,17 +93,17 @@ OH_NativeXComponent使用裸指针管理。应用侧持有其裸指针。如果�
 
 应用闪退并生成如下jscrash崩溃栈：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/XggdTlDyT9KivK7nDy8AXg/zh-cn_image_0000002762993771.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=AC1E94D286375A1ADCD24F0DF317B1A25DD0C359A80F82FC631445D5336315C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/5h3EghjmTVunmBtfYlNVZQ/zh-cn_image_0000002778931853.png?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=537A66C87DC56C4806B0D83AEA358E946CA0917702F55BA58AEA5FFE8064DE3B)
 
 从API version 23开始，添加对@Link数据源错误的校验，运行时错误变为编译期报错：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/J_uaITwHRmOrY60KfrjVnA/zh-cn_image_0000002762833889.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB7967E7906425B744D8ED813DD4FD9BA3075F7DB7155657D18A4A0EE42A3680)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/fhg7Ww6UR8C_ABMEJn7Xhw/zh-cn_image_0000002749332770.png?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=9B9CDE1889C93703B80A5CD1FF5FE8E64C5FAE02E954750502B35539026F5BAA)
 
 **可能原因**
 
 报错发生在@Link初始化阶段，原因是@Link初始化时会注册到父组件并调用父组件的addSubscriber方法。如果此时数据源的类型与@Link不完全一致，或者使用常量初始化@Link，会导致该方法无法调用，从而引发"is not callable"错误。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/-M6ckQnBREqBn5Eob-OpkQ/zh-cn_image_0000002733274372.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=3727FF64D4E1F598B15DAA575DAFDBB62515C5BF91453D2FA6C3B2D1E9C5DF42)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/L26W83MYSvSe-hhZ4FvJUA/zh-cn_image_0000002749492654.png?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=6264212DF2F331081BC14A63853B3153939D9E004D12A310F2BFD4C37307ACC9)
 
 **解决措施**
 
@@ -119,13 +119,13 @@ OH_NativeXComponent使用裸指针管理。应用侧持有其裸指针。如果�
 
 应用闪退并生成如下jscrash崩溃栈：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/x618U5FjQ8m_QwP-jbYE6A/zh-cn_image_0000002733434252.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=C2CE8BAA8D206EC181151AED0131F6101DB033B14CE30657AEEB73A596A313B3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/VpMVMSBSR-yJi4OuemugKA/zh-cn_image_0000002779091713.png?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=3E4DAC06B3C075DE5EAA182A56F5D81EE30B62D534F7D579DCA6162178D54386)
 
 **可能原因**
 
 报错发生在@Provide初始化阶段，原因是@Provide重写需要声明allowOverride。声明后，别名和属性名都可以被覆盖。如果未声明且存在重复的别名或属性名，将导致错误（duplicate @Provide property with name xxxxx）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/mLWAInUnThqXoabT-KaaZw/zh-cn_image_0000002762993773.png?HW-CC-KV=V1&HW-CC-Date=20260917T084554Z&HW-CC-Expire=31536000000&HW-CC-Sign=50AA25EECB4EC562BBC98981151FD4FA75BD3D9910F258BFFAEE67BEC653DF26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/YHQbnigpT8Cw0Z-EeeyvYg/zh-cn_image_0000002778931855.png?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=DBB2B0873356D14A54864D50E2C210E538F5E342FD4BD34E2050A11C1AC23847)
 
 **解决措施**
 

@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1247
 
 用户在输入框打字时，每打一个字输入法软键盘都会收回。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/uDcc9cNfQpGhuXECUjtApQ/zh-cn_image_0000002628595452.png?HW-CC-KV=V1&HW-CC-Date=20260920T114740Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A21EBCDF5C2CD44E56EABF49208067C6E1709A2E6D0B4A06E1EC341342B9746 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/uDcc9cNfQpGhuXECUjtApQ/zh-cn_image_0000002628595452.png?HW-CC-KV=V1&HW-CC-Date=20260929T074342Z&HW-CC-Expire=31536000000&HW-CC-Sign=6343EA297F56852DC9FDC2A6E939C3521577CFC233657D028AEBA18A7CEADF30 "点击放大")
 
 ## 背景知识
 

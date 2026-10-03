@@ -20,7 +20,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avplayer-netw
 
 ### 场景描述
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/jgPgYvsoQ5K43AhjRIG_mw/zh-cn_image_0000002733434860.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=29BB402701ABD79BE7E48E5CC7DDB8F567B4F1D199EF2FCD9D62E071F7FF069F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/NLxVx7cWRJ6uHINbkUI55g/zh-cn_image_0000002779092309.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121648Z&HW-CC-Expire=31536000000&HW-CC-Sign=6620AAA0EA97E4B951C033C6BF2C647EDF800AE2FDE45AE004CC1AFA718583A7)
 
 使用AVPlayer开发播放功能时，需根据应用场景配置URL。AVPlayer主要用于播放网络流媒体资源，包括在线流媒体链接及本地M3U8流媒体文件。在线流媒体支持以下协议：
 
@@ -118,7 +118,7 @@ AVPlayer通过URL形式配置播放源，有以下两种方式：
 
 网络视频缓冲条是影音娱乐类应用中的典型场景之一，如用户播放在线视频时，缓冲条显示当前缓冲的可播放进度。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/tGO0lwPoTMy-17AIEDd8Eg/zh-cn_image_0000002762994383.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=665F45C1AE734BC7E6B2F72C8EB6627AA8627A4596BB9A960217A82E32E5742C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/i61IWaYHSvOhgyYAkpgPoA/zh-cn_image_0000002778932451.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121648Z&HW-CC-Expire=31536000000&HW-CC-Sign=2180821FB7C35C6B3775C156DD0A7E39D8B1490E22B0BE6C21C2F869E10222A9)
 
 ### 实现原理
 
@@ -245,13 +245,13 @@ AVPlayer通过URL形式配置播放源，有以下两种方式：
 
 网络视频边缓冲边播放是影音娱乐类应用中的典型场景之一，如用户播放在线视频时，不用等待视频资源完全加载（缓冲）后再进行播放，可以缓冲到一定资源后，就可直接起播。AVPlayer自带边缓冲边播放的特性，本章节介绍AVPlayer缓冲区相关参数配置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/hSX_gL53RRSlLIAAqNW3RA/zh-cn_image_0000002762834495.gif?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=D9EAFCB1FB4F57C1FCBC12233C9C6AE06CF3C473CD0B032FE5435A4CEC16FE2C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/wnaC_JiSQ6S9lVLQgCUacw/zh-cn_image_0000002749333368.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121648Z&HW-CC-Expire=31536000000&HW-CC-Sign=12982E162677EA0E65629C1BECE2743264E2C958898FBCB93089506F936B7DCB)
 
 ### AVPlayer缓冲区工作过程
 
 对于缓冲区而言，下载线程是生产端，读取线程则是消费端。生产端将数据写入到缓冲区中，消费端则从缓冲区读取数据，下面将介绍缓冲区中的几个水位线概念。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/Tu9I5VyyTfKCDZGwxE3aNQ/zh-cn_image_0000002733274984.png?HW-CC-KV=V1&HW-CC-Date=20260917T084548Z&HW-CC-Expire=31536000000&HW-CC-Sign=65828475BED15813BF5CEFA7DD28C1A965854F3DD1E678523D5FAF96631B4E80)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/0nijynz-SyeXx_AW4ZoEAw/zh-cn_image_0000002749493252.png?HW-CC-KV=V1&HW-CC-Date=20260929T121648Z&HW-CC-Expire=31536000000&HW-CC-Sign=3679A351DF7943E8C20E72C6D430BBD04C062CF26B15B4A64B34B18A78F8496F)
 
 以上四个水位线取值情况如下，其中起播水位线和下载暂停水位线（缓冲区大小）可通过配置AVPlayer的播放策略来控制，其他两个暂未提供配置接口。
 

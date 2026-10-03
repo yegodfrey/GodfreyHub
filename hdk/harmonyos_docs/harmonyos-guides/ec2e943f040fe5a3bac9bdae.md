@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persiste
 
 **图1** 用户首选项运作机制
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/5_yK9T0bSW6aTC5yZKq2JQ/zh-cn_image_0000002762832961.jpg?HW-CC-KV=V1&HW-CC-Date=20260917T084552Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D3A1B1FBC842F428E40424C43A890B5D1D1C876B90EDFA96199DB247EEDEE8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/Kv2lNnH_RsCSLQqh4RPZiQ/zh-cn_image_0000002749331744.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=C186CCE9A5BFDF0C16F852A6F2A0824AC5820CCC6725CDC1F7C1A7A1BC5AA154)
 
 ## 存储模式说明
 

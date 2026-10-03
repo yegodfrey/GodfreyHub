@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/sdks
 
 # C#
 
-* [C#（Native）](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-sdksecurity-csharp-0000001226578418)  
-* [C#（小游戏）](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-sdksecurity-csharp-minigame-0000001775972726)  
+* **[C#（Native）](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-sdksecurity-csharp-0000001226578418)**   
+* **[C#（小游戏）](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/gamemme-sdksecurity-csharp-minigame-0000001775972726)**   

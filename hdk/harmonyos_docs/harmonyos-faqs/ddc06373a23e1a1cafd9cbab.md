@@ -91,6 +91,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-11
 
      示例效果：
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/V2HECaLjRg2ol4_1He527Q/zh-cn_image_0000002658970121.png?HW-CC-KV=V1&HW-CC-Date=20260920T114746Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A8E418BD2800B6F7768D4355FE02D327BC5BBFCDF3079621DE8C428DF1A4D61 "点击放大")
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/V2HECaLjRg2ol4_1He527Q/zh-cn_image_0000002658970121.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=986DF36CD430692D12A0E290FF6315D35FAB8BE48D854F2910BB63F7CE8A3686 "点击放大")
 2. 可以通过[connection.getConnectionPropertiesSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetconnectionpropertiessync10)接口获取[ConnectionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectionproperties)网络连接信息，其中就包含routes路由信息。
 

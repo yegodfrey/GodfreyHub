@@ -19,13 +19,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads-zbgg-00000023134
 
    方式一：可以在投放端概览页面，单击红框任一"创建"按钮，选择"创建计划"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/XiLN0hMATnWMsTKOnjNpAQ/zh-cn_image_0000002313721322.png?HW-CC-KV=V1&HW-CC-Date=20260918T093101Z&HW-CC-Expire=31536000000&HW-CC-Sign=A6661F8FF9C501458C99E58F9B71DB1F6E214604F6FE62C3BA54FAD4F9754AB3 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/XiLN0hMATnWMsTKOnjNpAQ/zh-cn_image_0000002313721322.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=31F94F310A7238436A5771B05A37FAEA9E242CF20E5DCA336BB65F2291C62F14 "点击放大")
 
    方式二：也可以单击"推广"按钮进入推广页面，然后选择"创建计划"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/cQe9KnSwSkup4acwa_acVw/zh-cn_image_0000002347760069.png?HW-CC-KV=V1&HW-CC-Date=20260918T093101Z&HW-CC-Expire=31536000000&HW-CC-Sign=15C7200570713B34A3E24B3A23C39938373EA30FA6A4EBD441A76B571B79D6C9 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/cQe9KnSwSkup4acwa_acVw/zh-cn_image_0000002347760069.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=AA11060D269F973CD2D4A87E2E1EAF64F27290BC2288A918C7DFDBEF5F7065F6 "点击放大")
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/hWM2jL3ERvyMe2IKXmjaVA/zh-cn_image_0000002313881122.png?HW-CC-KV=V1&HW-CC-Date=20260918T093101Z&HW-CC-Expire=31536000000&HW-CC-Sign=27FAD8B7CFE1269E5D0F06AF29F7C85F984BFC65E8EE1D599C0F304A31EAB52E)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/hWM2jL3ERvyMe2IKXmjaVA/zh-cn_image_0000002313881122.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=C2DB4DF18A809A1EBCBB518413F219902B532C6E070DA384E7D4AD6EBBD8599C)
    * **营销目标：** 选择"直播推广"，详情参考[营销目标](https://developer.huawei.com/consumer/cn/doc/promotion/ads_toufang01-0000001057732432#ZH-CN_TOPIC_0000001057732432__zh-cn_topic_0000001205953939_zh-cn_topic_0000001105216776_li07111843183611)。
    * **计划类型：** 选择"展示广告"，详情参考[计划类型](https://developer.huawei.com/consumer/cn/doc/promotion/ads_toufang01-0000001057732432#ZH-CN_TOPIC_0000001057732432__zh-cn_topic_0000001205953939_zh-cn_topic_0000001105216776_li234211653411)。
    * **投放网络：** 选择**"** 展示广告网络"，详情参考[投放网络](https://developer.huawei.com/consumer/cn/doc/promotion/ads_toufang01-0000001057732432#ZH-CN_TOPIC_0000001057732432__zh-cn_topic_0000001205953939_zh-cn_topic_0000001105216776_li93421166342)**。**
@@ -35,7 +35,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads-zbgg-00000023134
 
 2. 创建广告任务。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/WMz4YCfmRratEr3TLUR9JA/zh-cn_image_0000002591670639.png?HW-CC-KV=V1&HW-CC-Date=20260918T093101Z&HW-CC-Expire=31536000000&HW-CC-Sign=D9BF07DB7689684CE79C50CF1A1E453EC99794548E2B9675D5314F63BFFB32F3)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/WMz4YCfmRratEr3TLUR9JA/zh-cn_image_0000002591670639.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=1CF5552E7DCE6CF77DF82EECCF52A26FD1A4D4CE5D25524997743DCDEF861B7E)
 
    如果您希望在已有的计划下增加新的任务，请参考[已有计划下创建任务](https://developer.huawei.com/consumer/cn/doc/promotion/ads_toufang01-0000001057732432#ZH-CN_TOPIC_0000001057732432__zh-cn_topic_0000001205953939_li5851143183912)。
    * **广告投放类型** ：选择"正式投放"。如果您希望在正式投放之前对投放进行测试，您可以创建[试投放](https://developer.huawei.com/consumer/cn/doc/promotion/afs-stfgg-0000002347483153)任务。
@@ -52,7 +52,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads-zbgg-00000023134
      > 定向设置中"APP安装"选项，如果您想提升您应用的下载，请选择"未安装"，如果您投放给已安装您应用的用户，进行应用促活，请选择"已安装"。
    * **版位** ：支持选择通用版位或自动版位。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/Ep2LbB3wQyysNZ5papRYgw/zh-cn_image_0000002313721326.png?HW-CC-KV=V1&HW-CC-Date=20260918T093101Z&HW-CC-Expire=31536000000&HW-CC-Sign=D89D7A45B3BAFF9557C1B89C4666DF749DEC3019A6E94C338228E6CD271357BF "点击放大")
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/Ep2LbB3wQyysNZ5papRYgw/zh-cn_image_0000002313721326.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=2E5BE4ED4CFA8C0945D65B6988BCB4D9DAA1574097F6C056CCEC1C84BC5687A6 "点击放大")
      * 通用版位：您可以自由选择在哪些展示广告网络版位上推广您的应用，您可以控制各个广告素材的组合方式和定向条件等，详情参考[版位](https://developer.huawei.com/consumer/cn/doc/promotion/ads_toufang01-0000001057732432#ZH-CN_TOPIC_0000001057732432__zh-cn_topic_0000001205953939_zh-cn_topic_0000001105216776_li1776203594114)。
      * 自动版位：自动版位表示系统自动为您选择效果较佳的位置进行展示广告，您只需要添加元素，系统会根据您提供的图片、视频等素材，为您自动生成多个版位的创意。 说明
        >
@@ -73,7 +73,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads-zbgg-00000023134
 
      同意创意的智能拓展：如果您勾选了该选项，创意智能拓展会在您上传的原素材基础上，系统基于模板自动生成新创意的能力，增加创意多样性，有助于提升任务曝光和消耗。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/V-GyGvIlRHWyZpno1VTQAg/zh-cn_image_0000002347760073.png?HW-CC-KV=V1&HW-CC-Date=20260918T093101Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E302EF1B145DB5801CB9B0395EF314F5215AA31002432BB7C33B4BBBA563C6C)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/V-GyGvIlRHWyZpno1VTQAg/zh-cn_image_0000002347760073.png?HW-CC-KV=V1&HW-CC-Date=20260928T100501Z&HW-CC-Expire=31536000000&HW-CC-Sign=CD4D9466917F3417D9DCB2BEAB24066ED8580DCC886FD2AAAA9DAD28D6442848)
 
      您可以通过素材库或本地上传素材，请确保您上传的图片或视频素材符合以下要求：
      * **普通图片** ：图片类型：（图片类型：JPG, PNG, JPEG）

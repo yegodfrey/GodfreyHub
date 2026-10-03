@@ -18,11 +18,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-transco
 
 视频文件格式是视频保存的格式，常见的格式有MP4、AVI等。在视频文件（以MP4文件解码为例）解码时，首先需要将视频进行解封装，解封装会将一个封装好的音视频文件（如MP4、FLV等）中的音频和视频数据流分离出来。然后，从数据流中取出视频的媒体样本sample，通过视频解码器将媒体数据解码成YUV数据，流程如下所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/s_LOwS2rRgObJgXvyFElgA/zh-cn_image_0000002733434786.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=17505B7883B5B24569328A2CE699EC08DBAEE9A9C3AD9E8640DABC9B4983DA4B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/lPY858-qTY-iCffkO9WD5w/zh-cn_image_0000002779092237.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=905FDC91410404F279018F89C388342E38871E8BEAEA6A7218F9BB1FA2E266CB)
 
 在视频文件编码（以MP4文件编码为例）时，首先会通过视频编码器对YUV数据进行编码，将未压缩的视频数据YUV压缩成视频码流H.264，然后，将编码后的媒体数据按一定的格式封装存储到MP4文件里，流程如下所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/OjSVpnQgSaS8iR-x0IZsZg/zh-cn_image_0000002762994307.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=2E63FAD9B74AFF870C2359BF69D1CDC4F7F46420FAED081FAB5373D1420AA1C5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/Xg_6hQpnTZyd9P9TdbArRw/zh-cn_image_0000002778932379.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B45DCAFB6A753B7EC5615197EEEFB9FAF32918F4C62D65CE2D3A8C3F1C4A933)
 
 关于视频文件编解码支持的格式，详情请参考[AVCodec支持的格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats)。
 
@@ -34,7 +34,7 @@ YUV是一类真彩色（true-color）颜色空间（color space），Y'UV、YUV�
 
 以I420格式为例，其跨距对齐后的格式如下所示。其中，w_stride是数据填充后的宽跨距，h_stride是数据填充后的高跨距，height是实际的高度，width是实际的宽度。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/5V68_RDGRVy_KtO15yJdSA/zh-cn_image_0000002762834423.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=781AF77FFAE6DDFF010D184274738EB06F6BC30ED1D59AF228D41A5065644862)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/Nq0_7GydSJ2NTbf44EOHew/zh-cn_image_0000002749333296.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=3599556392DDFBA7DB116A09E0E00E41C59F4B9C0B439CB534FE456C20D8122B)
 
 ### 视频编解码原理
 
@@ -42,7 +42,7 @@ YUV是一类真彩色（true-color）颜色空间（color space），Y'UV、YUV�
 
 在视频解码的过程中，主要包含两个部分，分别为输入数据流转和输出数据流转。开发者需要通过输入数据流转将需要解码的数据填充给解码器，解码器再进行解码处理。在输出数据流转中，解码器会将解码完成的数据返回给开发者使用，在开发者使用完毕后，需要通知解码器释放视频数据，从而实现整体的Buffer循环，详细原理流程如下图所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/lBY1DhhySKCkOBjw8T-eVQ/zh-cn_image_0000002733274910.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=F5F4B4631633209DF4578CF2F6AA019D6E67536123A2D690C84264328B041904)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/6K80MEMwR2yfdEyx4a2M2Q/zh-cn_image_0000002749493180.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=0495442D3996BCA623FA214D7FEA3885DAC738AE5E462487BE22CAA37D318C33)
 
 输入数据流转的步骤如下所示。
 
@@ -70,7 +70,7 @@ YUV是一类真彩色（true-color）颜色空间（color space），Y'UV、YUV�
 
 在视频转码的场景中，视频文件会经历解封装、视频解码、视频编码和视频封装的步骤，如下图所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/edB6Lqw2T-y2VY-m73ZTPw/zh-cn_image_0000002733434788.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A3DB6D4608A8F0C2F98CA611F666D14ECD04B150BE5EAF86B14BA92C0B5AC66)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/rn4Fw8CwSZG2v-BbHpJj8w/zh-cn_image_0000002779092239.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=C894A8524C215954D44A618613C96788FDD234580142AD6D422C4F0D91ACCFFE)
 
 其主要包含三个大步骤。
 
@@ -92,7 +92,7 @@ YUV是一类真彩色（true-color）颜色空间（color space），Y'UV、YUV�
 
 在视频文件解码中，主要包含两个步骤，输入缓存处理、输出缓存处理。在OnNeedInputBuffer()回调函数中，维护了一个空Buffer的缓存队列，在实现输入缓存处理时，需要解封装、填充视频数据。在OnNewOutputBuffer()回调函数中，维护了一个已解码视频数据的缓存队列，在实现输出缓存处理时，需要处理视频数据，其调用顺序如下所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/YCyZHNb3RI2fDMrVG5Z7eg/zh-cn_image_0000002762994309.png?HW-CC-KV=V1&HW-CC-Date=20260917T084547Z&HW-CC-Expire=31536000000&HW-CC-Sign=C17A667C871E353A7F8D1E14724A150ACDD546BBD28F82C1194AAB31821D7A9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/n3dFqa3UTCmEWiZo7YXeTg/zh-cn_image_0000002778932381.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=C8C1E323E1C456D6383ABFF2A7732787D39837332115FB04A35E96B4B1F694F4)
 
 **视频文件解码**开发步骤如下所示。
 

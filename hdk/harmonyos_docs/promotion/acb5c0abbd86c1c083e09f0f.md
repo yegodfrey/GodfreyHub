@@ -13,7 +13,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/collaborator-0000001
 协作者角色分为观察员、操作员、财务，不支持自定义角色，角色权限如下表所示：
 
 |服务商界面操作权限|观察员||操作员||财务||
-|:----------|:-|--|:-|--|:-|--|
+|:---------:|:-:|--|:-:|--|:-:|--|
 |服务商类别|一级|二级|一级|二级|一级|二级|
 |首页新增（邀请）按钮|-|-|√|√|-|-|
 |转账|-|-|-|-|√|√|
@@ -39,12 +39,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/collaborator-0000001
 
 1. 获取协作者华为账号的鲸鸿动能广告账户ID：使用未注册过鲸鸿动能广告账户的华为账号登录[鲸鸿动能广告平台](https://ads.huawei.com/usermgtportal/home/index.html#/)，复制右上角的账户ID，无需继续注册。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/kFoltjNQR623jbWDPp7Iqg/zh-cn_image_0000001425077114.png?HW-CC-KV=V1&HW-CC-Date=20260920T074031Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC3EF52AB2C0939FB075669879815DBA2C817852A613F9EA64A91E17C199BBA7 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/dQoUxffFRuOdfHKqP_QDgA/zh-cn_image_0000001425077114.png?HW-CC-KV=V1&HW-CC-Date=20260929T073031Z&HW-CC-Expire=31536000000&HW-CC-Sign=C4131CC3982CE320DEFF24D8DFFD83FF3D1046C60FE31BB864B6E054AB47F512 "点击放大")
 
 2. 登录[服务商平台](https://id1.cloud.huawei.com/CAS/portal/loginAuth.html)，单击"**账号管理** "->"**协作者管理** "->"**添加** **协作者**"。
 3. 选择**角色类型**，每次只能添加一种角色，输入华为账号。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/4wfICB4UQniPUm82WegU_A/zh-cn_image_0000002504123254.png?HW-CC-KV=V1&HW-CC-Date=20260920T074031Z&HW-CC-Expire=31536000000&HW-CC-Sign=E44C8AC293C9A27DAA7AACF1CC6FAB024CA54F2BF56B3FC73A9E2858BFF4DA89)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/nWX-7FfOQ6-lB-SYlnW-9w/zh-cn_image_0000002504123254.png?HW-CC-KV=V1&HW-CC-Date=20260929T073031Z&HW-CC-Expire=31536000000&HW-CC-Sign=F806B66B6BD7B5F37B0C1EEEA38A86F907E90028179D3E1BD51139C3DBD6E8EB)
 
 4. 分配账户，具体请参考[管理协作者](#section15695171611183)。
 
@@ -52,7 +52,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/collaborator-0000001
 
 账户持有者可以查看协作者列表，对协作者进行成员分配、查看、编辑、删除等操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/KvN8lmEOSD2QEXwty9soFQ/zh-cn_image_0000001224152223.png?HW-CC-KV=V1&HW-CC-Date=20260920T074031Z&HW-CC-Expire=31536000000&HW-CC-Sign=5074D9780F64538E7785319BD2683B29D56943AD528717E2DB4E9AE6A2B0ACD9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/vO5ZO_hpQIaCTdw2GOcwhQ/zh-cn_image_0000001224152223.png?HW-CC-KV=V1&HW-CC-Date=20260929T073031Z&HW-CC-Expire=31536000000&HW-CC-Sign=F85F7F28EECE482B88E3765441131ACBDFC85404D48671F491074ED609776337)
 
 * **成员分配** ：服务商/子客服务商可以将下一级的账户分配给每个角色（观察员、财务、操作员），此时每个角色拥有账户的不同权限，具体请参考[角色权限](#ZH-CN_TOPIC_0000001059241934__table151501831164717)。
 * **查看成员数量**：单击每个协作者的成员数量列，您可以看到其管理的账户ID和企业名称。

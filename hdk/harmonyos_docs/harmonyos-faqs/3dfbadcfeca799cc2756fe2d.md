@@ -229,5 +229,5 @@ struct SwiperArcPage {
 
 运行效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/TOOSinGlTeWi2vu_pB1Xtg/zh-cn_image_0000002658917859.png?HW-CC-KV=V1&HW-CC-Date=20260920T114743Z&HW-CC-Expire=31536000000&HW-CC-Sign=FD4D9BA4427E48B4CDD001BE522692794DCA1B804CB94B0A16F537FBF4527A1E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/TOOSinGlTeWi2vu_pB1Xtg/zh-cn_image_0000002658917859.png?HW-CC-KV=V1&HW-CC-Date=20260929T074340Z&HW-CC-Expire=31536000000&HW-CC-Sign=5C9431921EA3307133535AF6246C441E9EF696806522AF45FF300BD592D69B76 "点击放大")
 

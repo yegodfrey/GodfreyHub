@@ -30,7 +30,7 @@ hdk.py               统一 CLI：crawl / incremental / incremental-cj / increme
 - `crawl_cj.py`：爬取 `https://cj-docs.gitcode.com/zh/<VER>/`（当前 `VER = "1.2.0"`，只镜像**最新非 beta 版本**，不留历史版本副本）的 VitePress 静态站，用 `BeautifulSoup` + `markdownify` 抽取 `<main class="vp-doc">` 转 Markdown，落盘到 `cangjie_docs/<section>/<sha1>.md`。状态在 `crawl_cj_state.json`。升版本时 `crawl_cj_state.json` 与 `incremental_cj_state.json` 必须一并删除再重爬：两者存的都是 `/zh/<旧ver>/...` 路径，前者非空会跳过种子展开（爬不到任何新页），后者会让 `incremental_cj` 回抓旧版本页面把已废弃语料复活回写进语料目录。落盘文件名是 `sha1(name)` 而 `name` 含版本号，故新旧版本文件天然不冲突——旧版本清理按 frontmatter `name: cj-docs/zh/<旧ver>/` 判定，删完再 `hdk.py manifest` + `hdk.py index --root cangjie`（行级增量自动 `-旧 +新`）。
 - `crawl_cangjie.py`：鸿蒙仓颉开发文档的**可复用数据层**——语料常量（`CATALOGS`/`OUT`/`BASE_URL`）、`html2text` 配置 `H`、断点续跑状态 `load_state`/`save_state`（走 `hdk_io`）、运行锁 `acquire_lock`/`release_lock`（`cangjie_crawl.lock`）、`write_doc`（官方正文 HTML→Markdown，落盘到 `harmonyos_docs/<catalog>/<objectId>.md`）。原先的 QQ 浏览器（`qqbrowser-skill.exe`）与 QwenWork MCP 适配器两条鉴权传输路径均已整体删除；枚举/抓取/增量的浏览器传输与 delegate JS 全在 `cj_iab.py`。
 - `cj_iab.py`：鸿蒙仓颉开发文档的当前唯一采集模块（编排 + 内置浏览器桥传输自包含）。回查指纹先归一化（抹掉 `HW-CC-Date/Expire/Sign` 与压缩空白）再 sha256，避免华为 CDN 签名图片 URL 与排版空白抖动造成“假修改”；判删以“重枚举的目录树中消失”为候选，单篇 `getDocumentById` 仅在明确空内容时确认，任何不确定一律保留；回查「指纹未变」须同时满足**磁盘文件存在**——状态先于语料入库曾导致 947 篇文档只有哈希没有文件（2026-09-21 发现并经存在性自愈恢复），缺失即视同需要重写。确认删除**直接物理删除**，不留副本（用户 2026-09-21 指令），状态 `deleted` 仅留名称与时间戳。
-- `cj_iab.py`：当前唯一浏览器传输层（内置浏览器桥）。原 QwenWork MCP 适配器通道（`~/.qwenworkcn/mcp-adaptor.config`，本机不存在该配置）已被整体替代。机制：本地 HTTP 桥（`127.0.0.1:8791`）下发动作，浏览器控制通道的 node relay 长轮询取动作、在已登录华为开发者的标签页里 `evaluate` 执行并回传；delegate 仍须在**同源** `svc-drcn.developer.huawei.com` 上发**相对** fetch（`credentials:"include"`，CSRF 取自 `developer_userdata` cookie）。evaluate 有秒级预算且网络耗时不能跨调用等待 → 全部网络请求改「页面内踢 async 任务落 `window`、轮询收数」；evaluate 无 50KB 截断 → 整批 html 一次 `JSON.stringify` 拉回内存，落盘交 `crawl_cangjie.write_doc`。运行前提：浏览器已登录开发者账号 + node relay 在跑；子命令 `enumerate` / `fetch`（补新）/ `incremental`（补新 + 回查已改 + 判删）。
+- `cj_iab.py`：当前唯一浏览器传输层（内置浏览器桥）。原 QwenWork MCP 适配器通道（`~/.qwenworkcn/mcp-adaptor.config`，本机不存在该配置）已被整体替代。机制：本地 HTTP 桥（`127.0.0.1:8791`）下发动作，浏览器控制通道的 node relay 长轮询取动作、在已登录华为开发者的标签页里 `evaluate` 执行并回传；delegate 仍须在**同源** `svc-drcn.developer.huawei.com` 上发**相对** fetch（`credentials:"include"`，CSRF 取自 `developer_userdata` cookie）。evaluate 有秒级预算且网络耗时不能跨调用等待 → 全部网络请求改「页面内踢 async 任务落 `window`、轮询收数」；evaluate 无 50KB 截断 → 整批 html 一次 `JSON.stringify` 拉回内存，落盘交 `crawl_cangjie.write_doc`。运行前提：浏览器已登录开发者账号 + node relay 在跑（relay 在本机 ZCode 环境没有现成常驻进程，落地配方见下文「内置浏览器桥 relay 配方」）；子命令 `enumerate` / `fetch`（补新）/ `incremental`（补新 + 回查已改 + 判删）。
 - `incremental.py`：复用 `crawl.py` 的 MCP/落盘函数与运行锁；对 HarmonyOS 语料做新发布发现、按 `title+content` 的 sha256 比对检测修改、对消失文档二次确认后**物理删除**（不留副本，用户 2026-09-21 指令）。状态在 `incremental_state.json`（`discovered`/`fetched`/`hashes`/`deleted`），首跑从 `crawl_state.json` 播种。
 - `incremental_cj.py`：复用 `crawl_cj.py` 的网络层/落盘函数与运行锁（`crawl_cj.lock`）；对仓颉语料做新发布发现（重查已抓页面时解析链接，官方新增页面被引用即可发现）、按 `title+body` sha256 指纹比对检测修改、重查返回 404（对象存储静态托管无 SPA fallback，404 即确定下线）经二次确认后**物理删除**。状态在 `incremental_cj_state.json`（`discovered`/`fetched`/`hashes`/`deleted`/`failed`），首跑从 `crawl_cj_state.json` 播种。
 - `indexer.py`：两个语料各自独立建库，库路径 `.mcp_cache/<root>_docs.fts5.db`（`ROOTS = {"harmonyos": harmonyos_docs, "cangjie": cangjie_docs}`）。仓颉语料 relpath 统一加 `cangjie/` 前缀避免与鸿蒙分类重名。分词方案（schema tokenizer=3）：**单张 `fts` unicode61 词元表**——索引端用 jieba `cut_for_search(HMM=False)` + 驼峰/数字边界拆词（保留原词）+ 停用词/符号/纯数字单字过滤，把 title/body 切为空格分隔词元后入库；查询端（Node `@node-rs/jieba` 与 `mcp_server.py`）加载同一份 `dict/dict.txt` 与 `dict/stopwords.txt`，精确 `cut(HMM=False)`，`cut_for_search` 输出 ⊇ `cut` 故查询词必在索引词元集合内。`dict/dict.txt` 是**语料贴合自建词典**（默认词典∩语料命中词 + userdict + curated 人工确认词，约 2.5 万词），由 `hdk/dict/build_dict.py` 生成，加词走 `userdict.txt`/`curated.txt` 后重跑，勿手改（见 `hdk/dict/README.md`）。检索分层降级：① 全词元 AND MATCH；② 不足时去掉单字噪声词元后重试 AND（长问句切出的"传/参"等）；③ 仍不足允许缺一个词元；④ 最后把含子词的整词替换为 `cut_for_search` 子词 OR 兜底（如"智慧屏"→"智慧"，子词必在索引词元集合内），再以 BM25 和原始标题加权排序；标题与摘要从 Markdown 原文渲染，不暴露索引词元文本。FTS tokenizer 建表时烧死，`SCHEMA_TOKENIZER` 不匹配即全量重建；`dict.txt`/`stopwords.txt` 变更（`meta.dict_hash` 签名变化）同样自动全量重建，避免已索引词元按旧词典切分、新词对存量文档静默漏匹配。重建以"旧库改名 `.old` → 新库就位 → 删 `.old`"原子替换；Windows 下旧库被常驻查询服务（只读连接）持有句柄时替换会失败，此时保留完整 tmp、在旧库 `meta.rebuild_failed` 记录失败原因与词典签名，查询继续用旧库不中断，后续检测 tmp 与当前词典匹配即直接替换（秒级，服务重启/句柄释放后自动完成迁移；签名已变则重新构建，避免误跳过）。其余表：`docmap`（relpath→rowid/size/mtime/category 增量基准，category 带索引）、`docnames`（name→relpath 反查索引）。
@@ -39,7 +39,7 @@ hdk.py               统一 CLI：crawl / incremental / incremental-cj / increme
 ## 数据流
 
 ```text
-外部文档源（华为云 MCP / cj-docs 静态站 / builtin_browser MCP 鉴权）
+外部文档源（华为云 MCP / cj-docs 静态站 / 内置浏览器桥鉴权）
         │  crawl*.py / incremental*.py
         ▼
 harmonyos_docs/  cangjie_docs/   （Markdown + frontmatter：name/title/uri/category）
@@ -59,6 +59,18 @@ mcp_server.py  →  MCP 客户端（HDK MCP 工具）
 - 服务：`python hdk.py serve`（等价于 `python mcp_server.py`）；仅建索引用 `python mcp_server.py build`。
 - 维护：`python hdk.py stats` / `manifest` / `state rebuild`（以磁盘为准重建 `crawl_state.json`）。
 
+## 内置浏览器桥 relay 配方（ZCode 主会话）
+
+`incremental-cangjie` / `crawl --target harmonyos-cangjie` 前提里的 "node relay" 在本机 ZCode 环境**没有现成常驻进程可依赖**，只能由主会话（`mcp__node_repl__js`）接力充当。三条环境硬约束（2026-10-01 实测）：
+
+- 每次 js 调用都是**全新内核**：全局变量与后台 async 循环不跨调用存活，"起一个常驻 relay 循环然后返回"必然失效（循环随内核消亡，Python 侧表现为 `ensure_origin` 180s TimeoutError 退出——无 relay 时的一切失败都是这个形状）；
+- **子代理内核被硬性禁用浏览器能力**（`agent` 未定义，报 "Browser is not available in subagent"），relay 不能外包给 Agent 工具，只能在主会话跑；
+- 内核**没有全局 `fetch`**，轮询/回传须用 `node:http`。
+
+桥协议（服务端由 Python 侧 `CjIab._serve()` 在 `127.0.0.1:8791` 自起，无需额外布置；`netstat` 查 8791 LISTENING 的 python PID 即桥进程）：GET `/action` 长轮询（无动作 75s 后回 `{"idle":true}`）取 `{id, kind:"goto"|"js", url|text}`，在已登录标签页执行后 POST `/result` `{id, value}`；value 以 `EXECUTION_ERROR` 开头视为失败，Python 侧自动退避重试。`goto` → `tab.goto(url)` + domcontentloaded（裸 origin 页标题显示 "Error" 是正常现象）；`js` → `tab.playwright.evaluate(text)`，非字符串结果 `JSON.stringify`。每棒 bootstrap 后按 URL 前缀 `svc-drcn.developer.huawei.com` 复原标签页，找不到才新建，不做多余导航。
+
+接力节奏：先后台起 `hdk.py incremental-cangjie`，再逐棒发约 100s 服务窗口的 js 调用——deadline 前余量 <82s 即收棒（单次 poll 超时 80s 须大于服务端 75s 长轮询），棒与棒的间隙必须远小于 Python 侧容限（`ensure_origin` 外层 180s、goto 动作 90s、js 动作 170s）。收工判定：`tasklist` 查桥 PID 消失。实测规模：1548 篇全量回查（78 批 × 20 篇）≈ 267 个动作、6 棒 ×100s 跑完（2026-10-01）。
+
 ## 依赖
 
 - `requirements.txt` 固定全部运行依赖：`mcp==2.0.0`（MCP 服务与 SDK）、`jieba==0.42.1`（分词，索引端与查询端共用 `dict/dict.txt` 词典）、`beautifulsoup4` + `markdownify`（`crawl_cj.py`）、`html2text`（`crawl_cangjie.py`）。
@@ -70,7 +82,7 @@ mcp_server.py  →  MCP 客户端（HDK MCP 工具）
 
 - HarmonyOS 文档：华为云 HarmonyOS Developer Knowledge MCP（`connect-api.cloud.huawei.com`，免登录）。
 - 仓颉语言文档：cj-docs.gitcode.com 静态站（免登录）。
-- 鸿蒙仓颉开发文档：华为开发者站点，经 `builtin_browser` MCP 用已登录会话访问（同源 `svc-drcn.developer.huawei.com` 的 `/svc/.../delegate`）。
+- 鸿蒙仓颉开发文档：华为开发者站点，经内置浏览器桥（本地 HTTP 桥 + node relay，已登录会话标签页内同源 `svc-drcn.developer.huawei.com` 的 `/svc/.../delegate`）访问；relay 落地配方见上文「内置浏览器桥 relay 配方」。
 - 这些外部源均属于第三方站点的实时内容；项目不缓存其账号凭据，仅落盘公开文档正文。
 
 ## 安全与不变式

@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/scroll_cel
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/uccNdV16TOikltbpUDoCpw/zh-cn_image_0000002517191606.gif?HW-CC-KV=V1&HW-CC-Date=20260921T013300Z&HW-CC-Expire=31536000000&HW-CC-Sign=FDE9E2E7E8072F2746EABD4B4FEED712E1C387168D552BB34E7ED73CFB776C0C "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/TyGlOC98RhO5k7k5D6SuxQ/zh-cn_image_0000002661509579.gif?HW-CC-KV=V1&HW-CC-Date=20260924T065100Z&HW-CC-Expire=31536000000&HW-CC-Sign=65A0165643A2974E6AE627748903A2927E95E4D4FFC09D6C7B3BE9CAD10AD3C0 "点击放大")
 
 ## 实现思路
 
@@ -99,7 +99,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/scroll_cel
 
 [Refresh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)
 
-## 代码下载
+## 示例代码
 
-[商品页面刷新和展示示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260626173524.21421552467605364070587241953958:50001231000000:2800:F3ADE9999DB966D15172F86488840179C1C3F200AF33DA5ED76A825F4DBA81F5.zip?needInitFileName=true)
+[商品页面刷新和展示示例代码](https://gitcode.com/scenario_samples/ScrollCellingDemo)
 

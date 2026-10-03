@@ -81,7 +81,7 @@ struct ForegroundColorExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/vwAcnByNSUKhWJK5XmHr5A/zh-cn_image_0000002733435946.png?HW-CC-KV=V1&HW-CC-Date=20260917T084649Z&HW-CC-Expire=31536000000&HW-CC-Sign=64A79E0158F75B8057EC95834DD3FF67683CAB3F5C6C93701529B398226A696A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/iKYUeBYgRFmcRYe-ZZmfNg/zh-cn_image_0000002779093387.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=B1F82171C2BC06B069F4DDCDC95717B777E8BDF562106FB500D0DA4D947F3FB7)
 
 ### 示例2（设置前景色为组件背景色反色）
 
@@ -105,7 +105,7 @@ struct ColoringStrategyExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/9pSELLPtSm6OTtoXd108pA/zh-cn_image_0000002762995467.png?HW-CC-KV=V1&HW-CC-Date=20260917T084649Z&HW-CC-Expire=31536000000&HW-CC-Sign=0E0A464689438B3BE956522595964F713296220239CCC4EE5CA1AEE3D698170B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/ctGiBtI1T8Oxaa4zMaDIYw/zh-cn_image_0000002778933531.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=A4E6B06B7420C89A34E5B6B501FC17B42C88513CA892BE10011C26EA4122C51E)
 
 ### 示例3（前景色未继承父组件）
 
@@ -126,5 +126,5 @@ struct ForegroundColorInherit {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/v-JZi58uTfyWeo1vIrP1cw/zh-cn_image_0000002762835579.png?HW-CC-KV=V1&HW-CC-Date=20260917T084649Z&HW-CC-Expire=31536000000&HW-CC-Sign=D3B9C36DA7863F3D2DAFC5C76B65FD5DF1625DCA5D14EB657B987F38B9551092)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/77VeVAdWRuCp98bjQlKTYA/zh-cn_image_0000002749334446.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB52730B7FCE2FEF5B5CAE92EA4713DC143B2151D73E52A53DDE7B317ADF0A46)
 
