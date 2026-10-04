@@ -426,12 +426,20 @@ function Invoke-GfVisualMarkerSweep {
         [string]$Serial,
         [string]$ArtifactDir,
         [hashtable]$Captures,
-        [Collections.Generic.List[string]]$Sink
+        [Collections.Generic.List[string]]$Sink,
+        [string]$StreamPath = ''
     )
     # marker 经 console.info 进 hilog（JSAPP tag）；只扫该 tag 控制流量。
+    # 传入了 -StreamPath 时并入流式 sidecar 的 fresh 行（8fb2f934b 同构移植）：环形缓冲
+    # 在两次轮询之间被冲掉的 GFVISUAL_CHECKPOINT 标记由 follow 通道补齐；流不可用则
+    # 退回 dump-only，行为与历史完全一致。
     $markerPrefix = '[GFVISUAL_CHECKPOINT] '
     $lines = @()
     try { $lines = @(& $Hdc -t $Serial shell hilog -x -T JSAPP 2>$null) } catch { }
+    if ($StreamPath) {
+        $merged = Merge-GfHilogMarkerStream -StreamPath $StreamPath -HilogLines $lines
+        $lines = @($merged.Lines)
+    }
     foreach ($line in $lines) {
         $text = [string]$line
         $idx = $text.IndexOf($markerPrefix)
@@ -545,11 +553,18 @@ function Invoke-GfEvidenceMarkerSweep {
         [string]$Serial,
         [string]$ArtifactDir,
         [hashtable]$Captures,
-        [Collections.Generic.List[string]]$Sink
+        [Collections.Generic.List[string]]$Sink,
+        [string]$StreamPath = ''
     )
+    # -StreamPath 同 Invoke-GfVisualMarkerSweep：并入流式 sidecar 的 fresh 行再解析，
+    # 环形缓冲冲掉的 GFTEST_EVIDENCE 标记由 follow 通道补齐；流不可用退回 dump-only。
     $markerPrefix = '[GFTEST_EVIDENCE] '
     $lines = @()
     try { $lines = @(& $Hdc -t $Serial shell hilog -x -T JSAPP 2>$null) } catch { }
+    if ($StreamPath) {
+        $merged = Merge-GfHilogMarkerStream -StreamPath $StreamPath -HilogLines $lines
+        $lines = @($merged.Lines)
+    }
     foreach ($line in $lines) {
         $text = [string]$line
         $idx = $text.IndexOf($markerPrefix)

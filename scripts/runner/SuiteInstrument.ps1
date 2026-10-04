@@ -402,6 +402,11 @@ function Invoke-GfInstrumentSuite {
             $campaignDeadline = (Get-Date).AddSeconds($campaignBudget.BudgetSec)
             $visualCaptures = @{}
             $evidenceCaptures = @{}
+            # 视觉/证据双 sweep 的流式 sidecar（8fb2f934b 同构移植到 PreparationVisual 两 sweep）：
+            # 战役全程 follow 'hilog -e GF_'，两 sweep 经 -StreamPath 归位并入 fresh 行，
+            # 环形缓冲冲掉的标记不再丢。流失败降级回 dump-only，判定语义零变化。
+            $markerStreamPath = Join-Path $ArtifactDir "gf-markers-$($device.Serial -replace '[^A-Za-z0-9_.-]', '_').stream"
+            $markerStream = Start-GfHilogMarkerStream -Hdc $hdc -Serial $device.Serial -StreamPath $markerStreamPath
             if ($null -ne $scopeProc) {
                 while (-not $scopeProc.HasExited) {
                     if ((Get-Date) -gt $campaignDeadline) {
@@ -413,15 +418,17 @@ function Invoke-GfInstrumentSuite {
                     }
                     Start-Sleep -Milliseconds 400
                     Invoke-GfVisualMarkerSweep -Hdc $hdc -Serial $device.Serial -ArtifactDir $ArtifactDir `
-                        -Captures $visualCaptures -Sink $testOutput
+                        -Captures $visualCaptures -Sink $testOutput -StreamPath $markerStreamPath
                     Invoke-GfEvidenceMarkerSweep -Hdc $hdc -Serial $device.Serial -ArtifactDir $ArtifactDir `
-                        -Captures $evidenceCaptures -Sink $testOutput
+                        -Captures $evidenceCaptures -Sink $testOutput -StreamPath $markerStreamPath
                 }
                 $scopeProc.WaitForExit()
+                # 停流后再做收尾 sweep：sidecar 此刻才完整，归位合并看到全部 fresh 行。
+                Stop-GfHilogMarkerStream -StreamProcess $markerStream | Out-Null
                 Invoke-GfVisualMarkerSweep -Hdc $hdc -Serial $device.Serial -ArtifactDir $ArtifactDir `
-                    -Captures $visualCaptures -Sink $testOutput
+                    -Captures $visualCaptures -Sink $testOutput -StreamPath $markerStreamPath
                 Invoke-GfEvidenceMarkerSweep -Hdc $hdc -Serial $device.Serial -ArtifactDir $ArtifactDir `
-                    -Captures $evidenceCaptures -Sink $testOutput
+                    -Captures $evidenceCaptures -Sink $testOutput -StreamPath $markerStreamPath
                 $scopeOutput = @(Get-Content -LiteralPath $scopeLogPath -ErrorAction SilentlyContinue |
                     ForEach-Object { [string]$_ })
                 $scopeExit = $scopeProc.ExitCode
@@ -429,6 +436,13 @@ function Invoke-GfInstrumentSuite {
                 # hdc 不可作为独立进程启动（自检桩）：退回同步执行，无捕获窗口轮询。
                 $scopeOutput = @(& $hdc -t $device.Serial shell $aaShell 2>&1)
                 $scopeExit = $LASTEXITCODE
+                # 同步回退路径没有轮询窗口：停流后补一轮带 sidecar 的收尾 sweep，
+                # 流通道在桩环境下退回 dump-only，行为与历史完全一致。
+                Stop-GfHilogMarkerStream -StreamProcess $markerStream | Out-Null
+                Invoke-GfVisualMarkerSweep -Hdc $hdc -Serial $device.Serial -ArtifactDir $ArtifactDir `
+                    -Captures $visualCaptures -Sink $testOutput -StreamPath $markerStreamPath
+                Invoke-GfEvidenceMarkerSweep -Hdc $hdc -Serial $device.Serial -ArtifactDir $ArtifactDir `
+                    -Captures $evidenceCaptures -Sink $testOutput -StreamPath $markerStreamPath
             }
             if ($null -eq $script:GfVisualCapturesBySerial) { $script:GfVisualCapturesBySerial = @{} }
             $script:GfVisualCapturesBySerial[$device.Serial] = $visualCaptures

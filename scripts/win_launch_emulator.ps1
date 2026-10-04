@@ -109,6 +109,8 @@ function Set-ExactProcessWindowTitle {
 # Keep ownership in the process wrapper instead of scanning every emulator by
 # title. Cold boot can reset the Qt title late in startup, so continue enforcing
 # it for four minutes; the hidden watcher is tiny and exits early with the VM.
+# The title is "<PID> <instance>" so parallel lanes are distinguishable and the
+# PID matches what godfreyhub reports.
   $deadline = (Get-Date).AddMinutes(4)
   while ((Get-Date) -lt $deadline) {
     if ($process.HasExited) { exit $process.ExitCode }
@@ -117,7 +119,8 @@ function Set-ExactProcessWindowTitle {
       # drops the feature and never touches the boot path.
       try { [void](Update-GfEmuTestmodeState -State $script:gfEmuTestmode) } catch { $script:gfEmuTestmode.Finished = $true }
     }
-    Set-ExactProcessWindowTitle -TargetProcessId ([uint32]$process.Id) -Title $InstanceName | Out-Null
+    $windowTitle = "$($process.Id) $InstanceName"
+    Set-ExactProcessWindowTitle -TargetProcessId ([uint32]$process.Id) -Title $windowTitle | Out-Null
     Start-Sleep -Seconds 2
     $process.Refresh()
   }

@@ -1,7 +1,7 @@
 ﻿# ============================================================
 # GodfreyHub Windows 辅助脚本(随包分发, 不依赖用户本地任何脚本)
 # Mode:
-#   rename  - 把运行中模拟器窗口标题改为实例名(-Name 可选: 只改指定实例;
+#   rename  - 把运行中模拟器窗口标题改为 进程PID+实例名(-Name 可选: 只改指定实例;
 #             -WaitSec >0 时循环等待窗口出现并持续纠正, 用于刚启动的场景)
 #   ports   - 输出指定实例进程拥有的本机监听端口
 #   taskbar - 任务栏按钮从不合并(重启资源管理器生效)
@@ -82,11 +82,12 @@ function Rename-Infos {
     $changed = 0
     foreach ($info in $Infos) {
         if (-not $info.InstanceName) { continue }
+        $title = "$($info.Pid) $($info.InstanceName)"
         foreach ($h in @($info.Hwnds)) {
             $old = Get-WindowTitle -Hwnd $h
-            if ($old -eq $info.InstanceName) { continue }
-            if ([EmuWinApi]::SetWindowText($h, $info.InstanceName)) {
-                Write-Host "[$($info.InstanceName)] [$old] -> [$($info.InstanceName)] (PID $($info.Pid))"
+            if ($old -eq $title) { continue }
+            if ([EmuWinApi]::SetWindowText($h, $title)) {
+                Write-Host "[$($info.InstanceName)] [$old] -> [$title] (PID $($info.Pid))"
                 $changed++
             }
         }

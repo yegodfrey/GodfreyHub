@@ -59,6 +59,16 @@ npm run hdk:index      # 离线文档索引（新克隆后首次运行）
 - 新增爬虫或改依赖须同步 `hdk/requirements.txt`；网络请求带超时与退避，保持运行锁语义，鸿蒙仓颉抓取只能串行。
 - 深层不变量与版本控制边界见 `hdk/Docs/ENGINEERING_SYSTEM.md`；文档只记录当前事实与长期约束，不追加按日期流水。
 
+## Emulator discipline（2026-09-28 用户拍板）
+
+- 全局同时在线模拟器**至多 3 台**；这是实例常驻上限，与宿主内存闸（见 GFSoftware
+  `Docs/DEVICE_LANE_OPERATIONS.md` §A-附）叠加生效。
+- `emu_create` 拉起的实例名一律 `<拉起者pid>:<hdc端口>`（例 `26824:5557`）——不再使用
+  业务语义名（`xx Lane`、设备名系）。pid 是拉起进程的进程号，端口是该实例的 hdc 端口。
+- 任务取设备先 `emu_list` 轮转复用在线空闲实例；三台全忙才允许拉新，拉新后仍须 ≤3。
+  实例的 pid 不再存活即视为无主，后续会话可接管或删除。
+- 既有业务语义名实例只减不增：在线的可用至当轮收工，之后按无主处置。
+
 ## Workspace management
 
 - `src/`（源码）、`hdk/`（语料与索引器）、`scripts/`（辅助脚本）、`tests/`（测试）为版本化内容。

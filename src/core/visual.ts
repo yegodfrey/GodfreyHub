@@ -6,6 +6,18 @@ import { diffStructuralLayout, declaredSpecAnchors, parseStructuralEquivalence }
 interface Bounds { left: number; top: number; right: number; bottom: number }
 interface Pixel { r: number; g: number; b: number; a: number }
 
+/**
+ * 判据版本号: 判定语义(测量口径/分离准则)每次变更必须递增, 随 report summary 出账。
+ * 2 = C05 墨核分位 + C14 跨轴互斥(Q147, 2026-09-30)。
+ */
+export const JUDGE_CRITERIA_VERSION = 2;
+
+/** 判据特性开关(默认开): =0/false 关闭对应新语义, 回到旧判定行为(回滚/对照用)。 */
+function judgeFlag(name: string): boolean {
+  const raw = process.env[name];
+  return !(raw === "0" || raw === "false");
+}
+
 interface VisualIssue {
   id: string;
   message: string;
@@ -30,6 +42,8 @@ export interface VisualMeasurement {
 export interface VisualCompareResult {
   status: "passed" | "failed";
   summary: {
+    /** 判据版本号(见 JUDGE_CRITERIA_VERSION), 判定语义变更时递增。 */
+    criteriaVersion: number;
     checks: number;
     passed: number;
     failed: number;
@@ -298,11 +312,31 @@ function layoutSeparationCheck(layout: any, rule: any): string | null {
 
   const gap = Math.max(0, Number(rule.minGap ?? 0));
   const axis = String(rule.axis ?? "horizontal");
-  const separated = axis === "vertical"
+  if (axis !== "horizontal" && axis !== "vertical") return "axis must be horizontal or vertical";
+  const separatedOn = (a: "horizontal" | "vertical"): boolean => a === "vertical"
     ? firstBounds.bottom + gap <= secondBounds.top || secondBounds.bottom + gap <= firstBounds.top
     : firstBounds.right + gap <= secondBounds.left || secondBounds.right + gap <= firstBounds.left;
-  if (axis !== "horizontal" && axis !== "vertical") return "axis must be horizontal or vertical";
-  return separated ? null : `${firstId} and ${secondId} overlap on the ${axis} axis (required gap ${gap})`;
+  if (!judgeFlag("GODFREYHUB_VISUAL_SEPARATION_AXIS_ADAPT")) {
+    const separated = separatedOn(axis as "horizontal" | "vertical");
+    return separated ? null : `${firstId} and ${secondId} overlap on the ${axis} axis (required gap ${gap})`;
+  }
+  // C14 跨带轴自适应(Q147): minGap 约束的是"沿实际排列方向的互斥距离"。声明轴来自某一
+  // 带的标定(如 mate 竖屏堆叠), 横屏重排后排列方向改变, 死守单轴会把"并排/对角互不相撞"
+  // 判成红。规则: 按投影重叠判定真实排列轴——一维投影重叠=在该轴方向上并排, 须沿正交轴
+  // 复测同一 minGap; 两维投影都重叠=界框真相交=红; 都不重叠=二维完全分离(重排后不相撞)=绿。
+  // minGap 数值、exact 匹配、声明本体均不改, 只在排列方向变化时换轴测量。
+  const rangesOverlap = (a: "horizontal" | "vertical"): boolean => a === "vertical"
+    ? firstBounds.top < secondBounds.bottom && secondBounds.top < firstBounds.bottom
+    : firstBounds.left < secondBounds.right && secondBounds.left < firstBounds.right;
+  const hOverlap = rangesOverlap("horizontal");
+  const vOverlap = rangesOverlap("vertical");
+  if (hOverlap && vOverlap) {
+    return `${firstId} and ${secondId} bounding boxes intersect (required gap ${gap})`;
+  }
+  if (!hOverlap && !vOverlap) return null;
+  const arranged = vOverlap ? "horizontal" : "vertical";
+  return separatedOn(arranged) ? null
+    : `${firstId} and ${secondId} overlap on the ${arranged} axis (required gap ${gap})`;
 }
 
 function pixelAt(image: PNG, x: number, y: number): Pixel {
@@ -584,6 +618,8 @@ function percentileLuma(sorted: number[], fraction: number): number {
  *   2. 墨水种子：背景两侧（luma 低于/高于 bg±inkSeparation）取极值距离更远的一侧均值；
  *   3. Lloyd 精化：全体样本按最近心重归属、重算两心（固定轮数，确定性）——抗锯齿过渡带
  *      被就近拆开，不会把背景渐变误并进墨水，也不会把墨水稀释进背景；
+ *   3b. 墨核(Q147, GODFREYHUB_VISUAL_CONTRAST_INK_CORE 默认开)：比值用墨簇离背景
+ *      最远 25% 分位均值，修固定网格采小字只剩 halo 的伪低对比；
  *   4. 精化后两心分离不足 inkSeparation 或墨水样本数低于下限 = 无可辨文字 = 显式红
  *      （文字没渲染与低对比同罪，绝不因"分不出簇"而放行）。
  * 聚簇只用 luma：WCAG 对比度由相对亮度定义，同亮度异色相的文字对比度本来就是 1:1，
@@ -650,16 +686,31 @@ function contrastProbeCheck(image: PNG, layout: any, rule: any): string | null {
   }
 
   // 4. 判定：墨水簇必须有足够样本且与背景真的分离，否则按对比度不足红。
+  //    墨核(Q147)：pad 小字笔画 2–3px 在固定 cap 网格下采不到字核、采到的几乎全是
+  //    抗锯齿 halo，两簇均值把 ink 稀释成伪低对比(Goread doc-actions pad 实测 3.00:1，
+  //    真对比 13–15:1)。取墨簇中离背景最远的 25% 分位作墨核参与 WCAG 比值；
+  //    unresolvable 仍看簇均值分离(采不出核的情形不放行)。大字 halo 占比低，读数不变。
   const minRatio = Number(rule.minRatio ?? 4.5);
   const minInkSamples = Math.max(1, Number(rule.minInkSamples ?? 4));
   const inkCount = lumas.filter((luma) => Math.abs(luma - ink) < Math.abs(luma - background)).length;
   const unresolvable = inkCount < minInkSamples || Math.abs(background - ink) < inkSeparation;
-  const ratio = (Math.max(background, ink) + 0.05) / (Math.min(background, ink) + 0.05);
+  let inkCore = ink;
+  if (judgeFlag("GODFREYHUB_VISUAL_CONTRAST_INK_CORE")) {
+    const inkSamples = lumas.filter((luma) => Math.abs(luma - ink) < Math.abs(luma - background));
+    if (inkSamples.length > 0) {
+      const far = inkSamples.map((luma) => luma - background).sort((a, b) => Math.abs(b) - Math.abs(a));
+      const coreCount = Math.max(1, Math.ceil(far.length / 4));
+      let coreSum = 0;
+      for (let i = 0; i < coreCount; i++) coreSum += far[i];
+      inkCore = background + coreSum / coreCount;
+    }
+  }
+  const ratio = (Math.max(background, inkCore) + 0.05) / (Math.min(background, inkCore) + 0.05);
   if (ratio >= minRatio && !unresolvable) return null;
   const effectiveRatio = unresolvable ? 1 : ratio;
   const inkNote = unresolvable
     ? `; no distinct ink cluster rendered (ink samples ${inkCount}/${lumas.length})`
-    : ` (background luma ${background.toFixed(3)}, ink luma ${ink.toFixed(3)}, ink samples ${inkCount}/${lumas.length})`;
+    : ` (background luma ${background.toFixed(3)}, ink luma ${inkCore.toFixed(3)}, ink samples ${inkCount}/${lumas.length})`;
   return `contrast ${effectiveRatio.toFixed(2)}:1 is below the required ${minRatio}:1${inkNote}`;
 }
 
@@ -1174,6 +1225,7 @@ export function compareVisualSpec(opts: {
   const result: VisualCompareResult = {
     status: issues.length === 0 ? "passed" : "failed",
     summary: {
+      criteriaVersion: JUDGE_CRITERIA_VERSION,
       checks,
       passed: checks - issues.length,
       failed: issues.length,
@@ -1190,6 +1242,7 @@ export function compareVisualSpec(opts: {
     "# Visual contract report",
     "",
     `- Status: ${result.status}`,
+    `- Criteria version: ${JUDGE_CRITERIA_VERSION}`,
     `- Checks: ${checks}`,
     `- Failed: ${issues.length}`,
     `- Theme axis: ${themeAxis}`,

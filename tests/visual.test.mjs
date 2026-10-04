@@ -233,7 +233,67 @@ test("layout separation rejects title and search bounds that overlap", () => {
     outputDir: path.join(f.root, "overlap-report"),
   });
   assert.equal(overlapping.status, "failed");
-  assert.match(overlapping.issues[0].message, /overlap/);
+  assert.match(overlapping.issues[0].message, /overlap|bounding boxes intersect/);
+});
+
+test("layout separation adapts to the arrangement axis across band reflow (Q147)", () => {
+  const f = fixture(true);
+  fs.writeFileSync(f.layout, JSON.stringify({
+    attributes: { id: "root", bounds: "[0,0][80,50]" },
+    children: [
+      { attributes: { id: "title", bounds: "[5,10][35,40]" }, children: [] },
+      { attributes: { id: "search", bounds: "[45,10][75,40]" }, children: [] },
+    ],
+  }));
+  fs.writeFileSync(f.spec, JSON.stringify({
+    schemaVersion: 1,
+    layoutSeparations: [{
+      id: "title-search-gap",
+      first: { id: "title", exact: true },
+      second: { id: "search", exact: true },
+      axis: "vertical",
+      minGap: 7,
+    }],
+  }));
+  // 横屏并排(声明轴竖): x 间隙 10≥7、y 投影重叠 → 沿真实排列轴(横)复测 → 绿
+  const sideBySide = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(f.root, "adapt-side-by-side"),
+  });
+  assert.equal(sideBySide.status, "passed", JSON.stringify(sideBySide.issues));
+  // 对角分离: 两轴间距都很小但界框互不相交 → 绿(不相撞即通过)
+  let layout = JSON.parse(fs.readFileSync(f.layout, "utf8"));
+  layout.children[1].attributes.bounds = "[40,45][75,50]";
+  fs.writeFileSync(f.layout, JSON.stringify(layout));
+  const diagonal = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(f.root, "adapt-diagonal"),
+  });
+  assert.equal(diagonal.status, "passed", JSON.stringify(diagonal.issues));
+  // 竖排但间隙不足: x 投影重叠 → 沿真实排列轴(竖)复测同一 minGap, 5<7 → 红
+  layout = JSON.parse(fs.readFileSync(f.layout, "utf8"));
+  layout.children[1].attributes.bounds = "[20,45][34,50]";
+  fs.writeFileSync(f.layout, JSON.stringify(layout));
+  const stackedTooClose = compareVisualSpec({
+    specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+    outputDir: path.join(f.root, "adapt-stacked-too-close"),
+  });
+  assert.equal(stackedTooClose.status, "failed");
+  assert.match(stackedTooClose.issues[0].message, /overlap on the vertical axis \(required gap 7\)/);
+  // 开关回滚: flag=0 时逐字节回到旧单轴语义(横排被判竖轴红)
+  process.env.GODFREYHUB_VISUAL_SEPARATION_AXIS_ADAPT = "0";
+  try {
+    layout.children[1].attributes.bounds = "[40,10][75,40]";
+    fs.writeFileSync(f.layout, JSON.stringify(layout));
+    const legacyFlagOff = compareVisualSpec({
+      specPath: f.spec, actualPath: f.actual, layoutPath: f.layout,
+      outputDir: path.join(f.root, "adapt-flag-off"),
+    });
+    assert.equal(legacyFlagOff.status, "failed");
+    assert.match(legacyFlagOff.issues[0].message, /overlap on the vertical axis \(required gap 7\)/);
+  } finally {
+    delete process.env.GODFREYHUB_VISUAL_SEPARATION_AXIS_ADAPT;
+  }
 });
 
 // ── C05 contrastProbes：正样本(高对比文字)过，负样本(低对比文字)红 ──────────────
