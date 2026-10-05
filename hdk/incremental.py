@@ -33,6 +33,7 @@ import time
 
 import crawl  # 复用 MCP、to_parent、write_doc、OUT、STATE、QUERIES、load_state
 import hdk_io  # 原子写 + 瞬时锁退避（状态落盘统一走它）
+import portal  # 知识 MCP 不供给的文档走匿名正文接口补齐
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = crawl.OUT
@@ -42,6 +43,7 @@ INC_STATE = os.path.join(HERE, "incremental_state.json")
 NWORK = 4
 BATCH = 10
 MAXQ = 30
+RETRY_SLEEP = 2.0          # 降级/异常重试的退避基准秒数（单测里置 0，避免测试真等睡眠）
 LINK_RE = crawl.LINK_RE
 MAX_DISCOVERED = crawl.MAX_DISCOVERED
 
@@ -59,7 +61,14 @@ def canonical_hash(title, content):
 
 
 def doc_hash(item):
-    return canonical_hash(item.get("title", ""), item.get("content", ""))
+    """API 响应的内容指纹。
+
+    必须与磁盘那侧同源：标题走 crawl.frontmatter_value 清洗（write_doc 落盘前就洗过，
+    不洗则永远对不上）、正文走 crawl.doc_body（空正文落盘为 "(empty)"）。
+    两边口径不一致会让该文档每轮都被判为“已修改”而无限重写。
+    """
+    return canonical_hash(crawl.frontmatter_value(item.get("title", "")),
+                          crawl.doc_body(item))
 
 
 def disk_hash(name):
@@ -69,7 +78,8 @@ def disk_hash(name):
     if not os.path.exists(fp):
         return None
     try:
-        txt = open(fp, encoding="utf-8").read()
+        with open(fp, encoding="utf-8") as fh:
+            txt = fh.read()
     except Exception:
         return None
     m = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)$", txt, re.DOTALL)
@@ -96,6 +106,10 @@ def load_inc_state():
                     if not crawl.is_version_snapshot(d)]
     s["hashes"] = {k: v for k, v in s.get("hashes", {}).items()
                    if not crawl.is_version_snapshot(k)}
+    s.setdefault("unreachable", [])
+    s.setdefault("inventoryBuiltAt", "")
+    s.setdefault("portal", [])
+    s.setdefault("portalAbsent", [])
     return s
 
 
@@ -112,6 +126,30 @@ def seed_from_crawl(s):
     s["fetched"] = list(cs.get("fetched", []))
     print(f"[seed] 从 crawl_state.json 继承: discovered={len(s['discovered'])} "
           f"fetched={len(s['fetched'])}", flush=True)
+
+
+def portal_names_from_disk():
+    """从 frontmatter 的 `source: portal` 标记重建 portal 名单。
+
+    状态文件丢失/被重置时，少了这一步会把门户路文档放进知识 MCP 重查队列，
+    它们永远不被返回 -> 全数进删除候选 -> 被误删。标记在文件里，是自愈依据。
+    """
+    out = set()
+    for root, _, files in os.walk(OUT):
+        for fn in files:
+            if not fn.endswith(".md"):
+                continue
+            try:
+                with open(os.path.join(root, fn), encoding="utf-8",
+                          errors="replace") as fh:
+                    head = fh.read(400)
+            except Exception:                                # noqa
+                continue
+            if re.search(r"^source: portal\s*$", head, re.M):
+                m = re.search(r"^name: (.+)$", head, re.M)
+                if m:
+                    out.add(m.group(1).strip())
+    return out
 
 
 def sync_crawl_state(disc, fetched, deleted_names):
@@ -187,33 +225,40 @@ def make_get_mcp():
 
 
 def confirm_gone(name, get_mcp):
-    """对单个文档再次查询，确认官方确实已删除。任何异常/不确定都返回 False（保留）。"""
+    """对单个文档再次查询，确认官方确实已删除。
+
+    任何异常/结构不合法/不确定都返回 False（保留）——只有「合法响应明确不含该 name」
+    才判删。结构校验共用 `crawl.parse_result_list`，与抓取路径同一契约。
+    """
     m = get_mcp()
     for attempt in range(3):
         try:
             r = m.call_tool("getDocumentsById",
                             {"GetDocumentsByIdRequest": {"names": [name]}})
             text = r["result"]["content"][0]["text"]
-            data = json.loads(text)
-            names = {it.get("name") for it in data.get("resultList", [])}
-            return name not in names
+            items = crawl.parse_result_list(text)
+            return name not in {it.get("name") for it in items}
         except Exception:
-            time.sleep(2 * (attempt + 1))
+            time.sleep(RETRY_SLEEP * (attempt + 1))
     return False
 
 
 # --------------------------------------------------------------------------- #
 # 主流程
 # --------------------------------------------------------------------------- #
-def run(no_recheck=False, skip_delete=False, limit=0):
+def run(no_recheck=False, skip_delete=False, limit=0,
+        skip_portal=False, portal_refresh=False):
     """带锁运行一轮增量(函数化入口, 供 hdk.py 传参调用, 不经 argv)。
 
+    skip_portal: 不走门户补齐通路（只跑知识 MCP）。
+    portal_refresh: 重查已入库的 portal 文档以检测变更（成本接近再抓一遍）。
     锁必须 try/finally 释放: 过去 release 在函数末尾, 任何未捕获异常都会留下
     crawl.lock, 之后 40 分钟内所有定时增量静默 no-op。
     """
     crawl.acquire_lock()  # 与 crawl.py 共用同一把锁，避免同时写 crawl_state.json
     try:
-        _run(no_recheck=no_recheck, skip_delete=skip_delete, limit=limit)
+        _run(no_recheck=no_recheck, skip_delete=skip_delete, limit=limit,
+             skip_portal=skip_portal, portal_refresh=portal_refresh)
     finally:
         crawl.release_lock()
 
@@ -225,13 +270,18 @@ def main(argv=None):
                     help="只抓取新发现的文档，不做修改/删除检测")
     ap.add_argument("--skip-delete", action="store_true",
                     help="报告会删除的文档，但不真正移动文件")
+    ap.add_argument("--skip-portal", action="store_true",
+                    help="不走门户（documentPortal）补齐通路")
+    ap.add_argument("--portal-refresh", action="store_true",
+                    help="重查已入库的 portal 文档以检测变更")
     ap.add_argument("--limit", type=int, default=0,
                     help="限制处理文档数（冒烟测试）")
     args = ap.parse_args(argv)
-    run(no_recheck=args.no_recheck, skip_delete=args.skip_delete, limit=args.limit)
+    run(no_recheck=args.no_recheck, skip_delete=args.skip_delete, limit=args.limit,
+        skip_portal=args.skip_portal, portal_refresh=args.portal_refresh)
 
 
-def _run(no_recheck, skip_delete, limit):
+def _run(no_recheck, skip_delete, limit, skip_portal=False, portal_refresh=False):
     os.makedirs(OUT, exist_ok=True)
 
     s = load_inc_state()
@@ -246,6 +296,30 @@ def _run(no_recheck, skip_delete, limit):
     import catalog
     inv = {n for n in catalog.names() if not crawl.is_version_snapshot(n)}
     inv_cats = {n.split("/")[2] for n in inv if len(n.split("/")) >= 3}
+    age_warn = catalog.check_age()
+    if age_warn:
+        print(age_warn, flush=True)
+    # 清单换代 => 不可达名单作废，这批文档重新问一次（周重建 = 周重试一次）
+    built = catalog.inventory_built_at()
+    if built and s.get("inventoryBuiltAt") != built:
+        if s.get("unreachable"):
+            print(f"[catalog] 清单换代({s.get('inventoryBuiltAt') or '未知'} -> {built})，"
+                  f"释放不可达名单 {len(s['unreachable'])} 篇重新重试", flush=True)
+        s["unreachable"] = []
+        s["portalAbsent"] = []
+        s["inventoryBuiltAt"] = built
+    unreachable = set(s["unreachable"])
+    # 两条路都明确没有正文的（链接 BFS 带回来的别名/死链）：不再每轮重问，
+    # 同随清单换代释放。
+    portal_absent = set(s.get("portalAbsent", []))
+    # 门户路入库的文档：知识 MCP 永远不返回它们，不能把它们放进 MCP 重查队列，
+    # 否则每轮都会被当成「官方已消失」进删除候选。状态里没有时从磁盘标记重建。
+    portal_names = set(s["portal"])
+    if not portal_names:
+        portal_names = portal_names_from_disk()
+        if portal_names:
+            print(f"[portal] 状态无 portal 名单，已从磁盘 source: portal 标记重建 "
+                  f"{len(portal_names)} 篇", flush=True)
     if inv:
         new_from_catalog = inv - disc
         disc |= inv
@@ -267,7 +341,8 @@ def _run(no_recheck, skip_delete, limit):
                 n += 1
         print(f"[baseline] 从磁盘计算指纹 {n}/{len(fetched)}", flush=True)
 
-    stats = {"new": 0, "updated": 0, "unchanged": 0, "deleted": 0}
+    stats = {"new": 0, "updated": 0, "unchanged": 0, "deleted": 0,
+             "degraded": 0, "portal": 0}
     delete_candidates = set(stale_catalog)
     failed = set()
     lock = threading.Lock()
@@ -316,17 +391,23 @@ def _run(no_recheck, skip_delete, limit):
                 r = m.call_tool("getDocumentsById",
                                 {"GetDocumentsByIdRequest": {"names": batch}})
                 text = r["result"]["content"][0]["text"]
-                data = json.loads(text)
+                # 结构不合法（限流/降级）在此抛错 -> 走重试 -> 4 次后按瞬时失败，
+                # 不把「服务端没答上」当成「官方已删除」。
+                items = crawl.parse_result_list(text)
                 with lock:
                     returned = set()
-                    for it in data.get("resultList", []):
+                    for it in items:
                         name = it.get("name")
                         if not name:
                             continue
                         returned.add(name)
                         new_h = doc_hash(it)
                         if name not in hashes or hashes[name] != new_h:
-                            crawl.write_doc(it)
+                            if not crawl.write_doc(it):
+                                # 仓颉命名空间（浏览器路所有）或 name 缺失：此路不写盘，
+                                # 计入不可达名单（清单换代时重试），不污染 fetched/hashes。
+                                unreachable.add(name)
+                                continue
                             was_new = name not in fetched
                             hashes[name] = new_h
                             if was_new:
@@ -336,32 +417,42 @@ def _run(no_recheck, skip_delete, limit):
                                 stats["updated"] += 1
                         else:
                             stats["unchanged"] += 1
+                        unreachable.discard(name)
                         # 从正文里发现新链接
                         for mm in LINK_RE.finditer(it.get("content", "") or ""):
                             p = crawl.to_parent(mm.group(0))
                             if p and p not in disc and len(disc) < MAX_DISCOVERED:
                                 disc.add(p)
-                    # 删除检测：请求过、且在成功返回中彻底消失的
+                    # 删除/不可达检测：请求过、但在合法响应里明确消失的
                     for n in batch:
-                        if n in fetched and n not in returned:
-                            delete_candidates.add(n)
+                        if n in returned:
+                            continue
+                        if n in fetched:
+                            delete_candidates.add(n)      # 曾抓过 => 候选下线（仍需二次确认）
+                        else:
+                            unreachable.add(n)            # 从未拓到 => 知识 MCP 不供给，本轮不再问
                 return
             except Exception as e:
                 if attempt == 3:
                     with lock:
                         failed.update(batch)
-                    print(f"[batch-err] {e}", flush=True)
-                time.sleep(2 * (attempt + 1))
+                        stats["degraded"] += len(batch)
+                    print(f"[batch-degraded] {len(batch)} 篇本轮未取到(不拉黑不判删): {e}",
+                          flush=True)
+                time.sleep(RETRY_SLEEP * (attempt + 1))
 
     # 先一轮搜索发现新文档(收尾还有一轮兜底; 过去开头背靠背跑两遍全量 QUERIES,
     # 第二遍几乎不可能发现新文档, 纯粹把发现耗时与 API 压力翻倍)
     maybe_search()
 
     # 构造工作列表：先重查已抓取（检测修改/删除），再抓取新发现
+    # unreachable 里的 name 不排队：它们在合法响应中被知识 MCP 明确不返回（实测 992 篇），
+    # 每轮重问只浪费带宽；清单换代时整表释放重试。
     if no_recheck:
-        work = [p for p in disc if p not in fetched]
+        work = [p for p in disc if p not in fetched and p not in unreachable]
     else:
-        work = list(fetched) + [p for p in disc if p not in fetched]
+        work = ([p for p in fetched if p not in portal_names]
+                + [p for p in disc if p not in fetched and p not in unreachable])
     if limit > 0:
         work = work[:limit]
     seen, work2 = set(), []
@@ -371,8 +462,8 @@ def _run(no_recheck, skip_delete, limit):
             work2.append(x)
     work = work2
 
-    print(f"[start] disc={len(disc)} fetched={len(fetched)} work={len(work)}",
-          flush=True)
+    print(f"[start] disc={len(disc)} fetched={len(fetched)} work={len(work)} "
+          f"unreachable={len(unreachable)}", flush=True)
 
     # 工作线程池
     q = queue.Queue()
@@ -393,6 +484,18 @@ def _run(no_recheck, skip_delete, limit):
     for w in workers:
         w.start()
 
+    def snapshot():
+        return {
+            "discovered": sorted(disc),
+            "fetched": sorted(fetched),
+            "hashes": hashes,
+            "deleted": s["deleted"],
+            "unreachable": sorted(unreachable),
+            "portal": sorted(portal_names),
+            "portalAbsent": sorted(portal_absent),
+            "inventoryBuiltAt": s.get("inventoryBuiltAt", ""),
+        }
+
     last_save = time.time()
     last_print = time.time()
     i = 0
@@ -412,17 +515,13 @@ def _run(no_recheck, skip_delete, limit):
             with lock:
                 print(f"[progress] queued={i}/{len(work)} inflight={len(in_flight)} "
                       f"q={q.qsize()} new={stats['new']} updated={stats['updated']} "
-                      f"unchanged={stats['unchanged']} deleted={stats['deleted']}",
+                      f"unchanged={stats['unchanged']} deleted={stats['deleted']} "
+                      f"degraded={stats['degraded']} unreachable={len(unreachable)}",
                       flush=True)
             last_print = now
         if now - last_save > 15:
             with lock:
-                save_inc_state({
-                    "discovered": sorted(disc),
-                    "fetched": sorted(fetched),
-                    "hashes": hashes,
-                    "deleted": s["deleted"],
-                })
+                save_inc_state(snapshot())
             last_save = now
 
     for _ in workers:
@@ -432,29 +531,99 @@ def _run(no_recheck, skip_delete, limit):
     # 收尾再搜索一轮，捕捉本轮链接新发现（下轮增量会补抓）
     maybe_search()
 
+    # 门户补齐通路：知识 MCP 不供给的 name（含刚采纳的新分类）走匿名正文接口。
+    # 已入库的 portal 文档默认不重查（重查成本接近再抓一遍），--portal-refresh 才做变更检测。
+    if not skip_portal:
+        if portal_refresh:
+            p_todo = sorted((portal_names | (disc - fetched)) - portal_absent)
+        else:
+            p_todo = sorted(((disc - fetched) | unreachable) - portal_absent)
+        if p_todo:
+            print(f"[portal] 补齐 {len(p_todo)} 篇（知识 MCP 不供给）…", flush=True)
+            pq = queue.Queue()
+            for nm in p_todo:
+                pq.put(nm)
+            p_uncertain = [0]
+
+            def portal_worker():
+                while True:
+                    try:
+                        name = pq.get_nowait()
+                    except queue.Empty:
+                        return
+                    it = path = None
+                    try:
+                        it = portal.fetch_item(name)
+                        if it is not None:
+                            path = crawl.write_doc(it)
+                    except portal.PortalAbsent:
+                        # 接口回了 not-found（负载下会假报）：本轮停放，清单换代再给机会；
+                        # 但它不是删除依据，也不是「文档不存在」的结论。
+                        with lock:
+                            portal_absent.add(name)
+                        pq.task_done()
+                        continue
+                    except portal.PortalTransient:
+                        with lock:
+                            p_uncertain[0] += 1      # 不确定：留在 unreachable，下轮再试
+                        pq.task_done()
+                        continue
+                    except Exception:                # noqa
+                        with lock:
+                            p_uncertain[0] += 1
+                        pq.task_done()
+                        continue
+                    with lock:
+                        if path:
+                            hashes[name] = doc_hash(it)
+                            fetched.add(name)
+                            portal_names.add(name)
+                            unreachable.discard(name)
+                            portal_absent.discard(name)
+                            stats["portal"] += 1
+                            if stats["portal"] % 200 == 0:
+                                save_inc_state(snapshot())
+                        else:
+                            # 接口明确答了但没正文（别名/死链）：停放在此，不反复重问
+                            portal_absent.add(name)
+                    pq.task_done()
+                    time.sleep(portal.CALL_SLEEP)
+
+            p_threads = [threading.Thread(target=portal_worker, daemon=True)
+                         for _ in range(NWORK)]
+            for t in p_threads:
+                t.start()
+            for t in p_threads:
+                t.join()
+            print(f"[portal] 入库 {stats['portal']} 篇，不确定 {p_uncertain[0]} 篇，"
+                  f"两条路都无正文 {len(portal_absent)} 篇，仍不可达 {len(unreachable)} 篇",
+                  flush=True)
+
     # 二次确认 + 物理删除
     if not no_recheck:
         for n in sorted(delete_candidates):
-            if confirm_gone(n, get_mcp):
+            # 按文档当初的入库通路选确认手段：门户路写的文档知识 MCP 永远不返回，
+            # 用 MCP 确认会把它们全数误删。
+            gone = (portal.confirm_absent(n) if n in portal_names
+                    else confirm_gone(n, get_mcp))
+            if gone:
                 if not skip_delete:
                     delete_doc(n, s, fetched, hashes)
+                    portal_names.discard(n)
                 stats["deleted"] += 1
                 tag = "（已物理删除）" if not skip_delete else "（--skip-delete 未删除）"
                 print(f"[DELETE] {n} {tag}", flush=True)
             else:
                 print(f"[keep] {n} 二次确认仍存在，保留", flush=True)
 
-    save_inc_state({
-        "discovered": sorted(disc),
-        "fetched": sorted(fetched),
-        "hashes": hashes,
-        "deleted": s["deleted"],
-    })
+    save_inc_state(snapshot())
     sync_crawl_state(disc, fetched,
                      {d["name"] for d in s["deleted"]})
 
     print(f"[DONE] new={stats['new']} updated={stats['updated']} "
           f"unchanged={stats['unchanged']} deleted={stats['deleted']} "
+          f"portal={stats['portal']} degraded={stats['degraded']} "
+          f"unreachable={len(unreachable)} "
           f"failed={len(failed)} disc={len(disc)} fetched={len(fetched)}",
           flush=True)
 

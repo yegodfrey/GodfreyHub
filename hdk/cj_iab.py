@@ -80,7 +80,8 @@ def _path_of(cat, oid):
 
 def _body_of_file(path):
     try:
-        txt = open(path, encoding="utf-8").read()
+        with open(path, encoding="utf-8") as fh:
+            txt = fh.read()
     except Exception:
         return None
     m = _FM_RE.match(txt)

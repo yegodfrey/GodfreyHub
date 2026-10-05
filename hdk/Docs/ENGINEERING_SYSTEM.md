@@ -11,14 +11,17 @@
 ## 模块与职责
 
 ```text
-hdk.py               统一 CLI：crawl / incremental / incremental-cj / incremental-cangjie / index / serve / stats / manifest / state
+hdk.py               统一 CLI：crawl / incremental / incremental-cj / incremental-cangjie / index / serve / stats / manifest / state / catalog
   ├─ crawl.py          HarmonyOS 文档：华为云 Developer Knowledge MCP（HTTP，免登录，并发）
   ├─ crawl_cj.py       仓颉语言文档：cj-docs.gitcode.com 静态站（BFS + markdownify，VER 可经 HDK_CJ_VER 覆盖）
   ├─ crawl_cangjie.py  鸿蒙仓颉开发文档：鉴权抓取的可复用模块（TREE_JS/DOC_JS/walk_tree/write_doc/状态）
   ├─ cj_iab.py         鸿蒙仓颉开发文档采集器（单模块自包含）：内置浏览器桥（本地 HTTP 桥 +
   │                     浏览器 evaluate）承载枚举/批量抓取/增量回查/判删；原 cj_mcp.py
   │                     （QwenWork MCP 适配器通道）已整体删除
-  ├─ incremental.py    HarmonyOS 增量更新：新/改/删检测（删除即物理删除）
+  ├─ catalog.py        完整性基线：getAllCatalog 官方分类全集 + getCatalogTree 逐分类枚举；
+  │                     清单新鲜度门、对账分桶、只读重复扫描、分类 adopt（原 purge-stale 已整体删除）
+  ├─ portal.py         文档站匿名正文接口 documentPortal/getDocumentById：知识 MCP 不供给文档的补齐通路
+  ├─ incremental.py    HarmonyOS 增量更新：新/改/删检测（删除即物理删除）+ 知识 MCP 不供给名单
   ├─ incremental_cj.py 仓颉语言文档增量更新：重查 hash 比对 + 404 判删（物理删除）
   ├─ hdk_io.py         共享原子写（临时文件 + fsync + os.replace + 瞬时 OSError 退避），所有状态/语料落盘经它
   ├─ indexer.py        共享 FTS5 索引（全量 build_index + 增量 ensure_index）
@@ -31,7 +34,15 @@ hdk.py               统一 CLI：crawl / incremental / incremental-cj / increme
 - `crawl_cangjie.py`：鸿蒙仓颉开发文档的**可复用数据层**——语料常量（`CATALOGS`/`OUT`/`BASE_URL`）、`html2text` 配置 `H`、断点续跑状态 `load_state`/`save_state`（走 `hdk_io`）、运行锁 `acquire_lock`/`release_lock`（`cangjie_crawl.lock`）、`write_doc`（官方正文 HTML→Markdown，落盘到 `harmonyos_docs/<catalog>/<objectId>.md`）。原先的 QQ 浏览器（`qqbrowser-skill.exe`）与 QwenWork MCP 适配器两条鉴权传输路径均已整体删除；枚举/抓取/增量的浏览器传输与 delegate JS 全在 `cj_iab.py`。
 - `cj_iab.py`：鸿蒙仓颉开发文档的当前唯一采集模块（编排 + 内置浏览器桥传输自包含）。回查指纹先归一化（抹掉 `HW-CC-Date/Expire/Sign` 与压缩空白）再 sha256，避免华为 CDN 签名图片 URL 与排版空白抖动造成“假修改”；判删以“重枚举的目录树中消失”为候选，单篇 `getDocumentById` 仅在明确空内容时确认，任何不确定一律保留；回查「指纹未变」须同时满足**磁盘文件存在**——状态先于语料入库曾导致 947 篇文档只有哈希没有文件（2026-09-21 发现并经存在性自愈恢复），缺失即视同需要重写。确认删除**直接物理删除**，不留副本（用户 2026-09-21 指令），状态 `deleted` 仅留名称与时间戳。
 - `cj_iab.py`：当前唯一浏览器传输层（内置浏览器桥）。原 QwenWork MCP 适配器通道（`~/.qwenworkcn/mcp-adaptor.config`，本机不存在该配置）已被整体替代。机制：本地 HTTP 桥（`127.0.0.1:8791`）下发动作，浏览器控制通道的 node relay 长轮询取动作、在已登录华为开发者的标签页里 `evaluate` 执行并回传；delegate 仍须在**同源** `svc-drcn.developer.huawei.com` 上发**相对** fetch（`credentials:"include"`，CSRF 取自 `developer_userdata` cookie）。evaluate 有秒级预算且网络耗时不能跨调用等待 → 全部网络请求改「页面内踢 async 任务落 `window`、轮询收数」；evaluate 无 50KB 截断 → 整批 html 一次 `JSON.stringify` 拉回内存，落盘交 `crawl_cangjie.write_doc`。运行前提：浏览器已登录开发者账号 + node relay 在跑（relay 在本机 ZCode 环境没有现成常驻进程，落地配方见下文「内置浏览器桥 relay 配方」）；子命令 `enumerate` / `fetch`（补新）/ `incremental`（补新 + 回查已改 + 判删）。
-- `incremental.py`：复用 `crawl.py` 的 MCP/落盘函数与运行锁；对 HarmonyOS 语料做新发布发现、按 `title+content` 的 sha256 比对检测修改、对消失文档二次确认后**物理删除**（不留副本，用户 2026-09-21 指令）。状态在 `incremental_state.json`（`discovered`/`fetched`/`hashes`/`deleted`），首跑从 `crawl_state.json` 播种。
+- `portal.py`：知识 MCP 覆盖不到的文档的第二条供给路。实测：新采纳的 3 个分类（doc-references /
+  harmonyos-center-guides / openharmony-cangjie）在知识 MCP 里 20/20 不供给，而文档站前端渲染正文用的
+  `documentPortal/getDocumentById`（`{language:'cn', objectId:<slug>, catalogName:<分类>}`）匿名可达，
+  可取率 81/84（含不供给样本 19/20）。响应里 `value.content` 是 `{type:'html', content:'<html…>'}`，
+  转成 Markdown 后拼成**与知识 MCP 同形状的 item**（name/title/uri/content/source），因此落盘路径、
+  frontmatter 清洗、内容指纹、命名规则全部复用 crawl 既有通路，不另立口径。失败三分类：
+  `PortalTransient`（传输/结构/非 0 业务码 = 不确定，一律保留）、`None`（明确答了但无正文 = 可判不可得）、
+  item（拿到正文）。判删确认走 `confirm_absent`，语义与 `incremental.confirm_gone` 一致。
+- `incremental.py`：复用 `crawl.py` 的 MCP/落盘函数与运行锁；对 HarmonyOS 语料做新发布发现、按 `title+正文` 的 sha256 比对检测修改、对消失文档二次确认后**物理删除**（不留副本，用户 2026-09-21 指令）。状态在 `incremental_state.json`（`discovered`/`fetched`/`hashes`/`deleted`/`unreachable`/`portal`/`portalAbsent`/`inventoryBuiltAt`），首跑从 `crawl_state.json` 播种。`unreachable` 收「结构合法的响应里明确不返回且从未拓到」的文档（实测 992 篇——知识 MCP 自己不提供这批，它们的公开 HTML 页是 SPA 壳，200 但无正文），不排队不重问；**`catalog build` 使 `builtAt` 换代时整表释放重试**。指纹与落盘同口径：`doc_hash` = `canonical_hash(crawl.frontmatter_value(title), crawl.doc_body(item))`，两边任一侧改口径都会让该文档每轮被误判为“已修改”无限重写。
 - `incremental_cj.py`：复用 `crawl_cj.py` 的网络层/落盘函数与运行锁（`crawl_cj.lock`）；对仓颉语料做新发布发现（重查已抓页面时解析链接，官方新增页面被引用即可发现）、按 `title+body` sha256 指纹比对检测修改、重查返回 404（对象存储静态托管无 SPA fallback，404 即确定下线）经二次确认后**物理删除**。状态在 `incremental_cj_state.json`（`discovered`/`fetched`/`hashes`/`deleted`/`failed`），首跑从 `crawl_cj_state.json` 播种。
 - `indexer.py`：两个语料各自独立建库，库路径 `.mcp_cache/<root>_docs.fts5.db`（`ROOTS = {"harmonyos": harmonyos_docs, "cangjie": cangjie_docs}`）。仓颉语料 relpath 统一加 `cangjie/` 前缀避免与鸿蒙分类重名。分词方案（schema tokenizer=3）：**单张 `fts` unicode61 词元表**——索引端用 jieba `cut_for_search(HMM=False)` + 驼峰/数字边界拆词（保留原词）+ 停用词/符号/纯数字单字过滤，把 title/body 切为空格分隔词元后入库；查询端（Node `@node-rs/jieba` 与 `mcp_server.py`）加载同一份 `dict/dict.txt` 与 `dict/stopwords.txt`，精确 `cut(HMM=False)`，`cut_for_search` 输出 ⊇ `cut` 故查询词必在索引词元集合内。`dict/dict.txt` 是**语料贴合自建词典**（默认词典∩语料命中词 + userdict + curated 人工确认词，约 2.5 万词），由 `hdk/dict/build_dict.py` 生成，加词走 `userdict.txt`/`curated.txt` 后重跑，勿手改（见 `hdk/dict/README.md`）。检索分层降级：① 全词元 AND MATCH；② 不足时去掉单字噪声词元后重试 AND（长问句切出的"传/参"等）；③ 仍不足允许缺一个词元；④ 最后把含子词的整词替换为 `cut_for_search` 子词 OR 兜底（如"智慧屏"→"智慧"，子词必在索引词元集合内），再以 BM25 和原始标题加权排序；标题与摘要从 Markdown 原文渲染，不暴露索引词元文本。FTS tokenizer 建表时烧死，`SCHEMA_TOKENIZER` 不匹配即全量重建；`dict.txt`/`stopwords.txt` 变更（`meta.dict_hash` 签名变化）同样自动全量重建，避免已索引词元按旧词典切分、新词对存量文档静默漏匹配。重建以"旧库改名 `.old` → 新库就位 → 删 `.old`"原子替换；Windows 下旧库被常驻查询服务（只读连接）持有句柄时替换会失败，此时保留完整 tmp、在旧库 `meta.rebuild_failed` 记录失败原因与词典签名，查询继续用旧库不中断，后续检测 tmp 与当前词典匹配即直接替换（秒级，服务重启/句柄释放后自动完成迁移；签名已变则重新构建，避免误跳过）。其余表：`docmap`（relpath→rowid/size/mtime/category 增量基准，category 带索引）、`docnames`（name→relpath 反查索引）。
 - `mcp_server.py`：MCP SDK 2.0.0 的 `MCPServer`，注册 `search_documents` / `get_document` / `list_categories` 以及同名的 `searchDocuments` / `getDocumentsById` 兼容接口。检索走单表词元 MATCH（中文词元 + 英文驼峰拆词，与索引端同一词典）；`get_document` 按 `docnames` 索引反查或 relpath 解析磁盘文件（带路径越界守卫）；`list_categories` 从 `docmap` 聚合。查询端统一分词在 `indexer.segment_text(search=False)`，与 Node 端 `src/core/hdk.ts` 的 `segmentQuery` 保持逐字一致（跨引擎一致性由 `tests/hdk-segment.test.mjs` 回归锁定）。
@@ -39,8 +50,8 @@ hdk.py               统一 CLI：crawl / incremental / incremental-cj / increme
 ## 数据流
 
 ```text
-外部文档源（华为云 MCP / cj-docs 静态站 / 内置浏览器桥鉴权）
-        │  crawl*.py / incremental*.py
+外部文档源（华为云 MCP / documentPortal 匿名正文 / cj-docs 静态站 / 内置浏览器桥鉴权）
+        │  crawl*.py / incremental*.py / portal.py
         ▼
 harmonyos_docs/  cangjie_docs/   （Markdown + frontmatter：name/title/uri/category）
         │  + *state.json（各爬虫/增量器的断点续跑状态）
@@ -54,7 +65,7 @@ mcp_server.py  →  MCP 客户端（HDK MCP 工具）
 ## 关键入口
 
 - 爬取：`python hdk.py crawl --target harmonyos|harmonyos-cangjie|cangjie|all`（默认多轮驱动直到两轮无新增；完成后自动 `indexer.ensure_index`）。`harmonyos-cangjie` 经 `cj_iab`（内置浏览器桥）单次枚举+抓取补新，需已登录华为开发者账号 + node relay。
-- 增量：`python hdk.py incremental [--no-recheck] [--skip-delete] [--limit N]`（HarmonyOS）；`python hdk.py incremental-cj [--no-recheck] [--skip-delete] [--limit N]`（仓颉语言，静态站 404 判删）；`python hdk.py incremental-cangjie [--skip-delete] [--limit N]`（鸿蒙仓颉开发，经浏览器 MCP：补新+回查已改+判删）。
+- 增量：`python hdk.py incremental [--no-recheck] [--skip-delete] [--skip-portal] [--portal-refresh] [--limit N]`（HarmonyOS；默认含门户补齐，`--portal-refresh` 才对已入库门户文档做变更检测）；`python hdk.py incremental-cj [--no-recheck] [--skip-delete] [--limit N]`（仓颉语言，静态站 404 判删）；`python hdk.py incremental-cangjie [--skip-delete] [--limit N]`（鸿蒙仓颉开发，经浏览器 MCP：补新+回查已改+判删）。
 - 索引：`python hdk.py index --root harmonyos|cangjie|all [--full]`。
 - 服务：`python hdk.py serve`（等价于 `python mcp_server.py`）；仅建索引用 `python mcp_server.py build`。
 - 维护：`python hdk.py stats` / `manifest` / `state rebuild`（以磁盘为准重建 `crawl_state.json`）。
@@ -80,7 +91,10 @@ mcp_server.py  →  MCP 客户端（HDK MCP 工具）
 
 ## 外部服务 / API
 
-- HarmonyOS 文档：华为云 HarmonyOS Developer Knowledge MCP（`connect-api.cloud.huawei.com`，免登录）。
+- HarmonyOS 文档：两条匿名通路——华为云 HarmonyOS Developer Knowledge MCP（`connect-api.cloud.huawei.com`，
+  批量取文，但只覆盖自己索引里的文档）与文档站 `documentPortal/getDocumentById`
+  （`svc-drcn.developer.huawei.com`，单篇补齐不供给的文档）；目录基线走同站的
+  `getAllCatalog` + `getCatalogTree`。
 - 仓颉语言文档：cj-docs.gitcode.com 静态站（免登录）。
 - 鸿蒙仓颉开发文档：华为开发者站点，经内置浏览器桥（本地 HTTP 桥 + node relay，已登录会话标签页内同源 `svc-drcn.developer.huawei.com` 的 `/svc/.../delegate`）访问；relay 落地配方见上文「内置浏览器桥 relay 配方」。
 - 这些外部源均属于第三方站点的实时内容；项目不缓存其账号凭据，仅落盘公开文档正文。
@@ -91,9 +105,22 @@ mcp_server.py  →  MCP 客户端（HDK MCP 工具）
 - **落盘原子性**：所有状态 JSON 与语料 `.md` 写入一律经 `hdk_io.atomic_write_json` / `atomic_write_text`（写唯一临时文件 → `fsync` → 原子 `os.replace`，对瞬时 `OSError` 退避重试）。因为 Windows 上杀软/索引器会抢在 truncate 前打开刚写完的多 MB 状态文件，令就地 `open(path,'w')` 偶发 `OSError(22, 'Invalid argument')`——一次抖动即可打断整轮长跑。
 - **请求超时与防死锁**：每个 MCP / HTTP 调用用 daemon 线程 + `join(CALL_TIMEOUT)` 强制上限（crawl.py `HTTP_TIMEOUT=30`/`CALL_TIMEOUT=40`，crawl_cj.py `CALL_TIMEOUT=45`），避免线程池被卡死请求占满。
 - **限速与退避**：crawl.py 遇 HTTP 429 时按 `5*(attempt+1)` 秒退避；crawl_cj.py 使用固定短睡眠（`time.sleep(0.05)`，crawl.py 主循环为 0.02）与 `2*(attempt+1)` 秒退避。
-- **安全上限**：`MAX_FETCHED` / `MAX_DISCOVERED`（crawl.py 50万/4万，crawl_cj.py 20万/2万）与 `STALL_SECS`（crawl.py 900s，crawl_cj.py 600s）防止失控或卡死。
+- **安全上限**：`MAX_FETCHED` / `MAX_DISCOVERED`（crawl.py 50 万/12 万——官方现役清单已在 4 万量级，上限需留余量；crawl_cj.py 20万/2万）与 `STALL_SECS`（crawl.py 900s，crawl_cj.py 600s）防止失控或卡死。
 - **断点续跑**：crawl.py / crawl_cj.py 把 `discovered`/`fetched`/`failed` 周期落盘到对应 `*state.json`；`crawl_cangjie.py` 使用 `tree`/`fetched`/`failed`（`tree` 按目录表记录发现集），`cj_iab.py` 的增量再补 `hashes`/`deleted`；`incremental.py` / `incremental_cj.py` 的增量状态另存 `hashes` 基线（仓颉另存 `failed`），首跑均从磁盘现有文件计算指纹，不会造成全量重写。
-- **删除即物理删除（用户 2026-09-21 指令）**：incremental / incremental_cj / catalog purge-stale 对已下线文档与旧版变体直接 `os.remove`，不留 `_deleted/` 持有区或任何副本（历史持有区已清空删除）；仅在各状态文件的 `deleted` 列表与 `catalog_purged.json` 留名称/时间戳审计记录，`names()`/索引据此防"抓↔删"反复横跳。
+- **删除即物理删除（用户 2026-09-21 指令）**：incremental / incremental_cj 对已下线文档直接 `os.remove`，不留 `_deleted/` 持有区或任何副本（历史持有区已清空删除）；仅在各状态文件的 `deleted` 列表留名称/时间戳审计记录，`names()`/索引据此防"抓↔删"反复横跳。曾经的 `catalog purge-stale`（按词干判旧版变体并批删）**已于 2026-10-05 整体删除**：实测它把 Overview/FAQ/Class Summary 这类跨 Kit 通用页名当成同一篇的新旧两版（最大一组 42 名成员分属 42 个不同 API 包，1716 名“旧版”仅 48 篇与保留版逐字相同），执行即丢上千篇真实文档；且它的清理会被增量复活（当时增量侧无防复活护栏），两个缺陷相互掩盖。
+- **降级响应不得当成删除信号**：限流/降级时端点会返回 HTTP 200 + 合法 JSON 但没有 `resultList`。`crawl.fetch_batch` 与 `incremental.fetch_batch`/`confirm_gone` 必须共用同一结构守卫（`crawl.parse_result_list`，单一实现两处调用）：结构不合法走重试，4 次后按瞬时失败，**不进删除候选、不拉黑、不写指纹**。少了这道守卫时，一次持续降级会把整批已抓文档判为官方消失并物理删除（2026-10-05 用 hermetic 用例复现：单轮 `deleted=1`；历史单轮删除量级 1624/2071）。
+- **清单新鲜度门与分类全集**：`catalog.build()` 枚举 `getAllCatalog` 的官方全集（去重、剔除 `-V<数字>` 快照分类），不再用磁盘目录反推分类；范围外分类连同篇数写进 `unadoptedCategories` 上报，由 `catalog adopt` 显式纳入（采集范围仍以目录存在为准）。`INVENTORY_MAX_AGE_DAYS = 7`：`crawl`/`incremental`/`stats` 开头都报清单年龄，超阈即提醒（旧清单是真实的漏采源：14 天时官方新增的一整套 NearLink 文档始终未入库）。
+- **采集范围护栏（落盘入口）**：`crawl.write_doc` 只写已被采纳的分类（`crawl.in_scope(name)` =
+  该分类目录已存在于语料根），否则返回 None。链接 BFS 与门户补齐会碰到任何官方分类的 name，
+  实测有一轮带入 5 个未采纳分类的 64 篇并建了新目录——「扩采」是业主的显式决策，不得由发现
+  通路静默完成；新分类由 `catalog build` 的 `unadoptedCategories` 上报后经 `catalog adopt` 纳入。
+  范围集合由 `crawl.scope_categories()` 进程内缓存在 `_SCOPE_CACHE`（改指 OUT 后须置 None 重置）。
+- **命名空间归属**：`cangjie-*` 分类的语料只由浏览器路（`crawl_cangjie.write_doc`，按 `<分类>/<objectId>.md`）写；匿名路 `crawl.write_doc` 遇到该命名空间直接拒写（返回 None，调用方计入 failed/unreachable），避免同一 name 出现两份文件（实测曾有 1 例 `cangjie-guides/cj-notice`）。
+- **内容未变不落盘**：`crawl.write_doc` 与 `crawl_cangjie.write_doc` 先比全文，相同则不重写（零抖动排版不再弄脏已跟踪语料的工作树）。
+- **两条供给路各自负责自己的判删确认**：门户路写的文档带 `source: portal` 标量，**永远不进知识 MCP
+  重查队列**（知识 MCP 不返回它们，进队列就会被当成官方消失而全数误删）；清单说门户文档下线时，
+  确认手段用 `portal.confirm_absent`。门户名单在状态里；状态丢失时由 `portal_names_from_disk()`
+  从磁盘标记自愈重建。两条路都明确无正文的 name 停进 `portalAbsent`，与 `unreachable` 同随清单换代释放。
 - **索引只做行级增量**：`indexer.py` 用 `docmap` 表记录 `relpath→(rowid,size,mtime,category)`，每次 `ensure_index()` 只 stat 对比、对新增/变更/删除文件做 FTS5 增删改（`docnames` 与主表 `fts` 同事务、同 rowid 同步），不整库重建。**FTS tokenizer 在建表时烧死**，分词方案变更（`SCHEMA_TOKENIZER` 递增）无法行级迁移，`ensure_index` 检测 `meta.tokenizer` 不匹配即自动全量重建一次（一次性的自动迁移）。`ensure_index(force=True)` 跳过 30s 节流，供爬虫/增量完成后主动触发。
 - **服务侧边界**：`mcp_server.py` 把 `search_documents` 的 `limit` 钳制到 `[1,100]`；`_resolve_fp` 用 `os.path.commonpath` 校验路径不逃出语料根，阻止 `../` 越界读取。
 - **stdio MCP 日志通道**：`mcp_server.py` 启动即 `logging.basicConfig(stream=sys.stderr)`，所有日志走 **stderr**；**stdout 专用于 MCP 协议帧**，任何 `print(...)` 到 stdout 都会破坏 stdio 握手。`hdk.py serve` 与 `mcp_server.py` 的模块日志（logger 名 `hdk-mcp`）统一经 stderr 输出，不产生日志文件。

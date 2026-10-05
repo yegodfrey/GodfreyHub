@@ -23,6 +23,11 @@ fs.writeFileSync(
     "当状态管理异常时，先检查状态变量的初始化和更新路径。",
   "utf8",
 );
+// 逐字副本对（官方站点按 Kit 复制同文模板的真实形状）：不同文件、同一 title+正文
+const DUP_TEXT =
+  "---\ntitle: Dedup Template Page\nuri: https://example.test/dup\n---\nuniquezeta marker body text";
+fs.writeFileSync(path.join(root, "harmonyos_docs", "guide", "dup-a.md"), DUP_TEXT, "utf8");
+fs.writeFileSync(path.join(root, "harmonyos_docs", "guide", "dup-b.md"), DUP_TEXT, "utf8");
 
 const db = new Database(path.join(dbDir, "harmonyos_docs.fts5.db"));
 db.exec(`
@@ -60,6 +65,9 @@ const seed = db.transaction(() => {
     "https://example.test/smart",
     "智慧 屏幕 显示 开发",
   );
+  // 同一内容的两个逐字副本: 验证检索端内容级去重只占一个结果位
+  insert.run("guide/dup-a.md", "dup-a", "Dedup Template Page", "guide", "", "uniquezeta marker body text");
+  insert.run("guide/dup-b.md", "dup-b", "Dedup Template Page", "guide", "", "uniquezeta marker body text");
 });
 seed();
 db.exec("CREATE TABLE meta(key TEXT PRIMARY KEY, value TEXT)");
@@ -108,6 +116,14 @@ test("HDK search falls back to search-mode subwords for whole-word queries", () 
   // "智慧屏" 整词在索引中无词元; 第 4 层 cut_for_search 子词"智慧"兜底命中 smart-screen
   const [result] = searchDocuments("智慧屏", 5);
   assert.equal(result?.id, "smart-screen");
+});
+
+test("HDK search collapses byte-identical copies into one result slot", () => {
+  // 官方按 Kit 复制同文模板, 语料实测有 913 篇逐字副本; 同一 title+正文 不得刷屏结果位
+  const hits = searchDocuments("uniquezeta", 10);
+  assert.equal(hits.length, 1);
+  assert.ok(["dup-a", "dup-b"].includes(hits[0].id), hits[0].id);
+  assert.equal(hits[0].title, "Dedup Template Page");
 });
 
 test("HDK document paths cannot escape through a sibling prefix", () => {

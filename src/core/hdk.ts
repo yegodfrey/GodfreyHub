@@ -299,6 +299,12 @@ interface Candidate extends Row {
   score: number;
 }
 
+/** 内容指纹: title + 正文。官方站点按 Kit 复制同文模板(实测语料内 913 篇逐字副本),
+ *  同一篇内容可以占满整页结果; 检索端按此指纹只保留得分最高的一条。 */
+function contentKey(title: string, body: string): string {
+  return createHash("sha256").update((title || "") + "\n" + (body || ""), "utf8").digest("hex");
+}
+
 function quoteFtsToken(token: string): string {
   return '"' + token.replace(/"/g, '""') + '"';
 }
@@ -417,29 +423,33 @@ export function searchDocuments(query: string, limit = 10, category = ""): HdkDo
   }
 
   const queryLower = query.trim().toLowerCase();
-  const renderCap = Math.max(safeLimit * 3, 30);
-  const rendered = [...candidates.values()]
-    .sort((a, b) => b.score - a.score)
-    .slice(0, renderCap)
-    .map((candidate) => {
-      const raw = rawSearchDocument(candidate.relpath, candidate.root);
-      const title = raw?.title ?? candidate.title;
-      const body = raw?.body ?? candidate.indexedBody;
-      const titleLower = title.toLowerCase();
-      let score = candidate.score;
-      if (queryLower && titleLower.includes(queryLower)) score += 2_000;
-      for (const token of tokens) if (titleLower.includes(token.toLowerCase())) score += 200;
-      return {
-        id: candidate.name,
-        file: candidate.relpath,
-        title,
-        uri: raw?.uri || candidate.uri,
-        category: candidate.category,
-        snippet: makeSnippet(body, tokens),
-        score,
-      };
+  // 内容级去重渲染: 在 max(limit*6, 60) 的窗口内读原文, 同一 title+正文 只占一个结果位
+  // (重复簇总是排在最前, 6 倍足够填满), 再按含标题加权后的得分排序取前 safeLimit。
+  const readCap = Math.max(safeLimit * 6, 60);
+  const ordered = [...candidates.values()].sort((a, b) => b.score - a.score).slice(0, readCap);
+  const seen = new Set<string>();
+  const rendered: (HdkDoc & { score: number })[] = [];
+  for (const candidate of ordered) {
+    const raw = rawSearchDocument(candidate.relpath, candidate.root);
+    const title = raw?.title ?? candidate.title;
+    const body = raw?.body ?? candidate.indexedBody;
+    const titleLower = title.toLowerCase();
+    let score = candidate.score;
+    if (queryLower && titleLower.includes(queryLower)) score += 2_000;
+    for (const token of tokens) if (titleLower.includes(token.toLowerCase())) score += 200;
+    const key = contentKey(title, body);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    rendered.push({
+      id: candidate.name,
+      file: candidate.relpath,
+      title,
+      uri: raw?.uri || candidate.uri,
+      category: candidate.category,
+      snippet: makeSnippet(body, tokens),
+      score,
     });
-
+  }
   rendered.sort((a, b) => b.score - a.score);
   return rendered.slice(0, safeLimit).map(({ score: _score, ...doc }) => doc);
 }

@@ -27,6 +27,14 @@ class MCPServerSafetyTests(unittest.TestCase):
 
         cls.server = mcp_server
 
+    @classmethod
+    def tearDownClass(cls):
+        # 服务层会缓存每线程只读连接（indexer._ALL_CONNS），测试结束必须释放，
+        # 否则解释器退出时报 unclosed database（测试输出被噪音污染，真泄漏会被习惯掉）。
+        import indexer
+
+        indexer.close_conns()
+
     def test_search_limit_is_clamped_to_safe_range(self):
         self.assertEqual(self.server._normalize_limit(500), 100)
         self.assertEqual(self.server._normalize_limit(0), 1)

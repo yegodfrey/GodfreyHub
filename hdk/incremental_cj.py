@@ -63,7 +63,8 @@ def disk_hash(path):
     if not os.path.exists(fp):
         return None
     try:
-        txt = open(fp, encoding="utf-8").read()
+        with open(fp, encoding="utf-8") as fh:
+            txt = fh.read()
     except Exception:
         return None
     m = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)$", txt, re.DOTALL)

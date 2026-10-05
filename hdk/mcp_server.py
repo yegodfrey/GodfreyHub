@@ -42,6 +42,7 @@ import re
 import sys
 import json
 import time
+import hashlib
 import logging
 import threading
 import functools
@@ -267,10 +268,13 @@ def search_documents(query: str, limit: int = 10, category: str = "") -> str:
             collect(subtok, 0)
 
     query_low = query.strip().lower()
-    render_cap = max(limit * 3, 30)
-    shortlist = sorted(candidates.values(), key=lambda r: -r["score"])[:render_cap]
-    results = []
-    for candidate in shortlist:
+    # 内容级去重渲染（与 Node 查询端 src/core/hdk.ts 同一规则）：官方站点按 Kit 复制
+    # 同文模板（实测语料内 913 篇逐字副本），同一 title+正文 只占一个结果位；
+    # 在 max(limit*6, 60) 的窗口内去重，再按含标题加权后的得分排序取前 limit。
+    read_cap = max(limit * 6, 60)
+    ordered = sorted(candidates.values(), key=lambda r: -r["score"])[:read_cap]
+    seen, results = set(), []
+    for candidate in ordered:
         fp = _resolve_fp(candidate["file"])
         raw = _read_doc(fp, candidate["file"]) if fp else None
         title = raw["title"] if raw else candidate["indexed_title"]
@@ -280,6 +284,10 @@ def search_documents(query: str, limit: int = 10, category: str = "") -> str:
         if query_low and query_low in title_low:
             score += 2_000
         score += 200 * sum(t.lower() in title_low for t in tokens)
+        key = hashlib.sha256(((title or "") + "\n" + (body or "")).encode("utf-8")).hexdigest()
+        if key in seen:
+            continue
+        seen.add(key)
         results.append({
             "id": candidate["id"],
             "file": candidate["file"],

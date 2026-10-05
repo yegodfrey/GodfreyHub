@@ -9,7 +9,7 @@ mcp_server.py、generate_index.py）保留为可复用模块，由本入口统�
 
 用法：
   python hdk.py crawl [--target harmonyos|harmonyos-cangjie|cangjie|all] [--rounds N] [--limit N] [--no-index]
-  python hdk.py incremental [--no-recheck] [--skip-delete] [--limit N]
+  python hdk.py incremental [--no-recheck] [--skip-delete] [--skip-portal] [--portal-refresh] [--limit N]
   python hdk.py incremental-cj [--no-recheck] [--skip-delete] [--limit N]
   python hdk.py incremental-cangjie [--skip-delete] [--limit N] [--no-index]
   python hdk.py index [--root harmonyos|cangjie|all] [--full]
@@ -17,6 +17,7 @@ mcp_server.py、generate_index.py）保留为可复用模块，由本入口统�
   python hdk.py stats
   python hdk.py manifest
   python hdk.py state rebuild
+  python hdk.py catalog [build|diff|dups|adopt <分类>]
 
 语料说明：
   - harmonyos        : 本目录下 harmonyos_docs/，HarmonyOS 文档
@@ -40,6 +41,7 @@ if HERE not in sys.path:
 
 import crawl                 # noqa: E402  HarmonyOS 文档爬虫（华为云 MCP 接口）
 import crawl_cj              # noqa: E402  仓颉语言文档爬虫（静态站）
+import hdk_io                # noqa: E402  原子写（状态文件统一走它）
 import incremental           # noqa: E402  HarmonyOS 增量更新器
 import incremental_cj        # noqa: E402  仓颉语言文档增量更新器（静态站 404 判删）
 import indexer               # noqa: E402  共享 FTS5 索引（全量 + 增量）
@@ -136,7 +138,8 @@ def cmd_crawl(args):
 # --------------------------------------------------------------------------- #
 def cmd_incremental(args):
     incremental.run(no_recheck=args.no_recheck, skip_delete=args.skip_delete,
-                    limit=args.limit)
+                    limit=args.limit, skip_portal=args.skip_portal,
+                    portal_refresh=args.portal_refresh)
     if not args.no_index:
         print("[hdk] 更新索引 root=harmonyos ...", flush=True)
         indexer.ensure_index("harmonyos", force=True)
@@ -232,11 +235,34 @@ def cmd_stats(args):
                             ("cangjie", "crawl_cj_state.json")]:
         p = os.path.join(HERE, statefile)
         if os.path.exists(p):
-            s = json.load(open(p, encoding="utf-8"))
+            with open(p, encoding="utf-8") as f:
+                s = json.load(f)
             if isinstance(s, dict):
                 keys = {k: (len(v) if isinstance(v, (list, dict)) else v)
                         for k, v in s.items()}
                 print(f"  {name}: {keys}", flush=True)
+
+    print("=== 基线新鲜度与对账读数 ===", flush=True)
+    import catalog
+    age = catalog.inventory_age_days()
+    built = catalog.inventory_built_at()
+    print(f"  目录清单: {len(catalog.names())} 篇，构建于 {built or '无'}"
+          + (f"（{age:.1f} 天前，阈值 {catalog.INVENTORY_MAX_AGE_DAYS} 天）"
+             if age is not None else ""), flush=True)
+    warn = catalog.check_age()
+    if warn:
+        print("  " + warn, flush=True)
+    ua = catalog.unadopted()
+    if ua:
+        print(f"  范围外待采分类: {len(ua)} 个共 {sum(r['docs'] for r in ua)} 篇（top 5: "
+              + ", ".join(f"{r['category']}={r['docs']}" for r in ua[:5]) + "）", flush=True)
+    inc = os.path.join(HERE, "incremental_state.json")
+    if os.path.exists(inc):
+        with open(inc, encoding="utf-8") as f:
+            st = json.load(f)
+        print(f"  门户路已入库(source: portal): {len(st.get('portal', []))} 篇\n"
+              f"  知识 MCP 不供给(不可达名单): {len(st.get('unreachable', []))} 篇"
+              "（清单换代与门户路自动重试）", flush=True)
 
 
 def cmd_manifest(args):
@@ -245,10 +271,7 @@ def cmd_manifest(args):
 
 def cmd_catalog(args):
     import catalog
-    if args.action == "purge-stale":
-        catalog.purge_stale_variants(dry_run=args.dry_run)
-    else:
-        catalog.main(args.action)
+    catalog.main(args.action, args.args)
 
 
 def cmd_state(args):
@@ -282,17 +305,23 @@ def cmd_state(args):
         nn = crawl.norm_docname(n)
         if nn:
             disc_norm.add(nn)
-    disc_norm |= disk
-    failed = {n for n in old_fet if n not in disk}
-    fetched = disk
+    # 仓颉命名空间归浏览器路所有：匿名状态里不得携带它们，否则下轮 crawl 又拉回一份
+    old_unreach = {n for n in old.get("failed", []) if not crawl.is_cangjie_namespace(n)}
+    disc_norm |= {n for n in disk if not crawl.is_cangjie_namespace(n)}
+    # 磁盘上没了的旧 fetched 归入 failed（幽灵件），但保留原有 failed 记录
+    failed = old_unreach | {n for n in old_fet
+                            if n not in disk and not crawl.is_cangjie_namespace(n)}
+    fetched = {n for n in disk if not crawl.is_cangjie_namespace(n)}
     print(f"disk / fetched : {len(fetched)}", flush=True)
     print(f"discovered     : {len(disc_norm)}", flush=True)
-    print(f"failed (phantom): {len(failed)}", flush=True)
-    with open(STATE, "w", encoding="utf-8") as f:
-        json.dump({"discovered": sorted(disc_norm),
-                   "fetched": sorted(fetched),
-                   "failed": sorted(failed)},
-                  f, ensure_ascii=False, indent=2)
+    print(f"failed (phantom+历史): {len(failed)}", flush=True)
+    # 状态写入统一走 hdk_io 原子写（与所有模块同一契约，避免半写文件砸掉断点续跑）
+    hdk_io.atomic_write_json(
+        STATE,
+        {"discovered": sorted(disc_norm),
+         "fetched": sorted(fetched),
+         "failed": sorted(failed)},
+        ensure_ascii=False, separators=(",", ":"))
     print(f"wrote {STATE}", flush=True)
 
 
@@ -311,9 +340,13 @@ def main():
     p.add_argument("--no-index", action="store_true", help="完成后不更新索引")
     p.set_defaults(fn=cmd_crawl)
 
-    p = sub.add_parser("incremental", help="HarmonyOS 增量更新（新/改/删检测）")
+    p = sub.add_parser("incremental", help="HarmonyOS 增量更新（新/改/删检测 + 门户补齐）")
     p.add_argument("--no-recheck", action="store_true", help="只抓新文档，不做改/删检测")
     p.add_argument("--skip-delete", action="store_true", help="报告删除但不动文件")
+    p.add_argument("--skip-portal", action="store_true",
+                   help="不走门户（documentPortal）补齐通路")
+    p.add_argument("--portal-refresh", action="store_true",
+                   help="重查已入库的 portal 文档以检测变更")
     p.add_argument("--limit", type=int, default=0, help="限制处理量（冒烟测试）")
     p.add_argument("--no-index", action="store_true", help="完成后不更新索引")
     p.set_defaults(fn=cmd_incremental)
@@ -347,11 +380,11 @@ def main():
     p.set_defaults(fn=cmd_manifest)
 
     p = sub.add_parser("catalog",
-                       help="官方目录树清单（build：枚举全分类；diff：与语料对账；purge-stale：清理同词干旧版变体）")
+                       help="官方目录树清单（build：枚举官方全集刷新清单；diff：与语料对账；"
+                            "dups：只读报重复；adopt：把新分类纳入采集范围）")
     p.add_argument("action", nargs="?", default="build",
-                   help="build | diff | purge-stale")
-    p.add_argument("--dry-run", action="store_true",
-                   help="purge-stale 仅报告，不实际删除")
+                   help="build | diff | dups | adopt")
+    p.add_argument("args", nargs="*", help="adopt 的分类名")
     p.set_defaults(fn=cmd_catalog)
 
     p = sub.add_parser("state", help="状态维护（rebuild：以磁盘为准重建 crawl_state.json）")

@@ -273,6 +273,54 @@ def release_lock():
 # 发现、抓取、状态继承一律丢弃，只保留现行版。
 VERSIONED_CAT_RE = re.compile(r"-V\d+$")
 
+# 鸿蒙仓颉开发文档（cangjie-* 分类）的命名空间归浏览器路（cj_iab/crawl_cangjie）所有：
+# 它按 <分类>/<objectId>.md 落盘，本模块按 sha1(name).md 落盘，两个写者各写一份会造出
+# 「同一 name 两个文件」（实测 1 例 cangjie-guides/cj-notice，两份内容还不同步）。
+# 匿名路遇到该命名空间一律不写盘，由调用方计入不可抓/不可达名单。
+CANGJIE_NAMESPACE_PREFIX = "cangjie-"
+
+
+def is_cangjie_namespace(name):
+    rel = name[len("document/cn/"):] if name.startswith("document/cn/") else name
+    return rel.split("/")[0].startswith(CANGJIE_NAMESPACE_PREFIX)
+
+
+_SCOPE_CACHE = None
+
+
+def scope_categories(force=False):
+    """采集范围 = 语料根下已存在的分类目录（排除 . / _ 前缀的本机残留）。
+
+    与 `catalog.scope_categories()` 同一判据，但读本模块的 OUT（单测可改指临时语料根）。
+    进程内缓存：一轮跑拓几万件，不应每件重新 listdir；新分类只能由 `catalog adopt`
+    建目录纳入（跨进程生效）。改指 OUT 后需重置 `_SCOPE_CACHE` 或传 force=True。
+    """
+    global _SCOPE_CACHE
+    if _SCOPE_CACHE is None or force:
+        try:
+            entries = os.listdir(OUT)
+        except OSError:
+            entries = []
+        _SCOPE_CACHE = frozenset(d for d in entries
+                                 if os.path.isdir(os.path.join(OUT, d))
+                                 and not d.startswith((".", "_")))
+    return _SCOPE_CACHE
+
+
+def category_of(name):
+    rel = name[len("document/cn/"):] if name.startswith("document/cn/") else name
+    return rel.split("/")[0]
+
+
+def in_scope(name):
+    """该文档的分类是否已被采纳进采集范围。
+
+    护栏缘由：链接 BFS 与门户补齐会碰到任何官方分类的 name（实测本轮带入 5 个
+    未采纳分类的 64 篇并建了新目录）。「扩采」是业主的显式决策，不得由发现通路
+    静默完成；新分类经 `catalog build` 的 unadoptedCategories 上报后由 adopt 纳入。
+    """
+    return category_of(name) in scope_categories()
+
 
 def is_version_snapshot(name):
     """旧版快照判定：路径中任一段以 -V<数字> 结尾（如 harmonyos-guides-V14/xxx、
@@ -323,34 +371,79 @@ def doc_relpath(name):
     return cat, h + ".md"
 
 
-def _frontmatter_value(value):
+def frontmatter_value(value):
     """frontmatter 值清洗: 去掉换行等不可打印字符。
 
     frontmatter 是 `key: value` 行式格式, 值混入换行会截断记录, 导致磁盘文件的
     disk_hash(按解析出的 title+正文计算)与 API 的 doc_hash 永远对不上——该文档
-    每轮增量都被误判为 updated 无限重写。标题/URI 是远端外部输入, 写入前必须清洗。
+    每轮增量都被误判为 updated 无限重写。标题/URI 是远端外部输入, 写入前必须清洗;
+    指纹侧也必须走本函数（见 incremental.doc_hash），否则清洗反而造成两边不一致。
     """
     if value is None:
         return ""
     return "".join(ch for ch in str(value) if ch.isprintable()).strip()
 
 
+def doc_body(item):
+    """落盘正文（与 write_doc 写出的正文逐字一致，指纹必须同源）。"""
+    return item.get("content") or "(empty)\n"
+
+
 def write_doc(item):
+    """落盘一篇文档。
+
+    返回写入路径；以下情形返回 None（调用方计入不可拓/不可达，不反复重拓）：
+      - name 缺失；
+      - 属仓颉命名空间（浏览器路所有）；
+      - 分类未被采纳进采集范围（扩采必须是显式决策）。
+    """
     name = item.get("name")
     if not name:
-        return
+        return None
+    if is_cangjie_namespace(name):
+        return None
+    if not in_scope(name):
+        return None
     cat, fname = doc_relpath(name)
     d = os.path.join(OUT, cat)
     os.makedirs(d, exist_ok=True)
     text = (
         "---\n"
-        f"name: {_frontmatter_value(name)}\n"
-        f"title: {_frontmatter_value(item.get('title',''))}\n"
-        f"uri: {_frontmatter_value(item.get('uri',''))}\n"
-        "---\n\n"
-        + (item.get("content", "") or "(empty)\n")
+        f"name: {frontmatter_value(name)}\n"
+        f"title: {frontmatter_value(item.get('title',''))}\n"
+        f"uri: {frontmatter_value(item.get('uri',''))}\n"
+        # 来源标量：门户补齐路（portal）写的文档带 source: portal，知识 MCP 路不写。
+        # 它是增量不重查、不判删这些文档的依据（只进 frontmatter，不影响指纹）。
+        + (f"source: {frontmatter_value(item['source'])}\n" if item.get("source") else "")
+        + "---\n\n"
+        + doc_body(item)
     )
-    hdk_io.atomic_write_text(os.path.join(d, fname), text)
+    # 内容未变不落盘（2026-10-03）：上游排版零抖动反复 atomic_write 会让已跟踪语料
+    # 工作树持续变脏（实测单轮 4977 件漂移），同步提交噪音淹没有效变更。
+    fp = os.path.join(d, fname)
+    if os.path.exists(fp):
+        try:
+            with open(fp, encoding="utf-8") as existing:
+                if existing.read() == text:
+                    return fp
+        except OSError:
+            pass
+    hdk_io.atomic_write_text(fp, text)
+    return fp
+
+
+def parse_result_list(text):
+    """把 getDocumentsById 的响应文本解析成 resultList，并强制校验结构。
+
+    限流/降级时服务端会返回 HTTP 200 + 合法 JSON 但没有 resultList；此时分不清
+    「官方没有」与「服务端没答上」，一律抛错让调用方走重试。crawl 与 incremental
+    共用本函数：少了这道守卫，增量会把整批已抓文档当成官方消失而物理删除
+    （2026-10-05 用 hermetic 用例复现）。结构不合法绝不当成删除信号，也不拉黑。
+    """
+    data = json.loads(text)
+    if not isinstance(data, dict) or not isinstance(data.get("resultList"), list):
+        raise RuntimeError("API 响应缺少 resultList(可能被限流/降级): " + text[:200])
+    return data["resultList"]
 
 
 def main():
@@ -382,15 +475,9 @@ def _run():
     # 官方目录树清单是确定性的完整性基线：并入发现集后，清单里语料没有的
     # 文档会直接进入抓取队列，不再依赖概率性的关键词搜索兜底。
     import catalog
-    # 防复活护栏: 已清理(purged)的同词干旧版变体不得经持久化发现集重返,
-    # 否则与 purge_stale_variants 形成 抓<->删 反复横跳。
-    purged = catalog.load_purged()
-    if purged:
-        dropped = len(disc & purged)
-        disc -= purged
-        if dropped:
-            print(f"[catalog] 防复活过滤: 发现集剔除已清理旧版 {dropped} 篇",
-                  flush=True)
+    warn = catalog.check_age()
+    if warn:
+        print(warn, flush=True)
     inv = {n for n in catalog.names() if not is_version_snapshot(n)}
     if inv:
         disc |= inv
@@ -426,7 +513,8 @@ def _run():
             with lock:
                 for it in data.get("resultList", []):
                     p = norm_docname(it.get("parent"))
-                    if p and p not in disc and p not in purged                             and len(disc) < MAX_DISCOVERED:
+                    if (p and p not in disc
+                            and len(disc) < MAX_DISCOVERED):
                         disc.add(p)
                         added += 1
             if added:
@@ -443,26 +531,22 @@ def _run():
                 r = m.call_tool("getDocumentsById",
                                 {"GetDocumentsByIdRequest": {"names": batch}})
                 text = r["result"]["content"][0]["text"]
-                data = json.loads(text)
-                # 响应结构守卫: 限流/降级时服务端可能返回 200 + 错误 JSON(无 resultList)。
-                # 不校验就把"响应异常"当成"整批死链"永久拉黑, 语料会静默出现空洞。
+                # 响应结构守卫: 只有合法响应才能进入「死链/消失」判定;
                 # 结构异常走重试路径, 4 次后按 transient 处理(下一轮再试, 不持久化)。
-                if not isinstance(data, dict) or not isinstance(data.get("resultList"), list):
-                    raise RuntimeError("API 响应缺少 resultList(可能被限流/降级): "
-                                       + text[:200])
+                items = parse_result_list(text)
                 returned = set()
                 with lock:
-                    for it in data["resultList"]:
+                    for it in items:
                         name = it.get("name")
                         if not name:
                             continue
                         returned.add(name)
-                        if name in purged:
-                            # 最后闸门: 已清理旧版即使被链接 BFS/状态复活也不落盘,
-                            # 且不计入 fetched(下一轮对账不会把它当作语料事实)。
-                            continue
                         try:
-                            write_doc(it)
+                            if not write_doc(it):
+                                # name 缺失或属仓颉命名空间（浏览器路所有）：此路不写盘，
+                                # 计入 failed 以免每轮重抓（它不会产生磁盘文件）。
+                                failed.add(name)
+                                continue
                             fetched.add(name)
                         except Exception:
                             # 写盘失败：不计为已抓取，避免状态与实际文件不一致
@@ -470,7 +554,7 @@ def _run():
                             continue
                         for mm in LINK_RE.finditer(it.get("content", "") or ""):
                             p = to_parent(mm.group(0))
-                            if p and p not in disc and p not in purged                                     and len(disc) < MAX_DISCOVERED:
+                            if p and p not in disc and len(disc) < MAX_DISCOVERED:
                                 disc.add(p)
                     # 本批中 API 明确返回且不含的 name：文档不存在 / 已删除 / 别名，
                     # 永久不可抓取，记入 failed 以免反复重试、污染 fetched 计数。
