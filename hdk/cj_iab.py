@@ -246,25 +246,37 @@ class CjIab:
         raise RuntimeError("API origin not ready（检查 node relay 与登录会话）")
 
     # --- 枚举：踢 getCatalogTree → 轮询条数 → 分片取回 --------------------- #
+    # 站点在会话预热期会瞬时空返回目录树（2026-10-05 实证：5 棵树连返回 0，
+    # 数分钟后同请求恢复 15 万字符）。n==0 不当真，重试后再采信；防误删闸门
+    # 仍兜底，但补新通道依赖枚举非空。
     async def enumerate_catalog(self, catalog):
-        await self._js(_wrap(_FLAT_FN +
-            "window.__cjdocs=null;"
-            "window.__cjp=(async()=>{"
-            "const b=await dg('/partnerDocumentService/v1/developer/getCatalogTree',{language:'cn',catalogName:%s});"
-            "let bi;try{bi=JSON.parse(b.resJson)}catch(e){window.__cjdocs=[];return 'PARSEERR'}"
-            "const tree=(bi.value&&bi.value.catalogTreeList)||[];const out=[];walk(tree,[],out);"
-            "const seen={};const dd=[];for(const d of out){if(!seen[d.objectId]){seen[d.objectId]=1;dd.push(d);}}"
-            "window.__cjdocs=dd;return dd.length;})();return 'KICKED';" % json.dumps(catalog)), tries=3)
         n = None
-        for _ in range(60):
-            await asyncio.sleep(1.0)
-            v = await self._js("window.__cjdocs===null||window.__cjdocs===undefined?'':String(window.__cjdocs.length)",
-                               tries=1, good=lambda x: bool(x and x.strip()))
-            if v and v.strip().isdigit():
-                n = int(v.strip())
+        for attempt in range(3):
+            if attempt:
+                cj.log("[enum] %s empty tree (attempt %d), retrying" % (catalog, attempt))
+                await asyncio.sleep(2.0)
+            await self._js(_wrap(_FLAT_FN +
+                "window.__cjdocs=null;"
+                "window.__cjp=(async()=>{"
+                "const b=await dg('/partnerDocumentService/v1/developer/getCatalogTree',{language:'cn',catalogName:%s});"
+                "let bi;try{bi=JSON.parse(b.resJson)}catch(e){window.__cjdocs=[];return 'PARSEERR'}"
+                "const tree=(bi.value&&bi.value.catalogTreeList)||[];const out=[];walk(tree,[],out);"
+                "const seen={};const dd=[];for(const d of out){if(!seen[d.objectId]){seen[d.objectId]=1;dd.push(d);}}"
+                "window.__cjdocs=dd;return dd.length;})();return 'KICKED';" % json.dumps(catalog)), tries=3)
+            for _ in range(60):
+                await asyncio.sleep(1.0)
+                v = await self._js("window.__cjdocs===null||window.__cjdocs===undefined?'':String(window.__cjdocs.length)",
+                                   tries=1, good=lambda x: bool(x and x.strip()))
+                if v and v.strip().isdigit():
+                    n = int(v.strip())
+                    break
+            if n is None:
+                cj.log("[enum] %s bad count" % catalog)
+                continue
+            if n > 0:
                 break
-        if n is None:
-            cj.log("[enum] %s bad count" % catalog)
+        if n is None or n == 0:
+            cj.log("[enum] %s still empty after retries — 判空将走单查保留闸门" % catalog)
             return []
         docs = []
         off = 0

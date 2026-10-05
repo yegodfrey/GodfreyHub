@@ -218,7 +218,7 @@ Array类型：
         }
     }
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/6fATRH7oRXaMWQSSYsBO8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260930T174028Z&HW-CC-Expire=86400&HW-CC-Sign=DFB68C4344D025D10CB426A9286C8D1DFABFB111766D81691E498CEC23DFBE85)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/6fATRH7oRXaMWQSSYsBO8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=54A4FD01D50ED0342284C24D5ADFE267EFC6E0DF643B9FE6D6AA79B749EF81C1)
 
 如果是调用异步函数，需要在Promise的onFulfilled回调中通过JSCallInfo取得返回值，然后进行以上类型转换和取值。
 
@@ -226,13 +226,13 @@ Array类型：
 
 本应用示例演示了如何加载和调用 ArkTS 位置服务模块[@ohos.geoLocationManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager)，获取服务状态和位置信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/m-fN_jZYQJSuvAfprjlMCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260930T174028Z&HW-CC-Expire=86400&HW-CC-Sign=745A2C080A175D030282006385BA7EBD0AE537686178351DBCDBEDCBDF80A01E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/m-fN_jZYQJSuvAfprjlMCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=416976ABCC3FD9C9999120D778EF99898F716100300BAF410EB9CB742F59ECC4)
 
 应用示例需要访问设备位置信息，因此要向用户申请位置信息授权，相关配置和代码请参看完整示例项目。
 
 #### [h2]效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/84KKHINoT52OYNZEXzwdNQ/zh-cn_image_0000002639680946.png?HW-CC-KV=V1&HW-CC-Date=20260930T174028Z&HW-CC-Expire=86400&HW-CC-Sign=B058D4F1571FCC984D8C5D50DCB5D8B157906283809596F607E8A7247EA3A07F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/84KKHINoT52OYNZEXzwdNQ/zh-cn_image_0000002639680946.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=98C61766338C2F641AE4DF570CC2ACAAFE9D8A9A83BDDA459E226C6E3A975603)
 
 #### [h2]互操作实现步骤
 
@@ -334,4 +334,4 @@ geoLocationManager模块中的[isLocationEnabled](https://developer.huawei.com/c
 
 #### [h2]示例代码
 
-[加载和调用 ArkTS 模块示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183056.75773670025213053285455433937396:20261002014028:2800:10EF85790A62A8EAAE089FAF3017F369E00D914239B4D18365FDB21A95F3CE65.zip?needInitFileName=true)
+[加载和调用 ArkTS 模块示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183056.75773670025213053285455433937396:20261006191054:2800:41639FE747905F90729C628C2E660D85C97EC6A2AABAEB9FCCBCA11944D7063E.zip?needInitFileName=true)
