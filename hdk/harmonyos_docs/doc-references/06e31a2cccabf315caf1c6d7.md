@@ -1,0 +1,164 @@
+---
+name: document/cn/doc-references/cropelement-0000001172238166
+title: CropElement
+uri: https://developer.huawei.com/consumer/cn/doc/doc-references/cropelement-0000001172238166
+source: portal
+---
+
+# CropElement
+
+[java.lang.Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446) |---[ohos.agp.components.element.Element](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705) |---|---[ohos.agp.components.element.ElementWrapper](https://developer.harmonyos.com/cn/docs/documentation/doc-references/elementwrapper-0000001172556692) |---|---|---ohos.agp.components.element.CropElement
+    
+    public class CropElement
+    extends [ElementWrapper](https://developer.harmonyos.com/cn/docs/documentation/doc-references/elementwrapper-0000001172556692)  
+  
+---  
+Provides an Element that crops another Element based on the current rank value. 
+
+You can use this class to crop an element.
+
+**Since:**
+
+7
+
+#### Nested Class Summary
+
+Modifier and Type | Class | Description  
+---|---|---  
+static class  | [CropElement.Orientation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement_orientation-0000001172398140) |  Enumerates the cropping directions.   
+  
+Nested classes/interfaces inherited from class ohos.agp.components.element.[Element](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705)  
+---  
+[Element.ConstantState](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element_constantstate-0000001054558727), [Element.OnBoundsChangeListener](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element_onboundschangelistener-0000001217996513), [Element.OnChangeListener](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element_onchangelistener-0000001060519070), [Element.OnLayoutDirectionChangeListener](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element_onlayoutdirectionchangelistener-0000001172716634), [Element.OnRankChangeListener](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element_onrankchangelistener-0000001172398138)  
+  
+#### Field Summary
+
+Fields inherited from class ohos.agp.components.element.[Element](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705)  
+---  
+[ALPHA_DEFAULT](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__ALPHA_DEFAULT), [ALPHA_MAX](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__ALPHA_MAX), [ALPHA_MIN](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__ALPHA_MIN), [DEFAULT_BOUNDS_RECT](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__DEFAULT_BOUNDS_RECT), [MAX_RANK](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__MAX_RANK), [MIN_RANK](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__MIN_RANK)  
+  
+#### Constructor Summary
+
+Constructor | Description  
+---|---  
+[CropElement](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement-0000001172238166#ZH-CN_TOPIC_0000001172238166__CropElement-ohos_agp_components_element_Element-)​([Element](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705) element) |  A constructor used to create a CropElement based on the specified Element and the default orientation and alignment.   
+[CropElement](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement-0000001172238166#ZH-CN_TOPIC_0000001172238166__CropElement-ohos_agp_components_element_Element-int-ohos_agp_components_element_CropElement_Orientation-)​([Element](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705) element, int alignment, [CropElement.Orientation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement_orientation-0000001172398140) orientation) |  A constructor used to create a CropElement based on the specified Element, alignment, and orientation.   
+  
+#### Method Summary
+
+Modifier and Type | Method | Description  
+---|---|---  
+int | [getAlignment](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement-0000001172238166#ZH-CN_TOPIC_0000001172238166__getAlignment--)​() |  Obtains the alignment of this [CropElement](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement-0000001172238166).   
+[CropElement.Orientation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement_orientation-0000001172398140) | [getCropOrientation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement-0000001172238166#ZH-CN_TOPIC_0000001172238166__getCropOrientation--)​() |  Obtains the cropping orientation of this [CropElement](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement-0000001172238166).   
+void | [setAlignment](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement-0000001172238166#ZH-CN_TOPIC_0000001172238166__setAlignment-int-)​(int alignment) |  Sets the alignment for this CropElement.   
+void | [setCropOrientation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement-0000001172238166#ZH-CN_TOPIC_0000001172238166__setCropOrientation-ohos_agp_components_element_CropElement_Orientation-)​([CropElement.Orientation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement_orientation-0000001172398140) orientation) |  Sets the orientation for this CropElement.   
+  
+Methods inherited from class ohos.agp.components.element.[Element](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705)  
+---  
+[clearColorMatrix](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__clearColorMatrix--), [drawToCanvas](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__drawToCanvas-ohos_agp_render_Canvas-), [getAlpha](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getAlpha--), [getBounds](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getBounds--), [getCallback](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getCallback--), [getColorMatrix](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getColorMatrix--), [getCurrentElement](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getCurrentElement--), [getHeight](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getHeight--), [getLayoutDirection](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getLayoutDirection--), [getMinHeight](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getMinHeight--), [getMinWidth](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getMinWidth--), [getPadding](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getPadding--), [getRank](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getRank--), [getStateColorMode](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getStateColorMode--), [getVisible](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getVisible--), [getWidth](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__getWidth--), [isInheritDirection](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__isInheritDirection--), [isStateful](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__isStateful--), [isVisible](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__isVisible--), [release](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__release--), [setAlpha](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setAlpha-int-), [setBounds](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setBounds-int-int-int-int-), [setBounds](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setBounds-ohos_agp_utils_Rect-), [setCallback](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setCallback-ohos_agp_components_element_Element_OnChangeListener-), [setColorMatrix](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setColorMatrix-ohos_agp_render_ColorMatrix-), [setInheritDirection](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setInheritDirection-boolean-), [setLayoutDirection](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setLayoutDirection-ohos_agp_components_Component_LayoutDirection-), [setOnBoundsChangeListener](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setOnBoundsChangeListener-ohos_agp_components_element_Element_OnBoundsChangeListener-), [setOnLayoutDirectionChangeListener](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setOnLayoutDirectionChangeListener-ohos_agp_components_element_Element_OnLayoutDirectionChangeListener-), [setOnRankChangeListener](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setOnRankChangeListener-ohos_agp_components_element_Element_OnRankChangeListener-), [setRank](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setRank-int-), [setStateColor](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setStateColor-ohos_agp_colors_StateColor-), [setStateColorList](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setStateColorList-int:A:A-int:A-), [setStateColorMode](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setStateColorMode-ohos_agp_render_BlendMode-), [setVisible](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__setVisible-boolean-boolean-), [skipAnimation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705#ZH-CN_TOPIC_0000001054358705__skipAnimation--)  
+  
+Methods inherited from class ohos.agp.components.element.[ElementWrapper](https://developer.harmonyos.com/cn/docs/documentation/doc-references/elementwrapper-0000001172556692)  
+---  
+[getElement](https://developer.harmonyos.com/cn/docs/documentation/doc-references/elementwrapper-0000001172556692#ZH-CN_TOPIC_0000001172556692__getElement--), [setElement](https://developer.harmonyos.com/cn/docs/documentation/doc-references/elementwrapper-0000001172556692#ZH-CN_TOPIC_0000001172556692__setElement-ohos_agp_components_element_Element-)  
+  
+Methods inherited from class java.lang.[Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446)  
+---  
+[clone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__clone--), [equals](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__equals-java_lang_Object-), [finalize](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__finalize--), [getClass](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__getClass--), [hashCode](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__hashCode--), [notify](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__notify--), [notifyAll](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__notifyAll--), [toString](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__toString--), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait--), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait-long-), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait-long-int-)  
+  
+#### Constructor Detail
+
+#### [h2]CropElement
+
+public CropElement​([Element](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705) element)
+
+A constructor used to create a CropElement based on the specified Element and the default orientation and alignment. The default value of orientation is horizontal, and the default value of alignment is left. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+element  |  Indicates the Element to be cropped.  
+  
+**Since:**
+
+7
+
+#### [h2]CropElement
+
+public CropElement​([Element](https://developer.harmonyos.com/cn/docs/documentation/doc-references/element-0000001054358705) element, int alignment, [CropElement.Orientation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement_orientation-0000001172398140) orientation)
+
+A constructor used to create a CropElement based on the specified Element, alignment, and orientation. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+element  |  Indicates the Element to be cropped.  
+alignment  |  Indicates the alignment of this CropElement.  
+orientation  |  Indicates the orientation of this CropElement.  
+  
+**Since:**
+
+7
+
+#### Method Detail
+
+#### [h2]setAlignment
+
+public void setAlignment​(int alignment)
+
+Sets the alignment for this CropElement. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+alignment  |  Indicates the alignment to set. For details on the available values, see [LayoutAlignment](https://developer.harmonyos.com/cn/docs/documentation/doc-references/layoutalignment-0000001054200028).  
+  
+**Since:**
+
+7
+
+#### [h2]setCropOrientation
+
+public void setCropOrientation​([CropElement.Orientation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement_orientation-0000001172398140) orientation)
+
+Sets the orientation for this CropElement. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+orientation  |  Indicates the orientation to set. For details on the available values, see [Orientation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement_orientation-0000001172398140).  
+  
+**Since:**
+
+7
+
+#### [h2]getAlignment
+
+public int getAlignment​()
+
+Obtains the alignment of this [CropElement](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement-0000001172238166). 
+
+**Returns:**
+
+Returns the alignment. For details on the available values, see [LayoutAlignment](https://developer.harmonyos.com/cn/docs/documentation/doc-references/layoutalignment-0000001054200028).
+
+**Since:**
+
+7
+
+#### [h2]getCropOrientation
+
+public [CropElement.Orientation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement_orientation-0000001172398140) getCropOrientation​()
+
+Obtains the cropping orientation of this [CropElement](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement-0000001172238166). 
+
+**Returns:**
+
+Returns the orientation. For details on the available values, see [Orientation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/cropelement_orientation-0000001172398140).
+
+**Since:**
+
+7

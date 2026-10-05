@@ -1,0 +1,31 @@
+---
+name: document/cn/SmartTravel-References/dmsdp-send-back-data-cb-0000001051491950
+title: DMSDPSendBackDataCB
+uri: https://developer.huawei.com/consumer/cn/doc/SmartTravel-References/dmsdp-send-back-data-cb-0000001051491950
+source: portal
+---
+
+# DMSDPSendBackDataCB  
+  
+Function  
+---  
+int32_t (*DMSDPSendBackDataCB)(const char *id, uint32_t idLen, const uint8_t *buffer, uint32_t len, int32_t type);  
+Defines the receive function pointer of the image data returned by the receiving device. The DeviceVirtualization Engine registers the receive function pointer with the manufacturer's device.  
+  
+**Parameters**
+
+**Name** | **Type** | Description  
+---|---|---  
+*id | const char | Camera ID.  
+idLen | uint32_t | Length of the camera ID.  
+*buffer | const uint8_t | Video stream data address.  
+len | uint32_t | Video stream length.  
+type | int32_t | Video stream type. For details, please refer to [DMSDPCameraDataType](https://developer.huawei.com/consumer/cn/doc/development/SmartTravel-References/dmsdp-camera-data-type-0000001051651804).  
+  
+**Return**
+
+Type | Description  
+---|---  
+int32_t | Operation result.
+     * **0** : success
+     * Other values: failure

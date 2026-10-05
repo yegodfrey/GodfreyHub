@@ -1,0 +1,39 @@
+---
+name: document/cn/HMSCore-Guides/miniprogram-predefined-user-attribute-0000001198008607
+title: 预置用户属性
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/miniprogram-predefined-user-attribute-0000001198008607
+source: portal
+---
+
+# 预置用户属性
+
+Analytics SDK预先定义了用户属性，推荐优先使用预定义用户属性进行埋点和分析。分析服务的预置用户属性如下所示：
+
+属性常量名称 | 属性Key | 属性含义  
+---|---|---  
+USERLEVEL | user_level | 用户等级。对于构建了用户等级体系的应用，可使用此属性标识用户在应用内的级别。  
+ISFULLLEVEL | is_full_level | 用于标识用户是否是满级用户。  
+ISMEMBER | is_member | 用于标识用户的会员类型。取值如下：
+                * 0：非会员 
+                * 1：新会员 
+                * 2：老会员   
+- | cur_server | 当前登录的服务器的名称。用于“游戏类行业”，区服分析报告必须埋点及上报该用户属性方可查看。  
+- | pre_server | 上次登录的服务器的名称。用于“游戏类行业”，区服分析报告必须埋点及上报该用户属性方可查看。  
+  
+#### 上报用户属性开发说明
+
+预置用户属性埋点及上报通过接口[setUserProfile](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/miniprogram-api-wxanalytics-0000001198293007#section8235141952311)实现，可以直接使用属性key埋点，也可以使用属性常量埋点（仅针对SDK已预定义常量的），埋点方法详情参考如下：
+
+                * 使用属性key埋点：
+                      
+                      analytics.setUserProfile("user_level","_123_ ");
+                      analytics.setUserProfile("is_full_level","_1_ ");
+                      analytics.setUserProfile("is_member","_1_ ");
+                      analytics.setUserProfile("cur_server","_xxx_ ");
+                      analytics.setUserProfile("pre_server","_xxx_ ");
+
+                * 使用属性常量埋点：
+                      
+                      analytics.setUserProfile(HAUserProfileType.USERLEVEL,"_123_ ");
+                      analytics.setUserProfile(HAUserProfileType.ISFULLLEVEL,"_1_ ");
+                      analytics.setUserProfile(HAUserProfileType.ISMEMBER,"_1_ ");

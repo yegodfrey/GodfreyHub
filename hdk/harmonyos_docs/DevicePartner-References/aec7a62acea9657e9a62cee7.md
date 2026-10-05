@@ -1,0 +1,27 @@
+---
+name: document/cn/DevicePartner-References/bluetooth-interface0006-0000002629170996
+title: 注册蓝牙/星闪设备事件监听
+uri: https://developer.huawei.com/consumer/cn/doc/DevicePartner-References/bluetooth-interface0006-0000002629170996
+source: portal
+---
+
+# 注册蓝牙/星闪设备事件监听  
+  
+#### 接口描述
+
+subscribeDeviceEvent
+
+修改蓝牙设备属性
+
+#### 请求参数
+
+参数 | 类型 | 描述  
+---|---|---  
+functionName | string | 接口名称，固定为：subscribeDeviceEvent  
+deviceId | string | 智慧生活拉起插件时通过路由传递给插件的设备唯一标识  
+  
+#### 错误码
+
+code | 描述  
+---|---  
+-1111 | 调用失败

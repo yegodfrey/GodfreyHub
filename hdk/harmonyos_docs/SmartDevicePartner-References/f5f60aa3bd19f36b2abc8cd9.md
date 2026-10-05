@@ -1,0 +1,35 @@
+---
+name: document/cn/SmartDevicePartner-References/obtain-rules-0000001090660623
+title: 获取规则
+uri: https://developer.huawei.com/consumer/cn/doc/SmartDevicePartner-References/obtain-rules-0000001090660623
+---
+
+# 获取规则
+
+## 适用平台
+
+Android、iOS
+
+## 接口描述
+
+hilink.getRules(String jsonString, String resultCallback)
+
+获取所有任务执行规则。
+
+## 请求参数
+
+|参数|类型|描述|
+|:-------------|:-----|:-------------|
+|jsonString|String|符合规则接口的json字符串|
+|resultCallback|String|回调函数的方法名|
+
+## 返回参数
+
+|序号|参数|是否可选|类型|最大长度|描述|
+|:-|:-------|:---|:-----|:---|:--------------------------------------------------------------------------------------------------------------------------------|
+|1|author|可选|string|24|用户home Id|
+|2|ruleId|可选|string|24|规则Id|
+|3|executor|可选|String|24|执行主体|
+|4|ruleType|可选|int|1|取值范围：1或2。不传递或者传递错误，默认为1。 * 1：表示所有品类。APP场景页面可以查询类型为1的规则。 * 2：表示指定品类。APP单品页面可以查询类型为2的规则。 > 说明 > 门锁有设备级别的规则，在门锁重置时候需要查询并删除此类设备级别的规则。|
+|5|name|可选|String|32|规则名称，创建的时候确保不冲突。|
+

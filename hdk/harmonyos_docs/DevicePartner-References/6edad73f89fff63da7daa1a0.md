@@ -1,0 +1,42 @@
+---
+name: document/cn/DevicePartner-References/read-bledevice-characteristic-value-0000001090562411
+title: 读取蓝牙设备特征值
+uri: https://developer.huawei.com/consumer/cn/doc/DevicePartner-References/read-bledevice-characteristic-value-0000001090562411
+source: portal
+---
+
+# 读取蓝牙设备特征值  
+  
+#### 适用平台
+
+Android、iOS，平台差异如下：
+
+  * Android平台：有返回值，标识读取返回成功或失败。
+  * iOS平台：没有返回值，通过callback来获取结果。
+
+
+
+#### 接口描述
+
+hilink.readBLECharacteristicValue (deviceId, serviceId, characteristicId, CallbackName)
+
+读取低功耗蓝牙设备的特征值的值，以十六进制字符串返回。
+
+#### 请求参数
+
+参数 | 类型 | 描述  
+---|---|---  
+deviceId | String | 蓝牙设备Id  
+serviceId | String | 蓝牙特征值对应服务的 uuid  
+characteristicId | String | 蓝牙特征值的 uuid  
+  
+#### 返回参数
+
+参数 | 类型 | 描述  
+---|---|---  
+errCode | Number | 标识成功或失败：
+
+  * 0：请求读取成功。
+  * 90001：请求读取失败
+
+

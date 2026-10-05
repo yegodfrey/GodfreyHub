@@ -1,0 +1,15 @@
+---
+name: document/cn/HiCar-References/dmsdp-camera-data-type-0000001051651804
+title: DMSDPCameraDataType
+uri: https://developer.huawei.com/consumer/cn/doc/HiCar-References/dmsdp-camera-data-type-0000001051651804
+---
+
+# DMSDPCameraDataType
+
+|Enumerator|Desc|
+|:---------|:--------------------|
+|H264 = 1|Camera直接输出H264数据类型。|
+|H265 = 2|Camera直接输出H265数据类型。|
+|RGB565 = 4|Camera直接输出RGB565数据类型。|
+|NV21 = 17|Camera直接输出NV21数据类型。|
+

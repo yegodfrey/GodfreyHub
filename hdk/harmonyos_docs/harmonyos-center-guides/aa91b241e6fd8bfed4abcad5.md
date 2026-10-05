@@ -1,0 +1,46 @@
+---
+name: document/cn/harmonyos-center-guides/50128
+title: 应用隐私政策链接提交及内容规范参考FAQ
+uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-center-guides/50128
+source: portal
+---
+
+应用隐私政策链接提交及内容规范参考FAQ 1\. 隐私政策链接填写规范参考 1.1 隐私政策链接填写 开发者在创建应用或更新版本时，必须提交APP隐私政策链接，该链接的内容必须与APP内的隐私政策保持完全一致，并且当您更新了APP内的隐私政策内容时，请您及时更新隐私政策链接的文本内容。 隐私政策链接提交入口：[AppGallery Connect 网站](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/) > [APP与元服务](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/myApp) > 点击对应应用名称 > 版本信息 > 隐私声明。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/GDP_MuRTRt2LNdYMZ21brg/zh-cn_image_0000002546295929.png?HW-CC-KV=V1&HW-CC-Date=20261005T053034Z&HW-CC-Expire=86400&HW-CC-Sign=09DCC64F614FD27048528E80E8F73E8D09C3FC714955662EE83371FDFE93372D) 1.2 隐私政策链接格式参考 隐私政策自动化审核需要读取开发者提供的隐私政策，并进行自动化分析，如果提供的隐私协议链接不支持内容获取（比如PDF、图片格式等），可能会造成审核不通过，需要人工进行处理。如果希望快速通过审核，请开发者尽量提供符合规范的隐私政策链接。隐私政策链接规范如下： 1）标准url格式：如 http(s): //www.example.com/privacy/； 2）为静态html页面，用中文文字显示，统一一种字体，统一一种编码格式，无乱用符号，不需要登录、点击、不需要再跳转，允许对内容进行自动化分析、验证； 3）链接不能为博客、微博、Github和云笔记等； 4）不应为pdf、word、图片等文件格式。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/L5380rY6TGCvtP98_qAyvA/note_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20261005T053034Z&HW-CC-Expire=86400&HW-CC-Sign=9B8398539377E19A7821994BEAFD6395FF3FC474F04DCB01C48F8DC62ACFEE2F) 为了快速通过审核，华为为开发者提供隐私链接网站托管服务，详见[云托管服务](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudhosting-introductions-0000001057944575)；HarmonyOS版本4.0及以上，请使用[标准化隐私声明托管服务](https://developer.huawei.com/consumer/cn/doc/app/agc-help-privacy-policy-0000002316794885)。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/O4X9mBGgSOmXvS4jsIGNvA/zh-cn_image_0000002514696840.png?HW-CC-KV=V1&HW-CC-Date=20261005T053034Z&HW-CC-Expire=86400&HW-CC-Sign=D4511DA345B1F1A845E4AE93F0ACCA0B7649FD7B96BA32408E0D76F297623EA0) 2\. 隐私政策内容规范参考 2.1 隐私政策内容结构大纲参考 隐私政策结构需清晰明了，有段落分层，易于用户阅读。建议您按照如下结构排版撰写隐私政策结构大纲： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/QqH5cyC7S6SP3zEpO4kZxA/zh-cn_image_0000002521079446.png?HW-CC-KV=V1&HW-CC-Date=20261005T053034Z&HW-CC-Expire=86400&HW-CC-Sign=7A3D9AC24A08F3D903845FC6161D16F1A3E27ED3C6CAE83E273522774D671ADC) 2.2 隐私政策内容要求 请参考[隐私政策参考范本.zip](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyManage/011/111/111/0000000000011111111.20260203211838.63574400314130540088896785748617:50001231000000:2800:D9D01E11790540DD45A888D6D54CE1C537BBC8324BA58DA5CC4D6F61B3369A85.zip?needInitFileName=true) ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/hZ1BL_GZSeOVCp8g0VJU-g/zh-cn_image_0000002552279655.png?HW-CC-KV=V1&HW-CC-Date=20261005T053034Z&HW-CC-Expire=86400&HW-CC-Sign=37B4F49A45EAEBB8308CE3BDC1EA7E1C380135F78C630900B08DD86022D7F148) 3\. 个人信息标准表述及其他表述参考 以下列出了常见的APP收集的个人信息及同意/拒绝的标准表述，请您按照此名称对APP实际收集用户的个人信息在隐私政策内进行规范化的描述填写，并规范隐私政策明确同意/拒绝的选项表述。为保证隐私检测准确性，请使用规范化的表述。 **一、个人信息标准表述参考**  
+---  
+此处列出了常见的APP收集的个人信息的规范化表述，请开发者按照下表对APP实际收集用户的个人信息在隐私政策内进行规范化的表述。（为保证隐私检测准确性，请在隐私政策中使用规范化的个人信息名称）  
+**个人信息标准表述** | **其他规范化表述方式**  
+Android_ID | 安卓ID、Android ID、ANDROID ID  
+IMEI | imei、国际移动设备识别码  
+IMSI | imsi、国际移动用户识别码  
+MAC地址 | MAC、Mac地址  
+软件安装列表 | 安装列表、应用列表、应用程序列表、软件列表  
+地理位置 | 位置信息、定位信息、位置  
+联系人信息 | 联系人、联系人信息、通讯录、通信录  
+短信 | SMS、短讯  
+通话记录 | 通讯记录、通话日志  
+手机号码 | 电话号码、本机号码  
+面部识别 | 面部识别特征、人脸识别、面部信息  
+身份证 | 身份ID、身份信息  
+日历 | 日期、日程  
+加速度传感器 | 惯性传感器、加速传感器、线性加速度传感器  
+陀螺仪传感器 | 陀螺仪、陀螺传感器  
+重力传感器 | 重力感应器  
+方向传感器 | /  
+旋转矢量传感器 | /  
+磁场传感器 | 霍尔传感器  
+剪切板 | 剪贴板、粘贴板  
+相机 | 摄像头、图片信息  
+录音 | 麦克风、录制音频  
+电话状态 | 通话状态、移动网络信息、设备信息  
+OAID | 匿名设备标识符  
+ICCID | 集成电路卡识别码、SIM卡信息  
+SN | 手机序列号、设备序列号、硬件序列号  
+MEID | 移动设备识别码  
+存储权限 | 图片、多媒体、视频、音频、照片  
+BSSID | 基本服务集标识符  
+SSID | 服务集标识符  
+ODID | 开放设备标识符  
+运动健康 | 运动信息 （备注：运动信息包含运动心率、轨迹、步数、步频、时长、热量等）  
+**二、明确的同意和拒绝选项的表述参考**  
+同意 | 确定、确认、接受  
+拒绝 | 不同意、暂不同意、退出、退出应用

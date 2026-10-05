@@ -1,0 +1,92 @@
+---
+name: document/cn/SmartTravel-References/vehicle-service-access-0000001153460176
+title: Vehicle Service Channel
+uri: https://developer.huawei.com/consumer/cn/doc/SmartTravel-References/vehicle-service-access-0000001153460176
+source: portal
+---
+
+# Vehicle Service Channel
+
+#### Scenario Overview
+
+HiCar provides a vehicle service channel for data transmission between the head unit and vehicle service apps connected to HiCar.
+
+After the head unit is started and connected to the phone, it needs to proactively report the permission that allows the vehicle service channel to be used. Only the mobile vehicle service apps that are granted this permission can communicate with the vehicle services of the head unit.
+
+#### Data Type
+
+508
+
+#### API Version
+
+1.0
+
+#### API Definition
+
+**Table 1** Vehicle service channel APIs**Parameter** | **Mandatory** | **Type** | **Description**  
+---|---|---|---  
+serviceInfo | permission | Yes | string | Name of the vehicle service package corresponding to the vehicle brand. Use commas (,) to separate package names. HiCar creates an app trustlist based on the value of this parameter, and allows only apps in the list to use the vehicle service channel API.  
+carBrand | Yes | string | Defined brand information. Vehicle service apps can provide brand-specific services based on this information.  
+carModel | Yes | string | Defined vehicle model. Vehicle service apps can provide model-specific services based on this information.  
+version | Yes | string | Defined vehicle service version number. Vehicle service apps can provide version-specific services based on this information.  
+requestService | requestInfo | Yes | string | Requested content, which is customizable. For example, you can use this field to request the vehicle service app to fill in authentication information such as the password for the head unit to identify the app.  
+clientIp | Yes | string | IP address of the phone, which is set by the HiCar app.  
+serviceIp | Yes | string | IP address of the head unit server, which is set by the HiCar app.  
+sessionId | Yes | string | Session ID.  
+responseService | responseInfo | Yes | string | Customized response content of the vehicle service. For example, you can use this field to enter information such as the password of the custom data channel for authentication.  
+channelInfo | Yes | string | Channel information defined by the vehicle service. For example, you can set this field to the URL of the RTSP service data channel.  
+result | Yes | string | Request result.
+     * **accept** : Accept the request.
+     * **reject** : Reject the request.  
+sessionId | Yes | string | Session ID, which must be the same as that in the request.  
+dataToCar | - | Yes | string | Data sent by the vehicle service app to the head unit. The content is customized by the vehicle service, such as some simple data.  
+dataToApp | - | Yes | string | Data sent by the head unit to the vehicle service app. The content is customized by the vehicle service, such as some simple data.  
+  
+#### API Examples
+
+Example: After the head unit is connected to the phone, it proactively reports the list of apps that can access HiCar.
+    
+    {
+        "serviceInfo": {
+            "permission":"com.android.demo1, com.android.demo2",
+            "carBrand":"brand",
+            "carModel":"mode",
+            "version":"1.0"
+         }
+    }
+
+After the vehicle service channel is established, the interaction between the vehicle service apps and the head unit is as follows:
+
+Example: A vehicle service app sends data to the head unit.
+    
+    {
+        "dataToCar":"2"
+    }
+
+Example: The head unit sends data to a vehicle service app.
+    
+    {
+        "dataToApp":"123"
+    }
+
+Example: A vehicle service app requests a custom data channel.
+    
+    {
+        "requestService": {
+            "requestInfo":"request car service",
+            "serviceIp":"192.168.1.200",
+            "clientIp":"192.168.1.100",
+            "sessionId":"123"
+        }
+    }
+
+Example: The head unit responds to the vehicle service app regarding the custom data channel request.
+    
+    {
+        "responseService": {
+            "responseInfo":"response car service",
+            "channelInfo":"192.168.1.100:100",
+            "result":"accept",
+            "sessionId":"123"
+        }
+    }

@@ -1,0 +1,17 @@
+---
+name: document/cn/HiCar-Guides/release-note-0000001221752649
+title: 文档更新记录
+uri: https://developer.huawei.com/consumer/cn/doc/HiCar-Guides/release-note-0000001221752649
+---
+
+# 文档更新记录
+
+|日期|修订版本|修改描述|
+|:---------|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|2022-12-01|1.4.23|补充歌词相关说明，详见[表2](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/update-song-0000001078467008#ZH-CN_TOPIC_0000001078467008__table134871534193614)。|
+|2022-09-13|1.4.22|增加： 进度条拖动的功能，详见[进度条拖动](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/drag-progress-bar-0000001402303945)。|
+|2021-12-14|1.4.21|增加： 1. 应用签名配置说明，详见[配置应用签名信息](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/preparation-0000001195357739#section20121421713)。 2. 对于搜索目的不明确的指令，例如"播放歌曲"、"播放相声"，增加建议规范说明，详见[规范说明](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/voice-search-0000001078018964#section139448568398)。 优化：修正更新列表单个数据的描述错误，详见[更新列表单个数据](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/update-content-single-0000001158160569)。|
+|2021-08-04|1.4.20|HiCar支持为音乐类应用下发语音指令：播放收藏的音乐、播放下载的音乐、播放本地的音乐、播放最近播放的音乐，详见[实现语音内容搜索](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/voice-search-0000001078018964)。|
+|2021-05-25|1.4.19|增加： 1. 新闻资讯类语音搜索语音意图参数，详见[表4](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/voice-search-0000001078018964#ZH-CN_TOPIC_0000001078018964__table82853123495)。 2. 支持更新列表中单个曲目数据，详见[更新列表单个数据](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/update-content-single-0000001158160569)。 3. 支持自定义播放模式，详见[配置界面显示参数](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/set-ui-parameters-0000001078018960)和[更新播放模式](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/update-playback-mode-0000001078147430)。 4. 支持自定义播放速率，详见[配置界面显示参数](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/set-ui-parameters-0000001078018960)和[更新播放速率](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/update-playback-speed-0000001078307034)。|
+|2021-04-19|1.4.18|为了支持通过语音控制收藏状态变化、切换播放模式，增加相关说明： 1. 新增收藏状态相关说明，详见[更新收藏状态](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/update-favorite-status-0000001119983203)。 2. 新增播放模式相关说明，详见[更新播放模式](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/update-playback-mode-0000001078147430)。 3. 新增语音接入**com.huawei.hicar.support.voicesearch** 版本2.0相关说明，详见[实现语音内容搜索](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/voice-search-0000001078018964)。 另外，修订接入规范的弹框规范部分，增加手机/车机弹框同步处理的说明，详见[接入规范](https://developer.huawei.com/consumer/cn/doc/development/HiCar-Guides/integration-specification-0000001078018958)。|
+

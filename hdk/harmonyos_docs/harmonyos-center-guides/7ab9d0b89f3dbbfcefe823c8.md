@@ -1,0 +1,8 @@
+---
+name: document/cn/harmonyos-center-guides/faqs-network-14-0000002623223819
+title: Socket连接报错，错误码88
+uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-center-guides/faqs-network-14-0000002623223819
+source: portal
+---
+
+Socket连接报错，错误码88  错误码88表示连接通道已关闭。原因包括Socket连接未绑定IP地址、未绑定端口或端口不可用。

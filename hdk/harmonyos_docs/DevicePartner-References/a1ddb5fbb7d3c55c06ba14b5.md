@@ -1,0 +1,64 @@
+---
+name: document/cn/DevicePartner-References/reset-setting-button-click-event-0000001090419769
+title: 重新设置标题栏右上角的设置按钮点击事件
+uri: https://developer.huawei.com/consumer/cn/doc/DevicePartner-References/reset-setting-button-click-event-0000001090419769
+source: portal
+---
+
+# 重新设置标题栏右上角的设置按钮点击事件  
+  
+#### 适用平台
+
+Android、iOS
+
+#### 请求消息
+
+当重写标题栏右上角的设置按钮点击事件时，WEB中调用js方法如下：
+    
+    
+    hilink.overrideSettingClick(
+    enable, // boolean, true启用，false不启用
+    resultCallback // string，成功或失败时，将调用传入resultStr返回结果
+    );
+
+示例：
+    
+    
+    hilink.overrideSettingClick(
+    true,
+    "resultCallback"
+    );
+
+回调函数示例：
+    
+    
+    //web页面中需实现该函数，用来查询执行结果
+    function resultCallback(resultStr){
+    var result = resultStr; // 请求的返回结果
+    }
+
+当enable为true时，标题栏右上角的设置按钮点击事件将重写为调用一个js方法goSetting()。
+    
+    
+    // web页面中需实现该函数，用来实现自定义的返回
+    function goSetting(){
+    // web实现自定义的返回
+    }
+
+#### 响应消息
+
+当调用成功时，JSSDK将调用success对应的回调函数，将如下结果返回到resultStr中。
+    
+    
+    {
+      "errcode": 0
+    }
+
+#### 错误码
+    
+    
+    {
+      "errcode": 11
+    }
+
+错误码说明参见[通用错误码](https://device.harmonyos.com/cn/docs/devicepartner/DevicePartner-References/result-codes-0000001077308408)。

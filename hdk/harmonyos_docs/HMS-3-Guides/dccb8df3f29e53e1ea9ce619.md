@@ -1,0 +1,15 @@
+---
+name: document/cn/HMS-3-Guides/3030701
+title: 了解上架规则
+uri: https://developer.huawei.com/consumer/cn/doc/HMS-3-Guides/3030701
+source: portal
+---
+
+开发者完成集成服务，提交应用上架前，请先了解如下上架规则和审核常见问题：
+
+  * [华为应用市场审核指南](https://developer.huawei.com/consumer/cn/devservice/doc/50104 "华为应用市场审核指南")
+
+  * [应用审核FAQ](https://developer.huawei.com/consumer/cn/devservice/doc/50106 "应用审核FAQ")
+
+
+

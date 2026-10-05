@@ -1,0 +1,127 @@
+---
+name: document/cn/HMS-2-Guides/hmssdk_jointOper_gamePruchaseQuery
+title: 非消耗商品订单查询（废弃）
+uri: https://developer.huawei.com/consumer/cn/doc/HMS-2-Guides/hmssdk_jointOper_gamePruchaseQuery
+source: portal
+---
+
+# 1. 场景介绍
+
+非消耗商品是指用户只需购买一次后续不会过期或随着使用而减少的商品，例如去广告，升级专业版等。应用可在用户登录后或用户主动查看会员权益时，查询用户已经支付的非消耗商品订单信息并展示给用户。在用户使用商品时，无需再次支付可直接发放商品。
+
+# 2. 业务流程
+
+![](https://communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20200224200723.29627323257441398734889695634519:50510916032943:2800:C7ECE27878A56CA3105EEE10F1E085C27939216551632B48431AFF2B33BB89DF.png?needInitFileName=true)
+
+1\. 用户主动查看已订购的非消耗商品。
+
+2\. 应用调用[getPurchaseInfo](https://developer.huawei.com/consumer/cn/doc/development/HMS-2-References/hmssdk_jointOper_api_reference_c21)接口请求查询指定订单或所有非消耗商品订单信息。
+
+3\. HMS SDK根据设备当前已登录的华为帐号查询当前用户已支付的非消耗商品订单信息，并通过回调方式返回给应用。
+
+4\. 应用根据订单的支付状态决定是否向用户发放商品。  
+● 如果返回码为0且返回的回调结果不为空，对查询结果进行验签。  
+  \- 如果验签成功，表示查询成功，应用可获取对应的非消耗商品订单信息。  
+  \- 如果验签失败，需要检查支付公钥是否正确。如支付公钥正确，请联系华为工程师。  
+
+
+● 如果返回其他错误码，根据getPurchaseInfo接口中定义的返回码处理建议进行处理。
+
+# 3. 注意事项
+
+● 必须已经提前为应用申请支付服务，参见[申请支付服务](https://developer.huawei.com/consumer/cn/doc/development/HMS-2-Guides/hmssdk_jointOper_prepare_applypayservice)。  
+● [配置工程文件](https://developer.huawei.com/consumer/cn/doc/development/HMS-2-Guides/hmssdk_jointOper_gameProFile)必须已经配置了HMS SDK版本号。  
+● 必须已经提前在AppGallery Connect中配置开发测试用的非消耗商品信息，参见[配置商品信息](https://developer.huawei.com/consumer/cn/doc/development/HMS-2-Guides/hmssdk_jointOper_devprepare_configproduct)。  
+
+
+● 支持非消耗商品查询的地区为“[全球价格信息](https://developer.huawei.com/consumer/cn/service/josp/agc/app/views/operate/productmng/html/price.list.html)”中所列地区。
+
+# 4. 开发步骤
+
+1、封装查询参数，具体说明参见[getPurchaseInfo](https://developer.huawei.com/consumer/cn/doc/development/HMS-2-References/hmssdk_jointOper_api_reference_c21)接口。  
+
+
+示例代码如下：
+      
+      1. private void getPurchaseInfo(final long pageNo){
+        2.     final PurchaseInfoRequest req = new PurchaseInfoRequest();
+        3.     req.setMerchantId(IEvnValues.cpId);
+        4.     req.setAppId(IEvnValues.appId);
+        5.     req.setPriceType("3");
+        6.     req.setPageNo(pageNo);
+        7.     req.setTs(System.currentTimeMillis());
+        8.     ...
+        9. }
+    
+    
+
+2、生成签名字符串，即getPurchaseInfo接口的sign字段。  
+● 如果由应用服务端生成签名字符串，参见[支付签名的生成方法](https://developer.huawei.com/consumer/cn/doc/development/HMS-2-Guides/hmssdk_jointOper_generateSign)中的生成规则生成。  
+● 如果由应用客户端直接生成签名字符串，可以参考HMS SDK工程目录PaySignUtil.java中的rsaSign()方法生成支付签名。示例代码如下：
+      
+      1. req.setSign(PaySignUtil.rsaSign(PaySignUtil.getStringForSign(req), pay_priv_key));
+    
+    
+
+PaySignUtil.getStringForSign(req)返回查询参数组成的待签名字符串，pay_priv_key为支付私钥。
+
+警告：
+
+如果开发者有自己的服务器，为了保证支付私钥的安全性，强烈建议在应用服务端生成签名字符串。
+
+  
+
+
+3、调用getPurchaseInfo接口并处理结果回调。
+
+● 如果返回码为0且返回的回调结果不为空，应用需要参考[对响应消息验签的方法](https://developer.huawei.com/consumer/cn/doc/development/HMS-2-Guides/hmssdk_jointOper_verifySign)对查询结果进行验签。  
+  \- 如果验签成功，表示查询成功，应用可获取对应的非消耗商品信息。  
+  \- 如果验签失败，需要检查支付公钥是否正确。如支付公钥正确，请联系华为工程师。  
+● 如果返回其他错误码，根据getPurchaseInfo接口中定义的返回码处理建议进行处理。  
+
+
+示例代码如下：
+      
+      1. HMSAgent.Pay.getPurchaseInfo(req, new GetPurchaseInfoHandler() {
+        2.     @Override
+        3.     public void onResult(int rst, PurchaseInfoResult result) {
+        4.         if (result != null) {
+        5.             if (rst == HMSAgent.AgentResultCode.HMSAGENT_SUCCESS) {
+        6.                 boolean checkSign = PaySignUtil.checkSign(result, pay_pub_key);
+        7.                 showLog("getPurchaseInfo: pageNo="+pageNo+" checkSign=" + checkSign);
+        8.                 if (checkSign) {
+        9.                     List<PurchaseInfo> purchaseInfos = result.getPurchaseInfoList();
+        10.                     if (purchaseInfos != null) {
+        11.                         for (PurchaseInfo info : purchaseInfos) {
+        12.                             String requestId = info.getRequestId();
+        13.                             String appid = info.getAppId();
+        14.                             String cpid = info.getMerchantId();
+        15.                             String productId = info.getProductId();
+        16.                             String tradeTime = info.getTradeTime();
+        17.                             showLog("getPurchaseInfo: tradeTime=" + tradeTime
+        18.                                             + "\n\t productId=" + productId
+        19.                                             + "\n\t cpid=" + cpid
+        20.                                             + "\n\t appid=" + appid
+        21.                                             + "\n\t requestId=" + requestId);
+        22.                         }
+        23.                     }
+        24.                     long pageCount = result.getPageCount();
+        25.                     if (pageNo < pageCount) {
+        26.                         // 请求下一页数据
+        27.              getPurchaseInfo(pageNo+1);
+        28.                     }
+        29.                 } else {
+        30.                            // 验签失败，请检查公钥是否正确。如果确认无误，请联系华为方支持
+        31.              }
+        32.             } else {
+        33.                 showLog("getPurchaseInfo: pageNo="+pageNo+" result=null code=" + rst + " errMsg=" + result.getStatus().getStatusMessage());
+        34.             }
+        35.        } else {
+        36.             showLog("getPurchaseInfo: pageNo="+pageNo+" result=null code=" + rst);
+        37.        }
+        38.     }
+        39. });
+    
+    
+
+4、应用根据获取到的当前华为帐号已经的非消耗商品订单信息，向用户发放非消耗商品，例如会员权益、去广告业务等。此部分由开发者自行完成。

@@ -1,0 +1,37 @@
+---
+name: document/cn/doc-references/transitionzoomingmove-0000001060388820
+title: TransitionZoomingMove
+uri: https://developer.huawei.com/consumer/cn/doc/doc-references/transitionzoomingmove-0000001060388820
+source: portal
+---
+
+TransitionZoomingMove [java.lang.Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446) |---[ohos.agp.transition.Transition](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transition-0000001054358733) |---|---ohos.agp.transition.TransitionZoomingMove
+    
+    public class TransitionZoomingMove
+    extends [Transition](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transition-0000001054358733)  
+  
+---  
+Represents the animation for a zoom move.**Since:** 3Constructor Summary Constructor | Description  
+---|---  
+[TransitionZoomingMove](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transitionzoomingmove-0000001060388820#ZH-CN_TOPIC_0000001060388820__TransitionZoomingMove--)​() |  Default constructor used to create a TransitionZoomingMove instance.   
+[TransitionZoomingMove](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transitionzoomingmove-0000001060388820#ZH-CN_TOPIC_0000001060388820__TransitionZoomingMove-int-)​(int moveType) |  A constructor used to create a TransitionZoomingMove instance that specifies the fast moving effect for a transformation.   
+Method Summary Modifier and Type | Method | Description  
+---|---|---  
+void | [setDuration](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transitionzoomingmove-0000001060388820#ZH-CN_TOPIC_0000001060388820__setDuration-float-)​(float duration) |  Deprecated. This change is effective since API version 8. This method is deprecated because the duration parameter is an integer and does not need to be represented by a floating point number. Replaced by [setDuration(long)](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transitionzoomingmove-0000001060388820#ZH-CN_TOPIC_0000001060388820__setDuration-long-).   
+void | [setDuration](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transitionzoomingmove-0000001060388820#ZH-CN_TOPIC_0000001060388820__setDuration-long-)​(long duration) |  Sets the duration for this animation.   
+Methods inherited from class java.lang.[Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446)  
+---  
+[clone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__clone--), [equals](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__equals-java_lang_Object-), [finalize](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__finalize--), [getClass](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__getClass--), [hashCode](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__hashCode--), [notify](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__notify--), [notifyAll](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__notifyAll--), [toString](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__toString--), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait--), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait-long-), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait-long-int-)  
+Methods inherited from class ohos.agp.transition.[Transition](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transition-0000001054358733)  
+---  
+[setCurve](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transition-0000001054358733#ZH-CN_TOPIC_0000001054358733__setCurve-ohos_agp_animation_Animator_TimelineCurve-), [setCurveType](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transition-0000001054358733#ZH-CN_TOPIC_0000001054358733__setCurveType-int-)  
+Constructor Detail [h2]TransitionZoomingMove public TransitionZoomingMove​() Default constructor used to create a TransitionZoomingMove instance. **Since:** 4 [h2]TransitionZoomingMove public TransitionZoomingMove​(int moveType) A constructor used to create a TransitionZoomingMove instance that specifies the fast moving effect for a transformation. **Parameters:** Parameter Name | Parameter Description  
+---|---  
+moveType  |  Indicates the fast moving effect, which can be TransitionMove.LEFT, TransitionMove.RIGHT,TransitionMove.TOP, or TransitionMove.BOTTOM.  
+**Since:** 4 Method Detail [h2]setDuration [@Deprecated](https://developer.harmonyos.com/cn/docs/documentation/doc-references/deprecated-0000001054838412) public void setDuration​(float duration) Deprecated. This change is effective since API version 8. This method is deprecated because the duration parameter is an integer and does not need to be represented by a floating point number. Replaced by [setDuration(long)](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transitionzoomingmove-0000001060388820#ZH-CN_TOPIC_0000001060388820__setDuration-long-). Sets the duration for this animation. **Overrides:** [setDuration](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transition-0000001054358733#ZH-CN_TOPIC_0000001054358733__setDuration-float-) in class [Transition](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transition-0000001054358733) **Parameters:** Parameter Name | Parameter Description  
+---|---  
+duration  |  Indicates the duration, in milliseconds.  
+**Since:** 4 [h2]setDuration public void setDuration​(long duration) Sets the duration for this animation. **Overrides:** [setDuration](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transition-0000001054358733#ZH-CN_TOPIC_0000001054358733__setDuration-long-) in class [Transition](https://developer.harmonyos.com/cn/docs/documentation/doc-references/transition-0000001054358733) **Parameters:** Parameter Name | Parameter Description  
+---|---  
+duration  |  Indicates the duration, in milliseconds.  
+**Since:** 7

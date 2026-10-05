@@ -1,0 +1,335 @@
+---
+name: document/cn/doc-references/point-0000001054358735
+title: Point
+uri: https://developer.huawei.com/consumer/cn/doc/doc-references/point-0000001054358735
+source: portal
+---
+
+# Point  
+  
+[java.lang.Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446) |---ohos.agp.utils.Point
+    
+    public class Point
+    extends [Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446)  
+  
+---  
+A utility class that creates instances for recording pixels. 
+
+Each instance represents a two-dimensional coordinate, which can be used to represent a pixel.
+
+**Since:**
+
+1
+
+#### Field Summary
+
+Modifier and Type | Field | Description  
+---|---|---  
+float[] | [position](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__position) |  Indicates the position represented by a point.   
+  
+#### Constructor Summary
+
+Constructor | Description  
+---|---  
+[Point](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__Point--)​() |  A no-argument constructor used to create a Point instance.   
+[Point](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__Point-float-float-)​(float x, float y) |  Constructs a point at a specified location based on the (x,y) coordinates.   
+[Point](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__Point-ohos_agp_utils_Point-)​([Point](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735) point) |  Constructs a point at a specified location.   
+  
+#### Method Summary
+
+Modifier and Type | Method | Description  
+---|---|---  
+boolean | [equals](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__equals-float-float-)​(float x, float y) |  Checks whether this Point is equal to a specified point with given coordinates.   
+boolean | [equals](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__equals-java_lang_Object-)​([Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446) o) |  Indicates whether some other object is "equal to" this one.   
+float | [getPointX](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__getPointX--)​() |  Obtains the float representation of the x coordinate of this Point.   
+int | [getPointXToInt](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__getPointXToInt--)​() |  Obtains the integer representation of the x coordinate of this Point.   
+float | [getPointY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__getPointY--)​() |  Obtains the float representation of the y coordinate of this Point.   
+int | [getPointYToInt](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__getPointYToInt--)​() |  Obtains the integer representation of the y coordinate of this Point.   
+int | [hashCode](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__hashCode--)​() |  Returns a hash code value for the object.   
+boolean | [isInRect](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__isInRect-ohos_agp_utils_Rect-)​([Rect](https://developer.harmonyos.com/cn/docs/documentation/doc-references/rect-0000001054558757) rect) |  Checks whether this Point is in the specified rectangle.   
+void | [modify](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__modify-float-float-)​(float x, float y) |  Modifies this Point based on the coordinates of a specified point.   
+void | [modify](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__modify-ohos_agp_utils_Point-)​([Point](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735) point) |  Modifies this Point based on a specified point.   
+[String](https://developer.harmonyos.com/cn/docs/documentation/doc-references/string-0000001054518460) | [toString](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__toString--)​() |  Obtains the string value of the point.   
+void | [translate](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735#ZH-CN_TOPIC_0000001054358735__translate-float-float-)​(float dx, float dy) |  Translates this Point.   
+  
+Methods inherited from class java.lang.[Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446)  
+---  
+[clone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__clone--), [finalize](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__finalize--), [getClass](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__getClass--), [notify](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__notify--), [notifyAll](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__notifyAll--), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait--), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait-long-), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait-long-int-)  
+  
+#### Field Detail
+
+#### [h2]position
+
+public final float[] position
+
+Indicates the position represented by a point. 
+
+A one-dimensional floating-point array is used to represent the X and Y coordinates of the point.
+
+#### Constructor Detail
+
+#### [h2]Point
+
+public Point​()
+
+A no-argument constructor used to create a Point instance. 
+
+This method is used to construct a point at the origin (0,0) in the coordinate space.
+
+#### [h2]Point
+
+public Point​([Point](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735) point)
+
+Constructs a point at a specified location. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+point  |  Indicates the initialization point  
+  
+**Since:**
+
+4
+
+#### [h2]Point
+
+public Point​(float x, float y)
+
+Constructs a point at a specified location based on the (x,y) coordinates. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+x  |  Indicates the X coordinate, the type is float.  
+y  |  Indicates the Y coordinate, the type is float.  
+  
+#### Method Detail
+
+#### [h2]getPointX
+
+public float getPointX​()
+
+Obtains the float representation of the x coordinate of this Point. 
+
+**Returns:**
+
+Returns the x coordinate.
+
+**Since:**
+
+3
+
+#### [h2]getPointY
+
+public float getPointY​()
+
+Obtains the float representation of the y coordinate of this Point. 
+
+**Returns:**
+
+Returns the y coordinate.
+
+**Since:**
+
+4
+
+#### [h2]getPointXToInt
+
+public int getPointXToInt​()
+
+Obtains the integer representation of the x coordinate of this Point. 
+
+**Returns:**
+
+Returns the x coordinate.
+
+**Since:**
+
+4
+
+#### [h2]getPointYToInt
+
+public int getPointYToInt​()
+
+Obtains the integer representation of the y coordinate of this Point. 
+
+**Returns:**
+
+Returns the y coordinate.
+
+**Since:**
+
+4
+
+#### [h2]equals
+
+public final boolean equals​(float x, float y)
+
+Checks whether this Point is equal to a specified point with given coordinates. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+x  |  Indicates the X coordinate of the specified point.  
+y  |  Indicates the Y coordinate of the specified point.  
+  
+**Returns:**
+
+Returns true if the two points are equal; returns false otherwise.
+
+**Since:**
+
+4
+
+#### [h2]equals
+
+public boolean equals​([Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446) o)
+
+Indicates whether some other object is "equal to" this one. 
+
+The equals method implements an equivalence relation on non-null object references: 
+
+    * It is _reflexive_ : for any non-null reference value x, x.equals(x) should return true. 
+    * It is _symmetric_ : for any non-null reference values x and y, x.equals(y) should return true if and only if y.equals(x) returns true. 
+    * It is _transitive_ : for any non-null reference values x, y, and z, if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) should return true. 
+    * It is _consistent_ : for any non-null reference values x and y, multiple invocations of x.equals(y) consistently return true or consistently return false, provided no information used in equals comparisons on the objects is modified. 
+    * For any non-null reference value x, x.equals(null) should return false. 
+
+The equals method for class Object implements the most discriminating possible equivalence relation on objects; that is, for any non-null reference values x and y, this method returns true if and only if x and y refer to the same object (x == y has the value true). 
+
+Note that it is generally necessary to override the hashCode method whenever this method is overridden, so as to maintain the general contract for the hashCode method, which states that equal objects must have equal hash codes.
+
+**Overrides:**
+
+[equals](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__equals-java_lang_Object-) in class [Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446)
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+o  |  the reference object with which to compare.  
+  
+**Returns:**
+
+true if this object is the same as the obj argument; false otherwise.
+
+**See Also:**
+
+[Object.hashCode()](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__hashCode--), [HashMap](https://developer.harmonyos.com/cn/docs/documentation/doc-references/hashmap-0000001054518606)
+
+#### [h2]hashCode
+
+public int hashCode​()
+
+Returns a hash code value for the object. This method is supported for the benefit of hash tables such as those provided by [HashMap](https://developer.harmonyos.com/cn/docs/documentation/doc-references/hashmap-0000001054518606). 
+
+The general contract of hashCode is: 
+
+    * Whenever it is invoked on the same object more than once during an execution of a Java application, the hashCode method must consistently return the same integer, provided no information used in equals comparisons on the object is modified. This integer need not remain consistent from one execution of an application to another execution of the same application. 
+    * If two objects are equal according to the equals(Object) method, then calling the hashCode method on each of the two objects must produce the same integer result. 
+    * It is not required that if two objects are unequal according to the [Object.equals(java.lang.Object)](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__equals-java_lang_Object-) method, then calling the hashCode method on each of the two objects must produce distinct integer results. However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hash tables. 
+
+As much as is reasonably practical, the hashCode method defined by class Object does return distinct integers for distinct objects. (This is typically implemented by converting the internal address of the object into an integer, but this implementation technique is not required by the Java™ programming language.)
+
+**Overrides:**
+
+[hashCode](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__hashCode--) in class [Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446)
+
+**Returns:**
+
+a hash code value for this object.
+
+**See Also:**
+
+[Object.equals(java.lang.Object)](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__equals-java_lang_Object-), [System.identityHashCode(java.lang.Object)](https://developer.harmonyos.com/cn/docs/documentation/doc-references/system-0000001054558449#ZH-CN_TOPIC_0000001054558449__identityHashCode-java_lang_Object-)
+
+#### [h2]modify
+
+public final void modify​(float x, float y)
+
+Modifies this Point based on the coordinates of a specified point. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+x  |  Indicates the X coordinate of the specified point.  
+y  |  Indicates the Y coordinate of the specified point.  
+  
+**Since:**
+
+4
+
+#### [h2]modify
+
+public final void modify​([Point](https://developer.harmonyos.com/cn/docs/documentation/doc-references/point-0000001054358735) point)
+
+Modifies this Point based on a specified point. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+point  |  Indicates the specified point.  
+  
+**Since:**
+
+4
+
+#### [h2]translate
+
+public final void translate​(float dx, float dy)
+
+Translates this Point. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+dx  |  Indicates the x-axis distance to translate.  
+dy  |  Indicates the y-axis distance to translate.  
+  
+**Since:**
+
+4
+
+#### [h2]isInRect
+
+public boolean isInRect​([Rect](https://developer.harmonyos.com/cn/docs/documentation/doc-references/rect-0000001054558757) rect)
+
+Checks whether this Point is in the specified rectangle. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+rect  |  Indicates the specified rectangle.  
+  
+**Returns:**
+
+true if this Point is in the specified rectangle; returns false otherwise.
+
+**Since:**
+
+3
+
+#### [h2]toString
+
+public [String](https://developer.harmonyos.com/cn/docs/documentation/doc-references/string-0000001054518460) toString​()
+
+Obtains the string value of the point. 
+
+**Overrides:**
+
+[toString](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__toString--) in class [Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446)
+
+**Returns:**
+
+Returns the string value of the point.
+
+**Since:**
+
+4

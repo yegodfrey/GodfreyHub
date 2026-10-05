@@ -1,0 +1,109 @@
+---
+name: document/cn/SmartTravel-References/screen-on-off-0000001199289939
+title: Turning the Screen On/Off
+uri: https://developer.huawei.com/consumer/cn/doc/SmartTravel-References/screen-on-off-0000001199289939
+source: portal
+---
+
+# Turning the Screen On/Off
+
+#### Scenario Overview
+
+If the head unit screen can be turned on/off, the user can do so using HiCar voice control after the head unit is connected to HiCar.
+
+#### Data Type
+
+521
+
+#### API Version
+
+1.0
+
+#### API Definition
+
+**Table 1** API turning on/off the screen of the head unitParameter | **Mandatory** | Type | **Description**  
+---|---|---|---  
+queryScreenState | Yes | string | The HiCar app queries the screen-on/off status from the head unit. The field value is **state**.  
+isSupportAbility | No | int | The head unit reports whether the screen can be turned off or on:
+     * **1** : Yes.
+     * **1** : No.  
+screenState | No | int | Current screen status of the head unit:
+     * **1** : On (the screen is on).
+     * **2** : Off (the screen is off).  
+deviceScreenOper | No | int | Command for turning on/off the screen:
+     * **1** : Turn on the screen.
+     * **2** : Turn off the screen.  
+response | No | int | Response result code of the operation:
+     * **100000** : Success.
+     * **100004** : Failure.  
+screenStateChange | No | int | If the screen on/off status changes upon a non-HiCar instruction (for example, if a user presses a physical button to turn on or off the screen), the status change needs to be reported to the HiCar app:
+     * **1** : On (the screen is turned on).
+     * **2** : Off (the screen is turned off).  
+  
+#### API Examples
+
+     1. Example: Query whether the head unit supports screen control via voice commands.
+        1. The HiCar app sends a query message to the head unit:
+               
+               {
+                   "queryScreenState":"state"
+               }
+
+        2. The head unit returns a response to the HiCar app:
+
+(1) Supported and enabled:
+               
+               {
+                   "isSupportAbility":1,
+                   "screenState":1
+               }
+
+(2) Supported but currently disabled:
+               
+               {
+                   "isSupportAbility":1,
+                   "screenState":2
+               }
+
+(3) Not supported:
+               
+               {
+                   "isSupportAbility":-1
+               }
+
+     2. Example: The user turns on/off the head unit screen using voice commands.
+        1. The HiCar app sends an instruction message to the head unit:
+
+(1) Turn on the screen:
+               
+               {
+                   "deviceScreenOper":1
+               }
+
+(2) Turn off the screen:
+               
+               {
+                   "deviceScreenOper":2
+               }
+
+        2. The head unit returns a response to the HiCar app.
+
+(1) Success:
+               
+               {
+                   "response":100000
+               }
+
+(2) Failure:
+               
+               {
+                   "response":100004
+               }
+
+     3. Example: The head unit proactively reports the screen status, for example, if the user turns on or off the screen by operation a physical button/switch of the head unit.
+
+The message sent by the head unit to the HiCar app:
+            
+            {
+                "screenStateChange":1
+            }

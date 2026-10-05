@@ -1,0 +1,353 @@
+---
+name: document/cn/doc-references/japanesecalendar-0000001054678847
+title: JapaneseCalendar
+uri: https://developer.huawei.com/consumer/cn/doc/doc-references/japanesecalendar-0000001054678847
+source: portal
+---
+
+# JapaneseCalendar
+
+[java.lang.Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446) |---[ohos.global.icu.util.Calendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845) |---|---[ohos.global.icu.util.GregorianCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878) |---|---|---ohos.global.icu.util.JapaneseCalendar
+    
+    public class JapaneseCalendar
+    extends [GregorianCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878)  
+  
+---  
+JapaneseCalendar is a subclass of GregorianCalendar that numbers years and eras based on the reigns of the Japanese emperors. The Japanese calendar is identical to the Gregorian calendar in all respects except for the year and era. The ascension of each emperor to the throne begins a new era, and the years of that era are numbered starting with the year of ascension as year 1. 
+
+Note that in the year of an imperial ascension, there are two possible sets of year and era values: that for the old era and for the new. For example, a new era began on January 7, 1989 AD. Strictly speaking, the first six days of that year were in the Showa era, e.g. "January 6, 64 Showa", while the rest of the year was in the Heisei era, e.g. "January 7, 1 Heisei". This class handles this distinction correctly when computing dates. However, in lenient mode either form of date is acceptable as input. 
+
+In modern times, eras have started on January 8, 1868 AD, Gregorian (Meiji), July 30, 1912 (Taisho), December 25, 1926 (Showa), and January 7, 1989 (Heisei). Constants for these eras, suitable for use in the ERA field, are provided in this class. Note that the number used for each era is more or less arbitrary. Currently, the era starting in 645 AD is era #0; however this may change in the future. Use the predefined constants rather than using actual, absolute numbers. 
+
+Since ICU4J 63, start date of each era is imported from CLDR. CLDR era data may contain tentative era in near future with placeholder names. By default, such era data is not enabled. ICU4J users who want to test the behavior of the future era can enable this by one of following settings (in the priority order): 
+
+    1. Java system property ICU_ENABLE_TENTATIVE_ERA=true.
+    2. Environment variable ICU_ENABLE_TENTATIVE_ERA=true.
+    3. Java system property jdk.calendar.japanese.supplemental.era=xxx. (Note: This configuration is used for specifying a new era's start date and names in OpenJDK. ICU4J implementation enables the CLDR tentative era when this property is defined, but it does not use the start date and names specified by the property value.)
+
+This class should not be subclassed.
+
+JapaneseCalendar usually should be instantiated using [Calendar.getInstance(ULocale)](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getInstance-ohos_global_icu_util_ULocale-) passing in a ULocale with the tag "@calendar=japanese".
+
+**See Also:**
+
+[GregorianCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878), [Calendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845), 
+
+#### Nested Class Summary
+
+Nested classes/interfaces inherited from class ohos.global.icu.util.[Calendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845)  
+---  
+[Calendar.WeekData](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar_weekdata-0000001054838830)  
+  
+#### Field Summary
+
+Modifier and Type | Field | Description  
+---|---|---  
+static int | [CURRENT_ERA](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__CURRENT_ERA) |     
+static int | [HEISEI](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__HEISEI) |  Constant for the era starting on Jan.   
+static int | [MEIJI](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__MEIJI) |  Constant for the era starting on Sept.   
+static int | [REIWA](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__REIWA) |  Constant for the era starting on May 1, 2019 AD.   
+static int | [SHOWA](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__SHOWA) |  Constant for the era starting on Dec.   
+static int | [TAISHO](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__TAISHO) |  Constant for the era starting on July 30, 1912 AD.   
+  
+Fields inherited from class ohos.global.icu.util.[Calendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845)  
+---  
+[AM](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__AM), [AM_PM](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__AM_PM), [APRIL](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__APRIL), [AUGUST](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__AUGUST), [BASE_FIELD_COUNT](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__BASE_FIELD_COUNT), [DATE](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__DATE), [DAY_OF_MONTH](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__DAY_OF_MONTH), [DAY_OF_WEEK](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__DAY_OF_WEEK), [DAY_OF_WEEK_IN_MONTH](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__DAY_OF_WEEK_IN_MONTH), [DAY_OF_YEAR](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__DAY_OF_YEAR), [DECEMBER](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__DECEMBER), [DOW_LOCAL](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__DOW_LOCAL), [DST_OFFSET](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__DST_OFFSET), [EPOCH_JULIAN_DAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__EPOCH_JULIAN_DAY), [ERA](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__ERA), [EXTENDED_YEAR](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__EXTENDED_YEAR), [FEBRUARY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__FEBRUARY), [FRIDAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__FRIDAY), [GREATEST_MINIMUM](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__GREATEST_MINIMUM), [HOUR](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__HOUR), [HOUR_OF_DAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__HOUR_OF_DAY), [INTERNALLY_SET](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__INTERNALLY_SET), [IS_LEAP_MONTH](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__IS_LEAP_MONTH), [JAN_1_1_JULIAN_DAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__JAN_1_1_JULIAN_DAY), [JANUARY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__JANUARY), [JULIAN_DAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__JULIAN_DAY), [JULY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__JULY), [JUNE](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__JUNE), [LEAST_MAXIMUM](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__LEAST_MAXIMUM), [MARCH](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MARCH), [MAX_DATE](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MAX_DATE), [MAX_FIELD_COUNT](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MAX_FIELD_COUNT), [MAX_JULIAN](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MAX_JULIAN), [MAX_MILLIS](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MAX_MILLIS), [MAXIMUM](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MAXIMUM), [MAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MAY), [MILLISECOND](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MILLISECOND), [MILLISECONDS_IN_DAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MILLISECONDS_IN_DAY), [MIN_DATE](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MIN_DATE), [MIN_JULIAN](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MIN_JULIAN), [MIN_MILLIS](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MIN_MILLIS), [MINIMUM](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MINIMUM), [MINIMUM_USER_STAMP](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MINIMUM_USER_STAMP), [MINUTE](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MINUTE), [MONDAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MONDAY), [MONTH](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MONTH), [NOVEMBER](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__NOVEMBER), [OCTOBER](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__OCTOBER), [ONE_DAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__ONE_DAY), [ONE_HOUR](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__ONE_HOUR), [ONE_MINUTE](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__ONE_MINUTE), [ONE_SECOND](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__ONE_SECOND), [ONE_WEEK](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__ONE_WEEK), [PM](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__PM), [RESOLVE_REMAP](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__RESOLVE_REMAP), [SATURDAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__SATURDAY), [SECOND](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__SECOND), [SEPTEMBER](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__SEPTEMBER), [SUNDAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__SUNDAY), [THURSDAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__THURSDAY), [TUESDAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__TUESDAY), [UNDECIMBER](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__UNDECIMBER), [UNSET](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__UNSET), [WALLTIME_FIRST](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__WALLTIME_FIRST), [WALLTIME_LAST](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__WALLTIME_LAST), [WALLTIME_NEXT_VALID](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__WALLTIME_NEXT_VALID), [WEDNESDAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__WEDNESDAY), [WEEK_OF_MONTH](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__WEEK_OF_MONTH), [WEEK_OF_YEAR](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__WEEK_OF_YEAR), [YEAR](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__YEAR), [YEAR_WOY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__YEAR_WOY), [ZONE_OFFSET](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__ZONE_OFFSET)  
+  
+Fields inherited from class ohos.global.icu.util.[GregorianCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878)  
+---  
+[AD](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__AD), [BC](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__BC), [invertGregorian](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__invertGregorian), [isGregorian](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__isGregorian)  
+  
+#### Constructor Summary
+
+Constructor | Description  
+---|---  
+[JapaneseCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__JapaneseCalendar--)​() |  Constructs a default JapaneseCalendar using the current time in the default time zone with the default locale.   
+[JapaneseCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__JapaneseCalendar-int-int-int-)​(int year, int month, int date) |  Constructs a JapaneseCalendar with the given date set in the default time zone with the default locale.   
+[JapaneseCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__JapaneseCalendar-int-int-int-int-)​(int era, int year, int month, int date) |  Constructs a JapaneseCalendar with the given date set in the default time zone with the default locale.   
+[JapaneseCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__JapaneseCalendar-int-int-int-int-int-int-)​(int year, int month, int date, int hour, int minute, int second) |  Constructs a JapaneseCalendar with the given date and time set for the default time zone with the default locale.   
+[JapaneseCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__JapaneseCalendar-java_util_Date-)​([Date](https://developer.harmonyos.com/cn/docs/documentation/doc-references/date-0000001054358571) date) |  Constructs a JapaneseCalendar with the given date set in the default time zone with the default locale.   
+[JapaneseCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__JapaneseCalendar-java_util_Locale-)​([Locale](https://developer.harmonyos.com/cn/docs/documentation/doc-references/locale-0000001054119852) aLocale) |  Constructs a JapaneseCalendar based on the current time in the default time zone with the given locale.   
+[JapaneseCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__JapaneseCalendar-ohos_global_icu_util_TimeZone-)​([TimeZone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/timezone-0000001054558881) zone) |  Constructs a JapaneseCalendar based on the current time in the given time zone with the default locale.   
+[JapaneseCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__JapaneseCalendar-ohos_global_icu_util_TimeZone-java_util_Locale-)​([TimeZone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/timezone-0000001054558881) zone, [Locale](https://developer.harmonyos.com/cn/docs/documentation/doc-references/locale-0000001054119852) aLocale) |  Constructs a JapaneseCalendar based on the current time in the given time zone with the given locale.   
+[JapaneseCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__JapaneseCalendar-ohos_global_icu_util_TimeZone-ohos_global_icu_util_ULocale-)​([TimeZone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/timezone-0000001054558881) zone, [ULocale](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ulocale-0000001054238879) locale) |  Constructs a JapaneseCalendar based on the current time in the given time zone with the given locale.   
+[JapaneseCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__JapaneseCalendar-ohos_global_icu_util_ULocale-)​([ULocale](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ulocale-0000001054238879) locale) |  Constructs a JapaneseCalendar based on the current time in the default time zone with the given locale.   
+  
+#### Method Summary
+
+Modifier and Type | Method | Description  
+---|---|---  
+int | [getActualMaximum](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__getActualMaximum-int-)​(int field) |  Return the maximum value that this field could have, given the current date.   
+[String](https://developer.harmonyos.com/cn/docs/documentation/doc-references/string-0000001054518460) | [getType](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__getType--)​() |  **[icu]** Returns the calendar type name string for this Calendar object.   
+protected void | [handleComputeFields](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__handleComputeFields-int-)​(int julianDay) |  Override Calendar to compute several fields specific to the hybrid Gregorian-Julian calendar system.   
+protected int | [handleGetExtendedYear](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__handleGetExtendedYear--)​() |  Returns the extended year defined by the current fields.   
+protected int | [handleGetLimit](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__handleGetLimit-int-int-)​(int field, int limitType) |  Override GregorianCalendar.   
+  
+Methods inherited from class ohos.global.icu.util.[Calendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845)  
+---  
+[add](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__add-int-int-), [after](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__after-java_lang_Object-), [before](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__before-java_lang_Object-), [clear](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__clear--), [clear](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__clear-int-), [clone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__clone--), [compareTo](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__compareTo-ohos_global_icu_util_Calendar-), [complete](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__complete--), [computeFields](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__computeFields--), [computeGregorianFields](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__computeGregorianFields-int-), [computeGregorianMonthStart](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__computeGregorianMonthStart-int-int-), [computeJulianDay](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__computeJulianDay--), [computeMillisInDay](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__computeMillisInDay--), [computeTime](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__computeTime--), [computeZoneOffset](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__computeZoneOffset-long-int-), [equals](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__equals-java_lang_Object-), [fieldDifference](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__fieldDifference-java_util_Date-int-), [fieldName](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__fieldName-int-), [floorDivide](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__floorDivide-int-int-), [floorDivide](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__floorDivide-int-int-int:A-), [floorDivide](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__floorDivide-long-int-int:A-), [floorDivide](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__floorDivide-long-long-), [get](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__get-int-), [getAvailableLocales](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getAvailableLocales--), [getDateTimeFormat](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getDateTimeFormat-int-int-java_util_Locale-), [getDateTimeFormat](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getDateTimeFormat-int-int-ohos_global_icu_util_ULocale-), [getDisplayName](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getDisplayName-java_util_Locale-), [getDisplayName](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getDisplayName-ohos_global_icu_util_ULocale-), [getFieldCount](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getFieldCount--), [getFieldResolutionTable](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getFieldResolutionTable--), [getFirstDayOfWeek](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getFirstDayOfWeek--), [getGreatestMinimum](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getGreatestMinimum-int-), [getGregorianDayOfMonth](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getGregorianDayOfMonth--), [getGregorianDayOfYear](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getGregorianDayOfYear--), [getGregorianMonth](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getGregorianMonth--), [getGregorianYear](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getGregorianYear--), [getInstance](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getInstance--), [getInstance](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getInstance-java_util_Locale-), [getInstance](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getInstance-ohos_global_icu_util_TimeZone-), [getInstance](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getInstance-ohos_global_icu_util_TimeZone-java_util_Locale-), [getInstance](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getInstance-ohos_global_icu_util_TimeZone-ohos_global_icu_util_ULocale-), [getInstance](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getInstance-ohos_global_icu_util_ULocale-), [getKeywordValuesForLocale](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getKeywordValuesForLocale-java_lang_String-ohos_global_icu_util_ULocale-boolean-), [getLeastMaximum](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getLeastMaximum-int-), [getLimit](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getLimit-int-int-), [getMaximum](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getMaximum-int-), [getMinimalDaysInFirstWeek](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getMinimalDaysInFirstWeek--), [getMinimum](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getMinimum-int-), [getRepeatedWallTimeOption](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getRepeatedWallTimeOption--), [getSkippedWallTimeOption](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getSkippedWallTimeOption--), [getStamp](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getStamp-int-), [getTime](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getTime--), [getTimeInMillis](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getTimeInMillis--), [getTimeZone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getTimeZone--), [getWeekData](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getWeekData--), [getWeekDataForRegion](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getWeekDataForRegion-java_lang_String-), [gregorianMonthLength](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__gregorianMonthLength-int-int-), [gregorianPreviousMonthLength](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__gregorianPreviousMonthLength-int-int-), [handleCreateFields](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__handleCreateFields--), [handleGetDateFormat](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__handleGetDateFormat-java_lang_String-java_lang_String-java_util_Locale-), [handleGetDateFormat](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__handleGetDateFormat-java_lang_String-java_util_Locale-), [handleGetDateFormat](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__handleGetDateFormat-java_lang_String-ohos_global_icu_util_ULocale-), [internalGet](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__internalGet-int-), [internalGet](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__internalGet-int-int-), [internalGetTimeInMillis](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__internalGetTimeInMillis--), [internalSet](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__internalSet-int-int-), [isGregorianLeapYear](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__isGregorianLeapYear-int-), [isLenient](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__isLenient--), [isSet](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__isSet-int-), [isWeekend](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__isWeekend--), [isWeekend](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__isWeekend-java_util_Date-), [julianDayToDayOfWeek](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__julianDayToDayOfWeek-int-), [julianDayToMillis](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__julianDayToMillis-int-), [millisToJulianDay](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__millisToJulianDay-long-), [newerField](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__newerField-int-int-), [newestStamp](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__newestStamp-int-int-int-), [pinField](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__pinField-int-), [prepareGetActual](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__prepareGetActual-int-boolean-), [resolveFields](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__resolveFields-int:A:A:A-), [roll](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__roll-int-boolean-), [set](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__set-int-int-), [set](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__set-int-int-int-), [set](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__set-int-int-int-int-int-), [set](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__set-int-int-int-int-int-int-), [setFirstDayOfWeek](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__setFirstDayOfWeek-int-), [setLenient](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__setLenient-boolean-), [setMinimalDaysInFirstWeek](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__setMinimalDaysInFirstWeek-int-), [setRepeatedWallTimeOption](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__setRepeatedWallTimeOption-int-), [setSkippedWallTimeOption](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__setSkippedWallTimeOption-int-), [setTime](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__setTime-java_util_Date-), [setTimeInMillis](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__setTimeInMillis-long-), [setTimeZone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__setTimeZone-ohos_global_icu_util_TimeZone-), [setWeekData](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__setWeekData-ohos_global_icu_util_Calendar_WeekData-), [toString](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__toString--), [validateField](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__validateField-int-), [validateField](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__validateField-int-int-int-), [validateFields](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__validateFields--), [weekNumber](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__weekNumber-int-int-), [weekNumber](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__weekNumber-int-int-int-)  
+  
+Methods inherited from class ohos.global.icu.util.[GregorianCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878)  
+---  
+[getActualMinimum](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__getActualMinimum-int-), [getGregorianChange](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__getGregorianChange--), [handleComputeJulianDay](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__handleComputeJulianDay-int-), [handleComputeMonthStart](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__handleComputeMonthStart-int-int-boolean-), [handleGetMonthLength](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__handleGetMonthLength-int-int-), [handleGetYearLength](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__handleGetYearLength-int-), [hashCode](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__hashCode--), [isEquivalentTo](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__isEquivalentTo-ohos_global_icu_util_Calendar-), [isLeapYear](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__isLeapYear-int-), [roll](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__roll-int-int-), [setGregorianChange](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__setGregorianChange-java_util_Date-)  
+  
+Methods inherited from class java.lang.[Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446)  
+---  
+[finalize](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__finalize--), [getClass](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__getClass--), [notify](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__notify--), [notifyAll](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__notifyAll--), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait--), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait-long-), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait-long-int-)  
+  
+#### Field Detail
+
+#### [h2]CURRENT_ERA
+
+public static final int CURRENT_ERA
+
+#### [h2]HEISEI
+
+public static final int HEISEI
+
+Constant for the era starting on Jan. 7, 1989 AD. 
+
+#### [h2]MEIJI
+
+public static final int MEIJI
+
+Constant for the era starting on Sept. 8, 1868 AD. 
+
+#### [h2]REIWA
+
+public static final int REIWA
+
+Constant for the era starting on May 1, 2019 AD. 
+
+#### [h2]SHOWA
+
+public static final int SHOWA
+
+Constant for the era starting on Dec. 25, 1926 AD. 
+
+#### [h2]TAISHO
+
+public static final int TAISHO
+
+Constant for the era starting on July 30, 1912 AD. 
+
+#### Constructor Detail
+
+#### [h2]JapaneseCalendar
+
+public JapaneseCalendar​()
+
+Constructs a default JapaneseCalendar using the current time in the default time zone with the default locale. 
+
+#### [h2]JapaneseCalendar
+
+public JapaneseCalendar​([TimeZone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/timezone-0000001054558881) zone)
+
+Constructs a JapaneseCalendar based on the current time in the given time zone with the default locale. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+zone  |  the given time zone.  
+  
+#### [h2]JapaneseCalendar
+
+public JapaneseCalendar​([Locale](https://developer.harmonyos.com/cn/docs/documentation/doc-references/locale-0000001054119852) aLocale)
+
+Constructs a JapaneseCalendar based on the current time in the default time zone with the given locale. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+aLocale  |  the given locale.  
+  
+#### [h2]JapaneseCalendar
+
+public JapaneseCalendar​([ULocale](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ulocale-0000001054238879) locale)
+
+Constructs a JapaneseCalendar based on the current time in the default time zone with the given locale. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+locale  |  the given ulocale.  
+  
+#### [h2]JapaneseCalendar
+
+public JapaneseCalendar​([TimeZone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/timezone-0000001054558881) zone, [Locale](https://developer.harmonyos.com/cn/docs/documentation/doc-references/locale-0000001054119852) aLocale)
+
+Constructs a JapaneseCalendar based on the current time in the given time zone with the given locale. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+zone  |  the given time zone.  
+aLocale  |  the given locale.  
+  
+#### [h2]JapaneseCalendar
+
+public JapaneseCalendar​([TimeZone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/timezone-0000001054558881) zone, [ULocale](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ulocale-0000001054238879) locale)
+
+Constructs a JapaneseCalendar based on the current time in the given time zone with the given locale. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+zone  |  the given time zone.  
+locale  |  the given ulocale.  
+  
+#### [h2]JapaneseCalendar
+
+public JapaneseCalendar​([Date](https://developer.harmonyos.com/cn/docs/documentation/doc-references/date-0000001054358571) date)
+
+Constructs a JapaneseCalendar with the given date set in the default time zone with the default locale. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+date  |  The date to which the new calendar is set.  
+  
+#### [h2]JapaneseCalendar
+
+public JapaneseCalendar​(int era, int year, int month, int date)
+
+Constructs a JapaneseCalendar with the given date set in the default time zone with the default locale. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+era  |  The imperial era used to set the calendar's [ERA](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__ERA) field. Eras are numbered starting with the Tenki era, which began in 1053 AD Gregorian, as era zero. Recent eras can be specified using the constants [MEIJI](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__MEIJI) (which started in 1868 AD), [TAISHO](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__TAISHO) (1912 AD), [SHOWA](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__SHOWA) (1926 AD), and [HEISEI](https://developer.harmonyos.com/cn/docs/documentation/doc-references/japanesecalendar-0000001054678847#ZH-CN_TOPIC_0000001054678847__HEISEI) (1989 AD).  
+year  |  The value used to set the calendar's [YEAR](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__YEAR) field, in terms of the era.  
+month  |  The value used to set the calendar's [MONTH](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MONTH) field. The value is 0-based. e.g., 0 for January.  
+date  |  The value used to set the calendar's DATE field.  
+  
+#### [h2]JapaneseCalendar
+
+public JapaneseCalendar​(int year, int month, int date)
+
+Constructs a JapaneseCalendar with the given date set in the default time zone with the default locale. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+year  |  The value used to set the calendar's [YEAR](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__YEAR) field, in the era Heisei, the most current at the time this class was last updated.  
+month  |  The value used to set the calendar's [MONTH](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MONTH) field. The value is 0-based. e.g., 0 for January.  
+date  |  The value used to set the calendar's [DATE](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__DATE) field.  
+  
+#### [h2]JapaneseCalendar
+
+public JapaneseCalendar​(int year, int month, int date, int hour, int minute, int second)
+
+Constructs a JapaneseCalendar with the given date and time set for the default time zone with the default locale. 
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+year  |  The value used to set the calendar's [YEAR](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__YEAR) time field, in the era Heisei, the most current at the time of this writing.  
+month  |  The value used to set the calendar's [MONTH](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MONTH) time field. The value is 0-based. e.g., 0 for January.  
+date  |  The value used to set the calendar's [DATE](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__DATE) time field.  
+hour  |  The value used to set the calendar's [HOUR_OF_DAY](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__HOUR_OF_DAY) time field.  
+minute  |  The value used to set the calendar's [MINUTE](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__MINUTE) time field.  
+second  |  The value used to set the calendar's [SECOND](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__SECOND) time field.  
+  
+#### Method Detail
+
+#### [h2]handleGetExtendedYear
+
+protected int handleGetExtendedYear​()
+
+Description copied from class: [Calendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__handleGetExtendedYear--)
+
+Returns the extended year defined by the current fields. This will use the EXTENDED_YEAR field or the YEAR and supra-year fields (such as ERA) specific to the calendar system, depending on which set of fields is newer. 
+
+**Overrides:**
+
+[handleGetExtendedYear](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__handleGetExtendedYear--) in class [GregorianCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878)
+
+**Returns:**
+
+the extended year
+
+#### [h2]handleComputeFields
+
+protected void handleComputeFields​(int julianDay)
+
+Description copied from class: [GregorianCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__handleComputeFields-int-)
+
+Override Calendar to compute several fields specific to the hybrid Gregorian-Julian calendar system. These are: 
+    * ERA 
+    * YEAR 
+    * MONTH 
+    * DAY_OF_MONTH 
+    * DAY_OF_YEAR 
+    * EXTENDED_YEAR
+
+**Overrides:**
+
+[handleComputeFields](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__handleComputeFields-int-) in class [GregorianCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878)
+
+#### [h2]handleGetLimit
+
+protected int handleGetLimit​(int field, int limitType)
+
+Override GregorianCalendar. We should really handle YEAR_WOY and EXTENDED_YEAR here too to implement the 1..5000000 range, but it's not critical. 
+
+**Overrides:**
+
+[handleGetLimit](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__handleGetLimit-int-int-) in class [GregorianCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878)
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+field  |  one of the above field numbers  
+limitType  |  one of MINIMUM, GREATEST_MINIMUM, LEAST_MAXIMUM, or MAXIMUM  
+  
+#### [h2]getType
+
+public [String](https://developer.harmonyos.com/cn/docs/documentation/doc-references/string-0000001054518460) getType​()
+
+**[icu]** Returns the calendar type name string for this Calendar object. The returned string is the legacy ICU calendar attribute value, for example, "gregorian" or "japanese". 
+
+See type="old type name" for the calendar attribute of locale IDs at http://www.unicode.org/reports/tr35/#Key_Type_Definitions
+
+**Overrides:**
+
+[getType](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__getType--) in class [GregorianCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878)
+
+**Returns:**
+
+legacy calendar type name string
+
+#### [h2]getActualMaximum
+
+public int getActualMaximum​(int field)
+
+Return the maximum value that this field could have, given the current date. For example, with the date "Feb 3, 1997" and the DAY_OF_MONTH field, the actual maximum would be 28; for "Feb 3, 1996" it s 29. Similarly for a Hebrew calendar, for some years the actual maximum for MONTH is 12, and for others 13. 
+
+**Overrides:**
+
+[getActualMaximum](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878#ZH-CN_TOPIC_0000001054678878__getActualMaximum-int-) in class [GregorianCalendar](https://developer.harmonyos.com/cn/docs/documentation/doc-references/gregoriancalendar-0000001054678878)
+
+**Parameters:**
+
+Parameter Name | Parameter Description  
+---|---  
+field  |  the field whose maximum is desired  
+  
+**Returns:**
+
+the maximum of the given field for the current date of this calendar
+
+**See Also:**
+
+[Calendar.getMaximum(int)](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getMaximum-int-), [Calendar.getLeastMaximum(int)](https://developer.harmonyos.com/cn/docs/documentation/doc-references/calendar-0000001054678845#ZH-CN_TOPIC_0000001054678845__getLeastMaximum-int-)

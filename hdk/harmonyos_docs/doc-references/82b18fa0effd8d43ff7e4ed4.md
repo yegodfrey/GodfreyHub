@@ -1,0 +1,40 @@
+---
+name: document/cn/doc-references/uncheckedioexception-0000001054358419
+title: UncheckedIOException
+uri: https://developer.huawei.com/consumer/cn/doc/doc-references/uncheckedioexception-0000001054358419
+source: portal
+---
+
+UncheckedIOException [java.lang.Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446) |---[java.lang.Throwable](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436) |---|---[java.lang.Exception](https://developer.harmonyos.com/cn/docs/documentation/doc-references/exception-0000001054119708) |---|---|---[java.lang.RuntimeException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/runtimeexception-0000001054518466) |---|---|---|---java.io.UncheckedIOException
+    
+    public class UncheckedIOException
+    extends [RuntimeException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/runtimeexception-0000001054518466)  
+  
+---  
+Wraps an [IOException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ioexception-0000001054358426) with an unchecked exception.**Since:** 1.8Constructor Summary Constructor | Description  
+---|---  
+[UncheckedIOException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/uncheckedioexception-0000001054358419#ZH-CN_TOPIC_0000001054358419__UncheckedIOException-java_io_IOException-)​([IOException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ioexception-0000001054358426) cause) |  Constructs an instance of this class.   
+[UncheckedIOException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/uncheckedioexception-0000001054358419#ZH-CN_TOPIC_0000001054358419__UncheckedIOException-java_lang_String-java_io_IOException-)​([String](https://developer.harmonyos.com/cn/docs/documentation/doc-references/string-0000001054518460) message, [IOException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ioexception-0000001054358426) cause) |  Constructs an instance of this class.   
+Method Summary Modifier and Type | Method | Description  
+---|---|---  
+[IOException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ioexception-0000001054358426) | [getCause](https://developer.harmonyos.com/cn/docs/documentation/doc-references/uncheckedioexception-0000001054358419#ZH-CN_TOPIC_0000001054358419__getCause--)​() |  Returns the cause of this exception.   
+Methods inherited from class java.lang.[Object](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446)  
+---  
+[clone](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__clone--), [equals](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__equals-java_lang_Object-), [finalize](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__finalize--), [getClass](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__getClass--), [hashCode](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__hashCode--), [notify](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__notify--), [notifyAll](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__notifyAll--), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait--), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait-long-), [wait](https://developer.harmonyos.com/cn/docs/documentation/doc-references/object-0000001054678446#ZH-CN_TOPIC_0000001054678446__wait-long-int-)  
+Methods inherited from class java.lang.[Throwable](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436)  
+---  
+[addSuppressed](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__addSuppressed-java_lang_Throwable-), [fillInStackTrace](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__fillInStackTrace--), [getLocalizedMessage](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__getLocalizedMessage--), [getMessage](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__getMessage--), [getStackTrace](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__getStackTrace--), [getSuppressed](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__getSuppressed--), [initCause](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__initCause-java_lang_Throwable-), [printStackTrace](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__printStackTrace--), [printStackTrace](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__printStackTrace-java_io_PrintStream-), [printStackTrace](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__printStackTrace-java_io_PrintWriter-), [setStackTrace](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__setStackTrace-java_lang_StackTraceElement:A-), [toString](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__toString--)  
+Constructor Detail [h2]UncheckedIOException public UncheckedIOException​([String](https://developer.harmonyos.com/cn/docs/documentation/doc-references/string-0000001054518460) message, [IOException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ioexception-0000001054358426) cause) Constructs an instance of this class. **Parameters:** Parameter Name | Parameter Description  
+---|---  
+message  |  the detail message, can be null  
+cause  |  the IOException  
+**Throws:** Throw Name | Throw Description  
+---|---  
+[NullPointerException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/nullpointerexception-0000001054119710) |  if the cause is null  
+[h2]UncheckedIOException public UncheckedIOException​([IOException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ioexception-0000001054358426) cause) Constructs an instance of this class. **Parameters:** Parameter Name | Parameter Description  
+---|---  
+cause  |  the IOException  
+**Throws:** Throw Name | Throw Description  
+---|---  
+[NullPointerException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/nullpointerexception-0000001054119710) |  if the cause is null  
+Method Detail [h2]getCause public [IOException](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ioexception-0000001054358426) getCause​() Returns the cause of this exception. **Overrides:** [getCause](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436#ZH-CN_TOPIC_0000001054358436__getCause--) in class [Throwable](https://developer.harmonyos.com/cn/docs/documentation/doc-references/throwable-0000001054358436) **Returns:** the IOException which is the cause of this exception.

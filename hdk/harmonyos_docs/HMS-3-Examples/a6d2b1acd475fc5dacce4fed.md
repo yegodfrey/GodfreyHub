@@ -1,0 +1,772 @@
+---
+name: document/cn/HMS-3-Examples/iap-tv-sampleServerCode
+title: 服务端示例代码
+uri: https://developer.huawei.com/consumer/cn/doc/HMS-3-Examples/iap-tv-sampleServerCode
+source: portal
+---
+
+服务端示例代码工程
+
+压缩包里面包含了php语言的实现和java语言的实现。对应压缩包中的目录分别为：
+
+Php 语言： pay
+
+Java 语言： ServerCallbackDemo
+
+  
+
+
+# 1 Php语言实现
+
+## 1.1 ProductPublicFile.php
+    
+    
+    复制
+      
+        1. /*
+        2. Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
+        3.    Licensed under the Apache License, Version 2.0 (the "License");
+        4.    you may not use this file except in compliance with the License.
+        5.    You may obtain a copy of the License at
+        6.      http://www.apache.org/licenses/LICENSE-2.0
+        7.    Unless required by applicable law or agreed to in writing, software
+        8.    distributed under the License is distributed on an "AS IS" BASIS,
+        9.    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        10.    See the License for the specific language governing permissions and
+        11.    limitations under the License.
+        12. */
+        13. <?php
+        14. header("Content-Type: text/html; charset=utf-8");
+        15. $filename = dirname(__FILE__)."/payPublicKey.pem";
+        16.     @chmod($filename, 0777);
+        17.     @unlink($filename);
+        18. $devPubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKK9kzY3oGoRM3YZE04tYPXspSQDbfUduAN3E89v+Gu4ZuqUqOEstb4p7a01kEj8KwtyFUywH7cncygphQXcnRsCAwEAAQ==";
+        19. $begin_public_key = "-----BEGIN PUBLIC KEY-----\r\n";
+        20. $end_public_key = "-----END PUBLIC KEY-----\r\n";
+        21. $fp = fopen($filename,'ab');
+        22. fwrite($fp,$begin_public_key,strlen($begin_public_key)); 
+        23. $raw = strlen($devPubKey)/64;
+        24. $index = 0;
+        25. while($index <= $raw )
+        26. {
+        27.     $line = substr($devPubKey,$index*64,64)."\r\n";
+        28.     if(strlen(trim($line)) > 0)
+        29.     fwrite($fp,$line,strlen($line)); 
+        30.     $index++;
+        31. }
+        32. fwrite($fp,$end_public_key,strlen($end_public_key)); 
+        33. fclose($fp);
+        34. ?>
+    
+    
+
+## 1.2 Demosha256withrsa.php  
+
+    
+    
+    复制
+      
+        1. /*
+        2. Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
+        3.    Licensed under the Apache License, Version 2.0 (the "License");
+        4.    you may not use this file except in compliance with the License.
+        5.    You may obtain a copy of the License at
+        6.      http://www.apache.org/licenses/LICENSE-2.0
+        7.    Unless required by applicable law or agreed to in writing, software
+        8.    distributed under the License is distributed on an "AS IS" BASIS,
+        9.    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        10.    See the License for the specific language governing permissions and
+        11.    limitations under the License.
+        12. */
+        13. <?php
+        14. header("Content-Type: application/json; charset=utf-8");
+        15. ksort($_POST);
+        16. $sign = $_POST['sign'];
+        17. $form = $_POST;
+        18. unset($form['sign']);
+        19. unset($form['signType']);
+        20. if(empty($sign))
+        21. {
+        22. echo "{\"result\":1}";
+        23. return;
+        24. }
+        25. $content = "";
+        26. $i = 0;
+        27. foreach($form as $key=>$value)
+        28. {
+        29.    if($key != "sign"  && $key != "signType")
+        30.     {
+        31.        $content .= ($i == 0 ? '' : '&').$key.'='.$value;
+        32.     }
+        33.    $i++;
+        34. }
+        35. $filename = dirname(__FILE__)."/payPublicKey.pem";
+        36. if(!file_exists($filename))
+        37. {
+        38. echo "{\"result\" : 1 }";
+        39. return;
+        40. }
+        41. $pubKey = @file_get_contents($filename);
+        42. $openssl_public_key = @openssl_get_publickey($pubKey);
+        43. $ok = @openssl_verify($content,base64_decode($sign), $openssl_public_key, 'SHA256');
+        44. @openssl_free_key($openssl_public_key);
+        45. $result = "";
+        46. if($ok)
+        47. {
+        48.     $result = "0";//支付成功处理业务
+        49. }else
+        50. {
+        51. $result = "1";
+        52. }
+        53. $res = "{ \"result\": $result} ";
+        54. echo $res;
+        55. ?>
+    
+    
+
+## 1.3 Demosha1withrsa.php
+    
+    
+    复制
+      
+        1. /*
+        2. Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
+        3.    Licensed under the Apache License, Version 2.0 (the "License");
+        4.    you may not use this file except in compliance with the License.
+        5.    You may obtain a copy of the License at
+        6.      http://www.apache.org/licenses/LICENSE-2.0
+        7.    Unless required by applicable law or agreed to in writing, software
+        8.    distributed under the License is distributed on an "AS IS" BASIS,
+        9.    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        10.    See the License for the specific language governing permissions and
+        11.    limitations under the License.
+        12. */
+        13. <?php
+        14. header("Content-Type: text/html; charset=utf-8");
+        15. ksort($_POST);
+        16. $sign = $_POST['sign'];
+        17. if(empty($sign))
+        18. {
+        19. echo "{\"result\" : 1 }";
+        20. return;
+        21. }
+        22. $productName = $_POST['productName'];
+        23. $content = "";
+        24. $i = 0;
+        25. foreach($_POST as $key=>$value)
+        26. {
+        27.    if($key != "sign" && $key != "signType" )
+        28.     {
+        29.        $content .= ($i == 0 ? '' : '&').$key.'='.$value;
+        30.     }
+        31.    $i++;
+        32. }
+        33. $filename = dirname(__FILE__)."/payPublicKey.pem";
+        34. if(!file_exists("data.txt"))
+        35. {
+        36. echo "{\"result\" : 1 }";
+        37. return;
+        38. }
+        39. $pubKey = file_get_contents("");
+        40. $res = openssl_get_publickey($pubKey);
+        41. $ok = openssl_verify($content,base64_decode($sign), $res);
+        42. openssl_free_key($res);
+        43. $result = "";
+        44. if($ok)
+        45. {
+        46.     $result = "0";//支付成功处理业务
+        47. }else
+        48. {
+        49. $result = "1";
+        50. }
+        51. $res = "{ \"result\": $result} ";
+        52. echo $res;
+        53. ?>
+    
+    
+
+  
+
+
+# 2 Java语言实现
+
+## 2.1 CallbackDemo
+    
+    
+    复制
+      
+        1. /**
+        2. Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
+        3.    Licensed under the Apache License, Version 2.0 (the "License");
+        4.    you may not use this file except in compliance with the License.
+        5.    You may obtain a copy of the License at
+        6.      http://www.apache.org/licenses/LICENSE-2.0
+        7.    Unless required by applicable law or agreed to in writing, software
+        8.    distributed under the License is distributed on an "AS IS" BASIS,
+        9.    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        10.    See the License for the specific language governing permissions and
+        11.    limitations under the License.
+        12. */
+        13. package demo;
+        14. import java.io.BufferedOutputStream;
+        15. import java.io.BufferedReader;
+        16. import java.io.File;
+        17. import java.io.FileOutputStream;
+        18. import java.io.IOException;
+        19. import java.io.InputStream;
+        20. import java.io.InputStreamReader;
+        21. import java.io.PrintWriter;
+        22. import java.io.StringWriter;
+        23. import java.io.Writer;
+        24. import java.net.URLDecoder;
+        25. import java.util.HashMap;
+        26. import java.util.Map;
+        27. import javax.servlet.ServletException;
+        28. import javax.servlet.http.HttpServlet;
+        29. import javax.servlet.http.HttpServletRequest;
+        30. import javax.servlet.http.HttpServletResponse;
+        31. import org.codehaus.jackson.map.ObjectMapper;
+        32. @SuppressWarnings("serial")
+        33. public class CallbackDemo extends HttpServlet {
+        34.     /**
+        35.      * 注释内容
+        36.      */
+        37.     private static final long serialVersionUID = 1L;
+        38.     public static final String devPubKey =
+        39.         "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKK9kzY3oGoRM3YZE04tYPXspSQDbfUduAN3E89v+Gu4ZuqUqOEstb4p7a01kEj8KwtyFUywH7cncygphQXcnRsCAwEAAQ==";
+        40.     /**
+        41.     * Constructor of the object.
+        42.     */
+        43.     public CallbackDemo() {
+        44.         super();
+        45.     }
+        46.     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        47.     }
+        48.     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        49.         request.setCharacterEncoding("UTF-8");
+        50.         Map<String, Object> map = null;
+        51.         map = getValue(request);
+        52.         if (null == map)
+        53.             return;
+        54.         String sign = (String) map.get("sign");
+        55.         ResultDomain result = new ResultDomain();
+        56.         result.setResult(1);
+        57.         if (RSA.rsaDoCheck(map, sign, devPubKey, (String) map.get("signType"))) {
+        58.             result.setResult(0);
+        59.             System.out.println("Result : 0!");
+        60.         } else {
+        61.             result.setResult(1);
+        62.             System.out.println("Result : 1!");
+        63.         }
+        64.         String resultinfo = convertJsonStyle(result);
+        65.         response.setContentType("application/json");
+        66.         response.setCharacterEncoding("UTF-8");
+        67.         System.out.println("Response string: " + resultinfo);
+        68.         PrintWriter out = response.getWriter();
+        69.         out.print(resultinfo);
+        70.         out.close();
+        71.     }
+        72.     public void writeFile(String filename, String content) throws Throwable {
+        73.         File file = new File(filename);
+        74.         // 目录如果不存在就创建
+        75.         if (!file.getParentFile().exists()) {
+        76.             file.getParentFile().mkdirs();
+        77.         }
+        78.         FileOutputStream outSTr = new FileOutputStream(file, true);
+        79.         BufferedOutputStream Buff = new BufferedOutputStream(outSTr);
+        80.         Buff.write(content.getBytes());
+        81.         Buff.flush();
+        82.         Buff.close();
+        83.         outSTr.close();
+        84.     }
+        85.     /**
+        86.     * @param request
+        87.     * @return
+        88.     * 本接口Content-Type是：application/x-www-form-urlencoded，对所有参数，会自动进行编码，接收端收到消息也会自动根据Content-Type进行解码。
+        89.     * 同时，接口中参数在发送端并没有进行单独的URLEncode (sign和extReserved、sysReserved参数除外)，所以，在接收端根据Content-Type解码后，即为原始的参数信息。
+        90.     * 但是HttpServletRequest的getParameter()方法会对指定参数执行隐含的URLDecoder.decode(),所以，相应参数中如果包含比如"%"，就会发生错误。
+        91.     * 因此，我们建议通过如下方法获取原始参数信息。
+        92.     * 
+        93.     * 注：使用如下方法必须在原始ServletRequest未被处理的情况下进行，否则无法获取到信息。比如，在Struts情况，由于struts层已经对参数进行若干处理，
+        94.     * http中InputStream中其实已经没有信息，因此，本方法不适用。要获取原始信息，必须在原始的，未经处理的ServletRequest中进行。
+        95.     */
+        96.     public Map<String, Object> getValue(HttpServletRequest request) {
+        97.         /*
+        98.          * String path = request.getRealPath("/"); //path = path.substring(0, path.indexOf("webapps")); //path =
+        99.          * request.getContextPath(); if (path.endsWith(File.separator)) { path = path; }else { path = path +
+        100.          * File.separator; } path = path + "../../logs/my.log";
+        101.          */
+        102.         String line = null;
+        103.         StringBuffer sb = new StringBuffer();
+        104.         try {
+        105.             request.setCharacterEncoding("UTF-8");
+        106.             InputStream stream = request.getInputStream();
+        107.             InputStreamReader isr = new InputStreamReader(stream);
+        108.             BufferedReader br = new BufferedReader(isr);
+        109.             while ((line = br.readLine()) != null) {
+        110.                 sb.append(line).append("\r\n");
+        111.             }
+        112.             System.out.println("The original data is : " + sb.toString());
+        113.             br.close();
+        114.         } catch (Exception e) {
+        115.             e.printStackTrace();
+        116.         } catch (Throwable e) {
+        117.             e.printStackTrace();
+        118.         }
+        119.         String str = sb.toString();
+        120.         Map<String, Object> valueMap = new HashMap<String, Object>();
+        121.         if (null == str || "".equals(str)) {
+        122.             return valueMap;
+        123.         }
+        124.         String[] valueKey = str.split("&");
+        125.         for (String temp : valueKey) {
+        126.             if (temp != null) {
+        127.                 int idx = temp.indexOf('=');
+        128.                 int len = temp.length();
+        129.                 if (idx != -1) {
+        130.                     String key = temp.substring(0, idx);
+        131.                     String value = idx + 1 < len ? temp.substring(idx + 1) : "";
+        132.                     valueMap.put(key, value);
+        133.                 }
+        134.             }
+        135.         }
+        136.         System.out.println("The parameters in map are : " + valueMap);
+        137.         // 接口中，如下参数sign和extReserved是URLEncode的，所以需要decode，其他参数直接是原始信息发送，不需要decode
+        138.         try {
+        139.             String sign = (String) valueMap.get("sign");
+        140.             String extReserved = (String) valueMap.get("extReserved");
+        141.             String sysReserved = (String) valueMap.get("sysReserved");
+        142.             if (null != sign) {
+        143.                 sign = URLDecoder.decode(sign, "utf-8");
+        144.                 valueMap.put("sign", sign);
+        145.             }
+        146.             if (null != extReserved) {
+        147.                 extReserved = URLDecoder.decode(extReserved, "utf-8");
+        148.                 valueMap.put("extReserved", extReserved);
+        149.             }
+        150.             if (null != sysReserved) {
+        151.                 sysReserved = URLDecoder.decode(sysReserved, "utf-8");
+        152.                 valueMap.put("sysReserved", sysReserved);
+        153.             }
+        154.         } catch (Exception e) {
+        155.             e.printStackTrace();
+        156.         }
+        157.         return valueMap;
+        158.     }
+        159.     private String convertJsonStyle(Object resultMessage) {
+        160.         ObjectMapper mapper = new ObjectMapper();
+        161.         Writer writer = new StringWriter();
+        162.         try {
+        163.             if (null != resultMessage) {
+        164.                 mapper.writeValue(writer, resultMessage);
+        165.             }
+        166.         } catch (Exception e) {
+        167.         }
+        168.         return writer.toString();
+        169.     }
+        170. }
+    
+    
+
+## 2.2 ResultDomain
+    
+    
+    复制
+      
+        1. /**
+        2. Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
+        3.    Licensed under the Apache License, Version 2.0 (the "License");
+        4.    you may not use this file except in compliance with the License.
+        5.    You may obtain a copy of the License at
+        6.      http://www.apache.org/licenses/LICENSE-2.0
+        7.    Unless required by applicable law or agreed to in writing, software
+        8.    distributed under the License is distributed on an "AS IS" BASIS,
+        9.    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        10.    See the License for the specific language governing permissions and
+        11.    limitations under the License.
+        12. */
+        13. package demo;
+        14. public class ResultDomain {
+        15.     private int result;
+        16.     public int getResult() {
+        17.        return result;
+        18.     }
+        19.     public void setResult(int result) {
+        20.        this.result = result;
+        21.     }
+        22. }
+    
+    
+
+## 2.3 RSA
+    
+    
+    复制
+      
+        1. /**
+        2. Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
+        3.    Licensed under the Apache License, Version 2.0 (the "License");
+        4.    you may not use this file except in compliance with the License.
+        5.    You may obtain a copy of the License at
+        6.      http://www.apache.org/licenses/LICENSE-2.0
+        7.    Unless required by applicable law or agreed to in writing, software
+        8.    distributed under the License is distributed on an "AS IS" BASIS,
+        9.    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        10.    See the License for the specific language governing permissions and
+        11.    limitations under the License.
+        12. */
+        13. package demo;
+        14. import java.security.KeyFactory;
+        15. import java.security.PrivateKey;
+        16. import java.security.PublicKey;
+        17. import java.security.spec.PKCS8EncodedKeySpec;
+        18. import java.security.spec.X509EncodedKeySpec;
+        19. import java.util.ArrayList;
+        20. import java.util.Collections;
+        21. import java.util.List;
+        22. import java.util.Map;
+        23. /**
+        24.  * @author issuser
+        25.  */
+        26. public class RSA {
+        27.     /**
+        28.      * SIGN_ALGORITHMS
+        29.      */
+        30.     public static final String SIGN_ALGORITHMS = "SHA1WithRSA";
+        31.     public static final String SIGN_ALGORITHMS256 = "SHA256WithRSA";
+        32.     public static String sign(String content, String privateKey, String signtype) {
+        33.         String charset = "utf-8";
+        34.         try {
+        35.             PKCS8EncodedKeySpec priPKCS8 = new PKCS8EncodedKeySpec(Base64.decode(privateKey));
+        36.             KeyFactory keyf = KeyFactory.getInstance("RSA");
+        37.             PrivateKey priKey = keyf.generatePrivate(priPKCS8);
+        38.             java.security.Signature signature = null;
+        39.             if ("RSA256".equals(signtype)) {
+        40.                 signature = java.security.Signature.getInstance(SIGN_ALGORITHMS256);
+        41.             } else {
+        42.                 signature = java.security.Signature.getInstance(SIGN_ALGORITHMS);
+        43.             }
+        44.             signature.initSign(priKey);
+        45.             signature.update(content.getBytes(charset));
+        46.             byte[] signed = signature.sign();
+        47.             return Base64.encode(signed);
+        48.         } catch (Exception e) {
+        49.             e.printStackTrace();
+        50.         }
+        51.         return "";
+        52.     }
+        53.     public static boolean rsaDoCheck(Map<String, Object> params, String sign, String publicKey, String signtype) {
+        54.         String content = RSA.getSignData(params);
+        55.         System.out.println("The content for sign is : " + content.toString());
+        56.         System.out.println("The sign is : " + sign);
+        57.         System.out.println("The pubkey is : " + publicKey);
+        58.         return RSA.doCheck(content, sign, publicKey, signtype);
+        59.     }
+        60.     public static boolean doCheck(String content, String sign, String publicKey, String signtype) {
+        61.         try {
+        62.             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        63.             byte[] encodedKey = Base64.decode(publicKey);
+        64.             PublicKey pubKey = keyFactory.generatePublic(new X509EncodedKeySpec(encodedKey));
+        65.             java.security.Signature signature = null;
+        66.             if ("RSA256".equals(signtype)) {
+        67.                 signature = java.security.Signature.getInstance(SIGN_ALGORITHMS256);
+        68.             } else {
+        69.                 signature = java.security.Signature.getInstance(SIGN_ALGORITHMS);
+        70.             }
+        71.             signature.initVerify(pubKey);
+        72.             signature.update(content.getBytes("utf-8"));
+        73.             boolean bverify = signature.verify(Base64.decode(sign));
+        74.             return bverify;
+        75.         } catch (Exception e) {
+        76.             e.printStackTrace();
+        77.         }
+        78.         return false;
+        79.     }
+        80.     public static String getSignData(Map<String, Object> params) {
+        81.         StringBuffer content = new StringBuffer();
+        82.         List<String> keys = new ArrayList<String>(params.keySet());
+        83.         Collections.sort(keys);
+        84.         for (int i = 0; i < keys.size(); i++) {
+        85.             String key = (String) keys.get(i);
+        86.             if ("sign".equals(key)) {
+        87.                 continue;
+        88.             }
+        89.             if ("signType".equals(key)) {
+        90.                 continue;
+        91.             }
+        92.             String value = (String) params.get(key);
+        93.             if (value != null) {
+        94.                 content.append((i == 0 ? "" : "&") + key + "=" + value);
+        95.             } else {
+        96.                 content.append((i == 0 ? "" : "&") + key + "=");
+        97.             }
+        98.         }
+        99.         return content.toString();
+        100.     }
+        101.     public static String getNoSortSignData(Map<String, Object> params) {
+        102.         StringBuffer content = new StringBuffer();
+        103.         List<String> keys = new ArrayList<String>(params.keySet());
+        104.         for (int i = 0; i < keys.size(); i++) {
+        105.             String key = (String) keys.get(i);
+        106.             if ("sign".equals(key)) {
+        107.                 continue;
+        108.             }
+        109.             String value = (String) params.get(key);
+        110.             if (value != null) {
+        111.                 content.append((i == 0 ? "" : "&") + key + "=" + value);
+        112.             } else {
+        113.                 content.append((i == 0 ? "" : "&") + key + "=");
+        114.             }
+        115.         }
+        116.         return content.toString();
+        117.     }
+        118. }
+    
+    
+
+## 2.4 Base64
+    
+    
+    复制
+      
+        1. /**
+        2. Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
+        3.    Licensed under the Apache License, Version 2.0 (the "License");
+        4.    you may not use this file except in compliance with the License.
+        5.    You may obtain a copy of the License at
+        6.      http://www.apache.org/licenses/LICENSE-2.0
+        7.    Unless required by applicable law or agreed to in writing, software
+        8.    distributed under the License is distributed on an "AS IS" BASIS,
+        9.    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        10.    See the License for the specific language governing permissions and
+        11.    limitations under the License.
+        12. */
+        13. package demo;
+        14. public final class Base64 {
+        15.     static private final int BASELENGTH = 128;
+        16.     static private final int LOOKUPLENGTH = 64;
+        17.     static private final int TWENTYFOURBITGROUP = 24;
+        18.     static private final int EIGHTBIT = 8;
+        19.     static private final int SIXTEENBIT = 16;
+        20.     static private final int FOURBYTE = 4;
+        21.     static private final int SIGN = -128;
+        22.     static private final char PAD = '=';
+        23.     static private final boolean fDebug = false;
+        24.     static final private byte[] base64Alphabet = new byte[BASELENGTH];
+        25.     static final private char[] lookUpBase64Alphabet = new char[LOOKUPLENGTH];
+        26.     static {
+        27.         for (int i = 0; i < BASELENGTH; ++i) {
+        28.             base64Alphabet[i] = -1;
+        29.         }
+        30.         for (int i = 'Z'; i >= 'A'; i--) {
+        31.             base64Alphabet[i] = (byte) (i - 'A');
+        32.         }
+        33.         for (int i = 'z'; i >= 'a'; i--) {
+        34.             base64Alphabet[i] = (byte) (i - 'a' + 26);
+        35.         }
+        36.         for (int i = '9'; i >= '0'; i--) {
+        37.             base64Alphabet[i] = (byte) (i - '0' + 52);
+        38.         }
+        39.         base64Alphabet['+'] = 62;
+        40.         base64Alphabet['/'] = 63;
+        41.         for (int i = 0; i <= 25; i++) {
+        42.             lookUpBase64Alphabet[i] = (char) ('A' + i);
+        43.         }
+        44.         for (int i = 26, j = 0; i <= 51; i++, j++) {
+        45.             lookUpBase64Alphabet[i] = (char) ('a' + j);
+        46.         }
+        47.         for (int i = 52, j = 0; i <= 61; i++, j++) {
+        48.             lookUpBase64Alphabet[i] = (char) ('0' + j);
+        49.         }
+        50.         lookUpBase64Alphabet[62] = (char) '+';
+        51.         lookUpBase64Alphabet[63] = (char) '/';
+        52.     }
+        53.     private static boolean isWhiteSpace(char octect) {
+        54.         return (octect == 0x20 || octect == 0xd || octect == 0xa || octect == 0x9);
+        55.     }
+        56.     private static boolean isPad(char octect) {
+        57.         return (octect == PAD);
+        58.     }
+        59.     private static boolean isData(char octect) {
+        60.         return (octect < BASELENGTH && base64Alphabet[octect] != -1);
+        61.     }
+        62.     /**
+        63.      * Encodes hex octects into Base64
+        64.      * 
+        65.      * @param binaryData Array containing binaryData
+        66.      * @return Encoded Base64 array
+        67.      */
+        68.     public static String encode(byte[] binaryData) {
+        69.         if (binaryData == null) {
+        70.             return null;
+        71.         }
+        72.         int lengthDataBits = binaryData.length * EIGHTBIT;
+        73.         if (lengthDataBits == 0) {
+        74.             return "";
+        75.         }
+        76.         int fewerThan24bits = lengthDataBits % TWENTYFOURBITGROUP;
+        77.         int numberTriplets = lengthDataBits / TWENTYFOURBITGROUP;
+        78.         int numberQuartet = fewerThan24bits != 0 ? numberTriplets + 1 : numberTriplets;
+        79.         char encodedData[] = null;
+        80.         encodedData = new char[numberQuartet * 4];
+        81.         byte k = 0, l = 0, b1 = 0, b2 = 0, b3 = 0;
+        82.         int encodedIndex = 0;
+        83.         int dataIndex = 0;
+        84.         if (fDebug) {
+        85.             System.out.println("number of triplets = " + numberTriplets);
+        86.         }
+        87.         for (int i = 0; i < numberTriplets; i++) {
+        88.             b1 = binaryData[dataIndex++];
+        89.             b2 = binaryData[dataIndex++];
+        90.             b3 = binaryData[dataIndex++];
+        91.             if (fDebug) {
+        92.                 System.out.println("b1= " + b1 + ", b2= " + b2 + ", b3= " + b3);
+        93.             }
+        94.             l = (byte) (b2 & 0x0f);
+        95.             k = (byte) (b1 & 0x03);
+        96.             byte val1 = ((b1 & SIGN) == 0) ? (byte) (b1 >> 2) : (byte) ((b1) >> 2 ^ 0xc0);
+        97.             byte val2 = ((b2 & SIGN) == 0) ? (byte) (b2 >> 4) : (byte) ((b2) >> 4 ^ 0xf0);
+        98.             byte val3 = ((b3 & SIGN) == 0) ? (byte) (b3 >> 6) : (byte) ((b3) >> 6 ^ 0xfc);
+        99.             if (fDebug) {
+        100.                 System.out.println("val2 = " + val2);
+        101.                 System.out.println("k4   = " + (k << 4));
+        102.                 System.out.println("vak  = " + (val2 | (k << 4)));
+        103.             }
+        104.             encodedData[encodedIndex++] = lookUpBase64Alphabet[val1];
+        105.             encodedData[encodedIndex++] = lookUpBase64Alphabet[val2 | (k << 4)];
+        106.             encodedData[encodedIndex++] = lookUpBase64Alphabet[(l << 2) | val3];
+        107.             encodedData[encodedIndex++] = lookUpBase64Alphabet[b3 & 0x3f];
+        108.         }
+        109.         // form integral number of 6-bit groups
+        110.         if (fewerThan24bits == EIGHTBIT) {
+        111.             b1 = binaryData[dataIndex];
+        112.             k = (byte) (b1 & 0x03);
+        113.             if (fDebug) {
+        114.                 System.out.println("b1=" + b1);
+        115.                 System.out.println("b1<<2 = " + (b1 >> 2));
+        116.             }
+        117.             byte val1 = ((b1 & SIGN) == 0) ? (byte) (b1 >> 2) : (byte) ((b1) >> 2 ^ 0xc0);
+        118.             encodedData[encodedIndex++] = lookUpBase64Alphabet[val1];
+        119.             encodedData[encodedIndex++] = lookUpBase64Alphabet[k << 4];
+        120.             encodedData[encodedIndex++] = PAD;
+        121.             encodedData[encodedIndex++] = PAD;
+        122.         } else if (fewerThan24bits == SIXTEENBIT) {
+        123.             b1 = binaryData[dataIndex];
+        124.             b2 = binaryData[dataIndex + 1];
+        125.             l = (byte) (b2 & 0x0f);
+        126.             k = (byte) (b1 & 0x03);
+        127.             byte val1 = ((b1 & SIGN) == 0) ? (byte) (b1 >> 2) : (byte) ((b1) >> 2 ^ 0xc0);
+        128.             byte val2 = ((b2 & SIGN) == 0) ? (byte) (b2 >> 4) : (byte) ((b2) >> 4 ^ 0xf0);
+        129.             encodedData[encodedIndex++] = lookUpBase64Alphabet[val1];
+        130.             encodedData[encodedIndex++] = lookUpBase64Alphabet[val2 | (k << 4)];
+        131.             encodedData[encodedIndex++] = lookUpBase64Alphabet[l << 2];
+        132.             encodedData[encodedIndex++] = PAD;
+        133.         }
+        134.         return new String(encodedData);
+        135.     }
+        136.     /**
+        137.      * Decodes Base64 data into octects
+        138.      * 
+        139.      * @param encoded string containing Base64 data
+        140.      * @return Array containind decoded data.
+        141.      */
+        142.     public static byte[] decode(String encoded) {
+        143.         if (encoded == null) {
+        144.             return null;
+        145.         }
+        146.         char[] base64Data = encoded.toCharArray();
+        147.         // remove white spaces
+        148.         int len = removeWhiteSpace(base64Data);
+        149.         if (len % FOURBYTE != 0) {
+        150.             return null;// should be divisible by four
+        151.         }
+        152.         int numberQuadruple = (len / FOURBYTE);
+        153.         if (numberQuadruple == 0) {
+        154.             return new byte[0];
+        155.         }
+        156.         byte decodedData[] = null;
+        157.         byte b1 = 0, b2 = 0, b3 = 0, b4 = 0;
+        158.         char d1 = 0, d2 = 0, d3 = 0, d4 = 0;
+        159.         int i = 0;
+        160.         int encodedIndex = 0;
+        161.         int dataIndex = 0;
+        162.         decodedData = new byte[(numberQuadruple) * 3];
+        163.         for (; i < numberQuadruple - 1; i++) {
+        164.             if (!isData((d1 = base64Data[dataIndex++])) || !isData((d2 = base64Data[dataIndex++]))
+        165.                 || !isData((d3 = base64Data[dataIndex++])) || !isData((d4 = base64Data[dataIndex++]))) {
+        166.                 return null;
+        167.             }// if found "no data" just return null
+        168.             b1 = base64Alphabet[d1];
+        169.             b2 = base64Alphabet[d2];
+        170.             b3 = base64Alphabet[d3];
+        171.             b4 = base64Alphabet[d4];
+        172.             decodedData[encodedIndex++] = (byte) (b1 << 2 | b2 >> 4);
+        173.             decodedData[encodedIndex++] = (byte) (((b2 & 0xf) << 4) | ((b3 >> 2) & 0xf));
+        174.             decodedData[encodedIndex++] = (byte) (b3 << 6 | b4);
+        175.         }
+        176.         if (!isData((d1 = base64Data[dataIndex++])) || !isData((d2 = base64Data[dataIndex++]))) {
+        177.             return null;// if found "no data" just return null
+        178.         }
+        179.         b1 = base64Alphabet[d1];
+        180.         b2 = base64Alphabet[d2];
+        181.         d3 = base64Data[dataIndex++];
+        182.         d4 = base64Data[dataIndex++];
+        183.         if (!isData((d3)) || !isData((d4))) {// Check if they are PAD characters
+        184.             if (isPad(d3) && isPad(d4)) {
+        185.                 if ((b2 & 0xf) != 0)// last 4 bits should be zero
+        186.                 {
+        187.                     return null;
+        188.                 }
+        189.                 byte[] tmp = new byte[i * 3 + 1];
+        190.                 System.arraycopy(decodedData, 0, tmp, 0, i * 3);
+        191.                 tmp[encodedIndex] = (byte) (b1 << 2 | b2 >> 4);
+        192.                 return tmp;
+        193.             } else if (!isPad(d3) && isPad(d4)) {
+        194.                 b3 = base64Alphabet[d3];
+        195.                 if ((b3 & 0x3) != 0)// last 2 bits should be zero
+        196.                 {
+        197.                     return null;
+        198.                 }
+        199.                 byte[] tmp = new byte[i * 3 + 2];
+        200.                 System.arraycopy(decodedData, 0, tmp, 0, i * 3);
+        201.                 tmp[encodedIndex++] = (byte) (b1 << 2 | b2 >> 4);
+        202.                 tmp[encodedIndex] = (byte) (((b2 & 0xf) << 4) | ((b3 >> 2) & 0xf));
+        203.                 return tmp;
+        204.             } else {
+        205.                 return null;
+        206.             }
+        207.         } else { // No PAD e.g 3cQl
+        208.             b3 = base64Alphabet[d3];
+        209.             b4 = base64Alphabet[d4];
+        210.             decodedData[encodedIndex++] = (byte) (b1 << 2 | b2 >> 4);
+        211.             decodedData[encodedIndex++] = (byte) (((b2 & 0xf) << 4) | ((b3 >> 2) & 0xf));
+        212.             decodedData[encodedIndex++] = (byte) (b3 << 6 | b4);
+        213.         }
+        214.         return decodedData;
+        215.     }
+        216.     /**
+        217.      * remove WhiteSpace from MIME containing encoded Base64 data.
+        218.      * 
+        219.      * @param data the byte array of base64 data (with WS)
+        220.      * @return the new length
+        221.      */
+        222.     private static int removeWhiteSpace(char[] data) {
+        223.         if (data == null) {
+        224.             return 0;
+        225.         }
+        226.         // count characters that's not whitespace
+        227.         int newSize = 0;
+        228.         int len = data.length;
+        229.         for (int i = 0; i < len; i++) {
+        230.             if (!isWhiteSpace(data[i])) {
+        231.                 data[newSize++] = data[i];
+        232.             }
+        233.         }
+        234.         return newSize;
+        235.     }
+        236. }
+    
+    
+
+  
+

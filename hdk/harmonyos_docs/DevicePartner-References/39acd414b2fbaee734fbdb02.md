@@ -1,0 +1,38 @@
+---
+name: document/cn/DevicePartner-References/obtain-device-pair-status-0000001090265839
+title: 查询设备配对状态
+uri: https://developer.huawei.com/consumer/cn/doc/DevicePartner-References/obtain-device-pair-status-0000001090265839
+source: portal
+---
+
+# 查询设备配对状态  
+  
+#### 适用平台
+
+Android、iOS，平台差异如下：
+
+  * Android平台：入参不需要resultCallback回调，本节以Android平台为例进行介绍。
+  * iOS平台：入参需要传递resultCallback回调，调用方式如下：
+        
+        hilink.getBoundState (String deviceId, String resultCallback)
+
+
+
+
+#### 接口描述
+
+hilink.getBoundState (deviceId)
+
+查询蓝牙设备的配对状态。
+
+#### 请求参数
+
+参数 | 类型 | 描述  
+---|---|---  
+deviceId | String | 蓝牙设备Id  
+  
+#### 返回参数
+
+参数 | 类型 | 描述  
+---|---|---  
+retCode | Number | 状态码：10-未配对，11-配对中，12-已配对

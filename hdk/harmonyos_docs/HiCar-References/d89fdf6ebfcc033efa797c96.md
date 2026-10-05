@@ -1,0 +1,79 @@
+---
+name: document/cn/HiCar-References/playback-status-0000002668347638
+title: 查询媒体播放状态及支持的播控指令
+uri: https://developer.huawei.com/consumer/cn/doc/HiCar-References/playback-status-0000002668347638
+---
+
+# 查询媒体播放状态及支持的播控指令
+
+## 场景说明
+
+支持原车查询HiCar上媒体应用的收藏状态，当前设置的循环模式。
+
+支持查询当前媒体应用支持的播控指令。
+
+## Data Type
+
+556
+
+## 接口版本
+
+1.0
+
+## 接口定义
+
+|参数名称|必选/可选|类型|说明|
+|:-----------|:----|:-----|:-------------------------------------------------------------------------------------|
+|MediaDataReq|必选|object|响应数据|
+|action|必选|string|"registerMediaControlCommandChange": 注册监听 "unregisterMediaControlCommandChange": 解注册监听|
+[**表1**参数说明]
+
+|参数名称|类型|说明|
+|:----------------|:------|:---------|
+|isCanPlayPrevious|boolean|是否支持播放上一曲|
+|isCanPlayNext|boolean|是否支持播放下一曲|
+|isCanPlay|boolean|是否支持播放|
+|isCanLoopMode|boolean|是否支持设置循环模式|
+|isCanFavor|boolean|是否支持收藏|
+|isCanSeek|boolean|是否支持seek|
+[**表2**支持的指令]
+
+|参数名称|类型|说明|
+|:---------|:------|:----------------------------------------------------|
+|loopMode|int|播放循环模式： * 0：顺序播放 * 1：单曲循环 * 2：表单循环 * 3：随机播放 * 4：自定义播放|
+|isFavorite|boolean|收藏状态|
+[**表3**播放状态]
+
+## 接口示例
+
+厂商HMI应用向HiCar发送"dataType：556"的事件，注册监听媒体控制指令变更事件，HiCar收到556事件后，向车机发送播放状态及支持指令数据。
+
+请求参数如下所示：
+
+```screen
+{
+    "MediaDataReq" : {
+        "action":"registerMediaControlCommandChange"
+    }
+}
+```
+
+返回数据示例如下所示：
+
+```screen
+{
+    "validCommands": {
+        "isCanPlayPrevious": true,
+        "isCanPlayNext": true,
+        "isCanPlay": true,
+        "isCanLoopMode": true,
+        "isCanFavor": true,
+        "isCanSeek": true
+    },
+    "playbackState": {
+        "loopMode": 0,
+        "isFavorite": false
+    }
+}
+```
+

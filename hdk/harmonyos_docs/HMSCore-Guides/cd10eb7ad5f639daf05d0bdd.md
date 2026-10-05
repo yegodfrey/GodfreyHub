@@ -1,0 +1,212 @@
+---
+name: document/cn/HMSCore-Guides/web-e-commerce-0000001242328363
+title: 电商
+uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/web-e-commerce-0000001242328363
+source: portal
+---
+
+# 电商
+
+#### 事件参数列表
+
+                * COMPLETEPURCHASE
+
+用户支付完成后，上报此事件。可以用于分析用户对哪些商品或内容更感兴趣，优化运营策略。
+
+![](https://communityfile-drcn.op.dbankcloud.cn/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230926115328.85548565197610083504829162190610:50001231000000:2800:74A4D85EB2F346248101148CDE099B4A858F32846766E1AB4A8A95AC26296503.png?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true?needInitFileName=true)
+
+华为应用内支付服务（In-App Purchases，IAP）渠道发生的支付，不需要上报COMPLETEPURCHASE事件。
+
+参数ID | 参数名称 | 参数类型 | 可选/必选 | 参数描述  
+---|---|---|---|---  
+PRODUCTID | 商品ID | String | 必选 | 被添加到购物车中的商品ID。  
+PRODUCTNAME | 商品名称 | String | 必选 | 被添加到购物车中的商品名称。  
+QUANTITY | 购买数量 | Long | 必选 | 用户准备购买的数量。  
+CURRNAME | 货币类型 | String | 可选 | 标识收入的货币类型。与REVENUE一起使用。  
+REVENUE | 收入 | Double | 可选 | 本次交易给您带来的收入。必须与CURRNAME同时使用。  
+TAXFEE | 税费 | Double | 可选 | 本次交易产生的税费。  
+SHIPPING | 运输费 | Double | 可选 | 本次交易产生的运输费。  
+VOUCHER | 优惠券 | String | 可选 | 用户在本次交易中使用的优惠券。  
+BRAND | 商品品牌 | String | 可选 | 关联的商品品牌。  
+CATEGORY | 商品分类 | String | 必选 | 关联的商品分类。  
+SOURCE | 营销来源 | String | 可选 | 营销活动提供者的标识，如：HUAWEI PPS。  
+MEDIUM | 营销类型 | String | 可选 | 营销活动的类型，如：CPC、EMAIL、运营坑位、BANNER等。  
+PROMOTIONNAME | 营销名称 | String | 可选 | 营销活动的名称。  
+CONTENT | 营销内容 | String | 可选 | 营销活动的营销内容。  
+KEYWORDS | 关键词 | String | 可选 | 营销活动的关键词。如：搜索广告的关键词。  
+MATERIALNAME | 创意名称 | String | 可选 | 营销活动使用的创意素材名称。  
+MATERIALSLOT | 营销内容展示位置 | String | 可选 | 创意素材被展示的位置信息。  
+  
+                * CREATEPAYMENTINFO
+
+结算过程中，用户已经添加付款信息，但尚未发起支付时，上报此事件。
+
+参数ID | 参数名称 | 参数类型 | 可选/必选 | 参数描述  
+---|---|---|---|---  
+PAYTYPE | 支付方式 | String | 必选 | 用户选择的支付方式。  
+  
+                * VIEWPRODUCT
+
+用户浏览商品时，上报此事件。可以分析用户对哪些商品感兴趣，也可以和其他事件组合完成漏斗分析。
+
+参数ID | 参数名称 | 参数类型 | 可选/必选 | 参数描述  
+---|---|---|---|---  
+CURRNAME | 货币类型 | String | 可选 | 标识收入的货币类型。与REVENUE一起使用。  
+REVENUE | 收入 | Double | 可选 | 用户购买此商品，预计会给您带来的收入。必须与CURRNAME同时使用。  
+SEARCHKEYWORDS | 搜索关键词 | String | 可选 | 用户搜索的关键词。  
+VOUCHERS | 优惠券名称列表 | String | 可选 | 商品使用的优惠券名称列表。  
+SOURCE | 营销来源 | String | 可选 | 营销活动提供者的标识，如：HUAWEI PPS。  
+MEDIUM | 营销类型 | String | 可选 | 营销活动的类型，如：CPC、Email、运营坑位、Banner等。  
+PROMOTIONNAME | 营销名称 | String | 可选 | 营销活动的名称。  
+CONTENT | 营销内容 | String | 可选 | 营销活动的营销内容。  
+KEYWORDS | 关键词 | String | 可选 | 营销活动的关键词。如：搜索广告的关键词。  
+MATERIALNAME | 创意名称 | String | 可选 | 营销活动使用的创意素材名称。  
+MATERIALSLOT | 营销内容展示位置 | String | 可选 | 创意素材被展示的位置信息。  
+PRODUCTID | 商品ID | String | 必选 | 用户浏览商品的ID。  
+PRODUCTNAME | 商品名称 | String | 必选 | 用户浏览商品的名称。  
+PRODUCTFEATURE | 商品特征 | String | 可选 | 用户浏览商品的特征。  
+CATEGORY | 商品分类 | String | 必选 | 用户浏览商品的分类。  
+BRAND | 商品品牌 | String | 可选 | 用户浏览的商品品牌。  
+  
+                * ADDPRODUCT2CART
+
+用户添加商品到购物车时，上报此事件。
+
+参数ID | 参数名称 | 参数类型 | 可选/必选 | 参数描述  
+---|---|---|---|---  
+PRODUCTID | 商品ID | String | 必选 | 被添加到购物车中的商品ID。  
+PRODUCTNAME | 商品名称 | String | 必选 | 被添加到购物车中的商品名称。  
+PRODUCTFEATURE | 商品特征 | String | 可选 | 被添加到购物车中的商品特征。  
+BRAND | 商品品牌 | String | 可选 | 被添加到购物车中的商品品牌。  
+CATEGORY | 商品分类 | String | 可选 | 被添加到购物车中的商品分类。  
+STORENAME | 店铺名称 | String | 可选 | 被添加到购物车中的商品来自于哪个店铺。  
+PRICE | 购买价格 | Double | 可选 | 商品的价格。  
+REVENUE | 预计收入 | Double | 可选 | 用户购买此商品，预计会给您带来的收入。必须与CURRNAME同时使用。  
+CURRNAME | 货币类型 | String | 可选 | 标识收入的货币类型。与REVENUE一起使用。  
+  
+                * ADDPRODUCT2WISHLIST
+
+用户添加商品到收藏夹时，上报此事件。
+
+可用于分析用户对您的哪些商品感兴趣，进而对这些用户进行营销。
+
+参数ID | 参数名称 | 参数类型 | 可选/必选 | 参数描述  
+---|---|---|---|---  
+PRODUCTID | 商品ID | String | 必选 | 被添加到收藏夹中的商品ID。  
+PRODUCTNAME | 商品名称 | String | 必选 | 被添加到收藏夹中的商品名称。  
+PRODUCTFEATURE | 商品特征 | String | 可选 | 被添加到收藏夹中的商品特征。  
+BRAND | 商品品牌 | String | 可选 | 被添加到收藏夹中的商品品牌。  
+CATEGORY | 商品分类 | String | 可选 | 被添加到收藏夹中的商品分类。  
+STORENAME | 店铺名称 | String | 可选 | 被添加到收藏夹中的商品来自于哪个店铺。  
+PRICE | 购买价格 | Double | 可选 | 商品的价格。  
+REVENUE | 预计收入 | Double | 可选 | 用户购买此商品，预计会给您带来的收入。必须与CURRNAME同时使用。  
+CURRNAME | 货币类型 | String | 可选 | 标识收入的货币类型。与REVENUE一起使用。  
+CONTENTTYPE | 内容类型 | String | 必选 | 用户收藏内容的类型，如：文章、咨询、排行、商品。  
+CONTENT | 营销内容 | String | 可选 | 营销活动的营销内容。  
+PROMOTIONNAME | 营销名称 | String | 可选 | 营销活动的名称。  
+CONTENTNAME | 名称 | String | 必选 | 用户收藏的内容名称。  
+MATERIALNAME | 创意名称 | String | 可选 | 营销活动使用的创意素材名称。  
+MEDIUM | 营销类型 | String | 可选 | 营销活动的类型，如：CPC、EMAIL、运营坑位、BANNER等。  
+MATERIALSLOT | 营销内容展示位置 | String | 可选 | 创意素材被展示的位置信息。  
+KEYWORDS | 关键词 | String | 可选 | 营销活动的关键词。如：搜索广告的关键词。  
+  
+                * CREATEORDER
+
+用户创建订单时，上报此事件。
+
+参数ID | 参数名称 | 参数类型 | 可选/必选 | 参数描述  
+---|---|---|---|---  
+PRODUCTID | 商品ID | String | 必选 | 关联的商品ID。  
+PRODUCTNAME | 商品名称 | String | 必选 | 关联的商品名称。  
+PRODUCTFEATURE | 商品特征 | String | 可选 | 关联的商品特征。  
+BRAND | 商品品牌 | String | 可选 | 关联的商品品牌。  
+CATEGORY | 商品分类 | String | 可选 | 关联的商品分类。  
+STORENAME | 店铺名称 | String | 可选 | 关联的商品来自于哪个店铺。  
+QUANTITY | 购买数量 | Long | 可选 | 用户购买该商品的数量。  
+PRICE | 价格 | Double | 可选 | 商品的价格。  
+REVENUE | 收入 | Double | 可选 | 该交易会给您带来的收入。  
+CURRNAME | 货币类型 | String | 可选 | 收入的货币类型。  
+SOURCE | 营销来源 | String | 可选 | 营销活动提供者的标识，如：HUAWEI PPS。  
+MEDIUM | 营销类型 | String | 可选 | 营销活动的类型，如：CPC、Email、运营坑位、Banner等。  
+PROMOTIONNAME | 营销名称 | String | 可选 | 营销活动的名称。  
+CONTENT | 营销内容 | String | 可选 | 营销活动的营销内容。  
+KEYWORDS | 关键词 | String | 可选 | 营销活动的关键词。如：搜索广告的关键词。  
+MATERIALNAME | 创意名称 | String | 可选 | 营销活动使用的创意素材名称。  
+MATERIALSLOT | 营销内容展示位置 | String | 可选 | 创意素材被展示的位置信息。  
+  
+                * CANCELORDER
+
+用户取消订单时，上报此事件。
+
+参数ID | 参数名称 | 参数类型 | 可选/必选 | 参数描述  
+---|---|---|---|---  
+PRODUCTID | 商品ID | String | 必选 | 关联的商品ID。  
+PRODUCTNAME | 商品名称 | String | 必选 | 关联的商品名称。  
+PRODUCTFEATURE | 商品特征 | String | 可选 | 关联的商品特征。  
+BRAND | 商品品牌 | String | 可选 | 关联的商品品牌。  
+CATEGORY | 商品分类 | String | 可选 | 关联的商品分类。  
+STORENAME | 店铺名称 | String | 可选 | 关联的商品来自于哪个店铺。  
+QUANTITY | 购买数量 | Long | 可选 | 用户购买该商品的数量。  
+PRICE | 价格 | Double | 可选 | 商品的价格。  
+REVENUE | 收入 | Double | 可选 | 该交易会给您带来的收入。  
+CURRNAME | 货币类型 | String | 可选 | 收入的货币类型。  
+SOURCE | 营销来源 | String | 可选 | 营销活动提供者的标识，如：HUAWEI PPS。  
+MEDIUM | 营销类型 | String | 可选 | 营销活动的类型，如：CPC、Email、运营坑位、Banner等。  
+PROMOTIONNAME | 营销名称 | String | 可选 | 营销活动的名称。  
+CONTENT | 营销内容 | String | 可选 | 营销活动的营销内容。  
+KEYWORDS | 关键词 | String | 可选 | 营销活动的关键词。如：搜索广告的关键词。  
+MATERIALNAME | 创意名称 | String | 可选 | 营销活动使用的创意素材名称。  
+MATERIALSLOT | 营销内容展示位置 | String | 可选 | 创意素材被展示的位置信息。  
+REASON | 取消原因 | String | 必选 | 用户取消订单的原因。  
+  
+                * REFUNDORDER
+
+用户取消订单后，申请退款时，上报此事件。可以分析退款造成的损失，有针对性得制定优化策略。
+
+参数ID | 参数名称 | 参数类型 | 可选/必选 | 参数描述  
+---|---|---|---|---  
+CURRNAME | 货币类型 | String | 可选 | 退款的货币类型。  
+REVENUE | 退款额 | Double | 可选 | 退款给您带来的收入损失。  
+PRODUCTID | 商品ID | String | 必选 | 被退款的商品ID。  
+PRODUCTNAME | 商品名称 | String | 必选 | 被退款的商品名称。  
+QUANTITY | 购买数量 | Long | 必选 | 用户准备购买的数量。  
+BRAND | 商品品牌 | String | 可选 | 关联的商品品牌。  
+CATEGORY | 商品分类 | String | 必选 | 关联的商品分类。  
+SOURCE | 营销来源 | String | 可选 | 营销活动提供者的标识，如：HUAWEI PPS。  
+MEDIUM | 营销类型 | String | 可选 | 营销活动的类型，如：CPC、Email、运营坑位、Banner等。  
+PROMOTIONNAME | 营销名称 | String | 可选 | 营销活动的名称。  
+CONTENT | 营销内容 | String | 可选 | 营销活动的营销内容。  
+KEYWORDS | 关键词 | String | 可选 | 营销活动的关键词。如：搜索广告的关键词。  
+MATERIALNAME | 创意名称 | String | 可选 | 营销活动使用的创意素材名称。  
+MATERIALSLOT | 营销内容展示位置 | String | 可选 | 创意素材被展示的位置信息。  
+REASON | 退款原因 | String | 必选 | 用户选择退款的原因。  
+  
+                * SEARCH
+
+用户在应用内搜索内容时，上报此事件。
+
+参数ID | 参数名称 | 参数类型 | 可选/必选 | 参数描述  
+---|---|---|---|---  
+SEARCHKEYWORDS | 搜索关键词 | String | 必选 | 用户搜索的关键词。  
+SOURCE | 营销来源 | String | 可选 | 营销活动提供者的标识，如：HUAWEI PPS。  
+  
+                * EXCHANGEGOODS
+
+用户换货时，上报此事件。
+
+参数ID | 参数名称 | 参数类型 | 可选/必选 | 参数描述  
+---|---|---|---|---  
+PRODUCTID | 商品ID | String | 必选 | 用户退货的商品ID。  
+PRODUCTNAME | 商品名称 | String | 必选 | 用户退货的商品名称。  
+REASON | 换货原因 | String | 必选 | 更换商品的原因。  
+PRODUCTFEATURE | 商品特征 | String | 可选 | 更换商品的特征。  
+BRAND | 商品品牌 | String | 可选 | 更换商品的品牌。  
+CATEGORY | 商品分类 | String | 可选 | 更换商品的分类。  
+  
+                * VIEWPRODUCTLIST
+
+用户浏览商品列表时，上报此事件。如用户按分类查看商品列表时。可以分析用户对哪些类型的内容更感兴趣。
+
+参数ID | 参数名称 | 参数类型 | 可选/必选 | 参数描述  
+---|---|---|---|---  
+CATEGORY | 商品分类 | String | 可选 | 用户浏览商品列表的分类。
