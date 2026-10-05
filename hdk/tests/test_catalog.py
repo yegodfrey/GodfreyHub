@@ -229,5 +229,74 @@ class CorpusScanTest(unittest.TestCase):
         self.assertIn("document/cn/cangjie-guides/notice", extra)
 
 
+class CleanExtraTest(unittest.TestCase):
+    """clean-extra 三态判删：absent 物理删 / present 保留（清单枚举洞）/ uncertain 保留。
+
+    全程临时目录 + 注入 fetch，不打网络。"""
+
+    def setUp(self):
+        import portal
+        self.portal = portal
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.orig_out, self.orig_names = catalog.OUT, catalog.names
+        catalog.OUT = self.tmp.name
+        # 清单不含 aaa/bbb/ccc —— 三者才是「盘上有、清单无」的真多余候选
+        catalog.names = lambda: {"document/cn/guides/other"}
+        self.addCleanup(setattr, catalog, "OUT", self.orig_out)
+        self.addCleanup(setattr, catalog, "names", self.orig_names)
+        self._write("guides", "a.md", "document/cn/guides/aaa")
+        self._write("guides", "b.md", "document/cn/guides/bbb")
+        self._write("guides", "c.md", "document/cn/guides/ccc")
+        # 缺 document/cn/ 前缀的 name：归一后命中清单 → 不进候选
+        self._write("guides", "d.md", "guides/bbb")
+        # 浏览器路仓颉语料：清单外但不算真多余
+        self._write("cangjie-guides", "n.md", "document/cn/cangjie-guides/notice")
+
+    def _write(self, sub, fn, name):
+        d = os.path.join(self.tmp.name, sub)
+        os.makedirs(d, exist_ok=True)
+        with open(os.path.join(d, fn), "w", encoding="utf-8") as f:
+            f.write("---\nname: %s\ntitle: t\ncategory: guides\n---\n\nbody\n" % name)
+
+    def _p(self, sub, fn):
+        return os.path.join(self.tmp.name, sub, fn)
+
+    def test_three_verdicts(self):
+        def fetch(name):
+            if name.endswith("/aaa"):
+                return None                                  # 官方明确无正文
+            if name.endswith("/bbb"):
+                return {"value": {"content": {}}}            # 官方仍在
+            raise self.portal.PortalTransient("throttled")   # 不确定
+
+        r = catalog.clean_extra(dry_run=True, fetch=fetch, sleep=0)
+        self.assertEqual(r["removed"], ["document/cn/guides/aaa"])
+        self.assertTrue(os.path.exists(self._p("guides", "a.md")), "dry run 不得落删")
+        self.assertEqual(r["present"], ["document/cn/guides/bbb"])
+        self.assertEqual(r["uncertain"], ["document/cn/guides/ccc"])
+
+        r = catalog.clean_extra(dry_run=False, fetch=fetch, sleep=0)
+        self.assertEqual(r["removed"], ["document/cn/guides/aaa"])
+        self.assertFalse(os.path.exists(self._p("guides", "a.md")))
+        self.assertTrue(os.path.exists(self._p("guides", "b.md")))
+        self.assertTrue(os.path.exists(self._p("guides", "c.md")))
+        self.assertTrue(os.path.exists(self._p("guides", "d.md")),
+                        "归一后命中清单的 name 不得进候选")
+        self.assertTrue(os.path.exists(self._p("cangjie-guides", "n.md")),
+                        "浏览器路仓颉语料不算真多余")
+
+    def test_fetch_exception_is_uncertain_never_deleted(self):
+        def fetch(name):
+            raise RuntimeError("boom")
+
+        r = catalog.clean_extra(dry_run=False, fetch=fetch, sleep=0)
+        self.assertEqual(r["removed"], [])
+        self.assertEqual(r["uncertain"], ["document/cn/guides/aaa",
+                                          "document/cn/guides/bbb",
+                                          "document/cn/guides/ccc"])
+        self.assertTrue(os.path.exists(self._p("guides", "a.md")))
+
+
 if __name__ == "__main__":
     unittest.main()

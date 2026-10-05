@@ -17,7 +17,7 @@ mcp_server.py、generate_index.py）保留为可复用模块，由本入口统�
   python hdk.py stats
   python hdk.py manifest
   python hdk.py state rebuild
-  python hdk.py catalog [build|diff|dups|adopt <分类>]
+  python hdk.py catalog [build|diff|dups|adopt <分类>|clean-extra [dry]]
 
 语料说明：
   - harmonyos        : 本目录下 harmonyos_docs/，HarmonyOS 文档
@@ -383,7 +383,7 @@ def main():
                        help="官方目录树清单（build：枚举官方全集刷新清单；diff：与语料对账；"
                             "dups：只读报重复；adopt：把新分类纳入采集范围）")
     p.add_argument("action", nargs="?", default="build",
-                   help="build | diff | dups | adopt")
+                   help="build | diff | dups | adopt | clean-extra")
     p.add_argument("args", nargs="*", help="adopt 的分类名")
     p.set_defaults(fn=cmd_catalog)
 

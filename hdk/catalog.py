@@ -20,6 +20,8 @@
   diff           清单 vs 磁盘语料双向对账，漏抓按「知识 MCP 不供给」与「真漏」分桶
   dups           只读扫描逐字重复文档与同名多文件（不删任何文件，见下文说明）
   adopt <cat>    新建分类目录，把该官方分类纳入采集范围
+  clean-extra [dry]  真多余（盘上有/清单无/非浏览器路）逐篇 portal 判删双确认，
+                     仅官方明确无正文才物理删除；present/uncertain 一律保留并上报
 
 关于「删除旧版」：本模块曾提供 purge-stale，按 slug 词干（抹掉 -000000NNN 文档号）
 认定同一篇文档的新旧两版并物理删除旧版。该前提已被实测推翻：同词干组是
@@ -403,6 +405,93 @@ def adopt(category):
     print("[catalog] 已纳入范围: %s（下一步 python hdk.py catalog build 再 incremental）" % c)
 
 
+def true_extra_names(disk=None):
+    """真多余名单：盘上有、官方清单（范围内）无、非浏览器路仓颉语料。"""
+    import crawl                                          # 局部导入避免循环依赖
+    if disk is None:
+        disk = disk_names()
+    _, extra = diff(disk)
+    return sorted(n for n in extra
+                  if not (len(n.split("/")) > 2
+                          and n.split("/")[2].startswith(crawl.CANGJIE_NAMESPACE_PREFIX)))
+
+
+def name_paths(wanted):
+    """wanted name 集合 → {_canon(name): 文件绝对路径}（单遍磁盘扫描）。"""
+    want = {_canon(n) for n in wanted}
+    found = {}
+    for root, _, files in os.walk(OUT):
+        for fn in files:
+            if not fn.endswith(".md"):
+                continue
+            p = os.path.join(root, fn)
+            try:
+                with open(p, encoding="utf-8", errors="replace") as fh:
+                    head = fh.read(400)
+            except Exception:                                # noqa
+                continue
+            m = re.search(r"^name: (.+)$", head, re.M)
+            if not m:
+                continue
+            n = _canon(m.group(1).strip())
+            if n in want:
+                found[n] = p
+    return found
+
+
+def classify_extra(name, fetch=None):
+    """真多余单篇三态判定：absent（官方明确无正文）/ present（官方仍在）/
+    uncertain（限流/结构/业务码不确定）。与 portal.confirm_absent 同一契约，
+    但把「官方仍在」从「不确定」里拆出来——它指向清单枚举洞而不是文档过期。"""
+    import portal                                          # 局部导入避免循环依赖
+    fetch = fetch or portal.fetch_item
+    try:
+        return "absent" if fetch(name) is None else "present"
+    except portal.PortalTransient:
+        return "uncertain"
+    except Exception:                                      # noqa
+        return "uncertain"
+
+
+def clean_extra(dry_run=False, fetch=None, sleep=0.2):
+    """真多余判删双确认：diff 判「盘上有、官方清单无」为候选，逐篇走 portal 单篇确认，
+    只有官方明确无正文（absent）才物理删除；present/uncertain 一律保留（2026-09-21 指令：
+    确认删除直接物理删除不留副本，git 历史即清理台账）。"""
+    wanted = true_extra_names()
+    paths = name_paths(wanted)
+    print("[clean-extra] 真多余候选 %d 篇%s" % (len(wanted), "（dry run）" if dry_run else ""))
+    removed, uncertain, present = [], [], []
+    for i, n in enumerate(sorted(wanted), 1):
+        p = paths.get(n)
+        if not p:
+            print("[clean-extra] %3d/%d SKIP（盘上未找到文件）%s" % (i, len(wanted), n))
+            continue
+        verdict = classify_extra(n, fetch=fetch)
+        if verdict == "absent":
+            removed.append(n)
+            print("[clean-extra] %3d/%d REMOVED %s" % (i, len(wanted), n))
+            if not dry_run:
+                os.remove(p)
+        elif verdict == "present":
+            present.append(n)
+            print("[clean-extra] %3d/%d KEPT-PRESENT（官方仍在=清单枚举洞）%s"
+                  % (i, len(wanted), n))
+        else:
+            uncertain.append(n)
+            print("[clean-extra] %3d/%d KEPT-UNCERTAIN（不确定一律保留）%s"
+                  % (i, len(wanted), n))
+        if sleep:
+            time.sleep(sleep)
+    print("[clean-extra] 删除 %d / 保留-官方仍在 %d / 保留-不确定 %d%s"
+          % (len(removed), len(present), len(uncertain),
+             "（dry run，未落删）" if dry_run else ""))
+    if present:
+        print("[clean-extra] 官方仍在名单（应查清单枚举洞）:")
+        for n in present:
+            print("    ", n)
+    return {"removed": removed, "present": present, "uncertain": uncertain}
+
+
 def main(action=None, extra=None):
     argv = sys.argv[1:]
     cmd = action or (argv[0] if argv else "build")
@@ -417,8 +506,10 @@ def main(action=None, extra=None):
         if not args:
             sys.exit("[catalog] adopt 需要分类名：python hdk.py catalog adopt <分类>")
         adopt(args[0])
+    elif cmd == "clean-extra":
+        clean_extra(dry_run=bool(args and args[0] == "dry"))
     else:
-        sys.exit("[catalog] 未知子命令: %s（build | diff | dups | adopt）" % cmd)
+        sys.exit("[catalog] 未知子命令: %s（build | diff | dups | adopt | clean-extra）" % cmd)
 
 
 if __name__ == "__main__":
