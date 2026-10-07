@@ -28,6 +28,7 @@ KeyedMutex（进程内）与 proper-lockfile（跨进程）串行化，消除 ch
 ## 已知债务
 
 - `scripts/GfDeviceRunner.ps1` 现为薄入口(参数契约、StrictMode/脚本状态、类定义、按序加载分块)，实体按职责拆分在 `scripts/runner/`：`PrepareCache.ps1`(内环复用缓存)、`DeviceInventory.ps1`(设备清单与契约)、`PreparationVisual.ps1`(预备事务与视觉/失败证据采集)、`SuiteCangjieMonkey.ps1` 与 `SuiteInstrument.ps1`(套件执行器)。调用方 dot-source 入口的契约不变(函数与类仍定义在调用方作用域)，分块为纯机械切片并经编码门禁/自测验证。
+- ohpm install 无 EOL 收敛闸：ohpm（26.0.0.630）Windows 运行时会把 `oh-package-lock.json5` 重写为 CRLF；GFSoftware 侧已在其五个构建入口+test.ps1 接 `Repair-GfWorkspaceTextEol` 封口（GFSoftware commit `9422424`），本仓 `hub_build` 的 install 路径（`src/cli/build-hap.ts` / `src/core/hvigor.ts` / `scripts/GfHvigorRuntime.psm1`）尚无对应收敛或跳闸。出处：GFSoftware `Docs/HANDOVER-2026-10-07-afternoon.md` §六.3 与 commit `10bb70d`。
 
 ## 前置条件
 
