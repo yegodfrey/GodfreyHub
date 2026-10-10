@@ -9,8 +9,12 @@ interface Pixel { r: number; g: number; b: number; a: number }
 /**
  * 判据版本号: 判定语义(测量口径/分离准则)每次变更必须递增, 随 report summary 出账。
  * 2 = C05 墨核分位 + C14 跨轴互斥(Q147, 2026-09-30)。
+ * 3 = M16 shift-verbose 双轨(GFSoftware BOARD §M·建议 M16, 调度席代裁 2026-10-10):
+ *     baselineImage 轴新增窗口原点归一次级通道——原始像素判距仍是唯一主判据(永不掩盖),
+ *     仅在原始红已成立时追加平移搜索; raw 红 + 归一绿 ⇒ 新判定档 shift-equivalent
+ *     (带位移向量, 不再是硬红)。只可能把红转新档, 不可能把红转绿(绿路径不进搜索)。
  */
-export const JUDGE_CRITERIA_VERSION = 2;
+export const JUDGE_CRITERIA_VERSION = 3;
 
 /** 判据特性开关(默认开): =0/false 关闭对应新语义, 回到旧判定行为(回滚/对照用)。 */
 function judgeFlag(name: string): boolean {
@@ -39,8 +43,26 @@ export interface VisualMeasurement {
   note?: string;
 }
 
+/** M16 shift-verbose 第二通道的出账读数（summary.shift，仅在判定档 shift-equivalent 时在场）。 */
+export interface ShiftChannelReading {
+  /** actual 相对 baseline 的整帧平移向量（px）：actual(x,y) ≈ baseline(x-offsetX, y-offsetY)。 */
+  offsetX: number;
+  offsetY: number;
+  /** 选中偏移下的全分辨率失配比（与主判据同一逐像素判距/同一 ignoreRegions）。 */
+  normalizedRatio: number;
+  /** 原始（零偏移）失配比——主判据读数，随通道一并出账供人复核。 */
+  rawMismatchRatio: number;
+  /** 平移搜索半径（px，tolerance.shiftSearchRadius，钳在 1..32）。 */
+  searchRadiusPx: number;
+}
+
 export interface VisualCompareResult {
-  status: "passed" | "failed";
+  /**
+   * passed = 零 issue；failed = 有不可归约为整帧平移的红；shift-equivalent = 原始像素红
+   * 成立但窗口原点归一判为内容等价平移（M16 新档，不是绿——消费方按"判过未过"撤销既有
+   * 收据 fail-closed，自动重钉只能由人/席位批提案后执行）。
+   */
+  status: "passed" | "failed" | "shift-equivalent";
   summary: {
     /** 判据版本号(见 JUDGE_CRITERIA_VERSION), 判定语义变更时递增。 */
     criteriaVersion: number;
@@ -48,6 +70,8 @@ export interface VisualCompareResult {
     passed: number;
     failed: number;
     mismatchRatio?: number;
+    /** M16 shift-verbose 第二通道读数（见 ShiftChannelReading），仅 shift-equivalent 档在场。 */
+    shift?: ShiftChannelReading;
     /**
      * D-1 dark 轴时序门(2026-09-21, OPEN_ITEMS_LEDGER §E-7/死规则② 的比较器侧落地):
      * 主题维度计分的显式状态。scored=themeDeltas 已声明且同场浅色基线在场, 位移判定
@@ -1005,6 +1029,99 @@ function baselineMismatch(actual: PNG, baseline: PNG, tolerance: any, ignored: a
   return compared === 0 ? 0 : mismatched / compared;
 }
 
+/**
+ * M16 shift-verbose 第二通道（GFSoftware BOARD §M·建议 M16，调度席代裁 2026-10-10）。
+ *
+ * 窗口原点归一平移搜索：把 actual 视为 baseline 的候选整帧平移，在小窗 ±N px 网格上逐偏移
+ * 重配对（actual(x,y) ↔ baseline(x-offsetX, y-offsetY)），判距、ignoreRegions 与主判据
+ * baselineMismatch 完全同一份——这不是另一条美学，是同一条判距在平移假设下的第二次测量。
+ * 仅在**原始红已成立**时被调用（绿路径根本不进搜索，归一通道结构上不可能掩盖任何绿）。
+ *
+ * 语义约定：
+ *   - 偏移方向：offsetX/Y = actual 内容相对 baseline 的位移（向右/向下为正）。
+ *     夹具钉：baseline 内容右移 8px 的 actual ⇒ (8, 0)。
+ *   - 基线侧越界的像素对在此偏移下**不可比**，两侧计数都跳过（不算失配——越界惩罚会把
+ *     任何真平移都归一不出预算内，通道失真；搜索半径有界 ≤32px，不可比带至多是边框环，
+ *     normalizedRatio 与位移向量一并出账，人可复核）。
+ *   - 两阶段有界成本：粗筛在固定采样网格（每偏移 ≤ ~24k 样本）上按全偏移格打分，细评对
+ *     粗筛最优的 3×3 邻域做全分辨率复评——**出账的 normalizedRatio 永远是全分辨率读数**，
+ *     粗筛只用来选候选。1216×2688 帧全分辨率 × 289 偏移在宿主侧不可接受，粗筛 ~7M、
+ *     细评 ~30M 次像素操作，红路径一次判定秒级收敛。
+ *   - 候选排序全序（确定性，平权时取小位移）：(ratio, |dx|+|dy|, |dx|, |dy|, dx, dy) 字典序。
+ *     偏移 (0,0) 与平移候选同权参与——归一救不回来的红，(0,0) 的全分辨率读数与主判据一致。
+ *
+ * 返回 null = 无法归一（双图尺寸不同——主判据此时已直接判红）或全偏移无可比对。
+ */
+function normalizedShiftChannel(actual: PNG, baseline: PNG, tolerance: any,
+  ignored: any[]): ShiftChannelReading | null {
+  if (actual.width !== baseline.width || actual.height !== baseline.height) return null;
+  const searchRadiusPx = Math.max(1, Math.min(32, Math.floor(Number(tolerance?.shiftSearchRadius ?? 8))));
+  const delta = Number(tolerance?.pixelDelta ?? 0);
+  const rawMismatchRatio = baselineMismatch(actual, baseline, tolerance, ignored);
+  const total = actual.width * actual.height;
+  const coarseStep = Math.max(1, Math.floor(Math.sqrt(total / 24000)));
+
+  const compareAt = (offsetX: number, offsetY: number, step: number):
+    { mismatched: number; compared: number } => {
+    let compared = 0, mismatched = 0;
+    for (let y = 0; y < actual.height; y += step) {
+      for (let x = 0; x < actual.width; x += step) {
+        if (inIgnoredRegion(x, y, ignored)) continue;
+        const bx = x - offsetX, by = y - offsetY;
+        if (bx < 0 || by < 0 || bx >= baseline.width || by >= baseline.height) continue;
+        compared++;
+        const a = pixelAt(actual, x, y), b = pixelAt(baseline, bx, by);
+        if (Math.max(Math.abs(a.r - b.r), Math.abs(a.g - b.g), Math.abs(a.b - b.b),
+          Math.abs(a.a - b.a)) > delta) {
+          mismatched++;
+        }
+      }
+    }
+    return { mismatched, compared };
+  };
+  // 候选全序（越小越优）：比值 → 位移量 → 逐轴绝对值 → 有符号逐轴（平权取原点侧）。
+  const better = (a: { ratio: number; x: number; y: number },
+    b: { ratio: number; x: number; y: number } | null): boolean => {
+    if (b === null) return true;
+    const aKey = [a.ratio, Math.abs(a.x) + Math.abs(a.y), Math.abs(a.x), Math.abs(a.y), a.y, a.x];
+    const bKey = [b.ratio, Math.abs(b.x) + Math.abs(b.y), Math.abs(b.x), Math.abs(b.y), b.y, b.x];
+    for (let i = 0; i < aKey.length; i++) {
+      if (aKey[i] !== bKey[i]) return aKey[i] < bKey[i];
+    }
+    return false;
+  };
+
+  let coarseBest: { ratio: number; x: number; y: number } | null = null;
+  for (let dy = -searchRadiusPx; dy <= searchRadiusPx; dy++) {
+    for (let dx = -searchRadiusPx; dx <= searchRadiusPx; dx++) {
+      const sample = compareAt(dx, dy, coarseStep);
+      if (sample.compared === 0) continue;
+      const candidate = { ratio: sample.mismatched / sample.compared, x: dx, y: dy };
+      if (better(candidate, coarseBest)) coarseBest = candidate;
+    }
+  }
+  if (coarseBest === null) return null;
+
+  let best: { ratio: number; x: number; y: number } | null = null;
+  for (let dy = coarseBest.y - 1; dy <= coarseBest.y + 1; dy++) {
+    for (let dx = coarseBest.x - 1; dx <= coarseBest.x + 1; dx++) {
+      if (Math.abs(dx) > searchRadiusPx || Math.abs(dy) > searchRadiusPx) continue;
+      const exact = compareAt(dx, dy, 1);
+      if (exact.compared === 0) continue;
+      const candidate = { ratio: exact.mismatched / exact.compared, x: dx, y: dy };
+      if (better(candidate, best)) best = candidate;
+    }
+  }
+  if (best === null) return null;
+  return {
+    offsetX: best.x,
+    offsetY: best.y,
+    normalizedRatio: best.ratio,
+    rawMismatchRatio,
+    searchRadiusPx,
+  };
+}
+
 export function compareVisualSpec(opts: {
   specPath: string;
   actualPath: string;
@@ -1032,6 +1149,7 @@ export function compareVisualSpec(opts: {
   let themeAxis: "scored" | "unpaired" | "notDeclared" = "notDeclared";
   let checks = 0;
   let mismatchRatio: number | undefined;
+  let shiftChannel: ShiftChannelReading | undefined;
 
   if (spec.baselineImage) {
     checks++;
@@ -1040,7 +1158,20 @@ export function compareVisualSpec(opts: {
     mismatchRatio = baselineMismatch(actual, baseline, spec.tolerance ?? {}, spec.ignoreRegions ?? []);
     const maxRatio = Number(spec?.tolerance?.maxMismatchRatio ?? 0);
     if (mismatchRatio > maxRatio) {
-      issues.push({ id: "baseline", message: `mismatch ratio ${mismatchRatio} exceeds ${maxRatio}` });
+      // M16 shift-verbose 双轨（判定档语义见 JUDGE_CRITERIA_VERSION=3 注）：原始红成立后
+      // 才进归一搜索；归一回预算内 ⇒ 红→shift-equivalent 新档（带位移向量），归一也差 ⇒
+      // 原 baseline 红原样（id 与文案逐字节不变）。归一通道没有资格碰绿：绿路径不进搜索。
+      const shift = normalizedShiftChannel(actual, baseline, spec.tolerance ?? {}, spec.ignoreRegions ?? []);
+      if (shift !== null && shift.normalizedRatio <= maxRatio) {
+        shiftChannel = shift;
+        issues.push({ id: "shift-equivalent",
+          message: `mismatch ratio ${mismatchRatio} exceeds ${maxRatio}, but the pair matches within ` +
+            `budget at offset (${shift.offsetX},${shift.offsetY}) (normalized ratio ${shift.normalizedRatio} ` +
+            `<= ${maxRatio}) — content-equivalent translation detected; pixel baseline repin is proposed ` +
+            "(offset vector in summary.shift), not applied" });
+      } else {
+        issues.push({ id: "baseline", message: `mismatch ratio ${mismatchRatio} exceeds ${maxRatio}` });
+      }
     }
   }
 
@@ -1222,8 +1353,13 @@ export function compareVisualSpec(opts: {
   fs.mkdirSync(outputDir, { recursive: true });
   const reportJson = path.join(outputDir, "visual-report.json");
   const reportMarkdown = path.join(outputDir, "visual-report.md");
+  // M16 判定档：唯一 issue 且可归约为整帧平移 ⇒ shift-equivalent（不是绿——消费方按
+  // "判过未过"处理）；任何其他 issue 在场 ⇒ 红占优，照旧 failed。
+  const shiftEquivalentOnly = issues.length > 0 && issues.every((issue) => issue.id === "shift-equivalent");
+  const status: VisualCompareResult["status"] =
+    issues.length === 0 ? "passed" : shiftEquivalentOnly ? "shift-equivalent" : "failed";
   const result: VisualCompareResult = {
-    status: issues.length === 0 ? "passed" : "failed",
+    status,
     summary: {
       criteriaVersion: JUDGE_CRITERIA_VERSION,
       checks,
@@ -1231,6 +1367,7 @@ export function compareVisualSpec(opts: {
       failed: issues.length,
       themeAxis,
       ...(mismatchRatio === undefined ? {} : { mismatchRatio }),
+      ...(shiftChannel === undefined ? {} : { shift: shiftChannel }),
     },
     issues,
     measurements,
@@ -1247,6 +1384,11 @@ export function compareVisualSpec(opts: {
     `- Failed: ${issues.length}`,
     `- Theme axis: ${themeAxis}`,
     ...(mismatchRatio === undefined ? [] : [`- Mismatch ratio: ${mismatchRatio}`]),
+    ...(shiftChannel === undefined ? [] : [
+      `- Shift channel: offset (${shiftChannel.offsetX},${shiftChannel.offsetY}), ` +
+      `normalized ratio ${shiftChannel.normalizedRatio} (raw ${shiftChannel.rawMismatchRatio}), ` +
+      `search radius ${shiftChannel.searchRadiusPx}px`,
+    ]),
     "",
     ...(issues.length === 0 ? ["No issues."] : issues.map((issue) => `- ${issue.id}: ${issue.message}`)),
     ...(measurements.length === 0 ? [] : [
