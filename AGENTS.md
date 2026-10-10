@@ -61,11 +61,7 @@ npm run hdk:index      # 离线文档索引（新克隆后首次运行）
 
 ## Emulator discipline（指针——规则真源在 GFSoftware 文档树，本节不留副本）
 
-- 触发器：凡用 `emu_*` 工具创建/启动/取用/删除模拟器实例，先读 GFSoftware
-  `Docs/DEVICE_LANE_OPERATIONS.md` 的 §A-命名与复用制（上限 3 台、`<拉起者pid>:<hdc端口>` 命名、
-  轮转复用、无主接管、业务名只减不增）与 §A-附（内存两道闸）——规则以该文档为唯一真源。
-- 改规则只改真源；本仓不得跨仓双写规则内容（2026-10-10 W7 存量漂移清偿：原 2026-09-28
-  拍板条款已并入真源，此处仅留入口）。
+- 凡用 `emu_*` 工具创建/启动/取用/删除模拟器实例，规则唯一真源 = GFSoftware `Docs/DEVICE_LANE_OPERATIONS.md` 的 §A-命名与复用制与 §A-附（内存两道闸）及 `GFSoftware/AGENTS.md` 设备纪律对应节；改规则只改真源，本节不复制任何规则值（上限、命名格式、轮转条款等）。
 
 ## Workspace management
 
