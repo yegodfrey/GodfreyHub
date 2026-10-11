@@ -1,7 +1,11 @@
 Set-StrictMode -Version Latest
 
 function Get-GfLocalTestEvidence {
-    param([string]$ModuleRoot, [datetime]$StartedAt)
+    # -StartedAt must be Mandatory: a silently-defaulted 0001-01-01 makes the freshness
+    # filter (LastWriteTimeUtc >= StartedAt) always true, so a stale test_result.txt would
+    # be accepted as fresh evidence. Named refusal at binding time (R6).
+    param([string]$ModuleRoot,
+        [Parameter(Mandatory = $true)][datetime]$StartedAt)
     $reports = @(Get-ChildItem -LiteralPath (Join-Path $ModuleRoot '.test') -Recurse `
         -Filter 'test_result.txt' -File -ErrorAction SilentlyContinue |
         Where-Object { $_.LastWriteTimeUtc -ge $StartedAt.ToUniversalTime() })
@@ -18,7 +22,8 @@ function Get-GfLocalTestEvidence {
         throw "Local tests not green: failure=$($counts[1]) error=$($counts[2]) ignored=$($counts[4])."
     }
     return [pscustomobject]@{ passed = $counts[3]; failed = $counts[1] + $counts[2]; ignored = $counts[4]
-        report = $reports[0].FullName; sha256 = (Get-FileHash -LiteralPath $reports[0].FullName -Algorithm SHA256).Hash }
+        report = $reports[0].FullName; sha256 = (Get-FileHash -LiteralPath $reports[0].FullName -Algorithm SHA256).Hash
+        measuredAt = $reports[0].LastWriteTimeUtc; startedAt = $StartedAt.ToUniversalTime() }
 }
 
 Export-ModuleMember -Function Get-GfLocalTestEvidence
