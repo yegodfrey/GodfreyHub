@@ -186,3 +186,31 @@ test("an empty rule selection is an error, not a silent pass", () => {
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("ignored directory names keep ephemeral sandboxes out of the scan surface", () => {
+  const root = makeTempTree();
+  try {
+    // The sandbox file carries a forbidden token: if the walker ever enters
+    // .skeleton-smoke, the no-match rule below must fail (red arm).
+    fs.mkdirSync(path.join(root, ".skeleton-smoke", "SkeletonSmoke-041412"), { recursive: true });
+    fs.writeFileSync(
+      path.join(root, ".skeleton-smoke", "SkeletonSmoke-041412", "skeleton.ps1"),
+      "Invoke-ForbiddenToken\n",
+    );
+    // Reverse control: content in a normally-named directory must stay scanned.
+    fs.mkdirSync(path.join(root, "scripts"), { recursive: true });
+    fs.writeFileSync(path.join(root, "scripts", "clean.ps1"), "ok\n");
+
+    clearFileListCache();
+    assert.deepEqual(evaluateRule({
+      id: "r.no-sandbox",
+      checks: [{ expect: "no-match", file: "**/*.ps1", pattern: "Invoke-ForbiddenToken" }],
+    }, root), [], ".skeleton-smoke must be excluded from the static-rules scan surface");
+    assert.equal(evaluateRule({
+      id: "r.control",
+      checks: [{ expect: "no-match", file: "**/*.ps1", pattern: "ok" }],
+    }, root).length, 1, "reverse control: a normal directory must still be scanned by the same glob");
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

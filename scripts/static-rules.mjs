@@ -31,6 +31,9 @@ const DEFAULT_RULES_PATH = "family/static-rules.json";
 const IGNORED_DIR_NAMES = new Set([
   ".git", "node_modules", "oh_modules", "build", ".hvigor", ".cxx", ".idea",
   "Workspace", ".test", "dist", "hdk", "outputs", ".trash",
+  // Ephemeral skeleton-smoke sandboxes (rotated/removed mid-run by the caller,
+  // so scanning them races with deletion and fails with spurious ENOENT).
+  ".skeleton-smoke",
 ]);
 
 export function globToRegExp(pattern) {
