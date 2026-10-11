@@ -25,6 +25,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { performance } from "node:perf_hooks";
 import { fileURLToPath } from "node:url";
 
 const DEFAULT_RULES_PATH = "family/static-rules.json";
@@ -400,13 +401,18 @@ export function runRules({ repoRoot, rulesPath, app, ruleId }) {
   let errors = 0;
   let warnings = 0;
   for (const rule of rules) {
+    const started = performance.now();
     const failures = evaluateRule(rule, repoRoot);
+    // Per-rule duration in milliseconds, always rendered with an explicit `ms`
+    // unit token so a per-rule timing line can never be misread as the suite
+    // wall time (which is always `wall=<n>s`).
+    const durationMs = performance.now() - started;
     const severity = rule.severity === "warn" ? "warn" : "error";
     if (failures.length > 0) {
       if (severity === "error") errors++;
       else warnings++;
     }
-    results.push({ rule, failures, severity });
+    results.push({ rule, failures, severity, durationMs });
   }
   return { results, errors, warnings };
 }
@@ -438,8 +444,11 @@ export function main(argv) {
     return 2;
   }
   let outcome;
+  let wallMs = 0;
   try {
+    const wallStarted = performance.now();
     outcome = runRules({ repoRoot: args.repo, rulesPath: args.rules, app: args.app, ruleId: args.rule });
+    wallMs = performance.now() - wallStarted;
   } catch (error) {
     process.stderr.write(`static-rules: ${error.message}\n`);
     return 2;
@@ -455,23 +464,28 @@ export function main(argv) {
       app: args.app,
       errors: outcome.errors,
       warnings: outcome.warnings,
-      results: outcome.results.map(({ rule, failures, severity }) => ({
-        id: rule.id, severity, failures,
+      wallMs,
+      results: outcome.results.map(({ rule, failures, severity, durationMs }) => ({
+        id: rule.id, severity, failures, durationMs,
       })),
     }, null, 2)}\n`);
   } else {
-    for (const { rule, failures, severity } of outcome.results) {
+    // Duration tokens are unit-explicit by design: per-rule lines carry
+    // `rule=<n>ms`, the suite summary carries `wall=<n>s`, so the two can
+    // never be confused at the token level.
+    const ruleToken = (durationMs) => `rule=${durationMs.toFixed(1)}ms`;
+    for (const { rule, failures, severity, durationMs } of outcome.results) {
       if (failures.length === 0) {
-        process.stdout.write(`  PASS  ${rule.id}\n`);
+        process.stdout.write(`  PASS  ${rule.id} ${ruleToken(durationMs)}\n`);
         continue;
       }
-      process.stdout.write(`  ${severity === "error" ? "FAIL" : "WARN "}  ${rule.id} - ${rule.title ?? ""}\n`);
+      process.stdout.write(`  ${severity === "error" ? "FAIL" : "WARN "}  ${rule.id} - ${rule.title ?? ""} ${ruleToken(durationMs)}\n`);
       for (const failure of failures) {
         process.stdout.write(`        ${failure.message}\n`);
       }
     }
     process.stdout.write(
-      `static-rules: ${outcome.results.length} rules, ${outcome.errors} failed, ${outcome.warnings} warned\n`);
+      `static-rules: ${outcome.results.length} rules, ${outcome.errors} failed, ${outcome.warnings} warned, wall=${(wallMs / 1000).toFixed(1)}s\n`);
   }
   return outcome.errors > 0 ? 1 : 0;
 }

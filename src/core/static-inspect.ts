@@ -20,7 +20,13 @@ interface ModuleInfo {
   resources: Map<string, Set<string>>;
 }
 
-const SKIP_DIRS = new Set(["node_modules", "oh_modules", ".hvigor", "build", ".git", ".preview", ".idea"]);
+// Workspace=工作区杂项(非产品源码); .skeleton-smoke=check-skeleton-buildable 运行间
+// 轮换删除的沙箱——遍历中命中会在枚举后/读取前被删(readFileSync ENOENT, TOCTOU 同型),
+// 两类目录都不入静态检查扫描面。
+const SKIP_DIRS = new Set([
+  "node_modules", "oh_modules", ".hvigor", "build", ".git", ".preview", ".idea",
+  "Workspace", ".skeleton-smoke",
+]);
 const ELEMENT_TYPES = new Set(["string", "color", "integer", "float", "bool", "int_array", "long_array", "number_array", "string_array", "plural"]);
 
 function walkFiles(dir: string, exts: string[], out: string[], depth = 8): void {
