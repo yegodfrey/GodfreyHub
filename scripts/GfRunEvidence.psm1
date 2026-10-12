@@ -1,5 +1,13 @@
 ﻿Set-StrictMode -Version Latest
 
+# gov-rebuild-20261010 rootperf 席 2026-10-12（GFSoftware 独立仓改动；本文件在 GodfreyHub 仓，
+# commit 由 GFSoftware 调度席在本仓代账）：Get-GfSourceIdentity 哈希段批化。枚举/排序/名单侧
+# 排除/逐行格式/最终聚合 SHA256 全部保持 pwsh 侧不变（语义零改动）；仅逐文件 ReadAllBytes+
+# SHA256 改为 node 单进程批量（gf-source-hash-batch.mjs，canonical 字节语义与本文件
+# Get-GfCanonicalBytes 逐字节等价，deleted 判定与 Test-Path -PathType Leaf 同形）。node 缺失、
+# 批失败或行数不符时回退下方原逐文件实现，输出逐字节不变。同树双实现对照读数在
+# GFSoftware Workspace/tmp/gov-rebuild-20261010/_rootperf/。
+
 function Get-GfCanonicalBytes {
     # canonical 形式 = 去 UTF-8 BOM → CRLF 折 LF → 落单 CR 折 LF → 其余字节原样。
     # 只在字节层归一，不解码文本（0x0D 不可能出现在 UTF-8 续字节位置）。
@@ -41,17 +49,43 @@ function Get-GfSharedFileHash([string]$file) {
     }
 }
 
+function Invoke-GfBatchFileHash([string]$RepoRoot, [string[]]$RelativePaths) {
+    # 批量臂：node 单进程吃 stdin 名单、按同序吐每文件哈希（或字面量 deleted）。
+    # 任何失败（node 缺失、读冲突超限、退码非 0、行数不符）都返回 $null，由调用方回退逐文件实现。
+    if ($RelativePaths.Count -eq 0) { return , @() }
+    $prevEncoding = $OutputEncoding
+    # UTF8Encoding($false)：无 BOM。 [Text.Encoding]::UTF8 会在管道首行前发 BOM，node 侧路径会吃进 \uFEFF。
+    $OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+    try {
+        $stdout = ($RelativePaths -join "`n") | & node (Join-Path $PSScriptRoot 'gf-source-hash-batch.mjs') $RepoRoot 2>$null
+        if ($LASTEXITCODE -ne 0) { return $null }
+        $lines = @($stdout)
+        if ($lines.Count -ne $RelativePaths.Count) { return $null }
+        return , $lines
+    } catch {
+        return $null
+    } finally {
+        $OutputEncoding = $prevEncoding
+    }
+}
+
 function Get-GfSourceIdentity([string]$RepoRoot) {
     $paths = @(& git -C $RepoRoot -c core.quotepath=false ls-files --cached --others --exclude-standard)
     if ($LASTEXITCODE -ne 0) { throw 'Cannot enumerate source inputs.' }
+    $filtered = @(@($paths | Sort-Object -Unique) |
+        Where-Object { $_ -notmatch '(^|/)(Workspace|build|oh_modules|node_modules|\.test|\.hvigor|dist)/' })
     $lines = [Collections.Generic.List[string]]::new()
-    foreach ($relative in @($paths | Sort-Object -Unique)) {
-        if ($relative -match '(^|/)(Workspace|build|oh_modules|node_modules|\.test|\.hvigor|dist)/') { continue }
-        $file = Join-Path $RepoRoot $relative
-        $hash = if (Test-Path -LiteralPath $file -PathType Leaf) {
-            Get-GfSharedFileHash $file
-        } else { 'deleted' }
-        $lines.Add("$relative|$hash")
+    $batched = Invoke-GfBatchFileHash -RepoRoot $RepoRoot -RelativePaths $filtered
+    if ($null -ne $batched) {
+        for ($i = 0; $i -lt $filtered.Count; $i++) { $lines.Add("$($filtered[$i])|$($batched[$i])") }
+    } else {
+        foreach ($relative in $filtered) {
+            $file = Join-Path $RepoRoot $relative
+            $hash = if (Test-Path -LiteralPath $file -PathType Leaf) {
+                Get-GfSharedFileHash $file
+            } else { 'deleted' }
+            $lines.Add("$relative|$hash")
+        }
     }
     return [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData(
         [Text.Encoding]::UTF8.GetBytes(($lines -join "`n"))))
