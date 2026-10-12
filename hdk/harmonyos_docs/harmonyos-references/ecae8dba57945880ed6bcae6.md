@@ -14,6 +14,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode
 
 ## 32400001 初始化失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Initialization failed.
@@ -31,6 +33,8 @@ Initialization failed.
 检查测试应用是否正常安装并可用，确保能够成功获取测试应用包名。
 
 ## 32400002 内部错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -52,6 +56,8 @@ Internal error.
 
 ## 32400003 参数校验失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Parameter verification failed.
@@ -69,6 +75,8 @@ Parameter verification failed.
 检查接口入参的类型和取值范围是否符合接口定义要求。
 
 ## 32400004 执行回调函数失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -89,6 +97,8 @@ Failed to execute the callback.
 
 ## 32400005 采集性能数据失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to collect metric data.
@@ -107,6 +117,8 @@ Failed to collect metric data.
 
 ## 32400006 无法获取性能数据
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to obtain the measurement result.
@@ -124,6 +136,8 @@ Failed to obtain the measurement result.
 首先保证[PerfTest.run](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-perftest#run)接口已执行完成且未抛出异常，确保测试数据已采集完成，再获取指定数据。
 
 ## 32400007 接口不支持并行调用
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 

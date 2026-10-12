@@ -14,6 +14,8 @@ typedef struct OH_Pixelmap_HdrDynamicMetadata {...} OH_Pixelmap_HdrDynamicMetada
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 表示HDR_DYNAMIC_METADATA关键字对应的动态元数据值，用于存储HDR图像的动态元数据。HDR动态元数据可用于在显示过程中动态调整HDR图像的显示参数，以适配不同显示设备的能力，获得更准确的HDR显示效果。在调用[OH_PixelmapNative_SetMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_setmetadata)和[OH_PixelmapNative_GetMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_getmetadata)时作为[OH_Pixelmap_HdrMetadataValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-hdrmetadatavalue)的成员使用。
 
 **起始版本：** 12
@@ -24,7 +26,11 @@ typedef struct OH_Pixelmap_HdrDynamicMetadata {...} OH_Pixelmap_HdrDynamicMetada
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:--------------|:---------------------------------------------|

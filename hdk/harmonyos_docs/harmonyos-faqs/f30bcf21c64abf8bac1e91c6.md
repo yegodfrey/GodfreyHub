@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-11
 
 自定义拦截器，写入中文公参，写入时正常，网络请求时却变成乱码。代码和抓包记录如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/_GB5okHGRS21MFvh5yr9RQ/zh-cn_image_0000002628770798.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=15D10E285246E7D6D527BB68A71AFAE42FAE8078EFF131FAEEE048FD60FE96D4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/_GB5okHGRS21MFvh5yr9RQ/zh-cn_image_0000002628770798.png?HW-CC-KV=V1&HW-CC-Date=20261008T184342Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA1A72056E0AE5307534189EA82B858216AB3EF3DFDA298DE56C563FA85945C2 "点击放大")
 
 问题代码示例参考如下：
 

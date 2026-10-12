@@ -32,6 +32,8 @@ Text、TextInput、TextArea、Hyperlink、Image、RichEditor和Web组件的dragg
 
 ## allowDrop
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 allowDrop(value: Array<UniformDataType> | null | Array<string>): T
 
 设置该组件上允许落入的数据类型。如果未设置allowDrop，组件将默认接受所有数据类型。
@@ -53,6 +55,8 @@ allowDrop(value: Array<UniformDataType> | null | Array<string>): T
 |T|返回当前组件，可用于链式调用。|
 
 ## draggable
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 draggable(value: boolean): T
 
@@ -76,6 +80,8 @@ draggable(value: boolean): T
 
 ## dragPreview^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 dragPreview(value: CustomBuilder | DragItemInfo | string): T
 
 设置组件浮起和拖拽过程中的预览图。
@@ -97,6 +103,8 @@ dragPreview(value: CustomBuilder | DragItemInfo | string): T
 |T|返回当前组件，可用于链式调用。|
 
 ## dragPreview^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 dragPreview(preview: CustomBuilder | DragItemInfo | string, config?: PreviewConfiguration):T
 
@@ -124,6 +132,8 @@ dragPreview(preview: CustomBuilder | DragItemInfo | string, config?: PreviewConf
 
 ## dragPreviewOptions^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions): T
 
 设置拖拽过程中预览图处理模式，数量角标的显示以及预览图浮起的交互模式。不支持onItemDragStart拖拽方式。
@@ -150,6 +160,8 @@ dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions):
 
 ## DragPreviewOptions^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 设置拖拽过程中预览图处理模式、数量角标的显示、背板图样式及过渡效果。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -162,6 +174,8 @@ dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions):
 |sizeChangeEffect^19+^|[DraggingSizeChangeEffect](#draggingsizechangeeffect19枚举说明)^19+^|否|是|用于选择长按浮起图与拖拽预览图过渡效果。 默认值：DraggingSizeChangeEffect.DEFAULT。 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。|
 
 ## DragPreviewMode^11+^枚举说明
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 设置拖拽预览图的显示模式。
 
@@ -179,6 +193,8 @@ dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions):
 
 ## DraggingSizeChangeEffect^19+^枚举说明
 
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
+
 当一个节点上同时设置长按浮起预览（参考[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)）与拖拽时，使用该字段设置长按浮起预览图与拖拽预览图过渡动效方式。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -193,6 +209,8 @@ dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions):
 
 ## DragInteractionOptions^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 |名称|类型|只读|可选|说明|
@@ -204,6 +222,8 @@ dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions):
 |enableHapticFeedback^18+^|boolean|否|是|表示拖拽时是否启用震动。true表示启用震动，false表示不启用震动。仅在存在蒙层的预览（通过[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)）场景生效。 **注意：** 仅当应用具备 ohos.permission.VIBRATE 权限，且用户启用了触感反馈时才会生效。 默认值：false **元服务API：** 从API version 18开始，该接口支持在元服务中使用。|
 
 ## UniformDataType
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType
 
@@ -219,6 +239,8 @@ type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor').default
 
 ## ImageModifier^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier
 
 图片组件modifier对象。
@@ -233,7 +255,11 @@ type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1（允许拖拽和落入）
+
+> phone | 2in1 | tablet | tv | wearable
 
 示例1通过配置[allowDrop](#allowdrop)设置组件是否可落入，通过配置[draggable](#draggable)设置组件是否可拖拽。
 
@@ -354,9 +380,11 @@ struct ImageExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/ZKaaaFZLQs6MLL869CFkUw/zh-cn_image_0000002749334462.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA178BF4001D50DFA535E52C8498D140294C8BC8789A5B3EB39BE86196CF1338)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/e-hJZcdwQsKuZyFdrRALpw/zh-cn_image_0000002784664417.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=03853DE09A1FDB686A7ECC6AE6F409AE4203CCEEF7E43B384CC1508E4A42919F)
 
 ### 示例2（设置预览图）
+
+> phone | 2in1 | tablet | tv | wearable
 
 示例2通过配置[dragPreview](#dragpreview11)设置拖拽过程的预览图。
 
@@ -422,9 +450,11 @@ struct DragPreviewDemo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/6cqgHzNzSsqlKQSr7hBD-A/zh-cn_image_0000002749494348.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=A94F15B83D921A7A6C7EDC1782D29DDCB01E610088C8B9F7179A53E79AE17023)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/OIQNF5PuQ8u5iN-lhVOh0A/zh-cn_image_0000002755025484.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=B5C9012CDB0AA9074843F7605F990A054A2293B0909751098768C942C6BF0B44)
 
 ### 示例3（设置背板图样式）
+
+> phone | 2in1 | tablet | tv | wearable
 
 示例3通过配置[dragPreviewOptions](#dragpreviewoptions11)为ENABLE_DEFAULT_SHADOW、ENABLE_DEFAULT_RADIUS设置默认阴影和统一圆角效果。从API version 18开始，通过配置[dragPreviewOptions](#dragpreviewoptions11)为ENABLE_DRAG_ITEM_GRAY_EFFECT设置灰显效果。
 
@@ -470,9 +500,11 @@ struct DragPreviewOptionsDemo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/0yD-lnxlSO-4e8njC7FXHw/zh-cn_image_0000002779093405.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=344DB08318F589E7588EFD7A09964DC92BEFC38E8BCDCDA6E58816FB165423A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/knf4qy5gRTidokX9y-tJzg/zh-cn_image_0000002755185370.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=684EEEF74359AE5862B50C67FED1D6D96C30E6BB18AA08660D8F351A3CF41AC6)
 
 ### 示例4（设置多选拖拽）
+
+> phone | 2in1 | tablet | tv | wearable
 
 示例4通过配置[isMultiSelectionEnabled](#draginteractionoptions12)实现Grid组件的多选拖拽效果。
 
@@ -511,9 +543,11 @@ struct Example {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/G5fUc2j0TsajyPQUpiSi5g/zh-cn_image_0000002778933549.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C64111C1332B792968ABF57356AB73A1DFE1DBD043877697C55C78CB2C0497E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/Kr1lapdKR0WwNBbZleT0aw/zh-cn_image_0000002784584237.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=52BC79FC9ACA14B4FFA155E62208FA71101DAE42F34990F8664E66EF0B12AB07)
 
 ### 示例5（设置默认点按效果）
+
+> phone | 2in1 | tablet | tv | wearable
 
 示例5通过配置[defaultAnimationBeforeLifting](#draginteractionoptions12)实现Grid组件的默认点按效果。
 
@@ -552,9 +586,11 @@ struct Example {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/w40FWNbWRDK66hmG1jRVNQ/zh-cn_image_0000002749334464.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C6BD550AF387F0A1EA89C5B667E117B16DCAF4F558CEFC5D736BDF3A8BB7CE5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/WNo-QR48REe22NwrCNtI_g/zh-cn_image_0000002784664419.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=9A058F87E89EDEA84245DC366E2994E4E6CF74E4FE56564AB5E2C37773E41C2C)
 
 ### 示例6（自定义背板图样式）
+
+> phone | 2in1 | tablet | tv | wearable
 
 示例6通过配置[ImageModifier](#imagemodifier12)实现Image组件的自定义背板图样式。
 
@@ -598,9 +634,11 @@ struct DragPreviewOptionsDemo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/j1K3lAqGR1acBLFP-krrNw/zh-cn_image_0000002749494350.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=0696E0442D4626B6E1D73C39EB591A607904A2EC94202062827A3FC27F785C6B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/whk-OWZyQo61VoFFvg3OPg/zh-cn_image_0000002755025486.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=1A4E4B0F13BC070E93EC139340EE704D5EBC9928502CDBD542BEC1BEE7728F6F)
 
 ### 示例7（图片拖拽设置）
+
+> phone | 2in1 | tablet | tv | wearable
 
 示例7展示了不同图片（在线图片资源、本地图片资源和PixelMap）在拖拽时组件的设置。
 
@@ -828,9 +866,11 @@ struct ImageDrag {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/g_32qICgR_C3eOcergiXUQ/zh-cn_image_0000002779093407.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=F9144100885A866C1FD698902D1CB9770C2C16C0F91E3195047657C48DF82107)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/bovIauKkTKWet5N7WfNJ_Q/zh-cn_image_0000002755185372.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=F5542179E6FFE253B116B82E27B72E86741355CD7B81162DC13E38645AE32741)
 
 ### 示例8（设置图片拖拽震动）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 18开始，示例8通过设置[enableHapticFeedback](#draginteractionoptions12)实现图片拖拽的震动效果。
 
@@ -884,6 +924,8 @@ struct DragPreviewDemo {
 ```
 
 ### 示例9（自定义预览图）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 15开始，示例9通过配置[onlyForLifting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#previewconfiguration15)实现自定义预览图，仅用于浮起效果以及配置[isLiftingDisabled](#draginteractionoptions12)实现禁用浮起效果。
 
@@ -982,13 +1024,15 @@ struct LiftingExampleDemo {
 
 自定义预览图用于浮起效果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/n3yKSnljTpiIeSAxUiuHSw/zh-cn_image_0000002778933551.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=400CD9657F4438DE6A83D1E09305B967C96CB9DAE8F5F49B7C88D1E9B89AE8B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/sha_9hlOSmS9eUaBN-4K-Q/zh-cn_image_0000002784584239.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=293442C6E02025043B4F0EED7EC71BF732C51D96B6101A573A9C283260B8C769)
 
 自定义预览图禁用浮起效果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/_ITgw729T5uYg4eqUYQjIQ/zh-cn_image_0000002749334466.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=6183F6FF5F1D32716E3929803E8FBDD505E3575BCA8A04BB4EAAFCB0EB81B61C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/t24LfyRtSjO2UXziPxx8tg/zh-cn_image_0000002784664421.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB3CB2D25E87D990EB0DBCB75022B294AC477979E63E6B9C883FECF39EF3DF7A)
 
 ### 示例10（以拖拽预览图初始尺寸计算跟手点位置）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 19开始，示例10通过配置[DragPreviewMode](#dragpreviewmode11枚举说明)为ENABLE_TOUCH_POINT_CALCULATION_BASED_ON_FINAL_PREVIEW实现根据拖拽预览图的初始尺寸来计算拖拽过程中跟手点位置。当设置[DragPreviewMode](#dragpreviewmode11枚举说明)为ENABLE_MULTI_TILE_EFFECT时，该属性不生效。
 
@@ -1073,9 +1117,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/n37KwjUeT7Wu_LjgzRRA-w/zh-cn_image_0000002749494352.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=D3D82D0EA49C71845F77463FDEC4C92B851E9E09CE4A7B67709102CE365F210C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/CHUXxHIcRAiFLRilYDq5Tg/zh-cn_image_0000002755025488.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=F14072E7D66554CFAC4F70C565EEB2E3F0B899F6F2C4C5C65E342A43F89D757A)
 
 ### 示例11（长按浮起预览图与拖拽预览图过渡动效）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 19开始，示例11通过配置[DraggingSizeChangeEffect](#draggingsizechangeeffect19枚举说明)实现不同拖拽过渡效果。
 
@@ -1160,9 +1206,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/Snk6BFv7QNCNPmDcGceB5g/zh-cn_image_0000002779093409.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=49F5EA489818BFD02C1D11F2F0AF9AB33F36AED4FD4A781DB1A7E7A36DBBBCFC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/ZF9pfnfhTdWl54_faEefUw/zh-cn_image_0000002755185374.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=6B7E69BC3DFA05465FB191A77FB8A1C2E439253277A94CC6A7CD7E8AB525EC2B)
 
 ### 示例12（设置自定义组件落入）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 23开始，示例12通过组件的[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)接口传递其类型，并在目标组件的[allowDrop](#allowdrop)属性中设置允许该类型落入，即可实现自定义组件的拖拽落入功能。
 
@@ -1291,9 +1339,11 @@ struct CustomCard {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/XdLz34kCRFqsVURTbL0tlw/zh-cn_image_0000002778933553.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=6F2B496AD1F8A71A11C8033CF409E6F2101F20167833857107E8EB35F40F4339)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/_AmnsZmhR0icKhm_l535Dw/zh-cn_image_0000002784584241.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=8CDABF00EAB51F996C03AC1A233D8C30EABADB71AB1CC6BE0E5B0417C49DDFA5)
 
 ### 示例13（设置背板图材质效果）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过配置[ImageModifier](#imagemodifier12)中的[systemMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemmaterial)属性，设置拖拽背板的材质效果。
 
@@ -1379,5 +1429,5 @@ struct DragPreviewMaterialDemo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/helIt-tXSH246olvWy36cg/zh-cn_image_0000002749334468.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=8575785842F8242CF3AD6E34C39B6ADFF62CFF9D3BA68788F3A520990D222562)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/ibqQqAD1Tai4o9uiAUt0gQ/zh-cn_image_0000002784664423.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8544C9583645150D2617CF699867A091CEC59AF8F5744C24BCDCAC0CEDFE8EB)
 

@@ -31,15 +31,15 @@ Energy模板支持的泳道包括：Energy Anomaly、Temperature、Energy、Fram
 
 * 将鼠标悬浮于泳道上，可以查看空跑的渲染帧数（RS Empty Run）、不能正常调用动态系统合成器（DSS）合成而直接使用GPU进行渲染导致能耗恶化的帧的次数（GPU Consumption）、UI空跑次数（UI Empty Run）、CPU高负载异常次数（High CPU Load）。下方**Details** 区域，可以看到所选范围内的能耗异常类型、开始时间、结束时间、能耗异常信息、能耗异常原因、能耗异常数量。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/Y-GQnawuSKCWeLylP9pkWA/zh-cn_image_0000002731382157.png?HW-CC-KV=V1&HW-CC-Date=20260915T011704Z&HW-CC-Expire=31536000000&HW-CC-Sign=255911E56FE14871D13D4CD49C41EC4365CE551E45A7120C0F2BA225B4339876 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/n2TBUzBHRkORlwrG6dHW0Q/zh-cn_image_0000002731382157.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=EBD8DBD8B6E940DB658BC3B9A14EAA26EF9975E887B5E94B99C5B892480D87C9 "点击放大")
 
 
 * 点击对应的异常类型数据（**RS Empty Run** 、**UI Empty Run** 、**GPU Consumption** ），右侧**More** 区域展示该异常帧信息，包括VSyncId、帧持续时间。点击异常类型数据为RS Empty Run和GPU Consumption中的跳转按钮可以跳转到Frame泳道中对应的具体帧，可以参考[Frame页面布局信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-frame#section1784351123920)查看页面组件的布局情况，和识别存在能耗问题的组件。点击类型为UI Empty Run中的跳转按钮可以跳转到Callstack泳道。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/T0tse9BLQeCC-MyVlc1lSQ/zh-cn_image_0000002731542131.png?HW-CC-KV=V1&HW-CC-Date=20260915T011704Z&HW-CC-Expire=31536000000&HW-CC-Sign=8C395ED1EFE812C2F00E968182B9DBA7C12CD336CE9C7303614D6A3A9CD47AE5 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/7Fm_d-NMS9CEqL75IXMSAw/zh-cn_image_0000002731542131.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=F9D358EFAB6C07295F8C86C099809C1DEDCEFE31C63B39B78A5AD1DD9921040B "点击放大")
 * 点击**CPU高负载** 异常数据，右侧**More** 区域展示该异常帧信息，包括进程ID、线程ID、负载值，点击跳转按钮可以跳转到对应线程调用栈。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/x1J7aia3Tbut5oJhyt3J5g/zh-cn_image_0000002731382153.png?HW-CC-KV=V1&HW-CC-Date=20260915T011704Z&HW-CC-Expire=31536000000&HW-CC-Sign=91E529876AB51B762103AAD405256686C0CA151E8B82C2ED72BD43DF3559422F "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/HHKICQbQQEWnkCdYbYoXtQ/zh-cn_image_0000002731382153.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=4C3401C1805DEF26BD9DC9FE5A320B894DBC9A39293A424207DD5C217C79BC5B "点击放大")
 
 **Temperature泳道**
 
@@ -47,7 +47,7 @@ Energy模板支持的泳道包括：Energy Anomaly、Temperature、Energy、Fram
 
 * 将鼠标悬浮于泳道上可以查看对应时间范围的温度、温度等级，帮助用户明确温度是否有明显上升，从而进行进一步的能耗定位。下方**Detail** **s** 区域，可以看到所选范围内的最大温度、最小温度、平均温度。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/eeUrs2pYSpeUaJhaiAt0VA/zh-cn_image_0000002701662934.png?HW-CC-KV=V1&HW-CC-Date=20260915T011704Z&HW-CC-Expire=31536000000&HW-CC-Sign=82EE6C4B3D3562161BEA3059014A40677AF8920DC0815650486EE5E9E8DA4199 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/wHmWPEIiQ1KjAn7sEY19Cg/zh-cn_image_0000002701662934.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=A341A355E28A7D10DAB30565EE18A80DE30E0B828DB7F02B47C39E016FC708BB "点击放大")
 
 **Energy泳道**
 
@@ -56,5 +56,5 @@ Energy模板支持的泳道包括：Energy Anomaly、Temperature、Energy、Fram
 * 可在Energy泳道中查看录制范围内具体器件消耗的电量，器件包含：CPU、*Display（屏幕显示耗电量）、GPU、Location（定位模块耗电量）、Camera（相机耗电量）、Bluetooth（蓝牙功能耗电量）、Flashlight（闪光灯功能耗电量）、Audio（声音模块耗电量）、Wifi（无线功能耗电量）、Modem（信号模块耗电量）。*Device表示整机电流消耗情况。
 * 框选Energy泳道数据，**Energy Detail** 中呈现框选时间段内的详情信息，根据不同器件的消耗可结合Callstack泳道的调用栈信息进行进一步分析。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/HZjnD8KkRRmMxurpDBp9WA/zh-cn_image_0000002701822854.png?HW-CC-KV=V1&HW-CC-Date=20260915T011704Z&HW-CC-Expire=31536000000&HW-CC-Sign=DE220B2ACD3FF3B18166D2D0C535747B6F4C73DDEA628B91D912A27796A1BB5B "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/LVJ5jk_XQVe7iThItMbO1Q/zh-cn_image_0000002701822854.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=E8CE79336C2AA75D2FD07EB5EF0790D4CF9FE965C3B0EBD2BC3647CED3645B86 "点击放大")
 

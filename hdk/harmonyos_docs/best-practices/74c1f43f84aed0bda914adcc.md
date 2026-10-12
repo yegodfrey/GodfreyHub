@@ -22,7 +22,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
 上下翻页时，页面内容沿着垂直方向移动。当用户向上滑动时，当前页面内容向上滑出屏幕顶部，同时下一页内容从屏幕底部滑入；向下滑动则相反（当前页向下滑出，上一页从顶部滑入）。实现效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/86Qkb56hR5Sl1-rQU9xTKQ/zh-cn_image_0000002329710386.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=683B434A30EB598D2C2573D43688CAE6043922E40AEA72AD94436CB6ACF39512 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/86Qkb56hR5Sl1-rQU9xTKQ/zh-cn_image_0000002329710386.gif?HW-CC-KV=V1&HW-CC-Date=20261008T181048Z&HW-CC-Expire=31536000000&HW-CC-Sign=A95AF1897517683111FD30C0D37AC33D59CA5A53CBC6BD48C39A5EFE03F259DD "点击放大")
 
 ### 实现原理
 
@@ -69,13 +69,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
 覆盖翻页效果模拟卡片切换，新页面（上一页）从屏幕的左侧水平滑入，完全覆盖当前页面。当前页支持从屏幕另一侧滑出，滑出时显示下层新页面。在整个过程中页面没有弯曲或折叠效果，页面作为一个整体平面进行移动。效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/X5zPox6bTIqpeAZ5uaawTQ/zh-cn_image_0000002329870186.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=3243052BDD0D255F35D1193E95F8479A49C211935CFD9EBF5EE044A43E50E919 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/X5zPox6bTIqpeAZ5uaawTQ/zh-cn_image_0000002329870186.gif?HW-CC-KV=V1&HW-CC-Date=20261008T181048Z&HW-CC-Expire=31536000000&HW-CC-Sign=D52A93D1ACAEB93792CBFC8A0811A8D201F053E7EA48C616AED390F1443CB0BB "点击放大")
 
 ### 实现原理
 
 使用[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)堆叠容器，存放1、2、3三个页面，借助图形变换的[translate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#translate)平移属性，将上层页面向左平移屏幕宽度移至窗口左侧。使用[PanGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture)滑动手势事件判断手势滑动方向及平移距离，依据滑动方向及平移距离，执行1页面向右平移滑入屏幕，或2页面向左平移滑出屏幕。滑动手势结束后通过[显式动画 (animateTo)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animation)完成页面平移至窗口边缘，并重新渲染1、2、3页面。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/TfMcavsxR1KdFplesDXihA/zh-cn_image_0000002427853450.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=043527FAFA83F6BA6918C94B0B0CF186568AE5B6096EE0FE2137F4B4647B8C14 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/TfMcavsxR1KdFplesDXihA/zh-cn_image_0000002427853450.jpg?HW-CC-KV=V1&HW-CC-Date=20261008T181048Z&HW-CC-Expire=31536000000&HW-CC-Sign=7523F45DF2380C234093F4870A82937E0C52C63CCEC735208943A87998A5D907 "点击放大")
 
 ### 开发步骤
 
@@ -160,7 +160,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
 仿真翻页效果模拟真实纸质书的翻页体验。用户拖动页面的角落（右上角或右下角），被拖动的页面会随着手指的移动而卷曲、折叠。在翻动过程中，可以看到当前页的背面（为当前页的翻转显示效果）以及被翻页覆盖的下一页内容逐渐显露出来。翻页轨迹遵循贝塞尔曲线，并伴有阴影效果增强立体感。翻页效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/DI8Lb29SQa2TgkjqeiwtBw/zh-cn_image_0000002363628777.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=BEB6716675C590E11DAD470C0F5C3BC58D7F5C2513BC47EE5E38A41A7368CE10 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/DI8Lb29SQa2TgkjqeiwtBw/zh-cn_image_0000002363628777.gif?HW-CC-KV=V1&HW-CC-Date=20261008T181048Z&HW-CC-Expire=31536000000&HW-CC-Sign=95A6552B9DB762139C4F9A1D3319A09353F545216504FCD362415A1F4BFAFA7C "点击放大")
 
 ### 实现原理
 
@@ -168,7 +168,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-pag
 
 **仿真翻页绘制实现关键点**
 
-1. 仿真翻页控制点。仿真翻页可以看作下图三个区域组合而成。要绘制出其中曲线及直线，需要计算出一组特定的坐标点（参考下图），计算公式详见开发步骤。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/mR_2WkwWTe6GpOjk6_yukw/zh-cn_image_0000002329710434.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=CFBFC86ED0176852EA84A536FA24180DA876FBA447EF18A1EA22B9795EE06649 "点击放大")
+1. 仿真翻页控制点。仿真翻页可以看作下图三个区域组合而成。要绘制出其中曲线及直线，需要计算出一组特定的坐标点（参考下图），计算公式详见开发步骤。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/mR_2WkwWTe6GpOjk6_yukw/zh-cn_image_0000002329710434.png?HW-CC-KV=V1&HW-CC-Date=20261008T181048Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A5D6EBE82D7FD986DF1E260B3F49C884995D4CC1AFF644CC9638F3019111C82 "点击放大")
 
 2. 曲线绘制。为使用上述坐标点绘制出曲线，需要使用[@ohos.graphics.drawing (绘制模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)的相关接口实现，如Path.[lineTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path#lineto)连接线段；Path.[quadTo()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path#quadto)实现二阶贝塞尔曲线；Canvas.[clipPath()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#clippath12)实现对画布裁剪等。
 3. 内容绘制。仿真翻页绘制的内容来源于使用[@ohos.arkui.componentSnapshot (组件截图)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentsnapshot)的[componentSnapshot.getSync()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentsnapshot#componentsnapshotgetsync12)接口获取的组件截图pixelMap，然后使用[@ohos.graphics.drawing (绘制模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-drawing)的Canvas.[drawPixelMapMesh()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#drawpixelmapmesh12)实现绘制。

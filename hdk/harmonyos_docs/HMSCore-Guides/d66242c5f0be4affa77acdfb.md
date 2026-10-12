@@ -47,15 +47,15 @@ HMS Toolkit的"Configuration Wizard"为您提供配置向导，借助该工具�
    > * 如果没有，请创建新的应用，然后点击"Retry"重试。
    > * 如果已有应用，请根据界面提示检查团队名称和工程模块是否选择正确，然后点击"Retry"重试。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/BVUYAA5hQVawwWCuzAd3FA/zh-cn_image_0000001647853177.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC3C7F815FDC744EEDEB0C06155C563FA4DA63A5F68EFCF617F142CB65E9D99F)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/BVUYAA5hQVawwWCuzAd3FA/zh-cn_image_0000001647853177.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=4BA4F74AEC351A20D7E46C8FCCAFACD675D0BAF608AE9C7FB416718BAED77484)
 
    报错修复后的界面如下：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/ibXbr8tnRFCKsOw6fyD8dw/zh-cn_image_0000001647455025.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=41C0D4AC49B09669A4F784BD23E3E9781AAD2A1ACD046897B11AD718473C4757)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/ibXbr8tnRFCKsOw6fyD8dw/zh-cn_image_0000001647455025.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=71120C881F18ADA343BC32B1736F6993AC2832C96171C65F32846D5CEFD5248C)
 
    HMS Toolkit会自动对Ads Kit的使用环境进行环境配置检查，包括通用环境配置检查和Kit专用环境配置检查。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/rN7wg8_LSN-mxzEJRgAINA/zh-cn_image_0000001598132998.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=C03743F53FC886E076C82C87C5D1D59D63232943B3289D36F687B47B03A8F954)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/rN7wg8_LSN-mxzEJRgAINA/zh-cn_image_0000001598132998.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=2C4B5BC84D00271E6F14FEEED8B48BFAA36756E851696CB1CF3D87946884C84C)
 
    HMS Toolkit会自动处理检查项，并逐项检查是否配置正确。全部检查项均通过，则可以点击"Go to coding assistant"调用对应的接口，详细操作请参见[4.5.1-Kit集成向导。](https://developer.huawei.com/consumer/cn/doc/Tools-Guides/coding-assistant-0000001050061057)
    > 说明
@@ -66,13 +66,13 @@ HMS Toolkit的"Configuration Wizard"为您提供配置向导，借助该工具�
 
 选择"HMS > Coding Assistant"，然后在Kit列表中点击"Ads Kit"，整个Ads Kit的场景如下图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/nCTMBV1ARCixgKUhlpcqHQ/zh-cn_image_0000001166360639.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=D71BF5E72DA8E33B14B547ECB30F58F3CAD826DC01EBAADF479F6024F2747046)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/nCTMBV1ARCixgKUhlpcqHQ/zh-cn_image_0000001166360639.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=18654D3EC6486A0CAFFB069D7E2464D01C9C57E059A6D9169B53879DD6222662)
 
 ### 拖拽场景卡片补齐业务代码
 
 选择要进行开发的场景卡片，以"Banner Ads"为例，拖拽整个卡片到代码区域生成嵌入Banner Ads的代码。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/LXOT9gzIQ4-poL3mknCCHQ/zh-cn_image_0000001119441010.gif?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=2C4B2C1D691EA54BF45BB4C918A6EEBA07D80B95B1E54253AD5CA800694B290B "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/LXOT9gzIQ4-poL3mknCCHQ/zh-cn_image_0000001119441010.gif?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=7E4A8F1C7A555873E31B141EDA60DDA23CAE956208C265C10913F9AE05FC0FA0 "点击放大")
 
 当您直接拖动场景卡片时，工具会自动生成对应的Activity文件和XML布局文件，并在AndroidManifest.xml、项目级的build.gradle和应用级的build.gradle文件中写入配置信息和工程运行所需要的依赖。如果需要打开该Activity，需要您在代码中主动调用该Activity，完成后，您可以直接在设备中运行应用。
 
@@ -82,17 +82,17 @@ HMS Toolkit的"Configuration Wizard"为您提供配置向导，借助该工具�
 
 对于Ads Kit，使用远程真机可以很好地测试您的代码是否正确集成了流量变现SDK，关于测试广告位的展示可以参见下图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/7P2TNxVsT4iyG9TdivlFsw/zh-cn_image_0000001094943422.gif?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=A52EBCE709BEBE004D0C76840FEC076C1C835AC21971C3DB0293B1D774925DDA "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/7P2TNxVsT4iyG9TdivlFsw/zh-cn_image_0000001094943422.gif?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A7B8B866C3A1BE9C82CF7C3EE95ECF7B5AB785DEBE3142E43BF745D10B02F10 "点击放大")
 
 ## 使用云测工具测试APK
 
 1. 在菜单栏中选择"HMS > Cloud Testing"或者在工具栏点击如下图标。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/X709v-rdTIKNkiXFTaEUDw/zh-cn_image_0000001051084840.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=FAF39AAFB4982DD317BD450529A1803D6F1B8A577EEC8C0C0DB7DE689D6EF909 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/X709v-rdTIKNkiXFTaEUDw/zh-cn_image_0000001051084840.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=705EBF50003D64EF26963A978284B821E145C434BCB79C3AB7D0BF206D858A9A "点击放大")
 
 2. 在"Cloud Testing"中，点击"New Task"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/fv_pVnKmTJibMbZ75WIjSw/zh-cn_image_0000001060804892.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=4ED19110F85DF98AED9191F47178A0BA99C5D94E9B7AE48E731B6FE61984D1F9 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/fv_pVnKmTJibMbZ75WIjSw/zh-cn_image_0000001060804892.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=73AB7C25F61B2A694D60575EBC6882F13232E89A0027ABA48275C893D2F270BB "点击放大")
 
 3. 配置各项任务参数，点击"Confirm"，启动测试任务。
 
@@ -103,15 +103,15 @@ HMS Toolkit的"Configuration Wizard"为您提供配置向导，借助该工具�
 
    * Application Classification：（可选）仅测试类别选择"Performance Test"和"Consumption Test"生效，设置应用分类信息。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/RokybTxPS-asXpXeK1RQuA/zh-cn_image_0000001050764903.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=B9B792B87930EBCA4E92C3459648F8FAAF5A1E1C5FD5A314E20686AA5B1724AA "点击放大")
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/RokybTxPS-asXpXeK1RQuA/zh-cn_image_0000001050764903.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=E92E0FB4E64125FBC4816714A6828DA2BCFB8C0694FB4B84DBB98ED49B8C5362 "点击放大")
 
-4. 等待测试任务完成后，点击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/Flt4A_-sQXSC99NQBgqkYQ/zh-cn_image_0000001051012709.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=A68899C84AB1A3400A15E5DABF793D89BD374BE93AC51FD59005EBE5BCC3FDB1)查看测试报告。
+4. 等待测试任务完成后，点击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/Flt4A_-sQXSC99NQBgqkYQ/zh-cn_image_0000001051012709.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=B5A5B6488433269F50B7D049BCAD15AAE8C1974C0C256CB41320FB2830E111E2)查看测试报告。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/Re7QtxfjQ_e297DFkL_F0Q/zh-cn_image_0000001050765903.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=BD552D31E286C8EACC407FD28FA756AC196CBE152A0BBDEB3F26F633E08BBCA7 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/Re7QtxfjQ_e297DFkL_F0Q/zh-cn_image_0000001050765903.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=DEC53FCD230A0BEE7A2D7973E4C9B642DC58C362122E47646F71B54EC2914626 "点击放大")
 
-   点击"Download report"，可以将测试报告下载到本地，点击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/mFHWw2FtRseeZOlRKfPGjA/zh-cn_image_0000001165687551.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=E9985F4317354A073CB17FA545311F0FDE38D85A231864C45423B6D1F5C9AC97)，可以查看测试详情。各测试项的报告说明请参见[云测试指南](https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/prerequisites-0000001073333658)。
+   点击"Download report"，可以将测试报告下载到本地，点击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/mFHWw2FtRseeZOlRKfPGjA/zh-cn_image_0000001165687551.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=B0153B3A2D7DB6CDC18694322217AF5401F37735AF401DD84F8B8A51AA2E693A)，可以查看测试详情。各测试项的报告说明请参见[云测试指南](https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/prerequisites-0000001073333658)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/BfONcu8xRuq523Aa1pk-Tg/zh-cn_image_0000001051005925.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=0A297BD28E78FC4A44E07AA408714FE1C2DE6D1E9897FD10017BB2404D1D0F26 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/BfONcu8xRuq523Aa1pk-Tg/zh-cn_image_0000001051005925.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=69D8ECAF5C58E73F6978EAE161FCBE327A433B57352A9AB0478725ADA6DA14A1 "点击放大")
 
 ## Publish to AppGallery Connect
 
@@ -132,13 +132,13 @@ HMS Toolkit的"Configuration Wizard"为您提供配置向导，借助该工具�
    >
    >   "工程目录下的app-release.apk路径"请根据实际路径进行替换。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/viccE7gLTGypp6YwYAguww/zh-cn_image_0000001077756710.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=18870FAD2F923063268176F73ACB6D76E5835C20407EE33B048B5E683DDC33B7 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/viccE7gLTGypp6YwYAguww/zh-cn_image_0000001077756710.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=B1608A8B6503F99D755988D343C5B16AF67BEB46112E5EB4FE47779216C35D2C "点击放大")
 
 3. 上传完成后，点击"RELEASE"，进入"应用上架 > 准备提交"页面。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/EKUH3d6ZSzaDMGhJWPWuzQ/zh-cn_image_0000001090264815.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC82EBC0734102CB3360272C5EB3BE51D515F404AFE8955D05C51C2BA83D3EC9 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/EKUH3d6ZSzaDMGhJWPWuzQ/zh-cn_image_0000001090264815.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=4900A982309EDE03530ABDBAE96605EC3E50B08FC185033161EC6875DBAE127B "点击放大")
 
 4. 填写应用上架的相关信息并提交审核。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/Set-vfLCTyalMMTsrjILNA/zh-cn_image_0000001071000089.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=6D3994ADFD85598945098394315498C04E06A892F9DFCD6F38BF459B9269362B "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/Set-vfLCTyalMMTsrjILNA/zh-cn_image_0000001071000089.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=70C76448A51A8192012491FE655EB522F232CB72205242104CE210AC7937F7FB "点击放大")
 

@@ -330,5 +330,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds
 
    **沉浸光感材质效果展示**
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/t4le5sPuRX6CZ_1PwdIiFg/zh-cn_image_0000002778932117.png?HW-CC-KV=V1&HW-CC-Date=20260929T121658Z&HW-CC-Expire=31536000000&HW-CC-Sign=937DB6FCA1A4DEDAF1640EA7C489BB1C1837A24986A4B8C0C70B7F47140D7437)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/5-2qfgzoRcies_-6Jpk6WQ/zh-cn_image_0000002784582815.png?HW-CC-KV=V1&HW-CC-Date=20261009T092715Z&HW-CC-Expire=31536000000&HW-CC-Sign=C3E6B23EE1A2AA7431F10C0FB73969A874A28756ECB0CA6AD859EC507952D3DB)
 

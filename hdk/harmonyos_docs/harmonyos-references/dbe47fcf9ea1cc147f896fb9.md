@@ -15,11 +15,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-c
 
 ## 导入模块
 
+> phone | 2in1 | tablet | wearable
+
 ```ts
 import { contact } from '@kit.ContactsKit';
 ```
 
 ## contact.addContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 addContact(context: Context, contact: Contact, callback: AsyncCallback<number>): void
 
@@ -78,6 +82,8 @@ addContact(context: Context, contact: Contact, callback: AsyncCallback<number>):
 
 ## contact.addContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 addContact(contact: Contact, callback: AsyncCallback<number>): void
 
 添加联系人。使用callback异步回调。
@@ -122,6 +128,8 @@ contact.addContact(context, {
 ```
 
 ## contact.addContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 addContact(context: Context, contact: Contact): Promise<number>
 
@@ -181,6 +189,8 @@ addContact(context: Context, contact: Contact): Promise<number>
 
 ## contact.addContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 addContact(contact: Contact): Promise<number>
 
 添加联系人。使用Promise异步回调。
@@ -225,6 +235,8 @@ promise.then((data) => {
 ```
 
 ## contact.deleteContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 deleteContact(context: Context, key: string, callback: AsyncCallback<void>): void
 
@@ -276,6 +288,8 @@ deleteContact(context: Context, key: string, callback: AsyncCallback<void>): voi
 
 ## contact.deleteContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 deleteContact(key: string, callback: AsyncCallback<void>): void
 
 删除联系人。使用callback异步回调。
@@ -316,6 +330,8 @@ contact.selectContacts().then((data) => {
 ```
 
 ## contact.deleteContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 deleteContact(context: Context, key: string): Promise<void>
 
@@ -368,6 +384,8 @@ contact.selectContacts().then((data) => {
 
 ## contact.deleteContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 deleteContact(key: string): Promise<void>
 
 删除联系人。使用Promise异步回调。
@@ -407,6 +425,8 @@ contact.selectContacts().then((data) => {
 ```
 
 ## contact.updateContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 updateContact(context: Context, contact: Contact, callback: AsyncCallback<void>): void
 
@@ -468,6 +488,8 @@ contact.selectContacts().then((data) => {
 
 ## contact.updateContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 updateContact(contact: Contact, callback: AsyncCallback<void>): void
 
 更新联系人。使用callback异步回调。
@@ -513,6 +535,8 @@ contact.selectContacts().then((data) => {
 ```
 
 ## contact.updateContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 updateContact(context: Context, contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void
 
@@ -576,6 +600,8 @@ contact.selectContacts().then((data) => {
 
 ## contact.updateContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void
 
 更新联系人，支持传入联系人的属性列表。使用callback异步回调。
@@ -625,6 +651,8 @@ contact.selectContacts().then((data) => {
 ```
 
 ## contact.updateContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Promise<void>
 
@@ -689,6 +717,8 @@ updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Pr
 
 ## contact.updateContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 updateContact(contact: Contact, attrs?: ContactAttributes): Promise<void>
 
 更新联系人，支持传入联系人的属性列表。使用Promise异步回调。
@@ -739,6 +769,8 @@ contact.selectContacts().then((data) => {
 
 ## contact.isLocalContact^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 isLocalContact(context: Context, id: number, callback: AsyncCallback<boolean>): void
 
 判断当前联系人id是否在电话簿中。使用callback异步回调。
@@ -787,6 +819,8 @@ contact.isLocalContact(context, 1, (err: BusinessError, data) => {
 
 ## contact.isLocalContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 isLocalContact(id: number, callback: AsyncCallback<boolean>): void
 
 判断当前联系人id是否在电话簿中。使用callback异步回调。
@@ -822,6 +856,8 @@ contact.isLocalContact(1, (err: BusinessError, data) => {
 ```
 
 ## contact.isLocalContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 isLocalContact(context: Context, id: number): Promise<boolean>
 
@@ -872,6 +908,8 @@ isLocalContact(context: Context, id: number): Promise<boolean>
 
 ## contact.isLocalContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 isLocalContact(id: number): Promise<boolean>
 
 判断当前联系人id是否在电话簿中。使用Promise异步回调。
@@ -908,6 +946,8 @@ promise.then((data) => {
 ```
 
 ## contact.isMyCard^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 isMyCard(context: Context, id: number, callback: AsyncCallback<boolean>): void
 
@@ -957,6 +997,8 @@ isMyCard(context: Context, id: number, callback: AsyncCallback<boolean>): void
 
 ## contact.isMyCard^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 isMyCard(id: number, callback: AsyncCallback<boolean>): void
 
 判断是否为"我的名片"。使用callback异步回调。
@@ -992,6 +1034,8 @@ contact.isMyCard(1, (err: BusinessError, data) => {
 ```
 
 ## contact.isMyCard^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 isMyCard(context: Context, id: number): Promise<boolean>
 
@@ -1042,6 +1086,8 @@ isMyCard(context: Context, id: number): Promise<boolean>
 
 ## contact.isMyCard^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 isMyCard(id: number): Promise<boolean>
 
 判断是否为"我的名片"。使用Promise异步回调。
@@ -1078,6 +1124,8 @@ promise.then((data) => {
 ```
 
 ## contact.queryMyCard^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryMyCard(context: Context, callback: AsyncCallback<Contact>): void
 
@@ -1126,6 +1174,8 @@ queryMyCard(context: Context, callback: AsyncCallback<Contact>): void
 
 ## contact.queryMyCard^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryMyCard(callback: AsyncCallback<Contact>): void
 
 查询"我的名片"。使用callback异步回调。
@@ -1160,6 +1210,8 @@ contact.queryMyCard((err: BusinessError, data) => {
 ```
 
 ## contact.queryMyCard^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
@@ -1211,6 +1263,8 @@ queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback<
 
 ## contact.queryMyCard^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryMyCard(attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
 查询"我的名片"（支持传入联系人的属性列表）。使用callback异步回调。
@@ -1248,6 +1302,8 @@ contact.queryMyCard({
 ```
 
 ## contact.queryMyCard^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryMyCard(context: Context, attrs?: ContactAttributes): Promise<Contact>
 
@@ -1300,6 +1356,8 @@ queryMyCard(context: Context, attrs?: ContactAttributes): Promise<Contact>
 
 ## contact.queryMyCard^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryMyCard(attrs?: ContactAttributes): Promise<Contact>
 
 查询"我的名片"（支持传入联系人的属性列表）。使用Promise异步回调。
@@ -1339,6 +1397,8 @@ promise.then((data) => {
 
 ## contact.selectContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 selectContact(callback: AsyncCallback<Array<Contact>>): void
 
 调用选择联系人接口，打开选择联系人UI界面。使用callback异步回调。
@@ -1372,6 +1432,8 @@ contact.selectContact((err: BusinessError, data) => {
 
 ## contact.selectContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 selectContact(): Promise<Array<Contact>>
 
 调用选择联系人接口，打开选择联系人UI界面。使用Promise异步回调。
@@ -1400,6 +1462,8 @@ promise.then((data) => {
 ```
 
 ## contact.selectContacts^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 selectContacts(callback: AsyncCallback<Array<Contact>>): void
 
@@ -1441,6 +1505,8 @@ contact.selectContacts((err: BusinessError, data) => {
 
 ## contact.selectContacts^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 selectContacts(): Promise<Array<Contact>>
 
 调用选择联系人接口，打开选择联系人UI界面。使用Promise异步回调。
@@ -1468,6 +1534,8 @@ promise.then((data) => {
 ```
 
 ## contact.selectContacts^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 selectContacts(options: ContactSelectionOptions, callback: AsyncCallback<Array<Contact>>): void
 
@@ -1512,6 +1580,8 @@ contact.selectContacts({
 
 ## contact.selectContacts^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 selectContacts(options: ContactSelectionOptions): Promise<Array<Contact>>
 
 调用选择联系人接口，打开选择联系人UI界面（选择联系人时支持传入筛选条件）。使用Promise异步回调。
@@ -1553,6 +1623,8 @@ promise.then((data) => {
 ```
 
 ## contact.queryContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContact(context: Context, key: string, callback: AsyncCallback<Contact>): void
 
@@ -1602,6 +1674,8 @@ contact.queryContact(context, 'xxx', (err: BusinessError, data) => {
 
 ## contact.queryContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContact(key: string, callback: AsyncCallback<Contact>): void
 
 根据联系人唯一标识符key查询联系人。使用callback异步回调。
@@ -1637,6 +1711,8 @@ contact.queryContact('xxx', (err: BusinessError, data) => {
 ```
 
 ## contact.queryContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContact(context: Context, key: string, holder: Holder, callback: AsyncCallback<Contact>): void
 
@@ -1691,6 +1767,8 @@ contact.queryContact(context, 'xxx', {
 
 ## contact.queryContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContact(key: string, holder: Holder, callback: AsyncCallback<Contact>): void
 
 根据key和holder查询联系人。使用callback异步回调。
@@ -1731,6 +1809,8 @@ contact.queryContact('xxx', {
 ```
 
 ## contact.queryContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContact(context: Context, key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
@@ -1783,6 +1863,8 @@ contact.queryContact(context, 'xxx', {
 
 ## contact.queryContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContact(key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
 根据key和指定属性(attrs)查询联系人。使用callback异步回调。
@@ -1821,6 +1903,8 @@ contact.queryContact('xxx', {
 ```
 
 ## contact.queryContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
@@ -1878,6 +1962,8 @@ queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttrib
 
 ## contact.queryContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContact(key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void
 
 根据key、holder和attrs查询联系人。使用callback异步回调。
@@ -1921,6 +2007,8 @@ contact.queryContact('xxx', {
 ```
 
 ## contact.queryContact^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContact(context: Context, key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>
 
@@ -1979,6 +2067,8 @@ promise.then((data) => {
 
 ## contact.queryContact^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContact(key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>
 
 根据key、holder和attrs查询联系人。使用Promise异步回调。
@@ -2023,6 +2113,8 @@ promise.then((data) => {
 ```
 
 ## contact.queryContacts^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContacts(context: Context, callback: AsyncCallback<Array<Contact>>): void
 
@@ -2071,6 +2163,8 @@ contact.queryContacts(context, (err: BusinessError, data) => {
 
 ## contact.queryContacts^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContacts(callback: AsyncCallback<Array<Contact>>): void
 
 查询所有联系人。使用callback异步回调。
@@ -2105,6 +2199,8 @@ contact.queryContacts((err: BusinessError, data) => {
 ```
 
 ## contact.queryContacts^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContacts(context: Context, holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
@@ -2158,6 +2254,8 @@ contact.queryContacts(context, {
 
 ## contact.queryContacts^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContacts(holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
 根据holder查询所有联系人。使用callback异步回调。
@@ -2197,6 +2295,8 @@ contact.queryContacts({
 ```
 
 ## contact.queryContacts^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContacts(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
@@ -2248,6 +2348,8 @@ contact.queryContacts(context, {
 
 ## contact.queryContacts^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContacts(attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据attrs查询所有联系人。使用callback异步回调。
@@ -2285,6 +2387,8 @@ contact.queryContacts({
 ```
 
 ## contact.queryContacts^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContacts(context: Context, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
@@ -2341,6 +2445,8 @@ contact.queryContacts(context, {
 
 ## contact.queryContacts^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContacts(holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据holder和attrs查询所有联系人。使用callback异步回调。
@@ -2383,6 +2489,8 @@ contact.queryContacts({
 ```
 
 ## contact.queryContacts^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContacts(context: Context, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
@@ -2440,6 +2548,8 @@ promise.then((data) => {
 
 ## contact.queryContacts^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContacts(holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
 根据holder和attrs查询所有联系人。使用Promise异步回调。
@@ -2483,6 +2593,8 @@ queryContacts(holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact
 ```
 
 ## contact.queryContactsByPhoneNumber^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContactsByPhoneNumber(context: Context, phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void
 
@@ -2532,6 +2644,8 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', (err: BusinessError, 
 
 ## contact.queryContactsByPhoneNumber^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContactsByPhoneNumber(phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void
 
 根据电话号码查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
@@ -2567,6 +2681,8 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', (err: BusinessError, data) => 
 ```
 
 ## contact.queryContactsByPhoneNumber^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
@@ -2621,6 +2737,8 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 
 ## contact.queryContactsByPhoneNumber^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
 根据电话号码和holder查询联系人，使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
@@ -2661,6 +2779,8 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 ```
 
 ## contact.queryContactsByPhoneNumber^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContactsByPhoneNumber(context: Context, phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
@@ -2713,6 +2833,8 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 
 ## contact.queryContactsByPhoneNumber^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContactsByPhoneNumber(phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据电话号码和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
@@ -2750,6 +2872,8 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 ```
 
 ## contact.queryContactsByPhoneNumber^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
@@ -2807,6 +2931,8 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 
 ## contact.queryContactsByPhoneNumber^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据电话号码、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
@@ -2849,6 +2975,8 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 ```
 
 ## contact.queryContactsByPhoneNumber^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
@@ -2907,6 +3035,8 @@ promise.then((data) => {
 
 ## contact.queryContactsByPhoneNumber^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContactsByPhoneNumber(phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
 根据电话号码、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
@@ -2950,6 +3080,8 @@ promise.then((data) => {
 ```
 
 ## contact.queryContactsByEmail^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContactsByEmail(context: Context, email: string, callback: AsyncCallback<Array<Contact>>): void
 
@@ -2999,6 +3131,8 @@ contact.queryContactsByEmail(context, 'xxx@email.com', (err: BusinessError, data
 
 ## contact.queryContactsByEmail^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContactsByEmail(email: string, callback: AsyncCallback<Array<Contact>>): void
 
 根据email查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
@@ -3033,6 +3167,8 @@ contact.queryContactsByEmail('xxx@email.com', (err: BusinessError, data) => {
 ```
 
 ## contact.queryContactsByEmail^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContactsByEmail(context: Context, email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
@@ -3087,6 +3223,8 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 
 ## contact.queryContactsByEmail^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void
 
 根据email和holder查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
@@ -3126,6 +3264,8 @@ contact.queryContactsByEmail('xxx@email.com', {
 ```
 
 ## contact.queryContactsByEmail^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContactsByEmail(context: Context, email: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
@@ -3178,6 +3318,8 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 
 ## contact.queryContactsByEmail^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContactsByEmail(email: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据email和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
@@ -3215,6 +3357,8 @@ contact.queryContactsByEmail('xxx@email.com', {
 ```
 
 ## contact.queryContactsByEmail^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContactsByEmail(context: Context, email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
@@ -3272,6 +3416,8 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 
 ## contact.queryContactsByEmail^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContactsByEmail(email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void
 
 根据email、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
@@ -3314,6 +3460,8 @@ contact.queryContactsByEmail('xxx@email.com', {
 ```
 
 ## contact.queryContactsByEmail^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryContactsByEmail(context: Context, email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
@@ -3371,6 +3519,8 @@ promise.then((data) => {
 
 ## contact.queryContactsByEmail^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryContactsByEmail(email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>
 
 根据email、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
@@ -3414,6 +3564,8 @@ promise.then((data) => {
 ```
 
 ## contact.queryGroups^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryGroups(context: Context, callback: AsyncCallback<Array<Group>>): void
 
@@ -3460,6 +3612,8 @@ contact.queryGroups(context, (err: BusinessError, data) => {
 
 ## contact.queryGroups^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryGroups(callback: AsyncCallback<Array<Group>>): void
 
 查询联系人的所有群组。使用callback异步回调。
@@ -3493,6 +3647,8 @@ contact.queryGroups((err: BusinessError, data) => {
 ```
 
 ## contact.queryGroups^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryGroups(context: Context, holder: Holder, callback: AsyncCallback<Array<Group>>): void
 
@@ -3546,6 +3702,8 @@ contact.queryGroups(context, {
 
 ## contact.queryGroups^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryGroups(holder: Holder, callback: AsyncCallback<Array<Group>>): void
 
 根据holder查询联系人的所有群组。使用callback异步回调。
@@ -3584,6 +3742,8 @@ contact.queryGroups({
 ```
 
 ## contact.queryGroups^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryGroups(context: Context, holder?: Holder): Promise<Array<Group>>
 
@@ -3638,6 +3798,8 @@ promise.then((data) => {
 
 ## contact.queryGroups^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryGroups(holder?: Holder): Promise<Array<Group>>
 
 根据holder查询联系人的所有群组。使用Promise异步回调。
@@ -3677,6 +3839,8 @@ promise.then((data) => {
 ```
 
 ## contact.queryHolders^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryHolders(context: Context, callback: AsyncCallback<Array<Holder>>): void
 
@@ -3725,6 +3889,8 @@ contact.queryHolders(context, (err: BusinessError, data) => {
 
 ## contact.queryHolders^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryHolders(callback: AsyncCallback<Array<Holder>>): void
 
 查询所有创建联系人的应用信息类。使用callback异步回调。
@@ -3758,6 +3924,8 @@ contact.queryHolders((err: BusinessError, data) => {
 ```
 
 ## contact.queryHolders^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryHolders(context: Context): Promise<Array<Holder>>
 
@@ -3807,6 +3975,8 @@ promise.then((data) => {
 
 ## contact.queryHolders^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryHolders(): Promise<Array<Holder>>
 
 查询所有创建联系人的应用信息类。使用Promise异步回调。
@@ -3836,6 +4006,8 @@ promise.then((data) => {
 ```
 
 ## contact.queryKey^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryKey(context: Context, id: number, callback: AsyncCallback<string>): void
 
@@ -3885,6 +4057,8 @@ contact.queryKey(context, 1, (err: BusinessError, data) => {
 
 ## contact.queryKey^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryKey(id: number, callback: AsyncCallback<string>): void
 
 根据联系人的id查询联系人的key。使用callback异步回调。
@@ -3919,6 +4093,8 @@ contact.queryKey(1, (err: BusinessError, data) => {
 ```
 
 ## contact.queryKey^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryKey(context: Context, id: number, holder: Holder, callback: AsyncCallback<string>): void
 
@@ -3973,6 +4149,8 @@ contact.queryKey(context, 1, {
 
 ## contact.queryKey^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryKey(id: number, holder: Holder, callback: AsyncCallback<string>): void
 
 根据联系人的id和holder查询联系人的key。使用callback异步回调。
@@ -4012,6 +4190,8 @@ contact.queryKey(1, {
 ```
 
 ## contact.queryKey^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 queryKey(context: Context, id: number, holder?: Holder): Promise<string>
 
@@ -4067,6 +4247,8 @@ promise.then((data) => {
 
 ## contact.queryKey^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 queryKey(id: number, holder?: Holder): Promise<string>
 
 根据联系人的id和holder查询联系人的key。使用Promise异步回调。
@@ -4107,6 +4289,8 @@ promise.then((data) => {
 ```
 
 ## contact.queryContactsCount^22+^
+
+> phone 22+ | 2in1 22+ | tablet 22+ | wearable 22+
 
 queryContactsCount(context: Context): Promise<number>
 
@@ -4157,6 +4341,8 @@ promise.then((data) => {
 ```
 
 ## contact.addContactViaUI^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+
 
 addContactViaUI(context: Context, contact: Contact): Promise<number>
 
@@ -4217,6 +4403,8 @@ promise.then((data) => {
 ```
 
 ## contact.saveToExistingContactViaUI^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+
 
 saveToExistingContactViaUI(context: Context, contact: Contact): Promise<number>
 
@@ -4280,6 +4468,8 @@ promise.then((data) => {
 
 ## contact.addContacts^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | wearable 23+
+
 addContacts(context: Context, contacts: Array<Contact>): Promise<Array<number>>
 
 批量添加联系人。使用Promise异步回调。
@@ -4338,6 +4528,8 @@ contact.addContacts(context, [contactInfo1, contactInfo2]).then((data) => {
 ```
 
 ## contact.hasMatchedCallLog^24+^
+
+> phone 24+ | 2in1 24+ | tablet 24+ | wearable 24+
 
 hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number, withinTime: number): Promise<boolean>
 
@@ -4400,6 +4592,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration, withinTime).then((h
 
 ## contact.hasMatchedCallLog^24+^
 
+> phone 24+ | 2in1 24+ | tablet 24+ | wearable 24+
+
 hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number): Promise<boolean>
 
 检查是否有符合条件的通话记录，默认查询6小时以内的通话记录，仅针对运营商通话。使用Promise异步回调。
@@ -4457,6 +4651,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 ```
 
 ## contact.syncContacts
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
 
 syncContacts(context: Context, mode: ContactSyncMode, progress: ContactSyncProgress, contacts: Array<Contact>): Promise<Array<number>>
 
@@ -4554,6 +4750,8 @@ for (let batch: number = 1; batch <= totalBatches; batch++) {
 
 ## contact.queryContactSyncInfo
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
+
 queryContactSyncInfo(context: Context): Promise<Array<ContactSyncInfo>>
 
 查询当前应用的联系人信息同步状态。如果返回的联系人同步信息为空，则调用方不进行联系人同步或联系人同步已完成。使用Promise异步回调。
@@ -4605,6 +4803,8 @@ console.info('queryContactSyncInfo syncInfoList '  + JSON.stringify(syncInfoList
 ```
 
 ## contact.importContactsViaUI
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
 
 importContactsViaUI(context: Context, contacts: Array<Contact>): Promise<Array<number>>
 
@@ -4672,6 +4872,8 @@ promise.then((data) => {
 
 ## ContactSelectionOptions^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 选择联系人条件。
 
 **系统能力**：SystemCapability.Applications.Contacts
@@ -4686,6 +4888,8 @@ promise.then((data) => {
 
 ## ContactSelectionFilter^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | wearable 18+
+
 联系人查询过滤器。
 
 **元服务API**：从API version 15 开始，该接口支持在元服务中使用。
@@ -4698,6 +4902,8 @@ promise.then((data) => {
 |filterType|[FilterType](#filtertype15)|否|否|过滤类型。|
 
 ## FilterType^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | wearable 18+
 
 枚举，联系人过滤类型。
 
@@ -4712,6 +4918,8 @@ promise.then((data) => {
 |SHOW_FILTER_AND_DEFAULT_SELECT|2|默认勾选仅展示符合过滤条件的联系人。 **系统能力**：SystemCapability.Applications.Contacts|
 
 ## FilterClause^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | wearable 18+
 
 联系人过滤条件。多个筛选条件之间是"或者"的关系，如果参数是数组类型，数组最多只能包含3个元素。
 
@@ -4728,6 +4936,8 @@ promise.then((data) => {
 
 ## FilterOptions^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | wearable 18+
+
 联系人过滤参数。
 
 **元服务API**：从API version 15 开始，该接口支持在元服务中使用。
@@ -4740,6 +4950,8 @@ promise.then((data) => {
 |value|string | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-valuesbucket#valuetype) []|否|是|过滤值，默认为undefined。|
 
 ## FilterCondition^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | wearable 18+
 
 枚举，过滤条件。
 
@@ -4758,6 +4970,8 @@ promise.then((data) => {
 
 ## DataFilter^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | wearable 18+
+
 联系人数据过滤项。
 
 **元服务API**：从API version 15 开始，该接口支持在元服务中使用。
@@ -4770,6 +4984,8 @@ promise.then((data) => {
 |options|Array<[FilterOptions](#filteroptions15)>|否|否|联系人过滤参数，数组中多个FilterOptions之间是"或"的关系，数组的最大长度为3。|
 
 ## DataField^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | wearable 18+
 
 枚举，联系人数据字段。
 
@@ -4784,6 +5000,8 @@ promise.then((data) => {
 |ORGANIZATION|2|联系人单位。 **系统能力**：SystemCapability.Applications.Contacts。|
 
 ## Contact
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 联系人对象类。
 
@@ -4835,6 +5053,8 @@ let myContact: contact.Contact = {
 
 ## ContactAttributes
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 联系人属性列表，一般作为入参用来标识希望查询的联系人属性。
 
 当传入为null时，默认查询全部属性。
@@ -4862,6 +5082,8 @@ let contactAttributes: contact.ContactAttributes = {
 ```
 
 ## Attribute
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 枚举，类型为number。联系人属性列表。
 
@@ -4895,6 +5117,8 @@ let attributes = [contact.Attribute.ATTR_EMAIL, contact.Attribute.ATTR_NAME, con
 ```
 
 ## Email
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 联系人的邮箱。
 
@@ -4936,6 +5160,8 @@ email.email = 'xxx@email.com';
 
 ## Holder
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 创建联系人的应用信息类。
 
 **系统能力**：SystemCapability.Applications.ContactsData
@@ -4959,6 +5185,8 @@ let holder: contact.Holder = {
 ```
 
 ## Event
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 联系人事件类。
 
@@ -4996,6 +5224,8 @@ event.eventDate = '2000-01-01';
 
 ## Group
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 联系人的群组类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5021,6 +5251,8 @@ let group: contact.Group = {
 ```
 
 ## ImAddress
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 联系人的即时消息地址。
 
@@ -5065,6 +5297,8 @@ imAddress.imAddress = 'imAddress';
 
 ## Name
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 联系人的名字类。
 
 **系统能力**：SystemCapability.Applications.ContactsData
@@ -5097,6 +5331,8 @@ let name: contact.Name = {
 
 ## NickName
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 联系人的昵称类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5121,6 +5357,8 @@ let nickName: contact.NickName = {
 
 ## Note
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 联系人的备注类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5142,6 +5380,8 @@ let note: contact.Note = {
 ```
 
 ## Organization
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 联系人的组织类。
 
@@ -5168,6 +5408,8 @@ let organization: contact.Organization = {
 ```
 
 ## PhoneNumber
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 联系人电话号码类。
 
@@ -5225,6 +5467,8 @@ phoneNumber.phoneNumber = '138xxxxxxxx';
 
 ## Portrait
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 联系人的头像类。
 > 说明
 >
@@ -5264,6 +5508,8 @@ async function SetPortraitPixelMap(photo: image.PixelMap) {
 ```
 
 ## PostalAddress
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 联系人的邮政地址类。
 
@@ -5313,6 +5559,8 @@ postalAddress.postalAddress = 'postalAddress';
 ```
 
 ## Relation
+
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
 
 联系人的关系类。
 
@@ -5367,6 +5615,8 @@ relation.labelId = contact.Relation.RELATION_ASSISTANT;
 
 ## SipAddress
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 联系人的会话发起协议(SIP)地址类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5407,6 +5657,8 @@ sipAddress.sipAddress = 'sipAddress';
 
 ## Website
 
+> phone 12+ | 2in1 13+ | tablet 12+ | wearable 18+
+
 联系人的网站信息类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5431,6 +5683,8 @@ let website: contact.Website = {
 
 ## ContactSyncMode
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
+
 枚举，同步模式的类型。
 
 **起始版本**：26.0.0
@@ -5447,6 +5701,8 @@ let website: contact.Website = {
 |MODE_CLOUD_BASED|2|表示所有本地联系人将被云联系人替换。当使用云覆盖本地模式进行批量同步时，在第一次批量同步期间会删除所有本地联系人（第三方联系人除外）。|
 
 ## ContactSyncProgress
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
 
 联系人同步进度的信息。包含同步ID、当前批次和总批次。
 
@@ -5465,6 +5721,8 @@ let website: contact.Website = {
 |totalBatches|number|否|否|表示要同步的联系人批次总数。|
 
 ## ContactSyncInfo
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
 
 调用应用程序相关的联系人同步的信息。
 

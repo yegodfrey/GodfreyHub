@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/ads_youhua_deeplink2
 
 示例：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/EUGSwjkDRbet2d5wq3CJVA/zh-cn_image_0000001201219989.png?HW-CC-KV=V1&HW-CC-Date=20260928T100502Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E3F562667CBB7C456786BFF7CAE51421794EB989556337BDA3D89F7192DAC01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/EUGSwjkDRbet2d5wq3CJVA/zh-cn_image_0000001201219989.png?HW-CC-KV=V1&HW-CC-Date=20261012T101303Z&HW-CC-Expire=31536000000&HW-CC-Sign=8788E43A0B8E020F6C7FD5723BC0F31EA3380E9B2204EFE8A438649F4E721549)
 
 > 说明
 >

@@ -14,6 +14,8 @@ typedef struct InputMethod_TextEditorProxy InputMethod_TextEditorProxy
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 输入法文本编辑器代理类。用于处理输入法应用与文本编辑器之间的交互，提供接收输入法请求和通知的方法，适用于需要实现输入法与编辑器双向通信的场景。该结构体为不透明类型（opaque type），调用者不可直接访问其内部成员，仅可通过本模块提供的函数接口进行操作。
 
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct InputMethod_TextEditorProxy InputMethod_TextEditorProxy
 
 ## 结构体用途
 
+> phone | 2in1 | tablet | tv | wearable
+
 InputMethod_TextEditorProxy是文本编辑器端与输入法应用交互的代理对象，采用回调机制实现输入法应用向编辑器发送请求和通知的双向通信。当输入法应用向编辑器发送请求（如插入文本、删除文本、移动光标等）或通知（如键盘状态变化、回车键事件等）时，通过此代理对象中注册的回调函数进行处理。开发者需实现各回调函数并通过Set*Func接口将其注册到TextEditorProxy中，再通过Attach完成注册。
 
 ## 生命周期管理
+
+> phone | 2in1 | tablet | tv | wearable
 
 * 创建方式：通过[OH_TextEditorProxy_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-text-editor-proxy-capi-h#oh_texteditorproxy_create)函数创建，返回一个新的InputMethod_TextEditorProxy实例指针。创建失败时返回NULL，可能原因为内存不足。
 * 销毁方式：通过[OH_TextEditorProxy_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-text-editor-proxy-capi-h#oh_texteditorproxy_destroy)函数销毁，传入要销毁的实例指针。销毁后指针不可再使用，建议将指针设置为NULL避免误用。
@@ -34,6 +40,8 @@ InputMethod_TextEditorProxy是文本编辑器端与输入法应用交互的代�
 * 使用时机：创建TextEditorProxy后，须先通过Set*Func接口注册回调函数，再通过[OH_InputMethodController_Attach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-controller-capi-h#oh_inputmethodcontroller_attach)完成绑定注册。Attach之后不建议再修改回调函数设置。
 
 ## 回调机制说明
+
+> phone | 2in1 | tablet | tv | wearable
 
 TextEditorProxy采用回调函数机制实现输入法应用与编辑器之间的双向通信：
 
@@ -43,6 +51,8 @@ TextEditorProxy采用回调函数机制实现输入法应用与编辑器之间�
 * GetTextConfigFunc不受SetCallbackInMainThread影响：[OH_TextEditorProxy_GetTextConfigFunc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-text-editor-proxy-capi-h#oh_texteditorproxy_gettextconfigfunc)的执行线程由调用[OH_InputMethodController_Attach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-controller-capi-h#oh_inputmethodcontroller_attach)的线程决定，不受[OH_TextEditorProxy_SetCallbackInMainThread](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-text-editor-proxy-capi-h#oh_texteditorproxy_setcallbackinmainthread)的影响。若需GetTextConfigFunc也在主线程执行，需确保Attach在主线程调用。
 
 ## 使用注意事项
+
+> phone | 2in1 | tablet | tv | wearable
 
 * 所有Set*Func接口必须在Attach之前调用，Attach后设置的回调函数将不会被输入法调用。
 * 回调函数中的指针参数具有临时性，回调返回后不可再访问，必须在回调内部完成数据处理。

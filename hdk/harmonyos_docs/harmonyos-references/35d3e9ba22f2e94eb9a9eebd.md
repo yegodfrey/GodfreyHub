@@ -14,6 +14,8 @@ typedef struct OH_AudioDeviceEnhanceManager OH_AudioDeviceEnhanceManager
 
 ## 概述
 
+> 2in1
+
 定义音频设备增强管理器的句柄类型，音频设备增强管理功能，用于应用级音频设备选择及流维度音频设备选择。
 
 **起始版本：** 26.0.0

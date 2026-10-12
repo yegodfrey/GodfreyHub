@@ -23,7 +23,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides
 2. 进入"服务商授权管理"页面，点击"获取授权链接"，弹出"授权链接"窗口。
 3. 点击"新增元服务授权"或者"已有元服务授权"后的"获取链接"按钮，点击新出现气泡框中的复制按钮，获取授权链接。也可以点击"详情"，跳转"授权链接管理"，复制有效的授权链接，详细操作参考[管理授权链接](https://developer.huawei.com/consumer/cn/doc/SPPartnerCenter-develop-Guides/manage-authorization-link-0000002554275531)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/nDPG2fC7TOK-RsnBBQ0WjA/zh-cn_image_0000002723353821.png?HW-CC-KV=V1&HW-CC-Date=20260914T111900Z&HW-CC-Expire=31536000000&HW-CC-Sign=E493384D1E36C562B69105D54E15D4352D2187766ED6A7184036DC4EAC6CB38D "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/nDPG2fC7TOK-RsnBBQ0WjA/zh-cn_image_0000002723353821.png?HW-CC-KV=V1&HW-CC-Date=20261008T140425Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF3C6DA83D42ED06B203D4E63DCC60D2C81D18781F9A4A9EE89E4E800C173CCC "点击放大")
 
 ## 通过接口获取
 

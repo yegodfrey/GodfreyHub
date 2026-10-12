@@ -14,6 +14,8 @@ typedef struct Image_Scale {...} Image_Scale
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 图像缩放倍数。
 
 **起始版本：** 22
@@ -24,7 +26,11 @@ typedef struct Image_Scale {...} Image_Scale
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:------|:-------------------------------|

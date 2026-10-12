@@ -25,7 +25,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-sett
 
 设计参考图如下所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/a416B107RxSB8TtnVxVlwg/zh-cn_image_0000002579408634.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=B5D7AD8449F52089D86C0A46A3E938BB6809440D48054CF4CB117EB9879DBF73 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/a416B107RxSB8TtnVxVlwg/zh-cn_image_0000002579408634.png?HW-CC-KV=V1&HW-CC-Date=20261008T163358Z&HW-CC-Expire=31536000000&HW-CC-Sign=CFA2091F7BC489D82EDA383D72AE51AD7ED304DF0CE91E8A1B68C600EA54B5BE "点击放大")
 
 ## 工程管理
 
@@ -99,7 +99,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-sett
 
 |横向断点|sm|md|lg、xl|
 |:---|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|首页|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/pWu8y1HeSy-pMERmNrLQ5w/zh-cn_image_0000002579568552.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=C91FF8746A3835D8C9A521DD8DCA81012E31B7193162E02C356B268689470267 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/zT2ISqrERg24WJPN4hHokw/zh-cn_image_0000002610008431.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=39F65A3481EED2030424A8585EC573EBD7BD2608BF69AC50ACEDD3DE7B143186 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/2eZk75vEQWenuvVOkrdy4Q/zh-cn_image_0000002609928539.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=B80F16F1A815172E20D2B47F6529A5C3F9505AE47E8E4CDC6B391A9FC1B775DE "点击放大")|
+|首页|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/pWu8y1HeSy-pMERmNrLQ5w/zh-cn_image_0000002579568552.png?HW-CC-KV=V1&HW-CC-Date=20261008T163358Z&HW-CC-Expire=31536000000&HW-CC-Sign=71922D9439177976C83EDF1A13BF4541DB89E2399E58860B655B3C04A8BDF02C "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/zT2ISqrERg24WJPN4hHokw/zh-cn_image_0000002610008431.png?HW-CC-KV=V1&HW-CC-Date=20261008T163358Z&HW-CC-Expire=31536000000&HW-CC-Sign=98EFA285C234BD490D520D9D83889352E99C315C3C543742E22653FA06528108 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/2eZk75vEQWenuvVOkrdy4Q/zh-cn_image_0000002609928539.png?HW-CC-KV=V1&HW-CC-Date=20261008T163358Z&HW-CC-Expire=31536000000&HW-CC-Sign=7191FE4731B079C01FF4C933327F5E823A26F0D7E98E3570B0514FE55C36443E "点击放大")|
 
 **界面开发**
 
@@ -132,7 +132,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-sett
 
 设置应用导航与详情页主要展示列表按钮及对应详情页，点击导航按钮实现详情页跳转。根据功能设计，应用首页相关内容划分为6个区域，效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/Y432z-unQ62foWnCc7T3dA/zh-cn_image_0000002579408636.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=485F0B42553B9344D2B31FDFE426AA7904E0C02D5384EED2D6E435EF48EF8FC9 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/Y432z-unQ62foWnCc7T3dA/zh-cn_image_0000002579408636.png?HW-CC-KV=V1&HW-CC-Date=20261008T163358Z&HW-CC-Expire=31536000000&HW-CC-Sign=2739C92535EFCE1810DEBD37247F3A764331269F1312FF29427915B1EF5A2E35 "点击放大")
 
 **界面开发**
 

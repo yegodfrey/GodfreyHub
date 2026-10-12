@@ -33,7 +33,7 @@ input是交互式组件，用于接收用户数据。其类型可设置为日期
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/EigUFfZiQ5y8DIbe_eaj7A/zh-cn_image_0000002778931801.png?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=B128FEFEEE2494086661BF7A4868C1124569C3FCBAA9F07F06A30F4DF423EFCA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/YoJM89XmSs-IiyeY20auWg/zh-cn_image_0000002755183632.png?HW-CC-KV=V1&HW-CC-Date=20261009T092718Z&HW-CC-Expire=31536000000&HW-CC-Sign=145B35B9352ACE18AA5F2A3A2DED1F68D8BB9F8C2C8EA1FCF025CB41396AF040)
 
 ## 设置input类型
 
@@ -102,7 +102,7 @@ export default {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/9ACR551zQ3eYaKAVYOAt5A/zh-cn_image_0000002749332718.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=45322D66CAA81F63352257445FBB9ACF6B20D86089C9F7FE510B7F86A9067CEA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/mxotncSYQLqxemDSUbomCQ/zh-cn_image_0000002784582499.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092718Z&HW-CC-Expire=31536000000&HW-CC-Sign=AAAC48D1F1991B324FDF60C75372F31177DFCFE9F2DF8B9EBD4E249A8E10A876)
 > 说明
 >
 > 仅当input类型为checkbox或radio时，当前组件选中的属性是checked才生效，默认值为false。
@@ -157,7 +157,7 @@ export default {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/hQrUA6reTd2ADiWmUVkGjg/zh-cn_image_0000002749492602.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=CF371E7EA519942A57577F29FA93112FE30CC5A77B90FECAB7A7B0285BA20E60)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/VyGVmP3VQ-KpiZ4FG8fZLA/zh-cn_image_0000002784662679.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092718Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA3A381E17059ECFB87F7DB7B2B511F9EBAFDC58169F72341852B53057B11544)
 
 ## 设置输入提示
 
@@ -224,7 +224,7 @@ import promptAction from '@ohos.promptAction'
  }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/F93jnVSJSzKkGzv-ZzD5ug/zh-cn_image_0000002779091661.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=AAF3EBAE69A1AA97DA466E6BE96AE0FFBCD54C758BD4ACF9BA7FA71B4F2D5F3B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/ENn499uxTSa4m6u-QEGEkA/zh-cn_image_0000002755023746.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092718Z&HW-CC-Expire=31536000000&HW-CC-Sign=AF68EE9B8BEFDBC7B6CA3D7454E0D320932D634EF16755634DEA16C366278237)
 > 说明
 >
 > showError方法仅在input类型为text、email、date、time、number和password时生效。
@@ -305,5 +305,5 @@ export default {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/0wxLjbf_TvOMSjbKvK18Bw/zh-cn_image_0000002778931803.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=A6575B140F4BF5549296924080A3F138196748D97D79FC181F99E53C95B42178)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/MYMKo0HQTl6hQE3NTzM3zA/zh-cn_image_0000002755183634.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092718Z&HW-CC-Expire=31536000000&HW-CC-Sign=43ACF188BF8CA85963352C743CA3962F4C227D8A9070A9D29DA00C44DE0B4300)
 

@@ -10,13 +10,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservi
 
 ## 功能介绍
 
+> phone | 2in1 | tablet | tv
+
 调用该接口，传入Access Token、APP ID、gamePlayerId到华为服务器上获取HarmonyOS 4及以下游戏的玩家playerId、openId、unionId信息。
 
 ## 场景描述
 
+> phone | 2in1 | tablet | tv
+
 通过Access Token、APP ID、gamePlayerId信息到华为服务器上查询HarmonyOS 4及以下游戏的玩家playerId、openId、unionId信息。
 
 ## 接口原型
+
+> phone | 2in1 | tablet | tv
 
 * **承载协议**：HTTPS POST
 
@@ -34,6 +40,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservi
 
 ## 请求参数
 
+> phone | 2in1 | tablet | tv
+
 |参数|是否必选|类型|描述|
 |:-----------|:---|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |method|是|String|固定传入"external.hms.gs.player.transfer.convertId"。|
@@ -42,6 +50,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservi
 |gamePlayerId|是|String|HarmonyOS 5.0及以上游戏的玩家标识，通过调用[unionLogin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameplayer#gameplayerunionlogin)接口返回。|
 
 ## 请求示例
+
+> phone | 2in1 | tablet | tv
 
 ```java
 POST /gameservice/api/gbClientApi HTTP/1.1
@@ -57,6 +67,8 @@ method=external.hms.gs.player.transfer.convertId&accessToken=******&appId=xxxxxx
 
 ## 响应参数
 
+> phone | 2in1 | tablet | tv
+
 |参数|是否必选|类型|描述|
 |:-------|:---|:-----|:-------------------------------------------------------------------------------------|
 |rtnCode|是|int|服务端结果说明。 0：获取成功。 -1：获取失败。 2：accessToken无效。 3001：参数错误。表示缺失请求参数或格式错误。 3101：应用ID与鉴权应用不一致。|
@@ -66,6 +78,8 @@ method=external.hms.gs.player.transfer.convertId&accessToken=******&appId=xxxxxx
 |errMsg|否|String|异常场景下返回错误码的描述。|
 
 ## 响应示例
+
+> phone | 2in1 | tablet | tv
 
 ```java
 HTTP/1.1 200 OK
@@ -84,6 +98,8 @@ Server: elb
 ```
 
 ## 调用示例
+
+> phone | 2in1 | tablet | tv
 
 ```java
 Java

@@ -19,11 +19,15 @@ Exif（Exchangeable image file format）元数据。
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { image } from '@kit.ImageKit';
 ```
 
 ## 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -176,6 +180,8 @@ import { image } from '@kit.ImageKit';
 
 ## createInstance
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 static createInstance(): ExifMetadata
 
 创建一个空的[ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata)实例。
@@ -202,6 +208,8 @@ async function exifMetadataCreateInstance(context: Context) {
 ```
 
 ## getProperties
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 getProperties(key: Array<string>): Promise<Record<string, string | null>>
 
@@ -263,6 +271,8 @@ async function exifMetadataGetProperties(context: Context) {
 ```
 
 ## setProperties
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 setProperties(records: Record<string, string | null>): Promise<void>
 
@@ -329,6 +339,8 @@ async function exifMetadataSetProperties(context: Context) {
 
 ## getAllProperties
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 getAllProperties(): Promise<Record<string, string | null>>
 
 获取图片中所有元数据的属性和值。使用Promise异步回调。
@@ -374,6 +386,8 @@ async function exifMetadataGetAllProperties(context: Context) {
 ```
 
 ## clone
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 clone(): Promise<ExifMetadata>
 
@@ -421,6 +435,8 @@ async function exifMetadataClone(context: Context) {
 
 ## getBlob
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 getBlob(): Promise<ArrayBuffer>
 
 以二进制数据的形式获取元数据。使用Promise异步回调。
@@ -461,6 +477,8 @@ async function exifMetadataGetBlob(context: Context) {
 ```
 
 ## setBlob
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 setBlob(blob: ArrayBuffer): Promise<void>
 

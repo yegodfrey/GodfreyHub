@@ -17,12 +17,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-ca
 
 ## 导入模块
 
+> phone | tablet
+
 ```typescript
 import { CardRecognition, CardRecognitionResult, CardType, CardSide,
 CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig, IdCardConfig } from '@kit.VisionKit';
 ```
 
 ## CardRecognition
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 卡证识别控件，集成此控件可以实现卡证识别。
 
@@ -46,6 +50,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig, IdCardCo
 
 ### build
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 build(): void
 
 用于创建[CardRecognition](#cardrecognition)对象的构造函数，开发者无需调用此方法。
@@ -59,6 +65,8 @@ build(): void
 **起始版本：** 5.0.0(12)
 
 ## CardType
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 支持识别的卡证类型的枚举值。
 
@@ -81,6 +89,8 @@ build(): void
 
 ## CardSide
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 需要识别的卡证页面的枚举值。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -98,6 +108,8 @@ build(): void
 |DEFAULT|2|卡证默认面。如身份证为人像面，其他卡证为正面。|
 
 ## CallbackParam^(deprecated)^
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 卡证识别结果返回的参数。
 
@@ -120,6 +132,8 @@ build(): void
 
 ## CardRecognitionResult
 
+> phone 5.1.1(19)+ | tablet 5.1.1(19)+
+
 卡证识别结果返回的参数。
 
 **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。
@@ -138,6 +152,8 @@ build(): void
 
 ## CardRecognitionConfig
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 卡证识别配置项。
 
 **系统能力：** SystemCapability.AI.Component.CardRecognition
@@ -154,6 +170,8 @@ build(): void
 |cardContentConfig|[CardContentConfig](#cardcontentconfig)|否|是|卡证内容配置。 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。|
 
 ## ShootingMode
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 拍摄模式的枚举值。
 
@@ -172,6 +190,8 @@ build(): void
 
 ## CardContentConfig
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 卡证内容配置项，可设置各类型卡证的具体配置。
 
 **系统能力：** SystemCapability.AI.Component.CardRecognition
@@ -186,6 +206,8 @@ build(): void
 |idCard|[IdCardConfig](#idcardconfig)|否|是|识别身份证的具体配置。 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。 **起始版本**：5.0.2(14)。|
 
 ## BankCardConfig
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 银行卡识别的具体配置。
 
@@ -203,6 +225,8 @@ build(): void
 
 ## IdCardConfig
 
+> phone 5.0.2(14)+ | tablet 5.0.2(14)+
+
 身份证识别的具体配置。
 
 **系统能力：** SystemCapability.AI.Component.CardRecognition
@@ -217,6 +241,8 @@ build(): void
 |isQualityDetectionNeeded|boolean|否|是|是否开启质量检测。 true：开启质量检测。 false：不开启质量检测。 默认值：false。|
 
 ## 卡证信息
+
+> phone | tablet
 
 具体证件相关信息，包含身份证人像面和国徽面、银行卡、护照、驾驶证正反面、行驶证正反面、港澳居民来往内地通行证正反面、台湾居民来往大陆通行证正反面。
 

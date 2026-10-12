@@ -97,7 +97,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-
 
    说明3：由于fd被double-close触发fdsan检测，代码如下图所示：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/cIzJYy6fT727JD-7Zab6Wg/zh-cn_image_0000002729491387.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=29BBF20CDE9196EB66C8B057A606B98D4732E8B3A564A354B7769F33F0A4958C)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/cIzJYy6fT727JD-7Zab6Wg/zh-cn_image_0000002729491387.png?HW-CC-KV=V1&HW-CC-Date=20261008T150309Z&HW-CC-Expire=31536000000&HW-CC-Sign=5633938EFC5F49FC9EAC935B36ACB11BD9A9CD0A6AB06660E8898E80547C6114)
 
 **问题结论与总结**
 

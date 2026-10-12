@@ -152,10 +152,10 @@ struct Index {
 
 运行前请检查设备连接并配置好[Signature](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-signing-V5)信息。直接点击右上角运行按钮，应用启动后设备进入"Hello OpenMP"界面，点击"Hello OpenMP"标签，打开DevEco Studio下方"Log"查看页面，即可看到并行打印的"Hello OpenMP！"消息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/uxxkhnlZRPuOWm8AvxfMPA/zh-cn_image_0000002778933339.png?HW-CC-KV=V1&HW-CC-Date=20260929T121646Z&HW-CC-Expire=31536000000&HW-CC-Sign=19495CADC05D70C017FD4998010BA8DBEB96F4D8A2AB2E1B5FB64F20E743F323)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/srLc4hnkQtqWggMwAZfYaA/zh-cn_image_0000002784584027.png?HW-CC-KV=V1&HW-CC-Date=20261009T092704Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A503DAF700FE93A416EF8EEAF215FB385ECD957DF7A1149F6D290F9E039EB17)
 > 注意
 >
 > OpenMP程序运行时，HiLog中会输出"dlopen_impl load library header failed for libarcher.so"的报错信息（如下图）。该报错信息中提到的libarcher.so，在OpenMP程序开启Tsan检测时才需要使用。目前HarmonyOS未支持OpenMP程序的Tsan检测能力，因此该错误信息可忽略，不影响程序正常运行。
 >
-> ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/cQ0AckwZSQmFkXyYUOuvdQ/zh-cn_image_0000002749334254.png?HW-CC-KV=V1&HW-CC-Date=20260929T121646Z&HW-CC-Expire=31536000000&HW-CC-Sign=EF9A6FC491BC4E468EDE7703B4416F55FE96C239E2AADA3A4E306B0364B1CD38)
+> ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/ERK_iMe9RpuGvYk8kEsTww/zh-cn_image_0000002784664209.png?HW-CC-KV=V1&HW-CC-Date=20261009T092704Z&HW-CC-Expire=31536000000&HW-CC-Sign=C11CECC735251F6CC24F3C487BF06415F07B1C1C2AB6F4D24E6F0D29BE80D003)
 

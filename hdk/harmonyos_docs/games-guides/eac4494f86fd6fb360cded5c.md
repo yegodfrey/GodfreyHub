@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/gameobe-local-deb
 
 实时服务器支持本地调试模式，建议您先在本地完成代码调试，再部署到现网生产环境。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/3gNZIiSJTYOurTaZ9TexAw/zh-cn_image_0000002395190961.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA2050F1DC7741CC582249F5957052120ADA10C9F2212DF937BA64B8DCA96E89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/3gNZIiSJTYOurTaZ9TexAw/zh-cn_image_0000002395190961.png?HW-CC-KV=V1&HW-CC-Date=20261008T182629Z&HW-CC-Expire=31536000000&HW-CC-Sign=847D7CFF266A81B2DB2C09BC14B02E61C43E387ABE5062F771938EE5544DFAC9)
 
 ## 前提条件
 

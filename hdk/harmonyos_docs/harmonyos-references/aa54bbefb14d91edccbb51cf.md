@@ -14,6 +14,8 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
 
 ## 概述
 
+> phone | 2in1 | tablet | tv
+
 滤镜名信息。
 
 **起始版本：** 12
@@ -24,7 +26,11 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv
 
 **支持C++语言语法的声明如下：**
 
@@ -42,6 +48,8 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
 
 ### 成员函数
 
+> phone | 2in1 | tablet | tv
+
 |名称|typedef关键字|描述|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[OH_EffectFilterInfo *OH_EffectFilterInfo_Create()](#oh_effectfilterinfo_create)|OH_EffectFilterInfo_Create()|创建OH_EffectFilterInfo实例，调用[OH_EffectFilterInfo_Release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-imageeffect-filternames#oh_effectfilterinfo_release)进行资源释放。 **起始版本：** 12 **系统能力：** SystemCapability.Multimedia.ImageEffect.Core|
@@ -55,7 +63,11 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
 
 ## 成员函数说明
 
+> phone | 2in1 | tablet | tv
+
 ### OH_EffectFilterInfo_Create()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 OH_EffectFilterInfo *OH_EffectFilterInfo_Create()
@@ -76,6 +88,8 @@ OH_EffectFilterInfo *OH_EffectFilterInfo_Create()
 |[OH_EffectFilterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-effectfilterinfo)|返回一个指向OH_EffectFilterInfo实例的指针，创建失败时返回空指针。|
 
 ### OH_EffectFilterInfo_SetFilterName()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 ImageEffect_ErrorCode OH_EffectFilterInfo_SetFilterName(OH_EffectFilterInfo *info, const char *name)
@@ -104,6 +118,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetFilterName(OH_EffectFilterInfo *inf
 
 ### OH_EffectFilterInfo_GetFilterName()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 ImageEffect_ErrorCode OH_EffectFilterInfo_GetFilterName(OH_EffectFilterInfo *info, char **name)
 ```
@@ -130,6 +146,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetFilterName(OH_EffectFilterInfo *inf
 |[ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode)|[EFFECT_SUCCESS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode)如果方法调用成功。 [EFFECT_ERROR_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode)如果入参为空指针。|
 
 ### OH_EffectFilterInfo_SetSupportedBufferTypes()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedBufferTypes(OH_EffectFilterInfo *info, uint32_t size,ImageEffect_BufferType *bufferTypeArray)
@@ -159,6 +177,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedBufferTypes(OH_EffectFilte
 
 ### OH_EffectFilterInfo_GetSupportedBufferTypes()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedBufferTypes(OH_EffectFilterInfo *info, uint32_t *size,ImageEffect_BufferType **bufferTypeArray)
 ```
@@ -186,6 +206,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedBufferTypes(OH_EffectFilte
 |[ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode)|[EFFECT_SUCCESS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode)如果方法调用成功。 [EFFECT_ERROR_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode)如果入参为空指针。|
 
 ### OH_EffectFilterInfo_SetSupportedFormats()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedFormats(OH_EffectFilterInfo *info, uint32_t size,ImageEffect_Format *formatArray)
@@ -215,6 +237,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedFormats(OH_EffectFilterInf
 
 ### OH_EffectFilterInfo_GetSupportedFormats()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedFormats(OH_EffectFilterInfo *info, uint32_t *size,ImageEffect_Format **formatArray)
 ```
@@ -242,6 +266,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedFormats(OH_EffectFilterInf
 |[ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode)|[EFFECT_SUCCESS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode)如果方法调用成功。 [EFFECT_ERROR_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode)如果入参为空指针。|
 
 ### OH_EffectFilterInfo_Release()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 ImageEffect_ErrorCode OH_EffectFilterInfo_Release(OH_EffectFilterInfo *info)

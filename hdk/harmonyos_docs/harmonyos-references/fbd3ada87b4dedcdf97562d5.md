@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vide
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 声明录像输出概念。
 
 **引用文件：** <ohcamera/video_output.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vide
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:------------------------------------------------------------------------------------------------------------------------------|:--------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -32,6 +38,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vide
 |[Camera_VideoOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-videooutput)|Camera_VideoOutput|录像输出对象。 可以使用[OH_CameraManager_CreateVideoOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createvideooutput)方法创建指针。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -56,7 +64,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vide
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_VideoOutput_OnFrameStart()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
 
 ```c
 typedef void (*OH_VideoOutput_OnFrameStart)(Camera_VideoOutput* videoOutput)
@@ -76,6 +88,8 @@ typedef void (*OH_VideoOutput_OnFrameStart)(Camera_VideoOutput* videoOutput)
 
 ### OH_VideoOutput_OnFrameEnd()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
+
 ```c
 typedef void (*OH_VideoOutput_OnFrameEnd)(Camera_VideoOutput* videoOutput, int32_t frameCount)
 ```
@@ -94,6 +108,8 @@ typedef void (*OH_VideoOutput_OnFrameEnd)(Camera_VideoOutput* videoOutput, int32
 |int32_t frameCount|回调传递的帧计数。|
 
 ### OH_VideoOutput_OnError()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
 
 ```c
 typedef void (*OH_VideoOutput_OnError)(Camera_VideoOutput* videoOutput, Camera_ErrorCode errorCode)
@@ -117,6 +133,8 @@ typedef void (*OH_VideoOutput_OnError)(Camera_VideoOutput* videoOutput, Camera_E
 [CAMERA_SERVICE_FATAL_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)
 
 ### OH_VideoOutput_RegisterCallback()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
 
 ```c
 Camera_ErrorCode OH_VideoOutput_RegisterCallback(Camera_VideoOutput* videoOutput, VideoOutput_Callbacks* callback)
@@ -143,6 +161,8 @@ Camera_ErrorCode OH_VideoOutput_RegisterCallback(Camera_VideoOutput* videoOutput
 
 ### OH_VideoOutput_UnregisterCallback()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
+
 ```c
 Camera_ErrorCode OH_VideoOutput_UnregisterCallback(Camera_VideoOutput* videoOutput, VideoOutput_Callbacks* callback)
 ```
@@ -168,6 +188,8 @@ Camera_ErrorCode OH_VideoOutput_UnregisterCallback(Camera_VideoOutput* videoOutp
 
 ### OH_VideoOutput_Start()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
+
 ```c
 Camera_ErrorCode OH_VideoOutput_Start(Camera_VideoOutput* videoOutput)
 ```
@@ -191,6 +213,8 @@ Camera_ErrorCode OH_VideoOutput_Start(Camera_VideoOutput* videoOutput)
 |[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)|CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SESSION_NOT_CONFIG：捕获会话未配置。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。|
 
 ### OH_VideoOutput_Stop()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
 
 ```c
 Camera_ErrorCode OH_VideoOutput_Stop(Camera_VideoOutput* videoOutput)
@@ -216,6 +240,8 @@ Camera_ErrorCode OH_VideoOutput_Stop(Camera_VideoOutput* videoOutput)
 
 ### OH_VideoOutput_Release()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
+
 ```c
 Camera_ErrorCode OH_VideoOutput_Release(Camera_VideoOutput* videoOutput)
 ```
@@ -239,6 +265,8 @@ Camera_ErrorCode OH_VideoOutput_Release(Camera_VideoOutput* videoOutput)
 |[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)|CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。|
 
 ### OH_VideoOutput_GetActiveProfile()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
 
 ```c
 Camera_ErrorCode OH_VideoOutput_GetActiveProfile(Camera_VideoOutput* videoOutput, Camera_VideoProfile** profile)
@@ -265,6 +293,8 @@ Camera_ErrorCode OH_VideoOutput_GetActiveProfile(Camera_VideoOutput* videoOutput
 
 ### OH_VideoOutput_DeleteProfile()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
+
 ```c
 Camera_ErrorCode OH_VideoOutput_DeleteProfile(Camera_VideoProfile* profile)
 ```
@@ -288,6 +318,8 @@ Camera_ErrorCode OH_VideoOutput_DeleteProfile(Camera_VideoProfile* profile)
 |[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)|CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。|
 
 ### OH_VideoOutput_IsMirrorSupported()
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 23+
 
 ```c
  Camera_ErrorCode OH_VideoOutput_IsMirrorSupported(Camera_VideoOutput* videoOutput, bool* isSupported)
@@ -314,6 +346,8 @@ Camera_ErrorCode OH_VideoOutput_DeleteProfile(Camera_VideoProfile* profile)
 
 ### OH_VideoOutput_EnableMirror()
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 23+
+
 ```c
  Camera_ErrorCode OH_VideoOutput_EnableMirror(Camera_VideoOutput* videoOutput, bool mirrorMode)
 ```
@@ -338,6 +372,8 @@ Camera_ErrorCode OH_VideoOutput_DeleteProfile(Camera_VideoProfile* profile)
 |[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)|CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。|
 
 ### OH_VideoOutput_GetVideoRotation()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
 
 ```c
  Camera_ErrorCode OH_VideoOutput_GetVideoRotation(Camera_VideoOutput* videoOutput, int deviceDegree, Camera_ImageRotation* imageRotation)
@@ -365,6 +401,8 @@ Camera_ErrorCode OH_VideoOutput_DeleteProfile(Camera_VideoProfile* profile)
 
 ### OH_VideoOutput_GetVideoRotationWithoutDeviceDegree()
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+
+
 ```c
 Camera_ErrorCode OH_VideoOutput_GetVideoRotationWithoutDeviceDegree(Camera_VideoOutput* videoOutput, Camera_ImageRotation* imageRotation)
 ```
@@ -389,6 +427,8 @@ Camera_ErrorCode OH_VideoOutput_GetVideoRotationWithoutDeviceDegree(Camera_Video
 |[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)|CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。|
 
 ### OH_VideoOutput_GetSupportedFrameRates()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
 
 ```c
 Camera_ErrorCode OH_VideoOutput_GetSupportedFrameRates(Camera_VideoOutput* videoOutput, Camera_FrameRateRange** frameRateRange, uint32_t* size)
@@ -416,6 +456,8 @@ Camera_ErrorCode OH_VideoOutput_GetSupportedFrameRates(Camera_VideoOutput* video
 
 ### OH_VideoOutput_DeleteFrameRates()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
+
 ```c
 Camera_ErrorCode OH_VideoOutput_DeleteFrameRates(Camera_VideoOutput* videoOutput, Camera_FrameRateRange* frameRateRange)
 ```
@@ -440,6 +482,8 @@ Camera_ErrorCode OH_VideoOutput_DeleteFrameRates(Camera_VideoOutput* videoOutput
 |[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)|CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。|
 
 ### OH_VideoOutput_SetFrameRate()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
 
 ```c
 Camera_ErrorCode OH_VideoOutput_SetFrameRate(Camera_VideoOutput* videoOutput, int32_t minFps, int32_t maxFps)
@@ -466,6 +510,8 @@ Camera_ErrorCode OH_VideoOutput_SetFrameRate(Camera_VideoOutput* videoOutput, in
 |[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)|CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。|
 
 ### OH_VideoOutput_GetActiveFrameRate()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
 
 ```c
 Camera_ErrorCode OH_VideoOutput_GetActiveFrameRate(Camera_VideoOutput* videoOutput, Camera_FrameRateRange* frameRateRange)

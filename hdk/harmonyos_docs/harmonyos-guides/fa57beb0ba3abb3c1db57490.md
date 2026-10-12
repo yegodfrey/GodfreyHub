@@ -10,7 +10,7 @@ PDF Kit支持添加和删除PDF文档书签。
 
 添加书签时，可设置标题、颜色，是否粗体、斜体、跳转信息等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/pA_uP1LqSWK3m9G57_xPyA/zh-cn_image_0000002779092851.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=88CEBA2B31DE622CAABC4084C4F9DB3BAB1E489487F656DA3492C67468267984)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/rtHQZY8eT2meb9xHlVnizw/zh-cn_image_0000002755184820.png?HW-CC-KV=V1&HW-CC-Date=20261009T092709Z&HW-CC-Expire=31536000000&HW-CC-Sign=BCC1451231EA29514A9AC37379CD0C1BE3421665BF29C79A68C1C473A961EE11)
 
 ## 接口说明
 

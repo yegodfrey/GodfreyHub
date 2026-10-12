@@ -24,11 +24,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-d
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 ```
 
 ## distributedDeviceManager.createDeviceManager
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 createDeviceManager(bundleName: string): DeviceManager
 
@@ -75,6 +79,8 @@ try {
 
 ## distributedDeviceManager.releaseDeviceManager
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 releaseDeviceManager(deviceManager: DeviceManager): void
 
 设备管理实例不再使用后，通过该方法释放DeviceManager实例。
@@ -117,6 +123,8 @@ try {
 
 ## DeviceBasicInfo
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 分布式设备基本信息。
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
@@ -132,6 +140,8 @@ try {
 
 ## DeviceStateChange
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 表示设备状态。
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
@@ -146,6 +156,8 @@ try {
 
 ## DeviceManager
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 设备管理实例，是分布式设备管理方法的调用入口，提供设备发现、设备认证、状态监听和信息查询等能力。在调用DeviceManager的方法前，需要先通过createDeviceManager构建一个DeviceManager实例dmInstance。
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
@@ -153,6 +165,8 @@ try {
 **设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 ### getAvailableDeviceListSync
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getAvailableDeviceListSync(): Array<DeviceBasicInfo>
 
@@ -197,6 +211,8 @@ try {
 ```
 
 ### getAvailableDeviceList
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getAvailableDeviceList(callback: AsyncCallback<Array<DeviceBasicInfo>>): void
 
@@ -248,6 +264,8 @@ try {
 
 ### getAvailableDeviceList
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getAvailableDeviceList(): Promise<Array<DeviceBasicInfo>>
 
 获取所有在线可信设备。调用前需先通过createDeviceManager创建DeviceManager实例。使用Promise异步回调。与getAvailableDeviceListSync的区别在于：本方法为异步调用，通过Promise返回结果；getAvailableDeviceListSync为同步调用，直接返回结果。建议在不希望阻塞线程的场景使用本方法，在需要阻塞等待结果的场景使用getAvailableDeviceListSync。
@@ -296,6 +314,8 @@ try {
 
 ### getLocalDeviceNetworkId
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getLocalDeviceNetworkId(): string
 
 获取本地设备网络标识。
@@ -340,6 +360,8 @@ try {
 ```
 
 ### getLocalDeviceName
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getLocalDeviceName(): string
 
@@ -386,6 +408,8 @@ try {
 
 ### getLocalDeviceType
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getLocalDeviceType(): number
 
 获取本地设备类型。
@@ -431,6 +455,8 @@ try {
 
 ### getLocalDeviceId
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getLocalDeviceId(): string
 
 获取本地设备ID，实际值为udid-hash与appid和盐值基于sha256方式进行混淆后的值。
@@ -475,6 +501,8 @@ try {
 ```
 
 ### getDeviceName
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getDeviceName(networkId: string): string
 
@@ -530,6 +558,8 @@ try {
 
 ### getDeviceType
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getDeviceType(networkId: string): number
 
 通过指定设备的网络标识获取该设备类型。
@@ -583,6 +613,8 @@ try {
 ```
 
 ### startDiscovering
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 startDiscovering(discoverParam: {[key: string]: Object;} , filterOptions?: {[key: string]: Object;} ): void
 
@@ -655,6 +687,8 @@ try {
 
 ### stopDiscovering
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 stopDiscovering(): void
 
 停止发现周边设备。与startDiscovering方法配合使用，用于在发现超时（两分钟）前手动停止设备发现。需在调用startDiscovering之后调用。
@@ -692,6 +726,8 @@ try {
 ```
 
 ### bindTarget
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 bindTarget(deviceId: string, bindParam: {[key: string]: Object;} , callback: AsyncCallback<{deviceId: string;}>): void
 
@@ -761,6 +797,8 @@ try {
 
 ### unbindTarget
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 unbindTarget(deviceId: string): void
 
 解除认证设备，用于在不再需要与目标设备进行分布式业务时，解除与该设备的认证关系。与bindTarget方法配合使用，仅能解除已通过bindTarget认证绑定的可信设备。解除后设备将从可信设备列表中移除，可通过getAvailableDeviceListSync或getAvailableDeviceList查询确认。
@@ -807,6 +845,8 @@ try {
 ```
 
 ### on('deviceStateChange')
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }>): void
 
@@ -865,6 +905,8 @@ try {
 
 ### off('deviceStateChange')
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }>): void
 
 取消注册设备状态回调。使用callback异步回调。
@@ -922,6 +964,8 @@ try {
 
 ### on('discoverSuccess')
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 on(type: 'discoverSuccess', callback: Callback<{ device: DeviceBasicInfo; }>): void
 
 注册发现设备成功回调。使用callback异步回调。此回调在调用startDiscovering发现到周边设备时触发，返回发现的设备信息（DeviceBasicInfo）。需在调用startDiscovering之前注册此回调。
@@ -977,6 +1021,8 @@ try {
 ```
 
 ### off('discoverSuccess')
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 off(type: 'discoverSuccess', callback?: Callback<{ device: DeviceBasicInfo; }>): void
 
@@ -1034,6 +1080,8 @@ try {
 
 ### on('deviceNameChange')
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 on(type: 'deviceNameChange', callback: Callback<{ deviceName: string; }>): void
 
 注册设备名称变更回调，以便在设备名称改变时通知应用。使用callback异步回调。
@@ -1084,6 +1132,8 @@ try {
 ```
 
 ### off('deviceNameChange')
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 off(type: 'deviceNameChange', callback?: Callback<{ deviceName: string; }>): void
 
@@ -1136,6 +1186,8 @@ try {
 
 ### on('discoverFailure')
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 on(type: 'discoverFailure', callback: Callback<{ reason: number; }>): void
 
 注册设备发现失败回调。使用callback异步回调。此回调在调用startDiscovering发现设备失败时触发，返回失败原因。需在调用startDiscovering之前注册此回调。
@@ -1186,6 +1238,8 @@ try {
 ```
 
 ### off('discoverFailure')
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 off(type: 'discoverFailure', callback?: Callback<{ reason: number; }>): void
 
@@ -1238,6 +1292,8 @@ try {
 
 ### on('serviceDie')
 
+> phone | 2in1 | tablet | tv | wearable
+
 on(type: 'serviceDie', callback: Callback<{}>): void
 
 注册设备管理服务死亡回调，以便在服务死亡时通知应用。使用callback异步回调。
@@ -1284,6 +1340,8 @@ try {
 ```
 
 ### off('serviceDie')
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 off(type: 'serviceDie', callback?: Callback<{}>): void
 

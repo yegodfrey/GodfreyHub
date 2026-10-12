@@ -74,7 +74,7 @@ ArkUI开发框架支持在NDK接口使用滑块视图容器Swiper，提供子组
 
 显示效果如下图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/Co8HzAThQ7KRybNy2S4Oiw/zh-cn_image_0000002749332682.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121701Z&HW-CC-Expire=31536000000&HW-CC-Sign=85C8BCF6FB09962A8976DDA3F28E45EA1245CD1FA1C8E147B50AF4977C963857)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/KLJb4FrOThuZHjI4Ve70hg/zh-cn_image_0000002784582463.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=469A7C35853ABA893662B82933A05A8494E084FF8E616AB0EED8FC1FD52277F8)
 
 ## 监听事件
 

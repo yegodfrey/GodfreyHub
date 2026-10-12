@@ -15,11 +15,15 @@ formProvider模块提供了获取卡片信息、更新卡片、设置卡片刷�
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { formProvider } from '@kit.FormKit';
 ```
 
 ## formProvider.setFormNextRefreshTime
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void
 
@@ -73,6 +77,8 @@ try {
 ```
 
 ## formProvider.setFormNextRefreshTime
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setFormNextRefreshTime(formId: string, minute: number): Promise<void>
 
@@ -129,6 +135,8 @@ try {
 ```
 
 ## formProvider.updateForm
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 updateForm(formId: string, formBindingData: formBindingData.FormBindingData, callback: AsyncCallback<void>): void
 
@@ -189,6 +197,8 @@ try {
 ```
 
 ## formProvider.updateForm
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>
 
@@ -253,6 +263,8 @@ try {
 
 ## formProvider.getFormsInfo
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void
 
 获取设备上当前应用程序的卡片信息，使用callback异步回调。适用于卡片管理、调试、统计等场景，例如查看应用所有卡片配置信息、统计卡片数量等。
@@ -298,6 +310,8 @@ try {
 ```
 
 ## formProvider.getFormsInfo
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void
 
@@ -349,6 +363,8 @@ try {
 ```
 
 ## formProvider.getFormsInfo
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>
 
@@ -403,6 +419,8 @@ try {
 ```
 
 ## formProvider.openFormEditAbility^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void
 
@@ -469,6 +487,8 @@ struct Page {
 ```
 
 ## formProvider.closeFormEditAbility^23+^
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+
 
 closeFormEditAbility(isMainPage?: boolean): void
 
@@ -538,6 +558,8 @@ struct Page {
 
 ## formProvider.openFormManager^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 openFormManager(want: Want): void
 
 打开当前应用的卡片管理页面。适用于卡片管理场景，例如预览当前应用所有可以加桌的卡片、添加卡片到负一屏或桌面等。
@@ -593,6 +615,8 @@ try {
 
 ## formProvider.getPublishedFormInfoById^(deprecated)^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 getPublishedFormInfoById(formId: string): Promise<formInfo.FormInfo>
 
 获取设备上当前应用程序已添加到桌面的指定卡片信息，使用Promise异步回调。
@@ -646,6 +670,8 @@ try {
 
 ## formProvider.getPublishedFormInfos^(deprecated)^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 getPublishedFormInfos(): Promise<Array<formInfo.FormInfo>>
 
 获取设备上当前应用所有已添加到桌面的卡片信息，使用Promise异步回调。
@@ -691,6 +717,8 @@ try {
 ```
 
 ## formProvider.requestOverflow^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise<void>
 
@@ -770,6 +798,8 @@ try {
 
 ## formProvider.cancelOverflow^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 cancelOverflow(formId: string): Promise<void>
 
 卡片提供方发起取消互动卡片动效请求，只针对[场景动效类型互动卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration#sceneanimationparams标签)生效，使用Promise异步回调。
@@ -832,6 +862,8 @@ try {
 
 ## formProvider.getFormRect^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 getFormRect(formId: string): Promise<formInfo.Rect>
 
 查询卡片位置、尺寸，使用Promise异步回调。适用于需要获取卡片在屏幕上的位置和尺寸信息的场景，例如卡片动效、位置校准、布局计算等。
@@ -887,6 +919,8 @@ try {
 
 ## formProvider.getPublishedRunningFormInfoById^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 getPublishedRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>
 
 获取当前应用已加桌的指定卡片信息，使用Promise异步回调。适用于卡片管理、调试等场景，例如查看指定卡片的位置信息和尺寸信息。
@@ -940,6 +974,8 @@ try {
 
 ## formProvider.getPublishedRunningFormInfos^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 getPublishedRunningFormInfos(): Promise<Array<formInfo.RunningFormInfo>>
 
 获取所有已加桌的卡片信息，使用Promise异步回调。适用于卡片管理、批量操作、统计等场景，例如查看应用所有已添加到桌面的卡片信息、批量更新卡片状态等。
@@ -982,6 +1018,8 @@ try {
 ```
 
 ## formProvider.reloadForms^22+^
+
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
 
 reloadForms(context: UIAbilityContext, moduleName: string, abilityName: string, formName: string): Promise<number>
 
@@ -1041,6 +1079,8 @@ try {
 ```
 
 ## formProvider.reloadAllForms^22+^
+
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
 
 reloadAllForms(context: UIAbilityContext): Promise<number>
 

@@ -28,7 +28,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/auth-example-00
 
 redirect_uri：在上述申请账号服务时注册回调地址中所用的URL，如下图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/lzfscbg4RDCeoMKeOBBw6w/zh-cn_image_0000002516359258.png?HW-CC-KV=V1&HW-CC-Date=20260909T174041Z&HW-CC-Expire=31536000000&HW-CC-Sign=C89D108B82CA50CC089788D66EB7CF551CF59EB24CFA1F0B515C21801DE7C944 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/lzfscbg4RDCeoMKeOBBw6w/zh-cn_image_0000002516359258.png?HW-CC-KV=V1&HW-CC-Date=20261008T184139Z&HW-CC-Expire=31536000000&HW-CC-Sign=396E249DC2EA929DEFD9AB0B683EDD86AE1C44BD959917167286A2319434CD08 "点击放大")
 
 scope：在联盟上申请的权限，如https://www.huawei.com/healthkit/distance.read https://www.huawei.com/healthkit/distance.write等。
 
@@ -48,7 +48,7 @@ access_type为offline，display为touch。
 
 请求响应成功，用户登录之后，将会展现授权页面，如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/bzJdyyNXQXy13I9_MJ7xdg/zh-cn_image_0000002516519172.png?HW-CC-KV=V1&HW-CC-Date=20260909T174041Z&HW-CC-Expire=31536000000&HW-CC-Sign=C669D76EEA924D68D1584A122331494B64874086022FA7ABA7F79FEB9846F70F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/bzJdyyNXQXy13I9_MJ7xdg/zh-cn_image_0000002516519172.png?HW-CC-KV=V1&HW-CC-Date=20261008T184139Z&HW-CC-Expire=31536000000&HW-CC-Sign=3FB06558CD87142DC36DB2568C7C2977EECAA15DB268DEB04A6A3B4CD7FE6116 "点击放大")
 
 ## 术语和缩略语清单
 
@@ -88,7 +88,7 @@ access_type为offline，display为touch。
 
    请求响应成功，用户登录之后，将会展现授权页面，如下图所示：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/DjEGi62NT8KSnY09Pidbfw/zh-cn_image_0000002548039055.png?HW-CC-KV=V1&HW-CC-Date=20260909T174041Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A03B4CE3542A584C18069E65978CD41B0CD9A989C07320C4858B215DCE7C744 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/DjEGi62NT8KSnY09Pidbfw/zh-cn_image_0000002548039055.png?HW-CC-KV=V1&HW-CC-Date=20261008T184139Z&HW-CC-Expire=31536000000&HW-CC-Sign=C91AF947B9F08BE623C9140966645D6E4873805492DD95B4FCB1FDCA32FA331D "点击放大")
 
    当用户在此页面同意授权后，授权服务则将重定向到用户浏览器到应用所指定的 "redirect_uri"，并携带授权服务所分配的授权码code，以及state参数（如果请求at时带了这个参数）。
 

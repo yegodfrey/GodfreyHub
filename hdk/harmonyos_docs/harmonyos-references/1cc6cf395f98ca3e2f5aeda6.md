@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-medi
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义与相册管理模块相关的API。
 
 提供创建相册的功能，以及访问和修改相册中的媒体数据信息的功能。
@@ -26,7 +28,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-medi
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:----------------------------------------------------------------------------------------------------------------------------------------|:--------------|
@@ -34,7 +40,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-medi
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_MediaAccessHelper_ApplyChanges()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 MediaLibrary_ErrorCode OH_MediaAccessHelper_ApplyChanges(OH_MediaAssetChangeRequest* changeRequest)

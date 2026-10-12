@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-
 
 构建时存在不同版本的同名SO文件会导致问题。例如，将har模块产物中的SO文件拷贝到entry模块的libs目录下，此时har模块和entry模块中都有一个名为libhar.so的文件。如果再配置entry依赖har，构建entry时就会出现错误。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/k-IGxQ3rR9-JSiodGwNLcg/zh-cn_image_0000002654797905.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=453059A95407DA3039502251B3BD6F9A986369B1453CB9FB8BB3380002967A2F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/k-IGxQ3rR9-JSiodGwNLcg/zh-cn_image_0000002654797905.png?HW-CC-KV=V1&HW-CC-Date=20261008T143250Z&HW-CC-Expire=31536000000&HW-CC-Sign=0087526AB9751ED982C9DD2F10C58C60C18F8CA9D3426289B3926E80AD3831BB)
 
 **解决措施**
 
@@ -22,5 +22,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-
 
 在entry/build-profile.json5中，配置select选中har模块中的so文件，package选中包名为har的模块，include选中libhar.so文件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/N8LK6wV4SKaFItjmzlzLPg/zh-cn_image_0000002624638450.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=08CD1F6C2A2FAF4182F78CF46228032D3A1ED54A6FB593C2B75B93C01AFFD6EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/N8LK6wV4SKaFItjmzlzLPg/zh-cn_image_0000002624638450.png?HW-CC-KV=V1&HW-CC-Date=20261008T143250Z&HW-CC-Expire=31536000000&HW-CC-Sign=508F8067029B22CF49EE88FEBC7FF470467EF600498B15D5C85E98E2232B9EC8)
 

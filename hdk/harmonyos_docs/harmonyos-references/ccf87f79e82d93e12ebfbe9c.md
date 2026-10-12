@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handw
 
 ## 概述
 
+> phone | 2in1 | tablet
+
 定义历史触摸点信息的结构体。
 
 **系统能力：** SystemCapability.Stylus.HandWrite
@@ -22,7 +24,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handw
 
 ## 汇总
 
+> phone | 2in1 | tablet
+
 ### 成员变量
+
+> phone | 2in1 | tablet
 
 |名称|描述|
 |:------------------------------|:---------------------------|
@@ -33,7 +39,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handw
 
 ## 结构体成员变量说明
 
+> phone | 2in1 | tablet
+
 ### x
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 ```c
 float HandWrite_HistoricalPoint::x
@@ -45,6 +55,8 @@ float HandWrite_HistoricalPoint::x
 
 ### y
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 ```c
 float HandWrite_HistoricalPoint::y
 ```
@@ -55,6 +67,8 @@ float HandWrite_HistoricalPoint::y
 
 ### timeStamp
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 ```c
 int64_t HandWrite_HistoricalPoint::timeStamp
 ```
@@ -64,6 +78,8 @@ int64_t HandWrite_HistoricalPoint::timeStamp
 当前历史触摸点的时间戳，单位为ns。
 
 ### force
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 ```c
 float HandWrite_HistoricalPoint::force

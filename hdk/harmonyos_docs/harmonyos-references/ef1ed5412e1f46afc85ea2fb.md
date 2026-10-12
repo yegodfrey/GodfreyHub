@@ -15,6 +15,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-method
 
 ## ContextMenu.close^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static close()
 
 在页面范围内关闭通过[bindContextMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#bindcontextmenu12)绑定的菜单。常用于页面跳转、拖拽开始等需要主动关闭已显示菜单的交互场景。
@@ -29,6 +31,8 @@ static close()
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例演示ContextMenu.close的使用方法，在拖拽开始时关闭通过bindContextMenu绑定的菜单。
 > 说明
@@ -74,5 +78,5 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/gBICoJyVRQu84poUoTMMww/zh-cn_image_0000002749335112.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121723Z&HW-CC-Expire=31536000000&HW-CC-Sign=D4517F7789FE96D75F4BCA1B1AB8CE1E2E59F3AE950BCD042FFDE4A9CBBC0A01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/srGGeYlkQZSjCWDVnbBj1g/zh-cn_image_0000002784664929.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092747Z&HW-CC-Expire=31536000000&HW-CC-Sign=8FBD49AF509669B2F65494A4BA13BFF46E81F7EF2009C0F9F4F1AE7E134AED13)
 

@@ -10,11 +10,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abil
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 提供管理进程访问控制的系统能力。
 
 **起始版本：** 12
 
 ## 文件汇总
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:--------------------------------------------------------------------------------------------------------------------------|:-------------|

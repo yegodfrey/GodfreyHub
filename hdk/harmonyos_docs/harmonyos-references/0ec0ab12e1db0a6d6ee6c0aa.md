@@ -15,11 +15,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-n
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```js
 import { vpn } from '@kit.NetworkKit';
 ```
 
 ## LinkAddress
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type LinkAddress = connection.LinkAddress
 
@@ -33,6 +37,8 @@ type LinkAddress = connection.LinkAddress
 
 ## RouteInfo
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 type RouteInfo = connection.RouteInfo
 
 表示网络路由信息。
@@ -44,6 +50,8 @@ type RouteInfo = connection.RouteInfo
 |[connection.RouteInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#routeinfo)|网络路由信息。|
 
 ## AbilityContext
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type AbilityContext = _AbilityContext
 

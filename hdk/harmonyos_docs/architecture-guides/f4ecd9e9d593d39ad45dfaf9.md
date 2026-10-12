@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/period_cha
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/1-XndBrTR8uOP4lsh7GYYw/zh-cn_image_0000002631151464.gif?HW-CC-KV=V1&HW-CC-Date=20260924T062300Z&HW-CC-Expire=31536000000&HW-CC-Sign=7077524AC2655EF9F8E56CE450F1512E5E40F0CD84F19218F632E695BADB9F6D "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/1-XndBrTR8uOP4lsh7GYYw/zh-cn_image_0000002631151464.gif?HW-CC-KV=V1&HW-CC-Date=20261008T163845Z&HW-CC-Expire=31536000000&HW-CC-Sign=1DD19E4D2FF884FC3D5A3917FE7E286B251B9C07ABDC80FC1C06BA17C1E21A3D "点击放大")
 
 ## 实现思路
 

@@ -21,11 +21,15 @@ Worker的上下文环境和UI线程的上下文环境是独立的，Worker线程
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { worker } from '@kit.ArkTS';
 ```
 
 ## 常量
+
+> phone | 2in1 | tablet | tv | wearable
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -35,6 +39,8 @@ import { worker } from '@kit.ArkTS';
 |parentPort^(deprecated)^|[DedicatedWorkerGlobalScope](#dedicatedworkerglobalscopedeprecated)|是|Worker线程用于与宿主线程通信的对象。 **说明** ：从API version 7开始支持，从API version 9开始废弃，建议使用[workerPort](#常量)替代。|
 
 ## WorkerOptions
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 Worker构造函数的选项，用于为Worker添加其他信息。
 
@@ -48,6 +54,8 @@ Worker构造函数的选项，用于为Worker添加其他信息。
 |priority^18+^|[ThreadWorkerPriority](#threadworkerpriority18)|否|是|表示Worker线程优先级。默认值为MEDIUM。 **元服务API**： 从API version 18开始，该接口支持在元服务中使用。|
 
 ## ThreadWorkerPriority^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 Worker线程的优先级枚举，各优先级对应关系请参考[QoS等级定义](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/qos-guidelines#qos等级定义)。
 
@@ -64,9 +72,13 @@ Worker线程的优先级枚举，各优先级对应关系请参考[QoS等级定�
 
 ## ThreadWorker^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 使用以下方法前，需先构造ThreadWorker实例。ThreadWorker类继承自[WorkerEventTarget](#workereventtarget9)。
 
 ### 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -101,6 +113,8 @@ onAllErrors接口与onerror接口之间的行为差异如下：
    推荐使用onAllErrors接口，因为它提供了更全面的异常捕获能力，并且不会导致线程终止。
 
 ### constructor^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(scriptURL: string, options?: WorkerOptions)
 
@@ -139,6 +153,8 @@ const workerInstance = new worker.ThreadWorker('entry/ets/workers/worker.ets', {
 ```
 
 ### postMessage^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 postMessage(message: Object, transfer: ArrayBuffer[]): void
 
@@ -241,6 +257,8 @@ struct Index {
 
 ### postMessage^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 postMessage(message: Object, options?: PostMessageOptions): void
 
 宿主线程可以通过转移对象所有权或拷贝数据的方式向Worker线程发送消息。在传递[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)时，使用拷贝数据的方式。
@@ -281,6 +299,8 @@ workerInstance.postMessage(buffer, {transfer: [buffer]});
 ```
 
 ### postMessageWithSharedSendable^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 postMessageWithSharedSendable(message: Object, transfer?: ArrayBuffer[]): void
 
@@ -351,6 +371,8 @@ workerPort.onmessage = (e: MessageEvents) => {
 
 ### on^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 on(type: string, listener: WorkerEventListener): void
 
 向宿主线程的Worker实例对象添加一个事件监听，该接口与[addEventListener^9+^](#addeventlistener9)接口功能一致。
@@ -394,6 +416,8 @@ workerInstance.dispatchEvent({type: "alert", timeStamp: 0}); // timeStamp暂未�
 
 ### once^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 once(type: string, listener: WorkerEventListener): void
 
 向宿主线程的Worker实例对象添加一个事件监听，该事件监听只执行一次，执行完后会自动删除。
@@ -434,6 +458,8 @@ workerInstance.dispatchEvent({type: "alert", timeStamp: 0}); // timeStamp暂未�
 ```
 
 ### off^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 off(type: string, listener?: WorkerEventListener): void
 
@@ -488,6 +514,8 @@ workerInstance.off("alert");
 ```
 
 ### registerGlobalCallObject^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 registerGlobalCallObject(instanceName: string, globalCallObject: Object): void
 
@@ -561,6 +589,8 @@ workerPort.onmessage = (e: MessageEvents): void => {
 
 ### unregisterGlobalCallObject^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 unregisterGlobalCallObject(instanceName?: string): void
 
 取消在宿主线程ThreadWorker实例上注册的对象，该方法会释放ThreadWorker实例中与该键相匹配的对象的强引用。如果无匹配对象，该方法不会报错。
@@ -609,6 +639,8 @@ workerInstance.postMessage("start worker");
 
 ### terminate^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 terminate(): void
 
 由宿主线程主动销毁Worker线程并停止Worker线程接收消息。
@@ -636,6 +668,8 @@ workerInstance.terminate();
 ```
 
 ### addEventListener^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 addEventListener(type: string, listener: WorkerEventListener): void
 
@@ -679,6 +713,8 @@ workerInstance.dispatchEvent({type: "alert", timeStamp: 0}); // timeStamp暂未�
 
 ### removeEventListener^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 removeEventListener(type: string, callback?: WorkerEventListener): void
 
 移除宿主线程的Worker实例对象中类型为type的事件监听，该接口与[off^9+^](#off9)接口功能一致。
@@ -720,6 +756,8 @@ workerInstance.removeEventListener("alert");
 ```
 
 ### dispatchEvent^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 dispatchEvent(event: Event): boolean
 
@@ -770,6 +808,8 @@ console.info("dispatchEvent result is: ", result);
 
 ### removeAllListener^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 removeAllListener(): void
 
 移除宿主线程中Worker实例对象的所有事件监听。
@@ -801,9 +841,13 @@ workerInstance.removeAllListener();
 
 ## WorkerEventTarget^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 用于管理Worker的监听事件。
 
 ### addEventListener^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 addEventListener(type: string, listener: WorkerEventListener): void
 
@@ -846,6 +890,8 @@ workerPort.onmessage = (event: MessageEvents) => {
 
 ### removeEventListener^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 removeEventListener(type: string, callback?: WorkerEventListener): void
 
 移除Worker线程实例对象中类型为type的事件监听。
@@ -887,6 +933,8 @@ workerPort.onmessage = (event: MessageEvents) => {
 ```
 
 ### dispatchEvent^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 dispatchEvent(event: Event): boolean
 
@@ -937,6 +985,8 @@ workerPort.onmessage = (event: MessageEvents) => {
 
 ### removeAllListener^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 removeAllListener(): void
 
 移除Worker线程的实例对象所有的事件监听。
@@ -972,9 +1022,13 @@ workerPort.onmessage = (event: MessageEvents) => {
 
 ## ThreadWorkerGlobalScope^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 Worker线程用于与宿主线程通信的类。ThreadWorkerGlobalScope类继承[GlobalScope](#globalscope9)。
 
 ### 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -984,6 +1038,8 @@ Worker线程用于与宿主线程通信的类。ThreadWorkerGlobalScope类继承
 |onmessageerror^9+^|(this: [ThreadWorkerGlobalScope](#threadworkerglobalscope9), ev: [MessageEvents](#messageevents9)) => void|否|是|回调函数。表示当Worker线程的Worker对象接收到一条无法被反序列化的消息时被调用的事件处理程序，处理程序在Worker线程中执行。其中this指调用者对象本身[ThreadWorkerGlobalScope](#threadworkerglobalscope9)，ev类型为[MessageEvents](#messageevents9)，表示收到的消息数据。默认值为undefined。 **元服务API**：从API version 11开始，该属性支持在元服务中使用。|
 
 ### postMessage^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 postMessage(messageObject: Object, transfer: ArrayBuffer[]): void;
 
@@ -1035,6 +1091,8 @@ workerPort.onmessage = (e: MessageEvents): void => {
 
 ### postMessage^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 postMessage(messageObject: Object, options?: PostMessageOptions): void
 
 Worker线程通过转移对象所有权或拷贝数据的方式向宿主线程发送消息。在传递[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)时，使用拷贝数据的方式进行传递。
@@ -1083,6 +1141,8 @@ workerPort.onmessage = (e: MessageEvents): void => {
 ```
 
 ### postMessageWithSharedSendable^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 postMessageWithSharedSendable(message: Object, transfer?: ArrayBuffer[]): void
 
@@ -1151,6 +1211,8 @@ workerInstance.onmessage = (e: MessageEvents) => {
 ```
 
 ### callGlobalCallObjectMethod^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 callGlobalCallObjectMethod(instanceName: string, methodName: string, timeout: number, ...args: Object[]): Object
 
@@ -1236,6 +1298,8 @@ workerPort.onmessage = (e: MessageEvents): void => {
 
 ### close^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 close(): void
 
 销毁Worker线程，终止Worker接收消息。
@@ -1273,6 +1337,8 @@ workerPort.onmessage = (e: MessageEvents): void => {
 ```
 
 ### postMessageAtFront
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 postMessageAtFront?(message: Object, priority: Priority, transfer?: ArrayBuffer[]): void
 
@@ -1392,9 +1458,13 @@ workerPort.onmessage = (e: MessageEvents) => {
 
 ## WorkerEventListener^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 事件监听类。
 
 ### (event: Event)^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 (event: Event): void | Promise<void>
 
@@ -1443,6 +1513,8 @@ workerInstance.dispatchEvent(eventToDispatch);
 
 ## GlobalScope^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 Worker线程自身的运行环境，GlobalScope类继承[WorkerEventTarget](#workereventtarget9)。
 
 **元服务API**： 从API version 11开始，该接口支持在元服务中使用。
@@ -1457,6 +1529,8 @@ Worker线程自身的运行环境，GlobalScope类继承[WorkerEventTarget](#wor
 
 ## MessageEvents^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 消息类，持有Worker线程间传递的数据，MessageEvents类继承[Event](#event)。
 
 **元服务API**： 从API version 11开始，该接口支持在元服务中使用。
@@ -1468,6 +1542,8 @@ Worker线程自身的运行环境，GlobalScope类继承[WorkerEventTarget](#wor
 |data|any|是|否|线程间传递的数据。|
 
 ## MessageType
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type MessageType = 'message' | 'messageerror'
 
@@ -1483,6 +1559,8 @@ type MessageType = 'message' | 'messageerror'
 |'messageerror'|表示消息类型为messageerror，值固定为'messageerror'字符串。|
 
 ## ErrorCallback^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 type ErrorCallback = (err: ErrorEvent) => void
 
@@ -1500,12 +1578,16 @@ type ErrorCallback = (err: ErrorEvent) => void
 
 ## Worker^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 使用以下方法前，均需先构造Worker实例，Worker类继承[EventTarget](#eventtargetdeprecated)。
 > 说明
 >
 > 从API version 7开始支持，从API version 9开始废弃，建议使用[ThreadWorker](#threadworker9)替代。
 
 ### 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -1517,6 +1599,8 @@ type ErrorCallback = (err: ErrorEvent) => void
 |onmessageerror^(deprecated)^|(event: [MessageEvent](#messageeventt)) => void|否|是|回调函数。表示当Worker对象接收到一条无法被序列化的消息时被调用的事件处理程序，处理程序在宿主线程中执行。其中回调函数中event类型为[MessageEvent](#messageeventt)，表示收到的Worker消息数据。默认值为undefined。 **说明** ：从API version 7开始支持，从API version 9开始废弃，建议使用[ThreadWorker.onmessageerror](#属性)替代。|
 
 ### constructor^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(scriptURL: string, options?: WorkerOptions)
 
@@ -1548,6 +1632,8 @@ const workerInstance = new worker.Worker('entry/ets/workers/worker.ets', {name: 
 
 ### postMessage^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 postMessage(message: Object, transfer: ArrayBuffer[]): void
 
 宿主线程通过转移对象所有权的方式向Worker线程发送消息。
@@ -1577,6 +1663,8 @@ workerInstance.postMessage(buffer, [buffer]);
 ```
 
 ### postMessage^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 postMessage(message: Object, options?: PostMessageOptions): void
 
@@ -1610,6 +1698,8 @@ workerInstance.postMessage(buffer, [buffer]);
 
 ### on^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 on(type: string, listener: EventListener): void
 
 向Worker添加一个事件监听，该接口与[addEventListener^(deprecated)^](#addeventlistenerdeprecated)接口功能一致。
@@ -1639,6 +1729,8 @@ workerInstance.on("alert", () => {
 ```
 
 ### once^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 once(type: string, listener: EventListener): void
 
@@ -1670,6 +1762,8 @@ workerInstance.once("alert", () => {
 
 ### off^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: string, listener?: EventListener): void
 
 移除类型为type的事件监听，该接口与[removeEventListener^(deprecated)^](#removeeventlistenerdeprecated)接口功能一致。
@@ -1699,6 +1793,8 @@ workerInstance.off("alert");
 
 ### terminate^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 terminate(): void
 
 销毁Worker线程，终止Worker接收消息。
@@ -1720,11 +1816,14 @@ workerInstance.terminate();
 
 ## EventTarget^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 > 说明
 >
 > 从API version 7开始支持，从API version 9开始废弃，建议使用[WorkerEventTarget^9+^](#workereventtarget9)替代。
 
 ### addEventListener^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 addEventListener(type: string, listener: EventListener): void
 
@@ -1756,6 +1855,8 @@ workerPort.addEventListener("alert", () => {
 ```
 
 ### removeEventListener^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 removeEventListener(type: string, callback?: EventListener): void
 
@@ -1789,6 +1890,8 @@ workerPort.removeEventListener('alert');
 ```
 
 ### dispatchEvent^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 dispatchEvent(event: Event): boolean
 
@@ -1856,6 +1959,8 @@ workerPort.onmessage = (event: MessageEvents) => {
 
 ### removeAllListener^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 removeAllListener(): void
 
 移除Worker所有的事件监听。
@@ -1882,12 +1987,16 @@ workerPort.removeAllListener();
 
 ## DedicatedWorkerGlobalScope^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 Worker线程用于与宿主线程通信的类。DedicatedWorkerGlobalScope类继承[WorkerGlobalScope](#workerglobalscopedeprecated)。
 > 说明
 >
 > 从API version 7开始支持，从API version 9开始废弃，建议使用[ThreadWorkerGlobalScope^9+^](#threadworkerglobalscope9)替代。
 
 ### 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -1897,6 +2006,8 @@ Worker线程用于与宿主线程通信的类。DedicatedWorkerGlobalScope类继
 |onmessageerror^(deprecated)^|(this: [DedicatedWorkerGlobalScope](#dedicatedworkerglobalscopedeprecated), ev: [MessageEvent](#messageeventt)) => void|否|是|回调函数，表示当Worker对象接收到一条无法被反序列化的消息时被调用的事件处理程序，处理程序在Worker线程中执行。其中this指调用者对象本身[DedicatedWorkerGlobalScope](#dedicatedworkerglobalscopedeprecated)，ev类型为[MessageEvent](#messageeventt)，表示收到的Worker消息数据。默认值为undefined。 **说明** ：从API version 7开始支持，从API version 9开始废弃，建议使用[ThreadWorkerGlobalScope.onmessageerror](#属性-2)替代。|
 
 ### postMessage^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 postMessage(messageObject: Object, transfer: Transferable[]): void
 
@@ -1915,6 +2026,8 @@ Worker线程通过转移对象所有权的方式向宿主线程发送消息。
 |transfer|Transferable[]|是|暂不支持该参数类型。|
 
 ### postMessage^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 postMessage(messageObject: Object, transfer: ArrayBuffer[]): void
 
@@ -1961,6 +2074,8 @@ workerPort.onmessage = (): void => {
 
 ### postMessage^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 postMessage(messageObject: Object, options?: PostMessageOptions): void
 
 Worker线程通过转移对象所有权或者拷贝数据的方式向宿主线程发送消息。
@@ -2002,6 +2117,8 @@ parentPort.onmessage = (e: MessageEvents) => {
 
 ### close^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 close(): void
 
 销毁Worker线程，终止Worker接收消息。
@@ -2033,6 +2150,8 @@ parentPort.onmessage = (): void => {
 
 ## PostMessageOptions
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 明确数据传递过程中需要转移所有权的对象，这些对象必须是ArrayBuffer，在发送方的上下文中将变为不可用，仅在接收方可用。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -2044,6 +2163,8 @@ parentPort.onmessage = (): void => {
 |transfer|Object[]|否|是|ArrayBuffer数组，用于传递所有权。该数组中不可传入null。默认值为undefined。|
 
 ## Event
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 事件类。
 
@@ -2058,12 +2179,16 @@ parentPort.onmessage = (): void => {
 
 ## EventListener^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 事件监听类用于处理事件。
 > 说明
 >
 > 从API version 7开始支持，从API version 9开始废弃，建议使用[WorkerEventListener^9+^](#workereventlistener9)替代。
 
 ### (evt: Event)^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 (evt: Event): void | Promise<void>
 > 说明
@@ -2098,6 +2223,8 @@ workerInstance.addEventListener("alert", ()=>{
 
 ## ErrorEvent
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 错误事件类用于表示Worker执行过程中出现异常的详细信息，该类继承[Event](#event)。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -2114,6 +2241,8 @@ workerInstance.addEventListener("alert", ()=>{
 
 ## MessageEvent<T>
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 消息类，持有Worker线程间传递的数据，MessageEvent类继承[Event](#event)。
 
 **元服务API**： 从API version 12开始，该接口支持在元服务中使用。
@@ -2125,6 +2254,8 @@ workerInstance.addEventListener("alert", ()=>{
 |data|T|是|否|线程间传递的数据。|
 
 ## WorkerGlobalScope^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 Worker线程自身的运行环境，WorkerGlobalScope类继承[EventTarget](#eventtargetdeprecated)。
 > 说明
@@ -2140,6 +2271,8 @@ Worker线程自身的运行环境，WorkerGlobalScope类继承[EventTarget](#eve
 |onerror|(ev: [ErrorEvent](#errorevent)) => void|否|是|Worker在执行过程中发生异常被调用的回调函数，在Worker线程中执行，ev表示收到的异常数据，默认值为undefined。|
 
 ## Priority
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 表示发送消息时的优先级。
 
@@ -2160,7 +2293,11 @@ Worker线程自身的运行环境，WorkerGlobalScope类继承[EventTarget](#eve
 
 ## 其他说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 序列化支持类型
+
+> phone | 2in1 | tablet | tv | wearable
 
 序列化支持类型包括：除Symbol之外的基础类型、Date、String、RegExp、Array、Map、Set、Object（仅限简单对象，比如通过"{}"或者"new Object"创建，普通对象仅支持传递属性，不支持传递其原型及方法）、ArrayBuffer、TypedArray。
 
@@ -2214,17 +2351,22 @@ workerPort.onerror = (err: ErrorEvent) => {
 
 ### 内存模型
 
+> phone | 2in1 | tablet | tv | wearable
+
 Worker基于Actor并发模型实现。在Worker的交互流程中，宿主线程可以创建多个Worker子线程，各个Worker线程间运行环境相互隔离，并通过序列化、引用传递或转移所有权的方式传递对象，等到Worker线程完成计算任务，再把结果返回给宿主线程。
 
 Actor并发模型的交互原理：各个Actor并发地处理宿主线程任务，每个Actor内部都有一个消息队列和单线程执行模块。消息队列负责接收宿主线程及其他Actor的请求，而单线程执行模块则负责串行地处理这些请求、向其他Actor发送请求以及创建新的Actor。由于Actor采用的是异步方式，各个Actor之间相互隔离且没有数据竞争，因此Actor可以高并发运行。
 
 ## 完整示例
 
+> phone | 2in1 | tablet | tv | wearable
 > 说明
 >
 > API version 8及之前的版本仅支持FA模型，如需使用，注意更换构造Worker的接口和创建Worker线程中与宿主线程通信的对象的两个方法。
 
 ### FA模型
+
+> phone | 2in1 | tablet | tv | wearable
 
 此处以API version 9的工程为例。
 
@@ -2296,6 +2438,8 @@ workerPort.onerror = (err: ErrorEvent) => {
 ```
 
 ### Stage模型
+
+> phone | 2in1 | tablet | tv | wearable
 
 此处以API version 18的工程为例。
 
@@ -2380,6 +2524,8 @@ workerPort.onerror = (err: ErrorEvent) => {
 ```
 
 ### 分发事件与监听接口搭配使用示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```ts
 // Index.ets

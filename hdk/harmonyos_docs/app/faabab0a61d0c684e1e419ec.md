@@ -69,7 +69,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/game-center-oversea-servic
 
 ## 成功案例
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/voMI7FshSQmhcEUJmDMAKQ/zh-cn_image_0000002371583648.png?HW-CC-KV=V1&HW-CC-Date=20260909T141102Z&HW-CC-Expire=31536000000&HW-CC-Sign=B6AE2E843BB36D0BBDF17BA375F978DD8FC33AC262BBD14917B87FF708D7A1EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/voMI7FshSQmhcEUJmDMAKQ/zh-cn_image_0000002371583648.png?HW-CC-KV=V1&HW-CC-Date=20261008T151005Z&HW-CC-Expire=31536000000&HW-CC-Sign=26D9278E76927F4D8FD982C36D9C8D2F47BA08348C1CA24C88B4A68A5264C354)
 
 ## 深度联运介绍
 
@@ -88,7 +88,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/game-center-oversea-servic
 
 ### 深度联运案例
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/0543S4MHS4-ioJg1LoCxeQ/zh-cn_image_0000002372066493.png?HW-CC-KV=V1&HW-CC-Date=20260909T141102Z&HW-CC-Expire=31536000000&HW-CC-Sign=E55A636B3C988988ECD4C999564D7B4A98BDC73FE5975497B385A4DCFE3C7D2F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/0543S4MHS4-ioJg1LoCxeQ/zh-cn_image_0000002372066493.png?HW-CC-KV=V1&HW-CC-Date=20261008T151005Z&HW-CC-Expire=31536000000&HW-CC-Sign=7BA4C91032CFF473C6273067DD6C09A1401827B628F70984DAFBD3238B4791A6)
 
 ## FAQ
 

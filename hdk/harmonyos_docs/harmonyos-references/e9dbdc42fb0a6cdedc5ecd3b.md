@@ -14,6 +14,8 @@ typedef struct {...} OH_Drawing_Point3D
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义一个三维的坐标点。
 
 **起始版本：** 12
@@ -24,7 +26,11 @@ typedef struct {...} OH_Drawing_Point3D
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:------|:----|

@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___re
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 请求的内容。
 
 **起始版本：** 5.0.0(12)
@@ -20,7 +22,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___re
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
@@ -29,7 +35,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___re
 
 ## 结构体成员变量说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### contentStr
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 ```cpp
 Rcp_Buffer Rcp_RequestContent::contentStr
@@ -41,6 +51,8 @@ Rcp_Buffer Rcp_RequestContent::contentStr
 
 ### form
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 ```cpp
 Rcp_Form* Rcp_RequestContent::form
 ```
@@ -50,6 +62,8 @@ Rcp_Form* Rcp_RequestContent::form
 表单内容。
 
 ### getDataCallback
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 ```cpp
 Rcp_GetDataCallback Rcp_RequestContent::getDataCallback
@@ -61,6 +75,8 @@ Rcp_GetDataCallback Rcp_RequestContent::getDataCallback
 
 ### multipartForm
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 ```cpp
 Rcp_MultipartForm* Rcp_RequestContent::multipartForm
 ```
@@ -70,6 +86,8 @@ Rcp_MultipartForm* Rcp_RequestContent::multipartForm
 多部分表单内容。
 
 ### type
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 ```cpp
 Rcp_ContentType Rcp_RequestContent::type

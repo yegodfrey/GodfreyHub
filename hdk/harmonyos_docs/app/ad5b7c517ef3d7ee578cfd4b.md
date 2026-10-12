@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-creatives-ideas-p
 
 ## 编辑器界面
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/gU9yA5frTLitK8F7ZLJTBA/zh-cn_image_0000002348294704.jpg?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=46350E68E088896C2783DE78D8A5E927DD12A4D0465CF00E08A7F38DE9CA0C7C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/gU9yA5frTLitK8F7ZLJTBA/zh-cn_image_0000002348294704.jpg?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=0BC8111AC5C053E2176E6789897942A8AA0E889F7709EC9303CB43108D9D94FE)
 
 ### 左侧组件导航
 
@@ -53,17 +53,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-creatives-ideas-p
    * 您可以复制历史页面。
    * 您可以使用空白页面。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/QQN2zZtpTbGAn9VrGhr1EQ/zh-cn_image_0000002348294684.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=8C8D971A741C9BFF20206EB0FE049A9AE9FC033FCEF0E3EEF8B0896ADC018008)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/QQN2zZtpTbGAn9VrGhr1EQ/zh-cn_image_0000002348294684.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=12EE3950F9ABCE4D1322D4D90A3CADFB36A60CC16DFDF31E9CF95F4AF6FA88B7)
 
-2. 根据需求使用网站组件并设置对应的组件属性，点击"保存"随时保存已完成的页面设计。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/eBWoZQwcQSm-jFQke6ALjw/zh-cn_image_0000002382174865.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=79FBB70E23A2707BD7251926B949D70CCC4700990F4ABCAEE6557A2EFDC549D9)
+2. 根据需求使用网站组件并设置对应的组件属性，点击"保存"随时保存已完成的页面设计。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/eBWoZQwcQSm-jFQke6ALjw/zh-cn_image_0000002382174865.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=DBE35DD33A590526F7D28CDF529922363CE88037468EEF9089E86BA3F245751B)
 
 ## 预览H5页面
 
 页面编辑过程中可点击顶部菜单导航"预览"对页面效果进行预览，魔方创意提供多种方式预览：
 
-* 您可以点击 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/ZRGx5_8ISdOioxjuwZJNBA/zh-cn_image_0000002382174873.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=C7AB99BD192A6CA1AEF361C3ED290C39CE8AB5870D5037BFCE3EDCF209A2945B) 或 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/m5yEuBIAT9GhNWwRCj8L8w/zh-cn_image_0000002382174861.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=F54EC1A56B9BAD41C00565359612E72DA95720F3E0A68FBED9EEBCC739B0CCC3) 直接查看手机模拟器中的展示效果。
+* 您可以点击 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/ZRGx5_8ISdOioxjuwZJNBA/zh-cn_image_0000002382174873.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=0B27BB84CBE189155795DBD8C00C1D99BEA89C6923A3B9EA8DB8FA360D5916FF) 或 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/m5yEuBIAT9GhNWwRCj8L8w/zh-cn_image_0000002382174861.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=C01E815BB15DB99433D9D1647D761D5491E371926FA532DA8EC191981F48B32B) 直接查看手机模拟器中的展示效果。
 * 您可以复制一键生成的链接，前往移动端查看展示效果。
-* 您可以直接扫描二维码查看展示效果。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/TU3r9O0AQAiqkWBwUmfFpg/zh-cn_image_0000002348454480.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=3269CF4B04F9E35E59FA80307005DC4D135C43336FCCD1344A2C53D469D7F7C8)
+* 您可以直接扫描二维码查看展示效果。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/TU3r9O0AQAiqkWBwUmfFpg/zh-cn_image_0000002348454480.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=A8ECF7EDB9CB3BE081C966E18968E8DF7C9382151DA37731493697644551E24E)
 
 ## 提交审核
 
@@ -73,12 +73,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-creatives-ideas-p
 
 ### 顶部banner
 
-* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/0wytnaMXRu-Pwqevej7SEA/zh-cn_image_0000002348294668.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=2D2EBE3D7B78354D8E7D591596A1228EFC5B09254CB350E1233E7BA3A3E5756C)
+* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/0wytnaMXRu-Pwqevej7SEA/zh-cn_image_0000002348294668.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=741975B344691826506F71E7CFFFD2A8C1380A0B36CD7EAB4C05067916342770)
 
   当版本更新时可以使用，展示最新资讯。
 
 
-* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/qhbFMOolSv6gmx2upkAAAQ/zh-cn_image_0000002348294672.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=F6F493019650EB8D65DFB7B59D18EB836DFC7686B111EEA7F58B240F67E9FBF3)
+* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/qhbFMOolSv6gmx2upkAAAQ/zh-cn_image_0000002348294672.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=230C1BEBE2648BD74179614D19849181996E0435C3B0AFF117B865E9401DE7C4)
 
   |参数|说明|
   |:---|:---------------------------------------------------------------------------------------|
@@ -90,12 +90,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-creatives-ideas-p
 
 ### 工具栏
 
-* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/RXfSo8fZS1ScVkaX1DKl5Q/zh-cn_image_0000002382055193.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=112365258B096AFBF569B576ABA22AD46F33210395CDA7B281EC1DDE69DF9C81)
+* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/RXfSo8fZS1ScVkaX1DKl5Q/zh-cn_image_0000002382055193.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=F33B70E4AA63FBC24BCE4BE492D6355B37494301D513914A2CB929A90F657539)
 
   可配置多个图标，默认4个，只能在3~5个之间。
 
 
-* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/5_967XoITjStZ9i8pMD4sg/zh-cn_image_0000002348454456.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=EE980137835E6B84D2358663345954037887DCA1DE73BFF384D53567F543FBE2)
+* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/5_967XoITjStZ9i8pMD4sg/zh-cn_image_0000002348454456.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=83F3BCDEE558AD01C81A40304B7FA9F7C4F9D2087D857F5F19384FB10DEA4910)
 
   |参数|说明|
   |:---|:---------------------------------------------------------------------------------|
@@ -106,12 +106,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-creatives-ideas-p
 
 ### 穿插Banner
 
-* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/QQUHq5xFQTO9-2v4-DHg0A/zh-cn_image_0000002382055165.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=F45EF61E472D1C5F72EE35496E99376449A47A9C62E9D91A19F0C037AEB85FF0)
+* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/QQUHq5xFQTO9-2v4-DHg0A/zh-cn_image_0000002382055165.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=C8DE4E216280962998C6D24B4ADFBA036BA92FC3EFDC7A08361EFD8E4422D85B)
 
   穿插 banner 组件是一种支持配置单个宽型 banner 的组件。穿插 banner 位置较为灵活，可以穿插在组件之间丰富页面样式。
 
 
-* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/yCzxZC8PTXSzovY95wrLSw/zh-cn_image_0000002348294680.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=08EBDE0A01DD9A2EE1AE67D4C62514BFCD9571EFC14220AF55F4D59EB109630A)
+* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/yCzxZC8PTXSzovY95wrLSw/zh-cn_image_0000002348294680.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=0C531F53B143EEC125D5C1617D3C9EA9C3AADAEB0C92A9CAA1F4CCDF8E0F5BB3)
 
   |参数|说明|
   |:---|:------------------------------------------------------------------------------------------------------|
@@ -120,12 +120,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-creatives-ideas-p
 
 ### 内容平铺
 
-* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/RA2fbDL7TOeoRFTF9URYEA/zh-cn_image_0000002348454448.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=6BE4D461FEB307682F6E10D82A6982C752AE44F6BFD785FB4600B733BA64E817)
+* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/RA2fbDL7TOeoRFTF9URYEA/zh-cn_image_0000002348454448.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=620515B4CEA017511225B579001D5799C98A25949424703C1CE223C8A3C8B19D)
 
   该组件可平铺展示多个内容。
 
 
-* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/PI5z-HN0Rk-XEHeuv2fSUQ/zh-cn_image_0000002382174889.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=7213627F386AE790204D545CD7DC5C3D134A1729D7297BA8FA8D212A767B1036)
+* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/PI5z-HN0Rk-XEHeuv2fSUQ/zh-cn_image_0000002382174889.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=8D37473474679FF37A4B93B8A892A7DA6B919E63C21D10A1D1DD8C800A9B451D)
 
   |参数||说明|
   |:---|-------|:---------------------------------------------------------------------------------------------------------------------------------|
@@ -142,12 +142,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-creatives-ideas-p
 
 ### 页签容器
 
-* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/rhKuDO2wSqu2k7MYtdj1ow/zh-cn_image_0000002382174881.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=CB2F9805E17EBF4732FC1B0BAF9C5D8080F817F2212DC18477E1669F25799867)
+* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/rhKuDO2wSqu2k7MYtdj1ow/zh-cn_image_0000002382174881.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=0FB87E4CDDC51DC635C172BC73ED72A2D8E65A1A4C918D7F6DF37AD477C74DA8)
 
   页签容器可配置多个页签图标。必须与内容平铺搭配使用。
 
 
-* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/xD8M1t-hSsSO0KdR-kYaTA/zh-cn_image_0000002348454472.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=2FF182BAAC53B1B535DB3E437A5D1E5E98E90935ECFFE1661442CF2FB7EAF8DC)
+* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/xD8M1t-hSsSO0KdR-kYaTA/zh-cn_image_0000002348454472.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=9305FD0FB557C67AE4B88134B5ACE1EBA660C295F084E9CB568C2B420CDB2157)
 
   |参数|说明|
   |:------|:----------------|
@@ -159,23 +159,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-creatives-ideas-p
 
   编辑预览区域已放置页签容器和内容平铺组件后，选中内容平铺组件，可拖拽入页签容器，页签容器边框高亮时可放开鼠标，弹框提示"是否拖入当前容器？"，点击"确定"即可将该组件放入该页签。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/KPy1wWjZSOGpjcTYdeLsLA/zh-cn_image_0000002382055185.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=61F492094A1EBDFF8BA1BE8AF6976F3871F676F62980757DA7CC2FB21447A60B)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/KPy1wWjZSOGpjcTYdeLsLA/zh-cn_image_0000002382055185.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=828762BD131B007964E912C0C9D30D94D14BBE888303FC0C6E8EF6649657B21D)
 
   多个页签需点击对应页签分别配置关联内容平铺组件。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/1gbTW8dpT4SQ_kARMG37jg/zh-cn_image_0000002382055173.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=2FC05F7FB2D1E6036D440C4C06246E35D218E525198AA704D80EDF9D99D77D85)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/1gbTW8dpT4SQ_kARMG37jg/zh-cn_image_0000002382055173.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=FE4FA7CB575B63620D574DCB002FE04E0D157CA20DD16BA51542055250DD8480)
   > 说明
   >
   > 不同页签下的内容平铺组件的行数要保持一致，不然页面底部会出现留白。
 
 ### 瀑布流卡片
 
-* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/aq-CiKg1R2GxuErkfLZ2PA/zh-cn_image_0000002382055157.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=004565D46D5FBBA5519237A603EF2AFA7E0D72C20B2EDAFE4CF510F534BA9CBF)
+* 组件介绍 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/aq-CiKg1R2GxuErkfLZ2PA/zh-cn_image_0000002382055157.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=2DB111CDA13FAF0237B2502D303F16C9D4DA17EC83F3A858C3F71707B5B747C8)
 
   瀑布流是由多个单卡片组成的竖滑组件，每个卡片承载一个内容，放置在页面底部。
 
 
-* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/1RisnfIaQwO-SkcutyiPXQ/zh-cn_image_0000002348454452.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=A739835B39D3808850FCCA72AD0212FC201B319678E8A7F65A04689378119F9F)
+* 组件配置 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/1RisnfIaQwO-SkcutyiPXQ/zh-cn_image_0000002348454452.png?HW-CC-KV=V1&HW-CC-Date=20261008T192129Z&HW-CC-Expire=31536000000&HW-CC-Sign=865FF374CEED3807297EF091B7F254D3D91080289A7BF515F99E51C343A7339F)
 
   |参数||说明|
   |:---|----|:---------------------------------------------------------------------------------------------------------|

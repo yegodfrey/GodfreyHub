@@ -317,7 +317,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-devi
 
      效果如下：
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/FsPk09_IS92pNcI3OmCaSQ/zh-cn_image_0000002658911737.png?HW-CC-KV=V1&HW-CC-Date=20260909T164824Z&HW-CC-Expire=31536000000&HW-CC-Sign=F700DFA5C2BBA6150EE265B37BF73690806B56FB28D68C97E54F35BCAC6B630C "点击放大")
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/FsPk09_IS92pNcI3OmCaSQ/zh-cn_image_0000002658911737.png?HW-CC-KV=V1&HW-CC-Date=20261008T174659Z&HW-CC-Expire=31536000000&HW-CC-Sign=8669C34BC6CF941C4026EDA8632E05E57653746986E994016204EEBF4325258E "点击放大")
 * 方案二：通过系统提供的悬浮窗实现，通过createWindow的创建类型为TYPE_FLOAT的窗口即可实现。
   1. 新建FloatWindowBySystemApi.ets页面，通过setUIContent、moveWindowTo、resize、showWindow方法分别设置窗口加载的内容页面、位置、大小、窗口的显示，具体实现如下：
 
@@ -482,7 +482,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-devi
 
      效果如下：
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/yeGk0-2ZSq6i7YQBROWGzw/zh-cn_image_0000002628392524.png?HW-CC-KV=V1&HW-CC-Date=20260909T164824Z&HW-CC-Expire=31536000000&HW-CC-Sign=09C8D6E99719B46F1208C31917DCC190C0CF0900428B5580F02A1F2CA987F304 "点击放大")
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/yeGk0-2ZSq6i7YQBROWGzw/zh-cn_image_0000002628392524.png?HW-CC-KV=V1&HW-CC-Date=20261008T174659Z&HW-CC-Expire=31536000000&HW-CC-Sign=1FFE2E60086113C61AF2E70D31831240C1A7791951360240AE25D92359FEA46F "点击放大")
 * 方案三：通过多Ability实现，该方案主要通过startAbility拉起UIAbility，并隐藏窗口的标题栏和控制窗口大小和层级来实现。
   1. 新建一个名称为的FloatWindowAbility的UIAbility，通过setWindowDecorVisible隐藏窗口的标题栏，通过setWindowTitleButtonVisible隐藏标题栏上的最大化、最小化、关闭按钮，再通过setWindowTopmost方法设置窗口置顶，具体实现如下：
 
@@ -635,6 +635,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-devi
 
      效果如下：
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/Bc8ZstAvQ6GIRR4XjsA-tQ/zh-cn_image_0000002658791795.png?HW-CC-KV=V1&HW-CC-Date=20260909T164824Z&HW-CC-Expire=31536000000&HW-CC-Sign=8F1D17945F63F96690236F99AE8FA9567E9505BFFA0E537C62C5BC4B1ED937F7 "点击放大")
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/Bc8ZstAvQ6GIRR4XjsA-tQ/zh-cn_image_0000002658791795.png?HW-CC-KV=V1&HW-CC-Date=20261008T174659Z&HW-CC-Expire=31536000000&HW-CC-Sign=790E92F56BB1E28227AD8CA2F996390AEDF623F782A3F132CAD1944AF6E32CAA "点击放大")
 * 方案四：通过闪控球实现。 闪控球是一种在设备屏幕上悬浮的非全屏应用窗口，为应用提供临时的全局能力，完成跨应用交互，具体实现可参考官网详细开发步骤：[全局闪控球开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/floatingball-guide)。
 

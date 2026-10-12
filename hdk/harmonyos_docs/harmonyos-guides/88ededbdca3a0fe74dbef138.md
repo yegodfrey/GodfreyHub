@@ -14,12 +14,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-hds
 
 * 半屏居中对齐布局
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/TMzxP6D9R6Syh6kzzGMYHQ/zh-cn_image_0000002779091965.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=CD3B5684F732AC5959EEBA45946EB868F22DA6D1D275CE836AEE2054943097CE)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/KUzAy26ZQKS1eNSwJ_HJkA/zh-cn_image_0000002755183938.png?HW-CC-KV=V1&HW-CC-Date=20261009T092713Z&HW-CC-Expire=31536000000&HW-CC-Sign=AF474BBE0D882F3CDB2FCC66035E4C1D16355E2864454AD6F33B3A7C26485649)
 * 默认横向和纵向布局
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/MX3GvqreQpa02tU2xIpNYQ/zh-cn_image_0000002778932107.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A92269090E49D877D93BA9ECCEF57D7460C8630FD9AA70DA0C8AFD145FDAF35)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/UstL37ZjRfWjQIUB0EFx5Q/zh-cn_image_0000002784582805.png?HW-CC-KV=V1&HW-CC-Date=20261009T092713Z&HW-CC-Expire=31536000000&HW-CC-Sign=5BCA5EA8A2BFDD90D296324A1F12D1221588398F033A1BE160347EDD4D5821DE)
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/eFI2_c9mQdK1u7xJCVs1UQ/zh-cn_image_0000002749333024.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=2EF89D72E20974C931C0C3A5E62CCB889B6094A640B9C892F87566EC9E2D5BA2)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/HQauyMP-RMqpogXTp-YkCg/zh-cn_image_0000002784662985.png?HW-CC-KV=V1&HW-CC-Date=20261009T092713Z&HW-CC-Expire=31536000000&HW-CC-Sign=90FC356ABA43650C56D9CDEA40C67E38DDC56F25A2A77278E97D97F4E698BD5A)
 
 ## 约束条件
 

@@ -13,7 +13,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-2
 ## 背景知识
 
 * [AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avplayer)主要工作是将Audio/Video媒体资源（比如mp4/mp3/mkv/mpeg-ts等）转码为可供渲染的图像和可听的音频模拟信号，并通过输出设备进行播放。
-* AVPlayer播放状态变化示意图如下： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/PD9zFPeEQ2a_imtHu-hVhw/zh-cn_image_0000002628554884.png?HW-CC-KV=V1&HW-CC-Date=20260920T112701Z&HW-CC-Expire=31536000000&HW-CC-Sign=449496212AA3E58D289242FE25CE5055DA14658DF885E901E0344262D76FFA6C "点击放大")
+* AVPlayer播放状态变化示意图如下： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/PD9zFPeEQ2a_imtHu-hVhw/zh-cn_image_0000002628554884.png?HW-CC-KV=V1&HW-CC-Date=20261008T181528Z&HW-CC-Expire=31536000000&HW-CC-Sign=C435849DD8B0D0D08D14966F3CB467144F8DC963F018252200A6A38986F7F241 "点击放大")
 
 * 每个状态的状态码如下：
 

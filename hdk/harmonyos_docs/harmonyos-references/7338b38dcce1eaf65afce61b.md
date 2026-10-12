@@ -10,9 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-order
 
 ## 功能介绍
 
+> phone | 2in1 | tablet | tv | wearable
+
 此接口用于查询交易号对应的订单状态信息。
 
 ## 场景描述
+
+> phone | 2in1 | tablet | tv | wearable
 
 当用户对订单存在疑问时，可以通过交易号向开发者寻求技术支持，开发者通过调用该接口查询对应的订单状态信息。
 > 说明
@@ -22,6 +26,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-order
 > 该接口不支持查询沙盒测试订单。
 
 ## 接口原型
+
+> phone | 2in1 | tablet | tv | wearable
 
 * **承载协议：** HTTPS POST
 
@@ -38,7 +44,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-order
 
 ## 请求参数
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### Request Header
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:------------|:---|:-----|:--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -47,11 +57,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-order
 
 ### Request Body
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:------|:---|:-----|:-----------------------------------------------------------|
 |orderNo|是|String|具体一笔订单对应的交易号，交易号可在用户设备的"设置">"华为账号">"付款与账单">"购买记录"中对应订单详情中获取。|
 
 ## 请求示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```javascript
 POST /harmony/v1/application/order/lookup
@@ -65,13 +79,19 @@ Accept: application/json
 
 ## 响应参数
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### Response Header
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:-----------|:---|:-----|:---------------------------------|
 |Content-Type|是|String|取值为：application/json;charset=UTF-8|
 
 ### Response Body
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:---------------|:---|:------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -81,6 +101,8 @@ Accept: application/json
 |jwsPurchaseOrder|否|String|已购订单相关状态信息的JWS格式数据。 可参见[对返回结果验签](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-verifying-signature)处理，验签通过后解码获取相关订单状态信息，具体请参见[PurchaseOrderPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-server-data-model#purchaseorderpayload)说明。|
 
 ## 响应示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```javascript
 HTTP/1.2 200 OK

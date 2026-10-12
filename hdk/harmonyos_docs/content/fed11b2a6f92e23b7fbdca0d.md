@@ -32,5 +32,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/content/watch-face-preview-vid
 
 在Theme Studio Pro中，支持在导出表盘资源包时，同步导出预览视频。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/aLfShVOrQKSIctww0HxSTQ/zh-cn_image_0000001737839336.png?HW-CC-KV=V1&HW-CC-Date=20260924T094631Z&HW-CC-Expire=31536000000&HW-CC-Sign=AD1C96B372FE86EABD63C6A7D178C62AFF7032E84DCC5F974C16B7FF6AF5524E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/aLfShVOrQKSIctww0HxSTQ/zh-cn_image_0000001737839336.png?HW-CC-KV=V1&HW-CC-Date=20261009T035831Z&HW-CC-Expire=31536000000&HW-CC-Sign=D013897C4BBB29045CACFEB8E2BFEB9798EACC4E2118B0ACFC0CF52B36F96CC6 "点击放大")
 

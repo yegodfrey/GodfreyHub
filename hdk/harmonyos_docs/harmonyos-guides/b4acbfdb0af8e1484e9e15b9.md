@@ -24,7 +24,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-
 
 ### 数据跨设备同步机制
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/dKEML2keQ--1R2yU7uxDrA/zh-cn_image_0000002779090687.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=51D492EA1D526AC09DFC152D03789874893F4F5660AB2375EB8601E985E19B0E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/bK1wXAq2TRGCymcYcpuAow/zh-cn_image_0000002755022886.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092713Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA4E63B755EF8CF7840DDCF8E86609B134276C10F879EBFA4E4B4CF91DBB6D96)
 
 业务将数据写入关系型数据库后，向数据管理服务发起同步请求。
 
@@ -50,7 +50,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-
 
 需要注意的是，该模式下不支持对其他设备同步过来的数据进行修改。这一限制旨在保障数据一致性与同步逻辑的稳定性。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/SWo1lOl_SKygXCMUsazd2A/zh-cn_image_0000002778930831.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=D5DD46E4C3D721B5242E054433A272926DB35FA3E16AFB92F85D1BA87C77D0A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/5kfbuz64Sy66oMXdbjbgfg/zh-cn_image_0000002755182772.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092713Z&HW-CC-Expire=31536000000&HW-CC-Sign=4210873C95C3B203A71B04B51254081A999B042661F06FEB18A4CBD7FB1D4F1A)
 
 **单版本表模式**
 
@@ -58,7 +58,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-
 
 使用单版本表模式跨设备同步，需要配置schema文件，指定所需同步列以及解冲突列；单版本表模式同步数据支持修改对端设备同步过来的数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/wPHCxxUHS86VAjTjCsoBYw/zh-cn_image_0000002749331748.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE7B72E22A5C013D96C92570A504A6D54AC321605C31987F4ACFD772DC8181DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/ht3MUwQuShq01jFEwApC3A/zh-cn_image_0000002784581637.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092713Z&HW-CC-Expire=31536000000&HW-CC-Sign=60A114D5322946CF4CD51DBE9D49A37618C797DC77BA4937244747CE91726930)
 
 ## 约束限制
 

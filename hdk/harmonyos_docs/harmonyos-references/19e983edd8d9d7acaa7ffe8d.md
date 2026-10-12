@@ -14,6 +14,8 @@ typedef struct OH_Drawing_FontVariationInstance OH_Drawing_FontVariationInstance
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 用于描述字体可变实例，存放预设的可变字体样式信息。
 
 **起始版本：** 24

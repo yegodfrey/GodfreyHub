@@ -11,7 +11,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-appterminate
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"开发与服务"。
 2. 在项目列表中找到对应项目，在项目下的应用列表中点击对应应用/元服务。
 3. 左侧导航栏选择"质量 > APMS > 故障指标"，进入故障指标主界面。
-4. 选择"应用终止"页签，进入应用终止页面。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/QLnlOTZDQ-uDDZTF4iFhhQ/zh-cn_image_0000002624665371.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=C5E2471C5BE8FED7E1C28A720CE40B0DF8E3517AA631FAB9B146C534B7BA0047)
+4. 选择"应用终止"页签，进入应用终止页面。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/QLnlOTZDQ-uDDZTF4iFhhQ/zh-cn_image_0000002624665371.png?HW-CC-KV=V1&HW-CC-Date=20261008T161422Z&HW-CC-Expire=31536000000&HW-CC-Sign=051E9CBA752E5F8301B4136EECE6BDECE6A6ACA1ABB7A173234425AE3DC94B29)
 
    以下为应用终止指标图表对应的筛选条件说明：
 
@@ -26,13 +26,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-appterminate
    |应用在前台|故障发生时，应用是否处于前台|
    |故障原因|应用终止原因分类，详见"应用终止常见原因表"|
 
-5. 点击右下角"展开"按钮可以展开全部的条件筛选区，点击"收起"按钮则将条件筛选区折叠为两行。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/lx_fduT0SjaTH1qt4yLgkw/zh-cn_image_0000002624545511.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=870177B66C667CA5A0D2B9DA6E4B02F38FD3F914DA23BE96A08585D3AAE4C0AE)
+5. 点击右下角"展开"按钮可以展开全部的条件筛选区，点击"收起"按钮则将条件筛选区折叠为两行。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/lx_fduT0SjaTH1qt4yLgkw/zh-cn_image_0000002624545511.png?HW-CC-KV=V1&HW-CC-Date=20261008T161422Z&HW-CC-Expire=31536000000&HW-CC-Sign=DFF4E44EA31B4C550E243033FA62246F6B6D515ACF0C6539DA14D249D74F379E)
 
 ## 应用终止趋势分析
 
 应用终止趋势分析呈现应用终止数据随时间的变化情况。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/nURTvr9iSk6KBRkGYB3Ceg/zh-cn_image_0000002583149712.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=772280DEC8831C7A4DDC40931E783072E6EF38455C9EC1C77AF0326FA880F25E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/nURTvr9iSk6KBRkGYB3Ceg/zh-cn_image_0000002583149712.png?HW-CC-KV=V1&HW-CC-Date=20261008T161422Z&HW-CC-Expire=31536000000&HW-CC-Sign=039B8DACF4EC0F8D39E64788ABEE5086120519EC2F26066CDB39D76DF37C64E0)
 
 * 点击左上角的"应用终止率"、"应用终止次数"、"应用终止设备数"按钮，可以切换应用终止数据的指标计算方式。
 * 点击右上角的"↓"按钮，可以下载当前趋势图表的指标数据。 说明
@@ -44,7 +44,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-appterminate
 
 ## 版本对比
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/fXX-AInvTZ2jgxWJH6J74A/zh-cn_image_0000002583149970.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=F3B725EFFC2B72F3DAE00FED7EB5E44787B2CFD3435143EE9D840DE076B3DB10)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/fXX-AInvTZ2jgxWJH6J74A/zh-cn_image_0000002583149970.png?HW-CC-KV=V1&HW-CC-Date=20261008T161422Z&HW-CC-Expire=31536000000&HW-CC-Sign=6810AD2FA8B3EE38662239C4451D06F72E4A9554D7BF85BAF8D35C33F28CA6B3)
 
 * 趋势图表默认开启版本对比功能，使用该功能可以对比当前版本与对比版本间的崩溃趋势变化。鼠标悬停在趋势图上时，会展示当前位置的对应时间段的对比数据与优劣化百分比。
 
@@ -59,7 +59,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-appterminate
 
 应用终止维度分析呈现应用终止数据与应用版本等维度的集中分布关系。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/2-MMyY8aSWOYL5lXOSn6pw/zh-cn_image_0000002612072573.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=384959BB56EBC9155A06B6B84710327AA5E6C863966E178F64DEF4822F1D1F8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/2-MMyY8aSWOYL5lXOSn6pw/zh-cn_image_0000002612072573.png?HW-CC-KV=V1&HW-CC-Date=20261008T161422Z&HW-CC-Expire=31536000000&HW-CC-Sign=151EEF81188E4158A6184EA754DDCAC529E2BC2C8744345119EF6C944AFEF351)
 
 * 维度分布图表默认展示应用终止的"发生次数"在"应用版本"、"系统版本"、"设备型号"三个维度上的Top5分布情况，展示对应维度值与占比。
 * 切换右上角下拉筛选可以更新维度分布的计算依据，支持"发生次数"与"影响设备数"。
@@ -68,7 +68,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-appterminate
 
 应用终止分布呈现应用终止数据与应用终止原因（图中为应用终止原因说明）的集中分布关系。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/cHxRS3PgTT6JZ7zfC3CvCA/zh-cn_image_0000002583310188.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=0520DAA61ADEBC480588BA0063AC16C4873DD9375778EA725D8B77E3C0CC623B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/cHxRS3PgTT6JZ7zfC3CvCA/zh-cn_image_0000002583310188.png?HW-CC-KV=V1&HW-CC-Date=20261008T161422Z&HW-CC-Expire=31536000000&HW-CC-Sign=B49C5CD9BBEB66D3475D42698FC23EB77204399B3743C4163EA88D13F604CB39)
 
 * 应用终止分布图表默认展示应用终止的"发生次数"在"应用终止原因"上的分布情况，展示对应的应用终止次数与占比。左侧饼图展示Top 10应用终止原因，右侧表格展示全部应用终止原因。
 * 切换右上角下拉筛选可以更新应用终止分布的计算依据，支持"发生次数"与"影响设备数"。

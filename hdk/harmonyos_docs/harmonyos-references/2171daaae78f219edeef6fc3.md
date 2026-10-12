@@ -15,11 +15,15 @@ ExtensionAbility信息，可以通过[bundleManager.getBundleInfoForSelf](https:
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { bundleManager } from '@kit.AbilityKit';
 ```
 
 ## ExtensionAbilityInfo
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 **系统能力**: SystemCapability.BundleManager.BundleFramework.Core
 

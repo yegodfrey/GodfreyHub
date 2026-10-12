@@ -23,11 +23,15 @@ WebDownloadItem是ArkWeb框架中用于表示和管理单个下载任务的类�
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { webview } from '@kit.ArkWeb';
 ```
 
 ## getGuid^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getGuid(): string
 
@@ -94,6 +98,8 @@ struct WebComponent {
 
 ## getCurrentSpeed^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getCurrentSpeed(): number
 
 获取下载的速度，单位：字节每秒。
@@ -158,6 +164,8 @@ struct WebComponent {
 ```
 
 ## getPercentComplete^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getPercentComplete(): number
 
@@ -224,6 +232,8 @@ struct WebComponent {
 
 ## getTotalBytes^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getTotalBytes(): number
 
 获取待下载文件的总长度。
@@ -289,6 +299,8 @@ struct WebComponent {
 
 ## getState^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getState(): WebDownloadState
 
 获取下载的状态。
@@ -353,6 +365,8 @@ struct WebComponent {
 ```
 
 ## getLastErrorCode^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getLastErrorCode(): WebDownloadErrorCode
 
@@ -420,6 +434,8 @@ struct WebComponent {
 
 ## getMethod^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getMethod(): string
 
 获取下载任务的请求方式。
@@ -484,6 +500,8 @@ struct WebComponent {
 ```
 
 ## getMimeType^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getMimeType(): string
 
@@ -550,6 +568,8 @@ struct WebComponent {
 
 ## getUrl^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getUrl(): string
 
 获取下载的请求地址。
@@ -615,6 +635,8 @@ struct WebComponent {
 
 ## getSuggestedFileName^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getSuggestedFileName(): string
 
 获取下载的建议文件名。
@@ -679,6 +701,8 @@ struct WebComponent {
 ```
 
 ## getReceivedBytes^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getReceivedBytes(): number
 
@@ -746,6 +770,8 @@ struct WebComponent {
 
 ## getFullPath^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getFullPath(): string
 
 获取下载文件在磁盘上的全路径。
@@ -811,6 +837,8 @@ struct WebComponent {
 ```
 
 ## getOriginalUrl^24+^
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 getOriginalUrl(): string
 
@@ -879,6 +907,8 @@ struct WebComponent {
 
 ## getReferrerUrl^24+^
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 getReferrerUrl(): string
 
 获取下载文件的referrer地址。
@@ -945,6 +975,8 @@ struct WebComponent {
 ```
 
 ## serialize^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 serialize(): Uint8Array
 
@@ -1013,6 +1045,8 @@ struct WebComponent {
 ```
 
 ## deserialize^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static deserialize(serializedData: Uint8Array): WebDownloadItem
 
@@ -1104,6 +1138,8 @@ struct WebComponent {
 
 ## start^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 start(downloadPath: string): void
 
 开始下载到指定目录，参数为下载文件的磁盘存储路径（包含文件名）。
@@ -1191,6 +1227,8 @@ struct WebComponent {
 
 ## cancel^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 cancel(): void
 
 取消下载任务。
@@ -1270,6 +1308,8 @@ struct WebComponent {
 ```
 
 ## pause^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 pause(): void
 
@@ -1366,6 +1406,8 @@ struct WebComponent {
 ```
 
 ## resume^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 resume(): void
 

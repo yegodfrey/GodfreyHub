@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/guidebook/develop-once-deploy-
 
 用户使用手机和PC的场景天然存在不同：手机主要用于内容消费、生活购物、社交等活动，应用程序默认全屏运行，强调沉浸式体验；PC则主要用于创作、编程、视频剪辑等生产力活动，支持多窗口堆叠、自由拖拽等能力。典型效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/zezPRdYDT4eAYatqkLT_tA/zh-cn_image_0000002625192429.png?HW-CC-KV=V1&HW-CC-Date=20260909T145835Z&HW-CC-Expire=31536000000&HW-CC-Sign=8BDB1A37143A5305124A3F773BD70569ADD499D31107C357B6B65079F18E5FE5 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/YSbqZBbuRjisoVc4uzHUXw/zh-cn_image_0000002625192429.png?HW-CC-KV=V1&HW-CC-Date=20261009T073130Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E14FFE5AD0839C73F8082D91EA9908574FE5155BE202499E8DFDD9A4BCB7A49 "点击放大")
 
 ### 5.1.1.1 生命周期差异
 
@@ -36,7 +36,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/guidebook/develop-once-deploy-
 
 当用户打开、切换、最小化、返回到对应应用时，应用中的UIAbility实例会在其生命周期的不同状态之间转换。UIAbility类提供了一系列生命周期回调，通过这些回调可以知道当前UIAbility实例的某个状态发生改变。UIAbility生命周期包括Create、Foreground、Background、Destroy等多个状态，同时穿插对应着多个WindowStage的回调事件和监听，具体如下图所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/nOp728ZAQ9aIHCg73-u-qA/zh-cn_image_0000002594673060.png?HW-CC-KV=V1&HW-CC-Date=20260909T145835Z&HW-CC-Expire=31536000000&HW-CC-Sign=AAB8741CC0982FFD9FE0E70F67B1475329F3DCD970E799F61585B647E697D676 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/6pKPiRD9QQK911o1Y3-1sw/zh-cn_image_0000002594673060.png?HW-CC-KV=V1&HW-CC-Date=20261009T073130Z&HW-CC-Expire=31536000000&HW-CC-Sign=2FB2DEA6CA6617D7C45F5055D9E633A99C3698953CAEA2BC40E4AEA22E02C2C2 "点击放大")
 
 开发者需要继承UIAbility，通过UIAbility的生命周期回调感知应用创建、进入前台、后台、销毁。同时通过WindowStage的WindowStageEvent事件感知窗口状态变化。
 
@@ -48,7 +48,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/guidebook/develop-once-deploy-
 
 在自由窗口模式下，应用的标题栏默认支持移动、缩小、放大、关闭窗口的能力。开发者可通过设置应用窗口的标题栏不可见，将应用页面拓展至原标题栏区域，实现窗口沉浸式。效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/RexEetM8SkCDrDiAa67qGQ/zh-cn_image_0000002625112573.png?HW-CC-KV=V1&HW-CC-Date=20260909T145835Z&HW-CC-Expire=31536000000&HW-CC-Sign=3AC8D7DC4B7566FB2A2DC8D7621B581B5680E93510BC63178546D2E2A507006C "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/TcijvHZeSHGQJnXnTL80bg/zh-cn_image_0000002625112573.png?HW-CC-KV=V1&HW-CC-Date=20261009T073130Z&HW-CC-Expire=31536000000&HW-CC-Sign=3EF0821993F2A8A2DB3593EB0EDC58159D4C65FF6652DE5D8861904ACF8AA725 "点击放大")
 
 自由窗口标题栏包含应用图标、应用名称以及三键（全屏/还原、最小化、关闭）。通过设置标题栏不可见，隐藏应用图标及应用名称保留三键区的方式实现窗口沉浸式。
 
@@ -62,7 +62,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/guidebook/develop-once-deploy-
 
 视频类应用在自由窗口模式下，需要实现视频播放页在自由窗口与全屏沉浸式切换功能。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/4BMoh0mQQ-iDaioibrNroA/zh-cn_image_0000002594832984.png?HW-CC-KV=V1&HW-CC-Date=20260909T145835Z&HW-CC-Expire=31536000000&HW-CC-Sign=028BDA14E3BE2ABF8FD60497254DA757B8FE8399A2B45B70F0DEACF957B5B2E6 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/RLI2--5MT0yRvybEIabEDw/zh-cn_image_0000002594832984.png?HW-CC-KV=V1&HW-CC-Date=20261009T073130Z&HW-CC-Expire=31536000000&HW-CC-Sign=C519BA8E06844310B165441E1916AB1D6CBEF3B7913F742087DEFB2AD45A5C5E "点击放大")
 
 **实现原理**
 
@@ -79,5 +79,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/guidebook/develop-once-deploy-
 * 在半折叠态（关闭全尺寸键盘）下，设备拥有上下两个屏幕，其中上屏的displayId为0，下屏的displayId为999。而在半折叠态（唤起全尺寸键盘）和展开态下，仅显示displayId为0的屏幕。
 * 折叠PC外接显示器时，会自动进入横向展开态布局，且屏幕方向为反向横屏，此时折叠PC默认作为主显示器（displayId为0），外接屏幕作为副显示器（displayId与接入的端口有关）。可使用getWindowProperties()方法获取当前窗口的属性WindowProperties，其中displayId为当前窗口所在屏幕的ID，从而可判断当前窗口所在的显示器。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/tVXyRUIoQmKoUqgk4VpKJg/zh-cn_image_0000002625192431.png?HW-CC-KV=V1&HW-CC-Date=20260909T145835Z&HW-CC-Expire=31536000000&HW-CC-Sign=49BDDD96D71369675AD6F435ADBDA4E81CAAA0A7395FCC9DA24CB10FD30E28F3 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/N2GGKavwS8aOqMljU-Ly_Q/zh-cn_image_0000002625192431.png?HW-CC-KV=V1&HW-CC-Date=20261009T073130Z&HW-CC-Expire=31536000000&HW-CC-Sign=1A061BBA01EC566E94F75000BEE5E2631F28BE4D3872BEB8316CFC8C2BB49F31 "点击放大")
 

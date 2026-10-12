@@ -14,6 +14,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode
 
 ## 201 权限校验失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Permission denied.
@@ -31,6 +33,8 @@ Permission denied.
 只允许符合使用场景的应用申请该权限。在举报诈骗消息场景下，使用诈骗消息选择器时，需要先申请权限：ohos.permission.USE_FRAUD_MESSAGES_PICKER。在举报诈骗通话记录场景下，在使用诈骗通话记录选择器时，需要申请权限：ohos.permission.USE_FRAUD_CALL_LOG_PICKER。申请方式请参考：[申请使用受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl)。
 
 ## 401 参数检查失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -50,6 +54,8 @@ Parameter error.
 
 ## 1017100001 未知异常
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Unknown error.
@@ -67,6 +73,8 @@ Unknown error.
 请优先重试，若重试不成功，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)申请帮助。
 
 ## 1017100002 不支持的设备类型
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -86,6 +94,8 @@ The device type is not supported.
 
 ## 1017600001 未知异常
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Unknown error.
@@ -104,6 +114,8 @@ Unknown error.
 
 ## 1017600002 不支持的设备类型
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The device type is not supported.
@@ -121,6 +133,8 @@ The device type is not supported.
 将设备换成手机或平板后，重新发起请求。
 
 ## 1017600003 参数检查失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 

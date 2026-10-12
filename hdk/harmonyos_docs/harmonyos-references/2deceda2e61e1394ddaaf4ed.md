@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf
 
 ## 概述
 
+> phone | 2in1 | tablet | tv
+
 提供访问统一数据管理框架数据的接口、数据结构、枚举类型。当参数类型为char*时，字符串必须以空字符（'\0'）结尾。
 
 **引用文件：** <database/udmf/udmf.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv
 
 |名称|typedef关键字|描述|
 |:-------------------------------------------------------------------------------------------------------------------------|:--------------------|:-------------------------|
@@ -40,6 +46,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf
 
 ### 枚举
 
+> phone | 2in1 | tablet | tv
+
 |名称|typedef关键字|描述|
 |:----------------------------------------------------|:-----------------------|:-------------------------|
 |[Udmf_Intention](#udmf_intention)|Udmf_Intention|描述UDMF数据通路枚举类型。|
@@ -50,11 +58,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf
 
 ## 宏定义
 
+> phone | 2in1 | tablet | tv
+
 |名称|描述|
 |:------------------------|:------------------------------|
 |UDMF_KEY_BUFFER_LEN (512)|统一数据对象唯一标识符最小空间长度。 **起始版本：** 12|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv
 
 |名称|typedef关键字|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -148,7 +160,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf
 
 ## 枚举类型说明
 
+> phone | 2in1 | tablet | tv
+
 ### Udmf_Intention
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 enum Udmf_Intention
@@ -171,6 +187,8 @@ enum Udmf_Intention
 
 ### Udmf_ShareOption
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 enum Udmf_ShareOption
 ```
@@ -189,6 +207,8 @@ UDMF支持的设备内使用范围类型枚举。
 
 ### Udmf_FileConflictOptions
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+
+
 ```c
 enum Udmf_FileConflictOptions
 ```
@@ -205,6 +225,8 @@ enum Udmf_FileConflictOptions
 |UDMF_SKIP = 1|目标路径存在同文件名时跳过。|
 
 ### Udmf_ProgressIndicator
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+
 
 ```c
 enum Udmf_ProgressIndicator
@@ -223,6 +245,8 @@ enum Udmf_ProgressIndicator
 
 ### Udmf_Visibility
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 enum Udmf_Visibility
 ```
@@ -240,7 +264,11 @@ enum Udmf_Visibility
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv
+
 ### OH_UdmfGetDataParams_SetAcceptableInfo()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 void OH_UdmfGetDataParams_SetAcceptableInfo(OH_UdmfGetDataParams* params, OH_UdmfDataLoadInfo* acceptableInfo)
@@ -260,6 +288,8 @@ void OH_UdmfGetDataParams_SetAcceptableInfo(OH_UdmfGetDataParams* params, OH_Udm
 |[OH_UdmfDataLoadInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdataloadinfo)* acceptableInfo|表示指向[OH_UdmfDataLoadInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdataloadinfo)实例的指针。|
 
 ### OH_UdmfDataLoadParams_Create()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 OH_UdmfDataLoadParams* OH_UdmfDataLoadParams_Create()
@@ -281,6 +311,8 @@ OH_UdmfDataLoadParams* OH_UdmfDataLoadParams_Create()
 
 ### OH_UdmfDataLoadParams_Destroy()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 void OH_UdmfDataLoadParams_Destroy(OH_UdmfDataLoadParams* pThis)
 ```
@@ -298,6 +330,8 @@ void OH_UdmfDataLoadParams_Destroy(OH_UdmfDataLoadParams* pThis)
 |[OH_UdmfDataLoadParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdataloadparams)* pThis|表示指向数据加载参数[OH_UdmfDataLoadParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdataloadparams)实例的指针。|
 
 ### OH_UdmfDataLoadParams_SetLoadHandler()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 void OH_UdmfDataLoadParams_SetLoadHandler(OH_UdmfDataLoadParams* params, const OH_Udmf_DataLoadHandler dataLoadHandler)
@@ -318,6 +352,8 @@ void OH_UdmfDataLoadParams_SetLoadHandler(OH_UdmfDataLoadParams* params, const O
 
 ### OH_UdmfDataLoadParams_SetDataLoadInfo()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 void OH_UdmfDataLoadParams_SetDataLoadInfo(OH_UdmfDataLoadParams* params, OH_UdmfDataLoadInfo* dataLoadInfo)
 ```
@@ -336,6 +372,8 @@ void OH_UdmfDataLoadParams_SetDataLoadInfo(OH_UdmfDataLoadParams* params, OH_Udm
 |[OH_UdmfDataLoadInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdataloadinfo)* dataLoadInfo|表示指向数据加载信息[OH_UdmfDataLoadInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdataloadinfo)实例的指针。|
 
 ### OH_UdmfDataLoadInfo_Create()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 OH_UdmfDataLoadInfo* OH_UdmfDataLoadInfo_Create()
@@ -357,6 +395,8 @@ OH_UdmfDataLoadInfo* OH_UdmfDataLoadInfo_Create()
 
 ### OH_UdmfDataLoadInfo_Destroy()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 void OH_UdmfDataLoadInfo_Destroy(OH_UdmfDataLoadInfo* dataLoadInfo)
 ```
@@ -374,6 +414,8 @@ void OH_UdmfDataLoadInfo_Destroy(OH_UdmfDataLoadInfo* dataLoadInfo)
 |[OH_UdmfDataLoadInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdataloadinfo)* dataLoadInfo|表示指向数据加载信息[OH_UdmfDataLoadInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdataloadinfo)实例的指针。|
 
 ### OH_UdmfDataLoadInfo_GetTypes()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 char** OH_UdmfDataLoadInfo_GetTypes(OH_UdmfDataLoadInfo* dataLoadInfo, unsigned int* count)
@@ -400,6 +442,8 @@ char** OH_UdmfDataLoadInfo_GetTypes(OH_UdmfDataLoadInfo* dataLoadInfo, unsigned 
 
 ### OH_UdmfDataLoadInfo_SetType()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 void OH_UdmfDataLoadInfo_SetType(OH_UdmfDataLoadInfo* dataLoadInfo, const char* type)
 ```
@@ -418,6 +462,8 @@ void OH_UdmfDataLoadInfo_SetType(OH_UdmfDataLoadInfo* dataLoadInfo, const char* 
 |const char* type|表示数据类型的字符串。|
 
 ### OH_UdmfDataLoadInfo_GetRecordCount()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 int OH_UdmfDataLoadInfo_GetRecordCount(OH_UdmfDataLoadInfo* dataLoadInfo)
@@ -443,6 +489,8 @@ int OH_UdmfDataLoadInfo_GetRecordCount(OH_UdmfDataLoadInfo* dataLoadInfo)
 
 ### OH_UdmfDataLoadInfo_SetRecordCount()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 void OH_UdmfDataLoadInfo_SetRecordCount(OH_UdmfDataLoadInfo* dataLoadInfo, unsigned int recordCount)
 ```
@@ -461,6 +509,8 @@ void OH_UdmfDataLoadInfo_SetRecordCount(OH_UdmfDataLoadInfo* dataLoadInfo, unsig
 |unsigned int recordCount|表示记录的数量。|
 
 ### OH_Udmf_DataLoadHandler()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 typedef OH_UdmfData* (*OH_Udmf_DataLoadHandler)(OH_UdmfDataLoadInfo* acceptableInfo)
@@ -486,6 +536,8 @@ typedef OH_UdmfData* (*OH_Udmf_DataLoadHandler)(OH_UdmfDataLoadInfo* acceptableI
 
 ### OH_UdmfOptions_GetVisibility()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 Udmf_Visibility OH_UdmfOptions_GetVisibility(OH_UdmfOptions* pThis)
 ```
@@ -509,6 +561,8 @@ Udmf_Visibility OH_UdmfOptions_GetVisibility(OH_UdmfOptions* pThis)
 |[Udmf_Visibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#udmf_visibility)|返回数据可见性等级[Udmf_Visibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#udmf_visibility)的值。|
 
 ### OH_UdmfOptions_SetVisibility()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 int OH_UdmfOptions_SetVisibility(OH_UdmfOptions* pThis, Udmf_Visibility visibility)
@@ -535,6 +589,8 @@ int OH_UdmfOptions_SetVisibility(OH_UdmfOptions* pThis, Udmf_Visibility visibili
 
 ### OH_Udmf_DataProgressListener()
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+
+
 ```c
 typedef void (*OH_Udmf_DataProgressListener)(OH_Udmf_ProgressInfo* progressInfo, OH_UdmfData* data)
 ```
@@ -555,6 +611,8 @@ typedef void (*OH_Udmf_DataProgressListener)(OH_Udmf_ProgressInfo* progressInfo,
 |[OH_UdmfData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdata)* data|返回的统一数据对象，作为出参使用。|
 
 ### OH_UdmfData_Create()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 OH_UdmfData* OH_UdmfData_Create()
@@ -578,6 +636,8 @@ OH_UdmfData
 
 ### OH_UdmfData_Destroy()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 void OH_UdmfData_Destroy(OH_UdmfData* pThis)
 ```
@@ -599,6 +659,8 @@ void OH_UdmfData_Destroy(OH_UdmfData* pThis)
 OH_UdmfData
 
 ### OH_UdmfData_AddRecord()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 int OH_UdmfData_AddRecord(OH_UdmfData* pThis, OH_UdmfRecord* record)
@@ -625,6 +687,8 @@ int OH_UdmfData_AddRecord(OH_UdmfData* pThis, OH_UdmfRecord* record)
 
 ### OH_UdmfData_HasType()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 bool OH_UdmfData_HasType(OH_UdmfData* pThis, const char* type)
 ```
@@ -649,6 +713,8 @@ bool OH_UdmfData_HasType(OH_UdmfData* pThis, const char* type)
 |bool|返回查找类型的状态。返回false表示不存在指定类型，返回true表示存在指定类型。|
 
 ### OH_UdmfData_GetTypes()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 char** OH_UdmfData_GetTypes(OH_UdmfData* pThis, unsigned int* count)
@@ -675,6 +741,8 @@ char** OH_UdmfData_GetTypes(OH_UdmfData* pThis, unsigned int* count)
 
 ### OH_UdmfData_GetRecords()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 OH_UdmfRecord** OH_UdmfData_GetRecords(OH_UdmfData* pThis, unsigned int* count)
 ```
@@ -700,6 +768,8 @@ OH_UdmfRecord** OH_UdmfData_GetRecords(OH_UdmfData* pThis, unsigned int* count)
 
 ### UdmfData_Finalize()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 typedef void (*UdmfData_Finalize)(void* context)
 ```
@@ -718,6 +788,8 @@ typedef void (*UdmfData_Finalize)(void* context)
 
 ### OH_UdmfRecordProvider_Create()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 OH_UdmfRecordProvider* OH_UdmfRecordProvider_Create()
 ```
@@ -735,6 +807,8 @@ OH_UdmfRecordProvider* OH_UdmfRecordProvider_Create()
 |[OH_UdmfRecordProvider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfrecordprovider)*|执行成功时返回一个指向统一数据提供者[OH_UdmfRecordProvider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfrecordprovider)实例对象的指针，否则返回nullptr。|
 
 ### OH_UdmfRecordProvider_Destroy()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 int OH_UdmfRecordProvider_Destroy(OH_UdmfRecordProvider* provider)
@@ -760,6 +834,8 @@ int OH_UdmfRecordProvider_Destroy(OH_UdmfRecordProvider* provider)
 
 ### OH_UdmfRecordProvider_GetData()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 typedef void* (*OH_UdmfRecordProvider_GetData)(void* context, const char* type)
 ```
@@ -784,6 +860,8 @@ typedef void* (*OH_UdmfRecordProvider_GetData)(void* context, const char* type)
 |void*|返回从上下文中获取的指定类型的数据指针。|
 
 ### OH_UdmfRecordProvider_SetData()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 int OH_UdmfRecordProvider_SetData(OH_UdmfRecordProvider* provider, void* context, const OH_UdmfRecordProvider_GetData callback, const UdmfData_Finalize finalize)
@@ -812,6 +890,8 @@ int OH_UdmfRecordProvider_SetData(OH_UdmfRecordProvider* provider, void* context
 
 ### OH_UdmfRecord_Create()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 OH_UdmfRecord* OH_UdmfRecord_Create()
 ```
@@ -830,6 +910,8 @@ OH_UdmfRecord* OH_UdmfRecord_Create()
 
 ### OH_UdmfRecord_Destroy()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 void OH_UdmfRecord_Destroy(OH_UdmfRecord* pThis)
 ```
@@ -847,6 +929,8 @@ void OH_UdmfRecord_Destroy(OH_UdmfRecord* pThis)
 |[OH_UdmfRecord](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfrecord)* pThis|表示指向统一数据记录[OH_UdmfRecord](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfrecord)实例的指针。|
 
 ### OH_UdmfRecord_AddGeneralEntry()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 int OH_UdmfRecord_AddGeneralEntry(OH_UdmfRecord* pThis, const char* typeId, unsigned char* entry, unsigned int count)
@@ -875,6 +959,8 @@ int OH_UdmfRecord_AddGeneralEntry(OH_UdmfRecord* pThis, const char* typeId, unsi
 
 ### OH_UdmfRecord_AddPlainText()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 int OH_UdmfRecord_AddPlainText(OH_UdmfRecord* pThis, OH_UdsPlainText* plainText)
 ```
@@ -899,6 +985,8 @@ int OH_UdmfRecord_AddPlainText(OH_UdmfRecord* pThis, OH_UdsPlainText* plainText)
 |int|返回执行的状态代码。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。具体请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。|
 
 ### OH_UdmfRecord_AddHyperlink()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 int OH_UdmfRecord_AddHyperlink(OH_UdmfRecord* pThis, OH_UdsHyperlink* hyperlink)
@@ -925,6 +1013,8 @@ int OH_UdmfRecord_AddHyperlink(OH_UdmfRecord* pThis, OH_UdsHyperlink* hyperlink)
 
 ### OH_UdmfRecord_AddHtml()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 int OH_UdmfRecord_AddHtml(OH_UdmfRecord* pThis, OH_UdsHtml* html)
 ```
@@ -949,6 +1039,8 @@ int OH_UdmfRecord_AddHtml(OH_UdmfRecord* pThis, OH_UdsHtml* html)
 |int|返回执行的状态代码。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。具体请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。|
 
 ### OH_UdmfRecord_AddAppItem()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 int OH_UdmfRecord_AddAppItem(OH_UdmfRecord* pThis, OH_UdsAppItem* appItem)
@@ -975,6 +1067,8 @@ int OH_UdmfRecord_AddAppItem(OH_UdmfRecord* pThis, OH_UdsAppItem* appItem)
 
 ### OH_UdmfRecord_AddFileUri()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 int OH_UdmfRecord_AddFileUri(OH_UdmfRecord* pThis, OH_UdsFileUri* fileUri)
 ```
@@ -1000,6 +1094,8 @@ int OH_UdmfRecord_AddFileUri(OH_UdmfRecord* pThis, OH_UdsFileUri* fileUri)
 
 ### OH_UdmfRecord_AddPixelMap()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 int OH_UdmfRecord_AddPixelMap(OH_UdmfRecord* pThis, OH_UdsPixelMap* pixelMap)
 ```
@@ -1024,6 +1120,8 @@ int OH_UdmfRecord_AddPixelMap(OH_UdmfRecord* pThis, OH_UdsPixelMap* pixelMap)
 |int|返回执行的状态代码。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。具体请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。|
 
 ### OH_UdmfRecord_AddArrayBuffer()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 int OH_UdmfRecord_AddArrayBuffer(OH_UdmfRecord* record, const char* type, OH_UdsArrayBuffer* buffer)
@@ -1051,6 +1149,8 @@ int OH_UdmfRecord_AddArrayBuffer(OH_UdmfRecord* record, const char* type, OH_Uds
 
 ### OH_UdmfRecord_AddContentForm()
 
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+
+
 ```c
 int OH_UdmfRecord_AddContentForm(OH_UdmfRecord* pThis, OH_UdsContentForm* contentForm)
 ```
@@ -1076,6 +1176,8 @@ int OH_UdmfRecord_AddContentForm(OH_UdmfRecord* pThis, OH_UdsContentForm* conten
 
 ### OH_UdmfRecord_GetTypes()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 char** OH_UdmfRecord_GetTypes(OH_UdmfRecord* pThis, unsigned int* count)
 ```
@@ -1100,6 +1202,8 @@ char** OH_UdmfRecord_GetTypes(OH_UdmfRecord* pThis, unsigned int* count)
 |char**|执行成功时返回类型列表，否则返回nullptr。|
 
 ### OH_UdmfRecord_GetGeneralEntry()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 int OH_UdmfRecord_GetGeneralEntry(OH_UdmfRecord* pThis, const char* typeId, unsigned char** entry, unsigned int* count)
@@ -1128,6 +1232,8 @@ int OH_UdmfRecord_GetGeneralEntry(OH_UdmfRecord* pThis, const char* typeId, unsi
 
 ### OH_UdmfRecord_GetPlainText()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 int OH_UdmfRecord_GetPlainText(OH_UdmfRecord* pThis, OH_UdsPlainText* plainText)
 ```
@@ -1152,6 +1258,8 @@ int OH_UdmfRecord_GetPlainText(OH_UdmfRecord* pThis, OH_UdsPlainText* plainText)
 |int|返回执行的状态代码。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 若返回UDMF_ERR，表示内部数据错误。可能的原因是服务故障或者内存不足等。具体请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。|
 
 ### OH_UdmfRecord_GetHyperlink()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 int OH_UdmfRecord_GetHyperlink(OH_UdmfRecord* pThis, OH_UdsHyperlink* hyperlink)
@@ -1178,6 +1286,8 @@ int OH_UdmfRecord_GetHyperlink(OH_UdmfRecord* pThis, OH_UdsHyperlink* hyperlink)
 
 ### OH_UdmfRecord_GetHtml()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 int OH_UdmfRecord_GetHtml(OH_UdmfRecord* pThis, OH_UdsHtml* html)
 ```
@@ -1203,6 +1313,8 @@ int OH_UdmfRecord_GetHtml(OH_UdmfRecord* pThis, OH_UdsHtml* html)
 
 ### OH_UdmfRecord_GetAppItem()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 int OH_UdmfRecord_GetAppItem(OH_UdmfRecord* pThis, OH_UdsAppItem* appItem)
 ```
@@ -1227,6 +1339,8 @@ int OH_UdmfRecord_GetAppItem(OH_UdmfRecord* pThis, OH_UdsAppItem* appItem)
 |int|返回执行的状态代码。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 若返回UDMF_ERR，表示内部数据错误。可能的原因是服务故障或者内存不足等。具体请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。|
 
 ### OH_UdmfRecord_SetProvider()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 int OH_UdmfRecord_SetProvider(OH_UdmfRecord* pThis, const char* const* types, unsigned int count, OH_UdmfRecordProvider* provider)
@@ -1255,6 +1369,8 @@ int OH_UdmfRecord_SetProvider(OH_UdmfRecord* pThis, const char* const* types, un
 
 ### OH_UdmfRecord_GetFileUri()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 int OH_UdmfRecord_GetFileUri(OH_UdmfRecord* pThis, OH_UdsFileUri* fileUri)
 ```
@@ -1280,6 +1396,8 @@ int OH_UdmfRecord_GetFileUri(OH_UdmfRecord* pThis, OH_UdsFileUri* fileUri)
 
 ### OH_UdmfRecord_GetPixelMap()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 int OH_UdmfRecord_GetPixelMap(OH_UdmfRecord* pThis, OH_UdsPixelMap* pixelMap)
 ```
@@ -1304,6 +1422,8 @@ int OH_UdmfRecord_GetPixelMap(OH_UdmfRecord* pThis, OH_UdsPixelMap* pixelMap)
 |int|返回执行的状态代码。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。具体请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。|
 
 ### OH_UdmfRecord_GetArrayBuffer()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 int OH_UdmfRecord_GetArrayBuffer(OH_UdmfRecord* record, const char* type, OH_UdsArrayBuffer* buffer)
@@ -1331,6 +1451,8 @@ int OH_UdmfRecord_GetArrayBuffer(OH_UdmfRecord* record, const char* type, OH_Uds
 
 ### OH_UdmfRecord_GetContentForm()
 
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+
+
 ```c
 int OH_UdmfRecord_GetContentForm(OH_UdmfRecord* pThis, OH_UdsContentForm* contentForm)
 ```
@@ -1355,6 +1477,8 @@ int OH_UdmfRecord_GetContentForm(OH_UdmfRecord* pThis, OH_UdsContentForm* conten
 |int|返回执行的状态代码。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。具体请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。|
 
 ### OH_UdmfData_GetPrimaryPlainText()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 int OH_UdmfData_GetPrimaryPlainText(OH_UdmfData* data, OH_UdsPlainText* plainText)
@@ -1381,6 +1505,8 @@ int OH_UdmfData_GetPrimaryPlainText(OH_UdmfData* data, OH_UdsPlainText* plainTex
 
 ### OH_UdmfData_GetPrimaryHtml()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 int OH_UdmfData_GetPrimaryHtml(OH_UdmfData* data, OH_UdsHtml* html)
 ```
@@ -1406,6 +1532,8 @@ int OH_UdmfData_GetPrimaryHtml(OH_UdmfData* data, OH_UdsHtml* html)
 
 ### OH_UdmfData_GetRecordCount()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 int OH_UdmfData_GetRecordCount(OH_UdmfData* data)
 ```
@@ -1429,6 +1557,8 @@ int OH_UdmfData_GetRecordCount(OH_UdmfData* data)
 |int|返回统一数据记录[OH_UdmfRecord](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfrecord)的数量。|
 
 ### OH_UdmfData_GetRecord()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 OH_UdmfRecord* OH_UdmfData_GetRecord(OH_UdmfData* data, unsigned int index)
@@ -1455,6 +1585,8 @@ OH_UdmfRecord* OH_UdmfData_GetRecord(OH_UdmfData* data, unsigned int index)
 
 ### OH_UdmfData_IsLocal()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 bool OH_UdmfData_IsLocal(OH_UdmfData* data)
 ```
@@ -1478,6 +1610,8 @@ bool OH_UdmfData_IsLocal(OH_UdmfData* data)
 |bool|返回数据是否是来自本端设备。返回true表示来自本端设备，返回false表示来自远端设备。|
 
 ### OH_UdmfProperty_Create()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 OH_UdmfProperty* OH_UdmfProperty_Create(OH_UdmfData* unifiedData)
@@ -1503,6 +1637,8 @@ OH_UdmfProperty* OH_UdmfProperty_Create(OH_UdmfData* unifiedData)
 
 ### OH_UdmfProperty_Destroy()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 void OH_UdmfProperty_Destroy(OH_UdmfProperty* pThis)
 ```
@@ -1520,6 +1656,8 @@ void OH_UdmfProperty_Destroy(OH_UdmfProperty* pThis)
 |[OH_UdmfProperty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfproperty)* pThis|表示指向数据属性[OH_UdmfProperty](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfproperty)实例的指针。|
 
 ### OH_UdmfProperty_GetTag()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 const char* OH_UdmfProperty_GetTag(OH_UdmfProperty* pThis)
@@ -1545,6 +1683,8 @@ const char* OH_UdmfProperty_GetTag(OH_UdmfProperty* pThis)
 
 ### OH_UdmfProperty_GetTimestamp()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 int64_t OH_UdmfProperty_GetTimestamp(OH_UdmfProperty* pThis)
 ```
@@ -1569,6 +1709,8 @@ int64_t OH_UdmfProperty_GetTimestamp(OH_UdmfProperty* pThis)
 
 ### OH_UdmfProperty_GetShareOption()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 Udmf_ShareOption OH_UdmfProperty_GetShareOption(OH_UdmfProperty* pThis)
 ```
@@ -1592,6 +1734,8 @@ Udmf_ShareOption OH_UdmfProperty_GetShareOption(OH_UdmfProperty* pThis)
 |[Udmf_ShareOption](#udmf_shareoption)|返回设备内适用范围属性[Udmf_ShareOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#udmf_shareoption)值。|
 
 ### OH_UdmfProperty_GetExtrasIntParam()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 int OH_UdmfProperty_GetExtrasIntParam(OH_UdmfProperty* pThis, const char* key, int defaultValue)
@@ -1619,6 +1763,8 @@ int OH_UdmfProperty_GetExtrasIntParam(OH_UdmfProperty* pThis, const char* key, i
 
 ### OH_UdmfProperty_GetExtrasStringParam()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 const char* OH_UdmfProperty_GetExtrasStringParam(OH_UdmfProperty* pThis, const char* key)
 ```
@@ -1643,6 +1789,8 @@ const char* OH_UdmfProperty_GetExtrasStringParam(OH_UdmfProperty* pThis, const c
 |const char*|执行成功时返回指定的键关联的字符串值的指针，否则返回nullptr。|
 
 ### OH_UdmfProperty_SetTag()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 int OH_UdmfProperty_SetTag(OH_UdmfProperty* pThis, const char* tag)
@@ -1669,6 +1817,8 @@ int OH_UdmfProperty_SetTag(OH_UdmfProperty* pThis, const char* tag)
 
 ### OH_UdmfProperty_SetShareOption()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 int OH_UdmfProperty_SetShareOption(OH_UdmfProperty* pThis, Udmf_ShareOption option)
 ```
@@ -1693,6 +1843,8 @@ int OH_UdmfProperty_SetShareOption(OH_UdmfProperty* pThis, Udmf_ShareOption opti
 |int|返回执行的状态代码。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。具体请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。|
 
 ### OH_UdmfProperty_SetExtrasIntParam()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 int OH_UdmfProperty_SetExtrasIntParam(OH_UdmfProperty* pThis, const char* key, int param)
@@ -1720,6 +1872,8 @@ int OH_UdmfProperty_SetExtrasIntParam(OH_UdmfProperty* pThis, const char* key, i
 
 ### OH_UdmfProperty_SetExtrasStringParam()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ```c
 int OH_UdmfProperty_SetExtrasStringParam(OH_UdmfProperty* pThis, const char* key, const char* param)
 ```
@@ -1746,6 +1900,8 @@ int OH_UdmfProperty_SetExtrasStringParam(OH_UdmfProperty* pThis, const char* key
 
 ### OH_UdmfOptions_Create()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 OH_UdmfOptions* OH_UdmfOptions_Create()
 ```
@@ -1764,6 +1920,8 @@ OH_UdmfOptions* OH_UdmfOptions_Create()
 
 ### OH_UdmfOptions_Destroy()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 void OH_UdmfOptions_Destroy(OH_UdmfOptions* pThis)
 ```
@@ -1781,6 +1939,8 @@ void OH_UdmfOptions_Destroy(OH_UdmfOptions* pThis)
 |[OH_UdmfOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfoptions)* pThis|指向数据操作选项[OH_UdmfOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfoptions)实例的指针。|
 
 ### OH_UdmfOptions_GetKey()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 const char* OH_UdmfOptions_GetKey(OH_UdmfOptions* pThis)
@@ -1805,6 +1965,8 @@ const char* OH_UdmfOptions_GetKey(OH_UdmfOptions* pThis)
 |const char*|输入有效入参时返回字符串指针，否则返回nullptr。|
 
 ### OH_UdmfOptions_SetKey()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 int OH_UdmfOptions_SetKey(OH_UdmfOptions* pThis, const char* key)
@@ -1831,6 +1993,8 @@ int OH_UdmfOptions_SetKey(OH_UdmfOptions* pThis, const char* key)
 
 ### OH_UdmfOptions_GetIntention()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 Udmf_Intention OH_UdmfOptions_GetIntention(OH_UdmfOptions* pThis)
 ```
@@ -1854,6 +2018,8 @@ Udmf_Intention OH_UdmfOptions_GetIntention(OH_UdmfOptions* pThis)
 |[Udmf_Intention](#udmf_intention)|返回[Udmf_Intention](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#udmf_intention)的值。|
 
 ### OH_UdmfOptions_SetIntention()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 int OH_UdmfOptions_SetIntention(OH_UdmfOptions* pThis, Udmf_Intention intention)
@@ -1880,6 +2046,8 @@ int OH_UdmfOptions_SetIntention(OH_UdmfOptions* pThis, Udmf_Intention intention)
 
 ### OH_UdmfOptions_Reset()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 int OH_UdmfOptions_Reset(OH_UdmfOptions* pThis)
 ```
@@ -1903,6 +2071,8 @@ int OH_UdmfOptions_Reset(OH_UdmfOptions* pThis)
 |int|返回执行的状态代码。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。具体请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。|
 
 ### OH_Udmf_GetUnifiedData()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 int OH_Udmf_GetUnifiedData(const char* key, Udmf_Intention intention, OH_UdmfData* unifiedData)
@@ -1930,6 +2100,8 @@ int OH_Udmf_GetUnifiedData(const char* key, Udmf_Intention intention, OH_UdmfDat
 
 ### OH_Udmf_GetUnifiedDataByOptions()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 int OH_Udmf_GetUnifiedDataByOptions(OH_UdmfOptions* options, OH_UdmfData** dataArray, unsigned int* dataSize)
 ```
@@ -1955,6 +2127,8 @@ int OH_Udmf_GetUnifiedDataByOptions(OH_UdmfOptions* options, OH_UdmfData** dataA
 |int|返回执行的状态代码。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 若返回UDMF_ERR，表示内部数据错误。可能的原因是服务故障或者内存不足等。具体请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。|
 
 ### OH_Udmf_SetUnifiedData()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ```c
 int OH_Udmf_SetUnifiedData(Udmf_Intention intention, OH_UdmfData* unifiedData, char* key, unsigned int keyLen)
@@ -1983,6 +2157,8 @@ int OH_Udmf_SetUnifiedData(Udmf_Intention intention, OH_UdmfData* unifiedData, c
 
 ### OH_Udmf_SetUnifiedDataByOptions()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 int OH_Udmf_SetUnifiedDataByOptions(OH_UdmfOptions* options, OH_UdmfData *unifiedData, char *key, unsigned int keyLen)
 ```
@@ -2010,6 +2186,8 @@ int OH_Udmf_SetUnifiedDataByOptions(OH_UdmfOptions* options, OH_UdmfData *unifie
 
 ### OH_Udmf_UpdateUnifiedData()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 int OH_Udmf_UpdateUnifiedData(OH_UdmfOptions* options, OH_UdmfData* unifiedData)
 ```
@@ -2034,6 +2212,8 @@ int OH_Udmf_UpdateUnifiedData(OH_UdmfOptions* options, OH_UdmfData* unifiedData)
 |int|返回执行的状态代码。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 若返回UDMF_ERR，表示内部数据错误。可能的原因是服务故障或者内存不足等。具体请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。|
 
 ### OH_Udmf_DeleteUnifiedData()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
 
 ```c
 int OH_Udmf_DeleteUnifiedData(OH_UdmfOptions* options, OH_UdmfData** dataArray, unsigned int* dataSize)
@@ -2061,6 +2241,8 @@ int OH_Udmf_DeleteUnifiedData(OH_UdmfOptions* options, OH_UdmfData** dataArray, 
 
 ### OH_Udmf_DestroyDataArray()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+
+
 ```c
 void OH_Udmf_DestroyDataArray(OH_UdmfData** dataArray, unsigned int dataSize)
 ```
@@ -2083,6 +2265,8 @@ void OH_Udmf_DestroyDataArray(OH_UdmfData** dataArray, unsigned int dataSize)
 OH_UdmfData
 
 ### OH_UdmfProgressInfo_GetProgress()
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+
 
 ```c
 int OH_UdmfProgressInfo_GetProgress(OH_Udmf_ProgressInfo* progressInfo)
@@ -2108,6 +2292,8 @@ int OH_UdmfProgressInfo_GetProgress(OH_Udmf_ProgressInfo* progressInfo)
 
 ### OH_UdmfProgressInfo_GetStatus()
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+
+
 ```c
 int OH_UdmfProgressInfo_GetStatus(OH_Udmf_ProgressInfo* progressInfo)
 ```
@@ -2132,6 +2318,8 @@ int OH_UdmfProgressInfo_GetStatus(OH_Udmf_ProgressInfo* progressInfo)
 
 ### OH_UdmfGetDataParams_Create()
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+
+
 ```c
 OH_UdmfGetDataParams* OH_UdmfGetDataParams_Create()
 ```
@@ -2152,6 +2340,8 @@ OH_UdmfGetDataParams* OH_UdmfGetDataParams_Create()
 
 ### OH_UdmfGetDataParams_Destroy()
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+
+
 ```c
 void OH_UdmfGetDataParams_Destroy(OH_UdmfGetDataParams* pThis)
 ```
@@ -2169,6 +2359,8 @@ void OH_UdmfGetDataParams_Destroy(OH_UdmfGetDataParams* pThis)
 |[OH_UdmfGetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfgetdataparams)* pThis|表示指向异步请求参数[OH_UdmfGetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfgetdataparams)实例的指针。|
 
 ### OH_UdmfGetDataParams_SetDestUri()
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+
 
 ```c
 void OH_UdmfGetDataParams_SetDestUri(OH_UdmfGetDataParams* params, const char* destUri)
@@ -2195,6 +2387,8 @@ void OH_UdmfGetDataParams_SetDestUri(OH_UdmfGetDataParams* params, const char* d
 
 ### OH_UdmfGetDataParams_SetFileConflictOptions()
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+
+
 ```c
 void OH_UdmfGetDataParams_SetFileConflictOptions(OH_UdmfGetDataParams* params, const Udmf_FileConflictOptions options)
 ```
@@ -2213,6 +2407,8 @@ void OH_UdmfGetDataParams_SetFileConflictOptions(OH_UdmfGetDataParams* params, c
 |const [Udmf_FileConflictOptions](#udmf_fileconflictoptions) options|表示文件拷贝冲突时的选项。|
 
 ### OH_UdmfGetDataParams_SetProgressIndicator()
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+
 
 ```c
 void OH_UdmfGetDataParams_SetProgressIndicator(OH_UdmfGetDataParams* params, const Udmf_ProgressIndicator progressIndicator)
@@ -2233,6 +2429,8 @@ void OH_UdmfGetDataParams_SetProgressIndicator(OH_UdmfGetDataParams* params, con
 
 ### OH_UdmfGetDataParams_SetDataProgressListener()
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+
+
 ```c
 void OH_UdmfGetDataParams_SetDataProgressListener(OH_UdmfGetDataParams* params, const OH_Udmf_DataProgressListener dataProgressListener)
 ```
@@ -2251,6 +2449,8 @@ void OH_UdmfGetDataParams_SetDataProgressListener(OH_UdmfGetDataParams* params, 
 |const [OH_Udmf_DataProgressListener](#oh_udmf_dataprogresslistener) dataProgressListener|用户自定义的监听回调函数，可用于获取进度信息和数据。|
 
 ### OH_UDMF_GetDataElementAt()
+
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+
 
 ```c
 OH_UdmfData* OH_UDMF_GetDataElementAt(OH_UdmfData** dataArray, unsigned int index)
@@ -2276,6 +2476,8 @@ OH_UdmfData* OH_UDMF_GetDataElementAt(OH_UdmfData** dataArray, unsigned int inde
 |[OH_UdmfData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdata)*|执行成功则返回一个指向统一数据对象[OH_UdmfData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdata)实例对象的指针，如果输入数组为空，则返回空。|
 
 ### OH_UdmfProperty_SetAuthPermission()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
 
 ```c
 int OH_UdmfProperty_SetAuthPermission(OH_UdmfProperty* pThis, uint32_t authPolicy)

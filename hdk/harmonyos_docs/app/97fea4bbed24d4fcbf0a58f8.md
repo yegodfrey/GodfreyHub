@@ -23,7 +23,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/game-center-pioneer-test-0
 
 ## 操作流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/Gg7ZZbfJTQuK8y_gzBf1eA/zh-cn_image_0000001194462424.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=71807EDAA99C6C8BD6B98EC4600880F24E39BC36636AD4FD8322D8F09E0EFEA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/Gg7ZZbfJTQuK8y_gzBf1eA/zh-cn_image_0000001194462424.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=500B146528698078E3E60EA4E67F5594794B5EBA1718CB3CD56DA94162BC49D7)
 
 您需要完成如下步骤：
 
@@ -84,11 +84,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/game-center-pioneer-test-0
 > * 请勿同时提交"先锋测试"和"[内测](https://developer.huawei.com/consumer/cn/doc/distribution/app/game-center-early-access-0000001194302390)"申请。
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"APP与元服务"，在应用列表页面选择需要申请先锋测试的游戏。
-2. 选择"分发 > 服务 > 测试申请"，在页面右侧点击"申请"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/6_NQvPxtS6ugjc_JLbRMOA/zh-cn_image_0000002419613192.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=5138BB55DB4074652978C22D673436051BD92B730792D5BFE6586E19776B263C)
+2. 选择"分发 > 服务 > 测试申请"，在页面右侧点击"申请"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/6_NQvPxtS6ugjc_JLbRMOA/zh-cn_image_0000002419613192.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=E9F48A601BC42CB5048D4D59DEBAB91C8E8BC9FF5E9971A188C675D16A4C72CF)
 
 3. 在"测试申请"页面按照提示填写信息，完成后点击"提交"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/9C57F3wcRFaCtSQWcRpjXA/zh-cn_image_0000001907273300.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=1C954696DEA7875294B7A4E74A46E9F35844D175CA00B6F9E921CD4A9E76B05E)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/9C57F3wcRFaCtSQWcRpjXA/zh-cn_image_0000001907273300.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=F03A6C98BE55CF27CD1512C2CD60045810987D4CCDA8A109AD5164BCBF34A92B)
 
    |类别|参数|说明|
    |:-----|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -115,9 +115,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/game-center-pioneer-test-0
    |联系信息|联系人及联系方式|华为工作人员联系您的方式。请填写姓名、QQ、手机、邮箱等信息。要求1~100个字符。|
    |联系信息|备注（可选）|您可以补充额外说明信息。|
 
-4. 华为工作人员审核先锋测试申请预计需要1~3个工作日，请耐心等待。审核结果可在状态栏或您预留的邮箱查看。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/uaaAdC0ISb-_Wtrs5Kfmpg/zh-cn_image_0000001236151328.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF4A1C7924455799860CCC777F12D5955CFAC117231F89B602D395E9635324E3)
+4. 华为工作人员审核先锋测试申请预计需要1~3个工作日，请耐心等待。审核结果可在状态栏或您预留的邮箱查看。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/uaaAdC0ISb-_Wtrs5Kfmpg/zh-cn_image_0000001236151328.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=897849E0AB3B2EB66B6B7553064519482BCFFCB6299B8F3144C6CD50F0E837F5)
 
-5. 若先锋测试的申请通过且到达招募时间后，您的游戏将会展示在华为应用市场/游戏中心的专题区，感兴趣的用户可以根据"申请参与测试"的要求完成招募报名。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/DWdwodqrTFWPAQ0FTsOAiw/zh-cn_image_0000001979272645.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=FD56021E81563D073EC77A72AFD9814C10EDF8CFDFDDB93C51082FA9B2654C22)
+5. 若先锋测试的申请通过且到达招募时间后，您的游戏将会展示在华为应用市场/游戏中心的专题区，感兴趣的用户可以根据"申请参与测试"的要求完成招募报名。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/DWdwodqrTFWPAQ0FTsOAiw/zh-cn_image_0000001979272645.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=B4472633A7F365602B617CD5B5DD9B24182D7D3C2A86E33A2E9E58356F93F75E)
 
 ### 上传测试包
 
@@ -144,22 +144,22 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/game-center-pioneer-test-0
 先锋游戏招募结束后，您可以选择符合条件的用户测试您的游戏。
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"APP与元服务"，在应用列表页面选择先锋测试游戏。
-2. 选择"分发 > 服务 > 测试申请"，在列表对应的操作列点击"筛选用户"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/NFyJjAlpQ-O_2A0yqEgLrg/zh-cn_image_0000001280882881.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=03CC9CA415A807558A281433A7AE7B8D1D53B57A28BF3FFF800C9FC94FE6C7FB)
+2. 选择"分发 > 服务 > 测试申请"，在列表对应的操作列点击"筛选用户"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/NFyJjAlpQ-O_2A0yqEgLrg/zh-cn_image_0000001280882881.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=FD34F70090CBE9CC869CB6B848CE146C95380C10C37B4EEC3A39E5FFE4D774E7)
 
-3. 在弹出的"设置用户筛选条件"窗口上点击"新建筛选条件"进行目标用户的筛选。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/xvxfH3StRomYcFN2RESG2g/zh-cn_image_0000001307740957.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=4F3DB2B6B97CE52AB45EF8D7702050B75B05F137BBE74B24859D3036AA53B61E)
+3. 在弹出的"设置用户筛选条件"窗口上点击"新建筛选条件"进行目标用户的筛选。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/xvxfH3StRomYcFN2RESG2g/zh-cn_image_0000001307740957.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A8F706D50E0BC023D0C10EC6CAA51DD1E89B6612CB5D7463CDA20333559EB82)
 
-4. 在弹出的"新建用户筛选条件"窗口上选择符合筛选条件的用户并推送开测通知或激活码消息。您可以结合自身的实际需求，对提交的所有问卷设置一定的条件以筛选出最终的目标用户，确认后点击"提交"，即可对最终的目标用户推送消息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/wQrLhKdmTnaNALm0fUiDnQ/zh-cn_image_0000001875538950.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC69B7E174A70A8DE60A2EA6FCC8ACAF6BED10280A61ECA9C93C7C61C5AE9AD0)
+4. 在弹出的"新建用户筛选条件"窗口上选择符合筛选条件的用户并推送开测通知或激活码消息。您可以结合自身的实际需求，对提交的所有问卷设置一定的条件以筛选出最终的目标用户，确认后点击"提交"，即可对最终的目标用户推送消息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/wQrLhKdmTnaNALm0fUiDnQ/zh-cn_image_0000001875538950.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=87D3E35A4E58D2B689280F279584A6567CF17768D00D630B0B4CF6508917603B)
 
    |步骤|筛选环节|操作说明|
    |:-|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |1|添加筛选条件|点击"添加"： * 您可以设置若干题干之间"与"、"或"的逻辑关系。 * 您还可以设置单个题干中选项"是"、"非"、"包含"、"不包含"的筛选条件。点击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/g6hM0Z1ZT1ihH-eeSwATfg/zh-cn_image_0000001835947038.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=079B360B3950D2FBEEEA41EF21439B84AB9015B1F3BD6203BD72BA98C82F99E6)、![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/p7SfvWfaRPKpsvBJxKUecQ/zh-cn_image_0000001882586109.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=6F06916C7240988E14E591ACF4006F2B12CFD8A7FE14EFD9CDC9EF99B892E690)可添加和删除选项。 说明 > * 单选题选项仅支持"是"、"非"的筛选条件，多选题选项支持"是"、"非"、"包含"、"不包含"的筛选条件。 > * 筛选条件为"是"和"包含"时，选项之间为"或"的关系，筛选条件为"非"和"不包含"时，选项之间为"且"的关系。 > * 当您完成筛选条件和选项值设置后，下方会显示该题完整筛选说明文字，供您参考理解。|
+   |1|添加筛选条件|点击"添加"： * 您可以设置若干题干之间"与"、"或"的逻辑关系。 * 您还可以设置单个题干中选项"是"、"非"、"包含"、"不包含"的筛选条件。点击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/g6hM0Z1ZT1ihH-eeSwATfg/zh-cn_image_0000001835947038.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=F68FF872FE9EA6BD6CBB61551CF1DC89402C703898DBB19FE47A767E3E25D519)、![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/p7SfvWfaRPKpsvBJxKUecQ/zh-cn_image_0000001882586109.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=DBB4A134022FA2515486ADD98671BD7B6C6DE6500A60CA4A932B99A3B8D0B209)可添加和删除选项。 说明 > * 单选题选项仅支持"是"、"非"的筛选条件，多选题选项支持"是"、"非"、"包含"、"不包含"的筛选条件。 > * 筛选条件为"是"和"包含"时，选项之间为"或"的关系，筛选条件为"非"和"不包含"时，选项之间为"且"的关系。 > * 当您完成筛选条件和选项值设置后，下方会显示该题完整筛选说明文字，供您参考理解。|
    |2|查询筛选结果|点击"查询"，您可以查看满足筛选条件的用户总人数。|
    |3|添加礼包（仅针对激活码的游戏。）|您需要为最终的筛选用户选择礼包： * 若有数量大于筛选人数的礼包，您可以直接选择。 * 若礼包数量小于筛选人数，您可以[创建礼包](#section182351834142810)。|
    |4|提交|点击"提交"即可对筛选用户发送开测通知或激活码消息。 > 说明 > * 您可以多次筛选用户并发送开测通知或激活码消息。 > * 如您选择激活码发放，且不想提前发给用户，请务必在需要发放日期的当日进行用户筛选提交，提交前请与华为运营人员沟通，请勿提前提交。|
 
 5. 获得测试资格的用户会在华为应用市场/游戏中心会收到开测消息或激活码通知。在先锋测试正式开始后，用户可前往安装并体验游戏。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/r0d2URl2SrmS4U4crlqv5w/zh-cn_image_0000001262531798.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=5B8CDE0CF47F77CEA329834D8DD2CA250CB2013B98AB3B535677441D5644E1D0) 说明
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/r0d2URl2SrmS4U4crlqv5w/zh-cn_image_0000001262531798.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=FA8172843335CA61EC35F35B26B651266185A4C067AF609506B4EF9B3CB276A6) 说明
    > * 用户可在通知页或游戏详情页复制激活码，在进入游戏登录界面后验证无误后即可体验游戏。
    > * 先锋测试结束后，游戏将会自动下架，无需额外申请下架。
 
@@ -174,7 +174,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/game-center-pioneer-test-0
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"分析"，在应用列表选择先锋测试游戏。
 2. 选择"分发分析 > 测试报告"，选择测试类型为"先锋测试"，点击"查看报告"。
-3. 在页面查看日报告或点击右上方"报告下载"下载汇总报告。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/uKev4zFrQfiAisrs4VAW9g/zh-cn_image_0000001312813205.png?HW-CC-KV=V1&HW-CC-Date=20260909T152842Z&HW-CC-Expire=31536000000&HW-CC-Sign=C246DED692A6A7EF23E00C3BC7FE7DA727653513FF1ED5A5775CF17C423A37E0)
+3. 在页面查看日报告或点击右上方"报告下载"下载汇总报告。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/uKev4zFrQfiAisrs4VAW9g/zh-cn_image_0000001312813205.png?HW-CC-KV=V1&HW-CC-Date=20261008T162752Z&HW-CC-Expire=31536000000&HW-CC-Sign=4EF9D4A168B68B04EF2FD6DFE85FD1DB76038D4C1F4C6D0C700A5D5BD4278645)
 
    |所属阶段|统计指标|简要说明|行业优秀/行业平均|
    |:---|:-------------|:-------------------------------|:--------|

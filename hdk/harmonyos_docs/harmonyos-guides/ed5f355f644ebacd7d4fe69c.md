@@ -22,7 +22,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-add-new-m
 
 2. 在**New Project Module** 界面中，选择需要创建的模板，单击**Next**。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/gC42O-jaSG-HgoW_rIxVRw/zh-cn_image_0000002701662998.png?HW-CC-KV=V1&HW-CC-Date=20260928T063032Z&HW-CC-Expire=31536000000&HW-CC-Sign=6DD549A151FF372E2DBC8B2BDA8E8FE9FAFC3CAA6A2A3C4E414094942539C413)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/Iyf5WCKfSfC3beMTy_5GhQ/zh-cn_image_0000002701662998.png?HW-CC-KV=V1&HW-CC-Date=20261010T073009Z&HW-CC-Expire=31536000000&HW-CC-Sign=121444C97EEEF1B46465F1DA24B5006235EF8560CEA87B21665E249BD77C40C4)
 
 3. 在模块配置页面，设置新增模块的基本信息，然后单击**Next**。
 
@@ -34,7 +34,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-add-new-m
    * **Enable native**：仅Library模板存在，将创建一个可以调用C/C++的共享包。
    * **C++ Standard：**C++标准库，取值包括：Toolchain Default、C++11、C++14。从DevEco Studio 6.0.1 Beta1开始支持。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/6cs1cVtFRVKnpUz1DK1ONQ/zh-cn_image_0000002731542193.png?HW-CC-KV=V1&HW-CC-Date=20260928T063032Z&HW-CC-Expire=31536000000&HW-CC-Sign=3E18CC2D215648D62653D0F33C78915FC8D4B10F1AD964575FE8CB4BC3A1E3F4)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/FKHnpzPST3OdCK5CwFzrZA/zh-cn_image_0000002731542193.png?HW-CC-KV=V1&HW-CC-Date=20261010T073009Z&HW-CC-Expire=31536000000&HW-CC-Sign=600E4E623BE7CB4C644BFCCB355BEE98B446C409C03CB776167C74D79BDD5694)
 
 4. 若该模块的模板类型为Ability，还需要设置新增Ability的**Ability name** 和****E** **xported**** 参数，**E** **xported**参数表示该Ability是否可以被其它应用/元服务所调用（FA模型下为Visible参数)。
 

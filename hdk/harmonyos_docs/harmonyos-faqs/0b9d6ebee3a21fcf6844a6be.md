@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1610
 
 从其他应用切换到当前应用时，弹窗重新弹出，页面闪屏。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/kgCZ9UqQR0SIXFYoDMSNhw/zh-cn_image_0000002628613380.png?HW-CC-KV=V1&HW-CC-Date=20260929T074334Z&HW-CC-Expire=31536000000&HW-CC-Sign=F45FACC315F13B48E49F708BA1DA5358D1D2DD18794758860A93ECCC8457CAFD "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/kgCZ9UqQR0SIXFYoDMSNhw/zh-cn_image_0000002628613380.png?HW-CC-KV=V1&HW-CC-Date=20261008T183726Z&HW-CC-Expire=31536000000&HW-CC-Sign=14F3B0851E0616990F8F71A277594C4BE96A90FA0524CB163C7E33F4944E8E49 "点击放大")
 
 ## 背景知识
 
@@ -148,5 +148,5 @@ struct SplashScreen {
 
 效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/nsi--VxCTpGKJ4jt86qsrA/zh-cn_image_0000002658972593.png?HW-CC-KV=V1&HW-CC-Date=20260929T074334Z&HW-CC-Expire=31536000000&HW-CC-Sign=843EDAC3E5270E0EA4C2CAD4F12C55346CC22593723DD1CE6F4F61AD388C7BF1 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/nsi--VxCTpGKJ4jt86qsrA/zh-cn_image_0000002658972593.png?HW-CC-KV=V1&HW-CC-Date=20261008T183726Z&HW-CC-Expire=31536000000&HW-CC-Sign=6D1B22335440F6824F80FEB6FE6AE30B4601644A0C6B87471BB6D43BDB5297C9 "点击放大")
 

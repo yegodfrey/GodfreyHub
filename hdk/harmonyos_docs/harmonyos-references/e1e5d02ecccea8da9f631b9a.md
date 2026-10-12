@@ -16,11 +16,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
 
 ## requestImage^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static requestImage(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: MediaAssetDataHandler<image.ImageSource>): Promise<string>
 
@@ -107,6 +111,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ## requestImageData^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static requestImageData(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: MediaAssetDataHandler<ArrayBuffer>): Promise<string>
 
 根据不同的策略模式，请求图片资源数据，适用于图片上传、滤镜处理等需要获取原始数据的场景。使用Promise异步回调。
@@ -191,6 +197,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ## requestMovingPhoto^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static requestMovingPhoto(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: MediaAssetDataHandler<MovingPhoto>): Promise<string>
 
 根据不同的策略模式，请求动态照片对象，适用于查看动态照片。使用Promise异步回调。
@@ -274,6 +282,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ## requestVideoFile^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static requestVideoFile(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, fileUri: string, dataHandler: MediaAssetDataHandler<boolean>): Promise<string>
 
 根据不同的策略模式，请求视频资源数据到沙箱路径，适用于视频上传到服务器或播放器播放等场景。使用Promise异步回调。
@@ -352,6 +362,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ## cancelRequest^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static cancelRequest(context: Context, requestId: string): Promise<void>
 
 取消未触发回调的资产内容请求。使用Promise异步回调。
@@ -401,6 +413,8 @@ async function example(context: Context) {
 
 ## loadMovingPhoto^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static loadMovingPhoto(context: Context, imageFileUri: string, videoFileUri: string): Promise<MovingPhoto>
 
 加载应用沙箱的动态照片。使用Promise异步回调。
@@ -447,6 +461,8 @@ async function example(context: Context) {
 ```
 
 ## quickRequestImage^13+^
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 static quickRequestImage(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: QuickImageDataHandler<image.Picture>): Promise<string>
 

@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/mana
 
 在告警管理主界面，您可以在文本框中输入"告警名称"或"告警描述"并按下Enter键来筛选告警，或者在"监测间隔"、"告警等级"、"告警状态"下拉框中选择告警的监测间隔、级别、启用状态来过滤查询告警。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/AHy7VbVSRamEe2aUilnlTA/zh-cn_image_0000002521725656.png?HW-CC-KV=V1&HW-CC-Date=20260909T162941Z&HW-CC-Expire=31536000000&HW-CC-Sign=E0268B9E04C69FE3BDEA30B7E762D27E44337A502ED395EA18FE15466724E715 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/AHy7VbVSRamEe2aUilnlTA/zh-cn_image_0000002521725656.png?HW-CC-KV=V1&HW-CC-Date=20261008T172808Z&HW-CC-Expire=31536000000&HW-CC-Sign=809F4863E4F2642BE48A45B3B4E29152198B0CEB3753F56A0DAFB65AC13D54F6 "点击放大")
 
 |字段|说明|
 |:---|:-----------------------------|
@@ -27,20 +27,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/mana
 
 ## 启用与关闭告警
 
-创建告警后，您可以在告警管理主页面的告警列表中，通过点击每条告警右侧"操作"列的![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/0fcOLkNcTwaSYawJq5497w/zh-cn_image_0000002521666404.png?HW-CC-KV=V1&HW-CC-Date=20260909T162941Z&HW-CC-Expire=31536000000&HW-CC-Sign=81D6D383C0723FEFC1F479E11CCD65554F7DA780053802622794A53723FBC1D7)来启用或关闭告警。
+创建告警后，您可以在告警管理主页面的告警列表中，通过点击每条告警右侧"操作"列的![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/0fcOLkNcTwaSYawJq5497w/zh-cn_image_0000002521666404.png?HW-CC-KV=V1&HW-CC-Date=20261008T172808Z&HW-CC-Expire=31536000000&HW-CC-Sign=832B191D3028620B1EDF620C17731B998536ACCA531BC9068467909EBF409CE5)来启用或关闭告警。
 > 说明
 >
 > * 成功创建告警后，该告警默认为关闭状态。
 > * 关闭告警后，系统将停止执行该告警的规则监测及发送告警通知操作。如需重新监测，可重新设置开关，启用该告警。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/E_IVhapsSfOHu8pRlsmn0Q/zh-cn_image_0000001623739237.png?HW-CC-KV=V1&HW-CC-Date=20260909T162941Z&HW-CC-Expire=31536000000&HW-CC-Sign=84023CB1C16808CD273A5B6BCAE291514D3E0180C6EFD7DA987F88A205EA2438 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/E_IVhapsSfOHu8pRlsmn0Q/zh-cn_image_0000001623739237.png?HW-CC-KV=V1&HW-CC-Date=20261008T172808Z&HW-CC-Expire=31536000000&HW-CC-Sign=EA73273CDFE0CCE149F17F376C41216E7D7A3C66110A1B14CB2C25D112B518A4 "点击放大")
 
 ## 编辑告警
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"开发与服务"。
 2. 在项目列表中选择您的项目。
 3. 在左侧导航栏选择"质量 > 云监控 > 告警管理"，进入"告警管理"主界面。
-4. 在告警列表中，点击待编辑告警右侧"操作"列的"编辑"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/WxPWN136TUu_VNqL4WV2Fw/zh-cn_image_0000002521887500.png?HW-CC-KV=V1&HW-CC-Date=20260909T162941Z&HW-CC-Expire=31536000000&HW-CC-Sign=0A899DEB40D5FD3F2CBB1847EFDE233DE246602456BC4739B16D764E6EE8DFC6 "点击放大")
+4. 在告警列表中，点击待编辑告警右侧"操作"列的"编辑"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/WxPWN136TUu_VNqL4WV2Fw/zh-cn_image_0000002521887500.png?HW-CC-KV=V1&HW-CC-Date=20261008T172808Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8B3F9F4527BAF28410F798E795E66F2F8F192052634D220DC41C7786AEA9A9B "点击放大")
 
 5. 进入"编辑告警"页面，您可以修改除"告警名称"和"告警方式"以外的其它配置项。完成修改后，点击右上角的"确定"保存修改即可。
 
@@ -58,14 +58,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/mana
    |告警级别|根据告警的严重程度不同，分为：普通告警、重要告警、严重告警。|
    |通知人员|当告警发生时，系统会根据告警级别将告警通知发送给不同角色的账号。 告警级别与可接收告警通知的账号角色对应关系如下： * 普通告警：账号持有者、APP管理员、运营、开发、客服 * 重要告警：账号持有者、管理员、APP管理员、运营、开发、客服 * 严重告警：账号持有者、管理员、APP管理员、运营、开发、法务 下拉框中选择账号角色，支持全选。"账号持有者"角色默认勾选，且不可取消勾选。|
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/imkJkgeYQimMI8NQNfnixw/zh-cn_image_0000002526553430.png?HW-CC-KV=V1&HW-CC-Date=20260909T162941Z&HW-CC-Expire=31536000000&HW-CC-Sign=1021786C65515E97998F97C3CA405B0768F87DD6D1ED04BFA033E7BB9FFA6ACA "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/imkJkgeYQimMI8NQNfnixw/zh-cn_image_0000002526553430.png?HW-CC-KV=V1&HW-CC-Date=20261008T172808Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D0893017EC40C8E3FE25E56BA2B1D486D27D8937CC1069841A772DD7A428765 "点击放大")
 
 ## 删除告警
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"开发与服务"。
 2. 在项目列表中选择您的项目。
 3. 选择"质量 > 云监控 > 告警管理"，进入"告警管理"主界面。
-4. 在告警列表中，点击待删除告警右侧"操作"列的"删除"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/ZvyA36GeRzStYoFIPxJEcA/zh-cn_image_0000001572860872.png?HW-CC-KV=V1&HW-CC-Date=20260909T162941Z&HW-CC-Expire=31536000000&HW-CC-Sign=DB95563EFEBAD46B3125210FF90EFF1E968EE2965D6656694A8D722D8F35BD48 "点击放大")
+4. 在告警列表中，点击待删除告警右侧"操作"列的"删除"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/ZvyA36GeRzStYoFIPxJEcA/zh-cn_image_0000001572860872.png?HW-CC-KV=V1&HW-CC-Date=20261008T172808Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E26E09457477B40165B4860A18848F8F4F2884AA96EF7BAC3701134A6EDEFCF "点击放大")
 
-5. 系统弹出提示框，询问您是否确认删除该告警，确认无误后，点击"确定"，即可删除告警。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/RHnCtjuzQH6_biSjW85jFA/zh-cn_image_0000002552742949.png?HW-CC-KV=V1&HW-CC-Date=20260909T162941Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C5EDA2B884FC9C98BD46EBB40FC629750A1DC1E5875D1194FB2875CB08F6B71)
+5. 系统弹出提示框，询问您是否确认删除该告警，确认无误后，点击"确定"，即可删除告警。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/RHnCtjuzQH6_biSjW85jFA/zh-cn_image_0000002552742949.png?HW-CC-KV=V1&HW-CC-Date=20261008T172808Z&HW-CC-Expire=31536000000&HW-CC-Sign=68D1077EAF96ED22CD8D179040285CB59001E9FC73CFEB592C6783A9F7FC1854)
 

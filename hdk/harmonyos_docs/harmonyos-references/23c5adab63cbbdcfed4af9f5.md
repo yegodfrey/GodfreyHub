@@ -14,6 +14,8 @@ typedef struct OH_UdmfDataLoadInfo OH_UdmfDataLoadInfo
 
 ## 概述
 
+> phone | 2in1 | tablet | tv
+
 表示数据加载信息结构体。
 
 **起始版本：** 20

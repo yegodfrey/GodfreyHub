@@ -27,7 +27,7 @@ Android Studio的Maven仓地址推荐配置方式在Gradle7.0以下、7.0及以�
 > Maven仓地址无法直接在浏览器中打开访问，只能在IDE中配置。如需添加多个Maven代码库，请将华为公司的Maven仓地址配置在最后。
 
 * **7.0以下版本**
-  1. 打开Android Studio项目根路径下的build.gradle文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/zmhYIbDmR1mK6ONNeyltVw/zh-cn_image_0000002678164303.png?HW-CC-KV=V1&HW-CC-Date=20260909T171128Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF77D25DC5C0969F728DC96CF551A5864564DEEBF5C983DBDAD694BDE0627A0C)
+  1. 打开Android Studio项目根路径下的build.gradle文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/zmhYIbDmR1mK6ONNeyltVw/zh-cn_image_0000002678164303.png?HW-CC-KV=V1&HW-CC-Date=20261008T181025Z&HW-CC-Expire=31536000000&HW-CC-Sign=6119FB1B28B076EBCC6E8C1B0DC02402DF3EBFF5EC16A329010CF83D9CA84971)
 
   2. 在"buildscript > repositories"里面增加Maven仓地址。
 
@@ -35,16 +35,16 @@ Android Studio的Maven仓地址推荐配置方式在Gradle7.0以下、7.0及以�
      maven { url 'https://developer.huawei.com/repo/' }
      ```
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/qJWj_jIYTvy9ZIF6FU1RMQ/zh-cn_image_0000002648084582.png?HW-CC-KV=V1&HW-CC-Date=20260909T171128Z&HW-CC-Expire=31536000000&HW-CC-Sign=E5E9DD58737ED12FD9FD678495AF3736785CAD6B478BC19F0D8A8683933CD60C)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/qJWj_jIYTvy9ZIF6FU1RMQ/zh-cn_image_0000002648084582.png?HW-CC-KV=V1&HW-CC-Date=20261008T181025Z&HW-CC-Expire=31536000000&HW-CC-Sign=668240A65D85EE052C0789EE3595978B1279E79806CC337344D44BE8DE64462C)
   3. 在"allprojects > repositories"里面增加Maven仓地址。
 
      ```screen
      maven { url 'https://developer.huawei.com/repo/' }
      ```
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/dx_u5CSLTzCWm02prF2Dwg/zh-cn_image_0000002678004467.png?HW-CC-KV=V1&HW-CC-Date=20260909T171128Z&HW-CC-Expire=31536000000&HW-CC-Sign=CB3E848F8CAD1346F9F2F9931909B977F71D8DFB96BE578B11B6D8C559246CBC)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/dx_u5CSLTzCWm02prF2Dwg/zh-cn_image_0000002678004467.png?HW-CC-KV=V1&HW-CC-Date=20261008T181025Z&HW-CC-Expire=31536000000&HW-CC-Sign=F2B0C149F5F483D266EE0279179FA52D31BA387E99E4B16158AB1C59F286191B)
 * **7.0及以上版本**
-  1. 打开Android Studio项目根路径下的settings.gradle文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/qhb5q-5hSia7RnHT8b6hlA/zh-cn_image_0000002647924700.png?HW-CC-KV=V1&HW-CC-Date=20260909T171128Z&HW-CC-Expire=31536000000&HW-CC-Sign=19561E5740B8EA91D1FED737DF74778A2F5C68013B7F804F0A8EA018DFBB73DB)
+  1. 打开Android Studio项目根路径下的settings.gradle文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/qhb5q-5hSia7RnHT8b6hlA/zh-cn_image_0000002647924700.png?HW-CC-KV=V1&HW-CC-Date=20261008T181025Z&HW-CC-Expire=31536000000&HW-CC-Sign=5400D25676922CDE98F85E04FCAE4CCD3F030C445FEE7C4E39CE4DEEC64C4A3B)
 
   2. 在"pluginManagement>repositories"里面增加Maven仓地址。
 
@@ -52,18 +52,18 @@ Android Studio的Maven仓地址推荐配置方式在Gradle7.0以下、7.0及以�
      maven { url 'https://developer.huawei.com/repo/' }
      ```
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/27LhRIlgR5a96ge1AznjWw/zh-cn_image_0000002648084586.png?HW-CC-KV=V1&HW-CC-Date=20260909T171128Z&HW-CC-Expire=31536000000&HW-CC-Sign=D0B1A59FE2C6A74516A33E564FA29EFC00874E99E8140554A2BF3747A7770E8F)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/27LhRIlgR5a96ge1AznjWw/zh-cn_image_0000002648084586.png?HW-CC-KV=V1&HW-CC-Date=20261008T181025Z&HW-CC-Expire=31536000000&HW-CC-Sign=DFDFE652B20B74ACA0619FA22E5C2BB43D5DBD2DBF5361C237D0EAEBDA283B6B)
   3. 在"dependencyResolutionManagement>repositories"里面增加Maven地址。
 
      ```screen
      maven { url 'https://developer.huawei.com/repo/' }
      ```
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/Pf9qtb0wTGGdcrvXmDzTJQ/zh-cn_image_0000002678164305.png?HW-CC-KV=V1&HW-CC-Date=20260909T171128Z&HW-CC-Expire=31536000000&HW-CC-Sign=12AF13DFF98553E907A27939B61811E72629254FE4F135AEFFE91A6233DB9306)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/Pf9qtb0wTGGdcrvXmDzTJQ/zh-cn_image_0000002678164305.png?HW-CC-KV=V1&HW-CC-Date=20261008T181025Z&HW-CC-Expire=31536000000&HW-CC-Sign=6379018C6592E31F391F9655B1B9C083BF04BF710DF6786075607357A6915DD1)
 
 ## 添加编译依赖
 
-1. 打开应用级的build.gradle文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/fVob5YjUTgiDOgzJHkDTdA/zh-cn_image_0000002647924704.png?HW-CC-KV=V1&HW-CC-Date=20260909T171128Z&HW-CC-Expire=31536000000&HW-CC-Sign=D33E49B72EF65AAE993C82FA952A663E0869E2336245F9A7B1043328B36E4F5B)
+1. 打开应用级的build.gradle文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/fVob5YjUTgiDOgzJHkDTdA/zh-cn_image_0000002647924704.png?HW-CC-KV=V1&HW-CC-Date=20261008T181025Z&HW-CC-Expire=31536000000&HW-CC-Sign=11D1B162A8FE953149273E5CDACD8D96483C8EAAF59E80443058CB6DFBE408FA)
 
 2. 在"dependencies"中添加如下编译依赖。
 

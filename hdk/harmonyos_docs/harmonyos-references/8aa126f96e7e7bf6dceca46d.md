@@ -19,15 +19,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arku
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv
+
 ```ts
 import { ExceptionPrompt, PromptOptions, MarginType } from '@kit.ArkUI';
 ```
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv
+
 无
 
 ## ExceptionPrompt
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ExceptionPrompt({ options: PromptOptions, onTipClick?: ()=>void, onActionTextClick?: ()=>void })
 
@@ -49,6 +55,8 @@ ExceptionPrompt({ options: PromptOptions, onTipClick?: ()=>void, onActionTextCli
 
 ## PromptOptions
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 PromptOptions定义options的类型。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -67,6 +75,8 @@ PromptOptions定义options的类型。
 
 ## MarginType
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 MarginType定义marginType的类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -82,11 +92,17 @@ MarginType定义marginType的类型。
 
 ## 事件
 
+> phone | 2in1 | tablet | tv
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 ## 示例
 
+> phone | 2in1 | tablet | tv
+
 ### 示例1（设置异常提示）
+
+> phone | 2in1 | tablet | tv
 
 该示例展示了如何设置异常提示的异常图标、异常提示的文字、边距样式和右侧图标按钮的文字内容。
 
@@ -121,9 +137,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/wyqVZZHzQyeT44FM6iw2-A/zh-cn_image_0000002749495102.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=4477FCD98450E0D7264E729304EB89DFAC0CF098ACF01DB9AB591EF52CBB1D3F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/VUyUTcBhTeeHwGVBDBH0DA/zh-cn_image_0000002755026104.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=97DABA2474796D6699671B6AD02C7E55153C7801045D784574FF27389372F728)
 
 ### 示例2（设置弹窗类型的异常提示）
+
+> phone | 2in1 | tablet | tv
 
 该示例使用自定义弹窗设置弹窗类型的异常提示。
 
@@ -239,9 +257,11 @@ struct Index1 {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/mAJmSVViTbu_FZzUhP_blw/zh-cn_image_0000002779094159.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=66B0B6166E4D755962BB9AAA23DB25C14ED4042EB72EA8CEBB0F23CA668870E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/IM5stkGIRDmyzaWxFB5Z1w/zh-cn_image_0000002755185988.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=7FD8AB879F93A6BDDA3103D3D1D003199C7060CB35871AF37368BD8BE93CD252)
 
 ### 示例3（设置Symbol类型图标）
+
+> phone | 2in1 | tablet | tv
 
 从API version 18开始，该示例通过设置PromptOptions的属性symbolStyle，展示了自定义Symbol类型图标。
 
@@ -279,5 +299,5 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/JQNNKrFcR_usYSfv9g_vNw/zh-cn_image_0000002778934303.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=AA3EF73E0E2B4F1531F31E1F728A0E693A7B95DEB6E4D3A4959B75E3C1CA0BBB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/5R8xMFUsSWqG3LW1iWEe_w/zh-cn_image_0000002784584855.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=62A3AD4AA84EC4FEECD27CD61C6BC89CB63CC4E785CCBDF7510F69E0380FDA56)
 

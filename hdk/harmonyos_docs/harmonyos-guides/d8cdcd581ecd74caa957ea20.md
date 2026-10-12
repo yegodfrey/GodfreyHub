@@ -20,10 +20,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/start-intent-
 
 * 如果当前设备已安装应用中存在匹配的应用，选择框中将展示已接入的垂类应用，由用户选择打开指定应用以实现相应的意图。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/ttjpL4NtS1CHVt90Bb0d8A/zh-cn_image_0000002749491600.png?HW-CC-KV=V1&HW-CC-Date=20260929T121700Z&HW-CC-Expire=31536000000&HW-CC-Sign=557E66BDDE4D96F36269DFF2AFF84FF61082F71478CA87D4097BC65D18C7729B)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/87IeEXi4SJuq_UCSkd29Rw/zh-cn_image_0000002784661789.png?HW-CC-KV=V1&HW-CC-Date=20261009T092714Z&HW-CC-Expire=31536000000&HW-CC-Sign=F26EEF59A29D676DD0EC14C3BA8C32BCBBB07E44FF0B0FA7DC97A25F0BB3FC03)
 * 如果当前设备已安装应用中没有匹配的应用，系统将自动弹窗提示用户没有相关应用（下图以导航类应用匹配失败为例）。无需开发者适配。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/lhmPKY7FSB29mIEaxYygdg/zh-cn_image_0000002779090657.png?HW-CC-KV=V1&HW-CC-Date=20260929T121700Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E76F4CBCB1049EA02E4A009061439165DADA6F85B524D1E1C26129014549458)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/3dUIhZGgTjCOAhTluN2xMw/zh-cn_image_0000002755022856.png?HW-CC-KV=V1&HW-CC-Date=20261009T092714Z&HW-CC-Expire=31536000000&HW-CC-Sign=BB336CB5E521B791AFD33EF24DD33F83EC5088B6A1246723254B38C7F800F807)
 
 这种方式可以为调用方提供统一的安全、可信的目标方应用，同时降低调用方的接入成本。
 

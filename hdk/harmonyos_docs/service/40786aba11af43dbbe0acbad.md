@@ -6,4 +6,4 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/instant-service-image-
 
 # 图片管理
 
-* [上传图片](https://developer.huawei.com/consumer/cn/doc/service/instant-service-image-upload-0000002437556310)  
+* **[上传图片](https://developer.huawei.com/consumer/cn/doc/service/instant-service-image-upload-0000002437556310)**   

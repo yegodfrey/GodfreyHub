@@ -208,7 +208,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-product-25
 
 效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/kRSA27GuTLG_c91rxswe2g/zh-cn_image_0000002628398424.png?HW-CC-KV=V1&HW-CC-Date=20260910T055430Z&HW-CC-Expire=31536000000&HW-CC-Sign=348CC7294BCDE9061FD0F2671BF1F916E33E85E28A76780F98EF2C7F17FE9888 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/kRSA27GuTLG_c91rxswe2g/zh-cn_image_0000002628398424.png?HW-CC-KV=V1&HW-CC-Date=20261008T151226Z&HW-CC-Expire=31536000000&HW-CC-Sign=026169C315E30F749FEBE22F21D82DED5DB63E75CBABC4ADEA10F7DED485D8AC "点击放大")
 
 ## 常见FAQ
 

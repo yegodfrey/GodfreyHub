@@ -18,11 +18,15 @@ ExtensionContext模块提供访问特定[ExtensionAbility](https://developer.hua
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { common } from '@kit.AbilityKit';
 ```
 
 ## 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -35,6 +39,8 @@ import { common } from '@kit.AbilityKit';
 |extensionAbilityInfo|[ExtensionAbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-extensionabilityinfo)|否|否|所属[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-extensionability)的信息。|
 
 ## 使用场景
+
+> phone | 2in1 | tablet | tv | wearable
 
 ExtensionContext主要用于查询所属ExtensionAbility的信息、Module的配置信息以及HAP模块的信息，开发者可根据自身业务需求使用对应的信息。
 

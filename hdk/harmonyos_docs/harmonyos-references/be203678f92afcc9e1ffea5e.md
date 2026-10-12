@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-serve
 
 ## PurchaseOrderPayload
 
+> phone | 2in1 | tablet | tv | wearable
+
 购买数据模型，支持消耗型商品、非消耗型商品、自动续期订阅商品和非续期订阅商品。
 
 |参数|是否必选|类型|说明|
@@ -46,6 +48,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-serve
 
 ## PurchaseReservedInfo
 
+> phone | 2in1 | tablet | tv | wearable
+
 购买优惠策略扩展信息。
 
 |参数|是否必选|类型|说明|
@@ -55,6 +59,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-serve
 
 ## ProductItem
 
+> phone | 2in1 | tablet | tv | wearable
+
 购买商品信息。
 
 |参数|是否必选|类型|说明|
@@ -63,6 +69,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-serve
 |productId|是|String|商品ID。|
 
 ## OfferInfo
+
+> phone | 2in1 | tablet | tv | wearable
 
 优惠策略参数。
 

@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-image
 
 ## 概述
 
+> phone | 2in1 | tablet
+
 定义颜色值的结构体，用于显示全局取色提取的颜色值。
 
 **系统能力：** SystemCapability.Stylus.ColorPicker
@@ -22,7 +24,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-image
 
 ## 汇总
 
+> phone | 2in1 | tablet
+
 ### 成员变量
+
+> phone | 2in1 | tablet
 
 |名称|描述|
 |:----------------------|:---|
@@ -33,7 +39,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-image
 
 ## 结构体成员变量说明
 
+> phone | 2in1 | tablet
+
 ### alpha
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
 
 ```c
 int32_t HMS_GCP_Color::alpha
@@ -45,6 +55,8 @@ int32_t HMS_GCP_Color::alpha
 
 ### blue
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
+
 ```c
 int32_t HMS_GCP_Color::blue
 ```
@@ -55,6 +67,8 @@ int32_t HMS_GCP_Color::blue
 
 ### green
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
+
 ```c
 int32_t HMS_GCP_Color::green
 ```
@@ -64,6 +78,8 @@ int32_t HMS_GCP_Color::green
 绿色域。
 
 ### red
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
 
 ```c
 int32_t HMS_GCP_Color::red

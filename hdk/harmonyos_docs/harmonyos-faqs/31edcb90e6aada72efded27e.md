@@ -10,11 +10,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-575
 
 如何实现下图中的追加评论效果？
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/q-rZSLXGR0-dZgSnfG2Tpg/zh-cn_image_0000002658791437.png?HW-CC-KV=V1&HW-CC-Date=20260929T074338Z&HW-CC-Expire=31536000000&HW-CC-Sign=9667FA27DD7EE24CA1D7A1EBF1662DB557E1FC37CBFF14F36A608BE2F08FA628 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/q-rZSLXGR0-dZgSnfG2Tpg/zh-cn_image_0000002658791437.png?HW-CC-KV=V1&HW-CC-Date=20261008T185105Z&HW-CC-Expire=31536000000&HW-CC-Sign=E785F29F8C1B5458FB679778BF2AE67C045B31ED4B07FB141ADBBE0FAAFFA8CA "点击放大")
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/GdwJ2MLkSPaoVqW41lMWew/zh-cn_image_0000002628552050.gif?HW-CC-KV=V1&HW-CC-Date=20260929T074338Z&HW-CC-Expire=31536000000&HW-CC-Sign=D967787BD5DAFABFC3B333B2506F489F149E921FC4DDA21E7088FDD157A275EF "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/GdwJ2MLkSPaoVqW41lMWew/zh-cn_image_0000002628552050.gif?HW-CC-KV=V1&HW-CC-Date=20261008T185105Z&HW-CC-Expire=31536000000&HW-CC-Sign=517424206AEFF2460F09278DD05E4908E13CABFE5AACB9E73896DE76BA2C5C88 "点击放大")
 
 ## 背景知识
 

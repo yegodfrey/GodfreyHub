@@ -17,6 +17,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-c
 
 ## ContinuationResult^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 ContinuationManager的[on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationmanager#continuationmanagerondeviceselecteddeprecated)接口返回此对象表示流转管理入口返回的设备信息。
 > 说明
 >

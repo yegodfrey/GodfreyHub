@@ -17,6 +17,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-univer
 
 ## enableClickSoundEffect
 
+> tv 24+
+
 enableClickSoundEffect(enabled: boolean | undefined): T
 
 设置组件是否启用默认点击音效，适用于需要控制组件点击反馈音效或自定义点击发音的场景。是否能够发音还依赖设备声音相关的设置，如静音模式下不会播放音效。禁用默认点击音效后，开发者可以在onClick回调中调用音频相关接口自定义发音。
@@ -43,7 +45,11 @@ enableClickSoundEffect(enabled: boolean | undefined): T
 
 ## 示例
 
+> tv
+
 ### 示例1（禁用默认点击音效）
+
+> tv
 
 该示例通过配置enableClickSoundEffect属性，实现组件禁用默认点击音效，开发者可以在onClick回调中调用音频相关接口自定义发音。自定义发音可参考[SoundPool播放短音频指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-soundpool-for-playback)。
 

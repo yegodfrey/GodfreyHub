@@ -22,15 +22,15 @@ BLE蓝牙服务端和客户端连接成功后，客户端收到服务端约30次
 
 先排查服务端是否正常广播数据，以下日志表示服务端广播日志正常打印：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/YpGZFVAPSuu2hw9I4MkQ9g/zh-cn_image_0000002658972595.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=0B5494650CC31CDB684AF4C9F73B4CA64703C28AA72C6BA191813BA52DE889F9 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/YpGZFVAPSuu2hw9I4MkQ9g/zh-cn_image_0000002658972595.png?HW-CC-KV=V1&HW-CC-Date=20261008T151108Z&HW-CC-Expire=31536000000&HW-CC-Sign=8ED6A53B7718E345EAC18CF5234BAADD129B59118A9C31809E6BCF4843154D90 "点击放大")
 
 再排查客户端是否正常接收数据，发现客户端BLECharacteristicChanges事件回调日志打印到第30次后结束打印。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/-TkfzhE6SiC9cIm-O4X7-Q/zh-cn_image_0000002628613382.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=7CD897E132644AA64CD97AAF399AE928E86B028888C13B312C3674D267D31A84 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/-TkfzhE6SiC9cIm-O4X7-Q/zh-cn_image_0000002628613382.png?HW-CC-KV=V1&HW-CC-Date=20261008T151108Z&HW-CC-Expire=31536000000&HW-CC-Sign=87C00B2A24BDE66FE7CA1221F72B620C0EEBCD70AE1B0C2C785AF6414A7BAE67 "点击放大")
 
 蓝牙中的Hilog日志显示客户端NotifyCallback同样只执行30次。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/RgZ-vWOpS-KaD7lIiS-RuA/zh-cn_image_0000002658852645.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=50AB6751B71E305E1D5E3C43CC6CDAED8F0A05AF5BD03EC08B2E4C225C08AEC6 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/RgZ-vWOpS-KaD7lIiS-RuA/zh-cn_image_0000002658852645.png?HW-CC-KV=V1&HW-CC-Date=20261008T151108Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B2EE83DC394827274390E8944060271C0525B3E38E5F0E60A3A455BF24CAE48 "点击放大")
 
 翻看BLE蓝牙服务端文档发现，当服务端收到写入描述符请求时，根据写入请求[DescriptorWriteRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#descriptorwriterequest)的needRsp判断是否需要调用[sendResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#sendresponse)进行回复。根据文档说明可知，服务端需要订阅客户端的描述符写请求事件，即server.on('descriptorWrite')，当客户端发起写入描述符请求事件[descriptorWrite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble#ondescriptorwrite)时，可通过在服务端监听descriptorWrite事件，并在回调中回复客户端。
 
@@ -44,7 +44,7 @@ BLE蓝牙服务端和客户端连接成功后，客户端收到服务端约30次
 
 验证结果可以看出客户端的BLECharacteristicChange回调函数已经持续执行超过30次。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/arX58XaZQP2FKokzCGhEMw/zh-cn_image_0000002628773282.png?HW-CC-KV=V1&HW-CC-Date=20260929T032822Z&HW-CC-Expire=31536000000&HW-CC-Sign=AEB8839894C1E4C9C6CFB0874CD86F230D0DDFAA925F88AD4B4637E71AA025D8 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/arX58XaZQP2FKokzCGhEMw/zh-cn_image_0000002628773282.png?HW-CC-KV=V1&HW-CC-Date=20261008T151108Z&HW-CC-Expire=31536000000&HW-CC-Sign=7C7313A8C9CFA0069C9E987ABF77DA2FCAA7124EA686426A57C2122EAD73F747 "点击放大")
 
 ## 总结
 

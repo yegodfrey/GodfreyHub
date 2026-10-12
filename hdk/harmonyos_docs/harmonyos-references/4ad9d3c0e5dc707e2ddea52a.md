@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 声明音频调试管理器相关的接口。本文件中的接口用于获取音频调试管理器实例，提供音频运行时调试功能，包括快照信息获取等。
 
 **引用文件：** <ohaudio/native_audio_debugging_manager.h>
@@ -24,13 +26,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:----------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-------------------------------|
 |[OH_AudioDebuggingManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiodebuggingmanager)|OH_AudioDebuggingManager|声明音频调试管理器。用于音频运行时调试，包括获取快照信息等功能。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|
@@ -42,7 +50,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_AudioManager_GetAudioDebuggingManager()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 OH_AudioCommon_Result OH_AudioManager_GetAudioDebuggingManager(OH_AudioDebuggingManager **manager)
@@ -67,6 +79,8 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioDebuggingManager(OH_AudioDebugging
 |OH_AudioCommon_Result|* * AUDIOCOMMON_RESULT_SUCCESS：函数执行成功。 * * * AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM：参数manager为nullptr。 * *|
 
 ### OH_AudioDebuggingManager_PrintAppInfo()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 OH_AudioCommon_Result OH_AudioDebuggingManager_PrintAppInfo(OH_AudioDebuggingManager *manager, int32_t fd)
@@ -95,6 +109,8 @@ OH_AudioCommon_Result OH_AudioDebuggingManager_PrintAppInfo(OH_AudioDebuggingMan
 |OH_AudioCommon_Result|* * AUDIOCOMMON_RESULT_SUCCESS：函数执行成功。 * * * AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM：参数manager为nullptr。 * *|
 
 ### OH_AudioDebuggingManager_PrintRendererInfo()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 OH_AudioCommon_Result OH_AudioDebuggingManager_PrintRendererInfo(OH_AudioDebuggingManager *manager, OH_AudioRenderer *renderer, int32_t fd)
@@ -125,6 +141,8 @@ OH_AudioCommon_Result OH_AudioDebuggingManager_PrintRendererInfo(OH_AudioDebuggi
 
 ### OH_AudioDebuggingManager_PrintCapturerInfo()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 OH_AudioCommon_Result OH_AudioDebuggingManager_PrintCapturerInfo(OH_AudioDebuggingManager *manager, OH_AudioCapturer *capturer, int32_t fd)
 ```
@@ -153,6 +171,8 @@ OH_AudioCommon_Result OH_AudioDebuggingManager_PrintCapturerInfo(OH_AudioDebuggi
 |OH_AudioCommon_Result|* * AUDIOCOMMON_RESULT_SUCCESS：函数执行成功。 * * * AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM：参数manager或capturer为nullptr。 * *|
 
 ### OH_AudioDebuggingManager_PrintSessionInfo()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 OH_AudioCommon_Result OH_AudioDebuggingManager_PrintSessionInfo(OH_AudioDebuggingManager *manager, OH_AudioSessionManager *session, int32_t fd)

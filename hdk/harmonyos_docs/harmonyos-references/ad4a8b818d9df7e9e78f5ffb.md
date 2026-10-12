@@ -14,11 +14,15 @@ fileManagerService模块提供删除文件到回收站、获取文件图标及�
 
 ## 导入模块
 
+> phone | 2in1 | tablet
+
 ```typescript
 import { fileManagerService } from '@kit.FileManagerServiceKit';
 ```
 
 ## fileManagerService.deleteToTrash
+
+> phone 5.0.5(17)+ | 2in1 5.0.5(17)+ | tablet 5.0.5(17)+
 
 deleteToTrash(uri: string): Promise<string>
 
@@ -79,6 +83,8 @@ async function deleteFile() {
 ```
 
 ## fileManagerService.getFileIconSync
+
+> phone 5.0.5(17)+ | 2in1 5.0.5(17)+ | tablet 5.0.5(17)+
 
 getFileIconSync(fileType: string): string | Resource
 
@@ -158,6 +164,8 @@ struct Index {
 ```
 
 ## fileManagerService.getFileIcon
+
+> phone 5.0.5(17)+ | 2in1 5.0.5(17)+ | tablet 5.0.5(17)+
 
 getFileIcon(fileType: string): Promise<string | Resource>
 
@@ -240,6 +248,8 @@ struct Index {
 ```
 
 ## fileManagerService.parseShortcut
+
+> phone 6.1.0(23)+ | 2in1 6.1.0(23)+ | tablet 6.1.0(23)+
 
 parseShortcut(linkUri: string): Promise<string>
 

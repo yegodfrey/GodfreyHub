@@ -19,7 +19,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-revie
    >
    > 如果后续需要在指定时间前上架，可以[手动发布待上架应用](#section0726113812279)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/92fBiFEpQRus_3HfxSVFVQ/zh-cn_image_0000002293427820.png?HW-CC-KV=V1&HW-CC-Date=20260916T032631Z&HW-CC-Expire=31536000000&HW-CC-Sign=706F165681455FB0D0C0B839A90DC4507AE8410185A414B8B45995A9C8FBB63D)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/92fBiFEpQRus_3HfxSVFVQ/zh-cn_image_0000002293427820.png?HW-CC-KV=V1&HW-CC-Date=20261008T140641Z&HW-CC-Expire=31536000000&HW-CC-Sign=1EFA2A6541C57F0DC6C87E287BD8197AB090DBE48D5A4AEF43E3C960DA223E9C)
 
 ## 手动发布待上架应用
 
@@ -28,7 +28,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-revie
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"APP与元服务"。
 2. 选择要发布的应用。
 3. 左侧导航选择"应用上架 > 版本信息"下待发布的版本。
-4. 点击右上角的"手动发布"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/18rSeaJIQS6u21JlFKCHcg/zh-cn_image_0000002344513677.png?HW-CC-KV=V1&HW-CC-Date=20260916T032631Z&HW-CC-Expire=31536000000&HW-CC-Sign=B0BCBC0D4E02C3FE3AEF9BEE7BB3E80E573263AED9F0427364B405A46BA979F6)
+4. 点击右上角的"手动发布"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/18rSeaJIQS6u21JlFKCHcg/zh-cn_image_0000002344513677.png?HW-CC-KV=V1&HW-CC-Date=20261008T140641Z&HW-CC-Expire=31536000000&HW-CC-Sign=9A6B12428EDA8A118A3CFC93588ED029728420192137B2693077078A2E9C73B0)
 
 5. 点击"确认"。 手动发布一般在几分钟内生效。
 

@@ -17,9 +17,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable
+
 可以包含[Span](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-span)、[ImageSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-imagespan) 子组件。
 
 ## 接口
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ContainerSpan()
 
@@ -29,9 +33,13 @@ ContainerSpan()
 
 ## 属性
 
+> phone | 2in1 | tablet | tv | wearable
+
 仅支持以下属性：
 
 ### textBackgroundStyle
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 textBackgroundStyle(style: TextBackgroundStyle)
 
@@ -52,6 +60,8 @@ textBackgroundStyle(style: TextBackgroundStyle)
 
 ### attributeModifier^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 attributeModifier(modifier: AttributeModifier<ContainerSpanAttribute>)
 
 设置组件的动态属性。
@@ -68,11 +78,17 @@ attributeModifier(modifier: AttributeModifier<ContainerSpanAttribute>)
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1（设置背景样式）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 11开始，该示例通过[textBackgroundStyle](#textbackgroundstyle)属性展示了文本设置背景样式的效果。
 
@@ -107,9 +123,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/SaIkL2psTJ26gbCz0mKBGQ/zh-cn_image_0000002778934001.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=702411C4F2223A8775A7FA3C12B3C769133D828BC71FD6A7E50435F6F8115FD0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/9jXb6DQyTWyqHe6WnajoRA/zh-cn_image_0000002784584553.png?HW-CC-KV=V1&HW-CC-Date=20261009T092748Z&HW-CC-Expire=31536000000&HW-CC-Sign=C407CCD5A3A6CCECA4EC160BD8441D5B474199679E3B6DFCB655F76CCBDB692A)
 
 ### 示例2（通过attributeModifier设置背景样式）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 12开始，该示例通过[attributeModifier](#attributemodifier12)属性展示了文本设置背景样式的效果。
 
@@ -145,5 +163,5 @@ struct ContainerSpanModifierExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/4fX7754VQB61EC4AQqfUhg/zh-cn_image_0000002749334918.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=9B036858819D5542A33A8E5F4408FFF9764BB4899BCF8B23F4824977CB3B41F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/7herfHOzR4yZI2iqcynhWg/zh-cn_image_0000002784664735.png?HW-CC-KV=V1&HW-CC-Date=20261009T092748Z&HW-CC-Expire=31536000000&HW-CC-Sign=A8DA4C183818EBD1925DDF93031B03AFF6E2C26EB18461D0BE1D8FD406DED32F)
 

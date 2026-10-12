@@ -15,7 +15,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/guide-jingxuan-
 * 通过Wallet Kit服务对接功能开发。
 * 用户可在华为钱包 > 卡包中开通开元商祺银卡，并能进行房间预订、权益查看、优惠券领取等操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/JbPvsEkuSRODoPQQLLDzzw/zh-cn_image_0000001051084612.png?HW-CC-KV=V1&HW-CC-Date=20260909T130222Z&HW-CC-Expire=31536000000&HW-CC-Sign=254B93BBAED542F224320FD470E46BCD729B03A435793AA2B66CAE9321DDB51A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/JbPvsEkuSRODoPQQLLDzzw/zh-cn_image_0000001051084612.png?HW-CC-KV=V1&HW-CC-Date=20261008T140222Z&HW-CC-Expire=31536000000&HW-CC-Sign=B381B73A7205979E6C919C53DD1D7D6F021283876D40DC290D11D7FCF6A92DBF "点击放大")
 
 ## 合作受益
 

@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 声明从native层获取图片数据的方法。
 
 **库：** libimage_receiver_ndk.z.so
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:--------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------------------------|
@@ -32,6 +38,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 |[ImageReceiverNative_](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-imagereceivernative-)|ImageReceiverNative|用于定义ImageReceiverNative数据类型名称。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,7 +57,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_Image_Receiver_On_Callback()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 typedef void (*OH_Image_Receiver_On_Callback)(void)
@@ -62,6 +74,8 @@ typedef void (*OH_Image_Receiver_On_Callback)(void)
 **起始版本：** 10
 
 ### OH_Image_Receiver_CreateImageReceiver()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int32_t OH_Image_Receiver_CreateImageReceiver(napi_env env, struct OhosImageReceiverInfo info, napi_value* res)
@@ -88,6 +102,8 @@ int32_t OH_Image_Receiver_CreateImageReceiver(napi_env env, struct OhosImageRece
 |int32_t|[IRNdkErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-common-h#irndkerrcode)： IMAGE_RESULT_SUCCESS：操作成功。 IMAGE_RESULT_BAD_PARAMETER：参数错误。 IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。 IMAGE_RESULT_INVALID_PARAMETER：参数无效。 IMAGE_RESULT_CREATE_SURFACE_FAILED：创建surface失败。 IMAGE_RESULT_SURFACE_GRALLOC_BUFFER_FAILED：surface分配内存失败。 IMAGE_RESULT_GET_SURFACE_FAILED：获取surface失败。 IMAGE_RESULT_MEDIA_RTSP_SURFACE_UNSUPPORT：媒体rtsp surface不支持。 IMAGE_RESULT_DATA_UNSUPPORT：图像类型不支持。 IMAGE_RESULT_MEDIA_DATA_UNSUPPORT：媒体类型不支持。|
 
 ### OH_Image_Receiver_InitImageReceiverNative()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 ImageReceiverNative* OH_Image_Receiver_InitImageReceiverNative(napi_env env, napi_value source)
@@ -118,6 +134,8 @@ ImageReceiverNative* OH_Image_Receiver_InitImageReceiverNative(napi_env env, nap
 
 ### OH_Image_Receiver_GetReceivingSurfaceId()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int32_t OH_Image_Receiver_GetReceivingSurfaceId(const ImageReceiverNative* native, char* id, size_t len)
 ```
@@ -143,6 +161,8 @@ int32_t OH_Image_Receiver_GetReceivingSurfaceId(const ImageReceiverNative* nativ
 |int32_t|[IRNdkErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-common-h#irndkerrcode)： IMAGE_RESULT_SUCCESS：操作成功。 IMAGE_RESULT_BAD_PARAMETER：参数错误。 IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。 IMAGE_RESULT_INVALID_PARAMETER：参数无效。 IMAGE_RESULT_INVALID_PARAMETER：从surface获取参数失败。 IMAGE_RESULT_GET_SURFACE_FAILED：获取surface失败。 IMAGE_RESULT_DATA_UNSUPPORT：图像类型不支持。 IMAGE_RESULT_MEDIA_DATA_UNSUPPORT：媒体类型不支持。|
 
 ### OH_Image_Receiver_ReadLatestImage()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int32_t OH_Image_Receiver_ReadLatestImage(const ImageReceiverNative* native, napi_value* image)
@@ -171,6 +191,8 @@ int32_t OH_Image_Receiver_ReadLatestImage(const ImageReceiverNative* native, nap
 
 ### OH_Image_Receiver_ReadNextImage()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int32_t OH_Image_Receiver_ReadNextImage(const ImageReceiverNative* native, napi_value* image)
 ```
@@ -198,6 +220,8 @@ int32_t OH_Image_Receiver_ReadNextImage(const ImageReceiverNative* native, napi_
 
 ### OH_Image_Receiver_On()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int32_t OH_Image_Receiver_On(const ImageReceiverNative* native, OH_Image_Receiver_On_Callback callback)
 ```
@@ -222,6 +246,8 @@ int32_t OH_Image_Receiver_On(const ImageReceiverNative* native, OH_Image_Receive
 |int32_t|[IRNdkErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-common-h#irndkerrcode)： IMAGE_RESULT_SUCCESS：操作成功。 IMAGE_RESULT_BAD_PARAMETER：参数错误。 IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。 IMAGE_RESULT_INVALID_PARAMETER：参数无效。 IMAGE_RESULT_INVALID_PARAMETER：从surface获取参数失败。 IMAGE_RESULT_GET_SURFACE_FAILED：获取surface失败。 IMAGE_RESULT_DATA_UNSUPPORT：图像类型不支持。 IMAGE_RESULT_MEDIA_DATA_UNSUPPORT：媒体类型不支持。|
 
 ### OH_Image_Receiver_GetSize()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int32_t OH_Image_Receiver_GetSize(const ImageReceiverNative* native, struct OhosImageSize* size)
@@ -248,6 +274,8 @@ int32_t OH_Image_Receiver_GetSize(const ImageReceiverNative* native, struct Ohos
 
 ### OH_Image_Receiver_GetCapacity()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int32_t OH_Image_Receiver_GetCapacity(const ImageReceiverNative* native, int32_t* capacity)
 ```
@@ -273,6 +301,8 @@ int32_t OH_Image_Receiver_GetCapacity(const ImageReceiverNative* native, int32_t
 
 ### OH_Image_Receiver_GetFormat()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int32_t OH_Image_Receiver_GetFormat(const ImageReceiverNative* native, int32_t* format)
 ```
@@ -297,6 +327,8 @@ int32_t OH_Image_Receiver_GetFormat(const ImageReceiverNative* native, int32_t* 
 |int32_t|[IRNdkErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-common-h#irndkerrcode)： IMAGE_RESULT_SUCCESS：操作成功。 IMAGE_RESULT_BAD_PARAMETER：参数错误。 IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。 IMAGE_RESULT_INVALID_PARAMETER：参数无效。 IMAGE_RESULT_DATA_UNSUPPORT：图像类型不支持。|
 
 ### OH_Image_Receiver_Release()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int32_t OH_Image_Receiver_Release(ImageReceiverNative* native)

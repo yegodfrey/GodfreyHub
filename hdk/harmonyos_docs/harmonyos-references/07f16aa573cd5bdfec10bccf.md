@@ -14,11 +14,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-h
 
 ## 导入模块
 
+> phone | 2in1 | tablet | wearable
+
 ```ts
 import { hiRetrieval } from '@kit.PerformanceAnalysisKit';
 ```
 
 ## HiRetrievalConfig
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
 
 应用灰度活动配置。
 
@@ -35,6 +39,8 @@ import { hiRetrieval } from '@kit.PerformanceAnalysisKit';
 |deviceModel|string|否|否|设备型号参数，用于标识具体设备型号（具体值由开发者根据业务需求定义）。参数值由开发者自定义，无格式和字符类型限制，最长支持128个字符，超出部分将被截断。这些参数将作为算法输入，影响灰度圈选策略。|
 
 ## hiRetrieval.init
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
 
 init(): void
 
@@ -71,6 +77,8 @@ try {
 ```
 
 ## hiRetrieval.participate
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
 
 participate(config: HiRetrievalConfig): void
 
@@ -120,6 +128,8 @@ try {
 
 ## hiRetrieval.quit
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
+
 quit(): void
 
 设置此设备退出应用灰度活动，退出后此设备将无法在云端被圈选。
@@ -157,6 +167,8 @@ try {
 
 ## hiRetrieval.isParticipant
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
+
 isParticipant(): boolean
 
 查询此设备是否正在参与应用灰度活动。
@@ -182,6 +194,8 @@ let isParticipant = hiRetrieval.isParticipant();
 ```
 
 ## hiRetrieval.getLastParticipationTimestamp
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
 
 getLastParticipationTimestamp(): number
 
@@ -209,6 +223,8 @@ let ts = hiRetrieval.getLastParticipationTimestamp();
 ```
 
 ## hiRetrieval.run
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
 
 run(): void
 
@@ -246,6 +262,8 @@ try {
 ```
 
 ## hiRetrieval.getCurrentConfig
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | wearable 26.0.0+
 
 getCurrentConfig(): HiRetrievalConfig
 

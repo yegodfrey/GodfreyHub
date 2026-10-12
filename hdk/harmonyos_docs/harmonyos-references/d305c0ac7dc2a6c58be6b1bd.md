@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effe
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 声明滤镜效果的数据类型。
 
 **引用文件：** <native_effect/effect_types.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effe
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:------------------------------------------------------------------------------------------------------------------------------|:----------------|:---------------|
@@ -34,6 +40,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effe
 
 ### 枚举
 
+> phone | 2in1 | tablet | tv | wearable
+
 |名称|typedef关键字|描述|
 |:----------------------------------|:--------------|:--------------|
 |[EffectErrorCode](#effecterrorcode)|EffectErrorCode|定义滤镜效果的状态码。|
@@ -41,7 +49,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effe
 
 ## 枚举类型说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### EffectErrorCode
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 enum EffectErrorCode
@@ -61,6 +73,8 @@ enum EffectErrorCode
 |EFFECT_UNKNOWN_ERROR = 7600901|未知错误。|
 
 ### EffectTileMode
+
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
 
 ```c
 enum EffectTileMode

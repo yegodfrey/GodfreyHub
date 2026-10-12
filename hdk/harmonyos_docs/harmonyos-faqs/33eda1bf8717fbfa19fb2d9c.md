@@ -38,17 +38,17 @@ struct Index {
 
 previewer效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/okIkJapyQ6Wt9SNJCGTMTg/zh-cn_image_0000002658807357.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=4E413C6DCC69657CB2FE2137EA9B93396DF09395B092234EFDD274DD1910A447 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/okIkJapyQ6Wt9SNJCGTMTg/zh-cn_image_0000002658807357.png?HW-CC-KV=V1&HW-CC-Date=20261008T163203Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C4B6D7A303B09EDFEEB92DA64EE54EC7148BFBA57C085A9E74DB95059B21907 "点击放大")
 
 真机效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/d5edHIUERhy2VV96nt6-CA/zh-cn_image_0000002628408096.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=B247F53DB5D606C338ED019C41E5D2B8AA11149A04F2DC75607BF1EF4B874671 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/d5edHIUERhy2VV96nt6-CA/zh-cn_image_0000002628408096.png?HW-CC-KV=V1&HW-CC-Date=20261008T163203Z&HW-CC-Expire=31536000000&HW-CC-Sign=B948A8409C342323CE03858D7B9A784E835D90737FA7685F13CBF4451F2C5F62 "点击放大")
 
 可以发现真机的Text组件两侧留有空白。
 
 ## 背景知识
 
-* previewer可以看到previewer设备的屏幕尺寸： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/cNl-DI-1QNyz55-QDy317w/zh-cn_image_0000002628567996.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=830D06E0CA87FE8417EA59981E4249CE46CB4F2EB73E49A2E68EFF42B9F3C16A "点击放大")
+* previewer可以看到previewer设备的屏幕尺寸： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/cNl-DI-1QNyz55-QDy317w/zh-cn_image_0000002628567996.png?HW-CC-KV=V1&HW-CC-Date=20261008T163203Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB5BBE555323D4126A492E0CF5A0D5E6FBF8D0AB19A85B3AB04B8E1CCF073C1E "点击放大")
 
   1080px换算成vp是360vp。
 * 屏幕管理API @ohos.display可以参考[如何获取手机屏幕信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-242)。

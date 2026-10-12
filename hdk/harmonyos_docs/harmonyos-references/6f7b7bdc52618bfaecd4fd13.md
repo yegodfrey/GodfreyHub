@@ -14,6 +14,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## StoreConfig
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 管理关系数据库配置。
 
 |名称|类型|只读|可选|说明|
@@ -36,6 +38,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## CryptoParam^14+^
 
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
+
 数据库加密参数配置。此配置只有在StoreConfig的encrypt选项设置为true或密钥非空时有效。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -50,6 +54,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |cryptoPageSize|number|否|是|整数类型，指定数据库加解密使用的页大小，单位：字节。如不指定，默认值为1024字节。 用户指定的页大小应为1024到65536范围内的整数，并且为2^n^。若指定值非整数，则向下取整。|
 
 ## Asset^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 记录资产附件（文件、图片、视频等类型文件）的相关信息。
 
@@ -67,6 +73,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## ChangeInfo^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 记录端云同步过程详情。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -80,6 +88,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |deleted|Array<string> | Array<number>|否|否|记录删除数据的位置，如果该表的主键是string类型，该值是主键的值，否则该值表示删除数据的行号。|
 
 ## DistributedConfig^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 记录表的分布式配置信息。
 
@@ -98,6 +108,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## Statistic^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 描述数据库表的端云同步过程的统计信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -111,6 +123,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## TableDetails^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 描述数据库表执行端云同步任务上传和下载的统计信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -121,6 +135,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |download|[Statistic](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#statistic10)|否|否|表示数据库表中端云同步下载过程的统计信息。|
 
 ## ProgressDetails^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 描述数据库整体执行端云同步任务上传和下载的统计信息。
 
@@ -134,6 +150,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |message|string|否|是|同步状态的详细消息。通过message信息查看详细的失败原因。默认值为空。 **起始版本**：26.0.0 **模型约束：** 此接口仅可在Stage模型下使用。|
 
 ## CloudSyncConfig
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
 
 云同步配置信息。
 
@@ -151,6 +169,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## SqlExecutionInfo^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 描述数据库执行的SQL语句的统计信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -165,6 +185,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## SqlInfo^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 描述数据库执行的SQL语句的详细信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -175,6 +197,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |args|Array<[ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype)>|否|否|表示执行SQL中的参数信息。|
 
 ## ExceptionMessage^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 描述数据库执行的SQL语句的错误信息。
 
@@ -188,6 +212,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## TransactionOptions^14+^
 
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
+
 事务对象的配置信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -197,6 +223,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |transactionType|[TransactionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#transactiontype14)|否|是|事务类型。默认为DEFERRED。|
 
 ## pluginLibs的使用约束和示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 **使用约束：**
 
@@ -269,6 +297,8 @@ export default class EntryAbility extends UIAbility {
 
 ## ReturningConfig^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 指定returning相关接口操作后需要返回的字段名列表和结果集中允许包含的最大记录数。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -282,6 +312,8 @@ export default class EntryAbility extends UIAbility {
 
 ## Result^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 记录受影响的数据行数量和结果集。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -294,6 +326,8 @@ export default class EntryAbility extends UIAbility {
 |resultSet|[LiteResultSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-literesultset)|是|否|表示受影响数据的结果集。默认返回1024行，最大支持32766行，超出部分将被丢弃。|
 
 ## SyncResult
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 表示设备同步结果。
 

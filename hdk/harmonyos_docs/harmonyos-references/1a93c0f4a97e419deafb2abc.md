@@ -22,6 +22,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 ## CSS语法规则
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 使用@media来引入查询语句，具体规则如下：
 
 ```css
@@ -42,6 +44,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 ## 页面中引用资源
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 通过@import方式引入媒体查询，具体使用方法如下：
 
 ```js
@@ -56,11 +60,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 ## 媒体类型
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 |类型|说明|
 |:-----|:-------------|
 |screen|按屏幕相关参数进行媒体查询。|
 
 ## 媒体逻辑操作
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 媒体逻辑操作符：and、or、not、only用于构成复杂媒体查询，也可以通过comma（,）将其组合起来，详细解释说明如下表。
 
@@ -86,6 +94,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 |>|大于，例如：screen and (height > 600)。|
 
 ## 媒体特征
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 |类型|说明|
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -113,6 +123,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 |dark-mode^6+^|系统为深色模式时为true，否则为false。|
 
 ## 示例代码
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 ```html
 <!-- xxx.hml -->

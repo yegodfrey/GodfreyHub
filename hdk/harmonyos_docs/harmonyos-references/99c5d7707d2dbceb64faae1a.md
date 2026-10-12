@@ -19,11 +19,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-r
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import reminderAgent from '@ohos.reminderAgent';
 ```
 
 ## reminderAgent.publishReminder^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<number>): void
 
@@ -60,6 +64,8 @@ reminderAgent.publishReminder(timer, (err: BusinessError, reminderId: number) =>
 ```
 
 ## reminderAgent.publishReminder^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 publishReminder(reminderReq: ReminderRequest): Promise<number>
 
@@ -101,6 +107,8 @@ reminderAgent.publishReminder(timer).then((reminderId: number) => {
 
 ## reminderAgent.cancelReminder^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 cancelReminder(reminderId: number, callback: AsyncCallback<void>): void
 
 取消指定id的提醒，使用回调的方式实现异步调用。
@@ -129,6 +137,8 @@ reminderAgent.cancelReminder(1, (err: BusinessError, data: void) => {
 ```
 
 ## reminderAgent.cancelReminder^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 cancelReminder(reminderId: number): Promise<void>
 
@@ -162,6 +172,8 @@ reminderAgent.cancelReminder(1).then(() => {
 ```
 
 ## reminderAgent.getValidReminders^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>): void
 
@@ -211,6 +223,8 @@ reminderAgent.getValidReminders((err: BusinessError, reminders: Array<reminderAg
 
 ## reminderAgent.getValidReminders^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getValidReminders(): Promise<Array<ReminderRequest>>
 
 获取当前应用已设置的所有有效（未过期）的提醒，使用Promise方式实现异步调用。
@@ -258,6 +272,8 @@ reminderAgent.getValidReminders().then((reminders: Array<reminderAgent.ReminderR
 
 ## reminderAgent.cancelAllReminders^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 cancelAllReminders(callback: AsyncCallback<void>): void
 
 取消当前应用所有的提醒，使用回调的方式实现异步调用。
@@ -286,6 +302,8 @@ reminderAgent.cancelAllReminders((err: BusinessError, data: void) =>{
 
 ## reminderAgent.cancelAllReminders^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 cancelAllReminders(): Promise<void>
 
 取消当前应用所有的提醒，使用Promise方式实现异步调用。
@@ -312,6 +330,8 @@ reminderAgent.cancelAllReminders().then(() => {
 ```
 
 ## reminderAgent.addNotificationSlot^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void
 
@@ -346,6 +366,8 @@ reminderAgent.addNotificationSlot(mySlot, (err: BusinessError, data: void) => {
 ```
 
 ## reminderAgent.addNotificationSlot^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 addNotificationSlot(slot: NotificationSlot): Promise<void>
 
@@ -385,6 +407,8 @@ reminderAgent.addNotificationSlot(mySlot).then(() => {
 
 ## reminderAgent.removeNotificationSlot^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>): void
 
 删除目标NotificationSlot，使用callback方式实现异步调用。
@@ -414,6 +438,8 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION, 
 ```
 
 ## reminderAgent.removeNotificationSlot^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 removeNotificationSlot(slotType: notification.SlotType): Promise<void>
 
@@ -449,6 +475,8 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 ## ActionButtonType^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 按钮的类型。
 > 说明
 >
@@ -462,6 +490,8 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 |ACTION_BUTTON_TYPE_SNOOZE|1|表示延迟提醒的按钮。|
 
 ## ReminderType^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 提醒的类型。
 > 说明
@@ -478,6 +508,8 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 ## ActionButton^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 用于设置弹出的提醒通知信息上显示的按钮类型和标题。
 > 说明
 >
@@ -491,6 +523,8 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 |type|[ActionButtonType](#actionbuttontypedeprecated)|否|否|按钮的类型。|
 
 ## WantAgent^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 点击提醒通知后跳转的目标ability信息。
 > 说明
@@ -506,6 +540,8 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 ## MaxScreenWantAgent^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 全屏显示提醒到达时自动拉起的目标ability信息，该接口预留。
 > 说明
 >
@@ -519,6 +555,8 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 |abilityName|string|否|否|指明提醒到达时自动拉起的目标ability名（如果设备在使用中，则只弹出通知横幅框）。|
 
 ## ReminderRequest^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 提醒实例对象，用于设置提醒类型、响铃时长等具体信息。
 > 说明
@@ -545,6 +583,8 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 ## ReminderRequestCalendar^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 日历实例对象，用于设置提醒的时间。
 > 说明
 >
@@ -559,6 +599,8 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 |repeatDays|Array<number>|否|是|指明重复提醒的日期。|
 
 ## ReminderRequestAlarm^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 闹钟实例对象，用于设置提醒的时间。
 > 说明
@@ -575,6 +617,8 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 
 ## ReminderRequestTimer^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 倒计时实例对象，用于设置提醒的时间。
 > 说明
 >
@@ -587,6 +631,8 @@ reminderAgent.removeNotificationSlot(notification.SlotType.CONTENT_INFORMATION).
 |triggerTimeInSeconds|number|否|否|指明倒计时的秒数。 单位：s|
 
 ## LocalDateTime^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 用于日历类提醒设置时指定时间信息。
 > 说明

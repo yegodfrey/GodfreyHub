@@ -23,11 +23,15 @@ WebController适用于需要在应用侧对嵌入式Web组件进行主动控制�
 
 ## 创建对象
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 let webController: WebController = new WebController()
 ```
 
 ## constructor^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 
@@ -39,6 +43,8 @@ WebController的构造函数。
 **系统能力：** SystemCapability.Web.Webview.Core
 
 ## getCookieManager^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getCookieManager(): WebCookie
 
@@ -78,6 +84,8 @@ struct WebComponent {
 
 ## requestFocus^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 requestFocus()
 
 使当前Web页面获取焦点。
@@ -109,6 +117,8 @@ struct WebComponent {
 ```
 
 ## accessBackward^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 accessBackward(): boolean
 
@@ -149,6 +159,8 @@ struct WebComponent {
 
 ## accessForward^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 accessForward(): boolean
 
 当前页面是否可前进，即当前页面是否有前进历史记录。
@@ -187,6 +199,8 @@ struct WebComponent {
 ```
 
 ## accessStep^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 accessStep(step: number): boolean
 
@@ -234,6 +248,8 @@ struct WebComponent {
 
 ## backward^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 backward()
 
 按照历史栈，后退一个页面。建议在调用backward前先调用[accessBackward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessbackward)检查当前页面是否可后退。
@@ -266,6 +282,8 @@ struct WebComponent {
 
 ## forward^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 forward()
 
 按照历史栈，前进一个页面。建议在调用forward前先调用[accessForward^9+^](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#accessforward)检查当前页面是否可前进。
@@ -297,6 +315,8 @@ struct WebComponent {
 ```
 
 ## deleteJavaScriptRegister^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 deleteJavaScriptRegister(name: string)
 
@@ -337,6 +357,8 @@ struct WebComponent {
 
 ## getHitTest^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getHitTest(): HitTestType
 
 获取当前被点击区域的元素类型。
@@ -375,6 +397,8 @@ struct WebComponent {
 ```
 
 ## loadData^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string })
 
@@ -426,6 +450,8 @@ struct WebComponent {
 
 ## loadUrl^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 loadUrl(options: { url: string | Resource, headers?: Array<Header> })
 
 使用指定的HTTP头加载指定的URL。
@@ -469,6 +495,8 @@ struct WebComponent {
 
 ## onActive^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 onActive(): void
 
 调用此接口通知Web组件进入前台激活状态。
@@ -501,6 +529,8 @@ struct WebComponent {
 
 ## onInactive^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 onInactive(): void
 
 调用此接口通知Web组件进入未激活状态。
@@ -532,6 +562,8 @@ struct WebComponent {
 ```
 
 ## zoom^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 zoom(factor: number): void
 
@@ -572,6 +604,8 @@ struct WebComponent {
 
 ## refresh^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 refresh()
 
 调用此接口通知Web组件刷新网页。
@@ -603,6 +637,8 @@ struct WebComponent {
 ```
 
 ## registerJavaScriptProxy^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 registerJavaScriptProxy(options: { object: object, name: string, methodList: Array<string> })
 
@@ -684,6 +720,8 @@ struct Index {
 
 ## runJavaScript^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 runJavaScript(options: { script: string, callback?: (result: string) => void })
 
 异步执行JavaScript脚本，并通过回调方式返回脚本执行的结果。runJavaScript需要在loadUrl完成后，比如onPageEnd中调用。
@@ -753,6 +791,8 @@ struct WebComponent {
 
 ## stop^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 stop()
 
 停止页面加载。
@@ -784,6 +824,8 @@ struct WebComponent {
 ```
 
 ## clearHistory^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 clearHistory(): void
 

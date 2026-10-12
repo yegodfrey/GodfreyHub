@@ -149,15 +149,15 @@ NATIVE层API：**[OH_PixelmapNative_SetMemoryName()](https://developer.huawei.co
 
 修改方法示例**：**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/fmAULwkNTEaR5uzHt18C6w/zh-cn_image_0000002370405688.png?HW-CC-KV=V1&HW-CC-Date=20260920T024937Z&HW-CC-Expire=31536000000&HW-CC-Sign=CF07381C2BC55791D3235287DB4849E4FBB708C20F65C7DF05BE759EDE729F67 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/fmAULwkNTEaR5uzHt18C6w/zh-cn_image_0000002370405688.png?HW-CC-KV=V1&HW-CC-Date=20261008T174543Z&HW-CC-Expire=31536000000&HW-CC-Sign=A5C0D1636B4167B343A5BEF26E107D581BE4273CF3114EC1B1F12D2055434B9A "点击放大")
 
 ashmem日志结果示例展示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/oCPUVIv6SPmsttLmwgkfww/zh-cn_image_0000002404045417.png?HW-CC-KV=V1&HW-CC-Date=20260920T024937Z&HW-CC-Expire=31536000000&HW-CC-Sign=A39A191E0F9B5A7E173F15905CBC643FD8FD6D8099898D7E4FF8D630A180AA43 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/oCPUVIv6SPmsttLmwgkfww/zh-cn_image_0000002404045417.png?HW-CC-KV=V1&HW-CC-Date=20261008T174543Z&HW-CC-Expire=31536000000&HW-CC-Sign=508E447F014B90ABBBCBC5055812D48A49D0BAC43776CCCE7D2E0351334791DE "点击放大")
 
 ION日志结果示例展示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/s2DqxoNARzCqQGzcqscjiQ/zh-cn_image_0000002370565600.png?HW-CC-KV=V1&HW-CC-Date=20260920T024937Z&HW-CC-Expire=31536000000&HW-CC-Sign=81F76B7C31C78E7EC6396E08D8A702275EC4F7DF6D6621877C801A3579A88147 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/s2DqxoNARzCqQGzcqscjiQ/zh-cn_image_0000002370565600.png?HW-CC-KV=V1&HW-CC-Date=20261008T174543Z&HW-CC-Expire=31536000000&HW-CC-Sign=05F4AF59D5FD2AF8E6649D4275016DBB7C9F02F24FDD77EAEB0E57CEC914FFC0 "点击放大")
 
 ## 句柄泄漏问题优化建议
 

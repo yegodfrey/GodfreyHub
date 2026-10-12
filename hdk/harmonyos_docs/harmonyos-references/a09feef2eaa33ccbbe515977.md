@@ -16,9 +16,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 无
 
 ## 属性
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
 
@@ -28,6 +32,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 |icon|string|-|是|该操作项图标资源路径，该图标展示在选项文本上，支持本地路径，格式为png，jpg和svg。|
 
 ## 样式
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 仅支持如下样式：
 
@@ -52,13 +58,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)。
 
 ## 方法
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 不支持。
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 ```html
 <!-- xxx.hml -->
@@ -72,5 +84,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 </toolbar>
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/kL5YTDakSYWxeib3eGaGOA/zh-cn_image_0000002749335326.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121739Z&HW-CC-Expire=31536000000&HW-CC-Sign=DB9F3A64554CEC294B8DD76D485C0315697591A008A0653E38CE5F0D0C3E16E0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/CVuVkypkSwOcXGy4AMunRw/zh-cn_image_0000002784665143.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092759Z&HW-CC-Expire=31536000000&HW-CC-Sign=A730DFD55A8F5DFF9480B0251880323CB44CCD7F9030AC5AB31C0396213ABCE0)
 

@@ -76,7 +76,7 @@ Agent Server向Agent Client基于SSE协议推送Task中间状态：
 
 任务状态手机端效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/uaMG0A4LQeCp4YbO42HZXQ/zh-cn_image_0000002640264166.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=7558AAFAD02F2FE9359E4BFAB85C258F626625147CB3DE30383F6BEE808432B6 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/uaMG0A4LQeCp4YbO42HZXQ/zh-cn_image_0000002640264166.png?HW-CC-KV=V1&HW-CC-Date=20261008T170935Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E8DEADA4AD0307A37B77DFCA325136286DD38CB23E15434BF448131CBFCBB6B "点击放大")
 
 Agent Server向Agent Client基于SSE协议推送Task中间处理结果：
 

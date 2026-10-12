@@ -23,11 +23,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-r
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 ```ts
 import { router } from '@kit.ArkUI';
 ```
 
 ## router.pushUrl^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 pushUrl(options: RouterOptions): Promise<void>
 
@@ -105,6 +109,8 @@ router.pushUrl({
 
 ## router.pushUrl^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 pushUrl(options: RouterOptions, callback: AsyncCallback<void>): void
 
 跳转到应用内的指定页面。
@@ -173,6 +179,8 @@ router.pushUrl({
 ```
 
 ## router.pushUrl^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 pushUrl(options: RouterOptions, mode: RouterMode): Promise<void>
 
@@ -251,6 +259,8 @@ router.pushUrl({
 
 ## router.pushUrl^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void
 
 跳转到应用内的指定页面。
@@ -321,6 +331,8 @@ router.pushUrl({
 
 ## router.replaceUrl^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+ | lite_wearable 12+
+
 replaceUrl(options: RouterOptions): Promise<void>
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
@@ -386,6 +398,8 @@ router.replaceUrl({
 
 ## router.replaceUrl^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+ | lite_wearable 12+
+
 replaceUrl(options: RouterOptions, callback: AsyncCallback<void>): void
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。
@@ -443,6 +457,8 @@ router.replaceUrl({
 ```
 
 ## router.replaceUrl^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+ | lite_wearable 12+
 
 replaceUrl(options: RouterOptions, mode: RouterMode): Promise<void>
 
@@ -510,6 +526,8 @@ router.replaceUrl({
 
 ## router.replaceUrl^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+ | lite_wearable 12+
+
 replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。
@@ -568,6 +586,8 @@ router.replaceUrl({
 ```
 
 ## router.pushNamedRoute^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 pushNamedRoute(options: NamedRouterOptions): Promise<void>
 
@@ -649,6 +669,8 @@ router.pushNamedRoute({
 
 ## router.pushNamedRoute^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void
 
 跳转到指定的命名路由页面。
@@ -719,6 +741,8 @@ router.pushNamedRoute({
 ```
 
 ## router.pushNamedRoute^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>
 
@@ -799,6 +823,8 @@ router.pushNamedRoute({
 
 ## router.pushNamedRoute^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void
 
 跳转到指定的命名路由页面。
@@ -871,6 +897,8 @@ router.pushNamedRoute({
 
 ## router.replaceNamedRoute^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 replaceNamedRoute(options: NamedRouterOptions): Promise<void>
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
@@ -938,6 +966,8 @@ router.replaceNamedRoute({
 
 ## router.replaceNamedRoute^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
@@ -997,6 +1027,8 @@ router.replaceNamedRoute({
 ```
 
 ## router.replaceNamedRoute^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>
 
@@ -1066,6 +1098,8 @@ router.replaceNamedRoute({
 
 ## router.replaceNamedRoute^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
@@ -1127,6 +1161,8 @@ router.replaceNamedRoute({
 
 ## router.back^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 back(options?: RouterOptions ): void
 
 返回上一页面或指定的页面，会删除当前页面与指定页面之间的所有页面。如果此前调用了[showAlertBeforeBackPage](#routershowalertbeforebackpagedeprecated)开启了返回询问对话框，则在执行返回操作时会先弹出确认对话框，用户确认后才执行返回；用户取消则不执行返回。
@@ -1153,6 +1189,8 @@ this.getUIContext().getRouter().back({ url: 'pages/detail' });
 ```
 
 ## router.back^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 back(index: number, params?: Object): void;
 
@@ -1188,6 +1226,8 @@ this.getUIContext().getRouter().back(1, { info: '来自Home页' }); // 携带参
 
 ## router.clear^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 clear(): void
 
 清空页面栈中的所有历史页面，仅保留当前页面作为栈顶页面。
@@ -1208,6 +1248,8 @@ this.getUIContext().getRouter().clear();
 ```
 
 ## router.getLength^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getLength(): string
 
@@ -1236,6 +1278,8 @@ console.info('pages stack size = ' + size);
 ```
 
 ## router.getState^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getState(): RouterState
 
@@ -1266,6 +1310,8 @@ console.info('current path = ' + page.path);
 ```
 
 ## router.getStateByIndex^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getStateByIndex(index: number): RouterState | undefined
 
@@ -1308,6 +1354,8 @@ if (options != undefined) {
 
 ## router.getStateByUrl^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getStateByUrl(url: string): Array<RouterState>
 
 通过url获取对应页面的状态信息。
@@ -1349,6 +1397,8 @@ for (let i: number = 0; i < options.length; i++) {
 
 ## RouterState
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 页面状态信息。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -1361,6 +1411,8 @@ for (let i: number = 0; i < options.length; i++) {
 |params^12+^|Object|否|否|表示当前页面携带的参数。 **说明：** params参数只能传递可序列化的参数，不能传递方法和接口返回的对象（例如，媒体接口定义和返回的PixelMap对象）。建议开发者提取接口返回的对象中需要被传递的基础类型属性，自行构造object类型对象进行传递。 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。 **模型约束：** 此接口仅可在Stage模型下使用。|
 
 ## router.showAlertBeforeBackPage^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 showAlertBeforeBackPage(options: EnableAlertOptions): void
 
@@ -1406,6 +1458,8 @@ try {
 
 ## EnableAlertOptions
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 页面返回询问对话框选项。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1417,6 +1471,8 @@ try {
 |message|string|否|否|询问对话框内容。|
 
 ## router.hideAlertBeforeBackPage^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 hideAlertBeforeBackPage(): void
 
@@ -1438,6 +1494,8 @@ this.getUIContext().getRouter().hideAlertBeforeBackPage();
 ```
 
 ## router.getParams^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getParams(): Object
 
@@ -1468,6 +1526,8 @@ this.getUIContext().getRouter().getParams();
 
 ## RouterOptions
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+ | lite_wearable 12+
+
 路由跳转选项。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Lite
@@ -1484,6 +1544,8 @@ this.getUIContext().getRouter().getParams();
 
 ## RouterMode^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 路由跳转模式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1497,6 +1559,8 @@ this.getUIContext().getRouter().getParams();
 
 ## NamedRouterOptions^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 命名路由跳转选项。
 
 |名称|类型|只读|可选|说明|
@@ -1507,7 +1571,11 @@ this.getUIContext().getRouter().getParams();
 
 ## 完整示例
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 ### 基于JS扩展的类Web开发范式
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 以下代码仅适用于javascript文件，不适用于ArkTS文件
 
@@ -1536,6 +1604,7 @@ export default {
 
 ### 基于TS扩展的声明式开发范式
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 > 说明
 >
 > 直接使用router可能导致[UI上下文不明确](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#ui上下文不明确)的问题，建议使用getUIContext获取[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)实例，并使用[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取绑定实例的router。
@@ -1659,6 +1728,8 @@ struct Second {
 
 ## router.push^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 push(options: RouterOptions): void
 
 跳转到应用内的指定页面。
@@ -1703,6 +1774,8 @@ router.push({
 
 ## router.replace^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+ | lite_wearable 12+
+
 replace(options: RouterOptions): void
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
@@ -1737,6 +1810,8 @@ router.replace({
 
 ## router.enableAlertBeforeBackPage^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 enableAlertBeforeBackPage(options: EnableAlertOptions): void
 
 开启页面返回询问对话框。调用此方法后，执行[back](#routerbackdeprecated)返回页面时将弹出确认对话框，用户确认后才执行页面返回操作；用户取消则不执行返回。适用于需要防止用户误操作返回导致数据丢失的场景，例如用户正在填写表单、编辑文档或进行支付操作时，弹出确认对话框以避免意外退出。
@@ -1762,6 +1837,8 @@ router.enableAlertBeforeBackPage({
 
 ## router.disableAlertBeforeBackPage^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 disableAlertBeforeBackPage(): void
 
 禁用页面返回询问对话框。调用此方法后，将关闭由[enableAlertBeforeBackPage](#routerenablealertbeforebackpagedeprecated)开启的返回询问对话框，[back](#routerbackdeprecated)操作将不再弹出确认对话框，直接执行页面返回。
@@ -1778,6 +1855,8 @@ router.disableAlertBeforeBackPage();
 ```
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 该示例展示了类Web范式下router.[replace](#routerreplacedeprecated)以及router.[replaceUrl](#routerreplaceurldeprecated)接口的跳转功能。
 
@@ -1989,5 +2068,5 @@ export default {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/o3DpChtBTKOkaF1NLZVYWQ/zh-cn_image_0000002749334348.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121729Z&HW-CC-Expire=31536000000&HW-CC-Sign=4562E3B3C7084D5202AAA3D7BD548E6493BB1212F0AF0D802E98A869B9588094)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/KqEtlfjZSs6HuQ0M_kdkNQ/zh-cn_image_0000002784664303.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092753Z&HW-CC-Expire=31536000000&HW-CC-Sign=9AA9C44858B6D69790A38913D97C651B00C29676805BA7BB7C8D5D44CA1DEA70)
 

@@ -16,7 +16,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-certi
 
 证书使用如图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/GN6RGuBQTgaiKyC6NCDR6A/zh-cn_image_0000002779092827.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=BC5879E142AF914D1A07C638BE613C009AFC38167DE112BCCE510D1062F7A8BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/bqahs9kBQGC4AquwMx4ubQ/zh-cn_image_0000002755184798.png?HW-CC-KV=V1&HW-CC-Date=20261009T092709Z&HW-CC-Expire=31536000000&HW-CC-Sign=ED2A6C19CB195ACD348BE359BD1AF929029B32EF91BC893CC9284A29C22E9C37)
 
 ## 商户证书
 
@@ -42,7 +42,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-certi
 
 * 证书上传（参见[上传商户证书](#上传商户证书)）后，可以在"商户中心 > 证书管理 > 上传商户证书 > 证书ID"处获取。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/eAvTcRuYT7q242GPx3Zrig/zh-cn_image_0000002778932973.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7F0CE687F4DC2F8CC17D2DE7222FC15D3B28405824F9B0EDA7728B1A4BBA2BD)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/SH3937rOQ9uTViULA0oXDg/zh-cn_image_0000002784583665.png?HW-CC-KV=V1&HW-CC-Date=20261009T092709Z&HW-CC-Expire=31536000000&HW-CC-Sign=351EAF6CEA96EA0AC7C14FD6EF5B7DA7831FD23FE8FF2E7E301B1056224AAE78)
 
 ### 生成商户证书
 
@@ -52,7 +52,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-certi
 
    登录[Node.js](https://nodejs.org/en/download/)官方网站，下载Node.js软件包。请选择LTS版本，并根据电脑操作系统选择对应的软件包。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/ZM_srXKkSKqhYPk7Z0DsFQ/zh-cn_image_0000002749333886.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=2B8883DE51ED4E4D12B4C4E52D8C99F4C16B6BB95C6139FD1F76D306ECCDB409)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/cJavxE8JS9qux4oHe6_abA/zh-cn_image_0000002784663845.png?HW-CC-KV=V1&HW-CC-Date=20261009T092709Z&HW-CC-Expire=31536000000&HW-CC-Sign=B3458ECEE301FB6F801714B11718082EAC3BA602EE3EE8FAEE49F4E726EAF25A)
 
    双击下载后的软件包进行安装。全部按照默认设置点击"Next"，直至"Finish"。安装过程中，Node.js会自动在系统的path环境变量中配置node.exe的目录路径。
    > 说明
@@ -61,7 +61,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-certi
 
    打开命令行工具，输入**node -v**命令，能正常查询Node.js的版本号，说明Node.js执行环境配置完成。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/QJ75abP4QsGIhSIespm86w/zh-cn_image_0000002749493776.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=C79E8F493CCCF32A25A53775A136BABD7925205DDF578A53222F58E9B8318DB1)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/8M1WHY_UTW2IGUyKbQ5A4w/zh-cn_image_0000002755024912.png?HW-CC-KV=V1&HW-CC-Date=20261009T092709Z&HW-CC-Expire=31536000000&HW-CC-Sign=A532589FFE0D1F43A04BE5C40CFCF035EC22C87B2D091B89FD31EB51F583B2E1)
 2. 使用文本编辑器新建文件（编码为UTF-8），拷贝以下代码到文件中并保存命名为"generateKeyPair.js"。
 
    ```typescript
@@ -88,7 +88,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-certi
 
 4. 从结果中拷贝生成的公私钥并保存。结果如下图所示：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/krZ06rc-R2uxHynPnZn8HQ/zh-cn_image_0000002779092829.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=ACEF9AFCA7D94F3164E13ABA679D11EBC44F26E6DDE760D9B3EBFC2DF7739D77)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/B-zZkQh6SUOV3VZbixUFgw/zh-cn_image_0000002755184800.png?HW-CC-KV=V1&HW-CC-Date=20261009T092709Z&HW-CC-Expire=31536000000&HW-CC-Sign=E6D47ACB19A39179F1A27A912D4EE658565BCF8F7753B15AE2F0759736CA78B3)
 
 **方式2：使用在线工具生成**
 
@@ -140,5 +140,5 @@ DQIDAQAB
 
 登录[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)后，通过"商户中心 > 证书管理 > 华为支付证书"页签进行华为支付证书下载，该证书用于校验华为支付给商户业务系统发送的信息，如支付结果信息等。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/oH0xFM5-SSean3tZW0m9Mw/zh-cn_image_0000002778932975.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=6FFCCE423744103B91C2A7F5D7C22034A61FDCEF6A0F442D14ADACEB4FC31D19)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/u8i5BFKyTnmjl8Ir6nttYA/zh-cn_image_0000002784583667.png?HW-CC-KV=V1&HW-CC-Date=20261009T092709Z&HW-CC-Expire=31536000000&HW-CC-Sign=8EF409C87608A1C960BEC950CC8FF9834AEF4F0A262FE54130CDE3343E2D95F9)
 

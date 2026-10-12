@@ -21,11 +21,15 @@ WebSchemeHandlerResponse与WebResourceHandler配合使用：开发者构造WebSc
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { webview } from '@kit.ArkWeb';
 ```
 
 ## constructor^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 
@@ -77,6 +81,8 @@ struct WebComponent {
 
 ## setUrl^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 setUrl(url: string): void
 
 给当前的Response设置重定向或因HSTS而更改后的URL，设置了url后会触发请求的跳转。
@@ -102,6 +108,8 @@ setUrl(url: string): void
 |401|Parameter error. Possible causes: 1. Incorrect parameter types.|
 
 ## setNetErrorCode^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setNetErrorCode(code: WebNetErrorList): void
 
@@ -129,6 +137,8 @@ setNetErrorCode(code: WebNetErrorList): void
 
 ## setStatus^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 setStatus(code: number): void
 
 给当前的Response设置HTTP状态码。
@@ -154,6 +164,8 @@ setStatus(code: number): void
 完整示例代码参考[constructor](#constructor12)。
 
 ## setStatusText^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setStatusText(text: string): void
 
@@ -181,6 +193,8 @@ setStatusText(text: string): void
 
 ## setMimeType^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 setMimeType(type: string): void
 
 给当前的Response设置媒体类型。例如，注入HTML内容时设置为text/html，注入JSON数据时设置为application/json。
@@ -207,6 +221,8 @@ setMimeType(type: string): void
 
 ## setEncoding^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 setEncoding(encoding: string): void
 
 给当前的Response设置字符编码格式。
@@ -232,6 +248,8 @@ setEncoding(encoding: string): void
 完整示例代码参考[constructor](#constructor12)。
 
 ## setHeaderByName^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setHeaderByName(name: string, value: string, overwrite: boolean): void
 
@@ -261,6 +279,8 @@ setHeaderByName(name: string, value: string, overwrite: boolean): void
 
 ## getUrl^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getUrl(): string
 
 获取重定向或因HSTS而更改后的URL。
@@ -281,6 +301,8 @@ getUrl(): string
 
 ## getNetErrorCode^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getNetErrorCode(): WebNetErrorList
 
 获取Response的网络错误码。
@@ -298,6 +320,8 @@ getNetErrorCode(): WebNetErrorList
 完整示例代码参考[constructor](#constructor12)。
 
 ## getStatus^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getStatus(): number
 
@@ -317,6 +341,8 @@ getStatus(): number
 
 ## getStatusText^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getStatusText(): string
 
 获取Response的状态文本。
@@ -334,6 +360,8 @@ getStatusText(): string
 完整示例代码参考[constructor](#constructor12)。
 
 ## getMimeType^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getMimeType(): string
 
@@ -353,6 +381,8 @@ getMimeType(): string
 
 ## getEncoding^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getEncoding(): string
 
 获取Response的字符编码格式。
@@ -370,6 +400,8 @@ getEncoding(): string
 完整示例代码参考[constructor](#constructor12)。
 
 ## getHeaderByName^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getHeaderByName(name: string): string
 

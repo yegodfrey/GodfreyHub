@@ -12,20 +12,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 >
 > 此处以**LayaAir 2.2.0** 版本打包**2D示例项目**为例，对LayaAir 1.7.18~2.7.0 Beta版本均适用。
 
-1. 在LayaAir IDE菜单栏选择"项目 > 发布"，在"发布项目"界面采用默认设置，点击"发布"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/vN88L_p4SPetdyhzp_mgyw/zh-cn_image_0000002366338130.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=3AA834C2561BBB92E59124C3907EC2D83E47132740D92210D4A90F4E2D7FA2F4)
+1. 在LayaAir IDE菜单栏选择"项目 > 发布"，在"发布项目"界面采用默认设置，点击"发布"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/vN88L_p4SPetdyhzp_mgyw/zh-cn_image_0000002366338130.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=28A57032DE2E44DEE9819FA51E5D5183FBFB75B06DD93BB877F337264C23FDCA)
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/Vw37K4ywSQ-WnlRzS4oLqw/zh-cn_image_0000002399698037.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=9E4D25DBAFA790989B6985EA2AE850F993DEFCF50FB2D76ED147B361F6E54F3E)
-2. 快游戏打包成功后，文件目录如下图所示，不同版本发布内容略有差异。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/LKbJB_J2Tf-JVC8An-L9ag/zh-cn_image_0000002366178238.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A1EF0EEBB1CE09E07C02331681598A3E46B0E7FF706B36156494CE1A4091D2C)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/Vw37K4ywSQ-WnlRzS4oLqw/zh-cn_image_0000002399698037.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=F8E28B8310F79E0A7B8C64CEAF94FD3435872352B4C513CC9729E5ACC8824F51)
+2. 快游戏打包成功后，文件目录如下图所示，不同版本发布内容略有差异。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/LKbJB_J2Tf-JVC8An-L9ag/zh-cn_image_0000002366178238.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=43AC82A33B99C409FCBECAE8519AA5C73BB4D190FFF047C505B483CF423E6472)
 
 3. 新建自定义的内容。 注意
    >
    > Windows创建的文件保存时，请使用utf-8格式保存。
    1. 新建game.js和manifest.json文件，这两个文件是必须的。
-   2. 新建Common文件夹，存放游戏的logo图片，此目录对应manifest.json文件中的icon配置。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/0t_EQuSkQail0CcnRrRsVA/zh-cn_image_0000002399817905.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=8E62BD44B352BDAB5CB157634A6DEC09FB5FF56DE9DD264E64EDBF0A2BD5F265)
+   2. 新建Common文件夹，存放游戏的logo图片，此目录对应manifest.json文件中的icon配置。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/0t_EQuSkQail0CcnRrRsVA/zh-cn_image_0000002399817905.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=B494E02E9E57CAA18A7916B72CF995C8D76F3BB282C040ED554F18B6768726B7)
 
       最终发布的包结构如下：
 
-      ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/1P3SC4Z_Tb-YivofT8_gmg/zh-cn_image_0000002366338134.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=8E104BDE848F88963807F9BAD2428315C40AA62BBF2A472648F19C49890C3C84)
+      ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/1P3SC4Z_Tb-YivofT8_gmg/zh-cn_image_0000002366338134.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=895738AD3A7FE59B3473B183862100CC403A47255C7589584B65D153EF5F6FF3)
 4. 由于快游戏平台实现的XMLHttpRequest不支持读取本地文件，因此需要添加适配来读取本地文件。以下是对不同 Laya 版本的适配。
    * 在 Laya 1.x 版本修改 src 目录下的 code.js，修改 load 方法，用于截获读取本地文件的请求进行处理（需要进行两处适配）。
 
@@ -406,11 +406,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
 当EgretLauncher版本大于等于1.2.1且引擎版本大于等于5.3.9 ，支持一键发布华为快游戏，否则按如下步骤开发（以下操作以EgretLauncher 5.2.20版本为例）。
 
-1. 打开 EgretLauncher，新建JS空项目。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/tm1LaEOORKSV7lpCSBT_1w/zh-cn_image_0000002366178242.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=739B8E665341B66DB36A766B12EECB2D6CB0DE353A65683124017265D792C1E3)
+1. 打开 EgretLauncher，新建JS空项目。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/tm1LaEOORKSV7lpCSBT_1w/zh-cn_image_0000002366178242.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=88AC174BAE3BE63CFA4732B551B9ACB739B26F63D9508C41BA445A1A296AEF6E)
 
-2. 点击"发布"图标，在弹出的界面中选择HTML5，版本号填写"build"，方便打包使用。点击"确定"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/pkFCHPOGRdeIhpYCv-VDxg/zh-cn_image_0000002399817909.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=B974D425D6B4F331B355412140FC2D9DBA347BF63E2757274F7617949BC7B04F)
+2. 点击"发布"图标，在弹出的界面中选择HTML5，版本号填写"build"，方便打包使用。点击"确定"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/pkFCHPOGRdeIhpYCv-VDxg/zh-cn_image_0000002399817909.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=AC119F73920F6133541AF5BF6F769965313E54A1911F49C2B59AC752D08F4692)
 
-3. 发布成功后，在工程bin-release > web目录下生成build目录，build目录结构如下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/jihZd5daSbe7P2XscDS_PQ/zh-cn_image_0000002366338138.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=057F1CAF8A3E044B03C7E280BAC5F487E6E9C717A50935E3AAF63C6ACFA66AC6)
+3. 发布成功后，在工程bin-release > web目录下生成build目录，build目录结构如下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/jihZd5daSbe7P2XscDS_PQ/zh-cn_image_0000002366338138.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=7DD136D1A5D1C00127343B878394EE2CF52F5413310AF77B3EDB860BA921A210)
 
 4. 将项目中libs > modules > egret目录下的 egret.js、egret.web.js 文件复制到发布目录build下的js文件夹中，并且重命名egret.js名称为egret.min.js、重命名egret.web.js名称为egret.web.min.js。 说明
    >
@@ -418,11 +418,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
 
    重命名前文件结构：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/06RSz0j_QEa6UINWUI5ATQ/zh-cn_image_0000002399698045.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=7224FF06FBC0462AA528A8FED073B42942A9EE08D345A7F21E6D630725FBCDB5)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/06RSz0j_QEa6UINWUI5ATQ/zh-cn_image_0000002399698045.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=6B983023872187AC216BCC44B629F6FE4535C4799CFA7BF6444CD2F77CA39ACF)
 
    重命名后文件结构：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/x2vjfwZlQSydn8AxEL3Rbg/zh-cn_image_0000002366178246.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=3FE2695EAAF60B112F0532EEF2B910EA6BBA9AA61981C5C0D2A054966C7F03F0)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/x2vjfwZlQSydn8AxEL3Rbg/zh-cn_image_0000002366178246.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=1074FEFC063CAAF1BDCA9944272FEDAF7E225CA03414CB0AE5B71ED38823DCD0)
 5. 增加本地资源加载逻辑。
    1. 在egret.web.min.js搜索WebHttpRequest.prototype.open，添加如下适配代码，判断资源文件是否为本地资源，如果是则不执行ajax获取资源。本地资源接口参见[文件系统](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-file-system-0000001113298440)。
 
@@ -619,11 +619,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-o
    > Windows创建的文件保存时，请使用utf-8格式保存。
    1. 备份原先HTML5的manifest.json（后续适配需要参考，请必须做好备份）。
    2. 新建game.js和manifest.json文件，该两个文件必须存在。
-   3. 新建Common文件夹，存放快游戏的logo图片，此目录对应manifest.json文件中icon的配置。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/TNa48c8TSCeG5IJhuD-nDw/zh-cn_image_0000002399817913.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=68B467224C4A31E9880F8EFA01F9554628F234732E33D244397E260B1E6899EB)
+   3. 新建Common文件夹，存放快游戏的logo图片，此目录对应manifest.json文件中icon的配置。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/TNa48c8TSCeG5IJhuD-nDw/zh-cn_image_0000002399817913.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=A12B23CC2CB91A4B444413871657C148FDF3C663F18F1D12D4CC1E3DE966A14C)
 
       最终发布的包结构如下：
 
-      ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/G15O3jUjRMSc8VR86hcPmw/zh-cn_image_0000002366338142.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=A72E5DA37BFD3173DA81B05950F6A4F75A76B213FD7810690C862BFBF1B84CF1)
+      ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/G15O3jUjRMSc8VR86hcPmw/zh-cn_image_0000002366338142.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=2DE63B2FADEFC51869CC9DA3DCFF96F4ED5B0AFA8D39229CD79FE78AD65501DC)
 8. 打开game.js，添加如下的适配代码。
 
    ```screen

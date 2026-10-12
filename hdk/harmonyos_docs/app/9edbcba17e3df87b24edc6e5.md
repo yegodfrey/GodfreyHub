@@ -15,5 +15,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-ai-00
    * 如果软件包中不包含人工智能生成合成内容，"AI生成合成服务"选择"不涉及"，配置结束。
    * 如果软件包中包含人工智能生成合成内容，"AI生成合成服务"选择"涉及"，继续配置，选择涉及的AI生成合成服务类型并前往"版权信息 > 授权书及其他材料"上传AI生成标识材料和相关资质文件，具体要求请参见[配置版权信息](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-copyright-0000002278981450)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/rsBkRnUCQhmuuiuB-6eFaw/zh-cn_image_0000002485432917.png?HW-CC-KV=V1&HW-CC-Date=20260916T032631Z&HW-CC-Expire=31536000000&HW-CC-Sign=5FDA25807398B309A47B72E12576E0B0439132EFAB35B6350796AFD16362DF33)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/rsBkRnUCQhmuuiuB-6eFaw/zh-cn_image_0000002485432917.png?HW-CC-KV=V1&HW-CC-Date=20261008T182137Z&HW-CC-Expire=31536000000&HW-CC-Sign=26284B3A562B0FD25F07A188614D26DE42C187920699E14D190015A867826880)
 

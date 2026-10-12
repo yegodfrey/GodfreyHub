@@ -24,7 +24,7 @@ HarmonyOS应用程序包支持多模块开发，生成的应用程序包可以�
 
 根据日志报错显示module phone及其依赖大小超过了2MB，可以在DevEco Studio中直接打开元服务app文件，查看HAP和HSP包的整体大小及不同类型的文件大小占比：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/j2Ye9qLzRd2Mk1qIYOgOBA/zh-cn_image_0000002689176330.png?HW-CC-KV=V1&HW-CC-Date=20260910T055430Z&HW-CC-Expire=31536000000&HW-CC-Sign=3CC73086F9021A6FB27A24E199DB08E1422B75A7ABB34A0F94FAE6C302605788 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/j2Ye9qLzRd2Mk1qIYOgOBA/zh-cn_image_0000002689176330.png?HW-CC-KV=V1&HW-CC-Date=20261008T180657Z&HW-CC-Expire=31536000000&HW-CC-Sign=74924E837D723E2EB598E4E78A473075BDAEA3580C66FB0931D4F58E3B29E552 "点击放大")
 
 ## 分析结论
 

@@ -25,7 +25,7 @@ ArkUI开发框架在NDK接口提供了自定义UI组件的能力，这些能力�
 
 **图1** 自定义容器组件
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/736y85mNQrqABexeF6wcpg/zh-cn_image_0000002778931769.png?HW-CC-KV=V1&HW-CC-Date=20260929T121700Z&HW-CC-Expire=31536000000&HW-CC-Sign=354ABF53F44833625B6C945B9AD514EF4B0B86966574B0C652CB5B6C40AB24A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/FVCO7i2gR5ORHFtjOeufaw/zh-cn_image_0000002755183598.png?HW-CC-KV=V1&HW-CC-Date=20261009T092714Z&HW-CC-Expire=31536000000&HW-CC-Sign=A2B5704636CFF5DB1FB7BCD480C62DFB272A856651D1AB6880C27D9472F3688D)
 
 1. 按照[接入ArkTS页面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page)创建前置工程。
 
@@ -268,7 +268,7 @@ ArkUI开发框架在NDK接口提供了自定义UI组件的能力，这些能力�
 
 **图2** 自定义绘制组件
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/xC5j5RdXTWeYxnOXOZbang/zh-cn_image_0000002749332686.png?HW-CC-KV=V1&HW-CC-Date=20260929T121700Z&HW-CC-Expire=31536000000&HW-CC-Sign=3743BCB496D21455D1B6131A6864100E52461CFBAEDD752069303938F4396EC3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/6R6s4D3nREa4Kc8wMGo1YA/zh-cn_image_0000002784582467.png?HW-CC-KV=V1&HW-CC-Date=20261009T092714Z&HW-CC-Expire=31536000000&HW-CC-Sign=A7190C7FCE765039D3E36F49E685FF9A94448580716F6D4E5DB1D8A53DDA5C29)
 
 1. 按照[自定义布局容器](#自定义布局容器)章节准备前置工程。
 
@@ -484,7 +484,7 @@ ArkUI开发框架在NDK接口提供了自定义UI组件的能力，这些能力�
 
 **图3** 不规则网格布局效果
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/CZJb0hmGTfiWUQJlHc9l4g/zh-cn_image_0000002749492570.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121700Z&HW-CC-Expire=31536000000&HW-CC-Sign=4FC2793AF7A31CA66C066160EA017A30C6EC57976E79423FF78E2107E32DDFF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/jLU53iLMTkGlKzyHxiaOyw/zh-cn_image_0000002784662647.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092714Z&HW-CC-Expire=31536000000&HW-CC-Sign=8650320A91ABFB99B47E53160C2B51B0B386545651F4A00FF87C61D60CECCD8C)
 
 1. 按照[自定义布局容器](#自定义布局容器)章节准备前置工程。
 

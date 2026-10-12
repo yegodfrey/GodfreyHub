@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-r
 > * 当前小游戏嵌入式运行仅支持在系统为HarmonyOS 5.0及以上的设备内运行。
 > * 小游戏嵌入式运行对小游戏有一定的要求，如果需要使用，您需要对您的游戏进行适配。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/YMD-JsNXQ6655HQnZhgdzw/zh-cn_image_0000002696106673.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=F3AC9392BD373E882F75F83F701567435D4934137F085381C53CEA91B7BCEBA2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/YMD-JsNXQ6655HQnZhgdzw/zh-cn_image_0000002696106673.png?HW-CC-KV=V1&HW-CC-Date=20261008T164245Z&HW-CC-Expire=31536000000&HW-CC-Sign=CEEB8479A41A1BAD1448C8FE9FF496DF86CF3899D2F1566C5AB1A5B33FECB122)
 
 ## 开发指导
 
@@ -20,10 +20,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-r
 
 2. 上报小游戏加载完成事件。 嵌入式游戏开始时会在后台静默加载，不会露出画面，当您根据游戏内的事件判断出游戏画面已经准备好时，请调用[qg.notifyGameEvent](https://developer.huawei.com/consumer/cn/doc/games-references/games-api-quickgame-game-event-0000002666430396#section917310297396)接口上报小游戏加载完成gameLoaded事件。若未调用接口上报小游戏加载完成gameLoaded事件，游戏将一直不会露出画面，直到上报该事件。直玩大卡会在接收到gameLoaded事件或首帧渲染完成后露出游戏画面，具体露出时机由华为侧控制，此时露出的画面带有蒙层，效果如下图所示：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/jl1nY0iZSG-FSVvUYY5r7Q/zh-cn_image_0000002696303929.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=311DEF3DC911A5EFC3836249AC1578A94759F637AA6CFFB92E4FB8ED068D9238)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/jl1nY0iZSG-FSVvUYY5r7Q/zh-cn_image_0000002696303929.png?HW-CC-KV=V1&HW-CC-Date=20261008T164245Z&HW-CC-Expire=31536000000&HW-CC-Sign=71F9AD3093791022D13E03A7E1665E3915FC0E2028575661A5E2A45D918F9FA8)
 3. 获取用户戳破蒙层进入游戏的事件通知。 调用[qg.onRuntimeEvent](https://developer.huawei.com/consumer/cn/doc/games-references/games-api-quickgame-game-event-0000002666430396#section1942616611537)接口，监听用户戳破蒙层进入直玩游戏startDirectPlay事件通知，当用户点击蒙层时即可戳破蒙层，开始游玩小游戏。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/0bdj8VHvSHGEI_jcVg_5tg/zh-cn_image_0000002666504582.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C7EFCF56D902207173BCFF5A6D057E8205D33A9187D5BF8C4ED6587BC754C23)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/0bdj8VHvSHGEI_jcVg_5tg/zh-cn_image_0000002666504582.png?HW-CC-KV=V1&HW-CC-Date=20261008T164245Z&HW-CC-Expire=31536000000&HW-CC-Sign=0836BA4D4E5F8F549953730B2FEBD7AC7E4D3B1A428D16AAB068C72597E7112E)
 
 ## 游戏适配
 
@@ -47,7 +47,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-r
 
 * 若只有直板手机，可以使用[分屏](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-intro#分屏)功能模拟小窗模式，调整分屏比例，检查游戏是否正常适配：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/7KY72FQnRuqVFKgSCaZYeQ/zh-cn_image_0000002687883452.png?HW-CC-KV=V1&HW-CC-Date=20260920T025431Z&HW-CC-Expire=31536000000&HW-CC-Sign=6E5D7FCB2257567EFD71A0EE9FFB0DD65EC974A369E7930B2F98FE1940EE5A40)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/7KY72FQnRuqVFKgSCaZYeQ/zh-cn_image_0000002687883452.png?HW-CC-KV=V1&HW-CC-Date=20261008T164245Z&HW-CC-Expire=31536000000&HW-CC-Sign=4217A532A1AB78B3DB6559C538E5F38628E77753362345B18793A1D44890A121)
 * 若有折叠屏设备，可以通过收起、展开折叠屏，检查游戏是否正常适配。
 
 ### 功能适配

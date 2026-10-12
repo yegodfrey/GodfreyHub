@@ -19,15 +19,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arku
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv
+
 ```ts
 import { ComposeTitleBar } from '@kit.ArkUI';
 ```
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv
+
 无
 
 ## ComposeTitleBar
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 ComposeTitleBar({item?: ComposeTitleBarMenuItem, title: ResourceStr, subtitle?: ResourceStr, menuItems?: Array<ComposeTitleBarMenuItem>})
 
@@ -52,6 +58,8 @@ ComposeTitleBar({item?: ComposeTitleBarMenuItem, title: ResourceStr, subtitle?: 
 
 ## ComposeTitleBarMenuItem
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -69,11 +77,17 @@ ComposeTitleBar({item?: ComposeTitleBarMenuItem, title: ResourceStr, subtitle?: 
 
 ## 事件
 
+> phone | 2in1 | tablet | tv
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 ## 示例
 
+> phone | 2in1 | tablet | tv
+
 ### 示例1（简单的标题栏）
+
+> phone | 2in1 | tablet | tv
 
 该示例实现了简单的标题栏，带有返回箭头的标题栏及带有右侧菜单项目列表的标题栏。
 
@@ -150,9 +164,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/_gzE5f2iSVuaC2AsZpkiNA/zh-cn_image_0000002779094147.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=A71AEEA2E608EABA509B6DF8C591130D07CF46E64C4EF8AA9DFF2676E179079F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/aFjnsGtRR1e02v-rOIk0kA/zh-cn_image_0000002755185976.png?HW-CC-KV=V1&HW-CC-Date=20261009T092748Z&HW-CC-Expire=31536000000&HW-CC-Sign=5CCCD8C1EA177FF0206C45FBD1837B235775D7129C9B8C4AA22B2AC06A5AC1E8)
 
 ### 示例2（右侧自定义按钮播报）
+
+> phone | 2in1 | tablet | tv
 
 从API version 18开始，该示例通过设置标题栏右侧自定义按钮属性accessibilityText、accessibilityDescription、accessibilityLevel自定义屏幕朗读播报文本。
 
@@ -245,9 +261,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/eXX8P786QyeBGzgqUq81Zg/zh-cn_image_0000002778934291.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=42F6FC2581A5D75A98DFEAED975AF33A3AF2013DE329849956AF9B679579BC6D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/qLltq5NFSEu--Mbi0aZhcw/zh-cn_image_0000002784584843.png?HW-CC-KV=V1&HW-CC-Date=20261009T092748Z&HW-CC-Expire=31536000000&HW-CC-Sign=B528A8E268C107631C0857A82DC716124CBD7BECF9683377CF92C554A6BBA2F7)
 
 ### 示例3（设置Symbol类型图标）
+
+> phone | 2in1 | tablet | tv
 
 从API version 18开始，该示例通过设置ComposeTitleBarMenuItem的属性symbolStyle，展示了自定义Symbol类型图标。
 
@@ -327,5 +345,5 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/PmITzHyAQMiP1oW2k-r15w/zh-cn_image_0000002749335208.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=57020524397AA8A1082B5CD0824CBFD607F301C35ED4D796C1DA0DCA8E438102)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/etC5ecmpRr67G91Anw5EaQ/zh-cn_image_0000002784665025.png?HW-CC-KV=V1&HW-CC-Date=20261009T092748Z&HW-CC-Expire=31536000000&HW-CC-Sign=39E6D8008AAE3E65245F5195FF51DDBDC71401F45854524DE741061365B3EE5E)
 

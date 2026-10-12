@@ -14,11 +14,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-s
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { skillManager } from '@kit.AbilityKit';
 ```
 
 ## SkillInfoFlag
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 技能信息标志，指示需要获取的技能信息的内容。
 
@@ -39,6 +43,8 @@ import { skillManager } from '@kit.AbilityKit';
 |GET_SKILL_INFO_WITH_REQUEST_PERMISSIONS|0x00000008|用于获取包含requestPermissions的技能信息。|
 
 ## skillManager.getSkillInfoForSelf
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 getSkillInfoForSelf(moduleName: string, skillName: string, flags: number): Promise<[SkillInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo)>
 
@@ -100,6 +106,8 @@ try {
 
 ## skillManager.getSkillInfosForSelf
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 getSkillInfosForSelf(flags: number): Promise<Array<[SkillInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo)>>
 
 获取本应用的所有技能信息。使用Promise异步回调。
@@ -154,6 +162,8 @@ try {
 ```
 
 ## skillManager.getSkillInfo
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 getSkillInfo(bundleName: string, moduleName: string, skillName: string, flags: number, userId?: number): Promise<[SkillInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo)>
 
@@ -226,6 +236,8 @@ try {
 
 ## skillManager.getSkillInfos
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 getSkillInfos(bundleName: string, flags: number, userId?: number): Promise<Array<[SkillInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo)>>
 
 获取指定应用的所有技能信息。使用Promise异步回调。
@@ -291,6 +303,8 @@ try {
 
 ## skillManager.getAllSkillInfos
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 getAllSkillInfos(flags: number, userId?: number): Promise<Array<[SkillInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo)>>
 
 获取设备上安装应用的所有技能信息。使用Promise异步回调。
@@ -353,6 +367,8 @@ try {
 
 ## SkillInfo
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 type SkillInfo = _SkillInfo
 
 技能配置信息，用于定义AI代理的技能能力。
@@ -370,6 +386,8 @@ type SkillInfo = _SkillInfo
 |[_SkillInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-skillinfo#skillinfo-1)|应用技能信息。|
 
 ## SkillType
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 type SkillType = _SkillType
 

@@ -15,11 +15,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-k
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```js
 import { KeyCode } from '@kit.InputKit';
 ```
 
 ## KeyCode
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 键值。
 

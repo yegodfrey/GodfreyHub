@@ -14,6 +14,8 @@ typedef struct OH_Rdb_Transaction OH_Rdb_Transaction
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 表示事务类型。
 
 **起始版本：** 18

@@ -14,11 +14,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { autoFillManager } from '@kit.AbilityKit';
 ```
 
 ## FillRequest
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 自动填充请求信息。
 
@@ -38,6 +42,8 @@ import { autoFillManager } from '@kit.AbilityKit';
 
 ## SaveRequest
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 自动保存请求信息。
 
 **起始版本：** 26.0.0
@@ -53,6 +59,8 @@ import { autoFillManager } from '@kit.AbilityKit';
 |viewData|[ViewData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-viewdata)|否|否|页面数据。|
 
 ## FillFailureResult
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 自动填充失败结果。
 

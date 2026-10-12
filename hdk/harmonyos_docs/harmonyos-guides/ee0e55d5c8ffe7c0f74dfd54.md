@@ -8,15 +8,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-scala
 
 ## 功能说明
 
-按元素做带泄露线性整流Leaky ReLU：![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/RRtrgaZbRQ2jjYsafbQcqQ/zh-cn_image_0000002779093059.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=38F9CCCD097F2ACCFF2D30255B4DAB3F0FBFD92A5C4A230C231E39506D4C401D)
+按元素做带泄露线性整流Leaky ReLU：![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/OusHSwJOTxS8R8g-LiRXyQ/zh-cn_image_0000002755185024.png?HW-CC-KV=V1&HW-CC-Date=20261009T092703Z&HW-CC-Expire=31536000000&HW-CC-Sign=658B5A5690FB9542F5E5D1B02EAFEBB537C80FBD1FA1DBD0D3C4F8C827B2A620)
 
 带泄露线性整流函数（Leaky Rectified Linear Unit, Leaky ReLU激活函数），是一种人工神经网络中常用的激活函数，其数学表达式为：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/wy1FJZJBSpW5dYCvejyIGw/zh-cn_image_0000002778933203.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E26C147F8BD29049705DFC0F2D710BE5CE8860521A363C62F7C8582A26ADBE8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/lbkJtyy6S0-t0os2N95ymA/zh-cn_image_0000002784583891.png?HW-CC-KV=V1&HW-CC-Date=20261009T092703Z&HW-CC-Expire=31536000000&HW-CC-Sign=CB96116CBC350B6306711522AE519E544C098BBB98C8AA95C031601AE9C1D2CD)
 
 和ReLU的区别是：ReLU是将所有的负值都设为零，而Leaky Relu 是给所有负值赋予一个斜率。下图表示了Relu和Leaky Relu的区别：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/JF_uHaejTTCpw-wyLWx7dg/zh-cn_image_0000002749334118.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=B89A557D10ED0662B2EB042D8BBBF5B70DA1E8839D1A0C0DB965233A040BBF1C) ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/pfzjk6l-RviIQSLA4sFk_w/zh-cn_image_0000002749494004.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=E3C4C9B03D523F70F0A3B36DBE743D1DDAD59C0A6077F6CF1620D5E75B41D320)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/ImTolYMIQ2GHpdDvmcQ6yg/zh-cn_image_0000002784664073.png?HW-CC-KV=V1&HW-CC-Date=20261009T092703Z&HW-CC-Expire=31536000000&HW-CC-Sign=A6E466B8E2C60FEF19FC82B3AED341C7A1134B508C733ED2FE39D5AB9013704D) ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/MxZEoTMORj68ZPuoROSOMA/zh-cn_image_0000002755025140.png?HW-CC-KV=V1&HW-CC-Date=20261009T092703Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F966E34F0BF5174AEB20A94CBD39908E6E4D06BFDD7C15A990DAB52495A3246)
 
 对于Leaky ReLU函数，如果src的值小于零，dst的值等于src的值乘以scalar的值。如果src大于等于零，则dst的值等于src的值。
 

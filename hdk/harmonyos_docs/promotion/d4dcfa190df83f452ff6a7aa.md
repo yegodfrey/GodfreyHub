@@ -19,13 +19,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/promotion/attribution-analysis
 1. 登录鲸鸿动能广告平台。
 2. 单击"工具"->"投放辅助"->"归因分析"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/bCCzRINERm6Ockz-yW5pMw/zh-cn_image_0000001241042232.png?HW-CC-KV=V1&HW-CC-Date=20260929T073032Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A1EEEB2EB3764A73064F4E613EB9B2377BC86B21B22E7BAA92D6B58C354DF9B)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/bCCzRINERm6Ockz-yW5pMw/zh-cn_image_0000001241042232.png?HW-CC-KV=V1&HW-CC-Date=20261008T173405Z&HW-CC-Expire=31536000000&HW-CC-Sign=33BB49AC0D1CE90A622789CCD2AD83847820722F7F312A1DB3E2220F0CC5F0FA)
 
 ## 如何使用归因分析
 
 归因分析提供了以下报告控件。您可以使用这些控件来定制报告和查看那些对业务至关重要的数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/dXw1vbRDQWWymYwPi9SzLg/zh-cn_image_0000001285522353.png?HW-CC-KV=V1&HW-CC-Date=20260929T073032Z&HW-CC-Expire=31536000000&HW-CC-Sign=903F004AD6470092BA9DEFC08853BDD0D3BF499A730D0399282A667DE8EC8F20)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/dXw1vbRDQWWymYwPi9SzLg/zh-cn_image_0000001285522353.png?HW-CC-KV=V1&HW-CC-Date=20261008T173405Z&HW-CC-Expire=31536000000&HW-CC-Sign=A19A5821178858143B4E424A3D844BB52EA4539D7517C29D1FA7D0A5D9AC5AEC)
 
 ### 日期范围
 

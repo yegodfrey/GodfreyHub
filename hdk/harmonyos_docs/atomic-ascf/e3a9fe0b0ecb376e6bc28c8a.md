@@ -59,7 +59,7 @@ Taro从3.6.38以上以及4.X版本开始支持编译为ASCF元服务。
 
 选择ASCF模板：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/9ZE8rfXJTImG-_bswQTRKg/zh-cn_image_0000002733493516.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=D9B5130B7B9C19F316543C55AD71443679258D2550AA5C67B89992B5A9888718)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/9ZE8rfXJTImG-_bswQTRKg/zh-cn_image_0000002733493516.png?HW-CC-KV=V1&HW-CC-Date=20261008T175656Z&HW-CC-Expire=31536000000&HW-CC-Sign=A58E705E500F61AAC503026333787203520FDD4B77766B4349117938FB112266)
 
 项目初始化完成后，修改Taro项目下config/index.{js,ts}配置文件，将 outputRoot: 'dist/ascf' 修改为 outputRoot: process.env.TARO_ENV === 'ascf' ? 'ascf-project/ascf/ascf_src' : 'dist'。其中outputRoot是已经创建好的一个ASCF工程路径。 详见[全新创建ASCF工程](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/create-ascf-project)。
 

@@ -6,7 +6,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
 # 开发流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/3e2Pm9A1QwuSaUEyVhOv-g/zh-cn_image_0000001358002673.png?HW-CC-KV=V1&HW-CC-Date=20260916T040830Z&HW-CC-Expire=31536000000&HW-CC-Sign=5B9021664BA338415A95FF1A0999929DEF47BB0CD23AB878CA529E0F6E5126E9 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/3e2Pm9A1QwuSaUEyVhOv-g/zh-cn_image_0000001358002673.png?HW-CC-KV=V1&HW-CC-Date=20261008T173845Z&HW-CC-Expire=31536000000&HW-CC-Sign=8688CB32C993D50DF7398DA42B5E23EFF37008090FF5AF446FA0DA0F6EA6B2C3 "点击放大")
 
 |序号|任务|说明|
 |:-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|

@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugg
 
 DevEco Studio安装HAP时报错"FileTransfer Failed: [Fail]Transfer Stop at:XXX, Reason: no space left on device"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/TBwiNKyTSCOMbL0NuvWeWQ/zh-cn_image_0000002624478802.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C6D909B3F2984325525879149A181505D80D29AF48E8180E8840F305ADAA679)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/TBwiNKyTSCOMbL0NuvWeWQ/zh-cn_image_0000002624478802.png?HW-CC-KV=V1&HW-CC-Date=20261008T150214Z&HW-CC-Expire=31536000000&HW-CC-Sign=91A797E7B476CD2CD67E771606398C257071B63DC929BC75C003A5BA545B47A3)
 
 **解决措施**
 

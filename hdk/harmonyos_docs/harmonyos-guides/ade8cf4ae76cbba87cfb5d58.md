@@ -26,7 +26,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/unittest-guid
 
 **图1.单元测试框架主要功能**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/ucFmxFpYRAqwrEdxkCviwQ/zh-cn_image_0000002701641036.png?HW-CC-KV=V1&HW-CC-Date=20260914T073630Z&HW-CC-Expire=31536000000&HW-CC-Sign=EF6FD724C9F412C189E48D0DF04063A325F1617E045D9C7823535A0B87376262)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/ucFmxFpYRAqwrEdxkCviwQ/zh-cn_image_0000002701641036.png?HW-CC-KV=V1&HW-CC-Date=20261008T151448Z&HW-CC-Expire=31536000000&HW-CC-Sign=A6787E1C05D5F5C6FD2FC9942746DA41BD79FEDF5EED5513C673D7B496D787AF)
 
 ## 单元测试框架发布方式
 
@@ -106,13 +106,13 @@ export default function abilityTest() {
 
 下面给出测试类级别即测试文件执行示例，其他请参考[运行模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-instrument-test#section1574003717165)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/5WMrmkoXRAe83x2F4t8s9w/zh-cn_image_0000002731360255.png?HW-CC-KV=V1&HW-CC-Date=20260914T073630Z&HW-CC-Expire=31536000000&HW-CC-Sign=5785092BA408F1BEE39486CF29818E45DE321F4470D0ED76118D2B120B42B046)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/5WMrmkoXRAe83x2F4t8s9w/zh-cn_image_0000002731360255.png?HW-CC-KV=V1&HW-CC-Date=20261008T151448Z&HW-CC-Expire=31536000000&HW-CC-Sign=86589C28E1A136349291FFE9B9BA1E3B24F40BB1958B6070AB6DF706FAA786F5)
 
 * 查看测试结果
 
 测试执行后可直接在DevEco Studio中查看测试结果。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/OdaNdS0uSXuvBh4LP30WaA/zh-cn_image_0000002701800952.png?HW-CC-KV=V1&HW-CC-Date=20260914T073630Z&HW-CC-Expire=31536000000&HW-CC-Sign=83C9CBC63D957660BFF83B6CF6538F4A40F8AD2D411F51F5C510387F51D96984)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/OdaNdS0uSXuvBh4LP30WaA/zh-cn_image_0000002701800952.png?HW-CC-KV=V1&HW-CC-Date=20261008T151448Z&HW-CC-Expire=31536000000&HW-CC-Sign=A9B0FD0BFFE9711430049B161C93CD0F8C3C03DC21DE9FEA94C2D14F4A6A91F6)
 
 * 查看测试用例覆盖率
 

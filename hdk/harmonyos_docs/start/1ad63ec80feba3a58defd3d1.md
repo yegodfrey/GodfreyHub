@@ -12,11 +12,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/start/dev-mall-finalpayment-00
 2. 在左侧导航栏，点击**需求管理**。
 3. 在需求列表中找到目标需求，在需求详情的中的**方案列表** 中**，** 点击**交付件名称** 查看/下载交付件。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/72CktbDhRnyvNy4HWqznog/zh-cn_image_0000001075388512.png?HW-CC-KV=V1&HW-CC-Date=20260909T154128Z&HW-CC-Expire=31536000000&HW-CC-Sign=A06C3911B1AF676E684D143885F48860EFB8565DE498B186F19F4035FE9B00A0 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/72CktbDhRnyvNy4HWqznog/zh-cn_image_0000001075388512.png?HW-CC-KV=V1&HW-CC-Date=20261008T164036Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF506BA24A5CD88AD5CDB5DF897B76C2238FC70869A43445A8BD66953B222119 "点击放大")
 
-* 点击确认交付件"√" ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/GscMd0a5SsSzz3o_qDR4ww/zh-cn_image_0000001074910700.png?HW-CC-KV=V1&HW-CC-Date=20260909T154128Z&HW-CC-Expire=31536000000&HW-CC-Sign=1A4202FE9379AA3E54E14D4A50E23EF94DE57982EECBB3F7AE442EB0B2EE9360 "点击放大")
+* 点击确认交付件"√" ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/GscMd0a5SsSzz3o_qDR4ww/zh-cn_image_0000001074910700.png?HW-CC-KV=V1&HW-CC-Date=20261008T164036Z&HW-CC-Expire=31536000000&HW-CC-Sign=0995403F64A0F1DA9CFF5737A99CC72DB09701172DE9AD6AEB4B0825045BEC2E "点击放大")
 
 4. 确认验收交付件后，订单状态为"已完成"则交易完成。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/9qdws8gMRtKEMtf-OILa4Q/zh-cn_image_0000001079504246.png?HW-CC-KV=V1&HW-CC-Date=20260909T154128Z&HW-CC-Expire=31536000000&HW-CC-Sign=052AA50497CB9A1C8EE5D67272119C2740C6AE9D61DA6074B4B337FDAE34BC3D "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/9qdws8gMRtKEMtf-OILa4Q/zh-cn_image_0000001079504246.png?HW-CC-KV=V1&HW-CC-Date=20261008T164036Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7FF0D3488C5D398CAD533B8DA360C5A420DECB707998BEBCE47122CFBC1386D "点击放大")
 

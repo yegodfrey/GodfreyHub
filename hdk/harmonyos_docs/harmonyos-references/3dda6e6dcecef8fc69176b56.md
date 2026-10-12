@@ -17,6 +17,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-univer
 
 ## foregroundColor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 foregroundColor(value: ResourceColor | ColoringStrategy): T
 
 设置组件的前景色。当组件未设置前景色时，默认继承父组件的前景色。
@@ -38,6 +40,8 @@ foregroundColor(value: ResourceColor | ColoringStrategy): T
 |T|返回当前组件，用于链式调用。|
 
 ## foregroundColor^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 foregroundColor(color: Optional<ResourceColor | ColoringStrategy>): T
 
@@ -61,7 +65,11 @@ foregroundColor(color: Optional<ResourceColor | ColoringStrategy>): T
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1（使用前景色设置）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例主要演示通过foregroundColor设置前景色。
 
@@ -81,9 +89,11 @@ struct ForegroundColorExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/iKYUeBYgRFmcRYe-ZZmfNg/zh-cn_image_0000002779093387.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=B1F82171C2BC06B069F4DDCDC95717B777E8BDF562106FB500D0DA4D947F3FB7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/wK7ZzxQ1R6yN0lD6cZlhUA/zh-cn_image_0000002755185352.png?HW-CC-KV=V1&HW-CC-Date=20261009T092758Z&HW-CC-Expire=31536000000&HW-CC-Sign=8CAE89886532588723E66B36AB14EF721C4CA257B38C59AB6866D4A36B0FF5C1)
 
 ### 示例2（设置前景色为组件背景色反色）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过[ColoringStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#coloringstrategy10).INVERT将前景色设置为背景色反色。
 
@@ -105,9 +115,11 @@ struct ColoringStrategyExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/ctGiBtI1T8Oxaa4zMaDIYw/zh-cn_image_0000002778933531.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=A4E6B06B7420C89A34E5B6B501FC17B42C88513CA892BE10011C26EA4122C51E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/XxxtzetgTKu1D1zRYp75BA/zh-cn_image_0000002784584219.png?HW-CC-KV=V1&HW-CC-Date=20261009T092758Z&HW-CC-Expire=31536000000&HW-CC-Sign=7BDDD7F1650AF291F6DEBAF85ADA5C097A16FDBA5392B7A494E46A2235B09F81)
 
 ### 示例3（前景色未继承父组件）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例主要演示组件同时设置前景色和背景色与只设置背景色的效果对比。
 
@@ -126,5 +138,5 @@ struct ForegroundColorInherit {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/77VeVAdWRuCp98bjQlKTYA/zh-cn_image_0000002749334446.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB52730B7FCE2FEF5B5CAE92EA4713DC143B2151D73E52A53DDE7B317ADF0A46)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/jLzg_9t5RaK6404xykKriQ/zh-cn_image_0000002784664401.png?HW-CC-KV=V1&HW-CC-Date=20261009T092758Z&HW-CC-Expire=31536000000&HW-CC-Sign=B424061BE2C32BB0AE211B07FD450CC3567308EE2B580D78FBE738CADFCC7C65)
 

@@ -19,11 +19,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-e
 
 ## 导入模块
 
+> phone | 2in1 | tablet
+
 ```ts
 import { bundleManager } from '@kit.MDMKit';
 ```
 
 ## bundleManager.addAllowedInstallBundlesSync
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 addAllowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void
 
@@ -81,6 +85,8 @@ try {
 
 ## bundleManager.removeAllowedInstallBundlesSync
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 removeAllowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void
 
 在应用程序包安装允许名单中移除应用，在允许名单存在的情况下，不在应用程序包安装允许名单中的应用不允许在当前/指定用户下安装。
@@ -136,6 +142,8 @@ try {
 ```
 
 ## bundleManager.getAllowedInstallBundlesSync
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 getAllowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>
 
@@ -195,6 +203,8 @@ try {
 
 ## bundleManager.getAllowedInstallBundlesSync
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
+
 getAllowedInstallBundlesSync(admin: Want | null, accountId?: number): Array<string>
 
 获取当前/指定用户下的应用程序包安装允许名单。
@@ -246,6 +256,8 @@ try {
 ```
 
 ## bundleManager.addDisallowedInstallBundlesSync
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 addDisallowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void
 
@@ -303,6 +315,8 @@ try {
 
 ## bundleManager.removeDisallowedInstallBundlesSync
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 removeDisallowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void
 
 在应用程序包安装禁止名单中移除应用，在禁止名单存在的情况下，在应用程序包安装禁止名单中的应用不允许在当前/指定用户下安装。
@@ -358,6 +372,8 @@ try {
 ```
 
 ## bundleManager.getDisallowedInstallBundlesSync
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 getDisallowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>
 
@@ -418,6 +434,8 @@ try {
 
 ## bundleManager.getDisallowedInstallBundlesSync
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
+
 getDisallowedInstallBundlesSync(admin: Want | null, accountId?: number): Array<string>
 
 获取当前/指定用户下的应用程序包安装禁止名单。
@@ -470,6 +488,8 @@ try {
 ```
 
 ## bundleManager.addDisallowedUninstallBundlesSync
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 addDisallowedUninstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void
 
@@ -528,6 +548,8 @@ try {
 
 ## bundleManager.removeDisallowedUninstallBundlesSync
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 removeDisallowedUninstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void
 
 在包卸载禁止名单中移除应用。在禁止名单存在的情况下，在包卸载禁止名单中的应用不允许在当前/指定用户下卸载。
@@ -584,6 +606,8 @@ try {
 ```
 
 ## bundleManager.getDisallowedUninstallBundlesSync
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 getDisallowedUninstallBundlesSync(admin: Want, accountId?: number): Array<string>
 
@@ -644,6 +668,8 @@ try {
 
 ## bundleManager.getDisallowedUninstallBundlesSync
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
+
 getDisallowedUninstallBundlesSync(admin: Want | null, accountId?: number): Array<string>
 
 获取当前/指定用户下包卸载禁止名单。
@@ -696,6 +722,8 @@ try {
 ```
 
 ## bundleManager.uninstall
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 uninstall(admin: Want, bundleName: string, userId?: number, isKeepData?: boolean): Promise<void>
 
@@ -758,6 +786,8 @@ bundleManager.uninstall(wantTemp, 'bundleName', 100, true).then(() => {
 ```
 
 ## bundleManager.install
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 install(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>
 
@@ -853,6 +883,8 @@ bundleManager.install(wantTemp, hapFilePaths, installParam).then(() => {
 ```
 
 ## bundleManager.installForResult
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
 
 installForResult(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>
 
@@ -976,6 +1008,8 @@ bundleManager.installForResult(wantTemp, hapFilePaths, installParam).then(() => 
 
 ## bundleManager.getInstalledBundleList^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+
+
 getInstalledBundleList(admin: Want, accountId: number): Promise<Array<BundleInfo>>
 
 获取设备指定用户下已安装应用列表。使用Promise异步回调。
@@ -1031,6 +1065,8 @@ bundleManager.getInstalledBundleList(wantTemp, accountId).then((result) => {
 ```
 
 ## bundleManager.getInstalledBundleList^23+^
+
+> phone 23+ | 2in1 23+ | tablet 23+
 
 getInstalledBundleList(admin: Want, accountId: number, bundleInfoGetFlag: number): Promise<Array<BundleInfo>>
 
@@ -1091,6 +1127,8 @@ bundleManager.getInstalledBundleList(wantTemp, accountId, bundleInfoGetFlag).the
 
 ## bundleManager.addInstallationAllowedAppDistributionTypes^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+
+
 addInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array<AppDistributionType>): void
 
 添加可安装应用的分发类型。添加成功后，当前设备可以安装对应分发类型的应用，但无法安装[AppDistributionType](#appdistributiontype20)中未添加的分发类型的应用。
@@ -1146,6 +1184,8 @@ try {
 
 ## bundleManager.removeInstallationAllowedAppDistributionTypes^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+
+
 removeInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array<AppDistributionType>): void
 
 移除应用的分发类型。若只移除了数组中部分的分发类型，则当前设备可以安装数组中剩下的分发类型的应用，但无法安装[AppDistributionType](#appdistributiontype20)中未添加的分发类型的应用。
@@ -1200,6 +1240,8 @@ try {
 ```
 
 ## bundleManager.getInstallationAllowedAppDistributionTypes^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+
 
 getInstallationAllowedAppDistributionTypes(admin: Want): Array<AppDistributionType>
 
@@ -1257,6 +1299,8 @@ try {
 
 ## bundleManager.getInstallationAllowedAppDistributionTypes
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
+
 getInstallationAllowedAppDistributionTypes(admin: Want | null): Array<AppDistributionType>
 
 获取可安装的应用程序签名证书的分发类型。
@@ -1307,6 +1351,8 @@ try {
 ```
 
 ## bundleManager.installMarketApps^22+^
+
+> phone 22+ | 2in1 22+ | tablet 22+
 
 installMarketApps(admin: Want, bundleNames: Array<string>): void
 
@@ -1372,6 +1418,8 @@ try {
 ```
 
 ## bundleManager.getInstalledBundleStorageStats
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
 
 getInstalledBundleStorageStats(admin: Want, bundleNames: Array<string>, accountId: number): Promise<Array<BundleStorageStats>>
 
@@ -1455,6 +1503,8 @@ bundleManager.getInstalledBundleStorageStats(wantTemp, bundleNames, accountId).t
 
 ## InstallParam
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 应用包安装需指定的参数信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1468,6 +1518,8 @@ bundleManager.getInstalledBundleStorageStats(wantTemp, bundleNames, accountId).t
 |parameters^19+^|Record<string, string>|否|是|扩展参数，默认值为空。key取值支持"ohos.bms.param.enterpriseForAllUser"，若对应的value值为"true"，表示为所有用户安装应用。|
 
 ## AppDistributionType^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+
 
 应用程序签名证书的分发类型。详细介绍请参见[ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-applicationinfo#applicationinfo-1)的appDistributionType属性。
 
@@ -1485,6 +1537,8 @@ bundleManager.getInstalledBundleStorageStats(wantTemp, bundleNames, accountId).t
 |CROWDTESTING|6|众包测试应用。|
 
 ## BundleInfo^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+
 
 描述应用包信息。
 
@@ -1509,6 +1563,8 @@ bundleManager.getInstalledBundleStorageStats(wantTemp, bundleNames, accountId).t
 
 ## SignatureInfo^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+
+
 描述应用包的签名信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1523,6 +1579,8 @@ bundleManager.getInstalledBundleStorageStats(wantTemp, bundleNames, accountId).t
 |certificate|string|是|是|应用的证书公钥。|
 
 ## ApplicationInfo^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+
 
 应用程序信息。
 
@@ -1561,6 +1619,8 @@ bundleManager.getInstalledBundleStorageStats(wantTemp, bundleNames, accountId).t
 
 ## Resource^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+
+
 资源相关信息，包括应用包名、应用模块名、资源id。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1574,6 +1634,8 @@ bundleManager.getInstalledBundleStorageStats(wantTemp, bundleNames, accountId).t
 |id|number|否|否|资源的id值。|
 
 ## BundleInfoGetFlag^23+^
+
+> phone 23+ | 2in1 23+ | tablet 23+
 
 包信息获取标志，指示需要获取的包信息的内容。
 
@@ -1589,6 +1651,8 @@ bundleManager.getInstalledBundleStorageStats(wantTemp, bundleNames, accountId).t
 |WITH_APPLICATION_ICON_INFO|1 << 2|用于获取默认包信息和applicationInfo的iconData信息。|
 
 ## BundleStorageStats
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
 
 应用的存储占用信息。
 

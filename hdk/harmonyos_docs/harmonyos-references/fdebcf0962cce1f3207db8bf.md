@@ -10,13 +10,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-p
 
 ## 功能介绍
 
+> phone | 2in1 | tablet
+
 开发者可以调用该接口获取预支付ID（prepayId）。
 
 ## 场景描述
 
+> phone | 2in1 | tablet
+
 在接入Payment Kit的支付并签约前，开发者需要调用该接口获取到预支付ID（prepayId），用prepayId构建[orderStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#orderstr)参数返回给客户端调用支付接口拉起华为支付收银台。
 
 ## 接口原型
+
+> phone | 2in1 | tablet
 
 * **载协议：** HTTPS POST
 
@@ -32,6 +38,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-p
   响应消息：Content-Type: application/json; charset=UTF-8
 
 ## 请求参数
+
+> phone | 2in1 | tablet
 
 **Request Header**
 
@@ -60,6 +68,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-p
 
 ## 请求示例
 
+> phone | 2in1 | tablet
+
 ```json
 POST /api/v1/aggr/pay-and-sign/preorder/create/app HTTP/1.1
 Content-Type: application/json;charset=UTF-8
@@ -85,6 +95,8 @@ Accept: application/json
 
 ## 响应参数
 
+> phone | 2in1 | tablet
+
 **Response Header**
 
 |参数|是否必选|参数类型|描述|
@@ -105,6 +117,8 @@ Accept: application/json
 
 ## 响应示例
 
+> phone | 2in1 | tablet
+
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=UTF-8
@@ -118,6 +132,8 @@ Content-Type: application/json; charset=UTF-8
 ```
 
 ## 错误码
+
+> phone | 2in1 | tablet
 
 **resultCode** 非400000的错误码请查看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。
 

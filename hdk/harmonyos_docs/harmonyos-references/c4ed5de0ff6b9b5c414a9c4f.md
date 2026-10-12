@@ -14,6 +14,8 @@ typedef struct OH_Huks_ExternalCryptoParamSet {...} OH_Huks_ExternalCryptoParamS
 
 ## 概述
 
+> phone | 2in1 | tablet
+
 定义外部加密参数集合的结构体。
 
 **起始版本：** 22
@@ -24,7 +26,11 @@ typedef struct OH_Huks_ExternalCryptoParamSet {...} OH_Huks_ExternalCryptoParamS
 
 ## 汇总
 
+> phone | 2in1 | tablet
+
 ### 成员变量
+
+> phone | 2in1 | tablet
 
 |名称|描述|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|

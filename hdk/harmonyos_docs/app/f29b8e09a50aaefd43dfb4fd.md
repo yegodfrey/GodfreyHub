@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-game-revi
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"APP与元服务"，选择待上架的游戏。
 2. 左侧导航栏选择"应用上架 > 版本信息"下待发布的版本。
-3. 进入右侧页面的"应用审核信息"区域，根据提示填写信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/h8ZJMwoSQwOA5PaJ6-Medg/zh-cn_image_0000002516031165.png?HW-CC-KV=V1&HW-CC-Date=20260916T032631Z&HW-CC-Expire=31536000000&HW-CC-Sign=4D52BBB3FA5AE026F6D0021879FF3401B6BA1C46576DF2A2312F6EFB063DB3EE)
+3. 进入右侧页面的"应用审核信息"区域，根据提示填写信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/h8ZJMwoSQwOA5PaJ6-Medg/zh-cn_image_0000002516031165.png?HW-CC-KV=V1&HW-CC-Date=20261008T174624Z&HW-CC-Expire=31536000000&HW-CC-Sign=28F3F8FAEFD46899E6724DB609896B6173BD4B8C14DD685B132F7256381C8458)
 
    |配置项|说明|
    |:-------|:---------------------------------------------------------------------------------------|

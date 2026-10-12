@@ -89,8 +89,8 @@ handle_sigbus=0
 
 1. 在运行调试窗口，点击**Diagnostics** ，勾选**Address Sanitizer** 。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/8t_yxio6QSKVs8DW32oBRg/zh-cn_image_0000002404045249.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=E69377E48EED4F85E9AB5BFCAD111D430AC78192B1EA7D685A99C73D83E56BBA)
-2. 如果有引用本地library，需在library模块的build-profile.json5文件中，配置arguments字段值为"-DOHOS_ENABLE_ASAN=ON"，表示以ASan模式编译so文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/848axtDbS8asvei7h-bcbA/zh-cn_image_0000002370565420.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=A95A1F3317E2A89665AF4AE4D9D51CBDA115375802BF62B82CD73A71CFA7157A)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/8t_yxio6QSKVs8DW32oBRg/zh-cn_image_0000002404045249.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=1CCA390B46E2D1D1B66FEA0ABD27F411110E0A434604ACB12CDED42DD070E811)
+2. 如果有引用本地library，需在library模块的build-profile.json5文件中，配置arguments字段值为"-DOHOS_ENABLE_ASAN=ON"，表示以ASan模式编译so文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/848axtDbS8asvei7h-bcbA/zh-cn_image_0000002370565420.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=85B74EC56E11D2126E8BAAC7CD481F050C8DB64944E01CF7220A7E065F95216C)
 
 **流水线场景**
 
@@ -112,14 +112,14 @@ hvigorw [taskNames...] ohos-debug-asan=true  <options>
     "asanEnabled": true
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/qwbLr_UOSxGwiLIGOTuHfA/zh-cn_image_0000002404125085.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=4517B2E2BCA20FC452DCB9EEFB394D66C1822634C5056166BD8B42330E95B86A)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/qwbLr_UOSxGwiLIGOTuHfA/zh-cn_image_0000002404125085.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=A55D51F6C7840262DBFF3350A59B062CA94585AEE94AAD4705B6049DEEDFC0CC)
 2. 设置模块级构建ASan插桩。 在需要使能ASan的模块中，通过添加构建参数开启ASan检测插桩，在对应模块的模块级build-profile.json5中添加命令参数：
 
    ```screen
     "arguments": "-DOHOS_ENABLE_ASAN=ON"
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/4nEGqsZ6SrabZFFVDVO6Mg/zh-cn_image_0000002370405540.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=9FC083BDF17BAE1B591DD524FF0FCBF185BA723DE5ECDFCA5ED5165856218FDA)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/4nEGqsZ6SrabZFFVDVO6Mg/zh-cn_image_0000002370405540.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=4ADED8324A717558531878E29ADB4816931396FD7C7D60BC537E06836CF87DC6)
 
 > 说明
 >
@@ -160,7 +160,7 @@ llvm-readelf -s libthird_party.so | grep '__asan_init'
 1. 运行或调试当前应用。
 2. 当程序出现内存错误时，弹出ASan log信息，点击信息中的链接即可跳转至引起内存错误的代码处（非release版本）。release版本本地无工程代码，可以使用[AnalyzeStackTrace功能](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-release-app-stack-analysis)，提供要解析堆栈的so，解析结果为源码地址。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/4pnyHCF2Rua3yFYDSzaaLQ/zh-cn_image_0000002404045253.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=BD7A918B228838FBAE562D07E56E6CCE644424F368A92AF4EC1D84AD861934D3)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/4pnyHCF2Rua3yFYDSzaaLQ/zh-cn_image_0000002404045253.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=A277C0CE80C32A8E770339741910713763A0148DF5EE6647F7C0312D644ADCB7)
 
 ## ASan异常检测类型
 
@@ -209,7 +209,7 @@ int HeapBufferOverflow()
 
 如果有工程代码，直接开启ASan检测，debug模式运行后复现该错误，可以触发ASan，直接点击堆栈中的超链接定位到代码行，能看到错误代码的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/tGHehnEyQQClycQSb6UZFQ/zh-cn_image_0000002537425473.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=E4678DE57B58FB2703146DC7CAB56309D0F1B40615F90054A4BC5E553201020C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/tGHehnEyQQClycQSb6UZFQ/zh-cn_image_0000002537425473.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=62FC9EDEA9DC918C06472FB2538CDBCDC478CD7486F51A9C20A997460CD6B61D)
 
 **修改方法**
 
@@ -247,7 +247,7 @@ int StackBufferOverflow() {
 
 如果有工程代码，直接开启ASan检测，debug模式运行后复现该错误，可以触发ASan，直接点击堆栈中的超链接定位到代码行，能看到错误代码的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/x7Kus5oTQxefa1MT0Tc-Wg/zh-cn_image_0000002505625648.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=052816ABEB49A4C592934E80B4CD6445C733B22F4EAD8FC4738D257FA9122A34)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/x7Kus5oTQxefa1MT0Tc-Wg/zh-cn_image_0000002505625648.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7B5C1516F9142D69E8E514072C64C09234959C90FC1F5733EDC5E5AC8C1A158)
 
 **优化建议**
 
@@ -281,7 +281,7 @@ int StackBufferUnderflow() {
 
 如果有工程代码，直接开启ASan检测，debug模式运行后复现该错误，可以触发ASan，直接点击堆栈中的超链接定位到代码行，能看到错误代码的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/x6JiISvNSoqTVQ7SOQ_Jcg/zh-cn_image_0000002505465892.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=BD6E04773497426B6EF028E51244FBF446D81F68C6570FDD6B01F356BADDC6B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/x6JiISvNSoqTVQ7SOQ_Jcg/zh-cn_image_0000002505465892.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=50134859F4FF1A60F4BF2E54A42946BC9085285EB5FDEA74AD79D94DC62ACA60)
 
 **优化建议**
 
@@ -314,7 +314,7 @@ int HeapUseAfterFree()
 
 如果有工程代码，直接开启ASan检测，debug模式运行后复现该错误，可以触发ASan，直接点击堆栈中的超链接定位到代码行，能看到错误代码的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/k8qQxT2LS3O00ZqV5QEIHA/zh-cn_image_0000002505625820.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=8C8806504E6AD1C4D2A37124C12FFBAC86EC181D46AE88D933C21E9AFBEBC5D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/k8qQxT2LS3O00ZqV5QEIHA/zh-cn_image_0000002505625820.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=C1D4610871C702C2D57EA1C915892903E72CC7B624298BDA4EE0B079F0231C19)
 
 **修改方法**
 
@@ -355,7 +355,7 @@ int StackUseAfterScope() {
 
 如果有工程代码，直接开启ASan检测，debug模式运行后复现该错误，可以触发ASan，直接点击堆栈中的超链接定位到代码行，能看到错误代码的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/wIpQE6JyTjWeeyPUMfFR_w/zh-cn_image_0000002537425861.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=32A2CF4C53B6EC8BF138D77353EC41A7A494EB887DC648F9AE54C227212A69F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/wIpQE6JyTjWeeyPUMfFR_w/zh-cn_image_0000002537425861.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=03A835A3DFFDAFB4E89FE76E28ABFA3EBA8C0102A1752B3B53B0D51E1AA284B2)
 
 **优化建议**
 
@@ -390,7 +390,7 @@ AddressSanitizer: attempting free on address which was not malloc()-ed
 
 如果有工程代码，直接开启ASan检测，debug模式运行后复现该错误，可以触发ASan，直接点击堆栈中的超链接定位到代码行，能看到错误代码的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/LUU-xVfXQjic8ILC0_zy0w/zh-cn_image_0000002505626186.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=210C412C95216281D94F42D80CF2564FB2BC97FEB5947F5864DFDFAC4BC46322)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/LUU-xVfXQjic8ILC0_zy0w/zh-cn_image_0000002505626186.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=06B310B0A1A9F0E7E2E90A8E709D1E2DE808296F6F68F6542697609C0A63DF98)
 
 **优化建议**
 
@@ -424,7 +424,7 @@ int DoubleFree() {
 
 如果有工程代码，直接开启ASan检测，debug模式运行后复现该错误，可以触发ASan，直接点击堆栈中的超链接定位到代码行，能看到错误代码的位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/IR0RJ-4XQXOhV5sQ3B_oGQ/zh-cn_image_0000002505466522.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=C5DD845531CC72FD456BC4150E2DA7B58BF9DEA75B2CAD41826970FC95CD9B14)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/IR0RJ-4XQXOhV5sQ3B_oGQ/zh-cn_image_0000002505466522.png?HW-CC-KV=V1&HW-CC-Date=20261008T174427Z&HW-CC-Expire=31536000000&HW-CC-Sign=2B83D5920D44F6B5B288D3E8A224DB662727FAC7D048BB8E6F65D7FBD378CA26)
 
 **修改方法**
 

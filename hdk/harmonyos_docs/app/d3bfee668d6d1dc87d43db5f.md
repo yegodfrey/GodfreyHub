@@ -23,9 +23,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-game-copy
    |包含中国大陆|可选。 可上传PDF格式"电子版权证书"，大小不超过5MB。如果您上传了非PDF格式的文件或是将非PDF格式的文件的扩展名改为PDF，均会弹出错误提示。|分发设备包含手机或平板或智慧屏设备时，必选。 支持JPG、PNG、BMP格式，默认展示五个图片上传框，您可点击虚线框内的"+"号继续添加。最多添加10张图片，每张图片不超过15MB。|
    |不包含中国大陆|可选。 可上传PDF格式"电子版权证书"，大小不超过5MB。如果您上传了非PDF格式的文件或是将非PDF格式的文件的扩展名改为PDF，均会弹出错误提示。|可选。 支持JPG、PNG、BMP格式，默认展示五个图片上传框，您可点击虚线框内的"+"号继续添加。最多添加10张图片，每张图片不超过15MB。|
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/guuK0aP6R7mD3yXRrFiH1A/zh-cn_image_0000002477528332.png?HW-CC-KV=V1&HW-CC-Date=20260916T032631Z&HW-CC-Expire=31536000000&HW-CC-Sign=999CFDF4DA9222B50E8706FE93F4CF14ECA478057395B92A18C925E00F5FB225)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/guuK0aP6R7mD3yXRrFiH1A/zh-cn_image_0000002477528332.png?HW-CC-KV=V1&HW-CC-Date=20261008T182307Z&HW-CC-Expire=31536000000&HW-CC-Sign=1965F22E9A9AEE56150D7C271DBD601F62C572180CC844F14448D4C38C022230)
 
-4. 如果还提供授权书或其他资质文件，可以在"授权书及其他材料"上传。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/R1K2Oo61TDCkb6UH7rAI8A/zh-cn_image_0000002658533767.png?HW-CC-KV=V1&HW-CC-Date=20260916T032631Z&HW-CC-Expire=31536000000&HW-CC-Sign=986A90F586DC2C87E63E9E9C21FF1050651C047DBA97B8182EC9B8E6A9C65B0A "点击放大")
+4. 如果还提供授权书或其他资质文件，可以在"授权书及其他材料"上传。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/R1K2Oo61TDCkb6UH7rAI8A/zh-cn_image_0000002658533767.png?HW-CC-KV=V1&HW-CC-Date=20261008T182307Z&HW-CC-Expire=31536000000&HW-CC-Sign=D7E3643F92BADAE0E690E902FCA2690D93A10CAE1AC11C4E7852C4136CFC7AC3 "点击放大")
 
    上传包要求如下：
    * 仅支持上传zip格式的压缩包文件，包大小不能超过200MB。

@@ -21,7 +21,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-bluetooth-
 3. 数据传输阶段：服务端订阅描述符写请求事件，准备数据（如心率值），通过特征通知机制向已连接客户端发送数据；客户端监听特征值变化事件，接收并解析数据内容，根据业务需求更新用户界面或执行相应逻辑。
 4. 断开连接阶段：服务端在连接状态回调中处理断开事件，可以停止广播并清理资源；客户端主动断开连接，关闭GATT客户端，注销监听器，重置连接状态，可选择将设备ID持久化以便后续自动重连。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/GVfzG24jTuqdASttgq5DMg/zh-cn_image_0000002492448638.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=30EF6BE288296CED13D07D51CE3F4812FA088B302B89A5F924B24DEAD49CC44E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/GVfzG24jTuqdASttgq5DMg/zh-cn_image_0000002492448638.jpg?HW-CC-KV=V1&HW-CC-Date=20261008T183452Z&HW-CC-Expire=31536000000&HW-CC-Sign=DD313CF86B80A05FBFAE9CFA34CD7A8911D47FB8A0F06D177CF855BB299B37C4 "点击放大")
 
 ### 关键技术
 
@@ -81,7 +81,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-bluetooth-
 
 这种协同工作机制大幅提升了BLE连接效率。服务端的精准广播与客户端的智能过滤形成互补，避免了传统全量扫描带来的资源浪费。当用户在应用中看到设备列表时，背后已完成多层筛选：硬件层过滤掉非BLE设备，协议层过滤掉不匹配服务的设备，应用层进一步通过制造商数据确认目标设备身份。这种分层过滤策略不仅加速了设备发现过程，也显著降低了系统功耗，为后续的连接与数据传输奠定了高效基础。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/_5CwNw1USUejkuRCL3sqvQ/zh-cn_image_0000002524568343.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=FECB0D7EC56149A515A5E0EEF01391469A4761EDA4DCCD9CBD3E732055541D2D "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/_5CwNw1USUejkuRCL3sqvQ/zh-cn_image_0000002524568343.jpg?HW-CC-KV=V1&HW-CC-Date=20261008T183452Z&HW-CC-Expire=31536000000&HW-CC-Sign=D7CEBA66410FBD8E2510C0EF5954612243ACA37A54B8DF5840DAD6D38B55924A "点击放大")
 
 **关键技术**
 

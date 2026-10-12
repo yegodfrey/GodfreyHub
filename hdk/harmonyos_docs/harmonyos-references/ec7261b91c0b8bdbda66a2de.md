@@ -14,11 +14,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar
 
 ## 导入模块
 
+> 2in1
+
 ```typescript
 import { statusBarManager } from '@kit.DeskTopExtensionKit';
 ```
 
 ## StatusBarItem
+
+> 2in1 5.0.1(13)+
 
 状态栏图标详细参数。
 
@@ -37,6 +41,8 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
 
 ## StatusBarIcon
 
+> 2in1 5.0.1(13)+
+
 状态栏图标的图片信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -51,6 +57,8 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
 |black|[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|否|浅色壁纸下展示的图标，建议采用纯黑色图标，支持JPEG、PNG、GIF、WebP、BMP、SVG、ICO、DNG等图片类型。 **说明：** 建议使用24vp * 24vp的图片。|
 
 ## QuickOperation
+
+> 2in1 5.0.1(13)+
 
 状态栏图标左键业务弹窗的详细信息。
 
@@ -70,6 +78,8 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
 
 ## StatusBarGroupMenu
 
+> 2in1 5.0.1(13)+
+
 type StatusBarGroupMenu = StatusBarMenuItem[]
 
 状态栏图标右键菜单的分组菜单信息。
@@ -85,6 +95,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 |[StatusBarMenuItem](#statusbarmenuitem)[]|菜单组的信息，可以包含多个一级菜单项。|
 
 ## StatusBarMenuItem
+
+> 2in1 5.0.1(13)+
 
 状态栏图标右键菜单的一级菜单项信息。
 
@@ -104,6 +116,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 
 ## StatusBarMenuAction
 
+> 2in1 5.0.1(13)+
+
 状态栏图标右键菜单的菜单项点击行为信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -120,6 +134,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 |menuCode^(deprecated)^|string|否|是|图标右键菜单唯一标识。 默认值：'' **说明：** 需保证菜单标识的唯一性，用于区分不同菜单项。从5.0.2(14)开始支持，从6.1.1(24)开始废弃，建议使用[StatusBarMenuItem](#statusbarmenuitem)或者[StatusBarSubMenuItem](#statusbarsubmenuitem)的menuCode替代。如果同时设置StatusBarMenuItem或者StatusBarSubMenuItem的menuCode，该属性值会被覆盖。|
 
 ## StatusBarSubMenuItem
+
+> 2in1 5.0.1(13)+
 
 状态栏图标右键菜单中的二级菜单项信息。
 
@@ -138,6 +154,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 
 ## StatusBarItemIcon
 
+> 2in1 6.1.1(24)+
+
 菜单项中显示的图标，继承自[StatusBarIcon](#statusbaricon)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -152,6 +170,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 |black|[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)|否|否|系统浅色模式下展示的图标，建议采用纯黑色图标，支持JPEG、PNG、GIF、WebP、BMP、SVG、ICO、DNG等图片类型。 **说明：** 建议使用24vp * 24vp的图片。|
 
 ## StatusBarMenuItemOptions
+
+> 2in1 6.1.1(24)+
 
 菜单项的可选参数，支持配置菜单项的默认显示图标、及选中时显示的图标。
 
@@ -168,6 +188,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 |selectedIcon|[StatusBarItemIcon](#statusbaritemicon)|否|是|菜单项选中时显示的图标。 默认值：undefined|
 
 ## statusBarManager.addToStatusBar
+
+> 2in1 5.0.1(13)+
 
 addToStatusBar(context: common.Context, statusBarItem: StatusBarItem): void
 
@@ -284,6 +306,8 @@ async function addToStatusBar(context: Context) {
 ```
 
 ## statusBarManager.addToStatusBar
+
+> 2in1 5.0.2(14)+
 
 addToStatusBar(context: common.Context, statusBarItem: StatusBarItem, callback: AsyncCallback<void>): void
 
@@ -409,6 +433,8 @@ async function addToStatusBar(context: Context) {
 
 ## statusBarManager.removeFromStatusBar
 
+> 2in1 5.0.1(13)+
+
 removeFromStatusBar(context: common.Context): void
 
 应用移除状态栏对应图标方法。
@@ -458,6 +484,8 @@ function removeFromStatusBar(context: Context) {
 ```
 
 ## statusBarManager.removeFromStatusBar
+
+> 2in1 5.0.2(14)+
 
 removeFromStatusBar(context: common.Context, callback: AsyncCallback<void>): void
 
@@ -517,6 +545,8 @@ function removeFromStatusBar(context: Context) {
 
 ## statusBarManager.updateQuickOperationHeight
 
+> 2in1 5.0.1(13)+
+
 updateQuickOperationHeight(context: common.Context, height: number): void
 
 应用更新状态栏图标的左键弹窗应用定制区域高度。
@@ -567,6 +597,8 @@ function updateQuickOperationHeight(context: Context) {
 ```
 
 ## statusBarManager.updateQuickOperationHeight
+
+> 2in1 5.0.2(14)+
 
 updateQuickOperationHeight(context: common.Context, height: number, callback: AsyncCallback<void>): void
 
@@ -625,6 +657,8 @@ function updateQuickOperationHeight(context: Context) {
 ```
 
 ## statusBarManager.updateStatusBarMenu
+
+> 2in1 5.0.1(13)+
 
 updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroupMenu[]): void
 
@@ -697,6 +731,8 @@ function updateStatusBarMenu(context: Context) {
 ```
 
 ## statusBarManager.updateStatusBarMenu
+
+> 2in1 5.0.2(14)+
 
 updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroupMenu[], callback: AsyncCallback<void>): void
 
@@ -778,6 +814,8 @@ function updateStatusBarMenu(context: Context) {
 
 ## statusBarManager.updateStatusBarIcon
 
+> 2in1 5.0.1(13)+
+
 updateStatusBarIcon(context: common.Context, statusBarIcon: StatusBarIcon): void
 
 应用更新接入状态栏的图标。
@@ -851,6 +889,8 @@ async function updateStatusBarIcon(context: Context) {
 ```
 
 ## statusBarManager.updateStatusBarIcon
+
+> 2in1 5.0.2(14)+
 
 updateStatusBarIcon(context: common.Context, statusBarIcon: StatusBarIcon, callback: AsyncCallback<void>): void
 
@@ -934,6 +974,8 @@ async function updateStatusBarIcon(context: Context) {
 
 ## statusBarManager.on('statusBarIconClick')
 
+> 2in1 5.0.2(14)+
+
 on(type: 'statusBarIconClick', callback: Callback<emitter.EventData>): void
 
 监听状态栏图标点击事件。使用callback异步回调。
@@ -978,6 +1020,8 @@ function statusBarIconClickOnTest() {
 ```
 
 ## statusBarManager.off('statusBarIconClick')
+
+> 2in1 5.0.2(14)+
 
 off(type: 'statusBarIconClick', callback?: Callback<emitter.EventData>): void
 
@@ -1026,6 +1070,8 @@ function statusBarIconClickOffTest() {
 
 ## statusBarManager.on('rightMenuClick')
 
+> 2in1 5.0.2(14)+
+
 on(type: 'rightMenuClick', callback: Callback<emitter.EventData>): void
 
 监听状态栏图标右键菜单点击事件。使用callback异步回调。
@@ -1065,6 +1111,8 @@ function rightMenuClickOnTest() {
 ```
 
 ## statusBarManager.off('rightMenuClick')
+
+> 2in1 5.0.2(14)+
 
 off(type: 'rightMenuClick', callback?: Callback<emitter.EventData>): void
 
@@ -1108,6 +1156,8 @@ function rightMenuClickOffTest() {
 ```
 
 ## statusBarManager.updateStatusBarHoverTips
+
+> 2in1 6.0.2(22)+
 
 updateStatusBarHoverTips(context: common.Context, hoverTips: string): Promise<void>
 
@@ -1165,6 +1215,8 @@ async function updateStatusBarHoverTips(context: Context) {
 ```
 
 ## statusBarManager.updateStatusBarMenuItem
+
+> 2in1 6.1.1(24)+
 
 updateStatusBarMenuItem(context: common.Context, item: StatusBarMenuItem): Promise<void>
 
@@ -1262,6 +1314,8 @@ async function updateStatusBarMenuItemTest(context: Context) {
 
 ## statusBarManager.updateStatusBarSubMenuItem
 
+> 2in1 6.1.1(24)+
+
 updateStatusBarSubMenuItem(context: common.Context, item: StatusBarSubMenuItem): Promise<void>
 
 更新单个二级菜单项的内容。使用promise异步回调。
@@ -1355,6 +1409,8 @@ async function updateStatusBarSubMenuItemTest(context: Context) {
 
 ## statusBarManager.isStatusBarCapabilitySupported
 
+> 2in1 26.0.0+
+
 isStatusBarCapabilitySupported(context: common.Context): Promise<boolean>
 
 检查是否支持状态栏能力。使用promise异步回调。
@@ -1414,6 +1470,8 @@ async function isStatusBarCapabilitySupportedTest(context: Context) {
 
 ## statusBarManager.onIconHover
 
+> 2in1 26.0.0+
+
 onIconHover(callback: Callback<emitter.EventData>): void
 
 监听状态栏图标悬浮事件。使用callback异步回调。
@@ -1450,6 +1508,8 @@ function onIconHoverTest() {
 ```
 
 ## statusBarManager.offIconHover
+
+> 2in1 26.0.0+
 
 offIconHover(callback?: Callback<emitter.EventData>): void
 

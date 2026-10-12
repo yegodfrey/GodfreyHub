@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ## pushOptions
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:----------|:---|:------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |testMessage|否|Boolean|测试消息标识： - false：正式消息（默认值） - true：测试消息 **说明：** 当testMessage为true时，单个项目每日最多可推送1000条测试消息，每次推送携带Token数不超过10个。1000条为REST API请求成功总数，非成功到达端侧的消息总数。 推送卡片刷新消息时，每次仅能携带一个Token。|
@@ -20,11 +22,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ## target
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:----|:---|:-------------|:-------------------------------------------------------------------|
 |token|是|Array [String]|按照Token向目标用户推送消息。 **说明：** 卡片刷新场景单次只允许携带1个Token，其他消息单次最多携带1000个Token。|
 
 ## AlertPayload 通知消息
+
+> phone | 2in1 | tablet | tv | wearable
 
 请求体示例请参见[通知消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-example#通知消息)。
 
@@ -34,9 +40,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### Notification
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
-|:-------------|:---|:---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|category|是|String|通知消息类型。完成[申请通知消息自分类权益](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-apply-right#申请通知消息自分类权益)后，用于标识消息类型，不同的通知消息类型影响消息展示和提醒方式。取值如下： **服务与通讯类** · IM：即时聊天 · VOIP：语音通话邀请、视频通话邀请 · MISS_CALL：未接通话消息提醒 · SUBSCRIPTION：订阅 · TRAVEL：出行 · HEALTH：健康 · WORK：工作事项提醒 · ACCOUNT：账号动态 · EXPRESS：订单&物流 · FINANCE：财务 · DEVICE_REMINDER：设备提醒 · MAIL：邮件 · PLAY_VOICE：语音播报 **说明：** PLAY_VOICE（语音播报）消息仅可发送push-type为2的语音播报消息。 **资讯营销类** · MARKETING：新闻、内容推荐、社交动态、产品促销、财经动态、生活资讯、调研、功能推荐、运营活动（仅对内容进行标识，不会加快消息发送），统称为资讯营销类消息。 **说明：** · 若您仅需发送MARKETING（资讯营销类）消息，则无需申请通知消息自分类权益。MARKETING消息与其他分类的通知消息存在不同的频控策略，详情请参见[通知消息推送数量管理规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-apply-right#通知消息推送数量管理规则)。若消息被频控，请参考[频控FAQ](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-faq-5)进行问题排查。|
+|:-------------|:---|:---------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|category|是|String|通知消息类型。完成[申请通知消息自分类权益](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-apply-right#申请通知消息自分类权益)后，用于标识消息类型，不同的通知消息类型影响消息展示和提醒方式。取值如下： **服务与通讯类** · IM：即时聊天 · VOIP：语音通话邀请、视频通话邀请 · MISS_CALL：未接通话消息提醒 · SUBSCRIPTION：订阅 · TRAVEL：出行 · HEALTH：健康 · WORK：工作事项提醒 · ACCOUNT：账号动态 · EXPRESS：订单&物流 · FINANCE：财务 · DEVICE_REMINDER：设备提醒 · MAIL：邮件 · PLAY_VOICE：语音播报 **说明：** PLAY_VOICE（语音播报）消息仅可发送push-type为2的语音播报消息。 **资讯营销类** · MARKETING：新闻、内容推荐、社交动态、产品促销、财经动态、生活资讯、调研、功能推荐、运营活动（仅对内容进行标识，不会加快消息发送），统称为资讯营销类消息。 **说明：** 若您仅需发送MARKETING（资讯营销类）消息，则无需申请通知消息自分类权益。MARKETING消息与其他分类的通知消息存在不同的频控策略，详情请参见[通知消息推送数量管理规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-apply-right#通知消息推送数量管理规则)。若消息被频控，请参考[频控FAQ](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-faq-5)进行问题排查。|
 |title|是|String|通知消息标题。（注意消息体大小限制，详情参见[使用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-intro#使用约束)）|
 |body|是|String|通知消息内容。（注意消息体大小限制，详情参见[使用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-intro#使用约束)）|
 |image|否|String|通知右侧大图标URL，URL使用的协议必须是HTTPS协议。（注意消息体大小限制，详情参见[使用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-intro#使用约束)） **说明：** · Wearable不支持右侧大图标样式。 · 支持图片格式为PNG、JPG、JPEG、BMP，图片像素的总字节数不超过192KB，若超过则图片不展示。 · 6.1.0(23)版本新增支持WEBP格式图片。|
@@ -57,6 +65,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### inboxContent示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```json5
 "inboxContent": [
   "1. 通知栏消息样式",
@@ -67,6 +77,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### ClickAction
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:---------|:---|:------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |actionType|是|Integer|消息点击后的行为。 0：打开应用首页 1：打开应用自定义页面 3：清除通知 5：打开拨号界面 在不同的场景下支持actionType不同，详情请参考[点击行为类型](#点击行为类型)。|
@@ -75,6 +87,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 |data|否|Object|点击时传递给应用的数据，格式为JSON对象，数据获取请参见[数据传递](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-send-alert#数据传递)。（注意消息体大小限制，详情参见[使用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-intro#使用约束)） actionType为5时，data必填。固定携带{"tel": "xxx"} value为电话号码，长度最大为20，允许包含字符： · +（只能在首位字符） · - · 空格 · 0-9 · # **说明：** 当actionType为5时，首位字符必须为+或0-9。|
 
 ### 点击行为类型
+
+> phone | 2in1 | tablet | tv | wearable
 
 |push-type|字段|actionType枚举值|
 |:--------|:----------------------------------|:------------------------------------------------------------------------------|
@@ -85,12 +99,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### AlertBadge
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:-----|:---|:------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |addNum|否|Integer|应用角标累加数字（大于0小于100的整数），非应用角标实际显示数字。 **说明：** · 某应用当前有N条未读消息，若addNum设置为3，则每发一次消息，应用角标显示的数字累加3，为N+3（若N+3 > 99，角标显示"99+"）。 · 当不传入addNum时默认值为0，角标不会增加。|
 |setNum|否|Integer|角标设置数字（大于等于0小于100的整数），应用角标实际显示数字。 **说明：** setNum优先级高于addNum： · 若未传入setNum，说明未下发setNum，则本次以addNum为准。 · 若setNum>=0，说明下发了setNum，则本次以setNum为准。发布通知时不携带addNum字段。|
 
 ## BadgePayload 角标刷新消息
+
+> phone | 2in1 | tablet | tv | wearable
 
 请求体示例请参见[角标刷新消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-example#角标刷新消息)。
 
@@ -100,11 +118,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### BadgeNotification
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:----|:---|:---------------------|:--------------------------------|
 |badge|是|[Badge](#badge) Object|角标刷新消息结构体，详情参见[Badge](#badge)结构体。|
 
 ### Badge
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:-----|:---|:------|:--------------------------------|
@@ -112,14 +134,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ## ExtensionPayload 语音播报消息
 
+> phone | 2in1 | tablet | tv | wearable
+
 请求体示例请参见[语音播报消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-example#语音播报消息)。
 
 |参数|是否必选|参数类型|描述|
-|:-----------|:---|:-----------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-----------|:---|:-----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |notification|是|[Notification](#notification) Object|通知消息结构体，详情请参见[Notification](#notification)结构体。 **说明：** notification.category必填，且取值为"PLAY_VOICE"，发送语音播报消息前请先申请推送语音播报消息权益，请参见[申请推送语音播报消息权益](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-apply-right#申请推送语音播报消息权益)。|
-|extraData|是|String|语音播报消息的额外数据。（注意消息体大小限制，详情参见[使用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-intro#使用约束)） extraData数据获取请参见[示例代码](https://gitcode.com/HarmonyOS_Samples/push-kit-sample-code-clientdemo-arkts/blob/master/entry/src/main/ets/abilities/PushMessageAbility.ets)|
+|extraData|是|String|语音播报消息的额外数据。（注意消息体大小限制，详情参见[使用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-intro#使用约束)） extraData数据获取请参见[示例代码](https://gitcode.com/HarmonyOS_Samples/push-kit-sample-code-clientdemo-arkts/blob/master/entry/src/main/ets/abilities/PushMessageAbility.ets)。|
 
 ## FormUpdatePayload 卡片刷新消息
+
+> phone | 2in1 | tablet | tv | wearable
 
 请求体示例请参见[卡片刷新消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-example#卡片刷新消息)。
 
@@ -135,6 +161,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### FormImage
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:------|:---|:------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |keyName|否|String|图片的对应的key，该值不能与formData中自定义的变量数据的key重复。 该数据来源于**卡片页面文件** 中的图片组件名称，**卡片页面文件** 位于项目模块级别下的**src/main/ets/widgets** ，请参见[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-form-update#推送卡片刷新消息-1)。|
@@ -142,6 +170,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 |require|否|Integer|图片刷新策略控制。 1：若图片下载失败，则不进行卡片刷新操作。**（默认值）** 0：若图片下载失败，仅刷新文字。|
 
 ### **示例代码**
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```json
 {
@@ -155,6 +185,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ## BackgroundPayload 后台消息
 
+> phone | 2in1 | tablet | tv | wearable
+
 请求体示例请见[后台消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-example#后台消息)。
 
 |参数|是否必选|参数类型|描述|
@@ -163,6 +195,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 |proxyData|否|String|应用进程不在前台时是否走数据代理静默写入到应用自身缓存，当前只能传全大写"ENABLE"。若您不希望开启代理写入，请不要在消息体中填写此字段。|
 
 ## LiveViewPayload 实况窗消息
+
+> phone | 2in1 | tablet | tv | wearable
 
 实况窗请求示例请见[创建实况窗消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-example#创建实况窗消息)和[更新实况窗消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-example#更新实况窗消息)。端云API参数关联关系参考[端云API关系说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-api-map)。
 > 说明
@@ -186,6 +220,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### 创建实况窗约束
 
+> phone | 2in1 | tablet | tv | wearable
+
 创建实况窗的消息示例请参见[创建实况窗消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-example#创建实况窗消息)。
 
 1. 允许通过REST API创建实况窗的event取值范围见[通过Push Kit创建和更新实况窗的约束限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/liveview-introduction#通过push-kit创建和更新实况窗的约束限制)。
@@ -207,6 +243,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### 支持携带占位符的字段
 
+> phone | 2in1 | tablet | tv | wearable
+
 |布局类型|字段|
 |:-----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |进度可视化类型 赛事类型|activityData.notificationData.[contentTitle](#notificationdata) activityData.notificationData.[contentText](#notificationdata).[text](#richtext) activityData.notificationData.[extend](#notificationdata).[text](#extend)|
@@ -214,6 +252,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 |左右文本模板类型|activityData.notificationData.[contentTitle](#notificationdata) activityData.notificationData.[contentText](#notificationdata).[text](#richtext) activityData.notificationData.[extend](#notificationdata).[text](#extend) activityData.notificationData.[firstTextBlock](#notificationdata).[firstLine](#firsttextblock) activityData.notificationData.[firstTextBlock](#notificationdata).[secondLine](#firsttextblock) activityData.notificationData.[lastTextBlock](#notificationdata).[firstLine](#lasttextblock) activityData.notificationData.[lastTextBlock](#notificationdata).[secondLine](#lasttextblock)|
 
 ### Status取值范围
+
+> phone | 2in1 | tablet | tv | wearable
 
 |event|status取值|消息体中{{status}}占位符将替换的词|场景说明|
 |:---------|:---------------------|:---------------------|:------------------------------------------------------|
@@ -257,6 +297,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### ActivityData
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:---------------|:---|:-------------------------------------------|:--------------------------------------------------------|
 |notificationData|是|[NotificationData](#notificationdata) Object|消息通知布局数据，具体字段请参见[NotificationData](#notificationdata)结构体。|
@@ -264,6 +306,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 |externalData|否|[ExternalData](#externaldata) Object|小折叠外屏展示数据，具体字段请参见[ExternalData](#externaldata)结构体。|
 
 ### Trigger
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:----------|:---|:---------------------------|:---------------------------------------------|
@@ -273,16 +317,20 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### Geofence
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:-------------------|:---|:------|:-------------------------------------------------------|
 |longitude|是|Long|地理围栏中心点经度，取值范围为[-180，180]。|
 |latitude|是|Long|地理围栏中心点纬度，取值范围为[-90，90]。|
-|coordinateSystemType|是|Integer|地理围栏中心点的坐标系类型。 1：WGS84（**默认值**） 2：GCJ02。|
+|coordinateSystemType|是|Integer|地理围栏中心点的坐标系类型。 1：WGS84（**默认值**） 2：GCJ02|
 |monitorEvent|是|Integer|触发地理围栏的事件类型。 1：进入围栏 2：退出围栏|
-|radius|是|Long|地理围栏半径，取值范围为[200，2000] ，单位：m|
+|radius|是|Long|地理围栏半径，取值范围为[200，2000] ，单位：m。|
 |delayTime|否|Integer|延迟触发时间，即：进入/离开围栏后持续多长时间触发围栏，取值范围为[0，300]，**默认值为0**，单位：s。|
 
 ### NotificationData
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:--------------------|:---|:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -290,7 +338,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 |keywords|否|Map<String, String>|实况窗关键词，operation为0且event为如下场景时，必填。 · event为FLIGHT时，仅有**flightNo**一个keyword，表示航班号，占位符格式：{{flightNo}}。 · event为TRAIN时，仅有**trainNo**一个keyword，表示火车车次，占位符格式：{{trainNo}}。 消息体中占位符的使用，参见[支持携带占位符的字段](#支持携带占位符的字段)。|
 |additionalText|否|String|提示信息/免责声明。仅在NotificationData.type=5时可用。（注意消息体大小限制，详情参见[使用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-intro#使用约束)）|
 |keepTime|否|Long|实况窗通知存档期，在结束实况窗通知后，通知仍保留在通知中心的时长，**默认0不保留**，最多设置1小时，单位：s。 存档期时间以结束实况窗消息中携带的此字段数据为准，存档期期间不支持再次更新或结束通知。|
-|CustomLayout|否|[CustomLayout](#customlayout) Object|实况窗卡片自定义扩展区，type为100时必填，具体字段请参见[CustomLayout](#customlayout)结构体 **起始版本：** 26.0.0|
+|CustomLayout|否|[CustomLayout](#customlayout) Object|实况窗卡片自定义扩展区，type为100时必填，具体字段请参见[CustomLayout](#customlayout)结构体。 **起始版本：** 26.0.0|
 |contentTitle|否|String|通知标题，长度最大1024字符。 operation为0时必填，且不能为空字符串。|
 |contentText|否|Array [[RichText](#richtext) Object]|通知内容，由多段富文本RichText组成，文本长度总和不超过1024字符，若设置文本颜色，只允许设置为同一种颜色。 operation为0时必填，且不能为空Array。|
 |richProgress|否|[RichProgress](#richprogress) Object|丰富进度信息，type为3时必填，具体字段请参见[RichProgress](#richprogress)结构体。|
@@ -314,6 +362,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### CustomLayout
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:----------------|:---|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |abilityName|是|String|[LiveViewCardExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-card-ability)（实况窗卡片自定义扩展区的扩展Ability）的名称。字符串长度需小于128。值不能为以下内容：null/undefined/空字符串。 **起始版本：** 26.0.0|
@@ -321,7 +371,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### Extend
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/LIt7nlyTRc-Eaf_gYp0Q_g/zh-cn_image_0000002778935125.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=8D7700EF871E91638B9E04AD090D5817200360D3E05854138FD78C9F572F1226)
+> phone | 2in1 | tablet | tv | wearable
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/gmLW0haET6mZYqlR3g4X3g/zh-cn_image_0000002784585675.png?HW-CC-KV=V1&HW-CC-Date=20261009T092737Z&HW-CC-Expire=31536000000&HW-CC-Sign=26CBD17D91C3C004EA6756138B19DCCB40EC7AB145278E30CFB4C9B8B5FC0025)
 
 * 1 实况卡片辅助区类型，对应type字段：
   * 当辅助区类型为1时，辅助区显示普通文本，使用API字段text传入文本内容。
@@ -340,7 +392,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### Game
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/5vPmmEiKSdSmkwMQuGjRqg/zh-cn_image_0000002749336040.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=62CFAC2A2FC267E75F8BEEB04A1AF7F78855B1D20DB8FA102760D63C37035003)
+> phone | 2in1 | tablet | tv | wearable
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/XcjNihXoRf2rKxmXb1gejg/zh-cn_image_0000002784665857.png?HW-CC-KV=V1&HW-CC-Date=20261009T092737Z&HW-CC-Expire=31536000000&HW-CC-Sign=066F1D25E0747C6EC5E96F5F9123E2783342D3A2E63832EB50A6711A30487147)
 
 * 1 左侧队伍名称，对应host中的[name](#team)字段。
 * 2 左侧队伍图标，对应host中的[icon](#team)和[iconUrl](#team)字段。
@@ -360,6 +414,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### Team
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:------|:---|:-----|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |icon|否|String|展示区队伍图标文件名，默认存放在应用的"/resources/rawfile"路径下。 当operation为0时必填，且不可为空字符串。 示例：图标文件"icon.png"存放在应用的"/resources/rawfile"路径下，则取值为"icon.png"。|
@@ -369,6 +425,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### Competition
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:-------|:---|:-----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |desc|否|String|扩展区中间上方描述文本，当operation为0时，和richDesc至少有一个，且不可为空字符串。（注意消息体大小限制，详情参见[使用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-intro#使用约束)）|
@@ -377,20 +435,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### LiveViewLockScreen
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:------|:---|:-----|:------------------------------------------------------------------------------------------|
 |picture|否|String|锁屏沉浸实况窗展示的图片。 取值为在指定路径下的文件名。 示例：图标文件"icon.png"存放在应用的"/resources/rawfile"路径下，则取值为"icon.png"。|
 
 ### CapsuleData
 
+> phone | 2in1 | tablet | tv | wearable
+
 以下展示胶囊的三种场景模板以及相对应的参数。
 
 |图示|说明|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/L2uneXX0TNCyJkes5pjUQw/zh-cn_image_0000002749495926.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=F556075AF4C2A004EAE1BF146F67E04883E898D59EB5F4D8E92A7B2534F158C8)|定义实况胶囊基本属性的基类： · 1 胶囊布局类型，对应type字段。 · 2 实况胶囊的图标，对应icon和iconUrl字段。 · 3 实况胶囊的尾部图标，对应tailIcon和tailIconUrl字段。 · 4 实况胶囊副文本是否展示，对应isContentDisplayed字段。 · 5 实况胶囊尾部图标是否展示，对应isTailIconDisplayed字段。|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/0Byj9bIZQrWh6iMpSjOqjA/zh-cn_image_0000002779094981.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=ECF4CD6A3F963999C22C7F34F73584BCF8E558C582BB260E891B2EB25F548539)|type为1时展示该内容： · 1 胶囊状态主文本，对应title字段。 · 2 胶囊内容，对应content字段。|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/HJcgtdxUQEiCKivoXcP16g/zh-cn_image_0000002778935127.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=4FB9CDC9D7525CAF4953A829BFE7150E626F82F8D8739C0C9E2FDE3CFB2EF44A)|type为2时展示该内容： · 1 胶囊内容，对应content字段。 · 2 胶囊计时器初始值，对应capsuleTimer中的[time](#capsuletimer)字段。 · 3 是否倒计时显示计时器，对应capsuleTimer中的[countDown](#capsuletimer)字段。 · 4 胶囊计时器是否暂停，对应capsuleTimer中的[pause](#capsuletimer)字段。|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/bKKLSwG4RfeuzmQZnTb5JQ/zh-cn_image_0000002749336042.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=418FE7BCAD0754EF46568D74F8D0271630C9CFE6A75BD6E5B884940CFA252D09)|type为3时展示该内容： · 1 进度最大值，对应progress中的[max](#progress)字段。 · 2 进度当前值，对应progress中的[progress](#progress)字段。 · 3 进度显示类型，对应progress中的[indeterminate](#progress)字段。 · 4 胶囊内容，对应content字段。|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/6wVoPha5TeesA86cOaeLzA/zh-cn_image_0000002755026928.png?HW-CC-KV=V1&HW-CC-Date=20261009T092737Z&HW-CC-Expire=31536000000&HW-CC-Sign=7B3C132326CB76697093120A84763D5443E7074E763EA6EE823A3EA9C7F1A74E)|定义实况胶囊基本属性的基类： · 1 胶囊布局类型，对应type字段。 · 2 实况胶囊的图标，对应icon和iconUrl字段。 · 3 实况胶囊的尾部图标，对应tailIcon和tailIconUrl字段。 · 4 实况胶囊副文本是否展示，对应isContentDisplayed字段。 · 5 实况胶囊尾部图标是否展示，对应isTailIconDisplayed字段。|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/X8aXtnIMQ-mEStW9L2Ho1w/zh-cn_image_0000002755186810.png?HW-CC-KV=V1&HW-CC-Date=20261009T092737Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF48E7358ED0402EB501F1582F35973747A076252E1B7A09299AE1522A013A8D)|type为1时展示该内容： · 1 胶囊状态主文本，对应title字段。 · 2 胶囊内容，对应content字段。|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/GXGlmMZsQjuWkOj5FhIyWQ/zh-cn_image_0000002784585677.png?HW-CC-KV=V1&HW-CC-Date=20261009T092737Z&HW-CC-Expire=31536000000&HW-CC-Sign=09406D7393966CAB36274A18A4624265E275DBDE7D713894053EF7AE78E1931D)|type为2时展示该内容： · 1 胶囊内容，对应content字段。 · 2 胶囊计时器初始值，对应capsuleTimer中的[time](#capsuletimer)字段。 · 3 是否倒计时显示计时器，对应capsuleTimer中的[countDown](#capsuletimer)字段。 · 4 胶囊计时器是否暂停，对应capsuleTimer中的[pause](#capsuletimer)字段。|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/Y9jpCe5RR86weRbi8vJbVw/zh-cn_image_0000002784665859.png?HW-CC-KV=V1&HW-CC-Date=20261009T092737Z&HW-CC-Expire=31536000000&HW-CC-Sign=3227F842AA4E233A26896739A7EC2174BE1D23EC63F54EDF69E1DC895F5C8AC3)|type为3时展示该内容： · 1 进度最大值，对应progress中的[max](#progress)字段。 · 2 进度当前值，对应progress中的[progress](#progress)字段。 · 3 进度显示类型，对应progress中的[indeterminate](#progress)字段。 · 4 胶囊内容，对应content字段。|
 
 |参数|是否必选|参数类型|描述|
 |:------------------|:---|:-----------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -411,6 +473,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### Progress
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:------------|:---|:------|:------------------------------------------|
 |max|否|Integer|进度最大值，**默认为1**，范围为[1, 2147483647]。|
@@ -419,7 +483,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### SingleTextBlock
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/hruhIW3STfWnihCJsi7CqA/zh-cn_image_0000002749495928.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=2C50D623A2D7C8A2750455A784409F4E585AFC7E0C31A1AD8DE6CC8E5F72DD99)
+> phone | 2in1 | tablet | tv | wearable
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/qB7mVDkORGG1LMQMxNvjjA/zh-cn_image_0000002755026930.png?HW-CC-KV=V1&HW-CC-Date=20261009T092737Z&HW-CC-Expire=31536000000&HW-CC-Sign=272161FDC3881E93A4E8AF8B2F0D998A776A643551664B3E571E6ED4AEC42C79)
 
 * 1 辅助标记文本，对应firstLine字段。
 * 2 强调文本内容，对应secondLine字段。
@@ -434,7 +500,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### FirstTextBlock
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/0JeUL3teQMeIMQ6bihcDoA/zh-cn_image_0000002779094983.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=86C93AC361D1319D2F73AE8736C123F220AE29EC209EE127CCDAAF1A5EEE6E59)
+> phone | 2in1 | tablet | tv | wearable
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/TAziGu8_SkGFJ87cWrEgqQ/zh-cn_image_0000002755186812.png?HW-CC-KV=V1&HW-CC-Date=20261009T092737Z&HW-CC-Expire=31536000000&HW-CC-Sign=371BD9C06332A5A174D3319D3E10767C1F5B08357EF1C6A93DEC161E642B2928)
 
 * 1 左侧首行文本，对应firstLine字段。
 * 2 左侧次行文本内容，对应secondLine字段。
@@ -449,7 +517,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### LastTextBlock
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/ZNqE_vw_QmuwAXoZyBop6Q/zh-cn_image_0000002778935129.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=1714B65DE04A8E472EC0CB45F8D0F8F6A141154F6B69CBE66C234FEFEAC9FB40)
+> phone | 2in1 | tablet | tv | wearable
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/1vg0L-N1SkiFi6B7dfWF4Q/zh-cn_image_0000002784585679.png?HW-CC-KV=V1&HW-CC-Date=20261009T092737Z&HW-CC-Expire=31536000000&HW-CC-Sign=F9DAB699AA68A9D74A6EF4A6B76926B8A4B45691EA044D9C04B79520FDB8AC5F)
 
 * 3 右侧首行文本，对应firstLine字段。
 * 4 右侧次行文本内容，对应secondLine字段。
@@ -469,7 +539,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### RichProgress
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/rk-2umOLRfC8h1fcJniu4w/zh-cn_image_0000002749336044.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=63BCD7B545064500443A7AF27736C9E2FE37097BBFE8338BB7C718B3DDF1A361)
+> phone | 2in1 | tablet | tv | wearable
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/FhBHzLWnS5a9AEq8Ihrlig/zh-cn_image_0000002784665861.png?HW-CC-KV=V1&HW-CC-Date=20261009T092737Z&HW-CC-Expire=31536000000&HW-CC-Sign=5072910B4CDA14CBAF74B9EFDCAD67856DEE1D2405015F555E57BE79BCC93155)
 
 * 1 进度百分比，对应progress字段。
 * 2 进度指示器左侧的进度点及节点图标的颜色，对应color字段。
@@ -483,11 +555,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 |progress|是|Integer|进度百分比，进度值0-100，决定指示器在进度条中的位置。|
 |color|否|String|进度指示器左侧的进度点及节点图标的颜色，"#ARGB"16进制格式，长度为9，**默认值为#FF317AF7，表示蓝色**。|
 |bgColor|否|String|进度指示器右侧的进度点及节点图标的颜色，"#ARGB"16进制格式，长度为9，**默认值为#19000000，表示灰色。深色模式默认值为#19FFFFFF，表示白色**。|
-|nodeIcons|否|Array [String]|进度条每个节点的图标，数组长度范围为[2, 5]，本地资源，不携带时系统显示时采用上次刷新的图像。 当operation为0时必填，且不能为空Array。 取值为在指定路径下的文件名。 示例：图标文件"icon.png"存放在应用的"/resources/rawfile"路径下，则取值为"icon.png"|
+|nodeIcons|否|Array [String]|进度条每个节点的图标，数组长度范围为[2, 5]，本地资源，不携带时系统显示时采用上次刷新的图像。 当operation为0时必填，且不能为空Array。 取值为在指定路径下的文件名。 示例：图标文件"icon.png"存放在应用的"/resources/rawfile"路径下，则取值为"icon.png"。|
 |type|否|Integer|扩展区进度显示类型： 0：虚线进度（**默认值**）。 1：普通实线进度。 2：粗实线进度。|
 |indicatorType|否|Integer|扩展区指示器小图标显示类型： 0：不显示指示器小图标 **（默认值）** 。 1：显示在进度线上方。 2：显示覆盖在进度线上。|
 
 ### CapsuleTimer
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:--------|:---|:------|:----------------------------------------------------------|
@@ -497,7 +571,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### ExternalData
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/KqACdWDGT5e-riXIkpRiUA/zh-cn_image_0000002749495930.png?HW-CC-KV=V1&HW-CC-Date=20260929T121719Z&HW-CC-Expire=31536000000&HW-CC-Sign=D2828D3D49717229B077205AA65D39366AFEA803E23C2BFB621C34E0A14528B6)
+> phone | 2in1 | tablet | tv | wearable
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/7cvGflDDRcmeol8JrB0dlg/zh-cn_image_0000002755026932.png?HW-CC-KV=V1&HW-CC-Date=20261009T092737Z&HW-CC-Expire=31536000000&HW-CC-Sign=76134BF30BAA96C8A7139EC5AF9C516A965DA131443F4B0218E238C80186FFE6)
 
 * 1 自定义的外屏通知标题，对应title字段。
 * 2 自定义的外屏通知内容，对应body字段。
@@ -514,12 +590,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 
 ### RichText
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:--------------|:---|:-----|:---------------------------------------------------------------------------------------------------------------------------|
 |text|是|String|文本。（注意消息体大小限制，详情参见[使用约束](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-intro#使用约束)）|
 |foregroundColor|否|String|文字颜色，"#ARGB"16进制格式，长度为9。不设置foregroundColor时，文本颜色**默认为#FF000000**；设置foregroundColor时，数组中的所有对象仅能设置一种颜色。|
 
 ### Weather
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:--------------|:---|:------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -529,6 +609,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scen
 |lowTemperature|否|Integer|天气最低温度，当前仅支持摄氏度，需大于等于-95℃且小于传入的最高温度值（highTemperature）。不传入或传入非法值，则不展示天气。|
 
 ## VoIPCallPayload 应用内通话消息
+
+> phone | 2in1 | tablet | tv | wearable
 
 请求体示例请见[应用内通话消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-scenariozed-api-request-example#应用内通话消息)。
 

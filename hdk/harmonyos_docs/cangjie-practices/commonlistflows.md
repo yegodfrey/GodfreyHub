@@ -32,7 +32,7 @@ List组件作为整个首页长列表的容器，通过ListItem对不同模块�
 
 **页面整体结构图** | **页面效果图**  
 ---|---  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/dwmPNLKaSpCLrEO1NTbO9Q/zh-cn_image_0000002669560873.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=A80495F61C9D26CB7808968613199A8189FA3B76577F24CED6CEF4995DBACFBB) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/boFIZODxRiyOl8P527ZBJQ/zh-cn_image_0000002639680924.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=8714F92084D4493DA7449EC28955AC81D3A37584EC77BF63CEE553D8F8F62A36)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/dwmPNLKaSpCLrEO1NTbO9Q/zh-cn_image_0000002669560873.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=ACF76007279282AA63BFFB547109523AED0B513796F7485DF4E94DB41ED3DCC5) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/boFIZODxRiyOl8P527ZBJQ/zh-cn_image_0000002639680924.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=7A38EBB712AF399E5C30DC94C7845F5FC25D35F5F9899A7DB414C3AEAA048A54)  
   
 #### [h2]实现原理
 
@@ -55,7 +55,7 @@ Refresh组件可以进行页面下拉操作并显示刷新动效，List组件配
 
 实现效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/Xwj5NjevSPy2ROLLaH0yQw/zh-cn_image_0000002639520980.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=CAD209B61AE9249AA39ED9D2C1686B5B3791810EB73D76B5DC859B9A426073F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/Xwj5NjevSPy2ROLLaH0yQw/zh-cn_image_0000002639520980.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=1CF7B81BAF59D0546C7168E4477DF1C6B971C30EFA527C33AC87F3E94DF09BFC)
 
   2. 在List的第一个ListItem分组中，使用Swiper组件构建页面轮播图内容。
          
@@ -85,7 +85,7 @@ Refresh组件可以进行页面下拉操作并显示刷新动效，List组件配
 
 实现效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/GuhpnMYiRlmCMoaSc1q4dQ/zh-cn_image_0000002669680987.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=B4F1D0C3DB2D62D5463D735DB65A6B2A55913D54C3C9C460586A9CEDC63BBB61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/GuhpnMYiRlmCMoaSc1q4dQ/zh-cn_image_0000002669680987.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=E1FD793C7A5C31F8B3AF8851F93F6E3EB3329C69FE96FB6865707B92F7863442)
 
   3. 在List的第二个ListItem分组中，使用Grid组件构建页面网格区域。
          
@@ -121,7 +121,7 @@ Refresh组件可以进行页面下拉操作并显示刷新动效，List组件配
 
 实现效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/YEYYkxVJTd6uybdX6INnAg/zh-cn_image_0000002669560875.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=4A254A60D4DEF65F83CF191EE916952B3B58D0480806F2E49AA27326179F71D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/YEYYkxVJTd6uybdX6INnAg/zh-cn_image_0000002669560875.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=5A66CDFEFAC4400BC263506837EA8F57C895DC5DF6065959F664B4B976B89A8D)
 
   4. 推荐内容及列表内容的构建。
          
@@ -191,7 +191,7 @@ Refresh组件可以进行页面下拉操作并显示刷新动效，List组件配
 
 实现效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/e-AYglgSQROqHAQBljdI0g/zh-cn_image_0000002639680926.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=8946A6690E93CF6FFCD4B053D70054A923D13282ED4F1286284802B400445C5C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/e-AYglgSQROqHAQBljdI0g/zh-cn_image_0000002639680926.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=8776CB19FD57A4A18E64392FD39C4D38EC0EC6405C56F6D4A992CA52A2239508)
 
   5. 将构建好的页面内容，放在Refresh组件内部，并给List和Refresh组件添加对应的[onReachEnd()](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-scroll-swipe-common#func-onreachend---unit)和[onRefreshing()](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-scroll-swipe-refresh#func-onrefreshing---unit)回调，实现下拉模拟刷新和上滑添加列表数据的效果。
          
@@ -273,7 +273,7 @@ Refresh组件可以进行页面下拉操作并显示刷新动效，List组件配
 
 **模拟下拉刷新+标题吸顶效果** | **上滑加载更多效果**  
 ---|---  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/XexHAWlNRAG_6VBUPaagwQ/zh-cn_image_0000002639520982.gif?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=F16A8D2F3460599650C70FF1293231A8C30C84CF72D46A2857D2AD8ABA1CCB9F) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/f7YnZjAUQVaskONF-HmeIg/zh-cn_image_0000002669680989.gif?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=9BFB2D0890B489533C0CB29F9726825A31A71EF83B5137BDBA1DE88E6FCCA799)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/XexHAWlNRAG_6VBUPaagwQ/zh-cn_image_0000002639520982.gif?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=1FD0AF5B7CF210C4B49E7C9EC3989457CA5019D01154B209C386829A4A453C2E) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/f7YnZjAUQVaskONF-HmeIg/zh-cn_image_0000002669680989.gif?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=E470E0A1F69373EF1FE75A467C35EE2B590CF1A7BB0708A1D9007481692BC247)  
   
 
 
@@ -288,7 +288,7 @@ Tabs嵌套List的吸顶效果，常用于新闻、资讯类应用的首页。
 
 **页面整体结构图** | **页面效果图**  
 ---|---  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/7HAxYlZ9TVimoG6h6t5E6g/zh-cn_image_0000002669560877.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=F3D0921F1EEF0F7D3B947AB59921D0E991E5FF3F25FB9D42A8F9B54BE94BE1BC) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/W61SWtxCSTSNvdqa6AD5Xg/zh-cn_image_0000002639680928.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=E07B2D6A62CC850BC857B1F4D808295C0C5179BA5F5A8EDDC78A8E6C3DE8ADA4)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/7HAxYlZ9TVimoG6h6t5E6g/zh-cn_image_0000002669560877.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=899F16276C88375A223CB4767718F40B7EB6700C09BE98547F554FF113CFFD3D) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/W61SWtxCSTSNvdqa6AD5Xg/zh-cn_image_0000002639680928.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=766808CEA94D2D5D2A2AE35188B7972C2AF967DDC7A98255FA4E6BD4D6D907F6)  
   
 #### [h2]实现原理
 
@@ -343,7 +343,7 @@ Tabs组件可以在页面内快速实现视图内容的切换，让用户能够�
 
 实现效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/7HQ9bKEoTCu-g95xpUXsZQ/zh-cn_image_0000002639520984.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=E0CDA302BA45349E746C291F16A7A4E8D0A506DA3FECF3FF2DD44265B746DC86)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/7HQ9bKEoTCu-g95xpUXsZQ/zh-cn_image_0000002639520984.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=F8C453D3010CA443F62DB6AFAD009ED0298AED504E97A0E9BB7E93199BB197E7)
 
   2. 构建顶部搜索区域。
          
@@ -359,7 +359,7 @@ Tabs组件可以在页面内快速实现视图内容的切换，让用户能够�
 
 实现效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/qi499bvtQ5K4g5u_Cssypw/zh-cn_image_0000002669680991.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=628451ABA22E311A7BAB9BEADAB5BF41681256EC89E6B9182196BD6776842683)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/qi499bvtQ5K4g5u_Cssypw/zh-cn_image_0000002669680991.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=953E70F32A8A69C4503C3695DAD6044C33468DC749C99C87C2836078FDC33EE5)
 
   3. 图片占位区域、自定义导航内容及列表内容构建。
          
@@ -417,7 +417,7 @@ Tabs组件可以在页面内快速实现视图内容的切换，让用户能够�
 
 实现效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/iklfNIFTTy6I3vFy0Ela7g/zh-cn_image_0000002669560879.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=F93DE801D6024F158D38EA946A9CB9211B4E9558DE8EE5774D82B52350F836B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/iklfNIFTTy6I3vFy0Ela7g/zh-cn_image_0000002669560879.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=D8874DB94B6B23D28DA9E199F348EC9A5994EE6F98D190DFB128DC5C1237CDBF)
 
   4. 给List组件添加的[nestedScroll](https://developer.huawei.com/consumer/cn/doc/cangjie-references/cj-scroll-swipe-common#func-nestedscrollnestedscrolloptions)属性，结合calc计算实现中间自定义Tab页签区域吸顶展示的效果。
          
@@ -442,7 +442,7 @@ Tabs组件可以在页面内快速实现视图内容的切换，让用户能够�
 
 实现效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/VcPFl7UZS6eZCkwMd1zqXA/zh-cn_image_0000002639680930.gif?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=E05A4CC3A7FAD72F333421ABCA87924D9515E67F9DB33CE2B370C2EA6B3D6521)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/VcPFl7UZS6eZCkwMd1zqXA/zh-cn_image_0000002639680930.gif?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=3265F849BC4EC82847F146A4DC1F501FA8F1916B36E9750719A5DF8A0F3D8DEB)
 
 
 
@@ -457,7 +457,7 @@ Tabs组件可以在页面内快速实现视图内容的切换，让用户能够�
 
 **页面整体结构图** | **页面效果图**  
 ---|---  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/ontjAD9hQLiDtHAfRSAAdw/zh-cn_image_0000002639520986.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=47F8BF98782D81E0ABB8EDD055273121D41C729E86D309E95AAC716C5F0D3783) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/psM7KlbbROO5yyuEp4wGlQ/zh-cn_image_0000002669680993.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=9590247D3B29C62FF3287F173A280F7CF3AD36049DE57CD2B0A76A00A5F3F0CF)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/ontjAD9hQLiDtHAfRSAAdw/zh-cn_image_0000002639520986.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=0A6F769EA693BF88758D836820805E16DEB532351CBFD1B8B5807E61FB12A5FD) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/psM7KlbbROO5yyuEp4wGlQ/zh-cn_image_0000002669680993.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=B561BAB631CAE67A350440E210BE2DBC4F3D82AA7B8A42550E80A909DD59EB66)  
   
 #### [h2]实现原理
 
@@ -594,7 +594,7 @@ Tabs组件可以在页面内快速实现视图内容的切换，让用户能够�
 
 实现效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/PisvX5njSHeAkjJji_YPoQ/zh-cn_image_0000002669560881.gif?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=1FE7047DDF04BE643FD3D75DFD14D7EB1AB9D8B63F59A2080C8D5726F661A9A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/PisvX5njSHeAkjJji_YPoQ/zh-cn_image_0000002669560881.gif?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=3A24353E600F50D94B197A43AA0ACB71F0F26F06127A2CB2DCCE88B10F533BFC)
 
 
 
@@ -609,7 +609,7 @@ Tabs组件可以在页面内快速实现视图内容的切换，让用户能够�
 
 **页面整体结构图** | **页面效果图**  
 ---|---  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/k738z80fS3C_2AJHGPKtRg/zh-cn_image_0000002639680932.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=379435B81BEE006484E376086FCF107167D1804066C38785EC2A028F60A97FE6) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/Dnl9NqxqSEGHyq7l3jf60Q/zh-cn_image_0000002639520988.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=9A58662BC23E8F380AAF71D58375F4D75AA90BB06F03E78DFC7D8E348C508678)  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/k738z80fS3C_2AJHGPKtRg/zh-cn_image_0000002639680932.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=CCAAC863F94527D8AB564A859A48F955D877CD645C3DC82814DC72F3785E5844) | ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/Dnl9NqxqSEGHyq7l3jf60Q/zh-cn_image_0000002639520988.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=51C0D90E465CFDC6A366C7B5C88DB399C3208ADFFA085940498B60AFAB75A690)  
   
 #### [h2]实现原理
 
@@ -708,11 +708,11 @@ Tabs组件可以在页面内快速实现视图内容的切换，让用户能够�
 
 实现效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/dbBARXFtSU2-nL2XZ68hgg/zh-cn_image_0000002669680995.gif?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=9468A4E201017F4CA3908202E25BEFE32B9EB8788C7D576630ECA3FA37884425)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/dbBARXFtSU2-nL2XZ68hgg/zh-cn_image_0000002669680995.gif?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=A652D5FBC8C94CD5861452F1C0196445A74EFC615D736E0211052C947E719754)
 
 
 
 
 #### 示例代码
 
-[常见列表流示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183053.52193959736842610810992682515602:20261006191054:2800:E15E214BD47BA7804CFF99B6C5D3F2279B00AE29A2BD3CB2C7DF6AC5F692411E.zip?needInitFileName=true)
+[常见列表流示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183053.52193959736842610810992682515602:20261013193355:2800:4FB7CE056990AA0C0E8B8DB55B833DE66028EE6262331E590C498C8038F955B2.zip?needInitFileName=true)

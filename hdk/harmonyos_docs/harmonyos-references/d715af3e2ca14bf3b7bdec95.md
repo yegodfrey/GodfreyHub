@@ -16,11 +16,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 本页面汇总了ArkWeb Webview模块（@kit.ArkWeb）中的辅助接口与数据结构类型。这些类型主要作为Web组件各能力的方法入参、回调出参或状态枚举使用，配合[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller)、[WebCookieManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webcookiemanager)、[WebStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webstorage)等核心类共同完成Web网页的加载、渲染、交互、媒体接管及性能优化等控制能力。
 
 本模块提供Web控制能力，网页显示的能力请参考[组件描述](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)；Web控制能力的完整说明及核心控制器类请参考[模块描述](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview)。
 
 ## WebStorageOrigin
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 提供Web SQL数据库的使用信息。
 
@@ -34,6 +38,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## WebHeader
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 Web组件返回的请求/响应头对象。
 
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -44,6 +50,8 @@ Web组件返回的请求/响应头对象。
 |headerValue|string|否|否|请求/响应头的value。|
 
 ## WebCustomScheme
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 自定义协议配置。
 
@@ -63,6 +71,8 @@ Web组件返回的请求/响应头对象。
 
 ## RequestInfo^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 Web组件发送的资源请求信息。
 
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -75,6 +85,8 @@ Web组件发送的资源请求信息。
 
 ## CacheOptions^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制字节码缓存更新。
 
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -84,6 +96,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 |responseHeaders|Array<[WebHeader](#webheader)>|否|否|请求此JavaScript文件时服务器返回的响应头，使用ETag或Last-Modified标识文件版本，判断是否需要更新。|
 
 ## SnapshotInfo^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 获取全量绘制结果入参。
 
@@ -95,6 +109,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 |size|[SizeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#sizeoptions)|否|是|Web绘制的尺寸，最多支持16000px * 16000px，长度单位支持px、vp、%，需保持不同参数传入长度单位一致，不一致时可能导致绘制尺寸不符合预期，默认单位vp，超过规格时返回最大规格。不传入以截图区域的实际尺寸绘制。（示例：width:'100px'，height:'200px'。或者 width:'20%'，height:'30%'。只写数字时单位为vp。）|
 
 ## SnapshotResult^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 全量绘制回调结果。
 
@@ -109,6 +125,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 
 ## OfflineResourceMap^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 本地离线资源配置对象，用于配置将被[injectOfflineResources](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#injectofflineresources12)接口注入到内存缓存的本地离线资源的相关信息，内核会根据此信息生成资源缓存，并据此控制缓存的有效期。
 
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -121,6 +139,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 |type|[OfflineResourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-e#offlineresourcetype12)|否|否|资源的类型，目前仅支持JavaScript、图片和CSS类型的资源。|
 
 ## PdfConfiguration^14+^
+
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
 
 [createPdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#createpdf14)函数输入参数。
 > 说明
@@ -142,6 +162,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 
 ## ScrollOffset^13+^
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 网页当前的滚动偏移量。
 
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -152,6 +174,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 |y|number|否|否|网页在垂直方向的滚动偏移量。取值为网页上边界y坐标与Web组件上边界y坐标的差值。 当网页向下过滚动时，取值范围为负值。 当网页没有过滚动或者网页向上过滚动时，取值为0或正值。 单位：vp。|
 
 ## HitTestValue
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 提供点击区域的元素信息。示例代码参考[getLastHitTest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#getlasthittest18)。
 
@@ -164,6 +188,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 
 ## BlanklessInfo^20+^
 
+> phone 20+
+
 页面首屏加载预测信息，主要包括首屏相似度预测值、首屏加载耗时预测值、预测错误码，应用需根据此信息来决策是否启用无白屏加载插帧方案。
 
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -175,6 +201,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 |loadingTime|number|否|否|根据历史加载首屏耗时预测本次加载耗时，单位ms，取值范围：大于0。|
 
 ## BlanklessFrameInterpolationInfo^23+^
+
+> phone 23+
 
 无白屏加载插帧状态信息，作为[BlanklessLoadingParam](#blanklessloadingparam23)中的回调入参使用。
 
@@ -191,6 +219,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 
 ## BlanklessLoadingParam^23+^
 
+> phone 23+
+
 无白屏加载插帧方案的加载参数。
 
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -206,6 +236,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 
 ## HistoryItem
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 页面历史记录项。
 
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -218,6 +250,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 |title|string|否|否|历史记录项的标题。|
 
 ## MediaInfo^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 [CreateNativeMediaPlayerCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-t#createnativemediaplayercallback12)回调函数的一个参数。包含了网页中媒体的信息。应用可以根据这些信息来创建接管网页媒体播放的播放器。
 
@@ -239,6 +273,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 
 ## RectEvent^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 矩形定义。
 
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -251,6 +287,8 @@ Web组件预编译JavaScript生成字节码缓存的配置对象，用于控制�
 |height|number|否|否|矩形的高度。 单位：px。|
 
 ## WebHttpCookie^23+^
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 cookie的相关字段。
 

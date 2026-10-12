@@ -33,8 +33,8 @@ APP ID生成后，您还需为APP ID创建待发布的应用。此步骤完成�
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，选择"证书、APP ID和Profile"。
 2. 在左侧导航栏选择"证书、APP ID和Profile > APP ID"，进入"APP ID"页面，点击右上角"新建"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/Lh5Q-yZ1RB6EtYss2bEn6g/zh-cn_image_0000002498502530.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=0FEB8277320844E7F6950B6BA187CECADBF08A5D32EFAC3CB38449576A060C15)
-3. 进入"设置应用开发基础信息"页面，填写应用基础信息，完成后点击"下一步"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/abPDiriTSw21FKQkrpam0w/zh-cn_image_0000002726862947.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=91CB59124BA436BCD093BECF9A4230A337F8D135154929B892D30C4354FB6F14)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/Lh5Q-yZ1RB6EtYss2bEn6g/zh-cn_image_0000002498502530.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=21EC551A2414EABB37A28E21220FFFC66FEB77C5EF5B385453AA5F2D61565356)
+3. 进入"设置应用开发基础信息"页面，填写应用基础信息，完成后点击"下一步"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/abPDiriTSw21FKQkrpam0w/zh-cn_image_0000002726862947.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=1161E63DE7273CC35A6A49448718033358B7A5A3CBA3C8AA63FAE0009FA7DD50)
 
    |参数|说明|
    |:---|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,7 +51,7 @@ APP ID生成后，您还需为APP ID创建待发布的应用。此步骤完成�
    >
    > 如果系统提示"您所在团队创建的应用数已经达到上限，请清理不需要的应用"，请参考[FAQ](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-common-faq-0000001063210244#section17375195017395)处理。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/mwXJq0UHRrWWvNLh3GyepA/zh-cn_image_0000002498503916.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=13939B1DE6DEF7FF9909B4FF67D1C6C690AA35175161E29460DBC4EF8484938B)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/mwXJq0UHRrWWvNLh3GyepA/zh-cn_image_0000002498503916.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=7BB5148FE73C9A3366084C214A6A890F8947C0F44B0B057465C2B82CFC992DF0)
 
 ### （可选）为HarmonyOS应用开启华为开放能力
 
@@ -72,25 +72,25 @@ APP ID生成后，您还需为APP ID创建待发布的应用。此步骤完成�
 
   在"开放能力"栏勾选您想要开启的开放能力开关（以AI问答联网增强服务为例），点击右上角"保存"即可。支持多选，一次操作（勾选或者取消勾选）的能力开关不得超过10个。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/q6UFHhoDRzG6HY-DRxW8pg/zh-cn_image_0000002583700928.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=BACB256F79969E966099A793E5CFE5603251439911723503D64E06DE11CCF3C7)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/q6UFHhoDRzG6HY-DRxW8pg/zh-cn_image_0000002583700928.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=0BEF74FCFBE890860428C7E93E8D71B6078452355C5BBFA87A8904A619B2EBDC)
 
 * **若开放能力不可勾选，表示该能力暂未完全开放，需申请通过才可开启。**
 
   下文以数字盾服务为例，介绍开放能力申请的大致流程。各开放能力申请流程和具体要求可能存在一定差异，请以实际界面为准。
-  1. 点击对应能力的"申请"按钮。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/qGIfSz3kSEGcBy7YE5Npsw/zh-cn_image_0000002583541250.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=24F8825109284B0ED93513ED51EDB2FF52030A3280309266E32416F05CF1E1F6)
+  1. 点击对应能力的"申请"按钮。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/qGIfSz3kSEGcBy7YE5Npsw/zh-cn_image_0000002583541250.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=52A181034765EEC80334FF367DF1C1EAA93A077C269F4C2BCD1F8A203E02C6D1)
 
-  2. 如弹出"申请前置条件"提示框，表示当前开放能力存在一定约束限制条件。若确认已满足所有条件，点击"下一步"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/7j2i2ANoScuKf4LQTtAMCQ/zh-cn_image_0000002614221901.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=9F5F9FA6553978854A382383EAF0BCF74659D69E32F5B12ED005E1D922EC6397)
+  2. 如弹出"申请前置条件"提示框，表示当前开放能力存在一定约束限制条件。若确认已满足所有条件，点击"下一步"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/7j2i2ANoScuKf4LQTtAMCQ/zh-cn_image_0000002614221901.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=8051A0250C386431420DD0B53A3F99A78E7BDC787E45613F4AED2D5F463C343C)
 
   3. 在"新建业务申请"窗口填写申请原因，必要时可上传附件，然后点击"提交"。 各能力对申请原因与附件的要求可能存在差异，请按实际界面要求操作。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/woC4SqhkQeSP7RznmYmV2g/zh-cn_image_0000002614062341.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=E60E0B3770C4E5DC490070D0AAB94325CB1FCA3F420BAFAAF1ECB87E7C3CA1DD)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/woC4SqhkQeSP7RznmYmV2g/zh-cn_image_0000002614062341.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=A4C4033F133064719197C2BCE4EA4CB49B611434C15C688418D63ED7B76C68F5)
 
 
-  4. 进入互动中心页面，可看到申请已提交的消息。各能力的审批时长已展示在申请页面，请您耐心等待。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/unObxNHRSzmZ091k_61Haw/zh-cn_image_0000002473887150.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=C392167DA64DD099FCB02E7D1C06FB5CA96025801789D069263CCD1501B209C6)
+  4. 进入互动中心页面，可看到申请已提交的消息。各能力的审批时长已展示在申请页面，请您耐心等待。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/unObxNHRSzmZ091k_61Haw/zh-cn_image_0000002473887150.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=075C8E910BEA93883507857D34148EEA2FD17D82AD052F40AEA24C8A27B81CF2)
 
      申请审批通过后，互动中心会发送通知消息给您，同时您也会收到邮件通知。进入"APP ID"页面，点击应用的"应用名称"链接，在"开放能力"栏，可看到对应能力的申请状态变为"已通过"，同时能力开关会为您自动开启。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/Ar7U3kvoQ-2HNhQGyiiQgA/zh-cn_image_0000002614241605.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=6D01B362DAD2C88D785497945B1AC61916CE6ECC6E545159869D9D9F381CD654)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/Ar7U3kvoQ-2HNhQGyiiQgA/zh-cn_image_0000002614241605.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=844C3D43B6C57E35EC00FAF75ED2CFA025B84F66275C63363D651961D180E085)
 
   > 说明
   > * 后续如需关闭开放能力，可取消勾选对应的能力开关，点击"保存"。一次操作的能力开关不得超过10个。修改能力开关状态后，请务必重新下载Profile。
@@ -104,9 +104,9 @@ APP ID生成后，您还需为其关联创建待发布的应用，完成后应�
    >
    > 在"APP与元服务 > HarmonyOS"页签，点击应用列表右侧"新建发布"，也可以为APP ID关联创建应用。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/j_ljSk-hRceW3uqv2-1KhQ/zh-cn_image_0000002530264449.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=CF31456EE371695FFE8092DE0EA1C9546277BC0CFEE4F147415818718179ED94)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/j_ljSk-hRceW3uqv2-1KhQ/zh-cn_image_0000002530264449.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=AD2E21284A4756014312456B13927978580566FC16F156B3CBE5C4FB0C087DB1)
 
-2. 在弹出的"发布HarmonyOS Next应用/元服务"窗口，将应用信息补充完整。点击"确认"，进入"应用信息"界面。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/epd5PwShQtq_qDetvSa0TQ/zh-cn_image_0000002318927813.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=2738C9111E8F215515A4A6F47A36ADF4D7A5B5FFBA3F55843D8A256028886C82)![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/e-m1_UH0SRWPyW9L0ybjUg/zh-cn_image_0000002284335702.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=E83A447297D84DD75563008B63737B5286A33E4E20C4D9A9B364828FCE403AB8)
+2. 在弹出的"发布HarmonyOS Next应用/元服务"窗口，将应用信息补充完整。点击"确认"，进入"应用信息"界面。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/epd5PwShQtq_qDetvSa0TQ/zh-cn_image_0000002318927813.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=98481A9E50D21118A00A94E8484D20CD73537A8C3AD4EEE14BFE2DAD83EA106D)![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/e-m1_UH0SRWPyW9L0ybjUg/zh-cn_image_0000002284335702.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=0144662FBA2A83B998DA6AA95779DC33DCB8E3D3293102402B056322C3038B6F)
 
    |参数|说明|
    |:---|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -117,9 +117,9 @@ APP ID生成后，您还需为其关联创建待发布的应用，完成后应�
 
 3. 点击"确认"，进入"应用信息"界面。您可点击顶部"APP与元服务"页签，返回应用列表。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/xf1ZZdP9Rb2H0r0AqTfgDQ/zh-cn_image_0000002537414182.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=87937E5D2323C31F68C90A52956C53FEFA6AE7E5DBB9E96C3CD85C74EDD3771A)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/xf1ZZdP9Rb2H0r0AqTfgDQ/zh-cn_image_0000002537414182.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=6ABB0FD703B8A0BFA63417631250E37C1EF0B6D4AC3094F13A611B5A53055248)
 
 4. 在应用列表"HarmonyOS"页签，可查看已创建的应用。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/UmnxokLiRLK__J7bmC1duQ/zh-cn_image_0000002568415005.png?HW-CC-KV=V1&HW-CC-Date=20260909T131925Z&HW-CC-Expire=31536000000&HW-CC-Sign=5276611B3575A3A1350548BD8E0A65C050F10D29F54CB61E06353E05270F8B52)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/UmnxokLiRLK__J7bmC1duQ/zh-cn_image_0000002568415005.png?HW-CC-KV=V1&HW-CC-Date=20261008T141945Z&HW-CC-Expire=31536000000&HW-CC-Sign=94D36E674B9FB667CC8C69CAA735AF18C38699993E1D326E1E5BE2D83A91DD3F)
 

@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/start-nodes-0000002471
 
 开始节点配置说明如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/JV_KI3AdRwW-TMAc9Eex_A/zh-cn_image_0000002640264032.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=93A54AA3CDDA5C8269B1AA8C64DD78330983302A10B1BE565A019FC8FC3A28FC "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/JV_KI3AdRwW-TMAc9Eex_A/zh-cn_image_0000002640264032.png?HW-CC-KV=V1&HW-CC-Date=20261008T155130Z&HW-CC-Expire=31536000000&HW-CC-Sign=0FF71742FC0C2CFED1A2E755747F9AE6BDD6C5E057A7AEECFAC883EA71F8AB30 "点击放大")
 
 ## 输入参数说明
 
@@ -23,13 +23,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/start-nodes-0000002471
 
 FILES_INPUT是一个Array<string>类型参数，一般图片处理类工具需接收string类型入参，此时我们可以借助[文本处理组件](https://developer.huawei.com/consumer/cn/doc/service/text-processing-node-0000002471264305)取出目标图片或文件链接进行传递。如图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/SXXRV9RMQ3aSW21pikeoVQ/zh-cn_image_0000002670263921.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=410C404E44024B5AC6540202EBD8FCF90920025725994F5B58180B6C13699FDA "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/SXXRV9RMQ3aSW21pikeoVQ/zh-cn_image_0000002670263921.png?HW-CC-KV=V1&HW-CC-Date=20261008T155130Z&HW-CC-Expire=31536000000&HW-CC-Sign=D7919AB6404EF1E911EF27F0634B8D270832814D9D7821F31BB2C6359597EEF6 "点击放大")
 
 文本处理组件选择字符串拼接方式，输入引用FILES_INPUT参数，通过${input[0]}取出目标图片或文件链接并传递给后续节点处理，涉及多文件或多图场景，可通过多个文本处理组件分别提取。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/ndet8BhXS9KcalWbF3a8sA/zh-cn_image_0000002640104094.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=1A9DF776D869FC01696EB37C97912C6CCDA0CE00F115E1ECF1FFE01500C8AA43 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/ndet8BhXS9KcalWbF3a8sA/zh-cn_image_0000002640104094.png?HW-CC-KV=V1&HW-CC-Date=20261008T155130Z&HW-CC-Expire=31536000000&HW-CC-Sign=FFB30CFCE916AAF4A2223121A5DD2462E58B2B758F59BF074CA2B0A5B1B261A4 "点击放大")
 
 试运行时，FILES_INPUT输入：["https://xxx.jpg","https:xxx.jpg"](仅示例，实际需替换链接地址）调试，调试完成后上架工作流。将工作流添加到智能体中使用时，直接点击上传文件按钮发送图片或文件即可，多文件时会根据图片发送顺序取出。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/Wl0-BO6eSAWJ8lLmkWrWEQ/zh-cn_image_0000002670104067.png?HW-CC-KV=V1&HW-CC-Date=20260924T081231Z&HW-CC-Expire=31536000000&HW-CC-Sign=0EAEB76FEA91DE212C97588D81C5DED2152DD22F22AAC1C3223AEC7CF7E96420 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/Wl0-BO6eSAWJ8lLmkWrWEQ/zh-cn_image_0000002670104067.png?HW-CC-KV=V1&HW-CC-Date=20261008T155130Z&HW-CC-Expire=31536000000&HW-CC-Sign=14592C4B26130931762AD968608CC4E4050E0B0B13BB616F47A834EC6667B707 "点击放大")
 

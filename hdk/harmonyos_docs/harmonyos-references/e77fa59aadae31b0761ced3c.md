@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mute
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 声明互斥锁（mutex）的C接口，用于在并发任务间提供互斥访问，保护共享资源免受竞争条件影响。
 
 **引用文件：** <ffrt/mutex.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mute
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:----------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,7 +46,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mute
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### ffrt_mutexattr_init()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 FFRT_C_API int ffrt_mutexattr_init(ffrt_mutexattr_t* attr)
@@ -65,6 +75,8 @@ FFRT_C_API int ffrt_mutexattr_init(ffrt_mutexattr_t* attr)
 |FFRT_C_API int|mutex属性初始化成功时返回ffrt_success； 否则返回ffrt_error_inval。|
 
 ### ffrt_mutexattr_settype()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 FFRT_C_API int ffrt_mutexattr_settype(ffrt_mutexattr_t* attr, int type)
@@ -95,6 +107,8 @@ FFRT_C_API int ffrt_mutexattr_settype(ffrt_mutexattr_t* attr, int type)
 
 ### ffrt_mutexattr_gettype()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 FFRT_C_API int ffrt_mutexattr_gettype(ffrt_mutexattr_t* attr, int* type)
 ```
@@ -120,6 +134,8 @@ FFRT_C_API int ffrt_mutexattr_gettype(ffrt_mutexattr_t* attr, int* type)
 
 ### ffrt_mutexattr_destroy()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 FFRT_C_API int ffrt_mutexattr_destroy(ffrt_mutexattr_t* attr)
 ```
@@ -143,6 +159,8 @@ FFRT_C_API int ffrt_mutexattr_destroy(ffrt_mutexattr_t* attr)
 |FFRT_C_API int|mutex属性销毁成功时返回ffrt_success； 否则返回ffrt_error_inval。|
 
 ### ffrt_mutex_init()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 FFRT_C_API int ffrt_mutex_init(ffrt_mutex_t* mutex, const ffrt_mutexattr_t* attr)
@@ -168,6 +186,8 @@ FFRT_C_API int ffrt_mutex_init(ffrt_mutex_t* mutex, const ffrt_mutexattr_t* attr
 |FFRT_C_API int|mutex初始化成功时返回ffrt_success； mutex为空，或attr非空但未指定合法的mutex类型时返回ffrt_error_inval。|
 
 ### ffrt_mutex_lock()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 FFRT_C_API int ffrt_mutex_lock(ffrt_mutex_t* mutex)
@@ -197,6 +217,8 @@ FFRT_C_API int ffrt_mutex_lock(ffrt_mutex_t* mutex)
 
 ### ffrt_mutex_unlock()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 FFRT_C_API int ffrt_mutex_unlock(ffrt_mutex_t* mutex)
 ```
@@ -220,6 +242,8 @@ FFRT_C_API int ffrt_mutex_unlock(ffrt_mutex_t* mutex)
 |FFRT_C_API int|mutex解锁成功时返回ffrt_success； 否则返回ffrt_error_inval。|
 
 ### ffrt_mutex_trylock()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 FFRT_C_API int ffrt_mutex_trylock(ffrt_mutex_t* mutex)
@@ -248,6 +272,8 @@ FFRT_C_API int ffrt_mutex_trylock(ffrt_mutex_t* mutex)
 [ffrt_mutex_lock](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mutex-h#ffrt_mutex_lock)
 
 ### ffrt_mutex_destroy()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 FFRT_C_API int ffrt_mutex_destroy(ffrt_mutex_t* mutex)

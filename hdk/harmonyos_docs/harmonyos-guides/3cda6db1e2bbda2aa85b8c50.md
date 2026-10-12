@@ -25,7 +25,7 @@ HarmonyOS Node-API是基于Node.js 18.x LTS的[Node-API](https://nodejs.org/docs
 
 **图1** Node-API的组成架构
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/6oj0-IR_QtKqh2ai1C4I9A/zh-cn_image_0000002749334236.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=2929EC118299DC80DF20215E1941CF9987706ECAA32F4DF7E91040BB33B3EF33)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/g_cAdIOcRHejTIAD9jFeDQ/zh-cn_image_0000002784664191.png?HW-CC-KV=V1&HW-CC-Date=20261009T092704Z&HW-CC-Expire=31536000000&HW-CC-Sign=81C35A1363B08E950C5D46F5FF8A78AE315595152FE309A8DDDB8F7B281B62A4)
 
 * Native Module：开发者使用Node-API开发的模块，用于在ArkTS侧导入使用。
 
@@ -45,7 +45,7 @@ HarmonyOS Node-API是基于Node.js 18.x LTS的[Node-API](https://nodejs.org/docs
 
 **图2** Node-API的关键交互流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/dP7WQv0pQt6LNYO42I_8Zg/zh-cn_image_0000002749494122.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=8B2592D0D774CB992ADD0128CECE33F8CF4E39D0F161A53D4C20B535E0E2B938)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/3RN_LRiyRo2Z_aC5HMM_5w/zh-cn_image_0000002755025258.png?HW-CC-KV=V1&HW-CC-Date=20261009T092704Z&HW-CC-Expire=31536000000&HW-CC-Sign=2687733B28FC47391BA2CAECD88D623A935591A4E01DF4093B031FC990C2DDA7)
 
 ArkTS和C++之间的交互流程，主要分为以下两步：
 

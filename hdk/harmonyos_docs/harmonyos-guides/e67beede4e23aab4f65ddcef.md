@@ -25,7 +25,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-3
 
 5. 确认是否在AGC的[开发与服务](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/myProject)中申请华为账号一键登录权限。图示为未申请状态，未申请将返回错误码[1001502014 应用未申请scopes或permissions权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-2)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/PKQLN1qGRM6JtTmkgCnhbQ/zh-cn_image_0000002778932617.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=8EA145EA04F9942B42C2B774791AD5C09F87FF4E2E8C01A460B66AB971811817)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/Ra9abYpfTI2BH8xmdn9ioA/zh-cn_image_0000002784583315.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=453B831C6AD6E9021CC6DCC432A9CB49CB5A92578B6ADC6A088C9F54B0D92ACE)
 6. 申请的华为账号一键登录权限待审批或待生效，**权限申请后需要24小时后生效或将调试设备的系统时间向后调整24小时后重试。**
 
 7. 权限申请成功后，确认scope参数是否传入的是quickLoginAnonymousPhone，详情可参考一键登录[客户端开发](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login#客户端开发)。

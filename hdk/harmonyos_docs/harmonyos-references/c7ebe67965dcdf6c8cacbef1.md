@@ -14,11 +14,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```typescript
 import { ssap } from '@kit.NearLinkKit';
 ```
 
 ## ConnectionState
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 type ConnectionState = constant.ConnectionState
 
@@ -35,6 +39,8 @@ type ConnectionState = constant.ConnectionState
 |[constant.ConnectionState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-constant#connectionstate)|和远端设备的连接状态。|
 
 ## createClient
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 createClient(address: string): Client
 
@@ -90,6 +96,8 @@ try {
 
 ## createServer
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 createServer(): Server
 
 创建ssap服务端实例。
@@ -136,6 +144,7 @@ try {
 
 ## Client
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 > 说明
 >
 > 提供和远端设备ssap数据交互操作方法，使用前需要使用[ssap.createClient](#createclient)方法创建一个[Client](#client)实例。
@@ -149,6 +158,8 @@ try {
 **起始版本：** 5.0.1(13)
 
 ### connect
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 connect(): Promise<void>
 
@@ -200,6 +211,8 @@ try {
 ```
 
 ### disconnect
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 disconnect(): Promise<void>
 
@@ -257,6 +270,8 @@ try {
 
 ### close
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 close(): void
 
 关闭客户端。
@@ -297,6 +312,8 @@ try {
 ```
 
 ### getServices
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 getServices(): Promise<Array<Service>>
 
@@ -356,6 +373,8 @@ try {
 ```
 
 ### readProperty
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 readProperty(property: Property): Promise<Property>
 
@@ -431,6 +450,8 @@ try {
 ```
 
 ### writeProperty
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 writeProperty(property: Property, writeType: PropertyWriteType): Promise<void>
 
@@ -509,6 +530,8 @@ try {
 
 ### setPropertyNotification
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 setPropertyNotification(property: Property, enable: boolean): Promise<void>
 
 设置Property变化通知。使用Promise异步回调。
@@ -585,6 +608,8 @@ try {
 
 ### requestMtuSize
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 requestMtuSize(mtu: number): Promise<void>
 
 发起MTU协商请求。使用Promise异步回调。
@@ -649,6 +674,8 @@ try {
 
 ### on( 'propertyChange')
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 on(type: 'propertyChange', callback: Callback<Property>): void
 
 订阅Property变化事件。使用callback异步回调。
@@ -698,6 +725,8 @@ try {
 ```
 
 ### off( 'propertyChange')
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 off(type: 'propertyChange', callback?: Callback<Property>): void
 
@@ -749,6 +778,8 @@ try {
 
 ### on( 'connectionStateChange')
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 on(type: 'connectionStateChange', callback: Callback<ConnectionChangeState>): void
 
 客户端订阅连接状态变化事件。使用callback异步回调。
@@ -798,6 +829,8 @@ try {
 ```
 
 ### off( 'connectionStateChange')
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 off(type: 'connectionStateChange', callback?: Callback<ConnectionChangeState>): void
 
@@ -849,6 +882,8 @@ try {
 
 ### on( 'mtuChange')
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 on(type: 'mtuChange', callback: Callback<number>): void
 
 客户端订阅MTU变化事件。使用callback异步回调。
@@ -898,6 +933,8 @@ try {
 ```
 
 ### off( 'mtuChange')
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 off(type: 'mtuChange', callback?: Callback<number>): void
 
@@ -949,6 +986,7 @@ try {
 
 ## Server
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 > 说明
 >
 > 提供和远端设备ssap数据交互操作方法，使用前需要使用createServer方法创建一个Server实例。
@@ -962,6 +1000,8 @@ try {
 **起始版本：** 5.0.1(13)
 
 ### addService
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 addService(service: Service): void
 
@@ -1056,6 +1096,8 @@ try {
 
 ### removeService
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 removeService(serviceUuid: string): void
 
 服务端删除服务。
@@ -1105,6 +1147,8 @@ try {
 
 ### close
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 close(): void
 
 关闭服务端。
@@ -1144,6 +1188,8 @@ try {
 ```
 
 ### notifyPropertyChanged
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 notifyPropertyChanged(address: string, property: Property): Promise<void>
 
@@ -1228,6 +1274,8 @@ try {
 
 ### sendResponse
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 sendResponse(response: ServerResponse): void
 
 回复客户端读写请求。
@@ -1286,6 +1334,8 @@ try {
 
 ### on('connectionStateChange')
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 on(type: 'connectionStateChange', callback: Callback<ConnectionChangeState>): void
 
 服务端订阅连接状态变化事件。使用callback异步回调。
@@ -1334,6 +1384,8 @@ try {
 ```
 
 ### off( 'connectionStateChange')
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 off(type: 'connectionStateChange', callback?: Callback<ConnectionChangeState>): void
 
@@ -1384,6 +1436,8 @@ try {
 
 ### on( 'propertyRead')
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 on(type: 'propertyRead', callback: Callback<PropertyReadRequest>): void
 
 订阅客户端的读属性请求事件。使用callback异步回调。
@@ -1432,6 +1486,8 @@ try {
 ```
 
 ### off( 'propertyRead')
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 off(type: 'propertyRead', callback?: Callback<PropertyReadRequest>): void
 
@@ -1482,6 +1538,8 @@ try {
 
 ### on( 'propertyWrite')
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 on(type: 'propertyWrite', callback: Callback<PropertyWriteRequest>): void
 
 订阅客户端的写属性请求事件。使用callback异步回调。
@@ -1530,6 +1588,8 @@ try {
 ```
 
 ### off( 'propertyWrite')
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 off(type: 'propertyWrite', callback?: Callback<PropertyWriteRequest>): void
 
@@ -1580,6 +1640,8 @@ try {
 
 ### on( 'mtuChange')
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 on(type: 'mtuChange', callback: Callback<number>): void
 
 服务端订阅MTU（Maximum Transmission Unit）变化事件。使用callback异步回调。
@@ -1628,6 +1690,8 @@ try {
 ```
 
 ### off( 'mtuChange')
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 off(type: 'mtuChange', callback?: Callback<number>): void
 
@@ -1678,6 +1742,8 @@ try {
 
 ## Service
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 表示星闪服务。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1692,6 +1758,8 @@ try {
 |properties|Array<[Property](#property)>|否|否|表示服务的Property列表。|
 
 ## Property
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 表示服务的Property。
 
@@ -1711,6 +1779,8 @@ try {
 
 ## PropertyDescriptor
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 表示Property的描述符。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1729,6 +1799,8 @@ try {
 
 ## PropertyReadRequest
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 表示客户端的Property读请求参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1745,6 +1817,8 @@ try {
 |requestId|number|否|否|表示请求ID。取值范围[0, 65535]。|
 
 ## PropertyWriteRequest
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 表示客户端的Property写请求参数。
 
@@ -1765,6 +1839,8 @@ try {
 
 ## ServerResponse
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 表示回复客户端请求的响应。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1781,6 +1857,8 @@ try {
 
 ## ConnectionChangeState
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 表示连接状态上报参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1795,6 +1873,8 @@ try {
 |state|[ConnectionState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-constant#connectionstate)|否|否|表示和远端设备的连接状态。|
 
 ## PropertyDescriptorType
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 表示Property的描述符类型，为枚举值。
 
@@ -1814,6 +1894,8 @@ try {
 
 ## Operation
 
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
+
 表示Property支持的操作类型，为枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1830,6 +1912,8 @@ try {
 |NOTIFY|0x08|表示支持通知。|
 
 ## PropertyWriteType
+
+> phone 5.0.1(13)+ | 2in1 5.0.1(13)+ | tablet 5.0.1(13)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 表示Property支持的写类型，为枚举值。
 

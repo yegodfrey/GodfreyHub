@@ -11,7 +11,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 >
 > 您默认配置的安全配置是默认数据处理位置的配置，当您的应用需要支持多数据处理位置时，请在"数据处理位置"选择其余存储地后再分别进行配置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/t-SUkZakTT2FypjOyfOUnQ/zh-cn_image_0000001606276125.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=32DB9B34A578B99B9937643966EA178451B957E49A2DD4F8E1A3531724BCEA95)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/t-SUkZakTT2FypjOyfOUnQ/zh-cn_image_0000001606276125.png?HW-CC-KV=V1&HW-CC-Date=20261008T180010Z&HW-CC-Expire=31536000000&HW-CC-Sign=00EE7C7E0B70A181CF359730A7CD3A00E3B1B71819E65E5E308C07AE584519DE)
 
 |配置项|说明|
 |:---------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------|

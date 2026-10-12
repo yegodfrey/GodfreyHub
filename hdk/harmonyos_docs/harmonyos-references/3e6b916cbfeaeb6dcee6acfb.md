@@ -15,11 +15,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-g
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { displaySync } from '@kit.ArkGraphics2D';
 ```
 
 ## displaySync.create
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 create(): DisplaySync
 
@@ -42,6 +46,8 @@ let backDisplaySync: displaySync.DisplaySync = displaySync.create();
 
 ## IntervalInfo
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 开发者可以从回调函数中获取帧绘制的时间戳信息，包含当前帧到达的时间timestamp和下一帧预期到达的时间targetTimestamp。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -53,9 +59,13 @@ let backDisplaySync: displaySync.DisplaySync = displaySync.create();
 
 ## DisplaySync
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 期望帧率和回调函数设置实例。用于设置期望帧率范围、注册帧回调函数，以及启动和停止帧回调。下列API示例中都需先使用[displaySync.create()](#displaysynccreate)方法获取到DisplaySync实例，再通过此实例调用对应方法。
 
 ### setExpectedFrameRateRange
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void
 
@@ -96,6 +106,8 @@ backDisplaySync?.start()
 
 ### on('frame')
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 on(type: 'frame', callback: Callback<IntervalInfo>): void
 
 订阅每一帧的变化。注册回调函数后，还需调用[start](#start)方法启动DisplaySync，系统才会在每一帧触发该回调。和[off('frame')](#offframe)方法配对使用，用于取消注册回调函数。回调函数在UI主线程执行。回调频率受[setExpectedFrameRateRange](#setexpectedframeraterange)设置的帧率范围影响。若回调执行耗时过长，可能导致卡顿，建议回调中只进行轻量业务逻辑。
@@ -126,6 +138,8 @@ backDisplaySync?.start()
 
 ### off('frame')
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'frame', callback?: Callback<IntervalInfo>): void
 
 取消订阅每一帧的变化。与[on('frame')](#onframe)方法配对使用。取消成功后，将不再触发回调函数。
@@ -155,6 +169,8 @@ backDisplaySync?.off("frame", callback)
 ```
 
 ### start
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 start(): void
 
@@ -221,6 +237,8 @@ struct Index {
 ```
 
 ### stop
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 stop(): void
 

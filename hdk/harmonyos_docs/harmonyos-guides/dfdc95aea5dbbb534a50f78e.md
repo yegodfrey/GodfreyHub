@@ -15,5 +15,5 @@ DevEco Profiler也遵循以上流程，在使用DevEco Profiler进行性能优�
 3. 根据性能分析的结果优化代码；
 4. 再次通过实时监控查看各项资源的使用情况是否符合预期，来验证代码修改的可行性。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/WLhG4pkUTo2kdsXvFgA5MA/zh-cn_image_0000002701663290.png?HW-CC-KV=V1&HW-CC-Date=20260915T011704Z&HW-CC-Expire=31536000000&HW-CC-Sign=FCD9497F282E10445C517B10D366616F34B27BB64B89627B262E7BC169E12011)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/NhKKvGHNQY-Tm7IQMHP3sQ/zh-cn_image_0000002701663290.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=90C74FE26F0CB481F9CCDB10A6FE3A36DEEEB17682828103C857CE6425FB0E51)
 

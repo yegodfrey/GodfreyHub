@@ -17,11 +17,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-a
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { StartupListener } from '@kit.AbilityKit';
 ```
 
 ## StartupListener.onCompleted
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 onCompleted?(error: BusinessError<void>): void
 

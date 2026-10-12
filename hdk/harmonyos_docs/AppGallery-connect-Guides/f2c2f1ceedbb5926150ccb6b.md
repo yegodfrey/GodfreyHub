@@ -26,7 +26,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/clou
    >
    > 默认情况下，选择日志类型和服务名称后，系统会自动执行一次查询操作。时间选择框默认时间跨度为最近7天，查询结果按照分钟级时间从最新开始展示。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/o0hFpUXPQ6izaJOJKnD6AA/zh-cn_image_0000001663587192.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=868453C44F67653EA5AB3D5251DD47FA17EBF52AD9091BF56C616BBE6EB9EC26)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/o0hFpUXPQ6izaJOJKnD6AA/zh-cn_image_0000001663587192.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=FDF2048953F94E9723322FC6A4721CFD978B82B85FE1F3636AA67ED03E9BD23C)
 
    在该页面您可以执行以下操作：
    * 点击"增加过滤条件"，可添加traceId（调用ID）、logLevel（日志级别）、function_name（函数名）、message（日志内容）或version（函数版本）过滤器，对所有业务日志进行过滤查询。 说明
@@ -35,33 +35,33 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/clou
      >   * 选择"等于"或"不等于"运算符时只能输入一个条件值进行精确匹配。
      >   * 选择"属于"或"不属于"运算符时可以输入一个或多个条件值进行精确匹配。当输入多个条件值时，与其中任意一个条件值匹配成功，则显示满足该条件的日志。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/JbPKnOUtRoasA9Usgtrb2Q/zh-cn_image_0000001711655321.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=51ED152539FF3DBD070CDD9A6628BAA5CC600441AB52660E8551CA87390E6066)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/JbPKnOUtRoasA9Usgtrb2Q/zh-cn_image_0000001711655321.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=3BB11E5A63B461D8982ECEB25ED80A18A1160EA8DE5B8204C0F792DD778B1C9A)
 
      点击"保存"后，添加的过滤条件处于启用状态，"查询结果"区域将展示指定时间范围内符合条件的日志信息。鼠标滑动至过滤器上，可对其进行禁用、删除和编辑操作，并且禁用后可再次启用。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/MKsDsjkvTims-jqW_cxk_g/zh-cn_image_0000001625595849.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA0BFA016ABF0754C557BD94627F5BEFB5B0B8B0C9C5E1022CF2510A43B0C318)
-   * 点击时间选择框，您可以在窗口左侧选择预定时间段，例如最近1小时，也可以自定义时间范围筛选日志。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/BDJnu7oiRyyZKwVbgFpTxQ/zh-cn_image_0000001663843304.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=6EE58BF9D6C9D16D0673BC8CD9ADFC341FAABAC025906EF19758BC9D2F0FA21C)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/MKsDsjkvTims-jqW_cxk_g/zh-cn_image_0000001625595849.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=A5DD7AF0C9AD8B73C512B36C1A7C327E7F09DD317C33204534510853BB819C73)
+   * 点击时间选择框，您可以在窗口左侧选择预定时间段，例如最近1小时，也可以自定义时间范围筛选日志。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/BDJnu7oiRyyZKwVbgFpTxQ/zh-cn_image_0000001663843304.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=6CAED62CCA5C3D9EF3B49F01B7741D6269795EE31E24568BE1B1CA76E8C6343B)
 
    * 点击"直方图"区域任一处，可展开或收起直方图，主要展示查询到的业务日志在时间上的分布情况。
-   * 点击"查询结果"区域右侧的"展开"，日志表格将展开显示每条日志的详细信息，包含日志级别、日志内容、函数调用时间等。您也可点击"复制至剪贴板"以JSON格式复制您关心的某条日志内容，方便您筛选关键信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/Fd67RJZhTou4tyIYEViGxw/zh-cn_image_0000001663435484.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=688493CA42D87DCC9DDCDDC1E65D4F3368281BA8CE6DD2227204E5AEDAE6B35C)
+   * 点击"查询结果"区域右侧的"展开"，日志表格将展开显示每条日志的详细信息，包含日志级别、日志内容、函数调用时间等。您也可点击"复制至剪贴板"以JSON格式复制您关心的某条日志内容，方便您筛选关键信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/Fd67RJZhTou4tyIYEViGxw/zh-cn_image_0000001663435484.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=8704CFA9A1D9BDB53633A13C0A4944AD04F299AC387EDA84DDE45EF939BD0A77)
 
    * 点击"查询结果"区域右侧的"下载"，可将日志以txt格式导出到本地查看。
-   * 点击日志末尾的![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/7LbpJZibRvumdH4yNNbrGw/zh-cn_image_0000001550181890.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=AA0B51AE8635CB0E3BC7415BAEBA798B00B708D4EF864A9A371E8D43704A9187 "点击放大")，相当于添加了traceId过滤器，可过滤出该traceId的所有日志。若想去除过滤，鼠标放置在页面顶端该traceId过滤器上，将其禁用或者删除即可。
+   * 点击日志末尾的![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/7LbpJZibRvumdH4yNNbrGw/zh-cn_image_0000001550181890.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=D4B152AFC8DD7DA67FEC2FD6725A4734B511E237DECA1CBD600BD1034CF5A313 "点击放大")，相当于添加了traceId过滤器，可过滤出该traceId的所有日志。若想去除过滤，鼠标放置在页面顶端该traceId过滤器上，将其禁用或者删除即可。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/GsQnvIb4QaKJnVsVp5R6OQ/zh-cn_image_0000001663596968.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=4D963FA7579707285F16543C4870AF2F115C8E1F4A0947791219EB4980A4FFBB)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/GsQnvIb4QaKJnVsVp5R6OQ/zh-cn_image_0000001663596968.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B55337E97E26D1F5A282A34D5F05EF9738E8B3909052B4CBEE58CE255B04545)
 5. （可选）点击直方图区域某处展开直方图，将鼠标悬浮在直方图某一蓝色数据块上时，您可查看到该数据块代表的时间范围和日志命中次数。 说明
    >
    > 若选择的时间范围跨度不同，系统返回的日志数据块细化粒度也不同。下文以7天时间跨度来说明通过直方图查看日志分布的方法。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/mxZ0W1snQPi35glxZMzb4A/zh-cn_image_0000001623497481.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=0DEB1E4524C00F9C2A2E68BA031270D0886AC85618FDEECEF95D93379D4E21A7)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/mxZ0W1snQPi35glxZMzb4A/zh-cn_image_0000001623497481.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=4E5EEDD91202B90727B4170BC56C393ED1D742034951BE9E0854029829AB6BCA)
 
    点击某一天的数据块，例如2023-06-02 00:00:00，系统返回这一天0点-3点的日志分布，您也可通过时间选择框修改小时跨度而细化展示这一天每小时的日志命中数。同时在"查询结果"区域会同步展示指定时间范围内的日志查询结果。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/tCPx2fWMSVGavKhjH6Re5A/zh-cn_image_0000001572779432.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=05A26389C27EB1FAACFE35761D0B2F74ED3750B3AB2971A98354AF399471EE55)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/tCPx2fWMSVGavKhjH6Re5A/zh-cn_image_0000001572779432.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=01AE08C7527354541002A17E073D12135899310F974B830F899F93B40D4DDA5C)
 
    点击某一小时的蓝色数据块，例如2023-06-02 08:00:00，系统返回这一天8点00分-9点00分的日志分布。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/SuR4buxIT_uqcVG_qHaoIA/zh-cn_image_0000001625428513.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=798A0D01CA13D83A657D999BFA0CE6C3923FAF558FC97308D270FD52EA23D63C)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/SuR4buxIT_uqcVG_qHaoIA/zh-cn_image_0000001625428513.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=9B129D079B55BD14310B5E8FB5D63DB9AB19FEF90EEC16DEC030DF34B40241FE)
 
 ## 查看云函数接入日志
 
@@ -72,7 +72,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/clou
    >
    > 默认情况下，选择日志类型后，系统会自动执行一次查询操作。时间选择框默认时间跨度为最近7天，查询结果按照分钟级时间从最新开始展示。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/J7RzaCOAQ8CWPPbms2qo-Q/zh-cn_image_0000001663593936.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=8B2512D926EFD7E63A2DAAC275C003DDEB6D927F575E91DE5B8B42E659941A0A)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/J7RzaCOAQ8CWPPbms2qo-Q/zh-cn_image_0000001663593936.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=32EFC0448CF9AC011D9BE5C00E44AE02365A1F4C943E2DA1241FAD484C98C91F)
 
    在该页面您可以执行以下操作：
    * 点击"增加过滤条件"，可根据需要设置过滤器，对所有接入日志进行筛选。当前支持的过滤条件全集如下表所示。 说明
@@ -90,23 +90,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/clou
      |function_name|函数名称。|mhtest-shijian|-|
      |trace_id|调用ID。|79fc85ce-5c63-4751-84b8-e16957d6c7c4|-|
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/0SJ9BW_rRI6HtMcxlirhaA/zh-cn_image_0000001622187494.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=ABF270DC11F7E078E8EA987EEB2F8AEAA4627D8B44D69C85085B08FF7AF1FD68)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/0SJ9BW_rRI6HtMcxlirhaA/zh-cn_image_0000001622187494.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=C9CD5A5BA5D6433EB571FBD5FBA4AF4E687E51EEE820DCB69A9EADB55F09143E)
 
      点击"保存"后，添加的过滤条件处于启用状态，"查询结果"区域将展示指定时间范围内符合条件的日志信息。鼠标滑动至过滤器上，可对其进行禁用、删除和编辑操作，并且禁用后可再次启用。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/ecopaGRcR_OGwZopKpyhDg/zh-cn_image_0000001575276968.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=67988E5F7F4C6D9E8740206360EC6A9B8A57F3635DBDCD95B16CF14F9069A526)
-   * 点击时间选择框，您可以在窗口左侧选择预定时间段，例如最近1小时，也可以自定义时间范围筛选日志。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/sV_LamqSS4aLLFwNptXfjw/zh-cn_image_0000001711643229.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D7FB9B0C6D19AAC2A4FA2AD526F9BBF616EFF8D475D18BAC44CDBE6B5AE2447)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/ecopaGRcR_OGwZopKpyhDg/zh-cn_image_0000001575276968.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=7341D4A76D1C1DF7DA63DFB1726A125021EED79231692E9E7A309182AEA16473)
+   * 点击时间选择框，您可以在窗口左侧选择预定时间段，例如最近1小时，也可以自定义时间范围筛选日志。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/sV_LamqSS4aLLFwNptXfjw/zh-cn_image_0000001711643229.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=4DF4952F13C9611B9C728F899689D8BDC8FF5A2B9253034588E4DA9E0032685E)
 
    * 点击"直方图"区域任一处，可展开或收起直方图，主要展示查询到的接入日志在时间上的分布情况。
-   * 点击"查询结果"区域右侧的"展开"，日志表格将展开显示每条日志的详细信息，包含函数调用时间、HTTP请求方法名、调用函数返回的HTTP状态码等。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/dyhsSOzET-yaxFS7o7wkNg/zh-cn_image_0000001682601377.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=46672B72DE3F5ABD079ED1D5A2A31D7A6D2823F53FFFCE4A1D87FE2E09B00A6A)
+   * 点击"查询结果"区域右侧的"展开"，日志表格将展开显示每条日志的详细信息，包含函数调用时间、HTTP请求方法名、调用函数返回的HTTP状态码等。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/dyhsSOzET-yaxFS7o7wkNg/zh-cn_image_0000001682601377.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=7295DFEBD91FE6AC2D5558DDA9E24EDB08EFDAAC8BE568009F3A1354204E4139)
 
    * 点击"查询结果"区域右侧的"下载"，可将日志以txt格式导出到本地查看。
-   * 点击日志末尾的![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/qI1THIYFTB-Akuy7MK38NQ/zh-cn_image_0000001604762157.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=93EE1B141C822A6F1C4DE62E30E2B75233BC1D61095187131D4AAFF78FDF639A "点击放大")，相当于添加了traceId的过滤条件，可过滤出该traceId的所有日志。若想去除过滤，鼠标放置在页面顶端该traceId过滤器上，将其禁用或者删除即可。
+   * 点击日志末尾的![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/qI1THIYFTB-Akuy7MK38NQ/zh-cn_image_0000001604762157.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=B1FE84EE602DFD7AE07C819AA4786CDE6AE97647DA9C533DE1FFD86FF567D815 "点击放大")，相当于添加了traceId的过滤条件，可过滤出该traceId的所有日志。若想去除过滤，鼠标放置在页面顶端该traceId过滤器上，将其禁用或者删除即可。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/aDva3PYWRhCc0KgSg5GC2g/zh-cn_image_0000001625438049.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=B63DD5BC9C1738DC64BA690357FFB6D2550F6F19B10349ADADE7BCEE52DFC228)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/aDva3PYWRhCc0KgSg5GC2g/zh-cn_image_0000001625438049.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=FE9258775EF22FE91D623FECFA773606D5FE511CF99BDDD5415B6C6D5BCBF956)
 5. （可选）点击直方图区域某处展开直方图，将鼠标悬浮在直方图某一蓝色数据块上时，您可查看到该数据块代表的时间范围和日志命中次数。 说明
    >
    > 若您想通过直方图查看更细时间粒度的日志分布情况，操作方法与业务日志一致，详情请参见[通过直方图查看日志分布情况](#ZH-CN_TOPIC_0000001432886916__li16636165985613)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/Hs8n81hKQJGyafnpyg0adQ/zh-cn_image_0000001622031498.png?HW-CC-KV=V1&HW-CC-Date=20260909T173714Z&HW-CC-Expire=31536000000&HW-CC-Sign=ADBC840E86C3D491DDDFEE059E96059E37C7B6433766B8B29A7F4370D1D8E549)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/Hs8n81hKQJGyafnpyg0adQ/zh-cn_image_0000001622031498.png?HW-CC-KV=V1&HW-CC-Date=20261008T183751Z&HW-CC-Expire=31536000000&HW-CC-Sign=14D4B0BCFD0F7479583308ADFEBCC77E3032784DF4CDC037BF79AB11A9059CF1)
 

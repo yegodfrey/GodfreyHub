@@ -51,7 +51,7 @@ AR Engine主要包含运动跟踪与平面识别特性、平面语义及物体�
 
 **图1** 重力对齐世界坐标系示意图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/3iThCpXkTwq9TohhOLQL5Q/zh-cn_image_0000002749493276.png?HW-CC-KV=V1&HW-CC-Date=20260929T121646Z&HW-CC-Expire=31536000000&HW-CC-Sign=63431CD402E319523B1EF42758424E1B174A70A6FCB5C9118EAD5E82FF81D10E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/qGvCCCvNTIiPQY055aArqA/zh-cn_image_0000002755024420.png?HW-CC-KV=V1&HW-CC-Date=20261009T092705Z&HW-CC-Expire=31536000000&HW-CC-Sign=D2A9639DD23E7089B2B60DA52DEF0DED3AA58ADAD7CD6E8554F5D31946E330D4)
 
 ### AR Engine重力对齐北向坐标系
 
@@ -67,7 +67,7 @@ AR Engine主要包含运动跟踪与平面识别特性、平面语义及物体�
 
 **图2** 重力对齐北向坐标系示意图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/GZ8HeDn9SIuCMHpV4vsijg/zh-cn_image_0000002779092335.png?HW-CC-KV=V1&HW-CC-Date=20260929T121646Z&HW-CC-Expire=31536000000&HW-CC-Sign=D588BD8DEF9F2B4D5A202ED5F4105419368D324FC5B330F893995D71524BEA10)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/sTqcYsdHROqxVElQs_YBMQ/zh-cn_image_0000002755184308.png?HW-CC-KV=V1&HW-CC-Date=20261009T092705Z&HW-CC-Expire=31536000000&HW-CC-Sign=828DB66CD0A86673B1CF5D24F24E4AE6156CF153B4C445BFD1C77B9C2CCD4149)
 
 ### AGP世界坐标系
 
@@ -81,7 +81,7 @@ AR Engine主要包含运动跟踪与平面识别特性、平面语义及物体�
 
 **图3** AGP世界坐标系示意图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/0YrLWelITaKiq5NCZuhfXQ/zh-cn_image_0000002778932477.png?HW-CC-KV=V1&HW-CC-Date=20260929T121646Z&HW-CC-Expire=31536000000&HW-CC-Sign=C87A766938D37C5EFB45F6C29330865EFAB805E5D0E320E1A61B367912FF24D7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/6S4hT-dFQXG8HA7D3mcfgg/zh-cn_image_0000002784583175.png?HW-CC-KV=V1&HW-CC-Date=20261009T092705Z&HW-CC-Expire=31536000000&HW-CC-Sign=CFEF4BC69E478E375CDB74683443E999E3FDE73EAFA7FC07D6240878D76CDF56)
 
 ## 约束与限制
 

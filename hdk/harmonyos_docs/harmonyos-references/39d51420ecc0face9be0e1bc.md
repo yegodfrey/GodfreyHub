@@ -14,6 +14,8 @@ typedef struct ArkUI_PositionEdges ArkUI_PositionEdges
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 相对容器内容区边界的位置参数。
 
 **起始版本：** 21

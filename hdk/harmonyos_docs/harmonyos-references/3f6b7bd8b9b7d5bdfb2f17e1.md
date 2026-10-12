@@ -18,11 +18,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv
+
 ```TypeScript
 import { media } from '@kit.MediaKit';
 ```
 
 ## init^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 init(config: AVScreenCaptureRecordConfig): Promise<void>
 
@@ -87,6 +91,8 @@ async function testInit() {
 
 ## startRecording^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 startRecording(): Promise<void>
 
 开始录屏，在使用前需要先调用[init](#init12)接口。使用Promise异步回调。
@@ -133,6 +139,8 @@ async function testStartRecording() {
 
 ## stopRecording^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 stopRecording(): Promise<void>
 
 结束录屏。使用Promise异步回调。
@@ -178,6 +186,8 @@ async function testStopRecording() {
 ```
 
 ## pauseRecording
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 pauseRecording(): Promise<void>
 
@@ -232,6 +242,8 @@ async function testPauseRecording() {
 
 ## resumeRecording
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 resumeRecording(): Promise<void>
 
 恢复录屏。使用Promise异步回调。
@@ -284,6 +296,8 @@ async function testResumeRecording() {
 ```
 
 ## addWatermark
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
 
 addWatermark(watermark: image.PixelMap, config: WatermarkConfiguration): Promise<number>
 
@@ -353,6 +367,8 @@ async function testAddWaterMark() {
 
 ## skipPrivacyMode^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 skipPrivacyMode(windowIDs: Array<number>): Promise<void>
 
 录屏时，应用可对本应用的隐私窗口做安全豁免。使用Promise异步回调。
@@ -407,6 +423,8 @@ async function testSkipPrivacyMode() {
 ```
 
 ## setMicEnabled^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 setMicEnabled(enable: boolean): Promise<void>
 
@@ -463,6 +481,8 @@ async function testSetMicEnable() {
 
 ## setPickerMode^22+^
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+
+
 setPickerMode(pickerMode: PickerMode): Promise<void>
 
 设置Picker显示模式，在下一次显示Picker时生效。使用Promise异步回调。
@@ -517,6 +537,8 @@ async function testSetPickerMode() {
 ```
 
 ## excludePickerWindows^22+^
+
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+
 
 excludePickerWindows(excludedWindows: Array<number>): Promise<void>
 
@@ -575,6 +597,8 @@ async function testExcludePickerWindows() {
 
 ## presentPicker^22+^
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+
+
 presentPicker(): Promise<void>
 
 录屏开始后，调用该接口再次弹出Picker，可动态更新录制源（窗口、屏幕）。使用Promise异步回调。
@@ -627,6 +651,8 @@ async function testPresentPicker() {
 ```
 
 ## setContentAutoRotation
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
 
 setContentAutoRotation(enable: boolean): Promise<void>
 
@@ -687,6 +713,8 @@ async function testSetContentAutoRotation() {
 
 ## release^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 release(): Promise<void>
 
 释放录屏。使用Promise异步回调。
@@ -735,6 +763,8 @@ async function testRelease() {
 
 ## on('stateChange')^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 on(type: 'stateChange', callback: Callback<AVScreenCaptureStateCode>): void
 
 订阅录屏状态切换的事件，当状态发生变化时，会通过订阅的回调通知用户。用户只能订阅一个状态切换的回调方法，重复订阅时，以最后一次订阅的回调方法为准。
@@ -769,6 +799,8 @@ async function testOnStateChange() {
 ```
 
 ## on('error')^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -816,6 +848,8 @@ async function testOnError() {
 
 ## off('stateChange')^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
+
 off(type: 'stateChange', callback?: Callback<AVScreenCaptureStateCode>): void
 
 取消订阅状态切换回调事件。用户可以指定填入状态切换的回调方法来取消订阅。
@@ -848,6 +882,8 @@ async function testOffStateChange() {
 ```
 
 ## off('error')^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+
 
 off(type: 'error', callback?: ErrorCallback): void
 

@@ -10,13 +10,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-w
 
 ## 功能介绍
 
+> phone | 2in1 | tablet
+
 开发者可以调用此接口获取预签约号（preSignNo）。
 
 ## 场景描述
 
+> phone | 2in1 | tablet
+
 接入Payment Kit的签约能力时，开发者需要先调用该接口获取到preSignNo，然后将preSignNo传递给客户端调用签约接口拉起华为支付签约收银台。
 
 ## 接口原型
+
+> phone | 2in1 | tablet
 
 * **承载协议：** HTTPS POST
 
@@ -32,6 +38,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-w
   响应消息：Content-Type: application/json; charset=UTF-8
 
 ## 请求参数
+
+> phone | 2in1 | tablet
 
 **Request Header**
 
@@ -54,6 +62,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-w
 
 ## 请求示例
 
+> phone | 2in1 | tablet
+
 ```json
 POST /api/v2/contract/presign/app HTTP/1.1
 Content-Type: application/json;charset=UTF-8
@@ -69,6 +79,8 @@ Accept: application/json
 ```
 
 ## 响应参数
+
+> phone | 2in1 | tablet
 
 **Response Header**
 
@@ -89,6 +101,8 @@ Accept: application/json
 
 ## 响应示例
 
+> phone | 2in1 | tablet
+
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=UTF-8
@@ -101,6 +115,8 @@ Content-Type: application/json; charset=UTF-8
 ```
 
 ## 错误码
+
+> phone | 2in1 | tablet
 
 **resultCode** 非400000的错误码请查看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。
 

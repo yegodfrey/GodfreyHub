@@ -19,7 +19,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-51
 
 需要显示的SVG图片样例效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/oxRpaxLaRuWZNRIH_gJOIg/zh-cn_image_0000002658911825.png?HW-CC-KV=V1&HW-CC-Date=20260929T032805Z&HW-CC-Expire=31536000000&HW-CC-Sign=BAE3C5DB856E1D1054379D618671F41280DC707076E029B080ADF162D6A35869 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/oxRpaxLaRuWZNRIH_gJOIg/zh-cn_image_0000002658911825.png?HW-CC-KV=V1&HW-CC-Date=20261008T174436Z&HW-CC-Expire=31536000000&HW-CC-Sign=1F9CA9F55CE178000C77DAA29B55992AB8B13BC140AA212728CED7C424204B98 "点击放大")
 
 首先可以使用[TextEncoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#textencoder)类的[encodeInto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#encodeinto9)方法，将SVG字符串转化为Uint8Array类型，然后使用[createImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagesource9-2)通过buffer创建ImageSource实例，最后使用[createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource#createpixelmap7)返回结果。
 

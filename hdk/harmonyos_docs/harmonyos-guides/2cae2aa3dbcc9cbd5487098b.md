@@ -24,7 +24,7 @@ HUKS管理的密钥可以由业务/应用导入或调用HUKS的接口生成。�
   >
   > 对于具备安全环境（如[TEE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-concepts#可信执行环境tee)）的系统、设备，HUKS核心层必须运行在安全环境内。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/MC5xEUv9SmqPUjJeADeooA/zh-cn_image_0000002749333100.png?HW-CC-KV=V1&HW-CC-Date=20260929T121704Z&HW-CC-Expire=31536000000&HW-CC-Sign=EF27C37C48E19E9865FAA96928118884F7A1229A509483B640386A77C8DBD167)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/zwAr7o4hTI6z4sJVyE4ryw/zh-cn_image_0000002784663061.png?HW-CC-KV=V1&HW-CC-Date=20261009T092720Z&HW-CC-Expire=31536000000&HW-CC-Sign=2D97236573368D4E9B6E7D292FCC7AA4A4288375101BE281B8C7CDA78D71F280)
 
 ## 核心功能
 

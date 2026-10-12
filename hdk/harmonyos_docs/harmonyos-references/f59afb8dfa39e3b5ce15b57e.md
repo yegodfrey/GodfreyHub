@@ -17,6 +17,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-univer
 
 ## clickEffect
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 clickEffect(value: ClickEffect | null): T
 
 设置当前组件的点击回弹效果。点击回弹效果的强度等级决定回弹时的缩放幅度。
@@ -38,6 +40,8 @@ clickEffect(value: ClickEffect | null): T
 |T|返回当前组件，用于链式调用。|
 
 ## clickEffect^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 clickEffect(effect: Optional<ClickEffect | null>): T
 
@@ -61,6 +65,8 @@ clickEffect(effect: Optional<ClickEffect | null>): T
 
 ## ClickEffect对象说明
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 定义点击回弹效果。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -73,6 +79,8 @@ clickEffect(effect: Optional<ClickEffect | null>): T
 |scale|number|否|是|回弹缩放比例，取值范围(0, 1]，支持在设置ClickEffectLevel的基础上微调。超出取值范围时，使用当前level对应的默认缩放比例。 **说明：** 当level为ClickEffectLevel.LIGHT时，默认值：0.90 当level为ClickEffectLevel.MIDDLE或者ClickEffectLevel.HEAVY时，默认值：0.95 当level为undefined或者null时，level为ClickEffectLevel.LIGHT，默认值：0.90 当scale为undefined或者null时，使用当前level对应的默认缩放比例。|
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例主要演示不同组件的点击回弹效果。
 
@@ -146,5 +154,5 @@ struct ToggleExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/foDJy-0bQQ2u_kSJH1ud8w/zh-cn_image_0000002749494336.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121738Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA6FADD50AD09145886B1262BE8B377692ADB69A540FAB638B75283B1A2D3743)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/KVYNPRIaRa-hC40Ya1cvhQ/zh-cn_image_0000002755025472.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092759Z&HW-CC-Expire=31536000000&HW-CC-Sign=B404320B27352EE44E388050B87AC671E4FF39232E0D300FD2EED47A2B40C28D)
 

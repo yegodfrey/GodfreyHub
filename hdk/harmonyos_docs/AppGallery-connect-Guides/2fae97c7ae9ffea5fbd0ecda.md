@@ -49,11 +49,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 
    * 编辑已有的数据 在数据列表中的"操作"列，点击"修改"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/pRmGN1EtS7eojeXyHF82oA/zh-cn_image_0000001935274417.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=80A18546793EF52A77FC904FD6B4CD4EFA9091B4CD8A55334C9E9A631DF2E463)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/pRmGN1EtS7eojeXyHF82oA/zh-cn_image_0000001935274417.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=7053BE1FE357B6F369BCAC76CBD0EFE1ED17EE153EFF6A5E3CB53EA04BB60C5F)
 7. 输入字段的值，点击"确定"或"修改"。 说明
    > * 修改数据时，如果字段被设置为主键，则该字段的值不支持修改。
-   > * 字段的数据类型为"Text"时，由于在数据列表中仅可查看前255个字符，因此，您如需要查看完整数据时，请点击该值旁的![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/ZfepDkBkQJ6gxUA-RprLRA/zh-cn_image_0000001569710369.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C19BF6962FD82EC4B6EF4A8EC3163BC735A08B82BB6F5F4553D249F59E94D5C "点击放大")，下载文件查看该字段的完整数据。
-   > * 字段的数据类型为"ByteArray"时，支持您上传文件作为该字段的值，在数据列表中，可查看上传文件的大小。同时，支持您在数据列表中点击该字段值旁的![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/j2cLleHmT3eHlgDkO92XQg/zh-cn_image_0000001518550560.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E3EC534F49B305BEB23A520B8CEC31297DDC39EE85B6079596134D419D4F474 "点击放大")，下载该文件并在更改其文件格式为上传前的文件格式后，查看或者修改该文件中的内容。
+   > * 字段的数据类型为"Text"时，由于在数据列表中仅可查看前255个字符，因此，您如需要查看完整数据时，请点击该值旁的![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/ZfepDkBkQJ6gxUA-RprLRA/zh-cn_image_0000001569710369.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=86C84031F4761F59D2207A4F4A065B2E70509AB512646359EDA7231D6F8668D9 "点击放大")，下载文件查看该字段的完整数据。
+   > * 字段的数据类型为"ByteArray"时，支持您上传文件作为该字段的值，在数据列表中，可查看上传文件的大小。同时，支持您在数据列表中点击该字段值旁的![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/j2cLleHmT3eHlgDkO92XQg/zh-cn_image_0000001518550560.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A2DF8AF369B5A3AC50709E336586F4EC363B3D16AEFDE15B74F227FF68E1BDF "点击放大")，下载该文件并在更改其文件格式为上传前的文件格式后，查看或者修改该文件中的内容。
 
 ## 导出数据至本地
 
@@ -80,15 +80,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
      1. 选择需要导出数据的"存储区名称"和"对象类型"。
      2. 点击右侧菜单栏中"高级查询"。
      3. 点击"新增查询条件"，输入查询条件。
-     4. 点击"确定"，点击"导出"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/Jw0JBrUVTt2GUs6LXubvTA/zh-cn_image_0000001892519462.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=68B2924073EB3ECAF72D0B5165124739CD537EFA9C076F38A9AFECB163DB545C)
+     4. 点击"确定"，点击"导出"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/Jw0JBrUVTt2GUs6LXubvTA/zh-cn_image_0000001892519462.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=16E1D76A6765D185B665DB090119FBA8A382DB3E33687C8AD82397AE63E40909)
 
    * 导出指定"存储区"和"对象类型"的所有数据。
      1. 点击"导出"。
      2. 选择需要导出数据的"存储区"和"对象类型"。
      3. 点击"下一步"。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/55L0NgCoTT-5SpaKW8ZLVA/zh-cn_image_0000001897171426.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=A7CD057DC67B878025993884124A8DA71E73F5C6C3CA0044DD38F8C8C3ECC923)
-6. 输入"开始位置"和"条数"参数值。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/ecm7DzCKTLa3KUcLVlYGVw/zh-cn_image_0000001937595369.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=1157A655C1D1D061546DE36730546916FD8212326CDF4467897D7193231D38B8)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/55L0NgCoTT-5SpaKW8ZLVA/zh-cn_image_0000001897171426.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=DEA28777D04563F149A1068E02224F01100059CA67C4D8E60C99A411263A2D08)
+6. 输入"开始位置"和"条数"参数值。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/ecm7DzCKTLa3KUcLVlYGVw/zh-cn_image_0000001937595369.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=7B0FC21835ED39C88A0A67DE53A657DF51BC0EEDAFFC4D38678C6EA9D37C11EC)
 
    具体参数说明如下表。
 
@@ -124,7 +124,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 3. 在左侧导航栏选择"云开发（Serverless）> 云数据库"，进入云数据库页面。
 4. 点击"数据"页签。
 5. （可选）如果您没有现成的数据源，可以下载数据模板，编辑后导入。
-   1. 点击"数据模板"，下载获取模板json文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/_CZX96K9Th6eeDs4oANRjA/zh-cn_image_0000001937512689.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=C5B12B463FEDFC030C13E1AEE25D8384182C38F75E74B5161653BDC06442D508)
+   1. 点击"数据模板"，下载获取模板json文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/_CZX96K9Th6eeDs4oANRjA/zh-cn_image_0000001937512689.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=805A004220D2B3A2C68001E1AE94F28C7D4D809277C318126EE24637C5C306C9)
 
    2. 编辑模板文件内容后，保存在本地。
       * cloudDBZoneName：填写存储区的名称。名称为1~20个字符，只能包含字母和数字，并且必须以字母开头。名称不区分字母的大小写。不允许使用系统保留名称：privatedefault。
@@ -156,10 +156,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
       }
       ```
 
-6. 点击"导入"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/zaJtxSJsT9SAMfZy_Tjuag/zh-cn_image_0000001896996130.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=0BBC6E9C6B44B0C1D60938F532A93C8A001B37CA131EB87177A9C6E85E0314A3)
+6. 点击"导入"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/zaJtxSJsT9SAMfZy_Tjuag/zh-cn_image_0000001896996130.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=B6B97955EFADBEFDD29B34D6520D865AC8E2B235B8AF3BDFFF9A5F7021B0B058)
 
 7. 选择"导入源"为"本地"。
-8. 选择导入文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/etbkuHDoTFOGOCZORbvYMg/zh-cn_image_0000001896998670.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=2107BFBD452F90A2E074FDF0E8136F440C5C1EF35954CFEB892B3DA5493EB521)
+8. 选择导入文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/etbkuHDoTFOGOCZORbvYMg/zh-cn_image_0000001896998670.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=1670D3DC72BAD2FEEBFC3EFE7166FF7ADA4A71C260F3BB04F973917EA981A274)
 
 9. 点击"确定"。 数据将会被导入，并更新相应对象类型中的数据。
 
@@ -188,12 +188,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 4. 点击"数据"页签。
 5. 点击"导出"。
 6. 选择单个或多个"存储区"和"对象类型"的数据进行备份。
-7. 选择"导出目标"为"Cloud Storage"，点击"下一步"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/WGBrJBeLS4ajip7i31TU1Q/zh-cn_image_0000001937631301.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=17504A88FA04E9447A4833D19E449AF1705ECA2B01F171F428DA718D6EA33C03)
+7. 选择"导出目标"为"Cloud Storage"，点击"下一步"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/WGBrJBeLS4ajip7i31TU1Q/zh-cn_image_0000001937631301.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=06A21811E42714DD5758F936BB1D71DBB1AEAA8809890A318A623572AFE65C0E)
 
 8. 选择"存储实例"和文件存储路径。
    * 导出加密：是否对导出的数据进行加密。为了保证数据安全，建议使用加密导出。
    * 存储实例：云存储服务中创建的实例。
-   * 文件存储路径：选择当前已有文件夹或者新增文件夹。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/ro3XmLjJSFmj2U8-J8PFDA/zh-cn_image_0000001897274288.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=3542D14D375562B0681AC8B3BFA8B10A3325A846779BB2808A67387E12323B3E)
+   * 文件存储路径：选择当前已有文件夹或者新增文件夹。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/ro3XmLjJSFmj2U8-J8PFDA/zh-cn_image_0000001897274288.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=B9636ECB890B19683D5B98766CC023901CCA03AD264EF00890629BEC1B3AB8F1)
 
 9. 点击"确定"。 进度条完成后表示数据导出完成，页面提示备份任务成功。可在对应云存储服务查看已导出数据。
 
@@ -220,12 +220,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 2. 在项目列表中点击需要配置云数据库的项目。
 3. 在左侧导航栏选择"云开发（Serverless）> 云数据库"，进入云数据库页面。
 4. 点击"数据"页签。
-5. 点击"导入"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/Kkz0bRhiSFOFnNJdLnVecQ/zh-cn_image_0000001896996130.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=ABB262D001874D9F675A762C59A4EFB3CDD6C2450128B3A6D9D000448B6A150A)
+5. 点击"导入"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/Kkz0bRhiSFOFnNJdLnVecQ/zh-cn_image_0000001896996130.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B492A9A3A7EA89FF616F298F2B140005AD53CC76B8BE73282931A97F809E738)
 
 6. 选择导入源为"Cloud Storage"。
 7. 选择"存储实例"和文件存储路径。
    * 存储实例：云存储服务中创建的实例。
-   * 文件存储路径：备份文件的存储路径，可选择同一备份下的一个或多个文件，暂不支持跨备份路径下的多个文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/xmsjyL_KTo6j8cau8VuCPQ/zh-cn_image_0000001897232210.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=CB55763B27405202F04251271014CE0E0828C733B8E6330FA57DC66596E4F57F)
+   * 文件存储路径：备份文件的存储路径，可选择同一备份下的一个或多个文件，暂不支持跨备份路径下的多个文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/xmsjyL_KTo6j8cau8VuCPQ/zh-cn_image_0000001897232210.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=7CB0396D63B8DD73F163C1AA521401079714F3824AFE9CBB80AE564243417BD9)
 
 8. 点击"确定"。 数据将会被导入，并更新相应对象类型中的数据。
 
@@ -257,15 +257,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 2. 在项目列表中点击需要配置云数据库的项目。
 3. 在左侧导航栏选择"云开发（Serverless）> 云数据库"，进入云数据库页面。
 4. 点击"数据"页签。
-5. 点击"回收站"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/js5MF_L9TAe0qMNxF-smOQ/zh-cn_image_0000001897225570.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=84ABD95AC78DFA9E8E7AE24C62360B967483A45532575BDD5CEE8286354D9D75)
+5. 点击"回收站"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/js5MF_L9TAe0qMNxF-smOQ/zh-cn_image_0000001897225570.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=9A17E61D1759EFA3526FF9D89869C1DA5285DF6B9F71C9094463CE8D6D83FB20)
 
-6. 点击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/KvCi4TsrRe6G7FQDDzEACw/zh-cn_image_0000001518394580.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=1BA71E902D250C2911A07966E8E28507191057155925F0778BA4EC99F9803F8E)或者右侧菜单栏中的"设置"，开启回收站并设置数据保留天数。
+6. 点击![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/KvCi4TsrRe6G7FQDDzEACw/zh-cn_image_0000001518394580.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=88FC09E096F2816D942E385E1A228608584EB5F3E963C5B89EB1871586594C78)或者右侧菜单栏中的"设置"，开启回收站并设置数据保留天数。
    * 回收站默认为禁用状态，对应的数据保留天数为0天，删除的数据会被立即删除，数据不可恢复。
    * 回收站为开启状态时，表示数据删除后将被保留在回收站。数据保留期间可以对回收站的数据进行查询、恢复和彻底删除等操作。
      * "数据保留天数"，默认值为30，可设置为大于或等于1小于或等于60。
      * 保留天数从数据被删除的次日0点开始计算，数据被删除当日不计入保留天数。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/TIJI0nw5RJaBTbeUV4y_rA/zh-cn_image_0000001897389970.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=07B8A6F9E6D01445E6CA5C8819F39B371FB6A71633366476DC8D835C4E4B6A2E)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/TIJI0nw5RJaBTbeUV4y_rA/zh-cn_image_0000001897389970.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=FB855947FB23EDB3D8B29412F72F9CB8BEF8170FD68BB291F224C61376EB7CAA)
 7. 点击"保存"。 应用开启回收站，您可以对回收站的数据进行查询、恢复和永久删除等操作。
 
 ## 清空数据
@@ -284,6 +284,6 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    > * 清空数据后时，数据类型为IntAutoIncrement和LongAutoIncrement的字段序列将会重置。
    > * 清空数据时，回收站数据也将清空。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/qrgO9aAqSL-j8OYBEa-a7g/zh-cn_image_0000001897463366.png?HW-CC-KV=V1&HW-CC-Date=20260916T021830Z&HW-CC-Expire=31536000000&HW-CC-Sign=D4F7BBDC7BB21BD4C09BA798DDD56C50EE6F773F599F31A77B6984357E4591A8)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/qrgO9aAqSL-j8OYBEa-a7g/zh-cn_image_0000001897463366.png?HW-CC-KV=V1&HW-CC-Date=20261008T171610Z&HW-CC-Expire=31536000000&HW-CC-Sign=A8C0D769C92C7E071A3FB238D5229EDB44B510EF56C19E6AC790CF2E4416CE24)
 7. 点击弹出框中的"确定"，清空当前存储区中指定对象类型的数据。
 

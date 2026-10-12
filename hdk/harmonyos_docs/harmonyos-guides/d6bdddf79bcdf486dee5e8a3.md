@@ -20,10 +20,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-cus
 
 1. 将Symbol图标资源（TTF文件，设计规范参见[图标设计文档](https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962#section26702397263)）与动效参数资源（JSON文件）放入entry/src/main/resources/rawfile目录下，可在此目录下新建子目录。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/ngCS10v8TgOrWuRUU5x3HQ/zh-cn_image_0000002779091971.png?HW-CC-KV=V1&HW-CC-Date=20260929T121658Z&HW-CC-Expire=31536000000&HW-CC-Sign=C373D896E3A6BB005DF0666B9D23DAD4C308AB14ACCB66F5910E9C6A24473C8F)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/R_hmCNCETiSMnGPa9MYfjw/zh-cn_image_0000002755183944.png?HW-CC-KV=V1&HW-CC-Date=20261009T092715Z&HW-CC-Expire=31536000000&HW-CC-Sign=8E37F65974142DAD6FD8427A09ED33BD43B7171F169E7FC41809EE9977CAAC1B)
 2. 多语言场景，在entry/src/main/resources目录中对应语言目录下的string.json文件中配置对应的Symbol图标Unicode值。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/j3Tx_f4eQAK2M0FAfWonMQ/zh-cn_image_0000002778932113.png?HW-CC-KV=V1&HW-CC-Date=20260929T121658Z&HW-CC-Expire=31536000000&HW-CC-Sign=234B759001661DDF04601ED9E17E46011205F07C288A36AA9F4872FD16A187E5)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/Vin7ocjCR5aTOaa3_lkK8w/zh-cn_image_0000002784582811.png?HW-CC-KV=V1&HW-CC-Date=20261009T092715Z&HW-CC-Expire=31536000000&HW-CC-Sign=4346BC97C9F1FCE67062FA69B2ECEAF17A3A45212B3A2EF2DE71F9D160B3F758)
 
    ```json
    {
@@ -68,5 +68,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-cus
    }
    ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/rlIS7QnXRq6duL8N7Py-tQ/zh-cn_image_0000002749333030.png?HW-CC-KV=V1&HW-CC-Date=20260929T121658Z&HW-CC-Expire=31536000000&HW-CC-Sign=DE8A713CD8F43299DB4273DE1AA37A6B9FE18A906F874BFDE6B35A392CC510D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/EAK18J0RSHy_yaL1D_M1bQ/zh-cn_image_0000002784662991.png?HW-CC-KV=V1&HW-CC-Date=20261009T092715Z&HW-CC-Expire=31536000000&HW-CC-Sign=0A1F5B746F6B85E321A9626ACA2F5223CDA742E0B4FBCE8F79FC63AFD7E21ED2)
 

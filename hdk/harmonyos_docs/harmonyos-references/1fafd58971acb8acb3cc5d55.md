@@ -14,6 +14,8 @@ typedef struct TransientTask_TransientTaskInfo {...} TransientTask_TransientTask
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义所有短时任务信息结构体。用于返回当日剩余总配额和已申请的所有短时任务信息。
 
 **起始版本：** 20
@@ -24,7 +26,11 @@ typedef struct TransientTask_TransientTaskInfo {...} TransientTask_TransientTask
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|

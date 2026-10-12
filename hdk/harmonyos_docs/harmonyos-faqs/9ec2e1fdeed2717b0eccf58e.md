@@ -26,7 +26,7 @@ onScrollStop(() => {
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/jaUDbjl3RW6UBefPKB6CRQ/zh-cn_image_0000002658791435.png?HW-CC-KV=V1&HW-CC-Date=20260929T074336Z&HW-CC-Expire=31536000000&HW-CC-Sign=8315EB02E536CF7AB772CA13609B74B23254099881D9223F4C19FA6A5BA86F9C "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/jaUDbjl3RW6UBefPKB6CRQ/zh-cn_image_0000002658791435.png?HW-CC-KV=V1&HW-CC-Date=20261008T184255Z&HW-CC-Expire=31536000000&HW-CC-Sign=6DEBA28C1D4FA43D76EA14269CDAA821608987362D3402962B75A12D17956B34 "点击放大")
 
 ## 背景知识
 
@@ -193,5 +193,5 @@ onScrollStop(() => {
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/f-iZdo8-T2CaFp1EXcR0nA/zh-cn_image_0000002628552048.png?HW-CC-KV=V1&HW-CC-Date=20260929T074336Z&HW-CC-Expire=31536000000&HW-CC-Sign=4333E61D65F81F5705889511C1FE74AC56156DC914684D9C49B5FDB7FCE86EBF "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/f-iZdo8-T2CaFp1EXcR0nA/zh-cn_image_0000002628552048.png?HW-CC-KV=V1&HW-CC-Date=20261008T184255Z&HW-CC-Expire=31536000000&HW-CC-Sign=3B47489154ACB1A0CD338D8360156ADED750B593EDB9D68ACA578DD7999F494F "点击放大")
 

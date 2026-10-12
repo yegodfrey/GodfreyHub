@@ -39,7 +39,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphic
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/7X3eHZR6SWmZkw_zZ9jz9w/zh-cn_image_0000002628553238.png?HW-CC-KV=V1&HW-CC-Date=20260920T112702Z&HW-CC-Expire=31536000000&HW-CC-Sign=A4B38C718872B5BF49964ADD92A2B1CFF8EDAD84EC4E8C0324F53E8E639B2E3D "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/7X3eHZR6SWmZkw_zZ9jz9w/zh-cn_image_0000002628553238.png?HW-CC-KV=V1&HW-CC-Date=20261008T162903Z&HW-CC-Expire=31536000000&HW-CC-Sign=4AB1D29AA87F78DA458D4DCCA19B2924F96D1561D2258DE890F9CA4CC85FB0C2 "点击放大")
 * 绘制实心图形： 设置画刷样式，使用attachbrush将画刷应用到画布绘制中，关键代码如下：
 
   ```ts
@@ -54,7 +54,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphic
 
   效果预览：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/Rqf2oy3QSLanoPBVkj9a3Q/zh-cn_image_0000002658912553.png?HW-CC-KV=V1&HW-CC-Date=20260920T112702Z&HW-CC-Expire=31536000000&HW-CC-Sign=16070909D5B885B88B8245371AD867160ACA67DA4425708B9B5F3B6FAF6942A7 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/Rqf2oy3QSLanoPBVkj9a3Q/zh-cn_image_0000002658912553.png?HW-CC-KV=V1&HW-CC-Date=20261008T162903Z&HW-CC-Expire=31536000000&HW-CC-Sign=36BC9CC95EA60FF83BFB89A1456DF96D6D96B02DE9AAAF8FE48B278B079B7E54 "点击放大")
 * 绘制带描边的实心图形： 绘制图案时若既要描边又要填充，可以将画笔和画刷样式都应用到画布绘制中，以绘制带描边的同心圆为示例，代码如下：
 
   ```ts
@@ -76,7 +76,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkgraphic
   this.context.invalidate();
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/4U5F9_C6RiqtwoVt_j1Zdg/zh-cn_image_0000002658792613.png?HW-CC-KV=V1&HW-CC-Date=20260920T112702Z&HW-CC-Expire=31536000000&HW-CC-Sign=A5BB9641538CA5CF88D9E701E6B28800B7A5EDD0F01F07212830B7FFE9FA478F "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/4U5F9_C6RiqtwoVt_j1Zdg/zh-cn_image_0000002658792613.png?HW-CC-KV=V1&HW-CC-Date=20261008T162903Z&HW-CC-Expire=31536000000&HW-CC-Sign=486805DD5968BBF4035EE5E764A52DFF83E685E874EBCEE2C608AD0D17F8B43E "点击放大")
 
 完整运行示例代码如下：
 

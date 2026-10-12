@@ -17,11 +17,15 @@ UIServiceProxy提供代理能力，可以从UIServiceExtension客户端发送数
 
 ## 导入模块
 
+> 2in1
+
 ```ts
 import { common } from '@kit.AbilityKit';
 ```
 
 ## UIServiceProxy.sendData
+
+> 2in1 14+
 
 sendData(data: Record<string, Object>): void
 

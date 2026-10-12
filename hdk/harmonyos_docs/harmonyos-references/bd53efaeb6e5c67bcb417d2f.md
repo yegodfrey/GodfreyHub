@@ -14,6 +14,8 @@ typedef struct ArkUI_SwiperArrowStyle ArkUI_SwiperArrowStyle
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义Swiper组件的导航箭头样式。
 
 **起始版本：** 19

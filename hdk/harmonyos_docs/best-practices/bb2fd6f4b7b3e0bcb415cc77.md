@@ -10,15 +10,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-applicatio
 
 [Share Kit（分享服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-kit-guide)提供隔空传送分享，支持用户通过"一抓一放"手势实现跨设备文件分享（图片、视频、文档等）以及跨设备链接分享。
 
-|隔空传送分享文件|通过隔空传送手势触发文件分享，接收端为手机、平板设备会将媒体文件存储至图库，非媒体文件存储至文件管理器，接收端为电脑设备则会将媒体以及非媒体文件存储至文件管理器。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/U88kTnVIRiyMb6N9YOywfQ/zh-cn_image_0000002497204225.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=36405ABDFB5C30BF4256320D1B9EBCED27046EBA7569C4B899161919CAE54B39 "点击放大")|
+|隔空传送分享文件|通过隔空传送手势触发文件分享，接收端为手机、平板设备会将媒体文件存储至图库，非媒体文件存储至文件管理器，接收端为电脑设备则会将媒体以及非媒体文件存储至文件管理器。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/U88kTnVIRiyMb6N9YOywfQ/zh-cn_image_0000002497204225.gif?HW-CC-KV=V1&HW-CC-Date=20261008T192201Z&HW-CC-Expire=31536000000&HW-CC-Sign=0DC03680354ABE3D02CAC5CE271B25383784C29923236EB5B2C5E170F509EB74 "点击放大")|
 |--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|隔空传送分享链接|通过隔空传送手势触发分享App Linking链接，接收端已安装应用可直接打开应用查看内容。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/5tdJ1aSmTyaAfz9fbLKy4Q/zh-cn_image_0000002464284810.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=9C18FEA3E8019A8EEFE29D1D7BADEAAD8431F05D33CC59A6C3F11CFA1AB99F82 "点击放大")|
+|隔空传送分享链接|通过隔空传送手势触发分享App Linking链接，接收端已安装应用可直接打开应用查看内容。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/5tdJ1aSmTyaAfz9fbLKy4Q/zh-cn_image_0000002464284810.gif?HW-CC-KV=V1&HW-CC-Date=20261008T192201Z&HW-CC-Expire=31536000000&HW-CC-Sign=C06A3976B885F0A044BAAFA53D2475E195ED2CFCB3E1F795DDB019DA1165012C "点击放大")|
 
 ## 实现原理
 
 ### 关键技术
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/a8u5dZw2QpyVj6v0eWjccw/zh-cn_image_0000002464125198.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=896DC0A4D7624E7ABDDD18C9087CD7C7DEEB9CC5E5803FE90C60AD7BCFEDAAC8 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/a8u5dZw2QpyVj6v0eWjccw/zh-cn_image_0000002464125198.jpg?HW-CC-KV=V1&HW-CC-Date=20261008T192201Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B600388AC091D5390AC89FDA03BCA5E90B56958B038F3BA350D1B1DAE6826C7 "点击放大")
 
 隔空传送基于分享服务，允许用户通过简单的"一抓一放"手势实现跨设备分享，当前支持手机、平板、电脑，使用体验一致，应用接入只需监听harmonyShare.on('gesturesShare')方法。
 
@@ -32,7 +32,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-applicatio
 
 ### 开发流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/zNSdTa4LRcOKF-T17bOAGQ/zh-cn_image_0000002497324205.jpg?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=EE93E9B6FDF702B19841EEFFA53506D9BF1A30156FA08565AD5EE6EA772AF5BF "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/zNSdTa4LRcOKF-T17bOAGQ/zh-cn_image_0000002497324205.jpg?HW-CC-KV=V1&HW-CC-Date=20261008T192201Z&HW-CC-Expire=31536000000&HW-CC-Sign=56CA7521430EAF9BEE60FD44AF9956531F65F639BC1BB983CCB594AC3A71D8EB "点击放大")
 
 1. **分享注册监听与取消监听**：在分享页面的生命周期函数（如aboutToAppear或onPageShow）中，注册 harmonyShare.on('gesturesShare') 事件监听，以监听隔空传送事件。当页面即将隐藏或应用退至后台时，通过harmonyShare.off('gesturesShare')取消该监听。
 2. **构建分享数据** ：定义需要分享的数据[SharedData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-system-share#shareddata)。

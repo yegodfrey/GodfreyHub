@@ -17,7 +17,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/harmonyos-sdk-u
 mHuaweiMap.getUiSettings().setZoomControlsEnabled(true);
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/3fxyJUcfTXaH9JoIZYAFCA/zh-cn_image_0000001307724730.png?HW-CC-KV=V1&HW-CC-Date=20260922T085431Z&HW-CC-Expire=31536000000&HW-CC-Sign=C55A01497AB1931148E18F09A46B117845DF363844FEB39923F1437DADDA8925 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/3fxyJUcfTXaH9JoIZYAFCA/zh-cn_image_0000001307724730.png?HW-CC-KV=V1&HW-CC-Date=20261008T184337Z&HW-CC-Expire=31536000000&HW-CC-Sign=53264F3B24B095EF4EAD49FE711DC73CAF0E8BDC7FEC9E8B64B54B53A0DEB2D7 "点击放大")
 
 ## 指南针
 
@@ -28,7 +28,7 @@ mHuaweiMap.getUiSettings().setZoomControlsEnabled(true);
 mHuaweiMap.getUiSettings().setCompassEnabled(true);
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/zZpvu2-ORXemRCL1lkL70Q/zh-cn_image_0000001360164801.png?HW-CC-KV=V1&HW-CC-Date=20260922T085431Z&HW-CC-Expire=31536000000&HW-CC-Sign=35303BDF9F398BA88D41001AA7AB90E794C347CE40ED7DDE4B20D307602B4152 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/zZpvu2-ORXemRCL1lkL70Q/zh-cn_image_0000001360164801.png?HW-CC-KV=V1&HW-CC-Date=20261008T184337Z&HW-CC-Expire=31536000000&HW-CC-Sign=8377F571E278CB7C5367B0BF8AED784A1E4A93D62F632480933851D251869A9D "点击放大")
 
 ## 地图手势控制
 

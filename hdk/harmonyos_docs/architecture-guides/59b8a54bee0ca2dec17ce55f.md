@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/pdf_to_lon
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/TNRrrWD2Su-lnWDPCnEz7w/zh-cn_image_0000002631150844.png?HW-CC-KV=V1&HW-CC-Date=20260924T062300Z&HW-CC-Expire=31536000000&HW-CC-Sign=138DCB1C1C3479A045F862C08CE832FA1EA1BB2E6F2611DD370862BF2F48F0FE "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/TNRrrWD2Su-lnWDPCnEz7w/zh-cn_image_0000002631150844.png?HW-CC-KV=V1&HW-CC-Date=20261010T035230Z&HW-CC-Expire=31536000000&HW-CC-Sign=665BEDF0A06535EE51AF6A54B7D17FBE2055B1395E39AEEBA8B11549DA55D504 "点击放大")
 
 ## 实现思路
 

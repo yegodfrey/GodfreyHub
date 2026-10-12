@@ -26,15 +26,21 @@ VoIPExtensionAbility为应用内通话消息扩展Ability，继承自[UIExtensio
 
 ## 约束限制
 
+> phone | 2in1 | tablet
+
 为保障系统安全性和稳定性，防止VoIPExtensionAbility滥用系统资源，系统对其能力进行管控， 不支持部分模块的引用，详情请参考[附录](#附录)。
 
 ## 导入模块
+
+> phone | 2in1 | tablet
 
 ```typescript
 import { VoIPExtensionAbility } from '@kit.PushKit';
 ```
 
 ## 属性
+
+> phone | 2in1 | tablet
 
 **模型约束：** 属性仅可在Stage模型下使用。
 
@@ -51,6 +57,8 @@ import { VoIPExtensionAbility } from '@kit.PushKit';
 |context|[VoIPExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-voip-context)^(deprecated)^|否|否|VoIPExtensionAbility的上下文环境，继承自[UIExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiextensioncontext)。|
 
 ## onReceiveMessage^(deprecated)^
+
+> phone 5.0.0(12)+ | 2in1 6.1.0(23)+ | tablet 5.0.0(12)+
 
 onReceiveMessage(voipInfo: pushCommon.VoIPInfo): void
 
@@ -90,6 +98,8 @@ export default class VoipExtAbility extends VoIPExtensionAbility {
 ```
 
 ## 附录
+
+> phone | 2in1 | tablet
 
 VoIPExtensionAbility不支持以下模块的引用。
 

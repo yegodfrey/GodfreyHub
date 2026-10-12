@@ -14,6 +14,8 @@ struct OhosImageSource {...}
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义图像源输入资源，每次仅接收一种类型。由[OH_ImageSource_CreateFromUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-mdk-h#oh_imagesource_createfromuri)、[OH_ImageSource_CreateFromFd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-mdk-h#oh_imagesource_createfromfd)和[OH_ImageSource_CreateFromData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-mdk-h#oh_imagesource_createfromdata)获取。
 
 **起始版本：** 10
@@ -26,7 +28,11 @@ struct OhosImageSource {...}
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:------------------------|:-----------------------------|

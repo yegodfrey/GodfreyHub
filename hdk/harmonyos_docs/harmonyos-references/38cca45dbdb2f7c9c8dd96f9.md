@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 文件中定义了与画刷相关的功能函数。
 
 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
@@ -28,13 +30,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:--------------------------|
 |[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-oh-nativecolorspacemanager)|OH_NativeColorSpaceManager|声明色彩空间管理对象，提供获取色彩空间基础属性的能力。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,7 +69,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_Drawing_BrushCreate()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_Brush* OH_Drawing_BrushCreate(void)
@@ -82,6 +94,8 @@ OH_Drawing_Brush* OH_Drawing_BrushCreate(void)
 |[OH_Drawing_Brush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-brush)*|函数会返回一个指针，指针指向创建的画刷对象。如果返回NULL，表示创建失败；可能的原因是可用内存不足。|
 
 ### OH_Drawing_BrushCopy()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_Brush* OH_Drawing_BrushCopy(OH_Drawing_Brush* brush)
@@ -113,6 +127,8 @@ brush为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_BrushDestroy()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_BrushDestroy(OH_Drawing_Brush* brush)
 ```
@@ -132,6 +148,8 @@ void OH_Drawing_BrushDestroy(OH_Drawing_Brush* brush)
 |[OH_Drawing_Brush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-brush)* brush|指向画刷对象的指针。|
 
 ### OH_Drawing_BrushIsAntiAlias()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_Drawing_BrushIsAntiAlias(const OH_Drawing_Brush* brush)
@@ -163,6 +181,8 @@ brush为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_BrushSetAntiAlias()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_BrushSetAntiAlias(OH_Drawing_Brush* brush, bool antiAlias)
 ```
@@ -187,6 +207,8 @@ brush为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |bool antiAlias|真为抗锯齿，假则不做抗锯齿处理。|
 
 ### OH_Drawing_BrushGetColor()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 uint32_t OH_Drawing_BrushGetColor(const OH_Drawing_Brush* brush)
@@ -218,6 +240,8 @@ brush为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_BrushSetColor()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_BrushSetColor(OH_Drawing_Brush* brush, uint32_t color)
 ```
@@ -242,6 +266,8 @@ brush为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |uint32_t color|描述颜色的32位（ARGB）变量，各颜色通道取值范围为[0, 255]。|
 
 ### OH_Drawing_BrushGetAlpha()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 uint8_t OH_Drawing_BrushGetAlpha(const OH_Drawing_Brush* brush)
@@ -273,6 +299,8 @@ brush为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_BrushSetAlpha()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_BrushSetAlpha(OH_Drawing_Brush* brush, uint8_t alpha)
 ```
@@ -297,6 +325,8 @@ brush为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |uint8_t alpha|表示要设置的透明度值，取值范围为[0, 255]的8位无符号整数，0表示完全透明，255表示完全不透明。|
 
 ### OH_Drawing_BrushSetShaderEffect()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 void OH_Drawing_BrushSetShaderEffect(OH_Drawing_Brush* brush, OH_Drawing_ShaderEffect* shaderEffect)
@@ -323,6 +353,8 @@ brush为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_BrushSetShadowLayer()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_BrushSetShadowLayer(OH_Drawing_Brush* brush, OH_Drawing_ShadowLayer* shadowLayer)
 ```
@@ -347,6 +379,8 @@ brush为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |[OH_Drawing_ShadowLayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-shadowlayer)* shadowLayer|表示指向阴影层的指针，为NULL表示清空画刷的阴影层效果。|
 
 ### OH_Drawing_BrushSetFilter()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 void OH_Drawing_BrushSetFilter(OH_Drawing_Brush* brush, OH_Drawing_Filter* filter)
@@ -373,6 +407,8 @@ brush为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_BrushGetFilter()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_BrushGetFilter(OH_Drawing_Brush* brush, OH_Drawing_Filter* filter)
 ```
@@ -397,6 +433,8 @@ brush、filter任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |[OH_Drawing_Filter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-filter)* filter|表示指向滤波器对象[OH_Drawing_Filter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-filter)的指针，用于接收从画刷中获取的滤波器。调用前需分配好内存，由函数写入结果。|
 
 ### OH_Drawing_BrushSetBlendMode()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 void OH_Drawing_BrushSetBlendMode(OH_Drawing_Brush* brush, OH_Drawing_BlendMode blendMode)
@@ -425,6 +463,8 @@ blendMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE�
 
 ### OH_Drawing_BrushReset()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_BrushReset(OH_Drawing_Brush* brush)
 ```
@@ -448,6 +488,8 @@ brush为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |[OH_Drawing_Brush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-brush)* brush|指向画刷对象[OH_Drawing_Brush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-brush)的指针。|
 
 ### OH_Drawing_BrushSetColor4f()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_BrushSetColor4f(OH_Drawing_Brush* brush, float a, float r, float g, float b, OH_NativeColorSpaceManager* colorSpaceManager)
@@ -486,6 +528,8 @@ OH_Drawing_ErrorCode OH_Drawing_BrushSetColor4f(OH_Drawing_Brush* brush, float a
 
 ### OH_Drawing_BrushGetAlphaFloat()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_BrushGetAlphaFloat(const OH_Drawing_Brush* brush, float* a)
 ```
@@ -512,6 +556,8 @@ OH_Drawing_ErrorCode OH_Drawing_BrushGetAlphaFloat(const OH_Drawing_Brush* brush
 |[OH_Drawing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcode)|函数返回执行结果。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数brush或a为NULL。|
 
 ### OH_Drawing_BrushGetRedFloat()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_BrushGetRedFloat(const OH_Drawing_Brush* brush, float* r)
@@ -540,6 +586,8 @@ OH_Drawing_ErrorCode OH_Drawing_BrushGetRedFloat(const OH_Drawing_Brush* brush, 
 
 ### OH_Drawing_BrushGetGreenFloat()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_BrushGetGreenFloat(const OH_Drawing_Brush* brush, float* g)
 ```
@@ -566,6 +614,8 @@ OH_Drawing_ErrorCode OH_Drawing_BrushGetGreenFloat(const OH_Drawing_Brush* brush
 |[OH_Drawing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcode)|函数返回执行结果。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数brush或g为NULL。|
 
 ### OH_Drawing_BrushGetBlueFloat()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_BrushGetBlueFloat(const OH_Drawing_Brush* brush, float* b)

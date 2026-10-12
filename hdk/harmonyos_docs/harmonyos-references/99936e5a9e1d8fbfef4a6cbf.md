@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryp
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 为开发者提供加密头文件的统一入口。
 
 **引用文件：** <CryptoArchitectureKit/crypto_architecture_kit.h>

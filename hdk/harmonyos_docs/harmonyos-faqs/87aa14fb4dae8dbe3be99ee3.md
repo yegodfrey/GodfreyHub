@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-650
 
 如何使用Canvas绘制饼状图以展示不同类型的数据占比？问题效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/9Hi6rLyPSoa4qhkEAdXibg/zh-cn_image_0000002628554406.png?HW-CC-KV=V1&HW-CC-Date=20260929T074339Z&HW-CC-Expire=31536000000&HW-CC-Sign=E104EB3ED4D3A06BBBDBE3138A2E0F7B5E34CD32EEBFDE7768147CDAB58362D4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/9Hi6rLyPSoa4qhkEAdXibg/zh-cn_image_0000002628554406.png?HW-CC-KV=V1&HW-CC-Date=20261008T153321Z&HW-CC-Expire=31536000000&HW-CC-Sign=CEFFDDB64A13CD118816B675C8AFDC7969E30C968E3CF3D954D787B74AE2B1C7 "点击放大")
 
 ## 背景知识
 

@@ -12,7 +12,7 @@ OHAudio是系统在API version 10中引入的一套C API，此API在设计上实
 
 OHAudio音频播放状态变化示意图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/a-5DOvICQN2h0eTw3jo18w/zh-cn_image_0000002778932337.png?HW-CC-KV=V1&HW-CC-Date=20260929T121649Z&HW-CC-Expire=31536000000&HW-CC-Sign=167043A286A38E5C6ACEB72859D0649FC9896AEC053AE705A488C8E5F48D473A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/1IFgIC7VTIeitO00c-Z2zw/zh-cn_image_0000002784583035.png?HW-CC-KV=V1&HW-CC-Date=20261009T092707Z&HW-CC-Expire=31536000000&HW-CC-Sign=9E0B7607DA2711701D50DD78FD1547A3DEC8D67C32EDE53DA5800CA7F546482C)
 
 ## 使用入门
 

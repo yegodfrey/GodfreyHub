@@ -235,7 +235,7 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
       // ...
     } catch (error) {
       const err: BusinessError = error as BusinessError;
-      logger.error(`Failed to acquire depth information. Code is ${err.code}, message is ${err.message}.`);
+      logger.error(`Failed to acquire mesh information. Code is ${err.code}, message is ${err.message}.`);
     }
   }
 }

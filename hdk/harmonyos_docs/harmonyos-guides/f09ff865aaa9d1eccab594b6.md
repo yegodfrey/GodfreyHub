@@ -24,13 +24,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
 **图 1** 连接到指定网络效果图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/QrwItv4IQe-y2drZkgSH5g/zh-cn_image_0000002779092075.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121704Z&HW-CC-Expire=31536000000&HW-CC-Sign=71C285ED4949DB226A60F4B783CFC3C20404BC28526B1DB9A7A769270169020D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/JC-p32dkRIiusA6sATMuqQ/zh-cn_image_0000002755184048.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092724Z&HW-CC-Expire=31536000000&HW-CC-Sign=273E85877460B15C145B866C55961599F59C43B1034B0EE4B1B2F30B6655D6FE)
 
 ### 实现方案
 
 连接到指定Wi-Fi场景主要通过[@ohos.wifiManager (WLAN)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager)模块结合[@ohos.net.connection (网络连接管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection)模块相关API来实现。通过@ohos.wifiManager模块检查Wi-Fi是否启用，获取系统扫描的Wi-Fi列表，选中指定Wi-Fi后发起连接请求；通过@ohos.net.connection模块检测网络连通性，判断是否需要进行登录认证（如 Portal 认证）才能正常访问网络。流程图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/OcD5eVe9SxWfXBRdy3F0eg/zh-cn_image_0000002778932217.png?HW-CC-KV=V1&HW-CC-Date=20260929T121704Z&HW-CC-Expire=31536000000&HW-CC-Sign=C0DF0AB74C05AEC0235B8C47FFC505165AE9A5AC05871CF904A23448A5C29718)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/WhkiCqaGTRORTAM_RYZpbw/zh-cn_image_0000002784582915.png?HW-CC-KV=V1&HW-CC-Date=20261009T092724Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB2F1F0F06A22C1B10B2E6F9C4B2AE9C40AAA366DF113CE425B6CF120754557C)
 
 ### 开发步骤
 
@@ -281,7 +281,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    从Wi-Fi切换为蜂窝网络后视频播放场景效果如下：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/CP5NotJ9SnW2SRdsoZ2ZMg/zh-cn_image_0000002749333134.png?HW-CC-KV=V1&HW-CC-Date=20260929T121704Z&HW-CC-Expire=31536000000&HW-CC-Sign=1784A4B952B3FB3B6A853D989B712C876359A370A03DA1BA82003D300411CC43)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/tcVeeNb8SUGDx-TyBu8ncA/zh-cn_image_0000002784663095.png?HW-CC-KV=V1&HW-CC-Date=20261009T092724Z&HW-CC-Expire=31536000000&HW-CC-Sign=D9E87FD8978E25B9835C958DAFA0E026A49DE2EBC38424DFAA943D2AAE82D0F8)
 3. 订阅网络丢失事件。
 
    通过[on('netLost')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#onnetlost)方法可以订阅网络丢失的事件通知，使用Toast提示用户网络已断开。
@@ -297,7 +297,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    网络断开时效果图：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/FRuNQoGjQvmlDaYiTmXM5w/zh-cn_image_0000002749493018.png?HW-CC-KV=V1&HW-CC-Date=20260929T121704Z&HW-CC-Expire=31536000000&HW-CC-Sign=04FE46426F274BE369D02220A5EDF3D481463DD569965F5F2B06B55226560B87)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/iI3C4_gzRVes5PLiPWQBYA/zh-cn_image_0000002755024162.png?HW-CC-KV=V1&HW-CC-Date=20261009T092724Z&HW-CC-Expire=31536000000&HW-CC-Sign=908F1CA09E102C0CE8028933F2249B41A07610736489FE6E3E1D5F846DFC2AF1)
 
    当网络断开时，将继续播放视频缓存；缓存播放完毕后，将触发Video组件的onError方法。若此时网络仍未连接，需提示用户检查网络。
 
@@ -316,7 +316,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
    播放错误时效果图
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/1u1KAtIcQ-qeatZpd2E3mA/zh-cn_image_0000002779092077.png?HW-CC-KV=V1&HW-CC-Date=20260929T121704Z&HW-CC-Expire=31536000000&HW-CC-Sign=26A301B9B49DEAE18CE078A499DB2765BC622846CCC24EEBE6FE3F497A34ED2A)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/-vxlhtHfS3SpWCd9_xc82A/zh-cn_image_0000002755184050.png?HW-CC-KV=V1&HW-CC-Date=20261009T092724Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8EC2A8B7DDE9552189CC4C6AA8D3AE0BD6439C2A7633A5FD628CBA06B3826A6)
 4. 订阅网络状态变化通知。
 
    接下来需要调用[register()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#register)接口，用来订阅指定的网络状态变化通知，该接口需在on()方法调用之后使用。例如，若指定的网络可用，将触发on('netAvailable')、on('netCapabilitiesChange')回调；若超时时间内网络不可用，将触发on('netUnavailable')回调。若断网，将触发on('netLost')回调。
@@ -380,7 +380,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 
 **图 2** 获取Wi-Fi MAC地址效果图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/s3Xmcvb7S-WBdvZ-RQvshA/zh-cn_image_0000002778932219.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121704Z&HW-CC-Expire=31536000000&HW-CC-Sign=3566FC04B373AEA26B57B9FC993E304B19026A76F730821BE9A357AB3FA136E0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/C6G9EyeaTCuWZ-_WdOaG5A/zh-cn_image_0000002784582917.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092724Z&HW-CC-Expire=31536000000&HW-CC-Sign=16D9DC6EA283A75BB6230B5F32796796336C7E6596B9DAF035F1A931960DBDA9)
 
 ### 实现方案
 
@@ -527,7 +527,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-infor
 * 蜂窝网络信号强度
 * 网络时延
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/G3nd1jK9QWGarP8m9XWlDg/zh-cn_image_0000002749333136.png?HW-CC-KV=V1&HW-CC-Date=20260929T121704Z&HW-CC-Expire=31536000000&HW-CC-Sign=F77729BFE976D328E14FF3A8670AE6C9B2F9E6BC57B649BEFA716D9B182964A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/iarIomjJRjSYB765dRm7xA/zh-cn_image_0000002784663097.png?HW-CC-KV=V1&HW-CC-Date=20261009T092724Z&HW-CC-Expire=31536000000&HW-CC-Sign=2FE821C5EB0ED359E41ECAA1BE29BB0E022F6E054293F94F181C66E6790A85EB)
 
 ### 实现方案
 

@@ -35,9 +35,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 Service Account是AppGallery Connect用于管理用户访问AppGallery Connect API的身份凭据，您可以给不同角色创建不同的Service Account，使不同角色可以访问对应权限的AppGallery Connect API。在访问某个API前，必须创建有权访问该API的Service Account。
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，选择"用户与访问"。
-2. 左侧导航栏选择"API密钥 > Connect API"，选择"Service Account"页签，点击"创建"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/fg-kU5_YR22DnOVAV5yQbA/zh-cn_image_0000002553555057.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=9285DD85050799004CA4E42A292FB5AB6B25BD175D7B453A0CF36AE231EA0DB3)
+2. 左侧导航栏选择"API密钥 > Connect API"，选择"Service Account"页签，点击"创建"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/fg-kU5_YR22DnOVAV5yQbA/zh-cn_image_0000002553555057.png?HW-CC-KV=V1&HW-CC-Date=20261008T160742Z&HW-CC-Expire=31536000000&HW-CC-Sign=EFB7553106E1B56508D14BEE4F0592DE4A9CE5E4B660CB4B104366575565DAC5)
 
-3. 在"创建Service Account"窗口，配置Service Account信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/gxc_PKFlQkeiBERZ5PogUQ/zh-cn_image_0000002549346225.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=A0FE20AFA8A1B37CF6DC894272C543B0412D3B4B7CE010D3A8F00D10FCF9BA2E)
+3. 在"创建Service Account"窗口，配置Service Account信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/gxc_PKFlQkeiBERZ5PogUQ/zh-cn_image_0000002549346225.png?HW-CC-KV=V1&HW-CC-Date=20261008T160742Z&HW-CC-Expire=31536000000&HW-CC-Sign=0223ACFEE78C065FA61AF275BC14AFB4EA7B0A2863892ACC630EFD1C3127C5E3)
 
    |参数|说明|
    |:-|:--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,24 +61,24 @@ Service Account是AppGallery Connect用于管理用户访问AppGallery Connect A
    }
    ```
 
-5. （可选）点击Service Account"操作"列的"添加"，AGC将为您新生成一个密钥，并自动下载包含新密钥的凭据文件。最多可为一个Service Account添加10个密钥。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/PdiNjv7mSZ-n48biOPmutQ/zh-cn_image_0000002553558597.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D3E90398EC2CD72F099D9394856FB1B00F8D58128ABEBCD6BB43FEC0EA9EDFC)
+5. （可选）点击Service Account"操作"列的"添加"，AGC将为您新生成一个密钥，并自动下载包含新密钥的凭据文件。最多可为一个Service Account添加10个密钥。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/PdiNjv7mSZ-n48biOPmutQ/zh-cn_image_0000002553558597.png?HW-CC-KV=V1&HW-CC-Date=20261008T160742Z&HW-CC-Expire=31536000000&HW-CC-Sign=71C2828A09FB2EEFF618546395595C3525AA4A9810B37B0B94DAC712BD5ED386)
 
    如需删除添加的密钥，在"密钥ID"列点击对应密钥的删除按钮即可。如密钥总数超过3个，可点击"更多"打开"管理密钥ID"窗口进行删除。
    > 注意
    >
    > 删除密钥，会导致密钥关联的API权限和资源都被删除，无法继续正常使用，请谨慎操作。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/T6zJv1KqToi1dcNLLG65FA/zh-cn_image_0000002522714914.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=AEDC7188F859146B1E72C09294B66D1ED624E5F73E08E7FCC9FB292390676118)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/T6zJv1KqToi1dcNLLG65FA/zh-cn_image_0000002522714914.png?HW-CC-KV=V1&HW-CC-Date=20261008T160742Z&HW-CC-Expire=31536000000&HW-CC-Sign=D83A91A5EE17ED69ABD1AFCB018717106379219622929AF88B5538178FC9D12D)
 
 6. （可选）Service Account创建成功即自动启用。您也可以通过点击"操作"列的"停用"，来停用该Service Account。 注意
    >
    > 停用Service Account会阻止账号向API进行身份验证，且可能会使资源无法正常使用该账号，请谨慎操作。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/2AvK8S6BRuuUkcZNu7uvQA/zh-cn_image_0000002522600868.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=E47DEC6270BC173706A25368C81A76F8708954A80D4CBAFEF8175EE79832F2C8)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/2AvK8S6BRuuUkcZNu7uvQA/zh-cn_image_0000002522600868.png?HW-CC-KV=V1&HW-CC-Date=20261008T160742Z&HW-CC-Expire=31536000000&HW-CC-Sign=137C65492700EFFF50543DE76361C1B64BD4AC1B0D27DFB25213ACD41A4AC6E2)
 
    如需重新启用Service Account，点击"操作"列的"启用"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/soVz34-3SB-yEZdL1EmVoQ/zh-cn_image_0000002553681293.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=07912C86C438DDA71DB130183040DB2B8C33C88F885DB8FC090B48AA3E410832)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/soVz34-3SB-yEZdL1EmVoQ/zh-cn_image_0000002553681293.png?HW-CC-KV=V1&HW-CC-Date=20261008T160742Z&HW-CC-Expire=31536000000&HW-CC-Sign=2EB2FDC2722593F3FE7CD80DF1E04528BA1C2CACAD051C8FC3FD935D6A9C3C91)
 
 ### 获取鉴权令牌
 
@@ -219,9 +219,9 @@ Host: connect-api.cloud.huawei.com
 API客户端是AppGallery Connect用于管理用户访问AppGallery Connect API的身份凭据，您可以给不同角色创建不同的API客户端，使不同角色可以访问对应权限的AppGallery Connect API。在访问某个API前，必须创建有权访问该API的API客户端。
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，选择"用户与访问"。
-2. 左侧导航栏选择"API密钥 > Connect API"，选择"API客户端"页签，点击"创建"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/EFBXurA4TCuvUNV87sAdsA/zh-cn_image_0000002518368928.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=46470A4EF7B08B42106C5650B0C1E2EA4B41E85022E11859DEBA97FAC9F3B69B)
+2. 左侧导航栏选择"API密钥 > Connect API"，选择"API客户端"页签，点击"创建"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/EFBXurA4TCuvUNV87sAdsA/zh-cn_image_0000002518368928.png?HW-CC-KV=V1&HW-CC-Date=20261008T160742Z&HW-CC-Expire=31536000000&HW-CC-Sign=15DA3C20898EC6F2F54648AE7C5B58D87C5EB0A4A22DDAFB22152F8857F4A08F)
 
-3. 在"创建API客户端"窗口，配置API客户端信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/XVuDsGjbQ06eSdRY_SZynw/zh-cn_image_0000002539281211.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=74CD8D32A0C3054FADA00273E238E10441694B4DC10E21D1AEF7151566B6954F)
+3. 在"创建API客户端"窗口，配置API客户端信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/XVuDsGjbQ06eSdRY_SZynw/zh-cn_image_0000002539281211.png?HW-CC-KV=V1&HW-CC-Date=20261008T160742Z&HW-CC-Expire=31536000000&HW-CC-Sign=BCB4CF12A3FA82888C35DC168519AD0676BC33217876183E654017284BEA5B9C)
 
    |参数|说明|
    |:-|:-----------------------------------------------------------------------------------------------------------------------------------|
@@ -229,7 +229,7 @@ API客户端是AppGallery Connect用于管理用户访问AppGallery Connect API�
    |项目|选择服务所属的项目。 > 注意 > 请务必选择服务所属的项目，表示创建的API客户端为项目级的。不能选择"N/A"，否则将会导致调用API时返回错误。|
    |角色|选择的角色决定了该API客户端具有的权限，具体角色对应的权限请参考[角色与权限](https://developer.huawei.com/consumer/cn/doc/app/agc-help-rolepermission-0000002271930352)。|
 
-4. 客户端创建成功后，客户端信息列表中会记录"ID"和"密钥"的值。后续您需要使用ID和密钥获取访问API的Token。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/S_b93tbkSACLR2BpLEAprA/zh-cn_image_0000002554892179.png?HW-CC-KV=V1&HW-CC-Date=20260916T034030Z&HW-CC-Expire=31536000000&HW-CC-Sign=90B0A7FFF6B1321873BF6ECBC8134B19360D706EE0A7C78D01AECAA1C30E03FF)
+4. 客户端创建成功后，客户端信息列表中会记录"ID"和"密钥"的值。后续您需要使用ID和密钥获取访问API的Token。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/S_b93tbkSACLR2BpLEAprA/zh-cn_image_0000002554892179.png?HW-CC-KV=V1&HW-CC-Date=20261008T160742Z&HW-CC-Expire=31536000000&HW-CC-Sign=4D1996CE8BC1D83F4387DB580F50AD7E85145F85B1BC1DD0A1964585B96AEC7D)
 
 ### 获取访问API的Token
 

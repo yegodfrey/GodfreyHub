@@ -14,6 +14,8 @@ typedef struct OH_Drawing_TextBlob OH_Drawing_TextBlob
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义一个文本对象，表示将多个文本组合到一个不可变的容器中。每个文本行由字形和位置组成。
 
 **起始版本：** 11

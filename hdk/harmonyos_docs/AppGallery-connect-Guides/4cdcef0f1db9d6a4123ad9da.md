@@ -52,14 +52,14 @@ AppGallery Connect（简称AGC）从构建、质量、增长等方面为您提�
 AGC为了简化开发者的配置步骤，向开发者提供了保存应用配置信息的配置文件，您只需要将配置文件添加到您的工程目录并集成AGC插件，AGC插件可以自动将您在AGC上的应用信息加载到您的开发环境。
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，选择"开发与服务"。
-2. 在项目列表中找到您的项目，在项目下的应用列表中选择您的应用。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/7RqpcZ7OTlKv7PL4JyWb0Q/zh-cn_image_0000001484172416.png?HW-CC-KV=V1&HW-CC-Date=20260909T163459Z&HW-CC-Expire=31536000000&HW-CC-Sign=14A00FD2432DC65761BEF015D6C657B89B1426D574E1B2CCDE9E6E35C336BE00)
+2. 在项目列表中找到您的项目，在项目下的应用列表中选择您的应用。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/7RqpcZ7OTlKv7PL4JyWb0Q/zh-cn_image_0000001484172416.png?HW-CC-KV=V1&HW-CC-Date=20261008T173328Z&HW-CC-Expire=31536000000&HW-CC-Sign=87ACAA1223C836B01AC4F9135D10CBFB3E4D72D9C6B84A8AEBCA4FCEAEC3BF44)
 
 3. 在"项目设置"页面下载配置文件"agconnect-services.json"。 说明
    > * 配置文件中默认会包含AGC为应用分配的客户端密钥和API密钥信息，其中客户端密钥和API密钥均为密文。
    > * 您可以在下载JSON文件前打开"不包含密钥"开关，配置文件中将不包含密钥信息，由您自行调用AGC SDK的接口手动配置。
    > * 如果您的套餐升级到了付费档，为避免被冒用产生异常账单，建议您将密钥存储在您自己的服务器，并妥善保管。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/mnoxuqlIRIyvY9NTK2pepQ/zh-cn_image_0000001484012536.png?HW-CC-KV=V1&HW-CC-Date=20260909T163459Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC3533590F13E47C845BFE89E764EF0AB4893E01340430C175ED9954D150ACB3)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/mnoxuqlIRIyvY9NTK2pepQ/zh-cn_image_0000001484012536.png?HW-CC-KV=V1&HW-CC-Date=20261008T173328Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A1E001A552750ADA2B82DF94CADD34FB17AC3E4EE599B17DB4E3FF74D27F513)
 4. 对于云存储服务，需要检查agconnect-services.json文件中的"service > cloudstorage"中是否已默认配置default_storage。
 
    ```screen
@@ -70,7 +70,7 @@ AGC为了简化开发者的配置步骤，向开发者提供了保存应用配�
    ```
 
    如果未配置default_storage，将会导致云存储SDK初始化失败。请您手动添加缺省的存储实例名称，default_storage的值为"项目设置 > Serverless > 云存储"页面中的"存储实例"对应的名称。
-5. 将"agconnect-services.json"文件拷贝到DevEco Studio项目的应用级资源目录"entry/src/main/resources/rawfile"下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/SUw8ZYzXTKCyrZT89AfJYA/zh-cn_image_0000001678898817.png?HW-CC-KV=V1&HW-CC-Date=20260909T163459Z&HW-CC-Expire=31536000000&HW-CC-Sign=3F85CB8B6A563E2F1BBA7E1FD13178132DDE796EA83626ECFF3E890D8CB90BD4)
+5. 将"agconnect-services.json"文件拷贝到DevEco Studio项目的应用级资源目录"entry/src/main/resources/rawfile"下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/SUw8ZYzXTKCyrZT89AfJYA/zh-cn_image_0000001678898817.png?HW-CC-KV=V1&HW-CC-Date=20261008T173328Z&HW-CC-Expire=31536000000&HW-CC-Sign=93E5CE0F7261FA5C4E508C484E5B581BB15E4624E03E3D535B0CCD1399B68EF6)
 
 ### 配置SDK依赖
 
@@ -78,7 +78,7 @@ AGC为了简化开发者的配置步骤，向开发者提供了保存应用配�
 
 **方式一**
 
-1. 打开DevEco Studio应用级（一般为"entry"目录下）"oh-package.json5"文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/F-gOS8QbTNSaDPLPJEwlvg/zh-cn_image_0000001630511302.png?HW-CC-KV=V1&HW-CC-Date=20260909T163459Z&HW-CC-Expire=31536000000&HW-CC-Sign=21A904981461DFBBC5953D668478A88E43074C98675E4AD0D10570C860208840)
+1. 打开DevEco Studio应用级（一般为"entry"目录下）"oh-package.json5"文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/F-gOS8QbTNSaDPLPJEwlvg/zh-cn_image_0000001630511302.png?HW-CC-KV=V1&HW-CC-Date=20261008T173328Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A4D8431B8EBCE8220121A9846379DFE27C3F7B56C7635277649AF2CDF5095BB)
 
 2. 在"oh-package.json5"文件中添加SDK依赖。
 
@@ -88,7 +88,7 @@ AGC为了简化开发者的配置步骤，向开发者提供了保存应用配�
    |云函数|```screen "@hw-agconnect/function-ohos": "^1.1.2", "@hw-agconnect/api-ohos": "^1.1.2", "@hw-agconnect/core-ohos": "^1.1.2" ```|
    |云存储|```screen "@hw-agconnect/cloudstorage-ohos": "^1.1.2", "@hw-agconnect/api-ohos": "^1.1.2", "@hw-agconnect/core-ohos": "^1.1.2" ```|
 
-3. 点击右上方出现的"Sync Now"链接，等待同步完成。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/gBaZx9ScQw2ltcF6U-ph_g/zh-cn_image_0000001641270429.png?HW-CC-KV=V1&HW-CC-Date=20260909T163459Z&HW-CC-Expire=31536000000&HW-CC-Sign=009A913B5ED876ED5C28956D7ED7F265088E8B39B73F23DD6489CA069035318A)
+3. 点击右上方出现的"Sync Now"链接，等待同步完成。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/gBaZx9ScQw2ltcF6U-ph_g/zh-cn_image_0000001641270429.png?HW-CC-KV=V1&HW-CC-Date=20261008T173328Z&HW-CC-Expire=31536000000&HW-CC-Sign=74FBF6DA94F7F394AE518C4D97F7B8724FFD88F40BC2DD059156CDCA37B3D2A8)
 
 **方式二**
 
@@ -98,7 +98,7 @@ AGC为了简化开发者的配置步骤，向开发者提供了保存应用配�
    cdentry
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/_fPaTH19TJK36DD2GHgpPw/zh-cn_image_0000001678791105.png?HW-CC-KV=V1&HW-CC-Date=20260909T163459Z&HW-CC-Expire=31536000000&HW-CC-Sign=A084FABC975217F61A7238B27CD711E8090C2750C8B10E5B640E60F39A51F831)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/_fPaTH19TJK36DD2GHgpPw/zh-cn_image_0000001678791105.png?HW-CC-KV=V1&HW-CC-Date=20261008T173328Z&HW-CC-Expire=31536000000&HW-CC-Sign=A75D5B2810C0E5F25EB03FDBF4809466C6848CAF3DC98417DB75D46A189880AB)
 2. 执行以下命令，安装AGC各服务SDK到您的项目中。
 
    |服务名称|配置命令|
@@ -147,7 +147,7 @@ AGC为了简化开发者的配置步骤，向开发者提供了保存应用配�
 
 如果您在下载配置文件时选择了"不包含密钥"，配置信息中将不包含Client ID、Client Secret和API密钥（凭据），您还需调用AGC SDK的接口手动将密钥传给AGC使用。
 
-1. 在"项目设置 > 常规"页面中获取Client Secret和API密钥（凭据）。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/YulW0RRCQlGwR_lSOcQmnA/zh-cn_image_0000001535132429.png?HW-CC-KV=V1&HW-CC-Date=20260909T163459Z&HW-CC-Expire=31536000000&HW-CC-Sign=68109BDEBF37BE2C2DA6014811B0D2015C300DD531FDD91F1E73F240D6F74560)
+1. 在"项目设置 > 常规"页面中获取Client Secret和API密钥（凭据）。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/YulW0RRCQlGwR_lSOcQmnA/zh-cn_image_0000001535132429.png?HW-CC-KV=V1&HW-CC-Date=20261008T173328Z&HW-CC-Expire=31536000000&HW-CC-Sign=54F041461A16D1D3394ADB0B19CB847036EAD76D5A7263615069F16A0A5C5FC1)
 
 
 2. 在应用启动调用AGC的初始化方法完成后将参数设置给AGC SDK。

@@ -14,6 +14,8 @@ typedef struct OH_AVMetadataExtractor OH_AVMetadataExtractor
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义OH_AVMetadataExtractor类型。
 
 **起始版本：** 18

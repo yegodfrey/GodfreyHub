@@ -14,5 +14,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-runnin
 
 在应用中，使用[@ohos.deviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info)模块的productModel属性来区分真机和模拟器。模拟器上，productModel的值为emulator。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/7t1rOryJTbmAkovkv6IopQ/zh-cn_image_0000002624478762.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=DEE3EB4230236DD8E97742A6FD2FB813C73EF400F986EA869D1022674C2763AF "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/7t1rOryJTbmAkovkv6IopQ/zh-cn_image_0000002624478762.png?HW-CC-KV=V1&HW-CC-Date=20261008T152736Z&HW-CC-Expire=31536000000&HW-CC-Sign=058F36BAE20A0C3EB41FD62C602145C1F56EF5C6E01AB70D1A9CA5EDC957B9F2 "点击放大")
 

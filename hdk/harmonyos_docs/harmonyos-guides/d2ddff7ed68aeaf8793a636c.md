@@ -1,0 +1,91 @@
+---
+name: document/cn/harmonyos-guides/ide-hmos-publish-app
+title: 发布应用
+uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hmos-publish-app
+---
+
+# 发布应用
+
+HarmonyOS通过数字证书与Profile文件等签名信息来保证应用/元服务的完整性，应用/元服务上架到AppGallery Connect必须通过签名校验。因此，您需要使用发布证书和Profile文件对应用/元服务进行签名后才能发布。
+
+## 发布流程
+
+开发者完成HarmonyOS应用/元服务开发后，需要将应用/元服务打包成App Pack（.app文件），用于上架到AppGallery Connect。发布应用/元服务的流程如下图所示：
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/aeGGH2ZdQ_OANYhswNU06Q/zh-cn_image_0000002779728717.png?HW-CC-KV=V1&HW-CC-Date=20261010T073013Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF45243722E38E348D8718633102DC43331219605F06014F63C3E45E05EC7C39)
+
+关于以上流程的详细介绍，请继续查阅本章节内容。
+
+## 准备签名文件
+
+HarmonyOS应用/元服务通过数字证书（.cer文件）和Profile文件（.p7b文件）来保证应用/元服务的完整性。在申请数字证书和Profile文件前，需要通过鸿蒙电脑DevEco Studio提前生成密钥（存储在格式为.p12的密钥库文件中）和证书请求文件（.csr文件）。
+
+**基本概念**
+
+* **密钥**：包含非对称加密中使用的公钥和私钥，存储在密钥库文件中，格式为.p12，公钥和私钥对用于数字签名和验证。
+* **证书请求文件**：格式为.csr，全称为Certificate Signing Request，包含密钥对中的公钥和公共名称、组织名称、组织单位等信息，用于向AppGallery Connect申请数字证书。
+* **数字证书**：格式为.cer，由华为AppGallery Connect颁发。
+* **Profile文件**：格式为.p7b，包含HarmonyOS应用/元服务的包名、数字证书信息、描述应用/元服务允许申请的证书权限列表，以及允许应用/元服务调试的设备列表（如果应用/元服务类型为Release类型，则设备列表为空）等内容，每个应用/元服务包中均必须包含一个Profile文件。
+
+### 生成密钥和证书请求文件
+
+1. 在主菜单栏单击**构建** **> 生成密钥和证书请求文件**。
+2. 在生成密钥和证书请求文件界面，可以单击Keystore File后的文件图标选择已有的密钥库文件（存储有密钥的.p12文件）。若没有密钥库文件，单击**新建** 进行创建。下面以新建密钥库文件为例进行说明。
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/XT5ysCirThGYg7yACXAGHA/zh-cn_image_0000002750009654.png?HW-CC-KV=V1&HW-CC-Date=20261010T073013Z&HW-CC-Expire=31536000000&HW-CC-Sign=43216645BFB927A3255ACE49B6805926270943616D578FCC519FFB018B5F3FBB)
+3. 在**创建密钥存储文件** 窗口中，填写密钥库信息后，单击**确认** 。
+   * **Keystore file(*.p12)**：填写p12文件名，仅允许包含字母、数字、下划线（_）、中划线（-）、句号（.）。
+   * **Key store path**：设置密钥库文件存储路径。
+   * **Key store Password**：设置密钥库密码，必须由大写字母、小写字母、数字和特殊符号中的两种以上字符的组合，长度至少为8位。请记住该密码，后续签名配置需要使用。
+   * **Confirm Password**：再次输入密钥库密码。
+   * **Key alias**：密钥的别名信息，用于标识密钥名称。请记住该别名，后续签名配置需要使用。
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/h2_IHaAERZqfE2JCKzDQUQ/zh-cn_image_0000002779608569.png?HW-CC-KV=V1&HW-CC-Date=20261010T073013Z&HW-CC-Expire=31536000000&HW-CC-Sign=C8987E49291EFC0B55C329EF0C8F360F97655ED45E6A791C73FDE4D9AF56551F)
+4. 在**生成密钥和证书请求文件** 界面中，确认信息后点击**生成** 。
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/_RytubK_R8KYbKG86dcaFw/zh-cn_image_0000002779608567.png?HW-CC-KV=V1&HW-CC-Date=20261010T073013Z&HW-CC-Expire=31536000000&HW-CC-Sign=6BF1192209C8505A7F13F0699C7DA182F0931C2ED45959804B06B3BFADB9C926)
+5. 创建CSR文件成功后，可以在存储路径下获取生成的密钥库文件（.p12）和证书请求文件（.csr）。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/ZHYU_UdmSf-3yzHaZROchw/zh-cn_image_0000002750009658.png?HW-CC-KV=V1&HW-CC-Date=20261010T073013Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8795E7F4D3310A6D0C112AC30A74F85C5EB73AAB6D10AE75FDEE8878BCEBC8C "点击放大")
+
+### 申请发布证书和Profile文件
+
+1. 创建HarmonyOS应用/元服务。在AGC中创建一个HarmonyOS应用/元服务，用于申请发布证书和Profile文件，具体请参考[创建HarmonyOS应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-create-app-0000002247955506)和[创建元服务](https://developer.huawei.com/consumer/cn/doc/app/agc-help-create-atomic-service-0000002247795706)。
+2. 申请发布证书和发布Profile文件。在AGC中申请、下载发布证书和Profile文件，具体请参考[申请发布证书](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-cert-0000002283336729)和[申请发布Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-profile-0000002248341090)。
+3. 申请完发布证书和发布Profile文件后，请在DevEco Studio中进行签名。 说明
+   > * 如果申请元服务的签名证书，在"创建应用"操作时，"是否元服务"选项请选择"**是**"。
+   > * 使用发布证书和发布Profile文件进行手动签名，只能用来打包应用上架，不能用来运行调试工程。
+
+## 配置签名信息
+
+使用制作的私钥（.p12）文件、在AppGallery Connect中申请的证书（.cer）文件和Profile（.p7b）文件，在DevEco Studio配置工程的签名信息，构建携带发布签名信息的APP。
+
+在菜单栏单击**文件 > 项目结构 > ${default} > 签名配置** ，分别配置密钥(.p12文件)、Profile(.p7b文件)和数字证书(.cer文件)的路径等信息，配置完毕后点击**生成签名文件** 。
+
+* **Keystore File**：选择密钥库文件，文件后缀为.p12。
+* **Keystore Password**：输入密钥库密码。
+* **Key Alias**：输入密钥的别名信息。
+* **Key Password**：输入密钥的密码。
+* **Profile File**：选择申请的发布Profile文件，文件后缀为.p7b。
+* **Certpath File**：选择申请的发布数字证书文件，文件后缀为.cer。
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/GtKrcDEtRpekvD4h-4YSsg/zh-cn_image_0000002750169544.png?HW-CC-KV=V1&HW-CC-Date=20261010T073013Z&HW-CC-Expire=31536000000&HW-CC-Sign=A82931E897EA26CB5995F93DED4130D7B859BB87FF19C44107D1DEDDAC65F90E)
+
+然后使用DevEco Studio生成APP，请参考[编译构建.app文件](#section1992513343374)。
+
+## 编译构建.app文件
+
+> 注意
+>
+> 应用上架时，要求应用包类型为Release类型。
+
+打包APP时，DevEco Studio会将工程目录下的所有HAP/HSP模块打包到APP中，因此，如果工程目录中存在不需要打包到APP的HAP/HSP模块，请手动删除后再进行编译构建生成APP。
+
+1. 单击**Build > Build APP(s)** ，等待编译构建完成已签名的应用包。 说明
+   >
+   > 当未指定[构建模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hmos-hvigor-compilation-options-customizing-guide#section192461528194916)时，构建APP包，默认Release模式；构建HAP/HSP/HAR包，默认Debug模式。即Build APP(s)，默认构建的APP包为Release类型，符合上架要求，开发者无需进行另外设置。
+2. 编译构建完成后，可以在工程目录**build > outputs > default** 下，获取带签名的应用包。
+
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/qQgn0bi2TLG5neyzG0yWeA/zh-cn_image_0000002750009656.png?HW-CC-KV=V1&HW-CC-Date=20261010T073013Z&HW-CC-Expire=31536000000&HW-CC-Sign=B96F061455F212270C16AD7169E8C03281F8876A66514711671025CEE2ADCF92)
+
+## 发布.app文件到应用市场
+
+将HarmonyOS应用/元服务打包成.app文件后上架到应用市场，上架详细操作指导请参考[发布HarmonyOS应用](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-guide-0000002287176372)或[发布元服务](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-atomic-guide-0000002293651514)。

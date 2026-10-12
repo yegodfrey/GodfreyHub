@@ -14,6 +14,8 @@ typedef struct OH_UdsAppItem OH_UdsAppItem
 
 ## 概述
 
+> phone | 2in1 | tablet | tv
+
 描述桌面图标类型的统一数据结构。
 
 **起始版本：** 12

@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 ## 概述
 
+> phone | 2in1 | tablet | tv
+
 声明图片处理函数。提供图片处理能力，包括色彩空间转换，元数据生成及图片缩放。
 
 **引用文件：** <multimedia/video_processing_engine/image_processing.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv
+
 ### 函数
+
+> phone | 2in1 | tablet | tv
 
 |名称|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -46,7 +52,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv
+
 ### OH_ImageProcessing_InitializeEnvironment()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 ImageProcessing_ErrorCode OH_ImageProcessing_InitializeEnvironment(void)
@@ -68,6 +78,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_InitializeEnvironment(void)
 
 ### OH_ImageProcessing_DeinitializeEnvironment()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 ImageProcessing_ErrorCode OH_ImageProcessing_DeinitializeEnvironment(void)
 ```
@@ -87,6 +99,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_DeinitializeEnvironment(void)
 |[ImageProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-types-h#imageprocessing_errorcode)|如果反初始化成功，则返回IMAGE_PROCESSING_SUCCESS。 如果存在图片处理实例未被销毁或[OH_ImageProcessing_InitializeEnvironment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_initializeenvironment)接口未被调用，则返回IMAGE_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。|
 
 ### OH_ImageProcessing_IsColorSpaceConversionSupported()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 bool OH_ImageProcessing_IsColorSpaceConversionSupported(const ImageProcessing_ColorSpaceInfo* sourceImageInfo,const ImageProcessing_ColorSpaceInfo* destinationImageInfo)
@@ -112,6 +126,8 @@ bool OH_ImageProcessing_IsColorSpaceConversionSupported(const ImageProcessing_Co
 |bool|如果支持当前色彩空间转换，返回true。 如果不支持当前色彩空间转换，返回false。|
 
 ### OH_ImageProcessing_IsCompositionSupported()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 bool OH_ImageProcessing_IsCompositionSupported(const ImageProcessing_ColorSpaceInfo* sourceImageInfo,const ImageProcessing_ColorSpaceInfo* sourceGainmapInfo,const ImageProcessing_ColorSpaceInfo* destinationImageInfo)
@@ -139,6 +155,8 @@ bool OH_ImageProcessing_IsCompositionSupported(const ImageProcessing_ColorSpaceI
 
 ### OH_ImageProcessing_IsDecompositionSupported()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 bool OH_ImageProcessing_IsDecompositionSupported(const ImageProcessing_ColorSpaceInfo* sourceImageInfo,const ImageProcessing_ColorSpaceInfo* destinationImageInfo,const ImageProcessing_ColorSpaceInfo* destinationGainmapInfo)
 ```
@@ -165,6 +183,8 @@ bool OH_ImageProcessing_IsDecompositionSupported(const ImageProcessing_ColorSpac
 
 ### OH_ImageProcessing_IsMetadataGenerationSupported()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 bool OH_ImageProcessing_IsMetadataGenerationSupported(const ImageProcessing_ColorSpaceInfo* sourceImageInfo)
 ```
@@ -188,6 +208,8 @@ bool OH_ImageProcessing_IsMetadataGenerationSupported(const ImageProcessing_Colo
 |bool|如果支持图片元数据生成能力，返回true。 如果不支持此能力，返回false。|
 
 ### OH_ImageProcessing_Create()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 ImageProcessing_ErrorCode OH_ImageProcessing_Create(OH_ImageProcessing** imageProcessor, int32_t type)
@@ -214,6 +236,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Create(OH_ImageProcessing** imagePr
 
 ### OH_ImageProcessing_Destroy()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 ImageProcessing_ErrorCode OH_ImageProcessing_Destroy(OH_ImageProcessing* imageProcessor)
 ```
@@ -237,6 +261,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Destroy(OH_ImageProcessing* imagePr
 |[ImageProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-types-h#imageprocessing_errorcode)|如果销毁成功，则返回IMAGE_PROCESSING_SUCCESS。 当该实例为空或该实例不是图片处理模块实例时，返回IMAGE_PROCESSING_ERROR_INVALID_INSTANCE。|
 
 ### OH_ImageProcessing_SetParameter()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 ImageProcessing_ErrorCode OH_ImageProcessing_SetParameter(OH_ImageProcessing* imageProcessor,const OH_AVFormat* parameter)
@@ -263,6 +289,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_SetParameter(OH_ImageProcessing* im
 
 ### OH_ImageProcessing_GetParameter()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* imageProcessor,OH_AVFormat* parameter)
 ```
@@ -287,6 +315,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* im
 |[ImageProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-types-h#imageprocessing_errorcode)|如果获取参数成功，则返回IMAGE_PROCESSING_SUCCESS。 当该实例为空或该实例不是图片处理模块实例时，返回IMAGE_PROCESSING_ERROR_INVALID_INSTANCE。 当参数为空时，返回IMAGE_PROCESSING_ERROR_INVALID_PARAMETER。|
 
 ### OH_ImageProcessing_ConvertColorSpace()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessing* imageProcessor,OH_PixelmapNative* sourceImage, OH_PixelmapNative* destinationImage)
@@ -313,6 +343,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessin
 |[ImageProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-types-h#imageprocessing_errorcode)|如果图片处理成功，则返回IMAGE_PROCESSING_SUCCESS。 当该实例为空或该实例不是图片处理模块实例时，返回IMAGE_PROCESSING_ERROR_INVALID_INSTANCE。 当图片为空时，返回IMAGE_PROCESSING_ERROR_INVALID_PARAMETER。 当图片的某些属性无效时，返回IMAGE_PROCESSING_ERROR_INVALID_VALUE，例如图片的色彩空间是不支持的。 当该图片处理不支持时，返回IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING。 当该图片处理中返回错误时，返回IMAGE_PROCESSING_ERROR_PROCESS_FAILED。 当内存分配失败时，返回IMAGE_PROCESSING_ERROR_NO_MEMORY。|
 
 ### OH_ImageProcessing_Compose()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* imageProcessor,OH_PixelmapNative* sourceImage, OH_PixelmapNative* sourceGainmap, OH_PixelmapNative* destinationImage)
@@ -341,6 +373,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* imagePr
 
 ### OH_ImageProcessing_Decompose()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 ImageProcessing_ErrorCode OH_ImageProcessing_Decompose(OH_ImageProcessing* imageProcessor,OH_PixelmapNative* sourceImage, OH_PixelmapNative* destinationImage, OH_PixelmapNative* destinationGainmap)
 ```
@@ -368,6 +402,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Decompose(OH_ImageProcessing* image
 
 ### OH_ImageProcessing_GenerateMetadata()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
+
 ```c
 ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing* imageProcessor,OH_PixelmapNative* sourceImage)
 ```
@@ -392,6 +428,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing
 |[ImageProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-types-h#imageprocessing_errorcode)|如果图片处理成功，则返回IMAGE_PROCESSING_SUCCESS。 当该实例为空或该实例不是图片处理模块实例时，返回IMAGE_PROCESSING_ERROR_INVALID_INSTANCE。 当图片为空时，返回IMAGE_PROCESSING_ERROR_INVALID_PARAMETER。 当图片的某些属性无效时，返回IMAGE_PROCESSING_ERROR_INVALID_VALUE，例如图片的色彩空间是不支持的。 当该图片处理不支持时，返回IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING。 当该图片处理中返回错误时，返回IMAGE_PROCESSING_ERROR_PROCESS_FAILED。 当内存分配失败时，返回IMAGE_PROCESSING_ERROR_NO_MEMORY。|
 
 ### OH_ImageProcessing_EnhanceDetail()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+
 
 ```c
 ImageProcessing_ErrorCode OH_ImageProcessing_EnhanceDetail(OH_ImageProcessing* imageProcessor,OH_PixelmapNative* sourceImage, OH_PixelmapNative* destinationImage)

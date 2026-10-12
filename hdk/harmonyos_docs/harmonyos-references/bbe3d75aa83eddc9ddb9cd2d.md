@@ -14,6 +14,8 @@ typedef struct OHIPCParcel OHIPCParcel
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 IPC序列化对象，用于在跨进程通信中序列化和反序列化数据。该对象需要通过相关函数创建和销毁，开发者需要遵循对象的生命周期管理规范，正确管理内存资源。
 
 **起始版本：** 12

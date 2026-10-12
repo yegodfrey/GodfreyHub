@@ -41,7 +41,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-
 
 SourceTextModule在内存快照中的属性如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/p158pwWURLu4OCYm0N9zAg/zh-cn_image_0000002699865074.png?HW-CC-KV=V1&HW-CC-Date=20260920T024937Z&HW-CC-Expire=31536000000&HW-CC-Sign=54B51BB7353F876A95AA19D44451A23A8EEAC41DFDC7E046AEFCA450278B1EFC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/p158pwWURLu4OCYm0N9zAg/zh-cn_image_0000002699865074.png?HW-CC-KV=V1&HW-CC-Date=20261008T175232Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A52C773BE0789DD381849002D9F106FD57E611B87A82DB5567E0A2A3CBC834C)
 
 export导致泄漏的常见场景如下：
 
@@ -81,7 +81,7 @@ GlobalEnv或GlobalObject导致泄漏的常见场景：
 
 代码中ModuleHoldMain()函数申请300MB对象存放进数组baseArray，其中baseArray为export对象。前端按钮在单击后调用问题ModuleHoldMain()函数申请内存，然后申请300MB超大内存确保触发OOM崩溃。代码如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/4UxMzgkpR3W9evaOy79JcQ/zh-cn_image_0000002729584405.png?HW-CC-KV=V1&HW-CC-Date=20260920T024937Z&HW-CC-Expire=31536000000&HW-CC-Sign=47A0961714E5B17E89CD79C74ED681D461C44061B2ED6D3B805EF624183E33EC "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/4UxMzgkpR3W9evaOy79JcQ/zh-cn_image_0000002729584405.png?HW-CC-KV=V1&HW-CC-Date=20261008T175232Z&HW-CC-Expire=31536000000&HW-CC-Sign=4DF380F8037A164FD8D053A40104A9DC485C7B7716ABBF92B18C313F60ADE0B1 "点击放大")
 
 **问题分析思路**
 
@@ -89,7 +89,7 @@ GlobalEnv或GlobalObject导致泄漏的常见场景：
 
 2. 参考[运维态内存快照获取方法](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-overview-of-arkts-memory-leaks-overview#section16548548153614)，获取OOM生成的rawheap快照文件，将快照导入到DevEco Studio查看。从快照文件发现NodeId为154217的JSArray对象存放在NodeId为49439的JSArray中，而该JSArray对象的根节点是SourceTextModule，SourceTextModule无法释放。内存快照如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/I6DP6Jx5TgWFF17sUGf-0A/zh-cn_image_0000002699705186.png?HW-CC-KV=V1&HW-CC-Date=20260920T024937Z&HW-CC-Expire=31536000000&HW-CC-Sign=A5D6D70D4ECC2A6C9A962F47D19F4622A3AEA57E4EC5401414CC935C30246025 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/I6DP6Jx5TgWFF17sUGf-0A/zh-cn_image_0000002699705186.png?HW-CC-KV=V1&HW-CC-Date=20261008T175232Z&HW-CC-Expire=31536000000&HW-CC-Sign=67568CD94FB4A459A0F6DDC0438F91BCDB3B748E932D9C0FF7FBFF1746030A75 "点击放大")
 
 3. 分析引用链，发现模块级对象NodeId为49439的JSArray没有重复创建，但是JSArray中存放的其他JSArray对象在重复创建，需要主动断开两者间的引用关系。
 
@@ -119,7 +119,7 @@ SourceTextModule持有export的baseArray数组无法自动释放，而该数组�
 
 代码中GlobalHoldMain()函数申请300MB对象存放进数组globalArray，其中globalArray挂载在globalThis上。前端按钮在单击后调用问题GlobalHoldMain()函数申请内存，然后申请300MB超大内存确保触发OOM崩溃。代码如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/NLdhkcktSye7muNTBwfbyQ/zh-cn_image_0000002729464447.png?HW-CC-KV=V1&HW-CC-Date=20260920T024937Z&HW-CC-Expire=31536000000&HW-CC-Sign=98DBA6F230E0D7E87E7462D3F57D9FB33EC5FA92A2EE1CAEAC37D26B6FE5061F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/NLdhkcktSye7muNTBwfbyQ/zh-cn_image_0000002729464447.png?HW-CC-KV=V1&HW-CC-Date=20261008T175232Z&HW-CC-Expire=31536000000&HW-CC-Sign=7D1382F387986F72F6650DE2F76C1FD126454321E68A759C6349E2495B2C6B05 "点击放大")
 
 **问题分析思路**
 
@@ -127,7 +127,7 @@ SourceTextModule持有export的baseArray数组无法自动释放，而该数组�
 
 2. 参考[运维态内存快照获取方法](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-overview-of-arkts-memory-leaks-overview#section16548548153614)，获取OOM生成的rawheap快照文件，将快照导入到DevEco Studio查看。在快照文件中发现有内存占用大的JSArray对象。该JSArray对象的根节点是GlobalObject，GlobalObject无法释放。从持有关系为globalArray可以看出该JSArray对象名称为globalArray。内存快照如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/tK1JSouyQUW1J8TCsQO3CQ/zh-cn_image_0000002699865076.png?HW-CC-KV=V1&HW-CC-Date=20260920T024937Z&HW-CC-Expire=31536000000&HW-CC-Sign=35EA6D468DD2E51A9758B40E9EDF9CB4A602BCA95877E32FAF1A8E7CA47E9CAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/tK1JSouyQUW1J8TCsQO3CQ/zh-cn_image_0000002699865076.png?HW-CC-KV=V1&HW-CC-Date=20261008T175232Z&HW-CC-Expire=31536000000&HW-CC-Sign=A389ACC75F7CAB63090728685BBD621C6FE956B62FB782E508F5B385FA722D08)
 
 3. 查看引用链，发现全局对象NodeId为1969的JSArray没有重复创建，但是JSArray中存放的其他JSArray对象在重复创建，需要主动断开两者间的引用关系。
 

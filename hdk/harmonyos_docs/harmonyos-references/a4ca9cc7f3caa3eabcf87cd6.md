@@ -16,13 +16,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 ## 权限列表
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 无
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 不支持。
 
 ## 属性
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
 
@@ -137,6 +143,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 ## 样式
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)外，还支持如下样式：
 
 |名称|类型|默认值|必填|描述|
@@ -154,9 +162,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)。
 
 ## 方法
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 除支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)外，还支持如下方法：
 
@@ -165,6 +177,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 |append|{ serial: number, data: Array<number>, }|向已有的数据序列中动态添加数据，根据serial指定目标序列，serial为datasets数组的下标，从0开始。假设serial的值为index，使用data数据更新datasets[index].data。仅线形图支持，按横坐标加1递增（与xAxis min/max设置相关）。|
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 1. 线形图
 
@@ -257,7 +271,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/Oq5C9LvYShyQSTT8QJfKPQ/zh-cn_image_0000002749495194.png?HW-CC-KV=V1&HW-CC-Date=20260929T121736Z&HW-CC-Expire=31536000000&HW-CC-Sign=AD879BA020A3FE35E9D2F10C5365AE284754D6C101CFC254C13F003D77FF443B)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/kcYtu5EwR8yL28_a3GSj1A/zh-cn_image_0000002755026196.png?HW-CC-KV=V1&HW-CC-Date=20261009T092756Z&HW-CC-Expire=31536000000&HW-CC-Sign=C19DA75E10EEE40E6E92AEE3E02A1F8899ECC3437FFFE45C5D2E5EBF8C93DDB6)
 2. 柱状图
 
    ```html
@@ -325,7 +339,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/Jn15xxSZR1OwtQU0OqCkew/zh-cn_image_0000002779094251.png?HW-CC-KV=V1&HW-CC-Date=20260929T121736Z&HW-CC-Expire=31536000000&HW-CC-Sign=CAEF23ABEEB7221B4D65B6C22448E249BFBEB8DEA862F2F58AB664243570D213)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/DG8Q40lkRW62UWPY0hU-8A/zh-cn_image_0000002755186080.png?HW-CC-KV=V1&HW-CC-Date=20261009T092756Z&HW-CC-Expire=31536000000&HW-CC-Sign=81480D482A9A4AE50FDC966E5A522DE961BA257D4F38EDBADD14A7968E28BED8)
 3. 量规图
 
    ```html
@@ -354,7 +368,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/TMkn0Yi1QWGBuVO6UPl0Ag/zh-cn_image_0000002778934395.png?HW-CC-KV=V1&HW-CC-Date=20260929T121736Z&HW-CC-Expire=31536000000&HW-CC-Sign=3F85A69ECB7FAECDD3A2527E239BE92EE83047467C5249019121A5E221FCB26E)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/W-d3hB4rT1CibJLWYl_dCw/zh-cn_image_0000002784584947.png?HW-CC-KV=V1&HW-CC-Date=20261009T092756Z&HW-CC-Expire=31536000000&HW-CC-Sign=CD948612A073D4169B5EA8CEEFEA1FE4000656D535DC0FB711DA0A3E51BDDE53)
 4. 进度类、加载类、占比类圆形图表
 
    ```html
@@ -430,5 +444,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/2wUAdwBcQDeqwcigmYIWrw/zh-cn_image_0000002749335312.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121736Z&HW-CC-Expire=31536000000&HW-CC-Sign=F50C5171095C47DF1EA6A1449330F59DE094BC05BEF1167AA719AD98FB6213C1)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/B8K-uezwR2SBHZED_izjaQ/zh-cn_image_0000002784665129.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092756Z&HW-CC-Expire=31536000000&HW-CC-Sign=CC23C593DBB7EF85923338EC857BDA198190F2FE953A8329C96D21325E3F279C)
 

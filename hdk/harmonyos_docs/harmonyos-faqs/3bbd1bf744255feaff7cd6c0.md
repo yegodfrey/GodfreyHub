@@ -359,7 +359,7 @@ struct PageC {
 
 效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/7nIjv8p9S0WTm0PMexoPNA/zh-cn_image_0000002658806699.png?HW-CC-KV=V1&HW-CC-Date=20260929T074344Z&HW-CC-Expire=31536000000&HW-CC-Sign=E49C59F3D8378DAA1F20703AD68B9BD9E3165EB5A6873371CC70BB46EF4ED9A5 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/7nIjv8p9S0WTm0PMexoPNA/zh-cn_image_0000002658806699.png?HW-CC-KV=V1&HW-CC-Date=20261008T155135Z&HW-CC-Expire=31536000000&HW-CC-Sign=A26600355A3835FDBED81D2245C5426E2C15829578DD6BF2431ADD0CF32C897B "点击放大")
 
 场景四完整示例参考如下：
 
@@ -478,7 +478,7 @@ struct ReceivePageB {
 
 效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/Hjta7fnERTivv--waEsIyQ/zh-cn_image_0000002628407446.png?HW-CC-KV=V1&HW-CC-Date=20260929T074344Z&HW-CC-Expire=31536000000&HW-CC-Sign=216E3B64A8ED12272799A84C535F11D3FA682532C78A0637C41ADCEFE591F508 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/Hjta7fnERTivv--waEsIyQ/zh-cn_image_0000002628407446.png?HW-CC-KV=V1&HW-CC-Date=20261008T155135Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F528E95EB3AC7C0883D4515FC8DD399EEA7F4DC730AA03AF5A56030E1231188 "点击放大")
 
 ## 常见FAQ
 

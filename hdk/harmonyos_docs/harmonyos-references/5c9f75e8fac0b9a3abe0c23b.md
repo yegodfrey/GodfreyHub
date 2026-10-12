@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 文件中定义了与字体相关的功能函数。
 
 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
@@ -26,7 +28,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------|:----------------------|:------------|
@@ -34,12 +40,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ### 枚举
 
+> phone | 2in1 | tablet | tv | wearable
+
 |名称|typedef关键字|描述|
 |:------------------------------------------------|:---------------------|:----------|
 |[OH_Drawing_FontHinting](#oh_drawing_fonthinting)|OH_Drawing_FontHinting|字型轮廓效果类型枚举。|
 |[OH_Drawing_FontEdging](#oh_drawing_fontedging)|OH_Drawing_FontEdging|字型边缘效果类型枚举。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -92,7 +102,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 枚举类型说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_Drawing_FontHinting
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 enum OH_Drawing_FontHinting
@@ -113,6 +127,8 @@ enum OH_Drawing_FontHinting
 
 ### OH_Drawing_FontEdging
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 enum OH_Drawing_FontEdging
 ```
@@ -131,7 +147,11 @@ enum OH_Drawing_FontEdging
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_Drawing_FontMeasureSingleCharacterWithFeatures()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontMeasureSingleCharacterWithFeatures(const OH_Drawing_Font* font, const char* str, const OH_Drawing_FontFeatures* fontFeatures, float* textWidth)
@@ -162,6 +182,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontMeasureSingleCharacterWithFeatures(const OH_
 
 ### OH_Drawing_FontFeaturesCreate()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 ```c
 OH_Drawing_FontFeatures* OH_Drawing_FontFeaturesCreate(void)
 ```
@@ -181,6 +203,8 @@ OH_Drawing_FontFeatures* OH_Drawing_FontFeaturesCreate(void)
 |[OH_Drawing_FontFeatures](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-fontfeatures)*|函数会返回一个指针，指向创建的字体特征容器对象OH_Drawing_FontFeatures。 如果返回的对象指针为空，则表示字体特征容器对象创建失败。失败的原因可能为：没有可用的内存。|
 
 ### OH_Drawing_FontFeaturesAddFeature()
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontFeaturesAddFeature(OH_Drawing_FontFeatures* fontFeatures, const char* name, float value)
@@ -210,6 +234,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontFeaturesAddFeature(OH_Drawing_FontFeatures* 
 
 ### OH_Drawing_FontFeaturesDestroy()
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontFeaturesDestroy(OH_Drawing_FontFeatures* fontFeatures)
 ```
@@ -235,6 +261,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontFeaturesDestroy(OH_Drawing_FontFeatures* fon
 |[OH_Drawing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcode)|函数返回执行结果。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数fontFeatures为空指针。|
 
 ### OH_Drawing_FontMeasureTextWithBrushOrPen()
+
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontMeasureTextWithBrushOrPen(const OH_Drawing_Font* font, const void* text,size_t byteLength, OH_Drawing_TextEncoding encoding, const OH_Drawing_Brush* brush, const OH_Drawing_Pen* pen,OH_Drawing_Rect* bounds, float* textWidth)
@@ -269,6 +297,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontMeasureTextWithBrushOrPen(const OH_Drawing_F
 
 ### OH_Drawing_FontGetWidthsBounds()
 
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontGetWidthsBounds(const OH_Drawing_Font* font, const uint16_t* glyphs, int count,const OH_Drawing_Brush* brush, const OH_Drawing_Pen* pen, float* widths, OH_Drawing_Array* bounds)
 ```
@@ -301,6 +331,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontGetWidthsBounds(const OH_Drawing_Font* font,
 
 ### OH_Drawing_FontGetPos()
 
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontGetPos(const OH_Drawing_Font* font, const uint16_t* glyphs, int count,const OH_Drawing_Point* origin, OH_Drawing_Point2D* points)
 ```
@@ -331,6 +363,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontGetPos(const OH_Drawing_Font* font, const ui
 
 ### OH_Drawing_FontGetSpacing()
 
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontGetSpacing(const OH_Drawing_Font* font, float* spacing)
 ```
@@ -358,6 +392,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontGetSpacing(const OH_Drawing_Font* font, floa
 
 ### OH_Drawing_FontCreate()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 OH_Drawing_Font* OH_Drawing_FontCreate(void)
 ```
@@ -377,6 +413,8 @@ OH_Drawing_Font* OH_Drawing_FontCreate(void)
 |[OH_Drawing_Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-font)*|函数会返回一个指针，指针指向创建的字型对象OH_Drawing_Font。|
 
 ### OH_Drawing_FontSetBaselineSnap()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 void OH_Drawing_FontSetBaselineSnap(OH_Drawing_Font* font, bool baselineSnap)
@@ -402,6 +440,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |bool baselineSnap|指示字型基线是否和像素对齐。true表示对齐，false表示不对齐。|
 
 ### OH_Drawing_FontIsBaselineSnap()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_Drawing_FontIsBaselineSnap(const OH_Drawing_Font* font)
@@ -433,6 +473,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_FontSetSubpixel()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontSetSubpixel(OH_Drawing_Font* font, bool isSubpixel)
 ```
@@ -457,6 +499,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |bool isSubpixel|字型是否使用亚像素渲染。true为使用，false为不使用。|
 
 ### OH_Drawing_FontIsSubpixel()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_Drawing_FontIsSubpixel(const OH_Drawing_Font* font)
@@ -488,6 +532,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_FontSetForceAutoHinting()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontSetForceAutoHinting(OH_Drawing_Font* font, bool isForceAutoHinting)
 ```
@@ -512,6 +558,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |bool isForceAutoHinting|是否自动调整字型轮廓。true为自动调整，false为不自动调整。|
 
 ### OH_Drawing_FontIsForceAutoHinting()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_Drawing_FontIsForceAutoHinting(const OH_Drawing_Font* font)
@@ -543,6 +591,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_FontSetTypeface()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontSetTypeface(OH_Drawing_Font* font, OH_Drawing_Typeface* typeface)
 ```
@@ -567,6 +617,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |[OH_Drawing_Typeface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-typeface)* typeface|指向字体对象的指针，为NULL会使用系统默认字体对象。|
 
 ### OH_Drawing_FontGetTypeface()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_Typeface* OH_Drawing_FontGetTypeface(OH_Drawing_Font* font)
@@ -598,6 +650,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_FontSetTextSize()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontSetTextSize(OH_Drawing_Font* font, float textSize)
 ```
@@ -622,6 +676,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |float textSize|文字大小，单位为物理像素px，该参数为浮点数，为负数时字体大小会被置为0。字体大小为0时，绘制的文字不会显示。|
 
 ### OH_Drawing_FontGetTextSize()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 float OH_Drawing_FontGetTextSize(const OH_Drawing_Font* font)
@@ -652,6 +708,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |float|返回一个浮点数，表示文字大小。|
 
 ### OH_Drawing_FontCountText()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int OH_Drawing_FontCountText(OH_Drawing_Font* font, const void* text, size_t byteLength,OH_Drawing_TextEncoding encoding)
@@ -685,6 +743,8 @@ font、text任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |int|返回文本所表示的字符数量，整数。|
 
 ### OH_Drawing_FontTextToGlyphs()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 uint32_t OH_Drawing_FontTextToGlyphs(const OH_Drawing_Font* font, const void* text, uint32_t byteLength,OH_Drawing_TextEncoding encoding, uint16_t* glyphs, int maxGlyphCount)
@@ -721,6 +781,8 @@ font、text、glyphs任意一个为NULL或者byteLength等于0或者maxGlyphCoun
 
 ### OH_Drawing_FontGetWidths()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontGetWidths(const OH_Drawing_Font* font, const uint16_t* glyphs, int count, float* widths)
 ```
@@ -747,6 +809,8 @@ font、glyphs、widths任意一个为NULL或者count小于等于0时返回OH_DRA
 |float* widths|字形宽度存储首地址，用于存储得到的字形宽度。单位为物理像素px。|
 
 ### OH_Drawing_FontMeasureSingleCharacter()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontMeasureSingleCharacter(const OH_Drawing_Font* font, const char* str,float* textWidth)
@@ -775,6 +839,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontMeasureSingleCharacter(const OH_Drawing_Font
 |[OH_Drawing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcode)|函数返回执行错误码。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数font、str、textWidth任意一个为NULL或者str的长度为0。|
 
 ### OH_Drawing_FontMeasureText()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontMeasureText(const OH_Drawing_Font* font, const void* text, size_t byteLength,OH_Drawing_TextEncoding encoding, OH_Drawing_Rect* bounds, float* textWidth)
@@ -807,6 +873,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontMeasureText(const OH_Drawing_Font* font, con
 
 ### OH_Drawing_FontSetLinearText()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontSetLinearText(OH_Drawing_Font* font, bool isLinearText)
 ```
@@ -831,6 +899,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |bool isLinearText|true为使能线性可缩放字型，false为不使能。|
 
 ### OH_Drawing_FontIsLinearText()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_Drawing_FontIsLinearText(const OH_Drawing_Font* font)
@@ -862,6 +932,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_FontSetTextSkewX()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontSetTextSkewX(OH_Drawing_Font* font, float skewX)
 ```
@@ -886,6 +958,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |float skewX|X轴相对于Y轴的倾斜度。|
 
 ### OH_Drawing_FontGetTextSkewX()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 float OH_Drawing_FontGetTextSkewX(const OH_Drawing_Font* font)
@@ -917,6 +991,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_FontSetFakeBoldText()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontSetFakeBoldText(OH_Drawing_Font* font, bool isFakeBoldText)
 ```
@@ -941,6 +1017,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |bool isFakeBoldText|true为使能增加描边宽度，false为不使能。|
 
 ### OH_Drawing_FontIsFakeBoldText()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_Drawing_FontIsFakeBoldText(const OH_Drawing_Font* font)
@@ -972,6 +1050,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_FontSetScaleX()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontSetScaleX(OH_Drawing_Font* font, float scaleX)
 ```
@@ -996,6 +1076,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |float scaleX|文本在x轴上的缩放比例。|
 
 ### OH_Drawing_FontGetScaleX()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 float OH_Drawing_FontGetScaleX(const OH_Drawing_Font* font)
@@ -1027,6 +1109,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_FontSetHinting()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontSetHinting(OH_Drawing_Font* font, OH_Drawing_FontHinting fontHinting)
 ```
@@ -1053,6 +1137,8 @@ fontHinting不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE
 |[OH_Drawing_FontHinting](#oh_drawing_fonthinting) fontHinting|字型轮廓效果枚举类型OH_Drawing_FontHinting。|
 
 ### OH_Drawing_FontGetHinting()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_FontHinting OH_Drawing_FontGetHinting(const OH_Drawing_Font* font)
@@ -1084,6 +1170,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_FontSetEmbeddedBitmaps()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontSetEmbeddedBitmaps(OH_Drawing_Font* font, bool isEmbeddedBitmaps)
 ```
@@ -1108,6 +1196,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |bool isEmbeddedBitmaps|设置字型是否转换成位图处理，true表示转换成位图处理，false表示不转换成位图处理。|
 
 ### OH_Drawing_FontIsEmbeddedBitmaps()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_Drawing_FontIsEmbeddedBitmaps(const OH_Drawing_Font* font)
@@ -1139,6 +1229,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_FontSetEdging()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontSetEdging(OH_Drawing_Font* font, OH_Drawing_FontEdging fontEdging)
 ```
@@ -1165,6 +1257,8 @@ fontEdging不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE�
 |[OH_Drawing_FontEdging](#oh_drawing_fontedging) fontEdging|字型边缘效果枚举类型OH_Drawing_FontEdging。|
 
 ### OH_Drawing_FontGetEdging()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_FontEdging OH_Drawing_FontGetEdging(const OH_Drawing_Font* font)
@@ -1196,6 +1290,8 @@ font为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_FontDestroy()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_FontDestroy(OH_Drawing_Font* font)
 ```
@@ -1215,6 +1311,8 @@ void OH_Drawing_FontDestroy(OH_Drawing_Font* font)
 |[OH_Drawing_Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-font)* font|指向字型对象OH_Drawing_Font的指针。|
 
 ### OH_Drawing_FontGetMetrics()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 float OH_Drawing_FontGetMetrics(OH_Drawing_Font* font, OH_Drawing_Font_Metrics* fontMetrics)
@@ -1247,6 +1345,8 @@ font、fontMetrics任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER
 
 ### OH_Drawing_FontGetBounds()
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontGetBounds(const OH_Drawing_Font* font, const uint16_t* glyphs, uint32_t count,OH_Drawing_Array* bounds)
 ```
@@ -1276,6 +1376,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontGetBounds(const OH_Drawing_Font* font, const
 
 ### OH_Drawing_FontGetPathForGlyph()
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontGetPathForGlyph(const OH_Drawing_Font* font, uint16_t glyph,OH_Drawing_Path* path)
 ```
@@ -1303,6 +1405,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontGetPathForGlyph(const OH_Drawing_Font* font,
 |[OH_Drawing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcode)|函数返回执行错误码。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数font或者path为空， 或者指定glyph不存在。|
 
 ### OH_Drawing_FontGetTextPath()
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontGetTextPath(const OH_Drawing_Font* font, const void* text, size_t byteLength,OH_Drawing_TextEncoding encoding, float x, float y, OH_Drawing_Path* path)
@@ -1336,6 +1440,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontGetTextPath(const OH_Drawing_Font* font, con
 
 ### OH_Drawing_FontGetTextPathWithFallback()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontGetTextPathWithFallback(const OH_Drawing_Font* font, const void* text, size_t byteLength, OH_Drawing_TextEncoding encoding, float x, float y, OH_Drawing_Path* path)
 ```
@@ -1366,6 +1472,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontGetTextPathWithFallback(const OH_Drawing_Fon
 
 ### OH_Drawing_FontSetThemeFontFollowed()
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontSetThemeFontFollowed(OH_Drawing_Font* font, bool followed)
 ```
@@ -1392,6 +1500,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontSetThemeFontFollowed(OH_Drawing_Font* font, 
 |[OH_Drawing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcode)|函数返回执行错误码。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数font为空。|
 
 ### OH_Drawing_FontIsThemeFontFollowed()
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_FontIsThemeFontFollowed(const OH_Drawing_Font* font, bool* followed)

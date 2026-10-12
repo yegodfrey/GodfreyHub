@@ -17,11 +17,15 @@ Decimal用于提供高精度数学运算的能力，支持高精度浮点计算�
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { Decimal } from '@kit.ArkTS';
 ```
 
 ## Value
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type Value = string | number | Decimal
 
@@ -40,6 +44,8 @@ type Value = string | number | Decimal
 |[Decimal](#decimal)|表示值类型为Decimal类型。|
 
 ## Rounding
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
@@ -65,6 +71,8 @@ type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
 ## Modulo
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 type Modulo = Rounding | 9
 
 表示可设置的取模方法舍入类型。
@@ -81,6 +89,8 @@ type Modulo = Rounding | 9
 |9|模运算下，余数始终为正。欧几里得除法，与[Decimal.EUCLIDEAN](#常量)一致。|
 
 ## DecimalConfig
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 用于设置Decimal的配置属性，可使用[Decimal.set](#set)方法进行配置。
 
@@ -102,9 +112,13 @@ type Modulo = Rounding | 9
 
 ## Decimal
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 任意精度的Decimal类型。
 
 ### 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
@@ -117,6 +131,8 @@ type Modulo = Rounding | 9
 |s|number|是|否|sign：表示Decimal数的符号位，0表示正数，1表示负数。|
 
 ### 常量
+
+> phone | 2in1 | tablet | tv | wearable
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
@@ -136,6 +152,8 @@ type Modulo = Rounding | 9
 |EUCLIDEAN|number|9|模运算下，余数始终为正。使用欧几里得除法：q = sign(x) * floor(a / abs(x))。|
 
 ### constructor
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(n: Value)
 
@@ -168,6 +186,8 @@ console.info("test Decimal constructor:" + data.toString()); // 'test Decimal co
 
 ### abs
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 abs(): Decimal
 
 返回一个新的Decimal对象，其值是此Decimal的绝对值。
@@ -190,6 +210,8 @@ console.info("test Decimal abs:" + data.toString()); // 'test Decimal abs:0.5'
 ```
 
 ### floor
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 floor(): Decimal
 
@@ -214,6 +236,8 @@ console.info("test Decimal floor:" + data.toString()); // 'test Decimal floor:1'
 
 ### ceil
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ceil(): Decimal
 
 返回一个新的Decimal对象，其值是此Decimal向正无穷方向舍入得到的结果。
@@ -237,6 +261,8 @@ console.info("test Decimal ceil:" + data.toString()); // 'test Decimal ceil:2'
 
 ### trunc
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 trunc(): Decimal
 
 返回一个新的Decimal对象，其值是将此Decimal截断为整数部分。
@@ -259,6 +285,8 @@ console.info("test Decimal trunc:" + data.toString()); // 'test Decimal trunc:2'
 ```
 
 ### clamp
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 clamp(min: Value, max: Value): Decimal
 
@@ -305,6 +333,8 @@ console.info("test Decimal clamp:" + data3.toString()); // 'test Decimal clamp:7
 
 ### add
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 add(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是将此Decimal的值加上n。
@@ -341,6 +371,8 @@ console.info("test Decimal add:" + data.toString()); // 'test Decimal add:1'
 ```
 
 ### sub
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 sub(n: Value): Decimal
 
@@ -379,6 +411,8 @@ console.info("test Decimal sub:" + data.toString()); // 'test Decimal sub:0.5'
 
 ### mul
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 mul(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是将此Decimal的值乘以n。
@@ -415,6 +449,8 @@ console.info("test Decimal mul:" + data.toString()); // 'test Decimal mul:0.5'
 ```
 
 ### div
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 div(n: Value): Decimal
 
@@ -453,6 +489,8 @@ console.info("test Decimal div:" + data.toString()); // 'test Decimal div:2'
 
 ### mod
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 mod(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是将此Decimal的值除以n后的模。
@@ -490,6 +528,8 @@ console.info("test Decimal mod:" + data.toString()); // 'test Decimal mod:0'
 
 ### sqrt
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 sqrt(): Decimal
 
 返回一个新的Decimal对象，其值是当前Decimal的平方根。
@@ -513,6 +553,8 @@ console.info("test Decimal sqrt:" + data.toString()); // 'test Decimal sqrt:1.73
 
 ### cbrt
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 cbrt(): Decimal
 
 返回一个新的Decimal对象，其值是当前Decimal对象的立方根。
@@ -535,6 +577,8 @@ console.info("test Decimal cbrt:" + data.toString()); // 'test Decimal cbrt:1.44
 ```
 
 ### pow
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 pow(n: Value): Decimal
 
@@ -574,6 +618,8 @@ console.info("test Decimal pow:" + data.toString()); // 'test Decimal pow:0.1111
 
 ### exp
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 exp(): Decimal
 
 返回一个新的Decimal对象，其值是此Decimal值的自然指数。
@@ -604,6 +650,8 @@ console.info("test Decimal exp:" + data.toString()); // 'test Decimal exp:7.3890
 ```
 
 ### log
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 log(n: Value): Decimal
 
@@ -643,6 +691,8 @@ console.info("test Decimal log:" + data.toString()); // 'test Decimal log:0.125'
 
 ### ln
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ln(): Decimal
 
 返回一个新的Decimal对象，其值是此Decimal值的自然对数。
@@ -674,6 +724,8 @@ console.info("test Decimal ln:" + data.toString()); // 'test Decimal ln:69.28456
 
 ### cos
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 cos(): Decimal
 
 返回一个新的Decimal对象，其值是此Decimal的余弦值。输入值以弧度为单位。
@@ -696,6 +748,8 @@ console.info("test Decimal cos:" + data.toString()); // 'test Decimal cos:0.9689
 ```
 
 ### sin
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 sin(): Decimal
 
@@ -720,6 +774,8 @@ console.info("test Decimal sin:" + data.toString()); // 'test Decimal sin:0.6816
 
 ### tan
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 tan(): Decimal
 
 返回一个新的Decimal对象，其值是此Decimal的正切值。
@@ -742,6 +798,8 @@ console.info("test Decimal tan:" + data.toString()); // 'test Decimal tan:0.9315
 ```
 
 ### cosh
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 cosh(): Decimal
 
@@ -766,6 +824,8 @@ console.info("test Decimal cosh:" + data.toString()); // 'test Decimal cosh:1.12
 
 ### sinh
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 sinh(): Decimal
 
 返回一个新的Decimal对象，其值是此Decimal的双曲正弦值。
@@ -789,6 +849,8 @@ console.info("test Decimal sinh:" + data.toString()); // 'test Decimal sinh:0.52
 
 ### tanh
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 tanh(): Decimal
 
 返回一个新的Decimal对象，其值是此Decimal的双曲正切值。
@@ -811,6 +873,8 @@ console.info("test Decimal tanh:" + data.toString()); // 'test Decimal tanh:0.46
 ```
 
 ### acos
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 acos(): Decimal
 
@@ -843,6 +907,8 @@ console.info("test Decimal acos:" + data.toString()); // 'test Decimal acos:1.04
 
 ### asin
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 asin(): Decimal
 
 返回一个新的Decimal对象，其值是此Decimal的反正弦值。
@@ -873,6 +939,8 @@ console.info("test Decimal asin:" + data.toString()); // 'test Decimal asin:0.84
 ```
 
 ### atan
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 atan(): Decimal
 
@@ -905,6 +973,8 @@ console.info("test Decimal atan:" + data.toString()); // 'test Decimal atan:0.64
 
 ### acosh
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 acosh(): Decimal
 
 返回一个新的Decimal对象，其值是此Decimal值的反双曲余弦。
@@ -935,6 +1005,8 @@ console.info("test Decimal acosh:" + data.toString()); // 'test Decimal acosh:4.
 ```
 
 ### asinh
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 asinh(): Decimal
 
@@ -967,6 +1039,8 @@ console.info("test Decimal asinh:" + data.toString()); // 'test Decimal asinh:4.
 
 ### atanh
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 atanh(): Decimal
 
 返回一个新的Decimal对象，其值是此Decimal值的反双曲正切。
@@ -997,6 +1071,8 @@ console.info("test Decimal atanh:" + data.toString()); // 'test Decimal atanh:0.
 ```
 
 ### comparedTo
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 comparedTo(n: Value): number
 
@@ -1040,6 +1116,8 @@ console.info("test Decimal comparedTo:" + data3); // 'test Decimal comparedTo:-1
 
 ### equals
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 equals(n: Value): boolean
 
 返回该Decimal是否等于比较值。
@@ -1077,6 +1155,8 @@ console.info("test Decimal equals:" + data1); // 'test Decimal equals:false'
 ```
 
 ### greaterThan
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 greaterThan(n: Value): boolean
 
@@ -1116,6 +1196,8 @@ console.info("test Decimal greaterThan:" + data1); // 'test Decimal greaterThan:
 
 ### greaterThanOrEqualTo
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 greaterThanOrEqualTo(n: Value): boolean
 
 返回该Decimal是否大于等于比较值。
@@ -1153,6 +1235,8 @@ console.info("test Decimal greaterThanOrEqualTo:" + data1); // 'test Decimal gre
 ```
 
 ### lessThan
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 lessThan(n: Value): boolean
 
@@ -1192,6 +1276,8 @@ console.info("test Decimal lessThan:" + data1); // 'test Decimal lessThan:false'
 
 ### lessThanOrEqualTo
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 lessThanOrEqualTo(n: Value): boolean
 
 返回该Decimal是否小于等于比较值。
@@ -1230,6 +1316,8 @@ console.info("test Decimal lessThanOrEqualTo:" + data1); // 'test Decimal lessTh
 
 ### isFinite
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 isFinite(): boolean
 
 返回该Decimal是否为有限值。
@@ -1253,6 +1341,8 @@ console.info("test Decimal isFinite:" + data1); // 'test Decimal isFinite:true'
 ```
 
 ### isInteger
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 isInteger(): boolean
 
@@ -1278,6 +1368,8 @@ console.info("test Decimal isInteger:" + data1); // 'test Decimal isInteger:fals
 
 ### isNaN
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 isNaN(): boolean
 
 返回该Decimal是否为无效值。
@@ -1301,6 +1393,8 @@ console.info("test Decimal isNaN:" + data1); // 'test Decimal isNaN:true'
 ```
 
 ### isNegative
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 isNegative(): boolean
 
@@ -1330,6 +1424,8 @@ console.info("test Decimal isNegative:" + data3); // 'test Decimal isNegative:tr
 
 ### isPositive
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 isPositive(): boolean
 
 返回该Decimal是否为正数（区分正负零）。
@@ -1358,6 +1454,8 @@ console.info("test Decimal isPositive:" + data3); // 'test Decimal isPositive:tr
 
 ### isZero
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 isZero(): boolean
 
 返回该Decimal是否为0或是-0。
@@ -1381,6 +1479,8 @@ console.info("test Decimal isZero:" + data1.toString()); // 'test Decimal isZero
 ```
 
 ### dividedToIntegerBy
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 dividedToIntegerBy(n: Value): Decimal
 
@@ -1421,6 +1521,8 @@ console.info("test Decimal dividedToIntegerBy:" + data2.toString()); // 'test De
 
 ### negate
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 negate(): Decimal
 
 对Decimal值进行取负操作（乘以-1）。
@@ -1445,6 +1547,8 @@ console.info("test Decimal negate:" + data1.toString()); // 'test Decimal negate
 
 ### toBinary
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toBinary(): string
 
 将Decimal转换为二进制表示的字符串。
@@ -1468,6 +1572,8 @@ console.info("test Decimal toBinary:" + data1); // 'test Decimal toBinary:0b1000
 ```
 
 ### toBinary
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 toBinary(significantDigits: number): string
 
@@ -1509,6 +1615,8 @@ console.info("test Decimal toBinary:" + data1); // 'test Decimal toBinary:0b1p+8
 
 ### toBinary
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toBinary(significantDigits: number, rounding: Rounding): string
 
 将Decimal转换为二进制表示的字符串，并可按照significantDigits设置有效数字，以及按照rounding设置舍入模式。
@@ -1548,6 +1656,8 @@ console.info("test Decimal toBinary:" + data1); // 'test Decimal toBinary:0b1p+8
 
 ### toOctal
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toOctal(): string
 
 转换为八进制表示的字符串。
@@ -1571,6 +1681,8 @@ console.info("test Decimal toOctal:" + data1); // 'test Decimal toOctal:0o400'
 ```
 
 ### toOctal
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 toOctal(significantDigits: number): string
 
@@ -1612,6 +1724,8 @@ console.info("test Decimal toOctal:" + data1); // 'test Decimal toOctal:0o1p+8'
 
 ### toOctal
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toOctal(significantDigits: number, rounding: Rounding): string
 
 转换为八进制表示的字符串，可按照significantDigits设置有效数字，可按照rounding设置舍入模式。
@@ -1651,6 +1765,8 @@ console.info("test Decimal toOctal:" + data1); // 'test Decimal toOctal:0o1p+8'
 
 ### toHexadecimal
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toHexadecimal(): string
 
 转换为十六进制表示的字符串。
@@ -1674,6 +1790,8 @@ console.info("test Decimal toHexadecimal:" + data1); // 'test Decimal toHexadeci
 ```
 
 ### toHexadecimal
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 toHexadecimal(significantDigits: number): string
 
@@ -1715,6 +1833,8 @@ console.info("test Decimal toHexadecimal:" + data1); // 'test Decimal toHexadeci
 
 ### toHexadecimal
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toHexadecimal(significantDigits: number, rounding: Rounding): string
 
 转换为十六进制表示的字符串，可按照significantDigits设置有效数字，可按照rounding设置舍入模式。
@@ -1754,6 +1874,8 @@ console.info("test Decimal toHexadecimal:" + data1); // 'test Decimal toHexadeci
 
 ### toDecimalPlaces
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toDecimalPlaces(): Decimal
 
 返回一个保留小数点后指定位数的Decimal对象，不进行小数的舍入。
@@ -1777,6 +1899,8 @@ console.info("test Decimal toDecimalPlaces:" + data1.toString()); // 'test Decim
 ```
 
 ### toDecimalPlaces
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 toDecimalPlaces(decimalPlaces: number): Decimal
 
@@ -1818,6 +1942,8 @@ console.info("test Decimal toDecimalPlaces:" + data1.toString()); // 'test Decim
 
 ### toDecimalPlaces
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toDecimalPlaces(decimalPlaces: number, rounding: Rounding): Decimal
 
 返回一个保留小数点后指定位数的Decimal对象，可按照decimalPlaces设置小数位数，可按照rounding设置舍入模式。
@@ -1858,6 +1984,8 @@ data1 = data.toDecimalPlaces(1, Decimal.ROUND_DOWN); // data1：'9876.5'
 
 ### toExponential
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toExponential(): string
 
 将数值转换为指数表示法的字符串，不进行小数部分的舍入。
@@ -1881,6 +2009,8 @@ console.info("test Decimal toExponential:" + data1); // 'test Decimal toExponent
 ```
 
 ### toExponential
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 toExponential(decimalPlaces: number): string
 
@@ -1924,6 +2054,8 @@ data1 = data.toExponential(3); // data1：'4.560e+1'
 
 ### toExponential
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toExponential(decimalPlaces: number, rounding: Rounding): string
 
 转换为按照指数表示法显示的字符串，可按照decimalPlaces设置小数位数，可按照rounding设置舍入模式。
@@ -1963,6 +2095,8 @@ console.info("test Decimal toExponential:" + data1); // 'test Decimal toExponent
 
 ### toFixed
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toFixed(): string
 
 将数值转换为十进制定点模式表示的字符串，不进行小数的舍入。
@@ -1986,6 +2120,8 @@ console.info("test Decimal toFixed:" + data1); // 'test Decimal toFixed:3.456'
 ```
 
 ### toFixed
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 toFixed(decimalPlaces: number): string
 
@@ -2029,6 +2165,8 @@ data1 = data.toFixed(5); // data1：'3.45600'
 
 ### toFixed
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toFixed(decimalPlaces: number, rounding: Rounding): string
 
 将数值转换为十进制定点模式表示的字符串，可按照decimalPlaces设置小数位数，可按照rounding设置舍入模式。
@@ -2068,6 +2206,8 @@ console.info("test Decimal toFixed:" + data1); // data1：'test Decimal toFixed:
 
 ### toFraction
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toFraction(): Decimal[]
 
 转换为分数表示的数。
@@ -2091,6 +2231,8 @@ console.info("test Decimal toFraction:" + data1.toString()); // 'test Decimal to
 ```
 
 ### toFraction
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 toFraction(maxDenominator: Value): Decimal[]
 
@@ -2134,6 +2276,8 @@ data1 = pi.toFraction(1); // data1：'3, 1'
 
 ### toNearest
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toNearest(n: Value): Decimal
 
 返回一个新的Decimal对象，其值为指定值n的整数倍中最接近原Decimal值的值。
@@ -2171,6 +2315,8 @@ console.info("test Decimal toNearest:" + data1.toString()); // 'test Decimal toN
 ```
 
 ### toNearest
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 toNearest(n: Value, rounding: Rounding): Decimal
 
@@ -2212,6 +2358,8 @@ data1 = data.toNearest(0.5, Decimal.ROUND_DOWN); // data1：'9'
 
 ### toPrecision
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toPrecision(): string
 
 将Decimal对象转换为字符串。
@@ -2235,6 +2383,8 @@ console.info("test Decimal toPrecision:" + data1); // 'test Decimal toPrecision:
 ```
 
 ### toPrecision
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 toPrecision(significantDigits: number): string
 
@@ -2277,6 +2427,8 @@ data1 = data.toPrecision(5); // data1：'45.600'
 
 ### toPrecision
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toPrecision(significantDigits: number, rounding: Rounding): string
 
 转换为字符串，可按照significantDigits设置有效数字，可按照rounding设置舍入模式。
@@ -2316,6 +2468,8 @@ data1 = data.toPrecision(2, Decimal.ROUND_DOWN); // data1：'45'
 
 ### toSignificantDigits
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toSignificantDigits(): Decimal
 
 返回一个按照保留有效数字的转换的Decimal对象。
@@ -2339,6 +2493,8 @@ console.info("test Decimal toSignificantDigits:" + data1.toString()); // 'test D
 ```
 
 ### toSignificantDigits
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 toSignificantDigits(significantDigits: number): Decimal
 
@@ -2380,6 +2536,8 @@ console.info("test Decimal toSignificantDigits:" + data1.toString()); // 'test D
 
 ### toSignificantDigits
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toSignificantDigits(significantDigits: number, rounding: Rounding): Decimal
 
 返回一个按照保留有效数字的转换的Decimal对象，可按照significantDigits设置有效数字，可按照rounding设置舍入模式。
@@ -2419,6 +2577,8 @@ console.info("test Decimal toSignificantDigits:" + data1.toString()); // 'test D
 
 ### toNumber
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toNumber(): number
 
 将值转换为number类型。
@@ -2442,6 +2602,8 @@ console.info("test Decimal toNumber:" + data1.toString()); // 'test Decimal toNu
 ```
 
 ### toString
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 toString(): string
 
@@ -2476,6 +2638,8 @@ data1 = data2.toString(); // data1:'1.23e-7'
 
 ### valueOf
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 valueOf(): string
 
 返回一个字符串，表示此 Decimal 的值，负零包含负号。
@@ -2499,6 +2663,8 @@ console.info("test Decimal valueOf:" + data1); // 'test Decimal valueOf:-0'
 ```
 
 ### decimalPlaces
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 decimalPlaces(): number
 
@@ -2524,6 +2690,8 @@ console.info("test Decimal decimalPlaces:" + data1); // 'test Decimal decimalPla
 
 ### precision
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 precision(): number
 
 返回Decimal对象的有效数字位数。
@@ -2547,6 +2715,8 @@ console.info("test Decimal precision:" + data1); // 'test Decimal precision:4'
 ```
 
 ### precision
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 precision(includeZeros: boolean | number): number
 
@@ -2587,6 +2757,8 @@ data1 = data.precision(true); // data1:'6'
 
 ### abs
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static abs(n: Value): Decimal
 
 返回一个新的Decimal对象，Decimal的值为参数n的绝对值。
@@ -2623,6 +2795,8 @@ console.info("test Decimal abs:" + data.toString()); // 'test Decimal abs:0.5'
 ```
 
 ### floor
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static floor(n: Value): Decimal
 
@@ -2661,6 +2835,8 @@ console.info("test Decimal floor:" + data.toString()); // 'test Decimal floor:1'
 
 ### ceil
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static ceil(n: Value): Decimal
 
 返回一个新的Decimal对象，其值为参数n向正无穷方向舍入得到的结果。
@@ -2698,6 +2874,8 @@ console.info("test Decimal ceil:" + data.toString()); // 'test Decimal ceil:2'
 
 ### trunc
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static trunc(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是将参数n截断为整数部分。
@@ -2734,6 +2912,8 @@ console.info("test Decimal trunc:" + data.toString()); // 'test Decimal trunc:2'
 ```
 
 ### clamp
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static clamp(n: Value, min: Value, max: Value): Decimal
 
@@ -2775,6 +2955,8 @@ console.info("test Decimal clamp:" + data.toString()); // 'test Decimal clamp:10
 
 ### add
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static add(x: Value, y: Value): Decimal
 
 返回一个值为x加y的和的Decimal对象。
@@ -2813,6 +2995,8 @@ console.info("test Decimal add:" + data.toString()); // 'test Decimal add:1'
 
 ### sum
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static sum(...n: Value[]): Decimal
 
 返回一个值为数组元素和的Decimal对象。该接口用于对参数求和，当无入参时会抛出运行时异常。
@@ -2849,6 +3033,8 @@ console.info("test Decimal sum:" + data.toString()); // 'test Decimal sum:1'
 ```
 
 ### sub
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static sub(x: Value, y: Value): Decimal
 
@@ -2888,6 +3074,8 @@ console.info("test Decimal sub:" + data.toString()); // 'test Decimal sub:0.5'
 
 ### mul
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static mul(x: Value, y: Value): Decimal
 
 返回一个值为x乘以y的积的Decimal对象。
@@ -2925,6 +3113,8 @@ console.info("test Decimal mul:" + data.toString()); // 'test Decimal mul:0.5'
 ```
 
 ### div
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static div(x: Value, y: Value): Decimal
 
@@ -2964,6 +3154,8 @@ console.info("test Decimal div:" + data.toString()); // 'test Decimal div:2'
 
 ### mod
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static mod(x: Value, y: Value): Decimal
 
 返回一个新的Decimal对象，其值是x除以y的模。
@@ -3002,6 +3194,8 @@ console.info("test Decimal mod:" + data.toString()); // 'test Decimal mod:0'
 
 ### sqrt
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static sqrt(n: Value): Decimal
 
 返回一个值为n的平方根的Decimal对象。
@@ -3039,6 +3233,8 @@ console.info("test Decimal sqrt:" + data.toString()); // 'test Decimal sqrt:1.73
 
 ### cbrt
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static cbrt(n: Value): Decimal
 
 返回一个值为n的立方根的Decimal对象。
@@ -3075,6 +3271,8 @@ console.info("test Decimal cbrt:" + data.toString()); // 'test Decimal cbrt:1.44
 ```
 
 ### pow
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static pow(base: Value, exponent: Value): Decimal
 
@@ -3115,6 +3313,8 @@ console.info("test Decimal pow:" + data.toString()); // 'test Decimal pow:0.1111
 
 ### exp
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static exp(n: Value): Decimal
 
 返回一个值为n的自然指数的Decimal对象。
@@ -3152,6 +3352,8 @@ console.info("test Decimal exp:" + data.toString()); // 'test Decimal exp:7.3890
 ```
 
 ### log
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static log(n: Value, base: Value): Decimal
 
@@ -3192,6 +3394,8 @@ console.info("test Decimal log:" + data.toString()); // 'test Decimal log:0.125'
 
 ### ln
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static ln(n: Value): Decimal
 
 返回一个值为n的自然对数的Decimal对象。
@@ -3229,6 +3433,8 @@ console.info("test Decimal ln:" + data.toString()); // 'test Decimal ln:69.28456
 ```
 
 ### log2
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static log2(n: Value): Decimal
 
@@ -3268,6 +3474,8 @@ console.info("test Decimal log2:" + data.toString()); // 'test Decimal log2:2'
 
 ### log10
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static log10(n: Value): Decimal
 
 返回一个以10为底n的对数的Decimal对象。
@@ -3306,6 +3514,8 @@ console.info("test Decimal log10:" + data.toString()); // 'test Decimal log10:4'
 
 ### cos
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static cos(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是n的余弦值。
@@ -3342,6 +3552,8 @@ console.info("test Decimal cos:" + data.toString()); // 'test Decimal cos:0.9689
 ```
 
 ### sin
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static sin(n: Value): Decimal
 
@@ -3380,6 +3592,8 @@ console.info("test Decimal sin:" + data.toString()); // 'test Decimal sin:0.6816
 
 ### tan
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static tan(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是n的正切值。
@@ -3416,6 +3630,8 @@ console.info("test Decimal tan:" + data.toString()); // 'test Decimal tan:0.9315
 ```
 
 ### cosh
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static cosh(n: Value): Decimal
 
@@ -3454,6 +3670,8 @@ console.info("test Decimal cosh:" + data.toString()); // 'test Decimal cosh:1.12
 
 ### sinh
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static sinh(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是n的双曲正弦值。
@@ -3491,6 +3709,8 @@ console.info("test Decimal sinh:" + data.toString()); // 'test Decimal sinh:0.52
 
 ### tanh
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static tanh(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是n的双曲正切值。
@@ -3527,6 +3747,8 @@ console.info("test Decimal tanh:" + data.toString()); // 'test Decimal tanh:0.46
 ```
 
 ### acos
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static acos(n: Value): Decimal
 
@@ -3566,6 +3788,8 @@ console.info("test Decimal acos:" + data.toString()); // 'test Decimal acos:1.04
 
 ### asin
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static asin(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是n的反正弦值。
@@ -3603,6 +3827,8 @@ console.info("test Decimal asin:" + data.toString()); // 'test Decimal asin:0.84
 ```
 
 ### atan
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static atan(n: Value): Decimal
 
@@ -3642,6 +3868,8 @@ console.info("test Decimal atan:" + data.toString()); // 'test Decimal atan:0.64
 
 ### acosh
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static acosh(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是n的反双曲余弦值。
@@ -3679,6 +3907,8 @@ console.info("test Decimal acosh:" + data.toString()); // 'test Decimal acosh:4.
 ```
 
 ### asinh
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static asinh(n: Value): Decimal
 
@@ -3718,6 +3948,8 @@ console.info("test Decimal asinh:" + data.toString()); // 'test Decimal asinh:4.
 
 ### atanh
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static atanh(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是n的反双曲正切值。
@@ -3755,6 +3987,8 @@ console.info("test Decimal atanh:" + data.toString()); // 'test Decimal atanh:0.
 ```
 
 ### atan2
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static atan2(y: Value, x: Value): Decimal
 
@@ -3795,6 +4029,8 @@ console.info("test Decimal atan2:" + data.toString()); // 'test Decimal atan2:0.
 
 ### hypot
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static hypot(...n: Value[]): Decimal
 
 返回一个新的Decimal对象，其值是参数平方和的平方根。无入参时默认返回0。
@@ -3831,6 +4067,8 @@ console.info("test Decimal hypot:" + data.toString()); // 'test Decimal hypot:5.
 ```
 
 ### max
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static max(...n: Value[]): Decimal
 
@@ -3869,6 +4107,8 @@ console.info("test Decimal max:" + data.toString()); // 'test Decimal max:4'
 
 ### min
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static min(...n: Value[]): Decimal
 
 返回一个值为所有参数中最小值的Decimal对象。该接口用于求参数中的最小值，当无入参时会发生运行时异常。
@@ -3906,6 +4146,8 @@ console.info("test Decimal min:" + data.toString()); // 'test Decimal min:2'
 
 ### random
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static random(): Decimal
 
 返回一个值为大于等于0小于1的随机值的Decimal对象。
@@ -3935,6 +4177,8 @@ let data: Decimal = Decimal.random();
 ```
 
 ### random
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static random(significantDigits: number): Decimal
 
@@ -3972,6 +4216,8 @@ let data: Decimal = Decimal.random(20);
 ```
 
 ### sign
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static sign(n: Value): number
 
@@ -4032,6 +4278,8 @@ console.info("test Decimal sign:" + data8); // 'test Decimal sign:NaN'
 
 ### round
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static round(n: Value): Decimal
 
 返回一个新的Decimal对象，其值是使用[DecimalConfig.rounding](#decimalconfig)模式舍入为整数的n。
@@ -4069,6 +4317,8 @@ console.info("test Decimal round:" + data.toString()); // 'test Decimal round:3'
 ```
 
 ### set
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static set(config: DecimalConfig):void
 

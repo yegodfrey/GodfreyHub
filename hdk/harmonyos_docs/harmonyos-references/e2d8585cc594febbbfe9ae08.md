@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 媒体会话定义，可用于设置元数据、播放状态信息等操作。
 
 **引用文件：** <multimedia/av_session/native_avsession.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:----------------------------------------------------------------------------------------------------------------------------|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -32,6 +38,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 |[OH_AVCastController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohavsession-oh-avcastcontroller)|OH_AVCastController|声明投播控制器对象。投播控制器对象可以使用[OH_AVSession_CreateAVCastController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-h#oh_avsession_createavcastcontroller)方法创建。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -76,7 +84,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_AVSessionCallback_OnCommand()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnCommand)(OH_AVSession* session, AVSession_ControlCommand command, void* userData)
@@ -90,6 +102,8 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnCommand)(OH_AVSession*
 
 ### OH_AVSessionCallback_OnFastForward()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnFastForward)(OH_AVSession* session, uint32_t seekTime, void* userData)
 ```
@@ -101,6 +115,8 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnFastForward)(OH_AVSess
 **起始版本：** 13
 
 ### OH_AVSessionCallback_OnRewind()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnRewind)(OH_AVSession* session, uint32_t seekTime, void* userData)
@@ -114,6 +130,8 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnRewind)(OH_AVSession* 
 
 ### OH_AVSessionCallback_OnSeek()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnSeek)(OH_AVSession* session, uint64_t seekTime, void* userData)
 ```
@@ -125,6 +143,8 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnSeek)(OH_AVSession* se
 **起始版本：** 13
 
 ### OH_AVSessionCallback_OnSetLoopMode()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnSetLoopMode)(OH_AVSession* session, AVSession_LoopMode curLoopMode, void* userData)
@@ -138,6 +158,8 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnSetLoopMode)(OH_AVSess
 
 ### OH_AVSessionCallback_OnToggleFavorite()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnToggleFavorite)(OH_AVSession* session, const char* assetId, void* userData)
 ```
@@ -150,6 +172,8 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OnToggleFavorite)(OH_AVS
 
 ### OH_AVSessionCallback_OutputDeviceChange()
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 ```c
 typedef AVSessionCallback_Result (*OH_AVSessionCallback_OutputDeviceChange)(OH_AVSession* session, AVSession_ConnectionState state, AVSession_OutputDeviceInfo* outputDeviceInfo)
 ```
@@ -161,6 +185,8 @@ typedef AVSessionCallback_Result (*OH_AVSessionCallback_OutputDeviceChange)(OH_A
 **起始版本：** 23
 
 ### OH_AVSession_Create()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_Create(AVSession_Type sessionType, const char* sessionTag, const char* bundleName, const char* abilityName, OH_AVSession** avsession)
@@ -190,6 +216,8 @@ AVSession_ErrCode OH_AVSession_Create(AVSession_Type sessionType, const char* se
 
 ### OH_AVSession_Destroy()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 AVSession_ErrCode OH_AVSession_Destroy(OH_AVSession* avsession)
 ```
@@ -213,6 +241,8 @@ AVSession_ErrCode OH_AVSession_Destroy(OH_AVSession* avsession)
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_INVALID_PARAMETER：参数avsession为nullptr。|
 
 ### OH_AVSession_Activate()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_Activate(OH_AVSession* avsession)
@@ -238,6 +268,8 @@ AVSession_ErrCode OH_AVSession_Activate(OH_AVSession* avsession)
 
 ### OH_AVSession_Deactivate()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 AVSession_ErrCode OH_AVSession_Deactivate(OH_AVSession* avsession)
 ```
@@ -261,6 +293,8 @@ AVSession_ErrCode OH_AVSession_Deactivate(OH_AVSession* avsession)
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_INVALID_PARAMETER：参数avsession为nullptr。|
 
 ### OH_AVSession_GetSessionType()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_GetSessionType(OH_AVSession* avsession, AVSession_Type* sessionType)
@@ -287,6 +321,8 @@ AVSession_ErrCode OH_AVSession_GetSessionType(OH_AVSession* avsession, AVSession
 
 ### OH_AVSession_GetSessionId()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 AVSession_ErrCode OH_AVSession_GetSessionId(OH_AVSession* avsession, const char** sessionId)
 ```
@@ -311,6 +347,8 @@ AVSession_ErrCode OH_AVSession_GetSessionId(OH_AVSession* avsession, const char*
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_INVALID_PARAMETER： 1. 参数avsession为nullptr。 2. 参数sessionId为nullptr。|
 
 ### OH_AVSession_SetAVMetadata()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_SetAVMetadata(OH_AVSession* avsession, OH_AVMetadata* avmetadata)
@@ -337,6 +375,8 @@ AVSession_ErrCode OH_AVSession_SetAVMetadata(OH_AVSession* avsession, OH_AVMetad
 
 ### OH_AVSession_SetPlaybackState()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 AVSession_ErrCode OH_AVSession_SetPlaybackState(OH_AVSession* avsession, AVSession_PlaybackState playbackState)
 ```
@@ -361,6 +401,8 @@ AVSession_ErrCode OH_AVSession_SetPlaybackState(OH_AVSession* avsession, AVSessi
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_INVALID_PARAMETER： 1. 参数avsession为nullptr。 2. 参数playbackState是无效的。|
 
 ### OH_AVSession_SetPlaybackPosition()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_SetPlaybackPosition(OH_AVSession* avsession, AVSession_PlaybackPosition* playbackPosition)
@@ -387,6 +429,8 @@ AVSession_ErrCode OH_AVSession_SetPlaybackPosition(OH_AVSession* avsession, AVSe
 
 ### OH_AVSession_SetFavorite()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 AVSession_ErrCode OH_AVSession_SetFavorite(OH_AVSession* avsession, bool favorite)
 ```
@@ -411,6 +455,8 @@ AVSession_ErrCode OH_AVSession_SetFavorite(OH_AVSession* avsession, bool favorit
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_INVALID_PARAMETER：参数avsession为nullptr。|
 
 ### OH_AVSession_SetLoopMode()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_SetLoopMode(OH_AVSession* avsession, AVSession_LoopMode loopMode)
@@ -437,6 +483,8 @@ AVSession_ErrCode OH_AVSession_SetLoopMode(OH_AVSession* avsession, AVSession_Lo
 
 ### OH_AVSession_SetRemoteCastEnabled()
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 ```c
 AVSession_ErrCode OH_AVSession_SetRemoteCastEnabled(OH_AVSession* avsession, bool enabled)
 ```
@@ -461,6 +509,8 @@ AVSession_ErrCode OH_AVSession_SetRemoteCastEnabled(OH_AVSession* avsession, boo
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_CODE_SESSION_NOT_EXIST：会话不存在。 AV_SESSION_ERR_INVALID_PARAMETER：参数avsession为nullptr。|
 
 ### OH_AVSession_RegisterCommandCallback()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_RegisterCommandCallback(OH_AVSession* avsession, AVSession_ControlCommand command, OH_AVSessionCallback_OnCommand callback, void* userData)
@@ -489,6 +539,8 @@ AVSession_ErrCode OH_AVSession_RegisterCommandCallback(OH_AVSession* avsession, 
 
 ### OH_AVSession_UnregisterCommandCallback()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 AVSession_ErrCode OH_AVSession_UnregisterCommandCallback(OH_AVSession* avsession, AVSession_ControlCommand command, OH_AVSessionCallback_OnCommand callback)
 ```
@@ -514,6 +566,8 @@ AVSession_ErrCode OH_AVSession_UnregisterCommandCallback(OH_AVSession* avsession
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_CODE_COMMAND_INVALID：控制命令无效。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_INVALID_PARAMETER： 1. 参数avsession为nullptr。 2. 参数callback为nullptr。|
 
 ### OH_AVSession_RegisterForwardCallback()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_RegisterForwardCallback(OH_AVSession* avsession, OH_AVSessionCallback_OnFastForward callback, void* userData)
@@ -541,6 +595,8 @@ AVSession_ErrCode OH_AVSession_RegisterForwardCallback(OH_AVSession* avsession, 
 
 ### OH_AVSession_UnregisterForwardCallback()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 AVSession_ErrCode OH_AVSession_UnregisterForwardCallback(OH_AVSession* avsession, OH_AVSessionCallback_OnFastForward callback)
 ```
@@ -565,6 +621,8 @@ AVSession_ErrCode OH_AVSession_UnregisterForwardCallback(OH_AVSession* avsession
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_INVALID_PARAMETER： 1. 参数avsession为nullptr。 2. 参数callback为nullptr。|
 
 ### OH_AVSession_RegisterRewindCallback()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_RegisterRewindCallback(OH_AVSession* avsession, OH_AVSessionCallback_OnRewind callback, void* userData)
@@ -592,6 +650,8 @@ AVSession_ErrCode OH_AVSession_RegisterRewindCallback(OH_AVSession* avsession, O
 
 ### OH_AVSession_UnregisterRewindCallback()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 AVSession_ErrCode OH_AVSession_UnregisterRewindCallback(OH_AVSession* avsession, OH_AVSessionCallback_OnRewind callback)
 ```
@@ -616,6 +676,8 @@ AVSession_ErrCode OH_AVSession_UnregisterRewindCallback(OH_AVSession* avsession,
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_INVALID_PARAMETER： 1. 参数avsession为nullptr。 2. 参数callback为nullptr。|
 
 ### OH_AVSession_RegisterSeekCallback()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_RegisterSeekCallback(OH_AVSession* avsession, OH_AVSessionCallback_OnSeek callback, void* userData)
@@ -643,6 +705,8 @@ AVSession_ErrCode OH_AVSession_RegisterSeekCallback(OH_AVSession* avsession, OH_
 
 ### OH_AVSession_UnregisterSeekCallback()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 AVSession_ErrCode OH_AVSession_UnregisterSeekCallback(OH_AVSession* avsession, OH_AVSessionCallback_OnSeek callback)
 ```
@@ -667,6 +731,8 @@ AVSession_ErrCode OH_AVSession_UnregisterSeekCallback(OH_AVSession* avsession, O
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_INVALID_PARAMETER： 1. 参数avsession为nullptr。 2. 参数callback为nullptr。|
 
 ### OH_AVSession_RegisterSetLoopModeCallback()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_RegisterSetLoopModeCallback(OH_AVSession* avsession, OH_AVSessionCallback_OnSetLoopMode callback, void* userData)
@@ -694,6 +760,8 @@ AVSession_ErrCode OH_AVSession_RegisterSetLoopModeCallback(OH_AVSession* avsessi
 
 ### OH_AVSession_UnregisterSetLoopModeCallback()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 AVSession_ErrCode OH_AVSession_UnregisterSetLoopModeCallback(OH_AVSession* avsession, OH_AVSessionCallback_OnSetLoopMode callback)
 ```
@@ -718,6 +786,8 @@ AVSession_ErrCode OH_AVSession_UnregisterSetLoopModeCallback(OH_AVSession* avses
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_INVALID_PARAMETER： 1. 参数avsession为nullptr。 2. 参数callback为nullptr。|
 
 ### OH_AVSession_RegisterToggleFavoriteCallback()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 AVSession_ErrCode OH_AVSession_RegisterToggleFavoriteCallback(OH_AVSession* avsession, OH_AVSessionCallback_OnToggleFavorite callback, void* userData)
@@ -745,6 +815,8 @@ AVSession_ErrCode OH_AVSession_RegisterToggleFavoriteCallback(OH_AVSession* avse
 
 ### OH_AVSession_UnregisterToggleFavoriteCallback()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 AVSession_ErrCode OH_AVSession_UnregisterToggleFavoriteCallback(OH_AVSession* avsession, OH_AVSessionCallback_OnToggleFavorite callback)
 ```
@@ -769,6 +841,8 @@ AVSession_ErrCode OH_AVSession_UnregisterToggleFavoriteCallback(OH_AVSession* av
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_INVALID_PARAMETER： 1. 参数avsession为nullptr。 2. 参数callback为nullptr。|
 
 ### OH_AVSession_RegisterOutputDeviceChangeCallback()
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 ```c
 AVSession_ErrCode OH_AVSession_RegisterOutputDeviceChangeCallback(OH_AVSession* avsession, OH_AVSessionCallback_OutputDeviceChange callback)
@@ -795,6 +869,8 @@ AVSession_ErrCode OH_AVSession_RegisterOutputDeviceChangeCallback(OH_AVSession* 
 
 ### OH_AVSession_UnregisterOutputDeviceChangeCallback()
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 ```c
 AVSession_ErrCode OH_AVSession_UnregisterOutputDeviceChangeCallback(OH_AVSession* avsession, OH_AVSessionCallback_OutputDeviceChange callback)
 ```
@@ -819,6 +895,8 @@ AVSession_ErrCode OH_AVSession_UnregisterOutputDeviceChangeCallback(OH_AVSession
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_INVALID_PARAMETER： 1. 参数avsession为nullptr。 2. 参数callback为nullptr。|
 
 ### OH_AVSession_AcquireSession()
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 ```c
 AVSession_ErrCode OH_AVSession_AcquireSession(const char* sessionTag, const char* bundleName, const char* abilityName, OH_AVSession** avsession)
@@ -847,6 +925,8 @@ AVSession_ErrCode OH_AVSession_AcquireSession(const char* sessionTag, const char
 
 ### OH_AVSession_CreateAVCastController()
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 ```c
 AVSession_ErrCode OH_AVSession_CreateAVCastController(OH_AVSession* avsession, OH_AVCastController** avcastcontroller)
 ```
@@ -872,6 +952,8 @@ AVSession_ErrCode OH_AVSession_CreateAVCastController(OH_AVSession* avsession, O
 
 ### OH_AVSession_StopCasting()
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 ```c
 AVSession_ErrCode OH_AVSession_StopCasting(OH_AVSession* avsession)
 ```
@@ -895,6 +977,8 @@ AVSession_ErrCode OH_AVSession_StopCasting(OH_AVSession* avsession)
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_CODE_SESSION_NOT_EXIST：会话不存在。 AV_SESSION_ERR_INVALID_PARAMETER：参数avsession为nullptr。|
 
 ### OH_AVSession_AcquireOutputDevice()
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 ```c
 AVSession_ErrCode OH_AVSession_AcquireOutputDevice(OH_AVSession* avsession, AVSession_OutputDeviceInfo** outputDeviceInfo)
@@ -920,6 +1004,8 @@ AVSession_ErrCode OH_AVSession_AcquireOutputDevice(OH_AVSession* avsession, AVSe
 |[AVSession_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h#avsession_errcode)|AV_SESSION_ERR_SUCCESS：函数执行成功。 AV_SESSION_ERR_SERVICE_EXCEPTION：会话服务异常。 AV_SESSION_ERR_CODE_SESSION_NOT_EXIST：会话不存在。 AV_SESSION_ERR_INVALID_PARAMETER： 1. 参数avsession为nullptr。 2. 参数outputDeviceInfo为nullptr。|
 
 ### OH_AVSession_ReleaseOutputDevice()
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 ```c
 AVSession_ErrCode OH_AVSession_ReleaseOutputDevice(OH_AVSession* avsession, AVSession_OutputDeviceInfo *outputDeviceInfo)

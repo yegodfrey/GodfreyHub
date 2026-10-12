@@ -27,11 +27,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-f
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { floatingBall } from '@kit.ArkUI';
 ```
 
 ## floatingBall.isFloatingBallEnabled
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 isFloatingBallEnabled(): boolean
 
@@ -54,6 +58,8 @@ console.info('Floating ball enabled is: ' + enable);
 ```
 
 ## floatingBall.create
+
+> phone 20+ | 2in1 26.0.0+ | tablet 20+
 
 create(config: FloatingBallConfiguration): Promise<FloatingBallController>
 
@@ -115,6 +121,8 @@ try {
 
 ## FloatingBallConfiguration
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 创建闪控球控制器时需要提供的参数配置。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -125,6 +133,8 @@ try {
 
 ## FloatingBallController
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 闪控球控制器实例，用于启动、更新、停止闪控球以及注册回调等操作。
 
 下列API示例中都需先使用[floatingBall.create()](#floatingballcreate)方法获取到闪控球控制器实例（即floatingBallController），再通过此实例调用对应方法。
@@ -132,6 +142,8 @@ try {
 **系统能力：** SystemCapability.Window.SessionManager
 
 ### startFloatingBall
+
+> phone 20+ | 2in1 26.0.0+ | tablet 20+
 
 startFloatingBall(params: FloatingBallParams): Promise<void>
 
@@ -194,6 +206,8 @@ try {
 
 ### updateFloatingBall
 
+> phone 20+ | 2in1 26.0.0+ | tablet 20+
+
 updateFloatingBall(params: FloatingBallParams): Promise<void>
 
 更新闪控球，使用Promise异步回调。必须先调用[startFloatingBall()](#startfloatingball)启动闪控球后，才能调用此方法更新闪控球参数。
@@ -253,6 +267,8 @@ try {
 
 ### stopFloatingBall
 
+> phone 20+ | 2in1 26.0.0+ | tablet 20+
+
 stopFloatingBall(): Promise<void>
 
 停止闪控球，使用Promise异步回调。
@@ -289,6 +305,8 @@ floatingBallController.stopFloatingBall().then(() => {
 ```
 
 ### on('stateChange')
+
+> phone 20+ | 2in1 26.0.0+ | tablet 20+
 
 on(type: 'stateChange', callback: Callback<FloatingBallState>): void
 
@@ -331,6 +349,8 @@ try {
 
 ### off('stateChange')
 
+> phone 20+ | 2in1 26.0.0+ | tablet 20+
+
 off(type: 'stateChange', callback?: Callback<FloatingBallState>): void
 
 取消闪控球生命周期状态变化的监听事件。
@@ -370,6 +390,8 @@ try {
 ```
 
 ### on('click')
+
+> phone 20+ | 2in1 26.0.0+ | tablet 20+
 
 on(type: 'click', callback: Callback<void>): void
 
@@ -412,6 +434,8 @@ try {
 
 ### off('click')
 
+> phone 20+ | 2in1 26.0.0+ | tablet 20+
+
 off(type: 'click', callback?: Callback<void>): void
 
 取消闪控球点击的监听事件。
@@ -452,6 +476,8 @@ try {
 
 ### getFloatingBallWindowInfo
 
+> phone 20+ | 2in1 26.0.0+ | tablet 20+
+
 getFloatingBallWindowInfo(): Promise<FloatingBallWindowInfo>
 
 获取闪控球窗口信息，使用Promise异步回调。
@@ -491,6 +517,8 @@ floatingBallController.getFloatingBallWindowInfo().then((data: floatingBall.Floa
 ```
 
 ### restoreMainWindow
+
+> phone 20+ | 2in1 26.0.0+ | tablet 20+
 
 restoreMainWindow(want: Want): Promise<void>
 
@@ -553,6 +581,8 @@ try {
 
 ### setFloatingBallVisibilityInApp^24+^
 
+> phone 24+ | 2in1 26.0.0+ | tablet 24+
+
 setFloatingBallVisibilityInApp(isVisible: boolean): Promise<void>
 
 设置闪控球在应用内是否可见。使用Promise异步回调。
@@ -602,6 +632,8 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 
 ### onDestroy
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
+
 onDestroy(callback: Callback<string>): void
 
 注册闪控球销毁事件的监听。当闪控球销毁时，回调函数会接收到销毁原因的字符串。不再使用时，调用[offDestroy](#offdestroy)接口取消监听以避免内存泄漏。
@@ -645,6 +677,8 @@ try {
 ```
 
 ### offDestroy
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
 
 offDestroy(callback?: Callback<string>): void
 
@@ -695,6 +729,8 @@ try {
 
 ## FloatingBallParams
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 启动和更新闪控球的配置参数。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -712,6 +748,8 @@ try {
 
 ## FloatingBallState
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 闪控球生命周期状态的枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -722,6 +760,8 @@ try {
 |STOPPED|2|表示闪控球停止。|
 
 ## FloatingBallTemplate
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 闪控球模板类型的枚举。
 
@@ -736,6 +776,8 @@ try {
 
 ## FloatingBallWindowInfo
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 闪控球窗口信息。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -745,6 +787,8 @@ try {
 |windowId|number|是|否|闪控球窗口ID。|
 
 ## FloatingBallTextUpdateAnimationType
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 闪控球文本更新动画类型的枚举。
 

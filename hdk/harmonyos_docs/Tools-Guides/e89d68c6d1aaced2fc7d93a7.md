@@ -10,9 +10,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/Tools-Guides/calculate-schedul
 
 要计算此值，可以使用以下查询。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/B8h8wUzaRIya2U1lHouheQ/zh-cn_image_0000001837974721.png?HW-CC-KV=V1&HW-CC-Date=20260909T165445Z&HW-CC-Expire=31536000000&HW-CC-Sign=701A6B1F07CBC8472DC6EBAAF46D071F9B6C5D957191B12AD7FB2E827D505DC5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/B8h8wUzaRIya2U1lHouheQ/zh-cn_image_0000001837974721.png?HW-CC-KV=V1&HW-CC-Date=20261008T175321Z&HW-CC-Expire=31536000000&HW-CC-Sign=900285E66BF6AE83440B1D0D7F7E993772F0507AC86DEEEDEB6678ACFEA05CD7)
 
 要同时对跟踪中的所有线程执行此操作，请执行以下内容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/LjPvFEFuRMihscPAGtTXBg/zh-cn_image_0000001837854773.png?HW-CC-KV=V1&HW-CC-Date=20260909T165445Z&HW-CC-Expire=31536000000&HW-CC-Sign=4F5B371C45A4365F7E7AF80130273848CC4C86E6857187913BF27F78A964BEAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/LjPvFEFuRMihscPAGtTXBg/zh-cn_image_0000001837854773.png?HW-CC-KV=V1&HW-CC-Date=20261008T175321Z&HW-CC-Expire=31536000000&HW-CC-Sign=60F53544B6521D6D6DDFA6A1949C1E735DB349B3E9F38892C9E0AD992D3D9301)
 

@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-s
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 声明传感器服务的API，包括获取传感器信息和订阅/取消订阅传感器数据。
 
 **引用文件：** <sensors/oh_sensor.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-s
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,7 +40,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-s
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_Sensor_GetInfos()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Sensor_Result OH_Sensor_GetInfos(Sensor_Info **infos, uint32_t *count)
@@ -60,6 +70,8 @@ Sensor_Result OH_Sensor_GetInfos(Sensor_Info **infos, uint32_t *count)
 |[Sensor_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h#sensor_result)|返回[Sensor_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h#sensor_result)枚举值。主要枚举值如下： SENSOR_SUCCESS：操作成功，表示成功获取传感器信息。 [SENSOR_PARAMETER_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h#sensor_result)：参数检查失败。例如，传入的infos或count参数为NULL指针。 [SENSOR_SERVICE_EXCEPTION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h#sensor_result)：传感器服务异常。例如，传感器服务未启动或发生内部错误。 其他可能的错误代码请参考[Sensor_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h#sensor_result)。|
 
 ### OH_Sensor_Subscribe()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Sensor_Result OH_Sensor_Subscribe(const Sensor_SubscriptionId *id, const Sensor_SubscriptionAttribute *attribute, const Sensor_Subscriber *subscriber)
@@ -90,6 +102,8 @@ Sensor_Result OH_Sensor_Subscribe(const Sensor_SubscriptionId *id, const Sensor_
 |[Sensor_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h#sensor_result)|返回[Sensor_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h#sensor_result)枚举值。主要枚举值如下： SENSOR_SUCCESS：操作成功，表示成功订阅传感器数据。 [SENSOR_PERMISSION_DENIED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h#sensor_result)：权限验证失败。缺少订阅传感器所需权限时返回此错误，请参考函数描述部分了解不同传感器所需的权限，并按照要求申请相应权限后再试。 [SENSOR_PARAMETER_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h#sensor_result)：参数检查失败。例如，传入的id、attribute或subscriber参数为NULL指针。 [SENSOR_SERVICE_EXCEPTION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h#sensor_result)：传感器服务异常。例如，传感器服务未启动或发生内部错误。 其他可能的错误代码请参考[Sensor_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-sensor-type-h#sensor_result)。|
 
 ### OH_Sensor_Unsubscribe()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Sensor_Result OH_Sensor_Unsubscribe(const Sensor_SubscriptionId *id, const Sensor_Subscriber *subscriber)

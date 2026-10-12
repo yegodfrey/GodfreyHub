@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap-nd
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 查询单个系统能力（SystemCapability）是否被支持的API。开发者可在运行时查询设备是否支持特定系统能力，实现差异化功能适配。典型使用场景包括：针对不同设备型号适配功能、特性降级开关控制、条件功能分支判断等。该API具有轻量级、高效的特点，能帮助开发者避免因调用设备不支持的API而导致的崩溃问题，提高应用在不同设备上的兼容性和稳定性。
 
 **引用文件：** <syscap_ndk.h>
@@ -22,7 +24,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap-nd
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:-----------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -30,7 +36,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap-nd
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### canIUse()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool canIUse (const char * cap)

@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 文件中定义了与文字相关的功能函数。
 
 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
@@ -26,13 +28,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:--------------------------------------------------------------------------------------------------------------------------|:-------------------|:--------------------------|
 |[OH_Drawing_RunBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-runbuffer)|OH_Drawing_RunBuffer|结构体用于描述一块内存，该内存用于存储文字和位置信息。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,7 +57,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_Drawing_TextBlobBuilderCreate()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_TextBlobBuilder* OH_Drawing_TextBlobBuilderCreate(void)
@@ -70,6 +82,8 @@ OH_Drawing_TextBlobBuilder* OH_Drawing_TextBlobBuilderCreate(void)
 |[OH_Drawing_TextBlobBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-textblobbuilder)*|函数返回一个指针，指针指向创建的文本构造器对象。|
 
 ### OH_Drawing_TextBlobCreateFromText()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_TextBlob* OH_Drawing_TextBlobCreateFromText(const void* text, size_t byteLength, const OH_Drawing_Font* font, OH_Drawing_TextEncoding textEncoding)
@@ -105,6 +119,8 @@ textEncoding不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE�
 |[OH_Drawing_TextBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-textblob)*|函数返回一个指针，指针指向创建的文本对象OH_Drawing_TextBlob。|
 
 ### OH_Drawing_TextBlobCreateFromPosText()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_TextBlob* OH_Drawing_TextBlobCreateFromPosText(const void* text, size_t byteLength, OH_Drawing_Point2D* point2D, const OH_Drawing_Font* font, OH_Drawing_TextEncoding textEncoding)
@@ -142,6 +158,8 @@ textEncoding不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE�
 
 ### OH_Drawing_TextBlobCreateFromString()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 OH_Drawing_TextBlob* OH_Drawing_TextBlobCreateFromString(const char* str, const OH_Drawing_Font* font, OH_Drawing_TextEncoding textEncoding)
 ```
@@ -176,6 +194,8 @@ textEncoding不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE�
 
 ### OH_Drawing_TextBlobGetBounds()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_TextBlobGetBounds(OH_Drawing_TextBlob* textBlob, OH_Drawing_Rect* rect)
 ```
@@ -200,6 +220,8 @@ textBlob、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 |[OH_Drawing_Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-rect)* rect|指向矩形对象OH_Drawing_Rect的指针，开发者可调用OH_Drawing_Rect接口创建。|
 
 ### OH_Drawing_TextBlobUniqueID()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 uint32_t OH_Drawing_TextBlobUniqueID(const OH_Drawing_TextBlob* textBlob)
@@ -231,6 +253,8 @@ textBlob为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_TextBlobBuilderAllocRunPos()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 const OH_Drawing_RunBuffer* OH_Drawing_TextBlobBuilderAllocRunPos(OH_Drawing_TextBlobBuilder* textBlobBuilder, const OH_Drawing_Font* font, int32_t count, const OH_Drawing_Rect* rect)
 ```
@@ -257,6 +281,8 @@ textBlobBuilder、font任意一个为NULL或者count小于等于0时返回OH_DRA
 |const [OH_Drawing_Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-rect)* rect|文本的边界框，为NULL表示不设置边界框。|
 
 ### OH_Drawing_TextBlobBuilderMake()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_TextBlob* OH_Drawing_TextBlobBuilderMake(OH_Drawing_TextBlobBuilder* textBlobBuilder)
@@ -288,6 +314,8 @@ textBlobBuilder为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ### OH_Drawing_TextBlobDestroy()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_TextBlobDestroy(OH_Drawing_TextBlob* textBlob)
 ```
@@ -307,6 +335,8 @@ void OH_Drawing_TextBlobDestroy(OH_Drawing_TextBlob* textBlob)
 |[OH_Drawing_TextBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-textblob)* textBlob|指向文本对象OH_Drawing_TextBlob的指针。|
 
 ### OH_Drawing_TextBlobBuilderDestroy()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 void OH_Drawing_TextBlobBuilderDestroy(OH_Drawing_TextBlobBuilder* textBlobBuilder)

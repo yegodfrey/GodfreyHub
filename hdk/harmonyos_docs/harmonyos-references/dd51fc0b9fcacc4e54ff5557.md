@@ -19,11 +19,15 @@ Matrix4的使用场景包括：
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { matrix4 } from '@kit.ArkUI';
 ```
 
 ## matrix4.init
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 init(options: [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number]): Matrix4Transit
 
@@ -95,6 +99,8 @@ struct Tests {
 
 ## matrix4.identity
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 identity(): Matrix4Transit
 
 Matrix的初始化函数，可以返回一个初始的单位矩阵对象，可作为后续矩阵变换操作的基础。
@@ -145,6 +151,8 @@ struct Tests {
 
 ## Matrix4Transit
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 矩阵对象。支持通过链式调用translate、scale、rotate、skew等方法组合多种变换效果。
 > 说明
 >
@@ -157,6 +165,8 @@ struct Tests {
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 ### copy
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 copy(): Matrix4Transit
 
@@ -209,9 +219,11 @@ struct Test {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/ZBrLnxSFR8SSvKPqTNSWHw/zh-cn_image_0000002749494222.png?HW-CC-KV=V1&HW-CC-Date=20260929T121728Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A9667B6F37B04825B5D8BDA178AA4B50229E6CA79DB1A362ABDE3D0B00F6FD4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/J1mkBm9STm-2yIdw9na1Sg/zh-cn_image_0000002755025358.png?HW-CC-KV=V1&HW-CC-Date=20261009T092752Z&HW-CC-Expire=31536000000&HW-CC-Sign=395EBBD60E9E5332C5902F651F5D711D28AD71452BA4DE123ECD0321103CE586)
 
 ### combine
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 combine(options: Matrix4Transit): Matrix4Transit
 
@@ -265,9 +277,11 @@ struct Test {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/owwviyYrRc2sOdxNh4ssMw/zh-cn_image_0000002779093279.png?HW-CC-KV=V1&HW-CC-Date=20260929T121728Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E3B6EFBF2703FAD1B1BE7089BECC9D44FCB4A920A3B5816552F38C2E4E573AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/01A_AGisTee31i4P2knySw/zh-cn_image_0000002755185244.png?HW-CC-KV=V1&HW-CC-Date=20261009T092752Z&HW-CC-Expire=31536000000&HW-CC-Sign=C383849B26543FF176E087892168E4F3F9E28EAA151D96EDA032D1D94B7CA000)
 
 ### invert
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 invert(): Matrix4Transit
 
@@ -316,6 +330,8 @@ struct Tests {
 
 ### translate
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 translate(options: TranslateOption): Matrix4Transit
 
 Matrix的平移函数，可以为当前矩阵增加x轴/y轴/z轴平移效果。会改变调用该函数的原始矩阵。
@@ -358,9 +374,11 @@ struct Test {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/T7fLr4HcSPeOxlqWLlup9g/zh-cn_image_0000002778933423.png?HW-CC-KV=V1&HW-CC-Date=20260929T121728Z&HW-CC-Expire=31536000000&HW-CC-Sign=F7C1C90CF9FF0CCECE2516822930F7EF562A5BB23EEAC51933DC7559A8C32183)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/_VJfaGwzQmag7Ql7FXVx0A/zh-cn_image_0000002784584111.png?HW-CC-KV=V1&HW-CC-Date=20261009T092752Z&HW-CC-Expire=31536000000&HW-CC-Sign=AEF0C09A0C614AEE3C0B39C91C90605271E46C6B2CC2B92D43F10D3BAC90DA65)
 
 ### scale
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 scale(options: ScaleOption): Matrix4Transit
 
@@ -411,9 +429,11 @@ struct Test {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/ShBHM0CWSiaQymqerX7pnA/zh-cn_image_0000002749334338.png?HW-CC-KV=V1&HW-CC-Date=20260929T121728Z&HW-CC-Expire=31536000000&HW-CC-Sign=CBF8261060088C87FF3A3CDEBB5663ABA8A2285F25CB865901D4EC442426E56D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/-p-l_h1YRmusKKT8xOd56w/zh-cn_image_0000002784664293.png?HW-CC-KV=V1&HW-CC-Date=20261009T092752Z&HW-CC-Expire=31536000000&HW-CC-Sign=628A9148F6C924A1CD2D0AA831FF61B5A4A88A68658492889B2B91EEB98FC899)
 
 ### skew^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 skew(x: number, y: number): Matrix4Transit
 
@@ -464,9 +484,11 @@ struct Test {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/_yljjaPuQQW2XWiIBDAATA/zh-cn_image_0000002749494224.jpeg?HW-CC-KV=V1&HW-CC-Date=20260929T121728Z&HW-CC-Expire=31536000000&HW-CC-Sign=3D33CD0BB6E4671A89D5596F83925791C0E1C5DFFB8FBC1F29A6AA9ECA2BA233)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/D1Paz4Y0RCWRTKd2l0S4Kg/zh-cn_image_0000002755025360.jpeg?HW-CC-KV=V1&HW-CC-Date=20261009T092752Z&HW-CC-Expire=31536000000&HW-CC-Sign=DD22E735AC825D9DD2370352B17C8D8904D1BE70984A4617137E22BBE50ACE11)
 
 ### rotate
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 rotate(options: RotateOption): Matrix4Transit
 
@@ -516,9 +538,11 @@ struct Test {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/SPxMAzoHSpOjUfQYwhGNkA/zh-cn_image_0000002779093281.png?HW-CC-KV=V1&HW-CC-Date=20260929T121728Z&HW-CC-Expire=31536000000&HW-CC-Sign=B0F1CEF12E9A38F8D75038F17DB6016139F5014EA2691E7D0C58F3E2962CE14F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/mU5w7siZTT6uUQNlgJVCtA/zh-cn_image_0000002755185246.png?HW-CC-KV=V1&HW-CC-Date=20261009T092752Z&HW-CC-Expire=31536000000&HW-CC-Sign=93C48A09B611450B4401ED308550B80F4C14D421A01334DD25C6FC1EC0F8528F)
 
 ### transformPoint
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 transformPoint(options: [number, number]): [number, number]
 
@@ -577,9 +601,11 @@ struct Test {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/1RDPAeckR02Q5RUTIdOb_w/zh-cn_image_0000002778933425.png?HW-CC-KV=V1&HW-CC-Date=20260929T121728Z&HW-CC-Expire=31536000000&HW-CC-Sign=E0F8CD1675A47759CB61A416D301ED5F74FA9CD0965088B4F3BC329D3844B2EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/X1HqcDZEQhK5LG0jILADFg/zh-cn_image_0000002784584113.png?HW-CC-KV=V1&HW-CC-Date=20261009T092752Z&HW-CC-Expire=31536000000&HW-CC-Sign=82589AFA750512FA4982D4CC7C2BC2C5C355365B42E7AE1E16A9385483B546F3)
 
 ### setPolyToPoly^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setPolyToPoly(options: PolyToPolyOptions): Matrix4Transit
 
@@ -636,9 +662,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/lzdBkPh7TC610OB-z2Wqlw/zh-cn_image_0000002749334340.png?HW-CC-KV=V1&HW-CC-Date=20260929T121728Z&HW-CC-Expire=31536000000&HW-CC-Sign=49F6D936FBB207E643A0A42EB40C2E5B2D19B84DBA888DB3FDC373A4C7E36AEE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/B4Nl8su1R22_-XisWV2wBA/zh-cn_image_0000002784664295.png?HW-CC-KV=V1&HW-CC-Date=20261009T092752Z&HW-CC-Expire=31536000000&HW-CC-Sign=24EADEC9CABA69BDFE998F3977B182267257D6A89CDD086AC0948E93B506FA2D)
 
 ## TranslateOption
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 平移参数。
 
@@ -653,6 +681,8 @@ struct Index {
 |z|number|否|是|z轴的平移距离。 单位：px 默认值：0 取值范围 (-∞, +∞)|
 
 ## ScaleOption
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 缩放参数。
 
@@ -670,6 +700,8 @@ struct Index {
 
 ## RotateOption
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 旋转参数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -686,6 +718,8 @@ struct Index {
 |centerY|number|否|是|单次矩阵变换中心点相对于组件变换中心点（锚点）的额外y轴偏移值。 单位：px 默认值：0 **说明：** 为0时表示y方向的矩阵变换中心恰好为组件y方向锚点，取值表示相对组件y方向锚点的额外偏移量。具体实现可参考[示例3（按中心点旋转）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#示例3按中心点旋转)。|
 
 ## PolyToPolyOptions^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 多边形到多边形的映射选项。
 
@@ -705,6 +739,8 @@ struct Index {
 
 ## Point^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 坐标点的数据结构。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -719,6 +755,8 @@ struct Index {
 |y|number|否|否|y轴坐标。 单位：px 取值范围：(-∞, +∞)|
 
 ## matrix4.copy^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 copy(): Matrix4Transit
 
@@ -767,9 +805,11 @@ struct Test {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/TVeD6dNzRMyh2Xzm15Qc-g/zh-cn_image_0000002749494226.png?HW-CC-KV=V1&HW-CC-Date=20260929T121728Z&HW-CC-Expire=31536000000&HW-CC-Sign=B08AB2D291835DD8C74987DA46245CF6B0120FBBEFB7CE8E269672F2A0E56300)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/mN-Cbdg-TUW8FplBX2XmsA/zh-cn_image_0000002755025362.png?HW-CC-KV=V1&HW-CC-Date=20261009T092752Z&HW-CC-Expire=31536000000&HW-CC-Sign=98405717B3D711C62F1A8D722EB331AA04D3B324DAF18B11059495DCE7E9DC64)
 
 ## matrix4.invert^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 invert(): Matrix4Transit
 
@@ -787,6 +827,8 @@ Matrix的逆函数，可以返回一个当前矩阵对象的逆矩阵，即效�
 |[Matrix4Transit](#matrix4transit)|当前矩阵的逆矩阵对象。|
 
 ## matrix4.combine^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 combine(options: Matrix4Transit): Matrix4Transit
 
@@ -814,6 +856,8 @@ Matrix的叠加函数，可以将两个矩阵的效果叠加起来作用于当�
 
 ## matrix4.translate^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 translate(options: TranslateOption): Matrix4Transit
 
 Matrix的平移函数，可以为当前矩阵增加x轴/y轴/z轴平移效果。会改变调用该函数的原始矩阵。
@@ -836,6 +880,8 @@ Matrix的平移函数，可以为当前矩阵增加x轴/y轴/z轴平移效果。
 |[Matrix4Transit](#matrix4transit)|平移后的矩阵对象。|
 
 ## matrix4.scale^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 scale(options: ScaleOption): Matrix4Transit
 
@@ -860,6 +906,8 @@ Matrix的缩放函数，可以为当前矩阵增加x轴/y轴/z轴缩放效果。
 
 ## matrix4.rotate^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 rotate(options: RotateOption): Matrix4Transit
 
 Matrix的旋转函数，可以为当前矩阵增加x轴/y轴/z轴旋转效果。会改变调用该函数的原始矩阵。
@@ -882,6 +930,8 @@ Matrix的旋转函数，可以为当前矩阵增加x轴/y轴/z轴旋转效果。
 |[Matrix4Transit](#matrix4transit)|旋转后的矩阵对象。|
 
 ## matrix4.transformPoint^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 transformPoint(options: [number, number]): [number, number]
 

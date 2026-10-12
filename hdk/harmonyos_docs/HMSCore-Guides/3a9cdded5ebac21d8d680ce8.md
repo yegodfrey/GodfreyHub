@@ -24,13 +24,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/glucose-sensor-
 
 GLP（Glucose Sensor Profile）允许用户使用手机从血糖仪获取测量数据。其结构如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/FqSfLo1MTKmAtXEkNTY5DA/zh-cn_image_0000002516359248.png?HW-CC-KV=V1&HW-CC-Date=20260909T134120Z&HW-CC-Expire=31536000000&HW-CC-Sign=48C769A6A248AC82D0733D0084DC265FF8DC978C8F80E100DA9AB2021225E8D5 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/FqSfLo1MTKmAtXEkNTY5DA/zh-cn_image_0000002516359248.png?HW-CC-KV=V1&HW-CC-Date=20261008T144053Z&HW-CC-Expire=31536000000&HW-CC-Sign=6A58D3F4818A97C0ABE08663AAEA7AB2478D3C273BBA877F5FD93571B3958F08 "点击放大")
 
 ## 测量流程
 
 运动健康App 接收到血糖设备蓝牙广播后，主动发起连接。如果连接成功，则开始发现服务流程。接下来发现服务成功之后，血糖设备应至少返回 GLS（UUID：0x1808）这项服务，并设置特征值 GlucoseMeasurement 的 Notification 属性。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/KW0yXS0jQBObqLEln1evwA/zh-cn_image_0000002547959051.png?HW-CC-KV=V1&HW-CC-Date=20260909T134120Z&HW-CC-Expire=31536000000&HW-CC-Sign=E87FB93031C5EA9FDA86C4026B9260BB0A56D03D821312413836061C2BE76E44 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/KW0yXS0jQBObqLEln1evwA/zh-cn_image_0000002547959051.png?HW-CC-KV=V1&HW-CC-Date=20261008T144053Z&HW-CC-Expire=31536000000&HW-CC-Sign=B4BFF3CE21BC4734F43A39F5AFA9D6FAC38631BD130CF496B5E4BEB4FA5639C1 "点击放大")
 
 ## 特征字段说明
 

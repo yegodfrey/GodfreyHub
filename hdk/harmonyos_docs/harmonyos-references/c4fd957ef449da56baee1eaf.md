@@ -14,6 +14,8 @@ typedef struct OH_EqualizerFrequencyBandGains {...} OH_EqualizerFrequencyBandGai
 
 ## 概述
 
+> phone | 2in1 | tablet
+
 定义音频编创均衡器效果节点配置参数。
 
 **起始版本：** 22
@@ -24,7 +26,11 @@ typedef struct OH_EqualizerFrequencyBandGains {...} OH_EqualizerFrequencyBandGai
 
 ## 汇总
 
+> phone | 2in1 | tablet
+
 ### 成员变量
+
+> phone | 2in1 | tablet
 
 |名称|描述|
 |:--------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|

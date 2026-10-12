@@ -19,11 +19,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## 导入模块
 
+> 2in1
+
 ```ts
 import { audio } from '@kit.AudioKit';
 ```
 
 ## isEnhancedRoutingSupported()
+
+> 2in1 26.0.0+
 
 isEnhancedRoutingSupported(): boolean
 
@@ -56,6 +60,8 @@ console.info(`Succeeded in querying whether enhanced routing is supported. Resul
 ```
 
 ## selectOutputDevice()
+
+> 2in1 26.0.0+
 
 selectOutputDevice(outputDevice: AudioDeviceDescriptor): Promise<void>
 
@@ -112,6 +118,8 @@ audioDeviceEnhanceManager.selectOutputDevice(outputDevice).then(() => {
 
 ## selectInputDevice()
 
+> 2in1 26.0.0+
+
 selectInputDevice(inputDevice: AudioDeviceDescriptor): Promise<void>
 
 为应用选择输入设备。使用Promise异步回调。
@@ -166,6 +174,8 @@ audioDeviceEnhanceManager.selectInputDevice(inputDevice).then(() => {
 ```
 
 ## selectOutputDeviceForAudioRenderer()
+
+> 2in1 26.0.0+
 
 selectOutputDeviceForAudioRenderer(renderer: AudioRenderer, outputDevice: AudioDeviceDescriptor): Promise<void>
 
@@ -246,6 +256,8 @@ audio.createAudioRenderer(audioRendererOptions).then((data) => {
 ```
 
 ## selectInputDeviceForAudioCapturer()
+
+> 2in1 26.0.0+
 
 selectInputDeviceForAudioCapturer(capturer: AudioCapturer, inputDevice: AudioDeviceDescriptor): Promise<void>
 

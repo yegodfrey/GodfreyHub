@@ -20,15 +20,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, photoAccessHelper, EmptyAreaClickCallback } from '@kit.MediaLibraryKit';
 ```
 
 ## 属性
 
+> phone | 2in1 | tablet | tv | wearable
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 ## AlbumPickerComponent
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 AlbumPickerComponent( {albumPickerOptions?: AlbumPickerOptions, onAlbumClick?: (albumInfo: AlbumInfo) => boolean, onEmptyAreaClick?: EmptyAreaClickCallback, albumPickerController?: AlbumPickerController })
 
@@ -49,6 +55,8 @@ AlbumPickerComponent( {albumPickerOptions?: AlbumPickerOptions, onAlbumClick?: (
 
 ## AlbumPickerOptions
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 Album Picker配置选项。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -61,6 +69,8 @@ Album Picker配置选项。
 
 ## EmptyAreaClickCallback^13+^
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 type EmptyAreaClickCallback = () => void
 
 点击相册组件空白区域时产生的回调事件。
@@ -70,6 +80,8 @@ type EmptyAreaClickCallback = () => void
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
 ## AlbumInfo
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 相册相关信息。
 
@@ -84,6 +96,8 @@ type EmptyAreaClickCallback = () => void
 
 ## AlbumPickerController^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 应用可通过AlbumPickerController向组件发送数据。
 
 **装饰器类型**：@Observed
@@ -91,6 +105,8 @@ type EmptyAreaClickCallback = () => void
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
 ### setFontSize^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 setFontSize(fontSize: number | string): void
 
@@ -107,6 +123,8 @@ setFontSize(fontSize: number | string): void
 |fontSize|number | string|是|字体大小，取值范围参考[fontSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#fontsize)。|
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```ts
 // xxx.ets

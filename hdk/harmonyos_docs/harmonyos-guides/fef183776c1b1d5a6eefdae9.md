@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurit
 
 ## 业务流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/l22vsn85Qn6kKmtSwpTQ7Q/zh-cn_image_0000002778932153.png?HW-CC-KV=V1&HW-CC-Date=20260929T121705Z&HW-CC-Expire=31536000000&HW-CC-Sign=C777FBCBE50AEC07B7E392A05C4B42BD3A1051A4685B5B29BF384B6964EB1D1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/AQAaZ4RyTL-wh3PAtryRyw/zh-cn_image_0000002784582851.png?HW-CC-KV=V1&HW-CC-Date=20261009T092721Z&HW-CC-Expire=31536000000&HW-CC-Sign=A25BC34BC3AA456F181DD6625E8501AC420654B7C7F8465ECB7C7001AB9C14AA)
 
 流程说明：
 

@@ -16,6 +16,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode
 
 ## 10311001 导入ArkTS文件错误
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Importing ArkTS files in JS and TS files is forbidden.
@@ -33,6 +35,8 @@ Importing ArkTS files in JS and TS files is forbidden.
 请移除JS和TS文件中的ArkTS文件导入语句。
 
 ## 10311002 解析OhmUrl错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -52,6 +56,8 @@ ${filePath}所属的${pkgName}模块配置错误。
 2. 检查对应的文件名是否正确（包括大小写敏感）。
 
 ## 10311003 获取Kit（开发套件）配置文件错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -73,6 +79,8 @@ Kit ${moduleRequest} 在ArkTS SDK中没有对应的配置文件。
 
 ## 10311005 导入Kit标识符错误
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Identifier ${importName} comes from ${source} which can not be imported in .ts file.
@@ -90,6 +98,8 @@ Identifier ${importName} comes from ${source} which can not be imported in .ts f
 请移除导入语句，或将文件扩展名更改为.ets。例如，将文件example.ts重命名为example.ets。
 
 ## 10311006 导入名称未从Kit中导出错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -112,6 +122,8 @@ ${importName}没有从Kit ${KitName} 中导出。
 
 ## 10311007 Kit命名空间导入或导出错误
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Namespace import or export of Kit is not supported currently.
@@ -129,6 +141,8 @@ Namespace import or export of Kit is not supported currently.
 请将Kit的命名空间导入或导出替换为命名导入或导出。例如，import * as ArkTS from "@kit.ArkUI"; -> import { AlertDialog } from "@kit.ArkUI";。
 
 ## 10311008 Kit空导入错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -148,6 +162,8 @@ Can not use empty import(side-effect import) statement with Kit ${KitName}.
 
 ## 10311009 es2abc执行错误
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to execute es2abc.
@@ -165,6 +181,8 @@ es2abc执行过程中出现错误。
 请参考[es2abc编译器错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-es2abc)进行处理。
 
 ## 10311010 懒加载导入重新导出错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 

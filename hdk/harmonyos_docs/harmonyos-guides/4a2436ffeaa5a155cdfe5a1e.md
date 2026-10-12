@@ -8,5 +8,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-faq-2
 
 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站选择对应的项目后，在'全部功能'中搜索"鸿蒙支付服务"并固定到菜单导航栏中。在"支付服务（非虚拟类）> 待关联商户号"选择对应的商户点击"授权"即可。可参考下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/i_hYpRA6RoSiB_HinTYNpQ/zh-cn_image_0000002749333906.png?HW-CC-KV=V1&HW-CC-Date=20260929T121653Z&HW-CC-Expire=31536000000&HW-CC-Sign=13EF212294DB6F6D0C1F4A06650D8BBA2481658F320E71C9F28E5E77B3402746)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/CAJH3pFqQhObsNgzqyGSwQ/zh-cn_image_0000002784663865.png?HW-CC-KV=V1&HW-CC-Date=20261009T092709Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF2CCF5738948EF52CE37CBF1ED8CB9FBFA9BE1AABA1534EBEA91D328B11F864)
 

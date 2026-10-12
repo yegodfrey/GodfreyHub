@@ -19,6 +19,8 @@ BackForwardCacheSupportedFeatures是ArkWeb框架中用于选择性控制允许�
 
 ## 属性
 
+> phone | 2in1 | tablet | tv | wearable
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 |名称|类型|只读|可选|说明|
@@ -27,6 +29,8 @@ BackForwardCacheSupportedFeatures是ArkWeb框架中用于选择性控制允许�
 |mediaTakeOver^12+^|boolean|否|否|是否允许使用视频托管的页面进入前进后退缓存。 如果设置为允许，需要维护为视频元素创建的系统控件的生命周期，避免造成资源泄漏。 true：允许，false：不允许。 默认值：false。|
 
 ## constructor^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 

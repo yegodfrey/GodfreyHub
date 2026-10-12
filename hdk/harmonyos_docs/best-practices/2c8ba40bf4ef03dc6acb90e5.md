@@ -32,7 +32,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-applicatio
 
 **图1**应用冷启动流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/FA-PkOI5S2Gy4CXIGD7y4A/zh-cn_image_0000002512014501.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=C96C741A0986885232FC3F266D7551F7E5766CE7F54986E9AD364610386DC8B7 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/FA-PkOI5S2Gy4CXIGD7y4A/zh-cn_image_0000002512014501.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=52DA568E533684F8A60198B9DD34245F62F333A2B006860EADBD5D49DDCE04C0 "点击放大")
 
 1. 应用进程创建和初始化阶段：此阶段系统完成应用进程的创建和初始化，包括启动页图标（startWindowIcon）的解码。
 2. Application和Ability初始化：该阶段包括资源加载、虚拟机创建、Application&Ability 对象的创建与初始化、依赖模块加载等。
@@ -48,14 +48,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-applicatio
 
 应用冷启动时延检测步骤如下：
 
-1. 选择entry模块，暂时关闭模块build-profile中的混淆开关。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/thg5FntQQVSd9h30VjjAZw/zh-cn_image_0000002510840649.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A207262008255B34476396E60671BD3AE517AA8A47EDD66962D6597BD2355CF "点击放大")
+1. 选择entry模块，暂时关闭模块build-profile中的混淆开关。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/thg5FntQQVSd9h30VjjAZw/zh-cn_image_0000002510840649.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=72B5C552265411CB606A9CE8C6B2F122FCFAC4754DF35490D46203FE2E641AB3 "点击放大")
 
-2. 检查一下build模式，改为release。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/P9RcUCWXTtS0_7dlVFmK9w/zh-cn_image_0000002478640720.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=2BC8204F68A15015346A83EDA80D45079312E83045CBFC0A2035E783EBF9CE15)
+2. 检查一下build模式，改为release。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/P9RcUCWXTtS0_7dlVFmK9w/zh-cn_image_0000002478640720.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=E66AF0F451AE7ABC6C9C4D92D3EAEE0D046317EBD43532B61703EBEEB437CC15)
 
 3. 点击菜单 -> tool -> AppAnalyzer，打开体检工具。
 4. 选择"场景化体检"，点击"手动性能冷启动体检"。 工具开始准备，会自动编译、安装、运行当前工程，此时需要"保持手机解锁状态"，当准备完成后，会提示点击开始按钮，开始体检。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/aqkDLrncRg28FNAwz3JB1A/zh-cn_image_0000002478800706.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=E609A10D8A2C7F89A7F9594630CC29E6DF61B01C2E2D7AC513A671A6E0EC4A27 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/aqkDLrncRg28FNAwz3JB1A/zh-cn_image_0000002478800706.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=B4F8F65A410202A436860E329C1AD4A64DAE4BD04AD4B12F96E17500948B2EA7 "点击放大")
 5. 根据提示在设备上进行手动操作：
    1. 首先，在最近任务列表关闭应用。
    2. 进入手机设置 ，在顶部搜索栏中输入应用名，点击进入应用设置界面，如果该应用还有进程存活，在应用设置界面可以点击强行停止按钮。
@@ -81,7 +81,7 @@ AppAnalyzer详情报告中会显示动态检测可能导致冷启动完成时延
 
 在检测结果中，开发者可以通过点击报告表格中的对应方法名，快速跳转至对应代码片段，同时体检工具也会给出相应的优化建议，如将耗时函数放到子线程或进行缓存、使用多线程能力等，详细流程及示例可参考文档：[主线程耗时操作优化--其他主线程优化思路](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section4365993361)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/o-lZ4kurTBi0XAOEO0lrLQ/zh-cn_image_0000002510841011.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=118F8F7CD314F333188621D5A8C00D8FBA0CBD8B91DB8BDB708D6327102C3CD5 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/o-lZ4kurTBi0XAOEO0lrLQ/zh-cn_image_0000002510841011.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=B3946B05D2FB66534EC2B5F86FDB78C5B48A10B9AB4E1B79882FDC104555AC51 "点击放大")
 
 ### **import加载耗时**
 
@@ -89,28 +89,28 @@ AppAnalyzer详情报告中会显示动态检测可能导致冷启动完成时延
 
 **import加载耗时问题优化思路**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/uBFhvdttSzKLkLqgf0xaMA/zh-cn_image_0000002510761277.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E771ED389DE2E8C0F7E88101C02A15B92367BDF30B946763B7DF04145226FBF "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/uBFhvdttSzKLkLqgf0xaMA/zh-cn_image_0000002510761277.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=8FD20FE0A5ED2D47687F51E58EBF022A5A977175B17BE9F4AE5746934BC5E052 "点击放大")
 
 1. 分析模块使用情况：查看总结信息和未使用文件import列表信息，包括加载文件总耗时，和未使用文件数量和总耗时，了解未使用文件import情况。
 2. 查找依赖关系优化导入：点击第一个"下载"按钮下载全量依赖关系文件，使用调用链搜索框查找未使用文件依赖关系，结合代码逻辑对未使用文件进行延迟加载。
 3. 标记优化状态：点击第二个"下载"按钮下载全量import清单文件，统计已优化和未优化的未使用文件，分析全量文件的依赖关系。
 4. 再次进行冷启动检测：优化耗时最多的几个文件之后，再次进行冷启动检测，验证整改收益。在逐步优化未使用文件导入的过程中，收益会逐步降低，开发者需根据实际情况是否需要继续"lazy import"的整改。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/SIZNepU1Tx2_8EvC5LR3_w/zh-cn_image_0000002478801360.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=D6D305F764DAAEB380AC99BD9FF2FF76CFCE0543A6767028F243423A8C863D33 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/SIZNepU1Tx2_8EvC5LR3_w/zh-cn_image_0000002478801360.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=98BBAF911653E647C04D6DDE77500C4A75AEC0AB15A4E0A235A386C5F6F551F3 "点击放大")
 
 **import加载耗时问题优化流程**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/a0LYn8inSEKaoeLDGNNAyg/zh-cn_image_0000002478641376.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=E9D32EB1A8AE36B71F9BB22161174F91BBC1B811D6A7C838697E987B62677563 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/a0LYn8inSEKaoeLDGNNAyg/zh-cn_image_0000002478641376.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=B3E4CB449FCAB0DA9082019D40F320980EEFF16510BC3D73C64BD8BD679F0FE5 "点击放大")
 
 1. 查找耗时最高的未使用import文件。 在本地浏览器中打开下载的依赖关系的文件full_dependency.html，视图中左侧列表表示已加载未使用的文件，并且按照耗时从高到低排序；右侧表示已使用文件，开发者需要关注未使用文件中耗时较多的几个文件导入，例如DetailView文件的导入。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/97iC7wcIQI2oT43G7f_qRg/zh-cn_image_0000002510841309.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=F4A89D71C795AF9027A71D62A4A7192D31783AACEE27EE5A2EAFB221F728EEDD "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/97iC7wcIQI2oT43G7f_qRg/zh-cn_image_0000002510841309.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=051736553A2566144F639FFC6CBD311471FD1DE36BD27289E155538387D7A88A "点击放大")
 2. 根据文件名检索文件调用关系链。 在搜索框中通过文件名DetailView进行检索，该文件的依赖关系则会在下方节点视图中展示，并且默认会展示其子节点的使用情况，未使用的文件会被标红显示。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/mpKeY5kcQhiFjU4Rbjtd4g/zh-cn_image_0000002510761285.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=F0F179D0485B46D062D367F6C23B5FFB2504EBC4391B8349C8B8E38A38B55CEE "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/mpKeY5kcQhiFjU4Rbjtd4g/zh-cn_image_0000002510761285.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=64095F8CBD47B266E6345D3A3EBD6E17746EAD9F4F1517EAA74BD7A8D6C25473 "点击放大")
 3. 查看检索文件的上层和下层文件节点信息。 查找上层文件节点信息，即目标文件被导入的位置；查找下层文件节点信息，目标文件的耗时是否由其子节点导致，如果下层文件耗时较长，则需要考虑优化子节点的导入。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/sHYf-RDoTEWAQvtVOCZ8_g/zh-cn_image_0000002478801366.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA091E3313AA6059DE51A042FEAAAB5F91B59B9A2F46B97E19F8CAD896DA7010 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/sHYf-RDoTEWAQvtVOCZ8_g/zh-cn_image_0000002478801366.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=87CC551F35B79C3222B1A0973BAEF8F1996EE30F7E6B6296ABE5ADC88FF8711E "点击放大")
 4. 判断上层文件是否为为其他module的Index.ets文件导出。
    * 如果上层文件不为其他module的统一对外暴露接口文件（例如Index.ets），则可以在上层文件中使用对该模块使用lazy import进行优化。
 
@@ -128,7 +128,7 @@ AppAnalyzer详情报告中会显示动态检测可能导致冷启动完成时延
 
    * 如果上层文件为其他module的统一对外暴露接口文件（例如Index.ets），则需要通过import路径展开性能优化。 例如CustomLayout1上层模块为library模块的Index.ets，其中有多个文件导出。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/CyCAj46JQ9KRgTLus6t-7g/zh-cn_image_0000002478641380.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=6120CBC46370CB2F6685212D1C13E111F337F2FB1D6406CB5AF87B58FAA079B3 "点击放大")
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/CyCAj46JQ9KRgTLus6t-7g/zh-cn_image_0000002478641380.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=05816565EAE4A0F68FFA5B2EBC82EC1ACE49A277ED6D0518C8AA4F653D3E90E8 "点击放大")
 
      在Entry的首页通过依赖对应模块引入，会导致冷启动阶段将CustomLayout2和CustomLayout3等冷启动阶段无用的文件导入。
 
@@ -146,19 +146,19 @@ AppAnalyzer详情报告中会显示动态检测可能导致冷启动完成时延
 
 5. 在导出文件中标记已修改的文件。 在下载全量import文件清单表格中，标记已优化的未使用文件，便于优化备忘，特别是当需要优化的文件比较多的时候。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/XPg2lMHoReSzLvMio9WDBw/zh-cn_image_0000002510841315.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=9A1C60131C8AFAF670CB5ECDA460BF502219DB01DB21460FAE6B2EC8E7252F8C "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/XPg2lMHoReSzLvMio9WDBw/zh-cn_image_0000002510841315.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=EB56EF56D5507942FDB0FA1324765F614A9F56057D7795488CA7E4F89747AD2E "点击放大")
 6. 重新进行冷启动场景化检测。 当优化完成后，重新进行冷启动场景化检测，查看优化收益是否达到预期，如未达到预期，则需要重新进行分析优化。
 
 ### **网络请求耗时**
 
 应用首页内容需要通过网络请求获取数据并显示时，网络请求耗时和网络请求发起的时机，对应用冷启动时长会产生一定影响。使用AppAnalyzer能够检测出应用中请求URL的请求耗时和点击离手到请求发起间隔。
 
-* 网络请求本身耗时长 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/tkGVw5VXQdW2g0cyvKIPGQ/zh-cn_image_0000002478801796.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D2E94D63330E4AD62A7F6BCB59BC5FFD705AA100630AC9BE316B9DC1A16CCBF "点击放大")
+* 网络请求本身耗时长 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/tkGVw5VXQdW2g0cyvKIPGQ/zh-cn_image_0000002478801796.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=B60B8D43BC1F308165F6EF1C9DD8928749952A5EE19A501EDD8C67B61820518B "点击放大")
 
   网络请求本身是否耗时可通过检测结果中的请求耗时时长来进行判断，时间越长，则网络请求本身耗时越久。详细分析请参考：[网络诊断：Network分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler-network)。
 
   网络请求本身耗时长，可对该URL请求进行预连接和预解析来优化网络传输速度，提前完成DNS查询和TCP/TLS握手，即在应用启动或空闲时提前建立并维护一个持久的连接池；还可以使用CDN来优化网络传输速度，即将静态资源部署到CDN上。
-* 网络请求发起太晚 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/Jco9cJqwSk-9jPlj_08H-g/zh-cn_image_0000002478641822.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=BAF865987EC3BA60C1ABEF11021E04751F675F0703F228B311AB881C235E412B "点击放大")
+* 网络请求发起太晚 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/Jco9cJqwSk-9jPlj_08H-g/zh-cn_image_0000002478641822.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=2E51F784C95A46A0A27CFE2385F0FC3DB2AA18E594A26EAAD3CD56DAE24DCA3A "点击放大")
 
   点击离手到请求发起间隔则表示用户进行点击操作后，到真正向服务器发起网络请求的那一刻止，这中间所经过的时间。可通过检测结果中的点击离手到请求发起间隔时长来进行判断，时间越长，则表示网络请求发起的越晚。可通过提前发起网络请求，来进行优化。可参考：[网络请求提前发送](#section199911250658)。
 
@@ -168,7 +168,7 @@ AppAnalyzer详情报告中会显示动态检测可能导致冷启动完成时延
 
 首页组件复杂度较高会影响首页加载绘制耗时，AppAnalyzer工具能检测出页面中组件自身创建是否耗时过长。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/EAG_ViLRSJ22V8szv5c1bQ/zh-cn_image_0000002478641864.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=B843CED8378A6D1F1D93699707D2749D714EE26DBB4FA2D1E1C5F71E4A0F0FD1 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/EAG_ViLRSJ22V8szv5c1bQ/zh-cn_image_0000002478641864.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=F9321603D7DB284777A42F1F3241FB9AB3E2EC2D19AA05325D50C4EB21402E77 "点击放大")
 
 在静态检测可能故障原因表格中，可点击源文件定位到创建耗时的UI组件，根据提供的可能故障原因，去对UI组件进行相应优化修改，即可减少该UI组件自身创建耗时。
 
@@ -191,7 +191,7 @@ AppAnalyzer详情报告中会显示动态检测可能导致冷启动完成时延
 
 已录制一段Launch任务，具体操作步骤请参考[性能问题定位：深度录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/iezxwQpWR96t3FjmJuf8KQ/zh-cn_image_0000002193851180.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE3CC1030D14103EFD60887109E504DB0AF843887C1F386FE46345183BEC49EF "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/iezxwQpWR96t3FjmJuf8KQ/zh-cn_image_0000002193851180.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=F56C146BFB1BEC84430A573DA42F4098F7DAA1E74878A1E851E94620D8D03596 "点击放大")
 
 上图显示，Launch将应用的冷启动过程分为以下几个阶段：
 
@@ -207,7 +207,7 @@ AppAnalyzer详情报告中会显示动态检测可能导致冷启动完成时延
 >
 > 阶段1对应图1中的第1阶段，阶段2对应图1中的第2阶段，阶段3和4对应图1中的第3阶段，阶段5和6对应图1中的第4阶段，阶段7对应图1中的第5阶段。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/rtdHdjQOQZKp0sbdlNPMRw/zh-cn_image_0000002194010752.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=264C2D852362684D1A582421F7254FB1A85F4340C86A5BD1E6A0252F057B4A29 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/rtdHdjQOQZKp0sbdlNPMRw/zh-cn_image_0000002194010752.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=876538CF53AB131FF552398EC29AB7D8005A39280CE8F5394C699A5E0B50F341 "点击放大")
 
 **冷启动缓慢示例分析**
 
@@ -249,20 +249,20 @@ struct Index {
 
 首先创建Launch分析录制，可以观察到整个启动时间较长。UI Ability OnForeground阶段在应用冷启动过程中耗时最多，达到了3.3秒。因此，需要重点分析该阶段的耗时。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/udvj-4NCScG7WhAyjG-vjQ/zh-cn_image_0000002375918437.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C984157B6FEED8319FC278BE3EED3CBF3AACE064C36E406824CA012B77544D8 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/udvj-4NCScG7WhAyjG-vjQ/zh-cn_image_0000002375918437.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=E9EF20F1327A8E397DC4C1339C1BBEC858571D35D9B5CCF835AF4A18196C791E "点击放大")
 
 针对应用冷启动问题的性能分析，可以选择分析主线程的Trace数据或采样得到的函数热点。
 
 **分析主线程的Trace数据**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/73TzrQgORP-og-lueaAffg/zh-cn_image_0000002341876318.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=D0B2B0627F350F054EEC433DAC907A27C0F33D731731F859033FA5247A87AEC3 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/73TzrQgORP-og-lueaAffg/zh-cn_image_0000002341876318.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=4AA9B65F47D8DCB0D0AD142435E1B002348BBC37DE87B84921DD658CADFC3643 "点击放大")
 
 1. 单击"Launch"泳道上的UI Ability OnForeground阶段，在下方"Details"面板中可查看所选阶段的耗时统计。
 2. 展开UI Ability OnForeground统计信息折叠表，可查看各函数的具体耗时信息。
 3. 根据Duration找到耗时最长的函数aboutToAppear。
 4. 单击图标按钮，可直接跳转至主线程的打点任务，查看相关Trace数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/8o9gsF9TTe6FqLSgRmW1iw/zh-cn_image_0000002375834697.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=6BD306F5DCB986D8D933AA22472A4F71462EEA56B27F6D02527B443FBA0ECED3 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/8o9gsF9TTe6FqLSgRmW1iw/zh-cn_image_0000002375834697.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=8DC06ABE215BD4C4EEC474AF991FBA92FA34F3B68754D27B17AD5C2E1E61E158 "点击放大")
 
 在UI Ability OnForeground阶段的耗时主要由aboutToAppear引起。通过分析aboutToAppear中的代码逻辑，可以确定计算任务computeTask是导致耗时的原因。
 
@@ -270,14 +270,14 @@ struct Index {
 
 开发者也可以分析采样得到的函数热点直观的显示应用冷启动过程中具体函数的耗时，如下图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/6xNZvMG5S_ih3rITM9TO_A/zh-cn_image_0000002375915041.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA9271C8377D52016036FF5C18F008B08C062EDB4A40179145AE3B3458B2A4DD "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/6xNZvMG5S_ih3rITM9TO_A/zh-cn_image_0000002375915041.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C943C34C1F219A33078E941ED13900AAB7ECA38896C1DE3FBD37305A7E25181 "点击放大")
 
 1. 单击"Launch"泳道的UI Ability OnForeground阶段。
 2. 选择"ArkTS Callstack"泳道，它会基于时间轴展示CPU使用率和状态变化，以及当前调用栈名称和类型。
 3. 在"Details"详情面板中，可以查看这段时间内的函数热点，以Top-Down形式的树状列表展示。computeTask函数在aboutToAppear函数中耗时最多，占整个阶段的97.9%。双击该函数可跳转到源码。
 4. 此外，点击底部Flame Chart按钮打开火焰图可以更直观的看出热点函数的耗时情况，如下图所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/3l3iueszTRa8lC1mZu40jg/zh-cn_image_0000002342038042.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=56F50243D2018A2294F45D093393BE7AC45294D0E4FD6A913FFCF827546E842A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/3l3iueszTRa8lC1mZu40jg/zh-cn_image_0000002342038042.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=65320997CEDF981244FA254188817AD360740075CAD7643030CE9CA4D58582F6 "点击放大")
 
 **冷启动速度优化**
 
@@ -317,13 +317,13 @@ struct Index {
 
 重新编译并运行程序，录制Launch过程。优化后，UI Ability OnForeground阶段的耗时显著缩短，如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/3Bn_CbnGRWysgxqEq9Jt2w/zh-cn_image_0000002229450977.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=2AB1EA1F63D576F0C863E5C6B7901A028B6937A032265D6740CA6F8E85C7030C "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/3Bn_CbnGRWysgxqEq9Jt2w/zh-cn_image_0000002229450977.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=E1079AD0140778BF8CCA44C49CC0FB184CA52156922A0DF4EAF7598030AC1E12 "点击放大")
 
 **查看首帧卡顿**
 
 为了识别首帧是否卡顿，可以先查看Launch的Frame泳道。应用的首帧渲染提交在First Frame - App Phase阶段，APP侧的这一帧表示应用渲染的首帧。如下图所示，此处首帧为36号帧。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/9i4d9_jjRLWfPZh6_eVbfA/zh-cn_image_0000002229336561.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=7C31E7778A448AE7AD11E95AEC26AAF0B2F096FFD0F478D8D064BDEB13F2EDB0 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/9i4d9_jjRLWfPZh6_eVbfA/zh-cn_image_0000002229336561.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=BC273C6FBDFEF928618EFB54C5B51A44E09F1E0A76CE6DA421CA2E9C62B6976B "点击放大")
 
 如上所示36号帧被标记为了红色，表示首帧出现了卡顿。鼠标左键36号帧，可以看到它的期望提交渲染时间为左边白色竖线区域所示，这里出现了比较严重的延时。发现问题后，开发者可以参考前面讲到的示例进行问题定位和优化。
 
@@ -335,7 +335,7 @@ struct Index {
 
 应用在启动前加载过多不必要启动项，同时这些启动项在主线程串行执行，该阶段耗时为450ms。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/KtpL8AhqRquYt045bE2Q9w/zh-cn_image_0000002229451033.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=56B20D1D190E4240888106A001D2BFB4B51944AB7AC780AD11A994F8E0A0D989 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/KtpL8AhqRquYt045bE2Q9w/zh-cn_image_0000002229451033.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=5BD5E7BE996865152D7A0CE6C1607ACDB3B28AE801419F9BA0191A90BD087693 "点击放大")
 
 应用冷启动过程中，加载不必要的启动项会增加冷启动时间。建议延后加载或并行处理，具体可以参考[延迟加载Lazy-Import使用指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-arkts-high-performance#section12861143418213)。
 
@@ -353,13 +353,13 @@ struct Index {
 
 **图2**应用首页框架加载时进行网络数据请求
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/dGSIVkGjQMe7IfBuRbpEng/zh-cn_image_0000002420612214.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=FE1B9F537C95FF3AA0E3F6C3203D990A9237A42E34A3DC3E98A02547441036AF "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/dGSIVkGjQMe7IfBuRbpEng/zh-cn_image_0000002420612214.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=8A8D5D48D3DAA973635732B24E161E5A634EBDE1E269962C2284164AFA375A81 "点击放大")
 
 将网络请求提前至AbilityStage/UIAbility的onCreate()生命周期回调函数中。这可以将首刷或二刷时间提前，减少用户等待时间。为了体现性能收益，将网络请求放到了更早的AbilityStage的onCreate()生命周期回调中。
 
 **图3**网络请求提前至AbilityStage的onCreate()生命周期回调中
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/T4L-fitITP23ei3orluecQ/zh-cn_image_0000002420772730.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=12629B044E001AD22FCAB5D61A79797907AE71377FAEA28FA6692819FE436C03 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/T4L-fitITP23ei3orluecQ/zh-cn_image_0000002420772730.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=6968E3CC35E5C0BB909D8001A5CE29333C6EBC179A6D2EC3756603EE1228D0F3 "点击放大")
 
 【优化前】：在首页根组件的onAppear()回调中发起网络请求。
 
@@ -560,10 +560,10 @@ export let number = computeTask();
 使用Launch分析工具，对比优化前后启动性能。分析阶段从启动Ability（即H:void OHOS::AppExecFwk::MainThread::HandleLaunchAbility的开始点）到应用接收到网络数据返回后的首帧刷新（即H:ReceiveVsync dataCount:24Bytes now:timestamp expectedEnd:timestamp vsyncId:int的开始点）。
 
 **图4**优化网络请求时机前   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/GT63wiEtTOy8Y5YsvbZ9sw/zh-cn_image_0000002194010676.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=F23B20EEB135FEB4BAFD366CF5B0267F289CFA5AF4728BA24B52A5BC7980023F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/GT63wiEtTOy8Y5YsvbZ9sw/zh-cn_image_0000002194010676.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=FE671BF32C927FE5CDDA8C517DBBDDCFAE455EAFA0E20CA21038787D4FCD5929 "点击放大")
 
 **图5**优化网络请求时机后   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/KrS2-e9wT9Slg99aaCbnvg/zh-cn_image_0000002229450941.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=68AFA32A50153853444581400D5AF20E306E931744F1217BF254686BDB490AC4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/KrS2-e9wT9Slg99aaCbnvg/zh-cn_image_0000002229450941.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D2C8414243A6E852C0639B67A35641B585D8CA389CA8DCE71BC7E140539983E "点击放大")
 
 对比数据如下：
 
@@ -607,10 +607,10 @@ export let number = computeTask();
 下面使用Launch分析对比优化前的startWindowIcon（4096像素\*4096像素）及优化后的startWindowIcon（144像素\*144像素）的启动性能。分析阶段的起点为Process Creating，阶段终点为First Frame - Render Phase，优化前后的启动耗时如下图：
 
 **图6**优化前使用4096px-4096px启动页图标应用启动耗时   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/fdJ1jLKrRHKTAkqtFo3hmA/zh-cn_image_0000002229451013.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=6AFFFDE19514B57F3BF5D164F2C85193BD8D9B45D50438917723104073BC09F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/fdJ1jLKrRHKTAkqtFo3hmA/zh-cn_image_0000002229451013.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=BAC45F41F48AE353DFE003FC31AB3DB327142D4A06A2E7EBBC7E299A47D5CB3F)
 
 **图7**优化后使用144px-144px启动页图标应用启动耗时   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/bGsqf0E0QCyHWUmQrRAKvw/zh-cn_image_0000002229450965.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=E582EFF8E9016AA536128B057C5846F7225025561E6C2F3FD71942B9B5E77434)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/bGsqf0E0QCyHWUmQrRAKvw/zh-cn_image_0000002229450965.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=70A24F79087E5957D75DA69A8552A1E1BBCAB0834E24B4377C2542C9A156D54C)
 
 优化后，应用启动时长缩短了37.2ms，设置合适的startWindowIcon分辨率能有效减少应用进程创建和初始化阶段的耗时。
 
@@ -651,10 +651,10 @@ export default class EntryAbility extends UIAbility {
 下面使用Launch分析，对优化import的模块前（模块数量15个）及优化import的模块后（移除不必要的模块剩余5个）的启动性能进行对比分析。分析的trace点为H:SourceTextModule::Evaluate，优化前后的启动耗时如下图：
 
 **图8**优化前import 15个模块   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/TPH6XnF2SUClh4_A-Y2r9g/zh-cn_image_0000002229336481.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=48B0112AE0E4EFA23807BD25F040EC482D2ECD790F617EA3B9CD06625A5563E9 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/TPH6XnF2SUClh4_A-Y2r9g/zh-cn_image_0000002229336481.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=9362D42E544C4EC0CD5D88339B6B36EEC0DCBA32000679CDAAA72C20A44593EA "点击放大")
 
 **图9**优化后import 5个模块   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/oNoijNUPRIiXHCE2hVprrw/zh-cn_image_0000002229336453.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=B3D6D3047695176925100A6688F329FB5373FF7B0CACD356029C9FDCBF4CAF64 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/oNoijNUPRIiXHCE2hVprrw/zh-cn_image_0000002229336453.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=9C679BBA1EDFED56371F3CD1E7598019F1F62A1A1837CBF3E6B355D76CC25FB8 "点击放大")
 
 对比数据如下：
 
@@ -672,10 +672,10 @@ export default class EntryAbility extends UIAbility {
   使用Launch分析，对比优化前（嵌套8层export *）和优化后（直接从目标文件中import）的启动性能。分析阶段从开始加载abc文件（H:JSPandaFileExecutor::ExecuteFromAbcFile）到abc文件加载完成。
 
   **图10**（优化前）存在8层嵌套export *   
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/xkoNwjHxR1ih19zbhJ7zjQ/zh-cn_image_0000002193851128.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=D84A1E65775DD1BFC0C485B67081A8B33A4F270883B3C236844BCBB5EE5855B9 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/xkoNwjHxR1ih19zbhJ7zjQ/zh-cn_image_0000002193851128.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=381D797A44831FA757FC92FC2DBD3424842C1AB50409AD987D729703B567AB2B "点击放大")
 
   **图11**（优化后）不存在嵌套export *，从目标文件中直接import   
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/YIorJS1KQJmX12MAD6XD1Q/zh-cn_image_0000002194010744.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=8B87F38B652F43D856B9614DC7952E975EFDA648B21324FD755B685ECF5CC0A0 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/YIorJS1KQJmX12MAD6XD1Q/zh-cn_image_0000002194010744.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A69B53B2FE862789E976180B9675885D874A340E7450359D0AC36B7CF14DD9B "点击放大")
 
   对比数据如下：
 
@@ -690,10 +690,10 @@ export default class EntryAbility extends UIAbility {
   对优化前（使用 `import * as nm` 全量引用2000条数据）和优化后（使用import { One }按需引用）的启动性能进行对比分析。分析阶段从 `H:void OHOS::AppExecFwk::MainThread::HandleLaunchAbility(const std::shared_ptr<AbilityLocalRecord> &)` 的开始点到结束点。
 
   **图12**优化前，使用import * as nm全量引用2000条数据   
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/_b_DBCjHSY-3V8wvrCgt1A/zh-cn_image_0000002229450969.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=4F2900455C89F448C25F8B4AFE4FFFAB92706D0FC9A562A9EAFF6E99770B8411 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/_b_DBCjHSY-3V8wvrCgt1A/zh-cn_image_0000002229450969.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=1992CC8096C2D5D09E349FB78DAE4F22B4C1D0AB1C8049915B15F0DA39107C03 "点击放大")
 
   **图13**优化后，使用import { One }按需引用   
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/m7IbtL9SQPi2zSrr_BriAw/zh-cn_image_0000002229450953.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=347BD7CF3EE6F20C4C9ADAFCE685DF02E3328495CE961059DD7C911EF418B400 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/m7IbtL9SQPi2zSrr_BriAw/zh-cn_image_0000002229450953.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=BE6B75CA9D2A09CEF7EF1F681570F06F1078D1D332851BCDBFD7AE1E97954A87 "点击放大")
 
   优化前后的对比数据如下：
 
@@ -719,7 +719,7 @@ HAR包中的导出文件Index.ets同时导出了MainPage.ets和SubPage.ets两个
 
 **图14**优化前，加载模块时执行了非冷启动相关文件 SubPage.ets。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/JHrfDTF_QGS14WNk7mDw4g/zh-cn_image_0000002454292713.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=B15812A2F3EDD2D386473E2C510E1C98E59045800A5EF5108E6860D09A0BD82E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/JHrfDTF_QGS14WNk7mDw4g/zh-cn_image_0000002454292713.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=B95D30E9133F71055877464F7FFFD2050F675A1C773028294F19E5032AAC6F73 "点击放大")
 
 以下为示例代码：
 
@@ -817,7 +817,7 @@ export { SubPage } from './src/main/ets/components/mainpage/SubPage'; // Non-col
 
 **图15**优化方案一，拆分HAR导出文件
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/FYD6p8KaTDCv_TPbm_D4OA/zh-cn_image_0000002454173657.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=813A2E0F04DF7EC3F6304200CBF11BF14CFFB09F79DF3AC6B0316E13043032E4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/FYD6p8KaTDCv_TPbm_D4OA/zh-cn_image_0000002454173657.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=1BF6ACCEDBBA528E2A7D3DF747B63C122326B01896A82D98B450FD01F3F7DD9E "点击放大")
 
 示例代码如下：
 
@@ -898,7 +898,7 @@ export { SubPage } from './src/main/ets/components/mainpage/SubPage'; // Non-col
 
 **图16**优化方案二，首页导入冷启动文件时使用全路径展开
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/8Gb8hO_fTcGaD4VbKLKupg/zh-cn_image_0000002420614820.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=3728C4B8ADA663C8FD9E29098FD78DDC8BFD9A4096EEF526D49132708668BF04 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/8Gb8hO_fTcGaD4VbKLKupg/zh-cn_image_0000002420614820.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E484C5676CD00437156CC4CB6E503E74F9998A6FC0151004BA06222FE374A70 "点击放大")
 
 示例代码如下：
 
@@ -935,13 +935,13 @@ struct Index {
 使用Launch分析优化前后启动性能。阶段起点为UI Ability Launching，终点为应用首帧即First Frame - App Phase。
 
 **图17**优化前：加载模块时执行了非冷启动相关文件   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/9ZYYYreaQT2DWaawwYFB4A/zh-cn_image_0000002229336505.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=5EE0B6BDC8EC8323C6D8DF75E09B7F014943612823A3E0E32B4060546B6D1D42 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/9ZYYYreaQT2DWaawwYFB4A/zh-cn_image_0000002229336505.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=30B122BC1122BD49AB1208AA2F4D204A7CA7DABE3BC0DD1593489697B5B071C3 "点击放大")
 
 **图18**优化方案一：拆分HAR导出文件   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/b9CEXA8bS3aMNi07aOx6dA/zh-cn_image_0000002193851072.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=157E38E127C825AB265E36D27CDDA01609DB2E1D29F4AF3852AD39F10F630AC4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/b9CEXA8bS3aMNi07aOx6dA/zh-cn_image_0000002193851072.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=BBE04AAF796468046BFC34F69E3D9B61A5602FD1132CB1F81EFE8C3303D3A15B "点击放大")
 
 **图19**优化方案二：导入冷启动文件时全路径展开   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/hED6a6WEQdGii_hT7OKjJg/zh-cn_image_0000002194010672.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=74EF547B0A0A797F148D3EFF42683D13E5729DD77F519081DB60E11AC23657D9 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/hED6a6WEQdGii_hT7OKjJg/zh-cn_image_0000002194010672.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=9101ECC5D1906944762683ECCB68CA712DD479108D23B64E307EB529EC52AF65 "点击放大")
 
 优化前后的对比数据如下：
 
@@ -989,10 +989,10 @@ import { add20 } from 'hsp20';
 下面使用Launch分析，对比HAP与20个HSP混合打包以及将20个HSP包设计成HAR包的启动性能。
 
 **图20**HAP+20个HSP混合打包   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/X8ToSPh3QCSDju7XBNVtcw/zh-cn_image_0000002229451061.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=79BBB67E0F80F3531F2E5A458D92848A9680F86FF4B90C98FC6E23FE6D738D9E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/X8ToSPh3QCSDju7XBNVtcw/zh-cn_image_0000002229451061.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=224E16D9FBEAC53BF0DD7EB7A045ACEB497FFF5AEA6C68BB17186C19BC16B24E "点击放大")
 
 **图21**将20个HSP包设计成HAR包   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/mXfXGSZhSw-4dE4fU6o8yw/zh-cn_image_0000002229450981.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=7329F341625F878D715F37E9321C01D2EC863EBD97AA9B506A3905F8F3B39A31 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/mXfXGSZhSw-4dE4fU6o8yw/zh-cn_image_0000002229450981.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=E7377E4A64A2D438447ABB464907972532C3EE30D2A7FA576D20562F5F09E062 "点击放大")
 
 对比数据如下：
 
@@ -1046,10 +1046,10 @@ struct Index {
 使用Launch分析，对比优化前同步执行耗时操作和优化后异步执行耗时操作的启动性能。分析范围从Process Creating到First Frame - Render Phase，优化前后的启动耗时如下图所示。
 
 **图22**优化前同步执行操作（computeTask），应用冷启动耗时   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/8BVr9bqVQQqQCp6XFS0Q3g/zh-cn_image_0000002229336541.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=2DDEC965795B21296686C455424A43A313E343AA30FAA060D80D1C2D554BE0C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/8BVr9bqVQQqQCp6XFS0Q3g/zh-cn_image_0000002229336541.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=C2E38C5E1D47A5DCE519D4CA5D06271B8DCCFDB1D116A7DABB7628C646950E4D)
 
 **图23**优化后异步执行操作（computeTaskAsync），应用冷启动耗时   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/R_uRxRUFRXmY5mWG_ki9Jw/zh-cn_image_0000002229450973.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=1D81ABE22C1E320CF8C818DFAF3C77F6316221E259BCA402C3C7D73C97B25008)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/R_uRxRUFRXmY5mWG_ki9Jw/zh-cn_image_0000002229450973.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=079FA1FF00C58125A05EC39A6F65F075EB1A77A25C4D73F0548172611E00596D)
 
 使用异步后，应用冷启动时间从2.2秒减少到220.9毫秒，速度提升显著。
 
@@ -1065,7 +1065,7 @@ Ability生命周期阶段执行相应的生命周期回调。
 
 **图24**UIAbility生命周期状态
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/PfqLJeJvSE28ICd36MJalA/zh-cn_image_0000002454294977.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=54722C1EED72C585CE1DDBD2FA9F2F555E383130E46EFDDC8D66BEA157A8FE14 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/PfqLJeJvSE28ICd36MJalA/zh-cn_image_0000002454294977.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=52B7DAD6327B9BC77771144F8725C7C02B84020EBC0A8D1E7EE8603239B52185 "点击放大")
 
 下面示例代码在UIAbility的回调函数onCreate()中分别执行了同步和异步操作：
 
@@ -1122,10 +1122,10 @@ export default class EntryAbility extends UIAbility {
 下面使用Launch分析，对比优化前同步执行耗时操作和优化后异步执行耗时操作的启动性能。分析从Process Creating阶段开始，到First Frame - Render Phase阶段结束。优化前后的启动耗时如下图所示。
 
 **图25**优化前同步执行操作（computeTask），应用冷启动耗时   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/zGzGj2y9QuCSiGUlQtLPJQ/zh-cn_image_0000002193851092.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=33878D578207CE31CAA9C960A4F8B98120BF39D51A047FE455B703136D78D0BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/zGzGj2y9QuCSiGUlQtLPJQ/zh-cn_image_0000002193851092.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=F333C5181974E78E81D80F65C87B386016165628771E2D617DA22BC6D1D171AA)
 
 **图26**优化后异步执行操作（computeTaskAsync），应用冷启动耗时   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/b4tEFVGLQVKn3nWikC4Z4Q/zh-cn_image_0000002194010748.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=BEA47541F6334379229CB9EAE5C1037F2B5745010EBBE21363F3DA9DF5834C9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/b4tEFVGLQVKn3nWikC4Z4Q/zh-cn_image_0000002194010748.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=1ECB8CE0CC051A85B67323E5084A788CF857ACEB8F53F0F5C89A99FEE578D69B)
 
 使用延时异步后，应用冷启动时间显著提升，耗时从2.1秒减少到220毫秒。
 
@@ -1139,7 +1139,7 @@ export default class EntryAbility extends UIAbility {
 
 **图27**被@Entry装饰的组件（页面）生命周期
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/MM4Go5eUQuSLDYEdqvE-Nw/zh-cn_image_0000002420776488.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=19A91D36BC6EE06A01A4A95FD130EB622D87400F5B5216EFB72C3C6DE70EDED2 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/MM4Go5eUQuSLDYEdqvE-Nw/zh-cn_image_0000002420776488.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=71E6CCFFED258FB47F6EAEC5B8B6176A24A7B6862C860A4337501EB8C3476F13 "点击放大")
 
 在Page的回调函数aboutToAppear()中分别执行同步和异步操作的示例代码如下：
 
@@ -1191,10 +1191,10 @@ struct Index {
 如下图所示，优化前后的启动耗时对比：
 
 **图28**优化前同步执行操作（computeTask），应用冷启动耗时   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/3tvV-0xiSxmHTQ5oehB71g/zh-cn_image_0000002229336521.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=799FF9D7A0333DC53E3674837B8F78C983884354F4242128EC769D415B18E9A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/3tvV-0xiSxmHTQ5oehB71g/zh-cn_image_0000002229336521.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=207FB3A42B7B152BA0C21646F6839D7435D5FC5F5697C02B9222E506287C52F1)
 
 **图29**优化后异步执行操作（computeTaskAsync），应用冷启动耗时   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/EKS_u4xiRkSTFH8bj4G1mA/zh-cn_image_0000002229336501.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=E48C53BCD878136E8861894B8BC1034A975937CBA30BE4BE40A8A64E486D6D97 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/EKS_u4xiRkSTFH8bj4G1mA/zh-cn_image_0000002229336501.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=988B5737EB840E36DD29A5F5130067203C76A3CF41FB50D8D524055F34BA8E9D "点击放大")
 
 使用异步处理后，应用冷启动时间显著提升，耗时从2.4秒减少到238.3毫秒。
 
@@ -1204,7 +1204,7 @@ struct Index {
 
 **图30**使用本地存储首页数据流程图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/LDtXlet-S7m6xjw-OuYG9A/zh-cn_image_0000002420776904.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=1F999579343E974CF29F7CE6ECDE97061A30F04474B79EF64E6E2C233A09128A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/LDtXlet-S7m6xjw-OuYG9A/zh-cn_image_0000002420776904.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC615911A16A2B1128F15B0CFF6423C312CE4EDCE990B99F0D7D72858E82170D "点击放大")
 
 使用本地**存储**优先展示，可减少首帧展示延迟，缩短用户可见白屏时间，提升冷启动体验。
 
@@ -1339,10 +1339,10 @@ struct Index {
 下面对比优化前后的启动性能。分析阶段从启动Ability开始，到首次解析Pixelmap后的第一个vsync结束。
 
 **图31**优化前未使用本地存储数据   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/m-KFGTpLTfKEfmwpAAvbQQ/zh-cn_image_0000002229336461.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA50D714BA6AB759D3AE64F3FB53712A93B597E3334F97859E3C486EA85D4617 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/m-KFGTpLTfKEfmwpAAvbQQ/zh-cn_image_0000002229336461.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=8F24DB027BBD414C86425B5566EE49DB8826B6CF307DF025FFF86C2B810D6F39 "点击放大")
 
 **图32**优化后使用本地存储数据   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/84BtaF3yRfufimSZGMn8VA/zh-cn_image_0000002194010688.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C7F8A479585B78A77FB85BC55E1CB66FBC132F573377C271070C55CE7234A6B "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/84BtaF3yRfufimSZGMn8VA/zh-cn_image_0000002194010688.png?HW-CC-KV=V1&HW-CC-Date=20261008T173111Z&HW-CC-Expire=31536000000&HW-CC-Sign=84A70335D728AD025D933EDE9CBB6D238436D81F1B1B063BD2862E1DFE28FED6 "点击放大")
 
 对比数据如下：
 

@@ -10,11 +10,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-c
 
 ## 导入模块
 
+> phone | 2in1 | tablet | wearable
+
 ```typescript
 import { map, mapCommon } from '@kit.MapKit';
 ```
 
 ## ClusterOverlay
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | wearable 5.1.0(18)+
 
 聚合图层类。ClusterOverlay用于在地图上展示聚合后的标记点，以优化大量标记点显示时的性能和用户体验。它将地理位置相近的多个标记点合并为一个聚合点，并支持点击聚合点展开查看具体标记点。适用于展示大量POI数据、避免地图过于拥挤的情况。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addClusterOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addclusteroverlay)方法时会返回该类型的实例。
 
@@ -54,6 +58,8 @@ let clusterOverlay: map.ClusterOverlay = await this.mapController.addClusterOver
 
 ### on('clusterClick')
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | wearable 5.1.0(18)+
+
 on(type: 'clusterClick', callback: Callback<Array<mapCommon.ClusterItem>>): void
 
 监听cluster的点击事件。使用callback异步回调。
@@ -85,6 +91,8 @@ clusterOverlay.on("clusterClick", (clusterItems) => {
 
 ### off('clusterClick')
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | wearable 5.1.0(18)+
+
 off(type: 'clusterClick', callback?: Callback<void>): void
 
 取消监听cluster的点击事件。使用callback异步回调。
@@ -115,6 +123,8 @@ clusterOverlay.off("clusterClick", () => {
 ```
 
 ### on('click')
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | wearable 5.1.0(18)+
 
 on(type: 'click', callback: Callback<Array<mapCommon.ClusterItem>>): void
 
@@ -153,6 +163,8 @@ clusterOverlay.on("click", callback3);
 ```
 
 ### off('click')
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | wearable 5.1.0(18)+
 
 off(type: 'click', callback?: Callback<Array<mapCommon.ClusterItem>>): void
 
@@ -197,6 +209,8 @@ clusterOverlay.off('click');
 
 ### on('markerClusterClick')
 
+> phone 5.0.3(15)+ | 2in1 5.0.3(15)+ | tablet 5.0.3(15)+ | wearable 5.1.0(18)+
+
 on(type: 'markerClusterClick', callback: Callback<MarkerClusterInfo>): void
 
 监听聚合图层的标记点击事件。使用callback异步回调。
@@ -234,6 +248,8 @@ clusterOverlay.on("markerClusterClick", callback3);
 ```
 
 ### off('markerClusterClick')
+
+> phone 5.0.3(15)+ | 2in1 5.0.3(15)+ | tablet 5.0.3(15)+ | wearable 5.1.0(18)+
 
 off(type: 'markerClusterClick', callback?: Callback<MarkerClusterInfo>): void
 
@@ -277,6 +293,8 @@ clusterOverlay.off('markerClusterClick');
 
 ### addItem
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | wearable 5.1.0(18)+
+
 addItem(item: mapCommon.ClusterItem): Promise<void>
 
 新增聚合节点。使用Promise异步回调。
@@ -314,6 +332,8 @@ await clusterOverlay.addItem(clusterItem);
 ```
 
 ### remove
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | wearable 5.1.0(18)+
 
 remove(): Promise<void>
 

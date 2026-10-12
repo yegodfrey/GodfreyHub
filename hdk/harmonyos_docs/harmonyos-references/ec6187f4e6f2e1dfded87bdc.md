@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 声明用于基础视频编解码功能以及视频特定配置和参数的Native API。
 
 **引用文件：** <multimedia/player_framework/native_avcodec_videobase.h>
@@ -24,13 +26,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 枚举
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:--------------------------------------------------------------------|:-------------------------------|:--------------------|
 |[OH_VideoMetadataRoiSemanticLabel](#oh_videometadataroisemanticlabel)|OH_VideoMetadataRoiSemanticLabel|视频编码中感兴趣区域（ROI）的语义标签。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -39,6 +47,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 |[OH_AVErrCode OH_VideoMetadata_ParseRoiString(const char *roiStr, OH_AVFormat **outOwnedFormats, uint32_t maxCapacity, uint32_t *outCount)](#oh_videometadata_parseroistring)|解析ROI字符串并填充调用者提供的OH_AVFormat数组。|
 
 ### 变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:--------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,7 +61,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 枚举类型说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_VideoMetadataRoiSemanticLabel
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 enum OH_VideoMetadataRoiSemanticLabel
@@ -70,7 +84,11 @@ enum OH_VideoMetadataRoiSemanticLabel
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_VideoMetadata_AppendRoiString()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 OH_AVErrCode OH_VideoMetadata_AppendRoiString(char **roiStrInOut, OH_AVFormat *format)
@@ -104,6 +122,8 @@ OH_AVErrCode OH_VideoMetadata_AppendRoiString(char **roiStrInOut, OH_AVFormat *f
 
 ### OH_VideoMetadata_GetRoiCount()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 OH_AVErrCode OH_VideoMetadata_GetRoiCount(const char *roiStr, uint32_t *outCount)
 ```
@@ -128,6 +148,8 @@ OH_AVErrCode OH_VideoMetadata_GetRoiCount(const char *roiStr, uint32_t *outCount
 |OH_AVErrCode|AV_ERR_OK：表示操作成功。 AV_ERR_INVALID_VAL：表示roiStr或outCount指针为NULL。|
 
 ### OH_VideoMetadata_ParseRoiString()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 OH_AVErrCode OH_VideoMetadata_ParseRoiString(const char *roiStr, OH_AVFormat **outOwnedFormats, uint32_t maxCapacity, uint32_t *outCount)

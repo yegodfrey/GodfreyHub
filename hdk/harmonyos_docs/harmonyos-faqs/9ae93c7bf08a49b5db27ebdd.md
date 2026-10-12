@@ -18,7 +18,7 @@ component = driver.touch(BY.xpath("/root/Navigation/NavBar/NavBarContent/NavRout
 
 工程组件结构如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/4sSKvQSTQ36BVvqePBpGaw/zh-cn_image_0000002658928757.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=85ADB20A3BF8E6316539B8D09A6BD796E40C209FFB5B073FCAB466872696591E "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/4sSKvQSTQ36BVvqePBpGaw/zh-cn_image_0000002658928757.png?HW-CC-KV=V1&HW-CC-Date=20261008T185123Z&HW-CC-Expire=31536000000&HW-CC-Sign=5AF4006A2E69CA3A741B43592E9E84AD4B5EE5489F2098F8238EE10A7E0CBFEA "点击放大")
 
 ## 背景知识
 

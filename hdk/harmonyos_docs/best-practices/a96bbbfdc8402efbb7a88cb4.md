@@ -25,7 +25,7 @@ ArkUI提供了全面的字体控制能力，如自定义设置字体大小和字
 
 在字体设置中，点击选择字体列表中的某个字体后，页面的字体样式会发生变化。在退出应用重新进入后，默认显示退出前选择的字体样式。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/4fA5-Qq_SouvRVJw4juAaw/zh-cn_image_0000002361481894.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=A254D612F8A6EC580825E986ADBA1D72128BCB4CC17F80F076343833ED4A4983 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/4fA5-Qq_SouvRVJw4juAaw/zh-cn_image_0000002361481894.gif?HW-CC-KV=V1&HW-CC-Date=20261008T140609Z&HW-CC-Expire=31536000000&HW-CC-Sign=E96ABFA5EEC3C201439EF41CE3A44352E1FAC34B645AAFF841B7A6CE5728C47B "点击放大")
 
 **实现原理**
 
@@ -178,7 +178,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
 在应用设置页面的字体设置中，点击选择系统默认字体，首页和设置页顶部的字体样式变为系统默认。退出并重新进入应用后，仍会显示系统默认字体。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/E-GDyo6NRXCcbECUpgxLJg/zh-cn_image_0000002395161853.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA00C6E3F603D33AA1F82855CD41878C1CEC08CA496770621C42DEF7BF68749C "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/E-GDyo6NRXCcbECUpgxLJg/zh-cn_image_0000002395161853.gif?HW-CC-KV=V1&HW-CC-Date=20261008T140609Z&HW-CC-Expire=31536000000&HW-CC-Sign=DCD128EFC9B10059AC89AAF650C5ACC54CF26A790398472A972122A3F29CE56E "点击放大")
 
 **实现原理**
 
@@ -219,7 +219,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
 在设置页面中，点击打开Toggle按钮，使页面字体大小跟随系统设置发生变化。此时，自定义字体大小和字重的Slider将被禁用，无法滑动或点击。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/IxydJSH2R_KSNKhYj1j4dQ/zh-cn_image_0000002361641798.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=9533D532431C1B20788EBD386E4E8F9A83A42364D477212B9F7747B000ED8B87 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/IxydJSH2R_KSNKhYj1j4dQ/zh-cn_image_0000002361641798.gif?HW-CC-KV=V1&HW-CC-Date=20261008T140609Z&HW-CC-Expire=31536000000&HW-CC-Sign=C097123132ED032EB034512F907D667CDA08D0D2AD44C7C465C315F54DDAFCA3 "点击放大")
 
 **实现原理**
 
@@ -289,7 +289,7 @@ registerFont()方法可以在字体管理器中注册自定义字体，支持注
 
 在设置页中点击关闭Toggle按钮，通过Slider组件可以调整页面字体大小。在系统设置中调整字体大小，页面字体不会发生变化。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/d7zvc8whSaKnrnM2KdJN4w/zh-cn_image_0000002395321741.gif?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=9732339B6AA629FF3ED0B8F2A0C94D754E4EAD7A95A1D7234D531B60F7C5D340 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/d7zvc8whSaKnrnM2KdJN4w/zh-cn_image_0000002395321741.gif?HW-CC-KV=V1&HW-CC-Date=20261008T140609Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C02D2BA53296ACDEA89A3817E0A616C06622D2577EF1E3F990EA366570C9612 "点击放大")
 
 **实现原理**
 

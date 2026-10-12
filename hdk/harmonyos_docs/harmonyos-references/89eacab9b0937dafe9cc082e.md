@@ -14,6 +14,8 @@ typedef struct OH_NN_Memory {...} OH_NN_Memory
 
 ## 概述
 
+> phone | 2in1 | tablet | tv
+
 内存结构体。
 
 **起始版本：** 9
@@ -28,7 +30,11 @@ typedef struct OH_NN_Memory {...} OH_NN_Memory
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv
 
 |名称|描述|
 |:------------------|:--------------------------|

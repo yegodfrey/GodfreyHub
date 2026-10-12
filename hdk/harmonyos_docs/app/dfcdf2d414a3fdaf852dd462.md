@@ -18,17 +18,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-information-cente
 ## 访问信息中心页面
 
 1. 登录 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"APP与元服务"。
-2. 在应用列表中点击应用名称或者状态，进入"信息中心"页面。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/WOk7qaMISv2ZGzfVLm3l-g/zh-cn_image_0000002530148659.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=18432D7C778E99FDD317D50728DAB8AFC40062ADFA8DFA5427A28B049B8A4AF7 "点击放大")
+2. 在应用列表中点击应用名称或者状态，进入"信息中心"页面。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/WOk7qaMISv2ZGzfVLm3l-g/zh-cn_image_0000002530148659.png?HW-CC-KV=V1&HW-CC-Date=20261008T152954Z&HW-CC-Expire=31536000000&HW-CC-Sign=D77AF7CEC6126DFA05ED7269798254B73AFF4C62AF73D54238723786E992C15E "点击放大")
 
    以Android应用为例，"信息中心"页面如下，包含应用基础信息、APP核心数据和服务引导三个部分。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/FRFzGj_2RQWhGfyxfK9Gvw/zh-cn_image_0000001310844934.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=24FF22FD87EA8084A35165398DA4494CFED47C238235DFC16AA555B16CF73699 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/FRFzGj_2RQWhGfyxfK9Gvw/zh-cn_image_0000001310844934.png?HW-CC-KV=V1&HW-CC-Date=20261008T152954Z&HW-CC-Expire=31536000000&HW-CC-Sign=D490157EA98986930D095702D3E55BC781403F4AEAC065D791669D1E4ECC50C5 "点击放大")
 
 ## 应用基础信息
 
 页面上方区域展示应用基础信息，如应用名称、应用图标、状态、更新时间、包名、软件包类型、APP ID、支持设备。默认展示最新版本的基本信息内容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/tPWx4ymZQNecS9GhtINOzQ/zh-cn_image_0000001217450033.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=392CFA4F6D6F6ADAAB0DC513915E27DB9E0B26A51FC72F5DF2599D2683F58CC5 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/tPWx4ymZQNecS9GhtINOzQ/zh-cn_image_0000001217450033.png?HW-CC-KV=V1&HW-CC-Date=20261008T152954Z&HW-CC-Expire=31536000000&HW-CC-Sign=3E5544D0E95E297E1CBE70B2F6E02B9F2512CDFE87B374454D9207FAAC7FAB03 "点击放大")
 
 |页面参数|说明|
 |:-----|:--------------------------------------------------------------------------|
@@ -53,7 +53,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-information-cente
 
 进入"信息中心"页面，页面中间区域展示APP核心数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/KRcen8zAQ2mt3oBfAWa55A/zh-cn_image_0000002728985518.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=E1F36526225E0A8CF06BA23C9898EC71F67DE5731BF7A2425488FC871D2BAC83)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/KRcen8zAQ2mt3oBfAWa55A/zh-cn_image_0000002728985518.png?HW-CC-KV=V1&HW-CC-Date=20261008T152954Z&HW-CC-Expire=31536000000&HW-CC-Sign=D02EB8AD95BF650D5886EF9DBE1DFBE2CF336A865F94225B67256A11E1AFAA7B)
 
 APP核心数据展示了新下载成功次数、详情页转化率、应用内付费、综合评分和卸载数的统计数据，右上角的"过去7天"和"过去30天"筛选项可切换统计周期。点击右上角的"更多数据指标"进入分析概览页面，可查看更多统计数据。
 
@@ -61,9 +61,9 @@ APP核心数据展示了新下载成功次数、详情页转化率、应用内�
 
 进入"信息中心"页面，页面下方区域展示服务引导，根据应用的状态动态显示不同场景下的服务信息，如下图（图片仅供参考，展示的具体场景以实际页面为准）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/LPFRdBd-TDqXAhGXTKF6Kg/zh-cn_image_0000001220184139.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=B0250D83C932FCA4991DBCF7B5CBE895E431A36A1A078BBF4BE4349F6742ED01 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/LPFRdBd-TDqXAhGXTKF6Kg/zh-cn_image_0000001220184139.png?HW-CC-KV=V1&HW-CC-Date=20261008T152954Z&HW-CC-Expire=31536000000&HW-CC-Sign=114882416633B03895D5384826185ADBFF42B3C96040EDCA9361CB66024C6528 "点击放大")
 
 点击具体服务，下方会展示该服务功能的介绍，如果该服务下有子步骤，展示子步骤流程图。流程图里每个项目前的感叹号和对勾小图标分别表示有未完成内容状态和全部已完成状态。每项子步骤可点击跳转对应服务页面，您可进行相关操作。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/aoFOVHJUTdOzX48G0Fb4SA/zh-cn_image_0000001191384861.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=81B5E97901717EA036E7DE68834A399AC03B3C2A6A08736C8D89A49AE83D614A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/aoFOVHJUTdOzX48G0Fb4SA/zh-cn_image_0000001191384861.png?HW-CC-KV=V1&HW-CC-Date=20261008T152954Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C45610C9FC08B183C5396F207313C5B1DB04930748FDE16BD13A4F11B6E647F)
 

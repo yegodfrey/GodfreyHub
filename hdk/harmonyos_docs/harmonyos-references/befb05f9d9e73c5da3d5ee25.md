@@ -16,7 +16,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode
 
 ## 基础文件IO错误码
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 13900001 操作不允许
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -39,6 +43,8 @@ Operation not permitted
 3. URI路径不推荐进行拼接，拼接后的URI默认未授权。
 
 ### 13900002 没有这个文件或目录
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -74,6 +80,8 @@ No such file or directory
 
 ### 13900003 没有这样的进程
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 No such process
@@ -94,6 +102,8 @@ No such process
 
 ### 13900004 系统调用被中断
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Interrupted system call
@@ -113,6 +123,8 @@ Interrupted system call
 2. 重新进行系统调用。
 
 ### 13900005 I/O错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -142,6 +154,8 @@ I/O错误。
 
 ### 13900006 没有这个设备或地址
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 No such device or address
@@ -160,6 +174,8 @@ No such device or address
 
 ### 13900007 参数列表太长
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Arg list too long
@@ -177,6 +193,8 @@ Arg list too long
 减少参数个数。
 
 ### 13900008 异常的文件描述符
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -200,6 +218,8 @@ Bad file descriptor
 
 ### 13900009 没有子进程
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 No child processes
@@ -218,6 +238,8 @@ No child processes
 
 ### 13900010 资源暂时不可用
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Try again
@@ -235,6 +257,8 @@ Try again
 重新请求资源。
 
 ### 13900011 内存溢出
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -255,6 +279,8 @@ Out of memory
 2. 管理系统内存开销。
 
 ### 13900012 拒绝许可
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -280,6 +306,8 @@ Permission denied
 
 ### 13900013 错误的地址
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Bad address
@@ -297,6 +325,8 @@ Bad address
 确认地址是否正确。
 
 ### 13900014 设备或资源忙
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -316,6 +346,8 @@ Device or resource busy
 
 ### 13900015 文件存在
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 File exists
@@ -333,6 +365,8 @@ File exists
 确认文件路径是否正确。
 
 ### 13900016 无效的交叉链接
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -352,6 +386,8 @@ Cross-device link
 
 ### 13900017 设备不存在
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 No such device
@@ -369,6 +405,8 @@ No such device
 确认设备间连接是否正常。
 
 ### 13900018 不是一个目录
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -388,6 +426,8 @@ Not a directory
 
 ### 13900019 是一个目录
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Is a directory
@@ -405,6 +445,8 @@ Is a directory
 确认路径是否正确。
 
 ### 13900020 无效的参数
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -424,6 +466,8 @@ Invalid argument
 
 ### 13900021 打开太多的文件描述符
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 File table overflow
@@ -441,6 +485,8 @@ File table overflow
 关闭不相关的文件描述符。
 
 ### 13900022 打开的文件过多
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -460,6 +506,8 @@ Too many open files
 
 ### 13900023 文本文件忙
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Text file busy
@@ -477,6 +525,8 @@ Text file busy
 关闭正在调试的程序。
 
 ### 13900024 文件太大
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -496,6 +546,8 @@ File too large
 
 ### 13900025 设备上没有空间
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 No space left on device
@@ -513,6 +565,8 @@ No space left on device
 清理设备存储空间。
 
 ### 13900026 非法移位
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -532,6 +586,8 @@ Illegal seek
 
 ### 13900027 只读文件系统
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Read-only file system
@@ -549,6 +605,8 @@ Read-only file system
 确认文件是否只读。
 
 ### 13900028 太多的链接
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -568,6 +626,8 @@ Too many links
 
 ### 13900029 资源死锁错误
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Resource deadlock would occur
@@ -585,6 +645,8 @@ Resource deadlock would occur
 终止死锁进程。
 
 ### 13900030 文件名太长
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -604,6 +666,8 @@ Filename too Long
 
 ### 13900031 功能没有实现
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Function not implemented
@@ -621,6 +685,8 @@ Function not implemented
 确认系统版本。
 
 ### 13900032 目录非空
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -640,6 +706,8 @@ Directory not empty
 
 ### 13900033 符号链接层次太多
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Too many symbolic links encountered
@@ -657,6 +725,8 @@ Too many symbolic links encountered
 清理无关符号链接。
 
 ### 13900034 操作被阻塞
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -676,6 +746,8 @@ Operation would block
 
 ### 13900035 请求描述符无效
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Invalid request descriptor
@@ -693,6 +765,8 @@ Invalid request descriptor
 确认文件描述符是否合法。
 
 ### 13900036 设备不是字符流
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -712,6 +786,8 @@ Device not a stream
 
 ### 13900037 无可用数据
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 No data available
@@ -729,6 +805,8 @@ No data available
 重新请求数据。
 
 ### 13900038 对于定义的数据类型，值太大
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -748,6 +826,8 @@ Value too large for defined data type
 
 ### 13900039 文件描述符在异常状态
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 File descriptor in bad state
@@ -765,6 +845,8 @@ File descriptor in bad state
 确认文件描述符合法性。
 
 ### 13900040 应该重新启动被中断的系统调用
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -784,6 +866,8 @@ Interrupted system call should be restarted
 
 ### 13900041 超出磁盘配额
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Quota exceeded
@@ -801,6 +885,8 @@ Quota exceeded
 清理磁盘存储空间。
 
 ### 13900042 未知错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -822,6 +908,8 @@ Unknown error
 
 ### 13900043 没有可用的锁
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 No record is locks available
@@ -840,6 +928,8 @@ No record is locks available
 
 ### 13900044 网络无法访问
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Network is unreachable
@@ -857,6 +947,8 @@ Network is unreachable
 检查网络状态，确认状态正常。
 
 ### 13900045 连接失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -878,6 +970,8 @@ Connection failed
 
 ### 13900046 软件造成连接中断
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Software caused connection abort
@@ -898,6 +992,8 @@ Software caused connection abort
 
 ### 13900050 内部资源错误
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Internal resource error.
@@ -915,6 +1011,8 @@ Internal resource error.
 重新运行当前代码。
 
 ### 13900051 缓冲区读写越界
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -935,6 +1033,8 @@ mmap缓冲区读写越界。
 2. 如需操作更大范围，可先调用[setLimit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#setlimit)调整限制值。
 
 ### 13900052 mmap缓冲区已释放
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -958,6 +1058,8 @@ mmap缓冲区已释放。
 
 ### 13900053 mmap缓冲区只读
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Read-only mmap buffer.
@@ -975,6 +1077,8 @@ mmap缓冲区只读。
 重新调用[mmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiommap)/[mmapSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiommapsync)，将映射模式设置为读写模式或私有模式。
 
 ### 13900054 mmap缓冲区不可访问
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -994,6 +1098,8 @@ mmap缓冲区不可访问。
 
 ### 13900055 mmap映射类型不支持该操作
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Mmap operation not supported.
@@ -1011,6 +1117,8 @@ mmap映射类型不支持该操作。
 重新调用[mmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiommap)/[mmapSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileiommapsync)，将映射模式设置为读写模式。
 
 ### 13900056 mmap不支持映射此文件
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1030,7 +1138,11 @@ mmap不支持映射此文件。
 
 ## 用户数据管理错误码
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 14000001 文件名非法
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1050,6 +1162,8 @@ Invalid file name
 
 ### 14000002 非法URI
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Invalid URI
@@ -1067,6 +1181,8 @@ URI不合法。
 直接使用查询获取的URI。
 
 ### 14000003 文件后缀非法
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1086,6 +1202,8 @@ Invalid file name extension
 
 ### 14000004 文件已进入回收站
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 File already in the recycle bin
@@ -1103,6 +1221,8 @@ File already in the recycle bin
 检查文件是否已经进入回收站。
 
 ### 14000011 系统内部错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1122,6 +1242,8 @@ System inner fail
 
 ### 14000014 成员名非法
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Member is not a valid PhotoKey
@@ -1139,6 +1261,8 @@ Member is not a valid PhotoKey
 确保传入的字符串为类或接口的成员名。
 
 ### 14000016 操作类型不支持
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1180,7 +1304,11 @@ Operation Not Support
 
 ## 空间统计错误码
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 13600001 IPC通信失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1200,6 +1328,8 @@ IPC通信失败。
 
 ### 13600002 文件系统类型不支持
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 File system not supported
@@ -1217,6 +1347,8 @@ File system not supported
 修改为正确的文件系统类型。
 
 ### 13600003 挂载失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1236,6 +1368,8 @@ Mount failed
 
 ### 13600004 卸载失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Unmount failed
@@ -1253,6 +1387,8 @@ Unmount failed
 检查外卡文件是否被线程占用，杀掉占用线程。
 
 ### 13600005 卷状态错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1272,6 +1408,8 @@ Incorrect volume state
 
 ### 13600006 创建目录或者节点失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to create the directory or node
@@ -1290,6 +1428,8 @@ Failed to create the directory or node
 
 ### 13600007 删除目录或者节点失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to delete the directory or node
@@ -1307,6 +1447,8 @@ Failed to delete the directory or node
 检查待删除目录或节点是否存在。
 
 ### 13600008 操作对象不存在
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1330,6 +1472,8 @@ No such object
 
 ### 13600009 用户id超出范围
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 User ID out of range
@@ -1347,6 +1491,8 @@ User ID out of range
 检查输入的用户id是否处于正常范围。
 
 ### 13600010 输入参数非法
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1366,6 +1512,8 @@ The input parameter is invalid.
 
 ### 13600011 上报指定业务空间占用失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to report the specified business space usage.
@@ -1383,6 +1531,8 @@ Failed to report the specified business space usage.
 重启设备后重试。
 
 ### 13600012 查询指定业务空间占用失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1402,6 +1552,8 @@ Failed to query the specified business space usage.
 
 ### 13600013 查询所有业务空间占用情况失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to query all business space usage.
@@ -1419,6 +1571,8 @@ Failed to query all business space usage.
 重启设备后重试。
 
 ### 13600015 获取磁盘空间占用信息失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1438,6 +1592,8 @@ Failed to traverse the query data partition directory.
 
 ### 13600016 获取文件系统inode数失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to query the inode information of the data partition.
@@ -1455,6 +1611,8 @@ Failed to query the inode information of the data partition.
 重启设备后重试。
 
 ### 13600017 获取当前应用的inode占用量失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1474,6 +1632,8 @@ Failed to query the inode information of the application.
 
 ### 13600018 查询系统数据大小失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to query the system data size.
@@ -1491,6 +1651,8 @@ Failed to query the system data size.
 重启设备后重试。
 
 ### 13600021 获取分区表失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1513,6 +1675,8 @@ Get partition table failed.
 2. 请通过"华为开发者联盟官网"->"支持"，[在线提单](https://developer.huawei.com/consumer/cn/support/)方式获取支持。
 
 ### 13600022 创建分区失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1540,6 +1704,8 @@ Create partition failed.
 
 ### 13600023 删除分区失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Delete partition failed.
@@ -1562,6 +1728,8 @@ Delete partition failed.
 
 ### 13600024 光盘为空
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Empty disc.
@@ -1581,6 +1749,8 @@ Empty disc.
 2. 确认光盘包含有效数据。
 
 ### 13600025 写入ISO文件失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1608,6 +1778,8 @@ Failed to write the ISO file.
 
 ### 13600026 擦除操作失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Erase operation failed.
@@ -1625,6 +1797,8 @@ Erase operation failed.
 重新插入光驱，并等待擦除完成。
 
 ### 13600027 源数据未找到
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1647,6 +1821,8 @@ Source data not found.
 2. 确认源文件存在且可访问。
 
 ### 13600028 刻录操作失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1674,6 +1850,8 @@ Burn operation failed.
 
 ### 13600029 无正在进行的操作
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 No ongoing operation.
@@ -1691,6 +1869,8 @@ No ongoing operation.
 确认是否有正在进行的刻录操作。
 
 ### 13600030 校验失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1718,6 +1898,8 @@ Verification failed.
 
 ### 13600031 数据不匹配
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Data mismatch.
@@ -1739,6 +1921,8 @@ Data mismatch.
 3. 更换光盘或光驱后重试。
 
 ### 13600032 格式化分区失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1762,7 +1946,11 @@ Format partition failed.
 
 ## 公共文件访问错误码
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 14300001 IPC通信失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1784,6 +1972,8 @@ IPC通信失败。
 
 ### 14300002 URI格式错误
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Invalid URI
@@ -1801,6 +1991,8 @@ URI格式错误。
 检查URI格式。
 
 ### 14300003 查询server端ability信息失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1820,6 +2012,8 @@ BMS接口异常。
 
 ### 14300004 js-server实际返回的结果异常
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Incorrect result returned by js-server
@@ -1837,6 +2031,8 @@ server端返回实际数据不当。
 server端返回值检查。
 
 ### 14300005 notify注册失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1858,6 +2054,8 @@ notify注册失败。
 
 ### 14300006 notify移除失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to unregister notify
@@ -1878,6 +2076,8 @@ notify移除失败。
 
 ### 14300007 notify代理初始化失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to initialize the notify agent
@@ -1895,6 +2095,8 @@ notify代理初始化失败。
 检查是否注册过。
 
 ### 14300008 js-server端通知代理失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1916,7 +2118,11 @@ js-server端通知代理失败。
 
 ## 端云同步错误码
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 22400001 云端状态未ready
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1936,6 +2142,8 @@ Cloud status not ready
 
 ### 22400002 网络不可用
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Network unavailable
@@ -1949,6 +2157,8 @@ Network unavailable
 检查网络状态。
 
 ### 22400003 告警电量
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1964,6 +2174,8 @@ Low battery level
 
 ### 22400004 入参请求超过最大限制
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Exceeded the maximum limit
@@ -1977,6 +2189,8 @@ Exceeded the maximum limit
 检查入参，保证请求数量符合规格要求。
 
 ### 22400005 内部错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -1998,6 +2212,8 @@ Inner error
 
 ### 22400006 已经有同类型任务正在运行
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The same task is already in progress
@@ -2011,6 +2227,8 @@ The same task is already in progress
 等待现有同类型任务完成，或通过调用对应业务的stop接口终止现有任务后，再触发新任务。
 
 ### 22400007 指定用于替换原始文件的历史版本文件不存在
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 

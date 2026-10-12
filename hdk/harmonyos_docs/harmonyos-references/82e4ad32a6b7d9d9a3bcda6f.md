@@ -18,11 +18,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { avSession } from '@kit.AVSessionKit';
 ```
 
 ## constructor^14+^
+
+> phone 17+ | 2in1 17+ | tablet 17+ | tv 19+
 
 constructor(context: Context)
 
@@ -76,6 +80,8 @@ struct Index {
 ```
 
 ## select^14+^
+
+> phone 17+ | 2in1 17+ | tablet 17+ | tv 19+
 
 select(options?: AVCastPickerOptions): Promise<void>
 
@@ -132,6 +138,8 @@ this.avCastPicker.select(avCastPickerOptions).then(() => {
 
 ## resetCommunicationDevice^21+^
 
+> phone 21+ | 2in1 21+ | tablet 21+ | tv 21+
+
 resetCommunicationDevice(): Promise<void>
 
 将应用通话设备恢复至默认设备。例如，在语音通话场景下，手机设备的通话设备将恢复为听筒。使用Promise异步回调。
@@ -161,6 +169,8 @@ async function avCastPicker(context: common.Context) {
 ```
 
 ## on('pickerStateChange')^14+^
+
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+
 
 on(type: 'pickerStateChange', callback: Callback<AVCastPickerState>) : void
 
@@ -204,6 +214,8 @@ async function onPickerStateChange(context: common.Context) {
 ```
 
 ## off('pickerStateChange')^14+^
+
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+
 
 off(type: 'pickerStateChange', callback?: Callback<AVCastPickerState>) : void
 

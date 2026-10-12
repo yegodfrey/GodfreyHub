@@ -14,6 +14,8 @@ typedef struct OH_ArkUI_ParagraphStyle OH_ArkUI_ParagraphStyle
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义段落样式，用于在构建富文本段落时统一设置文本对齐、换行、截断等排版行为，适用于需要对段落进行精细化排版控制的场景，例如在富文本编辑器中设置段落对齐方式、在新闻阅读应用中控制长文本的换行与截断显示等。
 
 调用[OH_ArkUI_ParagraphStyle_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_paragraphstyle_create)接口创建对应的段落样式对象。

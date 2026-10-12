@@ -19,6 +19,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## matchMediaSync
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 matchMediaSync(condition: string): mediaQuery.MediaQueryListener
 
 设置媒体查询的查询条件，并返回对应的监听句柄。

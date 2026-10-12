@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-hismartperf
 
 ### 数据项设置
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/so4xS5tRQAyAQIgYUaN-yw/zh-cn_image_0000002487419197.png?HW-CC-KV=V1&HW-CC-Date=20260920T025432Z&HW-CC-Expire=31536000000&HW-CC-Sign=DBB449D786CC9F1C5969664721E4ADADA609ED7C5BBAC4B8B13226018E2F1E1F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/so4xS5tRQAyAQIgYUaN-yw/zh-cn_image_0000002487419197.png?HW-CC-KV=V1&HW-CC-Date=20261008T193123Z&HW-CC-Expire=31536000000&HW-CC-Sign=FC388F571BCC2F157671808BA9699666167DF55B9B163C025759FA170806775D)
 
 CPU trace配置项如下：
 
@@ -26,7 +26,7 @@ CPU trace配置项如下：
 
 ### 通用设置
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/F_2wDEdXSjOjWx-hf9y6nw/zh-cn_image_0000002487499245.png?HW-CC-KV=V1&HW-CC-Date=20260920T025432Z&HW-CC-Expire=31536000000&HW-CC-Sign=3285A99F10E7E44962BD85BE043B1646451445B5175810BD2EB16C716007EBE2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/F_2wDEdXSjOjWx-hf9y6nw/zh-cn_image_0000002487499245.png?HW-CC-KV=V1&HW-CC-Date=20261008T193123Z&HW-CC-Expire=31536000000&HW-CC-Sign=02C91AF858D3DE3A7C0608356E9937F5CBC56131998C20FC5186B0B960647519)
 > 说明
 >
 > 测试报告**上传云端** ，即工具本地的测试报告**上传至** **AGC控制台**。
@@ -38,5 +38,5 @@ CPU trace配置项如下：
 > * 当前仅HarmonyOS 6.0及以上设备支持使用抓帧功能。
 > * 抓帧功能需使用debug包。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/6NkL7nnXR62Sp-ijTGzOtg/zh-cn_image_0000002454419526.png?HW-CC-KV=V1&HW-CC-Date=20260920T025432Z&HW-CC-Expire=31536000000&HW-CC-Sign=149454BA99406877E62B502845BEF5829E88CF3A849BC513EBF7D104F2D028D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/6NkL7nnXR62Sp-ijTGzOtg/zh-cn_image_0000002454419526.png?HW-CC-KV=V1&HW-CC-Date=20261008T193123Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA1D2DD3C8E76B617C4B879927AFBF400D933298CCB342D2583699C02BA1CF32)
 

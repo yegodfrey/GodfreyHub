@@ -235,7 +235,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-stability-5
 
 3. 使用[HiSmartPerf](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smartperf-tool-0000001873208929)工具抓取该过程的Trace信息，观察该操作的执行耗时。
 
-   当前任务运行时间Duration已达到7s，长时间占用主线程。![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/6j0tXs_XQGuWAKWQbIGr5w/zh-cn_image_0000002658555527.png?HW-CC-KV=V1&HW-CC-Date=20260920T112701Z&HW-CC-Expire=31536000000&HW-CC-Sign=7C454EB00B7FABFD89DBCEF4FDD7ACABB95C8938586077568BEB2F96AE658C1C "点击放大")
+   当前任务运行时间Duration已达到7s，长时间占用主线程。![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/6j0tXs_XQGuWAKWQbIGr5w/zh-cn_image_0000002658555527.png?HW-CC-KV=V1&HW-CC-Date=20261008T155627Z&HW-CC-Expire=31536000000&HW-CC-Sign=F9EF5059DBD328D274AFDB61DEFDA7173BEA8E47FF6C12AA4451C52F949A3E52 "点击放大")
 
 ### 场景七
 

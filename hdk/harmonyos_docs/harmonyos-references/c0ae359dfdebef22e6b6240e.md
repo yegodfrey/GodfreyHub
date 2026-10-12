@@ -81,11 +81,15 @@ inputMethodAbility.on('inputStop', () => {
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { inputMethodEngine } from '@kit.IMEKit';
 ```
 
 ## 常量
+
+> phone | 2in1 | tablet | tv | wearable
 
 功能键常量值、编辑框常量值及光标常量值，用于输入法应用识别编辑框类型、回车键功能、光标移动方向等属性。输入法应用可根据这些常量值调整键盘布局和输入行为，例如：根据编辑框类型（PATTERN_TEXT/PATTERN_NUMBER等）切换不同的键盘布局，根据回车键功能（ENTER_KEY_TYPE_SEARCH/ENTER_KEY_TYPE_SEND等）调整回车键的显示文本和图标。
 
@@ -140,6 +144,8 @@ import { inputMethodEngine } from '@kit.IMEKit';
 
 ## inputMethodEngine.getInputMethodAbility^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getInputMethodAbility(): InputMethodAbility
 
 获取输入法能力对象实例[InputMethodAbility](#inputmethodability)，仅支持输入法应用调用。
@@ -163,6 +169,8 @@ let inputMethodAbility: inputMethodEngine.InputMethodAbility = inputMethodEngine
 
 ## inputMethodEngine.getKeyboardDelegate^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getKeyboardDelegate(): KeyboardDelegate
 
 获取客户端编辑事件监听代理实例[KeyboardDelegate](#keyboarddelegate)（键盘代理对象）。
@@ -185,6 +193,8 @@ let keyboardDelegate: inputMethodEngine.KeyboardDelegate = inputMethodEngine.get
 ```
 
 ## inputMethodEngine.getInputMethodEngine^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getInputMethodEngine(): InputMethodEngine
 
@@ -212,6 +222,8 @@ let InputMethodEngine: inputMethodEngine.InputMethodEngine = inputMethodEngine.g
 
 ## inputMethodEngine.createKeyboardDelegate^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 createKeyboardDelegate(): KeyboardDelegate
 
 获取客户端编辑事件监听代理实例[KeyboardDelegate](#keyboarddelegate)。输入法应用获取该实例后，可订阅物理键盘按键事件、选中文本变化事件等。
@@ -235,6 +247,8 @@ let keyboardDelegate: inputMethodEngine.KeyboardDelegate = inputMethodEngine.cre
 
 ## CommandDataType^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 type CommandDataType = number | string | boolean;
 
 表示私有数据类型，接口参数具体类型根据其功能而定。
@@ -248,6 +262,8 @@ type CommandDataType = number | string | boolean;
 |boolean|表示值类型为布尔值。|
 
 ## SizeChangeCallback^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 type SizeChangeCallback = (size: window.Size, keyboardArea?: KeyboardArea) => void
 
@@ -264,6 +280,7 @@ type SizeChangeCallback = (size: window.Size, keyboardArea?: KeyboardArea) => vo
 
 ## InputMethodEngine^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 > 说明
 >
 > 从 API version 8开始支持，从API version 23开始废弃。建议使用[InputMethodAbility](#inputmethodability)替代。
@@ -271,6 +288,8 @@ type SizeChangeCallback = (size: window.Size, keyboardArea?: KeyboardArea) => vo
 下列API均需使用[getInputMethodEngine](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethodengine#inputmethodenginegetinputmethodenginedeprecated)获取到InputMethodEngine实例后，通过实例调用。
 
 ### on('inputStart')^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'inputStart', callback: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void
 
@@ -300,6 +319,8 @@ inputMethodEngine.getInputMethodEngine()
 
 ### off('inputStart')^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void
 
 取消订阅输入法绑定成功事件。
@@ -327,6 +348,8 @@ inputMethodEngine.getInputMethodEngine()
 ```
 
 ### on('keyboardShow'|'keyboardHide')^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void
 
@@ -357,6 +380,8 @@ inputMethodEngine.getInputMethodEngine().on('keyboardHide', () => {
 
 ### off('keyboardShow'|'keyboardHide')^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void
 
 取消订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
@@ -382,6 +407,8 @@ inputMethodEngine.getInputMethodEngine().off('keyboardHide');
 
 ## InputMethodAbility
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 InputMethodAbility是输入法应用的核心能力对象，提供输入法生命周期管理、面板创建与销毁、事件订阅等功能。输入法应用通过[getInputMethodAbility](#inputmethodenginegetinputmethodability9)获取该实例。
 
 核心功能概述：
@@ -405,6 +432,8 @@ InputMethodAbility是输入法应用的核心能力对象，提供输入法生�
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 ### on('inputStart')^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void): void
 
@@ -435,6 +464,8 @@ inputMethodEngine.getInputMethodAbility()
 
 ### off('inputStart')^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'inputStart', callback?: (kbController: KeyboardController, inputClient: InputClient) => void): void
 
 取消订阅输入法绑定成功事件。使用callback异步回调。
@@ -455,6 +486,8 @@ inputMethodEngine.getInputMethodAbility().off('inputStart');
 ```
 
 ### on('inputStop')^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'inputStop', callback: () => void): void
 
@@ -483,6 +516,8 @@ inputMethodEngine.getInputMethodAbility().on('inputStop', () => {
 
 ### off('inputStop')^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'inputStop', callback: () => void): void
 
 取消订阅停止输入法应用事件。使用callback异步回调。
@@ -505,6 +540,8 @@ inputMethodEngine.getInputMethodAbility().off('inputStop', () => {
 ```
 
 ### on('setCallingWindow')^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'setCallingWindow', callback: (wid: number) => void): void;
 
@@ -533,6 +570,8 @@ inputMethodEngine.getInputMethodAbility().on('setCallingWindow', (windowId: numb
 
 ### off('setCallingWindow')^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'setCallingWindow', callback: (wid:number) => void): void
 
 取消订阅设置调用窗口事件。使用callback异步回调。
@@ -555,6 +594,8 @@ inputMethodEngine.getInputMethodAbility().off('setCallingWindow', (windowId: num
 ```
 
 ### on('keyboardShow'|'keyboardHide')^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void
 
@@ -586,6 +627,8 @@ inputMethodEngine.getInputMethodAbility().on('keyboardHide', () => {
 
 ### off('keyboardShow'|'keyboardHide')^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void
 
 取消订阅输入法软键盘显示或隐藏事件。使用callback异步回调。
@@ -611,6 +654,8 @@ inputMethodEngine.getInputMethodAbility().off('keyboardHide', () => {
 ```
 
 ### on('setSubtype')^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'setSubtype', callback: (inputMethodSubtype: InputMethodSubtype) => void): void
 
@@ -641,6 +686,8 @@ inputMethodEngine.getInputMethodAbility().on('setSubtype', (inputMethodSubtype: 
 
 ### off('setSubtype')^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void
 
 取消订阅设置输入法子类型事件。使用callback异步回调。
@@ -663,6 +710,8 @@ inputMethodEngine.getInputMethodAbility().off('setSubtype', () => {
 ```
 
 ### on('securityModeChange')^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'securityModeChange', callback: Callback< SecurityMode>): void
 
@@ -692,6 +741,8 @@ inputMethodEngine.getInputMethodAbility()
 
 ### off('securityModeChange')^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'securityModeChange', callback?: Callback< SecurityMode>): void
 
 取消订阅输入法安全模式改变类型事件。使用callback异步回调。
@@ -718,6 +769,8 @@ inputMethodAbility.off('securityModeChange', securityChangeCallback);
 ```
 
 ### on('privateCommand')^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'privateCommand', callback: Callback<Record<string, CommandDataType>>): void;
 
@@ -758,6 +811,8 @@ inputMethodEngine.getInputMethodAbility().on('privateCommand', privateCommandCal
 
 ### off('privateCommand')^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'privateCommand', callback?: Callback<Record<string, CommandDataType>>): void
 
 取消订阅输入法私有数据事件。使用callback异步回调。
@@ -793,6 +848,8 @@ inputMethodEngine.getInputMethodAbility().off('privateCommand', privateCommandCa
 ```
 
 ### on('callingDisplayDidChange')^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 on(type: 'callingDisplayDidChange', callback: Callback<number>): void
 
@@ -830,6 +887,8 @@ inputMethodEngine.getInputMethodAbility().on('callingDisplayDidChange', callingD
 
 ### off('callingDisplayDidChange')^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 off(type: 'callingDisplayDidChange', callback?: Callback<number>): void
 
 取消订阅编辑框对应窗口所在屏幕ID变化事件。使用callback异步回调。
@@ -852,6 +911,8 @@ inputMethodEngine.getInputMethodAbility().off('callingDisplayDidChange', (displa
 ```
 
 ### on('discardTypingText')^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 on(type: 'discardTypingText', callback: Callback<void> ): void
 
@@ -880,6 +941,8 @@ inputMethodEngine.getInputMethodAbility().on('discardTypingText', () => {
 
 ### off('discardTypingText')^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 off(type: 'discardTypingText', callback?: Callback<void> ): void
 
 取消订阅编辑框应用发送\u201c清空候选词\u201d事件到输入法。使用callback异步回调。
@@ -906,6 +969,8 @@ inputMethodEngine.getInputMethodAbility().off('discardTypingText', () => {
 ```
 
 ### getSecurityMode^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getSecurityMode(): SecurityMode
 
@@ -935,6 +1000,8 @@ console.info(`getSecurityMode, securityMode is : ${security}`);
 ```
 
 ### createPanel^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 createPanel(ctx: BaseContext, info: PanelInfo, callback: AsyncCallback<Panel>): void
 
@@ -1005,6 +1072,8 @@ class InputMethodExt extends InputMethodExtensionAbility {
 
 ### createPanel^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 createPanel(ctx: BaseContext, info: PanelInfo): Promise<Panel>
 
 创建输入法面板，仅支持输入法应用在[InputMethodExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-extension-ability)类中调用。使用promise异步回调。
@@ -1068,6 +1137,8 @@ class InputMethodExt extends InputMethodExtensionAbility {
 
 ### destroyPanel^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 destroyPanel(panel: Panel, callback: AsyncCallback<void> ): void
 
 销毁输入法面板。需先通过 [createPanel](#createpanel10) 创建面板后调用。使用callback异步回调。
@@ -1129,6 +1200,8 @@ inputMethodEngine.getInputMethodAbility().createPanel(this.context, panelInfo, (
 ```
 
 ### destroyPanel^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 destroyPanel(panel: Panel): Promise<void>
 
@@ -1198,6 +1271,8 @@ if (inputPanel) {
 
 ## KeyboardDelegate
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 KeyboardDelegate是键盘事件监听代理对象，用于输入法应用监听物理键盘按键事件和编辑框文本/光标/选区变化事件。输入法应用通过[getKeyboardDelegate](#inputmethodenginegetkeyboarddelegate9)获取该实例。
 
 核心功能概述：
@@ -1217,6 +1292,8 @@ KeyboardDelegate是键盘事件监听代理对象，用于输入法应用监听�
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 ### on('keyDown'|'keyUp')
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'keyDown'|'keyUp', callback: (event: KeyEvent) => boolean): void
 
@@ -1252,6 +1329,8 @@ inputMethodEngine.getKeyboardDelegate().on('keyDown', (keyEvent: inputMethodEngi
 
 ### off('keyDown'|'keyUp')
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'keyDown'|'keyUp', callback?: (event: KeyEvent) => boolean): void
 
 取消订阅硬键盘（即物理键盘）上物理按键的按下或抬起事件。
@@ -1279,6 +1358,8 @@ inputMethodEngine.getKeyboardDelegate().off('keyDown', (keyEvent: inputMethodEng
 ```
 
 ### on('keyEvent')^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'keyEvent', callback: (event: InputKeyEvent) => boolean): void
 
@@ -1313,6 +1394,8 @@ inputMethodEngine.getKeyboardDelegate().on('keyEvent', (keyEvent: KeyEvent) => {
 
 ### off('keyEvent')^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'keyEvent', callback?: (event: InputKeyEvent) => boolean): void
 
 取消订阅硬键盘（即物理键盘）事件。使用callback异步回调。
@@ -1339,6 +1422,8 @@ inputMethodEngine.getKeyboardDelegate().off('keyEvent');
 ```
 
 ### on('cursorContextChange')
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'cursorContextChange', callback: (x: number, y:number, height:number) => void): void
 
@@ -1369,6 +1454,8 @@ inputMethodEngine.getKeyboardDelegate().on('cursorContextChange', (x: number, y:
 
 ### off('cursorContextChange')
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'cursorContextChange', callback?: (x: number, y: number, height: number) => void): void
 
 取消订阅光标变化事件。
@@ -1389,6 +1476,8 @@ inputMethodEngine.getKeyboardDelegate().off('cursorContextChange');
 ```
 
 ### on('selectionChange')
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'selectionChange', callback: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void): void
 
@@ -1421,6 +1510,8 @@ inputMethodEngine.getKeyboardDelegate()
 
 ### off('selectionChange')
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'selectionChange', callback?: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void): void
 
 取消订阅文本选择范围变化事件。
@@ -1444,6 +1535,8 @@ inputMethodEngine.getKeyboardDelegate()
 ```
 
 ### on('textChange')
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'textChange', callback: (text: string) => void): void
 
@@ -1472,6 +1565,8 @@ inputMethodEngine.getKeyboardDelegate().on('textChange', (text: string) => {
 
 ### off('textChange')
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'textChange', callback?: (text: string) => void): void
 
 取消订阅文本内容变化事件。使用callback异步回调。
@@ -1494,6 +1589,8 @@ inputMethodEngine.getKeyboardDelegate().off('textChange', (text: string) => {
 ```
 
 ### on('editorAttributeChanged')^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'editorAttributeChanged', callback: (attr: EditorAttribute) => void): void
 
@@ -1523,6 +1620,8 @@ inputMethodEngine.getKeyboardDelegate()
 
 ### off('editorAttributeChanged')^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'editorAttributeChanged', callback?: (attr: EditorAttribute) => void): void
 
 取消订阅编辑框属性变化事件。使用callback异步回调。
@@ -1543,6 +1642,8 @@ inputMethodEngine.getKeyboardDelegate().off('editorAttributeChanged');
 ```
 
 ## Panel^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 Panel是输入法面板对象，提供面板页面加载、显示/隐藏、尺寸调整、位置移动、模式切换等功能。Panel实例通过InputMethodAbility的[createPanel](#createpanel10)接口获取，使用完毕后需调用[destroyPanel](#destroypanel10)销毁以释放资源。createPanel与destroyPanel必须配对调用。
 
@@ -1567,6 +1668,8 @@ Panel是输入法面板对象，提供面板页面加载、显示/隐藏、尺�
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 ### setUiContent^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setUiContent(path: string, callback: AsyncCallback<void> ): void
 
@@ -1606,6 +1709,8 @@ panel.setUiContent('pages/page2/page2', (err: BusinessError) => {
 ```
 
 ### setUiContent^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setUiContent(path: string): Promise<void>
 
@@ -1647,6 +1752,8 @@ panel.setUiContent('pages/page2/page2').then(() => {
 
 ### setUiContent^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 setUiContent(path: string, storage: LocalStorage, callback: AsyncCallback<void> ): void
 
 为当前的输入法面板加载与LocalStorage相关联的具体页面内容，使用callback异步回调。
@@ -1687,6 +1794,8 @@ panel.setUiContent('pages/page2/page2', storage, (err: BusinessError) => {
 ```
 
 ### setUiContent^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setUiContent(path: string, storage: LocalStorage): Promise<void>
 
@@ -1732,6 +1841,8 @@ panel.setUiContent('pages/page2/page2', storage).then(() => {
 
 ### resize^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 resize(width: number, height: number, callback: AsyncCallback<void> ): void
 
 改变当前输入法面板的大小，使用callback异步回调。
@@ -1775,6 +1886,8 @@ panel.resize(500, 1000, (err: BusinessError) => {
 ```
 
 ### resize^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 resize(width: number, height: number): Promise<void>
 
@@ -1823,6 +1936,8 @@ panel.resize(500, 1000).then(() => {
 
 ### moveTo^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 moveTo(x: number, y: number, callback: AsyncCallback<void> ): void
 
 移动面板位置，使用callback异步回调。[面板状态](#panelflag10)为固定态时，不产生实际移动效果。
@@ -1861,6 +1976,8 @@ panel.moveTo(300, 300, (err: BusinessError) => {
 ```
 
 ### moveTo^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 moveTo(x: number, y: number): Promise<void>
 
@@ -1904,6 +2021,8 @@ panel.moveTo(300, 300).then(() => {
 
 ### startMoving^15+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 startMoving(): void
 
 发送移动命令给窗口，使面板进入可拖动状态。不产生实际移动效果，仅在用户通过鼠标拖动面板时才会移动。
@@ -1928,6 +2047,8 @@ panel.startMoving();
 ```
 
 ### getDisplayId^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 getDisplayId(): Promise<number>
 
@@ -1964,6 +2085,8 @@ panel.getDisplayId().then((result: number) => {
 
 ### show^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 show(callback: AsyncCallback<void> ): void
 
 显示当前输入法面板，使用callback异步回调。输入法应用与编辑框绑定成功后可正常调用。
@@ -1992,6 +2115,8 @@ panel.show((err: BusinessError) => {
 
 ### show^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 show(): Promise<void>
 
 显示当前输入法面板，使用promise异步回调。输入法应用与编辑框绑定成功后可正常调用。
@@ -2017,6 +2142,8 @@ panel.show().then(() => {
 ```
 
 ### hide^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 hide(callback: AsyncCallback<void> ): void
 
@@ -2046,6 +2173,8 @@ panel.hide((err: BusinessError) => {
 
 ### hide^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 hide(): Promise<void>
 
 隐藏当前输入法面板，使用promise异步回调。
@@ -2071,6 +2200,8 @@ panel.hide().then(() => {
 ```
 
 ### adjustPanelRect^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 adjustPanelRect(flag: PanelFlag, rect: PanelRect): void
 
@@ -2134,6 +2265,8 @@ panel.adjustPanelRect(panelFlag, panelRect);
 ```
 
 ### adjustPanelRect^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect): void
 
@@ -2201,6 +2334,8 @@ panel.adjustPanelRect(panelFlag, panelRect);
 ```
 
 ### updatePanelRect
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 updatePanelRect(flag: PanelFlag, rect: PanelRect): Promise<void>
 
@@ -2270,6 +2405,8 @@ panel.updatePanelRect(panelFlag, panelRect);
 ```
 
 ### updatePanelRect
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 updatePanelRect(flag: PanelFlag, rect: EnhancedPanelRect): Promise<void>
 
@@ -2347,6 +2484,8 @@ panel.updatePanelRect(panelFlag, panelRect);
 
 ### updatePanelRectSync
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 updatePanelRectSync(flag: PanelFlag, rect: PanelRect): void
 
 预设置输入法应用横竖屏大小。
@@ -2411,6 +2550,8 @@ panel.updatePanelRectSync(panelFlag, panelRect);
 ```
 
 ### updatePanelRectSync
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 updatePanelRectSync(flag: PanelFlag, rect: EnhancedPanelRect): void
 
@@ -2484,6 +2625,8 @@ panel.updatePanelRectSync(panelFlag, panelRect);
 
 ### updateRegion^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 updateRegion(inputRegion: Array<window.Rect>): void
 
 更新当前状态下输入法面板内的热区。
@@ -2530,6 +2673,8 @@ panel.updateRegion(inputRegion);
 
 ### on('show')^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 on(type: 'show', callback: () => void): void
 
 监听当前面板显示状态，使用 callback 异步回调。
@@ -2553,6 +2698,8 @@ panel.on('show', () => {
 
 ### on('hide')^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 on(type: 'hide', callback: () => void): void
 
 监听当前面板隐藏状态，使用callback异步回调。
@@ -2575,6 +2722,8 @@ panel.on('hide', () => {
 ```
 
 ### on('sizeChange')^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 on(type: 'sizeChange', callback: SizeChangeCallback): void
 
@@ -2614,6 +2763,8 @@ panel.on('sizeChange', (windowSize: window.Size, keyboardArea: inputMethodEngine
 
 ### off('show')^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'show', callback?: () => void): void
 
 取消监听当前面板的显示状态，使用callback异步回调。
@@ -2643,6 +2794,8 @@ panel.off('show');
 
 ### off('hide')^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 off(type: 'hide', callback?: () => void): void
 
 取消监听当前面板的隐藏状态，使用callback异步回调。
@@ -2671,6 +2824,8 @@ panel.off('hide');
 ```
 
 ### off('sizeChange')^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 off(type: 'sizeChange', callback?: SizeChangeCallback): void
 
@@ -2703,6 +2858,8 @@ panel.off('sizeChange', (windowSize: window.Size) => {
 
 ### changeFlag^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 changeFlag(flag: PanelFlag): void
 
 将输入法应用的面板状态改变为其他[PanelFlag](#panelflag10)形态，仅对[SOFT_KEYBOARD](#paneltype10)生效。
@@ -2731,6 +2888,8 @@ panel.changeFlag(panelFlag);
 ```
 
 ### setPrivacyMode^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setPrivacyMode(isPrivacyMode: boolean): void
 
@@ -2764,6 +2923,8 @@ panel.setPrivacyMode(isPrivacyMode);
 
 ### setImmersiveMode^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 setImmersiveMode(mode: ImmersiveMode): void
 
 设置输入法应用的沉浸模式。只能设置为不使用沉浸模式(NONE_IMMERSIVE)、浅色沉浸模式(LIGHT_IMMERSIVE)或深色沉浸模式(DARK_IMMERSIVE)。
@@ -2794,6 +2955,8 @@ panel.setImmersiveMode(inputMethodEngine.ImmersiveMode.LIGHT_IMMERSIVE);
 
 ### getImmersiveMode^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 getImmersiveMode(): ImmersiveMode
 
 获取输入法应用的沉浸模式。
@@ -2813,6 +2976,8 @@ let mode: inputMethodEngine.ImmersiveMode = panel.getImmersiveMode();
 ```
 
 ### setImmersiveEffect^20+^
+
+> phone 20+ | tablet 20+
 
 setImmersiveEffect(effect: ImmersiveEffect): void
 
@@ -2861,6 +3026,8 @@ panel.setImmersiveEffect(effect);
 
 ### setKeepScreenOn^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>
 
 设置屏幕常亮。使用Promise异步回调。
@@ -2904,6 +3071,8 @@ panel.setKeepScreenOn(true).then(() => {
 ```
 
 ### getSystemPanelCurrentInsets^21+^
+
+> phone 21+ | 2in1 21+ | tablet 21+ | tv 21+ | wearable 21+
 
 getSystemPanelCurrentInsets(displayId: number): Promise<SystemPanelInsets>
 
@@ -2963,6 +3132,8 @@ inputMethodAbility.createPanel(this.context, panelConfig).then((panel: inputMeth
 
 ### setSystemPanelButtonColor^22+^
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 setSystemPanelButtonColor(fillColor: string | undefined, backgroundColor: string | undefined): Promise<void>
 
 设置当前面板功能键颜色和功能键的背景颜色。使用Promise异步回调。
@@ -3004,11 +3175,15 @@ try {
 
 ## KeyboardController
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 下列API均需使用[on('inputStart')](#oninputstart9)获取到KeyboardController实例后，通过实例调用。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 ### hide^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 hide(callback: AsyncCallback<void>): void
 
@@ -3046,6 +3221,8 @@ keyboardController.hide((err: BusinessError) => {
 
 ### hide^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 hide(): Promise<void>
 
 隐藏输入法。使用promise异步回调。
@@ -3080,6 +3257,8 @@ keyboardController.hide().then(() => {
 
 ### hideKeyboard^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 hideKeyboard(callback: AsyncCallback<void>): void
 
 隐藏输入法。使用callback异步回调。
@@ -3111,6 +3290,8 @@ keyboardController.hideKeyboard((err: BusinessError) => {
 
 ### hideKeyboard^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 hideKeyboard(): Promise<void>
 
 隐藏输入法。使用promise异步回调。
@@ -3139,6 +3320,8 @@ keyboardController.hideKeyboard().then(() => {
 ```
 
 ### exitCurrentInputType^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 exitCurrentInputType(callback: AsyncCallback<void>): void
 
@@ -3177,6 +3360,8 @@ keyboardController.exitCurrentInputType((err: BusinessError) => {
 
 ### exitCurrentInputType^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 exitCurrentInputType(): Promise<void>
 
 退出当前输入类型，仅支持系统配置的默认输入法应用调用。使用promise异步回调。
@@ -3212,6 +3397,8 @@ keyboardController.exitCurrentInputType().then(() => {
 
 ## SecurityMode^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 输入法的安全模式，如BASIC或FULL。
 
 **系统能力:** SystemCapability.MiscServices.InputMethodFramework
@@ -3222,6 +3409,8 @@ keyboardController.exitCurrentInputType().then(() => {
 |FULL|1|完全访问模式，不做限制，可以访问网络。|
 
 ## ExtendAction^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 编辑框中文本的扩展编辑操作类型，如剪切、复制等。
 
@@ -3236,6 +3425,8 @@ keyboardController.exitCurrentInputType().then(() => {
 
 ## Direction^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 光标的移动方向。
 
 **系统能力:** SystemCapability.MiscServices.InputMethodFramework
@@ -3249,6 +3440,8 @@ keyboardController.exitCurrentInputType().then(() => {
 
 ## Range^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 选中的文本范围。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -3260,6 +3453,8 @@ keyboardController.exitCurrentInputType().then(() => {
 
 ## Movement^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 选中文本时，光标移动的方向
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -3269,6 +3464,8 @@ keyboardController.exitCurrentInputType().then(() => {
 |direction|[Direction](#direction10)|否|否|选中文本时，光标的移动方向。|
 
 ## MessageHandler^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 自定义通信对象。
 > 说明
@@ -3282,6 +3479,8 @@ keyboardController.exitCurrentInputType().then(() => {
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 ### onMessage^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 onMessage(msgId: string, msgParam?: ArrayBuffer): void
 
@@ -3321,6 +3520,8 @@ inputMethodEngine.getInputMethodAbility()
 
 ### onTerminated^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 onTerminated(): void
 
 监听对象终止回调函数。
@@ -3352,6 +3553,8 @@ inputMethodEngine.getInputMethodAbility()
 
 ## InputClient^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 InputClient是输入法客户端对象，代表当前绑定到输入法应用的编辑框客户端。InputClient实例通过InputMethodAbility的[on('inputStart')](#oninputstart9)事件回调获取，每个绑定事件对应一个InputClient实例，输入法应用通过该实例与编辑框进行文本交互。
 
 核心功能概述：
@@ -3374,6 +3577,8 @@ InputClient是输入法客户端对象，代表当前绑定到输入法应用的
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 ### sendKeyFunction^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 sendKeyFunction(action:number, callback: AsyncCallback<boolean>): void
 
@@ -3418,6 +3623,8 @@ inputClient.sendKeyFunction(action, (err: BusinessError, result: boolean) => {
 ```
 
 ### sendKeyFunction^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 sendKeyFunction(action: number): Promise<boolean>
 
@@ -3465,6 +3672,8 @@ inputClient.sendKeyFunction(action).then((result: boolean) => {
 
 ### getForward^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getForward(length:number, callback: AsyncCallback<string>): void
 
 获取光标前固定长度的文本。使用callback异步回调。
@@ -3509,6 +3718,8 @@ inputClient.getForward(length, (err: BusinessError, text: string) => {
 
 ### getForward^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getForward(length:number): Promise<string>
 
 获取光标前固定长度的文本。使用promise异步回调。
@@ -3552,6 +3763,8 @@ inputClient.getForward(length).then((text: string) => {
 
 ### getForwardSync^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getForwardSync(length:number): string
 
 获取光标前固定长度的文本。
@@ -3593,6 +3806,8 @@ console.info(`Succeeded in getting forward, text: ${text}`);
 
 ### getBackward^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getBackward(length:number, callback: AsyncCallback<string>): void
 
 获取光标后固定长度的文本。使用callback异步回调。
@@ -3632,6 +3847,8 @@ inputClient.getBackward(length, (err: BusinessError, text: string) => {
 ```
 
 ### getBackward^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getBackward(length:number): Promise<string>
 
@@ -3676,6 +3893,8 @@ inputClient.getBackward(length).then((text: string) => {
 
 ### getBackwardSync^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getBackwardSync(length:number): string
 
 获取光标后固定长度的文本。
@@ -3716,6 +3935,8 @@ console.info(`Succeeded in getting backward, text: ${text}`);
 ```
 
 ### deleteForward^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 deleteForward(length:number, callback: AsyncCallback<boolean>): void
 
@@ -3765,6 +3986,8 @@ inputClient.deleteForward(length, (err: BusinessError, result: boolean) => {
 
 ### deleteForward^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 deleteForward(length:number): Promise<boolean>
 
 删除光标前固定长度的文本。使用promise异步回调。
@@ -3812,6 +4035,8 @@ inputClient.deleteForward(length).then((result: boolean) => {
 
 ### deleteForwardSync^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 deleteForwardSync(length:number): void
 
 删除光标前固定长度的文本。
@@ -3845,6 +4070,8 @@ inputClient.deleteForwardSync(length);
 ```
 
 ### deleteBackward^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 deleteBackward(length:number, callback: AsyncCallback<boolean>): void
 
@@ -3894,6 +4121,8 @@ inputClient.deleteBackward(length, (err: BusinessError, result: boolean) => {
 
 ### deleteBackward^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 deleteBackward(length:number): Promise<boolean>
 
 删除光标后固定长度的文本。使用promise异步回调。
@@ -3941,6 +4170,8 @@ inputClient.deleteBackward(length).then((result: boolean) => {
 
 ### deleteBackwardSync^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 deleteBackwardSync(length:number): void
 
 删除光标后固定长度的文本。
@@ -3974,6 +4205,8 @@ inputClient.deleteBackwardSync(length);
 ```
 
 ### insertText^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 insertText(text:string, callback: AsyncCallback<boolean>): void
 
@@ -4023,6 +4256,8 @@ inputClient.insertText('test', (err: BusinessError, result: boolean) => {
 
 ### insertText^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 insertText(text:string): Promise<boolean>
 
 插入文本。使用promise异步回调。
@@ -4069,6 +4304,8 @@ inputClient.insertText('test').then((result: boolean) => {
 
 ### insertTextSync^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 insertTextSync(text: string): void
 
 插入文本。
@@ -4101,6 +4338,8 @@ inputClient.insertTextSync('test');
 ```
 
 ### getEditorAttribute^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void
 
@@ -4142,6 +4381,8 @@ inputClient.getEditorAttribute((err: BusinessError, editorAttribute: inputMethod
 
 ### getEditorAttribute^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getEditorAttribute(): Promise<EditorAttribute>
 
 获取编辑框属性值。使用promise异步回调。
@@ -4177,6 +4418,8 @@ inputClient.getEditorAttribute().then((editorAttribute: inputMethodEngine.Editor
 
 ### getEditorAttributeSync^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getEditorAttributeSync(): EditorAttribute
 
 获取编辑框属性值。
@@ -4209,6 +4452,8 @@ console.info(`editorAttribute.enterKeyType:  ${editorAttribute.enterKeyType}`);
 ```
 
 ### moveCursor^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 moveCursor(direction: number, callback: AsyncCallback<void>): void
 
@@ -4252,6 +4497,8 @@ inputClient.moveCursor(inputMethodEngine.Direction.CURSOR_UP, (err: BusinessErro
 
 ### moveCursor^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 moveCursor(direction: number): Promise<void>
 
 移动光标。使用promise异步回调。
@@ -4293,6 +4540,8 @@ inputClient.moveCursor(inputMethodEngine.Direction.CURSOR_UP).then(() => {
 
 ### moveCursorSync^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 moveCursorSync(direction: number): void
 
 移动光标。
@@ -4324,6 +4573,8 @@ inputClient.moveCursorSync(inputMethodEngine.Direction.CURSOR_UP);
 ```
 
 ### selectByRange^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 selectByRange(range: Range, callback: AsyncCallback<void>): void
 
@@ -4365,6 +4616,8 @@ inputClient.selectByRange(range, (err: BusinessError) => {
 ```
 
 ### selectByRange^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 selectByRange(range: Range): Promise<void>
 
@@ -4410,6 +4663,8 @@ inputClient.selectByRange(range).then(() => {
 
 ### selectByRangeSync^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 selectByRangeSync(range: Range): void
 
 根据索引范围选中文本。
@@ -4444,6 +4699,8 @@ inputClient.selectByRangeSync(range);
 ```
 
 ### selectByMovement^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 selectByMovement(movement: Movement, callback: AsyncCallback<void>): void
 
@@ -4484,6 +4741,8 @@ inputClient.selectByMovement(movement, (err: BusinessError) => {
 ```
 
 ### selectByMovement^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 selectByMovement(movement: Movement): Promise<void>
 
@@ -4528,6 +4787,8 @@ inputClient.selectByMovement(movement).then(() => {
 
 ### selectByMovementSync^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 selectByMovementSync(movement: Movement): void
 
 根据光标移动方向选中文本。
@@ -4561,6 +4822,8 @@ inputClient.selectByMovementSync(movement);
 ```
 
 ### getTextIndexAtCursor^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getTextIndexAtCursor(callback: AsyncCallback<number>): void
 
@@ -4599,6 +4862,8 @@ inputClient.getTextIndexAtCursor((err: BusinessError, index: number) => {
 
 ### getTextIndexAtCursor^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getTextIndexAtCursor(): Promise<number>
 
 获取光标所在处的文本索引。使用promise异步回调。
@@ -4634,6 +4899,8 @@ inputClient.getTextIndexAtCursor().then((index: number) => {
 
 ### getTextIndexAtCursorSync^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getTextIndexAtCursorSync(): number
 
 获取光标所在处的文本索引。
@@ -4666,6 +4933,8 @@ console.info(`Succeeded in getTextIndexAtCursorSync, index: ${index}`);
 ```
 
 ### sendExtendAction^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 sendExtendAction(action: ExtendAction, callback: AsyncCallback<void>): void
 
@@ -4713,6 +4982,8 @@ inputClient.sendExtendAction(inputMethodEngine.ExtendAction.COPY, (err: Business
 
 ### sendExtendAction^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 sendExtendAction(action: ExtendAction): Promise<void>
 
 发送扩展编辑操作。使用promise异步回调。
@@ -4759,6 +5030,8 @@ inputClient.sendExtendAction(inputMethodEngine.ExtendAction.COPY).then(() => {
 ```
 
 ### sendPrivateCommand^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 sendPrivateCommand(commandData: Record<string, CommandDataType>): Promise<void>
 
@@ -4816,6 +5089,8 @@ textInputClient.sendPrivateCommand(record).then(() => {
 
 ### getCallingWindowInfo^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getCallingWindowInfo(): Promise<WindowInfo>
 
 获取当前拉起输入法的输入框所在应用窗口信息。使用promise异步回调。
@@ -4855,6 +5130,8 @@ inputClient.getCallingWindowInfo().then((windowInfo: inputMethodEngine.WindowInf
 ```
 
 ### setPreviewText^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setPreviewText(text: string, range: Range): Promise<void>
 
@@ -4902,6 +5179,8 @@ inputClient.setPreviewText('test', range).then(() => {
 
 ### setPreviewTextSync^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 setPreviewTextSync(text: string, range: Range): void
 
 设置预上屏文本。
@@ -4938,6 +5217,8 @@ inputClient.setPreviewTextSync('test', range);
 ```
 
 ### finishTextPreview^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 finishTextPreview(): Promise<void>
 
@@ -4977,6 +5258,8 @@ inputClient.finishTextPreview().then(() => {
 
 ### finishTextPreviewSync^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 finishTextPreviewSync(): void
 
 结束预上屏。
@@ -5004,6 +5287,8 @@ inputClient.finishTextPreviewSync();
 ```
 
 ### sendMessage^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>
 
@@ -5058,6 +5343,8 @@ inputClient.sendMessage(msgId, msgParam).then(() => {
 
 ### recvMessage^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 recvMessage(msgHandler?: MessageHandler): void;
 
 注册或取消注册MessageHandler。
@@ -5105,6 +5392,8 @@ inputMethodEngine.getInputMethodAbility()
 
 ### getAttachOptions^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
+
 getAttachOptions(): AttachOptions
 
 获取绑定输入法时的附加选项。
@@ -5137,6 +5426,8 @@ console.info(`Succeeded in getting AttachOptions, AttachOptions is ${attachOptio
 ```
 
 ### on('attachOptionsDidChange')^19+^
+
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
 
 on(type: 'attachOptionsDidChange', callback: Callback<AttachOptions>): void
 
@@ -5182,6 +5473,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ### off('attachOptionsDidChange')^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
+
 off(type: 'attachOptionsDidChange', callback?: Callback<AttachOptions>): void
 
 取消订阅绑定输入法时的附加选项变更事件。使用callback异步回调。
@@ -5211,6 +5504,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ## CapitalizeMode^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 枚举，定义了文本首字母大写的不同模式。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -5223,6 +5518,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |CHARACTERS|3|每个字母都大写。|
 
 ## EditorAttribute
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 编辑框属性值。
 
@@ -5246,6 +5543,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ## KeyEvent
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 按键属性值。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -5256,6 +5555,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |keyAction|number|是|否|按键事件类型。 - 当值为2时，表示按下事件； - 当值为3时，表示抬起事件。|
 
 ## PanelFlag^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 输入法面板状态类型枚举。
 
@@ -5269,6 +5570,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ## PanelType^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 输入法面板类型枚举。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -5279,6 +5582,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |STATUS_BAR|1|状态栏类型。|
 
 ## PanelInfo^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 输入法面板属性。
 
@@ -5291,6 +5596,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ## PanelRect^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 输入法面板位置大小信息。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -5301,6 +5608,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |portraitRect|[window.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)|否|否|竖屏状态时输入法面板窗口的位置大小。|
 
 ## EnhancedPanelRect^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 增强的输入法面板位置、大小信息，包含自定义避让区域、自定义热区。
 
@@ -5318,6 +5627,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ## KeyboardArea^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 面板中的键盘区域。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -5331,6 +5642,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ## AttachOptions^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
+
 绑定输入法时的附加选项。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -5342,6 +5655,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ## WindowInfo^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 窗口信息。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -5352,6 +5667,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |status|[window.WindowStatusType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstatustype11)|否|否|窗口模式类型。|
 
 ## ImmersiveMode^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 枚举，输入法沉浸模式。
 
@@ -5366,6 +5683,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ## RequestKeyboardReason^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
+
 枚举，请求键盘输入的原因。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -5379,6 +5698,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ## GradientMode^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 枚举，输入法渐变模式。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -5390,6 +5711,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ## ImmersiveEffect^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 沉浸效果。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -5400,6 +5723,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 |gradientMode|[GradientMode](#gradientmode20)|否|否|渐变模式。|
 
 ## SystemPanelInsets^21+^
+
+> phone 21+ | 2in1 21+ | tablet 21+ | tv 21+ | wearable 21+
 
 输入法软键盘相对系统面板的偏移区域。
 
@@ -5413,6 +5738,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 
 ## TextInputClient^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 下列API示例中都需使用[on('inputStart')](#oninputstartdeprecated)回调获取到TextInputClient实例，再通过此实例调用对应方法。
 > 说明
 >
@@ -5421,6 +5748,8 @@ console.info(`attachOptionsDidChange unsubscribed from attachOptionsDidChange`);
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 ### getForward^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getForward(length:number, callback: AsyncCallback<string>): void
 
@@ -5459,6 +5788,8 @@ textInputClient.getForward(length, (err: BusinessError, text: string) => {
 
 ### getForward^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getForward(length:number): Promise<string>
 
 获取光标前固定长度的文本。使用promise异步回调。
@@ -5495,6 +5826,8 @@ textInputClient.getForward(length).then((text: string) => {
 
 ### getBackward^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getBackward(length:number, callback: AsyncCallback<string>): void
 
 获取光标后固定长度的文本。使用callback异步回调。
@@ -5527,6 +5860,8 @@ textInputClient.getBackward(length, (err: BusinessError, text: string) => {
 ```
 
 ### getBackward^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getBackward(length:number): Promise<string>
 
@@ -5563,6 +5898,8 @@ textInputClient.getBackward(length).then((text: string) => {
 ```
 
 ### deleteForward^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 deleteForward(length:number, callback: AsyncCallback<boolean>): void
 
@@ -5605,6 +5942,8 @@ textInputClient.deleteForward(length, (err: BusinessError, result: boolean) => {
 
 ### deleteForward^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 deleteForward(length:number): Promise<boolean>
 
 删除光标前固定长度的文本。使用promise异步回调。
@@ -5644,6 +5983,8 @@ textInputClient.deleteForward(length).then((result: boolean) => {
 ```
 
 ### deleteBackward^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 deleteBackward(length:number, callback: AsyncCallback<boolean>): void
 
@@ -5686,6 +6027,8 @@ textInputClient.deleteBackward(length, (err: BusinessError, result: boolean) => 
 
 ### deleteBackward^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 deleteBackward(length:number): Promise<boolean>
 
 删除光标后固定长度的文本。使用promise异步回调。
@@ -5726,6 +6069,8 @@ textInputClient.deleteBackward(length).then((result: boolean) => {
 
 ### sendKeyFunction^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 sendKeyFunction(action: number, callback: AsyncCallback<boolean>): void
 
 发送功能键。使用callback异步回调。
@@ -5762,6 +6107,8 @@ textInputClient.sendKeyFunction(action, (err: BusinessError, result: boolean) =>
 ```
 
 ### sendKeyFunction^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 sendKeyFunction(action: number): Promise<boolean>
 
@@ -5803,6 +6150,8 @@ textInputClient.sendKeyFunction(action).then((result: boolean) => {
 
 ### insertText^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 insertText(text:string, callback: AsyncCallback<boolean>): void
 
 插入文本。使用callback异步回调。
@@ -5843,6 +6192,8 @@ textInputClient.insertText('test', (err: BusinessError, result: boolean) => {
 
 ### insertText^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 insertText(text:string): Promise<boolean>
 
 插入文本。使用promise异步回调。
@@ -5882,6 +6233,8 @@ textInputClient.insertText('test').then((result: boolean) => {
 
 ### getEditorAttribute^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void
 
 获取编辑框属性值。使用callback异步回调。
@@ -5919,6 +6272,8 @@ textInputClient.getEditorAttribute((err: BusinessError,
 ```
 
 ### getEditorAttribute^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getEditorAttribute(): Promise<EditorAttribute>
 

@@ -12,7 +12,7 @@ Scan Kit支持将字符串转换为一维码或二维码，目前已支持的码
 
 使用[buildBitmap](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/scan-scanutil4-0000001050167699#section56266161243)接口来生成码图，主要业务流程如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/MrpRIrxWT1-k3Q7CdHrvBA/zh-cn_image_0000001627284425.png?HW-CC-KV=V1&HW-CC-Date=20260909T153415Z&HW-CC-Expire=31536000000&HW-CC-Sign=D8A38D5132B145E72C0603AFA7B1061329D60807556FD9F12BB4B7E7000622D7 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/MrpRIrxWT1-k3Q7CdHrvBA/zh-cn_image_0000001627284425.png?HW-CC-KV=V1&HW-CC-Date=20261008T163339Z&HW-CC-Expire=31536000000&HW-CC-Sign=5C73C18ADE8F37B21ECFD512649D31AF41A683497D01D49FC6B51DC93CE791AA "点击放大")
 
 1. App指定码宽度和高度、生成码的字符串和码制式，并初始化[HmsBuildBitmapOption](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/scan-hmsbuildbitmapoption-0000001050165980)对象。
 2. App调用华为统一扫码SDK中的[buildBitmap](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/scan-scanutil4-0000001050167699#section56266161243)生成码接口。

@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pastebutton
 
 粘贴控件效果如图所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/MpKGkhXRTrudPX5yDWNvrA/zh-cn_image_0000002749492922.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=B2EE7CD4792D8E331DA676BC7DC2FDB9E2A98875FACCE7A1AC1676F67A64F581)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/IsYXFNkpTGCCRvtRQCxi_Q/zh-cn_image_0000002755024066.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092723Z&HW-CC-Expire=31536000000&HW-CC-Sign=A1F2E3C1639A83D838C61C842A23C0A8058AB83439A077AFB45EC238589CEBC7)
 
 ## 约束与限制
 

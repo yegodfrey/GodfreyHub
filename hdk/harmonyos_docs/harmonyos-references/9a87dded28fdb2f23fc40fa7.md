@@ -14,6 +14,8 @@ typedef struct {...} OH_CM_UkeyInfo
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义USB证书凭据信息的结构体类型。
 
 **起始版本：** 22
@@ -24,7 +26,11 @@ typedef struct {...} OH_CM_UkeyInfo
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------|:--------|

@@ -12,9 +12,13 @@ CSS是描述HML页面结构的样式语言。所有组件均存在系统默认�
 
 ## 样式导入
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 为了模块化管理和代码复用，CSS样式文件支持 @import 语句，导入 CSS 文件。
 
 ## 声明样式
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 每个页面目录下存在一个与布局hml文件同名的css文件，用来描述该hml页面中组件的样式，决定组件应该如何显示。
 
@@ -52,6 +56,8 @@ CSS是描述HML页面结构的样式语言。所有组件均存在系统默认�
    ```
 
 ## 选择器
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 css选择器用于选择需要添加样式的元素，支持的选择器如下表所示：
 
@@ -91,6 +97,8 @@ css选择器用于选择需要添加样式的元素，支持的选择器如下�
 
 ## 伪类
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 css伪类是选择器中的关键字，用于指定要选择元素的特殊状态。
 
 |名称|支持组件|描述|
@@ -115,6 +123,8 @@ css伪类是选择器中的关键字，用于指定要选择元素的特殊状�
 ```
 
 ## 样式预编译
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 预编译提供了利用特有语法生成css的程序，可以提供变量、运算等功能，令开发者更便捷地定义组件样式，目前支持less、sass和scss的预编译。使用样式预编译时，需要将原css文件后缀改为less、sass或scss，如index.css改为index.less、index.sass或index.scss。
 

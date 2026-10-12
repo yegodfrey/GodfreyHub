@@ -12,6 +12,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-a
 
 ## 接口原型
 
+> phone | 2in1 | tablet
+
 * **承载协议：** HTTPS POST
 
 * **接口方向：** 开发者服务器 -> 华为云服务器
@@ -25,6 +27,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-a
   响应消息：Content-Type: application/json;charset=UTF-8
 
 ## 请求参数
+
+> phone | 2in1 | tablet
 
 **Request Header**
 
@@ -42,12 +46,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-a
 
 ## 请求示例
 
+> phone | 2in1 | tablet
+
 ```json
 POST /oauth2/v3/token?grant_type=client_credentials&client_id=<客户端ID>&client_secret=<客户端密钥> HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 ```
 
 ## 响应参数
+
+> phone | 2in1 | tablet
 
 **Response Header**
 
@@ -64,6 +72,8 @@ Content-Type: application/x-www-form-urlencoded
 |expires_in|否|Long|Access Token的过期时间，以秒为单位。默认60分钟过期。|
 
 ## 响应示例
+
+> phone | 2in1 | tablet
 
 ```json
 HTTP/1.1 200 OK

@@ -60,15 +60,27 @@ def canonical_hash(title, content):
     return sha((title or "") + "\n" + (content or ""))
 
 
+# 华为 CDN 图片 URL 每次请求带轮换的 HW-CC-Date/HW-CC-Sign（Expire 亦为易变数值），
+# 与正文无关；不 redact 则含图文档每轮都被判“已修改”重写（2026-10-12 实证：单轮
+# 10874 篇假更新、git churn 1.1 万文件）。哈希两侧（API 侧 doc_hash / 磁盘侧
+# disk_hash）必须同用本归一化；落盘 URL 保持原样（离线浏览依赖签名期内可用）。
+_VOLATILE_URL_RE = re.compile(r"HW-CC-(?:Date|Expire|Sign)=[0-9A-Za-z]+")
+
+
+def norm_volatile(text):
+    return _VOLATILE_URL_RE.sub("HW-CC-Volatile=REDACTED", text or "")
+
+
 def doc_hash(item):
     """API 响应的内容指纹。
 
     必须与磁盘那侧同源：标题走 crawl.frontmatter_value 清洗（write_doc 落盘前就洗过，
-    不洗则永远对不上）、正文走 crawl.doc_body（空正文落盘为 "(empty)"）。
+    不洗则永远对不上）、正文走 crawl.doc_body（空正文落盘为 "(empty)"）；
+    两侧均过 norm_volatile 归一化 CDN 签名。
     两边口径不一致会让该文档每轮都被判为“已修改”而无限重写。
     """
     return canonical_hash(crawl.frontmatter_value(item.get("title", "")),
-                          crawl.doc_body(item))
+                          norm_volatile(crawl.doc_body(item)))
 
 
 def disk_hash(name):
@@ -90,7 +102,7 @@ def disk_hash(name):
         if ":" in line:
             k, v = line.split(":", 1)
             fm[k.strip()] = v.strip()
-    return canonical_hash(fm.get("title", ""), m.group(2))
+    return canonical_hash(fm.get("title", ""), norm_volatile(m.group(2)))
 
 
 def load_inc_state():

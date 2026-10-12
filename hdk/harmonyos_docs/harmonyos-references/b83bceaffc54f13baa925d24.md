@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-k
 
 ## 概述
 
+> phone | 2in1 | tablet | tv
+
 此结构体描述更新NNGI用于计算光线追踪全局光照的所需的信息。
 
 **起始版本：** 6.0.0(20)
@@ -20,7 +22,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-k
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv
 
 |名称|描述|
 |:----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +50,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-k
 
 ## 结构体成员变量说明
 
+> phone | 2in1 | tablet | tv
+
 ### inferenceCameraProjectionMatrix
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
 
 ```cpp
 float XEG_NNGIDescription::inferenceCameraProjectionMatrix[16]
@@ -56,6 +66,8 @@ float XEG_NNGIDescription::inferenceCameraProjectionMatrix[16]
 
 ### inferenceCameraViewMatrix
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
+
 ```cpp
 float XEG_NNGIDescription::inferenceCameraViewMatrix[16]
 ```
@@ -65,6 +77,8 @@ float XEG_NNGIDescription::inferenceCameraViewMatrix[16]
 推理图像的相机观察矩阵，与用户生成Gbuffer使用的矩阵保持一致，必须是4*4列主序矩阵。
 
 ### inferenceInputBaseColorMetallicImage
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
 
 ```cpp
 VkImageView XEG_NNGIDescription::inferenceInputBaseColorMetallicImage
@@ -76,6 +90,8 @@ VkImageView XEG_NNGIDescription::inferenceInputBaseColorMetallicImage
 
 ### inferenceInputDepthImage
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
+
 ```cpp
 VkImageView XEG_NNGIDescription::inferenceInputDepthImage
 ```
@@ -85,6 +101,8 @@ VkImageView XEG_NNGIDescription::inferenceInputDepthImage
 推理输入深度图像，不能为空，格式必须支持深度模板附件，存储Gbuffer的depth纹理。其分辨率和[XEG_NNGICreateInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-nngicreateinfo)中inferenceInputSize的分辨率保持一致。
 
 ### inferenceInputNormalImage
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
 
 ```cpp
 VkImageView XEG_NNGIDescription::inferenceInputNormalImage
@@ -96,6 +114,8 @@ VkImageView XEG_NNGIDescription::inferenceInputNormalImage
 
 ### inferenceOutputGIImage
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
+
 ```cpp
 VkImageView XEG_NNGIDescription::inferenceOutputGIImage
 ```
@@ -105,6 +125,8 @@ VkImageView XEG_NNGIDescription::inferenceOutputGIImage
 推理输出GI图像，格式必须是至少3通道数据，RGB通道分别存储红绿蓝分量的间接光照值，忽略alpha通道信息。其分辨率和[XEG_NNGICreateInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-nngicreateinfo)中inferenceOutputSize的分辨率保持一致。
 
 ### isSceneUnbounded
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
 
 ```cpp
 bool XEG_NNGIDescription::isSceneUnbounded
@@ -116,6 +138,8 @@ bool XEG_NNGIDescription::isSceneUnbounded
 
 ### pNext
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
+
 ```cpp
 const void* XEG_NNGIDescription::pNext
 ```
@@ -125,6 +149,8 @@ const void* XEG_NNGIDescription::pNext
 指向扩展结构的指针。
 
 ### sceneAabb
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
 
 ```cpp
 VkAabbPositionsKHR XEG_NNGIDescription::sceneAabb
@@ -136,6 +162,8 @@ VkAabbPositionsKHR XEG_NNGIDescription::sceneAabb
 
 ### spatialScaleFactor
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
+
 ```cpp
 float XEG_NNGIDescription::spatialScaleFactor
 ```
@@ -145,6 +173,8 @@ float XEG_NNGIDescription::spatialScaleFactor
 场景缩放因子，对于有界场景，无需设置，XEngine根据sceneAabb计算该值，对于无界场景，建议设置为平均深度。
 
 ### sType
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
 
 ```cpp
 XEG_StructureType XEG_NNGIDescription::sType
@@ -156,6 +186,8 @@ XEG_StructureType XEG_NNGIDescription::sType
 
 ### trainingCameraProjectionMatrix
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
+
 ```cpp
 float XEG_NNGIDescription::trainingCameraProjectionMatrix[16]
 ```
@@ -165,6 +197,8 @@ float XEG_NNGIDescription::trainingCameraProjectionMatrix[16]
 训练图像的相机投影矩阵，该矩阵与用户生成PathTracing使用的矩阵保持一致，必须是4*4列主序矩阵。
 
 ### trainingCameraViewMatrix
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
 
 ```cpp
 float XEG_NNGIDescription::trainingCameraViewMatrix[16]
@@ -176,6 +210,8 @@ float XEG_NNGIDescription::trainingCameraViewMatrix[16]
 
 ### trainingInputBaseColorMetallicImage
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
+
 ```cpp
 VkImageView XEG_NNGIDescription::trainingInputBaseColorMetallicImage
 ```
@@ -185,6 +221,8 @@ VkImageView XEG_NNGIDescription::trainingInputBaseColorMetallicImage
 训练输入基础颜色图像，不能为空，格式必须是至少3通道数据，RGB通道分别存储红绿蓝分量，忽略alpha通道信息。其分辨率和[XEG_NNGICreateInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-nngicreateinfo)中trainingSize的分辨率保持一致。
 
 ### trainingInputGIImage
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
 
 ```cpp
 VkImageView XEG_NNGIDescription::trainingInputGIImage
@@ -196,6 +234,8 @@ VkImageView XEG_NNGIDescription::trainingInputGIImage
 
 ### trainingInputNormalImage
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
+
 ```cpp
 VkImageView XEG_NNGIDescription::trainingInputNormalImage
 ```
@@ -205,6 +245,8 @@ VkImageView XEG_NNGIDescription::trainingInputNormalImage
 训练输入法向量图像，不能为空，格式必须是至少3通道数据，RGB通道分别存储法线的xyz分量。其分辨率和[XEG_NNGICreateInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-nngicreateinfo)中trainingSize的分辨率保持一致。
 
 ### trainingInputPositionImage
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | tv 6.0.0(20)+
 
 ```cpp
 VkImageView XEG_NNGIDescription::trainingInputPositionImage

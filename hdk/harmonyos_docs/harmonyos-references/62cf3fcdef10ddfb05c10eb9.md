@@ -15,11 +15,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-a
 
 ## 导入模块
 
+> phone | 2in1 | tablet
+
 ```typescript
 import { AutoAdComponent } from '@kit.AdsKit';
 ```
 
 ## AutoAdComponent
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 ```typescript
 AutoAdComponent({
@@ -49,6 +53,8 @@ AutoAdComponent({
 
 ### build
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 build(): void
 
 用于创建AutoAdComponent对象的构造函数。
@@ -58,6 +64,8 @@ build(): void
 **系统能力：** SystemCapability.Advertising.Ads
 
 ## 示例
+
+> phone | 2in1 | tablet
 
 ```typescript
 import { advertising, AutoAdComponent } from '@kit.AdsKit';

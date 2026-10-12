@@ -14,6 +14,8 @@ typedef struct CloudDisk_FileSyncState {...} CloudDisk_FileSyncState
 
 ## 概述
 
+> 2in1 | tablet
+
 文件的同步状态。
 
 **起始版本：** 21
@@ -24,7 +26,11 @@ typedef struct CloudDisk_FileSyncState {...} CloudDisk_FileSyncState
 
 ## 汇总
 
+> 2in1 | tablet
+
 ### 成员变量
+
+> 2in1 | tablet
 
 |名称|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------|:-------|

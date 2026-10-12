@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-vecto
 
 每对元素按位与运算，公式表达如下，其中PAR表示矢量计算单元一个迭代能够处理的元素个数：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/KjiaQRZIRbe7QkBLaOA-sw/zh-cn_image_0000002749334114.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=2EFAE094632E7749C985D1423AE119079DE9734E990B082DA6B692E40AEA53EF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/TkbUHh2TTSWGAr1-2jg8SQ/zh-cn_image_0000002784664069.png?HW-CC-KV=V1&HW-CC-Date=20261009T092703Z&HW-CC-Expire=31536000000&HW-CC-Sign=26567121B339102FF8530BAC5F2A41693940CF7661A1D0FF50BF116CFA89512B)
 
 ## 函数原型
 

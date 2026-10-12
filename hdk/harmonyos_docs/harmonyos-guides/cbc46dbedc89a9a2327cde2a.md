@@ -68,7 +68,7 @@ mailto:someone@example.com?key1=value1&key2=value2
 
 实现效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/GzWNzDDNTN-66hCvmlWxZQ/zh-cn_image_0000002749491602.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=959E9E343B1DF436A09A25D3786F083604C65B6E14AAADE6C205359E4CB2F459)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/R0C8TFIZRTS04FeIDEVkxg/zh-cn_image_0000002784661791.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=C84F167BD7E25F3346072910BDFB1A216CB41E75BD54FCD1647E9164D87DF7A5)
 
 ### 从应用拉起
 
@@ -97,7 +97,7 @@ struct Index {
 
 实现效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/Uq84nDP6QO2pTTDokhyrWA/zh-cn_image_0000002779090659.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=405DD7B2CE83DE078DDF6C53EA5DFB1582F99007BB4F7C077633CDED6ADBBD83)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/kA0g2zhaS0K6VSGhWotmJw/zh-cn_image_0000002755022858.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E7853B5419CBD525E506F888CAAFB51DDAB5AF3B3A9D65E41CD789F6FA8325D)
 
 ## 目标方开发步骤
 

@@ -12,13 +12,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/identifier-serv
 
 ## 调用流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/lCnC-J3GQoeTH0xhHK3L-w/zh-cn_image_0000001056154931.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=69E37CC5C6712389A5E260E2BD459A2375CE6F599C876E8AF21A79D641192FB0 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/lCnC-J3GQoeTH0xhHK3L-w/zh-cn_image_0000001056154931.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=D9185CBBB227A15B3EEFB3E137D4A30D19DDD702FEDD314D70AA50781ECE773C "点击放大")
 
 ## 开发步骤
 
 1. 创建接口IPPSChannelInfoService的aidl文件，放置在com.huawei.android.hms.ppskit包路径下，如下图所示：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/pHzb6JGcTFCgw5xf_o3hmA/zh-cn_image_0000001107291714.png?HW-CC-KV=V1&HW-CC-Date=20260910T013830Z&HW-CC-Expire=31536000000&HW-CC-Sign=67DA7E051A147F7BCFBC41D288F89FE6C8AE1649FDC254DB63AA08C8ACB86840 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/pHzb6JGcTFCgw5xf_o3hmA/zh-cn_image_0000001107291714.png?HW-CC-KV=V1&HW-CC-Date=20261012T062830Z&HW-CC-Expire=31536000000&HW-CC-Sign=9867B9F4CC59D3C29814DC701ECD77951962C27CEAB2B6E707BB3AB646EB5E48 "点击放大")
 
 2. 将以下内容复制到aidl文件中。
 

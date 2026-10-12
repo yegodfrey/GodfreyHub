@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-760
 
 手势滑动只能让月亮图片内的数字变动，月亮图片并没有位移。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/fywTzfj4TnSi8QRHf8M4ow/zh-cn_image_0000002628555690.png?HW-CC-KV=V1&HW-CC-Date=20260929T074338Z&HW-CC-Expire=31536000000&HW-CC-Sign=4B53FF7329AD92A922C61629CB4563A6C0D8169C0C3B6C43EDA68D57AA8AEB31 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/fywTzfj4TnSi8QRHf8M4ow/zh-cn_image_0000002628555690.png?HW-CC-KV=V1&HW-CC-Date=20261008T174601Z&HW-CC-Expire=31536000000&HW-CC-Sign=049CAC20F6453DFA1210C09BFD982203723F20FC04022359537CC71909AA3564 "点击放大")
 
 **预期描述：** 想要实现通过手势滑动让月亮图片以半圆曲线的轨迹滚动的效果。
 
@@ -215,5 +215,5 @@ struct StartPage {
 
 改动后效果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/Z09cAhf7Szu7RdMC68rxqg/zh-cn_image_0000002658915011.png?HW-CC-KV=V1&HW-CC-Date=20260929T074338Z&HW-CC-Expire=31536000000&HW-CC-Sign=7E88188919E88558D547509236A08963923325106EE860C5ECF667C98BF6804C "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/Z09cAhf7Szu7RdMC68rxqg/zh-cn_image_0000002658915011.png?HW-CC-KV=V1&HW-CC-Date=20261008T174601Z&HW-CC-Expire=31536000000&HW-CC-Sign=41E3493BF831E71C4ADC38F8C3FB7D32895906F6DAA099CE6B50AAE7CF332EFD "点击放大")
 

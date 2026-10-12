@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/pay-propose-sig
 
 商户支付接入流程：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/G_dreOPdQRC5AcgCkpaBtQ/zh-cn_image_0000002480160124.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A0A12E16E112C3CBFD1FC02AC1C86C69B10DD4385006CCA57801F31F9C42CAB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/G_dreOPdQRC5AcgCkpaBtQ/zh-cn_image_0000002480160124.png?HW-CC-KV=V1&HW-CC-Date=20261008T142659Z&HW-CC-Expire=31536000000&HW-CC-Sign=FD158B819FB3F39D5BD7744511C6301CBC84AD9526775F124B5DEB547BDA4822)
 
 1. 商户客户端请求商户服务器创建商品订单。
 2. 商户服务器调用华为支付服务提供的[H5预下单](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-pay-propose-sign-h5app-prepay-0000001752641209)接口获取预下单号（prepayId和h5Url）返回给客户端。

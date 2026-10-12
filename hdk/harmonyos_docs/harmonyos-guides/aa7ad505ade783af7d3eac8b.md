@@ -137,7 +137,7 @@ struct TransitionEffectDemo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/GIjW4yrmRFO0tUBj5Ei4Ww/zh-cn_image_0000002779091505.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=A8022C971D66C9B832608157A3AE2224664AA31529B79F2A437C8AE0DFF7C3DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/M2WkIfSRTdWCK9A3jpK4Ng/zh-cn_image_0000002755023590.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092718Z&HW-CC-Expire=31536000000&HW-CC-Sign=85C4B0FD8443AA722F987A67E8940CB131EFD81F3C16D995BE581FEEF3F9A279)
 
 对多个组件添加转场效果时，可以在[animation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-animatorproperty#animation)动画参数中配置不同的delay值，实现组件渐次出现消失的效果：
 
@@ -202,5 +202,5 @@ struct Index1 {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/rLXX2TjvSu2l7CjcHvvXoQ/zh-cn_image_0000002778931647.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121656Z&HW-CC-Expire=31536000000&HW-CC-Sign=7FD27DB39C1A7B7D9C3F8C9AC8B861A0FB100F966642E15A3526DA42C11B1D2A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/3x0Ef_NISg-RGGDbdvfPPg/zh-cn_image_0000002755183476.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092718Z&HW-CC-Expire=31536000000&HW-CC-Sign=5D910AD01B847F998E132536D85E650DAA2C1646AC1B6E212FCC958341B650AE)
 

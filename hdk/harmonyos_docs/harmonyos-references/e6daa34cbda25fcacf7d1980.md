@@ -23,13 +23,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { intl } from '@kit.LocalizationKit';
 ```
 
 ## Locale^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ### 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 6开始支持，从API version 20开始废弃，建议使用[Intl.Locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)替代。
 
@@ -53,6 +59,8 @@ import { intl } from '@kit.LocalizationKit';
 |numeric|boolean|否|否|true表示对数字字符进行特殊的排序规则处理（把数字字符作为数值进行排序），false表示不对数字字符进行特殊的排序规则处理。 默认值：false。|
 
 ### constructor^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 
@@ -78,6 +86,8 @@ let localeID = locale.toString();
 ```
 
 ### constructor^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(locale: string, options?: LocaleOptions)
 
@@ -110,6 +120,8 @@ let localeID = locale.toString(); // localeID = 'zh-CN'
 
 ### toString^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 toString(): string
 
 从API version 6开始支持，从API version 20开始废弃，建议使用[Intl.Locale.toString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/toString)替代。
@@ -139,6 +151,8 @@ let localeID = locale.toString(); // localeID = 'en-GB'
 ```
 
 ### maximize^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 maximize(): Locale
 
@@ -178,6 +192,8 @@ localeID = maximizedLocale.toString(); // localeID = 'en-Latn-US'
 
 ### minimize^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 minimize(): Locale
 
 从API version 6开始支持，从API version 20开始废弃，建议使用[Intl.Locale.minimize](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/minimize)替代。
@@ -216,6 +232,8 @@ localeID = minimizedLocale.toString(); // localeID = 'en'
 
 ## LocaleOptions^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 从API version 6开始支持，从API version 20开始废弃，以calendar为例，建议使用[Intl.LocaleOptions.calendar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar)替代。
 
 区域初始化配置项。从API version 9开始，LocaleOptions属性由必填改为可选。
@@ -241,6 +259,8 @@ localeID = minimizedLocale.toString(); // localeID = 'en'
 
 ## DateTimeFormat^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 从API version 6开始支持，从API version 20开始废弃，建议使用[Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)替代。
 
 提供日期格式化的能力。
@@ -250,6 +270,8 @@ localeID = minimizedLocale.toString(); // localeID = 'en'
 **系统能力**：SystemCapability.Global.I18n
 
 ### constructor^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 
@@ -273,6 +295,8 @@ let formatter: intl.DateTimeFormat = new intl.DateTimeFormat();
 ```
 
 ### constructor^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(locale: string | Array<string>, options?: DateTimeOptions)
 
@@ -306,6 +330,8 @@ formatter = new intl.DateTimeFormat(['ban', 'zh'], { dateStyle: 'full', timeStyl
 ```
 
 ### format^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 format(date: Date): string
 
@@ -348,6 +374,8 @@ formattedDate = formatter.format(date); // formattedDate "Friday, 17 December 20
 
 ### formatRange^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 formatRange(startDate: Date, endDate: Date): string
 
 从API version 6开始支持，从API version 20开始废弃，建议使用[Intl.DateTimeFormat.formatRange](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/formatRange)替代。
@@ -387,6 +415,8 @@ let formattedDateRange: string = formatter.formatRange(startDate, endDate); // f
 
 ### resolvedOptions^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 resolvedOptions(): DateTimeOptions
 
 从API version 6开始支持，从API version 20开始废弃，建议使用[Intl.DateTimeFormat.resolvedOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions)替代。
@@ -418,6 +448,8 @@ let timeStyle: string | undefined = options.timeStyle; // timeStyle = 'medium'
 ```
 
 ## DateTimeOptions^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 从API version 6开始支持，从API version 20开始废弃，建议使用Intl.DateTimeFormatOptions和Intl.ResolvedDateTimeFormatOptions替代。用法参考[Intl.DateTimeFormat.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat)和[Intl.DateTimeFormat.resolvedOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions)。
 
@@ -453,6 +485,8 @@ let timeStyle: string | undefined = options.timeStyle; // timeStyle = 'medium'
 
 ## NumberFormat
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 提供标准的数字格式化的能力。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -460,6 +494,8 @@ let timeStyle: string | undefined = options.timeStyle; // timeStyle = 'medium'
 **系统能力**：SystemCapability.Global.I18n
 
 ### constructor^8+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 
@@ -479,6 +515,8 @@ let formatter: intl.NumberFormat = new intl.NumberFormat();
 ```
 
 ### constructor
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(locale: string | Array<string>, options?: NumberOptions)
 
@@ -505,6 +543,8 @@ let formatter: intl.NumberFormat = new intl.NumberFormat('en-GB', { style: 'deci
 ```
 
 ### format
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 format(num: number): string
 
@@ -545,6 +585,8 @@ let result: string = formatter.format(1.23456); // result = 1.23
 
 ### formatRange^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 formatRange(startRange: number, endRange: number): string
 
 对数字范围进行格式化，返回格式化后的数字范围字符串。
@@ -577,6 +619,8 @@ let formattedRange: string = formatter.formatRange(0, 3); // formattedRange: 0--
 
 ### resolvedOptions
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 resolvedOptions(): NumberOptions
 
 获取创建数字格式化对象时设置的配置项。
@@ -604,6 +648,8 @@ let notation: string | undefined = options.notation; // notation = 'scientific'
 ```
 
 ## NumberOptions
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 创建数字格式化对象时可设置的配置项。从API version 9开始，NumberOptions的属性由必填改为可选。
 
@@ -636,6 +682,8 @@ let notation: string | undefined = options.notation; // notation = 'scientific'
 
 ## Collator^8+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 提供字符串排序的能力。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -643,6 +691,8 @@ let notation: string | undefined = options.notation; // notation = 'scientific'
 **系统能力**：SystemCapability.Global.I18n
 
 ### constructor^8+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 
@@ -662,6 +712,8 @@ let collator = new intl.Collator();
 ```
 
 ### constructor^8+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(locale: string | Array<string>, options?: CollatorOptions)
 
@@ -688,6 +740,8 @@ let collator = new intl.Collator('zh-CN', {localeMatcher: 'lookup', usage: 'sort
 ```
 
 ### compare^8+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 compare(first: string, second: string): number
 
@@ -723,6 +777,8 @@ let compareResult = collator.compare('first', 'second'); // compareResult = -1
 
 ### resolvedOptions^8+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 resolvedOptions(): CollatorOptions
 
 获取创建排序对象时设置的配置项。
@@ -751,6 +807,8 @@ let ignorePunctuation = options.ignorePunctuation; // ignorePunctuation = true
 
 ## CollatorOptions^8+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 创建排序对象时可设置的配置项。
 
 从API version 9开始，CollatorOptions中的属性改为可选。
@@ -771,6 +829,8 @@ let ignorePunctuation = options.ignorePunctuation; // ignorePunctuation = true
 
 ## PluralRules^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules)替代。
 
 提供获取单复数类型的能力。
@@ -780,6 +840,8 @@ let ignorePunctuation = options.ignorePunctuation; // ignorePunctuation = true
 **系统能力**：SystemCapability.Global.I18n
 
 ### constructor^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 
@@ -801,6 +863,8 @@ let pluralRules = new intl.PluralRules();
 ```
 
 ### constructor^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(locale: string | Array<string>, options?: PluralRulesOptions)
 
@@ -829,6 +893,8 @@ let pluralRules: intl.PluralRules = new intl.PluralRules('zh-CN', { localeMatche
 ```
 
 ### select^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 select(n: number): string
 
@@ -870,6 +936,8 @@ plural = enPluralRules.select(1); // plural = 'one'
 
 ## PluralRulesOptions^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.PluralRulesOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules)替代。
 
 创建单复数对象时可设置的配置项。从API version 9开始，PluralRulesOptions的属性由必填改为可选。
@@ -890,6 +958,8 @@ plural = enPluralRules.select(1); // plural = 'one'
 
 ## RelativeTimeFormat^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat)替代。
 
 提供相对时间格式化的能力。
@@ -899,6 +969,8 @@ plural = enPluralRules.select(1); // plural = 'one'
 **系统能力**：SystemCapability.Global.I18n
 
 ### constructor^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 
@@ -920,6 +992,8 @@ let formatter: intl.RelativeTimeFormat = new intl.RelativeTimeFormat();
 ```
 
 ### constructor^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(locale: string | Array<string>, options?: RelativeTimeFormatInputOptions)
 
@@ -952,6 +1026,8 @@ let formatter: intl.RelativeTimeFormat = new intl.RelativeTimeFormat('zh-CN', {
 ```
 
 ### format^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 format(value: number, unit: string): string
 
@@ -989,6 +1065,8 @@ let formatResult: string = formatter.format(3, 'quarter'); // formatResult = '3�
 
 ### formatToParts^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 formatToParts(value: number, unit: string): Array<object>
 
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.RelativeTimeFormat.formatToParts](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts)替代。
@@ -1024,6 +1102,8 @@ let parts: Array<object> = formatter.formatToParts(10, 'seconds'); // parts = [ 
 
 ### resolvedOptions^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 resolvedOptions(): RelativeTimeFormatResolvedOptions
 
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.RelativeTimeFormat.resolvedOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions)替代。
@@ -1054,6 +1134,8 @@ let style: string = options.style; // style = 'short'
 
 ## RelativeTimeFormatInputOptions^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.RelativeTimeFormatOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#options)替代。
 
 创建相对时间格式化对象时可设置的配置项。
@@ -1072,6 +1154,8 @@ let style: string = options.style; // style = 'short'
 
 ## RelativeTimeFormatResolvedOptions^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.RelativeTimeFormatOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#return_value)替代。
 
 相对时间格式化对象的格式化配置项。
@@ -1088,6 +1172,8 @@ let style: string = options.style; // style = 'short'
 |numberingSystem|string|否|否|使用的数字系统，取值包括： "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks", "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp", "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl", "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng", "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund", "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", "wcho"。|
 
 ## 附录
+
+> phone | 2in1 | tablet | tv | wearable
 
 **时间日期格式化选项**
 

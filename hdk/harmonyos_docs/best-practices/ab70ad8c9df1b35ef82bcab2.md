@@ -27,7 +27,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 移动支付应用的UX设计可参考[移动支付类](https://developer.huawei.com/consumer/cn/doc/design-guides/mobile-payment-0000001957421613)多设备响应式设计指南，设计参考图如下所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/Aa4e01R0QoGY2TgBW8SSQQ/zh-cn_image_0000002583509660.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F0BDE5898357D0BE7C06F98840016D80E5B4E2E76F413B98B6449E07C6621EE "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/Aa4e01R0QoGY2TgBW8SSQQ/zh-cn_image_0000002583509660.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=0A1ACD2AA361309EB1A376B5862DEB6937D9394AA3F88BDEBE36288ED25E542D "点击放大")
 
 ## 工程管理
 
@@ -130,7 +130,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 |示意图|sm|md|lg/xl|
 |:--|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/UUuzOcQtQx-lx0yDumekEw/zh-cn_image_0000002583669562.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=B5A8046BBCA627231491D51A8472BFA73F385E1861FA3240FBA3AFE47839B258 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/LvatTagwSYe8wJ8dUlKQ6w/zh-cn_image_0000002614029339.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=076A05DA1984EE9BB5458E39220E209074471C100474FCDF05FB2F14E0C1EC25 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/tDSutfe9SyaituSpi3jZlA/zh-cn_image_0000002613909457.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=8FF8018A0DB1EA2C40E269DA1925E3D2F5D231B891B9078232FADC9471E686EA "点击放大")|
+|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/UUuzOcQtQx-lx0yDumekEw/zh-cn_image_0000002583669562.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=9BBA3B5F03DF8E852AC2D27C5C9427B8C8AE92DCC6F3E2727360074FF1B37CA5 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/LvatTagwSYe8wJ8dUlKQ6w/zh-cn_image_0000002614029339.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=814ED0DA278EDEBFBD5E9C70785F4C9E8AE6C8BC1629631E9F21F9EB215EF3CB "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/tDSutfe9SyaituSpi3jZlA/zh-cn_image_0000002613909457.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE80DC1B2D6AAF0684B98AA4AE2066BEDA68821846412DF58E76C6504FE858DA "点击放大")|
 
 **界面开发**
 
@@ -157,7 +157,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 |示意图|sm|md|lg/xl|
 |:--|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/1pQnEdhQSyKyxdW7MLRngA/zh-cn_image_0000002583509662.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B94E8C5A582FEB53494D779141438D8D06819ECCC2272E31C5969F8BF39E06D "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/4RLOwgUoQRmZvKaEUorbgw/zh-cn_image_0000002583669564.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7955798D6577868594F04EAF73E91906203FD1F38A1B9ECFE9A98510482E18D "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/LhLhvVJIS02GwYM60nyIew/zh-cn_image_0000002614029341.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E4B28F4C31A30890BB8F6F2E43168BBFD53026445D6CFD06EA4FE7909391D01 "点击放大")|
+|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/1pQnEdhQSyKyxdW7MLRngA/zh-cn_image_0000002583509662.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=A51F743458AF8743DDEC588F66292082736B1DDB5724836775EAFFB2FDA29133 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/4RLOwgUoQRmZvKaEUorbgw/zh-cn_image_0000002583669564.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=65E3AAC2E4DACB213580486F8A085D02120112F529374696431945B7DB1233D4 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/LhLhvVJIS02GwYM60nyIew/zh-cn_image_0000002614029341.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=8F877082B414E9490179B75F6F30E016F1FA3B89FD73352B1920D3E2283B438C "点击放大")|
 
 **界面开发**
 
@@ -186,7 +186,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 |示意图|sm|md|lg/xl|
 |:--|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/FFm4ou71T7WXNLZjV8cQrQ/zh-cn_image_0000002613909459.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=A687CECCBEBA9AE395D023E8DFFDC12D9EC8D03799B6847D1FE77D4BBBC27418 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/qLMQjbD_TLKAbhwUCuM4Tw/zh-cn_image_0000002583509664.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A42BFCCC3C81A4958D54EE0064FC3BFDABDA1033E372953635F8AB8D379FAEE "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/nbDcX_WjRoKizTrdUI3aIw/zh-cn_image_0000002583669566.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=A810A3235E1FD950A4AFBC8C6CA1D9878F8A6ABCFA2BA35A71A567FA5A7D583F "点击放大")|
+|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/FFm4ou71T7WXNLZjV8cQrQ/zh-cn_image_0000002613909459.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=F5CC6A8FC703E6C1EF2F71282416395BFBF41DDD9F4FA21DAA335DC9604937FC "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/qLMQjbD_TLKAbhwUCuM4Tw/zh-cn_image_0000002583509664.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=4C1EFA014963BB9D486B3E24A332717DF398C30EDC81A4C1A013CC2C34B62892 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/nbDcX_WjRoKizTrdUI3aIw/zh-cn_image_0000002583669566.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=D40AC9F633D19BBEC359503678727F4087EA21E97D47AB04FC4F0D9A2CBFF66D "点击放大")|
 
 **界面开发**
 
@@ -221,7 +221,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 电脑端推荐页与移动端推荐页内容基本一致，差异点在于，移动端使用底部页签进行内容视图切换，电脑端使用侧边栏进行切换。按照模块，将推荐页相关内容划分为2个区域，效果图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/h04IQUymS8e8TtQ7QjACTg/zh-cn_image_0000002614029343.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=18D85C47EE6B90065403386F974B1926DEB7198EE45A4BFD2FF55A6D9A5A48A1 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/h04IQUymS8e8TtQ7QjACTg/zh-cn_image_0000002614029343.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=0FA2A2C1F9A0E2DB8799D7010326C69B8C8DC243E96D5FC56BF60A0997A14539 "点击放大")
 
 **界面开发**
 
@@ -246,7 +246,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 |示意图|xs|
 |:--|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/BGUlHin_QTS5IbkEhDGMeQ/zh-cn_image_0000002613909461.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=18E45B65A3AFE44563F456E771EE0460D7A75C636EB462F4BB6CBC1C55A512FE "点击放大")|
+|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/BGUlHin_QTS5IbkEhDGMeQ/zh-cn_image_0000002613909461.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=3BB709EFC54FF09A9A2C33279DAB99D080D36B2AC08ABB607401AD7CF95044BA "点击放大")|
 
 **界面开发**
 
@@ -258,7 +258,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobi
 
 |示意图|xs|
 |:--|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/7ghoGY4dQx6tv6DWyad9TA/zh-cn_image_0000002583509666.png?HW-CC-KV=V1&HW-CC-Date=20260920T024934Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC30768A7A8C2CEABE4E3DF6388CE87CB91D447E5110B1C35D3D783DC92FD76C "点击放大")|
+|效果图|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/7ghoGY4dQx6tv6DWyad9TA/zh-cn_image_0000002583509666.png?HW-CC-KV=V1&HW-CC-Date=20261008T155332Z&HW-CC-Expire=31536000000&HW-CC-Sign=5400FD09E57E78025351994B9F2F090A7372A7ED0B55C22CB470F63D831512AF "点击放大")|
 
 **界面开发**
 

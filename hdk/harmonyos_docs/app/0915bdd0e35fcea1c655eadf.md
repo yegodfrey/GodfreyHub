@@ -14,8 +14,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-anaiyze-atomic-pe
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"快速开始"中的"元服务一站式平台"卡片。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/jiH_uep4Qb2l44neTS7Kcg/zh-cn_image_0000002537301685.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=EDE39AF8A4783407274E42B335A82DCEBD97F94C1B957F51D3CEEED8C4583C38)
-2. 在左上角下拉列表选择要查看的元服务。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/XYzfH9YYQ3q0SghLYFTcLg/zh-cn_image_0000002568495023.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=900DD467CE294B69155D0BD680E6ED8D87D28542ED6A7EDE1FFC0A411ED59DF1)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/jiH_uep4Qb2l44neTS7Kcg/zh-cn_image_0000002537301685.png?HW-CC-KV=V1&HW-CC-Date=20261008T184043Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A208716180D0E8F561DE112CDE0ED3DC8CB6128DA94370F63052C7C9B20E192)
+2. 在左上角下拉列表选择要查看的元服务。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/XYzfH9YYQ3q0SghLYFTcLg/zh-cn_image_0000002568495023.png?HW-CC-KV=V1&HW-CC-Date=20261008T184043Z&HW-CC-Expire=31536000000&HW-CC-Sign=801C40B4DE801D452940D1C92BA99063BA33265C2466BD86C447E05AD6FEFE0B)
 
 3. 左侧导航选择"数据分析 > 元服务履约数据 > 访问分析"，进入访问分析页面。 访问分析看板分为"主动活跃"、"整体启动数据"与"整体启动场景明细"页签。
 
@@ -50,14 +50,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-anaiyze-atomic-pe
 
      来源场景下拉框，可查看数据明细。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/dc8WgXg3S0GYqP-dbmA3MQ/zh-cn_image_0000002298603306.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7B7EB4206E7EB04BF3588899E28D35D83A25918F31217E27A2A17FC81456F3F)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/dc8WgXg3S0GYqP-dbmA3MQ/zh-cn_image_0000002298603306.png?HW-CC-KV=V1&HW-CC-Date=20261008T184043Z&HW-CC-Expire=31536000000&HW-CC-Sign=81BA8EFCBAACDB362523070911B17647BB64FE4401D1F68CF92858FEF031CA79)
 
 ## 页面分析
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"快速开始"中的"元服务一站式平台"卡片。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/GlFISJuYTK-OFk8ybwAHgA/zh-cn_image_0000002505622032.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=2E025C7F6B72A4AF6255A270E071B328D7083D81B8C4A9A8F3AF84FCE83AA316)
-2. 在左上角下拉列表选择要查看的元服务。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/PT1_a737RKewKNy85Y6Ppw/zh-cn_image_0000002568575001.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=9747C40B3DBEC313F62416FAA479F91D016149B68EA06C2368693A4F1A0EDDE4)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/GlFISJuYTK-OFk8ybwAHgA/zh-cn_image_0000002505622032.png?HW-CC-KV=V1&HW-CC-Date=20261008T184043Z&HW-CC-Expire=31536000000&HW-CC-Sign=110639CF1A9A7F44884330097461DC63CE3CA186F78D118143190DF60C01585A)
+2. 在左上角下拉列表选择要查看的元服务。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/PT1_a737RKewKNy85Y6Ppw/zh-cn_image_0000002568575001.png?HW-CC-KV=V1&HW-CC-Date=20261008T184043Z&HW-CC-Expire=31536000000&HW-CC-Sign=3965E82E33990E66DA100933F9CCF3587EB39868771F5E9D61393586A0AB1B03)
 
 3. 左侧导航选择"数据分析 > 元服务履约数据 > 页面分析"，进入页面分析页面。 页面分析看板分为"实时访问数据"、"页面访问数据""页面访问明细"三个页签。
 
@@ -73,7 +73,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-anaiyze-atomic-pe
 
      点击指标下拉框，可选：实时页面打开人数、实时页面打开设备数、实时页面打开次数。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/ZD6lqs_xTuCDcI0tbW-J9A/zh-cn_image_0000002298443642.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=18F3FB985A0A83E04881E0383BE7B3DDECACE9B4BB539892D50CB3C6D399F7A3)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/ZD6lqs_xTuCDcI0tbW-J9A/zh-cn_image_0000002298443642.png?HW-CC-KV=V1&HW-CC-Date=20261008T184043Z&HW-CC-Expire=31536000000&HW-CC-Sign=B4FC28E44F354CA4332CDAB58E7B2BA36128828083E73DDB4DC0E0AF191FAFE4)
    * **页面访问数据**
 
      看板顶部从左到右依次为：页面访问次数、页面访问人数、页面访问设备数、退出页面次数、页面退出率、人均访问深度、次均访问深度、页面次均停留时长。
@@ -98,14 +98,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-anaiyze-atomic-pe
 
      页面名称文本框内，手动输入，可检索页面访问明细。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/5v-w5TbZQu6Hwx5FIrV7RQ/zh-cn_image_0000002332562837.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=818AF33A884C0ABA4475D69AE47A287264184B2A32936BDEE012DCC1DDE87526)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/5v-w5TbZQu6Hwx5FIrV7RQ/zh-cn_image_0000002332562837.png?HW-CC-KV=V1&HW-CC-Date=20261008T184043Z&HW-CC-Expire=31536000000&HW-CC-Sign=97C3888666DAF4839EB77DAA27101231D1C379D2743BA713681C7AD9E61E2A81)
 
 ## 华为支付
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"快速开始"中的"元服务一站式平台"卡片。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/m17O36FnSn285-zm71v6bQ/zh-cn_image_0000002537301975.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=E8F36FD8CD57CD3A2B2DEFC56AAC044DE3A0F8F2F2828B34C2B660D5D8724CB2)
-2. 在左上角下拉列表选择要查看的元服务。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/q0sCjQxFQYi5x-_SwmyubA/zh-cn_image_0000002537655242.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=6B370E03AA7ACB5F23B66406CD2648EAA61F3A4C62D733489EC64838A5364870)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/m17O36FnSn285-zm71v6bQ/zh-cn_image_0000002537301975.png?HW-CC-KV=V1&HW-CC-Date=20261008T184043Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A332E34FDF3E81445BF68B8AF60FE4E99F31D85B8EEC49652F907C1C4EE83CB)
+2. 在左上角下拉列表选择要查看的元服务。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/q0sCjQxFQYi5x-_SwmyubA/zh-cn_image_0000002537655242.png?HW-CC-KV=V1&HW-CC-Date=20261008T184043Z&HW-CC-Expire=31536000000&HW-CC-Sign=964615C937A5F494FF06ABBFC61026EB577D65718FE361876C3A837A4B806D8D)
 
 3. 左侧导航选择"数据分析 > 元服务履约数据 > 华为支付"，进入华为支付页面。 华为支付数据看板顶部从左到右依次为：年度累计GMV、年度累计交易笔数、年度累计交易人数、当月累计GMV、当月累计交易笔数、当月累计交易人数、当日交易金额、当日交易笔数、当日交易人数。
 
@@ -123,5 +123,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-anaiyze-atomic-pe
 
    点击指标下拉框，可选：交易金额、交易笔数、交易人数，可按日、周、月进行统计。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/n4N8AiG7SwWAHWhz0SW70A/zh-cn_image_0000002298610166.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=4C4F2915DCDD05B74D84DE4C6CE7F64CDC4BB2E1B737FD24B2FBCA5BD473CB79)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/n4N8AiG7SwWAHWhz0SW70A/zh-cn_image_0000002298610166.png?HW-CC-KV=V1&HW-CC-Date=20261008T184043Z&HW-CC-Expire=31536000000&HW-CC-Sign=D38BCBDBB800E90E767A5EA7EB0DA815E254487AD1DF009BC809886478CF45F4)
 

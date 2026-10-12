@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-laya-system
 
 由于HarmonyOS 5.0及以上系统使用的协议栈和其他系统的协议栈不同，因此游戏原有的系统适配方法在HarmonyOS 5.0及以上系统可能不支持，需要根据当前游戏实际使用情况进行适配。游戏业务逻辑调用HarmonyOS 5.0及以上系统接口的原理如下图所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/r1fXNT8vR02Bg_9EXH12hw/zh-cn_image_0000002348294552.png?HW-CC-KV=V1&HW-CC-Date=20260920T025432Z&HW-CC-Expire=31536000000&HW-CC-Sign=EF5C267F56C330F84ADE174C35470DAAF9044560D340787670D8544D649CA49B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/r1fXNT8vR02Bg_9EXH12hw/zh-cn_image_0000002348294552.png?HW-CC-KV=V1&HW-CC-Date=20261008T150650Z&HW-CC-Expire=31536000000&HW-CC-Sign=21937F4CE12434FBBD271684F22729B05A27ADB4F663C10F0276CA95D806CF03)
 
 当前HarmonyOS 5.0及以上系统提供的系统接口主要包括如下两类：
 

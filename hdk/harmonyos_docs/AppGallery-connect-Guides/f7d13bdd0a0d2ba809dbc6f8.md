@@ -9,15 +9,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smar
 ## 采集性能数据
 
 1. 在手机/平板端点击桌面SmartPerf应用图标打开HiSmartPerf-Device工具。
-2. 设置采集要求。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/t8GaQ2Z6TzKPTAIRTsME2w/zh-cn_image_0000002200789664.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE34C858DB139AB65B306A59CDD8E9E65D027A08EEC1AC4988ED13B8468B4937)
+2. 设置采集要求。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/t8GaQ2Z6TzKPTAIRTsME2w/zh-cn_image_0000002200789664.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F7FC0919CDF9D8241A05E911CDA08C527B009E1B836A8F940FB030C9291C8526)
 
-3. 采集性能数据。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/8a1NgQ_6SPq_Ve7eWDD_mQ/zh-cn_image_0000002201081614.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=833FC12C00DA0B7E5CFE6B187527EBCCD2EBF2FAE6D5AFD608733A9854AB6852)
+3. 采集性能数据。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/8a1NgQ_6SPq_Ve7eWDD_mQ/zh-cn_image_0000002201081614.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=6B00B7463BF66AE31E437EAF39C7790331E5EBF5056C8C9B9286822EA7D74F62)
 
 ## 查看测试报告
 
 测试报告生成后，您可以在测试报告列表中，点击报告并在详情页查看性能数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/WCY3OxIsR9G_GEGjz1Slkg/zh-cn_image_0000002222400045.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=868564C4AAD03B9D4F44EBD547FBDD6C4C7E4A4357FCBDCBB58317BBA64DB7B9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/WCY3OxIsR9G_GEGjz1Slkg/zh-cn_image_0000002222400045.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F7A726C97C35E16BD5FBCF18B94D66E4617B3B7EAFDE6B39EB0CE6EA3553CC89)
 
 ## 手动上传测试报告
 
@@ -28,7 +28,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smar
 
 首次使用上传测试报告功能，您需先登录华为开发者账号。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/DldL8ylRRYibZ4Afm4__ZQ/zh-cn_image_0000002222220777.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F4C88F74C0899D540546AED2E342857D164B4927C90206D6E30000D7195A1E9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/DldL8ylRRYibZ4Afm4__ZQ/zh-cn_image_0000002222220777.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=8265B0F45882D5F245FAA8FDD62CB0A08853245A96E716B022A8E5E269134EA1)
 
 ## 分享测试报告
 
@@ -38,17 +38,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smar
 >
 > 测试报告必须上传云端后才能分享。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/OGcc7qFzSyuGxyb2Fw7nug/zh-cn_image_0000002249224854.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=4B89CA7888DB72C21D13D0741CE001AE4F75D34233E7E6641839C79929695DFA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/OGcc7qFzSyuGxyb2Fw7nug/zh-cn_image_0000002249224854.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=CCD22C58FC7DB3294D3CF83C658DF13A83BBBBB84794B8D3EBADCC37B6F7B8F2)
 
 您可以通过复制网址链接或扫描二维码图片，在浏览器打开，查看其他用户分享的测试报告。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/Hr5SEAtySGqIJVlRsJw6jA/zh-cn_image_0000002222826433.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=A68DA2A04ECB53A276B1ADDE28071C0FCB3F9461875FDA9DCADFB64D665E06B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/Hr5SEAtySGqIJVlRsJw6jA/zh-cn_image_0000002222826433.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=3D851E45EAEF23A11F909D3888A8DD6030AFE1564B83D49906AC63846EF1F85C)
 
 ## 解析性能数据
 
 ### 概览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/fQz4VEglSjWembP8_7dhXQ/zh-cn_image_0000002193325121.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=38880B6F24B2BCD9A522762AF2E87C558A6BDE3BC65A8821271DA53519CAC843)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/fQz4VEglSjWembP8_7dhXQ/zh-cn_image_0000002193325121.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=49B37BCF99DE3344E82F60F801F3A29BD10A4537823E63641C672AD8C612668E)
 
 |数据指标|单位|含义|说明|
 |:----------------|:--|:---------------------------------------|:-----------|
@@ -72,7 +72,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smar
 
 ### 性能
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/CaAKQMDwT0W4vtWsFEyOcQ/zh-cn_image_0000002236716820.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC29FEF07C2001678469C27FB1107D6A1598744C7C9527E4CD6BCF6B005C2243)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/CaAKQMDwT0W4vtWsFEyOcQ/zh-cn_image_0000002236716820.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=75EF99868BE65A98CC50B84ECF1AA6F24660B4F361611CCBAC37E56A0BE93CA3)
 
 |数据指标|单位|含义|说明|
 |:----------|:---|:-------------------|:------|
@@ -84,7 +84,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smar
 
 ### 负载
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/w7jMYMtsQOyhxYrprlbA9g/zh-cn_image_0000002163192305.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=140A5D80BB07607C0D8CC10DE512126A21434D14519229146FAA84FDD237C6BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/w7jMYMtsQOyhxYrprlbA9g/zh-cn_image_0000002163192305.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=290B0971997CCCFBCBEE4E2EC05ED0515334393F347F7197CE9C1E22D5D4B8B2)
 
 |数据指标|单位|含义|
 |:------------|:--|:-------|
@@ -96,7 +96,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smar
 
 ### 内存
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/T2zbSo81SUae0vXgye0qdg/zh-cn_image_0000002163033881.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=A7C908BB870064C1312289A8091AF2F3437F6A2A2D2A7B6FA488678FBE646629)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/T2zbSo81SUae0vXgye0qdg/zh-cn_image_0000002163033881.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=C059CB78C3318E2B579BADA562BBAD17A2C377F2D758B8E50352C19BDCCCD863)
 
 |数据指标|单位|含义|
 |:------------|:-|:-----------|
@@ -106,7 +106,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smar
 
 ### 功耗
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/YySBZAuVQOGt6F0rYqa8Yw/zh-cn_image_0000002245547026.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=0607C46355F02F643BC892B87FBCC7E42F8030E03B13A8CC8A396EEBA4E286FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/YySBZAuVQOGt6F0rYqa8Yw/zh-cn_image_0000002245547026.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=60E21FEE616021632B629E80662A2278BAD5E9CB366550BE17D8A589F5538ABC)
 
 |数据指标|单位|含义|
 |:----|:-|:--------------------------------|
@@ -117,7 +117,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smar
 
 ### 热
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/xLDH5kUMSsOhkX4z14H5ZA/zh-cn_image_0000002127794258.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=DAA0C15A1060C3BACAC66CD6FD99E22DB1ADC46B27BF81B205F2122710CD547B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/xLDH5kUMSsOhkX4z14H5ZA/zh-cn_image_0000002127794258.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=52EE2F5512233BED4C0430278392C557208820B8106D24CC52C6F2FB23E506BE)
 
 |数据指标|单位|含义|说明|
 |:-------------|:-|:----------------|:----|
@@ -137,7 +137,7 @@ HiSmartPerf-Device支持下载单独的安装包，您可以通过命令行形�
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)，点击"开发与服务"，在项目列表中找到需要获取游戏参数的项目及项目下的游戏。
 2. 在"项目设置 > 常规"页面下记录**Client ID、Client Secret** 。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/PpGs7kVoQvW01PHnj56v1g/zh-cn_image_0000002420543384.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=CC16298E262776FFEA30F139E4E6022D40A4998DAAF201BE40E9C3F74D4E0462)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/PpGs7kVoQvW01PHnj56v1g/zh-cn_image_0000002420543384.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=9DDB6DEEE2B86F84E5430560E79E2266F8D4A9941FCB976DEF4B7537C7946505)
 
 ### 操作步骤
 
@@ -158,7 +158,7 @@ HiSmartPerf-Device支持下载单独的安装包，您可以通过命令行形�
      > 确保手机和电脑必须处于同一Wi-Fi下。
      1. 打开手机的"设置"应用，进入"关于手机"页面。
      2. 快速、连续、多次点击"软件版本"，直到提示"您正处于开发者模式！"或"您已处于开发者模式，无需进行此操作"，表示您已进入当前手机设备的开发者模式。
-     3. 在"开发者选项"页面点击"无线调试"，查看IP地址和端口。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/tW5prn8GQR-uPnxjpkpUXQ/zh-cn_image_0000002453936921.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=7F72A22CD42E486152DE78C616FDB6C44DB2BA9994A8AF7DD645B76422205896)
+     3. 在"开发者选项"页面点击"无线调试"，查看IP地址和端口。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/tW5prn8GQR-uPnxjpkpUXQ/zh-cn_image_0000002453936921.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=FD67C94B77E6142009C0B2941AAF5EE20D68AC3D6DF8DA25E4166F3E7129A6CC)
 
      4. 在电脑端执行以下命令
 
@@ -199,7 +199,7 @@ HiSmartPerf-Device支持下载单独的安装包，您可以通过命令行形�
      python %~dp0AutoTest.py init %clientId% %clientSecret%
      ```
 
-   * 回调显示 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/fxbcc5PQRJG6N_Vw4jNvcA/zh-cn_image_0000002223231089.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=5EC06C236AC336073829F6651B5262E608A8DA19B4B4DFBD092CC3EB9E5483CE)
+   * 回调显示 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/fxbcc5PQRJG6N_Vw4jNvcA/zh-cn_image_0000002223231089.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=1BB066C1B335B793CDB695374EF450192671B09BE7F89291E5014A1B84BFC070)
 
 2. 开始采集
    * 参数
@@ -219,7 +219,7 @@ HiSmartPerf-Device支持下载单独的安装包，您可以通过命令行形�
      python %~dp0AutoTest.py start %bundleName%
      ```
 
-   * 回调显示 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/nqKtQRBcTkCd8zv4zsxUhw/zh-cn_image_0000002223364333.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=CDF64DF36025C3D06BA93927A0F01C333D55CA8DA8DFDD6E052D86C18BCCC34B)
+   * 回调显示 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/nqKtQRBcTkCd8zv4zsxUhw/zh-cn_image_0000002223364333.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=C84306DBED57A6EED9C323FA89911F39767F3A24FDEFD1EBD610E2C5E417434C)
 
 3. 结束采集
    * 参数
@@ -238,5 +238,5 @@ HiSmartPerf-Device支持下载单独的安装包，您可以通过命令行形�
      python %~dp0AutoTest.py stop %savePath%
      ```
 
-   * 回调显示 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/kG_9W0xiSK6JznPwyTicRg/zh-cn_image_0000002187924108.png?HW-CC-KV=V1&HW-CC-Date=20260910T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F3BC06CDFFA2109B3EFFF93A8EA0330C66A97C4C10AFF54756A1D2EC07A52D67)
+   * 回调显示 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/kG_9W0xiSK6JznPwyTicRg/zh-cn_image_0000002187924108.png?HW-CC-KV=V1&HW-CC-Date=20261010T014830Z&HW-CC-Expire=31536000000&HW-CC-Sign=12305F8C208F0124F0D1CD198D06B99262325DD92EE6C92284D061A7D938AF45)
 

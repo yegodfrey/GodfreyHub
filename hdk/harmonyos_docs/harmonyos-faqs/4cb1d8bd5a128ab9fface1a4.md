@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1136
 
 问题示意图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/dO5IpjdYRjS8KEBzLuI_rw/zh-cn_image_0000002628569432.gif?HW-CC-KV=V1&HW-CC-Date=20260929T074337Z&HW-CC-Expire=31536000000&HW-CC-Sign=B14B9FBAD7C1E0B7F69E8EF4FB25BFA7A0B0F4EEFA41AE5F431893713E176DE8 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/dO5IpjdYRjS8KEBzLuI_rw/zh-cn_image_0000002628569432.gif?HW-CC-KV=V1&HW-CC-Date=20261008T173405Z&HW-CC-Expire=31536000000&HW-CC-Sign=E0AC7529B5BE760B498B9FC1461CDB677BB63B54AB335257AC144624BA0B6FFD "点击放大")
 
 ## 背景知识
 
@@ -273,7 +273,7 @@ struct LazyForEachListTransition {
 
 修正效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/JHayv-C8QOWw_M9zIReziw/zh-cn_image_0000002628409532.png?HW-CC-KV=V1&HW-CC-Date=20260929T074337Z&HW-CC-Expire=31536000000&HW-CC-Sign=6486AF7890A426B732128D72871B0D2757D4BB8ABCF7342306E73DF9D4599618 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/JHayv-C8QOWw_M9zIReziw/zh-cn_image_0000002628409532.png?HW-CC-KV=V1&HW-CC-Date=20261008T173405Z&HW-CC-Expire=31536000000&HW-CC-Sign=0239956B5608D56EC3240E4E3023FC6246268FA4C937D3F71BEA08C79479646C "点击放大")
 
 ## 总结
 

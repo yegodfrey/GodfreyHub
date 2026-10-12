@@ -17,11 +17,15 @@ OpenLinkOptions可以作为[openLink()](https://developer.huawei.com/consumer/cn
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { OpenLinkOptions } from '@kit.AbilityKit';
 ```
 
 ## OpenLinkOptions
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 

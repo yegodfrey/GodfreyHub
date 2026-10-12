@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-park-s
 
 ## 交互流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/t1G04nn9ST2Wgek--UVW3A/zh-cn_image_0000002749334030.png?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=79392E22758D433A76901C2785D91829F1ED3A7CB2DE6881B710E0DA0B9E4F89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/AmgAjyraRf2w1M9LBdpaTg/zh-cn_image_0000002784663983.png?HW-CC-KV=V1&HW-CC-Date=20261009T092712Z&HW-CC-Expire=31536000000&HW-CC-Sign=ABF79752A7CB5B0B10F4E72D7382A7D5A901F55E2BDE5435D1EA64B07AECA54D)
 
 ## 服务端开发
 

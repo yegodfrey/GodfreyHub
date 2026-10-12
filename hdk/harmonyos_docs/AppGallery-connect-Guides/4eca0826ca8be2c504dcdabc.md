@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/game
 * 您已[开通机器学习服务](https://developer.huawei.com/consumer/cn/doc/hiai-Guides/enable-service-0000001050038078)。
 * 您已申请白名单。 说明
   >
-  > 当您的应用为JS小游戏或C#小游戏，且需要使用语音转文本功能时，需要申请白名单才可以获取语音转文本完成后的文本内容。请联系华为运营进行申请，或通过智能客服在线提单。
+  > 当您的应用为JS小游戏或C#小游戏，且需要使用语音转文本功能时，需要申请白名单才可以获取语音转文本完成后的文本内容。请联系华为运营进行申请，或通过AI助手在线提单。
 
 ## 开发步骤
 

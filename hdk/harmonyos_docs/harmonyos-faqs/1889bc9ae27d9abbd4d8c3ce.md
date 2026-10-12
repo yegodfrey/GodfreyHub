@@ -54,11 +54,11 @@ struct ChildComponent {
 
 添加背景色：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/elImD9WzSY647FtrP4OWEQ/zh-cn_image_0000002658929085.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=052E2AC33586CB5DF7AF6249EFBB7C337CBE6EBA1EF662E30F33A20E04A73C53 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/elImD9WzSY647FtrP4OWEQ/zh-cn_image_0000002658929085.png?HW-CC-KV=V1&HW-CC-Date=20261008T154934Z&HW-CC-Expire=31536000000&HW-CC-Sign=CADE3A6E5C6B26E83B57A41F5A23A09EC5B569437CA3839370905AD1C29019BE "点击放大")
 
 不添加背景色：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/i82O_XLkQQKuR2L32OxlHw/zh-cn_image_0000002658809135.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=D01D4E6801C18FA8BB304E0721B2ED52DA15866DAFCFA45681198522C6CDF202 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/i82O_XLkQQKuR2L32OxlHw/zh-cn_image_0000002658809135.png?HW-CC-KV=V1&HW-CC-Date=20261008T154934Z&HW-CC-Expire=31536000000&HW-CC-Sign=9C30A9F06A5D30B12398990D8F64D3BBB8714A2158FC4892753BBCF4D50D8344 "点击放大")
 
 ## 背景知识
 
@@ -68,7 +68,7 @@ ArkUI给[自定义组件设置样式](https://developer.huawei.com/consumer/cn/d
 
 打开DevEco Studio中的ArkUI Inspector工具，对比设置背景色与无背景色的自定义子组件的节点树。发现设置背景色的自定义子组件外层嵌套了一层容器组件。左图设置背景色，右图无背景色。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/8ebDIcMXRW2XULuQAHdbXA/zh-cn_image_0000002628569774.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=81BFF639BC62C984B41AF0B0F21658A05D45586A89C3CDDBE76EF72860D1B9D0 "点击放大") ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/cITGuX2hRGKzV3ruS_h5gQ/zh-cn_image_0000002628409870.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=999FB19769E9ECEA247155A17B26A7E1E0327B7668DEB7AA7E231088FD91929D "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/8ebDIcMXRW2XULuQAHdbXA/zh-cn_image_0000002628569774.png?HW-CC-KV=V1&HW-CC-Date=20261008T154934Z&HW-CC-Expire=31536000000&HW-CC-Sign=E4906304AE7BA7860348B5A732993689F71604EBEC80666B646812A7A0490FF6 "点击放大") ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/cITGuX2hRGKzV3ruS_h5gQ/zh-cn_image_0000002628409870.png?HW-CC-KV=V1&HW-CC-Date=20261008T154934Z&HW-CC-Expire=31536000000&HW-CC-Sign=243557B6CFB26444C10C353F0F4304B58ED2D4B9F9E6D8DB0FD229FBE7E6E414 "点击放大")
 
 ## 分析结论
 

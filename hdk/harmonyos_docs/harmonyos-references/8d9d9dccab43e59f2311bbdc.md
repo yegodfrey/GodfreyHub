@@ -25,11 +25,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv
+
 ```ts
 import { videoProcessing } from '@kit.MediaKit';
 ```
 
 ## videoProcessing.createVideoProcessor
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
 
 createVideoProcessor(): VideoProcessor
 
@@ -67,11 +71,15 @@ function createVideoProcessor() {
 
 ## VideoProcessor
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
+
 视频处理类，提供视频质量处理相关功能，目前支持AI-HDR增强能力。
 
 **起始版本：** 26.0.0
 
 ### getStatus
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
 
 getStatus(): Promise<VideoProcessorStatus | undefined>
 
@@ -110,6 +118,8 @@ async function getStatus() {
 ```
 
 ### onStatusChange
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
 
 onStatusChange(callback: VideoProcessorStatusCallback): void
 
@@ -152,6 +162,8 @@ function onStatusChange() {
 
 ### offStatusChange
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
+
 offStatusChange(callback?: VideoProcessorStatusCallback): void
 
 注销视频处理器状态变更的监听。
@@ -189,6 +201,8 @@ function offStatusChange() {
 
 ## VideoProcessorStatus
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
+
 视频处理器的统一状态。
 
 **起始版本：** 26.0.0
@@ -201,6 +215,8 @@ function offStatusChange() {
 
 ## VideoProcessorAiHdrStatus
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
+
 AI-HDR增强功能的状态。
 
 **起始版本：** 26.0.0
@@ -212,6 +228,8 @@ AI-HDR增强功能的状态。
 |enabled|boolean|否|是|AI-HDR增强功能是否已开启。 true表示AI-HDR增强功能已开启，false表示AI-HDR增强功能未开启。|
 
 ## VideoProcessorStatusCallback
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
 
 type VideoProcessorStatusCallback = (status: VideoProcessorStatus) => void
 

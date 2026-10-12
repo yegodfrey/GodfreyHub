@@ -34,11 +34,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-e
 
 ## 导入模块
 
+> phone | 2in1 | tablet
+
 ```ts
 import { wifiManager } from '@kit.MDMKit';
 ```
 
 ## wifiManager.isWifiActiveSync
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 isWifiActiveSync(admin: Want): boolean
 
@@ -93,6 +97,8 @@ try {
 ```
 
 ## wifiManager.setWifiProfileSync
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 setWifiProfileSync(admin: Want, profile: WifiProfile): void
 
@@ -475,6 +481,8 @@ try {
 
 ## wifiManager.addAllowedWifiList^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+
+
 addAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 添加Wi-Fi允许名单。添加允许名单后当前设备仅允许连接该名单下的Wi-Fi。适用于企业安全管理场景，例如限制员工设备只能连接公司授权的Wi-Fi网络，防止连接不安全的外部Wi-Fi，保障企业网络安全和数据安全。
@@ -538,6 +546,8 @@ try {
 
 ## wifiManager.removeAllowedWifiList^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+
+
 removeAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 移除Wi-Fi允许名单。若移除允许名单中的部分Wi-Fi，则当前设备仅允许连接剩下未移除的Wi-Fi。若移除允许名单中的所有Wi-Fi，则当前设备可以连接任意Wi-Fi。适用于企业Wi-Fi策略调整场景，例如公司更换Wi-Fi网络时移除旧网络限制、或解除部分Wi-Fi限制以允许员工连接新的办公网络。
@@ -594,6 +604,8 @@ try {
 
 ## wifiManager.getAllowedWifiList^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+
+
 getAllowedWifiList(admin: Want): Array<WifiAccessInfo>
 
 获取Wi-Fi允许名单。
@@ -649,6 +661,8 @@ try {
 
 ## wifiManager.getAllowedWifiList
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
+
 getAllowedWifiList(admin: Want | null): Array<WifiAccessInfo>
 
 获取Wi-Fi允许名单。
@@ -698,6 +712,8 @@ try {
 ```
 
 ## wifiManager.addDisallowedWifiList^19+^
+
+> phone 19+ | 2in1 19+ | tablet 19+
 
 addDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
@@ -762,6 +778,8 @@ try {
 
 ## wifiManager.removeDisallowedWifiList^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+
+
 removeDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 移除Wi-Fi禁用名单。若移除禁用名单中的部分Wi-Fi，则当前设备不允许连接禁用名单内剩余的Wi-Fi。若移除禁用名单中的所有Wi-Fi，则当前设备可以连接任意的Wi-Fi。适用于企业Wi-Fi策略调整场景，例如解除对特定Wi-Fi的禁用限制、允许员工连接新批准的办公网络、或完全移除禁用策略。
@@ -818,6 +836,8 @@ try {
 
 ## wifiManager.getDisallowedWifiList^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+
+
 getDisallowedWifiList(admin: Want): Array<WifiAccessInfo>
 
 获取Wi-Fi禁用名单。
@@ -873,6 +893,8 @@ try {
 
 ## wifiManager.getDisallowedWifiList
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
+
 getDisallowedWifiList(admin: Want | null): Array<WifiAccessInfo>
 
 获取Wi-Fi禁用名单。
@@ -922,6 +944,8 @@ try {
 ```
 
 ## wifiManager.turnOnWifi^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+
 
 turnOnWifi(admin: Want, isForce: boolean): void
 
@@ -980,6 +1004,8 @@ try {
 
 ## wifiManager.turnOffWifi^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+
+
 turnOffWifi(admin: Want): void
 
 关闭Wi-Fi开关。
@@ -1036,6 +1062,8 @@ try {
 
 ## WifiAccessInfo^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+
+
 Wi-Fi的SSID和BSSID信息。
 
 设置允许名单时，SSID和BSSID需要同时满足，才可以连接该Wi-Fi；设置禁用名单时，SSID和BSSID满足其中一个，就不能连接该Wi-Fi。
@@ -1050,6 +1078,8 @@ Wi-Fi的SSID和BSSID信息。
 |bssid|string|否|是|Wi-Fi热点的MAC地址，例如：00:11:22:33:44:55。获取方式如下：打开设置应用-点击系统选项-点击开发者选项-开启WLAN详细日志记录开关，然后进入设置应用中的WLAN列表，查看显示的MAC地址。若一个Wi-Fi对应多个MAC地址，需添加所有MAC地址。 作为[addDisallowedWifiList](#wifimanageradddisallowedwifilist19)和[removeDisallowedWifiList](#wifimanagerremovedisallowedwifilist19)接口的入参时，该属性可选，默认值为空字符串。 作为[addAllowedWifiList](#wifimanageraddallowedwifilist19)和[removeAllowedWifiList](#wifimanagerremoveallowedwifilist19)接口入参时，从API version 21开始，该属性可选，默认值为空字符串。API version 20及之前的版本，该属性必填。|
 
 ## WifiProfile
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 Wi-Fi配置信息。
 
@@ -1075,6 +1105,8 @@ Wi-Fi配置信息。
 
 ## WifiSecurityType
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 表示加密类型的枚举。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1096,6 +1128,8 @@ Wi-Fi配置信息。
 
 ## IpType
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 表示IP类型的枚举。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1109,6 +1143,8 @@ Wi-Fi配置信息。
 |UNKNOWN|2|未指定。|
 
 ## IpProfile
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 IP配置信息。
 
@@ -1125,6 +1161,8 @@ IP配置信息。
 |domains|Array<string>|否|否|域信息。|
 
 ## WifiEapProfile
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 可扩展身份验证协议配置信息。
 
@@ -1152,6 +1190,8 @@ IP配置信息。
 
 ## EapMethod
 
+> phone 12+ | 2in1 13+ | tablet 12+
+
 表示EAP认证方式的枚举。
 > 说明
 >
@@ -1174,6 +1214,8 @@ IP配置信息。
 |EAP_UNAUTH_TLS|8|UNAUTH TLS类型，单向认证（仅认证客户端）和加密通道。|
 
 ## Phase2Method
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 表示第二阶段认证方式的枚举。
 

@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-raw-
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 提供操作rawfile文件的能力，包括读取文件、获取文件长度、获取偏移位置、调整偏移位置、获取文件描述符，以及关闭文件描述符等。
 
 **引用文件：** <rawfile/raw_file.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-raw-
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:------------------------------------------------------------------------------------------------------------------------|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,6 +40,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-raw-
 |[RawFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rawfile-rawfile)|RawFile|RawFile表示一个已打开的rawfile对象。通过[OH_ResourceManager_OpenRawFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-raw-file-manager-h#oh_resourcemanager_openrawfile)函数获取，使用完后须调用[OH_ResourceManager_CloseRawFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-raw-file-h#oh_resourcemanager_closerawfile)关闭并释放。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|
@@ -58,7 +66,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-raw-
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_ResourceManager_ReadRawFile()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int OH_ResourceManager_ReadRawFile(const RawFile *rawFile, void *buf, size_t length)
@@ -86,6 +98,8 @@ int OH_ResourceManager_ReadRawFile(const RawFile *rawFile, void *buf, size_t len
 
 ### OH_ResourceManager_SeekRawFile()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int OH_ResourceManager_SeekRawFile(const RawFile *rawFile, long offset, int whence)
 ```
@@ -112,6 +126,8 @@ int OH_ResourceManager_SeekRawFile(const RawFile *rawFile, long offset, int when
 
 ### OH_ResourceManager_GetRawFileSize()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 long OH_ResourceManager_GetRawFileSize(RawFile *rawFile)
 ```
@@ -135,6 +151,8 @@ long OH_ResourceManager_GetRawFileSize(RawFile *rawFile)
 |long|返回rawfile文件长度。若rawFile为NULL，则返回0。|
 
 ### OH_ResourceManager_GetRawFileRemainingLength()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 long OH_ResourceManager_GetRawFileRemainingLength(const RawFile *rawFile)
@@ -160,6 +178,8 @@ long OH_ResourceManager_GetRawFileRemainingLength(const RawFile *rawFile)
 
 ### OH_ResourceManager_CloseRawFile()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_ResourceManager_CloseRawFile(RawFile *rawFile)
 ```
@@ -181,6 +201,8 @@ void OH_ResourceManager_CloseRawFile(RawFile *rawFile)
 [OH_ResourceManager_OpenRawFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-raw-file-manager-h#oh_resourcemanager_openrawfile)
 
 ### OH_ResourceManager_GetRawFileOffset()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 long OH_ResourceManager_GetRawFileOffset(const RawFile *rawFile)
@@ -205,6 +227,8 @@ long OH_ResourceManager_GetRawFileOffset(const RawFile *rawFile)
 |long|返回rawfile当前的偏移位置，若rawFile为NULL，则返回0。|
 
 ### OH_ResourceManager_GetRawFileDescriptor()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_ResourceManager_GetRawFileDescriptor(const RawFile *rawFile, RawFileDescriptor &descriptor)
@@ -235,6 +259,8 @@ bool OH_ResourceManager_GetRawFileDescriptor(const RawFile *rawFile, RawFileDesc
 
 ### OH_ResourceManager_GetRawFileDescriptorData()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 bool OH_ResourceManager_GetRawFileDescriptorData(const RawFile *rawFile, RawFileDescriptor *descriptor)
 ```
@@ -259,6 +285,8 @@ bool OH_ResourceManager_GetRawFileDescriptorData(const RawFile *rawFile, RawFile
 |bool|返回获取结果。true表示获取成功。false表示获取失败，可能原因是rawFile为NULL、descriptor为NULL或rawfile文件访问被拒绝。|
 
 ### OH_ResourceManager_ReleaseRawFileDescriptor()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_ResourceManager_ReleaseRawFileDescriptor(const RawFileDescriptor &descriptor)
@@ -288,6 +316,8 @@ bool OH_ResourceManager_ReleaseRawFileDescriptor(const RawFileDescriptor &descri
 
 ### OH_ResourceManager_ReleaseRawFileDescriptorData()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 bool OH_ResourceManager_ReleaseRawFileDescriptorData(const RawFileDescriptor *descriptor)
 ```
@@ -311,6 +341,8 @@ bool OH_ResourceManager_ReleaseRawFileDescriptorData(const RawFileDescriptor *de
 |bool|返回释放结果。true表示释放成功，false表示释放失败，可能原因是descriptor为NULL或文件描述符已释放。|
 
 ### OH_ResourceManager_ReadRawFile64()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int64_t OH_ResourceManager_ReadRawFile64(const RawFile64 *rawFile, void *buf, int64_t length)
@@ -340,6 +372,8 @@ int64_t OH_ResourceManager_ReadRawFile64(const RawFile64 *rawFile, void *buf, in
 
 ### OH_ResourceManager_SeekRawFile64()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int OH_ResourceManager_SeekRawFile64(const RawFile64 *rawFile, int64_t offset, int whence)
 ```
@@ -366,6 +400,8 @@ int OH_ResourceManager_SeekRawFile64(const RawFile64 *rawFile, int64_t offset, i
 
 ### OH_ResourceManager_GetRawFileSize64()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int64_t OH_ResourceManager_GetRawFileSize64(RawFile64 *rawFile)
 ```
@@ -389,6 +425,8 @@ int64_t OH_ResourceManager_GetRawFileSize64(RawFile64 *rawFile)
 |int64_t|返回rawfile文件长度。若rawFile为NULL，则返回0。|
 
 ### OH_ResourceManager_GetRawFileRemainingLength64()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int64_t OH_ResourceManager_GetRawFileRemainingLength64(const RawFile64 *rawFile)
@@ -414,6 +452,8 @@ int64_t OH_ResourceManager_GetRawFileRemainingLength64(const RawFile64 *rawFile)
 
 ### OH_ResourceManager_CloseRawFile64()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_ResourceManager_CloseRawFile64(RawFile64 *rawFile)
 ```
@@ -435,6 +475,8 @@ void OH_ResourceManager_CloseRawFile64(RawFile64 *rawFile)
 [OH_ResourceManager_OpenRawFile64](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-raw-file-manager-h#oh_resourcemanager_openrawfile64)
 
 ### OH_ResourceManager_GetRawFileOffset64()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int64_t OH_ResourceManager_GetRawFileOffset64(const RawFile64 *rawFile)
@@ -462,6 +504,8 @@ int64_t OH_ResourceManager_GetRawFileOffset64(const RawFile64 *rawFile)
 
 ### OH_ResourceManager_GetRawFileDescriptor64()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 bool OH_ResourceManager_GetRawFileDescriptor64(const RawFile64 *rawFile, RawFileDescriptor64 *descriptor)
 ```
@@ -486,6 +530,8 @@ bool OH_ResourceManager_GetRawFileDescriptor64(const RawFile64 *rawFile, RawFile
 |bool|返回获取结果。true表示获取成功。false表示获取失败，可能原因是rawFile为NULL、descriptor为NULL或rawfile文件访问被拒绝。|
 
 ### OH_ResourceManager_ReleaseRawFileDescriptor64()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_ResourceManager_ReleaseRawFileDescriptor64(const RawFileDescriptor64 *descriptor)

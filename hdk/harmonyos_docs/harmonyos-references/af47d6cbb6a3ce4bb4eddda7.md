@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 线段表相关数据结构及函数定义。
 
 **引用文件：** <FASTKit/fast_ads_segment_map.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 类型定义
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|
@@ -35,12 +41,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-
 
 ### 枚举
 
+> phone | 2in1 | tablet | tv | wearable
+
 |名称|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|
 |[FAST_SegmentMapQueryType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_segmentmapquerytype-1) { [FAST_SEGMENTMAP_QUERY_TYPE_SUM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast) = 0, [FAST_SEGMENTMAP_QUERY_TYPE_MIN](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast) = 1, [FAST_SEGMENTMAP_QUERY_TYPE_MAX](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast) = 2 }|线段表支持的查询操作类型。|
 |[FAST_SegmentMapUpdateType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_segmentmapupdatetype-1) { [FAST_SEGMENTMAP_UPDATE_TYPE_SET](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast) = 0, [FAST_SEGMENTMAP_UPDATE_TYPE_ADD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast) = 1, [FAST_SEGMENTMAP_UPDATE_TYPE_SUB](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast) = 2 }|线段表支持的更新操作类型。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|

@@ -32,12 +32,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-appear
 
   掩码仅支持取值为整数0和整数1的二维数组输入，数组行数对应窗口高度，列数对应窗口宽度。整数0代表对应像素透明且不可交互，整数1代表对应像素不透明且可交互。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/fZ0EugDWQ22nJAe207J1nQ/zh-cn_image_0000002779091769.png?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=A78FC1D64A7439560BD6C7741D42BE6F28C0B107C639BF11C5DC2C6208729C63)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/H3fIFaYjQ7aNaU38VTlv0w/zh-cn_image_0000002755023854.png?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=8AC9594ABA1A41899BB0D0F4C128DA77C13F421B335F4B567255A0B4C8B558E5)
 * 从API版本26.0.0开始，支持使用[setWindowMaskWithAlpha()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowmaskwithalpha)接口设置异形窗口的掩码。
 
   掩码支持取值在[0, 255]范围的数组输入，数组长度等于窗口宽度乘以窗口高度。整数0代表对应像素透明且不可交互，整数255代表对应像素不透明且可交互，0~255之间代表对应像素部分透明且可交互。此接口性能优于[setWindowMask()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowmask12)，推荐使用。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/XIopqsUaR-u8dWis_a92PA/zh-cn_image_0000002778931911.png?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=D6ED0A7B9F4C0DC6864EA779DFDAE129A3A5A162149A4638C443366B5ADA04AD)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/t17QbMWuTh-eMIh4pTs1ug/zh-cn_image_0000002755183742.png?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=F785A095C60632AC743BCE6AF95403640E9304B7CBA4195AEC2BFA6ECC019911)
 
 此处以设置子窗的异形窗口为例。此例主要实现以下效果：
 
@@ -102,7 +102,7 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/WwgXg8FzSHeODk763Y2BVA/zh-cn_image_0000002749332828.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=B178CCA06B861B68B97990D3311EA10E1F58577EB956E3572BF701E7257ED432)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/5c7r1T4QTiO_dp9Evgn_Gw/zh-cn_image_0000002784582609.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=F30125D6D74E550C4CFF78925AA8BDCB63806F9B609970AA9B1C16D2028637EC)
 
 ## 窗口阴影
 
@@ -133,7 +133,7 @@ struct Index {
   }
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/6zjbsTLYQaCZLEjlimuqXg/zh-cn_image_0000002749492712.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=868304FCE0FCFA5E4D52ADAF5DD74A6CA4E3193B17ECB372543F8C55CEE570D0)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/6z_TNdpERMS3NNt1YlE9MA/zh-cn_image_0000002784662789.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=C0A48CCCD0A2A26BFE85C5DFCF9B850E303B0E278698A8A231E242C466885B22)
 
 ## 设置窗口圆角
 
@@ -162,7 +162,7 @@ struct Index {
   }
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/43FeWHG5TqSOBCZRrwf1kQ/zh-cn_image_0000002779091771.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=60DAD6CA09ECF74A9AE4CFC637D203375173634E7494B7FD97928E4AD607D679)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/T-BZEmLhTQ2H0mdT1XfD6w/zh-cn_image_0000002755023856.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=CF59B26F1C44F31880065267B24EF8CAC65C17E3F74091BA8960DBC10DD5C10F)
 
 ## 窗口背景色
 
@@ -184,7 +184,7 @@ struct Index {
 >
 > * 需要在[loadContent()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#loadcontent9-1)或[setUIContent()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setuicontent9-1)调用生效后才能设置背景色。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/ezmiepBdSsOWNjD1LKo2Hw/zh-cn_image_0000002778931913.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121654Z&HW-CC-Expire=31536000000&HW-CC-Sign=2B6EDD47E343683FDE87592F2BD08946D3C0A220C538F7E2594C58D778381B0E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/9x0Now4mSfuwjvr-ipGubA/zh-cn_image_0000002755183744.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=DCC17485AB3823FA0E4D044406D8F2F4A8256C08CCF501DDE3148ABD45E3EB43)
 
 示例代码如下：
 

@@ -27,7 +27,7 @@ AILOD采用端云协同机制，分工如下：
 * Editor侧：负责3D模型数据和用户配置的采集、预处理与结果接收。
 * AILOD云端：基于用户设定的目标精度与保留规则，执行AI算法生成简化后的LOD模型资产。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/WhV9TJFSTq-XV1vrT4_mWw/zh-cn_image_0000002512005453.png?HW-CC-KV=V1&HW-CC-Date=20260920T025432Z&HW-CC-Expire=31536000000&HW-CC-Sign=CA398128BCC1B88D9CA0109E789811EA78BC6B076D3C0407BE5FB68560F493CF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/WhV9TJFSTq-XV1vrT4_mWw/zh-cn_image_0000002512005453.png?HW-CC-KV=V1&HW-CC-Date=20261008T152108Z&HW-CC-Expire=31536000000&HW-CC-Sign=5BC70AA9BAFFA2DF992A4A02EA0E66AFFF7D480B7240881D1A9616A309FFCD02)
 
 ## 实现流程
 

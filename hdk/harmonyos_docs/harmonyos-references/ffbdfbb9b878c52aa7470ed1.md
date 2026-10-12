@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义Drm MediaKeySystem API。提供以下功能：
 
 查询是否支持特定的DRM、创建媒体密钥会话、获取和设置配置、获取统计信息、获取内容保护级别、生成提供请求、处理提供响应、事件监听、获取内容防护级别、管理离线媒体密钥等。
@@ -26,7 +28,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -56,7 +62,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### MediaKeySystem_Callback()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 typedef  Drm_ErrCode (*MediaKeySystem_Callback)(DRM_EventType eventType, uint8_t *info,int32_t infoLen, char *extra)
@@ -84,6 +94,8 @@ MediaKeySystem事件触发时将调用的回调函数，不返回MediaKeySystem�
 |[Drm_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-err-h#drm_errcode)|DRM_ERR_OK：执行成功。 DRM_ERR_INVALID_VAL：输入参数无效。|
 
 ### OH_MediaKeySystem_Callback()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 typedef Drm_ErrCode (*OH_MediaKeySystem_Callback)(MediaKeySystem *mediaKeySystem, DRM_EventType eventType,uint8_t *info, int32_t infoLen, char *extra)
@@ -113,6 +125,8 @@ MediaKeySystem事件触发时将调用的回调函数，返回MediaKeySystem实�
 
 ### OH_MediaKeySystem_SetCallback()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 Drm_ErrCode OH_MediaKeySystem_SetCallback(MediaKeySystem *mediaKeySystem, OH_MediaKeySystem_Callback callback)
 ```
@@ -137,6 +151,8 @@ Drm_ErrCode OH_MediaKeySystem_SetCallback(MediaKeySystem *mediaKeySystem, OH_Med
 |[Drm_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-err-h#drm_errcode)|DRM_ERR_OK：执行成功。 DRM_ERR_INVALID_VAL：输入参数mediaKeySystem为空指针或无效。|
 
 ### OH_MediaKeySystem_GetMediaKeySystems()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Drm_ErrCode OH_MediaKeySystem_GetMediaKeySystems(DRM_MediaKeySystemDescription *descs, uint32_t *count)
@@ -163,6 +179,8 @@ Drm_ErrCode OH_MediaKeySystem_GetMediaKeySystems(DRM_MediaKeySystemDescription *
 
 ### OH_MediaKeySystem_IsSupported()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 bool OH_MediaKeySystem_IsSupported(const char *name)
 ```
@@ -186,6 +204,8 @@ bool OH_MediaKeySystem_IsSupported(const char *name)
 |bool|返回是否支持指定的DRM解决方案。true表示支持，false表示不支持。|
 
 ### OH_MediaKeySystem_IsSupported2()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_MediaKeySystem_IsSupported2(const char *name, const char *mimeType)
@@ -211,6 +231,8 @@ bool OH_MediaKeySystem_IsSupported2(const char *name, const char *mimeType)
 |bool|表示是否支持指定的DRM解决方案及媒体类型。当name和mimeType都支持时返回true，否则返回false。当name或mimeType参数为空或无效时返回false。|
 
 ### OH_MediaKeySystem_IsSupported3()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 bool OH_MediaKeySystem_IsSupported3(const char *name, const char *mimeType,DRM_ContentProtectionLevel contentProtectionLevel)
@@ -238,6 +260,8 @@ bool OH_MediaKeySystem_IsSupported3(const char *name, const char *mimeType,DRM_C
 
 ### OH_MediaKeySystem_Create()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 Drm_ErrCode OH_MediaKeySystem_Create(const char *name, MediaKeySystem **mediaKeySystem)
 ```
@@ -262,6 +286,8 @@ Drm_ErrCode OH_MediaKeySystem_Create(const char *name, MediaKeySystem **mediaKey
 |[Drm_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-err-h#drm_errcode)|DRM_ERR_OK：执行成功。 DRM_ERR_INVALID_VAL： 输入参数name为空指针。 输入参数name长度为0。 输入参数mediaKeySystem为空指针。 DRM_ERR_UNKNOWN：发生内部错误，请查看日志详细信息。 DRM_ERR_SERVICE_DIED：服务死亡。 DRM_ERR_MAX_SYSTEM_NUM_REACHED：已创建的MediaKeySystem数量达到最大限制(64个)。|
 
 ### OH_MediaKeySystem_SetConfigurationString()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Drm_ErrCode OH_MediaKeySystem_SetConfigurationString(MediaKeySystem *mediaKeySystem,const char *configName, const char *value)
@@ -288,6 +314,8 @@ Drm_ErrCode OH_MediaKeySystem_SetConfigurationString(MediaKeySystem *mediaKeySys
 |[Drm_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-err-h#drm_errcode)|DRM_ERR_OK：执行成功。 DRM_ERR_INVALID_VAL：输入参数mediaKeySystem为空指针或无效，输入参数configName为空指针，或输入参数value为空指针。|
 
 ### OH_MediaKeySystem_GetConfigurationString()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Drm_ErrCode OH_MediaKeySystem_GetConfigurationString(MediaKeySystem *mediaKeySystem,const char *configName, char *value, int32_t valueLen)
@@ -316,6 +344,8 @@ Drm_ErrCode OH_MediaKeySystem_GetConfigurationString(MediaKeySystem *mediaKeySys
 
 ### OH_MediaKeySystem_SetConfigurationByteArray()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 Drm_ErrCode OH_MediaKeySystem_SetConfigurationByteArray(MediaKeySystem *mediaKeySystem,const char *configName, uint8_t *value, int32_t valueLen)
 ```
@@ -342,6 +372,8 @@ Drm_ErrCode OH_MediaKeySystem_SetConfigurationByteArray(MediaKeySystem *mediaKey
 |[Drm_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-err-h#drm_errcode)|DRM_ERR_OK：执行成功。 DRM_ERR_NO_MEMORY：内存不足，内存分配失败。 DRM_ERR_INVALID_VAL：输入参数mediaKeySystem为空指针或无效，输入参数configName为空指针，或输入参数value为空指针。 DRM_ERR_UNKNOWN：发生内部错误，请查看日志详细信息。|
 
 ### OH_MediaKeySystem_GetConfigurationByteArray()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Drm_ErrCode OH_MediaKeySystem_GetConfigurationByteArray(MediaKeySystem *mediaKeySystem,const char *configName, uint8_t *value, int32_t *valueLen)
@@ -370,6 +402,8 @@ Drm_ErrCode OH_MediaKeySystem_GetConfigurationByteArray(MediaKeySystem *mediaKey
 
 ### OH_MediaKeySystem_GetStatistics()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 Drm_ErrCode OH_MediaKeySystem_GetStatistics(MediaKeySystem *mediaKeySystem, DRM_Statistics *statistics)
 ```
@@ -394,6 +428,8 @@ Drm_ErrCode OH_MediaKeySystem_GetStatistics(MediaKeySystem *mediaKeySystem, DRM_
 |[Drm_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-err-h#drm_errcode)|DRM_ERR_OK：执行成功。 DRM_ERR_NO_MEMORY：内存不足，内存分配失败。 DRM_ERR_INVALID_VAL：输入参数mediaKeySystem为空指针或无效，或输入参数statistics为空指针。 DRM_ERR_UNKNOWN：发生内部错误，请查看日志详细信息。|
 
 ### OH_MediaKeySystem_GetMaxContentProtectionLevel()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Drm_ErrCode OH_MediaKeySystem_GetMaxContentProtectionLevel(MediaKeySystem *mediaKeySystem,DRM_ContentProtectionLevel *contentProtectionLevel)
@@ -420,6 +456,8 @@ Drm_ErrCode OH_MediaKeySystem_GetMaxContentProtectionLevel(MediaKeySystem *media
 
 ### OH_MediaKeySystem_SetMediaKeySystemCallback()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 Drm_ErrCode OH_MediaKeySystem_SetMediaKeySystemCallback(MediaKeySystem *mediaKeySystem,MediaKeySystem_Callback callback)
 ```
@@ -444,6 +482,8 @@ Drm_ErrCode OH_MediaKeySystem_SetMediaKeySystemCallback(MediaKeySystem *mediaKey
 |[Drm_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-err-h#drm_errcode)|DRM_ERR_OK：执行成功。 DRM_ERR_INVALID_VAL：输入参数mediaKeySystem为空指针或无效。|
 
 ### OH_MediaKeySystem_CreateMediaKeySession()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Drm_ErrCode OH_MediaKeySystem_CreateMediaKeySession(MediaKeySystem *mediaKeySystem,DRM_ContentProtectionLevel *level, MediaKeySession **mediaKeySession)
@@ -470,6 +510,8 @@ Drm_ErrCode OH_MediaKeySystem_CreateMediaKeySession(MediaKeySystem *mediaKeySyst
 |[Drm_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-err-h#drm_errcode)|DRM_ERR_OK：执行成功。 DRM_ERR_NO_MEMORY：内存不足，内存分配失败。 DRM_ERR_INVALID_VAL：输入参数mediaKeySystem为空指针或无效，或输入参数level超出合理范围，或mediaKeySession为空指针。 DRM_ERR_UNKNOWN：发生内部错误，请查看日志详细信息。 DRM_ERR_SERVICE_DIED：服务死亡。 DRM_ERR_MAX_SESSION_NUM_REACHED：当前MediaKeySystem已创建的MediaKeySession数量达到最大限制(64个)。|
 
 ### OH_MediaKeySystem_GenerateKeySystemRequest()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Drm_ErrCode OH_MediaKeySystem_GenerateKeySystemRequest(MediaKeySystem *mediaKeySystem, uint8_t *request,int32_t *requestLen, char *defaultUrl, int32_t defaultUrlLen)
@@ -499,6 +541,8 @@ Drm_ErrCode OH_MediaKeySystem_GenerateKeySystemRequest(MediaKeySystem *mediaKeyS
 
 ### OH_MediaKeySystem_ProcessKeySystemResponse()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 Drm_ErrCode OH_MediaKeySystem_ProcessKeySystemResponse(MediaKeySystem *mediaKeySystem,uint8_t *response, int32_t responseLen)
 ```
@@ -525,6 +569,8 @@ Drm_ErrCode OH_MediaKeySystem_ProcessKeySystemResponse(MediaKeySystem *mediaKeyS
 
 ### OH_MediaKeySystem_GetOfflineMediaKeyIds()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 Drm_ErrCode OH_MediaKeySystem_GetOfflineMediaKeyIds(MediaKeySystem *mediaKeySystem,DRM_OfflineMediakeyIdArray *offlineMediaKeyIds)
 ```
@@ -549,6 +595,8 @@ Drm_ErrCode OH_MediaKeySystem_GetOfflineMediaKeyIds(MediaKeySystem *mediaKeySyst
 |[Drm_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-err-h#drm_errcode)|DRM_ERR_OK：执行成功。 DRM_ERR_NO_MEMORY：内存不足，内存分配失败。 DRM_ERR_INVALID_VAL：输入参数mediaKeySystem为空指针或无效，或输入参数offlineMediaKeyIds为空指针。 DRM_ERR_UNKNOWN：发生内部错误，请查看日志详细信息。|
 
 ### OH_MediaKeySystem_GetOfflineMediaKeyStatus()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Drm_ErrCode OH_MediaKeySystem_GetOfflineMediaKeyStatus(MediaKeySystem *mediaKeySystem,uint8_t *offlineMediaKeyId, int32_t offlineMediaKeyIdLen, DRM_OfflineMediaKeyStatus *status)
@@ -577,6 +625,8 @@ Drm_ErrCode OH_MediaKeySystem_GetOfflineMediaKeyStatus(MediaKeySystem *mediaKeyS
 
 ### OH_MediaKeySystem_ClearOfflineMediaKeys()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 Drm_ErrCode OH_MediaKeySystem_ClearOfflineMediaKeys(MediaKeySystem *mediaKeySystem,uint8_t *offlineMediaKeyId, int32_t offlineMediaKeyIdLen)
 ```
@@ -603,6 +653,8 @@ Drm_ErrCode OH_MediaKeySystem_ClearOfflineMediaKeys(MediaKeySystem *mediaKeySyst
 
 ### OH_MediaKeySystem_GetCertificateStatus()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 Drm_ErrCode OH_MediaKeySystem_GetCertificateStatus(MediaKeySystem *mediaKeySystem,DRM_CertificateStatus *certStatus)
 ```
@@ -627,6 +679,8 @@ Drm_ErrCode OH_MediaKeySystem_GetCertificateStatus(MediaKeySystem *mediaKeySyste
 |[Drm_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-err-h#drm_errcode)|DRM_ERR_OK：执行成功。 DRM_ERR_INVALID_VAL：输入参数mediaKeySystem为空指针或无效，或输入参数certStatus为空指针。 DRM_ERR_UNKNOWN：发生内部错误，请查看日志详细信息。|
 
 ### OH_MediaKeySystem_Destroy()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 Drm_ErrCode OH_MediaKeySystem_Destroy(MediaKeySystem *mediaKeySystem)

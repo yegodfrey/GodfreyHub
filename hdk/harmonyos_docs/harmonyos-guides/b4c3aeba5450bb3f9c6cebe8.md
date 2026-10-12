@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
 
 激励广告是一种全屏幕的视频广告，用户可以选择点击观看，以换取相应奖励。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/lV0r-_TnTt6RlE57MP-wZQ/zh-cn_image_0000002778932643.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=8C9D8ECB5255A5E5CF5A8CD242564C2F22A1B95054AB574F176BF1FF32FBCE3F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/WRbxs2CqQwa_xaje1bWk0Q/zh-cn_image_0000002784583341.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=9FEA8FC3493D563A40C8706A5DA7CD8141770366DA81BB19D94EB663348A7637)
 
 ## 约束与限制
 
@@ -315,7 +315,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
 
 服务端验证回调是指鲸鸿动能平台发送给媒体服务器的网址请求，其中带有特定的查询参数，用来通知媒体服务器某位用户因为与激励视频广告互动而应予以奖励，从而规避欺骗的行为。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/Jd_GFIggTtGmoyigM1eaNA/zh-cn_image_0000002749333562.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=AEA917F89A0E60CBC90CD5DE183FE5D8B9D8587318D0EBDFC2DE875B7BF89720)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/zs59DTNfQZ20gxJ-ZyV4nA/zh-cn_image_0000002784663521.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=03E70B5B0966F2E53BDF54BBF6A9DDAAE99DFB55D6B2FFA1327E62F52598F508)
 
 ### 奖励用户
 
@@ -333,7 +333,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
 
    您在[鲸鸿动能媒体服务平台](https://developer.huawei.com/consumer/cn/service/ads/publisher/html/index.html?lang=zh)上申请激励视频广告位时选择"媒体管理（点击媒体名）> 新增展示位 > 选择激励视频（点击下一步，进入编辑页面）"，设置奖励类型和奖励数量，并点击"高级设置"，设置服务器端验证的URL。如下图：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/aMLhnSIJS36h7w230aVfGQ/zh-cn_image_0000002749493446.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=6DB70F3E2DF377664EF08719D8929A0C327FC9D47A67818FB0C0D2DC0698FA8C)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/mHermoDXRyKAw5XFtA9h7A/zh-cn_image_0000002755024588.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=1C0242CEBFBD90DD52C88FE8620D405831040869C825E89319B257279ED29872)
 2. （可选）设置自定义数据customData和userId。
 
    您在[展示广告第2点](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher-service-reward#展示广告)之前可以设置自定义数据customData和userId。示例代码如下所示：
@@ -447,11 +447,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ads-publisher
 
    a. 在[鲸鸿动能媒体服务平台](https://developer.huawei.com/consumer/cn/service/ads/publisher/html/index.html?lang=zh)上查看对应的账户信息时选择"账户"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/ZLW1_LU-R9itb43OT4ppgw/zh-cn_image_0000002779092503.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=86BBEC493EB67C82D52E31C6825EA7912FDBDBF471A552BD939FE821729E1F05)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/MGnETKCeTg-F07sfBFrPyQ/zh-cn_image_0000002755184476.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=86864BD384F8A12869DE1EF91B01948987D9DC69553E9D5A73334D0064A27236)
 
    通过点击上图所示的"获取密钥"按钮弹出如下所示的弹框，获取"开发者ID"和"密钥"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/RNteJ3iOQ4Sz0o7bNXHG0Q/zh-cn_image_0000002778932645.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=4E22A375EFDA138BB935364BC853665C73B9BB1E6A541DF3FA2C74BEFEB9781B)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/qnbgdSULRlq0xiYX9fCJzQ/zh-cn_image_0000002784583343.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7AA81906A264052B0B983B958820B0C0C468F5ED6843AE0C3276D2F5959903C)
 
    b. 您根据应用分发区域不同，需要使用对应站点的接口URL去获取公钥列表，不同站点对应的接口URL如下所示：
    * 中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）：[https://ppscrowd-drcn.op.hicloud.com/action-lib-track/publickeys](https://ppscrowd-drcn.op.hicloud.com/action-lib-track/publickeys)

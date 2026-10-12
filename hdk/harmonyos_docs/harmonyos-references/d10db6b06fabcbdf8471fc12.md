@@ -14,6 +14,8 @@ typedef struct ArkUI_AccessibilityEventInfo ArkUI_AccessibilityEventInfo
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 无障碍事件信息。当无障碍服务或辅助应用要求控件执行操作后，应用需发送执行成功事件以通知操作结果，适用于需要向无障碍服务反馈操作执行情况的场景。
 
 **起始版本：** 13

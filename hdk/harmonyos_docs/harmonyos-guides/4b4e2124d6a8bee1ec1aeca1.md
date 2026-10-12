@@ -25,7 +25,7 @@ ArcButton({
 
 其中，[label](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮文字，[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮位置，[styleMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮样式。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/GEkLqxtcSESzvDg7F6xuSQ/zh-cn_image_0000002779091315.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=8419C9DEAE4415E89CCA108C2D19187D953367EB6CB72F500763194EFF201A9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/fD0rPAMtR26SZY9pB0lmrA/zh-cn_image_0000002755023470.png?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=18045205A6A9C99F468276B959E7A1D121DAA50DD58449B80BBA0EF64BA46E73)
 
 ## 设置按钮类型
 
@@ -47,7 +47,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/_kXZwlZaRMmvz2gTxNVjeQ/zh-cn_image_0000002778931457.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=CA5FB2CCE2AE7C7549A38C681B42750E2473A3A68EC4D4B75875115DE2B5B50B)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/R6baps47TKeKxNhD3BBABw/zh-cn_image_0000002755183356.png?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=97D90428D0874B4AE110DC388BB32C54082BFC53F101D064EBD42CACF6FAF4DC)
 * 上弧形按钮。
 
   通过将[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置为ArcButtonPosition.TOP_EDGE，可以将按钮设置为上弧形按钮。
@@ -63,7 +63,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/4a_zLPFTQSuidmtG31dJTg/zh-cn_image_0000002749332376.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=B725ED42031F480F2AB5847C4AD8332EB737B9D2841A340A585C1A1C51E67688)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/QsbBbBFwT0qmsRobhYLLzg/zh-cn_image_0000002784582223.png?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=ADD0B0DDCF2FE4CFF3A544CB1C22685415ADDB6E2B9CDD39FDEB1BCEF8A3A4DD)
 
 ## 自定义样式
 
@@ -81,7 +81,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/iGmGThMmRNCwewaRT-AVEw/zh-cn_image_0000002749492260.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=FB665104DBFAA870EC74C0CAF5EBCDA50482E78C2C97A17629E0156F9AF26980)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/8RFqRRt9TYaxI3WZIkyz_w/zh-cn_image_0000002784662405.png?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=E49AE93DBE1FCB126FC52E3FF307F3B36A9C552059CF97215D2872347BD84F7C)
 * 设置文本颜色。
 
   使用[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的文本颜色。
@@ -97,7 +97,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/hplIORczRp6Ycmty2ypGmA/zh-cn_image_0000002779091319.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=7DDCDE62102616B3E4F63147CFFAFA160C606A46CDEA76AAC5B7F187AD74264C)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/oWaKhMweREquTY_5xo4XOA/zh-cn_image_0000002755023472.png?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=946EB1B62541263CABF186C97332E605B564FE6D0C37F821FB5EA12FEB4D7713)
 * 设置阴影颜色。
 
   使用[shadowEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性启用按钮阴影，并通过[shadowColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的阴影颜色。
@@ -112,7 +112,7 @@ ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](htt
   })
   ```
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/J2e51Q72Qqm2I1h4paccow/zh-cn_image_0000002778931461.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=DC71E0C07CE273DE6300419AB84EF8689951BC0F7BF2E48D23F4F058FDFC791A)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/5v6oCtk2S8iADbxrsrajyw/zh-cn_image_0000002755183358.png?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=CE17ED611DBB12C137496DF62136784227AD3775BAF985A399319157250B54E0)
 
 ## 添加事件
 
@@ -238,5 +238,5 @@ struct BrightnessPage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/NXMuTmBqQ2ezRjJmAZgLTw/zh-cn_image_0000002749332380.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=375751D591D4338C7E5C51F425BF15FCF6F3BD2A7A0CDDC363F4A86BF447575B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/I4qB4wG1RYyiXjBvg6tEKw/zh-cn_image_0000002784582225.png?HW-CC-KV=V1&HW-CC-Date=20261009T092716Z&HW-CC-Expire=31536000000&HW-CC-Sign=889ED7B5BA0558F386962FB80D77FE9EAABA4121F25F296FEA886403DBAFF70E)
 

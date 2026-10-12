@@ -105,7 +105,7 @@ struct ListScreenshot {
 
 问题效果预览：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/62X6GF0CTracjME-MiSvDg/zh-cn_image_0000002628552408.png?HW-CC-KV=V1&HW-CC-Date=20260929T074333Z&HW-CC-Expire=31536000000&HW-CC-Sign=BB26F0D272C7804C46F129FA6C68BD052B538A4DAAB4E4B8701CCC82D0C46A6F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/62X6GF0CTracjME-MiSvDg/zh-cn_image_0000002628552408.png?HW-CC-KV=V1&HW-CC-Date=20261008T141848Z&HW-CC-Expire=31536000000&HW-CC-Sign=742DB29F393BF53CB8A00480168B5B84FA715CFE4EE089336DFFFA692A4B9E9B "点击放大")
 
 ## 背景知识
 

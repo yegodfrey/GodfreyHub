@@ -15,11 +15,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-d
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { commonType } from '@kit.ArkData';
 ```
 
 ## AssetStatus
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 描述资产附件的状态枚举。请使用枚举名称而非枚举值。
 
@@ -35,6 +39,8 @@ import { commonType } from '@kit.ArkData';
 |ASSET_DOWNLOADING|6|表示资产正在下载到本地设备。|
 
 ## Asset
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 记录资产附件（文件、图片、视频等类型文件）的相关信息，相关示例见[在跨端迁移中使用分布式数据对象迁移数据](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-distributed-data-object#在跨端迁移中使用分布式数据对象迁移数据)的示例代码。
 
@@ -52,6 +58,8 @@ import { commonType } from '@kit.ArkData';
 
 ## Assets
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 type Assets = Array<Asset>
 
 表示[Asset](#asset)类型的数组。
@@ -63,6 +71,8 @@ type Assets = Array<Asset>
 |Array<[Asset](#asset)>|表示Asset类型的数组。|
 
 ## ValueType
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets
 
@@ -81,6 +91,8 @@ type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets
 |Assets|表示值类型为附件数组[Assets](#assets)。|
 
 ## ValuesBucket
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type ValuesBucket = Record<string, ValueType>
 

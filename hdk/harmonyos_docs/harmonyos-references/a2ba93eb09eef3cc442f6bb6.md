@@ -17,6 +17,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explic
 
 ## AnimateParam对象说明
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 动画效果相关参数。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -41,9 +43,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explic
 
 ## ICurve^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 曲线对象。
 
 ### interpolate^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 interpolate(fraction: number): number
 
@@ -69,6 +75,8 @@ interpolate(fraction: number): number
 
 ## FinishCallbackType^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 动画中定义onFinish回调的类型。
 
 **卡片能力：** 从API version 11开始，该接口支持在ArkTS卡片中使用。
@@ -86,6 +94,8 @@ interpolate(fraction: number): number
 
 ## ExpectedFrameRateRange^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 设置动画期望的帧率。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -101,6 +111,8 @@ interpolate(fraction: number): number
 |expected|number|否|否|期望的最优帧率，单位为帧/秒（fps）。 取值范围为[min, max]，超出范围时不生效。设置为0时，将跟随应用的帧率。|
 
 ## animateTo^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 animateTo(value: AnimateParam, event: () => void): void
 
@@ -131,8 +143,11 @@ animateTo(value: AnimateParam, event: () => void): void
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1（在组件出现时创建动画）
 
+> phone | 2in1 | tablet | tv | wearable
 > 说明
 >
 > 直接使用animateTo可能导致[UI上下文不明确](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#ui上下文不明确)的问题，建议使用getUIContext()获取[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)实例，并使用[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)调用绑定实例的animateTo。
@@ -212,9 +227,11 @@ struct AnimateToExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/CbYMDoieS72ZNHATLQv4rg/zh-cn_image_0000002779094053.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121721Z&HW-CC-Expire=31536000000&HW-CC-Sign=237DE839230F9C095C740BADBF8E0B6A6FFFBF247DA06455033BED3CE28303DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/YRZllUfDQDS-VIji62CU6w/zh-cn_image_0000002755185882.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092745Z&HW-CC-Expire=31536000000&HW-CC-Sign=DD8546257C3D1B571EA144533D286EF33FF3484E1818BB842E4D7049FCEE8A84)
 
 ### 示例2（动画执行结束后组件消失）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例主要演示如何实现在动画执行结束后组件消失。
 
@@ -267,5 +284,5 @@ struct AttrAnimationExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/1fcT68j8TluGe41-2yEEgA/zh-cn_image_0000002778934197.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121721Z&HW-CC-Expire=31536000000&HW-CC-Sign=24FC1FDCB157B4A26B51B63E4C233007FE17ACBA38FE3CACCA13AE7E4810582E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/GN3f1QVVQjSC8GCjI-HTTg/zh-cn_image_0000002784584749.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092745Z&HW-CC-Expire=31536000000&HW-CC-Sign=40DBA258CE42184B96D84D357BDA6B810ED8901228B1CFC6029C7C01E084705E)
 

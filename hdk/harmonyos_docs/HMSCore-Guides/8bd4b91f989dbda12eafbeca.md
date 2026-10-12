@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/health-scientif
 
 以超级猩猩为例，双方共建的减脂塑形方案如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ss5OI5q_RReodEXKPdRf3Q/zh-cn_image_0000002516359320.png?HW-CC-KV=V1&HW-CC-Date=20260909T130847Z&HW-CC-Expire=31536000000&HW-CC-Sign=E321C2060145B7C4FDEC2E05D57328690034F8726CEA609D5DB04E07229E5744 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ss5OI5q_RReodEXKPdRf3Q/zh-cn_image_0000002516359320.png?HW-CC-KV=V1&HW-CC-Date=20261008T140853Z&HW-CC-Expire=31536000000&HW-CC-Sign=C77AD6B825FC52DF60FF90FAF410C4CCD6352685D7F8291316BA9AB3A92F62D4 "点击放大")
 
 ### 控制运动
 

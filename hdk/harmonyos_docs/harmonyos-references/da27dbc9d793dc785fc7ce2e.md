@@ -14,6 +14,8 @@ typedef struct JSVM_EnvScope__* JSVM_EnvScope
 
 ## 概述
 
+> phone | 2in1 | tablet | wearable
+
 表示用于控制附加到当前虚拟机实例的环境。只有当线程通过OH_JSVM_OpenEnvScope进入该环境的JSVM_EnvScope后，该环境才对线程的虚拟机实例可用。
 
 **使用场景：** 在多线程环境下需要访问和操作JavaScript环境时，用于管理和切换环境作用域。

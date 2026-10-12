@@ -203,7 +203,7 @@ NavDestination() {
 
 **图 1** Web页面打开效果图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/YpfWRxysTx6ucpBELYelrg/zh-cn_image_0000002749331734.png?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=96B6EFDA6B3C62249B49C0872EC5CD0C95936B3A4AE15EC979157D47A2D7B3AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/piZDCGHvRuO_6XPrNLqj0w/zh-cn_image_0000002784581623.png?HW-CC-KV=V1&HW-CC-Date=20261009T092717Z&HW-CC-Expire=31536000000&HW-CC-Sign=8B06B3E6A4E6ADFF24C23A935D39F68A3F798292042403D2534D0131B6627247)
 
 因此，Deep Linking适用于需要在已安装的应用之间进行跳转，实现相对简单，但当无应用匹配时用户体验不佳。而App Linking适用于社交分享、广告引流等需要外部链接访问应用的场景，以及对安全性和用户体验要求较高的场景。AppLinking在Deep Linking的基础上增加了域名校验，提高了链接的安全性和可靠性，且无论应用是否安装，用户都能访问内容。
 

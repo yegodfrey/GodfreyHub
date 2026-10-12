@@ -10,11 +10,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-m
 
 ## 导入模块
 
+> phone | 2in1 | tablet | wearable
+
 ```typescript
 import { map, mapCommon } from '@kit.MapKit';
 ```
 
 ## MassPointOverlay
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | wearable 6.0.0(20)+
 
 海量点的管理对象。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addMassPointOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addmasspointoverlay)方法时会返回该类型的实例。
 
@@ -55,6 +59,8 @@ let massPointOverlay = await this.mapController?.addMassPointOverlay(params);
 
 ### getId
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | wearable 6.0.0(20)+
+
 getId(): string
 
 获取海量点的ID。
@@ -80,6 +86,8 @@ let Id = massPointOverlay.getId();
 ```
 
 ### setItems
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | wearable 6.0.0(20)+
 
 setItems(items: mapCommon.MassPointItem[]): void
 
@@ -117,6 +125,8 @@ massPointOverlay.setItems(items);
 
 ### getItems
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | wearable 6.0.0(20)+
+
 getItems(): mapCommon.MassPointItem[]
 
 获取海量点列表。
@@ -142,6 +152,8 @@ let MassPointItem: mapCommon.MassPointItem[] = this.massPointOverlay.getItems();
 ```
 
 ### setAnchorU
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | wearable 6.0.0(20)+
 
 setAnchorU(anchorU: number): void
 
@@ -169,6 +181,8 @@ massPointOverlay.setAnchorU(0.6);
 
 ### getAnchorU
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | wearable 6.0.0(20)+
+
 getAnchorU(): number
 
 获取图标锚点在水平方向上的位置。
@@ -194,6 +208,8 @@ let AnchorU: number = this.massPointOverlay.getAnchorU();
 ```
 
 ### setAnchorV
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | wearable 6.0.0(20)+
 
 setAnchorV(anchorV: number): void
 
@@ -221,6 +237,8 @@ massPointOverlay.setAnchorV(0.6);
 
 ### getAnchorV
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | wearable 6.0.0(20)+
+
 getAnchorV(): number
 
 获取图标锚点在垂直方向上的位置。
@@ -246,6 +264,8 @@ let AnchorV: number = this.massPointOverlay.getAnchorV();
 ```
 
 ### setVisible
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | wearable 6.0.0(20)+
 
 setVisible(visible: boolean): void
 
@@ -273,6 +293,8 @@ massPointOverlay.setVisible(true);
 
 ### isVisible
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | wearable 6.0.0(20)+
+
 isVisible(): boolean
 
 获取海量点是否可见。
@@ -298,6 +320,8 @@ let isVisible: boolean = massPointOverlay.isVisible();
 ```
 
 ### remove
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+ | wearable 6.0.0(20)+
 
 remove(): void
 

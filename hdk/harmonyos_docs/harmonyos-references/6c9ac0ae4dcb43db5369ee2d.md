@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 声明图像常用的枚举值和结构体。
 
 **引用文件：** <multimedia/image_framework/image_mdk_common.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 宏定义
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:-------------------------|:----------------------------|
@@ -32,11 +38,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 ### 结构体
 
+> phone | 2in1 | tablet | tv | wearable
+
 |名称|typedef关键字|描述|
 |:----------------------------------------------------------------------------------------------------------|:---------|:--------------------------------------------------------------------------------------------------------------------------------------|
 |[OhosImageSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagesize)|-|定义图像大小。是[OhosImageDecodingOps](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagedecodingops)的成员变量。|
 
 ### 枚举
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:----------------------------|:-----------|:------------|
@@ -44,7 +54,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imag
 
 ## 枚举类型说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### IRNdkErrCode
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 enum IRNdkErrCode

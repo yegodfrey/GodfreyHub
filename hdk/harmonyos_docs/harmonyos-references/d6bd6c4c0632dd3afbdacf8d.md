@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cust
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义CustomSpan相关的结构体和接口，用于实现自定义绘制Span的精确尺寸测量、布局排版和绘制效果。支持开发者在富文本编辑器、聊天应用、文档应用等场景中实现图文混排、表情内嵌、自定义标记等功能，提供灵活的自定义绘制Span能力，帮助开发者提升开发效率，实现更丰富的文本排版效果。
 
 **引用文件：** <arkui/node_attributes/custom_span.h>
@@ -26,7 +28,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cust
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:--------------------------------------------------------------------------|
@@ -35,6 +41,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cust
 |[ArkUI_CustomSpanDrawInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-customspandrawinfo)|ArkUI_CustomSpanDrawInfo|自定义绘制Span的绘制信息，用于在该组件的绘制回调中向开发者传递绘制信息，开发者可在自定义绘制流程中获取并使用该信息，实现定制化的段落组件绘制效果。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------|
@@ -54,7 +62,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cust
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_ArkUI_CustomSpanMeasureInfo_Create()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 ArkUI_CustomSpanMeasureInfo* OH_ArkUI_CustomSpanMeasureInfo_Create(void)
@@ -81,6 +93,8 @@ ArkUI_CustomSpanMeasureInfo* OH_ArkUI_CustomSpanMeasureInfo_Create(void)
 
 ### OH_ArkUI_CustomSpanMeasureInfo_Dispose()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_ArkUI_CustomSpanMeasureInfo_Dispose(ArkUI_CustomSpanMeasureInfo* info)
 ```
@@ -105,6 +119,8 @@ void OH_ArkUI_CustomSpanMeasureInfo_Dispose(ArkUI_CustomSpanMeasureInfo* info)
 |[ArkUI_CustomSpanMeasureInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-customspanmeasureinfo)* info|自定义绘制Span测量信息指针，用于传入需要销毁的测量信息对象。参数不能为空，否则会导致参数验证失败。必须是由OH_ArkUI_CustomSpanMeasureInfo_Create()创建的对象。|
 
 ### OH_ArkUI_CustomSpanMeasureInfo_GetFontSize()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 float OH_ArkUI_CustomSpanMeasureInfo_GetFontSize(ArkUI_CustomSpanMeasureInfo* info)
@@ -135,6 +151,8 @@ float OH_ArkUI_CustomSpanMeasureInfo_GetFontSize(ArkUI_CustomSpanMeasureInfo* in
 
 ### OH_ArkUI_CustomSpanMetrics_Create()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 ArkUI_CustomSpanMetrics* OH_ArkUI_CustomSpanMetrics_Create(void)
 ```
@@ -160,6 +178,8 @@ ArkUI_CustomSpanMetrics* OH_ArkUI_CustomSpanMetrics_Create(void)
 
 ### OH_ArkUI_CustomSpanMetrics_Dispose()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_ArkUI_CustomSpanMetrics_Dispose(ArkUI_CustomSpanMetrics* metrics)
 ```
@@ -184,6 +204,8 @@ void OH_ArkUI_CustomSpanMetrics_Dispose(ArkUI_CustomSpanMetrics* metrics)
 |[ArkUI_CustomSpanMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-customspanmetrics)* metrics|自定义绘制Span度量信息实例指针，用于传入需要销毁的度量信息对象。参数不能为空，否则会导致参数验证失败。必须是由OH_ArkUI_CustomSpanMetrics_Create()创建的对象。|
 
 ### OH_ArkUI_CustomSpanMetrics_SetWidth()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int32_t OH_ArkUI_CustomSpanMetrics_SetWidth(ArkUI_CustomSpanMetrics* metrics, float width)
@@ -215,6 +237,8 @@ int32_t OH_ArkUI_CustomSpanMetrics_SetWidth(ArkUI_CustomSpanMetrics* metrics, fl
 
 ### OH_ArkUI_CustomSpanMetrics_SetHeight()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int32_t OH_ArkUI_CustomSpanMetrics_SetHeight(ArkUI_CustomSpanMetrics* metrics, float height)
 ```
@@ -245,6 +269,8 @@ int32_t OH_ArkUI_CustomSpanMetrics_SetHeight(ArkUI_CustomSpanMetrics* metrics, f
 
 ### OH_ArkUI_CustomSpanDrawInfo_Create()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 ArkUI_CustomSpanDrawInfo* OH_ArkUI_CustomSpanDrawInfo_Create(void)
 ```
@@ -270,6 +296,8 @@ ArkUI_CustomSpanDrawInfo* OH_ArkUI_CustomSpanDrawInfo_Create(void)
 
 ### OH_ArkUI_CustomSpanDrawInfo_Dispose()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_ArkUI_CustomSpanDrawInfo_Dispose(ArkUI_CustomSpanDrawInfo* info)
 ```
@@ -294,6 +322,8 @@ void OH_ArkUI_CustomSpanDrawInfo_Dispose(ArkUI_CustomSpanDrawInfo* info)
 |[ArkUI_CustomSpanDrawInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-customspandrawinfo)* info|自定义绘制Span绘制信息指针，用于传入需要销毁的绘制信息对象。参数不能为空，否则会导致参数验证失败。必须是由OH_ArkUI_CustomSpanDrawInfo_Create()创建的对象。|
 
 ### OH_ArkUI_CustomSpanDrawInfo_GetXOffset()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 float OH_ArkUI_CustomSpanDrawInfo_GetXOffset(ArkUI_CustomSpanDrawInfo* info)
@@ -324,6 +354,8 @@ float OH_ArkUI_CustomSpanDrawInfo_GetXOffset(ArkUI_CustomSpanDrawInfo* info)
 
 ### OH_ArkUI_CustomSpanDrawInfo_GetLineTop()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 float OH_ArkUI_CustomSpanDrawInfo_GetLineTop(ArkUI_CustomSpanDrawInfo* info)
 ```
@@ -353,6 +385,8 @@ float OH_ArkUI_CustomSpanDrawInfo_GetLineTop(ArkUI_CustomSpanDrawInfo* info)
 
 ### OH_ArkUI_CustomSpanDrawInfo_GetLineBottom()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 float OH_ArkUI_CustomSpanDrawInfo_GetLineBottom(ArkUI_CustomSpanDrawInfo* info)
 ```
@@ -381,6 +415,8 @@ float OH_ArkUI_CustomSpanDrawInfo_GetLineBottom(ArkUI_CustomSpanDrawInfo* info)
 |float|下边距值，单位为px。若参数验证失败，返回0.0f。 异常返回原因：参数验证失败，参数不能为空。|
 
 ### OH_ArkUI_CustomSpanDrawInfo_GetBaseline()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 float OH_ArkUI_CustomSpanDrawInfo_GetBaseline(ArkUI_CustomSpanDrawInfo* info)

@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-k
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 按键设备的键值。
 
 **引用文件：** <multimodalinput/oh_key_code.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-k
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 枚举
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:------------------------------|:------------|:--|
@@ -32,7 +38,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-k
 
 ## 枚举类型说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### Input_KeyCode
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 enum Input_KeyCode

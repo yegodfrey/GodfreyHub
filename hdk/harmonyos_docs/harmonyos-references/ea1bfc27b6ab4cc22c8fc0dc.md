@@ -19,6 +19,8 @@ HttpAuthHandler是Web组件用于处理HTTP认证请求的处理类。当服务�
 
 ## constructor^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 constructor()
 
 HttpAuthHandler的构造函数。
@@ -27,6 +29,8 @@ HttpAuthHandler的构造函数。
 
 ## cancel^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 cancel(): void
 
 通知Web组件用户取消HTTP认证操作。
@@ -34,6 +38,8 @@ cancel(): void
 **系统能力：** SystemCapability.Web.Webview.Core
 
 ## confirm^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 confirm(userName: string, password: string): boolean
 
@@ -55,6 +61,8 @@ confirm(userName: string, password: string): boolean
 |boolean|返回值仅表示接口调用状态，不代表认证结果。true表示调用成功，false表示调用失败。|
 
 ## isHttpAuthInfoSaved^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 isHttpAuthInfoSaved(): boolean
 

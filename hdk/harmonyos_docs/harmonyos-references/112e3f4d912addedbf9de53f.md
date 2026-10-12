@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avim
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 提供用于从视频资源中获取指定时间点视频帧的API。
 
 根据实际的开发需求，参考对应的开发指南及样例[使用AVImageGenerator获取视频帧(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avimagegenerator-for-video)。
@@ -19,6 +21,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avim
 **起始版本：** 18
 
 ## 文件汇总
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:--------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|

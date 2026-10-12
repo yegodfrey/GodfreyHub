@@ -71,7 +71,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/faq-00000014769
 
 当调用创建订阅记录接口返回如上信息时，请依次检查您应用填写的订阅回调地址网络是否通畅、您应用填写的订阅回调地址的http code响应码是否为204。检查方式可通过登录开发者联盟网站，在Health Service Kit服务卡片中找到您当初申请的应用，点击管理，再点击测试连通性按钮，确保显示"连通性测试检查成功"，再调用创建订阅记录接口。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/7GEi1xEIRMSPI2ijlwyFjg/zh-cn_image_0000002548039207.png?HW-CC-KV=V1&HW-CC-Date=20260909T172432Z&HW-CC-Expire=31536000000&HW-CC-Sign=0917A2DF5888AA913B7A955F0C6FFE8995085A9BD2C5737A885017041BDCEE7F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/7GEi1xEIRMSPI2ijlwyFjg/zh-cn_image_0000002548039207.png?HW-CC-KV=V1&HW-CC-Date=20261008T182412Z&HW-CC-Expire=31536000000&HW-CC-Sign=377B8BEB01427251B24D735166945B8A29CF49FF227B9F6284D44798F54E74F3 "点击放大")
 
 ### 创建数据时，提示"Application package name (xxx) provided by un-trusted source."，需要如何处理？
 
@@ -219,7 +219,7 @@ x-health-app-privacy: 1
 
 检查方式：使用企业级开发者联盟账号登录开发者联盟网站，进入**管理中心 > Health Service Kit服务卡片 > 编辑您的应用**，确认是否勾选注册订阅通知能力开关。填写回调地址，且测试连通性成功；若测试连通性不成功，请检查您填写的回调地址的网络是否正常。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/vxFBH8zuQ3OdqSHIjgsi6g/zh-cn_image_0000002547959211.png?HW-CC-KV=V1&HW-CC-Date=20260909T172432Z&HW-CC-Expire=31536000000&HW-CC-Sign=D47AF6FA7C47B75D2D0FE1470BC6E45E625B89830312AAA8A278F3B6F0CBF31B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/vxFBH8zuQ3OdqSHIjgsi6g/zh-cn_image_0000002547959211.png?HW-CC-KV=V1&HW-CC-Date=20261008T182412Z&HW-CC-Expire=31536000000&HW-CC-Sign=2FD0D4B93E65C90EA8A079706DBD75E8D3D581FA9730D47F3DFB2D8BE7F176AC)
 
 2. 确保用户在您的应用下已创建成功订阅记录。
 

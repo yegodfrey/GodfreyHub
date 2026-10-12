@@ -17,11 +17,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-contai
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable
+
 可以包含子组件。
 
 ## 接口
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### GridContainer^(deprecated)^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 GridContainer(value?: GridContainerOptions)
 
@@ -40,6 +46,8 @@ GridContainer(value?: GridContainerOptions)
 
 ## GridContainerOptions^(deprecated)^对象说明
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 栅格布局容器配置参数对象，用于设置GridContainer组件的列数、设备宽度类型、列间距和两侧间距。
 > 说明
 >
@@ -55,6 +63,8 @@ GridContainer(value?: GridContainerOptions)
 |margin|number | string|否|是|栅格布局两侧间距，不支持百分比。number类型默认单位为vp，取值范围[0, +∞)。不设置时根据设备宽度类型自动确定：XS为12vp，SM为24vp，MD为32vp，LG为48vp。|
 
 ## SizeType^(deprecated)^枚举说明
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 设备宽度类型枚举，用于在栅格布局中区分不同宽度的设备类型，实现响应式布局。
 > 说明
@@ -73,13 +83,19 @@ GridContainer(value?: GridContainerOptions)
 
 ## 属性
 
+> phone | 2in1 | tablet | tv | wearable
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)和Column组件的[属性方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column#属性)。
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```ts
 // xxx.ets
@@ -155,5 +171,5 @@ struct GridContainerExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/1jf_yLsBSuOfskAlpwrUsQ/zh-cn_image_0000002778934371.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121734Z&HW-CC-Expire=31536000000&HW-CC-Sign=B52823D00E02881AB1A0B0CE8C4CDDD6C3554552C6E43DEFEDF615FD0B1A08A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/Kp_Fs1pbQd6G48CW5V3jxQ/zh-cn_image_0000002784584923.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092740Z&HW-CC-Expire=31536000000&HW-CC-Sign=36D9E076E165F0C140915E0A9331A259E74068FA5287A5453DA7818CDAFAA281)
 

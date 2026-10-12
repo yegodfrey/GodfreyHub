@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-integrate
 
 在接入消耗型/非消耗型商品购买能力前，需要提前[配置商品信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-config-product)。用户在应用内购买时，应用拉起IAP Kit的收银台，收银台处会展示商品名称、商品价格等信息，用户根据需求完成商品购买。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/VqSydPZ5Rh6xYVuxojFHlg/zh-cn_image_0000002778932803.png?HW-CC-KV=V1&HW-CC-Date=20260929T121653Z&HW-CC-Expire=31536000000&HW-CC-Sign=DEB956307BD2F7EA07849FB259A15DE9D6E8616797B57B740CD791E724DE276B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/SWUeXJPmQg-T9lImepnOqw/zh-cn_image_0000002784583501.png?HW-CC-KV=V1&HW-CC-Date=20261009T092710Z&HW-CC-Expire=31536000000&HW-CC-Sign=DE3FF98787EF3AFFC151B63561C7EF70EAF270DE87EA7B50291B2BDD81375032)
 
 ## 提供优惠
 
@@ -35,7 +35,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-integrate
 >
 > 如下业务流程对于单机应用同样适用。在单机应用中，应用服务器和应用客户端的交互放在应用客户端完成，应用服务器和IAP服务器交互的部分可不处理。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/b48ncyohTEWOOaOBzXvPEA/zh-cn_image_0000002749333722.png?HW-CC-KV=V1&HW-CC-Date=20260929T121653Z&HW-CC-Expire=31536000000&HW-CC-Sign=E81815EE8D22E71772C00728C9BA887ECCDF33CAB824E5213DC40B41F9B282DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/V8pGtDYdRBeCxbwryt7x1Q/zh-cn_image_0000002784663681.png?HW-CC-KV=V1&HW-CC-Date=20261009T092710Z&HW-CC-Expire=31536000000&HW-CC-Sign=C5A47B57E612523130F8A68914F8AEE21B16E8DAD02E93455E47E2125FB445F6)
 
 **展示商品**
 

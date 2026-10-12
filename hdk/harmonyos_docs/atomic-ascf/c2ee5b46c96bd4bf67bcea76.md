@@ -1549,7 +1549,7 @@ has.getPhoneNumber({
 
 体验示意图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/-ULkQyviQ7e3vfhyoi44Xg/zh-cn_image_0000002763053147.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=364571A38A6FCDD697147ABC210ADD95EB8AA63D44E4F1F346C333C2615D37EC "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/-ULkQyviQ7e3vfhyoi44Xg/zh-cn_image_0000002763053147.png?HW-CC-KV=V1&HW-CC-Date=20261008T181434Z&HW-CC-Expire=31536000000&HW-CC-Sign=8E573846390ADA3932888A1D69D597D69BEC6CDCDEC8533528D4D26C08D065E9 "点击放大")
 
 ### has.getAvatarInfo
 
@@ -1593,7 +1593,7 @@ has.getAvatarInfo({
 
 体验示意图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/z5tjkWZPQ-6_3PA5je4d-w/zh-cn_image_0000002733493620.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=A7F2C6A58802995856AA3FB875EAA470205968FBED8CEC724A73A302F575379F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/z5tjkWZPQ-6_3PA5je4d-w/zh-cn_image_0000002733493620.png?HW-CC-KV=V1&HW-CC-Date=20261008T181434Z&HW-CC-Expire=31536000000&HW-CC-Sign=22ADC5E97433257BE3C317D884C6A80A4E91E02B75F685FF6F9AA0A07EE317C8 "点击放大")
 
 ### has.getInvoiceTitle
 
@@ -1643,7 +1643,7 @@ has.getInvoiceTitle({
 
 体验示意图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/pxx4I1wmQoa3KOSWRqxLgg/zh-cn_image_0000002733333758.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=3FF6CF1F63284D7709A17BE0A05EAAC48DBAB748F32E5D0197B74131D2B91499 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/pxx4I1wmQoa3KOSWRqxLgg/zh-cn_image_0000002733333758.png?HW-CC-KV=V1&HW-CC-Date=20261008T181434Z&HW-CC-Expire=31536000000&HW-CC-Sign=F454F5D87B604E27CE4B39AEBF09BE164A08A1CF82922ECC5F6689D5D140C84B "点击放大")
 
 ### has.getDeliveryAddress
 
@@ -1695,7 +1695,7 @@ has.getDeliveryAddress({
 
 体验示意图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/GswuXK7_TfCJbiMgqEMbNA/zh-cn_image_0000002762893261.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=DF0D4A6B055720221893FEBF1D6960C2A291E49501E6C0D96B47F20628961544 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/GswuXK7_TfCJbiMgqEMbNA/zh-cn_image_0000002762893261.png?HW-CC-KV=V1&HW-CC-Date=20261008T181434Z&HW-CC-Expire=31536000000&HW-CC-Sign=9B7E02F7BA452DFD089889665F88723F574A36510E3885D8E144FEA2E25257D1 "点击放大")
 
 ### has.getServiceSubscription
 
@@ -1741,7 +1741,7 @@ has.getServiceSubscription({
 
 体验示意图如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/SRDVUtN3Ry6XP2kozvlrQA/zh-cn_image_0000002763053149.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=20E761E7226319FADC68AD73DF4EBC4616F0D7604DCCEC86B6AACDF9F7ECCFDF "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/SRDVUtN3Ry6XP2kozvlrQA/zh-cn_image_0000002763053149.png?HW-CC-KV=V1&HW-CC-Date=20261008T181434Z&HW-CC-Expire=31536000000&HW-CC-Sign=067A1731562686BD06E4348020DB25DDE90AABEF7006251656F3A30342B2AD97 "点击放大")
 
 ### PurchaseData
 

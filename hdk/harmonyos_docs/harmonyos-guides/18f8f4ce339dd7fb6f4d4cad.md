@@ -20,7 +20,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-promo
 
 领券场景展示效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/V_vdjDl1S12u4hqnD0yagg/zh-cn_image_0000002779092847.png?HW-CC-KV=V1&HW-CC-Date=20260929T121653Z&HW-CC-Expire=31536000000&HW-CC-Sign=876C400D5C93251996BF1AD27BA889D6901258A056F1D3A7023DCD0305FADD6E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/Mty5-4kmSamc00TvTgn0Kg/zh-cn_image_0000002755184816.png?HW-CC-KV=V1&HW-CC-Date=20261009T092710Z&HW-CC-Expire=31536000000&HW-CC-Sign=8B07574B116A2B7C0A71F50DCB9726F94C4E07AC299E9AD4AB2EF052037EA218)
 
 ## 接入流程
 
@@ -33,7 +33,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-promo
 
 关于领券场景的业务流程如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/FRRO6W-TTa6mUPaimVU0tA/zh-cn_image_0000002778932991.png?HW-CC-KV=V1&HW-CC-Date=20260929T121653Z&HW-CC-Expire=31536000000&HW-CC-Sign=F05EE05C57FE1DBCB52BF3824BA641318E3796E8424D9089A1C41BC9E4DD3DBD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/RS_dXUqVTrCMl98kd6de-Q/zh-cn_image_0000002784583683.png?HW-CC-KV=V1&HW-CC-Date=20261009T092710Z&HW-CC-Expire=31536000000&HW-CC-Sign=986A86DA9E05EE5D3DD94BAB3498B006CB04E381A9DA9E2DD79C26C6129D9C74)
 
 1. 用户进入商户服务。
 

@@ -20,7 +20,7 @@ HiCar通过开放导航流转的方式，将导航地址的数据传递到车机
 
 剪贴板复制导航流转：将地址复制到手机剪贴板后，将地址信息发送给车机。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/wTvJqCEoSnKg5k97F2u4hg/zh-cn_image_0000002380336525.png?HW-CC-KV=V1&HW-CC-Date=20260909T135540Z&HW-CC-Expire=31536000000&HW-CC-Sign=F01FE47661D89CE58BF15A873BD1969B0A9CCBBA67FED3B0B8B3196A6E8AC3F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/wTvJqCEoSnKg5k97F2u4hg/zh-cn_image_0000002380336525.png?HW-CC-KV=V1&HW-CC-Date=20261008T145452Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C8FA0FC0E0AD6C055C03D001E8FFD33E4F280F2F0DB6DC82865D27FB1D24ABB)
 
 ## 开发步骤
 

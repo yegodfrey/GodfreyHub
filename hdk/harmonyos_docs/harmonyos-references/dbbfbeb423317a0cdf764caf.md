@@ -17,23 +17,33 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arku
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { FullScreenLaunchComponent } from '@kit.ArkUI';
 ```
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable
+
 无。
 
 ## 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 ## FullScreenLaunchComponent
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 FullScreenLaunchComponent({ content: Callback<void>, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback<TerminationInfo>, onReceive?: Callback<Record<string, Object>> })
 
@@ -61,6 +71,8 @@ FullScreenLaunchComponent({ content: Callback<void>, appId: string, options?: At
 > * 从API version 26.0.0开始，元服务通过手势侧滑退出触发onTerminated回调。
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 本示例展示组件使用方法和提供方元服务的实现。实际运行时请使用开发者自己的元服务appId。
 

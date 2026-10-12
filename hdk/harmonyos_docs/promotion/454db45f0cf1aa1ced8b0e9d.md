@@ -66,7 +66,7 @@ Authorization：Bearer DAEAAIX7ISfTb+NErs*****hPPri5SbmCiZ0g0Hw2PryODiEnUiJkub F
 
 Body:
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/NpidVFEBS72nM_0Xf7xCsA/zh-cn_image_0000002529827746.png?HW-CC-KV=V1&HW-CC-Date=20260928T100505Z&HW-CC-Expire=31536000000&HW-CC-Sign=BE9F9E34AEF3929050480C45A04E9875E888EDB541359526DE6BDF70602A1CFF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/NpidVFEBS72nM_0Xf7xCsA/zh-cn_image_0000002529827746.png?HW-CC-KV=V1&HW-CC-Date=20261012T101302Z&HW-CC-Expire=31536000000&HW-CC-Sign=E31BDFBEA5D0C213B128BF57F05D775937325B458639DEF258926DB9983397EC)
 
 **响应字段**
 
@@ -111,5 +111,5 @@ Body:
 
 **应答示例**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/UyPseD_4RkWuHZ6Sx2qDxg/zh-cn_image_0000002529787752.png?HW-CC-KV=V1&HW-CC-Date=20260928T100505Z&HW-CC-Expire=31536000000&HW-CC-Sign=50FD9AF4C6BF00332925B843C9101AC71D46B87FD0E2D35BCC107BB8381311DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/UyPseD_4RkWuHZ6Sx2qDxg/zh-cn_image_0000002529787752.png?HW-CC-KV=V1&HW-CC-Date=20261012T101302Z&HW-CC-Expire=31536000000&HW-CC-Sign=353615ABC5C3D8E7EC071AD6198BB2D4670D03BA87050FA5639EBD7F594852F1)
 

@@ -14,6 +14,8 @@ typedef struct {...} ArkUI_PointF
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义一个二维坐标点结构体，用于描述组件位置或偏移等坐标信息，坐标以浮点类型存储。
 
 **起始版本：** 24
@@ -24,7 +26,11 @@ typedef struct {...} ArkUI_PointF
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:------|:------------------------|

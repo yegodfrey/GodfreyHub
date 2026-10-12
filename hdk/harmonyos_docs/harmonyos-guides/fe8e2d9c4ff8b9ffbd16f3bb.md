@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-integ
 
 本节阐述同步模式下单模型的使用，从流程上分别阐述每个步骤在应用层和native层的实现和调用。接口请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit)，示例请参见[SampleCode](https://gitcode.com/HarmonyOS_Samples/cannkit-samplecode-clientdemo-cpp)，本示例支持加载离线模型对图片中的物体进行分类，App运行效果图如下所示。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/6o2uW7PLSPyKFGIxqV6NXg/zh-cn_image_0000002778933157.png?HW-CC-KV=V1&HW-CC-Date=20260929T121643Z&HW-CC-Expire=31536000000&HW-CC-Sign=45102301C4FDEF5CD3BFCB497675392CE67A00D1B13931639D0799B97AC76983)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/DXbH5q6CTECu3XIZ-B_B9A/zh-cn_image_0000002784583845.png?HW-CC-KV=V1&HW-CC-Date=20261009T092702Z&HW-CC-Expire=31536000000&HW-CC-Sign=C3DA230178F29F1327095DB827EB6F089C6BF15B42F9AFF96A0BDD37832F781B)
 
 ## 预置模型
 

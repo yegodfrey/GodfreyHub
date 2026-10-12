@@ -19,11 +19,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
 ## constructor^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 
@@ -40,6 +44,8 @@ const pen = new drawing.Pen();
 ```
 
 ## constructor^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(pen: Pen)
 
@@ -75,6 +81,8 @@ const newPen = new drawing.Pen(pen);
 
 ## setMiterLimit^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 setMiterLimit(miter: number): void
 
 设置折线尖角长度与线宽的最大比值。当画笔绘制一条折线，并且[JoinStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#joinstyle12)为MITER_JOIN时，若尖角长度与线宽的比值大于该最大比值，则该转角使用BEVEL_JOIN绘制。
@@ -106,6 +114,8 @@ pen.setMiterLimit(5);
 
 ## getMiterLimit^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getMiterLimit(): number
 
 获取折线尖角长度与线宽的最大比值。
@@ -128,6 +138,8 @@ let miter = pen.getMiterLimit();
 ```
 
 ## setImageFilter^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setImageFilter(filter: ImageFilter | null): void
 
@@ -163,6 +175,8 @@ pen.setImageFilter(null);
 
 ## getColorFilter^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getColorFilter(): ColorFilter
 
 获取画笔的颜色滤波器。
@@ -187,6 +201,8 @@ let filter = pen.getColorFilter();
 ```
 
 ## setColor
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setColor(color: common2D.Color) : void
 
@@ -219,6 +235,8 @@ pen.setColor(color);
 ```
 
 ## setColor^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setColor(alpha: number, red: number, green: number, blue: number): void
 
@@ -254,6 +272,8 @@ pen.setColor(255, 255, 0, 0);
 
 ## setColor^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 setColor(color: number) : void
 
 设置画笔的颜色。
@@ -277,6 +297,8 @@ pen.setColor(0xffff0000);
 
 ## setColor4f^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void
 
 设置画笔的颜色以及标准色域，与[setColor](#setcolor)的区别在于可以单独设置色域。
@@ -293,7 +315,7 @@ setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceMa
 **示例：**
 
 ```ts
-import { common2D, drawing, colorSpaceManager } from "@kit.ArkGraphics2D";
+import { common2D, drawing, colorSpaceManager } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
 let colorSpace = colorSpaceManager.create(colorSpaceManager.ColorSpace.BT2020_HLG);
@@ -302,6 +324,8 @@ pen.setColor4f(color4f, colorSpace);
 ```
 
 ## getColor^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getColor(): common2D.Color
 
@@ -328,6 +352,8 @@ let colorGet = pen.getColor();
 
 ## getColor4f^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 getColor4f(): common2D.Color4f
 
 获取画笔的颜色，与[getColor](#getcolor12)的区别在于返回值类型为[common2D.Color4f](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color4f20)，颜色通道值为浮点数，适用于需要浮点数类型的场景。
@@ -343,7 +369,7 @@ getColor4f(): common2D.Color4f
 **示例：**
 
 ```ts
-import { common2D, drawing, colorSpaceManager } from "@kit.ArkGraphics2D";
+import { common2D, drawing, colorSpaceManager } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
 let colorSpace = colorSpaceManager.create(colorSpaceManager.ColorSpace.BT2020_HLG);
@@ -353,6 +379,8 @@ let color = pen.getColor4f();
 ```
 
 ## getHexColor^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 getHexColor(): number
 
@@ -379,6 +407,8 @@ console.info('getHexColor: ', hexColor.toString(16));
 ```
 
 ## setStrokeWidth
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setStrokeWidth(width: number) : void
 
@@ -411,6 +441,8 @@ pen.setStrokeWidth(5);
 
 ## getWidth^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getWidth(): number
 
 获取画笔的线宽属性，线宽描述了画笔绘制图形轮廓的宽度。
@@ -433,6 +465,8 @@ let width = pen.getWidth();
 ```
 
 ## setAntiAlias
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setAntiAlias(aa: boolean) : void
 
@@ -465,6 +499,8 @@ pen.setAntiAlias(true);
 
 ## isAntiAlias^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 isAntiAlias(): boolean
 
 获取画笔是否开启抗锯齿属性。
@@ -487,6 +523,8 @@ let isAntiAlias = pen.isAntiAlias();
 ```
 
 ## setAlpha
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setAlpha(alpha: number) : void
 
@@ -519,6 +557,8 @@ pen.setAlpha(128);
 
 ## getAlpha^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getAlpha(): number
 
 获取画笔的透明度。
@@ -541,6 +581,8 @@ let alpha = pen.getAlpha();
 ```
 
 ## setColorFilter
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setColorFilter(filter: ColorFilter | null) : void
 
@@ -573,6 +615,8 @@ pen.setColorFilter(colorFilter);
 ```
 
 ## setMaskFilter^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setMaskFilter(filter: MaskFilter | null): void
 
@@ -612,6 +656,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 ## setPathEffect^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setPathEffect(effect: PathEffect | null): void
 
@@ -653,6 +699,8 @@ class DrawingRenderNode extends RenderNode {
 
 ## setShaderEffect^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 setShaderEffect(shaderEffect: ShaderEffect | null): void
 
 设置画笔着色器效果。
@@ -684,6 +732,8 @@ pen.setShaderEffect(shaderEffect);
 ```
 
 ## setShadowLayer^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setShadowLayer(shadowLayer: ShadowLayer | null): void
 
@@ -736,6 +786,8 @@ class DrawingRenderNode extends RenderNode {
 
 ## setBlendMode
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 setBlendMode(mode: BlendMode) : void
 
 设置画笔的混合模式。
@@ -766,6 +818,8 @@ pen.setBlendMode(drawing.BlendMode.SRC);
 ```
 
 ## setJoinStyle^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setJoinStyle(style: JoinStyle): void
 
@@ -806,6 +860,8 @@ class DrawingRenderNode extends RenderNode {
 
 ## getJoinStyle^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getJoinStyle(): JoinStyle
 
 获取画笔绘制转角的样式。
@@ -837,6 +893,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 ## setCapStyle^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setCapStyle(style: CapStyle): void
 
@@ -877,6 +935,8 @@ class DrawingRenderNode extends RenderNode {
 
 ## getCapStyle^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getCapStyle(): CapStyle
 
 获取画笔的线帽样式。
@@ -909,6 +969,8 @@ class DrawingRenderNode extends RenderNode {
 
 ## setDither
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 setDither(dither: boolean) : void
 
 设置画笔是否开启抖动绘制效果。抖动绘制使颜色更真实。
@@ -939,6 +1001,8 @@ pen.setDither(true);
 ```
 
 ## getFillPath^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getFillPath(src: Path, dst: Path): boolean
 
@@ -981,6 +1045,8 @@ let value = pen.getFillPath(pathSrc, pathDst);
 ```
 
 ## reset^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 reset(): void
 

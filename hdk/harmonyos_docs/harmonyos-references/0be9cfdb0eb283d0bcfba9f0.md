@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-
 
 ## 概述
 
+> 2in1
+
 声明网络流量过滤与重定向功能的C接口。该头文件提供创建和销毁报文控制器、注册报文回调、添加和清除过滤规则，以及创建和销毁流量重定向器、添加和清除重定向规则的接口。
 
 适用于需要在系统层面对网络数据包进行拦截、过滤和重定向的应用场景。
@@ -26,7 +28,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-
 
 ## 汇总
 
+> 2in1
+
 ### 函数
+
+> 2in1
 
 |名称|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,7 +44,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-
 
 ## 函数说明
 
+> 2in1
+
 ### OH_TrafficFilter_CreateRedirector()
+
+> 2in1 26.0.0+
 
 ```c
 int32_t OH_TrafficFilter_CreateRedirector(uint32_t group_id, uint32_t priority, OH_TrafficFilter_Redirector** redirector)
@@ -68,6 +78,8 @@ int32_t OH_TrafficFilter_CreateRedirector(uint32_t group_id, uint32_t priority, 
 
 ### OH_TrafficFilter_DestroyRedirector()
 
+> 2in1 26.0.0+
+
 ```c
 int32_t OH_TrafficFilter_DestroyRedirector(OH_TrafficFilter_Redirector* redirector)
 ```
@@ -93,6 +105,8 @@ int32_t OH_TrafficFilter_DestroyRedirector(OH_TrafficFilter_Redirector* redirect
 |int32_t|[OH_TRAFFICFILTER_OK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-trafficfilter-type-h#oh_trafficfilter_errcode) - 成功。 [OH_TRAFFICFILTER_ERROR_PERMISSION_DENIED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-trafficfilter-type-h#oh_trafficfilter_errcode) - 缺少权限。 [OH_TRAFFICFILTER_ERROR_INVALID_PARAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-trafficfilter-type-h#oh_trafficfilter_errcode) - redirector为NULL。 [OH_TRAFFICFILTER_ERROR_NOT_FOUND](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-trafficfilter-type-h#oh_trafficfilter_errcode) - 未找到指定的重定向器句柄。|
 
 ### OH_TrafficFilter_AddRedirectRule()
+
+> 2in1 26.0.0+
 
 ```c
 int32_t OH_TrafficFilter_AddRedirectRule(OH_TrafficFilter_Redirector* redirector, const OH_TrafficFilter_RedirectRule* rule)
@@ -121,6 +135,8 @@ int32_t OH_TrafficFilter_AddRedirectRule(OH_TrafficFilter_Redirector* redirector
 
 ### OH_TrafficFilter_ClearRedirectRule()
 
+> 2in1 26.0.0+
+
 ```c
 int32_t OH_TrafficFilter_ClearRedirectRule(OH_TrafficFilter_Redirector* redirector)
 ```
@@ -146,6 +162,8 @@ int32_t OH_TrafficFilter_ClearRedirectRule(OH_TrafficFilter_Redirector* redirect
 |int32_t|[OH_TRAFFICFILTER_OK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-trafficfilter-type-h#oh_trafficfilter_errcode) - 成功。 [OH_TRAFFICFILTER_ERROR_PERMISSION_DENIED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-trafficfilter-type-h#oh_trafficfilter_errcode) - 缺少权限。 [OH_TRAFFICFILTER_ERROR_INVALID_PARAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-trafficfilter-type-h#oh_trafficfilter_errcode) - redirector为NULL。|
 
 ### OH_TrafficFilter_QueryProcess()
+
+> 2in1 26.0.0+
 
 ```c
 int32_t OH_TrafficFilter_QueryProcess(const OH_TrafficFilter_ConnectionInfo* connection_info, OH_TrafficFilter_ProcessInfo* process_info)

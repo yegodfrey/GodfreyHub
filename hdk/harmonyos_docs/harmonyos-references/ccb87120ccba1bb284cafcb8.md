@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiap
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义所有预定义事件的事件名称。除了与特定应用关联的自定义事件之外，开发者还可以使用预定义事件进行打点。
 
 **引用文件：** <hiappevent/hiappevent_event.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiap
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 宏定义
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:---------------------------------------------------------------------------------------------------------|:----------------------------|
@@ -49,7 +55,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiap
 
 ## 宏定义说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### EVENT_USER_LOGIN
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```c
 #define EVENT_USER_LOGIN "hiappevent.user_login"
@@ -63,6 +73,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiap
 
 ### EVENT_USER_LOGOUT
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 #define EVENT_USER_LOGOUT "hiappevent.user_logout"
 ```
@@ -74,6 +86,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiap
 **起始版本：** 8
 
 ### EVENT_DISTRIBUTED_SERVICE_START
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```c
 #define EVENT_DISTRIBUTED_SERVICE_START "hiappevent.distributed_service_start"
@@ -87,6 +101,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiap
 
 ### EVENT_APP_CRASH
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 #define EVENT_APP_CRASH "APP_CRASH"
 ```
@@ -98,6 +114,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiap
 **起始版本：** 12
 
 ### EVENT_APP_FREEZE
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```c
 #define EVENT_APP_FREEZE "APP_FREEZE"
@@ -111,6 +129,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiap
 
 ### EVENT_APP_LAUNCH
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 #define EVENT_APP_LAUNCH "APP_LAUNCH"
 ```
@@ -122,6 +142,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiap
 **起始版本：** 12
 
 ### EVENT_SCROLL_JANK
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```c
 #define EVENT_SCROLL_JANK "SCROLL_JANK"
@@ -135,6 +157,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiap
 
 ### EVENT_CPU_USAGE_HIGH
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 #define EVENT_CPU_USAGE_HIGH "CPU_USAGE_HIGH"
 ```
@@ -146,6 +170,8 @@ CPU高负载事件。
 **起始版本：** 12
 
 ### EVENT_BATTERY_USAGE
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```c
 #define EVENT_BATTERY_USAGE "BATTERY_USAGE"
@@ -159,6 +185,8 @@ CPU高负载事件。
 
 ### EVENT_RESOURCE_OVERLIMIT
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 #define EVENT_RESOURCE_OVERLIMIT "RESOURCE_OVERLIMIT"
 ```
@@ -170,6 +198,8 @@ CPU高负载事件。
 **起始版本：** 12
 
 ### EVENT_ADDRESS_SANITIZER
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```c
 #define EVENT_ADDRESS_SANITIZER "ADDRESS_SANITIZER"
@@ -183,6 +213,8 @@ CPU高负载事件。
 
 ### EVENT_MAIN_THREAD_JANK
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 #define EVENT_MAIN_THREAD_JANK "MAIN_THREAD_JANK"
 ```
@@ -194,6 +226,8 @@ CPU高负载事件。
 **起始版本：** 12
 
 ### EVENT_APP_HICOLLIE
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```c
 #define EVENT_APP_HICOLLIE "APP_HICOLLIE"
@@ -207,6 +241,8 @@ CPU高负载事件。
 
 ### EVENT_APP_KILLED
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 #define EVENT_APP_KILLED "APP_KILLED"
 ```
@@ -218,6 +254,8 @@ CPU高负载事件。
 **起始版本：** 20
 
 ### EVENT_AUDIO_JANK_FRAME
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```c
 #define EVENT_AUDIO_JANK_FRAME "AUDIO_JANK_FRAME"
@@ -231,6 +269,8 @@ CPU高负载事件。
 
 ### DOMAIN_OS
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 #define DOMAIN_OS "OS"
 ```
@@ -243,6 +283,8 @@ OS作用域。
 
 ### EVENT_MAIN_THREAD_JANK_V2
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 #define EVENT_MAIN_THREAD_JANK_V2 "MAIN_THREAD_JANK_V2"
 ```
@@ -254,6 +296,8 @@ OS作用域。
 **起始版本：** 22
 
 ### OH_EVENT_APP_FREEZE_WARNING
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```c
 #define OH_EVENT_APP_FREEZE_WARNING "APPFREEZE_WARNING"

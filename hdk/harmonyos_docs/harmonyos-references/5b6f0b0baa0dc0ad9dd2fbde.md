@@ -14,6 +14,8 @@ struct OhosPixelMapCreateOps {...}
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 用于定义创建PixelMap的设置选项，包含图片宽高、像素格式、是否可编辑、透明度类型及缩放类型信息，适用于在Native层创建PixelMap时指定初始化属性的场景。
 
 **起始版本：** 10
@@ -24,7 +26,11 @@ struct OhosPixelMapCreateOps {...}
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:------------------|:-----------------------------------------------------------------------------------------------------------------------------------|

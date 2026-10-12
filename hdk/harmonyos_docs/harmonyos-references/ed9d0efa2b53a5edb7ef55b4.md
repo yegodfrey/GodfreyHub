@@ -15,21 +15,31 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable
+
 支持。
 
 ## 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)。
 
 ## 样式
 
+> phone | 2in1 | tablet | tv | wearable
+
 支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-styles)。
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-events)。
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```html
 <!-- xxx.hml -->
@@ -74,5 +84,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 **4×4卡片**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/yHUm-wfpTpeuUJW-rzVu8w/zh-cn_image_0000002779094489.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=CAD5BFE7F1AAA4810A8133FE9D68A66616724ABA505110436BDBCB33CFAD453B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/Gvpyq5xwRQ-02ms-4Lk1xw/zh-cn_image_0000002755186318.png?HW-CC-KV=V1&HW-CC-Date=20261009T092758Z&HW-CC-Expire=31536000000&HW-CC-Sign=5BA07F2CAD0C6D15A3E1F54AD024CCA49137346379B7508D673089D35DFDA4CA)
 

@@ -16,6 +16,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-g
 
 ## getContext^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getContext(component?: Object):Context
 
 获取与页面上下文组件关联的Context对象。
@@ -42,6 +44,8 @@ getContext(component?: Object):Context
 |[Context](#context)|返回当前组件所在Ability的Context，Context的具体类型为当前Ability关联的Context对象。例如：在UIAbility（用户界面Ability）窗口中的页面调用该接口，返回类型为UIAbilityContext。在ExtensionAbility（扩展Ability）窗口中的页面调用该接口，返回类型为ExtensionContext。|
 
 ## Context
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type Context = import('../api/application/Context').default
 

@@ -19,9 +19,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agc-harmonyos
 
 |功能模块|效果图|功能说明|
 |:---|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|
-|云函数|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/Zrr0F1fsRoWQW_tOq8rQmw/zh-cn_image_0000002279416936.png?HW-CC-KV=V1&HW-CC-Date=20260928T063032Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A88BDDAE841CFACAB4640069A53AFCDF281999707E03BC525C314F3113C39A1 "点击放大")|点击"Generate Global Unique ID"时，调用云函数SDK执行部署在AGC云端的云对象"id-generator"，生成UUID。|
-|云数据库|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/Zcj7VTneRaaO9GScxbnF7A/zh-cn_image_0000002533828117.png?HW-CC-KV=V1&HW-CC-Date=20260928T063032Z&HW-CC-Expire=31536000000&HW-CC-Sign=97D706416BD055A4E6350D97D39CA2E79EF4DCD515EFF66E5A4261EC5EA38402 "点击放大")|点击"New"创建数据，可在AGC云端查看到创建的数据。|
-|云存储|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/LPOnnUYbRt2fX6tiFSK9Ng/zh-cn_image_0000002279426024.png?HW-CC-KV=V1&HW-CC-Date=20260928T063032Z&HW-CC-Expire=31536000000&HW-CC-Sign=D78349CA086E6A3A6A246DF77ADE5A39F159C229E69EB49B07B520763B535486 "点击放大")|点击"Upload Image"上传本地图片，成功后可获取图片链接。|
+|云函数|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/lBIRPLyfTHOnleKquayktQ/zh-cn_image_0000002279416936.png?HW-CC-KV=V1&HW-CC-Date=20261010T073011Z&HW-CC-Expire=31536000000&HW-CC-Sign=12291F13C7D3957C963FC00E098D9F307E8D69D4F41DC41261B6D493039FC911 "点击放大")|点击"Generate Global Unique ID"时，调用云函数SDK执行部署在AGC云端的云对象"id-generator"，生成UUID。|
+|云数据库|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/bWZr5I5rQe2VlfdipU2bvA/zh-cn_image_0000002533828117.png?HW-CC-KV=V1&HW-CC-Date=20261010T073011Z&HW-CC-Expire=31536000000&HW-CC-Sign=CB82A08F4088A8FCFFB0417EA33C6333CF9AC54D883B99E5F61AEFF02FCC3B31 "点击放大")|点击"New"创建数据，可在AGC云端查看到创建的数据。|
+|云存储|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/Hq7sWuJsRPyZDJ9MkXO5aw/zh-cn_image_0000002279426024.png?HW-CC-KV=V1&HW-CC-Date=20261010T073011Z&HW-CC-Expire=31536000000&HW-CC-Sign=931D97501B1A944B4F9ADED6A775D31E0C44B7467D9D94B375E99DC26E187A5F "点击放大")|点击"Upload Image"上传本地图片，成功后可获取图片链接。|
 
 ## 体验模板
 
@@ -45,7 +45,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agc-harmonyos
       ]
       ```
 
-      ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/HNVnwNR8Sd2DMDYXvbAMAw/zh-cn_image_0000002492564672.png?HW-CC-KV=V1&HW-CC-Date=20260928T063032Z&HW-CC-Expire=31536000000&HW-CC-Sign=D7566AF3045EC63BA5DB7CD9CE167543E6589FFC9C36B29B43C328CEF64F91AB)
+      ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/mWC_-ZVvQ7SIjQaXnwvdFg/zh-cn_image_0000002492564672.png?HW-CC-KV=V1&HW-CC-Date=20261010T073011Z&HW-CC-Expire=31536000000&HW-CC-Sign=17FA3D8391A4F2F88EC4A1314B444C2E123BFF3472AE4A6520A42DDD3EEFC12D)
 
 4. 将模板工程推包到手机上，在手机上开通应用访问数据权限，即可开始体验模板。 注意
    >

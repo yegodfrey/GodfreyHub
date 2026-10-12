@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-p
 
 ## 功能介绍
 
+> phone | 2in1 | tablet
+
 用户代扣支付完成后，华为支付服务器调用此接口向开发者服务器发送支付关键事件通知。
 > 说明
 >
@@ -18,6 +20,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-p
 > 2. 订单状态需根据orderStatus字段判断。
 
 ## 接口原型
+
+> phone | 2in1 | tablet
 
 * **承载协议：** HTTPS POST
 
@@ -32,6 +36,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-p
   响应消息：Content-Type: application/json
 
 ## 请求参数
+
+> phone | 2in1 | tablet
 
 **Request Body**
 
@@ -61,6 +67,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-p
 
 ## 请求示例
 
+> phone | 2in1 | tablet
+
 ```json
 POST /hw/pay/callback HTTP/1.1
 Content-Type: application/json;charset=UTF-8
@@ -88,6 +96,8 @@ Content-Type: application/json;charset=UTF-8
 
 ## 响应参数
 
+> phone | 2in1 | tablet
+
 **Response Header**
 
 |参数|是否必选|参数类型|描述|
@@ -102,6 +112,8 @@ Content-Type: application/json;charset=UTF-8
 |resultDesc|是|String|结果描述。|
 
 ## 响应示例
+
+> phone | 2in1 | tablet
 
 ```json
 HTTP/1.1 200 OK

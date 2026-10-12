@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/appmask-00
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/BC6jys2XSu2Fpnpxiw4WzQ/zh-cn_image_0000002750222641.gif?HW-CC-KV=V1&HW-CC-Date=20260924T062300Z&HW-CC-Expire=31536000000&HW-CC-Sign=51B9A8E0DB571951EA4FADBAF4101B3A9CBD90F54A88E28C68713F2D2BCA42F2 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/BC6jys2XSu2Fpnpxiw4WzQ/zh-cn_image_0000002750222641.gif?HW-CC-KV=V1&HW-CC-Date=20261010T035230Z&HW-CC-Expire=31536000000&HW-CC-Sign=A921D28BB08D7F8D003F4D3B4869FB5AC7B5E6F471028EB0215ACEAA53905E3D "点击放大")
 
 ## 实现思路
 

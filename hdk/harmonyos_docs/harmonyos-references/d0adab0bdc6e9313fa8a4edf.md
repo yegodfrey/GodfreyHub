@@ -14,6 +14,8 @@ typedef struct OH_AudioAccessoryManager OH_AudioAccessoryManager
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 声明音频配件管理器。用于管理音频配件相关功能。
 
 **起始版本：** 26.0.0

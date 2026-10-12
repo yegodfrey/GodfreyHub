@@ -16,15 +16,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/verification-00
 
 1. 登录[开发者联盟网站](https://developer.huawei.com/consumer/cn/)，进入"管理中心"，单击"Health Service Kit"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/cL3CJTKbS7GOY6aZp0S-kQ/zh-cn_image_0000002548039043.png?HW-CC-KV=V1&HW-CC-Date=20260909T142236Z&HW-CC-Expire=31536000000&HW-CC-Sign=5377B31A8ECA8FC3DEA09FDAEDC95E0D1F9E738058184DC69C6985BAE7AD3109)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/cL3CJTKbS7GOY6aZp0S-kQ/zh-cn_image_0000002548039043.png?HW-CC-KV=V1&HW-CC-Date=20261008T152132Z&HW-CC-Expire=31536000000&HW-CC-Sign=EACCBA38E5C7BE78F8E97B774F836570ADEA7198EA7006B53B962B123F245D70)
 
 2. 单击"申请验证"按钮，选择所需要验证的数据权限时，根据您的需求进行勾选（至少选择一项权限），提交审核材料由专家组进行评审，审批周期约为15个工作日，请耐心等待。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/0TfJZp83Q1ainExkbH8G2Q/zh-cn_image_0000002516519164.png?HW-CC-KV=V1&HW-CC-Date=20260909T142236Z&HW-CC-Expire=31536000000&HW-CC-Sign=B01B19A7C17304DDA54354DBFB960A98EAC49CA748942DA949D6F143CCE1C1FB "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/0TfJZp83Q1ainExkbH8G2Q/zh-cn_image_0000002516519164.png?HW-CC-KV=V1&HW-CC-Date=20261008T152132Z&HW-CC-Expire=31536000000&HW-CC-Sign=075C417599E000F82A0CF6683C25D8656717C979E251763C1AB544EB3A0C6243 "点击放大")
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/VOw6M_eiSDGDwO142I2KAg/zh-cn_image_0000002516359246.png?HW-CC-KV=V1&HW-CC-Date=20260909T142236Z&HW-CC-Expire=31536000000&HW-CC-Sign=AD8A240EDDD92D16661D192025BB7C5B2CBAAB7B1113C28400C8C456BE1A6D77 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/VOw6M_eiSDGDwO142I2KAg/zh-cn_image_0000002516359246.png?HW-CC-KV=V1&HW-CC-Date=20261008T152132Z&HW-CC-Expire=31536000000&HW-CC-Sign=D0C63CE7B307133D3B88854E1E930B9F2FAFEE2987B1A4851A3E326E4D4BC12C "点击放大")
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/9H2HBMaqQiqD8IxRthcoFA/zh-cn_image_0000002547959055.png?HW-CC-KV=V1&HW-CC-Date=20260909T142236Z&HW-CC-Expire=31536000000&HW-CC-Sign=5D5F7BBC5DAED21264F456E0A6BACFB022F83CFDD85B466D82E2BA8183E8D738 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/9H2HBMaqQiqD8IxRthcoFA/zh-cn_image_0000002547959055.png?HW-CC-KV=V1&HW-CC-Date=20261008T152132Z&HW-CC-Expire=31536000000&HW-CC-Sign=5AD29DE7D8E56ED4845ACD7EA58B6A15BF4427396744DBEB9906368D7257B82C "点击放大")
 
    审批通过后应用正式接入Health Service Kit。审批结果将以短信和邮件的形式通知您。
 

@@ -14,6 +14,8 @@ typedef struct OH_Drawing_Bitmap OH_Drawing_Bitmap
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义为位图，位图是一块内存，内存中包含了描述一张图片的像素数据。
 
 **起始版本：** 8

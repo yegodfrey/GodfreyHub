@@ -15,11 +15,15 @@ HAP信息，可以通过[getBundleInfoForSelf](https://developer.huawei.com/cons
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { bundleManager } from '@kit.AbilityKit';
 ```
 
 ## HapModuleInfo
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
 
@@ -49,6 +53,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 ## PreloadItem
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 描述元服务中模块的预加载模块信息。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -60,6 +66,8 @@ import { bundleManager } from '@kit.AbilityKit';
 |moduleName|string|是|否|模块名称。|
 
 ## Dependency
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 描述模块所依赖的动态共享库信息。
 
@@ -74,6 +82,8 @@ import { bundleManager } from '@kit.AbilityKit';
 |versionCode^10+^|number|是|否|标识当前共享包的版本号。|
 
 ## RouterItem^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 描述模块配置的路由表信息。
 
@@ -90,6 +100,8 @@ import { bundleManager } from '@kit.AbilityKit';
 |customData|string|是|否|标识[路由表配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#routermap标签)中的任意类型的自定义数据，即customData字段的JSON字符串，开发者需要调用JSON.parse函数解析出具体内容。|
 
 ## DataItem^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 描述模块配置的路由表中的自定义数据。
 

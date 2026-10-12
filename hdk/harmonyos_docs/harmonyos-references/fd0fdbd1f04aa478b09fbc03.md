@@ -14,6 +14,8 @@ typedef struct OH_Drawing_FontDescriptor {...} OH_Drawing_FontDescriptor
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 描述系统字体详细信息的结构体。
 
 **起始版本：** 12
@@ -24,7 +26,11 @@ typedef struct OH_Drawing_FontDescriptor {...} OH_Drawing_FontDescriptor
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:-------------------|:----------------------------------------|

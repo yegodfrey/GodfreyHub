@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-common-accoun
 
 在华为账号登录页面中使用华为账号登录时，匿名手机号下方理应展示"华为账号绑定号码"，但是未展示"华为账号绑定号码"，与预期不符。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/Iq4_Q7zHTreuLbpo6mKi8Q/zh-cn_image_0000002658797705.png?HW-CC-KV=V1&HW-CC-Date=20260910T055430Z&HW-CC-Expire=31536000000&HW-CC-Sign=CD8B819DCF4A2256DABC346974746D9F89EB9DD8EA098B8C8887B8262259341A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/Iq4_Q7zHTreuLbpo6mKi8Q/zh-cn_image_0000002658797705.png?HW-CC-KV=V1&HW-CC-Date=20261008T163647Z&HW-CC-Expire=31536000000&HW-CC-Sign=9E499D5E5B0B9BEB7BB068A8E2E8B2A04F2015583E658459CB13C1C796E265E7 "点击放大")
 
 ## 背景知识
 
@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-faqs/faqs-common-accoun
 
 * 用户匿名手机号：由开发者传入，从华为账号中获取的匿名化手机号。
 * "华为账号绑定号码"：由开发者传入，字串固定，不可更改。
-* 隐私与用户协议：必须展示《华为账号用户认证协议》，可选择展示其他协议，需支持用户查看详情。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/Qr-lFU7XQ4iRckWFsXX6Cg/zh-cn_image_0000002628558340.png?HW-CC-KV=V1&HW-CC-Date=20260910T055430Z&HW-CC-Expire=31536000000&HW-CC-Sign=53003D237B41CDEA05882C8CBD26EFA6A8910BDA21BE755540B0FC1AF15ECACC)
+* 隐私与用户协议：必须展示《华为账号用户认证协议》，可选择展示其他协议，需支持用户查看详情。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/Qr-lFU7XQ4iRckWFsXX6Cg/zh-cn_image_0000002628558340.png?HW-CC-KV=V1&HW-CC-Date=20261008T163647Z&HW-CC-Expire=31536000000&HW-CC-Sign=5480506E1BB195B76ED5A6BFFC5F2931B2227BEC3C1242B7845958393062C79D)
 
 ## 问题定位
 

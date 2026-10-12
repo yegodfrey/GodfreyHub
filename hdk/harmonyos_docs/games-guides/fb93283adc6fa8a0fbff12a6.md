@@ -10,7 +10,7 @@ PGD Entity为实体操作模块，开发者可以通过可视化方式操作实�
 
 ## 界面布局
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/Q2zEsfYxQByOjuhrunh6-A/zh-cn_image_0000002529468791.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=12B1C76C65BE35684957857A4D106C3C48EBC7E456E61FBA2ED48082142EF7A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/Q2zEsfYxQByOjuhrunh6-A/zh-cn_image_0000002529468791.png?HW-CC-KV=V1&HW-CC-Date=20261008T152949Z&HW-CC-Expire=31536000000&HW-CC-Sign=5CDB1D7C76408CE649C1654556CBDD15100C321A92E00B22C6CFCB25AABF29B5)
 
 |界面|说明|
 |:--------------------|:-----------------------------------------------------------------------------------------------------------|
@@ -32,7 +32,7 @@ PGD Entity为实体操作模块，开发者可以通过可视化方式操作实�
 1. 在场景中新建GameObject，或选中已创建好的GameObject，进入Inspector。
 2. 选择"Add Component > PGD > PGD Entity"，添加PGD Entity组件。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/5AYe7RYDTWqlBJ49CRxNiQ/zh-cn_image_0000002529098933.gif?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=A0C59520161D0FAB37370B02A16848C820F655BA3144245CB2EF9BFC8DC0E798 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/5AYe7RYDTWqlBJ49CRxNiQ/zh-cn_image_0000002529098933.gif?HW-CC-KV=V1&HW-CC-Date=20261008T152949Z&HW-CC-Expire=31536000000&HW-CC-Sign=C1FECF9664C479A92879AB2717FEE678EEF21BAB323CDEDDAE3B05234ECB8209 "点击放大")
 
 ## 管理Tag
 
@@ -42,7 +42,7 @@ PGD Entity为实体操作模块，开发者可以通过可视化方式操作实�
 
 2. 点击鼠标右键，选中已添加的Tag，您可以删除或跳转至Tag源码。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/OxQMXa_4ThGDsn9tt2a11g/zh-cn_image_0000002529219017.gif?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=E090492F51F1059D706646BB1E697D50692897A94442221CDC23E0321B3CB9F6 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/OxQMXa_4ThGDsn9tt2a11g/zh-cn_image_0000002529219017.gif?HW-CC-KV=V1&HW-CC-Date=20261008T152949Z&HW-CC-Expire=31536000000&HW-CC-Sign=B4D1E4A8E5D871BBCAB163CDDC23B77391B490F77CBE5DFE11830BFA0E797E3C "点击放大")
 
 ### 添加自定义Tag
 
@@ -56,7 +56,7 @@ PGD Entity为实体操作模块，开发者可以通过可视化方式操作实�
    public struct CustomTag: ITag { }
    ```
 
-2. 完成定义之后，点击Tags[x]右侧的"+"按钮，新增已定义好的Tag。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/U8SerXOyRvS5E8jsPF28FQ/zh-cn_image_0000002497539062.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=984E3AE1C61E90129F588C3936B5F0DDA39280ACB6F107E4024C89026D4B4440)
+2. 完成定义之后，点击Tags[x]右侧的"+"按钮，新增已定义好的Tag。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/U8SerXOyRvS5E8jsPF28FQ/zh-cn_image_0000002497539062.png?HW-CC-KV=V1&HW-CC-Date=20261008T152949Z&HW-CC-Expire=31536000000&HW-CC-Sign=77E9EA9D6F38D2FF2B45C9036B3B95B9C1B96B7B0DBC088EA5F18931FCBE2F72)
 
 ## 管理Component
 
@@ -67,7 +67,7 @@ PGD Entity为实体操作模块，开发者可以通过可视化方式操作实�
 ### 添加/删除预定义Component
 
 1. 点击Components[x]右侧的"+"按钮，新增一个PGD预定义的Component。
-2. 对每个Component中对应变量进行赋值。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/eVM6C1pJTxaWN7Cqbyy8Fg/zh-cn_image_0000002529219133.gif?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=2EBC44C069CDF83F302BE512E13BFC13B7EBDDAA2AC869FC22F97BAAAE420DFE "点击放大")
+2. 对每个Component中对应变量进行赋值。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/eVM6C1pJTxaWN7Cqbyy8Fg/zh-cn_image_0000002529219133.gif?HW-CC-KV=V1&HW-CC-Date=20261008T152949Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7605CF5F12D30698016CC4B95A89FF79DE778B4E1C14CF158B1F8D94CFDCC2C "点击放大")
 
    |指标|说明|
    |:------------|:-----------------------------------------------------------------------------|
@@ -98,9 +98,9 @@ PGD Entity为实体操作模块，开发者可以通过可视化方式操作实�
    }
    ```
 
-2. 点击Components[x]右侧的"+"按钮，选择新增的自定义Component。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/wHM3CBmVSAWVDk1e4-9B3g/zh-cn_image_0000002497539192.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=B2A8FD3D98A4A0A50DDD6FE12AE6084536483AE7D4B85182636F48B81B99AE38)
+2. 点击Components[x]右侧的"+"按钮，选择新增的自定义Component。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/wHM3CBmVSAWVDk1e4-9B3g/zh-cn_image_0000002497539192.png?HW-CC-KV=V1&HW-CC-Date=20261008T152949Z&HW-CC-Expire=31536000000&HW-CC-Sign=C390A8C04121BE3A1DF4B01FA4B1253FC872CD1F6F1EAE829EC641D49D1169BD)
 
-3. 选中新增之后，会展示具体字段，可以给其赋值。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/8Dt1c5kGS82WCwP1vk6bog/zh-cn_image_0000002529099215.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=933587A7AD541723E555B7178F3FFFA4C89586E8BBDE2F9A467A0CCF47F37C23)
+3. 选中新增之后，会展示具体字段，可以给其赋值。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/8Dt1c5kGS82WCwP1vk6bog/zh-cn_image_0000002529099215.png?HW-CC-KV=V1&HW-CC-Date=20261008T152949Z&HW-CC-Expire=31536000000&HW-CC-Sign=C3D8CB9C3A2C659E68F421C6973AED03FEFCBDE86D1254DF123D94BA24D1B987)
 
 ## 查看运行数据
 
@@ -108,5 +108,5 @@ PGD Entity为实体操作模块，开发者可以通过可视化方式操作实�
 
 运行时，Inspector会额外展示Match Systems，用于展示处理当前Entity的System集合，开发者可以通过System禁用功能和System提供的变量控制运行时行为。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/1Zwb1BhdRrSgUu4LFSCPKQ/zh-cn_image_0000002529219277.gif?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=F64CD1E47D553E4E5D5C25F07E5B8ECBC7B2FF28D1EB127439B144AA3C0FED42 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/1Zwb1BhdRrSgUu4LFSCPKQ/zh-cn_image_0000002529219277.gif?HW-CC-KV=V1&HW-CC-Date=20261008T152949Z&HW-CC-Expire=31536000000&HW-CC-Sign=A70B91FF8737F9591B3113FEC06CD3043270A23D27A38BE163348AB64EE1367D "点击放大")
 

@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/javascript-api-
 
 Drawing layer是一个绘图插件，用户可以使用鼠标在地图上绘制图形。例如，在地图上单击鼠标绘制点，或多次点击绘制一个多边形。Drawing layer绘制工具栏图标包括：小手、圆形、标记、多边形、折线和矩形。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/fzdMlmmlQ1iF2QP1IK1dvw/zh-cn_image_0000001330792153.png?HW-CC-KV=V1&HW-CC-Date=20260922T085430Z&HW-CC-Expire=31536000000&HW-CC-Sign=9BD5785F3D62BED14CE0F3BC49808EB285391AF176576448BBAD9F9585E0D4AA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/fzdMlmmlQ1iF2QP1IK1dvw/zh-cn_image_0000001330792153.png?HW-CC-KV=V1&HW-CC-Date=20261008T162955Z&HW-CC-Expire=31536000000&HW-CC-Sign=D7B8D34D2C7A8AEEFE71710D5A3ADAD7219C641753D82F6085A1767C35932888)
 
 ## 鼠标操作绘制过程
 
@@ -151,5 +151,5 @@ Drawing layer是一个绘图插件，用户可以使用鼠标在地图上绘制�
    </style
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/T2Tu2H2hQbGd6soG7FaNsw/zh-cn_image_0000001331067733.png?HW-CC-KV=V1&HW-CC-Date=20260922T085430Z&HW-CC-Expire=31536000000&HW-CC-Sign=8CC50741DD62DB3CD02D6745B95E8CE26ACB8F1150D8C05F163473C66A8D68D0 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/T2Tu2H2hQbGd6soG7FaNsw/zh-cn_image_0000001331067733.png?HW-CC-KV=V1&HW-CC-Date=20261008T162955Z&HW-CC-Expire=31536000000&HW-CC-Sign=E13937015CE10A0207E9529FB123F563E224DCEFA367E8ECED201B7E6FB4D9D7 "点击放大")
 

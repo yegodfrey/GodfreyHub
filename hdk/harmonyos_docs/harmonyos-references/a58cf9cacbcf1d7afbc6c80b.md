@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___re
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 响应回调结构体。
 
 **起始版本：** 5.0.0(12)
@@ -20,7 +22,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___re
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|
@@ -29,7 +35,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___re
 
 ## 结构体成员变量说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### callback
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 ```cpp
 Rcp_ResponseCallback Rcp_ResponseCallbackObject::callback
@@ -40,6 +50,8 @@ Rcp_ResponseCallback Rcp_ResponseCallbackObject::callback
 响应回调函数。
 
 ### usrCtx
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 ```cpp
 void* Rcp_ResponseCallbackObject::usrCtx

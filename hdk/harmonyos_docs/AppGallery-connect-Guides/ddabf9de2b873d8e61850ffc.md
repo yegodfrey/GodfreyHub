@@ -23,7 +23,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    * 您可以直接登录[华为开发者联盟官网](https://developer.huawei.com/consumer/cn/)，点击"管理中心"，左侧菜单选择"我的账户 > 余额"，进入联盟充值页面。
    * 您也可以登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)，进入"账户中心 > 账户概览 "页面，右上角点击"充值"即可跳转至联盟充值页面。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/fbmcMQVHSYKI-1Kt_GoOSw/zh-cn_image_0000002242420874.png?HW-CC-KV=V1&HW-CC-Date=20260909T162750Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8BE6633C6CEFF4021F11BF962F0A8D4497C17C0C0D573288E4C525567E22E54)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/fbmcMQVHSYKI-1Kt_GoOSw/zh-cn_image_0000002242420874.png?HW-CC-KV=V1&HW-CC-Date=20261008T172614Z&HW-CC-Expire=31536000000&HW-CC-Sign=9937DA1F6E6D810763810B46D700782586069B7F4B82EE7872E27D1A9750ED11)
    > 说明
    >
    > 如果是团队账号，只有账号持有者才能正常跳转至联盟充值页面，否则跳转失败。
@@ -31,9 +31,9 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    > * 两种充值账户的余额不能互转，请谨慎充值。
    > * 两种充值账户的线下收款账号信息不一样，具体账号信息可在"收款银行账号信息"中查看。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/2VVb6YGmSWeRCfStTBS3YQ/zh-cn_image_0000002526472415.png?HW-CC-KV=V1&HW-CC-Date=20260909T162750Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A29307FEA55D06C3B9EDB9AF881C5A37F2A1A52E367529520FD879EE73821C0)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/2VVb6YGmSWeRCfStTBS3YQ/zh-cn_image_0000002526472415.png?HW-CC-KV=V1&HW-CC-Date=20261008T172614Z&HW-CC-Expire=31536000000&HW-CC-Sign=D216BD92A718398374DF93793B2CCF23B3F81EBA42BC989D9DBC4C5472E672E8)
 3. 在"基金充值"窗口中，配置账户充值的相关信息。
-   * 中国大陆推广账户 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/XZ4sCEDvRhOtjePHiwqs3Q/zh-cn_image_0000002526725373.png?HW-CC-KV=V1&HW-CC-Date=20260909T162750Z&HW-CC-Expire=31536000000&HW-CC-Sign=3CFD09A12C7A3AAC7A1D8C0E7C4AD02AAA42885D109D6A7B93BF1D35DA829F5E)
+   * 中国大陆推广账户 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/XZ4sCEDvRhOtjePHiwqs3Q/zh-cn_image_0000002526725373.png?HW-CC-KV=V1&HW-CC-Date=20261008T172614Z&HW-CC-Expire=31536000000&HW-CC-Sign=63FAF61617C8D55D819A2C737E2F71B61D9D13D26538358C1AC7F0E56A5F2AD3)
 
      |参数|说明|
      |:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +44,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
      |收款银行账号信息|当付款方式选择"线下打款支付"时，界面会展示收款银行账号信息。|
      |支付凭证|当付款方式选择"线下打款支付"时，需要按界面要求上传打款凭证**。** 打款账号必须与发票抬头和法人实体名称一致。|
 
-   * 海外推广账户 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/wgJeqi8CRkiybGAej4kcyQ/zh-cn_image_0000002494311330.png?HW-CC-KV=V1&HW-CC-Date=20260909T162750Z&HW-CC-Expire=31536000000&HW-CC-Sign=6370B2D9C8D5D478558905EBBCF908B573C9886E0AAD9796C6E45761EE48455E)![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/DKu00WqQTViAG0tSpqxRnA/zh-cn_image_0000002526710963.png?HW-CC-KV=V1&HW-CC-Date=20260909T162750Z&HW-CC-Expire=31536000000&HW-CC-Sign=F31AA25B80BF7DE7AEE4E6F90759B03F3FE36DEF1B39A0CD5F98F67E17F1C915)
+   * 海外推广账户 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/wgJeqi8CRkiybGAej4kcyQ/zh-cn_image_0000002494311330.png?HW-CC-KV=V1&HW-CC-Date=20261008T172614Z&HW-CC-Expire=31536000000&HW-CC-Sign=6549B8EEEE0645E567CCBC3F1BED8FC65C1CEC32F3F6B69C40DF903CF6A391FB)![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/DKu00WqQTViAG0tSpqxRnA/zh-cn_image_0000002526710963.png?HW-CC-KV=V1&HW-CC-Date=20261008T172614Z&HW-CC-Expire=31536000000&HW-CC-Sign=7351F12BC750FD17BAFE6B762BBC31F9B54D8F7929FCFF992AC607C744A3C6BE)
 
      |参数|说明|
      |:----------|:-----------------------------------------------------------------------------------------------------------------|

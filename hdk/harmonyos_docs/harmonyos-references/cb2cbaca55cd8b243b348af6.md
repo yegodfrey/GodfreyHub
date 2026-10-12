@@ -14,6 +14,8 @@ typedef struct OH_CryptoPrivKeyEncodingParams OH_CryptoPrivKeyEncodingParams
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 私钥编码参数结构体，表示私钥编码参数。
 
 **起始版本：** 20

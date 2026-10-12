@@ -16,7 +16,7 @@ UI Generator用于快速生成可编译、可运行的HarmonyOS UI工程，支�
 
 1. 在DevEco Studio菜单栏，点击**File > Setting** **s...** （macOS为**DevEco Studio > Preferences** **/Settings** ）**> Plugins** ，在Installed列表中找到UI Generator插件，点击**Enable** 启用。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/OT8IqgL1QtWmjY_spKI6bA/zh-cn_image_0000002731543125.png?HW-CC-KV=V1&HW-CC-Date=20260915T011705Z&HW-CC-Expire=31536000000&HW-CC-Sign=B4DA349F0E82A9195EE854C4A3F5910F0F04F8301E62B91E0F1917A41550CAE2)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/ALcCCz3ISvSPHTqM_2vrZg/zh-cn_image_0000002731543125.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=60E75FC903F9F2B4027CB08C9EF6DD2B9B719C535E1ED65D18E8C451D17A550F)
 2. 单击OK并关闭设置窗口，插件启用成功。
 
 ## 开始使用
@@ -30,10 +30,10 @@ UI Generator用于快速生成可编译、可运行的HarmonyOS UI工程，支�
    |SDK path|等于或高于编译应用包所使用版本的SDK路径。|
    |Git Bash path|Git Bash工具存放路径。若本地已下载安装Git Bash，插件将自动获取其路径。|
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/tvzODZz3TYG0EXKtWlC89w/zh-cn_image_0000002701663926.png?HW-CC-KV=V1&HW-CC-Date=20260915T011705Z&HW-CC-Expire=31536000000&HW-CC-Sign=8A7BEB8B6E456A2BC43F084602F26D562E015635DEBFDE08837EE022228F5458)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/IFMxyViEQbKLP5zPTElE_g/zh-cn_image_0000002701663926.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=ED99599AF43DFDC3F1D1125FBBC5DD7EBAD1CE59C7FBB4AA32B9CBB5B874D16E)
 3. 选择将要生成的XML页面（可在搜索框进行搜索），勾选后点击向右箭头将选中的XML导入至右侧。点击**Next** 开始生成。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/ZL0cvToZQ--Wkrh39FJDNw/zh-cn_image_0000002731383147.png?HW-CC-KV=V1&HW-CC-Date=20260915T011705Z&HW-CC-Expire=31536000000&HW-CC-Sign=BEC904DC502B70A46C551EC3C6750ADFEA28D60862308D70C8AD1A94CEF4FC6B)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/HI5W5xksSZ6k_UgTePcdQg/zh-cn_image_0000002731383147.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=46F9C3F24D3D52B6F1FA6997C9B63196C3839266BC6BD7273FCC66322797556C)
 4. 配置输出工程待配置项，点击**Finish** 进行生成。
 
    |待配置项|说明|
@@ -41,14 +41,15 @@ UI Generator用于快速生成可编译、可运行的HarmonyOS UI工程，支�
    |Destination Path|生成新工程的保存路径（默认生成到用户目录下UIGenerationProjects，用户可根据需要自行更改）|
    |Compatible SDK|生成的新工程所使用的SDK版本|
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/tTlVz-4qQM6Q44dwmXvwtA/zh-cn_image_0000002701663930.png?HW-CC-KV=V1&HW-CC-Date=20260915T011705Z&HW-CC-Expire=31536000000&HW-CC-Sign=5956F02DDD37E4687D068F229EB72FC7FC5C9A10B6CB5318B45E29A7787700AF)
-5. （可选）如果所选XML无有效根节点，需要选择根节点信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/Lg9smtyLTlKspLapYYXqiQ/zh-cn_image_0000002731383151.png?HW-CC-KV=V1&HW-CC-Date=20260915T011705Z&HW-CC-Expire=31536000000&HW-CC-Sign=32C3648BBB9943D1991FECAFA7AA7D7B8CBBB1492242C0B3CC4D005D947ABA51)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/_fGXdfomRM20F0aoff_cIg/zh-cn_image_0000002701663930.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=6BDC7D9FBB123607D35FD79C42340059022F055950828DEB66C8D12671F03394)
+5. （可选）如果所选XML无有效根节点，需要选择根节点信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/ReDFJfcdQ-y57cGT4lX5eQ/zh-cn_image_0000002731383151.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=D6B2D608A48896F297D84E64540835333AA08ADA22E31085F0DA20208C8DCF2E)
 
 6. 点击**Finish** ，在弹窗中点击确认，打开新工程。
 
    生成的页面位于entry > src > main > ets > pages目录下，可以点击Previewer查看页面预览效果。不支持生成的组件、属性会以注释的形式给出，方便后续定位修改。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/cayNY78FTvaPm4Ye-VzhVw/zh-cn_image_0000002731383153.png?HW-CC-KV=V1&HW-CC-Date=20260915T011705Z&HW-CC-Expire=31536000000&HW-CC-Sign=B61B5552BB01B2B11F03C46A039825998F2FB9C7BF3385DCFFEF63F7BF6F546B)
-7. 生成的新工程内的entry > src > main > resources目录包含文本、图像、颜色资源。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/qWMt5jDTQ7WujKyvs3tp8g/zh-cn_image_0000002701823850.png?HW-CC-KV=V1&HW-CC-Date=20260915T011705Z&HW-CC-Expire=31536000000&HW-CC-Sign=EC601979E191D4F2E4578E2152424A93068E499912779A19A93A597357A55BDA "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/5Qo81rsHRJ6OdYBVCMBGpg/zh-cn_image_0000002731383153.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=07350258D71B53329FD814EB62C15D6EAA2059742AE8D17AC54A094389E332F6)
+7. 生成的新工程内的entry > src > main > resources目录包含文本、图像、颜色资源。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/r27yet-TTLeNw6JE1Zc-Zw/zh-cn_image_0000002701823850.png?HW-CC-KV=V1&HW-CC-Date=20261010T073008Z&HW-CC-Expire=31536000000&HW-CC-Sign=F2B03018E181AEBD3E1ABD69093E226470A8D47BD2A5D52250A7D5F56BF36395 "点击放大")
 
    更多操作指导，请参考视频课程：[毕方HarmonyOS UI代码生成工具](https://developer.huawei.com/consumer/cn/training/course/live/C101731322888995220)。
+

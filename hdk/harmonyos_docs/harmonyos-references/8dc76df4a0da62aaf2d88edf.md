@@ -14,6 +14,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode
 
 ## 33600001 划词服务调用异常
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Selection service invocation exception.
@@ -37,6 +39,8 @@ Selection service invocation exception.
 
 ## 33600002 划词面板已被销毁
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 This selection panel has been destroyed.
@@ -57,6 +61,8 @@ This selection panel has been destroyed.
 
 ## 33600003 调用接口的应用与系统设置中选择的应用不匹配
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 The application calling the API does not match the application selected in the system settings.
@@ -76,6 +82,8 @@ The application calling the API does not match the application selected in the s
 
 ## 33600004 该接口被调用过于频繁
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 The interface is called too frequently.
@@ -94,6 +102,8 @@ The interface is called too frequently.
 
 ## 33600005 接口调用时机错误
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 The interface is called at the wrong time.
@@ -111,6 +121,8 @@ The interface is called at the wrong time.
 重新触发划词，在监听到selectionCompleted事件后调用getSelectionContent接口。
 
 ## 33600006 当前应用禁止获取内容
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 
@@ -131,6 +143,8 @@ The current application is prohibited from accessing content.
 
 ## 33600007 划词内容长度超出范围
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 The length of selected content is out of range.
@@ -148,6 +162,8 @@ The length of selected content is out of range.
 选中1到6000个字节（包含1和6000）的文本后，在监听到selectionCompleted事件后再调用getSelectionContent接口。
 
 ## 33600008 获取选中内容超时
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 

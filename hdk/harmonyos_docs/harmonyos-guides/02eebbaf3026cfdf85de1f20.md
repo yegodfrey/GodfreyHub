@@ -25,7 +25,7 @@ AppGallery Kit为使用动态图标的应用客户端提供查询动态图标信
 
 ## 业务流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/r9VtzM59QJSZtTMpXi0dsg/zh-cn_image_0000002779092531.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=19536E9C9F466DA8EA25431E458FB66289A4263F3B01696DE08C707CB33A6372)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/7_4vb7KFR4Wu6yWMZ9qFlA/zh-cn_image_0000002755184504.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=03884C19432B7D07E02B0737D0E037BBB7CC1166F2FC77B972FE9C30357EF99C)
 
 ### 查询动态图标信息
 

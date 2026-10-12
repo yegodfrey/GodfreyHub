@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/payment-merchan
 
 商户签约接入代扣流程：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/f5lq0nJzRWOobiuxDL8TJg/zh-cn_image_0000002512199999.png?HW-CC-KV=V1&HW-CC-Date=20260910T132632Z&HW-CC-Expire=31536000000&HW-CC-Sign=A67828FC418E2F3EDCD6EB03FC05F4751C9DC2C7A235CB253D92623FCEB35D22)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/f5lq0nJzRWOobiuxDL8TJg/zh-cn_image_0000002512199999.png?HW-CC-KV=V1&HW-CC-Date=20261008T145129Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E5E45A466374A5E78BB63F26EDFE9E3EDF412411A59411247201967766E8188)
 
 1. 用户发起签约后，商户快应用向商户服务器发起创建签约订单请求。
 2. 商户服务器携带商户签约协议号和协议模板Id，请求[快应用预签约](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/api-partner-quickapp-presign-0000001868173305)接口。

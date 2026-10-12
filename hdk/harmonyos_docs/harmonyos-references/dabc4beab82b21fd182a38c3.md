@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styl
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 在Native侧定义[ArkUI_NodeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodetype)为ARKUI_NODE_TEXT的组件的文本样式和文本布局管理器。提供丰富的文本样式设置能力，包括字体样式（字体颜色、大小、粗细、风格）、文本装饰线、文本阴影、基线偏移、字符间距、行高、行间距等；支持图片、超链接、自定义绘制等特殊内容嵌入；提供段落级别的布局管理，包括对齐方式、缩进、段落间距等；支持文本手势交互能力，如点击、长按、触摸事件。适用于需要丰富文本样式展示、复杂文本布局、图文混排、文本交互等场景。
 
 **引用文件：** <arkui/styled_string.h>
@@ -26,7 +28,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styl
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,6 +57,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styl
 
 ### 枚举
 
+> phone | 2in1 | tablet | tv | wearable
+
 |名称|typedef关键字|描述|
 |:------------------------------------------------------|:------------------------|:-----------------|
 |[OH_ArkUI_StyledStringKey](#oh_arkui_styledstringkey)|OH_ArkUI_StyledStringKey|属性字符串的样式类型枚举。|
@@ -58,6 +66,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styl
 |[OH_ArkUI_TextEncoding](#oh_arkui_textencoding)|OH_ArkUI_TextEncoding|文本布局查询接口支持的文本编码类型。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -300,7 +310,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styl
 
 ## 枚举类型说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_ArkUI_StyledStringKey
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 enum OH_ArkUI_StyledStringKey
@@ -332,6 +346,8 @@ enum OH_ArkUI_StyledStringKey
 
 ### OH_ArkUI_SuperscriptStyle
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 enum OH_ArkUI_SuperscriptStyle
 ```
@@ -350,6 +366,8 @@ enum OH_ArkUI_SuperscriptStyle
 
 ### OH_ArkUI_TextEncoding
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 enum OH_ArkUI_TextEncoding
 ```
@@ -367,7 +385,11 @@ enum OH_ArkUI_TextEncoding
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_ArkUI_StyledString_Create()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 ArkUI_StyledString* OH_ArkUI_StyledString_Create(OH_Drawing_TypographyStyle* style, OH_Drawing_FontCollection* collection)
@@ -397,6 +419,8 @@ ArkUI_StyledString* OH_ArkUI_StyledString_Create(OH_Drawing_TypographyStyle* sty
 
 ### OH_ArkUI_StyledString_Destroy()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_ArkUI_StyledString_Destroy(ArkUI_StyledString* handle)
 ```
@@ -414,6 +438,8 @@ void OH_ArkUI_StyledString_Destroy(ArkUI_StyledString* handle)
 |[ArkUI_StyledString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-styledstring)* handle|指向ArkUI_StyledString对象的指针。|
 
 ### OH_ArkUI_StyledString_PushTextStyle()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 void OH_ArkUI_StyledString_PushTextStyle(ArkUI_StyledString* handle, OH_Drawing_TextStyle* style)
@@ -437,6 +463,8 @@ void OH_ArkUI_StyledString_PushTextStyle(ArkUI_StyledString* handle, OH_Drawing_
 
 ### OH_ArkUI_StyledString_AddText()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_ArkUI_StyledString_AddText(ArkUI_StyledString* handle, const char* content)
 ```
@@ -455,6 +483,8 @@ void OH_ArkUI_StyledString_AddText(ArkUI_StyledString* handle, const char* conte
 |const char* content|指向文本内容的指针。|
 
 ### OH_ArkUI_StyledString_PopTextStyle()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 void OH_ArkUI_StyledString_PopTextStyle(ArkUI_StyledString* handle)
@@ -476,6 +506,8 @@ void OH_ArkUI_StyledString_PopTextStyle(ArkUI_StyledString* handle)
 |[ArkUI_StyledString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-styledstring)* handle|指向ArkUI_StyledString对象的指针。|
 
 ### OH_ArkUI_StyledString_CreateTypography()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_Typography* OH_ArkUI_StyledString_CreateTypography(ArkUI_StyledString* handle)
@@ -504,6 +536,8 @@ OH_Drawing_Typography* OH_ArkUI_StyledString_CreateTypography(ArkUI_StyledString
 
 ### OH_ArkUI_StyledString_AddPlaceholder()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void OH_ArkUI_StyledString_AddPlaceholder(ArkUI_StyledString* handle, OH_Drawing_PlaceholderSpan* placeholder)
 ```
@@ -522,6 +556,8 @@ void OH_ArkUI_StyledString_AddPlaceholder(ArkUI_StyledString* handle, OH_Drawing
 |[OH_Drawing_PlaceholderSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-placeholderspan)* placeholder|指向OH_Drawing_PlaceholderSpan对象的指针。|
 
 ### OH_ArkUI_StyledString_Descriptor_Create()
+
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
 
 ```c
 ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_Create(void)
@@ -544,6 +580,8 @@ ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_Create(void)
 
 ### OH_ArkUI_StyledString_Descriptor_Destroy()
 
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
+
 ```c
 void OH_ArkUI_StyledString_Descriptor_Destroy(ArkUI_StyledString_Descriptor* descriptor)
 ```
@@ -561,6 +599,8 @@ void OH_ArkUI_StyledString_Descriptor_Destroy(ArkUI_StyledString_Descriptor* des
 |[ArkUI_StyledString_Descriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-styledstring-descriptor)* descriptor|指向ArkUI_StyledString_Descriptor对象的指针。|
 
 ### OH_ArkUI_UnmarshallStyledStringDescriptor()
+
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
 
 ```c
 int32_t OH_ArkUI_UnmarshallStyledStringDescriptor(uint8_t* buffer, size_t bufferSize, ArkUI_StyledString_Descriptor* descriptor)
@@ -587,6 +627,8 @@ int32_t OH_ArkUI_UnmarshallStyledStringDescriptor(uint8_t* buffer, size_t buffer
 |int32_t|错误码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常，可能原因包括传入参数为空指针或参数值不在有效范围内，请检查参数是否有效。|
 
 ### OH_ArkUI_MarshallStyledStringDescriptor()
+
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
 
 ```c
 int32_t OH_ArkUI_MarshallStyledStringDescriptor(uint8_t* buffer, size_t bufferSize, ArkUI_StyledString_Descriptor* descriptor, size_t* resultSize)
@@ -615,6 +657,8 @@ int32_t OH_ArkUI_MarshallStyledStringDescriptor(uint8_t* buffer, size_t bufferSi
 
 ### OH_ArkUI_ConvertToHtml()
 
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
+
 ```c
 const char* OH_ArkUI_ConvertToHtml(ArkUI_StyledString_Descriptor* descriptor)
 ```
@@ -638,6 +682,8 @@ const char* OH_ArkUI_ConvertToHtml(ArkUI_StyledString_Descriptor* descriptor)
 |const char*|HTML。该指针由内部管理，在[OH_ArkUI_StyledString_Descriptor_Destroy()](#oh_arkui_styledstring_descriptor_destroy)时释放。|
 
 ### OH_ArkUI_StyledString_Descriptor_CreateWithString()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithString(const char* value, const OH_ArkUI_SpanStyle** styles, int32_t length)
@@ -668,6 +714,8 @@ ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithString
 
 ### OH_ArkUI_StyledString_Descriptor_CreateWithImageAttachment()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithImageAttachment(const OH_ArkUI_ImageAttachment* value)
 ```
@@ -694,6 +742,8 @@ ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithImageA
 |[ArkUI_StyledString_Descriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-styledstring-descriptor)*|指向创建的[ArkUI_StyledString_Descriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-styledstring-descriptor)对象的指针。 如果结果为空指针，表示创建失败，失败的原因是传入参数为空指针或参数值无效。|
 
 ### OH_ArkUI_StyledString_Descriptor_CreateWithCustomSpan()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithCustomSpan(const OH_ArkUI_CustomSpan* value)
@@ -722,6 +772,8 @@ ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithCustom
 
 ### OH_ArkUI_StyledString_Descriptor_GetLength()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_GetLength(const ArkUI_StyledString_Descriptor* descriptor, int32_t* length)
 ```
@@ -746,6 +798,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_GetLength(const ArkUI_StyledStr
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常，可能原因包括descriptor为空指针或length为空指针，请检查参数是否有效。 [ARKUI_ERROR_CODE_INVALID_STYLED_STRING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 属性字符串无效，可能原因包括属性字符串对象已被销毁或未正确创建，请确保使用有效的属性字符串对象。|
 
 ### OH_ArkUI_StyledString_Descriptor_GetString()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_GetString(const ArkUI_StyledString_Descriptor* descriptor, char* buffer, int32_t bufferSize, int32_t* writeLength)
@@ -774,6 +828,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_GetString(const ArkUI_StyledStr
 
 ### OH_ArkUI_StyledString_Descriptor_IsEqual()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_IsEqual(const ArkUI_StyledString_Descriptor* firstDescriptor, const ArkUI_StyledString_Descriptor* secondDescriptor, bool* isEqual)
 ```
@@ -799,6 +855,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_IsEqual(const ArkUI_StyledStrin
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。 [ARKUI_ERROR_CODE_INVALID_STYLED_STRING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 属性字符串无效。|
 
 ### OH_ArkUI_StyledString_Descriptor_SubStyledString()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_SubStyledString(const ArkUI_StyledString_Descriptor* descriptor, ArkUI_StyledString_Descriptor* subDescriptor, uint32_t start, uint32_t length)
@@ -826,6 +884,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_SubStyledString(const ArkUI_Sty
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。 [ARKUI_ERROR_CODE_INVALID_STYLED_STRING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 属性字符串无效。|
 
 ### OH_ArkUI_StyledString_Descriptor_GetStyles()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_GetStyles(const ArkUI_StyledString_Descriptor* descriptor, uint32_t start, uint32_t length, OH_ArkUI_StyledStringKey styledKey, OH_ArkUI_SpanStyle** styles, uint32_t stylesSize, uint32_t* writeLength)
@@ -857,6 +917,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_GetStyles(const ArkUI_StyledStr
 
 ### OH_ArkUI_StyledString_Descriptor_FromHtml()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_FromHtml(ArkUI_StyledString_Descriptor* descriptor, const char* html)
 ```
@@ -881,6 +943,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_FromHtml(ArkUI_StyledString_Des
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。 [ARKUI_ERROR_CODE_INVALID_STYLED_STRING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 属性字符串无效。|
 
 ### OH_ArkUI_StyledString_Descriptor_ReplaceString()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ReplaceString(ArkUI_StyledString_Descriptor* descriptor, uint32_t start, uint32_t length, const char* string)
@@ -909,6 +973,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ReplaceString(ArkUI_StyledStrin
 
 ### OH_ArkUI_StyledString_Descriptor_InsertString()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_InsertString(ArkUI_StyledString_Descriptor* descriptor, uint32_t start, const char* string)
 ```
@@ -934,6 +1000,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_InsertString(ArkUI_StyledString
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。 [ARKUI_ERROR_CODE_INVALID_STYLED_STRING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 属性字符串无效。|
 
 ### OH_ArkUI_StyledString_Descriptor_RemoveString()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_RemoveString(ArkUI_StyledString_Descriptor* descriptor, uint32_t start, uint32_t length)
@@ -961,6 +1029,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_RemoveString(ArkUI_StyledString
 
 ### OH_ArkUI_StyledString_Descriptor_ReplaceStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ReplaceStyle(ArkUI_StyledString_Descriptor* descriptor, const OH_ArkUI_SpanStyle* spanStyle)
 ```
@@ -986,6 +1056,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ReplaceStyle(ArkUI_StyledString
 
 ### OH_ArkUI_StyledString_Descriptor_SetStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_SetStyle(ArkUI_StyledString_Descriptor* descriptor, const OH_ArkUI_SpanStyle* spanStyle)
 ```
@@ -1010,6 +1082,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_SetStyle(ArkUI_StyledString_Des
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。 [ARKUI_ERROR_CODE_INVALID_STYLED_STRING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 属性字符串无效。|
 
 ### OH_ArkUI_StyledString_Descriptor_RemoveStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_RemoveStyle(ArkUI_StyledString_Descriptor* descriptor, uint32_t start, uint32_t length, OH_ArkUI_StyledStringKey styledKey)
@@ -1041,6 +1115,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_RemoveStyle(ArkUI_StyledString_
 
 ### OH_ArkUI_StyledString_Descriptor_ClearStyles()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ClearStyles(ArkUI_StyledString_Descriptor* descriptor)
 ```
@@ -1067,6 +1143,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ClearStyles(ArkUI_StyledString_
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。 [ARKUI_ERROR_CODE_INVALID_STYLED_STRING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 属性字符串无效。|
 
 ### OH_ArkUI_StyledString_Descriptor_ReplaceStyledString()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ReplaceStyledString(ArkUI_StyledString_Descriptor* descriptor, uint32_t start, uint32_t length, const ArkUI_StyledString_Descriptor* other)
@@ -1095,6 +1173,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_ReplaceStyledString(ArkUI_Style
 
 ### OH_ArkUI_StyledString_Descriptor_InsertStyledString()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_InsertStyledString(ArkUI_StyledString_Descriptor* descriptor, uint32_t start, const ArkUI_StyledString_Descriptor* other)
 ```
@@ -1121,6 +1201,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_InsertStyledString(ArkUI_Styled
 
 ### OH_ArkUI_StyledString_Descriptor_AppendStyledString()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_AppendStyledString(ArkUI_StyledString_Descriptor* descriptor, const ArkUI_StyledString_Descriptor* other)
 ```
@@ -1145,6 +1227,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_AppendStyledString(ArkUI_Styled
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。 [ARKUI_ERROR_CODE_INVALID_STYLED_STRING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 属性字符串无效。|
 
 ### OH_ArkUI_StyledString_Descriptor_InvalidateCustomSpan()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_InvalidateCustomSpan(const ArkUI_StyledString_Descriptor* descriptor)
@@ -1173,6 +1257,8 @@ ArkUI_ErrorCode OH_ArkUI_StyledString_Descriptor_InvalidateCustomSpan(const ArkU
 
 ### OH_ArkUI_TextStyle_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_TextStyle* OH_ArkUI_TextStyle_Create()
 ```
@@ -1194,6 +1280,8 @@ OH_ArkUI_TextStyle* OH_ArkUI_TextStyle_Create()
 
 ### OH_ArkUI_TextStyle_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_TextStyle_Destroy(OH_ArkUI_TextStyle* textStyle)
 ```
@@ -1211,6 +1299,8 @@ void OH_ArkUI_TextStyle_Destroy(OH_ArkUI_TextStyle* textStyle)
 |[OH_ArkUI_TextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-textstyle)* textStyle|指向[OH_ArkUI_TextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-textstyle)对象的指针。|
 
 ### OH_ArkUI_TextStyle_SetFontColor()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontColor(OH_ArkUI_TextStyle* textStyle, uint32_t fontColor)
@@ -1237,6 +1327,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontColor(OH_ArkUI_TextStyle* textStyle, u
 
 ### OH_ArkUI_TextStyle_GetFontColor()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontColor(const OH_ArkUI_TextStyle* textStyle, uint32_t* fontColor)
 ```
@@ -1262,6 +1354,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontColor(const OH_ArkUI_TextStyle* textSt
 
 ### OH_ArkUI_TextStyle_SetFontFamily()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontFamily(OH_ArkUI_TextStyle* textStyle, const char* fontFamily)
 ```
@@ -1286,6 +1380,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontFamily(OH_ArkUI_TextStyle* textStyle, 
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextStyle_GetFontFamily()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontFamily(const OH_ArkUI_TextStyle* textStyle, char* buffer, int32_t bufferSize, int32_t* writeLength)
@@ -1314,6 +1410,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontFamily(const OH_ArkUI_TextStyle* textS
 
 ### OH_ArkUI_TextStyle_SetFontSize()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontSize(OH_ArkUI_TextStyle* textStyle, float fontSize)
 ```
@@ -1338,6 +1436,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontSize(OH_ArkUI_TextStyle* textStyle, fl
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextStyle_GetFontSize()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontSize(const OH_ArkUI_TextStyle* textStyle, float* fontSize)
@@ -1364,6 +1464,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontSize(const OH_ArkUI_TextStyle* textSty
 
 ### OH_ArkUI_TextStyle_SetFontWeight()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontWeight(OH_ArkUI_TextStyle* textStyle, uint32_t fontWeight)
 ```
@@ -1388,6 +1490,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontWeight(OH_ArkUI_TextStyle* textStyle, 
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextStyle_GetFontWeight()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontWeight(const OH_ArkUI_TextStyle* textStyle, uint32_t* fontWeight)
@@ -1414,6 +1518,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontWeight(const OH_ArkUI_TextStyle* textS
 
 ### OH_ArkUI_TextStyle_SetFontStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontStyle(OH_ArkUI_TextStyle* textStyle, ArkUI_FontStyle fontStyle)
 ```
@@ -1438,6 +1544,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetFontStyle(OH_ArkUI_TextStyle* textStyle, A
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextStyle_GetFontStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontStyle(const OH_ArkUI_TextStyle* textStyle, ArkUI_FontStyle* fontStyle)
@@ -1464,6 +1572,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetFontStyle(const OH_ArkUI_TextStyle* textSt
 
 ### OH_ArkUI_TextStyle_SetStrokeWidth()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_SetStrokeWidth(OH_ArkUI_TextStyle* textStyle, float strokeWidth)
 ```
@@ -1488,6 +1598,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetStrokeWidth(OH_ArkUI_TextStyle* textStyle,
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextStyle_GetStrokeWidth()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_GetStrokeWidth(const OH_ArkUI_TextStyle* textStyle, float* strokeWidth)
@@ -1514,6 +1626,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetStrokeWidth(const OH_ArkUI_TextStyle* text
 
 ### OH_ArkUI_TextStyle_SetStrokeColor()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_SetStrokeColor(OH_ArkUI_TextStyle* textStyle, uint32_t strokeColor)
 ```
@@ -1538,6 +1652,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetStrokeColor(OH_ArkUI_TextStyle* textStyle,
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextStyle_GetStrokeColor()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_GetStrokeColor(const OH_ArkUI_TextStyle* textStyle, uint32_t* strokeColor)
@@ -1564,6 +1680,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetStrokeColor(const OH_ArkUI_TextStyle* text
 
 ### OH_ArkUI_TextStyle_SetSuperscript()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_SetSuperscript(OH_ArkUI_TextStyle* textStyle, OH_ArkUI_SuperscriptStyle superscript)
 ```
@@ -1588,6 +1706,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_SetSuperscript(OH_ArkUI_TextStyle* textStyle,
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextStyle_GetSuperscript()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextStyle_GetSuperscript(const OH_ArkUI_TextStyle* textStyle, OH_ArkUI_SuperscriptStyle* superscript)
@@ -1614,6 +1734,8 @@ ArkUI_ErrorCode OH_ArkUI_TextStyle_GetSuperscript(const OH_ArkUI_TextStyle* text
 
 ### OH_ArkUI_SpanStyle_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_SpanStyle* OH_ArkUI_SpanStyle_Create()
 ```
@@ -1635,6 +1757,8 @@ OH_ArkUI_SpanStyle* OH_ArkUI_SpanStyle_Create()
 
 ### OH_ArkUI_SpanStyle_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_SpanStyle_Destroy(OH_ArkUI_SpanStyle* spanStyle)
 ```
@@ -1652,6 +1776,8 @@ void OH_ArkUI_SpanStyle_Destroy(OH_ArkUI_SpanStyle* spanStyle)
 |[OH_ArkUI_SpanStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-spanstyle)* spanStyle|指向[OH_ArkUI_SpanStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-spanstyle)对象的指针。|
 
 ### OH_ArkUI_SpanStyle_GetStyledKey()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetStyledKey(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_StyledStringKey* styledKey)
@@ -1678,6 +1804,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetStyledKey(const OH_ArkUI_SpanStyle* spanSt
 
 ### OH_ArkUI_SpanStyle_SetStart()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetStart(OH_ArkUI_SpanStyle* spanStyle, int32_t start)
 ```
@@ -1702,6 +1830,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetStart(OH_ArkUI_SpanStyle* spanStyle, int32
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_GetStart()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetStart(const OH_ArkUI_SpanStyle* spanStyle, int32_t* start)
@@ -1728,6 +1858,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetStart(const OH_ArkUI_SpanStyle* spanStyle,
 
 ### OH_ArkUI_SpanStyle_SetLength()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLength(OH_ArkUI_SpanStyle* spanStyle, int32_t length)
 ```
@@ -1753,6 +1885,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLength(OH_ArkUI_SpanStyle* spanStyle, int3
 
 ### OH_ArkUI_SpanStyle_GetLength()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLength(const OH_ArkUI_SpanStyle* spanStyle, int32_t* length)
 ```
@@ -1777,6 +1911,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLength(const OH_ArkUI_SpanStyle* spanStyle
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetTextStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetTextStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_TextStyle* textStyle)
@@ -1806,6 +1942,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetTextStyle(OH_ArkUI_SpanStyle* spanStyle, c
 
 ### OH_ArkUI_SpanStyle_GetTextStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetTextStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_TextStyle* textStyle)
 ```
@@ -1830,6 +1968,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetTextStyle(const OH_ArkUI_SpanStyle* spanSt
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetParagraphStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetParagraphStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_ParagraphStyle* paragraphStyle)
@@ -1863,6 +2003,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetParagraphStyle(OH_ArkUI_SpanStyle* spanSty
 
 ### OH_ArkUI_SpanStyle_GetParagraphStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetParagraphStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_ParagraphStyle* paragraphStyle)
 ```
@@ -1887,6 +2029,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetParagraphStyle(const OH_ArkUI_SpanStyle* s
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetGestureStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetGestureStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_GestureStyle* gestureStyle)
@@ -1916,6 +2060,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetGestureStyle(OH_ArkUI_SpanStyle* spanStyle
 
 ### OH_ArkUI_SpanStyle_GetGestureStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetGestureStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_GestureStyle* gestureStyle)
 ```
@@ -1940,6 +2086,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetGestureStyle(const OH_ArkUI_SpanStyle* spa
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetTextShadowStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetTextShadowStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_TextShadowStyle* textShadowStyle)
@@ -1969,6 +2117,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetTextShadowStyle(OH_ArkUI_SpanStyle* spanSt
 
 ### OH_ArkUI_SpanStyle_GetTextShadowStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetTextShadowStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_TextShadowStyle* textShadowStyle)
 ```
@@ -1993,6 +2143,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetTextShadowStyle(const OH_ArkUI_SpanStyle* 
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetDecorationStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetDecorationStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_DecorationStyle* decorationStyle)
@@ -2022,6 +2174,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetDecorationStyle(OH_ArkUI_SpanStyle* spanSt
 
 ### OH_ArkUI_SpanStyle_GetDecorationStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetDecorationStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_DecorationStyle* decorationStyle)
 ```
@@ -2046,6 +2200,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetDecorationStyle(const OH_ArkUI_SpanStyle* 
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetBaselineOffsetStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetBaselineOffsetStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_BaselineOffsetStyle* baselineOffsetStyle)
@@ -2075,6 +2231,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetBaselineOffsetStyle(OH_ArkUI_SpanStyle* sp
 
 ### OH_ArkUI_SpanStyle_GetBaselineOffsetStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetBaselineOffsetStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_BaselineOffsetStyle* baselineOffsetStyle)
 ```
@@ -2099,6 +2257,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetBaselineOffsetStyle(const OH_ArkUI_SpanSty
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetLetterSpacingStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLetterSpacingStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_LetterSpacingStyle* letterSpacingStyle)
@@ -2128,6 +2288,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLetterSpacingStyle(OH_ArkUI_SpanStyle* spa
 
 ### OH_ArkUI_SpanStyle_GetLetterSpacingStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLetterSpacingStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_LetterSpacingStyle* letterSpacingStyle)
 ```
@@ -2152,6 +2314,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLetterSpacingStyle(const OH_ArkUI_SpanStyl
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetLineHeightStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLineHeightStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_LineHeightStyle* lineHeightStyle)
@@ -2181,6 +2345,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLineHeightStyle(OH_ArkUI_SpanStyle* spanSt
 
 ### OH_ArkUI_SpanStyle_GetLineHeightStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLineHeightStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_LineHeightStyle* lineHeightStyle)
 ```
@@ -2205,6 +2371,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLineHeightStyle(const OH_ArkUI_SpanStyle* 
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetUrlStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetUrlStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_UrlStyle* urlStyle)
@@ -2234,6 +2402,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetUrlStyle(OH_ArkUI_SpanStyle* spanStyle, co
 
 ### OH_ArkUI_SpanStyle_GetUrlStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetUrlStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_UrlStyle* urlStyle)
 ```
@@ -2258,6 +2428,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetUrlStyle(const OH_ArkUI_SpanStyle* spanSty
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetBackgroundColorStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetBackgroundColorStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_BackgroundColorStyle* backgroundColorStyle)
@@ -2287,6 +2459,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetBackgroundColorStyle(OH_ArkUI_SpanStyle* s
 
 ### OH_ArkUI_SpanStyle_GetBackgroundColorStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetBackgroundColorStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_BackgroundColorStyle* backgroundColorStyle)
 ```
@@ -2311,6 +2485,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetBackgroundColorStyle(const OH_ArkUI_SpanSt
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetUserDataSpan()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetUserDataSpan(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_UserDataSpan* userDataSpan)
@@ -2340,6 +2516,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetUserDataSpan(OH_ArkUI_SpanStyle* spanStyle
 
 ### OH_ArkUI_SpanStyle_GetUserDataSpan()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetUserDataSpan(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_UserDataSpan* userDataSpan)
 ```
@@ -2364,6 +2542,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetUserDataSpan(const OH_ArkUI_SpanStyle* spa
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetCustomSpan()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetCustomSpan(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_CustomSpan* customSpan)
@@ -2393,6 +2573,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetCustomSpan(OH_ArkUI_SpanStyle* spanStyle, 
 
 ### OH_ArkUI_SpanStyle_GetCustomSpan()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetCustomSpan(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_CustomSpan* customSpan)
 ```
@@ -2417,6 +2599,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetCustomSpan(const OH_ArkUI_SpanStyle* spanS
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetImageAttachment()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetImageAttachment(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_ImageAttachment* imageAttachment)
@@ -2446,6 +2630,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetImageAttachment(OH_ArkUI_SpanStyle* spanSt
 
 ### OH_ArkUI_SpanStyle_GetImageAttachment()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetImageAttachment(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_ImageAttachment* imageAttachment)
 ```
@@ -2471,6 +2657,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetImageAttachment(const OH_ArkUI_SpanStyle* 
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_LeadingMarginSpanDrawInfo* OH_ArkUI_LeadingMarginSpanDrawInfo_Create()
 ```
@@ -2492,6 +2680,8 @@ OH_ArkUI_LeadingMarginSpanDrawInfo* OH_ArkUI_LeadingMarginSpanDrawInfo_Create()
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy(OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo)
 ```
@@ -2509,6 +2699,8 @@ void OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy(OH_ArkUI_LeadingMarginSpanDrawIn
 |[OH_ArkUI_LeadingMarginSpanDrawInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-leadingmarginspandrawinfo)* drawInfo|指向[OH_ArkUI_LeadingMarginSpanDrawInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-leadingmarginspandrawinfo)对象的指针。|
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_SetX()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetX(OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, float x)
@@ -2535,6 +2727,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetX(OH_ArkUI_LeadingMarginSp
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_GetX()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetX(const OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, float* x)
 ```
@@ -2559,6 +2753,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetX(const OH_ArkUI_LeadingMa
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_SetTop()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetTop(OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, float top)
@@ -2585,6 +2781,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetTop(OH_ArkUI_LeadingMargin
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_GetTop()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetTop(const OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, float* top)
 ```
@@ -2609,6 +2807,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetTop(const OH_ArkUI_Leading
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_SetBottom()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetBottom(OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, float bottom)
@@ -2635,6 +2835,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetBottom(OH_ArkUI_LeadingMar
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_GetBottom()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetBottom(const OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, float* bottom)
 ```
@@ -2659,6 +2861,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetBottom(const OH_ArkUI_Lead
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_SetBaseline()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetBaseline(OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, float baseline)
@@ -2685,6 +2889,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetBaseline(OH_ArkUI_LeadingM
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_GetBaseline()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetBaseline(const OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, float* baseline)
 ```
@@ -2709,6 +2915,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetBaseline(const OH_ArkUI_Le
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_SetTextDirection()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetTextDirection(OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, ArkUI_TextDirection direction)
@@ -2735,6 +2943,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetTextDirection(OH_ArkUI_Lea
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_GetTextDirection()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetTextDirection(const OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, ArkUI_TextDirection* direction)
 ```
@@ -2759,6 +2969,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetTextDirection(const OH_Ark
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_SetStart()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetStart(OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, uint32_t start)
@@ -2785,6 +2997,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetStart(OH_ArkUI_LeadingMarg
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_GetStart()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetStart(const OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, uint32_t* start)
 ```
@@ -2809,6 +3023,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetStart(const OH_ArkUI_Leadi
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_SetEnd()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetEnd(OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, uint32_t end)
@@ -2835,6 +3051,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetEnd(OH_ArkUI_LeadingMargin
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_GetEnd()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetEnd(const OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, uint32_t* end)
 ```
@@ -2859,6 +3077,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetEnd(const OH_ArkUI_Leading
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_SetFirst()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetFirst(OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, bool first)
@@ -2885,6 +3105,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_SetFirst(OH_ArkUI_LeadingMarg
 
 ### OH_ArkUI_LeadingMarginSpanDrawInfo_GetFirst()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetFirst(const OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo, bool* first)
 ```
@@ -2910,6 +3132,8 @@ ArkUI_ErrorCode OH_ArkUI_LeadingMarginSpanDrawInfo_GetFirst(const OH_ArkUI_Leadi
 
 ### OH_ArkUI_ParagraphStyle_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_ParagraphStyle* OH_ArkUI_ParagraphStyle_Create()
 ```
@@ -2931,6 +3155,8 @@ OH_ArkUI_ParagraphStyle* OH_ArkUI_ParagraphStyle_Create()
 
 ### OH_ArkUI_ParagraphStyle_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_ParagraphStyle_Destroy(OH_ArkUI_ParagraphStyle* paragraphStyle)
 ```
@@ -2948,6 +3174,8 @@ void OH_ArkUI_ParagraphStyle_Destroy(OH_ArkUI_ParagraphStyle* paragraphStyle)
 |[OH_ArkUI_ParagraphStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-paragraphstyle)* paragraphStyle|指向[OH_ArkUI_ParagraphStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-paragraphstyle)对象的指针。|
 
 ### OH_ArkUI_ParagraphStyle_SetTextAlign()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextAlign(OH_ArkUI_ParagraphStyle* paragraphStyle, ArkUI_TextAlignment align)
@@ -2974,6 +3202,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextAlign(OH_ArkUI_ParagraphStyle* pa
 
 ### OH_ArkUI_ParagraphStyle_GetTextAlign()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextAlign(const OH_ArkUI_ParagraphStyle* paragraphStyle, ArkUI_TextAlignment* align)
 ```
@@ -2998,6 +3228,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextAlign(const OH_ArkUI_ParagraphSty
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_SetTextIndent()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextIndent(OH_ArkUI_ParagraphStyle* paragraphStyle, float textIndent)
@@ -3024,6 +3256,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextIndent(OH_ArkUI_ParagraphStyle* p
 
 ### OH_ArkUI_ParagraphStyle_GetTextIndent()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextIndent(const OH_ArkUI_ParagraphStyle* paragraphStyle, float* textIndent)
 ```
@@ -3048,6 +3282,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextIndent(const OH_ArkUI_ParagraphSt
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_SetMaxLines()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetMaxLines(OH_ArkUI_ParagraphStyle* paragraphStyle, int32_t maxLines)
@@ -3074,6 +3310,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetMaxLines(OH_ArkUI_ParagraphStyle* par
 
 ### OH_ArkUI_ParagraphStyle_GetMaxLines()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetMaxLines(const OH_ArkUI_ParagraphStyle* paragraphStyle, int32_t* maxLines)
 ```
@@ -3098,6 +3336,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetMaxLines(const OH_ArkUI_ParagraphStyl
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_SetOverflow()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetOverflow(OH_ArkUI_ParagraphStyle* paragraphStyle, ArkUI_TextOverflow overflow)
@@ -3124,6 +3364,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetOverflow(OH_ArkUI_ParagraphStyle* par
 
 ### OH_ArkUI_ParagraphStyle_GetOverflow()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetOverflow(const OH_ArkUI_ParagraphStyle* paragraphStyle, ArkUI_TextOverflow* overflow)
 ```
@@ -3148,6 +3390,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetOverflow(const OH_ArkUI_ParagraphStyl
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_SetWordBreak()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetWordBreak(OH_ArkUI_ParagraphStyle* paragraphStyle, ArkUI_WordBreak wordBreak)
@@ -3174,6 +3418,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetWordBreak(OH_ArkUI_ParagraphStyle* pa
 
 ### OH_ArkUI_ParagraphStyle_GetWordBreak()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetWordBreak(const OH_ArkUI_ParagraphStyle* paragraphStyle, ArkUI_WordBreak* wordBreak)
 ```
@@ -3198,6 +3444,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetWordBreak(const OH_ArkUI_ParagraphSty
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_SetLeadingMarginPixelMap()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetLeadingMarginPixelMap(OH_ArkUI_ParagraphStyle* paragraphStyle, struct OH_PixelmapNative* pixelmap)
@@ -3224,6 +3472,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetLeadingMarginPixelMap(OH_ArkUI_Paragr
 
 ### OH_ArkUI_ParagraphStyle_GetLeadingMarginPixelMap()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetLeadingMarginPixelMap(const OH_ArkUI_ParagraphStyle* paragraphStyle, struct OH_PixelmapNative** pixelmap)
 ```
@@ -3248,6 +3498,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetLeadingMarginPixelMap(const OH_ArkUI_
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_SetLeadingMarginWidth()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetLeadingMarginWidth(OH_ArkUI_ParagraphStyle* paragraphStyle, uint32_t width)
@@ -3274,6 +3526,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetLeadingMarginWidth(OH_ArkUI_Paragraph
 
 ### OH_ArkUI_ParagraphStyle_GetLeadingMarginWidth()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetLeadingMarginWidth(const OH_ArkUI_ParagraphStyle* paragraphStyle, uint32_t* width)
 ```
@@ -3298,6 +3552,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetLeadingMarginWidth(const OH_ArkUI_Par
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_SetLeadingMarginHeight()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetLeadingMarginHeight(OH_ArkUI_ParagraphStyle* paragraphStyle, uint32_t height)
@@ -3324,6 +3580,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetLeadingMarginHeight(OH_ArkUI_Paragrap
 
 ### OH_ArkUI_ParagraphStyle_GetLeadingMarginHeight()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetLeadingMarginHeight(const OH_ArkUI_ParagraphStyle* paragraphStyle, uint32_t* height)
 ```
@@ -3348,6 +3606,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetLeadingMarginHeight(const OH_ArkUI_Pa
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_SetParagraphSpacing()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetParagraphSpacing(OH_ArkUI_ParagraphStyle* paragraphStyle, uint32_t paragraphSpacing)
@@ -3374,6 +3634,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetParagraphSpacing(OH_ArkUI_ParagraphSt
 
 ### OH_ArkUI_ParagraphStyle_GetParagraphSpacing()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetParagraphSpacing(const OH_ArkUI_ParagraphStyle* paragraphStyle, uint32_t* paragraphSpacing)
 ```
@@ -3398,6 +3660,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetParagraphSpacing(const OH_ArkUI_Parag
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_SetTextVerticalAlign()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextVerticalAlign(OH_ArkUI_ParagraphStyle* paragraphStyle, ArkUI_TextVerticalAlignment verticalAlignment)
@@ -3424,6 +3688,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextVerticalAlign(OH_ArkUI_ParagraphS
 
 ### OH_ArkUI_ParagraphStyle_GetTextVerticalAlign()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextVerticalAlign(const OH_ArkUI_ParagraphStyle* paragraphStyle, ArkUI_TextVerticalAlignment* verticalAlignment)
 ```
@@ -3448,6 +3714,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextVerticalAlign(const OH_ArkUI_Para
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_RegisterOnDrawLeadingMarginCallback()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_RegisterOnDrawLeadingMarginCallback(OH_ArkUI_ParagraphStyle* paragraphStyle, void(*onDraw)(ArkUI_DrawContext* context, OH_ArkUI_LeadingMarginSpanDrawInfo* drawInfo))
@@ -3474,6 +3742,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_RegisterOnDrawLeadingMarginCallback(OH_A
 
 ### OH_ArkUI_ParagraphStyle_RegisterOnGetLeadingMarginCallback()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_RegisterOnGetLeadingMarginCallback(OH_ArkUI_ParagraphStyle* paragraphStyle, float(*leadingMargin)())
 ```
@@ -3498,6 +3768,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_RegisterOnGetLeadingMarginCallback(OH_Ar
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_SetTextDirection()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextDirection(OH_ArkUI_ParagraphStyle* paragraphStyle, ArkUI_TextDirection textDirection)
@@ -3524,6 +3796,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTextDirection(OH_ArkUI_ParagraphStyle
 
 ### OH_ArkUI_ParagraphStyle_GetTextDirection()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextDirection(const OH_ArkUI_ParagraphStyle* paragraphStyle, ArkUI_TextDirection* textDirection)
 ```
@@ -3549,6 +3823,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTextDirection(const OH_ArkUI_Paragrap
 
 ### OH_ArkUI_GestureStyle_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_GestureStyle* OH_ArkUI_GestureStyle_Create()
 ```
@@ -3570,6 +3846,8 @@ OH_ArkUI_GestureStyle* OH_ArkUI_GestureStyle_Create()
 
 ### OH_ArkUI_GestureStyle_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_GestureStyle_Destroy(OH_ArkUI_GestureStyle* gestureStyle)
 ```
@@ -3587,6 +3865,8 @@ void OH_ArkUI_GestureStyle_Destroy(OH_ArkUI_GestureStyle* gestureStyle)
 |[OH_ArkUI_GestureStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-gesturestyle)* gestureStyle|指向[OH_ArkUI_GestureStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-gesturestyle)对象的指针。|
 
 ### OH_ArkUI_GestureStyle_RegisterOnClickCallback()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_GestureStyle_RegisterOnClickCallback(OH_ArkUI_GestureStyle* gestureStyle, void(*onClick)(ArkUI_NodeEvent*))
@@ -3613,6 +3893,8 @@ ArkUI_ErrorCode OH_ArkUI_GestureStyle_RegisterOnClickCallback(OH_ArkUI_GestureSt
 
 ### OH_ArkUI_GestureStyle_RegisterOnLongPressCallback()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_GestureStyle_RegisterOnLongPressCallback(OH_ArkUI_GestureStyle* gestureStyle, void(*onLongPress)(ArkUI_GestureEvent*))
 ```
@@ -3637,6 +3919,8 @@ ArkUI_ErrorCode OH_ArkUI_GestureStyle_RegisterOnLongPressCallback(OH_ArkUI_Gestu
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_GestureStyle_RegisterOnTouchCallback()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_GestureStyle_RegisterOnTouchCallback(OH_ArkUI_GestureStyle* gestureStyle, void(*onTouch)(ArkUI_NodeEvent*))
@@ -3663,6 +3947,8 @@ ArkUI_ErrorCode OH_ArkUI_GestureStyle_RegisterOnTouchCallback(OH_ArkUI_GestureSt
 
 ### OH_ArkUI_TextShadowStyle_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_TextShadowStyle* OH_ArkUI_TextShadowStyle_Create()
 ```
@@ -3684,6 +3970,8 @@ OH_ArkUI_TextShadowStyle* OH_ArkUI_TextShadowStyle_Create()
 
 ### OH_ArkUI_TextShadowStyle_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_TextShadowStyle_Destroy(OH_ArkUI_TextShadowStyle* textShadowStyle)
 ```
@@ -3701,6 +3989,8 @@ void OH_ArkUI_TextShadowStyle_Destroy(OH_ArkUI_TextShadowStyle* textShadowStyle)
 |[OH_ArkUI_TextShadowStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-textshadowstyle)* textShadowStyle|指向[OH_ArkUI_TextShadowStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-textshadowstyle)对象的指针。|
 
 ### OH_ArkUI_TextShadowStyle_SetTextShadow()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextShadowStyle_SetTextShadow(OH_ArkUI_TextShadowStyle* textShadowStyle, const OH_ArkUI_ShadowOptions** options, uint32_t length)
@@ -3727,6 +4017,8 @@ ArkUI_ErrorCode OH_ArkUI_TextShadowStyle_SetTextShadow(OH_ArkUI_TextShadowStyle*
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextShadowStyle_GetTextShadow()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextShadowStyle_GetTextShadow(const OH_ArkUI_TextShadowStyle* textShadowStyle, OH_ArkUI_ShadowOptions** shadowOptions, uint32_t shadowOptionsSize, uint32_t* writeLength)
@@ -3755,6 +4047,8 @@ ArkUI_ErrorCode OH_ArkUI_TextShadowStyle_GetTextShadow(const OH_ArkUI_TextShadow
 
 ### OH_ArkUI_DecorationStyle_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_DecorationStyle* OH_ArkUI_DecorationStyle_Create()
 ```
@@ -3776,6 +4070,8 @@ OH_ArkUI_DecorationStyle* OH_ArkUI_DecorationStyle_Create()
 
 ### OH_ArkUI_DecorationStyle_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_DecorationStyle_Destroy(OH_ArkUI_DecorationStyle* decorationStyle)
 ```
@@ -3793,6 +4089,8 @@ void OH_ArkUI_DecorationStyle_Destroy(OH_ArkUI_DecorationStyle* decorationStyle)
 |[OH_ArkUI_DecorationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-decorationstyle)* decorationStyle|指向[OH_ArkUI_DecorationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-decorationstyle)对象的指针。|
 
 ### OH_ArkUI_DecorationStyle_SetTextDecorationType()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetTextDecorationType(OH_ArkUI_DecorationStyle* decorationStyle, ArkUI_TextDecorationType type)
@@ -3819,6 +4117,8 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetTextDecorationType(OH_ArkUI_Decorati
 
 ### OH_ArkUI_DecorationStyle_GetTextDecorationType()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetTextDecorationType(const OH_ArkUI_DecorationStyle* decorationStyle, ArkUI_TextDecorationType* type)
 ```
@@ -3843,6 +4143,8 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetTextDecorationType(const OH_ArkUI_De
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_DecorationStyle_SetColor()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetColor(OH_ArkUI_DecorationStyle* decorationStyle, uint32_t color)
@@ -3869,6 +4171,8 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetColor(OH_ArkUI_DecorationStyle* deco
 
 ### OH_ArkUI_DecorationStyle_GetColor()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetColor(const OH_ArkUI_DecorationStyle* decorationStyle, uint32_t* color)
 ```
@@ -3893,6 +4197,8 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetColor(const OH_ArkUI_DecorationStyle
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_DecorationStyle_SetTextDecorationStyle()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetTextDecorationStyle(OH_ArkUI_DecorationStyle* decorationStyle, ArkUI_TextDecorationStyle style)
@@ -3919,6 +4225,8 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetTextDecorationStyle(OH_ArkUI_Decorat
 
 ### OH_ArkUI_DecorationStyle_GetTextDecorationStyle()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetTextDecorationStyle(const OH_ArkUI_DecorationStyle* decorationStyle, ArkUI_TextDecorationStyle* style)
 ```
@@ -3943,6 +4251,8 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetTextDecorationStyle(const OH_ArkUI_D
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_DecorationStyle_SetThicknessScale()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetThicknessScale(OH_ArkUI_DecorationStyle* decorationStyle, float thicknessScale)
@@ -3969,6 +4279,8 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetThicknessScale(OH_ArkUI_DecorationSt
 
 ### OH_ArkUI_DecorationStyle_GetThicknessScale()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetThicknessScale(const OH_ArkUI_DecorationStyle* decorationStyle, float* thicknessScale)
 ```
@@ -3993,6 +4305,8 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetThicknessScale(const OH_ArkUI_Decora
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_DecorationStyle_SetEnableMultiType()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetEnableMultiType(OH_ArkUI_DecorationStyle* decorationStyle, bool enableMultiType)
@@ -4019,6 +4333,8 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_SetEnableMultiType(OH_ArkUI_DecorationS
 
 ### OH_ArkUI_DecorationStyle_GetEnableMultiType()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetEnableMultiType(const OH_ArkUI_DecorationStyle* decorationStyle, bool* enableMultiType)
 ```
@@ -4044,6 +4360,8 @@ ArkUI_ErrorCode OH_ArkUI_DecorationStyle_GetEnableMultiType(const OH_ArkUI_Decor
 
 ### OH_ArkUI_BaselineOffsetStyle_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_BaselineOffsetStyle* OH_ArkUI_BaselineOffsetStyle_Create()
 ```
@@ -4065,6 +4383,8 @@ OH_ArkUI_BaselineOffsetStyle* OH_ArkUI_BaselineOffsetStyle_Create()
 
 ### OH_ArkUI_BaselineOffsetStyle_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_BaselineOffsetStyle_Destroy(OH_ArkUI_BaselineOffsetStyle* baselineOffsetStyle)
 ```
@@ -4082,6 +4402,8 @@ void OH_ArkUI_BaselineOffsetStyle_Destroy(OH_ArkUI_BaselineOffsetStyle* baseline
 |[OH_ArkUI_BaselineOffsetStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-baselineoffsetstyle)* baselineOffsetStyle|指向[OH_ArkUI_BaselineOffsetStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-baselineoffsetstyle)对象的指针。|
 
 ### OH_ArkUI_BaselineOffsetStyle_SetBaselineOffset()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_BaselineOffsetStyle_SetBaselineOffset(OH_ArkUI_BaselineOffsetStyle* baselineOffsetStyle, float baselineOffset)
@@ -4108,6 +4430,8 @@ ArkUI_ErrorCode OH_ArkUI_BaselineOffsetStyle_SetBaselineOffset(OH_ArkUI_Baseline
 
 ### OH_ArkUI_BaselineOffsetStyle_GetBaselineOffset()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_BaselineOffsetStyle_GetBaselineOffset(const OH_ArkUI_BaselineOffsetStyle* baselineOffsetStyle, float* baselineOffset)
 ```
@@ -4133,6 +4457,8 @@ ArkUI_ErrorCode OH_ArkUI_BaselineOffsetStyle_GetBaselineOffset(const OH_ArkUI_Ba
 
 ### OH_ArkUI_LetterSpacingStyle_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_LetterSpacingStyle* OH_ArkUI_LetterSpacingStyle_Create()
 ```
@@ -4154,6 +4480,8 @@ OH_ArkUI_LetterSpacingStyle* OH_ArkUI_LetterSpacingStyle_Create()
 
 ### OH_ArkUI_LetterSpacingStyle_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_LetterSpacingStyle_Destroy(OH_ArkUI_LetterSpacingStyle* letterSpacingStyle)
 ```
@@ -4171,6 +4499,8 @@ void OH_ArkUI_LetterSpacingStyle_Destroy(OH_ArkUI_LetterSpacingStyle* letterSpac
 |[OH_ArkUI_LetterSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-letterspacingstyle)* letterSpacingStyle|指向[OH_ArkUI_LetterSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-letterspacingstyle)对象的指针。|
 
 ### OH_ArkUI_LetterSpacingStyle_SetLetterSpacing()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LetterSpacingStyle_SetLetterSpacing(OH_ArkUI_LetterSpacingStyle* letterSpacingStyle, float letterSpacing)
@@ -4197,6 +4527,8 @@ ArkUI_ErrorCode OH_ArkUI_LetterSpacingStyle_SetLetterSpacing(OH_ArkUI_LetterSpac
 
 ### OH_ArkUI_LetterSpacingStyle_GetLetterSpacing()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LetterSpacingStyle_GetLetterSpacing(const OH_ArkUI_LetterSpacingStyle* letterSpacingStyle, float* letterSpacing)
 ```
@@ -4222,6 +4554,8 @@ ArkUI_ErrorCode OH_ArkUI_LetterSpacingStyle_GetLetterSpacing(const OH_ArkUI_Lett
 
 ### OH_ArkUI_LineHeightStyle_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_LineHeightStyle* OH_ArkUI_LineHeightStyle_Create()
 ```
@@ -4243,6 +4577,8 @@ OH_ArkUI_LineHeightStyle* OH_ArkUI_LineHeightStyle_Create()
 
 ### OH_ArkUI_LineHeightStyle_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_LineHeightStyle_Destroy(OH_ArkUI_LineHeightStyle* lineHeightStyle)
 ```
@@ -4260,6 +4596,8 @@ void OH_ArkUI_LineHeightStyle_Destroy(OH_ArkUI_LineHeightStyle* lineHeightStyle)
 |[OH_ArkUI_LineHeightStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-lineheightstyle)* lineHeightStyle|指向[OH_ArkUI_LineHeightStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-lineheightstyle)对象的指针。|
 
 ### OH_ArkUI_LineHeightStyle_SetLineHeight()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_SetLineHeight(OH_ArkUI_LineHeightStyle* lineHeightStyle, float lineHeight)
@@ -4289,6 +4627,8 @@ ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_SetLineHeight(OH_ArkUI_LineHeightStyle*
 
 ### OH_ArkUI_LineHeightStyle_GetLineHeight()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_GetLineHeight(const OH_ArkUI_LineHeightStyle* lineHeightStyle, float* lineHeight)
 ```
@@ -4313,6 +4653,8 @@ ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_GetLineHeight(const OH_ArkUI_LineHeight
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_LineHeightStyle_SetLineHeightMultiple()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_SetLineHeightMultiple(OH_ArkUI_LineHeightStyle* lineHeightStyle, float lineHeightMultiple)
@@ -4348,6 +4690,8 @@ ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_SetLineHeightMultiple(OH_ArkUI_LineHeig
 
 ### OH_ArkUI_LineHeightStyle_GetLineHeightMultiple()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_GetLineHeightMultiple(const OH_ArkUI_LineHeightStyle* lineHeightStyle, float* lineHeightMultiple)
 ```
@@ -4372,6 +4716,8 @@ ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_GetLineHeightMultiple(const OH_ArkUI_Li
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_SpanStyle_SetLineSpacingStyle()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLineSpacingStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_LineSpacingStyle* lineSpacingStyle)
@@ -4401,6 +4747,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLineSpacingStyle(OH_ArkUI_SpanStyle* spanS
 
 ### OH_ArkUI_SpanStyle_GetLineSpacingStyle()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLineSpacingStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_LineSpacingStyle* lineSpacingStyle)
 ```
@@ -4426,6 +4774,8 @@ ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLineSpacingStyle(const OH_ArkUI_SpanStyle*
 
 ### OH_ArkUI_LineSpacingStyle_Create()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 OH_ArkUI_LineSpacingStyle* OH_ArkUI_LineSpacingStyle_Create()
 ```
@@ -4447,6 +4797,8 @@ OH_ArkUI_LineSpacingStyle* OH_ArkUI_LineSpacingStyle_Create()
 
 ### OH_ArkUI_LineSpacingStyle_Destroy()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 void OH_ArkUI_LineSpacingStyle_Destroy(OH_ArkUI_LineSpacingStyle* lineSpacingStyle)
 ```
@@ -4464,6 +4816,8 @@ void OH_ArkUI_LineSpacingStyle_Destroy(OH_ArkUI_LineSpacingStyle* lineSpacingSty
 |[OH_ArkUI_LineSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-linespacingstyle)* lineSpacingStyle|指向[OH_ArkUI_LineSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-linespacingstyle)对象的指针。|
 
 ### OH_ArkUI_LineSpacingStyle_SetLineSpacing()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_SetLineSpacing(OH_ArkUI_LineSpacingStyle* lineSpacingStyle, float lineSpacing)
@@ -4493,6 +4847,8 @@ ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_SetLineSpacing(OH_ArkUI_LineSpacingSty
 
 ### OH_ArkUI_LineSpacingStyle_GetLineSpacing()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetLineSpacing(const OH_ArkUI_LineSpacingStyle* lineSpacingStyle, float* lineSpacing)
 ```
@@ -4517,6 +4873,8 @@ ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetLineSpacing(const OH_ArkUI_LineSpac
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines(OH_ArkUI_LineSpacingStyle* lineSpacingStyle, bool onlyBetweenLines)
@@ -4543,6 +4901,8 @@ ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines(OH_ArkUI_LineSpaci
 
 ### OH_ArkUI_LineSpacingStyle_GetOnlyBetweenLines()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetOnlyBetweenLines(const OH_ArkUI_LineSpacingStyle* lineSpacingStyle, bool* onlyBetweenLines)
 ```
@@ -4568,6 +4928,8 @@ ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetOnlyBetweenLines(const OH_ArkUI_Lin
 
 ### OH_ArkUI_BackgroundColorStyle_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_BackgroundColorStyle* OH_ArkUI_BackgroundColorStyle_Create()
 ```
@@ -4589,6 +4951,8 @@ OH_ArkUI_BackgroundColorStyle* OH_ArkUI_BackgroundColorStyle_Create()
 
 ### OH_ArkUI_BackgroundColorStyle_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_BackgroundColorStyle_Destroy(OH_ArkUI_BackgroundColorStyle* style)
 ```
@@ -4606,6 +4970,8 @@ void OH_ArkUI_BackgroundColorStyle_Destroy(OH_ArkUI_BackgroundColorStyle* style)
 |[OH_ArkUI_BackgroundColorStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-backgroundcolorstyle)* style|指向[OH_ArkUI_BackgroundColorStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-backgroundcolorstyle)对象的指针。|
 
 ### OH_ArkUI_BackgroundColorStyle_SetColor()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_SetColor(OH_ArkUI_BackgroundColorStyle* style, uint32_t color)
@@ -4632,6 +4998,8 @@ ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_SetColor(OH_ArkUI_BackgroundColorS
 
 ### OH_ArkUI_BackgroundColorStyle_GetColor()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_GetColor(const OH_ArkUI_BackgroundColorStyle* style, uint32_t* color)
 ```
@@ -4656,6 +5024,8 @@ ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_GetColor(const OH_ArkUI_Background
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_BackgroundColorStyle_SetRadius()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_SetRadius(OH_ArkUI_BackgroundColorStyle* style, float topLeft, float topRight, float bottomLeft, float bottomRight)
@@ -4685,6 +5055,8 @@ ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_SetRadius(OH_ArkUI_BackgroundColor
 
 ### OH_ArkUI_BackgroundColorStyle_GetRadius()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_GetRadius(const OH_ArkUI_BackgroundColorStyle* style, float* topLeft, float* topRight, float* bottomLeft, float* bottomRight)
 ```
@@ -4713,6 +5085,8 @@ ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_GetRadius(const OH_ArkUI_Backgroun
 
 ### OH_ArkUI_UrlStyle_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_UrlStyle* OH_ArkUI_UrlStyle_Create()
 ```
@@ -4734,6 +5108,8 @@ OH_ArkUI_UrlStyle* OH_ArkUI_UrlStyle_Create()
 
 ### OH_ArkUI_UrlStyle_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_UrlStyle_Destroy(OH_ArkUI_UrlStyle* style)
 ```
@@ -4751,6 +5127,8 @@ void OH_ArkUI_UrlStyle_Destroy(OH_ArkUI_UrlStyle* style)
 |[OH_ArkUI_UrlStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-urlstyle)* style|指向[OH_ArkUI_UrlStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-urlstyle)对象的指针。|
 
 ### OH_ArkUI_UrlStyle_SetUrl()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_UrlStyle_SetUrl(OH_ArkUI_UrlStyle* style, const char* url)
@@ -4776,6 +5154,8 @@ ArkUI_ErrorCode OH_ArkUI_UrlStyle_SetUrl(OH_ArkUI_UrlStyle* style, const char* u
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_UrlStyle_GetUrl()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_UrlStyle_GetUrl(const OH_ArkUI_UrlStyle* style, char* buffer, int32_t bufferSize, int32_t* writeLength)
@@ -4804,6 +5184,8 @@ ArkUI_ErrorCode OH_ArkUI_UrlStyle_GetUrl(const OH_ArkUI_UrlStyle* style, char* b
 
 ### OH_ArkUI_UserDataSpan_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_UserDataSpan* OH_ArkUI_UserDataSpan_Create()
 ```
@@ -4825,6 +5207,8 @@ OH_ArkUI_UserDataSpan* OH_ArkUI_UserDataSpan_Create()
 
 ### OH_ArkUI_UserDataSpan_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_UserDataSpan_Destroy(OH_ArkUI_UserDataSpan* userDataSpan)
 ```
@@ -4842,6 +5226,8 @@ void OH_ArkUI_UserDataSpan_Destroy(OH_ArkUI_UserDataSpan* userDataSpan)
 |[OH_ArkUI_UserDataSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-userdataspan)* userDataSpan|指向[OH_ArkUI_UserDataSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-userdataspan)对象的指针。|
 
 ### OH_ArkUI_UserDataSpan_SetUserData()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_UserDataSpan_SetUserData(OH_ArkUI_UserDataSpan* userDataSpan, void* userData)
@@ -4871,6 +5257,8 @@ ArkUI_ErrorCode OH_ArkUI_UserDataSpan_SetUserData(OH_ArkUI_UserDataSpan* userDat
 
 ### OH_ArkUI_UserDataSpan_GetUserData()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_UserDataSpan_GetUserData(const OH_ArkUI_UserDataSpan* userDataSpan, void** userData)
 ```
@@ -4896,6 +5284,8 @@ ArkUI_ErrorCode OH_ArkUI_UserDataSpan_GetUserData(const OH_ArkUI_UserDataSpan* u
 
 ### OH_ArkUI_CustomSpan_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_CustomSpan* OH_ArkUI_CustomSpan_Create()
 ```
@@ -4917,6 +5307,8 @@ OH_ArkUI_CustomSpan* OH_ArkUI_CustomSpan_Create()
 
 ### OH_ArkUI_CustomSpan_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_CustomSpan_Destroy(OH_ArkUI_CustomSpan* customSpan)
 ```
@@ -4934,6 +5326,8 @@ void OH_ArkUI_CustomSpan_Destroy(OH_ArkUI_CustomSpan* customSpan)
 |[OH_ArkUI_CustomSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-customspan)* customSpan|指向[OH_ArkUI_CustomSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-customspan)对象的指针。|
 
 ### OH_ArkUI_CustomSpan_RegisterOnMeasureCallback()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_CustomSpan_RegisterOnMeasureCallback(OH_ArkUI_CustomSpan* customSpan, ArkUI_CustomSpanMetrics*(*onMeasure)(float))
@@ -4960,6 +5354,8 @@ ArkUI_ErrorCode OH_ArkUI_CustomSpan_RegisterOnMeasureCallback(OH_ArkUI_CustomSpa
 
 ### OH_ArkUI_CustomSpan_RegisterOnDrawCallback()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_CustomSpan_RegisterOnDrawCallback(OH_ArkUI_CustomSpan* customSpan, void(*onDraw)(ArkUI_DrawContext*, ArkUI_CustomSpanDrawInfo*))
 ```
@@ -4985,6 +5381,8 @@ ArkUI_ErrorCode OH_ArkUI_CustomSpan_RegisterOnDrawCallback(OH_ArkUI_CustomSpan* 
 
 ### OH_ArkUI_ImageAttachment_Create()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_ArkUI_ImageAttachment* OH_ArkUI_ImageAttachment_Create()
 ```
@@ -5006,6 +5404,8 @@ OH_ArkUI_ImageAttachment* OH_ArkUI_ImageAttachment_Create()
 
 ### OH_ArkUI_ImageAttachment_Destroy()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_ArkUI_ImageAttachment_Destroy(OH_ArkUI_ImageAttachment* imageAttachment)
 ```
@@ -5023,6 +5423,8 @@ void OH_ArkUI_ImageAttachment_Destroy(OH_ArkUI_ImageAttachment* imageAttachment)
 |[OH_ArkUI_ImageAttachment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-imageattachment)* imageAttachment|指向[OH_ArkUI_ImageAttachment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-imageattachment)对象的指针。|
 
 ### OH_ArkUI_ImageAttachment_SetPixelMap()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetPixelMap(OH_ArkUI_ImageAttachment* imageAttachment, struct OH_PixelmapNative* pixelmap)
@@ -5052,6 +5454,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetPixelMap(OH_ArkUI_ImageAttachment* i
 
 ### OH_ArkUI_ImageAttachment_GetPixelMap()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetPixelMap(const OH_ArkUI_ImageAttachment* imageAttachment, struct OH_PixelmapNative** pixelmap)
 ```
@@ -5076,6 +5480,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetPixelMap(const OH_ArkUI_ImageAttachm
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ImageAttachment_SetResource()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetResource(OH_ArkUI_ImageAttachment* imageAttachment, const char* resource)
@@ -5105,6 +5511,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetResource(OH_ArkUI_ImageAttachment* i
 
 ### OH_ArkUI_ImageAttachment_GetResource()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetResource(const OH_ArkUI_ImageAttachment* imageAttachment, char* buffer, int32_t bufferSize, int32_t* writeLength)
 ```
@@ -5132,6 +5540,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetResource(const OH_ArkUI_ImageAttachm
 
 ### OH_ArkUI_ImageAttachment_SetSizeWidth()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSizeWidth(OH_ArkUI_ImageAttachment* imageAttachment, float width)
 ```
@@ -5156,6 +5566,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSizeWidth(OH_ArkUI_ImageAttachment* 
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ImageAttachment_GetSizeWidth()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSizeWidth(const OH_ArkUI_ImageAttachment* imageAttachment, float* width)
@@ -5182,6 +5594,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSizeWidth(const OH_ArkUI_ImageAttach
 
 ### OH_ArkUI_ImageAttachment_SetSizeHeight()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSizeHeight(OH_ArkUI_ImageAttachment* imageAttachment, float height)
 ```
@@ -5206,6 +5620,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSizeHeight(OH_ArkUI_ImageAttachment*
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ImageAttachment_GetSizeHeight()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSizeHeight(const OH_ArkUI_ImageAttachment* imageAttachment, float* height)
@@ -5232,6 +5648,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSizeHeight(const OH_ArkUI_ImageAttac
 
 ### OH_ArkUI_ImageAttachment_SetVerticalAlign()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetVerticalAlign(OH_ArkUI_ImageAttachment* imageAttachment, ArkUI_ImageSpanAlignment verticalAlign)
 ```
@@ -5256,6 +5674,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetVerticalAlign(OH_ArkUI_ImageAttachme
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ImageAttachment_GetVerticalAlign()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetVerticalAlign(const OH_ArkUI_ImageAttachment* imageAttachment, ArkUI_ImageSpanAlignment* verticalAlign)
@@ -5282,6 +5702,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetVerticalAlign(const OH_ArkUI_ImageAt
 
 ### OH_ArkUI_ImageAttachment_SetObjectFit()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetObjectFit(OH_ArkUI_ImageAttachment* imageAttachment, ArkUI_ObjectFit objectFit)
 ```
@@ -5306,6 +5728,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetObjectFit(OH_ArkUI_ImageAttachment* 
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ImageAttachment_GetObjectFit()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetObjectFit(const OH_ArkUI_ImageAttachment* imageAttachment, ArkUI_ObjectFit* objectFit)
@@ -5332,6 +5756,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetObjectFit(const OH_ArkUI_ImageAttach
 
 ### OH_ArkUI_ImageAttachment_SetMargin()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetMargin(OH_ArkUI_ImageAttachment* imageAttachment, ArkUI_Margin margin)
 ```
@@ -5356,6 +5782,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetMargin(OH_ArkUI_ImageAttachment* ima
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ImageAttachment_GetMargin()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetMargin(const OH_ArkUI_ImageAttachment* imageAttachment, ArkUI_Margin* margin)
@@ -5382,6 +5810,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetMargin(const OH_ArkUI_ImageAttachmen
 
 ### OH_ArkUI_ImageAttachment_SetPadding()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetPadding(OH_ArkUI_ImageAttachment* imageAttachment, ArkUI_Margin padding)
 ```
@@ -5407,6 +5837,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetPadding(OH_ArkUI_ImageAttachment* im
 
 ### OH_ArkUI_ImageAttachment_GetPadding()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetPadding(const OH_ArkUI_ImageAttachment* imageAttachment, ArkUI_Margin* padding)
 ```
@@ -5431,6 +5863,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetPadding(const OH_ArkUI_ImageAttachme
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ImageAttachment_SetBorderRadiuses()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetBorderRadiuses(OH_ArkUI_ImageAttachment* imageAttachment, float topLeft, float topRight, float bottomLeft, float bottomRight)
@@ -5460,6 +5894,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetBorderRadiuses(OH_ArkUI_ImageAttachm
 
 ### OH_ArkUI_ImageAttachment_GetBorderRadiuses()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetBorderRadiuses(const OH_ArkUI_ImageAttachment* imageAttachment, float* topLeft, float* topRight, float* bottomLeft, float* bottomRight)
 ```
@@ -5487,6 +5923,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetBorderRadiuses(const OH_ArkUI_ImageA
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ImageAttachment_SetColorFilter()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetColorFilter(OH_ArkUI_ImageAttachment* imageAttachment, const float* colorFilter, uint32_t size)
@@ -5517,6 +5955,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetColorFilter(OH_ArkUI_ImageAttachment
 
 ### OH_ArkUI_ImageAttachment_GetColorFilter()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetColorFilter(const OH_ArkUI_ImageAttachment* imageAttachment, float** colorFilter, uint32_t colorFilterSize, uint32_t* writeLength)
 ```
@@ -5543,6 +5983,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetColorFilter(const OH_ArkUI_ImageAtta
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。 [ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 缓冲区大小不足。|
 
 ### OH_ArkUI_ImageAttachment_SetDrawingColorFilter()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetDrawingColorFilter(OH_ArkUI_ImageAttachment* imageAttachment, const OH_Drawing_ColorFilter* drawingColorFilter)
@@ -5572,6 +6014,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetDrawingColorFilter(OH_ArkUI_ImageAtt
 
 ### OH_ArkUI_ImageAttachment_GetDrawingColorFilter()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetDrawingColorFilter(const OH_ArkUI_ImageAttachment* imageAttachment, OH_Drawing_ColorFilter* drawingColorFilter)
 ```
@@ -5596,6 +6040,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetDrawingColorFilter(const OH_ArkUI_Im
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ImageAttachment_SetSyncLoad()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSyncLoad(OH_ArkUI_ImageAttachment* imageAttachment, bool syncLoad)
@@ -5625,6 +6071,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSyncLoad(OH_ArkUI_ImageAttachment* i
 
 ### OH_ArkUI_ImageAttachment_GetSyncLoad()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSyncLoad(const OH_ArkUI_ImageAttachment* imageAttachment, bool* syncLoad)
 ```
@@ -5649,6 +6097,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSyncLoad(const OH_ArkUI_ImageAttachm
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ImageAttachment_SetSupportSvg()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSupportSvg(OH_ArkUI_ImageAttachment* imageAttachment, bool supportSvg)
@@ -5675,6 +6125,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_SetSupportSvg(OH_ArkUI_ImageAttachment*
 
 ### OH_ArkUI_ImageAttachment_GetSupportSvg()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSupportSvg(const OH_ArkUI_ImageAttachment* imageAttachment, bool* supportSvg)
 ```
@@ -5699,6 +6151,8 @@ ArkUI_ErrorCode OH_ArkUI_ImageAttachment_GetSupportSvg(const OH_ArkUI_ImageAttac
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextEditorChangeEvent_GetRangeBefore()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextEditorChangeEvent_GetRangeBefore(const OH_ArkUI_TextEditorChangeEvent* event, uint32_t* start, uint32_t* end)
@@ -5726,6 +6180,8 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorChangeEvent_GetRangeBefore(const OH_ArkUI_Tex
 
 ### OH_ArkUI_TextEditorChangeEvent_GetReplacementStyledString()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextEditorChangeEvent_GetReplacementStyledString(const OH_ArkUI_TextEditorChangeEvent* event, ArkUI_StyledString_Descriptor* descriptor)
 ```
@@ -5750,6 +6206,8 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorChangeEvent_GetReplacementStyledString(const 
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 操作成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextEditorChangeEvent_GetPreviewStyledString()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextEditorChangeEvent_GetPreviewStyledString(const OH_ArkUI_TextEditorChangeEvent* event, ArkUI_StyledString_Descriptor* descriptor)
@@ -5776,6 +6234,8 @@ ArkUI_ErrorCode OH_ArkUI_TextEditorChangeEvent_GetPreviewStyledString(const OH_A
 
 ### OH_ArkUI_TextLayoutManager_Dispose()
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 ```c
 void OH_ArkUI_TextLayoutManager_Dispose(ArkUI_TextLayoutManager* layoutManager)
 ```
@@ -5793,6 +6253,8 @@ void OH_ArkUI_TextLayoutManager_Dispose(ArkUI_TextLayoutManager* layoutManager)
 |[ArkUI_TextLayoutManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textlayoutmanager)* layoutManager|指向ArkUI_TextLayoutManager对象的指针。|
 
 ### OH_ArkUI_TextLayoutManager_GetLineCount()
+
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetLineCount(ArkUI_TextLayoutManager* layoutManager, int32_t* outLineCount)
@@ -5818,6 +6280,8 @@ ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetLineCount(ArkUI_TextLayoutManager*
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextLayoutManager_GetRectsForRange()
+
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetRectsForRange(ArkUI_TextLayoutManager* layoutManager, int32_t start, int32_t end, OH_Drawing_RectWidthStyle widthStyle, OH_Drawing_RectHeightStyle heightStyle, OH_Drawing_TextBox** outTextBoxes)
@@ -5848,6 +6312,8 @@ ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetRectsForRange(ArkUI_TextLayoutMana
 
 ### OH_ArkUI_TextLayoutManager_GetGlyphPositionAtCoordinate()
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetGlyphPositionAtCoordinate(ArkUI_TextLayoutManager* layoutManager, double dx, double dy, OH_Drawing_PositionAndAffinity** outPos)
 ```
@@ -5875,6 +6341,8 @@ ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetGlyphPositionAtCoordinate(ArkUI_Te
 
 ### OH_ArkUI_TextLayoutManager_GetLineMetrics()
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetLineMetrics(ArkUI_TextLayoutManager* layoutManager, int32_t lineNumber, OH_Drawing_LineMetrics* outMetrics)
 ```
@@ -5900,6 +6368,8 @@ ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetLineMetrics(ArkUI_TextLayoutManage
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinate()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinate(ArkUI_TextLayoutManager* layoutManager, double dx, double dy, OH_Drawing_PositionAndAffinity** outPos)
@@ -5930,6 +6400,8 @@ ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinate(ArkU
 
 ### OH_ArkUI_TextLayoutManager_GetGlyphRangeForCharacterRange()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetGlyphRangeForCharacterRange(ArkUI_TextLayoutManager* layoutManager, OH_Drawing_Range* charRange, OH_Drawing_Range** outGlyphRange,
 OH_Drawing_Range** outActualCharRange);
@@ -5957,6 +6429,8 @@ OH_Drawing_Range** outActualCharRange);
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextLayoutManager_GetCharacterRangeForGlyphRange()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetCharacterRangeForGlyphRange(ArkUI_TextLayoutManager* layoutManager, OH_Drawing_Range* glyphRange, OH_Drawing_Range** outCharRange,
@@ -5986,6 +6460,8 @@ OH_Drawing_Range** outActualGlyphRange)
 
 ### OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinateWithEncoding()
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinateWithEncoding(ArkUI_TextLayoutManager* layoutManager, double dx, double dy, OH_ArkUI_TextEncoding encoding, OH_Drawing_PositionAndAffinity** outPos)
 ```
@@ -6013,6 +6489,8 @@ ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinateWithE
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_TextLayoutManager_GetGlyphRangeForCharacterRangeWithEncoding()
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetGlyphRangeForCharacterRangeWithEncoding(ArkUI_TextLayoutManager* layoutManager, OH_Drawing_Range* charRange, OH_ArkUI_TextEncoding encoding,
@@ -6046,6 +6524,8 @@ OH_Drawing_Range** outGlyphRange, OH_Drawing_Range** outActualCharRange)
 
 ### OH_ArkUI_TextLayoutManager_GetCharacterRangeForGlyphRangeWithEncoding()
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_TextLayoutManager_GetCharacterRangeForGlyphRangeWithEncoding(ArkUI_TextLayoutManager* layoutManager, OH_Drawing_Range* glyphRange, OH_ArkUI_TextEncoding encoding,
 OH_Drawing_Range** outCharRange, OH_Drawing_Range** outActualGlyphRange)
@@ -6078,6 +6558,8 @@ OH_Drawing_Range** outCharRange, OH_Drawing_Range** outActualGlyphRange)
 
 ### OH_ArkUI_ParagraphStyle_SetLinearGradient()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetLinearGradient(OH_ArkUI_ParagraphStyle* paragraphStyle, const OH_ArkUI_LinearGradientOptions* linearGradient)
 ```
@@ -6102,6 +6584,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetLinearGradient(OH_ArkUI_ParagraphStyl
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_GetLinearGradient()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetLinearGradient(const OH_ArkUI_ParagraphStyle* paragraphStyle, OH_ArkUI_LinearGradientOptions* linearGradient)
@@ -6128,6 +6612,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetLinearGradient(const OH_ArkUI_Paragra
 
 ### OH_ArkUI_ParagraphStyle_SetRadialGradient()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetRadialGradient(OH_ArkUI_ParagraphStyle* paragraphStyle, const OH_ArkUI_RadialGradientOptions* radialGradient)
 ```
@@ -6153,6 +6639,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetRadialGradient(OH_ArkUI_ParagraphStyl
 
 ### OH_ArkUI_ParagraphStyle_GetRadialGradient()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetRadialGradient(const OH_ArkUI_ParagraphStyle* paragraphStyle, OH_ArkUI_RadialGradientOptions* radialGradient)
 ```
@@ -6177,6 +6665,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetRadialGradient(const OH_ArkUI_Paragra
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_SetTailIndents()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTailIndents(OH_ArkUI_ParagraphStyle* paragraphStyle, const float* tailIndents, uint32_t size)
@@ -6206,6 +6696,8 @@ ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_SetTailIndents(OH_ArkUI_ParagraphStyle* 
 |[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode)|返回结果。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 函数参数异常。|
 
 ### OH_ArkUI_ParagraphStyle_GetTailIndents()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 ArkUI_ErrorCode OH_ArkUI_ParagraphStyle_GetTailIndents(const OH_ArkUI_ParagraphStyle* paragraphStyle, float** tailIndents, uint32_t tailIndentsSize, uint32_t* writeLength)

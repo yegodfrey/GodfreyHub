@@ -20,7 +20,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-auth-login-linkac
 > * 关联账号前，需要为应用增加对两个或多个身份验证提供方（可以包括匿名身份验证）的支持。
 > * 关联的认证方式只能有一个账号，例如手机账号关联邮箱账号，只能关联一个邮箱账号，不能关联多个。另外被关联的账号需要没有登录过应用，例如已经通过认证服务登录过的邮箱账号也无法进行关联。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/R6I3HOfsTMKjtIkT6BWpXA/zh-cn_image_0000002236506122.png?HW-CC-KV=V1&HW-CC-Date=20260916T032632Z&HW-CC-Expire=31536000000&HW-CC-Sign=F364FA787425B537F56CDEA557BA039ACFA81A227ECE131F5A6E3F7E9842BF24 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/R6I3HOfsTMKjtIkT6BWpXA/zh-cn_image_0000002236506122.png?HW-CC-KV=V1&HW-CC-Date=20261008T155521Z&HW-CC-Expire=31536000000&HW-CC-Sign=68065AD1860071EEC3F60F722B173251B0A2C1B4540F925F996B461E7B86CC33 "点击放大")
 
 1. 使用任意身份验证提供方让用户登录，如使用手机号的认证方式进行登录。
 2. 调用[AuthUser.link](https://developer.huawei.com/consumer/cn/doc/app/agc-help-auth-api-authuser-0000002273781645#section27316362445)关联用户新的认证方式。关联成功后，即可以使用任意一个提供方的凭证来登录相同的AGC账号。

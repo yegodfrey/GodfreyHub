@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avpl
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义AVPlayer的结构体和枚举。
 
 **引用文件：** <multimedia/player_framework/avplayer_base.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avpl
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,6 +40,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avpl
 |[OH_AVPlaybackStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-oh-avplaybackstrategy)|OH_AVPlaybackStrategy|音视频播放策略的结构体类型。|
 
 ### 枚举
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:--------------------------------------------------|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -47,6 +55,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avpl
 
 ### 函数
 
+> phone | 2in1 | tablet | tv | wearable
+
 |名称|typedef关键字|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:--------------------------------------------------------------------------------------------------------|
 |[typedef void (*OH_AVPlayerOnInfo)(OH_AVPlayer *player, AVPlayerOnInfoType type, int32_t extra)](#oh_avplayeroninfo)|OH_AVPlayerOnInfo|收到播放器消息时调用。 从API version 12开始废弃。|
@@ -59,6 +69,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avpl
 |[typedef void (*OH_AVPlayerPCMProcessorCallback)(OH_AVPlayer *player, OH_AVBuffer *pcmBuffer, void *userData)](#oh_avplayerpcmprocessorcallback)|OH_AVPlayerPCMProcessorCallback|用于获取待进行后处理的音频PCM数据的回调处理函数。AVPlayer需要使用处理后的数据进行音频播放，且处理必须及时完成，否则会阻塞播放。 使用本方法期间请勿更改采样率、声道数或采样格式，避免数据获取出现异常。|
 
 ### 变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -111,7 +123,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avpl
 
 ## 枚举类型说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### AVPlayerState
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 enum AVPlayerState
@@ -137,6 +153,8 @@ enum AVPlayerState
 
 ### AVPlayerSeekMode
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 enum AVPlayerSeekMode
 ```
@@ -155,6 +173,8 @@ enum AVPlayerSeekMode
 |AV_SEEK_CONTINUOUS = 3|连续拖动模式下的跳转（seek）。该模式可提供更流畅的拖拽体验，但要求设备支持对当前流执行连续跳转。在调用连续跳转前，请先检查是否支持，参见[OH_AVPlayer_IsSeekContinuousSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-h#oh_avplayer_isseekcontinuoussupported)。 **起始版本：** 23|
 
 ### AVPlaybackSpeed
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 enum AVPlaybackSpeed
@@ -180,6 +200,8 @@ enum AVPlaybackSpeed
 |AV_SPEED_FORWARD_0_125_X|0.125倍速播放。 **起始版本：** 13|
 
 ### AVPlayerOnInfoType
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 enum AVPlayerOnInfoType
@@ -222,6 +244,8 @@ OnInfo类型。
 
 ### AVPlayerBufferingType
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 enum AVPlayerBufferingType
 ```
@@ -241,6 +265,8 @@ enum AVPlayerBufferingType
 
 ### AVPlayerTrackSwitchMode
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 ```c
 enum AVPlayerTrackSwitchMode
 ```
@@ -259,6 +285,8 @@ enum AVPlayerTrackSwitchMode
 
 ### OH_VideoOutputResult
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 enum OH_VideoOutputResult
 ```
@@ -276,7 +304,11 @@ enum OH_VideoOutputResult
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_AVPlayerOnInfo()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 typedef void (*OH_AVPlayerOnInfo)(OH_AVPlayer *player, AVPlayerOnInfoType type, int32_t extra)
@@ -325,6 +357,8 @@ typedef void (*OH_AVPlayerOnInfo)(OH_AVPlayer *player, AVPlayerOnInfoType type, 
 
 ### OH_AVPlayerOnInfoCallback()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 typedef void (*OH_AVPlayerOnInfoCallback)(OH_AVPlayer *player, AVPlayerOnInfoType type, OH_AVFormat* infoBody, void *userData)
 ```
@@ -345,6 +379,8 @@ typedef void (*OH_AVPlayerOnInfoCallback)(OH_AVPlayer *player, AVPlayerOnInfoTyp
 |void *userData|原样返回用户设置回调时传入的userData数据。|
 
 ### OH_AVPlayerOnError()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 typedef void (*OH_AVPlayerOnError)(OH_AVPlayer *player, int32_t errorCode, const char *errorMsg)
@@ -370,6 +406,8 @@ typedef void (*OH_AVPlayerOnError)(OH_AVPlayer *player, int32_t errorCode, const
 
 ### OH_AVPlayerOnErrorCallback()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 typedef void (*OH_AVPlayerOnErrorCallback)(OH_AVPlayer *player, int32_t errorCode, const char *errorMsg, void *userData)
 ```
@@ -390,6 +428,8 @@ typedef void (*OH_AVPlayerOnErrorCallback)(OH_AVPlayer *player, int32_t errorCod
 |void *userData|原样返回用户设置回调时传入的userData数据。|
 
 ### OH_AVPlayerOnAmplitudeUpdateCallback()
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 ```c
 typedef void (*OH_AVPlayerOnAmplitudeUpdateCallback)(OH_AVPlayer *player, double *amplitudes, uint32_t size, void *userData)
@@ -416,6 +456,8 @@ typedef void (*OH_AVPlayerOnAmplitudeUpdateCallback)(OH_AVPlayer *player, double
 
 ### OH_AVPlayerOnSeiMessageReceivedCallback()
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 ```c
 typedef void (*OH_AVPlayerOnSeiMessageReceivedCallback)(OH_AVPlayer *player, OH_AVSeiMessageArray *message, int32_t playbackPosition, void *userData)
 ```
@@ -441,6 +483,8 @@ typedef void (*OH_AVPlayerOnSeiMessageReceivedCallback)(OH_AVPlayer *player, OH_
 
 ### OH_AVPlayerPCMOutputCallback()
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 ```c
 typedef void (*OH_AVPlayerPCMOutputCallback)(OH_AVPlayer *player, OH_AVBuffer *pcmBuffer, void *userData)
 ```
@@ -464,6 +508,8 @@ typedef void (*OH_AVPlayerPCMOutputCallback)(OH_AVPlayer *player, OH_AVBuffer *p
 |void *userData|指向用户指定数据的指针。|
 
 ### OH_AVPlayerPCMProcessorCallback()
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```c
 typedef void (*OH_AVPlayerPCMProcessorCallback)(OH_AVPlayer *player, OH_AVBuffer *pcmBuffer, void *userData)

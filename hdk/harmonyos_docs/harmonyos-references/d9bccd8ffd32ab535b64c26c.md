@@ -17,6 +17,8 @@ CompletionHandler作为[StartOptions](https://developer.huawei.com/consumer/cn/d
 
 ## 约束限制
 
+> phone | 2in1 | tablet | tv | wearable
+
 当前支持使用该模块的接口包括：
 
 * [startAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability-2)
@@ -27,15 +29,21 @@ CompletionHandler作为[StartOptions](https://developer.huawei.com/consumer/cn/d
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { CompletionHandler } from '@kit.AbilityKit';
 ```
 
 ## CompletionHandler
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 CompletionHandler提供了[onRequestSuccess](#onrequestsuccess)和[onRequestFailure](#onrequestfailure)两个回调函数，分别处理拉起应用成功和失败时的结果。
 
 ### onRequestSuccess
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 onRequestSuccess(elementName: ElementName, message: string): void
 
@@ -58,6 +66,8 @@ onRequestSuccess(elementName: ElementName, message: string): void
 
 ### onRequestFailure
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 onRequestFailure(elementName: ElementName, message: string): void
 
 拉起应用失败时的回调函数，用于接收并处理拉起应用失败后的错误信息。
@@ -78,6 +88,8 @@ onRequestFailure(elementName: ElementName, message: string): void
 参见[CompletionHandler使用](#completionhandler使用)。
 
 ### CompletionHandler使用
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```ts
 import { UIAbility, Want, StartOptions, CompletionHandler, bundleManager } from '@kit.AbilityKit';

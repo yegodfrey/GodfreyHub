@@ -14,6 +14,8 @@ typedef struct OH_Drawing_Lattice OH_Drawing_Lattice
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义为矩形网格，用于将图片按照矩形网格进行划分。
 
 **起始版本：** 23

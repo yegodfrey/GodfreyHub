@@ -17,6 +17,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-b
 
 ## BundleInfo^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 > 说明
 >
 > 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager-BundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-bundleinfo#bundleinfo-1)替代。
@@ -51,6 +52,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-b
 
 ## ReqPermissionDetail^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 > 说明
 >
 > 从API version 7开始支持，从API version 9开始废弃，建议使用[ReqPermissionDetail](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-bundleinfo#reqpermissiondetail)替代。
@@ -67,6 +69,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-b
 
 ## UsedScene^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 > 说明
 >
 > 从API version 7开始支持，从API version 9开始废弃，建议使用[UsedScene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-bundleinfo#usedscene)替代。

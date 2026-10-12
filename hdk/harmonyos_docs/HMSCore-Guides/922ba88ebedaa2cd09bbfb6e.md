@@ -31,11 +31,11 @@ AppID绑定详细可参见[AppID管理及关联](https://developer.huawei.com/co
 
 1. 请登录[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)进入"商户中心" > "产品功能" > "AppID管理"> "新增绑定AppID"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/469DqX1pTjuy6HjFUcoJYA/zh-cn_image_0000002512200011.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=04EC1F181D9DFD0BA655C9D4D6E16D44263193104ED522600FB9366ADA9AA7F9 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/469DqX1pTjuy6HjFUcoJYA/zh-cn_image_0000002512200011.png?HW-CC-KV=V1&HW-CC-Date=20261008T144125Z&HW-CC-Expire=31536000000&HW-CC-Sign=41046CA4220E975DAB7EA43F09EEE47605A15E7EF99C15EB8BE0F056465436DE "点击放大")
 
 2. 申请绑定AppID后，应用管理员登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站选择对应的项目后，在左侧导航栏选择"盈利 > 鸿蒙支付服务（可在'全部功能'中搜索服务并固定到导航栏） > 支付服务（非虚拟类）> 待关联商户号"选择对应的商户点击"授权"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/xlUdrGoqSFW5tihgsxLm-A/zh-cn_image_0000002512200019.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=482F35D434BFD0D5489C8E9F4D2474086B4452F8E4F284C47993DE514A1A1487 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/xlUdrGoqSFW5tihgsxLm-A/zh-cn_image_0000002512200019.png?HW-CC-KV=V1&HW-CC-Date=20261008T144125Z&HW-CC-Expire=31536000000&HW-CC-Sign=C497904A9795BCCE0DA46906D24DE5F645E80ABE57FDC141C9768DD995ECA5FE "点击放大")
 
 ## 服务商绑定
 
@@ -43,23 +43,23 @@ AppID绑定详细可参见[AppID管理及关联](https://developer.huawei.com/co
 
 1. 服务商登录[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)进入"商户中心" > "产品功能" > "AppID管理"，在【服务商绑定的AppID】Tab页内点击"新增绑定AppID"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/CB5hNz2tRF2F26JoWsd1Jg/zh-cn_image_0000002480160112.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=52F3480457D3E45A4289C82F2780AF02537132F4F3129408CD650DD7FBE2AD5D "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/CB5hNz2tRF2F26JoWsd1Jg/zh-cn_image_0000002480160112.png?HW-CC-KV=V1&HW-CC-Date=20261008T144125Z&HW-CC-Expire=31536000000&HW-CC-Sign=2C3000B87FC2FC6BC18E25CD327F552322CA1D84544D351B7D84DD8A4FD26395 "点击放大")
 
 2. 申请绑定AppID后，应用管理员登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站选择对应的项目后，在左侧导航栏选择"盈利 > 鸿蒙支付服务（可在'全部功能'中搜索服务并固定到导航栏） > 支付服务（非虚拟类）> 待关联商户号"选择对应的商户点击"授权"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/rmMSNvS4TrSHg9btlk7dVQ/zh-cn_image_0000002480320086.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=79F8112754C64F809562846A6B4FEC514268C297AF6888927078D7F066FC59EB "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/rmMSNvS4TrSHg9btlk7dVQ/zh-cn_image_0000002480320086.png?HW-CC-KV=V1&HW-CC-Date=20261008T144125Z&HW-CC-Expire=31536000000&HW-CC-Sign=62262634D74AF861C1833A2F1F23B58C5F2774091EF9DDC5E32F566E35659E2E "点击放大")
 
 ### 服务商邀请特约商户绑定
 
 1. 服务商登录[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)进入"商户中心" > "产品功能" > "AppID管理"，在【特约商户绑定的AppID】Tab页内根据服务商下的特约商户列表，选择特约商户发起AppID绑定申请邀请。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/c4XPifAWSjKzzd28EklfYg/zh-cn_image_0000002480320082.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=E33FD1F2CF352B87436373C34305B94DB256F6C182A2CA0D88D07A714EF73A49 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/c4XPifAWSjKzzd28EklfYg/zh-cn_image_0000002480320082.png?HW-CC-KV=V1&HW-CC-Date=20261008T144125Z&HW-CC-Expire=31536000000&HW-CC-Sign=463B7184F0D2C197318DD1E948047D63D069B5DB8AC173F086E05D9CFF3C0598 "点击放大")
 
 2. 特约商户登录[华为支付商户平台](https://petalpay-merchant.cloud.huawei.com/)进入"商户中心" > "产品功能" > "AppID管理"选择"服务商为我绑定的AppID列表"中的数据，点击去确认，对服务商邀请绑定AppID进行确认。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/mM55UCw9SiGMdAPzoqYJfw/zh-cn_image_0000002512279991.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=C6DC79F4EC363E2118301EA7B1AC0C9EE91D0EDF7B956CC389F297CEF54151F7 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/mM55UCw9SiGMdAPzoqYJfw/zh-cn_image_0000002512279991.png?HW-CC-KV=V1&HW-CC-Date=20261008T144125Z&HW-CC-Expire=31536000000&HW-CC-Sign=14331CA7F28B4180FAC6AA76E2B1432917917A74DFA67929CECC2CC2611C20CD "点击放大")
 
 3. 特约商户确认绑定AppID后，应用管理员登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站选择对应的项目后，在左侧导航栏选择"盈利 > 鸿蒙支付服务（可在'全部功能'中搜索服务并固定到导航栏） > 支付服务（非虚拟类）> 待关联商户号"选择对应的商户点击"授权"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/GHThLcAMQOa6birUlz5uJA/zh-cn_image_0000002480320094.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=95ED58A14FCF265BA892B75BCD7C14C22EE139F0AE488F3A2DEC8F62869A574E "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/GHThLcAMQOa6birUlz5uJA/zh-cn_image_0000002480320094.png?HW-CC-KV=V1&HW-CC-Date=20261008T144125Z&HW-CC-Expire=31536000000&HW-CC-Sign=369CA3B92E173C799B14BEB3716479E1CC9D1B2EDEAAF7053BAB1538953A8734 "点击放大")
 

@@ -15,9 +15,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-c
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 不支持。
 
 ## 属性
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 |名称|类型|必填|描述|
 |:-------|:------------------|:-|:---------------------------------------------------------------------|
@@ -93,11 +97,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-c
 
 ## 方法
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 |方法|参数|描述|
 |:-----|:-------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------|
 |append|{ serial: number, // 设置要更新的线形图数据下标 data: Array<number>, // 设置新增的数据 }|往已有的数据序列中动态添加数据，根据serial指定目标序列，serial为datasets数组的下标，从0开始。注意：不会更新datasets[index].data。仅线形图支持，按横坐标加1递增（与xAxis min/max设置相关）。|
 
 ## 事件
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 |名称|参数|描述|
 |:--------|:---------------------------------------------------------------------------------------------------------------|:----------|
@@ -106,6 +114,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-c
 |swipe^5+^|[SwipeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-common-events#swipeevent)|组件上快速滑动后触发。|
 
 ## 样式
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 |名称|类型|默认值|必填|描述|
 |:------------------------------|:--------------------------|:----|:-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,6 +133,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-c
 |[left|top]|<length> | <percentage>^6+^|-|否|left|top确定元素的偏移位置。 - left属性规定元素的左边缘。该属性定义了定位元素左外边距边界与其包含块左边界之间的偏移。 - top属性规定元素的顶部边缘。该属性定义了一个定位元素的上外边距边界与其包含块上边界之间的偏移。|
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 1. 线形图
 
@@ -206,7 +218,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-c
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/LOAEYDPCRG-2iVz5b5ls3Q/zh-cn_image_0000002749335530.png?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=5AD362EA66EB66C05B521BC9A658092AC88D6147B6C30ABAC20DEF469D038F13)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/ErEXZ40hRt6PkLu2ZVIWoA/zh-cn_image_0000002784665347.png?HW-CC-KV=V1&HW-CC-Date=20261009T092755Z&HW-CC-Expire=31536000000&HW-CC-Sign=7AA5F9F66BF47387ED5274C0E88212958E1FB9D81E1FEE201177D3B740619A43)
 2. 柱状图
 
    ```html
@@ -267,5 +279,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-c
    }
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/bllXDC4PSHmT9iEipMCGkw/zh-cn_image_0000002749495414.png?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=7788CAA2DF697A704AB5BEBE765E2061CFD700DE9CE800D5D593D2CED719686C)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/Scmuv-AoQ-O-yjsEdchUJw/zh-cn_image_0000002755026416.png?HW-CC-KV=V1&HW-CC-Date=20261009T092755Z&HW-CC-Expire=31536000000&HW-CC-Sign=F71799C8A2BE0F888532EA9B57F60D59C700371311A4FD8F9BC7ADBDA4927ED9)
 

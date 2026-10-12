@@ -16,13 +16,19 @@ tab页签容器。
 
 ## 权限列表
 
+> phone | 2in1 | tablet | tv | wearable
+
 无
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable
+
 仅支持<[tab-bar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-tab-bar)>和<[tab-content](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-tab-content)>。
 
 ## 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
 
@@ -33,9 +39,13 @@ tab页签容器。
 
 ## 样式
 
+> phone | 2in1 | tablet | tv | wearable
+
 支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)。
 
 ## 事件
+
+> phone | 2in1 | tablet | tv | wearable
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)外，还支持如下事件：
 
@@ -44,6 +54,8 @@ tab页签容器。
 |change|{ index: indexValue }|tab页签切换后触发，动态修改index值不会触发该回调。|
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```html
 <!-- xxx.hml -->
@@ -112,5 +124,5 @@ export default {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Ng3pYrWmTmWNLNFI7OjA2Q/zh-cn_image_0000002778934393.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121739Z&HW-CC-Expire=31536000000&HW-CC-Sign=17DCDFF1A5960FF3BE452175ECB9002F97D9CE9629D5E93198AEFBE3AADF8AD6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/ASdg0rVtRhmwRzpk8tGPMQ/zh-cn_image_0000002784584945.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092759Z&HW-CC-Expire=31536000000&HW-CC-Sign=20B61B947731F2D09D940E6C6A88659E3B8638E2FA4B86F273696409E383BB3B)
 

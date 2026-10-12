@@ -11,7 +11,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 为了简化配置步骤，AGC为您提供了保存应用配置信息的配置文件。只需将配置文件添加到您的工程目录，AGC上的应用信息将会被自动加载到您的开发环境。
 
 1. [获取agconnect-services.plist文件](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-applinking-obtain-files-0000001318168764#section1538193920578)。
-2. 将"agconnect-services.plist"文件添加到Xcode工程目录下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/w332E1HhRNGhJ9eJWfgmVQ/zh-cn_image_0000001372963941.png?HW-CC-KV=V1&HW-CC-Date=20260916T021230Z&HW-CC-Expire=31536000000&HW-CC-Sign=11633E35BF955395555F96C450F8FB50866143A0C60A9D95ADBC640CCC297CB1)
+2. 将"agconnect-services.plist"文件添加到Xcode工程目录下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/w332E1HhRNGhJ9eJWfgmVQ/zh-cn_image_0000001372963941.png?HW-CC-KV=V1&HW-CC-Date=20261008T155708Z&HW-CC-Expire=31536000000&HW-CC-Sign=736974EF3BA16AA6439558D976F4D3E64EC0390C0036FDA70BF7719239A1B1EE)
 
 ## 集成AGC及聚合链接SDK
 
@@ -70,10 +70,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    > 如果关闭读取剪切板功能，会导致延迟深度链接功能不可用，即用户在安装应用后首次打开时无法跳转到原深度链接指定的地址。
    * 不关闭App读取剪切板功能。 在应用的Xcode项目的Info.plist文件中增加agc_applinking_not_read_pasteboard配置项后，将Type配置为Boolean，Value配置为NO。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/JcEr1P4rSFSun61pp1vmaw/zh-cn_image_0000001372603621.png?HW-CC-KV=V1&HW-CC-Date=20260916T021230Z&HW-CC-Expire=31536000000&HW-CC-Sign=E4B072E013169DAC82774C3615B009DBBFE351C4C7FE44B30788609B2C7990F6)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/JcEr1P4rSFSun61pp1vmaw/zh-cn_image_0000001372603621.png?HW-CC-KV=V1&HW-CC-Date=20261008T155708Z&HW-CC-Expire=31536000000&HW-CC-Sign=9DD9B6DCD8DE8FBA87822E5DC3FB4D300FEDABEAD160EFFCE2586B85A2B2F4B4)
    * 关闭App读取剪切板功能。 不需要在应用的Xcode项目的Info.plist文件中增加agc_applinking_not_read_pasteboard配置项，或者在应用的Xcode项目的Info.plist文件中增加agc_applinking_not_read_pasteboard配置项，将Type配置为Boolean，Value配置为YES。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/BJc6jKVFQE-xBvRyXqv-_g/zh-cn_image_0000001321523620.png?HW-CC-KV=V1&HW-CC-Date=20260916T021230Z&HW-CC-Expire=31536000000&HW-CC-Sign=6D4D8CD77F1381F67C22203A3AF9C87D196AE1B5DB5023C0EEE583394F1553CB)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/BJc6jKVFQE-xBvRyXqv-_g/zh-cn_image_0000001321523620.png?HW-CC-KV=V1&HW-CC-Date=20261008T155708Z&HW-CC-Expire=31536000000&HW-CC-Sign=3AAEA2D14DE09D3D9964B1092E428935B53697FB62ADD5B25F32D1E6E12A3ED0)
 
 ### 不使用CocoaPods方式集成
 
@@ -102,13 +102,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    |HMFoundation.framework|hmfoundation-x.x.x.xxx.zip|基础包集成|
    |AGConnectAppLinking.framework|agconnectapplinking-x.x.x.xxx.zip|聚合链接集成|
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/xUk6rtPWQlGnYZTkj1W9eA/zh-cn_image_0000001372844261.png?HW-CC-KV=V1&HW-CC-Date=20260916T021230Z&HW-CC-Expire=31536000000&HW-CC-Sign=8552FDEEC1449378FE7DAF02C0C317EE3CFCA85E98832D8A570A3AA4BA0A377F)
-5. 勾选"Copy items if needed"选项。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/SH0neNgIRfWpOH0NRV0rDw/zh-cn_image_0000001372763445.png?HW-CC-KV=V1&HW-CC-Date=20260916T021230Z&HW-CC-Expire=31536000000&HW-CC-Sign=FE53927AA21C476A0F31AB15196B3855866AA84391933C1E1BC4220A6B2E3FC3 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/xUk6rtPWQlGnYZTkj1W9eA/zh-cn_image_0000001372844261.png?HW-CC-KV=V1&HW-CC-Date=20261008T155708Z&HW-CC-Expire=31536000000&HW-CC-Sign=177A4356BD7BFCB7C83EE5D29FFFC61C7FAAB56162FF9D543001266BC2D8870B)
+5. 勾选"Copy items if needed"选项。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/SH0neNgIRfWpOH0NRV0rDw/zh-cn_image_0000001372763445.png?HW-CC-KV=V1&HW-CC-Date=20261008T155708Z&HW-CC-Expire=31536000000&HW-CC-Sign=A48FB6F0C248D94581164613228911958C9330130BF84E4C58B2F8D0BA56D598 "点击放大")
 
 
 6. 修改工程配置文件。 在Target -> Build Settings -> Other Linker Flags配置中添加'-ObjC'。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/X6p3Ed07QOeKEKFQafM8HA/zh-cn_image_0000001321843484.png?HW-CC-KV=V1&HW-CC-Date=20260916T021230Z&HW-CC-Expire=31536000000&HW-CC-Sign=018907B5C0E2C5AB278D6B366617F4CDCE8F4B737BE46798FF4F0215B3B492E5 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/X6p3Ed07QOeKEKFQafM8HA/zh-cn_image_0000001321843484.png?HW-CC-KV=V1&HW-CC-Date=20261008T155708Z&HW-CC-Expire=31536000000&HW-CC-Sign=B3C129F7E6735E01D296CFEB9D0A8A5F07D477104893C7F3923667D8C6ED0B1C "点击放大")
 7. 初始化AGC SDK。 在项目的AppDelegate.m中导入头文件 #import <AGConnectCore/AGConnectCore.h> , 在 application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions的方法中添加如下代码：
 
    **OBJECTIVE-C**
@@ -134,10 +134,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    > 如果关闭读取剪切板功能，会导致延迟深度链接功能不可用，即用户在安装应用后首次打开时无法跳转到原深度链接指定的地址。
    * 不关闭App读取剪切板功能。 在应用的Xcode项目的Info.plist文件中增加agc_applinking_not_read_pasteboard配置项后，将Type配置为Boolean，Value配置为NO。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/TLgybptBQwqePHivGX9ySw/zh-cn_image_0000001372603621.png?HW-CC-KV=V1&HW-CC-Date=20260916T021230Z&HW-CC-Expire=31536000000&HW-CC-Sign=2FE20798827293AF5A6BCEA39776C669014C29500A6DD680E664559043FC8CDA)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/TLgybptBQwqePHivGX9ySw/zh-cn_image_0000001372603621.png?HW-CC-KV=V1&HW-CC-Date=20261008T155708Z&HW-CC-Expire=31536000000&HW-CC-Sign=F547B28AA0F8940AE72C29E42A1952293F3E7552D82D08FEBC61D625471F2E88)
    * 关闭App读取剪切板功能。 不需要在应用的Xcode项目的Info.plist文件中增加agc_applinking_not_read_pasteboard配置项，或者在应用的Xcode项目的Info.plist文件中增加agc_applinking_not_read_pasteboard配置项，将Type配置为Boolean，Value配置为YES。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/V1IfG3S4Q4OyjfR7fSe4IA/zh-cn_image_0000001321523620.png?HW-CC-KV=V1&HW-CC-Date=20260916T021230Z&HW-CC-Expire=31536000000&HW-CC-Sign=06A68C30B8E0C614C2596EDF1C1B004B1876C9A5B9D98E977C3C17A6854CB765)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/V1IfG3S4Q4OyjfR7fSe4IA/zh-cn_image_0000001321523620.png?HW-CC-KV=V1&HW-CC-Date=20261008T155708Z&HW-CC-Expire=31536000000&HW-CC-Sign=67AE18C86301BFF30C8D9BEA385A145E9B12FC0555DD90CCF494D0880AE7F37B)
 
 ## （可选）将密钥信息传递给AGC
 
@@ -176,7 +176,7 @@ AGC SDK提供了AGCServicesConfig类来对agconnect-services.plist文件中的�
 
    *YOUR_APP_ID"*替换为当前AGC控制台网页地址栏中的"appId"的值。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/H0pIMw1KRn25U7Bly-cdNw/zh-cn_image_0000001276983674.png?HW-CC-KV=V1&HW-CC-Date=20260916T021230Z&HW-CC-Expire=31536000000&HW-CC-Sign=48CF873605839735D9A87204D75D59648422E5CC89E7EE6558BAA6337181DF87)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/H0pIMw1KRn25U7Bly-cdNw/zh-cn_image_0000001276983674.png?HW-CC-KV=V1&HW-CC-Date=20261008T155708Z&HW-CC-Expire=31536000000&HW-CC-Sign=2B15C7DE23F1865CAC1FC6D0448E546C9EBA21F143B3E9D62FEF68863F937A35)
 3. 把手动创建的AGCServicesConfig对象传递到启动代码中。 将application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions的方法的初始化代码"[AGCInstance startUp]"修改为：
 
    ```screen

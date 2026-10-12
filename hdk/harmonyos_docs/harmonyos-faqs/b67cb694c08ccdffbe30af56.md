@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-
 
 DevEco Studio安装完成后一直报Operation not permitted无权限，具体报错如下所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/UYD2TRWdQ4yC54HvvLmrjg/zh-cn_image_0000002654797899.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=D445D9DA9368BFE2437D735418B6E3AF9D147BA3F9D9AB91A70B41D488C58B18)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/UYD2TRWdQ4yC54HvvLmrjg/zh-cn_image_0000002654797899.png?HW-CC-KV=V1&HW-CC-Date=20261008T180015Z&HW-CC-Expire=31536000000&HW-CC-Sign=E5DC7B31B5B378F601818328AF770DD539590AFF279D42E339B7F80E1B703DA7)
 
 **解决方案**
 

@@ -24,13 +24,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-createwindows-000
 ## 直接创建应用
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"APP与元服务"。
-2. 选择"Windows"页签，点击应用列表右侧的"新建发布"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/ZDBajI-BSL-5D10x6rJePQ/zh-cn_image_0000001945392725.png?HW-CC-KV=V1&HW-CC-Date=20260916T030831Z&HW-CC-Expire=31536000000&HW-CC-Sign=44DC041C567869BA86A45CE7FFDD6615F0B25D836D37CA770BB1E418EE1B0BA4)
+2. 选择"Windows"页签，点击应用列表右侧的"新建发布"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/ZDBajI-BSL-5D10x6rJePQ/zh-cn_image_0000001945392725.png?HW-CC-KV=V1&HW-CC-Date=20261008T143250Z&HW-CC-Expire=31536000000&HW-CC-Sign=8C50D5297670A0A046D7E2DA2744A8837ED016D6064F441579EE9EC92382F94B)
 
 3. 填写应用信息，完成后点击"确认"。 说明
    >
    > 如果系统提示"您所在团队创建的应用数已经达到上限，请清理不需要的应用"，请参考[FAQ](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-common-faq-0000001063210244#section17375195017395)处理。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/WZfRcd-GRiyuUvXlalW_wA/zh-cn_image_0000001912873536.png?HW-CC-KV=V1&HW-CC-Date=20260916T030831Z&HW-CC-Expire=31536000000&HW-CC-Sign=BC0220DE8246E6D8935D695FA03E69351D7741BFD5E93D4398BC450078DB542E)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/WZfRcd-GRiyuUvXlalW_wA/zh-cn_image_0000001912873536.png?HW-CC-KV=V1&HW-CC-Date=20261008T143250Z&HW-CC-Expire=31536000000&HW-CC-Sign=6B2A7D0FA9CB47BB60F37FBC9A3B320E814BB714643915343BA392C0EE89E625)
 
    |参数|说明|
    |:----|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -41,25 +41,25 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-createwindows-000
    |默认语言|华为应用市场客户端应用详情页中应用相关描述的默认语言。系统默认为中国大陆开发者创建的应用选择"简体中文"，请您根据实际情况选择。|
    |添加到项目|* 如勾选，下方展示"项目名称"下拉框 。 * 如您想将应用添加到已有项目，点击下拉框进行选择。 * 如您想将应用添加到新项目，请填写新项目名称。该下拉框默认创建一个与应用同名的新项目。 * 如不勾选，则创建的应用不归属任何项目，也无法使用华为提供的各类服务，如华为账号、应用内支付、认证服务等。 关于"项目"和"应用"的概念介绍，请参见[项目和应用介绍](https://developer.huawei.com/consumer/cn/doc/app/agc-help-projectintro-0000001146614683)。|
 
-4. 返回应用列表，在"Windows"页签查看已创建应用。点击应用名称，可进入应用详情页面。如果有多款同名应用，可通过设备类型筛选查找。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/Qgtl3PwJTv6jKWnEbAhX8A/zh-cn_image_0000001945392733.png?HW-CC-KV=V1&HW-CC-Date=20260916T030831Z&HW-CC-Expire=31536000000&HW-CC-Sign=70F14E06D4F564F627B806F65D87D9B118C5D0DC89E81D9012373CDEE71B74FC)
+4. 返回应用列表，在"Windows"页签查看已创建应用。点击应用名称，可进入应用详情页面。如果有多款同名应用，可通过设备类型筛选查找。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/Qgtl3PwJTv6jKWnEbAhX8A/zh-cn_image_0000001945392733.png?HW-CC-KV=V1&HW-CC-Date=20261008T143250Z&HW-CC-Expire=31536000000&HW-CC-Sign=8DB7992B79C1F8CCE4A4D0CAE599195CE47AB0D44444305541BA84ADCD2B2636)
 
 ## 在项目下添加应用
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)，点击"开发与服务"。
-2. 在项目列表中点击您的项目。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/XqLFb_aKSsCFAzq6BImuWA/zh-cn_image_0000002450752766.png?HW-CC-KV=V1&HW-CC-Date=20260916T030831Z&HW-CC-Expire=31536000000&HW-CC-Sign=2F7D04DC10C844B85C49BDA32326FAFE7DA8EBC18CD1D7F42D6D2DA8F5DDE11A)
+2. 在项目列表中点击您的项目。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/XqLFb_aKSsCFAzq6BImuWA/zh-cn_image_0000002450752766.png?HW-CC-KV=V1&HW-CC-Date=20261008T143250Z&HW-CC-Expire=31536000000&HW-CC-Sign=CBC509DA978ADB2489B2F2B8217BF5501563CDBA582CEEE2E3B9E0192248DC32)
 
-3. 若项目中没有应用，在"项目设置"页面中点击"添加应用"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/L1Yqr6L9QLioSF3HlQFEsw/zh-cn_image_0000002271247001.png?HW-CC-KV=V1&HW-CC-Date=20260916T030831Z&HW-CC-Expire=31536000000&HW-CC-Sign=2F3717EDA84AC4C360C819EDB9C9F00705DEC1F8BA1439223E210C477EB8F428)
+3. 若项目中没有应用，在"项目设置"页面中点击"添加应用"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/L1Yqr6L9QLioSF3HlQFEsw/zh-cn_image_0000002271247001.png?HW-CC-KV=V1&HW-CC-Date=20261008T143250Z&HW-CC-Expire=31536000000&HW-CC-Sign=C05245C9A0FCDCD94430AC7E0A8038093AFF739797A36C601A33BF373BD963C5)
 
    若项目中已有应用，展开顶部"选择应用"列表框，点击"添加应用"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/wE6R9NSYSHG8bgCea2IBWw/zh-cn_image_0000002271328049.png?HW-CC-KV=V1&HW-CC-Date=20260916T030831Z&HW-CC-Expire=31536000000&HW-CC-Sign=64393F8644D4551B64BEEB8FA51FDCB2F41E6E2C95F9E5AB6B55CE1E50232851)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/wE6R9NSYSHG8bgCea2IBWw/zh-cn_image_0000002271328049.png?HW-CC-KV=V1&HW-CC-Date=20261008T143250Z&HW-CC-Expire=31536000000&HW-CC-Sign=EEC87982EFADDD0A4276C56DDD964A9451834C48F54684E3F0D8A567AE4A70EE)
 
 
 4. 在"添加应用"页面中设置参数后，点击"确认"。 说明
    >
    > 如果提示"包名已存在，请更换包名"，您需要检查下您是否已经创建相同包名的应用，如果有，请勿重复创建。如果您未创建，请[联系华为技术支持人员](https://developer.huawei.com/consumer/cn/support/feedback/#/add/89?level2=101594901521145579)进行处理。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/8Gt_ZmAJQ72q8zhWyAqYhA/zh-cn_image_0000001945392749.png?HW-CC-KV=V1&HW-CC-Date=20260916T030831Z&HW-CC-Expire=31536000000&HW-CC-Sign=397D035264050B2D0846660A4159DDE8077B7EF6C0FF63FFC6D5C2DCCA9FE3DF)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/8Gt_ZmAJQ72q8zhWyAqYhA/zh-cn_image_0000001945392749.png?HW-CC-KV=V1&HW-CC-Date=20261008T143250Z&HW-CC-Expire=31536000000&HW-CC-Sign=8D6F884ADCC7B3D46039C3B5761CB2E5B9BC460D912534D0A8D9327173BFBFE8)
 
    |参数|参数说明|
    |:----------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

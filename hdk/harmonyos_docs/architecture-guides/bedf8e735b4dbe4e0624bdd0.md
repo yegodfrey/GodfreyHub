@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/burstshoot
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/YCuS1G44QKmvGdB-p_gp6g/zh-cn_image_0000002728804358.gif?HW-CC-KV=V1&HW-CC-Date=20260924T065100Z&HW-CC-Expire=31536000000&HW-CC-Sign=D8F4601E7A910DDF0A20F4061E30262C89E147DAF7AC3AE121FBB996ED4E036B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/YCuS1G44QKmvGdB-p_gp6g/zh-cn_image_0000002728804358.gif?HW-CC-KV=V1&HW-CC-Date=20261008T145420Z&HW-CC-Expire=31536000000&HW-CC-Sign=25DD7D0221BEDC3A2793D39405A8AA42D5DC390F4BEB4CDB5C1C875E273BC6AB)
 
 ## 实现思路
 

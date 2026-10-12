@@ -11,7 +11,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
 为了简化配置步骤，AGC为您提供了保存应用配置信息的配置文件。只需将配置文件添加到您的工程目录，AGC上的应用信息将会被自动加载到您的开发环境。
 
 1. [获取agconnect-services.plist文件](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-crash-obtain-files-0000001281093660#section162221315153813)。
-2. 将"agconnect-services.plist"文件添加到Xcode工程目录下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/9biWgxpsT4-hFuTl2K0xmQ/zh-cn_image_0000001333951865.png?HW-CC-KV=V1&HW-CC-Date=20260916T040830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F35BDD48C346E71538590127049355A0FA4A5D2AAE2C47AF0FCECA66D7E9BF79)
+2. 将"agconnect-services.plist"文件添加到Xcode工程目录下。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/9biWgxpsT4-hFuTl2K0xmQ/zh-cn_image_0000001333951865.png?HW-CC-KV=V1&HW-CC-Date=20261008T142418Z&HW-CC-Expire=31536000000&HW-CC-Sign=AC81494B8BD3D84A8AD3F84735F18B79F919E095FC677D8B2FECCA04C3EFEBBC)
 
 ## 添加AGC SDK及崩溃SDK
 
@@ -100,13 +100,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-
    |HMFoundation.framework|hmfoundation-x.x.x.xxx.zip|必须集成|
    |AGConnectCrash.framework|agconnectcrash-x.x.x.xxx.zip|崩溃服务集成|
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/RNHcRpqnQImQnm2TX16lmg/zh-cn_image_0000001281711794.png?HW-CC-KV=V1&HW-CC-Date=20260916T040830Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F66F417A68A54D84096F110D0CE5E11FF818B6FB18AA8450D676A14578D3B7D)
-5. 勾选"Copy items if needed"选项。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/cbPBsEriSUW7U6a8EFc8Sw/zh-cn_image_0000001281551886.png?HW-CC-KV=V1&HW-CC-Date=20260916T040830Z&HW-CC-Expire=31536000000&HW-CC-Sign=6698067CC7A32F15526B0CA647713665F5298F546F02C09DCD1ED8E8D526D67E "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/RNHcRpqnQImQnm2TX16lmg/zh-cn_image_0000001281711794.png?HW-CC-KV=V1&HW-CC-Date=20261008T142418Z&HW-CC-Expire=31536000000&HW-CC-Sign=275A9DF03888FDE40334ECD2A085EA3242B718C4B32D5D3F56C393ED466A5656)
+5. 勾选"Copy items if needed"选项。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/cbPBsEriSUW7U6a8EFc8Sw/zh-cn_image_0000001281551886.png?HW-CC-KV=V1&HW-CC-Date=20261008T142418Z&HW-CC-Expire=31536000000&HW-CC-Sign=B5901EC6A1034235128C299C888236E10E97B979820AB5039E6C7E8217651577 "点击放大")
 
 
 6. 修改工程配置文件。 在Target -> Build Settings -> Other Linker Flags配置中添加'-ObjC'。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/2PAGw51IRPKVIwrCtLU_dQ/zh-cn_image_0000001282031390.png?HW-CC-KV=V1&HW-CC-Date=20260916T040830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F44A0A070D5709DD02399C15FAE4D8F3BE784A4DE2D9DA9EBA9AB9A958B492D7 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/2PAGw51IRPKVIwrCtLU_dQ/zh-cn_image_0000001282031390.png?HW-CC-KV=V1&HW-CC-Date=20261008T142418Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A393F09946D11997F60D5EC59F6EC74AD76AF62B02910CC341B1B0D1001E9C5 "点击放大")
 7. 初始化AGC SDK。 在项目的AppDelegate.m中导入头文件 #import <AGConnectCore/AGConnectCore.h> , 在 application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions的方法中添加如下代码：
 
    **Objective-C**
@@ -163,7 +163,7 @@ AGC SDK提供了AGCServicesConfig类来对agconnect-services.plist文件中的�
 
    *YOUR_APP_ID"*替换为当前AGC控制台网页地址栏中的"appId"的值。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/hFtcwm55SpSjdgc5kmKt3A/zh-cn_image_0000001276983674.png?HW-CC-KV=V1&HW-CC-Date=20260916T040830Z&HW-CC-Expire=31536000000&HW-CC-Sign=1F627CE7FB643889522B24675B2BE083A8138AC930629169B503D6BE20925337)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/hFtcwm55SpSjdgc5kmKt3A/zh-cn_image_0000001276983674.png?HW-CC-KV=V1&HW-CC-Date=20261008T142418Z&HW-CC-Expire=31536000000&HW-CC-Sign=041C211D65C3E19BA6B6BB4AD43FE5ADEFB252C08A999A737C5757DD067DFCED)
 3. 把手动创建的AGCServicesConfig对象传递到启动代码中。 将application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions的方法的初始化代码"[AGCInstance startUp]"修改为：
 
    ```screen

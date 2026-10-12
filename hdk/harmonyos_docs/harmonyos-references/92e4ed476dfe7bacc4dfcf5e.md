@@ -12,6 +12,8 @@ AIPageResult定义[executeAIPageCommand](https://developer.huawei.com/consumer/c
 
 ## CommandResult
 
+> phone | 2in1 | tablet | tv | wearable
+
 [AIPageInteraction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipageinteraction)中的scroll、select、uploadFile、setZoomLevel等命令返回如下JSON格式；[AIPageCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-aipagecommand)中getZoomLevel的返回结果同样包含code和message字段，并追加zoomLevel字段。
 
 |字段|类型|说明|
@@ -20,6 +22,8 @@ AIPageResult定义[executeAIPageCommand](https://developer.huawei.com/consumer/c
 |message|string|执行结果描述。成功时为"success"；存在非阻塞警告时，追加"; warnings: "前缀及警告信息，格式为"success; warnings: <path1>: <reason1>, <path2>: <reason2>"；失败时为错误描述。|
 
 ## 命令执行结果码说明
+
+> phone | 2in1 | tablet | tv | wearable
 
 |取值|说明|
 |:--|:----------------------------------|

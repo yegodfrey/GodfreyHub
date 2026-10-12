@@ -17,6 +17,7 @@ ElementName信息，通过接口[Context.getElementName](https://developer.huawe
 
 ## ElementName^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 > 说明
 >
 > 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager-ElementName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-elementname#elementname-1)替代。

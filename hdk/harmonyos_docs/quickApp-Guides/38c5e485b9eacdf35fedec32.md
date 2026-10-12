@@ -8,7 +8,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 
 鲸鸿动能流量变现服务（以下简称"流量变现服务"）是华为推出的一项广告服务，依托华为强大的终端平台和数据能力，帮助您实现广告流量变现。接入广告服务后，您可以在游戏内向用户展示精准的、精美的以及高价值的广告内容，并从中获得对应的广告收益。接入广告服务的流程如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/Fz3PeVjXTQaoxsyhJBRDdg/zh-cn_image_0000001824814705.png?HW-CC-KV=V1&HW-CC-Date=20260909T171152Z&HW-CC-Expire=31536000000&HW-CC-Sign=A5ECAB6B949434E8FA7EC4647BE4552ACC55285706C23BCC6E92EF3A5F5D6F60)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/Fz3PeVjXTQaoxsyhJBRDdg/zh-cn_image_0000001824814705.png?HW-CC-KV=V1&HW-CC-Date=20261008T181044Z&HW-CC-Expire=31536000000&HW-CC-Sign=254FA73832455ADD5A8A0C107F4C8ACF81B67E3E905396F7D94D587BD7AAA6F4)
 
 您可以接入如下广告类型：
 
@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
     > * 建议控件按钮与广告图片保持较近的距离。
     > * 可根据[nativeAd.onLoad](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section1528411518185)返回的**creativeType**值判断广告类型是否带有下载按钮，如果是，则为下载类广告。
 
-    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/0rtrU3EWR9qXy6na4W2UbA/zh-cn_image_0000001893974644.png?HW-CC-KV=V1&HW-CC-Date=20260909T171152Z&HW-CC-Expire=31536000000&HW-CC-Sign=2AB0ADF77629B08C775A916A849EF7E53EBDBE64FAE96EDE366872DA0BAFEDA2)
+    ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/0rtrU3EWR9qXy6na4W2UbA/zh-cn_image_0000001893974644.png?HW-CC-KV=V1&HW-CC-Date=20261008T181044Z&HW-CC-Expire=31536000000&HW-CC-Sign=301D2A5ED845BC330E1E614275FCCEFC573025B3D2928780217F3AF428337665)
 * 激励广告：观看完整的视频广告，用户可以获取游戏内对应的奖励。
 * Banner广告：在快游戏界面的顶部、中部或底部占据一个矩形位置的广告，广告内容每隔一段时间自动刷新，用户点击内容后会自动跳转到对应的页面。
 * 插屏广告：启动、暂停、退出快游戏时以全屏的形式弹出的广告。
@@ -50,7 +50,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 3. 征求用户意见。 开发者需要自定义弹框等方式向用户征求意见，并展示广告技术提供商的完整列表。示例demo效果图如下（仅供参考）：
 
    |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/OOf2ADwzSFiH0sAbkk8shw/zh-cn_image_0000001120716168.png?HW-CC-KV=V1&HW-CC-Date=20260909T171152Z&HW-CC-Expire=31536000000&HW-CC-Sign=A17EC67F290BAFE1F5A29BC6746C953B20FDDCFBE4FFBF8E087FC33F16F0185A)|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/_X0SYCkpQeqaOFVhbMAsaA/zh-cn_image_0000001167595849.png?HW-CC-KV=V1&HW-CC-Date=20260909T171152Z&HW-CC-Expire=31536000000&HW-CC-Sign=9FF11A6A01F04D29E3ADF10254BAABF258FA1C673E288F06CE10C058735E6E66)|
+   |![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/OOf2ADwzSFiH0sAbkk8shw/zh-cn_image_0000001120716168.png?HW-CC-KV=V1&HW-CC-Date=20261008T181044Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E98C67EA551103A5D193BFF8860E4762130D0595ED967A28559DCE1C6B30CA2)|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/_X0SYCkpQeqaOFVhbMAsaA/zh-cn_image_0000001167595849.png?HW-CC-KV=V1&HW-CC-Date=20261008T181044Z&HW-CC-Expire=31536000000&HW-CC-Sign=B3BD60C2B3B980B3644C95B12E17A50EDD1DD38CAAD71A1817E0946FD432FA0E)|
    |**图一** 弹框效果|**图二** 点图一中here后展示广告提供商|
 
 4. 调用[qg.setConsentStatus](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-ad-0000001130711971#section10342513193112)设置[步骤3](#ZH-CN_TOPIC_0000001159778259__li55822449132)通过弹框获取的用户意见。 注意
@@ -224,7 +224,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 
 ## 示例代码
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/GZUfD52zS2mGeT4yeE3QhQ/zh-cn_image_0000001172477357.png?HW-CC-KV=V1&HW-CC-Date=20260909T171152Z&HW-CC-Expire=31536000000&HW-CC-Sign=F6708FD0DC17A8C2727D74147DBE1E962FCB7212E317955A16397BDC39A5CEDA) [查看视频教程](https://developer.huawei.com/consumer/cn/training/detail/101622713477391672)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/GZUfD52zS2mGeT4yeE3QhQ/zh-cn_image_0000001172477357.png?HW-CC-KV=V1&HW-CC-Date=20261008T181044Z&HW-CC-Expire=31536000000&HW-CC-Sign=9B57B413BB4381AE97884721B7D85E532F79F95E6D533B6BAC5CB8FA01B29E00) [查看视频教程](https://developer.huawei.com/consumer/cn/training/detail/101622713477391672)
 
 ### 征求用户意见
 

@@ -28,13 +28,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-
 
 2. 应用/元服务添加完成后，再进行签名。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/Xruar6HQSKW_I2wLoX_3Kw/zh-cn_image_0000002624478744.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=290E671B522C744DD3DADEA718148210C256306057C03B32F5F102A4EBD20994 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/Xruar6HQSKW_I2wLoX_3Kw/zh-cn_image_0000002624478744.png?HW-CC-KV=V1&HW-CC-Date=20261008T165842Z&HW-CC-Expire=31536000000&HW-CC-Sign=4DDA7F74C6A194FCBA4AFEC66880F6784F771FB6C6A993316FB925C3D7F9C1B3 "点击放大")
 
 方式二：
 
 1. 进入AGC创建应用/元服务，创建时包名和DevEco Studio创建应用时的Bundle name一致。创建过程具体可参考[操作步骤](https://developer.huawei.com/consumer/cn/doc/app/agc-help-create-app-0000002247955506#section1772711713288)、[创建元服务](https://developer.huawei.com/consumer/cn/doc/app/agc-help-create-atomic-service-0000002247795706)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/WTEKmdwdQzmWEYdaiQq0NA/zh-cn_image_0000002654798105.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=112E6DEA9721918B20041D5575AE94EDC5B9EFC69E1966E17119B1E9F0CC73C2 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/WTEKmdwdQzmWEYdaiQq0NA/zh-cn_image_0000002654798105.png?HW-CC-KV=V1&HW-CC-Date=20261008T165842Z&HW-CC-Expire=31536000000&HW-CC-Sign=BAB9A3930E29A80E1A120EBA044B99432B8DF9AAA5BB209F68ADE8CB5D607E11 "点击放大")
 
 2. 创建完成后，返回DevEco Studio界面重新签名。
 
@@ -55,7 +55,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-
 1. 加入目标团队，具体可参考[添加成员账号](https://developer.huawei.com/consumer/cn/doc/app/agc-help-manageaccount-0000002306610129#section151241455193313)。
 2. 加入团队成功后，将**Team**修改为目标团队。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/O_K2zWhFQ_mYO0rEGBISVw/zh-cn_image_0000002624638654.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=DAFEE3AF6C405B4C04A648D4EA9ECA4DBE43F240083EAF25CD22AA4EAC3444C6 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/O_K2zWhFQ_mYO0rEGBISVw/zh-cn_image_0000002624638654.png?HW-CC-KV=V1&HW-CC-Date=20261008T165842Z&HW-CC-Expire=31536000000&HW-CC-Sign=1908333DA5EFDA04877A6273D6572025599110E8BB975F685FB8AEEF429685DF "点击放大")
 
 ## 提示"Failed to find the capabilities.Check the following configurations: Networkconnection,HTTP Proxy,etc."
 
@@ -67,7 +67,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-
 
 1. 进入[AGC](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)，点击**开发与服务**，选择应用所在的项目。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/D9jiNZ6jSxuYwJVI_V-h_w/zh-cn_image_0000002654838057.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=741F9B0BB56A6C157AA0ADE3426FCA83690F84D142D46A69088438A643CDEAB1 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/D9jiNZ6jSxuYwJVI_V-h_w/zh-cn_image_0000002654838057.png?HW-CC-KV=V1&HW-CC-Date=20261008T165842Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A0C92E3234AA2C69123B1465E923E5290D2616FA80C1F8EE0AAEAD587EEC207 "点击放大")
 
 2. 选择应用，查看应用的开放能力管理和ACL权限设置项。若两个设置项不存在，需重新创建HarmonyOS应用和添加APP ID，具体请参考为HarmonyOS应用创建APP ID。
 

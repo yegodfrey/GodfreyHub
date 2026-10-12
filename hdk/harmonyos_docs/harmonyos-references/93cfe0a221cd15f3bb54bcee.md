@@ -15,9 +15,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable
+
 无
 
 ## 接口
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 Select(options: Array<SelectOption>)
 
@@ -33,6 +37,8 @@ Select(options: Array<SelectOption>)
 
 ## SelectOption对象说明
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 下拉菜单项的信息。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -45,9 +51,13 @@ Select(options: Array<SelectOption>)
 
 ## 属性
 
+> phone | 2in1 | tablet | tv | wearable
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 ### selected
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 selected(value: number | Resource)
 
@@ -69,6 +79,8 @@ selected(value: number | Resource)
 
 ### selected^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 selected(numCount: Optional<number | Resource>)
 
 设置下拉菜单初始选项的索引，第一项的索引为0。当不设置selected属性、或设置为负数、非整数、超出索引范围等异常值时，默认选中值为-1，菜单项不选中；当设置为undefined、null时，选中第一项。
@@ -88,6 +100,8 @@ selected(numCount: Optional<number | Resource>)
 |numCount|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<number | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)>|是|下拉菜单初始选项的索引，索引值从0开始。 当numCount的值为undefined或null时，选中第一项。|
 
 ### value
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 value(value: ResourceStr)
 
@@ -109,6 +123,8 @@ value(value: ResourceStr)
 
 ### value^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 value(resStr: Optional<ResourceStr>)
 
 设置下拉按钮的文本内容。选中菜单项后，按钮文本将自动更新为选中的菜单项文本。与[value](#value)相比，resStr参数新增了对undefined类型的支持。
@@ -128,6 +144,8 @@ value(resStr: Optional<ResourceStr>)
 |resStr|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)>|是|下拉按钮本身的文本内容。 当resStr的值为undefined时维持上次取值。 **说明：** 文本长度大于列宽时，文本被截断。|
 
 ### controlSize^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 controlSize(value: ControlSize)
 
@@ -155,6 +173,8 @@ controlSize、width、height接口作用优先级：
 
 ### controlSize^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 controlSize(size: Optional<ControlSize>)
 
 设置Select组件的尺寸。与[controlSize](#controlsize12)^12+^相比，size参数新增了对undefined类型的支持。
@@ -181,6 +201,8 @@ controlSize、width、height接口作用优先级：
 
 ### menuItemContentModifier^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration>)
 
 定制Select下拉菜单项内容区的方法。在应用了menuItemContentModifier后，下拉菜单的内容将完全由开发者自定义，此时为Select组件设置的分割线、选项颜色及下拉菜单的字体颜色等属性将不再生效。适用于下拉菜单项需要展示图文混排、多行文本、复杂图标或内置控件等复杂布局的场景。
@@ -201,6 +223,8 @@ menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration>)
 |modifier|[ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)<[MenuItemConfiguration](#menuitemconfiguration12对象说明)>|是|在Select组件上，定制下拉菜单项内容区的方法。 modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。|
 
 ### menuItemContentModifier^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 menuItemContentModifier(modifier: Optional<ContentModifier<MenuItemConfiguration>>)
 
@@ -223,6 +247,8 @@ menuItemContentModifier(modifier: Optional<ContentModifier<MenuItemConfiguration
 
 ### divider^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 divider(options: Optional<DividerOptions> | null)
 
 设置分割线样式，不设置该属性则按"默认值"展示分割线。该属性与dividerStyle冲突，如果同时设置，按调用顺序生效，后者覆盖前者。
@@ -240,6 +266,8 @@ divider(options: Optional<DividerOptions> | null)
 |options|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[DividerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker#divideroptions12对象说明)> | null|是|1.设置DividerOptions，则按设置的样式显示分割线。 默认值： { strokeWidth: '1px' , color: '#33182431' } 2.设置为null时，不显示分割线。 3.strokeWidth设置过宽时，会覆盖文字。分割线会从每一个Item底部开始，同时向上向下画分割线。 4.startMargin和endMargin的默认值与不设置divider属性时的分割线样式保持一致。startMargin和endMargin的和与optionWidth的值相等时，不显示分割线。 startMargin和endMargin的和超过optionWidth的值时，按照默认样式显示分割线。|
 
 ### dividerStyle^19+^
+
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
 
 dividerStyle(style: Optional<DividerStyleOptions>)
 
@@ -259,6 +287,8 @@ dividerStyle(style: Optional<DividerStyleOptions>)
 
 ### font
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 font(value: Font)
 
 设置下拉按钮本身的文本样式。当size为0时，文本不显示，当size为负值时，文本的size按照默认值显示。
@@ -274,6 +304,8 @@ font(value: Font)
 |value|[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)|是|下拉按钮本身的文本样式。 API version 11及以前默认值： { size: $r('sys.float.ohos_id_text_size_button1'), weight: FontWeight.Medium } API version 12以后，如果设置[controlSize](#controlsize12)的值为：ControlSize.SMALL，size默认值是$r('sys.float.ohos_id_text_size_button2')，否则为$r('sys.float.ohos_id_text_size_button1')。|
 
 ### font^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 font(selectFont: Optional<Font>)
 
@@ -293,6 +325,8 @@ font(selectFont: Optional<Font>)
 
 ### fontColor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 fontColor(value: ResourceColor)
 
 设置下拉按钮本身的文本颜色。
@@ -308,6 +342,8 @@ fontColor(value: ResourceColor)
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|下拉按钮本身的文本颜色。 默认值：$r('sys.color.ohos_id_color_text_primary')混合$r('sys.color.ohos_id_alpha_content_primary')的透明度。|
 
 ### fontColor^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 fontColor(resColor: Optional<ResourceColor>)
 
@@ -327,6 +363,8 @@ fontColor(resColor: Optional<ResourceColor>)
 
 ### selectedOptionBgColor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 selectedOptionBgColor(value: ResourceColor)
 
 设置下拉菜单选中项的背景色。
@@ -342,6 +380,8 @@ selectedOptionBgColor(value: ResourceColor)
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|下拉菜单选中项的背景色。 默认值：$r('sys.color.ohos_id_color_component_activated')混合$r('sys.color.ohos_id_alpha_highlight_bg')的透明度。|
 
 ### selectedOptionBgColor^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 selectedOptionBgColor(resColor: Optional<ResourceColor>)
 
@@ -361,6 +401,8 @@ selectedOptionBgColor(resColor: Optional<ResourceColor>)
 
 ### selectedOptionFont
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 selectedOptionFont(value: Font)
 
 设置下拉菜单选中项的文本样式。当size为0的时候，文本不显示，当size为负值的时候，文本的size按照默认值显示。
@@ -376,6 +418,8 @@ selectedOptionFont(value: Font)
 |value|[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)|是|下拉菜单选中项的文本样式。 默认值： { size: $r('sys.float.ohos_id_text_size_body1'), weight: FontWeight.Regular }|
 
 ### selectedOptionFont^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 selectedOptionFont(selectFont: Optional<Font>)
 
@@ -395,6 +439,8 @@ selectedOptionFont(selectFont: Optional<Font>)
 
 ### selectedOptionFontColor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 selectedOptionFontColor(value: ResourceColor)
 
 设置下拉菜单选中项的文本颜色。
@@ -410,6 +456,8 @@ selectedOptionFontColor(value: ResourceColor)
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|下拉菜单选中项的文本颜色。 默认值：$r('sys.color.ohos_id_color_text_primary_activated')|
 
 ### selectedOptionFontColor^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 selectedOptionFontColor(resColor: Optional<ResourceColor>)
 
@@ -429,6 +477,8 @@ selectedOptionFontColor(resColor: Optional<ResourceColor>)
 
 ### optionBgColor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 optionBgColor(value: ResourceColor)
 
 设置下拉菜单项的背景色。
@@ -444,6 +494,8 @@ optionBgColor(value: ResourceColor)
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|下拉菜单项的背景色。 默认值： API version 11之前，默认值为Color.White。 API version 11及之后，默认值为Color.Transparent。|
 
 ### optionBgColor^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 optionBgColor(resColor: Optional<ResourceColor>)
 
@@ -463,6 +515,8 @@ optionBgColor(resColor: Optional<ResourceColor>)
 
 ### optionFont
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 optionFont(value: Font)
 
 设置下拉菜单项的文本样式。当size为0的时候，文本不显示，当size为负值的时候，文本的size按照默认值显示。
@@ -478,6 +532,8 @@ optionFont(value: Font)
 |value|[Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font)|是|下拉菜单项的文本样式。 默认值： { size: $r('sys.float.ohos_id_text_size_body1'), weight: FontWeight.Regular }|
 
 ### optionFont^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 optionFont(selectFont: Optional<Font>)
 
@@ -499,6 +555,8 @@ optionFont(selectFont: Optional<Font>)
 
 ### optionFontColor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 optionFontColor(value: ResourceColor)
 
 设置下拉菜单项的文本颜色。
@@ -514,6 +572,8 @@ optionFontColor(value: ResourceColor)
 |value|[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)|是|下拉菜单项的文本颜色。 默认值：$r('sys.color.ohos_id_color_text_primary')|
 
 ### optionFontColor^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 optionFontColor(resColor: Optional<ResourceColor>)
 
@@ -533,6 +593,8 @@ optionFontColor(resColor: Optional<ResourceColor>)
 
 ### space^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 space(value: Length)
 
 设置下拉菜单项的文本与箭头的间距。不支持设置百分比。将间距设置为null、undefined，或者小于等于8的值时，取默认值。
@@ -550,6 +612,8 @@ space(value: Length)
 |value|[Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length)|是|下拉菜单项的文本与箭头的间距。 默认值：8vp **说明：** 设置string类型时，不支持百分比。|
 
 ### space^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 space(spaceLength: Optional<Length>)
 
@@ -569,6 +633,8 @@ space(spaceLength: Optional<Length>)
 
 ### arrowPosition^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 arrowPosition(value: ArrowPosition)
 
 设置下拉菜单项的文本与箭头之间的对齐方式。
@@ -587,6 +653,8 @@ arrowPosition(value: ArrowPosition)
 
 ### arrowPosition^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 arrowPosition(position: Optional<ArrowPosition>)
 
 设置下拉菜单项的文本与箭头之间的对齐方式。与[arrowPosition](#arrowposition10)相比，position参数新增了对undefined类型的支持。
@@ -604,6 +672,8 @@ arrowPosition(position: Optional<ArrowPosition>)
 |position|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ArrowPosition](#arrowposition10枚举说明)>|是|下拉菜单项的文本与箭头之间的对齐方式。 当position的值为undefined时，默认值：ArrowPosition.END|
 
 ### menuAlign^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 menuAlign(alignType: MenuAlignType, offset?: Offset)
 
@@ -624,6 +694,8 @@ menuAlign(alignType: MenuAlignType, offset?: Offset)
 
 ### menuAlign^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 menuAlign(alignType: Optional<MenuAlignType>, offset?: Offset)
 
 设置下拉按钮与下拉菜单间的对齐方式。与[menuAlign](#menualign10)^10+^相比，alignType参数新增了对undefined类型的支持。
@@ -642,6 +714,8 @@ menuAlign(alignType: Optional<MenuAlignType>, offset?: Offset)
 |offset|[Offset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#offset)|否|按照对齐类型对齐后，下拉菜单相对下拉按钮的偏移量。 默认值：{dx: 0, dy: 0}|
 
 ### optionWidth^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 optionWidth(value: Dimension | OptionWidthMode )
 
@@ -665,6 +739,8 @@ Select组件距屏幕边缘的左右间距为16vp，建议将组件本身及菜�
 
 ### optionWidth^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 optionWidth(width: Optional<Dimension | OptionWidthMode> )
 
 设置下拉菜单项的宽度，不支持设置百分比。OptionWidthMode类型为枚举类型，OptionWidthMode决定下拉菜单是否继承下拉按钮宽度。与[optionWidth](#optionwidth11)^11+^相比，width参数新增了对undefined类型的支持。
@@ -686,6 +762,8 @@ Select组件距屏幕边缘的左右间距为16vp，建议将组件本身及菜�
 |width|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | [OptionWidthMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#optionwidthmode11)>|是|下拉菜单项的宽度。 当width的值为undefined时，属性无效，菜单项宽度设为默认值，即2栅格。|
 
 ### optionHeight^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 optionHeight(value: Dimension)
 
@@ -709,6 +787,8 @@ optionHeight(value: Dimension)
 
 ### optionHeight^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 optionHeight(height: Optional<Dimension>)
 
 设置下拉菜单显示的最大高度，不支持设置百分比。默认最大高度是屏幕可用高度的80%，设置的菜单最大高度不能超过默认最大高度。与[optionHeight](#optionheight11)^11+^相比，height参数新增了对undefined类型的支持。
@@ -731,6 +811,8 @@ optionHeight(height: Optional<Dimension>)
 
 ### menuBackgroundColor^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 menuBackgroundColor(value: ResourceColor)
 
 设置下拉菜单的背景色。
@@ -752,6 +834,8 @@ menuBackgroundColor(value: ResourceColor)
 
 ### menuBackgroundColor^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 menuBackgroundColor(resColor: Optional<ResourceColor>)
 
 设置下拉菜单的背景色。与[menuBackgroundColor](#menubackgroundcolor11)^11+^相比，resColor参数新增了对undefined类型的支持。
@@ -769,6 +853,8 @@ menuBackgroundColor(resColor: Optional<ResourceColor>)
 |resColor|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)>|是|下拉菜单的背景色。 当resColor的值为undefined时，默认值为Color.Transparent。|
 
 ### menuBackgroundBlurStyle^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 menuBackgroundBlurStyle(value: BlurStyle)
 
@@ -791,6 +877,8 @@ menuBackgroundBlurStyle(value: BlurStyle)
 
 ### menuBackgroundBlurStyle^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 menuBackgroundBlurStyle(style: Optional<BlurStyle>)
 
 设置下拉菜单的背景模糊材质。与[menuBackgroundBlurStyle](#menubackgroundblurstyle11)^11+^相比，style参数新增了对undefined类型的支持。
@@ -808,6 +896,8 @@ menuBackgroundBlurStyle(style: Optional<BlurStyle>)
 |style|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[BlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#blurstyle9)>|是|下拉菜单的背景模糊材质。 当style的值为undefined时，默认值：BlurStyle.COMPONENT_ULTRA_THICK|
 
 ### avoidance^19+^
+
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
 
 avoidance(mode: AvoidanceMode)
 
@@ -827,6 +917,8 @@ avoidance(mode: AvoidanceMode)
 
 ### menuOutline^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 menuOutline(outline: MenuOutlineOptions)
 
 设置下拉菜单框的外描边样式。
@@ -845,6 +937,8 @@ menuOutline(outline: MenuOutlineOptions)
 
 ### showDefaultSelectedIcon^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 showDefaultSelectedIcon(show: boolean)
 
 设置是否显示默认选择的图标。
@@ -862,6 +956,8 @@ showDefaultSelectedIcon(show: boolean)
 |show|boolean|是|是否显示默认选定的图标。 true：显示默认选定的图标；false：不显示默认选定的图标，通过突出显示背景色来表示选中。 默认值：false 当show为true时，若设置了selectedOptionBgColor选中项的背景色时，则同时显示选中项的背景色和默认选定的图标；若未通过selectedOptionBgColor设置选中项的背景色时，不突出显示背景色，只显示默认选定的图标。|
 
 ### textModifier^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 textModifier(modifier: Optional<TextModifier>)
 
@@ -884,6 +980,8 @@ textModifier(modifier: Optional<TextModifier>)
 
 ### arrowModifier^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 arrowModifier(modifier: Optional<SymbolGlyphModifier>)
 
 定制Select按钮下拉箭头图标样式的方法，在应用arrowModifier之后，Select按钮下拉箭头的图标样式将完全由开发者自定义。
@@ -904,6 +1002,8 @@ arrowModifier(modifier: Optional<SymbolGlyphModifier>)
 |modifier|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[SymbolGlyphModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-symbolglyphmodifier)>|是|在Select组件上，定制Select按钮下拉箭头图标样式的方法。 当modifier的值为undefined时，不自定义下拉箭头图标样式。|
 
 ### optionTextModifier^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 optionTextModifier(modifier: Optional<TextModifier>)
 
@@ -928,6 +1028,8 @@ optionTextModifier(modifier: Optional<TextModifier>)
 
 ### selectedOptionTextModifier^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 selectedOptionTextModifier(modifier: Optional<[TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier)>)
 
 定制Select下拉菜单选中项文本样式的方法，在应用selectedOptionTextModifier之后，下拉菜单选中项的文本样式将完全由开发者自定义。
@@ -951,6 +1053,8 @@ selectedOptionTextModifier(modifier: Optional<[TextModifier](https://developer.h
 
 ### showInSubWindow^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 showInSubWindow(showInSubWindow:Optional<boolean>)
 
 设置下拉菜单是否显示在子窗中。未通过该接口设置时，下拉菜单默认不显示在子窗中。
@@ -968,6 +1072,8 @@ showInSubWindow(showInSubWindow:Optional<boolean>)
 |showInSubWindow|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<boolean>|是|设置下拉菜单是否显示在子窗中。 true代表下拉菜单显示在子窗中。 false代表下拉菜单不显示在子窗中。|
 
 ### keyboardAvoidMode^23+^
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 keyboardAvoidMode(mode:Optional<MenuKeyboardAvoidMode>)
 
@@ -987,6 +1093,8 @@ keyboardAvoidMode(mode:Optional<MenuKeyboardAvoidMode>)
 
 ### minKeyboardAvoidDistance^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 minKeyboardAvoidDistance(distance:Optional<LengthMetrics>)
 
 设置Select的菜单避让软键盘的最小距离。未通过该接口设置，最小距离默认为8vp。仅当[keyboardAvoidMode](#keyboardavoidmode23)设置为避让软键盘时生效。
@@ -1004,6 +1112,8 @@ minKeyboardAvoidDistance(distance:Optional<LengthMetrics>)
 |distance|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12)>|是|设置下拉菜单避让软键盘的最小距离。设置为负数、undefined时，按照8vp处理。|
 
 ### menuBackgroundBlurStyleOptions
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 menuBackgroundBlurStyleOptions(blurStyle: Optional<BackgroundBlurStyleOptions>)
 
@@ -1025,6 +1135,8 @@ menuBackgroundBlurStyleOptions(blurStyle: Optional<BackgroundBlurStyleOptions>)
 
 ### menuBackgroundEffect
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 menuBackgroundEffect(effect: Optional<BackgroundEffectOptions>)
 
 设置Select下拉菜单的背景属性。
@@ -1044,6 +1156,8 @@ menuBackgroundEffect(effect: Optional<BackgroundEffectOptions>)
 |effect|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[BackgroundEffectOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundeffectoptions11)>|是|设置Select下拉菜单的背景属性，包括：模糊半径、亮度、饱和度和颜色。|
 
 ### menuSystemMaterial
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 menuSystemMaterial(material:Optional<SystemUiMaterial>)
 
@@ -1065,6 +1179,8 @@ menuSystemMaterial(material:Optional<SystemUiMaterial>)
 
 ## ArrowPosition^10+^枚举说明
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 箭头的位置。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1079,6 +1195,8 @@ menuSystemMaterial(material:Optional<SystemUiMaterial>)
 |START|1|箭头在前，文字在后。|
 
 ## MenuAlignType^10+^枚举说明
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 下拉菜单的对齐方式。
 
@@ -1096,6 +1214,8 @@ menuSystemMaterial(material:Optional<SystemUiMaterial>)
 
 ## AvoidanceMode^19+^枚举说明
 
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
+
 下拉菜单避让模式的枚举选项。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -1110,6 +1230,8 @@ menuSystemMaterial(material:Optional<SystemUiMaterial>)
 |AVOID_AROUND_TARGET|1|目标组件四周无足够空间时，在最大空间处压缩显示（可滚动）。|
 
 ## MenuItemConfiguration^12+^对象说明
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
@@ -1130,6 +1252,8 @@ menuSystemMaterial(material:Optional<SystemUiMaterial>)
 
 ## MenuOutlineOptions^20+^对象说明
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 下拉菜单框的外描边参数对象。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -1145,7 +1269,11 @@ menuSystemMaterial(material:Optional<SystemUiMaterial>)
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### onSelect
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 onSelect(callback: (index: number, value: string) => void)
 
@@ -1164,6 +1292,8 @@ onSelect(callback: (index: number, value: string) => void)
 
 ### onSelect^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 onSelect(callback: Optional<OnSelectCallback> )
 
 下拉菜单选中某一项时，会触发回调。与[onSelect](#onselect)相比，callback参数新增了对undefined类型的支持。
@@ -1181,6 +1311,8 @@ onSelect(callback: Optional<OnSelectCallback> )
 |callback|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[OnSelectCallback](#onselectcallback18)>|是|下拉菜单选中某一项的回调。 当callback的值为undefined时，不使用回调函数。|
 
 ## OnSelectCallback^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 type OnSelectCallback = (index: number, selectStr: string) => void
 
@@ -1201,7 +1333,11 @@ type OnSelectCallback = (index: number, selectStr: string) => void
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1（设置下拉菜单）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过配置[SelectOption](#selectoption对象说明)实现下拉菜单，并从API version 19开始通过设置[avoidance](#avoidance19)属性实现菜单的避让方式。
 
@@ -1254,9 +1390,11 @@ struct SelectExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/WwRbDvQdSEWZ5uXLCr7X-Q/zh-cn_image_0000002749334810.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB8308F0B1FADB85CAE52E5C70CF01CA49ECA6E1E6D65C5A43BE905F55FC6B51)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/ANy4WLHCSfqP4ek6YE0F0w/zh-cn_image_0000002784664627.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=7C32B66D98D92C017F56221BB9952D1F584B944D35DC775DD41011728DA8FA24)
 
 ### 示例2（设置symbol类型图标）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例实现了一个下拉菜单中图片为Symbol的Select组件，并从API version 19开始通过设置[avoidance](#avoidance19)属性实现菜单的避让方式。
 
@@ -1315,9 +1453,11 @@ struct SelectExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/Djrsxqm2TASXgyFdBtCnvQ/zh-cn_image_0000002749494694.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=0FF3BD9DCB82E5E2B8A12839BE6A2E4D18029AA7213960FFCE624CA1327F6CC4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/2kAjgqxYS2-H60cuvZ66zw/zh-cn_image_0000002755025696.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA10AC9005459CFD4B243EE0213FB25E4C70B9DDAF39B3737614C149F4E64163)
 
 ### 示例3（自定义下拉菜单）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例实现了一个自定义下拉菜单选项的Select组件。自定义下拉菜单选项样式为"文本 + Symbol图片 + 空白间隔 + 文本 + 绘制三角形"，点击菜单选项后Select组件显示菜单选项的文本内容。
 
@@ -1405,9 +1545,11 @@ struct SelectExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/lqlfOtenRQqXGLnwS1IOng/zh-cn_image_0000002779093751.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=197AD840D47218C2B98903E325806D780A84F804FCD0FD1F01070E7D6BF1DF97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/Wtmk2ZgQRDO0fpr3WEwfzw/zh-cn_image_0000002755185580.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=7200ADBCC3DB6AEB75A7501A5F252DA63475BE562E099BD3F79A379AFC1D4F1B)
 
 ### 示例4（设置分割线样式）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过配置divider的DividerOptions类型实现分割线样式的下拉菜单，并从API version 19开始通过设置[avoidance](#avoidance19)属性实现菜单的避让方式。
 
@@ -1462,9 +1604,11 @@ struct SelectExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/NBxB_P5DTGWeT4UZ-u0e4g/zh-cn_image_0000002778933895.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=61613DE1185F4F71BD3928AF802229FD4ACFF34E0DD5DF752A057873A1CE9142)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/tY-7ex-9R9Wm0s64hnQ-BA/zh-cn_image_0000002784584447.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=F06E7A76D24B94B9CD50B85EA4C06179AD087ED2FF6C9CD4902E60A35128371D)
 
 ### 示例5（设置无分割线样式）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过配置divider为null实现无分割线样式的下拉菜单，并从API version 19开始通过设置[avoidance](#avoidance19)属性实现菜单的避让方式。
 
@@ -1509,9 +1653,11 @@ struct SelectExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/HiRTRiqoROeItD44dXDXXg/zh-cn_image_0000002749334812.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=40B3E8C45257B837F735F738CBF7B15E02FE6C0AA1C0EEDA626572E2C9EFEF2E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/Wyns0N2yToSV4xOl6S1f1Q/zh-cn_image_0000002784664629.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=1022C6627C42A1C20D66CF8003BEF68EBCB875154029D7FBD5F268FC6E462DD6)
 
 ### 示例6（设置Select中文本和箭头样式）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 20开始，该示例通过[textModifier](#textmodifier20)和[arrowModifier](#arrowmodifier20)属性设置文本以及箭头样式。
 
@@ -1584,9 +1730,11 @@ struct SelectExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/mkcG3aPkQvS0hcTXOpfrsQ/zh-cn_image_0000002749494696.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=4177960A420BD09A49A675A976D4D5AB3C4BE98710679CC96B2BD90C1D9CF564)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/3nrINt1qRI2X9UjBiAxP3A/zh-cn_image_0000002755025698.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=5236749B231F5D80547FB889E1FDC6F015BD2BDB24683C09DC8DD4B682CBA9C0)
 
 ### 示例7（设置Select下拉菜单选中和非选中项文本样式）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 20开始，该示例通过[optionTextModifier](#optiontextmodifier20)和[selectedOptionTextModifier](#selectedoptiontextmodifier20)属性设置下拉菜单选中和非选中项文本样式。
 
@@ -1661,9 +1809,11 @@ struct SelectExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/imDGZf1-SRaqVyqG2l3REQ/zh-cn_image_0000002779093753.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=F9B2E68DF54E516AC088E7EE8AA829184F6EDF058C80F12CC41C8D20B4EB8127)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/n0ee3NgkTEeabdAAFXAjRg/zh-cn_image_0000002755185582.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=3F188212A785E76C70C2A8F25069A526094F8BFF9EBA028B0A7F158D7BB45F58)
 
 ### 示例8（设置分割线模式）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 19开始，该示例通过配置[DividerStyleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dividerstyleoptions12)的mode属性设置分割线模式。
 
@@ -1695,9 +1845,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/9Vz6jma3Qkea9m2NuLkpXA/zh-cn_image_0000002778933897.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=999AD673CA0D0A960ED223E1A5B19DD20F39FB3531A0E1F635AA6660F0E18332)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/rXATL8JOSBKzG3egiJOMNw/zh-cn_image_0000002784584449.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=D36C5410A1B8F251CF91B4304D8132E2D44315D252ECD719645D5C95FD910CA8)
 
 ### 示例9（设置Select下拉菜单外描边样式）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 20开始该示例通过配置menuOutline的width和color属性设置下拉菜单外描边样式。
 
@@ -1750,9 +1902,11 @@ struct SelectExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/oFiCqIzwS_KgPU4AMwBMtA/zh-cn_image_0000002749334814.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=FFFD6B9956C105518201C61A80447BB6AEAF50F8A1F8A8F01A3CC69822C3C6C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/81W4m9G6RMW3YYazRno_aA/zh-cn_image_0000002784664631.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E38E65D7FAE7CCEF199026812912698191C7B0D0932AD135EACBC4E3930479E)
 
 ### 示例10（设置Select弹出菜单避让软键盘）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过调用[keyboardAvoidMode](#keyboardavoidmode23)和[minKeyboardAvoidDistance](#minkeyboardavoiddistance23)接口，实现下拉菜单避让软键盘并自定义避让软键盘的最小距离。
 
@@ -1830,9 +1984,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/GD_bajHbQC2ptPgC_r_q8w/zh-cn_image_0000002749494698.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=C0FECBAD2528C7E8424B852AB5C575171DBE8DE11216FDB8D1E510A7A188B74C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/jAyZ5tIvRXmqApCd44X8Rg/zh-cn_image_0000002755025700.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=1C22D497B0DEEC674BB73BE2A14B2BCB4C6F93FD4A2A14B2338031F16211F70E)
 
 ### 示例11（设置Select和下拉菜单沉浸光感效果）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过调用[menuSystemMaterial](#menusystemmaterial)接口设置下拉菜单的系统材质，实现沉浸光感效果；通过[SystemUiMaterial](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#systemuimaterial)接口设置Select组件的系统材质，实现沉浸光感效果。
 
@@ -1880,9 +2036,9 @@ struct Index {
 
 未设置系统材质时：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/7MiiWFL4R6eDwsS0kAeAcg/zh-cn_image_0000002779093755.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=D978DF139CEBD8A3270F085D79194CEBE943AC099E86BA6BA0D54AE824B0BB49)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/0asy939bSo2ytZYlDJkk1A/zh-cn_image_0000002755185584.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=ECF7D03C9BF2650183D86F5517206F5289DF7CBF83656C1094065361FB111C79)
 
 设置系统材质后：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/toh2SHfFSJa6pzn7_9p0pg/zh-cn_image_0000002778933899.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=B0C2BCC4534768F439109A9D89D6FE65F6C6B8C57F83DBAA7541F3E61D5B19BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/Iltf6HqjTmGegeY-7rzkXQ/zh-cn_image_0000002784584451.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=36259DEC9EB005D277077CB1CF46EC8D337B086353386766F6023E46FFE9DD5A)
 

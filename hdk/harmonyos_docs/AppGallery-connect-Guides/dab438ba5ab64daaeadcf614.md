@@ -43,7 +43,7 @@ let env1 = context.env.env1;
 
 若环境变量未配置，则会返回环境变量为undefined。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/9P2yNqbSTkCBQT7e_601SA/zh-cn_image_0000001658990486.png?HW-CC-KV=V1&HW-CC-Date=20260916T040231Z&HW-CC-Expire=31536000000&HW-CC-Sign=4DC919EE5310A79425C02DC10987CACC80B35DF4067500280ED1EF5C5A9DBFF8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/9P2yNqbSTkCBQT7e_601SA/zh-cn_image_0000001658990486.png?HW-CC-KV=V1&HW-CC-Date=20261008T171346Z&HW-CC-Expire=31536000000&HW-CC-Sign=F9309FA7F66B1C92DD3A997E50D3B5B6FF7820A8DFE7026BFA18BB50EC76A941)
 
 ## 异常处理
 

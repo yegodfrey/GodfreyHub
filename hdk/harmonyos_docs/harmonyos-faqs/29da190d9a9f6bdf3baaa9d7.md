@@ -41,7 +41,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performanc
 
    打开zadig（[zadig官网](https://zadig.akeo.ie/))/（[zadig仓库下载](https://github.com/pbatard/libwdi/releases)），插入设备，Options里面打开List All Devices，下拉框找到HDC Device，然后点击Reinstall Driver。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/9WMFOn_kRUqr7I3i3N8NlA/zh-cn_image_0000002654798143.png?HW-CC-KV=V1&HW-CC-Date=20260916T082506Z&HW-CC-Expire=31536000000&HW-CC-Sign=17E7D25859CD94D0EBEF05292C9E73BCE021B0B03F68D802AEA8ECFCF9BC6E64 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/9WMFOn_kRUqr7I3i3N8NlA/zh-cn_image_0000002654798143.png?HW-CC-KV=V1&HW-CC-Date=20261008T175807Z&HW-CC-Expire=31536000000&HW-CC-Sign=DAE7F1018E80DBBDE214CFCDDC85535651170F3374630AA5AEB19E9F5DE90075 "点击放大")
 2. Linux环境。 在命令行执行"lsusb"，查看是否存在HDC Device或HDC Interface。如果没有该命令，通过"apt-get install usbutils"安装usbutils。
 
 3. Mac环境。 使用"系统信息"或"系统概述"来查看MacOS是否识别连接到Mac的USB设备。
@@ -62,7 +62,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performanc
 二、清除设备告警。
 
 1. 打开本地注册表（regedit），导航至：计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{88bae032-5a81-49f0-bc3d-a4ff138216d6}。
-2. 在右侧列表中找到【UpperFilters】键，右键点击并选择修改，清空所有字符数据（建议在清空前备份数据）。最后，刷新或插拔设备，或重启PC，即可正常显示。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/5bgokUagR8SLUlI3Bgz1pg/zh-cn_image_0000002624638686.png?HW-CC-KV=V1&HW-CC-Date=20260916T082506Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA635F6B3BD7B6F5206D5CEBE666B8DFF230F9B7AD782158E98660195C0C86B5 "点击放大")
+2. 在右侧列表中找到【UpperFilters】键，右键点击并选择修改，清空所有字符数据（建议在清空前备份数据）。最后，刷新或插拔设备，或重启PC，即可正常显示。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/5bgokUagR8SLUlI3Bgz1pg/zh-cn_image_0000002624638686.png?HW-CC-KV=V1&HW-CC-Date=20261008T175807Z&HW-CC-Expire=31536000000&HW-CC-Sign=6BE8093FE5D2772A9BDB530F1AC80C46183686AE39D2FA8997423C5723F11B30 "点击放大")
 
 三、进入【设置>系统>开发人员选项>usb调试】重新关闭、打开USB调试；
 

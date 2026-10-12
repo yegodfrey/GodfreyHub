@@ -9,10 +9,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 > phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
-typedef struct {...} OH_NativeBundle_ApplicationInfo
+typedef struct OH_NativeBundle_ApplicationInfo {...} OH_NativeBundle_ApplicationInfo
 ```
 
 ## 概述
+
+> phone | 2in1 | tablet | tv | wearable
 
 应用包信息数据结构，包含应用包名和应用指纹信息。
 
@@ -24,7 +26,11 @@ typedef struct {...} OH_NativeBundle_ApplicationInfo
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:----------------|:------------------------------------------------------|

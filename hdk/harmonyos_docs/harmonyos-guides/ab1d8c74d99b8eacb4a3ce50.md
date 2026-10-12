@@ -60,7 +60,7 @@ struct FancyUse {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/yO2BtpbgR_Obh5sRm2u4BA/zh-cn_image_0000002749331852.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=868BFFEA42219852115BF86B25FF23FA9AE285280A132B54AFF1135E8919E740)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/0HjRxTWPRX2dy4rcqzx2Cw/zh-cn_image_0000002784581741.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092719Z&HW-CC-Expire=31536000000&HW-CC-Sign=A4B26EDA9CC2AE50F1BA040BC6D7E6CBB6BA2B924FC80AB338BF8C6B5EF3591A)
 
 ## 限制条件
 
@@ -147,5 +147,5 @@ struct GlobalFancy {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/67nOuCVmRh2z-oA3M4F24g/zh-cn_image_0000002749491736.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121657Z&HW-CC-Expire=31536000000&HW-CC-Sign=04143FE75FEDCE028CCDA5A8A41D081F5DE152FA09E3A220AB22092AF534379C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/L8CFtaKHTxSd58FqiEBXCA/zh-cn_image_0000002784661925.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092719Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF803B1D2D8D272E067457EAE7BF6767306CD0B93C269F0F9684C3693D19EB17)
 

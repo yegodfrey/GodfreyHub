@@ -14,6 +14,8 @@ typedef struct {...} ArkUI_NativeGestureAPI_1
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 提供创建敲击、长按、滑动、捏合、旋转、快滑手势及手势组的接口，并支持绑定手势、移除手势、设置手势打断回调和并行内部手势回调，用于配置和管理组件的触控交互识别与事件处理。
 
 使用该模块配置手势时，推荐按以下流程操作：调用[createTapGesture](#createtapgesture)等接口创建手势识别器，调用[setGestureEventTarget](#setgestureeventtarget)注册手势事件回调，再调用[addGestureToNode](#addgesturetonode)将手势识别器绑定至组件节点；不再使用该手势时，先调用[removeGestureFromNode](#removegesturefromnode)解除节点绑定，再调用[dispose](#dispose)释放手势资源。对于手势竞争场景，可通过手势优先级、屏蔽模式或[setGestureInterrupterToNode](#setgestureinterruptertonode)配置响应策略；对于组件内部手势与外部自定义手势需要并行识别的场景，可调用[setInnerGestureParallelTo](#setinnergestureparallelto)设置并行内部手势事件回调。
@@ -26,13 +28,19 @@ typedef struct {...} ArkUI_NativeGestureAPI_1
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:--------------|:---------|
 |int32_t version|结构版本号 = 1。|
 
 ### 成员函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -56,7 +64,11 @@ typedef struct {...} ArkUI_NativeGestureAPI_1
 
 ## 成员函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### createTapGesture()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 ArkUI_GestureRecognizer* (*createTapGesture)(int32_t countNum, int32_t fingersNum)
@@ -86,6 +98,8 @@ ArkUI_GestureRecognizer* (*createTapGesture)(int32_t countNum, int32_t fingersNu
 |[ArkUI_GestureRecognizer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-gesturerecognizer)*|返回创建的敲击手势指针，可用于后续绑定节点、注册回调或管理敲击手势识别。|
 
 ### createLongPressGesture()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 ArkUI_GestureRecognizer* (*createLongPressGesture)(int32_t fingersNum, bool repeatResult, int32_t durationNum)
@@ -122,6 +136,8 @@ ArkUI_GestureRecognizer* (*createLongPressGesture)(int32_t fingersNum, bool repe
 
 ### createPanGesture()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 ArkUI_GestureRecognizer* (*createPanGesture)(int32_t fingersNum, ArkUI_GestureDirectionMask directions, double distanceNum)
 ```
@@ -149,6 +165,8 @@ ArkUI_GestureRecognizer* (*createPanGesture)(int32_t fingersNum, ArkUI_GestureDi
 
 ### createPinchGesture()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 ArkUI_GestureRecognizer* (*createPinchGesture)(int32_t fingersNum, double distanceNum)
 ```
@@ -174,6 +192,8 @@ ArkUI_GestureRecognizer* (*createPinchGesture)(int32_t fingersNum, double distan
 |[ArkUI_GestureRecognizer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-gesturerecognizer)*|返回创建的捏合手势指针，可用于后续绑定节点、注册回调或管理捏合手势识别。|
 
 ### createRotationGesture()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 ArkUI_GestureRecognizer* (*createRotationGesture)(int32_t fingersNum, double angleNum)
@@ -201,6 +221,8 @@ ArkUI_GestureRecognizer* (*createRotationGesture)(int32_t fingersNum, double ang
 
 ### createSwipeGesture()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 ArkUI_GestureRecognizer* (*createSwipeGesture)(int32_t fingersNum, ArkUI_GestureDirectionMask directions, double speedNum)
 ```
@@ -227,6 +249,8 @@ ArkUI_GestureRecognizer* (*createSwipeGesture)(int32_t fingersNum, ArkUI_Gesture
 
 ### createGroupGesture()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```cc
 ArkUI_GestureRecognizer* (*createGroupGesture)(ArkUI_GroupGestureMode gestureMode)
 ```
@@ -249,6 +273,8 @@ ArkUI_GestureRecognizer* (*createGroupGesture)(ArkUI_GroupGestureMode gestureMod
 
 ### dispose()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 void (*dispose)(ArkUI_GestureRecognizer* recognizer)
 ```
@@ -264,6 +290,8 @@ void (*dispose)(ArkUI_GestureRecognizer* recognizer)
 |[ArkUI_GestureRecognizer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-gesturerecognizer)* recognizer|需要销毁的手势的指针。|
 
 ### addChildGesture()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int32_t (*addChildGesture)(ArkUI_GestureRecognizer* group, ArkUI_GestureRecognizer* child)
@@ -288,6 +316,8 @@ int32_t (*addChildGesture)(ArkUI_GestureRecognizer* group, ArkUI_GestureRecogniz
 
 ### removeChildGesture()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int32_t (*removeChildGesture)(ArkUI_GestureRecognizer* group, ArkUI_GestureRecognizer* child)
 ```
@@ -310,6 +340,8 @@ int32_t (*removeChildGesture)(ArkUI_GestureRecognizer* group, ArkUI_GestureRecog
 |int32_t|错误码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 参数错误。|
 
 ### setGestureEventTarget()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int32_t (*setGestureEventTarget)(ArkUI_GestureRecognizer* recognizer, ArkUI_GestureEventActionTypeMask actionTypeMask, void* extraParams,void (*targetReceiver)(ArkUI_GestureEvent* event, void* extraParams))
@@ -336,6 +368,8 @@ int32_t (*setGestureEventTarget)(ArkUI_GestureRecognizer* recognizer, ArkUI_Gest
 
 ### addGestureToNode()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int32_t (*addGestureToNode)(ArkUI_NodeHandle node, ArkUI_GestureRecognizer* recognizer, ArkUI_GesturePriority mode, ArkUI_GestureMask mask)
 ```
@@ -361,6 +395,8 @@ int32_t (*addGestureToNode)(ArkUI_NodeHandle node, ArkUI_GestureRecognizer* reco
 
 ### removeGestureFromNode()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 int32_t (*removeGestureFromNode)(ArkUI_NodeHandle node, ArkUI_GestureRecognizer* recognizer)
 ```
@@ -383,6 +419,8 @@ int32_t (*removeGestureFromNode)(ArkUI_NodeHandle node, ArkUI_GestureRecognizer*
 |int32_t|错误码。 [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) 参数错误。|
 
 ### setGestureInterrupterToNode()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int32_t (*setGestureInterrupterToNode)(ArkUI_NodeHandle node, ArkUI_GestureInterruptResult (*interrupter)(ArkUI_GestureInterruptInfo* info))
@@ -407,6 +445,8 @@ int32_t (*setGestureInterrupterToNode)(ArkUI_NodeHandle node, ArkUI_GestureInter
 
 ### getGestureType()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 ArkUI_GestureRecognizerType (*getGestureType)(ArkUI_GestureRecognizer* recognizer)
 ```
@@ -428,6 +468,8 @@ ArkUI_GestureRecognizerType (*getGestureType)(ArkUI_GestureRecognizer* recognize
 |[ArkUI_GestureRecognizerType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-gesture-h#arkui_gesturerecognizertype)|手势类型。|
 
 ### setInnerGestureParallelTo()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 int32_t (*setInnerGestureParallelTo)(ArkUI_NodeHandle node, void* userData, ArkUI_GestureRecognizer* (*parallelInnerGesture)(ArkUI_ParallelInnerGestureEvent* event))
@@ -455,6 +497,8 @@ int32_t (*setInnerGestureParallelTo)(ArkUI_NodeHandle node, void* userData, ArkU
 |int32_t|[ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) - 成功。 [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-error-code-h#arkui_errorcode) - 参数错误。|
 
 ### createTapGestureWithDistanceThreshold()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 ArkUI_GestureRecognizer* (*createTapGestureWithDistanceThreshold)(int32_t countNum, int32_t fingersNum, double distanceThreshold)

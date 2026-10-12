@@ -123,7 +123,7 @@ ld-musl-aarch64.so.1
 
    证据3：故障栈帧所在的代码
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/y9yROH_SSnumfh4FX5R-OA/zh-cn_image_0000002673735603.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=185F4D59F176175A2642445179CB824E694DBC1676FB04886E1849043962D5E5 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/y9yROH_SSnumfh4FX5R-OA/zh-cn_image_0000002673735603.png?HW-CC-KV=V1&HW-CC-Date=20261008T185338Z&HW-CC-Expire=31536000000&HW-CC-Sign=416A7D13D71EDE2BC788B98B62FA756C3D1C91688B82D5AC6C877CD64427A071 "点击放大")
 
    代码中创建了多个子线程，并且子线程中循环竞争锁资源，导致主线程繁忙。
 
@@ -239,7 +239,7 @@ WriteBinder
 
    证据3：故障栈帧所在的代码
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/-bPi1tNNSLuv4c1unQsbsg/zh-cn_image_0000002643575820.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=19707631C1E2BEA83B7BE8AB6162FAA804ABAC02895B9A51CE0251516466D4D1 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/-bPi1tNNSLuv4c1unQsbsg/zh-cn_image_0000002643575820.png?HW-CC-KV=V1&HW-CC-Date=20261008T185338Z&HW-CC-Expire=31536000000&HW-CC-Sign=B94E60CD12BB4815C3BE642BE02B452C56A65F9A8F05F934E97D183B02C5E9B5 "点击放大")
 
    业务中循环调用系统音频服务接口导致主线程繁忙。
 
@@ -351,7 +351,7 @@ ld-musl-aarch64.so.1
 
    证据3：故障栈帧所在的代码
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/yqXi5NBQSoqzsTvud8TJdw/zh-cn_image_0000002643415866.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=287D183881B689139DC546566572EF00A9B7FF099C25F4CB9B47DE7D84F0A4CB "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/yqXi5NBQSoqzsTvud8TJdw/zh-cn_image_0000002643415866.png?HW-CC-KV=V1&HW-CC-Date=20261008T185338Z&HW-CC-Expire=31536000000&HW-CC-Sign=CA963219DCFE52A30F7FD88206F08876A522DD9803CEE82EE6664D19F588C566 "点击放大")
 
    业务中循环进行文件读写操作导致主线程繁忙。
 
@@ -463,7 +463,7 @@ libace_compatible.z.so
 
    证据3：故障栈帧关联的代码
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/F96UMO_cSq-lVeCrjo6CfQ/zh-cn_image_0000002673575733.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=49BA1322D59695EC1F8042822D47992191608D8D9833B48A4BC2B16D698DC650 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/F96UMO_cSq-lVeCrjo6CfQ/zh-cn_image_0000002673575733.png?HW-CC-KV=V1&HW-CC-Date=20261008T185338Z&HW-CC-Expire=31536000000&HW-CC-Sign=6A8268D258BD62F7DB1FB012922645890922B68F9286E7BB970033726EFC2002 "点击放大")
 
    业务中循环刷新Text组件导致主线程繁忙。
 
@@ -562,7 +562,7 @@ libace_compatible.z.so
 
    证据3：故障栈帧所在的代码
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/IuItchguRQOR22-rOwdUuQ/zh-cn_image_0000002673735605.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=A9DD75EC7991B9F04399DB2A5A15735BB84CC3C8EA92CC32988A57CB3EEA2785 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/IuItchguRQOR22-rOwdUuQ/zh-cn_image_0000002673735605.png?HW-CC-KV=V1&HW-CC-Date=20261008T185338Z&HW-CC-Expire=31536000000&HW-CC-Sign=9D5C663CFEA75701F78567CA46F0F21C7EEB76D6EE457DE7CC36DB72D1059CC6 "点击放大")
 
    业务中循环处理计算任务导致主线程繁忙。
 
@@ -643,7 +643,7 @@ libace_compatible.z.so
 
    证据2：故障栈帧所在的代码
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/dq5Qm6V1Qsywv--CzkEOiA/zh-cn_image_0000002643575824.png?HW-CC-KV=V1&HW-CC-Date=20260920T024936Z&HW-CC-Expire=31536000000&HW-CC-Sign=63D523B7D6DF3286B7F1FF27DDD4938779B43C9564792799B0DCFC6F772AAF7C "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/dq5Qm6V1Qsywv--CzkEOiA/zh-cn_image_0000002643575824.png?HW-CC-KV=V1&HW-CC-Date=20261008T185338Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C79EFE7D02F682FB7D8E03800E3355F900CF5F9C07CB8A6309CD72B7C6467EB "点击放大")
 
    业务中循环处理多个不同类型的耗时子任务导致主线程繁忙。
 

@@ -14,11 +14,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/aodnaviga
 
 ## 导入模块
 
+> phone
+
 ```typescript
 import { aodNaviManager } from '@kit.AODNavigationKit';
 ```
 
 ## aodNaviManager.isAodNaviSupported
+
+> phone 26.0.0+
 
 isAodNaviSupported(): boolean
 
@@ -52,10 +56,12 @@ import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let supported: boolean = aodNaviManager.isAodNaviSupported();
-hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in checking whether AOD navigation is supported, supported: %{public}s', supported);
+hilog.info(0x0000, 'aodNavigationSample', 'Succeeded in checking whether AOD navigation is supported, supported: %{public}s', supported);
 ```
 
 ## aodNaviManager.isAodNaviSwitchEnabled
+
+> phone 26.0.0+
 
 isAodNaviSwitchEnabled(): Promise<boolean>
 
@@ -90,13 +96,15 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 aodNaviManager.isAodNaviSwitchEnabled().then((enabled: boolean) => {
-  hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in checking whether AOD navigation switch is enabled, enabled: %{public}s', enabled);
+  hilog.info(0x0000, 'aodNavigationSample', 'Succeeded in checking whether AOD navigation switch is enabled, enabled: %{public}s', enabled);
 }).catch((err: BusinessError) => {
-  hilog.error(0x0000, 'aodnavigationSample', 'Failed to check whether AOD navigation switch is enabled: %{public}d %{public}s', err.code, err.message);
+  hilog.error(0x0000, 'aodNavigationSample', 'Failed to check whether AOD navigation switch is enabled: %{public}d %{public}s', err.code, err.message);
 });
 ```
 
 ## aodNaviManager.getAodNaviExtendCapabilities
+
+> phone 26.0.0+
 
 getAodNaviExtendCapabilities(): AodNaviExtendDataType[]
 
@@ -129,10 +137,12 @@ import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let capabilities: aodNaviManager.AodNaviExtendDataType[] = aodNaviManager.getAodNaviExtendCapabilities();
-hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in getting AOD navigation extend capabilities, capabilities: %{public}s', JSON.stringify(capabilities));
+hilog.info(0x0000, 'aodNavigationSample', 'Succeeded in getting AOD navigation extend capabilities, capabilities: %{public}s', JSON.stringify(capabilities));
 ```
 
 ## aodNaviManager.setupAodNaviConfig
+
+> phone 26.0.0+
 
 setupAodNaviConfig(config: AodNaviConfig): Promise<void>
 
@@ -203,13 +213,15 @@ let config: aodNaviManager.AodNaviConfig = {
 };
 
 aodNaviManager.setupAodNaviConfig(config).then(() => {
-  hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in setting up AOD navigation config.');
+  hilog.info(0x0000, 'aodNavigationSample', 'Succeeded in setting up AOD navigation config.');
 }).catch((err: BusinessError) => {
-  hilog.error(0x0000, 'aodnavigationSample', 'Failed to set up AOD navigation config: %{public}d %{public}s', err.code, err.message);
+  hilog.error(0x0000, 'aodNavigationSample', 'Failed to set up AOD navigation config: %{public}d %{public}s', err.code, err.message);
 });
 ```
 
 ## aodNaviManager.onAodNaviEvent
+
+> phone 26.0.0+
 
 onAodNaviEvent(callback: Callback<AodNaviEventInfo>): void
 
@@ -245,26 +257,28 @@ import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 aodNaviManager.onAodNaviEvent((eventInfo: aodNaviManager.AodNaviEventInfo) => {
-  hilog.info(0x0000, 'aodnavigationSample', 'Received AOD navigation event: eventType: %{public}d, eventId: %{public}s', eventInfo.eventType, eventInfo.eventId);
+  hilog.info(0x0000, 'aodNavigationSample', 'Received AOD navigation event: eventType: %{public}d, eventId: %{public}s', eventInfo.eventType, eventInfo.eventId);
   
   switch (eventInfo.eventType) {
     case aodNaviManager.AodNaviEventType.AOD_NAVI_ENTER:
-      hilog.info(0x0000, 'aodnavigationSample', 'AOD navigation enter event handled.');
+      hilog.info(0x0000, 'aodNavigationSample', 'AOD navigation enter event handled.');
       break;
     case aodNaviManager.AodNaviEventType.AOD_NAVI_EXIT:
-      hilog.info(0x0000, 'aodnavigationSample', 'AOD navigation exit event handled.');
+      hilog.info(0x0000, 'aodNavigationSample', 'AOD navigation exit event handled.');
       break;
     case aodNaviManager.AodNaviEventType.AOD_NAVI_DATA_CACHE:
-      hilog.info(0x0000, 'aodnavigationSample', 'AOD navigation data cache event handled.');
+      hilog.info(0x0000, 'aodNavigationSample', 'AOD navigation data cache event handled.');
       break;
     case aodNaviManager.AodNaviEventType.AOD_NAVI_VOICE_BROADCAST:
-      hilog.info(0x0000, 'aodnavigationSample', 'AOD navigation voice broadcast event handled.');
+      hilog.info(0x0000, 'aodNavigationSample', 'AOD navigation voice broadcast event handled.');
       break;
   }
 });
 ```
 
 ## aodNaviManager.offAodNaviEvent
+
+> phone 26.0.0+
 
 offAodNaviEvent(callback?: Callback<AodNaviEventInfo>): void
 
@@ -300,13 +314,15 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   aodNaviManager.offAodNaviEvent();
-  hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in stopping AOD navigation event listener.');
+  hilog.info(0x0000, 'aodNavigationSample', 'Succeeded in stopping AOD navigation event listener.');
   } catch (error) {
     hilog.error(0x0000, 'aodNavigationSample', 'Failed to stop AOD navigation event listener:  %{public}d %{public}s', error.code, error.message);
 }
 ```
 
 ## aodNaviManager.setPlanRouteToAod
+
+> phone 26.0.0+
 
 setPlanRouteToAod(planRoutes: PlanRoute[], markPoints?: MarkPoint[]): Promise<void>
 
@@ -365,13 +381,15 @@ let markPoints: aodNaviManager.MarkPoint[] = [
 ];
 
 aodNaviManager.setPlanRouteToAod(planRoutes, markPoints).then(() => {
-  hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in setting plan route to AOD.');
+  hilog.info(0x0000, 'aodNavigationSample', 'Succeeded in setting plan route to AOD.');
 }).catch((err: BusinessError) => {
-  hilog.error(0x0000, 'aodnavigationSample', 'Failed to set plan route to AOD: %{public}d %{public}s', err.code, err.message);
+  hilog.error(0x0000, 'aodNavigationSample', 'Failed to set plan route to AOD: %{public}d %{public}s', err.code, err.message);
 });
 ```
 
 ## aodNaviManager.setNaviDataToAod
+
+> phone 26.0.0+
 
 setNaviDataToAod(eventId: string, aodNaviInteractData: AodNaviInteractData): Promise<void>
 
@@ -438,13 +456,15 @@ let aodNaviInteractData: aodNaviManager.AodNaviInteractData = {
 };
 
 aodNaviManager.setNaviDataToAod(eventId, aodNaviInteractData).then(() => {
-  hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in setting navigation data to AOD.');
+  hilog.info(0x0000, 'aodNavigationSample', 'Succeeded in setting navigation data to AOD.');
 }).catch((err: BusinessError) => {
-  hilog.error(0x0000, 'aodnavigationSample', 'Failed to set navigation data to AOD: %{public}d %{public}s', err.code, err.message);
+  hilog.error(0x0000, 'aodNavigationSample', 'Failed to set navigation data to AOD: %{public}d %{public}s', err.code, err.message);
 });
 ```
 
 ## aodNaviManager.updateAodViewData
+
+> phone 26.0.0+
 
 updateAodViewData(aodViewData: AodViewData): Promise<void>
 
@@ -496,13 +516,15 @@ let aodViewData: aodNaviManager.AodViewData = {
 };
 
 aodNaviManager.updateAodViewData(aodViewData).then(() => {
-  hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in updating AOD view data.');
+  hilog.info(0x0000, 'aodNavigationSample', 'Succeeded in updating AOD view data.');
 }).catch((err: BusinessError) => {
-  hilog.error(0x0000, 'aodnavigationSample', 'Failed to update AOD view data: %{public}d %{public}s', err.code, err.message);
+  hilog.error(0x0000, 'aodNavigationSample', 'Failed to update AOD view data: %{public}d %{public}s', err.code, err.message);
 });
 ```
 
 ## aodNaviManager.updateAppRecordStatus
+
+> phone 26.0.0+
 
 updateAppRecordStatus(recordStatus: AppRecordStatus): Promise<void>
 
@@ -547,13 +569,15 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 aodNaviManager.updateAppRecordStatus(aodNaviManager.AppRecordStatus.RECORDING).then(() => {
-  hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in updating app record status.');
+  hilog.info(0x0000, 'aodNavigationSample', 'Succeeded in updating app record status.');
 }).catch((err: BusinessError) => {
-  hilog.error(0x0000, 'aodnavigationSample', 'Failed to update app record status: %{public}d %{public}s', err.code, err.message);
+  hilog.error(0x0000, 'aodNavigationSample', 'Failed to update app record status: %{public}d %{public}s', err.code, err.message);
 });
 ```
 
 ## aodNaviManager.onAltitudeClimbChange
+
+> phone 26.0.0+
 
 onAltitudeClimbChange(callback: Callback<AltitudeClimbInfo>): void
 
@@ -592,7 +616,7 @@ import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 try {
   aodNaviManager.onAltitudeClimbChange((info: aodNaviManager.AltitudeClimbInfo) => {
-    hilog.info(0x0000, 'aodnavigationSample', 'Altitude climb change - climbUp: %{public}d, climbDown: %{public}d', info.accumulateClimbUp, info.accumulateClimbDown);
+    hilog.info(0x0000, 'aodNavigationSample', 'Altitude climb change - climbUp: %{public}d, climbDown: %{public}d', info.accumulateClimbUp, info.accumulateClimbDown);
   });
 } catch (error) {
     hilog.error(0x0000, 'aodNavigationSample', 'Failed to subscribe altitude climb change: %{public}d %{public}s', error.code, error.message);
@@ -600,6 +624,8 @@ try {
 ```
 
 ## aodNaviManager.offAltitudeClimbChange
+
+> phone 26.0.0+
 
 offAltitudeClimbChange(callback?: Callback<AltitudeClimbInfo>): void
 
@@ -632,10 +658,12 @@ import { aodNaviManager } from '@kit.AODNavigationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 aodNaviManager.offAltitudeClimbChange();
-hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altitude climb change.');
+hilog.info(0x0000, 'aodNavigationSample', 'Succeeded in unsubscribing from altitude climb change.');
 ```
 
 ## AodNaviConfig
+
+> phone 26.0.0+
 
 熄屏导航配置项。
 
@@ -654,6 +682,8 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 
 ## AodNaviInteractData
 
+> phone 26.0.0+
+
 应用与AOD Navigation Kit之间的交互数据。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -670,6 +700,8 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 
 ## AltitudeClimbInfo
 
+> phone 26.0.0+
+
 海拔爬升信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -685,6 +717,8 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 |accumulateClimbDown|number|否|否|累计下降高度。单位：米。值应为整数。|
 
 ## AodNaviData
+
+> phone 26.0.0+
 
 熄屏导航数据，包括距离、步数及步频等数据。
 
@@ -712,6 +746,8 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 
 ## AodVoiceBroadcastConfig
 
+> phone 26.0.0+
+
 熄屏导航语音播报配置项。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -735,6 +771,8 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 
 ## AodViewDataConfig
 
+> phone 26.0.0+
+
 熄屏导航视图数据配置项。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -750,6 +788,8 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 
 ## PlanRoute
 
+> phone 26.0.0+
+
 规划路线信息，包括经度和纬度。采用GCJ02坐标系标准。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -764,6 +804,8 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 |latitude|number|否|否|纬度。|
 
 ## HistoryRoute
+
+> phone 26.0.0+
 
 历史轨迹信息。采用GCJ02坐标系标准。
 
@@ -783,6 +825,8 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 
 ## MarkPoint
 
+> phone 26.0.0+
+
 标记点信息。采用GCJ02坐标系标准。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -799,6 +843,8 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 
 ## AodNaviEventInfo
 
+> phone 26.0.0+
+
 熄屏导航事件信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -814,6 +860,8 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 |eventData|[AodNaviInteractData](#aodnaviinteractdata) | [VoiceBroadcastData](#voicebroadcastdata)|否|是|应用与AOD Navigation Kit之间的交互数据或语音播报数据。|
 
 ## VoiceBroadcastData
+
+> phone 26.0.0+
 
 语音播报数据。
 
@@ -832,6 +880,8 @@ hilog.info(0x0000, 'aodnavigationSample', 'Succeeded in unsubscribing from altit
 
 ## AodNaviDataType
 
+> phone 26.0.0+
+
 type AodNaviDataType = AodNaviBasicDataType | AodNaviExtendDataType
 
 熄屏导航服务数据类型，主要包括基础数据类型和扩展数据类型。
@@ -849,6 +899,8 @@ type AodNaviDataType = AodNaviBasicDataType | AodNaviExtendDataType
 
 ## AodViewData
 
+> phone 26.0.0+
+
 type AodViewData = Partial<Record<AodNaviDataType, number>>
 
 熄屏导航视图数据，用于更新熄屏导航显示数据项。
@@ -865,6 +917,8 @@ type AodViewData = Partial<Record<AodNaviDataType, number>>
 
 ## MarkPointIndexToDistance
 
+> phone 26.0.0+
+
 type MarkPointIndexToDistance = Record<number, number>
 
 标记点索引到距离的映射。用于熄屏导航语音播报。
@@ -880,6 +934,8 @@ type MarkPointIndexToDistance = Record<number, number>
 |Record<number, number>|标记点索引到距离的映射。用于语音播报。|
 
 ## AodNaviBasicDataType
+
+> phone 26.0.0+
 
 熄屏导航基本数据类型枚举。
 
@@ -904,6 +960,8 @@ type MarkPointIndexToDistance = Record<number, number>
 
 ## AodNaviExtendDataType
 
+> phone 26.0.0+
+
 熄屏导航扩展数据类型枚举。扩展数据类型依赖于设备硬件支持。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -918,6 +976,8 @@ type MarkPointIndexToDistance = Record<number, number>
 |ALTITUDE_CLIMB_DOWN|'altitudeClimbDown'|累计下降高度。|
 
 ## AodNaviEventType
+
+> phone 26.0.0+
 
 熄屏导航事件回调类型。
 
@@ -935,6 +995,8 @@ type MarkPointIndexToDistance = Record<number, number>
 |AOD_NAVI_VOICE_BROADCAST|3|熄屏导航期间语音播报事件。 **说明**：熄屏导航期间触发了语音播报条件，AOD Navigation Kit不支持语音播报能力，需要应用接收到播报事件后进行语音播报。|
 
 ## VoiceBroadcastEvent
+
+> phone 26.0.0+
 
 语音播报事件类型枚举。
 
@@ -957,6 +1019,8 @@ type MarkPointIndexToDistance = Record<number, number>
 
 ## AodNaviAliveStrategy
 
+> phone 26.0.0+
+
 熄屏导航应用保活策略：应用休眠或保活。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -971,6 +1035,8 @@ type MarkPointIndexToDistance = Record<number, number>
 |KEEP_ALIVE|2|应用保活。 **说明**：熄屏导航时导航业务仍然运行在应用，熄屏导航界面显示数据来源于应用。|
 
 ## GPSStatus
+
+> phone 26.0.0+
 
 GPS状态枚举。
 
@@ -987,6 +1053,8 @@ GPS状态枚举。
 |DISCONNECTED|2|已断开。|
 
 ## AppRecordStatus
+
+> phone 26.0.0+
 
 应用导航记录状态枚举。
 

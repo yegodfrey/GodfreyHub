@@ -14,6 +14,8 @@ typedef struct VideoOutput_Callbacks {...} VideoOutput_Callbacks
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 用于录像输出的回调。
 
 **起始版本：** 11
@@ -24,7 +26,11 @@ typedef struct VideoOutput_Callbacks {...} VideoOutput_Callbacks
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------|

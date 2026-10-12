@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义创建和使用色彩空间的相关函数。
 
 **引用文件：** <native_color_space_manager/native_color_space_manager.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------------------------------|
@@ -34,11 +40,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ### 枚举
 
+> phone | 2in1 | tablet | tv | wearable
+
 |名称|typedef关键字|描述|
 |:--------------------------------|:-------------|:------|
 |[ColorSpaceName](#colorspacename)|ColorSpaceName|色彩空间枚举。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------|
@@ -51,7 +61,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 枚举类型说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### ColorSpaceName
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 23+
 
 ```c
 enum ColorSpaceName
@@ -101,7 +115,11 @@ enum ColorSpaceName
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_NativeColorSpaceManager_CreateFromName()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 23+
 
 ```c
 OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromName(ColorSpaceName colorSpaceName)
@@ -130,6 +148,8 @@ OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromName(ColorSpace
 |[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-oh-nativecolorspacemanager)*|返回一个指向[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-oh-nativecolorspacemanager)实例的指针。内存不足时，会导致创建OH_NativeColorSpaceManager实例失败。|
 
 ### OH_NativeColorSpaceManager_CreateFromPrimariesAndGamma()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 23+
 
 ```c
 OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromPrimariesAndGamma(ColorSpacePrimaries primaries, float gamma)
@@ -160,6 +180,8 @@ OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromPrimariesAndGam
 
 ### OH_NativeColorSpaceManager_Destroy()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 23+
+
 ```c
 void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorSpaceManager)
 ```
@@ -179,6 +201,8 @@ void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorS
 |[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-oh-nativecolorspacemanager)* nativeColorSpaceManager|表示指向OH_NativeColorSpaceManager实例的指针。|
 
 ### OH_NativeColorSpaceManager_GetColorSpaceName()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 23+
 
 ```c
 int OH_NativeColorSpaceManager_GetColorSpaceName(OH_NativeColorSpaceManager* nativeColorSpaceManager)
@@ -206,6 +230,8 @@ int OH_NativeColorSpaceManager_GetColorSpaceName(OH_NativeColorSpaceManager* nat
 
 ### OH_NativeColorSpaceManager_GetWhitePoint()
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 23+
+
 ```c
 WhitePointArray OH_NativeColorSpaceManager_GetWhitePoint(OH_NativeColorSpaceManager* nativeColorSpaceManager)
 ```
@@ -231,6 +257,8 @@ WhitePointArray OH_NativeColorSpaceManager_GetWhitePoint(OH_NativeColorSpaceMana
 |[WhitePointArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-whitepointarray)|返回值为float数组，返回值为<0.0, 0.0>表示接口操作失败，其余返回值表示操作成功。|
 
 ### OH_NativeColorSpaceManager_GetGamma()
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 23+
 
 ```c
 float OH_NativeColorSpaceManager_GetGamma(OH_NativeColorSpaceManager* nativeColorSpaceManager)

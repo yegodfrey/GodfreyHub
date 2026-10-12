@@ -23,7 +23,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/list-of-user-groups-fo
 >
 > 6. 取消真机测试：只需进入到智能体编排页面，再次点击【真机测试】-【取消发布】即可。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/y8o7fH2lQMa3D1MlV6KyMg/zh-cn_image_0000002640104140.gif?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=CEFCD08F9A55F26648123504B58683FCCDF6B66AEACB2DF774772395EE57E95D "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/y8o7fH2lQMa3D1MlV6KyMg/zh-cn_image_0000002640104140.gif?HW-CC-KV=V1&HW-CC-Date=20261008T180752Z&HW-CC-Expire=31536000000&HW-CC-Sign=18C4B94F767FC0C975D0C1A575BCC29912F030ACF8E572D46682B2FE740EE645 "点击放大")
 
 **创建真机测试用户组列表**
 
@@ -33,7 +33,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/list-of-user-groups-fo
 
 以开发智能体页面内的【测试白名单】页面为例，点击右上角【新建用户组】进行用户组创建。创建好用户组后，可通过点击操作栏内【管理用户】对用户组进行操作。当前支持【邀请用户】和【批量邀请】两种操作方式，同时支持查找和删除功能。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/llVzvyOiTEWQWOy4TvJ2Zg/zh-cn_image_0000002670104115.gif?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=7D608B96FC6F38859E49DBAE833CE871E115A9F76EB9C2C0293CCA77D2835F0B "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/llVzvyOiTEWQWOy4TvJ2Zg/zh-cn_image_0000002670104115.gif?HW-CC-KV=V1&HW-CC-Date=20261008T180752Z&HW-CC-Expire=31536000000&HW-CC-Sign=1D8D30EAA4D551C85D2EB0095BA73A1CCDEBE324FBDEDAD46609FE9BE8283F44 "点击放大")
 
 规则限制：
 

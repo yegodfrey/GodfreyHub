@@ -246,15 +246,20 @@ class CjIab:
         raise RuntimeError("API origin not ready（检查 node relay 与登录会话）")
 
     # --- 枚举：踢 getCatalogTree → 轮询条数 → 分片取回 --------------------- #
-    # 站点在会话预热期会瞬时空返回目录树（2026-10-05 实证：5 棵树连返回 0，
-    # 数分钟后同请求恢复 15 万字符）。n==0 不当真，重试后再采信；防误删闸门
-    # 仍兜底，但补新通道依赖枚举非空。
+    # 站点在会话预热期会瞬时空返回目录树（2026-10-05、2026-10-12 两度实证：
+    # 全部目录树连返回 0，数分钟后同请求恢复）。n==0 按退避梯子重试熬过预热期；
+    # 梯子走完仍空则判预热故障返回 []，调用方必须中止本轮（防误删/漏新），
+    # 不可静默接受——补新通道依赖枚举非空，空树轮只会烧出全量 keep 刷屏。
+    EMPTY_TREE_BACKOFF = (5, 15, 30, 60, 90, 120)  # 秒，累计 ~5.3 分钟
+
     async def enumerate_catalog(self, catalog):
         n = None
-        for attempt in range(3):
+        attempts = (0,) + self.EMPTY_TREE_BACKOFF
+        for attempt, wait in enumerate(attempts):
             if attempt:
-                cj.log("[enum] %s empty tree (attempt %d), retrying" % (catalog, attempt))
-                await asyncio.sleep(2.0)
+                cj.log("[enum] %s empty tree (attempt %d/%d), backoff %ds"
+                       % (catalog, attempt, len(attempts) - 1, wait))
+                await asyncio.sleep(wait)
             await self._js(_wrap(_FLAT_FN +
                 "window.__cjdocs=null;"
                 "window.__cjp=(async()=>{"
@@ -276,7 +281,8 @@ class CjIab:
             if n > 0:
                 break
         if n is None or n == 0:
-            cj.log("[enum] %s still empty after retries — 判空将走单查保留闸门" % catalog)
+            cj.log("[enum] %s STILL EMPTY after %d attempts — 站点空树故障，调用方须中止本轮"
+                   % (catalog, len(attempts)))
             return []
         docs = []
         off = 0
@@ -306,7 +312,7 @@ class CjIab:
             "const bi=JSON.parse(b.resJson);const v=bi.value||{};const html=(v.content&&v.content.content)||'';"
             "return {objectId:oid,total:html.length,html:html};}catch(e){return {objectId:oid,total:0,err:String(e)};}}));"
             "window.__cjres=res;return res.length;})();return 'KICKED';" % json.dumps(ids)), tries=3)
-        for _ in range(120):
+        for _ in range(240):
             await asyncio.sleep(0.5)
             v = await self._js("window.__cjres===null||window.__cjres===undefined?'':String(window.__cjres.length)",
                                tries=1, good=lambda x: bool(x and x.strip()))
@@ -337,7 +343,9 @@ class CjIab:
             s["tree"].pop(cat, None)
         cj.save_state(s)
         for cat in cj.CATALOGS:
-            docs = bx.run(self.enumerate_catalog(cat), timeout=200)
+            docs = bx.run(self.enumerate_catalog(cat), timeout=900)
+            if not docs:
+                raise RuntimeError("[enum] %s 空树（站点预热故障），中止枚举，稍后重跑" % cat)
             s["tree"][cat] = {"docs": docs}
             cj.save_state(s)
         fetched = set(s["fetched"])
@@ -369,7 +377,11 @@ class CjIab:
                 if limit is not None and done >= limit:
                     cj.log("[fetch] limit reached"); return
                 batch = pending[i:i + BATCH]
-                cnt = bx.run(self.store_batch(cat, batch), timeout=600)
+                try:
+                    cnt = bx.run(self.store_batch(cat, batch), timeout=600)
+                except Exception as e:
+                    cj.log("[fetch] store timeout/fail batch@%d: %s (skipped)" % (i, e))
+                    continue
                 if cnt is None:
                     cj.log("[fetch] store fail, skip batch"); continue
                 for idx, m in enumerate(batch):
@@ -409,7 +421,14 @@ class CjIab:
         for i in range(0, len(oids), BATCH):
             batch = oids[i:i + BATCH]
             metas = [meta_by[o] for o in batch]
-            cnt = bx.run(self.store_batch(cat, metas), timeout=600)
+            # 单批慢/超时只跳过不炸整轮：哈希未更新，下轮增量回查自然重试
+            # （2026-10-12 实证：references 尾部大 API 文档批次拖过 600s，
+            # TimeoutError 直接炸掉整个增量，600/650 处崩溃退出）。
+            try:
+                cnt = bx.run(self.store_batch(cat, metas), timeout=600)
+            except Exception as e:
+                cj.log("[inc] store timeout/fail %s batch@%d: %s (skipped)" % (cat, i, e))
+                continue
             if cnt is None:
                 cj.log("[inc] store fail %s batch@%d (skipped)" % (cat, i))
                 continue
@@ -458,7 +477,10 @@ class CjIab:
         cj.save_state(s)
         tree_ids = {}
         for cat in cj.CATALOGS:
-            docs = bx.run(self.enumerate_catalog(cat), timeout=200)
+            docs = bx.run(self.enumerate_catalog(cat), timeout=900)
+            if not docs:
+                # 空树 = 补新盲区 + 全量删除候选（误删风险），宁可中止也不空转。
+                raise RuntimeError("[inc] %s 空树（站点预热故障），中止本轮增量，稍后重跑" % cat)
             s["tree"][cat] = {"docs": docs}
             cj.save_state(s)
             tree_ids[cat] = {d["objectId"]: d for d in docs}

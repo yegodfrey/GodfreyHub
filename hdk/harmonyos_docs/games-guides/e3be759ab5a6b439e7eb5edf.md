@@ -18,7 +18,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/games-quickgame-r
 
 ## 业务流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/4DH8Cal_R5eN6WuOPt3few/zh-cn_image_0000002399684053.png?HW-CC-KV=V1&HW-CC-Date=20260920T025432Z&HW-CC-Expire=31536000000&HW-CC-Sign=2CCEB1CE43F5EABA1F0F6F959CA927D2C9B9616E5A6664DD977405532167F652)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/4DH8Cal_R5eN6WuOPt3few/zh-cn_image_0000002399684053.png?HW-CC-KV=V1&HW-CC-Date=20261008T172317Z&HW-CC-Expire=31536000000&HW-CC-Sign=EFF084850C606CA3BC3A8890913921B26227B264092C889EF8463C63AB100F7D)
 
 1. 用户发起商品购买请求。
 2. 客户端携带商品ID、商品类型等信息向IAP SDK发起购买请求。

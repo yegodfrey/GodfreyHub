@@ -76,7 +76,7 @@ USB连接后系统自动识别设备并创建以太网卡，无需手动安装�
 2. 点击开关弹窗确认允许后将其开启。
 3. 开启后胶囊实况窗会提示"报文分析运行中"，设备网络报文会被抓取到Windows PC Wireshark。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/ThUcqmJ5TnG5eMYd1nZHpw/zh-cn_image_0000002778932237.png?HW-CC-KV=V1&HW-CC-Date=20260929T121705Z&HW-CC-Expire=31536000000&HW-CC-Sign=B2E653C6AFD1E5B8B9213237FBD9000624D781D21C696DDDDECFC3ADEBCF4F16)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/5mPNUbikQ5OSn5yBrM4sOQ/zh-cn_image_0000002784582935.png?HW-CC-KV=V1&HW-CC-Date=20261009T092720Z&HW-CC-Expire=31536000000&HW-CC-Sign=53213A1C2F4C27EC145A4827A65675AC2A396A879A3C9798590A3455CB6C678C)
 > 说明
 >
 > 1、USB调试过程中开启网络报文分析功能，USB调试功能将自动关闭。
@@ -93,7 +93,7 @@ USB连接后系统自动识别设备并创建以太网卡，无需手动安装�
 2. 在网卡列表中查找功能开启后新增的以太网卡，通常显示为"以太网 x"（如"以太网 2"）。
 3. 记录该以太网卡的名称。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/yTs_wLJOQHKUbqezDQWSnA/zh-cn_image_0000002749333154.png?HW-CC-KV=V1&HW-CC-Date=20260929T121705Z&HW-CC-Expire=31536000000&HW-CC-Sign=7FF5FAE9F29AD78833F1191A94926C22E4B265A2EDD6191C537DB1C8EB9115DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/0fo5nz7nTryKoI0jjV1Uww/zh-cn_image_0000002784663115.png?HW-CC-KV=V1&HW-CC-Date=20261009T092720Z&HW-CC-Expire=31536000000&HW-CC-Sign=29CA83E936F2536409FDE6418BFBB0BD45F661BFCF7BB9273CD84A07730E3EE4)
 > 说明
 >
 > 如果看不到新增的以太网卡，请检查：
@@ -107,7 +107,7 @@ USB连接后系统自动识别设备并创建以太网卡，无需手动安装�
 1. 在Wireshark网卡列表中，双击选中的以太网卡，开始抓包。
 2. 报文数据会显示在抓包窗口中。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1/v3/BYfoGbscSOm6gmjn_PeI5g/zh-cn_image_0000002749493038.png?HW-CC-KV=V1&HW-CC-Date=20260929T121705Z&HW-CC-Expire=31536000000&HW-CC-Sign=3DD05235554030A2F18A0964740982810139118245F3C73ACA035C73C8723ABA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/IkoYZy5ESpK_l3ZV5f2Z5A/zh-cn_image_0000002755024182.png?HW-CC-KV=V1&HW-CC-Date=20261009T092720Z&HW-CC-Expire=31536000000&HW-CC-Sign=6A42D784A6E7FA0B8B91817EFD47B8E6DA47D8A03455EBC426CDD7CCC3F2AD80)
 
 步骤三：解读抓包结果
 
@@ -161,7 +161,7 @@ Wireshark通过颜色区分不同类型的报文：
 2. 使用Ctrl+Shift+S保存抓包文件。
 3. 选择保存路径和文件名。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/71fm9XbET3OyH5jDP0z4AQ/zh-cn_image_0000002779092097.png?HW-CC-KV=V1&HW-CC-Date=20260929T121705Z&HW-CC-Expire=31536000000&HW-CC-Sign=E731B983F6672A30BC0E813691F5D833E97D63C2E8F204C1469AD117C95A5911)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/sv_eoiO0TaWm_fOeX6iY0w/zh-cn_image_0000002755184070.png?HW-CC-KV=V1&HW-CC-Date=20261009T092720Z&HW-CC-Expire=31536000000&HW-CC-Sign=741F13270D924BEAC5658A320BB1A7273E7560EA4A48AFA99041136E52933A78)
 
 ### 关闭网络报文分析步骤
 
@@ -207,7 +207,7 @@ Phone或Tablet设备的网络报文分析功能已开启，但Wireshark网卡列
 * 重新开启Phone或Tablet的网络报文分析功能。
 * 重启Wireshark并在Wireshark中点击刷新网卡列表按钮。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/Qb4ra8xTR8GOl61KWn5-UQ/zh-cn_image_0000002778932239.png?HW-CC-KV=V1&HW-CC-Date=20260929T121705Z&HW-CC-Expire=31536000000&HW-CC-Sign=748C5033242424E552633BBFF073A82A8E08E753E68921A9693EA3DDE12BB6BB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/_E3vxym3SOmp9Jde0YXFLQ/zh-cn_image_0000002784582937.png?HW-CC-KV=V1&HW-CC-Date=20261009T092720Z&HW-CC-Expire=31536000000&HW-CC-Sign=88B04C7196A3EA44BB362297A8AD29BC362877B187033D7CBB3F41BF3E237785)
 
 ### 抓包数据为空或很少
 
@@ -227,7 +227,7 @@ Wireshark过滤器设置过于严格，例如限制特定IP、端口等。
 * 检查Wireshark过滤器是否设置正确，尝试清除所有过滤器。
 * 确认以太网卡是否在接收数据（查看Wireshark底部状态栏的包统计）。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/tKA0P5GuRX20EI_klgePgg/zh-cn_image_0000002749333156.png?HW-CC-KV=V1&HW-CC-Date=20260929T121705Z&HW-CC-Expire=31536000000&HW-CC-Sign=B441B08782E0A3B82DC42F9CA2B2D9B1630E6CE4E72CCE55B3A5004CD773C94D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/RpEs9ik6QyeAnKJpEQUchA/zh-cn_image_0000002784663117.png?HW-CC-KV=V1&HW-CC-Date=20261009T092720Z&HW-CC-Expire=31536000000&HW-CC-Sign=603CD18738219D7160DE950F7A97BE12250A580F96BE5660A50779CA9B7B6A45)
 
 ### 功能使用期间出现中断
 

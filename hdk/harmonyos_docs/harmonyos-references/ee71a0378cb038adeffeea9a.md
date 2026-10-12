@@ -14,6 +14,8 @@ typedef struct UsbDeviceMemMap {...} UsbDeviceMemMap
 
 ## 概述
 
+> 2in1
+
 设备内存映射，通过[OH_Usb_CreateDeviceMemMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usb-ddk-api-h#oh_usb_createdevicememmap)创建，使用映射后的缓冲区可提升数据传输性能。
 
 **起始版本：** 10
@@ -24,7 +26,11 @@ typedef struct UsbDeviceMemMap {...} UsbDeviceMemMap
 
 ## 汇总
 
+> 2in1
+
 ### 成员变量
+
+> 2in1
 
 |名称|描述|
 |:------------------------|:--------------------------------------------------------------------------------|

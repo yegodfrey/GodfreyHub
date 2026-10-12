@@ -24,7 +24,7 @@ Detail: Please check the message from tools.
 
 自定义字体业务流程如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/YYYZrjasRxCiu8y8YFqijQ/zh-cn_image_0000002628569180.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=E3930317D43C972038AB536B9CBC7FA316C23740B32883ACE6CFBBED2B6D4FE9 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/YYYZrjasRxCiu8y8YFqijQ/zh-cn_image_0000002628569180.png?HW-CC-KV=V1&HW-CC-Date=20261008T165600Z&HW-CC-Expire=31536000000&HW-CC-Sign=E5382EF76A56A33B6AF993F7A16A501A57E49DD844AD3287B3A44183749C3980 "点击放大")
 
 ## 问题定位
 
@@ -32,7 +32,7 @@ Detail: Please check the message from tools.
 
 ttf属性截图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/pq9RRt5jTfacxIlZ-puTCg/zh-cn_image_0000002658928505.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=AA86D9CB6D2EE110548BB7E238B4314192C345A8D927DC022B78F1F01843B87F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/pq9RRt5jTfacxIlZ-puTCg/zh-cn_image_0000002658928505.png?HW-CC-KV=V1&HW-CC-Date=20261008T165600Z&HW-CC-Expire=31536000000&HW-CC-Sign=F368F8311F863A57765A5E8B7107903A8453BEC828DB4D7277FB5C5B870D8BC1)
 
 ## 分析结论
 

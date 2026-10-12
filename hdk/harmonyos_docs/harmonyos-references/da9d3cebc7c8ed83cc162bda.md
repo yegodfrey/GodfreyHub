@@ -15,6 +15,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-univer
 
 ## onVisibleAreaChange
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T
 
 组件可见区域变化时触发该回调。开发指导及常见问题请参考[感知组件可见性](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-manage-components-visibility)指南。
@@ -49,6 +51,8 @@ onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T
 
 ## onVisibleAreaChange^22+^
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback, measureFromViewport: boolean): T
 
 组件可见区域变化时触发该回调。可以通过measureFromViewport设置可见区域计算模式。开发指导及常见问题请参考[感知组件可见性](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-manage-components-visibility)指南。
@@ -82,6 +86,8 @@ onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback, mea
 > * 不支持非挂树节点的可见面积变化计算。例如，预加载的节点、通过[overlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-overlay#overlay)能力挂载的自定义节点。
 
 ## onVisibleAreaApproximateChange^17+^
+
+> phone 17+ | 2in1 17+ | tablet 17+ | tv 19+ | wearable 18+
 
 onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): T
 
@@ -129,6 +135,8 @@ onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleA
 
 ## VisibleAreaEventOptions^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 关于可见区域变化相关的参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -142,6 +150,8 @@ onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleA
 |measureFromViewport^22+^|boolean|否|是|设置可见区域计算模式。 当measureFromViewport设置为true时，系统在计算该组件的可见区域时，会考虑父组件的[clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clip12) 属性设置。如果父组件的[clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clip12)为false，则认为其内的子组件可以超出其区域进行显示，因此超出父组件的区域也将被视为可见区域纳入计算；如果父组件的[clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clip12)设置为true，则组件超出父组件的区域会被裁剪，无法显示，因此会被视为不可见区域进行计算。而当measureFromViewport设置为false时，则不考虑[clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clip12)的影响，直接将组件超出父组件的部分视为不可见区域。 默认值：false measureFromViewport设置为true时，祖先节点设置[scale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#scale)属性，组件可见比例会被正确计算。 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。|
 
 ## VisibleAreaChangeCallback^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: number) => void
 
@@ -162,7 +172,11 @@ type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: number) =>
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1 (使用onVisibleAreaChange来监听区域变化)
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例对组件设置[onVisibleAreaChange](#onvisibleareachange)事件，当组件完全显示或者完全消失时触发回调。
 
@@ -266,6 +280,8 @@ struct ScrollExample {
 
 ### 示例2 (使用onVisibleAreaApproximateChange来监听区域变化)
 
+> phone | 2in1 | tablet | tv | wearable
+
 从API version 17开始，该示例对组件设置[onVisibleAreaApproximateChange](#onvisibleareaapproximatechange17)事件，当组件完全显示或者完全消失时触发回调。
 
 ```ts
@@ -367,9 +383,11 @@ struct ScrollExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/ugKvyzdGTsqMVKfMfEVI8Q/zh-cn_image_0000002778933485.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=2CB5FA9A44F192C0A06B48D1A7D80AA160AD8D915D0D246A6F29C99A3D654548)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/7S4SM6XTTd-jQj8tGbl_xA/zh-cn_image_0000002784584173.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=93D96D06D9D0934D7989850DDC57459BF4935ED7A0678801BCBC27779CC3157C)
 
 ### 示例3 (设置measureFromViewport子组件超出父组件显示)
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 22开始，该示例展示onVisibleAreaChange事件设置measureFromViewport参数后的效果对比，主要差异体现在回调返回的组件可见比例（currentRatio）上。设置measureFromViewport为true时，返回的组件可见比例（currentRatio）更符合实际效果。该示例在不同设备上currentRatio会有微小差异。
 
@@ -480,5 +498,5 @@ struct OnVisibleAreaChangeSample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/ZaJhdbbWTmyjSItbnBEoBQ/zh-cn_image_0000002749334400.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=BE7C399125885F8587BF760CE41AD0EBA68A2A58143999989C389690D7749A56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/wW-iQKiaTSGqe_yTbbmF0Q/zh-cn_image_0000002784664355.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=9D4CA60E27DDE05B43D58D50BB00694E1E7A1E33D448614EDC3DAA64D097B17D)
 

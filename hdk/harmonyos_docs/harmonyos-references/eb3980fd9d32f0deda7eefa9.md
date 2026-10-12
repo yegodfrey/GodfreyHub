@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 提供播控错误码的定义。
 
 **引用文件：** <multimedia/av_session/native_avsession_errors.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 枚举
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:----------------------------------------------------|:-----------------------|:-------------|
@@ -35,7 +41,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 枚举类型说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### AVSession_ErrCode
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 enum AVSession_ErrCode
@@ -105,6 +115,8 @@ enum AVSession_ErrCode
 
 ### AVSessionCallback_Result
 
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
+
 ```c
 enum AVSessionCallback_Result
 ```
@@ -121,6 +133,8 @@ enum AVSessionCallback_Result
 |AVSESSION_CALLBACK_RESULT_FAILURE = -1|会话的回调结果为执行失败。|
 
 ### AVMetadata_Result
+
+> phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
 enum AVMetadata_Result
@@ -139,6 +153,8 @@ enum AVMetadata_Result
 |AVMETADATA_ERROR_NO_MEMORY = 2|内存分配失败。|
 
 ### AVQueueItem_Result
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 ```c
 enum AVQueueItem_Result

@@ -16,13 +16,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 ## 权限列表
 
+> phone | 2in1 | tablet | tv | wearable
+
 无
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable
+
 支持[animate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animate)、[animateMotion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatemotion)、[animateTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatetransform)。
 
 ## 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 支持Svg组件[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-common-attributes)和以下属性。
 
@@ -35,6 +41,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```html
 <!-- xxx.hml -->
 <div class="container">
@@ -45,5 +53,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 </div>
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/xufJp1tFTCCZ8GU7MSa3tg/zh-cn_image_0000002749495248.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=C66F5785DBB1D2C0B26DF068BF6BE669A2DDF492808DD12A5F33464A36DCFCAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/DdA8GvmmTNWL6oEjpPuxpw/zh-cn_image_0000002755026250.png?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=D7534308534DBDAAD07FB449016C8495614B6C5861652C853ED0DC9787CEA0FE)
 

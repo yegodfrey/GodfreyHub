@@ -805,7 +805,7 @@ struct Index {
 
 直接操作状态变量，三次触发计算函数，运行[耗时](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-inspector-profiler#trace调试能力)结果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/iuiLGjWySjCPEmW95Pl2eQ/zh-cn_image_0000002778931085.png?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=CE2AC852AD2C75E832498E49CABCA55E5631EC3C71FFD2CF9952B10743BA9C77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/D--O0_TjQdyl09bTKJ43Ug/zh-cn_image_0000002755183026.png?HW-CC-KV=V1&HW-CC-Date=20261009T092717Z&HW-CC-Expire=31536000000&HW-CC-Sign=492C56C2DE1D0ABDEC58B347B4E55FCEBF0338E31FB1CAE307745A4627C4F0DF)
 
 【正例】
 
@@ -852,7 +852,7 @@ struct Index {
 
 使用临时变量取代状态变量的计算，三次触发计算函数，运行耗时结果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/0c6ejmjySDSPaKs4uwH7gw/zh-cn_image_0000002749332002.png?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=9C55514CDAD96CAC1A3D57119EA1023768C04021E52623A33E1B832B7640BBE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/TJPgPuLQQdGB8Tp1pYukgA/zh-cn_image_0000002784581891.png?HW-CC-KV=V1&HW-CC-Date=20261009T092717Z&HW-CC-Expire=31536000000&HW-CC-Sign=C866AB01F3558665B853E7BE3AAE2AD8E2973265D55F7A0341A1B337C4699126)
 
 【总结】
 
@@ -1006,7 +1006,7 @@ struct MyComponent {
 
 上述代码运行效果如下。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/Wr7ZTmIaR3-iCrSs8ctwWA/zh-cn_image_0000002749491886.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=430D26E77AECBFA44AD490570AA71B30F57E148BB9B0C6140592519C4CD35F01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/CujuQ-kqTGu0DMy8mKIJAw/zh-cn_image_0000002784662075.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092717Z&HW-CC-Expire=31536000000&HW-CC-Sign=9CFC56B4E5E92FE4807990755FB85DE9A311E5F2DAAC1B90C1BD3FC7C5F1BC7F)
 
 可以观察到在点击更改message之后，图片"闪烁"了一下，同时输出了组件的onAppear日志，这说明组件进行了重建。这是因为在更改message之后，导致LazyForEach中这一项的key值发生了变化，使得LazyForEach在reloadData的时候将这一项ListItem进行了重建。Text组件仅仅更改显示的内容却发生了重建，而不是更新。而尽管Image组件没有需要重新绘制的内容，但是因为触发LazyForEach的重建，会使得同样位于ListItem下的Image组件重新创建。
 
@@ -1155,7 +1155,7 @@ struct ChildComponent {
 
 上述代码运行效果如下。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/c7l73jjfScKHb31JOmmdXQ/zh-cn_image_0000002779090943.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=9C9D885CDD9123C6C28A0C3C606E101E14DC8B59B89DA8E4B824EEFB775E97FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/aP8zVanzR26rf3Yt2SFszQ/zh-cn_image_0000002755023142.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092717Z&HW-CC-Expire=31536000000&HW-CC-Sign=B7CD4ED9312F379F7022E23991CFD53F108E64D2EED2ECE9BB92E22A0C983B87)
 
 可以观察到UI能够正常刷新，图片没有"闪烁"，且没有输出日志信息，说明没有对Text组件和Image组件进行重建。
 
@@ -1221,7 +1221,7 @@ struct Page {
 
 上述代码运行效果如下。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/i9veaOlYQ3arimjTYHmA9A/zh-cn_image_0000002778931087.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=51585AB0B0618B5CC31925E14AF18ECFB3EAAD80C5CF0AB671F721F751D49439)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/IPOqz2dYRmClQe1lnaYpEg/zh-cn_image_0000002755183028.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092717Z&HW-CC-Expire=31536000000&HW-CC-Sign=45D9F025FBFCF39BC88D19954C53807785C1418419F824141B11EED05E80B417)
 
 由于ForEach中生成的item是一个常量，因此当点击改变item中的内容时，没有办法观测到UI刷新，尽管日志表明item的值已改变（这体现在打印了"change font size"的日志）。因此，需要使用自定义组件，配合@ObjectLink来实现观测的能力。
 
@@ -1290,7 +1290,7 @@ struct Page {
 
 上述代码的运行效果如下。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/HGjN2yO2TJeBzqn4s71gDw/zh-cn_image_0000002749332004.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121655Z&HW-CC-Expire=31536000000&HW-CC-Sign=46FEC42E7199828B6DAB28F8009EC875F3A3E3C0C45F34DE2AB89A19CE93C992)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/by4wSlYHT8OBGm-LVUvVCA/zh-cn_image_0000002784581893.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092717Z&HW-CC-Expire=31536000000&HW-CC-Sign=473CE1A2347BA99C7FC6A3FFA6E0DB186BA13DAE8D4D124302EC6BD5A42855AF)
 
 使用@ObjectLink接受传入的item后，使得TextComponent组件内的textStyle变量具有了被观测的能力。在父组件更改styleList中的值时，由于@ObjectLink是引用传递，所以会观测到styleList每一个数据项的地址指向的对应item的fontSize的值被改变，因此触发UI的刷新。
 

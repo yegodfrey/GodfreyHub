@@ -14,6 +14,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode
 
 ## 100002 路由页面跳转时输入的uri错误
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Uri error. The URI of the page to redirect is incorrect or does not exist.
@@ -31,6 +33,8 @@ Uri error. The URI of the page to redirect is incorrect or does not exist.
 请检查输入的路由uri是否正确。
 
 ## 100003 路由压入的page过多
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 
@@ -50,6 +54,8 @@ Page stack error. Too many pages are pushed.
 
 ## 100004 命名路由页面跳转时输入的name错误
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Named route error. The named route does not exist.
@@ -67,6 +73,8 @@ Named route error. The named route does not exist.
 请检查输入的命名路由name是否正确或者是否存在。
 
 ## 100005 Navigation跳转时未注册builder函数
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 
@@ -90,6 +98,8 @@ Navigation跳转时，未注册创建NavDestination组件的builder函数，系�
 
 ## 100006 Navigation跳转时目标页面不存在NavDestination组件
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 NavDestination not found.
@@ -107,6 +117,8 @@ Navigation跳转时，目标页面不存在NavDestination组件。
 请检查待跳转的目标页面中是否存在NavDestination组件。
 
 ## 106200 传入的索引值非法
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 
@@ -126,6 +138,8 @@ index为非法值。
 
 ## 106201 查询路由导航信息失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Failed to query route navigation information.
@@ -143,6 +157,8 @@ Failed to query route navigation information.
 请检查当前节点是否在页面中。
 
 ## 106202 传入的buffer size不足以容纳目标数据
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 
@@ -162,6 +178,8 @@ buffer size is not large enough.
 
 ## 200002 路由页面替换时输入的uri错误
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
@@ -179,6 +197,8 @@ Uri error. The URI of the page to be used for replacement is incorrect or does n
 请检查输入的路由uri是否正确。
 
 ## 300001 Navigation跳转前静默安装hsp分包失败
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 

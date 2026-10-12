@@ -24,7 +24,7 @@ UDMF标准化数据定义包括[标准化数据类型](https://developer.huawei.
 
 在设备、应用交互过程中，一次交互会存在多条记录，每条记录可能存在不同的表达形式（即样式），因此提出了多样式数据概念。在交互过程中，数据提供方提供记录的不同数据样式，数据使用方获取到数据后，根据业务需要从记录中获取样式数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/wQhgXRl3TUWw_FWSlrcMig/zh-cn_image_0000002749491626.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=1C973F053E0FFAABC62FD09CA6213494F8CBF96441C85FAEB24D51C45AF2E072)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/Lw7Owm8QRZ-z_oZDYxd0MA/zh-cn_image_0000002784661815.png?HW-CC-KV=V1&HW-CC-Date=20261009T092715Z&HW-CC-Expire=31536000000&HW-CC-Sign=37F93A41B6CB13EC8F6B088273E00F9B7A269E29ED483CEEC20213A2011FD1CE)
 
 在上图中，不同的UnifiedRecord表示不同的记录，不同记录之间承载的内容是不一致的；在同一个UnifiedRecord中，同一内容以不同的样式存储，丰富了数据的表现形式。
 

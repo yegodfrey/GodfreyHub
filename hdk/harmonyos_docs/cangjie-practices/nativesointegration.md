@@ -39,7 +39,7 @@ nodePath: 实践 / 三方动态链接库集成
 
 **图1** add动态库存放路径
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/6JoDqOKxRui-QtRMNTxyhQ/zh-cn_image_0000002639520994.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=76A0CEFCC27AED3FD7DE5B4699882EA2D00D4FB9FCAE40DFC3335BD577CB3307)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/6JoDqOKxRui-QtRMNTxyhQ/zh-cn_image_0000002639520994.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=564557EADAC71A608E8DCF88C9D0DD08065F24EE421029D2CC07AE39EF9643CF)
 
   2. 修改entry目录下cjpm.toml文件配置，指定libadd.so文件的加载路径。
          
@@ -111,7 +111,7 @@ nodePath: 实践 / 三方动态链接库集成
 
 **图2** 在Native侧通过链接动态链接库的方式引用so库完成加法运算效果展示
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/wTANQGP0S3OCDlvMK5fVYg/zh-cn_image_0000002669681001.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=B050F7BC63214323B18778E157C42207EBDFDD71098776A6B9C3B9C8AE5BDB75)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/wTANQGP0S3OCDlvMK5fVYg/zh-cn_image_0000002669681001.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=470C07C7998EB366AB5B8CE1BB14ED0CBDAA412C4A48511D06143C81CA90958B)
 
 
 
@@ -130,7 +130,7 @@ nodePath: 实践 / 三方动态链接库集成
 
 **图3** sub动态库存放路径
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/Cxuw4BNISJqa24rGvXlrVQ/zh-cn_image_0000002669560889.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=D0D4F81E0C50E9D0956D2FEF18A1755F206022AF55A43A7FDCD53BDD9CCF3798)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/Cxuw4BNISJqa24rGvXlrVQ/zh-cn_image_0000002669560889.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=62559FD5AE528DE47173C2E9C93C0B5A796E1FECE1518556BDAF5048F2326F0E)
 
   2. 使用仓颉代码编写dlopen调用函数，注意dlopen函数需要使用foreign {}包裹， 且dlopen函数中CString类型参数不可以直接使用仓颉的String类型，而需要调用LibC.mallocCString()进行创建。
          
@@ -213,7 +213,7 @@ nodePath: 实践 / 三方动态链接库集成
 
 **图4** 在Native侧通过调用dlopen引用三方so库完成减法运算效果展示
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/bgD_fIfsS06tqzMgc9zpsA/zh-cn_image_0000002639680940.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=51ED78CF06B16F423ADBB5980A9479B92EFEC2F37B260CC89B7127509B2EB51F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/bgD_fIfsS06tqzMgc9zpsA/zh-cn_image_0000002639680940.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=97CFFC382607B6C1ECEC43F12136B0C483123EF88D603409C8181BCFA67152C1)
 
 
 
@@ -232,11 +232,11 @@ nodePath: 实践 / 三方动态链接库集成
 
 **图5** 创建Napi
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/omAGYm1VQb69Gijwxi5FhQ/zh-cn_image_0000002639520996.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=BE29477CB46C2E131601EF4CBA2AE49E167DBA2A8AFC1BA6CF978316AE5230F3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/omAGYm1VQb69Gijwxi5FhQ/zh-cn_image_0000002639520996.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=E60C64AB7A4A9B71E4D16457AA8B2644DF976B92E17C6B3A0D89C97524869CAD)
 
 **图6** 生成cpp目录
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/a9d6wQwCQgCmAW9tVQz_2Q/zh-cn_image_0000002669681003.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=6AB62B204DBEDC542CC7CB262379577DE5715558A20A6CD2C8D25072E2E85051)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/a9d6wQwCQgCmAW9tVQz_2Q/zh-cn_image_0000002669681003.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=3BA75840ACAA119D0C13D61AFBB650D380FD4648BF44B546CE557F2E5F5DF137)
 
   2. 在cpp目录中增加mul.cpp和mul.h文件内容，同时将napi_init.cpp文件删除。
          
@@ -259,7 +259,7 @@ nodePath: 实践 / 三方动态链接库集成
 
 **图7** cpp目录增加mul文件
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/judLwNecQn-2qRJCmIe8jg/zh-cn_image_0000002669560891.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=6182A524257716D56A79CF65A7FE57CABAB233DAAF8263BD72511ABEECA718BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/judLwNecQn-2qRJCmIe8jg/zh-cn_image_0000002669560891.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=0304C990BDE8C18F3835F9905DBDD62D34A1F1275582F27B413C3D2532D7AB5B)
 
   3. 修改src/main/cpp目录下CMakeLists.txt内容，以生成并链接libmul.so动态库。
          
@@ -348,11 +348,11 @@ nodePath: 实践 / 三方动态链接库集成
 
 **图8** 在Native侧通过先编译后链接动态库的方式完成乘法运算效果展示
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/WHXpwN12Tzai58Tx3MINpw/zh-cn_image_0000002639680942.png?HW-CC-KV=V1&HW-CC-Date=20261005T111054Z&HW-CC-Expire=86400&HW-CC-Sign=5E4303A89B7247B17A67855BD8479D38AF1702A326131C21083E8C1C56B96CE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/WHXpwN12Tzai58Tx3MINpw/zh-cn_image_0000002639680942.png?HW-CC-KV=V1&HW-CC-Date=20261012T113355Z&HW-CC-Expire=86400&HW-CC-Sign=08BD5537E6A7F8BC8964C68E031D49DECFD36ECF3E415DD8F991A0F3CAA8F1E9)
 
 
 
 
 #### 示例代码
 
-[三方动态链接库集成示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183055.41916984853541813974893589221085:20261006191054:2800:77F98A32FC8CC7C616E613C05E35D2EE4E57DC6CABFBC7F74104EB80ED21E30E.zip?needInitFileName=true)
+[三方动态链接库集成示例代码](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260728183055.41916984853541813974893589221085:20261013193355:2800:839FD68B3A7855CC2CBCA46FDB0FFFD082381861EAEEE02E7BB96A88B390BF42.zip?needInitFileName=true)

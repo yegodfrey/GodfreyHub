@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-c
 
 ## 事件说明
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 相对于私有事件，支持通用事件的组件可以绑定点击、长按、滑动等通用事件，用于响应用户基础交互操作，具体支持情况请以对应组件文档为准。
 
 |名称|参数|描述|
@@ -19,6 +21,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-c
 |swipe^5+^|[SwipeEvent](#swipeevent)|组件上快速滑动后触发。|
 
 ## BaseEvent
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 BaseEvent是基础事件类型，用于描述事件类型、触发时间、设备信息和目标对象等通用事件基础信息，便于在事件处理过程中获取统一的事件上下文。
 
@@ -30,6 +34,8 @@ BaseEvent是基础事件类型，用于描述事件类型、触发时间、设�
 |target^12+^|[Target](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events#target对象6)|触发该事件的目标对象。|
 
 ## SwipeEvent
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 SwipeEvent继承自[BaseEvent](#baseevent)，用于描述组件上快速滑动触发的事件信息，包含滑动方向属性，适用于处理组件滑动交互场景。
 

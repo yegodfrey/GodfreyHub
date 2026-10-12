@@ -12,13 +12,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-developmen
 2. DevEco Studio NEXT Developer Beta1安装到了win10后无法新建工程、文件等，新建窗口打开后是空白的窗体。重复安装几次，都是同样现象。电脑硬件配置是8G内存。
 3. DevEco Studio软件安装后无法进入，弹出错误弹窗。 Windows系统报错如下：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/9RfIwasgQyeR-2NNdMFSsA/zh-cn_image_0000002658924303.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=35B6758B37FDD1695FB1181BF4C38ED0AD983C012CDAEC0656DDF437BEE8B815 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/9RfIwasgQyeR-2NNdMFSsA/zh-cn_image_0000002658924303.png?HW-CC-KV=V1&HW-CC-Date=20261008T170547Z&HW-CC-Expire=31536000000&HW-CC-Sign=E3A3BC4FAAD63B35717C922621A18A7842C7908860E3FA70796A6ACDB65D2CAC "点击放大")
 
    macOS系统报错如下：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/yydHXuZpRbO1qrlJTDvlKQ/zh-cn_image_0000002658804359.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=30585654CFFCD69D798ED2A0EB383932D855335A7000CB63E859F62BF00EA1BB "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/yydHXuZpRbO1qrlJTDvlKQ/zh-cn_image_0000002658804359.png?HW-CC-KV=V1&HW-CC-Date=20261008T170547Z&HW-CC-Expire=31536000000&HW-CC-Sign=B3F7E728942A9B8E26427C144A51D095F09912E5DBE4D0A7803F4A1E956A57FA "点击放大")
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/SJVoIg1-T_mXe_ojQq2Ihg/zh-cn_image_0000002628564994.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=640A8FE8EACCD72647A504212AC744DCEB2F108EB765CD90E27E05FECA471693 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/SJVoIg1-T_mXe_ojQq2Ihg/zh-cn_image_0000002628564994.png?HW-CC-KV=V1&HW-CC-Date=20261008T170547Z&HW-CC-Expire=31536000000&HW-CC-Sign=B90645DE111346A12D1C70A7740993823F12185A8C92BC248F19DF8634CE00D5 "点击放大")
 4. 无法启动，报错信息如下：
 
    ```txt
@@ -154,7 +154,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-developmen
 
    DevEco Studio突然无法打开，弹框报错信息如下：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/1XSfrhdcSHCVNvslPjzCDA/zh-cn_image_0000002628405090.png?HW-CC-KV=V1&HW-CC-Date=20260916T082507Z&HW-CC-Expire=31536000000&HW-CC-Sign=70F897E04BC3CF48B61172665CBBDB971B100411B3FD84C5F4AC9A2D19B1ADF0 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/1XSfrhdcSHCVNvslPjzCDA/zh-cn_image_0000002628405090.png?HW-CC-KV=V1&HW-CC-Date=20261008T170547Z&HW-CC-Expire=31536000000&HW-CC-Sign=0B328AC1AFB17F9E30E3722D9FD7DA4E4B4AF2ED17F6442DB8A39FF7CC77F343 "点击放大")
 8. DevEco Studio无法正常打开项目。
 
 ## 背景知识

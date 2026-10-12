@@ -14,6 +14,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode
 
 ## 3301000 位置服务不可用
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 The location service is unavailable.
@@ -36,6 +38,8 @@ The location service is unavailable.
 
 ## 3301100 位置功能的开关未开启导致功能失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 The location switch is off.
@@ -54,7 +58,11 @@ The location switch is off.
 
 ## 3301200 定位失败，未获取到定位结果
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 ### 错误原因
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 1. 网络不可用导致定位失败
 
@@ -75,6 +83,8 @@ The network locating is failed because the network cannot be accessed.
 请检查设备是否能联网，设备是否插入SIM卡，Wi-Fi开关是否开启等。
 
 ### 错误原因2. 定位结果不满足精度要求导致定位超时
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 
@@ -98,6 +108,8 @@ The positioning result does not meet the precision requirement (maxAccuracy) in 
 
 ### 错误原因3. 获取缓存位置失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 The system does not have a cache location.
@@ -116,6 +128,8 @@ The system does not have a cache location.
 
 ### 错误原因4. 获取后处理轨迹失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Failed to obtain the post processing track because sports type is not supported.
@@ -133,6 +147,8 @@ Failed to obtain the post processing track because sports type is not supported.
 请参考[getPostProcessingTrack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geolocationmanagergetpostprocessingtrack)入参说明，使用支持的sports类型。
 
 ### 错误原因5. 其他原因导致定位失败
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 
@@ -156,6 +172,8 @@ Failed to obtain the geographical location.
 
 ## 3301300 逆地理编码查询失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Reverse geocoding query failed.
@@ -178,6 +196,8 @@ Reverse geocoding query failed.
 
 ## 3301400 地理编码查询失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Geocoding query failed.
@@ -198,6 +218,8 @@ Geocoding query failed.
 
 ## 3301500 区域信息（包含国家码）查询失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Failed to query the area information.
@@ -215,6 +237,8 @@ Failed to query the area information.
 建议增加重试机制。
 
 ## 3301600 地理围栏操作失败
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 
@@ -238,6 +262,8 @@ Failed to operate the geofence.
 
 ## 3301601 地理围栏个数超过最大值限制导致添加围栏失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 The number of geofences exceeds the maximum.
@@ -256,6 +282,8 @@ The number of geofences exceeds the maximum.
 
 ## 3301602 地理围栏ID错误导致删除围栏失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Failed to delete a geofence due to an incorrect ID.
@@ -273,6 +301,8 @@ APP调用删除地理围栏接口时传入的围栏ID错误。
 请在调用删除地理围栏接口时传入正确的围栏ID。
 
 ## 3301700 请求无响应
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 
@@ -296,6 +326,8 @@ No response to the request.
 
 ## 3301800 启动Wi-Fi或蓝牙扫描失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Failed to start Wi-Fi or Bluetooth scanning.
@@ -317,6 +349,8 @@ Failed to start Wi-Fi or Bluetooth scanning.
 重新关闭开启Wi-Fi或蓝牙开关。
 
 ## 3301900 由于Wi-Fi未连接导致获取Wi-Fi热点的MAC地址失败
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 
@@ -340,6 +374,8 @@ Failed to obtain the hotspot MAC address because the Wi-Fi is not connected.
 
 ## 3501100 由于位置功能开关未打开导致添加beacon围栏失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Failed to add a beacon fence because the location switch is off.
@@ -357,6 +393,8 @@ Failed to add a beacon fence because the location switch is off.
 请提示用户开启位置功能的开关。
 
 ## 3501101 由于蓝牙功能开关未打开导致添加beacon围栏失败
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 
@@ -376,6 +414,8 @@ Failed to add a beacon fence because the bluetooth switch is off.
 
 ## 3501601 由于beacon围栏个数超过最大值限制导致添加围栏失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 The number of beacon fence exceeds the maximum.
@@ -394,6 +434,8 @@ beacon围栏个数超过最大值限制导致添加围栏失败。
 
 ## 3501602 由于beacon围栏信息不正确导致删除围栏失败
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 **错误信息**
 
 Failed to delete the fence due to incorrect beacon fence information.
@@ -411,6 +453,8 @@ beacon围栏信息不正确导致删除围栏失败。
 请在调用删除beacon围栏接口时传入正确的围栏信息。
 
 ## 3501603 由于存在重复的beacon围栏导致添加围栏失败
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 **错误信息**
 

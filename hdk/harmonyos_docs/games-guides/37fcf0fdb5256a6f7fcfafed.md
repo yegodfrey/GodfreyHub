@@ -30,15 +30,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/gameobe-ruleconfi
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"开发与服务"。
 2. 在项目列表中找到您的项目，并在项目下的应用列表中选择您的游戏应用。
 
-3. 在左侧导航栏中选择"构建 > 联机对战服务"或点击左上角![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/PWbj4fejSUCaelo6cJJ4cA/zh-cn_image_0000002375392954.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=332F45B0C97AE3998F3F629BAD3F5747155F4B2F5D2C749CBAD315A4AD92BF53)搜索"联机对战服务"，进入联机对战服务页面。
+3. 在左侧导航栏中选择"构建 > 联机对战服务"或点击左上角![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/PWbj4fejSUCaelo6cJJ4cA/zh-cn_image_0000002375392954.png?HW-CC-KV=V1&HW-CC-Date=20261008T160455Z&HW-CC-Expire=31536000000&HW-CC-Sign=784F98D08F8C5FDC55AAAF10B9965888DD00C9BC0C962979AFEC14D0821E3436)搜索"联机对战服务"，进入联机对战服务页面。
 
-4. 选择"匹配管理 > 匹配规则"，点击"新建匹配规则"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/gAseOlbGTvGpp6nf_Lljcg/zh-cn_image_0000002510959660.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=F9EE4FF12943379E2B0F8A6725F4A319A35708B2380C76CC63911927F71A0EE8)
+4. 选择"匹配管理 > 匹配规则"，点击"新建匹配规则"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/gAseOlbGTvGpp6nf_Lljcg/zh-cn_image_0000002510959660.png?HW-CC-KV=V1&HW-CC-Date=20261008T160455Z&HW-CC-Expire=31536000000&HW-CC-Sign=8774B5AAC2E3D025BCDE7FE280715C8D198DA7BA4FA07F8CFE095DEB97439D12)
 
 5. 配置匹配规则整体信息。 说明
    >
    > 系统预置了"1vs1"、"2vs2"、"1vs3"和"2人闯关"几种模式下的部分配置信息，如需使用上述几种模式，可选择对应模式进行快速配置。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/D2SsytdUQvCiAKQ13BXQjA/zh-cn_image_0000002395190889.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=515328DE2F1E455A4D229E2E0A2C6712B3E22C59AD0999E58D229E7B6B8D9D22)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/D2SsytdUQvCiAKQ13BXQjA/zh-cn_image_0000002395190889.png?HW-CC-KV=V1&HW-CC-Date=20261008T160455Z&HW-CC-Expire=31536000000&HW-CC-Sign=B9F1822C2282691D3DE48DF5616DFC34F68AA8CC1693D459B951B3194D485F68)
 
    |参数|必填/选填|说明|
    |:--------|:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -50,7 +50,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/gameobe-ruleconfi
 6. 选择对应的匹配规则类型及配置模式，并配置队伍信息。此处以"普通模式"配置匹配规则为例展开说明，如需了解"脚本模式"内容，请参见[脚本模式详解](https://developer.huawei.com/consumer/cn/doc/games-guides/script-mode-0000002395190665)。 注意
    >
    > 当"普通模式"切换成"脚本模式"时，控制台会自动将已配置内容生成为脚本。如果相关配置信息在"脚本模式"中被编辑，当您需切换回"普通模式"时，配置信息将会丢失，请谨慎操作。
-   * 对称匹配 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/fZmVvXT0TQqTOGTRi7TKgA/zh-cn_image_0000002361670812.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=B4765EA8AA111EBB172DF5ACAD7310CDF134EFEEE5A3EC03462F43342E180C8C)
+   * 对称匹配 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/fZmVvXT0TQqTOGTRi7TKgA/zh-cn_image_0000002361670812.png?HW-CC-KV=V1&HW-CC-Date=20261008T160455Z&HW-CC-Expire=31536000000&HW-CC-Sign=F418B184D69283AD854A945AE2FD0DEB00C8D0A0935E15EDD4E380AE89AA0990)
 
      |参数|必填/选填|说明|
      |:-----|:----|:---------------------------------------------------|
@@ -62,7 +62,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/gameobe-ruleconfi
      >
      > 在非对称匹配规则中，至少要配置两种不同类型队伍的队伍信息，最多可配置十种不同类型队伍的队伍信息。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/uQ50L9muR5a1jdlJt5svDA/zh-cn_image_0000002511119662.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=F155BF059917AAFAB066F35002DC532009B8BA354622BDCBC192F94AFB1EDE33)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/uQ50L9muR5a1jdlJt5svDA/zh-cn_image_0000002511119662.png?HW-CC-KV=V1&HW-CC-Date=20261008T160455Z&HW-CC-Expire=31536000000&HW-CC-Sign=4C88BE28E298314158C9781AF9F64838A49AE545258690FE129775759B2B1E17)
 
      |参数|必填/选填|说明|
      |:-----|:----|:----------------------------------------------------|
@@ -72,7 +72,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/gameobe-ruleconfi
      |每队玩家人数|必填|每个队伍的玩家人数，总人数之和最多不可超过100人。|
      |队伍编号值|必填|用于区分不同类型队伍的编号值，取值范围为[1, 100000]。|
 
-7. 配置玩家组队规则。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/CvOnoq77TJymXyLzRV5YAg/zh-cn_image_0000002542719625.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=FA4761CBCD1D8E1456245C65D1FF9F889FD5B0053BACB344CEAE38EB006CE017)
+7. 配置玩家组队规则。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/CvOnoq77TJymXyLzRV5YAg/zh-cn_image_0000002542719625.png?HW-CC-KV=V1&HW-CC-Date=20261008T160455Z&HW-CC-Expire=31536000000&HW-CC-Sign=81A5EF3CBD56E9372A7CDF5C0FB9AB8AC71AC6DC0C042B3A4E4AF055FB2FD73D)
 
    |参数||必填/选填|说明|
    |:-|------|:----|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -85,7 +85,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/gameobe-ruleconfi
    |值差|值差|必填|玩家属性值的差值，取值范围为[0, 100000]。|
    |值差|放宽后值差|必填|超过[放宽条件的待生效时间](#ZH-CN_TOPIC_0000002361670428__p121193153914)后，用于玩家继续组队匹配的属性值差值。取值范围为[0, 100000]，此值应大于"[值差](#ZH-CN_TOPIC_0000002361670428__p13446624113917)"，且最多设置1组放宽条件。|
 
-8. 配置队伍组房间规则。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/GAvPrwVGRRypmm0-jb7AXw/zh-cn_image_0000002542599611.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=F7E68F78C78D7446B4F68A75994F95717241CE4C73E37AA8B0F3C8504A23BB6E)
+8. 配置队伍组房间规则。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/GAvPrwVGRRypmm0-jb7AXw/zh-cn_image_0000002542599611.png?HW-CC-KV=V1&HW-CC-Date=20261008T160455Z&HW-CC-Expire=31536000000&HW-CC-Sign=608ADAEFE4386CC1C01C1D52D3E9AC45534188D376C16DD1CF7E3DC04D4E1164)
 
    |参数||必填/选填|说明|
    |:-|-------|:----|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -101,7 +101,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/games-guides/gameobe-ruleconfi
    >
    > 已保存的匹配规则默认为"运行中"状态，提交后5分钟内生效。如需使用该条匹配规则，可记录下对应的"规则code"，用于在线匹配或组队匹配。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/kUYqG65jRrioJDoyCv6rgg/zh-cn_image_0000002361670816.png?HW-CC-KV=V1&HW-CC-Date=20260920T025433Z&HW-CC-Expire=31536000000&HW-CC-Sign=60CBFABC03B91F1C115D4D3BDEF3F62B1978C692871D59BC0CB189B8D71267F8)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/kUYqG65jRrioJDoyCv6rgg/zh-cn_image_0000002361670816.png?HW-CC-KV=V1&HW-CC-Date=20261008T160455Z&HW-CC-Expire=31536000000&HW-CC-Sign=EFF46F08DE36CEB68396C232FBBE366069ED94364043730B94203BDBD1A5E69E)
 10. 如需管理规则列表中的匹配规则，可通过点击"操作"列的按钮进行相关操作。
     * 编辑：可修改已配置的匹配规则。
     * 删除：可立即删除"停止"状态的匹配规则，但"运行中"状态的匹配规则无法删除。

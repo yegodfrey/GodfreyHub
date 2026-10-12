@@ -22,11 +22,11 @@ TSan（ThreadSanitizer）是一个检测数据竞争的工具。它包含一个�
 
 1. 点击**Run > Edit Configurations >** **Diagnostics** ，勾选**Thread Sanitizer**。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/q7YMEH3uR4KDSL4n7BggKg/zh-cn_image_0000002701823456.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=4ECED34BA952BC00B2AA8F2CC2ADC58DCCB015A8F69A44B81198F00C73308472)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/rJkdYC9uSwqxcldGwAlICA/zh-cn_image_0000002701823456.png?HW-CC-KV=V1&HW-CC-Date=20261010T073010Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF2615C52480B9963E79C3FD92DD6755BBDAC8F840963F759F7CC878E6B8F5CE)
 
 2. 如果有引用本地library，需在library模块的build-profile.json5文件中，配置arguments字段值为"-DOHOS_ENABLE_TSAN=ON"，表示以TSan模式编译so文件。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/LfdUbG3uR3G1bsPtDX8wzg/zh-cn_image_0000002731382767.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=11AD8AF334B1A6504C033C9F9B8C92F53A05F172D6AD6B7FA9B914E790305742)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/XISUR7Q4Ss2FEFExj9m2ig/zh-cn_image_0000002731382767.png?HW-CC-KV=V1&HW-CC-Date=20261010T073010Z&HW-CC-Expire=31536000000&HW-CC-Sign=DFF97565006EA6118BC82EC4C23CFA01839A313CE2F15E22FE45DC2F00BE0536)
 
 ### 方式二
 
@@ -36,7 +36,7 @@ TSan（ThreadSanitizer）是一个检测数据竞争的工具。它包含一个�
     "tsanEnabled": true
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/_OLAu863SsmadTUE29aPPg/zh-cn_image_0000002731382765.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=706130466C1262E59FDF116321F5B3994183D944E7D2C59F67BEF72C57916BC7)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/LV8Lwj6KTBm4eX3N_Bu5Kw/zh-cn_image_0000002731382765.png?HW-CC-KV=V1&HW-CC-Date=20261010T073010Z&HW-CC-Expire=31536000000&HW-CC-Sign=5D6763FEE2EBDBB22545C832DB976490A18051F90FC0ADFE00D27868F969F36A)
 
 2. 设置模块级构建TSan插桩。
 
@@ -46,16 +46,16 @@ TSan（ThreadSanitizer）是一个检测数据竞争的工具。它包含一个�
    "arguments": "-DOHOS_ENABLE_TSAN=ON"
    ```
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/FemQMRtcQG6ITh1zz5Bi4g/zh-cn_image_0000002731542733.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=31E0AE45CAEF6B35E1417DA7195A851DE2B8A0AE16F6B4804645915A5975E0D3)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/en7GmRxZRR66UWwb06e5HA/zh-cn_image_0000002731542733.png?HW-CC-KV=V1&HW-CC-Date=20261010T073010Z&HW-CC-Expire=31536000000&HW-CC-Sign=FBB6DB35B21204D70D013ECA26D7D60F4437DF92E9B94CBF3A2974129FB7A346)
 
 ## 使用TSan
 
 1. 运行或调试当前应用。
 2. 当程序出现线程错误时，弹出TSan log信息，点击信息中的链接即可跳转至引起线程错误的代码处。日志中的异常检测类型请参考[TSan异常检测类型](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-tsan-detection#section1180812915516)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/B-8fRTrNRmS9eR3kNgBYMA/zh-cn_image_0000002731382761.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=91F194120FE936501852E51D0EEA5A3D13E42EF5C5CA0884AC711C96A91A3961)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/1dRTRvSNRxm8Fxilsn-NhQ/zh-cn_image_0000002731382761.png?HW-CC-KV=V1&HW-CC-Date=20261010T073010Z&HW-CC-Expire=31536000000&HW-CC-Sign=A87CCF25D969E49ED7554C906E706B72EC30D356A3D80DD0A2D80E9AAA5F9130)
 
 3. 如果是release应用，本地无工程代码，可以使用AnalyzeStackTrace功能，提供要解析堆栈的so，解析结果为源码地址。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/IRybLJ_dThaoVMlx15nIiQ/zh-cn_image_0000002701663538.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=11430E766D25E6ABCBE54D30C021B89DD16083418169F1CBE96EF28C0D1D2A16)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/BsYFSu8SQamKZJhL1Xrnig/zh-cn_image_0000002701663538.png?HW-CC-KV=V1&HW-CC-Date=20261010T073010Z&HW-CC-Expire=31536000000&HW-CC-Sign=80DAC7EF483993577D7B54546105C21A31002C164D6E43C48BD38D2667943969)
 

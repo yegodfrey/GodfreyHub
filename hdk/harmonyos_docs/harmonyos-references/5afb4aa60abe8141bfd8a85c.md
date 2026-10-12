@@ -14,11 +14,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-navig
 
 ## 导入模块
 
+> phone | tablet
+
 ```typescript
 import { navigationInfoMgr } from '@kit.CarKit';
 ```
 
 ## NavigationStatus
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 该类为导航信息状态对象，定义了导航的状态信息，包括地图状态、导航类型、导航目的地、导航途经点、路线、地图和主题等。
 
@@ -41,6 +45,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 ## MapStatus
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 地图状态枚举值，列举出地图具体的状态。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -60,6 +66,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 ## NaviType
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 导航类型枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -76,6 +84,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 |WALKING|3|步行类型。|
 
 ## Location
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 地理位置坐标编码。
 
@@ -95,6 +105,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 ## LocationCoordType
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 地理位置坐标系编码枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -109,6 +121,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 |WGS84|1|国际坐标编码。|
 
 ## RoutePreference
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 路线偏好枚举值。
 
@@ -130,6 +144,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 ## ThemeType
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 地图主题颜色枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -144,6 +160,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 |DARK|1|地图是深色主题。|
 
 ## NavigationMetadata
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 该类为导航信息数据对象，定义了导航的数据信息，包括导航转向模式、引导距离、当前道路名、即将进入的下一个道路名等。
 
@@ -175,6 +193,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 ## SystemNavigationListener
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 系统导航监听回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -184,6 +204,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 **起始版本：** 4.1.0(11)
 
 ### onQueryNavigationInfo
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 onQueryNavigationInfo(query: QueryType, args: Record<string, Object>): Promise<ResultData>
 
@@ -218,6 +240,8 @@ onQueryNavigationInfo(query: QueryType, args: Record<string, Object>): Promise<R
 
 ### onReceiveNavigationCmd
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Promise<ResultData>
 
 应用收到系统发送的指令，返回执行指令的结果。
@@ -251,6 +275,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
 
 ## QueryType
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 查询导航信息枚举类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -265,6 +291,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
 |NAVIGATION_METADATA|'navigationMetadata'|查看导航TBT信息，callback返回数据为[NavigationMetadata](#navigationmetadata)。|
 
 ## CommandType
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 发送指令枚举类型。
 
@@ -291,6 +319,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
 
 ## ResultData
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 查询导航信息或发送指令的结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -306,6 +336,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
 |data|{ [key: string]: object; }|否|否|附加信息，应用可以根据实际需要以键值对的形式返回给系统。|
 
 ## getNavigationController
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 getNavigationController(): NavigationController
 
@@ -346,6 +378,8 @@ let navInfoController: navigationInfoMgr.NavigationController = navigationInfoMg
 
 ## NavigationController
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 导航信息服务的控制器，用于获取导航信息服务。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -355,6 +389,8 @@ let navInfoController: navigationInfoMgr.NavigationController = navigationInfoMg
 **起始版本：** 4.1.0(11)
 
 ### updateNavigationStatus
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 updateNavigationStatus(navigationStatus: NavigationStatus): void
 
@@ -443,6 +479,8 @@ try {
 
 ### updateNavigationMetadata
 
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
+
 updateNavigationMetadata(navigationMetadata: NavigationMetadata): void
 
 设置导航数据，包含导航转向模式、引导距离、当前道路名、下一次进入道路名等。
@@ -512,6 +550,8 @@ try {
 ```
 
 ### registerSystemNavigationListener
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 registerSystemNavigationListener(listener: SystemNavigationListener): void
 
@@ -589,6 +629,8 @@ try {
 ```
 
 ### unregisterSystemNavigationListener
+
+> phone 5.0.0(12)+ | tablet 5.0.0(12)+
 
 unregisterSystemNavigationListener(): void
 

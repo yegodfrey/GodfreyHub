@@ -10,5 +10,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-ark
 
 程序中断时，在调用栈窗口右键单击，选择**Restart Frame**，可以回退到上一个调用栈。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/rQEBvEGBRaOhce68wVh9_A/zh-cn_image_0000002701823902.png?HW-CC-KV=V1&HW-CC-Date=20260928T063033Z&HW-CC-Expire=31536000000&HW-CC-Sign=72304359147D2BA8FA597DEA937E449FF0FA492F346C85EA9D106264D5A9F422)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/GrT2cVivR8uomtwzT7VHtg/zh-cn_image_0000002701823902.png?HW-CC-KV=V1&HW-CC-Date=20261010T073011Z&HW-CC-Expire=31536000000&HW-CC-Sign=4AA22D9E9F84DC1CAEE98F97FB72D3B2B5EB86A676137EB8D9353039C02F1E17)
 

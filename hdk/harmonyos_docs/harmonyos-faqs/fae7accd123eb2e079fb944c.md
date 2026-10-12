@@ -24,21 +24,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-form-15
 
 [方式一](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-arkts-extension#section14388152112818)：需要使用IDE的"等待调试"能力进行卡片交互调试。具体的实现步骤为：
 
-1. 在设备选择框中选择调试的设备，并单击Run-》Attach to Process by Name。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/vuv8XZfCTceRON-7aJzuQQ/zh-cn_image_0000002628791558.png?HW-CC-KV=V1&HW-CC-Date=20260929T074333Z&HW-CC-Expire=31536000000&HW-CC-Sign=277DA01E55335279B518DFC3C40740D1E6341BA14AFF23BF194FEDB3C20F657B "点击放大")
+1. 在设备选择框中选择调试的设备，并单击Run-》Attach to Process by Name。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/vuv8XZfCTceRON-7aJzuQQ/zh-cn_image_0000002628791558.png?HW-CC-KV=V1&HW-CC-Date=20261008T185128Z&HW-CC-Expire=31536000000&HW-CC-Sign=23D05AE734F3B242D0D96755B7257D8E277419D5021D20966E349E96E1B376B9 "点击放大")
 
-2. 在选择调试的工程并将类型选为ArkTS。然后单击Attach，即可将该应用设置为"等待调试模式"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/0EJmcfAYTriYmj0B8mvVPQ/zh-cn_image_0000002658990865.png?HW-CC-KV=V1&HW-CC-Date=20260929T074333Z&HW-CC-Expire=31536000000&HW-CC-Sign=E92F48C79E2D52F0CDD988C85DA95FDDC9D744D7FFF8EAE40267A79D04B0C764 "点击放大")
+2. 在选择调试的工程并将类型选为ArkTS。然后单击Attach，即可将该应用设置为"等待调试模式"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/0EJmcfAYTriYmj0B8mvVPQ/zh-cn_image_0000002658990865.png?HW-CC-KV=V1&HW-CC-Date=20261008T185128Z&HW-CC-Expire=31536000000&HW-CC-Sign=D8A02EFB56E2A739674B0ABBAE00C90C628B1D1EAD39346C7D4338F31E35C63B "点击放大")
 
-3. 确认DevEco Studio底部出现Waiting for debugger进度条后，可以开始调试。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/kLlw3xPDSn6WQJYauMjpLg/zh-cn_image_0000002628631654.png?HW-CC-KV=V1&HW-CC-Date=20260929T074333Z&HW-CC-Expire=31536000000&HW-CC-Sign=2BF2BF891CBB4B91D912ABD8F4ED6F238EE78B6969F7C3CE60E16725DD2EC7CF "点击放大")
+3. 确认DevEco Studio底部出现Waiting for debugger进度条后，可以开始调试。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/kLlw3xPDSn6WQJYauMjpLg/zh-cn_image_0000002628631654.png?HW-CC-KV=V1&HW-CC-Date=20261008T185128Z&HW-CC-Expire=31536000000&HW-CC-Sign=76B61AE1305274C13F0DDB56217923FBC720C65D6BBFBF5B9581036233DCF429 "点击放大")
 
-4. 在需要调试的代码行的左侧边线设置断点。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/3w4PNUJrSrGPOO83GauFVQ/zh-cn_image_0000002658870927.png?HW-CC-KV=V1&HW-CC-Date=20260929T074333Z&HW-CC-Expire=31536000000&HW-CC-Sign=BD63DB42452B50C3B2F66179A32E2A443F6FD24E470B9385D7A5BDC1164E7D15 "点击放大")
+4. 在需要调试的代码行的左侧边线设置断点。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/3w4PNUJrSrGPOO83GauFVQ/zh-cn_image_0000002658870927.png?HW-CC-KV=V1&HW-CC-Date=20261008T185128Z&HW-CC-Expire=31536000000&HW-CC-Sign=0051D84645E30A700CABF1B87AE2E5D5881B80A52E52C9A03BD2BC7657F27330 "点击放大")
 
-5. 操作应用，当应用运行到代码处，会在代码处停住，并高亮显示。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/cWZmvOAjTeSCRkekrNFrug/zh-cn_image_0000002628791560.png?HW-CC-KV=V1&HW-CC-Date=20260929T074333Z&HW-CC-Expire=31536000000&HW-CC-Sign=E4665604362ED13F6423D38CE57E220CCD0801657DDCEB039A26637432C0F797 "点击放大")
+5. 操作应用，当应用运行到代码处，会在代码处停住，并高亮显示。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/cWZmvOAjTeSCRkekrNFrug/zh-cn_image_0000002628791560.png?HW-CC-KV=V1&HW-CC-Date=20261008T185128Z&HW-CC-Expire=31536000000&HW-CC-Sign=47E49C89696B2A84684990EC62E942179401EFDF2615F26DF8085B578B73DFC6 "点击放大")
 
 [方式二](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-arkts-extension#section8660163873914)：需要修改IDE的运行配置方式。具体的实现步骤为：
 
-1. 在运行调试窗口，运行配置项Launch Options选择Specified Ability。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/oGpFHfnWRwCycgVCawPGKQ/zh-cn_image_0000002658990869.png?HW-CC-KV=V1&HW-CC-Date=20260929T074333Z&HW-CC-Expire=31536000000&HW-CC-Sign=D534957FBE0A0D1C8172C9F5D73669FFF1BBABB0F415E5285A1F9405B9E1F0EE "点击放大")
+1. 在运行调试窗口，运行配置项Launch Options选择Specified Ability。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/oGpFHfnWRwCycgVCawPGKQ/zh-cn_image_0000002658990869.png?HW-CC-KV=V1&HW-CC-Date=20261008T185128Z&HW-CC-Expire=31536000000&HW-CC-Sign=A15A6305B2E998A8E02F6EB2D05511F362C9C3D406F9F1575F2A5E5C22D3089D "点击放大")
 
-2. 选择需要进行调试的EntryFormAbility。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/YoLXFZT3TPaV0ggwu5j3Kg/zh-cn_image_0000002628631658.png?HW-CC-KV=V1&HW-CC-Date=20260929T074333Z&HW-CC-Expire=31536000000&HW-CC-Sign=AC07FDD2988CB51EE8F2973F6E6CF8416B2C4662D26FDF6A2204913AF2CBD861 "点击放大")
+2. 选择需要进行调试的EntryFormAbility。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/YoLXFZT3TPaV0ggwu5j3Kg/zh-cn_image_0000002628631658.png?HW-CC-KV=V1&HW-CC-Date=20261008T185128Z&HW-CC-Expire=31536000000&HW-CC-Sign=872B2AAC7937A919EEBA7F70DCEA987B45C04D6FB64C94EDBF53DFE43BBB3776 "点击放大")
 
-3. 点击OK保存配置后，点击调试按钮，启动调试即可命中生命周期函数断点。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/kxfZg5a4S9uhGxR5R6UAlg/zh-cn_image_0000002658870929.png?HW-CC-KV=V1&HW-CC-Date=20260929T074333Z&HW-CC-Expire=31536000000&HW-CC-Sign=5C564C2AEFC30994069143F3A019DB4383B53565D41351914DE0B8EA11E1DF00 "点击放大")
+3. 点击OK保存配置后，点击调试按钮，启动调试即可命中生命周期函数断点。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/kxfZg5a4S9uhGxR5R6UAlg/zh-cn_image_0000002658870929.png?HW-CC-KV=V1&HW-CC-Date=20261008T185128Z&HW-CC-Expire=31536000000&HW-CC-Sign=FEBF7CD85346451D551CE172C442290CA04D2157C3A761F84189D55CEC0C787F "点击放大")
 

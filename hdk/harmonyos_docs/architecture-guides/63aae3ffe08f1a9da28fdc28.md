@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/grid_focus
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/IWvzG41WQLaxNN5Zj0fdxA/zh-cn_image_0000002661509777.png?HW-CC-KV=V1&HW-CC-Date=20260924T063700Z&HW-CC-Expire=31536000000&HW-CC-Sign=B8C61C5035AD18BFFB9C5779131F80A1F99D989368D6C76A6E0285EC1893EC95 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/IWvzG41WQLaxNN5Zj0fdxA/zh-cn_image_0000002661509777.png?HW-CC-KV=V1&HW-CC-Date=20261008T171539Z&HW-CC-Expire=31536000000&HW-CC-Sign=2280F2CB44A02E4B1EBDF9651A803527793377B8F3CD2786317AE8374D8129B9 "点击放大")
 
 ## 实现思路
 

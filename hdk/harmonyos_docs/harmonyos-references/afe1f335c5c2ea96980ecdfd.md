@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-b
 
 ## 概述
 
+> phone | 2in1 | tablet
+
 声明用于网络加速的API。提供基本的函数、结构体和const定义。
 
 **引用文件：** <NetworkBoostKit/network_boost.h>
@@ -24,7 +26,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-b
 
 ## 汇总
 
+> phone | 2in1 | tablet
+
 ## 结构体
+
+> phone | 2in1 | tablet
 
 |名称|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------------|:--------|
@@ -32,11 +38,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-b
 
 ## 枚举
 
+> phone | 2in1 | tablet
+
 |名称|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|
 |[NetworkBoost_SceneEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview#networkboost_sceneevent){ NB_SCENE_EVENT_ENTER = 0, NB_SCENE_EVENT_UPDATE = 1, NB_SCENE_EVENT_LEAVE = 2 }|业务事件枚举。|
 
 ## 函数
+
+> phone | 2in1 | tablet
 
 |名称|描述|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|

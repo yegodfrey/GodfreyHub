@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 文件中定义了与颜色空间相关的功能函数。
 
 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
@@ -26,7 +28,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:-----------------------------------------------------------------------------------------------------------|:---------------------|
@@ -36,7 +42,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_Drawing_ColorSpaceCreateSrgb()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_ColorSpace* OH_Drawing_ColorSpaceCreateSrgb(void)
@@ -58,6 +68,8 @@ OH_Drawing_ColorSpace* OH_Drawing_ColorSpaceCreateSrgb(void)
 
 ### OH_Drawing_ColorSpaceCreateSrgbLinear()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 OH_Drawing_ColorSpace* OH_Drawing_ColorSpaceCreateSrgbLinear(void)
 ```
@@ -77,6 +89,8 @@ OH_Drawing_ColorSpace* OH_Drawing_ColorSpaceCreateSrgbLinear(void)
 |[OH_Drawing_ColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-colorspace)*|函数返回一个指针，指针指向创建的颜色空间对象[OH_Drawing_ColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-colorspace)。|
 
 ### OH_Drawing_ColorSpaceDestroy()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 void OH_Drawing_ColorSpaceDestroy(OH_Drawing_ColorSpace* colorSpace)

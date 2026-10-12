@@ -17,6 +17,8 @@ ImageData对象用于存储Canvas渲染的像素数据，支持对像素进行�
 
 ## constructor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 constructor(width: number, height: number, data?: Uint8ClampedArray)
 
 创建宽为width，高为height，像素数据为data的ImageData，如果data未定义，则填充值全为0的一维数组。创建时宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。当创建面积超过536870911平方像素时，返回值的width和height均为0px，data为undefined。
@@ -36,6 +38,8 @@ constructor(width: number, height: number, data?: Uint8ClampedArray)
 |data|[Uint8ClampedArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-uint8clampedarray)|否|一维数组，保存了RGBA格式的像素数据，每个像素占4字节，依次为R、G、B、A，数据值范围为0到255。数组长度必须为width × height × 4。当需要自定义ImageData的像素数据时传入此参数，如需要对图像进行像素级的处理或修改。传入异常值undefined时，data为undefined。 默认值：值全为0的一维数组|
 
 ## constructor^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: LengthMetricsUnit)
 
@@ -60,6 +64,8 @@ constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: Leng
 
 ## 属性
 
+> phone | 2in1 | tablet | tv | wearable
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -77,6 +83,8 @@ constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: Leng
 > 可使用[px2vp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#px2vp12)接口进行单位转换。
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 使用drawImage绘制图像，通过getImageData接口获取ImageData对象，再使用putImageData接口将图像数据绘制到Canvas上。
 
@@ -108,5 +116,5 @@ struct Translate {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/638s6xcSQGeDvotTVS1Q1w/zh-cn_image_0000002779093987.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=4B32E72BAE368134704D22AB4562BB01D91BE0592821918E8E111996618D0014)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/SezcOrqbSmWEFOgYz5VPtA/zh-cn_image_0000002755185816.png?HW-CC-KV=V1&HW-CC-Date=20261009T092748Z&HW-CC-Expire=31536000000&HW-CC-Sign=93FC19B92057BA8971F929434BDD501E6FEC3D3C9C76809A937C0C9A23721D8B)
 

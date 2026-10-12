@@ -15,13 +15,17 @@ OffscreenCanvas组件用于绘制自定义图形。
 >
 > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 >
-> OffscreenCanvas无法在ServiceExtensionAbility中使用，ServiceExtensionAbility中建议使用[绘制模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing)进行离屏绘制。
+> OffscreenCanvas使用时依赖UI上下文，无法在没有加载UI上下文时使用（如ServiceExtensionAbility，MDM企业设备管理服务等可能无UI页面的场景下使用需注意此约束），此类无UI上下文的场景建议使用[绘制模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing)进行离屏绘制。
 
 ## 子组件
+
+> phone | 2in1 | tablet | tv | wearable
 
 不支持。
 
 ## constructor
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(width: number, height: number)
 
@@ -41,6 +45,8 @@ constructor(width: number, height: number)
 |height|number|是|OffscreenCanvas组件的高度。 异常值NaN和Infinity按无效值处理，负数按0处理。 单位：vp。|
 
 ## constructor^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor(width: number, height: number, unit: LengthMetricsUnit)
 
@@ -64,6 +70,8 @@ constructor(width: number, height: number, unit: LengthMetricsUnit)
 
 ## 属性
 
+> phone | 2in1 | tablet | tv | wearable
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -78,6 +86,8 @@ OffscreenCanvas支持以下属性：
 |height|number|否|否|OffscreenCanvas组件的高度。 异常值NaN和Infinity按无效值处理，负数按0处理。 单位：vp。|
 
 ### width
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 **示例：**
 
@@ -113,9 +123,11 @@ struct OffscreenCanvasPage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/Hijg_TUWS16RsSWjMtDcvA/zh-cn_image_0000002779093991.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=B2E7767A295F92F9CAC58A53D2D7AFA1C3AE7B495A5A2EBB11B24B148ACE867C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/pfa5nT-KQOuuJ4ShPMy53Q/zh-cn_image_0000002755185820.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E8A61E008A64A51DEDC7373B341AD3B413FB450AF1B62934070DE4B991B37A3)
 
 ### height
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 **示例：**
 
@@ -151,11 +163,15 @@ struct OffscreenCanvasPage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/b5XVrTB1RryhKdo_gvETLw/zh-cn_image_0000002778934135.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=06F8AFEED7778AC0F5A53ECF186BA5BBE9394C84791AFE019373506B64B85273)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/SohIQclzTYGTo7IBWcmskg/zh-cn_image_0000002784584687.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=26BE23F82A174965C5DFA2F836C5742AB191E898F7451FD1FAD2749B2F4D8734)
 
 ## 方法
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### transferToImageBitmap
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 transferToImageBitmap(): ImageBitmap
 
@@ -212,9 +228,11 @@ struct OffscreenCanvasPage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/Yv901WCaTz2dy7-Vt6gBbQ/zh-cn_image_0000002749335052.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=20F6AE1AF29DEF98E36AE16F524EB19930DDE9873ED7B29533167E8352B83FE9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/VQB3L-2yS6OJ6joHOtYGaQ/zh-cn_image_0000002784664869.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=3CBAF5050B63ADC60B79FAD841AA0233168B651A32AB3C5DA448BD9E141EBD65)
 
 ### getContext^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 getContext(contextType: "2d", options?: RenderingContextSettings): OffscreenCanvasRenderingContext2D
 
@@ -293,9 +311,11 @@ struct OffscreenCanvasExamplePage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/GfKrizjjRHmtHUJpc3apmg/zh-cn_image_0000002749494936.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=1CAEC706F976645BC79B0ECB53F140F07320F974A1DCBE16DA446CC7D71AB119)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/zfhq6RCaTeOXH9y7AnVALQ/zh-cn_image_0000002755025938.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=D12F9F6085AA7B27B3829FCA8B55D5D05A0836EAAB43EF108DC9A134560ABCEF)
 
 ## OffscreenCanvas支持并发线程绘制
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 11开始，当应用创建[Worker线程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)，支持使用postMessage将OffscreenCanvas实例传到Worker中进行绘制，并使用onmessage接收Worker线程发送的ImageBitmap对象进行显示。
 > 说明
@@ -405,5 +425,5 @@ workerPort.onmessage = (e: MessageEvents) => {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/TgiW6RifRCershYPKTchfQ/zh-cn_image_0000002779093993.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=184CD8D4025FE8FCDC5393F7E9D4557C2E997E86AA8B60D528EC426D2D79D3D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/tJwZxfnfTDOlSbXGMrHHIA/zh-cn_image_0000002755185822.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=5DEFA0F639E5A2C16BD0DAA6E16841F32B0DB85FFBC628336C792E881A99140A)
 

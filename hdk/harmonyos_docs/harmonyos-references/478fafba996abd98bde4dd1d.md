@@ -16,13 +16,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-contai
 
 ## 需要权限
 
+> phone | 2in1 | tablet | tv | wearable
+
 跳转到目标网页需要使用网络时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable
+
 可以包含[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)子组件。
 
 ## 接口
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 Hyperlink(address: string | Resource, content?: string | Resource)
 
@@ -39,9 +45,13 @@ Hyperlink(address: string | Resource, content?: string | Resource)
 
 ## 属性
 
+> phone | 2in1 | tablet | tv | wearable
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 ### color
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 color(value: Color | number | string | Resource)
 
@@ -58,6 +68,8 @@ color(value: Color | number | string | Resource)
 |value|[Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#color) | number | string | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)|是|超链接文本的颜色。 phone默认值为'#ff007dff'，wearable设备默认值'#1F71FF'，tv设备默认值为'#266EFB'，均显示为蓝色。|
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例展示了超链接图片和文本跳转的效果。
 
@@ -85,5 +97,5 @@ struct HyperlinkExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/BnmT0MGXQP6JgI373h9Dfw/zh-cn_image_0000002779093865.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=75C74BB156200E85CF316996C445F684916DCEE471FB9F214EFC0240BE876CA4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/XXscO-l2QiyqjaA8qLmhHg/zh-cn_image_0000002755185694.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=371CEBCC607BF7D97ADEAD0CCA256D4635C56642655A7DD35D0F1793B1C15017)
 

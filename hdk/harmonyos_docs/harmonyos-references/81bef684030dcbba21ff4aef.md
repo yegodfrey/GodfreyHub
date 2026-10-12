@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-k
 
 ## 概述
 
+> phone | 2in1 | tablet | tv
+
 XEngine空域GPU超分特性Vulkan接口。使用此头文件的接口前需要通过[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口查询[XEG_SPATIAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_spatial_upscale_extension_name)扩展可用。
 
 **引用文件**：<xengine/xeg_vulkan_spatial_upscale.h>
@@ -24,7 +26,11 @@ XEngine空域GPU超分特性Vulkan接口。使用此头文件的接口前需要�
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv
 
 |名称|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -32,6 +38,8 @@ XEngine空域GPU超分特性Vulkan接口。使用此头文件的接口前需要�
 |struct [XEG_SpatialUpscaleDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-spatialupscaledescription)|此结构体描述下发空域GPU超分渲染命令时需要的图像信息。|
 
 ### 类型定义
+
+> phone | 2in1 | tablet | tv
 
 |名称|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,6 +51,8 @@ XEngine空域GPU超分特性Vulkan接口。使用此头文件的接口前需要�
 |typedef void(VKAPI_PTR * [PFN_HMS_XEG_DestroySpatialUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#pfn_hms_xeg_destroyspatialupscale)) ([XEG_SpatialUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_spatialupscale) xegSpatialUpscale)|销毁[XEG_SpatialUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_spatialupscale)对象的函数指针定义。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv
 
 |名称|描述|
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|

@@ -40,7 +40,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 您可在兼容设备区域选择应用发布后能够兼容的设备类型。例如您在兼容设备中勾选了手机和平板，当您的应用上架后，手机用户、平板用户即可通过华为应用市场下载并使用该应用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/UCvN1aVQTti4fj07z11FBw/zh-cn_image_0000002237064810.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=401C3C30795AE811C2506FB37A409621B3ED46BAC0C646249AC0E9BDA57BF312)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/UCvN1aVQTti4fj07z11FBw/zh-cn_image_0000002237064810.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=6424C589A0819F3781F7FACCF54BE6F90C19FC8F4D06F12E83D8F63A0A2216EF)
 
 |设备类型|支持配置的兼容设备|
 |:---|:--------------------------------------|
@@ -57,14 +57,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 1. 配置应用语言。 默认显示创建应用时设置的默认语言。如需为当前应用添加其他语言，点击"管理语言列表"，在"语言选择"弹窗中勾选语言，点击"确认"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/S9wR68lJQ-yFB2xDrAYRVA/zh-cn_image_0000001957522593.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=90801AA0A4E61DC0B01186C050735EF31BD9E10BCF6724D4D48A2804BF7A6B84)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/S9wR68lJQ-yFB2xDrAYRVA/zh-cn_image_0000001957522593.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=869CFF4C297E6DD1245F3E9F374A2BBC978555E57A99B03F7CA8A7A27590507B)
 
    如配置了多种语言，您需要在"语言"下拉列表中切换已添加的语言，分别为每种语言完善对应的可本地化基础信息。如果您没有为各语言版本添加本地化图片文件，则系统将使用默认语言版本的图片文件。
-   * 当某语言的右侧显示绿色对勾图标，则表示该语言的本地化基础信息已填写并保存完毕。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/4BIzDyn9RPWlFcAPoci1_Q/zh-cn_image_0000001949531121.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=AC7ABE1947FE3A03C4D5D4253DDB806BC1F30EA006625BA70E77621D280485F7)
+   * 当某语言的右侧显示绿色对勾图标，则表示该语言的本地化基础信息已填写并保存完毕。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/4BIzDyn9RPWlFcAPoci1_Q/zh-cn_image_0000001949531121.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=6A1F97666A47A841BA3FEF996905A502E8D909864B313FC72BA05EAA37D54DBC)
 
-   * 如果还有语言对应的本地化基础信息尚未完善，系统会有红色字体提示。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/kZhRRFCPQLa-J5JnHhi3cQ/zh-cn_image_0000001921171926.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=79C963BCCECB47BB3D2475497E6DF7D902C65962F525F1E6419DD324F999351A)
+   * 如果还有语言对应的本地化基础信息尚未完善，系统会有红色字体提示。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/kZhRRFCPQLa-J5JnHhi3cQ/zh-cn_image_0000001921171926.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=9FABEA94AD9111B17E8B0DF825ADCA3B5634F5DD461B9D4C627B42D5F2592DB5)
 
-2. 填写应用名称、应用介绍、应用一句话简介（小编推荐）、新版本特性。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/qUwuGDiMS7OEw0wTbxLWDg/zh-cn_image_0000002514506880.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=204F973BEABECF90B44419CF0BA4D7A913252BEF1FDFAD8FCB54D85C5A069354)
+2. 填写应用名称、应用介绍、应用一句话简介（小编推荐）、新版本特性。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/qUwuGDiMS7OEw0wTbxLWDg/zh-cn_image_0000002514506880.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=A5EE81353F6D64AF0ABF76843D4056FE88FF88C24AF0F9CCBCBE509FBF747088)
 
    |参数|**说明**|
    |:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -87,11 +87,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 >
 > * 手表应用仅支持选择二级分类。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/X3FZAjN2Q-an9oJmcG8oBA/zh-cn_image_0000001949531125.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=B89EF2DF98BAD91191377CD59C09AD063C580ECE61BB2FB3CABEC2ED93B33F94)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/X3FZAjN2Q-an9oJmcG8oBA/zh-cn_image_0000001949531125.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=C3D4556C0F69FD89E2F31274A5F12B672742F048ACF81702D8DB9DEF3404F4CB)
 
 当您创建的是游戏应用时，应用分类界面如下。此时，您还需要选择游戏的类型。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/Cot0Z_GrT8yIsMk4gIPj4w/zh-cn_image_0000002432298848.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=2384AEAC922C9B3C6593ADF19BC438DF23DA1F56A2FC529B11280CD3C18CA2EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/Cot0Z_GrT8yIsMk4gIPj4w/zh-cn_image_0000002432298848.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=196F1904CDF0A8EFEFE14BB69D439F1E793A3C214A191E3CAE9AC9548C78F5D7)
 
 * 休闲游戏：主要指以休闲娱乐为主的游戏，如休闲竞技、体育竞速、塔防、沙盒、模拟经营、动作肉鸽和独立游戏等。
 * 网络游戏：包含多人在线实时对战或协作的射击、MOBA、角色扮演、卡牌策略、战争策略（SLG）及二次元题材游戏，具备社交、养成、PVP/PVE等玩法，强调联网互动与持续内容更新。 注意
@@ -105,7 +105,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 * 只读显示：供应商名称、供应商名称（英文）、开发者名称、开发者名称（英文）
 * 选填： 官网（仅支持中国大陆企业/个人开发者、海外企业开发者的非游戏类应用）
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/hHY8UIJISQCzOs5h78TRtQ/zh-cn_image_0000001949531149.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=6ED05D7A46C6E18075636B46F13B7E286043DC80D58787190D6750C76618561F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/hHY8UIJISQCzOs5h78TRtQ/zh-cn_image_0000001949531149.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=7F002C6DF88B2760D6746E8B0B86F52A615684E912E9AA708FE026ADAEA730B7)
 
 ### 接入华为服务号
 
@@ -113,7 +113,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 点击"开始使用服务号"，可进一步了解[服务号功能介绍及接入指导](https://developer.huawei.com/consumer/cn/doc/distribution/service/huawei_business_touch-0000001054309149)或进行服务咨询。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/eMV4mlaVTxywm1PNDYSAjw/zh-cn_image_0000001921171958.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=C515BA58D155E5917C0A8F2DC12FAB700755BA42BE24A70E35E3A2AC7B1D8B90)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/eMV4mlaVTxywm1PNDYSAjw/zh-cn_image_0000001921171958.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C88E9CC396FF15AEDA714511A8CE238157F3089AF601E444E21D3685D90E33B)
 
 ### 卸载时推荐快应用
 
@@ -123,7 +123,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 如您想在用户卸载手机APK应用时向其推荐您开发的快应用，可点击"卸载时推荐快应用"，"开启推荐"选择"是"，然后选择您想推荐的已上架快应用即可。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/00zilsskQNKhbsVSlr_aiw/zh-cn_image_0000002563667683.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=A2F5E5374ECCF9C97DEB255DC0612729475B6C5380585713A4FC81BFD99259F3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/00zilsskQNKhbsVSlr_aiw/zh-cn_image_0000002563667683.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=76C36454B89ACA41A7837680F5F551AAB810ECA5FFF120167E62F6F3C3CFB93B)
 
 ## 进入版本信息页面
 
@@ -132,15 +132,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，选择"APP与元服务"。
 2. 选择"Android"页签，在应用列表中点击待发布的应用名称，在"分发"页签中选择"版本信息 > 准备提交"，即可进入版本信息页面。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/wzNfy_OKQPeeH4OxyVHv2A/zh-cn_image_0000002568417649.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=06A331BDE1393186DF6A99600B45AF46CB260DA306768A1D80E75B0D42802D15)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/wzNfy_OKQPeeH4OxyVHv2A/zh-cn_image_0000002568417649.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=FB78F69F01E71F068E45E54ADBFBAD960BCC72C192B1B8B50E7CF1BBF15838DB)
 
 ## 设置发布国家或地区
 
 在版本信息页面的"发布国家或地区"栏，勾选应用需要发布的国家或地区。
 
-* 选择"所有国家或地区"：应用将在所有200个国家或地区发布。如果未来新增了其他国家或地区，应用也将自动发布到这些国家或地区。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/wBL5FQmUTGSLXp5pnkb-PA/zh-cn_image_0000002545846475.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=0943FC35452F0437CA503DFE10E83343810C48C14B1A7B5C5B6F4695586D1AB5)
+* 选择"所有国家或地区"：应用将在所有200个国家或地区发布。如果未来新增了其他国家或地区，应用也将自动发布到这些国家或地区。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/wBL5FQmUTGSLXp5pnkb-PA/zh-cn_image_0000002545846475.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=A10731635701CE00DC6BE847817DFA4153B0317CE8BA9DFD4E87C2AA09788C7A)
 
-* 选择"特定国家或地区"：应用仅在所选国家或地区发布。如您勾选下方的"新国家或区域"，华为应用市场会对未来新增的国家或地区自动发布您的应用。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/oz0WoJFKSyqMV6nf3tQaqQ/zh-cn_image_0000002185598784.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=4C6F0797F64815AD634150DC0E1CBD79E6EE041C9B7CAF787FC9ACE69A0A2E23)
+* 选择"特定国家或地区"：应用仅在所选国家或地区发布。如您勾选下方的"新国家或区域"，华为应用市场会对未来新增的国家或地区自动发布您的应用。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/oz0WoJFKSyqMV6nf3tQaqQ/zh-cn_image_0000002185598784.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=8FF639CC43CB7FAA7141B691FBC5AC3E2580CE9C342D8A85CCA929EF83441A2F)
 
 > 说明
 >
@@ -155,7 +155,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 * 正式发布的版本请选择"否"。
 * 如您想发布为开放式测试版本，选择"是"，具体操作请参见[开放式测试指南](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-betatest-introduction-0000001071477284)。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/UGgijgs-QgShKNQjl_wAEQ/zh-cn_image_0000001141470566.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=3DF31BE630121371AC2D262EB8B0A4629C2009E8E6F1A23D4A94DFA15BC401B6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/UGgijgs-QgShKNQjl_wAEQ/zh-cn_image_0000001141470566.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=00CFB1DA52EDA8DE5CE53EFB9100873C434628B8722C5B6564154AD41AD1815C)
 
 ## 上传软件包
 
@@ -165,14 +165,14 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 > * 如果您在创建应用时未指定应用包名，则上传软件包后，AGC将自动从软件包中读取应用包名并写入"应用信息"中。您再次传入的软件包中的应用包名必须与第一次传入的一致。
 > * 为了提高您的应用审核通过率，您可以点击"发布版本"后的对应链接对软件包提前进行云测试和云调试，及早发现并解决问题。相关操作请参考[云测试](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudtest-introduction-0000001083002880)和[云调试](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddebug-introduction-0000001057034023)操作指南。
 
-1. 在版本信息页面"软件版本"栏，点击"软件包管理"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/OxvbyEyZSwS6_-93JXGi8A/zh-cn_image_0000001320579074.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=3B1CBA09EF4D515A81E887B5D96561896C65FD13CC5CDA7F518801BAA2A36182)
+1. 在版本信息页面"软件版本"栏，点击"软件包管理"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/OxvbyEyZSwS6_-93JXGi8A/zh-cn_image_0000001320579074.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=D8765C1C0AA60AA7CAC516EAD2877FED147AEEA421540443512E62C8F3DCC73D)
 
 2. 在"软件包管理"页面点击"上传"，上传应用软件包。上传成功后如为自动选取，则在软件包列表中选中软件包，点击"选取"。 注意
    > * 当您分发APK软件包到手机设备时，请确保您上传的软件包中必须包含64位版本软件包，否则可能会导致应用上架审核提交失败。
    > * 您可以点击"软件包管理"页面操作栏的对应链接对软件包提前进行云测试和云调试，及早发现并解决问题。相关操作请参考[云测试](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudtest-introduction-0000001083002880)和[云调试](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-clouddebug-introduction-0000001057034023)操作指南。
    > * 点击"操作"栏的"删除"，可删除不需要的软件包。仅允许删除与草稿态版本关联的软件包。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/ugKHde4fTZuFS9AvVU1krw/zh-cn_image_0000001515350081.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=88F45BF46BCC965B6454BBB7027DE86123C5FC8009A763440166DFF4F1FFD08F)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/ugKHde4fTZuFS9AvVU1krw/zh-cn_image_0000001515350081.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=6928C1667073C7F20199392B378BA98B8C1DB95EF0B0C777327485B4DB501A94)
 
 ## 设置应用付费情况
 
@@ -183,13 +183,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 >
 > 应用正式上架后不支持修改"付费情况"，请谨慎选择。
 
-* 如果您选择"免费"，您的应用即为免费应用，用户可以直接从华为应用市场下载安装您的应用。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/9Bt8W03dQrGcdOku6j_tBQ/zh-cn_image_0000001186802883.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=4110EA76476D981377EF37503919526A3139728E2E2E29B1798F930ADB904207)
+* 如果您选择"免费"，您的应用即为免费应用，用户可以直接从华为应用市场下载安装您的应用。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/9Bt8W03dQrGcdOku6j_tBQ/zh-cn_image_0000001186802883.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=74DCC0344C14E49E787FF8C7A5CBAF1E6656ADAA86F59001A10DB6A748B250EF)
 
 * 如果您选择"付费"，则您的应用即为付费应用，用户在下载应用时将需要支付相应的费用。 说明
   >
   > 如您的应用需要设置为"付费"，需同时开通[商户服务](https://developer.huawei.com/consumer/cn/console/setting/merchant)及[签署华为商户服务协议](https://developer.huawei.com/consumer/cn/console/setting/merchant)。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/XknQWqvdRQS_C-GS7Yss2Q/zh-cn_image_0000001141802904.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=6904797E245FCA8CE787D364C43466A16BDD315947E78631B23725E35C4481E1 "点击放大")
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/XknQWqvdRQS_C-GS7Yss2Q/zh-cn_image_0000001141802904.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=BB188A2B1CB8276E2EBED7332EBB2BC0F2C86B06ADD563EB6F2DB4757F530116 "点击放大")
 
   您可以在"本站默认展示"中设置本站默认展示的币种，再点击"查看编辑"进入"应用价格"页面，编辑应用在各国家/地区的价格，各参数如下表所示。
   > 说明
@@ -209,19 +209,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
   >
   > AppTouch会员服务暂不支持中国大陆地区，仅发布到中国大陆区域的应用建议不勾选。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/lf1chIBmQ6Cn2hQAePPU2A/zh-cn_image_0000001550890640.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=670A08B272B114FBA79872A6D4E2D00F6C2A86C617876A99E31B9E5CFB69CD05)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/lf1chIBmQ6Cn2hQAePPU2A/zh-cn_image_0000001550890640.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=A4C924A41FD08A60EFBF1B4A67CD7F185278D6BEFF7133A20647A349C3379D15)
 
 ### 应用内资费
 
 选择应用内资费类型，即用户在使用应用过程中的付费类型，如因使用道具、开通会员等进行的付费。支持多选。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/JgWhceCHT9OAAZVvgIE3EA/zh-cn_image_0000001186523071.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=0EE04BA53A348B313F6B09EB680AD4CF212AB3CD95CC59DC1895BAEC698DEAA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/JgWhceCHT9OAAZVvgIE3EA/zh-cn_image_0000001186523071.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=9DC394C99BDF571ECC1AD4B4A7531CD556E52F75F635183F09BC5866DC7DBF53)
 
 ### 会员游戏
 
 您可以申请加入华为游戏会员服务，积极推动游戏生态在智慧屏阵地的持续发展。当前"会员游戏"仅面向"兼容设备"包含"智慧屏"的APK大屏游戏。申请加入前，您需要开通[商户服务](https://developer.huawei.com/consumer/cn/console/setting/merchant)及[签署华为商户服务协议](https://developer.huawei.com/consumer/cn/console/setting/merchant)。若提供的资质成功通过审核，您可以向最终用户提供专享游戏会员权益。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/9WJZBHtOQZa5LVkPj-3OTg/zh-cn_image_0000001432440445.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=6DFA9789A8F1B45FDA55B2CBC2C3F8B3100836814538E9E82A0096640FCA663D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/9WJZBHtOQZa5LVkPj-3OTg/zh-cn_image_0000001432440445.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=DB01D533B4B35A57CC3FE5A4A80C73A63BA1A7BC79AE277ACD037F5B48C3A2A6)
 > 注意
 >
 > * 游戏正式上架后不支持修改"会员游戏"，请谨慎选择。
@@ -233,38 +233,38 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 请根据您的应用参考以下步骤如实填写调查问卷，填写完成后即可得到当前应用的年龄分级结果。
 
-1. 点击"设置"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/7VM1d-5OSjCRkjx597zuPw/zh-cn_image_0000001338811305.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=27DC2521215B7F1B81CFC049509BEACCC0EE706D38C3F876591C3E3AEF29D80A)
+1. 点击"设置"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/7VM1d-5OSjCRkjx597zuPw/zh-cn_image_0000001338811305.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=31DD9FBF6654D6A37B82AA60C22AAC886877C0599E8068984145399A0FE10067)
 
-2. 在弹出框中点击"填写调查问卷"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/SRAlh0GmTnyRmPfyPWG-cg/zh-cn_image_0000001286251756.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F8387C318274E9B00D8694AED41BC507483D46FCAB389B59456798C5C38C42C4)
+2. 在弹出框中点击"填写调查问卷"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/SRAlh0GmTnyRmPfyPWG-cg/zh-cn_image_0000001286251756.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A0BD550F40C7BE2D82563C9A062FEC2E5E9509475F403E65B984797B2084802)
 
 3. 根据实际情况完成问卷填写。如果您在填写完某部分后需要更改所填内容，请点击对应部分，重新作答。如果您已开始填写此调查问卷并想稍后再完成，请点击"保存"。 注意
    >
    > 请务必据实回答年龄分级调查问卷中的问题。对应用内容的虚假陈述可能会导致应用被下架或冻结。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/UCnd-eqyQ9KjrAEOXT7s7w/zh-cn_image_0000001286411824.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=E03F70A27C5560F078AE954398DC1D058025A1610BCFA722CBB449BD94A401CA)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/UCnd-eqyQ9KjrAEOXT7s7w/zh-cn_image_0000001286411824.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=FF6D71CE6F066C9364E0988660B7D4A23607F1B52DC75CC773A45A90F958D922)
 4. 填写完问卷中所有的问题后，点击"验证"，查看您应用适用的最低年龄分级结果。 注意
    >
    > 如果点击"验证"后，年龄分级结果显示为"拒绝评级"，请查看页面中拒绝评级的详细原因，并在修改不当内容后重新上传符合规范的应用。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/h51C2_cTQEquw45ZHBxsrA/zh-cn_image_0000001286571912.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=72CFA68EEB5191B6A75119EB4CEC58387E78097AD11B7CEF1B2A73748A88C3B2)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/h51C2_cTQEquw45ZHBxsrA/zh-cn_image_0000001286571912.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=42051DC6522622082E6189D485320636CC1CABF398FF0AC10DE8E9DB826CA076)
 5. 基于应用适用的最低年龄分级结果，请结合自身App的需求，选择预期的年龄分级，然后点击"提交"。 说明
    >
    > 如果应用的年龄分级显示为"16+"或更低龄的结果，但您认为其内容更适合18岁以上的用户，则可以在"请重新设置您预期的年龄分级"下方选择"年满18周岁"。在AppGallery上，该应用的年龄分级将显示为"18+"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/AVMH4atjSe294kis7SQ1vQ/zh-cn_image_0000002414452645.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=C9D2CCB7CDC2B1A84AB2262670E0894C12F8D19E6958962EF655EF4A46D9C775)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/AVMH4atjSe294kis7SQ1vQ/zh-cn_image_0000002414452645.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=61D670524B565FE76500CBD0E0B46AE0327F94D04340086B740FB07A637FD71E)
 
    对于支持儿童分类的应用，如果您最终选择的年龄分级为3、8或者12，点击"提交"后，您还需再次确认您的应用是否仅面向儿童。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/vkyJBhmWSxKJ7TsnuDUo5Q/zh-cn_image_0000001518953561.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=B00C47D48D18300047B350BACF2752C806EB52608B7FDF3BCD99CB80DD1E57A3)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/vkyJBhmWSxKJ7TsnuDUo5Q/zh-cn_image_0000001518953561.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=39FA116CECFD03BFD3074202F3BCA7F9652A9A11D779B1D938FBE0A18E38E68B)
    * 如选择"是"，且您的应用分类确实为儿童类，点击"确认"将成功提交分级。
-   * 如选择"是"，但您的应用分类不是儿童类，您需修改应用分类为儿童类。点击提示内"应用分类"可直接前往应用信息页面，修改完成后重新提交分级即可。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/lyFfOXefQl-C7c4VhJ4uYg/zh-cn_image_0000001468192938.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=DC4AF2A6B5F262015D617B7AC537AD3C59C2C2130D90537A10C3122502014534)
+   * 如选择"是"，但您的应用分类不是儿童类，您需修改应用分类为儿童类。点击提示内"应用分类"可直接前往应用信息页面，修改完成后重新提交分级即可。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/lyFfOXefQl-C7c4VhJ4uYg/zh-cn_image_0000001468192938.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=15C9320420C534F5923DE89646D6248260AB4950518A9A3D77CA3AD4BEE365B4)
 
    * 如选择"否"，点击"确认"即可成功提交分级。
 6. 提交分级后，您即可在"内容分级"部分查看年龄分级结果。 注意
    >
    > 年龄分级问卷可能会不定期更新。如果年龄分级问卷内容发生变更，系统会提醒您"问卷已更新，请重新填写调查问卷"，您需重新填写年龄分级问卷，才可以提交应用上架申请。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/7h2P717XR06bDFZmKfHTxw/zh-cn_image_0000001286600326.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=22F52F05959DE7777698978D47EE2FF60ED46C5C1776BA30757559547E414A66)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/7h2P717XR06bDFZmKfHTxw/zh-cn_image_0000001286600326.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=69963F371EBE31EC842BCC6265BA2DF4018FF9ECD406158CB1524E988CB6A92A)
 
    您可以在 "内容分级"页面上点击"设置"，填写新的调查问卷。
    > 说明
@@ -285,11 +285,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 如果您选择"申请"，华为将对应用进行兼容性、稳定性、功耗、性能、安全及隐私合规的检测，通过认证后，华为应用市场将会以特殊的绿色标识显示应用，并优先推荐和展示给用户，建议您申请。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/Cqii2VBFRES9H6G-ugIYIw/zh-cn_image_0000001186802891.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=9021FADCB43B232FCEF3781C26A21532B1499EF021662FA0E77AF06C41B75309)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/Cqii2VBFRES9H6G-ugIYIw/zh-cn_image_0000001186802891.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=A05B4FEC76D73B7E335E82CA7E1B72D61C9665C3B7D2C3C8B15685ED4687CD4C)
 
 华为应用市场展示效果如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/4r-nF9oiQROr-AVPnXOysw/zh-cn_image_0000001252378017.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=6AD014FAF1D17EC048C948C51650A5639D220BB1CAF71EBA4A8D6798DB4839E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/4r-nF9oiQROr-AVPnXOysw/zh-cn_image_0000001252378017.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=78A9848584A9A6EADD01C22E1F904916560630503AD9AF412D240A245E170EDD)
 
 ## 填写应用隐私权限说明
 
@@ -306,34 +306,34 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
      * 软件包中涉及到隐私权限的场景描述
      * 调用路径
      * 软件包中涉及到隐私权限的场景截图
-  3. 仔细阅读"其他要求"，确认满足自检项要求后，勾选"确认符合上述要求"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/S6X-G3bMRV2YWcUJDsc6Sw/zh-cn_image_0000001141802912.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=C62A3D5D691C4243F51D22030475EAC0813367E409C281DCA0B46B60965E032B)
+  3. 仔细阅读"其他要求"，确认满足自检项要求后，勾选"确认符合上述要求"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/S6X-G3bMRV2YWcUJDsc6Sw/zh-cn_image_0000001141802912.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=46BC29570974942507C8A6E9795E8704059B636E6830718677052031F4CD7F57)
 
 * 如您未申请绿色应用认证，则需填写"应用隐私权限说明"。在"权限说明"框中参照范例说明敏感权限使用情况。 说明
   >
   > 如您上传的APK应用需要访问后台位置信息访问权限，您需在"权限说明"框中说明无法使用前台位置信息访问权限替代的原因。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/Ak8ZpFneRnG8jFzLWb7n0w/zh-cn_image_0000001186523079.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=77F0854F1608B4E46B26FF88CA4943766D4C187B6CD0730F91CBB9D2476C09AE)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/Ak8ZpFneRnG8jFzLWb7n0w/zh-cn_image_0000001186523079.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=FE8839B6810CCC82C4660B4B0E73D7F84A7DE8940764504CF8EC44E556645927)
 
 ### 专项敏感权限说明
 
 如您的应用软件包涉及获取专项敏感隐私权限，除了填写上述[常规应用隐私权限说明](https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-0000001106463276#section16150162611118)外，还需填写专项敏感权限声明。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/b0fCXuU5QeyKVUurgvN66w/zh-cn_image_0000001252637135.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=A88A4728CFB52DF2146B82FC7E87DA1F9BAC566A1ACC368E17207B17A50BAD50)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/b0fCXuU5QeyKVUurgvN66w/zh-cn_image_0000001252637135.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=EB29DB4E4E98D41BB37AD2E8864BF041BFAB4F1A21E03C2D7A6458F9588416ED)
 
 * 核心功能：您需要根据实际情况勾选应用涉及的核心功能（必填）。
-* 使用场景演示视频：您可以点击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/xlqY5oC0QgmHi7CvLT1XjQ/zh-cn_image_0000001186523087.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=7274F7F345A5147B2EE2E5792B06C3EA9BB536E1388929E9BE7AF1420A0420CA)"上传mov、mp4格式、大小上限500MB的演示视频（选填），方便审核团队评估。
+* 使用场景演示视频：您可以点击"![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/xlqY5oC0QgmHi7CvLT1XjQ/zh-cn_image_0000001186523087.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=5B6B2363FEFDD0E57B0DC95F8F14D8C059EB55303CD9232806868F01E06C4695)"上传mov、mp4格式、大小上限500MB的演示视频（选填），方便审核团队评估。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/kvXbEZWOSlq-wtXkKi2dIQ/zh-cn_image_0000001141483130.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=BCE1FE2B010E12EA30A7DDEC7A8530B5CE74F2580316369A509396B61BB4FDC5)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/kvXbEZWOSlq-wtXkKi2dIQ/zh-cn_image_0000001141483130.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=899585DD6DF1FDB20E1DE673E3E8A1E7A637688B1B85F05FCD9F2073D749B0CC)
 
 ## 填写隐私声明
 
 请您填写下方隐私相关链接，供应用上架审核。您可以查看[华为应用市场审核指南-用户隐私](https://developer.huawei.com/consumer/cn/doc/app/50104#section599875815368)，了解如何保护用户隐私。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/d1OjZhgMQNGvte84Yk5OFQ/zh-cn_image_0000001154897330.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=C386A89D401BD659717CC1977B92864AA1BF87D5521D188BA7CCABBCCA160616)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/d1OjZhgMQNGvte84Yk5OFQ/zh-cn_image_0000001154897330.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=D8551A7AD8D3D2A0A8CFFA107A72A1DE024560BC3D683BFD44C93AA7D19C54D9)
 
 对于中国大陆开发者，如应用发布地区包含中国大陆，您还需参考[APP常见个人信息保护问题FAQs](https://developer.huawei.com/consumer/cn/doc/FAQ-faq)了解隐私政策URL规范。如希望快速通过审核，推荐使用[云托管](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-cloudhosting-introductions-0000001057944575)服务托管隐私政策内容。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/yJ0XX0qGTAOv2g9_gz1dIw/zh-cn_image_0000001465931841.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=5BFD30335465A19395C02C5A73B48EF13E1AB2F50A44D0CA70CC52736B74656B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/yJ0XX0qGTAOv2g9_gz1dIw/zh-cn_image_0000001465931841.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=B4E1A1A9F3B76A2898738001B7AB85B73090A7A0CA4E18E90D3A28B00CA44F16)
 
 * 隐私政策网址（必填）：如果您的应用涉及收集、处理用户信息，请提供隐私政策声明的网页链接地址。该网址会在应用的详情页面添加隐私政策跳转，可帮助用户清楚地了解您如何处理敏感的用户数据和设备数据。 隐私政策必须完整说明您的应用如何收集、使用和分享用户数据，包含但不限于如下情况建议提供：
 
@@ -350,38 +350,38 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 您可根据应用是否收集用户的信息数据选择是否在华为应用市场的用详情页展示隐私标签，告知用户您的应用如何使用个人数据。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/XVdbwP_OQQGAyXdd1kgewg/zh-cn_image_0000001425971937.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=5299F4DC18C716CD081F89509338508BBEA5F9AC0D72A7F4BD5609C468B82516)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/XVdbwP_OQQGAyXdd1kgewg/zh-cn_image_0000001425971937.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=9B38C8FD3817EBE7BD25DCC11077D73A0C12AD53C999D7C29D995DFF80711EEA)
 
 * 如您的应用不涉及收集用户的信息数据，请在"是否涉及个人信息收集"项中选择"否"。
 * 如您的应用涉及收集用户的信息数据，请在"是否涉及个人信息收集"项中选择"是"，您可以参考以下步骤录入隐私标签信息： 说明
   > * 业务场景和相关数据项信息请参考[AppGallery隐私标签服务说明](https://developer.huawei.com/consumer/cn/doc/distribution/app/privacy-label)。
   > * 如果您的应用中不涉及广告与营销的相关内容，请勿在业务场景中勾选"广告与营销"。
   1. 在"是否涉及个人信息收集"项中选择"是"。
-  2. 在"选择业务场景"项中，根据用户个人信息数据的使用场景进行对应选择，最多支持同时勾选六种业务场景 。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/hI9uMoMmS8KFxWCV0y2opg/zh-cn_image_0000001437227653.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=E7613A7E1D34150EDCFD6857A7418C486ED344BAD7012E0867097301F424997A)
+  2. 在"选择业务场景"项中，根据用户个人信息数据的使用场景进行对应选择，最多支持同时勾选六种业务场景 。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/hI9uMoMmS8KFxWCV0y2opg/zh-cn_image_0000001437227653.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=256D41B9553F480E8622A583C23441264A3D4590187DCCB23F1473B02049FB62)
 
-  3. 在您勾选的业务场景的对应页签下，点击左下角的"+添加"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/k5QbVjqjTxKhATAmo6DyCg/zh-cn_image_0000001386588454.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=BEC932F827C38624DBF247D4475CA22BAB34F75ED7A5870731F214A94A70D006)
+  3. 在您勾选的业务场景的对应页签下，点击左下角的"+添加"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/k5QbVjqjTxKhATAmo6DyCg/zh-cn_image_0000001386588454.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=A92352E1F81D21D4421A28AF09A29D0D93E4AFB7BE2AAB570402BA19AABF6158)
 
-  4. 勾选对应的数据项后，点击"确定"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/3LPYuqK8QB-xgpcly2Paqg/zh-cn_image_0000001186802913.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=41B09F4C27188412FF67E4273AF620250AF04F9BEF472663885D2DB068EE4CA7)
+  4. 勾选对应的数据项后，点击"确定"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/3LPYuqK8QB-xgpcly2Paqg/zh-cn_image_0000001186802913.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=A7A08E89F6A050388BCEB436587972F361BB3EFA5A860FCDD53848F51FE695A4)
 
   5. 逐一完成每个场景下的数据项补充后，您可在"关联到用户数据汇总"页签下查看您勾选的全部数据项。 说明
      >
      > 数据项不可为空，如您有尚未补充数据项的业务场景，相关场景页签的左上角会有红点提示，此时请您补充缺失的数据项。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/40yMZHtfRy6fSkp94E3fSA/zh-cn_image_0000001386748154.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=F29805427864E8E585BE0D03076132927A9952C4C3B8C21A203F97BF595BC43A)
-  6. （可选）如您想删除某个业务场景下的数据项，您需点击对应的场景页签，点击相关数据项后的"删除"按钮即可删除该数据项。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/JKa89oJxRfa3M8ESEGWK5w/zh-cn_image_0000001387067778.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=1123799B17A0B25A38BC393730885F47B50C0E174716A9AF3945251786F4A426)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/40yMZHtfRy6fSkp94E3fSA/zh-cn_image_0000001386748154.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=8266B6B98C697C511EBD34B5F19CDB4494A08BCEC2BAAAF55388F1264D93FA2A)
+  6. （可选）如您想删除某个业务场景下的数据项，您需点击对应的场景页签，点击相关数据项后的"删除"按钮即可删除该数据项。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/JKa89oJxRfa3M8ESEGWK5w/zh-cn_image_0000001387067778.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=56B4A24B752E33C252390E1B37030B42B0B9F10522093A5F8AA84D526DFF45E8)
 
 ## 填写AI功能声明
 
 按照法律法规要求，应用程序在上架或上架审核时，应用程序服务提供者应说明是否提供人工智能生成合成服务。详细内容参见[人工智能生成合成内容标识常见问题](https://developer.huawei.com/consumer/cn/doc/app/50111-10)。
 
 * 如果软件包中不包含人工智能生成合成内容，"AI生成合成服务"选择"不涉及"，配置结束。
-* 如果软件包中包含人工智能生成合成内容，"AI生成合成服务"选择"涉及"，继续配置，选择涉及的AI生成合成服务类型并前往"版权信息 > 授权书及其他材料"上传AI生成标识材料和相关资质文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/mO6lyVC3RI6B0qfl38ZQYQ/zh-cn_image_0000002514861288.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=B2E58BDEC46CE9B50742BA9C4EDBCDE47EFB515E3BB56A244E50E77F66B7A42B)
+* 如果软件包中包含人工智能生成合成内容，"AI生成合成服务"选择"涉及"，继续配置，选择涉及的AI生成合成服务类型并前往"版权信息 > 授权书及其他材料"上传AI生成标识材料和相关资质文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/mO6lyVC3RI6B0qfl38ZQYQ/zh-cn_image_0000002514861288.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=BBFB0F8E160F6E74FD4333772011367F17579A0D228809737BD19428DECC4CF4)
 
 ## 填写版权、版号信息
 
 ### 版权信息
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/F3mMiDfFSbWfGykeXa1UsA/zh-cn_image_0000001424109610.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=17613E036482D9E9C79F0C3D657A9BF41E4776B1A422B87767246CB5D8BCC2B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/F3mMiDfFSbWfGykeXa1UsA/zh-cn_image_0000001424109610.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=0833831C2F626E4E1B67C6951E14652F5FCCDE888F60C6DA4DCDFC6F1CA8EB18)
 
 版权信息根据应用的类型和应用的发布区域要求略有不同。
 
@@ -400,7 +400,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 如您还需要提供授权书或其他资质文件，可在"授权书及其他材料"栏上传。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/0LJMAV28Q36Ikw-Cqd2BwA/zh-cn_image_0000002253465205.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=660B1AF4A16B207B7C58ADC3245DCDDCDADEA1CBCD8F415E359825B42CE718A9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/0LJMAV28Q36Ikw-Cqd2BwA/zh-cn_image_0000002253465205.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=DFB0D101E687768E1D9CFECD1F93C993329CFA8FB39E2D89E316649BD7BF7C5A)
 
 仅支持上传zip格式的压缩包文件，大小不能超过200MB。并且压缩包只能包含JPG、JPEG、BMP格式图片，文件夹层级最多三层，累计不能超过200张图片。压缩包文件上传后会进行文件安全校验，请耐心等待1-3分钟至文件校验完毕。
 
@@ -417,7 +417,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 文件上传后，如需更新材料，点击"更新"；如需下载材料，点击"查看"；如需删除材料，则点击"删除"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/GyednN2jTLOQLH31bvznkQ/zh-cn_image_0000002218345490.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=99A7D642D081222990B51317F862DE52B1CFC8E20D27DA960D7046FFFFE48A39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/GyednN2jTLOQLH31bvznkQ/zh-cn_image_0000002218345490.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=3ADA8B115A9E73680BCD0B9825352E36C2C0C8451DC1744BF42CDD0AACED8398)
 
 ### 版号（仅针对游戏类应用）
 
@@ -427,12 +427,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 * 您的应用支持设备为手机、车机、路由器或VR。
 * 您的应用发布范围包含中国大陆。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/2WG5NJmHTSqHDRL-VwuYJQ/zh-cn_image_0000001407371820.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=2CA35ECA2164770CB07E7F090F8A9256A6AF99A8CDD9F0810C3079DAF7871106)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/2WG5NJmHTSqHDRL-VwuYJQ/zh-cn_image_0000001407371820.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=CE01B4A493859A1BF70BC29DF1065935CAF9166D1C599C1D7E4506D1ADED3209)
 
 * 版号信息：必选，您需要向相关单位申请游戏版号，并在此处填写。
 * 版号证明：必选，需上传"版号批文"或"版号授权书"，图片格式支持JPG、JPEG、PNG、PDF。默认展示三个图片上传框，您可点击虚线框内的"+"号继续添加。最多添加5张图片，每张图片不超过4MB。若您在"版号授权书"中上传了版号授权书，您还需填写"授权书有效期"。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/m0tmzBw-QUuj2IFYZAZ15A/zh-cn_image_0000001186523107.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=32202FFDE8EB0C03E28403FB503A29E25BFD02E9811B77C60FE52BCCBE4E0DAD) 说明
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/m0tmzBw-QUuj2IFYZAZ15A/zh-cn_image_0000001186523107.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=ED7AD73B63ABACBBC7A5F9E2C72BCEA072FD5F3C3C494B9C883529455E48FE9B) 说明
   >
   > 关于版号文件的具体要求，请参考[应用资质审核要求](https://developer.huawei.com/consumer/cn/doc/app/80301)。
   >
@@ -444,7 +444,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 请您参考[APP核准（APP备案）指引](https://developer.huawei.com/consumer/cn/doc/app/50130)，填写应用在工信部认证的备案信息。审核人员会对您填写的备案信息进行核验，核验通过后才允许上架，请如实填写。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/bTlZkwrpSyO8tgkoybMdOw/zh-cn_image_0000002205043476.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=8687CF1E7C18E5FAD6BBBE75630159D14DFD601AF327E4FE61BEA159666AFC39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/bTlZkwrpSyO8tgkoybMdOw/zh-cn_image_0000002205043476.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=A7076160F69BC21A2893035B8522321043607EE2F4E1A3D88429DC18DB959C9C)
 
 ## 完善版本其他信息
 
@@ -452,11 +452,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 当您的应用支持的设备为手机、车机、路由器或VR时，界面将展示"应用审核信息"栏，供您填写应用审核相关的备注信息。如审核过程涉及登录，还需提供测试账号供华为审核人员完成应用中登录、查看、购买等功能的审核。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/qDsi0OPaT-e8P2hqsUVV8Q/zh-cn_image_0000001141483150.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=1A183BF815AC0B842C35E04B2DC5AEE0B1D492E6DB1676DCEB5D607D1D4AFD1A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/qDsi0OPaT-e8P2hqsUVV8Q/zh-cn_image_0000001141483150.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=3EFF1767A9F3065CC18398A33B3A2188B56B84D0E0CC8B4331715164386B22A9)
 
 当您的应用支持的设备为大屏或手表时，您可以在"上架"栏填写一个10-300字以内的上架说明，供审核人员查看。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/swkabc47QqSCLmORhCY36g/zh-cn_image_0000001426171725.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=0FBC6C6B3BAA7EA3354B09434835DB96CF7E60FBF4F90DC23EB89BF44DAE6957)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/swkabc47QqSCLmORhCY36g/zh-cn_image_0000001426171725.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=A086CA36F6C42D7DBB34C1542F946B630A37ED31D2659C35E558AAA6C86FCB4B)
 
 ### 联系方式
 
@@ -466,23 +466,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 * 邮箱：用于接收上架审核结果，应用整改或下架通知。
 * 姓名：用于沟通核实负责人身份。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/NMZ2-u8sScmIf6Oz-sSlZQ/zh-cn_image_0000002521196588.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=7B5AC7DFA5995816FCC3955BE8488B3D9FEB9490D9B12FD45001921DE6B64359)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/NMZ2-u8sScmIf6Oz-sSlZQ/zh-cn_image_0000002521196588.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=E476689EB9440810BF7DEC3F19332FCC7B3886E6DA969A2628F53874F4B1182B)
 
 ### 其他
 
 当您的应用支持的设备为路由器时，您可以配置您的应用是否"必须联网才能使用"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/LJxxn8PjSPWh6Azf1paaHw/zh-cn_image_0000001186802927.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=57A8C6CD4DC2A4C726087F72C5D70F4375EF58B7580FEF5124D2944417C7CF45)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/LJxxn8PjSPWh6Azf1paaHw/zh-cn_image_0000001186802927.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=C8506469382C4911A1249593175CC2926826210B0CDEA51A2EE1513DE4384676)
 
 当您的应用支持的设备为手表应用时，您可以配置应用的"官方APK下载地址"，您还可以允许华为应用市场自动从该页面抓取新版本。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/oK5mjRCOTQCngnkNc1sSXg/zh-cn_image_0000001141802946.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=E54AA30E99678675D85B3AE7F8F24E06E03E8EFE919DEB4D31BAEFF10D73E16E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/oK5mjRCOTQCngnkNc1sSXg/zh-cn_image_0000001141802946.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=54AC1C39309F20482F69431632B98E96CB60C48811A88040A94DEED32959ED58)
 
 ### 家人共享
 
 当您的应用发布区域包含中国大陆时，界面将展示"家人共享"栏。启用"家人共享"后，最多6位家庭成员可以免费使用此应用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/xjVsJaOKQFK6un9i7mQ_mA/zh-cn_image_0000001186523113.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=C026AE8EFCBBE93D22740F86A834A4B1A070FD4967E0332DADCD694739AFC05A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/xjVsJaOKQFK6un9i7mQ_mA/zh-cn_image_0000001186523113.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=896E0A6C9430D12F91117B15B12A32A00BB1EAE35D86881AAA3F6115E064241A)
 
 ## 设置应用上架时间
 
@@ -490,18 +490,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 指定时间是您的本地时间，在您设置时间之后，系统会自动转换成UTC标准时间并显示在后面。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/5CwalIZ7TWqEhd7jY3DNAA/zh-cn_image_0000001141483158.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=603946923EC0F4B36BB9BFA58D3FB62D0C3BF446F34D6E8C5C9967A9A9F29BB7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/5CwalIZ7TWqEhd7jY3DNAA/zh-cn_image_0000001141483158.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=59BCE0A325AEC93404E1974BCCAB1C2A75991C9A16422BD2A2A911AD495B759F)
 
 ## 提交审核
 
 1. 所有信息确认无误后，点击右上角"提交审核"。 说明
    > * 如果您的APK包过大，在您点击"提交审核"后可能会弹出"系统正在处理，请稍后操作"的提示框，此时说明AGC尚未完成对您软件包的解析。请您耐心等待，稍后再试。
    > * 如您提交审核的应用名称包含敏感词或特殊字符，系统可能会弹出提示框，此时您必须回到"应用信息"界面重新设置应用名称。
-2. 确认版本号无误后，点击"确认"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/wDXSvlVKSF-2OgFA5o0noQ/zh-cn_image_0000001141802952.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=4C1918431507AA8399238D3E5896F185E4ED32319513B1EE50B543BE98CA6822)
+2. 确认版本号无误后，点击"确认"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/wDXSvlVKSF-2OgFA5o0noQ/zh-cn_image_0000001141802952.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=5C2BD64F6840D600530C2A832CD05686A8C3592E27DA1F55C4A319DFCBEB8255)
 
    提交成功后，在"状态"中可查看审核状态。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/O-nCkkXETw2-5IlHvMuuqw/zh-cn_image_0000001188946427.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=61245C2BB21960EB1902F66BE54E0C9F52801D2F8A33A14E25BA7723F7FC4197)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/O-nCkkXETw2-5IlHvMuuqw/zh-cn_image_0000001188946427.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=B1BB91BE32E851F59296D4298F8F03955A263EF3545E4B54406898D3382EC685)
 
    华为应用市场将在1-3个工作日内完成审核。如果您的应用被驳回，我们将会发送邮件至联系人邮箱进行通知，请注意查收。
    > 说明
@@ -516,7 +516,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 
 审核通过后，如您的应用尚未到达生效时间，您依然可以更改上架时间：修改指定时间，点击"提交变更"，在弹出的提示对话框内点击"确认"即可。更改上架时间的操作无需再次经过人工审核。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/uwBuNzbZRl2nQFcGQ8sjVg/zh-cn_image_0000001141483164.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=1FAFA348A4D44F5980C8AFCA8CC4BC9385DFA6FBCDC1292810DA28B2850C1CF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/uwBuNzbZRl2nQFcGQ8sjVg/zh-cn_image_0000001141483164.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=802934AF1F70F7597A379840B9306D5E2552A70B8C883D2D767BC0050F7C7E70)
 
 ## 手动发布待上架应用
 
@@ -525,5 +525,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-releaseapkrpk-000
 >
 > 手动发布目前支持应用设备类型为手机、车机、路由器或VR的应用。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/IzmibCH-S7Cu1N1_8DSmYQ/zh-cn_image_0000001186802941.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=4971A1AFD63393D3D1708F4D9E6763E899972148413905EE8213CFC1CEFCC1E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/IzmibCH-S7Cu1N1_8DSmYQ/zh-cn_image_0000001186802941.png?HW-CC-KV=V1&HW-CC-Date=20261008T191245Z&HW-CC-Expire=31536000000&HW-CC-Sign=E095A7C9115151E02A3FBE2485FAACD27324143C26232DBBE4C9D75825202860)
 

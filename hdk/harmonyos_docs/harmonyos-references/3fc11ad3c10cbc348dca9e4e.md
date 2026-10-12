@@ -21,11 +21,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-e
 
 ## 导入模块
 
+> phone | 2in1 | tablet
+
 ```ts
 import { telephonyManager } from '@kit.MDMKit';
 ```
 
 ## telephonyManager.setSimDisabled
+
+> phone 20+ | tablet 20+
 
 setSimDisabled(admin: Want, slotId: number): void
 
@@ -84,6 +88,8 @@ try {
 
 ## telephonyManager.setSimEnabled
 
+> phone 20+ | tablet 20+
+
 setSimEnabled(admin: Want, slotId: number): void
 
 解除指定卡槽的SIM卡禁用。使用setSimDisabled禁用SIM卡后，再用setSimEnabled启用SIM卡，需要到设置-移动网络-SIM卡管理界面手动打开SIM卡开关。
@@ -140,6 +146,8 @@ try {
 ```
 
 ## telephonyManager.isSimDisabled
+
+> phone 20+ | tablet 20+
 
 isSimDisabled(admin: Want, slotId: number): boolean
 
@@ -201,6 +209,8 @@ try {
 
 ## telephonyManager.addOutgoingCallPolicyNumbers
 
+> phone 20+ | tablet 20+
+
 addOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void
 
 添加通话呼出的允许或禁用名单，如果不添加名单，任意号码都可以呼出，添加后只有名单内的号码允许或禁止呼出。例如，企业可限制员工只能拨打客户服务热线，或禁止拨打特定号码。
@@ -249,8 +259,7 @@ addOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: 
 
 ```ts
 import { Want } from '@kit.AbilityKit';
-import { telephonyManager } from '@kit.MDMKit';
-import { adminManager } from '@kit.MDMKit';
+import { adminManager, telephonyManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
@@ -274,6 +283,8 @@ try {
 ```
 
 ## telephonyManager.removeOutgoingCallPolicyNumbers
+
+> phone 20+ | tablet 20+
 
 removeOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void
 
@@ -319,8 +330,7 @@ removeOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, number
 
 ```ts
 import { Want } from '@kit.AbilityKit';
-import { telephonyManager } from '@kit.MDMKit';
-import { adminManager } from '@kit.MDMKit';
+import { adminManager, telephonyManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
@@ -344,6 +354,8 @@ try {
 ```
 
 ## telephonyManager.getOutgoingCallPolicyNumbers
+
+> phone 20+ | tablet 20+
 
 getOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<string>
 
@@ -387,8 +399,7 @@ getOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<st
 
 ```ts
 import { Want } from '@kit.AbilityKit';
-import { telephonyManager } from '@kit.MDMKit';
-import { adminManager } from '@kit.MDMKit';
+import { adminManager, telephonyManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
@@ -407,6 +418,8 @@ try {
 ```
 
 ## telephonyManager.getOutgoingCallPolicyNumbers
+
+> phone 26.0.0+ | tablet 26.0.0+
 
 getOutgoingCallPolicyNumbers(admin: Want | null, policy: adminManager.Policy): Array<string>
 
@@ -449,8 +462,7 @@ getOutgoingCallPolicyNumbers(admin: Want | null, policy: adminManager.Policy): A
 **示例：**
 
 ```ts
-import { telephonyManager } from '@kit.MDMKit';
-import { adminManager } from '@kit.MDMKit';
+import { adminManager, telephonyManager } from '@kit.MDMKit';
 
 try {
   // 设置策略类型为禁用名单
@@ -465,6 +477,8 @@ try {
 ```
 
 ## telephonyManager.addIncomingCallPolicyNumbers
+
+> phone 20+ | tablet 20+
 
 addIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void
 
@@ -514,8 +528,7 @@ addIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: 
 
 ```ts
 import { Want } from '@kit.AbilityKit';
-import { telephonyManager } from '@kit.MDMKit';
-import { adminManager } from '@kit.MDMKit';
+import { adminManager, telephonyManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
@@ -539,6 +552,8 @@ try {
 ```
 
 ## telephonyManager.removeIncomingCallPolicyNumbers
+
+> phone 20+ | tablet 20+
 
 removeIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void
 
@@ -585,8 +600,7 @@ removeIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, number
 
 ```ts
 import { Want } from '@kit.AbilityKit';
-import { telephonyManager } from '@kit.MDMKit';
-import { adminManager } from '@kit.MDMKit';
+import { adminManager, telephonyManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
@@ -610,6 +624,8 @@ try {
 ```
 
 ## telephonyManager.getIncomingCallPolicyNumbers
+
+> phone 20+ | tablet 20+
 
 getIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<string>
 
@@ -653,8 +669,7 @@ getIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<st
 
 ```ts
 import { Want } from '@kit.AbilityKit';
-import { telephonyManager } from '@kit.MDMKit';
-import { adminManager } from '@kit.MDMKit';
+import { adminManager, telephonyManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
@@ -673,6 +688,8 @@ try {
 ```
 
 ## telephonyManager.getIncomingCallPolicyNumbers
+
+> phone 26.0.0+ | tablet 26.0.0+
 
 getIncomingCallPolicyNumbers(admin: Want | null, policy: adminManager.Policy): Array<string>
 
@@ -715,8 +732,7 @@ getIncomingCallPolicyNumbers(admin: Want | null, policy: adminManager.Policy): A
 **示例：**
 
 ```ts
-import { telephonyManager } from '@kit.MDMKit';
-import { adminManager } from '@kit.MDMKit';
+import { adminManager, telephonyManager } from '@kit.MDMKit';
 
 try {
   // 设置策略类型为禁用名单
@@ -731,6 +747,8 @@ try {
 ```
 
 ## telephonyManager.hangupCalling^23+^
+
+> phone 23+ | tablet 23+
 
 hangupCalling(admin: Want): void
 
@@ -781,6 +799,8 @@ try {
 ```
 
 ## telephonyManager.activeSim
+
+> phone 26.0.0+ | tablet 26.0.0+
 
 activeSim(admin: Want, slotId: number): void
 
@@ -841,6 +861,8 @@ try {
 
 ## telephonyManager.deactiveSim
 
+> phone 26.0.0+ | tablet 26.0.0+
+
 deactiveSim(admin: Want, slotId: number): void
 
 停用指定卡槽SIM卡。停用该SIM卡，SIM卡菜单项关闭，无法使用该卡槽的SIM卡接打电话，收发短信，上网。例如，企业可在员工休假或设备维护期间，临时停用SIM卡。该接口需要插入SIM卡并关闭飞行模式才能成功调用。
@@ -900,6 +922,8 @@ try {
 
 ## telephonyManager.setDefaultData
 
+> phone 26.0.0+ | tablet 26.0.0+
+
 setDefaultData(admin: Want, slotId: number): void
 
 设置指定卡槽的SIM卡为默认数据流量卡，设备将使用指定卡槽的SIM卡流量上网。例如，企业可在双卡设备管理场景中，为员工设备指定默认的数据流量卡以统一管理流量使用。该接口需要插入SIM卡并关闭飞行模式才能成功调用。
@@ -958,6 +982,8 @@ try {
 ```
 
 ## telephonyManager.getDefaultData
+
+> phone 26.0.0+ | tablet 26.0.0+
 
 getDefaultData(admin: Want): number
 

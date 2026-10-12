@@ -10,7 +10,7 @@ H5页面通过[web组件](https://developer.huawei.com/consumer/cn/doc/quickApp-
 
 **操作流程**：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/lc5nWMBTQeSSPaofw39XDA/zh-cn_image_0000002512279997.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=BD57AF3877D3B0FB93E68019D0DDB3EDB249549142197698438FD583E9ED220E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/lc5nWMBTQeSSPaofw39XDA/zh-cn_image_0000002512279997.png?HW-CC-KV=V1&HW-CC-Date=20261008T172537Z&HW-CC-Expire=31536000000&HW-CC-Sign=462F47C5535F0CA8449243C094A01CB57EFAD9D29D449F379B3729F45E676C04)
 
 1. 快应用里的H5页面需要使用华为支付。
 2. H5页面通过[web组件](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickapp-component-web-0000001074615196)与快应用的[双向通信机制](https://developer.huawei.com/consumer/cn/forum/topic/0204405003333750226?fid=18)通知快应用。

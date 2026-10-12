@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/requesting
 
 ## 查询用户授权结果
 
-用于查询用户是否授予第三方应用权限。如果检测到用户未授权，请参见下一节[申请用户穿戴设备权限](#section7157142771512)向用户请求权限。
+用于查询用户是否授予第三方应用权限。如果检测到用户未授权，请参见下一节[申请用户穿戴设备权限](#ZH-CN_TOPIC_0000001874111070__section7157142771512)向用户请求权限。
 
 若用户的运动健康App版本为11.0.3.512及以上，且对第三方应用未进行过授权操作，则消息通知[NOTIFY](https://developer.huawei.com/consumer/cn/doc/connectivity-References/permission-0000001059433005#ZH-CN_TOPIC_0000001874111234__NOTIFY)、设备基础信息[DEVICE_MANAGER](https://developer.huawei.com/consumer/cn/doc/connectivity-References/permission-0000001059433005#ZH-CN_TOPIC_0000001874111234__DEVICE_MANAGER)将默认授予第三方应用。建议在请求用户授权前，先使用该接口查询应用是否已有相关权限。
 > 说明
@@ -56,7 +56,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/requesting
 
 **图1**请求用户授权
 
-![](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20251031091802.63605758341216448475533371660374:50001231000000:2800:DF9CC001CBD986922317285C489484E743557CE7F2F8316D337C1CBD0816E0E1.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/cJd2-fmzR5yJA1xBcnYGbg/zh-cn_image_0000002504343619.png?HW-CC-KV=V1&HW-CC-Date=20261010T040630Z&HW-CC-Expire=31536000000&HW-CC-Sign=9AA6249E9271211EA270C8979597B1CD2AA533EAA18F622BD29BD7F77A3DA6FE)
 
 1. 第三方应用调用[HiWear](https://developer.huawei.com/consumer/cn/doc/connectivity-References/hiwear-0000001060938716)中的[getAuthClient](https://developer.huawei.com/consumer/cn/doc/connectivity-References/hiwear-0000001060938716#ZH-CN_TOPIC_0000001873951394__getAuthClient-android_content_Context-)方法，获取[AuthClient](https://developer.huawei.com/consumer/cn/doc/connectivity-References/authclient-0000001059980967)对象。
 2. 定义用户授权的回调对象authCallback。

@@ -238,7 +238,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-1035
 
 实现效果如下图所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/GSJmhGKsSqqJNu_bnsTnQg/zh-cn_image_0000002628564726.png?HW-CC-KV=V1&HW-CC-Date=20260929T074344Z&HW-CC-Expire=31536000000&HW-CC-Sign=BE5E78681C21FA6A933B4B722DBBEA320BBC2F1E5B690CD876560D5F6BC83154 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/GSJmhGKsSqqJNu_bnsTnQg/zh-cn_image_0000002628564726.png?HW-CC-KV=V1&HW-CC-Date=20261008T155144Z&HW-CC-Expire=31536000000&HW-CC-Sign=9672AC28929B178F0881C4C64E620CD9E2E54645C9A38834E65259E2B2637586 "点击放大")
 
 ## 常见FAQ
 

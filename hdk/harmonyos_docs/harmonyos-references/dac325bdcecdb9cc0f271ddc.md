@@ -22,11 +22,15 @@ request部件主要给应用提供上传下载文件、后台传输代理的基�
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```js
 import { cacheDownload } from '@kit.BasicServicesKit';
 ```
 
 ## SslType^21+^
+
+> phone 21+ | 2in1 21+ | tablet 21+ | tv 21+ | wearable 21+
 
 表示安全通信协议的枚举。
 
@@ -38,6 +42,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 |TLCP|'TLCP'|使用TLCP安全通信协议。|
 
 ## ErrorCode^23+^
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 表示错误返回信息的特定类型枚举。
 
@@ -53,6 +59,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 ## CacheStrategy^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 表示缓存刷新策略的枚举。
 
 **系统能力**：SystemCapability.Request.FileTransferAgent
@@ -63,6 +71,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 |LAZY|1|延迟更新缓存，只有当缓存不存在时才会更新。|
 
 ## TimeoutOptions
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 任务超时配置选项。包括检查网络可用的超时时间和完成HTTP请求的超时时间。
 
@@ -79,6 +89,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 ## RetryOptions
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 任务重试配置选项。设置任务的最大重试次数。
 
 **起始版本：** 26.0.0
@@ -92,6 +104,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 |maxRetryCount|number|否|是|任务失败时的最大重试次数。默认值为1，最小值为0，最大值为10，超出取值范围时抛出异常。|
 
 ## CacheDownloadOptions
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 缓存下载的配置选项。包括HTTP选项、传输选项和任务选项。
 
@@ -108,6 +122,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 ## ResourceInfo^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 预下载的资源信息。
 
 **系统能力**：SystemCapability.Request.FileTransferAgent
@@ -117,6 +133,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 |size|number|是|否|预下载资源解压后的大小，单位为字节（B）。当值为正整数时表示资源下载成功，-1表示下载失败。|
 
 ## NetworkInfo^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 预下载的网络信息。
 
@@ -128,6 +146,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 |ip^23+^|string|是|是|下载资源时url的IP地址。当DNS解析失败时，IP为undefined。|
 
 ## PerformanceInfo^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 预下载的性能信息。
 
@@ -145,6 +165,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 ## DownloadInfo^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 预下载的下载信息。
 
 **系统能力**：SystemCapability.Request.FileTransferAgent
@@ -157,6 +179,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 
 ## DownloadError^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 预下载错误回调的返回信息。
 
 **系统能力**：SystemCapability.Request.FileTransferAgent
@@ -167,6 +191,8 @@ import { cacheDownload } from '@kit.BasicServicesKit';
 |message|string|是|否|返回[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)或[HTTP错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-http)。|
 
 ## cacheDownload.download
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 download(url: string, options: CacheDownloadOptions): void
 
@@ -229,6 +255,8 @@ try {
 
 ## cacheDownload.cancel
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 cancel(url: string): void
 
 根据url移除一个正在执行的缓存下载任务，已保存的内存缓存和文件缓存不会受到影响。
@@ -282,6 +310,8 @@ try {
 
 ## cacheDownload.setMemoryCacheSize
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 setMemoryCacheSize(bytes: number): void
 
 设置缓存下载组件能够保存的内存缓存上限。
@@ -321,6 +351,8 @@ try {
 ```
 
 ## cacheDownload.setFileCacheSize
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 setFileCacheSize(bytes: number): void
 
@@ -372,6 +404,8 @@ try {
 
 ## cacheDownload.setDownloadInfoListSize^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 setDownloadInfoListSize(size: number): void
 
 设置下载信息列表的大小。
@@ -405,6 +439,8 @@ try {
 ```
 
 ## cacheDownload.getDownloadInfo^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 getDownloadInfo(url: string): DownloadInfo | undefined
 
@@ -484,6 +520,8 @@ try {
 
 ## cacheDownload.clearMemoryCache^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 clearMemoryCache(): void
 
 清除缓存下载内容的内存缓存。
@@ -500,6 +538,8 @@ cacheDownload.clearMemoryCache();
 
 ## cacheDownload.clearFileCache^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 clearFileCache(): void
 
 清除保存下载内容的文件缓存。
@@ -515,6 +555,8 @@ cacheDownload.clearFileCache();
 ```
 
 ## cacheDownload.onDownloadSuccess^23+^
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 onDownloadSuccess(url: string, callback: Callback<void>): void
 
@@ -550,6 +592,8 @@ try {
 
 ## cacheDownload.onDownloadError^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 onDownloadError(url: string, callback: Callback<DownloadError>): void
 
 订阅预下载的错误事件。使用callback异步回调。与offDownloadError()方法配合使用，在不再需要接收错误事件时应调用offDownloadError()取消订阅，以避免不必要的回调开销。
@@ -583,6 +627,8 @@ try {
 ```
 
 ## cacheDownload.offDownloadSuccess^23+^
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 offDownloadSuccess(url: string, callback?: Callback<void>): void
 
@@ -620,6 +666,8 @@ try {
 
 ## cacheDownload.offDownloadError^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 offDownloadError(url: string, callback?: Callback<DownloadError>): void
 
 取消订阅预下载的错误事件。
@@ -656,6 +704,8 @@ try {
 
 ## cacheDownload.setGlobalRetryOptions
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 setGlobalRetryOptions(options?: RetryOptions): void
 
 设置全局的任务重试配置。当任务未设置特定的重试配置时此配置生效。重试配置优先级：任务设置 > 全局设置 > 默认设置。
@@ -690,6 +740,8 @@ try {
 ```
 
 ## cacheDownload.setGlobalTimeoutOptions
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 setGlobalTimeoutOptions(options?: TimeoutOptions): void
 

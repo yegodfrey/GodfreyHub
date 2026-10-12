@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/atomic-ascf/faqs-appjson-pages
 
 编译报错如下：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/Vm0fstSQTLGSPTplEY4A2w/zh-cn_image_0000002733493628.png?HW-CC-KV=V1&HW-CC-Date=20260917T065900Z&HW-CC-Expire=31536000000&HW-CC-Sign=19B332CDC95E31D75030861A7A0F16E1C33318AC3D01DB4CBDAC6CC8754258C6 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/Vm0fstSQTLGSPTplEY4A2w/zh-cn_image_0000002733493628.png?HW-CC-KV=V1&HW-CC-Date=20261008T151636Z&HW-CC-Expire=31536000000&HW-CC-Sign=B18DB5C4D56C363ED37A7715A4654201A16DF00DF0C78D0F6E7C3200DDAEAAAA "点击放大")
 
 **解决措施：**
 

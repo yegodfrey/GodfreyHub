@@ -20,6 +20,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transi
 
 ## transition
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 transition(value: TransitionOptions | TransitionEffect): T
 
 组件插入显示和删除隐藏的过渡效果。可通过组件插入/删除（如if条件改变、ForEach新增删除）或visibility属性在可见与不可见之间切换来触发。
@@ -43,6 +45,8 @@ transition(value: TransitionOptions | TransitionEffect): T
 |T|返回当前组件，用于链式调用。|
 
 ## transition^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 transition(effect: TransitionEffect, onFinish: Optional<TransitionFinishCallback>): T
 
@@ -74,6 +78,8 @@ transition(effect: TransitionEffect, onFinish: Optional<TransitionFinishCallback
 
 ## TransitionEdge^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 转场边缘类型。
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
@@ -93,6 +99,8 @@ transition(effect: TransitionEffect, onFinish: Optional<TransitionFinishCallback
 
 ## TransitionEffect^10+^对象说明
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 TransitionEffect以函数的形式指定转场效果。提供了以下接口：
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -104,6 +112,8 @@ TransitionEffect以函数的形式指定转场效果。提供了以下接口：
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 ### 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|类型|只读|可选|说明|
 |:-----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,6 +133,8 @@ TransitionEffect以函数的形式指定转场效果。提供了以下接口：
 > 7. 当通过删除整棵子树的方式触发消失转场，如需看到完整的消失转场过程，需要保证被删除子树的根组件有充足的消失转场时间，见示例3。
 
 ### translate^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 translate(options: TranslateOptions): TransitionEffect<"translate">
 
@@ -150,6 +162,8 @@ translate(options: TranslateOptions): TransitionEffect<"translate">
 
 ### rotate^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 rotate(options: RotateOptions): TransitionEffect<"rotate">
 
 设置组件转场时的旋转效果。
@@ -175,6 +189,8 @@ rotate(options: RotateOptions): TransitionEffect<"rotate">
 |[TransitionEffect](#transitioneffect10对象说明)<"rotate">|当前动画旋转效果。|
 
 ### scale^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 scale(options: ScaleOptions): TransitionEffect<"scale">
 
@@ -202,6 +218,8 @@ scale(options: ScaleOptions): TransitionEffect<"scale">
 
 ### opacity^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 opacity(alpha: number): TransitionEffect<"opacity">
 
 设置组件转场时的透明度效果。
@@ -228,6 +246,8 @@ opacity(alpha: number): TransitionEffect<"opacity">
 
 ### move^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 move(edge: TransitionEdge): TransitionEffect<"move">
 
 设置组件转场时从窗口边缘滑入和滑出的效果。
@@ -253,6 +273,8 @@ move(edge: TransitionEdge): TransitionEffect<"move">
 |[TransitionEffect](#transitioneffect10对象说明)<"move">|当前动画从窗口边缘滑入和滑出的效果。|
 
 ### asymmetric^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect<"asymmetric">
 
@@ -281,6 +303,8 @@ asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEff
 
 ### constructor^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 constructor(type: Type, effect: Effect)
 
 构造TransitionEffect对象。
@@ -301,6 +325,8 @@ constructor(type: Type, effect: Effect)
 |effect|[Effect](#transitioneffect10对象说明)|是|转场效果配置，用于指定具体的转场动画效果，包括透明度、平移、旋转、缩放等转场效果的参数设置。|
 
 ### combine^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 combine(transitionEffect: TransitionEffect): TransitionEffect
 
@@ -328,6 +354,8 @@ combine(transitionEffect: TransitionEffect): TransitionEffect
 
 ### animation^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 animation(value: AnimateParam): TransitionEffect
 
 指定该TransitionEffect的动画参数。
@@ -354,6 +382,8 @@ animation(value: AnimateParam): TransitionEffect
 
 ## TransitionFinishCallback^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 type TransitionFinishCallback = (transitionIn: boolean) => void
 
 定义组件转场动画结束回调的类型。
@@ -379,6 +409,8 @@ type TransitionFinishCallback = (transitionIn: boolean) => void
 
 ## TransitionOptions^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 TransitionOptions通过指定结构体内的参数来指定转场效果。
 > 说明
 >
@@ -401,7 +433,11 @@ TransitionOptions通过指定结构体内的参数来指定转场效果。
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1（使用同一接口实现图片出现消失）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例主要演示如何通过同一[TransitionEffect](#transitioneffect10对象说明)来实现图片的出现与消失，出现和消失互为逆过程。
 
@@ -442,9 +478,11 @@ struct TransitionEffectExample1 {
 
 示意图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/ii8Dh02NTMGh6hJ2jOzt5A/zh-cn_image_0000002749495000.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121724Z&HW-CC-Expire=31536000000&HW-CC-Sign=BE16707FBA99FDBE3D507EF5DCD22B652388F6EB1517D2D5C87BD161546F5428)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/JGobxy80SdOsV6Y-Cpx7zQ/zh-cn_image_0000002755026002.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092747Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D74B6D4046F298A3888A1A5AF685640DF948B1A615D4849D175AC47F9872871)
 
 ### 示例2（使用不同接口实现图片出现消失）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例主要演示使用不同[TransitionEffect](#transitioneffect10对象说明)来实现图片的出现和消失。
 
@@ -505,9 +543,11 @@ struct TransitionEffectExample2 {
 
 示意图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/0ABeeYq7RdWyUGBSfVLxRg/zh-cn_image_0000002779094057.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121724Z&HW-CC-Expire=31536000000&HW-CC-Sign=39327D442CAC3616C80839CE948E504E185BD6ACAE832E976858D63B3BE1A659)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/2GDfXdyUQWeaa5HxhpdGBw/zh-cn_image_0000002755185886.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092747Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C719F0886E6556FFF22DF42D941DA752860F4DD1517E50B297BDDA353F0ADB9)
 
 ### 示例3（设置父子组件为transition）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例主要演示通过父子组件都配置[transition](#transition)来实现图片的出现和消失。
 
@@ -566,9 +606,11 @@ struct TransitionEffectExample3 {
 
 示意图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/TXViVGVETc6viufuqxn0JA/zh-cn_image_0000002778934201.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121724Z&HW-CC-Expire=31536000000&HW-CC-Sign=9F3A5ADFA2B9C21685B2D5D6628316F350D8B255EC8C33F5D353CFDED9B42C84)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/u--k7xbNRhWTOr6PKCYmsQ/zh-cn_image_0000002784584753.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092747Z&HW-CC-Expire=31536000000&HW-CC-Sign=E59F145B79BC0DBAB27F54224CBE63E028702C8481159B878C1D969BD6EF2A47)
 
 ### 示例4（visibility切换时的双动画复合效果）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例演示当[visibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-visibility#visibility)在Visibility.Visible与Visibility.None之间切换时，[transition](#transition)动画与布局动画叠加形成双动画复合表现的效果。
 
@@ -605,5 +647,5 @@ struct TransitionVisibilityExample {
 
 示意图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/Rxz_hyFXRZqDL1r8i40rdg/zh-cn_image_0000002749335118.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121724Z&HW-CC-Expire=31536000000&HW-CC-Sign=6547EFE6F69FBA29059E4EEFF21CDCF657EEEA0D30C8F171EB2BBE2199752815)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/p2YVe_KKSPC0N8YOIIGGTA/zh-cn_image_0000002784664935.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092747Z&HW-CC-Expire=31536000000&HW-CC-Sign=F193516FD183886664CE4F2BCDC10142A0C9CBAD575AFAEF4A780D8B6FC98A22)
 

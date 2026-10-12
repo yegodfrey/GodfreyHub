@@ -41,7 +41,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/comment-management-0000002
   4. 在评论列表中找到已回复的评论，点击右侧「查看详情」→「回复」。
   5. 评论列表右上方点击「导出」，最多支持180天评论内容批量导出。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/1Oo7SGNRSFi24GixUFhG5g/zh-cn_image_0000002478098952.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=3A4858A7F0F1C4CA707D138BB08F040E9E09EDF920C2A079F2CF5FD6F006DC60 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/1Oo7SGNRSFi24GixUFhG5g/zh-cn_image_0000002478098952.png?HW-CC-KV=V1&HW-CC-Date=20261008T182042Z&HW-CC-Expire=31536000000&HW-CC-Sign=5AC2F28B849423CCBFBACD37151B35D3692E9E4E8C58D9D2EA1B8FE2CBAB129F "点击放大")
 
 * 功能使用建议：
   1. 产品优化：通过关键词分析（如 "卡顿""闪退""功能缺失"），定位高频问题，优先纳入版本迭代计划。
@@ -57,7 +57,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/comment-management-0000002
   2. 右上角点击「评论」输入开发者评论内容并提交，等待平台审核。
   3. 审核通过后，官方评论将在应用评论区展示，标注「开发者」标识。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/rWJaLNsKSTmWvF9UBnMhEw/zh-cn_image_0000002509978859.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=6750706423D2523B7E3A6A2C225FF84AFC87A9178C32D34DB337E0D1784A7479 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/rWJaLNsKSTmWvF9UBnMhEw/zh-cn_image_0000002509978859.png?HW-CC-KV=V1&HW-CC-Date=20261008T182042Z&HW-CC-Expire=31536000000&HW-CC-Sign=0171FAC359A406536988F76FCE39D5D58B06A40FA5C762F14CABC4E6BF4E7CDC "点击放大")
 
 * 功能使用建议：
   1. 官方评论内容需与应用相关，避免发布无关信息（如其他应用推广、无关活动等）。
@@ -121,11 +121,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/comment-management-0000002
 
 ## 评论运营案例
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/sVI27VavRe6xfF4z4jJCpA/zh-cn_image_0000002510841945.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=487C2C1881350AB377026525DB0AFE0434C60280FB4E5D5928A4EE0B369FEC75 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/sVI27VavRe6xfF4z4jJCpA/zh-cn_image_0000002510841945.png?HW-CC-KV=V1&HW-CC-Date=20261008T182042Z&HW-CC-Expire=31536000000&HW-CC-Sign=7E161A6A9AB63919B004A64EE38F65738FB836B2BBECCB7AB1A62255E1592326 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/XdkWI3SyTvW7oWCwfaqe4w/zh-cn_image_0000002478642236.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=716E0876AD2602B8DAFEFA7C11FDD358F029E20838AA856FF84EE706A608D42D "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/XdkWI3SyTvW7oWCwfaqe4w/zh-cn_image_0000002478642236.png?HW-CC-KV=V1&HW-CC-Date=20261008T182042Z&HW-CC-Expire=31536000000&HW-CC-Sign=6801A2780A9D7F4D0C9F06F81D6CC403447C98840820D9A40E09FB3FF7E847F5 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/5qmxo5qKSIKho_L3ZoZV2A/zh-cn_image_0000002510762153.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=4D6337DBD8D2A4C0BD74F36DE3289EF64AA241ACD8ED2CE9DC0ABF99B9B27ACC "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/5qmxo5qKSIKho_L3ZoZV2A/zh-cn_image_0000002510762153.png?HW-CC-KV=V1&HW-CC-Date=20261008T182042Z&HW-CC-Expire=31536000000&HW-CC-Sign=31854E310913A6DBE3488A741B10F67C3342D938FC4AE7029BE9048BAE492B78 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/ECWfy5-nS9qKv2VdJap7Nw/zh-cn_image_0000002478642264.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=7EE3D32962AF1CF21BC211E70F872E42F6E7D0372E34E274A08EB6512F16FA4A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/ECWfy5-nS9qKv2VdJap7Nw/zh-cn_image_0000002478642264.png?HW-CC-KV=V1&HW-CC-Date=20261008T182042Z&HW-CC-Expire=31536000000&HW-CC-Sign=999135F8EDF266CA33C9747124B74EB25A52DACEE086DE44C6B43D09DDBDFD46 "点击放大")
 

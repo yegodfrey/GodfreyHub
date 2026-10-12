@@ -16,7 +16,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/online_she
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/kXv9O_AUTiyOOv4oqe-nhQ/zh-cn_image_0000002749633349.png?HW-CC-KV=V1&HW-CC-Date=20260924T062300Z&HW-CC-Expire=31536000000&HW-CC-Sign=A2190E0D84E48A093BB7C80A7422BBB6D22E5857385708927F224D837FAD8348 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/kXv9O_AUTiyOOv4oqe-nhQ/zh-cn_image_0000002749633349.png?HW-CC-KV=V1&HW-CC-Date=20261010T040430Z&HW-CC-Expire=31536000000&HW-CC-Sign=9F949CE52A8460D6701551338CFFCD574D566B4F5B6AEF6B32B61FCFFC3D349D "点击放大")
 
 ## 实现思路
 

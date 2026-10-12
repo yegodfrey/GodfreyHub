@@ -14,6 +14,8 @@ typedef struct ArkUI_GestureEventTargetInfo ArkUI_GestureEventTargetInfo
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 提供手势事件目标信息类型对象定义，用于表示手势事件关联的目标信息，便于在手势处理过程中获取目标对象的滚动状态等相关信息。
 
 **起始版本：** 12

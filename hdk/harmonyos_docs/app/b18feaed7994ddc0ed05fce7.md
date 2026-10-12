@@ -60,7 +60,7 @@ AppGallery Connect在全球范围内提供了四个数据处理位置供您选�
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)，点击"开发与服务"。
 2. 在项目列表中点击您需要设置数据处理位置的项目。
-3. 进入"项目设置 > 数据处理位置"页面，点击"管理"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/dcP8ohIVQ5aJMGTtOojv9A/zh-cn_image_0000002271349605.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=E32C3B858DCFE456286F1D74C7167C3AC837825846D0A4168DB8239F397F6267)
+3. 进入"项目设置 > 数据处理位置"页面，点击"管理"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/dcP8ohIVQ5aJMGTtOojv9A/zh-cn_image_0000002271349605.png?HW-CC-KV=V1&HW-CC-Date=20261008T185607Z&HW-CC-Expire=31536000000&HW-CC-Sign=08C4CEA251EE9BC47ACE668730CCD8707DBA1DA6C28853B721F319EBAA31ACC1)
 
 4. 阅读上方提示信息后，在"是否已启用"栏为您的项目勾选一个或多个数据处理位置，并在"是否设为默认"栏将其中一个设置为默认数据处理位置。 说明
    > * 仅支持将已启用的数据处理位置设置为默认数据处理位置。
@@ -72,13 +72,13 @@ AppGallery Connect在全球范围内提供了四个数据处理位置供您选�
 
 在首次开通服务时设置数据处理位置。您可以设置一个或多个数据处理位置，设置步骤如下（此处以开通云数据库服务为例）：
 
-1. 在云数据库服务界面，点击"立即开通"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/SqYwsU4FTvKLfKk69k72ug/zh-cn_image_0000002236311348.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=35B43F7CDFC539CE7174B901EED35C68DE335767D488A6AF211C157D465CDEDA)
+1. 在云数据库服务界面，点击"立即开通"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/SqYwsU4FTvKLfKk69k72ug/zh-cn_image_0000002236311348.png?HW-CC-KV=V1&HW-CC-Date=20261008T185607Z&HW-CC-Expire=31536000000&HW-CC-Sign=462667501FD38200FB38E23F6D7F123E351BB66D1A00EC6977FF8DCEF169098B)
 
 2. 仔细阅读弹出提示框的文字说明后，在"启用"栏为您的项目勾选一个或多个数据处理位置，并在"设为默认"栏将其中一个设置为默认数据处理位置。 说明
    > * 仅支持将已启用的数据处理位置设置为默认数据处理位置。
    > * 当您只启用一处数据处理位置时，您必须将其设置为默认数据处理位置。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/e5wChYn5QEOFwo6SUvlI5Q/zh-cn_image_0000002236471804.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=50BFD60B4A965042A1465836AEDE42221F4FAA87B69B5A341834C7F98C4C2CD4)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/e5wChYn5QEOFwo6SUvlI5Q/zh-cn_image_0000002236471804.png?HW-CC-KV=V1&HW-CC-Date=20261008T185607Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F5E372B94591AED78B09000D8F1AC70ACD2DE17EC6AE81D9EBF60E5D3073F78)
 3. 设置完成后，点击"确定"。
 
 ## 管理数据处理位置
@@ -87,7 +87,7 @@ AppGallery Connect在全球范围内提供了四个数据处理位置供您选�
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)，点击"开发与服务"。
 2. 在项目列表中点击需要变更数据处理位置的项目。
-3. 进入"项目设置 > 数据处理位置"页面，点击"管理"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/tR_3c0tqSb2TazKNjm4K3g/zh-cn_image_0000002287323621.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=56379845510546803C2CC51DC4412975806B432E42298DD58A76971B2B72A7E5)
+3. 进入"项目设置 > 数据处理位置"页面，点击"管理"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/tR_3c0tqSb2TazKNjm4K3g/zh-cn_image_0000002287323621.png?HW-CC-KV=V1&HW-CC-Date=20261008T185607Z&HW-CC-Expire=31536000000&HW-CC-Sign=D34428237E49800267878F191A7973B51AB30D7D0C5E902BA358E33C305F989F)
 
 4. 在"数据处理位置"页面，您可：
    * 启用新数据处理位置：在想要启用的数据处理位置对应的"启用"栏进行勾选，完成后点击"保存"。
@@ -95,13 +95,13 @@ AppGallery Connect在全球范围内提供了四个数据处理位置供您选�
      > * 默认数据处理位置不支持直接取消启用，如果您想取消该数据处理位置，您必须先修改默认数据处理位置。
      > * 取消已启用的数据处理位置后，该数据处理位置上的部分服务的数据将被清除且无法恢复，该项目下各应用将无法访问该数据处理位置上的相关服务。相关服务的数据清理策略请参考文中[对照表](#ZH-CN_TOPIC_0000001160439813__table12660104611327)。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/idLecwEoQJCsyM41q0uDvg/zh-cn_image_0000002351688156.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=A46029EF68B05E21FE4E0A43498C140CD855F69CB9451464E5F16D82DEB3E557)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/idLecwEoQJCsyM41q0uDvg/zh-cn_image_0000002351688156.png?HW-CC-KV=V1&HW-CC-Date=20261008T185607Z&HW-CC-Expire=31536000000&HW-CC-Sign=5AE66AEDA2D5FC992DB93EE491FECF86C00D64D89487EC8AC4D7EE1F6E8E48A0)
 
    * 修改默认数据处理位置：在"是否设为默认"栏勾选新的默认数据处理位置，完成后点击"保存"。 注意
      > * 在"是否设为默认"栏勾选新的默认数据处理位置前，请先启用该数据处理位置。
      > * 默认数据处理位置修改时间间隔不得低于1小时。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/SfrD7bJvQZ6pzVUlub88hA/zh-cn_image_0000002385328081.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=219FD8CAE5092319CF780BAA2AD9961783526FE834DCBE436AE9A0ACFD1F8EB3)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/SfrD7bJvQZ6pzVUlub88hA/zh-cn_image_0000002385328081.png?HW-CC-KV=V1&HW-CC-Date=20261008T185607Z&HW-CC-Expire=31536000000&HW-CC-Sign=611D68659C39AB7D7E3F3BD0FC5B6AA665B6A3DFAA1404D2FD131A8E53D3A223)
 
 
 5. （可选）如果您修改了默认数据处理位置，界面会弹出提示框。请阅读弹框内容，确认并勾选操作提示项，点击"同意并继续"。若放弃修改，点击"取消"。 注意
@@ -111,11 +111,11 @@ AppGallery Connect在全球范围内提供了四个数据处理位置供您选�
    > * 项目下各应用的已发布版本将可能无法访问数据处理位置相关服务。
    > * 修改默认数据处理位置后，仅在默认数据处理位置上提供服务的相关服务需要您重新开通，您的应用需要集成最新版本的agconnect-services配置文件。支持多数据处理位置的服务修改默认数据处理位置时，不需要重新开通服务。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/DO2Q-s4mRMSPDhz6TClsww/zh-cn_image_0000002385326665.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=B1C7D76BF6B643E4271B66DEDF824A119AC66251CC538E5B3D395FA8F706091B)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/DO2Q-s4mRMSPDhz6TClsww/zh-cn_image_0000002385326665.png?HW-CC-KV=V1&HW-CC-Date=20261008T185607Z&HW-CC-Expire=31536000000&HW-CC-Sign=6914456DB884A24582F40D57D6EAE7B8C6A3D3E8673ED6FD4C9036BDD9F91761)
 
 ## 查看已设置的数据处理位置
 
 设置完项目的数据处理位置后，您可以在"项目设置 > 数据处理位置"页面查看已设置的数据处理位置。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/0xvpT3WNT12DQUFucLNxrg/zh-cn_image_0000002252690638.png?HW-CC-KV=V1&HW-CC-Date=20260916T030830Z&HW-CC-Expire=31536000000&HW-CC-Sign=2256C11357BCB0612B4D15F6E0ABA6187804A33B4111B15E8B44BBE49E86E8FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/0xvpT3WNT12DQUFucLNxrg/zh-cn_image_0000002252690638.png?HW-CC-KV=V1&HW-CC-Date=20261008T185607Z&HW-CC-Expire=31536000000&HW-CC-Sign=4DA5BAFB1E19AA82BF4114EA84411838BA7F5E2305E92CA995A3D1EAA9532EB1)
 

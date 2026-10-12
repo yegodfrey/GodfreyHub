@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___qu
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 用于存储IP地址的数据结构。
 
 **起始版本：** 26.0.0
@@ -20,7 +22,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___qu
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|
@@ -28,7 +34,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___qu
 
 ## 结构体成员变量说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### ip
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 ```cpp
 char Rcp_QuicIpAddress::ip[RCP_QUIC_IP_MAX_LEN]

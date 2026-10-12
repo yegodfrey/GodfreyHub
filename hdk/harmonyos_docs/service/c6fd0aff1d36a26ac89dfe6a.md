@@ -24,7 +24,7 @@ c. 通知业务范围：选择通用或Agent类型；
 
 d. 备注：备注说明，非必填。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/vNmZXqNCQr6o4mrDj2qO5g/zh-cn_image_0000002640104272.png?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A5F20CC31FED287EDCA6F3A9A3785A271C4D5EA387ECE8481BC3CFC02D98E94 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/vNmZXqNCQr6o4mrDj2qO5g/zh-cn_image_0000002640104272.png?HW-CC-KV=V1&HW-CC-Date=20261008T140522Z&HW-CC-Expire=31536000000&HW-CC-Sign=49AA4ED67BC9AE7BC26EF3A7A7D28A2980988FFA04207B9700344D0655915A9E "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/VrdrqPyMSpWUUCpHq9E46Q/zh-cn_image_0000002670104243.png?HW-CC-KV=V1&HW-CC-Date=20260924T081230Z&HW-CC-Expire=31536000000&HW-CC-Sign=F86A04FE0DFB624A29384F2B43B2552120605D21DB39DF5522EC1FE68BB0F796 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/VrdrqPyMSpWUUCpHq9E46Q/zh-cn_image_0000002670104243.png?HW-CC-KV=V1&HW-CC-Date=20261008T140522Z&HW-CC-Expire=31536000000&HW-CC-Sign=1057006E0287AB1BCCB33A7CE8DB778C1CEFE47C6F8B3771E350EBDAAE6E5603 "点击放大")
 

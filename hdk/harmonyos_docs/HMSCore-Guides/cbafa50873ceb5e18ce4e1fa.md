@@ -14,18 +14,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/guide-certifica
    >
    > walletKitGenerateRsa证书生成工具仅支持jdk 1.8及以上版本。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/F6zafKBgTMmqxxgdRNH5Bw/zh-cn_image_0000001985454274.png?HW-CC-KV=V1&HW-CC-Date=20260909T180609Z&HW-CC-Expire=31536000000&HW-CC-Sign=22AD303DE32B38887D914BC4DC4B35852C66B6737CF5CE66C30AE860976EE2CD)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/F6zafKBgTMmqxxgdRNH5Bw/zh-cn_image_0000001985454274.png?HW-CC-KV=V1&HW-CC-Date=20261008T190832Z&HW-CC-Expire=31536000000&HW-CC-Sign=88D85A982480B5EBBBFE44DED7ADC960B0C4267BD6591074FCBC65DD44312DB0)
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/hlWLyCTrQ0KZMJYoHMD4OA/zh-cn_image_0000001088723346.png?HW-CC-KV=V1&HW-CC-Date=20260909T180609Z&HW-CC-Expire=31536000000&HW-CC-Sign=7B8A52813436270FFDDBB3B1B03E4307B4E72E9AEFAFF778D718094E229271B4)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/hlWLyCTrQ0KZMJYoHMD4OA/zh-cn_image_0000001088723346.png?HW-CC-KV=V1&HW-CC-Date=20261008T190832Z&HW-CC-Expire=31536000000&HW-CC-Sign=7C73206EF45762CBBFCA79C6C2093288BB38178B81B37C9F34F0028FCBBD97BA)
 
 2. 按照提示，输入服务号，建议格式为*hwpass.公司简称.项目名称.pass.服务项目* ，可为大小写英文字母、数字，中间以"."分割，长度不超过40个字符。例：服务项目为发票类的为hwpass.xxx.xxxx.pass.invoice。
 3. 运行成功后，界面会提示生成的文件路径，默认当前路径的RSA密钥文件夹下：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/ROLucp-hT7W0xK4lHZPmHQ/zh-cn_image_0000001088563410.png?HW-CC-KV=V1&HW-CC-Date=20260909T180609Z&HW-CC-Expire=31536000000&HW-CC-Sign=692BF3875A5EAC3B2975C7FB495FA44B9CDDB9A6539126EDC9FA2737F8668753)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/ROLucp-hT7W0xK4lHZPmHQ/zh-cn_image_0000001088563410.png?HW-CC-KV=V1&HW-CC-Date=20261008T190832Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A5ADC76BBBE5FBEE82604854BE5B8FE87F6DC8D7129DB121C5DDABA91839C86)
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/t3Kg0Bf8RoSvjErnqWjb1g/zh-cn_image_0000001135299937.png?HW-CC-KV=V1&HW-CC-Date=20260909T180609Z&HW-CC-Expire=31536000000&HW-CC-Sign=27D45E0F449ABF056741C762E53A02838AB8D3DC9B38EDC08FDDA2DF81B5F8C1 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/t3Kg0Bf8RoSvjErnqWjb1g/zh-cn_image_0000001135299937.png?HW-CC-KV=V1&HW-CC-Date=20261008T190832Z&HW-CC-Expire=31536000000&HW-CC-Sign=377F150E60A4E1E39E2B736C2AD7A539C0F3460D3840529F446126D1D96A8F99 "点击放大")
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/VQHQ6HnnSBSTIRGPXMu_DA/zh-cn_image_0000002022214005.png?HW-CC-KV=V1&HW-CC-Date=20260909T180609Z&HW-CC-Expire=31536000000&HW-CC-Sign=89799DD8177B9B223527F2F04CABA541C6282A3DC6B6250B555B2AD774989AE7)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/VQHQ6HnnSBSTIRGPXMu_DA/zh-cn_image_0000002022214005.png?HW-CC-KV=V1&HW-CC-Date=20261008T190832Z&HW-CC-Expire=31536000000&HW-CC-Sign=50CDC183E7470E29094DAAD24A98B25CBD8417F5311202213056A424DAC15B1D)
 
 4. 服务号.txt结尾的文件为证书请求CSR文件，华为开发者联盟网站AGC上注册Wallet Kit服务时使用。
 

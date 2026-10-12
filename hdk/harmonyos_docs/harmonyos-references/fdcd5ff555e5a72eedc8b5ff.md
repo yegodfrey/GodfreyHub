@@ -14,6 +14,8 @@ typedef struct OH_CryptoSymKey OH_CryptoSymKey
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 对称密钥结构体，表示对称密钥。
 
 **起始版本：** 12

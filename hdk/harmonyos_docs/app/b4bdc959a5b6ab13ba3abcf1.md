@@ -11,7 +11,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-pages-indica
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"开发与服务"。
 2. 在项目列表中找到对应项目，在项目下的应用列表中点击对应应用/元服务。
 3. 左侧导航栏选择"质量 > APMS > 故障指标"，进入故障指标主界面。
-4. 选择"页面"页签，点击"Ability页面切换"，进入页面切换指标主页面。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/rHQdCBXORaqrg5Q_XFoUaw/zh-cn_image_0000002594272754.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=27FE10BADD8D3FBAC730E56AD3627E6750F8193F8BE16F58B9639A7E8ADC871E)以下为页面指标图表对应的筛选条件说明：
+4. 选择"页面"页签，点击"Ability页面切换"，进入页面切换指标主页面。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/rHQdCBXORaqrg5Q_XFoUaw/zh-cn_image_0000002594272754.png?HW-CC-KV=V1&HW-CC-Date=20261008T162959Z&HW-CC-Expire=31536000000&HW-CC-Sign=58D684004CE969C314EEB806A022C11D7FECC5E42B0B3404D1BFD3E6CAF8A01E)以下为页面指标图表对应的筛选条件说明：
 
    |筛选条件|说明|
    |:----|:--------------------------------------------------------------|
@@ -21,13 +21,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-pages-indica
    |慢切换阈值|超过阈值的页面切换视为慢切换|
    |时间范围|筛选数据的时间段，支持以下数据聚合粒度： * 天：最长跨度30天，时间支持按天调整 * 小时：最长跨度7天，时间支持按小时调整|
 
-5. 点击"慢切换阈值"右侧的齿轮，可以为当前选中的设备型号（如未选择则是全部设备型号）配置"慢切换"阈值。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/HmMGtF9PTHuLIa2D88WwSQ/zh-cn_image_0000002624672209.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=DE236DD78F99FE2CCC33A5535ACAFD67E2C9459A2D0ABF0058E67D62FECABD1E)
+5. 点击"慢切换阈值"右侧的齿轮，可以为当前选中的设备型号（如未选择则是全部设备型号）配置"慢切换"阈值。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/HmMGtF9PTHuLIa2D88WwSQ/zh-cn_image_0000002624672209.png?HW-CC-KV=V1&HW-CC-Date=20261008T162959Z&HW-CC-Expire=31536000000&HW-CC-Sign=71FE999CC89B070E1F30498144F6B272C11398A6A9F2A9A08E5458771B900347)
 
 ## 趋势分析
 
 页面切换趋势分析呈现页面切换数据随时间的变化情况。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/shdSnHUQSqSPWHKqMZSQcw/zh-cn_image_0000002620855243.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=15E0E7CE31F1BA418553E50B9D6ADD1DCB0D6B50129D0E056CD7BDD3861BAF6D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/shdSnHUQSqSPWHKqMZSQcw/zh-cn_image_0000002620855243.png?HW-CC-KV=V1&HW-CC-Date=20261008T162959Z&HW-CC-Expire=31536000000&HW-CC-Sign=786D61B79CCF5EBDA0E98D03C008B3D50771A20676FF7FA35DDF4E259E01FB3B)
 
 * 页面切换的趋势分析默认展示"切换耗时"的平均值与P50、P75、P95、P99分位值随时间的趋势变化。
 * 点击左上角的"切换耗时"、"慢切换次数"、"慢切换影响设备数"按钮，可以切换页面切换数据的指标计算方式。
@@ -47,7 +47,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/agc-help-apms-pages-indica
 
 切换右上角下拉筛选可以更新维度分布的计算依据，支持"切换耗时"、"慢切换次数"、"慢切换影响设备数"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/2PeNYWV7TtmrII94R2DUew/zh-cn_image_0000002590418140.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=DB2B35390F5D7CC6D1DDFEC72BCE3CA20E61CE07D9F0C5807ABC4F9404A481AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/2PeNYWV7TtmrII94R2DUew/zh-cn_image_0000002590418140.png?HW-CC-KV=V1&HW-CC-Date=20261008T162959Z&HW-CC-Expire=31536000000&HW-CC-Sign=000276B520F413DC5EC74EA741F5F1163281E0F7E9CC4D5D07CB7A39E98FFCDB)
 
 ## TOP问题页面
 
@@ -58,7 +58,7 @@ TOP问题页面呈现的是页面切换慢问题出现频率最高的页面集�
 >
 > 问题页面是基于Ability名称、页面URL、页面名称三者标识的。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/Hn8Et-wxRn6D__PrZ-3RFg/zh-cn_image_0000002620778035.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=4532549540F57B99144F681B663EC843EA29C5D1BC56BA9EC02D09F49D76F65A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/Hn8Et-wxRn6D__PrZ-3RFg/zh-cn_image_0000002620778035.png?HW-CC-KV=V1&HW-CC-Date=20261008T162959Z&HW-CC-Expire=31536000000&HW-CC-Sign=9EBCBFB64002ED924FC71E6B293428A42E8E371B8745FBF95E1FB87923988BE9)
 
 |---------------|--------------------------|
 |**参数**|**说明**|
@@ -73,11 +73,11 @@ TOP问题页面呈现的是页面切换慢问题出现频率最高的页面集�
 
 问题页面详情呈现的是某个问题页面的页面切换趋势与维度分布。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/HZSdJoDsT8GgEMDaJuvAmQ/zh-cn_image_0000002620858843.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=7CB4A66061843E16ADD913EA1362FCEB91FE70C8AADF174A94B8CE07D712F1F3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/HZSdJoDsT8GgEMDaJuvAmQ/zh-cn_image_0000002620858843.png?HW-CC-KV=V1&HW-CC-Date=20261008T162959Z&HW-CC-Expire=31536000000&HW-CC-Sign=0275E54389719DE40D4A1275AB2FFB406DB3BD2A07D9AF74E931973C7D50D7F2)
 
 该页面呈现的"趋势分析"、"维度分布"与页面切换指标主页相同。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/EQITNanBQxaris0Ar5pR1w/zh-cn_image_0000002620778711.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=C23E8ABCE9BDF5552E8B6AAB6D09320920B56EFE7D8E7DE2AA286C0B8E53FFF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/EQITNanBQxaris0Ar5pR1w/zh-cn_image_0000002620778711.png?HW-CC-KV=V1&HW-CC-Date=20261008T162959Z&HW-CC-Expire=31536000000&HW-CC-Sign=EAFD98ADD0A77BF69CE0A70929251FDE4216F364F4FB3FCBA7E252C969E2CC95)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/DajcgiWPQduO2TquIdr5QQ/zh-cn_image_0000002590259208.png?HW-CC-KV=V1&HW-CC-Date=20260916T033630Z&HW-CC-Expire=31536000000&HW-CC-Sign=2FB135396D4B8953F05AF429D9FCABA194DBD771F0E6A8D8B40EC7A087912705)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/DajcgiWPQduO2TquIdr5QQ/zh-cn_image_0000002590259208.png?HW-CC-KV=V1&HW-CC-Date=20261008T162959Z&HW-CC-Expire=31536000000&HW-CC-Sign=97A97E8D323F01C01F177353F6F5663DE4005B0CE6B03A7F53FF9828C88D46A0)
 

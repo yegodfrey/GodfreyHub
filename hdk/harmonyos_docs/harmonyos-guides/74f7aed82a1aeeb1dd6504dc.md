@@ -14,16 +14,16 @@ PC/2in1设备上常见的应用退出场景主要包括：
 
 * **关闭按钮退出**：用户点击主窗口三键区中的关闭按钮，关闭当前应用窗口。这是最常见的窗口退出方式。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/bbC9soBxSGKKLUdwKk1blA/zh-cn_image_0000002749331712.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=F3C9052A570195E8C382A9F8F887620D69301337FE29410E336525AF6620717D)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Zck9fgekRqu-jqKhEYayNQ/zh-cn_image_0000002784581601.png?HW-CC-KV=V1&HW-CC-Date=20261009T092713Z&HW-CC-Expire=31536000000&HW-CC-Sign=8479EE0DB8D8103F58A9FD36EE21F6815E0D39CA5E927B2B176B6AC0DF0F06CA)
 * **快捷栏退出**：用户在快捷栏右键点击应用图标，并选择"退出"或"关闭所有窗口"，触发应用级别的关闭流程。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/_rePEHzJR4qTBAA71JE_2A/zh-cn_image_0000002749491596.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=A852B7DA5D22D79C109D189226FAEAE8CC174AAA8AB8BA3BA1CBE7ACED19B647)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/nWIqRFcwR4WObi_fgUq1dg/zh-cn_image_0000002784661785.png?HW-CC-KV=V1&HW-CC-Date=20261009T092713Z&HW-CC-Expire=31536000000&HW-CC-Sign=98FD1C4711A995B035BE855B936BA169D2CA7590F02911488F407EBC5B3C7B78)
 * **托盘退出**：用户在系统托盘区域右键点击应用图标，并选择"退出"，触发应用级别的关闭流程。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/mVPNyug4QNK4DsYWYXyg8A/zh-cn_image_0000002779090653.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=2F6C3F78AACD637AA9A547FC4AA86FFC7CED68BA0271B5ED1FD555F622AE6D22)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/_Ukg0FkvQ3ukz6VFAOazFQ/zh-cn_image_0000002755022852.png?HW-CC-KV=V1&HW-CC-Date=20261009T092713Z&HW-CC-Expire=31536000000&HW-CC-Sign=F5A75CA3FEDBE65E83E5BECEEAF767CA305006FCBD99BDD96242EDCCD4671305)
 * **关机退出**：用户执行系统关机、重启等操作时，系统会依次关闭所有应用，并触发应用退出流程。
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/RFW-nFrQTI6YymMt2ysQOA/zh-cn_image_0000002778930797.png?HW-CC-KV=V1&HW-CC-Date=20260929T121659Z&HW-CC-Expire=31536000000&HW-CC-Sign=69EE9C6C54D6ECA0B9D9E0E91862676A8C725AB6548C536A107D10C4E040CCA0)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/8mFHkmUKQnqcQ1WepBr07A/zh-cn_image_0000002755182738.png?HW-CC-KV=V1&HW-CC-Date=20261009T092713Z&HW-CC-Expire=31536000000&HW-CC-Sign=4B0AAE2A2AD3FEB8D39968600ED387676A1AFFBDC59C33F1E67E02E0964730A5)
 
 不同退出场景触发的回调机制存在差异。开发者可根据应用需求选择合适的监听方式。本文将介绍单主窗退出、应用进程退出以及预关闭机制，帮助开发者了解PC/2in1设备上的应用退出开发方式。关于应用退出流程的通用机制，请参见[应用退出流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-stop#应用退出流程)。
 

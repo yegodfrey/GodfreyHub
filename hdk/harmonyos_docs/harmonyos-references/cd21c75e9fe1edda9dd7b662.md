@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-k
 
 ## 概述
 
+> phone | 2in1 | tablet | tv
+
 此结构体描述下发空域AI超分渲染命令时需要的图像信息。
 
 **起始版本：** 26.0.0
@@ -20,7 +22,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-k
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv
 
 |名称|描述|
 |:--------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -32,7 +38,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-k
 
 ## 结构体成员变量说明
 
+> phone | 2in1 | tablet | tv
+
 ### sType
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
 
 ```cpp
 XEG_StructureType XEG_NeuralUpscaleDescription::sType
@@ -44,6 +54,8 @@ XEG_StructureType XEG_NeuralUpscaleDescription::sType
 
 ### pNext
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
+
 ```cpp
 const void* XEG_NeuralUpscaleDescription::pNext
 ```
@@ -53,6 +65,8 @@ const void* XEG_NeuralUpscaleDescription::pNext
 指向扩展结构的指针。若无扩展结构，应设为nullptr。
 
 ### inputImage
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
 
 ```cpp
 VkImageView XEG_NeuralUpscaleDescription::inputImage
@@ -64,6 +78,8 @@ VkImageView XEG_NeuralUpscaleDescription::inputImage
 
 ### outputImage
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
+
 ```cpp
 VkImageView XEG_NeuralUpscaleDescription::outputImage
 ```
@@ -73,6 +89,8 @@ VkImageView XEG_NeuralUpscaleDescription::outputImage
 超分输出图像的VkImageView，需要是有效的VkImageView，且格式必须是[XEG_NeuralUpscaleCreateInfo::outputFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-neuralupscalecreateinfo#outputformat)指定的格式，否则会出现未定义行为，如渲染失败、程序崩溃等问题。
 
 ### sharpness
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+
 
 ```cpp
 float XEG_NeuralUpscaleDescription::sharpness

@@ -28,11 +28,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-contai
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { LazyColumnLayout } from '@kit.ArkUI';
 ```
 
 ## 接口
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 LazyColumnLayout()
 
@@ -48,9 +52,13 @@ LazyColumnLayout()
 
 ## 属性
 
+> phone | 2in1 | tablet | tv | wearable
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 ### space
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 space(space: LengthMetrics | undefined)
 
@@ -72,6 +80,8 @@ space(space: LengthMetrics | undefined)
 
 ### alignItems
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 alignItems(value: HorizontalAlign | undefined)
 
 设置子组件在水平方向上的对齐格式。未通过该接口设置时，对齐格式默认值为HorizontalAlign.Center。
@@ -91,6 +101,8 @@ alignItems(value: HorizontalAlign | undefined)
 |value|[HorizontalAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#horizontalalign) | undefined|是|子组件在水平方向上的对齐格式。 方法入参为undefined时，恢复为HorizontalAlign.Center。|
 
 ### header
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 header(builder: CustomBuilder | undefined)
 
@@ -117,6 +129,8 @@ header(builder: CustomBuilder | undefined)
 
 ### footer
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 footer(builder: CustomBuilder | undefined)
 
 设置当前LazyColumnLayout的尾部组件。未通过该接口设置时，默认不设置尾部组件。
@@ -141,6 +155,8 @@ footer(builder: CustomBuilder | undefined)
 |builder|[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | undefined|是|尾部组件构造函数。 方法入参为undefined时，当前LazyColumnLayout不设置尾部组件，如果已有尾部组件，也会被移除。|
 
 ### sticky
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 sticky(sticky: StickyStyle | undefined)
 
@@ -167,9 +183,13 @@ sticky(sticky: StickyStyle | undefined)
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 ### onVisibleIndexesChange
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined)
 
@@ -198,7 +218,11 @@ onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined)
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1（实现懒加载线性布局）
+
+> phone | 2in1 | tablet | tv | wearable
 
 通过[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)和LazyColumnLayout组件实现懒加载线性布局，并通过[onVisibleIndexesChange](#onvisibleindexeschange)在可视区域发生变化时回调起始和结束索引值。
 
@@ -336,9 +360,11 @@ struct LazyColumnLayoutSample1 {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/aO60-s_rTu2lBAMh4utQgw/zh-cn_image_0000002749334680.png?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=55C1BA1EE49899D93CFDA7CCC5BA25DC8C29FCBD0ACF6491318C732F32D6049A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/oevfFud9TvqL_vOEw6z35w/zh-cn_image_0000002784664551.png?HW-CC-KV=V1&HW-CC-Date=20261009T092751Z&HW-CC-Expire=31536000000&HW-CC-Sign=2236F9DA6E686C19F84FC4807CE688415478D2903C99AAFBD1D66E43AD2708A4)
 
 ### 示例2（设置头部组件或尾部组件及吸附效果）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)嵌套LazyColumnLayout，并通过[header](#header)、[footer](#footer)、[sticky](#sticky)实现顶部和底部吸附效果。滚动过程中header吸附在可视区域顶部，footer吸附在可视区域底部。
 
@@ -507,5 +533,5 @@ export class MyDataSource<T> extends BasicDataSource<T> {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/8Io3OyXqT-60-DCuRx1WTw/zh-cn_image_0000002749494564.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121727Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A7F74E320E8A0CF661901CEEF5EA7F96B313F000AFDDA13846D75D4697F52FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/ph-K71EvT7OBC7EGUn_Ktw/zh-cn_image_0000002755025620.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092751Z&HW-CC-Expire=31536000000&HW-CC-Sign=A8DC1F70EBAAE92505C01AFD88AC87095144B1AFB080DCD74B323DAC013AE5A4)
 

@@ -16,13 +16,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/game-center-setup-gifts-00
 
 APK应用/游戏的礼包将分别投放至"应用市场"与"游戏中心"客户端。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/18aG2Oh-Q0KOXN_Z9__AHg/zh-cn_image_0000001413920997.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=799538AE4939D21B87BE404056917CF2F6695828CD800FF723BA9F35B822990A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/18aG2Oh-Q0KOXN_Z9__AHg/zh-cn_image_0000001413920997.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=3939C2E427FAE20BA3C51179C284B6AB6EA72B1F7ABE513AD219BF0B83B23738)
 
 ### 花瓣轻游客户端
 
 RPK游戏（免安装应用）的礼包将投放至"花瓣轻游"客户端"游戏礼包"专区。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/I-DZe23gQOiytpOl80twaA/zh-cn_image_0000001363343936.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=40313B510E2EFF27C52B4F1A7E71BD6EBC32AE4ACE274D4715E5E389D9FF20FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/I-DZe23gQOiytpOl80twaA/zh-cn_image_0000001363343936.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=766453FA4B55BC3E57EC650609EE5305AD374F073A7BD412A2BA1EF78B7DA76E)
 
 ## 前提条件
 
@@ -95,11 +95,11 @@ RPK游戏（免安装应用）的礼包将投放至"花瓣轻游"客户端"游�
 ## 提交礼包申请
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"APP与元服务"，在应用列表页面选择需要新增礼包的应用。
-2. 选择"运营 > 活动运营 > 礼包管理"，在"礼包管理"页面右侧点击"新增礼包"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/urI4yPt7QuCuSs7lDIu_rQ/zh-cn_image_0000002382308216.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=91C153A7AFFE1B3953FE5260EF72A97542047FD56A0EC1B60A7C56474CC551C3)
+2. 选择"运营 > 活动运营 > 礼包管理"，在"礼包管理"页面右侧点击"新增礼包"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/urI4yPt7QuCuSs7lDIu_rQ/zh-cn_image_0000002382308216.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=E783B3CCA1B2E822C6783837DE4C08D3784EB6259B8DA16C304EB3A78CD86535)
 
 3. 在弹出的"新增礼包"窗口选择[有码礼包](#section148673491966)、或[无码礼包](#section4354957868)、或[直达礼包](#section85547179107)后，点击"确定"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/d0MoWWmeQ_uayXmBkp2Jqg/zh-cn_image_0000001399231357.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=605AAFD84E0C6DBB7EB1BC7090D0E9492EC910A1C21169218733A2B20B2BAE3D)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/d0MoWWmeQ_uayXmBkp2Jqg/zh-cn_image_0000001399231357.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=1FBE576DD7B9F8141899FF1A3D70CD0F7826D4B12AE1BF1BC426DE0A76A04A55)
    > 说明
    >
    > RPK游戏（免安装应用） 创建无码礼包可参见[快游戏配置礼包](https://developer.huawei.com/consumer/cn/doc/development/quickApp-Guides/quickgame-develop-gifts-0000001470302205)。
@@ -108,7 +108,7 @@ RPK游戏（免安装应用）的礼包将投放至"花瓣轻游"客户端"游�
 
 在"新增礼包"页面填写有码礼包信息，完成后点击"提交审核"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/fNZ-V36GQjqQM-fztKBIHQ/zh-cn_image_0000001354297848.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=619FB44BA1A0FD978D805866335828CF4AB277ECAAF3BC2CEA46D068A3F4112D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/fNZ-V36GQjqQM-fztKBIHQ/zh-cn_image_0000001354297848.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E0A424461682761AA167A9BBA0730F0289D8229044729AD332F9AAF9F108E6E)
 
 |配置项|说明|
 |:--------|:-----------------------------------------------------------------------------------------|
@@ -131,7 +131,7 @@ RPK游戏（免安装应用）的礼包将投放至"花瓣轻游"客户端"游�
 
 在"新增礼包"页面填写APK应用/游戏的无码礼包，完成后点击"提交审核"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/eAM-2GolTiaMkYvHrNRAnw/zh-cn_image_0000001364872484.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=69F1BA1DFDB07449C272BD5AD4B3186BDCE5B29B604A50A18DB8640AD50B7984)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/eAM-2GolTiaMkYvHrNRAnw/zh-cn_image_0000001364872484.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=6D4FDD5777289750A181076F81C2DE83A39E5DC015BB09486D3DFB40C85E3105)
 
 |配置项|说明|
 |:--------|:-----------------------------------------------------------------------------------------|
@@ -151,7 +151,7 @@ RPK游戏（免安装应用）的礼包将投放至"花瓣轻游"客户端"游�
 
 在"新增礼包"页面根据提示填写直达礼包信息，完成后先点击"定向测试"，通过测试后再点击"提交审核"。若未通过定向测试，您的直达礼包申请不会通过审批。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/ahxRD0mgS4uqv2-KQ18AdA/zh-cn_image_0000001405029881.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=7A54C85317416B514AD4954296D851A7CE598E3A6A76551BEA98AAEFFEB1B8B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/ahxRD0mgS4uqv2-KQ18AdA/zh-cn_image_0000001405029881.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=06148E23FD4575DADD86BE2E2FE277C5C116F4855F3DC2B45C00974FDA5720FB)
 
 |配置项|说明|
 |:--------|:----------------------------------------------------------------------------|
@@ -172,7 +172,7 @@ RPK游戏（免安装应用）的礼包将投放至"花瓣轻游"客户端"游�
 
 华为工作人员审核应用分类的礼包需要1个工作日，审核游戏分类需要1~3个工作日，请耐心等待，审核结果可在"审核意见"栏查看。提交礼包申请后，礼包的初始状态为"未上线"。审核通过且到达生效日期后，礼包的状态变更为"上线"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/RldyAPE6S-qjm7Ys9m1uvw/zh-cn_image_0000001973426736.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=E00C721735AE3F6F86134A20FA93CAEF611D3032E62E5601C199F41D0BC0468C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/RldyAPE6S-qjm7Ys9m1uvw/zh-cn_image_0000001973426736.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=C76AEB94451743F5D44D93A2D1C4FB30A2A99C048B7652071E739011E1489288)
 
 ## 管理礼包
 
@@ -180,29 +180,29 @@ RPK游戏（免安装应用）的礼包将投放至"花瓣轻游"客户端"游�
 
 您可以重新编辑礼包的相关信息，并填写"修改备注"，完成后点击"提交审核"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/yZTjPd3QQueOUh1sUhPPyg/zh-cn_image_0000001402275425.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=42EAECA78D72D80E2F4BE01DDBFC9A68CB50388E4FEB255BB7FD907FC2C26D01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/yZTjPd3QQueOUh1sUhPPyg/zh-cn_image_0000001402275425.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=9E9DEB3D58B79BCC34F454B7B5FCCF9CEA5E33FEB0FC7CACCE96950F64A3E7B3)
 
 ### 下线礼包
 
 处于"上线"状态的礼包支持下线操作，在华为工作人员审核通过后，礼包状态变更为"已下线"状态。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/hjGKEyseQ92ApjkqmXELZg/zh-cn_image_0000001973267056.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA9107C9A3ECD8E9A1E497EB88CB818C2391955AC003409B4A38314875033315)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/hjGKEyseQ92ApjkqmXELZg/zh-cn_image_0000001973267056.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=CFE33F3D75269BAE2D959212D7C1FF83AF9B5737C2F8CC8DB3B8CD5AA53EABE8)
 
 ### 追加礼包
 
 有码礼包或直达礼包上线后，您可以以不同的方式继续追加礼包数量。
 
-1. 点击礼包"操作"列的"追加礼包"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/SM4Xu9PnR2alwYeBQlQWLQ/zh-cn_image_0000002009906989.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=19DBCCFD7A7178D8D26A4290FA6FFA2632E34DAF354B1942DA60AD7AC560063C)
+1. 点击礼包"操作"列的"追加礼包"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/SM4Xu9PnR2alwYeBQlQWLQ/zh-cn_image_0000002009906989.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=2067190B3EB3030639185D9B3BFD39B9861667A682D67347191EFB4D665F118E)
 
 2. 不同类型的礼包追加方式不同。
    * 有码礼包在弹出的窗口点击"浏览"，上传新的串码文件后点击"确定"。 说明
      >
      > 请严格按照[格式与要求](#ZH-CN_TOPIC_0000001239505383__p1257213491308)生成串码文件。
 
-     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/abw_3WZ-TDWP5eNj0n35eA/zh-cn_image_0000001351435200.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=5E149EE008DA5B8FE07742093C83A0C5914A4D32F865E1FA4CD8424673115F3C)
-   * 直达礼包在弹出的"追加礼包"窗口直接填写追加数量后，点击"确定"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/RXDbERRxRke-i0l3hUtmzQ/zh-cn_image_0000001354472692.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=4C7DF693123BB33E18E5E62FA9CF53C3DB13DDC6F03BE303AF0EA2759292599B)
+     ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/abw_3WZ-TDWP5eNj0n35eA/zh-cn_image_0000001351435200.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=53C5901A87CFC78CABB61BF489CF5488228A35A108EC624737533073DD289B1E)
+   * 直达礼包在弹出的"追加礼包"窗口直接填写追加数量后，点击"确定"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/RXDbERRxRke-i0l3hUtmzQ/zh-cn_image_0000001354472692.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=4FF714CEB7FF08E87CA983BA49702EFF7A5B3466B7E39DEFB7B20FEA6CF55705)
 
-3. 成功上传后会有弹窗提示您实际追加的礼包数量。请耐心等待华为工作人员的审核。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/pgY1Hc8iSninK8M2NxOsrg/zh-cn_image_0000001354154260.png?HW-CC-KV=V1&HW-CC-Date=20260909T142408Z&HW-CC-Expire=31536000000&HW-CC-Sign=145614C253BE2518C133787F0C9212FF02C7C22CB5751AC9EF308BEB374C4DB3)
+3. 成功上传后会有弹窗提示您实际追加的礼包数量。请耐心等待华为工作人员的审核。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/pgY1Hc8iSninK8M2NxOsrg/zh-cn_image_0000001354154260.png?HW-CC-KV=V1&HW-CC-Date=20261008T152300Z&HW-CC-Expire=31536000000&HW-CC-Sign=32A59D9D48E86DCDD74EE1408C98C65B4E7584C6C8C123C377BDF418C0D104AB)
 
 ## FAQ
 

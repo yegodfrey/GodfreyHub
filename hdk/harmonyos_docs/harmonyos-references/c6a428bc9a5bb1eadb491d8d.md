@@ -18,11 +18,15 @@ Zoom继承自[ZoomQuery](https://developer.huawei.com/consumer/cn/doc/harmonyos-
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { camera } from '@kit.CameraKit';
 ```
 
 ## setZoomRatio^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
 
 setZoomRatio(zoomRatio: number): void
 
@@ -68,6 +72,8 @@ function setZoomRatio(photoSession: camera.PhotoSession, zoomRatioRange: Array<n
 
 ## getZoomRatio^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
+
 getZoomRatio(): number
 
 获取当前的变焦比。
@@ -111,6 +117,8 @@ function getZoomRatio(photoSession: camera.PhotoSession): number {
 ```
 
 ## setSmoothZoom^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 23+
 
 setSmoothZoom(targetRatio: number, mode?: SmoothZoomMode): void
 

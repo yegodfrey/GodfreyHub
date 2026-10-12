@@ -116,11 +116,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-
    }
    ```
 
-3. 在未构建前，可以看到目前rawfile文件夹中没有文件： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/Rp1ZxWuHTACzXbCVqPSMjg/zh-cn_image_0000002658928503.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=99EFC6B7DB86E8C4102C157F6E7F79EA1BEDE7DE30F1EE046802DCF08BA26422 "点击放大")
+3. 在未构建前，可以看到目前rawfile文件夹中没有文件： ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/Rp1ZxWuHTACzXbCVqPSMjg/zh-cn_image_0000002658928503.png?HW-CC-KV=V1&HW-CC-Date=20261008T142754Z&HW-CC-Expire=31536000000&HW-CC-Sign=1E1DF9086B9810475EF43371EA233F3528F8EB23E2E117EEA1CBB63AF04D4E6C "点击放大")
 
-4. 在构建打包之后，可以看到rawfile文件夹中多出来了一个文件，而且通过查看APP包的内容也能看到Entry模块打出来的Hap包的rawfile文件夹中，包含了之前下载好的文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/GLIKrEaPSVS8a3PyiKM48w/zh-cn_image_0000002628409284.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=4994DF0DE9E7A3E3BC85678F62411D10021971FD01FB4A57C11C22FD48767309 "点击放大")
+4. 在构建打包之后，可以看到rawfile文件夹中多出来了一个文件，而且通过查看APP包的内容也能看到Entry模块打出来的Hap包的rawfile文件夹中，包含了之前下载好的文件。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/GLIKrEaPSVS8a3PyiKM48w/zh-cn_image_0000002628409284.png?HW-CC-KV=V1&HW-CC-Date=20261008T142754Z&HW-CC-Expire=31536000000&HW-CC-Sign=D2934C08AB3F87E41DE7516AF4BCC55CC8B51B5738CA3609B56503629D840978 "点击放大")
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/XwHbce8XQne90GfgQVac9w/zh-cn_image_0000002658808555.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=45B44A7E1E39451E880474E4C9A99DB28908CF353FE1158F70103E39761E7902 "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/XwHbce8XQne90GfgQVac9w/zh-cn_image_0000002658808555.png?HW-CC-KV=V1&HW-CC-Date=20261008T142754Z&HW-CC-Expire=31536000000&HW-CC-Sign=F31E60590B794F2BB85EBB70355F5F6FD625C4FFAFBCCDCD279E1120B8A768FB "点击放大")
 
    以上运行结果说明脚本执行成功，可以通过自定义构建任务获取云端文件新增或更新到rawfile文件夹中。
 

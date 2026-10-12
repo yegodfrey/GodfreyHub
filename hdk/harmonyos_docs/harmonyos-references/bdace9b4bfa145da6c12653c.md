@@ -60,11 +60,15 @@ let candidatePanel = {
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { PanelInfo, PanelType, PanelFlag } from '@kit.IMEKit';
 ```
 
 ## PanelInfo
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 输入法面板属性信息。用于描述输入法面板的类型和显示状态，在创建输入法面板时作为配置参数传入。
 
@@ -103,6 +107,8 @@ PanelInfo参数使用建议：
 
 ## PanelType
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 输入法面板类型枚举。定义面板的类别，决定面板是软键盘还是状态栏。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -119,6 +125,8 @@ PanelType使用建议：
 * 相关接口间的配合/制约关系：PanelType需配合PanelFlag使用。当前PanelFlag仅用于描述SOFT_KEYBOARD类型面板的状态；对STATUS_BAR类型面板，PanelFlag的设置不产生实际效果。
 
 ## PanelFlag
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 输入法面板状态类型枚举。定义面板的显示状态形态，决定面板是固定态、悬浮态还是候选词态。
 > 说明

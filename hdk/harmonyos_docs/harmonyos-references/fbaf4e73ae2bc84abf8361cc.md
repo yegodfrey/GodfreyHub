@@ -12,15 +12,21 @@ Web组件数据库管理对象。
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 WebDataBase是Web组件提供的数据库管理类，用于管理Web组件中的HTTP身份验证凭据，包括凭据的保存、查询、判断和删除操作。适用于需要自动管理Web应用HTTP身份验证凭据的场景，能够解决用户频繁输入用户名密码的问题，提升用户体验并减少重复操作。
 
 ### 基本概念
+
+> phone | 2in1 | tablet | tv | wearable
 
 * **HTTP身份验证凭据**：包含用户名和密码的认证信息，用于访问受保护的HTTP资源。
 * **主机和认证域**：凭据应用的目标主机和认证域。
 * **同步方法**：WebDataBase提供的所有方法均为同步方法，调用后立即返回结果。
 
 ### 关键设计
+
+> phone | 2in1 | tablet | tv | wearable
 
 WebDataBase采用静态类设计：
 
@@ -30,6 +36,8 @@ WebDataBase采用静态类设计：
 
 ### 主要方法
 
+> phone | 2in1 | tablet | tv | wearable
+
 |方法名|说明|
 |:------------------------------------------------------|:---------------------------------------------------------------------------------|
 |[getHttpAuthCredentials](#gethttpauthcredentials)|检索给定主机和域的HTTP身份验证凭据。用于在需要重新登录或验证用户身份时获取已保存的凭据信息，例如应用重启后自动填充登录表单、访问需要身份验证的受保护网页等场景。|
@@ -38,6 +46,8 @@ WebDataBase采用静态类设计：
 |[deleteHttpAuthCredentials](#deletehttpauthcredentials)|清除所有已保存的HTTP身份验证凭据。用于用户退出登录、切换账户或清除应用数据时删除所有凭据信息，保护用户隐私和账户安全。|
 
 ### 使用示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```ts
 import { webview } from '@kit.ArkWeb';
@@ -67,11 +77,15 @@ webview.WebDataBase.deleteHttpAuthCredentials();
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { webview } from '@kit.ArkWeb';
 ```
 
 ## getHttpAuthCredentials
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static getHttpAuthCredentials(host: string, realm: string): Array<string>
 
@@ -134,6 +148,8 @@ struct WebComponent {
 
 ## saveHttpAuthCredentials
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void
 
 保存给定主机和域的HTTP身份验证凭据，该方法为同步方法。
@@ -189,6 +205,8 @@ struct WebComponent {
 
 ## existHttpAuthCredentials
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static existHttpAuthCredentials(): boolean
 
 判断是否存在任何已保存的HTTP身份验证凭据，该方法为同步方法。
@@ -234,6 +252,8 @@ struct WebComponent {
 ```
 
 ## deleteHttpAuthCredentials
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static deleteHttpAuthCredentials(): void
 

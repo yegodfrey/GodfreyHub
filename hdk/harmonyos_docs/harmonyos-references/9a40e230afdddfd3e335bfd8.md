@@ -14,11 +14,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkbo
 
 ## 导入模块
 
+> phone | 2in1 | tablet
+
 ```typescript
 import { netHandover } from '@kit.NetworkBoostKit';
 ```
 
 ## netHandover.on('handoverChange')
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
 
 on(type: 'handoverChange', callback: Callback<HandoverInfo>): void
 
@@ -73,6 +77,8 @@ try {
 
 ## netHandover.off('handoverChange')
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
+
 off(type: 'handoverChange', callback?: Callback<HandoverInfo>): void
 
 取消订阅连接迁移信息。
@@ -117,6 +123,8 @@ try {
 ```
 
 ## netHandover.setHandoverMode
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
 
 setHandoverMode(mode: HandoverMode): void
 
@@ -164,6 +172,8 @@ try {
 
 ## netHandover.getMultiPathQuotaStats
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 getMultiPathQuotaStats(): MultiPathQuota
 
 获取当前应用多网使用的配额，包括已使用的配额信息和剩余配额信息。
@@ -209,6 +219,8 @@ try {
 ```
 
 ## netHandover.requestMultiPath
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 requestMultiPath(callback: Callback<MultiPathRequestResult>): void
 
@@ -264,6 +276,8 @@ try {
 
 ## netHandover.releaseMultiPath
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 releaseMultiPath(): void
 
 释放多网请求。
@@ -301,6 +315,8 @@ try {
 ```
 
 ## netHandover.on('multiPathStateChange')
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 on(type: 'multiPathStateChange', callback: Callback<MultiPathStateInfo>): void
 
@@ -352,6 +368,8 @@ try {
 
 ## netHandover.off('multiPathStateChange')
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 off(type: 'multiPathStateChange', callback?: Callback<MultiPathStateInfo>): void
 
 取消订阅多网状态变化事件。
@@ -394,6 +412,8 @@ try {
 ```
 
 ## netHandover.on('multiPathRecommendation')
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 on(type: 'multiPathRecommendation', callback: Callback<MultiPathRecommendationInfo>): void
 
@@ -441,6 +461,8 @@ try {
 
 ## netHandover.off('multiPathRecommendation')
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 off(type: 'multiPathRecommendation', callback?: Callback<MultiPathRecommendationInfo>): void
 
 取消订阅系统多网建议变化事件。
@@ -484,6 +506,8 @@ try {
 
 ## HandoverInfo
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
+
 连接迁移回调信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -501,6 +525,8 @@ try {
 
 ## HandoverStart
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
+
 连接迁移开始信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -517,6 +543,8 @@ try {
 |dataSpeedAction|[DataSpeedAction](#dataspeedaction)|否|否|老链路的发包建议。|
 
 ## HandoverComplete
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
 
 连接迁移完成信息。
 
@@ -541,6 +569,8 @@ try {
 
 ## DataSpeedAction
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
+
 发包速率建议。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -558,6 +588,8 @@ try {
 |linkDownBandwidth|[netQuality.RateBps](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netquality#ratebps)|否|否|老链路下行带宽。|
 
 ## MultiPathStateInfo
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 多网状态信息。
 
@@ -577,6 +609,8 @@ try {
 
 ## MultiPathRecommendationInfo
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 多网推荐信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -590,6 +624,8 @@ try {
 |action|[MultiPathAction](#multipathaction)|否|否|多网推荐动作。|
 
 ## MultiPathQuota
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 应用配额使用信息。
 
@@ -606,6 +642,8 @@ try {
 
 ## MultiPathQuotaInfo
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 配额信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -621,6 +659,8 @@ try {
 
 ## MultiPathRequestResult
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 多网请求结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -634,6 +674,8 @@ try {
 |result|[MultiPathErrorResult](#multipatherrorresult)|否|否|多网请求结果。|
 
 ## MultiPathAction
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 多网推荐动作的枚举。
 
@@ -649,6 +691,8 @@ try {
 |MULTIPATH_ACTION_RELEASE|1|建议释放多网请求。|
 
 ## MultiPathErrorResult
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 多网建立结果的枚举。
 
@@ -667,6 +711,8 @@ try {
 
 ## MultiPathState
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 多网状态。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -684,6 +730,8 @@ try {
 
 ## PathState
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 多网链路状态。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -699,6 +747,8 @@ try {
 |PATH_SUSPENDED|2|多网链路处于挂起状态。|
 
 ## MultiPathChangeCause
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 多网变化原因的枚举。
 
@@ -726,6 +776,8 @@ try {
 
 ## HandoverMode
 
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
+
 表示连接迁移模式枚举。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -742,6 +794,8 @@ try {
 |DISCRETION|1|自主模式，表示由应用发起连接迁移。应用可以通过该接口禁止系统发起连接迁移。在某些场景下，比如该应用切换到后台时，依旧有可能由系统触发切换。|
 
 ## ReEstAction
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
 
 表示重建枚举。
 
@@ -762,6 +816,8 @@ try {
 |NO_EST|4|表示应用应该在老链路进行立即重试，再次发起网络资源请求和交互，无需重建链路。|
 
 ## ErrorResult
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+
 
 表示连接迁移结果枚举。
 

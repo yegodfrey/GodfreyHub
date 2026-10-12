@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___cr
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 服务器身份验证中使用的身份验证凭据，包括用户名和密码。
 
 **起始版本：** 5.0.0(12)
@@ -20,7 +22,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___cr
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:---------------------------|:-------------|
@@ -29,7 +35,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___cr
 
 ## 结构体成员变量说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### password
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 ```cpp
 char* Rcp_Credential::password
@@ -40,6 +50,8 @@ char* Rcp_Credential::password
 凭据的密码。默认值为""。
 
 ### username
+
+> phone 5.0.0(12)+ | 2in1 5.0.1(13)+ | tablet 5.0.0(12)+ | tv 5.1.1(19)+ | wearable 5.1.0(18)+
 
 ```cpp
 char* Rcp_Credential::username

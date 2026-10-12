@@ -22,16 +22,24 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securi
 
 ## 关键Class/Interface介绍
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 核心枚举类型
+
+> phone | 2in1 | tablet | tv | wearable
 
 * **[SecurityComponentLayoutDirection](#securitycomponentlayoutdirection)：** 安全控件图标和文字排列方向枚举，用于指定横向或纵向布局。
 * **[ButtonType](#buttontype)：** 安全控件按钮样式枚举，用于指定胶囊、圆形、圆角矩形或普通按钮样式。
 
 ### 核心接口类型
 
+> phone | 2in1 | tablet | tv | wearable
+
 * **SecurityComponentMethod<T>：** 安全控件通用属性方法集合，用于为具体安全控件配置布局、尺寸、文字、图标、颜色、边框和交互属性。
 
 ## iconSize
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 iconSize(value: Dimension): T
 
@@ -55,6 +63,8 @@ iconSize(value: Dimension): T
 
 ## layoutDirection
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 layoutDirection(value: SecurityComponentLayoutDirection): T
 
 设置安全控件图标和文字分布的方向。
@@ -76,6 +86,8 @@ layoutDirection(value: SecurityComponentLayoutDirection): T
 |T|返回安全控件的属性。|
 
 ## position
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 position(value: Position): T
 
@@ -99,6 +111,8 @@ position(value: Position): T
 
 ## markAnchor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 markAnchor(value: Position): T
 
 设置安全控件在位置定位时的锚点，以控件左上角作为基准点进行偏移。
@@ -120,6 +134,8 @@ markAnchor(value: Position): T
 |T|返回安全控件的属性。|
 
 ## offset
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 offset(value: Position | Edges | LocalizedEdges): T
 
@@ -143,6 +159,8 @@ offset(value: Position | Edges | LocalizedEdges): T
 
 ## fontSize
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 fontSize(value: Dimension): T
 
 设置安全控件文字的尺寸。
@@ -164,6 +182,8 @@ fontSize(value: Dimension): T
 |T|返回安全控件的属性。|
 
 ## fontStyle
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 fontStyle(value: FontStyle): T
 
@@ -187,6 +207,8 @@ fontStyle(value: FontStyle): T
 
 ## fontWeight
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 fontWeight(value: number | FontWeight | string | Resource): T
 
 设置安全控件文字的粗细。
@@ -208,6 +230,8 @@ fontWeight(value: number | FontWeight | string | Resource): T
 |T|返回安全控件的属性。|
 
 ## fontFamily
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 fontFamily(value: string | Resource): T
 
@@ -231,6 +255,8 @@ fontFamily(value: string | Resource): T
 
 ## fontColor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 fontColor(value: ResourceColor): T
 
 设置安全控件文字的颜色。
@@ -252,6 +278,8 @@ fontColor(value: ResourceColor): T
 |T|返回安全控件的属性。|
 
 ## iconColor
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 iconColor(value: ResourceColor): T
 
@@ -275,6 +303,8 @@ iconColor(value: ResourceColor): T
 
 ## backgroundColor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 backgroundColor(value: ResourceColor): T
 
 设置安全控件的背景颜色。
@@ -296,6 +326,8 @@ backgroundColor(value: ResourceColor): T
 |T|返回安全控件的属性。|
 
 ## borderStyle
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 borderStyle(value: BorderStyle): T
 
@@ -319,6 +351,8 @@ borderStyle(value: BorderStyle): T
 
 ## borderWidth
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 borderWidth(value: Dimension): T
 
 设置安全控件的边框宽度。
@@ -341,6 +375,8 @@ borderWidth(value: Dimension): T
 
 ## borderColor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 borderColor(value: ResourceColor): T
 
 设置安全控件的边框颜色。
@@ -362,6 +398,8 @@ borderColor(value: ResourceColor): T
 |T|返回安全控件的属性。|
 
 ## borderRadius
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 borderRadius(value: Dimension): T
 
@@ -387,6 +425,8 @@ borderRadius的设置效果受ButtonType影响。当按钮类型为Capsule或Cir
 
 ## borderRadius^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 borderRadius(radius: Dimension | BorderRadiuses): T
 
 设置安全控件的边框圆角半径，支持分别设置四个圆角的半径。
@@ -411,6 +451,8 @@ borderRadius的设置效果受ButtonType影响。当按钮类型为Capsule或Cir
 
 ## padding
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 padding(value: Padding | Dimension): T
 
 设置安全控件的内边距。
@@ -432,6 +474,8 @@ padding(value: Padding | Dimension): T
 |T|返回安全控件的属性。|
 
 ## align^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 align(alignType: Alignment): T
 
@@ -455,6 +499,8 @@ align(alignType: Alignment): T
 
 ## textIconSpace
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 textIconSpace(value: Dimension): T
 
 设置安全控件中图标和文字的间距。
@@ -476,6 +522,8 @@ textIconSpace(value: Dimension): T
 |T|返回安全控件的属性。|
 
 ## width^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 width(value: Length): T
 
@@ -499,6 +547,8 @@ width(value: Length): T
 
 ## height^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 height(value: Length): T
 
 设置安全控件自身的高度，缺省时将根据元素内容自适配高度。配合自适应字号相关属性使用时，height的设置会影响文本是否能完整显示。
@@ -520,6 +570,8 @@ height(value: Length): T
 |T|返回安全控件的属性。|
 
 ## size^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 size(value: SizeOptions): T
 
@@ -543,6 +595,8 @@ size(value: SizeOptions): T
 
 ## constraintSize^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 constraintSize(value: ConstraintSizeOptions): T
 
 设置约束尺寸，组件布局时限制尺寸范围。
@@ -564,6 +618,8 @@ constraintSize(value: ConstraintSizeOptions): T
 |T|返回安全控件的属性。|
 
 ## alignRules^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 alignRules(alignRule: AlignRuleOption): T
 
@@ -587,6 +643,8 @@ alignRules(alignRule: AlignRuleOption): T
 
 ## alignRules^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 alignRules(alignRule: LocalizedAlignRuleOptions): T
 
 设置在相对容器中子组件的对齐规则，仅当父容器为[RelativeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer)时生效。该方法水平方向上以start和end分别替代上述[alignRules](#alignrules15)的left和right，以便在RTL模式下能镜像显示，建议优先使用该方法。
@@ -608,6 +666,8 @@ alignRules(alignRule: LocalizedAlignRuleOptions): T
 |T|返回安全控件的属性。|
 
 ## id^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 id(id: string): T
 
@@ -631,6 +691,8 @@ id(id: string): T
 
 ## chainMode^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 chainMode(direction: Axis, style: ChainStyle): T
 
 设置以该组件为链头所构成的链式布局的参数（包括链的方向和样式），仅当父容器为[RelativeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer)时生效。
@@ -653,6 +715,8 @@ chainMode(direction: Axis, style: ChainStyle): T
 |T|返回安全控件的属性。|
 
 ## minFontScale^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 minFontScale(scale: number | Resource): T
 
@@ -678,6 +742,8 @@ minFontScale(scale: number | Resource): T
 
 ## maxFontScale^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 maxFontScale(scale: number | Resource): T
 
 设置文本最大的字体放大倍数。调用后，当系统字体缩放使文本放大时，文本放大倍数不会超过设定的最大放大倍数。
@@ -701,6 +767,8 @@ maxFontScale(scale: number | Resource): T
 |T|返回安全控件的属性。|
 
 ## minFontSize^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 minFontSize(minSize: number | string | Resource): T
 
@@ -730,6 +798,8 @@ minFontSize(minSize: number | string | Resource): T
 
 ## maxFontSize^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 maxFontSize(maxSize: number | string | Resource): T
 
 设置文本最大显示字号。
@@ -757,6 +827,8 @@ maxFontSize(maxSize: number | string | Resource): T
 
 ## maxLines^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 maxLines(line: number | Resource): T
 
 设置文本的最大行数。默认情况下，文本自动换行，指定此属性后，文本的最大显示行数不会超过指定值。可独立使用限制文本行数，也可配合[minFontSize](#minfontsize18)、[maxFontSize](#maxfontsize18)以及[heightAdaptivePolicy](#heightadaptivepolicy18)使用。配合自适应字号相关属性使用时，安全控件文本未完全显示将导致点击不授权。maxLines的设置会影响文本是否能完整显示，进而影响安全控件的授权行为。
@@ -778,6 +850,8 @@ maxLines(line: number | Resource): T
 |T|返回安全控件的属性。|
 
 ## heightAdaptivePolicy^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 heightAdaptivePolicy(policy: TextHeightAdaptivePolicy): T
 
@@ -813,6 +887,8 @@ heightAdaptivePolicy(policy: TextHeightAdaptivePolicy): T
 
 ## enabled^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 enabled(respond: boolean): T
 
 设置安全控件是否可交互。
@@ -835,6 +911,8 @@ enabled(respond: boolean): T
 
 ## focusBox^22+^
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 focusBox(style: FocusBoxStyle): T
 
 设置安全控件系统焦点框样式。
@@ -856,6 +934,8 @@ focusBox(style: FocusBoxStyle): T
 |T|返回安全控件的属性。|
 
 ## fallbackLineSpacing
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 fallbackLineSpacing(enabled: boolean): T
 
@@ -885,6 +965,8 @@ fallbackLineSpacing属性和[RichEditorTextStyle](https://developer.huawei.com/c
 
 ## accessibilityRole
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 accessibilityRole(role: SecurityComponentRoleType): T
 
 设置无障碍组件类型，特定组件类型有特定的朗读方式，可以根据应用诉求，修改组件类型，用于控制无障碍模式下对组件的朗读方式和朗读内容。
@@ -910,6 +992,8 @@ accessibilityRole(role: SecurityComponentRoleType): T
 |T|返回当前对象。|
 
 ## accessibilityDefaultFocus
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 accessibilityDefaultFocus(focus: boolean): T
 
@@ -937,6 +1021,8 @@ accessibilityDefaultFocus(focus: boolean): T
 
 ## accessibilityNextFocusId
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 accessibilityNextFocusId(nextId: string): T
 
 支持在屏幕朗读过程中，指定朗读的下一个焦点组件。
@@ -962,6 +1048,8 @@ accessibilityNextFocusId(nextId: string): T
 |T|返回当前对象。|
 
 ## accessibilityDescription
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 accessibilityDescription(description: string | Resource): T
 
@@ -989,6 +1077,8 @@ accessibilityDescription(description: string | Resource): T
 
 ## SecurityComponentLayoutDirection
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 安全控件上图标和文字的排列方向。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1001,6 +1091,8 @@ accessibilityDescription(description: string | Resource): T
 |VERTICAL|1|安全控件上图标和文字分布的方向为垂直排列。|
 
 ## ButtonType
+
+> phone | 2in1 | tablet | tv | wearable
 
 按钮类型。
 
@@ -1027,6 +1119,8 @@ accessibilityDescription(description: string | Resource): T
 
 ## SecurityComponentRoleType
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 定义组件的屏幕朗读功能角色类型。
 
 **起始版本：** 26.0.0
@@ -1044,11 +1138,14 @@ accessibilityDescription(description: string | Resource): T
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
 > 说明
 >
 > 为避免控件样式不合法导致授权失败，请开发者先了解安全控件样式的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。
 
 ### 示例1
+
+> phone | 2in1 | tablet | tv | wearable
 
 设置SecurityComponent的基础属性，生成一个保存控件。
 
@@ -1102,9 +1199,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/HHCJo4xTRFyvW_HnBM9TMw/zh-cn_image_0000002778934253.png?HW-CC-KV=V1&HW-CC-Date=20260929T121734Z&HW-CC-Expire=31536000000&HW-CC-Sign=F0AC41A4BE4926CFBDDCCC5AC98D4173D9C885B15B2F92F20843AE63903FB92B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/OC7XDdD4RWquR72QImusfg/zh-cn_image_0000002784584805.png?HW-CC-KV=V1&HW-CC-Date=20261009T092740Z&HW-CC-Expire=31536000000&HW-CC-Sign=B78073A7053BA4E88006545CD860225399B056E664EF99D30C19F9048C9A8AE8)
 
 ### 示例2
+
+> phone | 2in1 | tablet | tv | wearable
 
 以容器和容器内组件作为锚点进行布局。
 
@@ -1179,9 +1278,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/4QRz7ZCgTGqH8cVZtb0MCA/zh-cn_image_0000002749335170.png?HW-CC-KV=V1&HW-CC-Date=20260929T121734Z&HW-CC-Expire=31536000000&HW-CC-Sign=424E5B18958AE8086BF6F5DAE90ECA822EE38ABE8D2CD34DBB459FBAA807AF58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/St1IcLD5Tj6S5w1tZcDp7Q/zh-cn_image_0000002784664987.png?HW-CC-KV=V1&HW-CC-Date=20261009T092740Z&HW-CC-Expire=31536000000&HW-CC-Sign=11048B9F5E9F5AEC992D65C4656538F7E04236F786E2873BDB4FA5926B72AC6A)
 
 ### 示例3
+
+> phone | 2in1 | tablet | tv | wearable
 
 安全控件文本高度自适应。
 
@@ -1520,9 +1621,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/x3BhGR44Q0SnVagI5TFKQQ/zh-cn_image_0000002749495054.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121734Z&HW-CC-Expire=31536000000&HW-CC-Sign=C2A7BF5F03BADDB9D563AA0D882C3AE8ADB1BA46BA906431048AF9FA554E7BE7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/zsJW7EbEQxO7fu5t1mq-bg/zh-cn_image_0000002755026056.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092740Z&HW-CC-Expire=31536000000&HW-CC-Sign=A528E1FBD3CBD642673DD0A8EC8FBB119722C48C9831CD4C4A7C47E54B2DECDE)
 
 ### 示例4
+
+> phone | 2in1 | tablet | tv | wearable
 
 设置安全控件系统焦点框样式。
 
@@ -1591,9 +1694,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/geQDy2zuQ72wd3aWX8b8HQ/zh-cn_image_0000002779094111.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121734Z&HW-CC-Expire=31536000000&HW-CC-Sign=B3705FB3F25F643EF635AF39D1366EB33291856206276D150769518C9318B092)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/dYrksC9WRWqLOh6R9MJ4gg/zh-cn_image_0000002755185940.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092740Z&HW-CC-Expire=31536000000&HW-CC-Sign=EE9E11726D06D5B492DD94C9D623492C0F447216D3C2686461EB430F52911242)
 
 ### 示例5
+
+> phone | 2in1 | tablet | tv | wearable
 
 设置安全控件是否支持文字实际高度自适应及屏幕朗读模式下相关表现。
 

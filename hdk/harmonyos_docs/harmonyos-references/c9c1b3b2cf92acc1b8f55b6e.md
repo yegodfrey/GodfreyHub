@@ -19,6 +19,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-univer
 
 ## onTouch
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 onTouch(event: (event: TouchEvent) => void): T
 
 手指或手写笔触摸动作触发该回调。触摸事件默认[冒泡](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-basic-principles#事件冒泡)，会被多个组件消费，如果需阻止冒泡，可参考[TouchEvent](#touchevent对象说明)的stopPropagation方法。鼠标左键按下时，对应的事件也会转换成触摸事件并触发该回调。
@@ -40,6 +42,8 @@ onTouch(event: (event: TouchEvent) => void): T
 |T|返回当前组件。|
 
 ## TouchEvent对象说明
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 继承于[BaseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#baseevent8)。在非事件注入场景下，changedTouches是按屏幕刷新率重采样的点，而touches是按器件刷新率上报的点，因此changedTouches与touches的数据可能不同。
 
@@ -64,6 +68,8 @@ onTouch(event: (event: TouchEvent) => void): T
 
 ### getHistoricalPoints^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 getHistoricalPoints(): Array<HistoricalPoint>
 
 获取当前帧的所有历史点。不同设备每帧的触摸事件频率不同，且该接口仅能在[TouchEvent](#touchevent对象说明)中调用，用于获取触发[onTouch](#ontouch)时当前帧历史点的相关信息。[onTouch](#ontouch)一帧通常只会调用一次，如果当前帧收到的[TouchEvent](#touchevent对象说明)数目大于1，会将该帧最后一个点通过[onTouch](#ontouch)返回，其余点作为历史点。如果多指在同一帧上报事件，可能触发多次onTouch。
@@ -82,7 +88,11 @@ getHistoricalPoints(): Array<HistoricalPoint>
 
 ## TouchObject
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ### 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -108,6 +118,8 @@ getHistoricalPoints(): Array<HistoricalPoint>
 
 ### getCurrentLocalPosition
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
+
 getCurrentLocalPosition?(): Coordinate2D
 
 获取触摸位置相对于当前组件实时位置左上角的坐标。在事件无法提供有效的实时组件坐标时，返回空值，使用前请进行判空处理。
@@ -128,6 +140,8 @@ getCurrentLocalPosition?(): Coordinate2D
 
 ## HistoricalPoint^10+^对象说明
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 历史点信息。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -145,7 +159,11 @@ getCurrentLocalPosition?(): Coordinate2D
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1（获取触摸事件相关参数）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例中，按钮设置触摸事件，在点击按钮时可获取事件的相关参数。
 
@@ -229,9 +247,11 @@ struct TouchExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/RStJ8QpkTumf8UKXANUWvA/zh-cn_image_0000002749334384.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=D6831F06B5B258690DF5DF063B24850DC57974CB670502F99769124B71FA91BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/S1WDT5UaSsGDlxRjGe3I_A/zh-cn_image_0000002784664339.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092755Z&HW-CC-Expire=31536000000&HW-CC-Sign=C06A03223499B20893577C0B3B52479848D0E517DB25E985553184F47450F59B)
 
 ### 示例2（获取组件实时位置）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过[getCurrentLocalPosition](#getcurrentlocalposition)方法获取触摸位置相对于当前组件实时位置左上角的坐标。
 
@@ -264,5 +284,5 @@ struct GetCurrentLocalPositionExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/RBEYgoyYSCqYNefZtasWOQ/zh-cn_image_0000002749494270.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=58A460F029213F1FBC0DBB8FF047C5037FC4F942C1AC10EBBCCC49B467E12F9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/0lxU1AZZQUydQNw50zHmtg/zh-cn_image_0000002755025406.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092755Z&HW-CC-Expire=31536000000&HW-CC-Sign=57E8CCF80EAEF3D5D0E01F4B4104770D6BF1990377D885EF60C748BD27C72239)
 

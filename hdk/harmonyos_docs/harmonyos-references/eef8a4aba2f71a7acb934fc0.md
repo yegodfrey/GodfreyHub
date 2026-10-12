@@ -10,9 +10,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-order
 
 ## 功能介绍
 
+> phone | 2in1 | tablet | tv | wearable
+
 此接口用于查询指定时间范围内的付款和退款订单。
 
 ## 场景描述
+
+> phone | 2in1 | tablet | tv | wearable
 
 例如：当开发者需要查看前一天的付款和退款订单时，可以将开始时间设为前一天的零点，结束时间设为当天的零点，然后调用此接口查询相关的订单记录。
 > 说明
@@ -24,6 +28,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-order
 > * 当前不支持查询沙盒订单和0元订单。
 
 ## 接口原型
+
+> phone | 2in1 | tablet | tv | wearable
 
 * **承载协议：** HTTPS POST
 
@@ -40,7 +46,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-order
 
 ## 请求参数
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### Request Header
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:------------|:---|:-----|:--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,6 +59,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-order
 
 ### Request Body
 
+> phone | 2in1 | tablet | tv | wearable
+
 |参数|是否必选|参数类型|描述|
 |:----------------|:---|:-----|:------------------------------------------------------------------------------------------------------|
 |startTime|是|Long|指定查询范围的开始时间，UTC时间戳，以毫秒为单位。 startTime不能大于当前时间。|
@@ -56,6 +68,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-order
 |continuationToken|否|String|支持分页查询的数据定位标志。 - 初始请求时无需输入，当响应结果返回continuationToken时，下一次查询时需要输入上次查询返回的continuationToken才可以查询下一页数据。|
 
 ## 请求示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```javascript
 POST /order/harmony/v1/application/trade/orders/query
@@ -70,13 +84,19 @@ Accept: application/json
 
 ## 响应参数
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### Response Header
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:-----------|:---|:-----|:---------------------------------|
 |Content-Type|是|String|取值为：application/json;charset=UTF-8|
 
 ### Response Body
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:----------------|:---|:-----------|:--------------------------------------------------------------------------------------------------------------------|
@@ -86,6 +106,8 @@ Accept: application/json
 |continuationToken|否|String|支持分页查询的数据定位标志。如果返回，下一次查询请求时需要输入，以此查询下一页数据。|
 
 ## 响应示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```json
 HTTP/1.2 200 OK
@@ -130,6 +152,8 @@ Content-Type: application/json; charset=UTF-8
 ```
 
 ### OrderInfo
+
+> phone | 2in1 | tablet | tv | wearable
 
 |参数|是否必选|参数类型|描述|
 |:------------|:---|:------|:-----------------------------------------------------------------------------------|

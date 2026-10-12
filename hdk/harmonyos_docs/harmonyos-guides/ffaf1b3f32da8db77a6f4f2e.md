@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/screentimegua
 
 ## 业务流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/6vl3N5BvTZyC6I_wsNW0oA/zh-cn_image_0000002779092927.png?HW-CC-KV=V1&HW-CC-Date=20260929T121651Z&HW-CC-Expire=31536000000&HW-CC-Sign=E5ED3717207DC16501739D006A08F5B177929E95A08B1382201056BE09F3B32D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/s76ZgdG6QD2kZOFzVoP49Q/zh-cn_image_0000002755184894.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=DDCCE49754860F67EFD378DA061C05B3FC6327CC779F2E3A6A335EF228A62B8D)
 
 流程说明：
 

@@ -189,5 +189,5 @@ src/main/resources/base/profile/router_map.json配置如下所示：
 
 效果图如下所示：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/sPxKfcVVTpyQ5cd_knc2IQ/zh-cn_image_0000002658806741.png?HW-CC-KV=V1&HW-CC-Date=20260929T074341Z&HW-CC-Expire=31536000000&HW-CC-Sign=BC64D72C3AE92EDACEBB239063700F9910F4256FEDA457CE9CFF78702E88124C "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/sPxKfcVVTpyQ5cd_knc2IQ/zh-cn_image_0000002658806741.png?HW-CC-KV=V1&HW-CC-Date=20261008T174408Z&HW-CC-Expire=31536000000&HW-CC-Sign=F747E9125261A25947B3742A85025F858152EAB9B8BAE99C7BFF8F210D61C31C "点击放大")
 

@@ -28,23 +28,23 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription
 
 4、在商品列表中，点击待设置订阅优惠的非自动续期订阅商品对应"操作"列的"编辑"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/SLj1zvW3TcGCVCR1k-7o4Q/zh-cn_image_0000002478462832.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=9987875A539737F591270C7206F5069B9D1D0998CBA912FF614F865A8A1015AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/SLj1zvW3TcGCVCR1k-7o4Q/zh-cn_image_0000002478462832.png?HW-CC-KV=V1&HW-CC-Date=20261008T154207Z&HW-CC-Expire=31536000000&HW-CC-Sign=E38584B7BCE17E9E2AE214188091B1AEFD85A04EEB85B19A03127AED7F1C73E4)
 
 5、在商品编辑页面，选择"查看编辑"选项。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/L3YymMpCTLyZH9ffjNh7Qw/zh-cn_image_0000002405568609.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=E43E03A08C38456D5670E1A1172FFD16F45C3CBF1DFB911E58F980581462AD1F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/L3YymMpCTLyZH9ffjNh7Qw/zh-cn_image_0000002405568609.png?HW-CC-KV=V1&HW-CC-Date=20261008T154207Z&HW-CC-Expire=31536000000&HW-CC-Sign=9862E04CD4801C1335EF51693828080713B2505A3D9D3E6A0911B1B20C9DFEED "点击放大")
 
 6、在商品价格页面，点击"设置促销优惠"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/lf-CcJWnQrKwPzben9Obyg/zh-cn_image_0000002366323296.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=D2B0313035EE47A3652500C2ACDBFBDFC12404F9BD48A4E18D708ACF01851059 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/lf-CcJWnQrKwPzben9Obyg/zh-cn_image_0000002366323296.png?HW-CC-KV=V1&HW-CC-Date=20261008T154207Z&HW-CC-Expire=31536000000&HW-CC-Sign=8A1386080424D4E630A8728DA445F0C2FF5D059A0AF0A57E37BBF427B3F7CA9C "点击放大")
 
 7、看到如下弹窗，请继续点击"设置促销优惠"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/3v_5bofwRn-0BEJtE8dHWQ/zh-cn_image_0000002366483272.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=46F626B4EEA1D9F77F0116D932BA6708A8B65122526CFF719E44AA3DD7E047DF "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/3v_5bofwRn-0BEJtE8dHWQ/zh-cn_image_0000002366483272.png?HW-CC-KV=V1&HW-CC-Date=20261008T154207Z&HW-CC-Expire=31536000000&HW-CC-Sign=5C6D80A484588CB544AF9AD1B078B62BFE7E044B6EE068C2F36DB21203C76D9B "点击放大")
 
 8、继续设置促销活动名称、促销优惠标识符以及开始/结束时间，完成后请点击"下一步"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/IHXhpm0uQHSUChylbM1qCQ/zh-cn_image_0000002366483460.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=96AECB6CFD00AB184FEAFEE6B6B872200DC511F073E6F4B75C66926E749C5015 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/IHXhpm0uQHSUChylbM1qCQ/zh-cn_image_0000002366483460.png?HW-CC-KV=V1&HW-CC-Date=20261008T154207Z&HW-CC-Expire=31536000000&HW-CC-Sign=50C1CBF8F0AE0DC686E6232261FBB544E22B5DABE4411FD8AB52B3D49D73BA08 "点击放大")
 > 说明
 >
 > * 最多支持设置10个有效优惠标识符。
@@ -53,11 +53,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription
 
 9、设置参与促销活动的国家/地区，设置完成后点击"下一步"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/t_bLC4fES9u7jFhqxCvPRQ/zh-cn_image_0000002399966761.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=8077CE0A3C681EAC8106DE9107C7EE293031D863C0457F07382D220F4474889F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/t_bLC4fES9u7jFhqxCvPRQ/zh-cn_image_0000002399966761.png?HW-CC-KV=V1&HW-CC-Date=20261008T154207Z&HW-CC-Expire=31536000000&HW-CC-Sign=2B7F20842868CA8C37950E7B9AE6B338BE2570AC100A94FC7F6E088630C14D42 "点击放大")
 
 10、可对所有区域的价格进行确认或修改，确认后点击"完成"。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/zxwo8YUXR8yvHQUpKcd5tA/zh-cn_image_0000002405570077.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=40AF6E8CBACB52F49ABEA56887EA8F3E6D71FDA3C626E7B0DC9BF869DA6F6527 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/zxwo8YUXR8yvHQUpKcd5tA/zh-cn_image_0000002405570077.png?HW-CC-KV=V1&HW-CC-Date=20261008T154207Z&HW-CC-Expire=31536000000&HW-CC-Sign=F09F1EB615BEA8F447B21F647D52C31C15B835747B72825974097C43D32D49FD "点击放大")
 
 > 注意
 >
@@ -65,17 +65,17 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription
 
 11、点击"完成"后，跳转回活动列表页。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/9OPguDuVRz6Abem4Pm7Vtg/zh-cn_image_0000002405690281.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=56490B5F0878FD7FAB30E5D2E4D11AA11C054851D9ACF76EE9783A1AE0C2F47A "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/9OPguDuVRz6Abem4Pm7Vtg/zh-cn_image_0000002405690281.png?HW-CC-KV=V1&HW-CC-Date=20261008T154207Z&HW-CC-Expire=31536000000&HW-CC-Sign=241E142559B16CA67DC769BB25446155C94A857E830381FAEA155774E049F188 "点击放大")
 
 12、可查看促销详情信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/pU-FVXWzShCYsdRIwBa7jg/zh-cn_image_0000002405570981.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=53021F65BEB25DDD5A44E321F3D4164F729786257F3FE87CE99D7A0C87C4EEC4 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/pU-FVXWzShCYsdRIwBa7jg/zh-cn_image_0000002405570981.png?HW-CC-KV=V1&HW-CC-Date=20261008T154207Z&HW-CC-Expire=31536000000&HW-CC-Sign=4607564ED7F8BCA46784DE1F11EE29E4D818AC5EC0426B91FEF66E735A255944 "点击放大")
 
 13、如需结束促销活动，点击"立即结束"按钮，弹出确认结束弹窗，点击"确认"即可结束商品促销活动。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/bZMVJAtlQBWyDZ--NW_R5A/zh-cn_image_0000002405571849.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=59F23559794ECD1DF4587F68D05E98D7F4B046EB9CA7EA53D77843F313074F58 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/bZMVJAtlQBWyDZ--NW_R5A/zh-cn_image_0000002405571849.png?HW-CC-KV=V1&HW-CC-Date=20261008T154207Z&HW-CC-Expire=31536000000&HW-CC-Sign=78F69814766550303F2C8E22B4FC6F8F35126669F1BE0F5B3A0CD983A4E26906 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/EMjCmTwOQXOfD-nNYy2ERA/zh-cn_image_0000002372012544.png?HW-CC-KV=V1&HW-CC-Date=20260929T062030Z&HW-CC-Expire=31536000000&HW-CC-Sign=FBDA998BA2C6ADAC354E790C344903097DCD8684CE135907D7FC354B5A9252E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/EMjCmTwOQXOfD-nNYy2ERA/zh-cn_image_0000002372012544.png?HW-CC-KV=V1&HW-CC-Date=20261008T154207Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA601A9744CFDF67C4FB0441CDF36AF27A83F6231D19C53C5B87AFFC13AB59F5)
 > 注意
 >
 > 如有冲突时间段、国家、价格，可通过修改促销价或删除冲突的未来价格调整计划。

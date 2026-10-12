@@ -15,18 +15,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/game-center-big-event-pion
 
 ## 操作流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/l5XapXezQEeGL1AZ3PMxJQ/zh-cn_image_0000002554247549.png?HW-CC-KV=V1&HW-CC-Date=20260909T170833Z&HW-CC-Expire=31536000000&HW-CC-Sign=4316FD0E022B8E4B4584A09292664C4C9561CA42230C5A924FB7EE4AFB9EC38B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/l5XapXezQEeGL1AZ3PMxJQ/zh-cn_image_0000002554247549.png?HW-CC-KV=V1&HW-CC-Date=20261008T180725Z&HW-CC-Expire=31536000000&HW-CC-Sign=EBE4D1435098F46D3F121BD79CEDE9A4C265A91039B1E37CEC1971179EEB9BF1)
 
 ## 创建大事件
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击"APP与元服务"，在应用列表中选择需要创建游戏大事件的应用。
-2. 选择"运营 > 内容运营 > 游戏大事件"，进入游戏大事件页面，点击"新建大事件"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/LiKG-tiiTweRem7nHEDJYg/zh-cn_image_0000002523087680.png?HW-CC-KV=V1&HW-CC-Date=20260909T170833Z&HW-CC-Expire=31536000000&HW-CC-Sign=6A6E40B9666A630064B7587FB701E41F1F5333094519354B1EC0179695C1489B)
+2. 选择"运营 > 内容运营 > 游戏大事件"，进入游戏大事件页面，点击"新建大事件"。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/LiKG-tiiTweRem7nHEDJYg/zh-cn_image_0000002523087680.png?HW-CC-KV=V1&HW-CC-Date=20261008T180725Z&HW-CC-Expire=31536000000&HW-CC-Sign=6FE5B2765139C3EF77F81C08D97868FE83032747305F2182C82A92C5C8C250A5)
 
-3. 填写基本信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/rGGAfnKMR0WgTO-6YRg4Dg/zh-cn_image_0000002554290137.png?HW-CC-KV=V1&HW-CC-Date=20260909T170833Z&HW-CC-Expire=31536000000&HW-CC-Sign=33D0882DBAC0947926F6012D8AD00370F6A656A441977E6D6362B527BF6FCED1)
+3. 填写基本信息。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/rGGAfnKMR0WgTO-6YRg4Dg/zh-cn_image_0000002554290137.png?HW-CC-KV=V1&HW-CC-Date=20261008T180725Z&HW-CC-Expire=31536000000&HW-CC-Sign=7467221EA8F33EC5F4F2479CF5ECF2AEFE7BB58A8A3D128CE97DF98876EE3BA5)
 
 4. 配置落地页。 落地页是大事件的详细介绍页，用户点击事件标题后可跳转。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/8Ucban_ZRyqsQSWigqNwTA/zh-cn_image_0000002523247662.png?HW-CC-KV=V1&HW-CC-Date=20260909T170833Z&HW-CC-Expire=31536000000&HW-CC-Sign=9E6651A9205972C9822EC451B8137BFEC96CC8821CB61F0B40B9516691BE00DC)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/8Ucban_ZRyqsQSWigqNwTA/zh-cn_image_0000002523247662.png?HW-CC-KV=V1&HW-CC-Date=20261008T180725Z&HW-CC-Expire=31536000000&HW-CC-Sign=F2067052BBF88D1026A9FC3DE00B0D8064E8C67A7592384D04149C4ED78109B5)
 
    相关参数如下表所示。
 
@@ -40,12 +40,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/app/game-center-big-event-pion
 
 5. 上传外显素材（可选）。 外显素材是大事件的宣传海报,会在详情页、推荐榜单等场景展示给用户。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/002AuhGaRWWvN0hIiXXauA/zh-cn_image_0000002554250597.png?HW-CC-KV=V1&HW-CC-Date=20260909T170833Z&HW-CC-Expire=31536000000&HW-CC-Sign=85A7754B004F761307F2F3F52B09AD5821AE1714FF8522D359EFF3A1AEDB4055)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/002AuhGaRWWvN0hIiXXauA/zh-cn_image_0000002554250597.png?HW-CC-KV=V1&HW-CC-Date=20261008T180725Z&HW-CC-Expire=31536000000&HW-CC-Sign=0067C146639D77EAA29133FC97CD8CFC02E00D4D3166F98AF6D7B7B50A3D209E)
    > 说明
    > 1. 大事件需配置相应内容的封面图片和落地页，审核通过后可获得尝鲜专区/新游专区展示位机会。
    > 2. 为了最佳展示效果，封面图片需为纯图，不得出现任何文字/logo。（如图涉版权等必须说明情景请备注说明）
    > 3. 封面图片不得重复使用，封面图片应与提交的大事件主题有关。
-6. 填写完成后点击"提交审核"。提交审核后，华为工作人员审核大事件申请预计需要1~3个工作日，请耐心等待。审核结果可在游戏大事件列表内"任务状态"列查看。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/9Npd0zuzS0e9JimpB5g6_A/zh-cn_image_0000002523087682.png?HW-CC-KV=V1&HW-CC-Date=20260909T170833Z&HW-CC-Expire=31536000000&HW-CC-Sign=67C27FD9EE3E864AA85B69EB3DD21643EBC88C95D5B841A641F7BC8BDED13D64)
+6. 填写完成后点击"提交审核"。提交审核后，华为工作人员审核大事件申请预计需要1~3个工作日，请耐心等待。审核结果可在游戏大事件列表内"任务状态"列查看。 ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/9Npd0zuzS0e9JimpB5g6_A/zh-cn_image_0000002523087682.png?HW-CC-KV=V1&HW-CC-Date=20261008T180725Z&HW-CC-Expire=31536000000&HW-CC-Sign=4FB467119B7CC1BFA03058EB402A2D7DCF472D3889202E3E7B7C7293C50DD5FB)
 
    > 说明
    > * 填写过程中可选择"保存草稿"，已填写信息会保存。可以在游戏大事件页面中查看草稿并继续编辑提交。

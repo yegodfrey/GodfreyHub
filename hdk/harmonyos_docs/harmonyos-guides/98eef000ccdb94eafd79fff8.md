@@ -30,7 +30,7 @@ XEngine Kit针对折叠屏设备推出"控显分离"创新方案。在设备展�
 
 ## 业务流程
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/zKl9UhdYS46IXW7nocbpAw/zh-cn_image_0000002749333534.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121647Z&HW-CC-Expire=31536000000&HW-CC-Sign=0CF67C5E436285DF5C48ED6DBE42FC6EEFD5F01566C0F680B30295D0532A1133)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/JjVKYP2XQxKk16c6tMaB9A/zh-cn_image_0000002784663493.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092705Z&HW-CC-Expire=31536000000&HW-CC-Sign=79DC3EE843213B4D33DC357A60A661EC64883A34F9F7D8147D123BB3B361AD57)
 
 1. 环境配置：游戏应用需首先在module.json5配置文件中声明控显分离特性，以启用系统级的适配能力。
 

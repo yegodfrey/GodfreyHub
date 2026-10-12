@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-memory-bas
 
 **内存组成关系图**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/NlPDSWQEQKul4mYT2Vka8w/zh-cn_image_0000002404124981.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=0DF8B6E5ECCBA2D44ECAC2797C81653843E2E2BCFF95716C7A1A6E31B2E831C2 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/NlPDSWQEQKul4mYT2Vka8w/zh-cn_image_0000002404124981.png?HW-CC-KV=V1&HW-CC-Date=20261008T181044Z&HW-CC-Expire=31536000000&HW-CC-Sign=5273CDE62E470386C861653765DACC062C1B23928FA8656F1E449DC345A865F2 "点击放大")
 
 上图展示了内存基础的组成部分（RSS，PSS，VSS，物理内存，Swap）之间的关系, 下表对内存各组成部分进行详细介绍。
 
@@ -45,7 +45,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-memory-bas
 
 **应用内存组成图**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/8054DPn5Rrm-9tPhcsxFjg/zh-cn_image_0000002370405428.png?HW-CC-KV=V1&HW-CC-Date=20260920T024935Z&HW-CC-Expire=31536000000&HW-CC-Sign=4738DDCE4B6AC796F5527D541D7F05E57BD46D19AD1E346D425BE972DDD1954C "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/8054DPn5Rrm-9tPhcsxFjg/zh-cn_image_0000002370405428.png?HW-CC-KV=V1&HW-CC-Date=20261008T181044Z&HW-CC-Expire=31536000000&HW-CC-Sign=12E1E4A7CD57BF4D5F85CA799CCEF3F090B7156A305C9E85900C2FB99036211C "点击放大")
 
 上图展示了应用进程映射的虚拟内存空间基本的组成部分，下表对内存各组成部分进行详细介绍。
 

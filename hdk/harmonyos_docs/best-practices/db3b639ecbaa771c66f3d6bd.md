@@ -28,7 +28,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dark-mode-
 一般情况下深浅色模式切换不会导致应用界面产生结构上的变化，而是保持应用界面结构一致的同时展示不同的主题配色、配图等，使得整个应用在切换到深色模式后依然保持自然美观。以下为深色模式适配的UX示例。
 
 **图1**深色模式适配UX示例图   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/zYzqaRIdRbqsJBUUeq2uxw/zh-cn_image_0000002229450789.png?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=7115DA7183EDBAA75A38C20B74340E0B580D7A7FB8C82EE23EEBDF705FB0B4F2 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/zYzqaRIdRbqsJBUUeq2uxw/zh-cn_image_0000002229450789.png?HW-CC-KV=V1&HW-CC-Date=20261008T173102Z&HW-CC-Expire=31536000000&HW-CC-Sign=F0235D88FB2307E11F74F58756293243F9E0DB2A7BD471FD2707C3836B04EF6D "点击放大")
 
 从图1中可以看到，在应用进行深色模式适配过程中主要的适配项有[颜色资源适配](#section1292642062514)、[媒体资源适配](#section07671855272)、[状态栏适配](#section1618831013284)，除此之外若应用内使用了Web组件加载Web页面，那么还需实现[Web页面适配深色模式](#section157048320276)。
 
@@ -56,7 +56,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dark-mode-
 
 |浅色模式|深色模式|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/nRxyM9F5RYairJSX5RQWrw/zh-cn_image_0000002193850916.png?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=1B33B2A80B0080E5E88DFFCDEC433616E31D79314B1654EE1ABD0F8598D14374 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/a0wOHKzlS2ir72TmIZk-tw/zh-cn_image_0000002194010512.png?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=ACAC798C52773309E0C7FD40D52CBB5194D9CC405A92CCD603C3C1DC18FB90E8 "点击放大")|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/nRxyM9F5RYairJSX5RQWrw/zh-cn_image_0000002193850916.png?HW-CC-KV=V1&HW-CC-Date=20261008T173102Z&HW-CC-Expire=31536000000&HW-CC-Sign=B54F29AB500E91EC8523A341B2D2C7B5210744910A00EF24C4A86ED130AA9919 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/a0wOHKzlS2ir72TmIZk-tw/zh-cn_image_0000002194010512.png?HW-CC-KV=V1&HW-CC-Date=20261008T173102Z&HW-CC-Expire=31536000000&HW-CC-Sign=BDE7666FCE6EC434F2285166E39DC4724BD8AD1D7A0151F7523CDA0FF583B666 "点击放大")|
 [**表2**颜色资源适配深色模式错误效果示例]
 
 表2中页面效果在浅色模式下显示正常，但是当切换到深色模式后 ，弹窗内文字与背景色的对比度低于5:1，用户识别弹窗内容困难。上述效果的关键问题在于使用自定义弹窗时，若未手动指定弹窗背景色，系统默认对弹窗背景色做了深浅色适配，但是系统无法对弹窗内容（特别是开发者的自定义内容）自动适配深色模式，于是当系统切换到深色模式下，弹窗背景色自动深色，而弹窗内容保持与浅色模式一致的颜色，导致内容无法看清，该类问题对应解决方案有以下两种。
@@ -127,7 +127,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dark-mode-
 
 |浅色模式|深色模式|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/upaCHSDxSoWV2Ps2OGZl7Q/zh-cn_image_0000002193850900.png?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=69A57C4442AD09C55A20666057B09DC4A64AAE7030A93B24519E60F8CDE0605D "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/aOKZeReFS6mVTPFSUJtOHw/zh-cn_image_0000002229336321.png?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=BCB2A84312D931E32FC04A5955D6AF08DFB5EBACB4D5E39252BD3AC2AE65A01D "点击放大")|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/upaCHSDxSoWV2Ps2OGZl7Q/zh-cn_image_0000002193850900.png?HW-CC-KV=V1&HW-CC-Date=20261008T173102Z&HW-CC-Expire=31536000000&HW-CC-Sign=69D52491CF9BB1A79632AC5BC15E3302F4CFC99376ACE6275A0880C9985C4E2D "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/aOKZeReFS6mVTPFSUJtOHw/zh-cn_image_0000002229336321.png?HW-CC-KV=V1&HW-CC-Date=20261008T173102Z&HW-CC-Expire=31536000000&HW-CC-Sign=64F2FA966786A1915903BDF1B37736BA37FBB2914153643D40E3DEBA4EB75FDD "点击放大")|
 [**表3**颜色资源完成深色模式适配效果示例]
 
 ### 媒体资源适配
@@ -136,7 +136,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dark-mode-
 
 |浅色模式|深色模式|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/-7oQrCKQQVuk420fFw-ZZg/zh-cn_image_0000002193850912.png?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=6D944B424DEDCDFA7110BEA6CE45F3B46FC289348BB009AC5359DA8012DFFFA7 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/xiAYbV7KSCyrK-LAbf3Rew/zh-cn_image_0000002194010500.png?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=1A5EE1942B9C780FA9DDBD514586A2721972ADF323832426D35E235FE2C08561 "点击放大")|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/-7oQrCKQQVuk420fFw-ZZg/zh-cn_image_0000002193850912.png?HW-CC-KV=V1&HW-CC-Date=20261008T173102Z&HW-CC-Expire=31536000000&HW-CC-Sign=05F0B5D036B2D5A19A376889138603E2CF46F4D0913451F05EC109F3C0B5FFE9 "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/xiAYbV7KSCyrK-LAbf3Rew/zh-cn_image_0000002194010500.png?HW-CC-KV=V1&HW-CC-Date=20261008T173102Z&HW-CC-Expire=31536000000&HW-CC-Sign=929829694E71A69F31B7FFC2C920072BE3E62BF9652DA21DB3565C1166615978 "点击放大")|
 [**表4**应用内图标未适配深色模式效果示例]
 
 上述错误示例效果的关键问题在于对于应用内的图标并未做深色模式下的适配，于是图标的颜色在深浅色下始终不变。而深色模式下，图标颜色与背景色对比度过低，导致用户无法看清应用内图标。该类问题对应解决方案有以下两种。
@@ -175,7 +175,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dark-mode-
 
 |浅色模式|深色模式|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/D_vZRNDcTSO7kZphuYrW6w/zh-cn_image_0000002229450769.png?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=DE7F24CFEE2BA277A7181EE798B1D5401A7913BCCEC180B9FC6AF5ABDEB86CDE "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/6Pd1PYuHRxmgiqEpqtvBLw/zh-cn_image_0000002229336317.png?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=4DD72C60CE8C9A8250FD85A2B59889191E644CAD5A24A5C3EFFDE61EBDC76B71 "点击放大")|
+|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/D_vZRNDcTSO7kZphuYrW6w/zh-cn_image_0000002229450769.png?HW-CC-KV=V1&HW-CC-Date=20261008T173102Z&HW-CC-Expire=31536000000&HW-CC-Sign=68F3BE195568EE6120A04AD869BAB348EF520E1C60F0A92A50FFD540C4B6CCBE "点击放大")|![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/6Pd1PYuHRxmgiqEpqtvBLw/zh-cn_image_0000002229336317.png?HW-CC-KV=V1&HW-CC-Date=20261008T173102Z&HW-CC-Expire=31536000000&HW-CC-Sign=4196EDAB26BCCAA11491199D664A280148E114BB25AC7A9367517F19A33079CE "点击放大")|
 [**表5**应用内图标完成深色模式适配效果示例]
 
 ### 状态栏适配
@@ -183,7 +183,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dark-mode-
 状态栏适配即在深浅色模式下，采用不同的状态栏背景色与字体颜色。若应用未启用[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#immersive-layout沉浸式布局)，那么默认情况下，浅色模式下状态栏为白底黑字，深色模式下状态栏为黑底白字。当应用启用了沉浸式，状态栏背景色与应用背景色保持一致，而状态栏文字默认在浅色模式下显示黑色，在深色模式下切换成白色。此时如果应用在浅色模式下设置了偏暗的背景或在深色模式下设置了偏亮的背景，都会造成状态栏背景色与状态栏字体颜色对比度过低而显示异常。错误效果示例见图2。
 
 **图2**状态栏适配错误效果   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/xerp9algTw6nKJKzvtGR4A/zh-cn_image_0000002193850908.png?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=D0A0BF2118E75F81D58E81A07A2E582D7E4EBA0923FA19DFA008F846802CC4CB "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/xerp9algTw6nKJKzvtGR4A/zh-cn_image_0000002193850908.png?HW-CC-KV=V1&HW-CC-Date=20261008T173102Z&HW-CC-Expire=31536000000&HW-CC-Sign=1C98C316B89E5AD235A7E0063FE0258DED9065D6DF14C18677AF9E4851315682 "点击放大")
 
 上述错误效果的主要问题在于页面的背景色固定为黑色，当系统切换到浅色模式后，状态栏文字默认切换到黑色，此时状态栏背景色与文字颜色一致，对比度过低，于是状态栏中的文字就不可见了，此类问题对应解决方案有以下两种。
 
@@ -277,7 +277,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dark-mode-
      ```
 
 **图3**状态栏适配深色模式后效果   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/-J_ijH_LT8yGeQnpUn1uzA/zh-cn_image_0000002229450793.png?HW-CC-KV=V1&HW-CC-Date=20260920T024932Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA6ABBD1BFCA963FFF812C66C465D047124C28C4E6870A741F5A1B93E48A509F "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/-J_ijH_LT8yGeQnpUn1uzA/zh-cn_image_0000002229450793.png?HW-CC-KV=V1&HW-CC-Date=20261008T173102Z&HW-CC-Expire=31536000000&HW-CC-Sign=7DED3E91DCCF11E39585E00F545135A798F400FDBD24D731F0C44001024A9A31 "点击放大")
 
 ### Web页面适配深色模式
 

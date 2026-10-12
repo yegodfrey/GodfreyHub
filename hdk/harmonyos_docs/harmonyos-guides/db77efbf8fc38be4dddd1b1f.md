@@ -104,19 +104,19 @@ hilogtool parse --input xxx --output xxx --dict xxx
 
 在当前日志所在目录，通过cmd进入shell窗口，在shell窗口直接执行hilogtool parse，即可进行解析操作，如下图：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/c35cUNT0SuWCRSi2srKSTw/zh-cn_image_0000002749333242.png?HW-CC-KV=V1&HW-CC-Date=20260929T121705Z&HW-CC-Expire=31536000000&HW-CC-Sign=3B2170EF01E5A1673761AB7A001B4125B0BC2E534A2BEEC5894E35F1582251AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/YkDhj6K3T_GSFiRCijkl9g/zh-cn_image_0000002784663203.png?HW-CC-KV=V1&HW-CC-Date=20261009T092721Z&HW-CC-Expire=31536000000&HW-CC-Sign=E0DA3A1BDC23124AF785663FEE23C49C9B47C3AB596AB999E2929026228EF021)
 
 ### 解析指定目录下的hilog文件
 
 hilogtool parse -i D:\09-temp\dict-test -d D:\09-temp\dict-test
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/wd6OPKW_QjakKmkeicagRA/zh-cn_image_0000002749493126.png?HW-CC-KV=V1&HW-CC-Date=20260929T121705Z&HW-CC-Expire=31536000000&HW-CC-Sign=0BB44710A849926DB06DAC2250BB73597E49493B792D948C858330AD71EF7DDB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/TQekkZ60SSm-1fsPleTUjQ/zh-cn_image_0000002755024270.png?HW-CC-KV=V1&HW-CC-Date=20261009T092721Z&HW-CC-Expire=31536000000&HW-CC-Sign=8B62E1AD3124EF8A044E8E3CCBA38323CBF936960F6D313DD4F5AA004841ACED)
 
 ### 解析单个hilog文件
 
 hilogtool parse -i D:\09-temp\dict-test\hilog.025.20231020-154659.gz -d D:\09-temp\dict-test
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/_PuKF8RDQnm63p8zu3_J6g/zh-cn_image_0000002779092185.png?HW-CC-KV=V1&HW-CC-Date=20260929T121705Z&HW-CC-Expire=31536000000&HW-CC-Sign=EB03F301A0E70D91AAEDF3EB9EF5977059189F0E3DBC32DF4F8F9A2580B290AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/o7ap7ncFTx-5fzkfJThqSw/zh-cn_image_0000002755184158.png?HW-CC-KV=V1&HW-CC-Date=20261009T092721Z&HW-CC-Expire=31536000000&HW-CC-Sign=396EBCC3351B51FC11400052C8873BA6512FA03810C3B26AA7FC256B8E707274)
 
 ## 自动化脚本
 
@@ -138,7 +138,7 @@ pause
 
 脚本运行结果：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/6noOdwfiTTStSTqMJ3y1tQ/zh-cn_image_0000002778932327.png?HW-CC-KV=V1&HW-CC-Date=20260929T121705Z&HW-CC-Expire=31536000000&HW-CC-Sign=5703D01DCBA8CAEC630BFD0694F4B238E8C19578F2ABDD696AE1DB1F0042072D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/LGtIvoOoTaeRBAoF-1UAkg/zh-cn_image_0000002784583025.png?HW-CC-KV=V1&HW-CC-Date=20261009T092721Z&HW-CC-Expire=31536000000&HW-CC-Sign=0D513A05B7468F236EB1D3270014FAD232C7E37D57D1D5787616E31E0040EFAB)
 
 ### mac平台脚本
 

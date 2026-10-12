@@ -48,5 +48,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-overvie
 
 **图1** 智能体架构示意图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/qqFnoba9RZOGtwBZrJggSQ/zh-cn_image_0000002778930819.png?HW-CC-KV=V1&HW-CC-Date=20260929T121700Z&HW-CC-Expire=31536000000&HW-CC-Sign=2E1A6BA3B9DF4C75CC31E728D1998D133DE427327B27611DD836E15ED3E13FD0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/qunTIr4JS1WUMbAjlBLEbA/zh-cn_image_0000002755182760.png?HW-CC-KV=V1&HW-CC-Date=20261009T092714Z&HW-CC-Expire=31536000000&HW-CC-Sign=1EBC5EC8F1343EC020A5421E5EF802419ED1CB87788178FDE2340CCDC3F0F94A)
 

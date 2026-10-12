@@ -28,18 +28,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-appl
 
 3. 进入"项目设置 > 开放能力管理"页面，选择能力名称为定位服务（HarmonyOS NEXT），然后点击"室内高精度定位"对应的"申请"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/1Coce63MQG2Cyg5PR2veSA/zh-cn_image_0000002778932869.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=AB5AE2FBC149683D00F2B8A29D553BEB2B4FE0BCD8E5B2019275BAED45708971)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/JAUWQNuNTduBFOx1aKABSg/zh-cn_image_0000002784583567.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=C964D2ECB552AAF1A3B2CA14537588505B3D58F8A3CF8FF3FDD0F44746AB2C03)
 4. 参考"申请原因"中的模板，提供申请必需的相关信息，包括应用介绍、使用场景、申请用途，然后点击"提交"按钮。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/IvwL87VvT7iZ0NqGqD-_3A/zh-cn_image_0000002749333788.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=FEDA05E1A95F18F7D0810A62634AEABFAC2CF1E583EA4599DA4F1A9594B83F80)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/SqB4wo3jTOKFMgrewcgnxw/zh-cn_image_0000002784663747.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=A2332E14F54A7431F214E69E01AB947CA0BECA6B609AE28A42FC83DB4F156D53)
 
 返回"开放能力管理"页面，原"申请"变为"申请中"，1~3个工作日内反馈申请结果，请留意互动中心的"服务开通申请"信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/J0ZWNGlsSkinFKR3_Pssig/zh-cn_image_0000002749493672.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=CE37B8B95EBA7EC733B1E1D696F6282BBD1073B9E91AC0478C393A0D5B6CCC08)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/fmymH5uMRGar5HPqU1tv8A/zh-cn_image_0000002755024814.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=97362B38475603D41DF4D899DA3B33F5D2E73ECF7D655CFA579EAA421183897B)
 
 申请通过后，互动中心会发送通知给您，同时"申请中"会变为置灰显示的"申请"，至此，应用已成功开启室内高精度定位开放能力。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/raJApukdQ6quzOG-7DD5KA/zh-cn_image_0000002779092729.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=E655329780FA201914B9C1E5D41FEA1D0AE6EB2E260D66A6F6127E1746A8BAFE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/b4BpCWThQrOs7AWih_zFDg/zh-cn_image_0000002755184702.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=324425CC74D814361613BC7F7CE0FAFEA25FC22DF0CBEF6CF9469C5BDF7069E2)
 
 ### 位置语义
 
@@ -53,18 +53,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-appl
 
 3. 进入"项目设置 > 开放能力管理"页面，选择能力名称为定位服务（HarmonyOS NEXT），然后点击"位置语义"对应的"申请"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/V0q6nsF9SUCQhN961IUw8A/zh-cn_image_0000002778932869.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=F9ACE52A1B8558A9A2D519951D3542DD595ABCB9C7479849BCBCB8C28ABB330C)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/hhzB4XqbTqGYzNsOcsj6rQ/zh-cn_image_0000002784583567.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=CCCCF46983A598DF93C8B9F765E65FFA0C8A4C4DF3B680D83950106D41D95283)
 4. 参考"申请原因"中的模板，提供申请必需的相关信息，包括应用介绍、使用场景、申请用途，然后点击"提交"按钮。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/oUx1eJyXTiC0isgPUCBLlw/zh-cn_image_0000002778932871.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=E172DA00977D805E42422778BB55FC031A4EB242E36E6D170FC744F0BBC759FA)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/Fhuosja2TgmWmn_hEhVKjQ/zh-cn_image_0000002784583569.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=72995E6C85670647BF2BA5EF7DC441D62B401B626320BAB16284FD21F7174199)
 
    返回"开放能力管理"页面，原"申请"变为"申请中"，1~3个工作日内反馈申请结果，请留意互动中心的"服务开通申请"信息。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/ufKgHL8DR06s7Xb83KAUjg/zh-cn_image_0000002749333790.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=AE08765111495C3F019D535F725CF459000F0BFF378795C6FBBDD46204F90D49)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/Cjw61d_WQq2ho_Px2_eGHw/zh-cn_image_0000002784663749.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=4A00C70F50C232A2EE8B72BE8FAEA8BD5555E62F07279117ABAA197BCE0B076E)
 
    申请通过后，互动中心会发送通知给您，同时"申请中"会变为置灰显示的"申请"，至此，应用已成功开启位置语义开放能力。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/h18_Klx2R_GX762YuyS76g/zh-cn_image_0000002749493674.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A4BBBDC68D5CADD463FA31EBCE8E32AAF99D6C38B99BEA46B261DD18CF680D4)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/J8sW89qRS3eNI5dC-KCdzg/zh-cn_image_0000002755024816.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=6A137DB0CBBF16445B94826AA59CCAA6D856341FF93AB8F3ECB782B949F71CDE)
 
 ### 围栏后台唤醒
 
@@ -78,18 +78,18 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-appl
 
 3. 进入"项目设置 > 开放能力管理"页面，选择能力名称为定位服务（HarmonyOS NEXT），然后点击"围栏后台唤醒"对应的"申请"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/XvWdcXFjQwePWsvWBuTgyw/zh-cn_image_0000002778932869.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=3C189EDA8DDDBCE547E6FD7A9A2BAEFF2ADDA0F2C4CCD8C859EF03B21C857D3C)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/X6LZ10FASWas4vYblxtHCA/zh-cn_image_0000002784583567.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=AC9E7A17824CE0D6A72CF260D70AEF962754BC9A14F3B3B468DC05CBA2C344F6)
 4. 参考"申请原因"中的模板，提供申请必需的相关信息，包括应用介绍、使用场景、申请用途，然后点击"提交"按钮。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/GmsUxS0BRTeag5WDNMJ3EA/zh-cn_image_0000002779092731.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=BE8F558B348366E50D4137058FD74158F94EA6778876902E408296A09008257D)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/dyNTdp-9RqC9Vk3PaTXLIA/zh-cn_image_0000002755184704.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=A32EBD27599B098A28C4BB039E2DA06D283892044C22CC620E16C982693271AA)
 
    返回"开放能力管理"页面，原"申请"变为"申请中"，1~3个工作日内反馈申请结果，请留意互动中心的"服务开通申请"信息。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/0OHS2dWwRuGlxAay5Zcl6Q/zh-cn_image_0000002778932873.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=911E3E577C2161BFACDED8923FA9CA541AD7C5DB57251B32CF828D5EC12A74A1)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/K3H-JcKsRPiDg6b9ZBoFdw/zh-cn_image_0000002784583571.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=9DD88045D8BC4E5DC9C6B99A38D21BBC1682DECF05B121D24A5C8BCB9581C1D1)
 
    申请通过后，互动中心会发送通知给您，同时"申请中"会变为置灰显示的"申请"，至此，应用已成功开启围栏后台唤醒开放能力。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/h-kAflPWR028vhQ24O5J4w/zh-cn_image_0000002749333792.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=53CB7C5C15D3B737803D3A169FDFEC6FC05CA4EEFBDB8FE37FAC53D421F33764)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/WIDx2skoSjiKU-GA3-4iNw/zh-cn_image_0000002784663751.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=B2CF19682792CE96A659D887BD58CC211F3D9E53CBC0BF43DCC1F2307D776CB6)
 
 ### 获取蓝牙扫描信息
 
@@ -103,16 +103,16 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-appl
 
 3. 进入"项目设置 > 开放能力管理"页面，选择能力名称为定位服务（HarmonyOS NEXT），然后点击"获取蓝牙扫描信息"对应的"申请"。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/DToLu-QVRCi-Ha-kZiiquQ/zh-cn_image_0000002778932869.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=72018E0A8D285F3F34119C0E11598CC195E2C1833566B73D6C9EC67CB15ED5BA)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/ChOyBtFuRTaWz6lEgwsu0A/zh-cn_image_0000002784583567.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=1EB04DA739820BAB9FE70203253A0994AFA99E31FA0EA03362DEF2C30BA8BFFA)
 4. 参考"申请原因"中的模板，提供申请必需的相关信息，包括应用介绍、使用场景、申请用途，然后点击"提交"按钮。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/DOe52S6zQguEumrSqvs9RQ/zh-cn_image_0000002749493676.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=F747BA2EBAEF3B58C44A2EC50B668CDC02E6E04834344AAB4FB3E5A6265D33BC)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/tQSkEkxOQhSDjwBMEYWiyQ/zh-cn_image_0000002755024818.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=B78C3E817854DCDAE7C34156984C7B2A44FF90653057DD5600BF30BD934AF152)
 
    返回"开放能力管理"页面，原"申请"变为"申请中"，1~3个工作日内反馈申请结果，请留意互动中心的"服务开通申请"信息。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/8reH-Zl_QIyRgeu7QjrwpA/zh-cn_image_0000002779092733.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=BA7555271C34A467095D7CF6B41EF4FD990EE03D405DBCB54E9D902C95AF84CA)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/z6ontr76QiiGBP-7sFeotQ/zh-cn_image_0000002755184706.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=DF5AE1C80D7C3FFFCAAD935D0E50E43CDEE431C7CA2E0231312DF054E148F10E)
 
    申请通过后，互动中心会发送通知给您，同时"申请中"会变为置灰显示的"申请"，至此，应用已成功开启获取蓝牙扫描信息开放能力。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/nRNKuZ3oSty0dN8gbm6UPw/zh-cn_image_0000002778932875.png?HW-CC-KV=V1&HW-CC-Date=20260929T121652Z&HW-CC-Expire=31536000000&HW-CC-Sign=7C7E706812BFE0E3C8BE4A353B6AA6FC31F8396B9CCB2BE0EAF036207A079D70)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/X0gQd1srRxy7T9ZL0CT4iw/zh-cn_image_0000002784583573.png?HW-CC-KV=V1&HW-CC-Date=20261009T092711Z&HW-CC-Expire=31536000000&HW-CC-Sign=DA8363B4F614A8316327DDBA527B144BBD4041B5EBFC7B7D64BB92636D26209C)
 

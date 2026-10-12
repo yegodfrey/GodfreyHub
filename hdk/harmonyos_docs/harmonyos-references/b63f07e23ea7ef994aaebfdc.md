@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-b
 
 ## 概述
 
+> phone | 2in1 | tablet
+
 多网推荐信息，用于注册多网推荐变化事件回调后，系统多网推荐状态发生变化的事件通知。
 
 **起始版本：** 6.0.2(22)
@@ -20,7 +22,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-b
 
 ## 汇总
 
+> phone | 2in1 | tablet
+
 ### 成员变量
+
+> phone | 2in1 | tablet
 
 |名称|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|
@@ -28,7 +34,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-b
 
 ## 结构体成员变量说明
 
+> phone | 2in1 | tablet
+
 ## action
+
+> phone 6.0.2(22)+ | 2in1 6.0.2(22)+ | tablet 6.0.2(22)+
 
 ```c
 NetworkBoost_MultiPathAction NetworkBoost_MultiPathRecommendation::action

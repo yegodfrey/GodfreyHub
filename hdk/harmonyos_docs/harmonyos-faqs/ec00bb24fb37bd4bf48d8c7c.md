@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-
 2. hvigor-config.json5中ohos.compile.lib.entryfile为true，开启从入口文件开始编译；
 3. 模块下的build-profile.json5中buildOptionSet.arkOptions.obfuscation.ruleOptions.enable为true，构建闭源HAR。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/ZFLFMaHITu6nyThziuF6NA/zh-cn_image_0000002628409278.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=C10B8C058E82E975AA5765085CB048275E9FFFFDB79EFB25EE9771351C6A77BE "点击放大")
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/ZFLFMaHITu6nyThziuF6NA/zh-cn_image_0000002628409278.png?HW-CC-KV=V1&HW-CC-Date=20261008T181301Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C2DCF339B3F26AD9C7BEEDE99C0816FB2DB89A0AC64196AF4692DA87B218EE3 "点击放大")
 
 ## 解决方案
 
@@ -32,13 +32,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-
 
 a. 如果test文件被其他地方引用了，test.har编译结果如下，发现包含test文件：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/mOzC_MRdQN2pH6UlsmTk_g/zh-cn_image_0000002658808549.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=5FBCE3BF46B094E420EF9A522610DC16B287226E3BA80931A43014DEAAB4DEDB "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/mOzC_MRdQN2pH6UlsmTk_g/zh-cn_image_0000002658808549.png?HW-CC-KV=V1&HW-CC-Date=20261008T181301Z&HW-CC-Expire=31536000000&HW-CC-Sign=691184E1E3BC93D8BB30DFD315BF34F11ACF53572924F1F009203B0A5548B451 "点击放大")
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/B_WB8wY8QNe14IjdEQGevA/zh-cn_image_0000002628569174.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=481FD35C79236A4CFB69C134E06493E20816EC72C252A654DA6D1CB4F0C02DF1 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/B_WB8wY8QNe14IjdEQGevA/zh-cn_image_0000002628569174.png?HW-CC-KV=V1&HW-CC-Date=20261008T181301Z&HW-CC-Expire=31536000000&HW-CC-Sign=3B4AB9978B1052DFA0F00112C130C67F9D2C8B6D16A17BD445812D49FCC09C13 "点击放大")
 
 b. 如果test文件没有被引用，test.har编译结果如下，此时不包含test文件：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/m8fzUitBSbeGxLukNUdjmQ/zh-cn_image_0000002658928499.png?HW-CC-KV=V1&HW-CC-Date=20260916T082508Z&HW-CC-Expire=31536000000&HW-CC-Sign=572ABFD34F1F0F98813B54972F9CF22F270703D199DEE326DA5F0B5F543AA87C "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/m8fzUitBSbeGxLukNUdjmQ/zh-cn_image_0000002658928499.png?HW-CC-KV=V1&HW-CC-Date=20261008T181301Z&HW-CC-Expire=31536000000&HW-CC-Sign=43CD2E37F527C2B6D69612D23FA015C8C828B69218E1F72ED9DE5D254A2EB5DB "点击放大")
 
 ## 总结
 

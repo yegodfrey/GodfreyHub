@@ -14,6 +14,8 @@ typedef struct ArkUI_ColorProperty* ArkUI_ColorPropertyHandle
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义颜色属性指针，用于表示ArkUI中的颜色属性。
 
 **起始版本：** 20

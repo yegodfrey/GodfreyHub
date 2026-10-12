@@ -15,11 +15,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv
+
 ```ts
 import { identifySensitiveContent } from '@kit.DataProtectionKit';
 ```
 
 ## identifySensitiveContent.scanFile
+
+> 2in1 21+
 
 scanFile(filePath: string, identifyPolicies:Array<Policy>): Promise<Array<MatchResult>>
 
@@ -90,6 +94,8 @@ try {
 
 ## Policy
 
+> phone 21+ | 2in1 21+ | tablet 21+ | tv 21+
+
 定义敏感内容识别策略。
 
 * 单个策略内，关键字与正则表达式为顺序组合关系，实行两级匹配：首先进行关键字匹配，若命中，则仅在该关键字匹配位置的前后各50字节窗口内，进行正则表达式匹配。若只设置关键字，则仅进行关键字匹配。若只设置正则表达式，则仅进行正则表达式匹配。
@@ -105,6 +111,8 @@ try {
 |regex|string|否|否|表示匹配敏感内容的正则表达式。系统将在文件内容中按此正则表达式进行模式匹配，匹配成功的内容将返回在结果中。长度范围0-512字节。 在输入字符串时，需检查某些特殊字符（如反斜杠 \、双引号 "、换行符等），不会被自动转义，确保字符串的输入效果。|
 
 ## MatchResult
+
+> phone 21+ | 2in1 21+ | tablet 21+ | tv 21+
 
 表示敏感内容的识别结果。
 

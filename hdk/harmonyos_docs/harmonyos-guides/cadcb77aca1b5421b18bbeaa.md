@@ -24,7 +24,7 @@ ArkGraphics 3D以自定义场景模式为核心能力，支持开发者自行构
 
 ## 框架原理
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/ziZcUIUJSdS-J7yo6f-hng/zh-cn_image_0000002749493374.png?HW-CC-KV=V1&HW-CC-Date=20260929T121646Z&HW-CC-Expire=31536000000&HW-CC-Sign=F4D3D97571E2A3C9BD538ED353DE7F59884AE1739770DA638CDDC8A5F36FFB93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/DcVRZXsSRcqABRQ3Qw0jFw/zh-cn_image_0000002755024518.png?HW-CC-KV=V1&HW-CC-Date=20261009T092705Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A2469D4ABFA3606579DAFB57BE6BBA3556968DACE9E24A0E0F387CB776FF294)
 
 如上图 ArkGraphics 3D接口能力由图形后端、引擎层以及接口层三个关键部分共同组成。
 

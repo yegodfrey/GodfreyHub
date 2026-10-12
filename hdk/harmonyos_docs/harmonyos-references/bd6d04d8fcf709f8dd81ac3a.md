@@ -14,6 +14,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 ## 常规属性
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 常规属性是指组件普遍支持的用来设置组件基本标识和外观显示特征的属性。
 
 |名称|类型|默认值|必填|描述|
@@ -30,6 +32,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 ## 渲染属性
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 渲染属性是指组件普遍支持的用来设置组件是否渲染的属性。
 
 |名称|类型|默认值|描述|
@@ -44,7 +48,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-compon
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
+
 ### 示例1
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 ```html
 <!-- xxx.hml -->
@@ -110,9 +118,11 @@ export default {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/AP8sgFD-RvK06_Lvq9aZgQ/zh-cn_image_0000002749495176.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=427367F97C59D108C21F4DC155FBF40B466E5B882CDBF26DFB0232370CD1A523)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/QCSq1_ebQqacoATvZLCDAw/zh-cn_image_0000002755026178.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092755Z&HW-CC-Expire=31536000000&HW-CC-Sign=3D99CC27CA85FC7BD3F3BAD17A00565CC23F89BE1C9877E53C7421652CB4F646)
 
 ### 示例2
+
+> phone | 2in1 | tablet | tv | wearable | lite_wearable
 
 ```html
 <!-- xxx.hml -->
@@ -148,5 +158,5 @@ export default {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/HpMGJvUhTM2rC-_8c9Ztlw/zh-cn_image_0000002779094233.png?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=67128C92A851BA1DC158C5597EE2E5149FE3834938DC6ABBFE51022B75FAE7ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/srCYg4EzRiq8QSsuTkAuww/zh-cn_image_0000002755186062.png?HW-CC-KV=V1&HW-CC-Date=20261009T092755Z&HW-CC-Expire=31536000000&HW-CC-Sign=5DBD8725F4A874A42AA7350009E100AFDBF54A29147FEA6B32FDD0E2EF321D9E)
 

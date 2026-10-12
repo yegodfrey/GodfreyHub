@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 声明用于音视频媒体数据解析的接口。
 
 **引用文件：** <multimedia/player_framework/native_avdemuxer.h>
@@ -26,7 +28,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:--------------------------------------------------------------------------------------------------------------------------------|:---------------------|:------------------------------------|
@@ -34,6 +40,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 |[DRM_MediaKeySystemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avdemuxer-drm-mediakeysysteminfo)|DRM_MediaKeySystemInfo|为DRM_MediaKeySystemInfo接口定义native层对象。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -52,7 +60,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### DRM_MediaKeySystemInfoCallback()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo* mediaKeySystemInfo)
@@ -73,6 +85,8 @@ DRM_MediaKeySystemInfo回调函数指针类型，不返回解封装器实例，�
 **替代接口：** [Demuxer_MediaKeySystemInfoCallback](#demuxer_mediakeysysteminfocallback)
 
 ### Demuxer_MediaKeySystemInfoCallback()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 typedef void (*Demuxer_MediaKeySystemInfoCallback)(OH_AVDemuxer *demuxer, DRM_MediaKeySystemInfo *mediaKeySystemInfo)
@@ -96,6 +110,8 @@ DRM_MediaKeySystemInfo回调函数指针类型，返回解封装器实例，适�
 |[DRM_MediaKeySystemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avdemuxer-drm-mediakeysysteminfo) *mediaKeySystemInfo|指向DRM信息的指针。|
 
 ### OH_AVDemuxer_CreateWithSource()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_AVDemuxer *OH_AVDemuxer_CreateWithSource(OH_AVSource *source)
@@ -125,6 +141,8 @@ source的创建、销毁及使用，详情请参考[OH_AVSource](https://develop
 
 ### OH_AVDemuxer_Destroy()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 OH_AVErrCode OH_AVDemuxer_Destroy(OH_AVDemuxer *demuxer)
 ```
@@ -152,6 +170,8 @@ OH_AVErrCode OH_AVDemuxer_Destroy(OH_AVDemuxer *demuxer)
 |[OH_AVErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-averrors-h#oh_averrcode)|AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：当输入的demuxer指针为空或非解封装器实例。|
 
 ### OH_AVDemuxer_SelectTrackByID()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_AVErrCode OH_AVDemuxer_SelectTrackByID(OH_AVDemuxer *demuxer, uint32_t trackIndex)
@@ -184,6 +204,8 @@ OH_AVErrCode OH_AVDemuxer_SelectTrackByID(OH_AVDemuxer *demuxer, uint32_t trackI
 
 ### OH_AVDemuxer_UnselectTrackByID()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 OH_AVErrCode OH_AVDemuxer_UnselectTrackByID(OH_AVDemuxer *demuxer, uint32_t trackIndex)
 ```
@@ -214,6 +236,8 @@ OH_AVErrCode OH_AVDemuxer_UnselectTrackByID(OH_AVDemuxer *demuxer, uint32_t trac
 |[OH_AVErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-averrors-h#oh_averrcode)|AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：输入的demuxer指针为空或为非解封装器实例。 AV_ERR_OPERATE_NOT_PERMIT：demuxer没有正确的初始化。|
 
 ### OH_AVDemuxer_ReadSample()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_AVErrCode OH_AVDemuxer_ReadSample(OH_AVDemuxer *demuxer, uint32_t trackIndex, OH_AVMemory *sample, OH_AVCodecBufferAttr *info)
@@ -250,6 +274,8 @@ OH_AVErrCode OH_AVDemuxer_ReadSample(OH_AVDemuxer *demuxer, uint32_t trackIndex,
 
 ### OH_AVDemuxer_ReadSampleBuffer()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 OH_AVErrCode OH_AVDemuxer_ReadSampleBuffer(OH_AVDemuxer *demuxer, uint32_t trackIndex, OH_AVBuffer *sample)
 ```
@@ -280,6 +306,8 @@ OH_AVErrCode OH_AVDemuxer_ReadSampleBuffer(OH_AVDemuxer *demuxer, uint32_t track
 
 ### OH_AVDemuxer_SeekToTime()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 OH_AVErrCode OH_AVDemuxer_SeekToTime(OH_AVDemuxer *demuxer, int64_t millisecond, OH_AVSeekMode mode)
 ```
@@ -307,6 +335,8 @@ OH_AVErrCode OH_AVDemuxer_SeekToTime(OH_AVDemuxer *demuxer, int64_t millisecond,
 |[OH_AVErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-averrors-h#oh_averrcode)|AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL： 1. 输入的demuxer指针为空或为非解封装器实例。 2. 毫秒值超出范围。 AV_ERR_OPERATE_NOT_PERMIT： 1. 轨道的索引没有被选中。 2. demuxer没有正确的初始化。 3. 资源无法seek。 AV_ERR_UNKNOWN： 1. seek失败。 2. OH_AVSeekMode选择SEEK_MODE_NEXT_SYNC，并且时间点后无I帧，可能会跳转失败。|
 
 ### OH_AVDemuxer_SetMediaKeySystemInfoCallback()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_AVErrCode OH_AVDemuxer_SetMediaKeySystemInfoCallback(OH_AVDemuxer *demuxer, DRM_MediaKeySystemInfoCallback callback)
@@ -339,6 +369,8 @@ OH_AVErrCode OH_AVDemuxer_SetMediaKeySystemInfoCallback(OH_AVDemuxer *demuxer, D
 
 ### OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback()
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ```c
 OH_AVErrCode OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback(OH_AVDemuxer *demuxer, Demuxer_MediaKeySystemInfoCallback callback)
 ```
@@ -365,6 +397,8 @@ OH_AVErrCode OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback(OH_AVDemuxer *dem
 |[OH_AVErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-averrors-h#oh_averrcode)|AV_ERR_OK：操作成功。 AV_ERR_OPERATE_NOT_PERMIT：demuxer没有正确的初始化。 AV_ERR_INVALID_VAL：输入的demuxer指针为空或为非解封装器实例。|
 
 ### OH_AVDemuxer_GetMediaKeySystemInfo()
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ```c
 OH_AVErrCode OH_AVDemuxer_GetMediaKeySystemInfo(OH_AVDemuxer *demuxer, DRM_MediaKeySystemInfo *mediaKeySystemInfo)

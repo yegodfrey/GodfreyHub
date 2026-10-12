@@ -14,6 +14,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode
 
 ## 35000001 音频模板创建失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to create the AVMusicTemplate.
@@ -31,6 +33,8 @@ Failed to create the AVMusicTemplate.
 重启设备。
 
 ## 35000002 音频模板控制器创建失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -51,6 +55,8 @@ Failed to create the AVMusicTemplate controller.
 
 ## 35000003 模板监听未注册
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Template listener not registered.
@@ -69,6 +75,8 @@ Template listener not registered.
 2. 检查应用内音频模板相关功能是否出现了异常。如AVMusicTemplate创建、控制器注册等。
 
 ## 35000004 未注册模板控制器回调
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -89,6 +97,8 @@ Controller callback not registered.
 
 ## 35000005 音频模板不存在
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 AVMusicTemplate does not exist.
@@ -107,6 +117,8 @@ AVMusicTemplate does not exist.
 2. 检查应用内其他核心功能是否出现了异常。
 
 ## 35000006 模板控制器不存在
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -127,6 +139,8 @@ AVMusicTemplateController不存在。
 
 ## 35000007 模板控制器已经存在
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 AVMusicTemplateController already exists.
@@ -145,6 +159,8 @@ AVMusicTemplateController已存在，不需要重复创建。
 
 ## 35000008 音频模板管理服务不存在
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 AVMusicTemplate Manager services do not exist.
@@ -162,6 +178,8 @@ AVMusicTemplate Manager services do not exist.
 重启设备。
 
 ## 35000009 音频模板管理服务异常
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -182,6 +200,8 @@ AVMusicTemplate Manager services exception.
 
 ## 35000010 数据超过了允许的最大传输容量
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The data exceeds the maximum allowable transmission capacity.
@@ -200,6 +220,8 @@ The data exceeds the maximum allowable transmission capacity.
 
 ## 35000011 数据写入错误，数据无效
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The data write error, data is invalid.
@@ -217,6 +239,8 @@ The data write error, data is invalid.
 检查待传输的数据是否存在不合法的属性或者值。
 
 ## 35000012 音频模板错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 

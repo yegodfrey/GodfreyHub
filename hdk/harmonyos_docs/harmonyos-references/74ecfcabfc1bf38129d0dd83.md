@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 定义了字体信息的相关接口，比如获取字体信息、查找和匹配指定字体、读取字体描述符属性以及获取字体的Unicode码和字体数量等。
 
 **引用文件：** <native_drawing/drawing_text_font_descriptor.h>
@@ -24,13 +26,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 结构体
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|:---------|
 |[OH_Drawing_FontVariationInstanceCoordinate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-fontvariationinstancecoordinate)|OH_Drawing_FontVariationInstanceCoordinate|可变字体属性键值对。|
 
 ### 枚举
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|typedef关键字|描述|
 |:------------------------------------------------------------------------------------------|:------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,6 +48,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 |[OH_Drawing_FontVariationInstanceAttributeId](#oh_drawing_fontvariationinstanceattributeid)|OH_Drawing_FontVariationInstanceAttributeId|字体可变实例属性的枚举。|
 
 ### 函数
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -76,7 +86,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-draw
 
 ## 枚举类型说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_Drawing_SystemFontType
+
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
 
 ```c
 enum OH_Drawing_SystemFontType
@@ -97,6 +111,8 @@ enum OH_Drawing_SystemFontType
 |CUSTOMIZED = 1 << 4|自定义字体类型。 **起始版本：** 18|
 
 ### OH_Drawing_FontFullDescriptorAttributeId
+
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
 
 ```c
 enum OH_Drawing_FontFullDescriptorAttributeId
@@ -135,6 +151,8 @@ enum OH_Drawing_FontFullDescriptorAttributeId
 
 ### OH_Drawing_FontVariationAxisAttributeId
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 enum OH_Drawing_FontVariationAxisAttributeId
 ```
@@ -157,6 +175,8 @@ enum OH_Drawing_FontVariationAxisAttributeId
 
 ### OH_Drawing_FontVariationInstanceAttributeId
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 enum OH_Drawing_FontVariationInstanceAttributeId
 ```
@@ -174,7 +194,11 @@ enum OH_Drawing_FontVariationInstanceAttributeId
 
 ## 函数说明
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### OH_Drawing_MatchFontDescriptors()
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_FontDescriptor* OH_Drawing_MatchFontDescriptors(OH_Drawing_FontDescriptor* desc, size_t* num)
@@ -207,6 +231,8 @@ OH_Drawing_FontDescriptor* OH_Drawing_MatchFontDescriptors(OH_Drawing_FontDescri
 
 ### OH_Drawing_DestroyFontDescriptors()
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_DestroyFontDescriptors(OH_Drawing_FontDescriptor* descriptors, size_t num)
 ```
@@ -227,6 +253,8 @@ void OH_Drawing_DestroyFontDescriptors(OH_Drawing_FontDescriptor* descriptors, s
 |size_t num|[OH_Drawing_FontDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-fontdescriptor)数组的成员个数。|
 
 ### OH_Drawing_GetFontDescriptorByFullName()
+
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
 
 ```c
 OH_Drawing_FontDescriptor* OH_Drawing_GetFontDescriptorByFullName(const OH_Drawing_String* fullName, OH_Drawing_SystemFontType fontType)
@@ -257,6 +285,8 @@ OH_Drawing_FontDescriptor* OH_Drawing_GetFontDescriptorByFullName(const OH_Drawi
 
 ### OH_Drawing_GetSystemFontFullNamesByType()
 
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
+
 ```c
 OH_Drawing_Array* OH_Drawing_GetSystemFontFullNamesByType(OH_Drawing_SystemFontType fontType)
 ```
@@ -282,6 +312,8 @@ OH_Drawing_Array* OH_Drawing_GetSystemFontFullNamesByType(OH_Drawing_SystemFontT
 |[OH_Drawing_Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array)*|返回对应字体类型的字体名称数组[OH_Drawing_Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array)的指针，不再需要[OH_Drawing_Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array)时，请使用[OH_Drawing_DestroySystemFontFullNames](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-font-descriptor-h#oh_drawing_destroysystemfontfullnames)接口释放该对象的指针。|
 
 ### OH_Drawing_GetSystemFontFullNameByIndex()
+
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
 
 ```c
 const OH_Drawing_String* OH_Drawing_GetSystemFontFullNameByIndex(OH_Drawing_Array* fullNameArray, size_t index)
@@ -310,6 +342,8 @@ const OH_Drawing_String* OH_Drawing_GetSystemFontFullNameByIndex(OH_Drawing_Arra
 
 ### OH_Drawing_DestroySystemFontFullNames()
 
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
+
 ```c
 void OH_Drawing_DestroySystemFontFullNames(OH_Drawing_Array* fullNameArray)
 ```
@@ -329,6 +363,8 @@ void OH_Drawing_DestroySystemFontFullNames(OH_Drawing_Array* fullNameArray)
 |[OH_Drawing_Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array)* fullNameArray|表示字体名称数组[OH_Drawing_Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array)的指针。|
 
 ### OH_Drawing_GetFontFullDescriptorsFromStream()
+
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
 
 ```c
 OH_Drawing_Array* OH_Drawing_GetFontFullDescriptorsFromStream(const void* data, size_t size)
@@ -357,6 +393,8 @@ OH_Drawing_Array* OH_Drawing_GetFontFullDescriptorsFromStream(const void* data, 
 
 ### OH_Drawing_GetFontFullDescriptorsFromPath()
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 ```c
 OH_Drawing_Array* OH_Drawing_GetFontFullDescriptorsFromPath(const char* path)
 ```
@@ -382,6 +420,8 @@ OH_Drawing_Array* OH_Drawing_GetFontFullDescriptorsFromPath(const char* path)
 |[OH_Drawing_Array*](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array)|返回指向对应字体文件的字体描述符数组[OH_Drawing_Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array)的指针，不再需要OH_Drawing_Array时，请使用[OH_Drawing_DestroyFontFullDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-font-descriptor-h#oh_drawing_destroyfontfulldescriptors)接口释放该对象的指针。 如果字体文件未找到、字体文件路径无效、字体文件无权限或者文件非字体格式，返回NULL。|
 
 ### OH_Drawing_GetFontFullDescriptorByIndex()
+
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
 
 ```c
 const OH_Drawing_FontFullDescriptor* OH_Drawing_GetFontFullDescriptorByIndex(OH_Drawing_Array* descriptorArray, size_t index)
@@ -410,6 +450,8 @@ const OH_Drawing_FontFullDescriptor* OH_Drawing_GetFontFullDescriptorByIndex(OH_
 
 ### OH_Drawing_DestroyFontFullDescriptors()
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 ```c
 void OH_Drawing_DestroyFontFullDescriptors(OH_Drawing_Array* descriptorArray)
 ```
@@ -430,6 +472,8 @@ void OH_Drawing_DestroyFontFullDescriptors(OH_Drawing_Array* descriptorArray)
 
 ### OH_Drawing_DestroyFontFullDescriptor()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_Drawing_DestroyFontFullDescriptor(const OH_Drawing_FontFullDescriptor* descriptor)
 ```
@@ -447,6 +491,8 @@ void OH_Drawing_DestroyFontFullDescriptor(const OH_Drawing_FontFullDescriptor* d
 |[const OH_Drawing_FontFullDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-fontfulldescriptor)* descriptor|表示指向字体描述符对象[OH_Drawing_FontFullDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-fontfulldescriptor)的指针。|
 
 ### OH_Drawing_GetFontFullDescriptorAttributeInt()
+
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_GetFontFullDescriptorAttributeInt(const OH_Drawing_FontFullDescriptor* descriptor, OH_Drawing_FontFullDescriptorAttributeId id, int* value)
@@ -476,6 +522,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontFullDescriptorAttributeInt(const OH_Drawi
 
 ### OH_Drawing_GetFontFullDescriptorAttributeBool()
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_GetFontFullDescriptorAttributeBool(const OH_Drawing_FontFullDescriptor* descriptor, OH_Drawing_FontFullDescriptorAttributeId id, bool* value)
 ```
@@ -503,6 +551,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontFullDescriptorAttributeBool(const OH_Draw
 |[OH_Drawing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcode)|函数执行结果。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INCORRECT_PARAMETER，表示参数descriptor或者value为空指针。 返回OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH，表示传入属性id与调用函数不匹配。|
 
 ### OH_Drawing_GetFontFullDescriptorAttributeString()
+
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_GetFontFullDescriptorAttributeString(const OH_Drawing_FontFullDescriptor* descriptor, OH_Drawing_FontFullDescriptorAttributeId id, OH_Drawing_String* str)
@@ -535,6 +585,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontFullDescriptorAttributeString(const OH_Dr
 
 ### OH_Drawing_GetFontUnicodeArrayFromFile()
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_GetFontUnicodeArrayFromFile(const char* fontSrc, uint32_t index, int32_t** unicodeArray, int32_t* arrayLength)
 ```
@@ -561,6 +613,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontUnicodeArrayFromFile(const char* fontSrc,
 |[OH_Drawing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcode)|函数执行结果。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INCORRECT_PARAMETER，表示传入字体路径非法、传入非字体文件或参数unicodeArray、arrayLength为NULL。|
 
 ### OH_Drawing_GetFontUnicodeArrayFromBuffer()
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_GetFontUnicodeArrayFromBuffer(uint8_t* fontBuffer, size_t length, uint32_t index, int32_t** unicodeArray, int32_t* arrayLength)
@@ -590,6 +644,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontUnicodeArrayFromBuffer(uint8_t* fontBuffe
 
 ### OH_Drawing_GetFontCountFromFile()
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 ```c
 uint32_t OH_Drawing_GetFontCountFromFile(const char* fontSrc)
 ```
@@ -613,6 +669,8 @@ uint32_t OH_Drawing_GetFontCountFromFile(const char* fontSrc)
 |uint32_t|字体数量。|
 
 ### OH_Drawing_GetFontCountFromBuffer()
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 ```c
 uint32_t OH_Drawing_GetFontCountFromBuffer(uint8_t* fontBuffer, size_t length)
@@ -639,6 +697,8 @@ uint32_t OH_Drawing_GetFontCountFromBuffer(uint8_t* fontBuffer, size_t length)
 
 ### OH_Drawing_GetFontPathsByType()
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 ```c
 OH_Drawing_String* OH_Drawing_GetFontPathsByType(OH_Drawing_SystemFontType fontType, size_t* pathCount)
 ```
@@ -663,6 +723,8 @@ OH_Drawing_String* OH_Drawing_GetFontPathsByType(OH_Drawing_SystemFontType fontT
 |[OH_Drawing_String*](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-string)|返回字体路径列表。不再需要时，请使用free释放该对象指针以及每个OH_Drawing_String对象内部持有的指针。|
 
 ### OH_Drawing_GetFontFullDescriptorAttributeArray()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 OH_Drawing_Array* OH_Drawing_GetFontFullDescriptorAttributeArray(const OH_Drawing_FontFullDescriptor* descriptor, OH_Drawing_FontFullDescriptorAttributeId id)
@@ -691,6 +753,8 @@ OH_Drawing_Array* OH_Drawing_GetFontFullDescriptorAttributeArray(const OH_Drawin
 
 ### OH_Drawing_GetFontVariationAxisByIndex()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_Drawing_FontVariationAxis* OH_Drawing_GetFontVariationAxisByIndex(OH_Drawing_Array* array, size_t index)
 ```
@@ -718,6 +782,8 @@ OH_Drawing_FontVariationAxis* OH_Drawing_GetFontVariationAxisByIndex(OH_Drawing_
 
 ### OH_Drawing_DestroyFontVariationAxis()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_Drawing_DestroyFontVariationAxis(OH_Drawing_Array* fontVariaAxisArray)
 ```
@@ -737,6 +803,8 @@ void OH_Drawing_DestroyFontVariationAxis(OH_Drawing_Array* fontVariaAxisArray)
 |[OH_Drawing_Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array)* fontVariaAxisArray|指向字体可变轴数组对象[OH_Drawing_Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array)的指针。|
 
 ### OH_Drawing_GetFontVariationAxisAttributeDouble()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_GetFontVariationAxisAttributeDouble(OH_Drawing_FontVariationAxis* variationAxis, OH_Drawing_FontVariationAxisAttributeId id, double *value)
@@ -766,6 +834,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontVariationAxisAttributeDouble(OH_Drawing_F
 
 ### OH_Drawing_GetFontVariationAxisAttributeInt()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_Drawing_ErrorCode OH_Drawing_GetFontVariationAxisAttributeInt(OH_Drawing_FontVariationAxis* variationAxis, OH_Drawing_FontVariationAxisAttributeId id, int *value)
 ```
@@ -793,6 +863,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontVariationAxisAttributeInt(OH_Drawing_Font
 |[OH_Drawing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcode)|函数执行结果。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INCORRECT_PARAMETER，表示参数variationAxis或者value为空指针。 返回OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH，表示传入属性id与调用函数不匹配。|
 
 ### OH_Drawing_GetFontVariationAxisAttributeStr()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_GetFontVariationAxisAttributeStr(OH_Drawing_FontVariationAxis* variationAxis, OH_Drawing_FontVariationAxisAttributeId id, OH_Drawing_String *str)
@@ -825,6 +897,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontVariationAxisAttributeStr(OH_Drawing_Font
 
 ### OH_Drawing_GetFontVariationInstanceByIndex()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_Drawing_FontVariationInstance* OH_Drawing_GetFontVariationInstanceByIndex(OH_Drawing_Array* array, size_t index)
 ```
@@ -852,6 +926,8 @@ OH_Drawing_FontVariationInstance* OH_Drawing_GetFontVariationInstanceByIndex(OH_
 
 ### OH_Drawing_DestroyFontVariationInstance()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 void OH_Drawing_DestroyFontVariationInstance(OH_Drawing_Array* fontVariaAxisInstance)
 ```
@@ -871,6 +947,8 @@ void OH_Drawing_DestroyFontVariationInstance(OH_Drawing_Array* fontVariaAxisInst
 |[OH_Drawing_Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array)* fontVariaAxisInstance|指向字体可变实例数组对象[OH_Drawing_Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-array)的指针。|
 
 ### OH_Drawing_GetFontVariationInstanceAttributeStr()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 OH_Drawing_ErrorCode OH_Drawing_GetFontVariationInstanceAttributeStr(OH_Drawing_FontVariationInstance* variationInstance, OH_Drawing_FontVariationInstanceAttributeId id, OH_Drawing_String* str)
@@ -903,6 +981,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetFontVariationInstanceAttributeStr(OH_Drawing_
 
 ### OH_Drawing_GetFontVariationInstanceCoordinate()
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 ```c
 OH_Drawing_FontVariationInstanceCoordinate* OH_Drawing_GetFontVariationInstanceCoordinate(OH_Drawing_FontVariationInstance* variationInstance, size_t* arrayLength)
 ```
@@ -929,6 +1009,8 @@ OH_Drawing_FontVariationInstanceCoordinate* OH_Drawing_GetFontVariationInstanceC
 |[OH_Drawing_FontVariationInstanceCoordinate*](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-fontvariationinstancecoordinate)|返回指向可变字体属性列表的指针，若variationInstance无效则返回NULL。|
 
 ### OH_Drawing_GetFontFullDescriptorByFullName()
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 ```c
 const OH_Drawing_FontFullDescriptor* OH_Drawing_GetFontFullDescriptorByFullName(const OH_Drawing_String* fullName, OH_Drawing_SystemFontType fontType)

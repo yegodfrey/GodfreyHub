@@ -57,7 +57,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-service-w
 
 2. 在**Choose a Template for Your Service Widget** 界面中，选择卡片模板，单击**Next**。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/UzfmR64dRAiYq_XEdFJQVw/zh-cn_image_0000002701822618.png?HW-CC-KV=V1&HW-CC-Date=20260928T063032Z&HW-CC-Expire=31536000000&HW-CC-Sign=2A1E69B2038D388BB5ABC9E29E7F1676405EA4CED21E3DB06FF035E98B6D12C5)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/MKLibH94SkCvRIUuXA2lqg/zh-cn_image_0000002701822618.png?HW-CC-KV=V1&HW-CC-Date=20261010T073010Z&HW-CC-Expire=31536000000&HW-CC-Sign=32F92322729A18070269FF5FC35A9D185C8F82992E9B4590E97432FF84260801)
 
 3. 在**Configure Your Service Widget**界面中，配置卡片的基本信息，包括：
 
@@ -70,7 +70,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-service-w
    * **Ability name：**选择一个挂靠卡片的Form Ability，或者创建一个新的Form Ability。
    * **Module name：**卡片所属的模块。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/xl5E-JdLQZGZ5Hty-Wh-uw/zh-cn_image_0000002731541887.png?HW-CC-KV=V1&HW-CC-Date=20260928T063032Z&HW-CC-Expire=31536000000&HW-CC-Sign=5F8C84E909DA3AC91D8BFDC985B8B2BFB9DFB1F780862E1B778B079DC1A5DD7B)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/i7WNBEqdRyGHzNtpZTezgg/zh-cn_image_0000002731541887.png?HW-CC-KV=V1&HW-CC-Date=20261010T073010Z&HW-CC-Expire=31536000000&HW-CC-Sign=CBB81C9CF953BDFADB55D87235CA0749C1DE3DD34626D7D2586BFBFBDC7A85F3)
 
 4. 单击**Finish** 完成卡片的创建。创建完成后，工具会自动创建出卡片的布局文件，并在form_config.json文件中写入服务卡片的属性字段，关于各字段的说明请参考[配置文件说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration)。
 5. 卡片创建完成后，请根据开发指导，完成卡片的开发，详情请参考[服务卡片开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget)。
@@ -79,7 +79,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-service-w
 
 在开发卡片过程中，支持对卡片进行实时预览。卡片通过ArkTS文件进行布局设计，在开发过程中，可以对布局文件进行实时预览，只要在布局文件中保存了修改的源代码，在预览器中就可以实时查看布局效果。在Phone和Tablet卡片的预览效果中，每个尺寸的卡片提供3种场景的预览效果，分别为极窄（Minimum）、默认（Default）、极宽(Maximum)，开发者应确保三种尺寸的显示效果均正常，以便适应不同屏幕尺寸的设备。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/NenY0ymzQrqsM7LnBeCSDQ/zh-cn_image_0000002701662698.png?HW-CC-KV=V1&HW-CC-Date=20260928T063032Z&HW-CC-Expire=31536000000&HW-CC-Sign=CFAEEECAD7FA08D703041B8FF23123592545EE2DBB9D854B03BF8DE19D82F337)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/_4MdqFNNRbSwUDC1RuHokw/zh-cn_image_0000002701662698.png?HW-CC-KV=V1&HW-CC-Date=20261010T073010Z&HW-CC-Expire=31536000000&HW-CC-Sign=46AED6DCE7F791E55194F8D8D9CBA671E6F69209F7CDA3B8EA61B66505D8E31A)
 
 关于预览器的使用详细说明请参考[界面预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-previewer-01)。
 

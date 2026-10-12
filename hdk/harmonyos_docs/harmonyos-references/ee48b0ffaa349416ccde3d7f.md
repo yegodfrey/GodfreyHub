@@ -14,6 +14,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugme
 
 ## 模块概述
 
+> 2in1
+
 RAG（Retrieval-Augmented Generation，检索增强生成）模块提供基于知识库的智能问答能力。其工作流程如下：
 
 1. 开发者通过[createRagSession](#createragsession)创建RagSession会话实例，同时配置大模型（Large Language Model，简称LLM）和检索相关参数。
@@ -27,7 +29,11 @@ RAG（Retrieval-Augmented Generation，检索增强生成）模块提供基于�
 
 ## 关键Class/Interface介绍
 
+> 2in1
+
 ### 核心类型概览
+
+> 2in1
 
 |名称|类型|说明|
 |:------------------------|:--|:--------------------------------------------------------------|
@@ -37,15 +43,21 @@ RAG（Retrieval-Augmented Generation，检索增强生成）模块提供基于�
 
 ### UML类图
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/-0dierMDR0m2YBiwBSDLgQ/zh-cn_image_0000002778934725.png?HW-CC-KV=V1&HW-CC-Date=20260929T121730Z&HW-CC-Expire=31536000000&HW-CC-Sign=899C8B569DCBC62C90D9379513CB1A090914140C5CDBBC31C1A8CD00A5CD385D)
+> 2in1
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/uxhAyeTWQzGn_6nmXzsMww/zh-cn_image_0000002784585275.png?HW-CC-KV=V1&HW-CC-Date=20261009T092741Z&HW-CC-Expire=31536000000&HW-CC-Sign=B62E82389E08D486BEB35E9719DFDFC0182AB53B468AA1D957FA095249FFF265)
 
 ## 导入模块
+
+> 2in1
 
 ```typescript
 import { rag } from '@kit.DataAugmentationKit';
 ```
 
 ## LLMStreamAnswer
+
+> 2in1 6.0.0(20)+
 
 大模型流式问答的单次结果。
 
@@ -62,6 +74,8 @@ import { rag } from '@kit.DataAugmentationKit';
 |err|[BusinessError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#businesserror)<string>|否|是|表示LLM流式输出过程中出现的错误。[code](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#businesserror)取值范围为[1021011000, 1021012000)，超过范围则会报错[1021000000](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dataaugmentation#section1021000000-系统资源不足或内存访问异常)。基类必选参数name和message的长度上限为1000字符，超出部分将被截断。不带本参数则认为无错误发生。|
 
 ## LLMRequestStatus
+
+> 2in1 6.0.0(20)+
 
 流式请求大语言模型请求状态的枚举值。
 
@@ -81,6 +95,8 @@ import { rag } from '@kit.DataAugmentationKit';
 
 ## LLMRequestInfo
 
+> 2in1 6.0.0(20)+
+
 流式请求大语言模型请求结果的信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -96,6 +112,8 @@ import { rag } from '@kit.DataAugmentationKit';
 
 ## ChatLLM
 
+> 2in1 6.0.0(20)+
+
 用于请求大模型的抽象类。开发者需继承此类并根据业务逻辑实现各接口逻辑。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -105,6 +123,8 @@ import { rag } from '@kit.DataAugmentationKit';
 **起始版本：** 6.0.0(20)
 
 ### streamChat
+
+> 2in1 6.0.0(20)+
 
 abstract streamChat(query: string, callback: Callback<LLMStreamAnswer>): Promise<LLMRequestInfo>
 
@@ -172,6 +192,8 @@ class MyChatLLM extends rag.ChatLLM {
 
 ### cancel
 
+> 2in1 6.0.0(20)+
+
 abstract cancel(chatId: number): void
 
 取消流式请求大语言模型，用于暂停与大语言模型交互。
@@ -211,6 +233,8 @@ class MyChatLLM extends rag.ChatLLM {
 ```
 
 ## Config
+
+> 2in1 6.0.0(20)+
 
 RAG会话的配置项。
 
@@ -254,6 +278,8 @@ let config: rag.Config = {
 
 ## Answer
 
+> 2in1 6.0.0(20)+
+
 流式问答的数据。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -268,6 +294,8 @@ let config: rag.Config = {
 |data|Array<[retrieval.ItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-retrieval-api#iteminfo)>|否|是|表示检索的匹配结果。最多返回600个chunk。|
 
 ## StreamType
+
+> 2in1 6.0.0(20)+
 
 流式问答回答的类型。
 
@@ -285,6 +313,8 @@ let config: rag.Config = {
 
 ## Stream
 
+> 2in1 6.0.0(20)+
+
 流式问答中一次回答的结果信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -301,6 +331,8 @@ let config: rag.Config = {
 
 ## RunConfig
 
+> 2in1 6.0.0(20)+
+
 流式问答的配置项。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -314,6 +346,8 @@ let config: rag.Config = {
 |answerTypes|Array<[StreamType](#streamtype)>|否|否|用于指定流式输出的数据类型。|
 
 ## FeedbackInfo
+
+> 2in1 6.0.0(20)+
 
 用户反馈信息。
 
@@ -332,6 +366,8 @@ let config: rag.Config = {
 
 ## RagSession
 
+> 2in1 6.0.0(20)+
+
 RAG会话，用以提供基于知识库的智能问答能力。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -341,6 +377,8 @@ RAG会话，用以提供基于知识库的智能问答能力。
 **起始版本：** 6.0.0(20)
 
 ### streamRun
+
+> 2in1 6.0.0(20)+
 
 streamRun(question: string, config: RunConfig, callback: AsyncCallback<Stream>): Promise<number>
 
@@ -428,6 +466,8 @@ if (session != null) {
 
 ### cancel
 
+> 2in1 6.0.0(20)+
+
 cancel(runId: number): Promise<void>
 
 取消本次问答，使用Promise异步回调。
@@ -480,6 +520,8 @@ if (session != null) {
 
 ### close
 
+> 2in1 6.0.0(20)+
+
 close(): Promise<void>
 
 关闭会话，使用Promise异步回调。
@@ -522,6 +564,8 @@ function WindowStageDestroy(): void {
 ```
 
 ## createRagSession
+
+> 2in1 6.0.0(20)+
 
 createRagSession(context: common.Context, config: Config): Promise<RagSession>
 
@@ -608,6 +652,8 @@ export default class EntryAbility extends UIAbility {
 ```
 
 ## feedback
+
+> 2in1 6.0.0(20)+
 
 feedback(context: common.Context, feedbackInfo: FeedbackInfo): Promise<void>
 

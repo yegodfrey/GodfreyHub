@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-fili
 
 1. 注册账号。个人或企业注册华为云账号的操作指导请参见[注册华为云账号并开通华为云服务](https://support.huaweicloud.com/usermanual-account/account_id_001.html)。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/hJqZvVXhQpmJ1oc-5W6BVA/zh-cn_image_0000001981087482.png?HW-CC-KV=V1&HW-CC-Date=20260909T164137Z&HW-CC-Expire=31536000000&HW-CC-Sign=776AB555B055A1E45225884D900193A2762C01922615E6EF60B7EC092CD74725)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/hJqZvVXhQpmJ1oc-5W6BVA/zh-cn_image_0000001981087482.png?HW-CC-KV=V1&HW-CC-Date=20261008T174006Z&HW-CC-Expire=31536000000&HW-CC-Sign=BF68D6A4A95D65FF83FC31A0C4C4AA1C1D639DFB221F13008E949BF613579E4E)
 2. 实名认证。个人或企业实名认证华为云账号的操作指导请参见[实名认证](https://support.huaweicloud.com/usermanual-account/account_auth_00001.html)。
 
 ## 获取APP ID

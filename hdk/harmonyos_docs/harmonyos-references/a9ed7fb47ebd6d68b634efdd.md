@@ -15,9 +15,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable
+
 仅支持单个子组件。
 
 ## 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)外，还支持如下属性：
 
@@ -32,6 +36,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 ### BadgeConfig
 
+> phone | 2in1 | tablet | tv | wearable
+
 |名称|类型|默认值|必填|描述|
 |:---------|:-------|:------|:-|:-----------|
 |badgeColor|<color>|#fa2a2d|否|新事件标记背景色。|
@@ -41,13 +47,19 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 ## 样式
 
+> phone | 2in1 | tablet | tv | wearable
+
 支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-styles)。
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-events)。
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```html
 <!-- xxx.hml -->
@@ -98,5 +110,5 @@ export default {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/ufOjjNQaS0SZqI7a5_G0Xw/zh-cn_image_0000002779094487.png?HW-CC-KV=V1&HW-CC-Date=20260929T121735Z&HW-CC-Expire=31536000000&HW-CC-Sign=F89063C2F3B75D6C96E3F8184F867132C92A980ACEDE448A9ADE8CFC2CEF2839)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/XVO5swEcQwO5euvXThMjAg/zh-cn_image_0000002755186316.png?HW-CC-KV=V1&HW-CC-Date=20261009T092755Z&HW-CC-Expire=31536000000&HW-CC-Sign=F03676E4A77D09F21C75C78C90810CE743A78F28046AA4562D50E03A10D1BD98)
 

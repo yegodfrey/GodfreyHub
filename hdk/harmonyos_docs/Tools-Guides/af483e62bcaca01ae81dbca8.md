@@ -13,11 +13,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/Tools-Guides/disc-io-metrics-0
 >
 > HarmonyOS 5.0及以上版本设备不支持该监控项。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/rFAfEGuCQiSZjULWoYVkAw/zh-cn_image_0000001928616793.png?HW-CC-KV=V1&HW-CC-Date=20260909T133428Z&HW-CC-Expire=31536000000&HW-CC-Sign=C8A0F2F946013709A2C182062332DFF22380867C0120075E1BCA695829DFF7AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/rFAfEGuCQiSZjULWoYVkAw/zh-cn_image_0000001928616793.png?HW-CC-KV=V1&HW-CC-Date=20261008T143425Z&HW-CC-Expire=31536000000&HW-CC-Sign=7CAE3ADB313DA714E30CC6C2E6BBFFB48C1FC91745861C22D9ECED8C9CDAFDB6)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/I5RyXD2VTXmnC7RK-8GLtg/zh-cn_image_0000001837974709.png?HW-CC-KV=V1&HW-CC-Date=20260909T133428Z&HW-CC-Expire=31536000000&HW-CC-Sign=BDDF45BDEE61175B7D0AA8A872AD967083CADF93DC31180D2E0CD265878D3830)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/I5RyXD2VTXmnC7RK-8GLtg/zh-cn_image_0000001837974709.png?HW-CC-KV=V1&HW-CC-Date=20261008T143425Z&HW-CC-Expire=31536000000&HW-CC-Sign=AFE60556FE777750CEA395FF48F6E9A864D955532E96711370F80D0DF95D85B7)
 
 要在跟踪中启用Disc I/O Metrics，必须包括以下数据源。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/9E8LqU1AQayu7Jkq3LYuIw/zh-cn_image_0000001837854761.png?HW-CC-KV=V1&HW-CC-Date=20260909T133428Z&HW-CC-Expire=31536000000&HW-CC-Sign=22E4C9965DD8E6C0815417A06B2D952F67D20900C102E38A385789CDA35FFCD2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/9E8LqU1AQayu7Jkq3LYuIw/zh-cn_image_0000001837854761.png?HW-CC-KV=V1&HW-CC-Date=20261008T143425Z&HW-CC-Expire=31536000000&HW-CC-Sign=9FFCF0A32567020813399884A7D7982A885ACAA807117350CA4BE7D8445248CA)
 

@@ -16,6 +16,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## WindowType^7+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 窗口类型枚举。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
@@ -29,6 +31,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |TYPE_MAIN^18+^|32|表示应用主窗口。 此窗口类型不支持在创建窗口时使用。|
 
 ## WindowPostureMode
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 窗口姿态模式枚举。
 
@@ -44,6 +48,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## AvoidAreaType^7+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 窗口内容的避让区域的类型枚举。
 
 窗口内容做[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/immersive-window-feature#沉浸式布局)适配时，需要按照AvoidAreaType对应的[AvoidArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#avoidarea7)做窗口内容避让。
@@ -58,6 +64,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |TYPE_FLOAT_NAVIGATION|5|表示三键导航区域。需要调用[setFloatNavigationAvoidAreaEnabled()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setfloatnavigationavoidareaenabled)接口使能后，才能获取到三键导航的避让区域，否则直接返回空的三键导航避让区域。 **系统能力：** SystemCapability.Window.SessionManager **起始版本：** 26.0.0 **模型约束：** 此接口仅可在Stage模型下使用。 **元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。|
 
 ## SplitRatioPreference
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 窗口分屏比例的类型枚举。
 
@@ -85,6 +93,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## Orientation^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 窗口显示方向类型枚举。
 
 |名称|值|说明|
@@ -110,6 +120,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## RectChangeReason^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 窗口矩形（窗口位置及窗口大小）变化的原因。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -128,6 +140,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## ColorSpace^8+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 色域模式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -140,6 +154,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |WIDE_GAMUT|1|广色域模式。|
 
 ## WindowEventType^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 窗口生命周期。
 
@@ -154,6 +170,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |WINDOW_DESTROYED^11+^|7|窗口销毁。 **系统能力：** SystemCapability.Window.SessionManager|
 
 ## WindowStatusType^11+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 窗口模式枚举。
 
@@ -172,6 +190,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## PixelUnit^22+^
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 像素单位枚举。
 
 物理像素单位和虚拟像素单位换算可使用[px2vp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#px2vp12)和[vp2px](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#vp2px12)。
@@ -185,6 +205,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## MaximizePresentation^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 窗口最大化时的布局枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -197,6 +219,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |ENTER_IMMERSIVE_DISABLE_TITLE_AND_DOCK_HOVER^14+^|3|最大化时，进入全屏模式，鼠标悬停在热区上不显示窗口标题栏和dock栏。 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。|
 
 ## AcrossDisplayPresentation
+
+> 2in1 26.0.0+
 
 折叠屏的跨屏策略枚举，用于控制折叠2in1设备在悬停态下主窗口最大化时的瀑布流模式行为。
 
@@ -214,6 +238,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## WindowAnimationCurve^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 窗口动画曲线类型。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -228,6 +254,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## WindowTransitionType^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+
+
 窗口转场动画类型枚举。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -240,6 +268,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## AnimationType^20+^
 
+> phone 20+ | tablet 20+
+
 窗口动画类型枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -249,6 +279,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |FADE_IN_OUT|0|表示窗口动画类型为淡入淡出。淡入动画在窗口显示过程中生效，淡出动画在窗口隐藏过程中生效。|
 
 ## WindowAnchor^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 窗口锚点枚举。
 
@@ -268,6 +300,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## RotationChangeType^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
+
 窗口旋转事件类型。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -281,6 +315,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## RectType^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
+
 窗口矩形区域坐标系类型。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -293,6 +329,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |RELATIVE_TO_PARENT_WINDOW|1|窗口矩形区域相对于父窗口坐标系。|
 
 ## GlobalWindowMode^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 窗口模式。
 
@@ -309,6 +347,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## OcclusionState^22+^
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 窗口可见性状态枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -320,6 +360,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 |FULL_OCCLUSION|2|窗口完全不可见（完全被其他非透明窗口遮挡，或窗口最小化，或窗口隐藏）。|
 
 ## WindowStageEventType^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 WindowStage生命周期状态枚举。
 
@@ -340,6 +382,8 @@ WindowStage生命周期状态枚举。
 
 ## WindowStageLifecycleEventType^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 WindowStage生命周期的状态类型枚举。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -355,6 +399,8 @@ WindowStage生命周期的状态类型枚举。
 
 ## ModalityType^14+^
 
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
+
 子窗口模态类型枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -367,6 +413,8 @@ WindowStage生命周期的状态类型枚举。
 |APPLICATION_MODALITY|1|除其父级窗口外还需要该应用其他实例的窗口不响应用户操作时，可选此参数。 **设备行为差异：** 该枚举在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用返回801错误码。|
 
 ## ScreenshotEventType^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 截屏事件类型枚举。
 
@@ -381,6 +429,8 @@ WindowStage生命周期的状态类型枚举。
 |SCROLL_SHOT_ABORT|4|滚动截屏中止。|
 
 ## OrientationExecutionResult
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 窗口显示方向的执行结果枚举。
 
@@ -399,6 +449,8 @@ WindowStage生命周期的状态类型枚举。
 |ORIENTATION_PENDING|2|设置的方向被挂起，等系统动画结束后，将生效。|
 
 ## RotationInfoType^23+^
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 旋转信息类型枚举。
 

@@ -15,6 +15,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 ## 属性
 
+> phone | 2in1 | tablet | tv | wearable
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)外，还支持如下属性：
 
 |名称|类型|默认值|必填|描述|
@@ -22,6 +24,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 |vertical|boolean|false|否|使用水平分割线还是垂直分割线，默认水平分割线。|
 
 ## 样式
+
+> phone | 2in1 | tablet | tv | wearable
 
 仅支持如下样式：
 
@@ -41,9 +45,13 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable
+
 不支持。
 
 ## 示例
+
+> phone | 2in1 | tablet | tv | wearable
 
 ```html
 <!-- xxx.hml -->
@@ -82,5 +90,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-servic
 
 **4*4卡片**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/h3VFqykTSd-htPeg7vmO2g/zh-cn_image_0000002778934637.png?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=AAC7C7C07E26CDC03AAAC10939D07B5FCC7F87054F25F665EDEAC6C6C3EEA494)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/VWoZ2enCTh6VaerVQhgoQA/zh-cn_image_0000002784585189.png?HW-CC-KV=V1&HW-CC-Date=20261009T092757Z&HW-CC-Expire=31536000000&HW-CC-Sign=E15EDD43E4E3214108995922F96CAF727EB7B76AD1F578FF974952C9462D460D)
 

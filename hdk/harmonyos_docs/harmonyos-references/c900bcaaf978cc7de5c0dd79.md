@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2
 
 ## 概述
 
+> phone | 2in1 | tablet
+
 定义通行密钥认证请求参数。
 
 **起始版本：** 6.0.0(20)
@@ -20,7 +22,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2
 
 ## 汇总
 
+> phone | 2in1 | tablet
+
 ### 成员变量
+
+> phone | 2in1 | tablet
 
 |名称|描述|
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|
@@ -34,7 +40,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2
 
 ## 结构体成员变量说明
 
+> phone | 2in1 | tablet
+
 ### allowCredentials
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 ```cpp
 FIDO2_PublicKeyCredentialDescriptorArray FIDO2_PublicKeyCredentialRequestOptions::allowCredentials
@@ -46,6 +56,8 @@ FIDO2_PublicKeyCredentialDescriptorArray FIDO2_PublicKeyCredentialRequestOptions
 
 ### challenge
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 ```cpp
 Uint8Buff FIDO2_PublicKeyCredentialRequestOptions::challenge
 ```
@@ -55,6 +67,8 @@ Uint8Buff FIDO2_PublicKeyCredentialRequestOptions::challenge
 挑战值。
 
 ### extensions
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 ```cpp
 char* FIDO2_PublicKeyCredentialRequestOptions::extensions
@@ -66,6 +80,8 @@ char* FIDO2_PublicKeyCredentialRequestOptions::extensions
 
 ### hints
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 ```cpp
 FIDO2_PublicKeyCredentialHintArray FIDO2_PublicKeyCredentialRequestOptions::hints
 ```
@@ -75,6 +91,8 @@ FIDO2_PublicKeyCredentialHintArray FIDO2_PublicKeyCredentialRequestOptions::hint
 认证方式指示。默认值为[]。可选。
 
 ### rpId
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 ```cpp
 char* FIDO2_PublicKeyCredentialRequestOptions::rpId
@@ -86,6 +104,8 @@ char* FIDO2_PublicKeyCredentialRequestOptions::rpId
 
 ### timeout
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 ```cpp
 uint32_t FIDO2_PublicKeyCredentialRequestOptions::timeout
 ```
@@ -95,6 +115,8 @@ uint32_t FIDO2_PublicKeyCredentialRequestOptions::timeout
 超时时间。单位为ms。默认为300000（5分钟），限制为0到600000（10分钟）。可选。
 
 ### userVerification
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 ```cpp
 FIDO2_UserVerificationRequirement FIDO2_PublicKeyCredentialRequestOptions::userVerification

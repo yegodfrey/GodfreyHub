@@ -15,11 +15,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-b
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```js
 import { common } from '@kit.ConnectivityKit';
 ```
 
 ## BluetoothAddress
+
+> phone 21+ | 2in1 21+ | tablet 21+ | tv 21+ | wearable 21+
 
 描述蓝牙设备地址信息的参数结构，包括地址与地址类型。
 
@@ -33,6 +37,8 @@ import { common } from '@kit.ConnectivityKit';
 
 ## BluetoothAddressType
 
+> phone 21+ | 2in1 21+ | tablet 21+ | tv 21+ | wearable 21+
+
 枚举，蓝牙子系统定义的地址类型。蓝牙设备的实际MAC地址属于用户的隐私信息，在发现设备的过程中，蓝牙子系统会给每个蓝牙外设分配一个虚拟MAC地址，并保存该虚拟MAC地址和外设实际MAC地址的映射关系。关于地址类型的详细介绍请参见[蓝牙设备地址类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bluetooth-overview#蓝牙设备地址类型)。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -43,6 +49,8 @@ import { common } from '@kit.ConnectivityKit';
 |REAL|2|实际MAC地址类型。|
 
 ## BluetoothRawAddressType^23+^
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 枚举，蓝牙协议定义的蓝牙设备地址类型。关于地址类型的详细介绍请参见[蓝牙设备地址类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bluetooth-overview#蓝牙设备地址类型)。
 

@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pen-point-pre
 
 在应用的自定义界面中，获取到界面的触摸事件，通过调用报点预测的接口，可以得到预测的下一个报点的位置信息。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/IToXLoEvTxKsioMA_Danvg/zh-cn_image_0000002749493076.png?HW-CC-KV=V1&HW-CC-Date=20260929T121702Z&HW-CC-Expire=31536000000&HW-CC-Sign=E30AA2F95A54750B8858C518F7F3F0E9EE2D504C23B4C9C821D7AA3501FB1669)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/u6RRE5PSQOKlFDq2k0ZD9A/zh-cn_image_0000002755024220.png?HW-CC-KV=V1&HW-CC-Date=20261009T092722Z&HW-CC-Expire=31536000000&HW-CC-Sign=D1E9C385ACDE510768958CEDAEDAA8614711DE92507500E65042557A9B2E6453)
 
 ## 接口说明
 

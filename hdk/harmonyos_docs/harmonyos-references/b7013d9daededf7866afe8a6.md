@@ -16,6 +16,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode
 
 ## 1001860000 用户取消当前操作
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The operation was canceled by the user.
@@ -33,6 +35,8 @@ The operation was canceled by the user.
 向用户提示，操作取消。
 
 ## 1001860001 内部错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -66,6 +70,8 @@ System internal error.
 
 ## 1001860002 应用未被授权访问接口
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The application is not authorized.
@@ -90,9 +96,13 @@ The application is not authorized.
 
 ## 1001860003 无效的商品信息
 
+> phone | 2in1 | tablet | tv | wearable
+
 根据实际错误原因的不同，系统会上报不同的错误信息，具体如下。
 
 ### Product status is not online.
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -112,6 +122,8 @@ Invalid product information. Failure reason: Product status is not online.
 
 ### The product type or product id does not match.
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Invalid product information. Failure reason: The product type or product id does not match.
@@ -129,6 +141,8 @@ Invalid product information. Failure reason: The product type or product id does
 请登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)网站，选择"APP与元服务 > 在应用列表中点击该商品的应用 > 运营 > 商品管理 > 商品列表"，请确认对应商品ID和商品类型是否正确，并确认商品价格已配置。
 
 ### The In-App Purchases Service is not activated.
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -148,6 +162,8 @@ IAP Kit开关未开启。
 
 ## 1001860004 接口访问过频
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Too frequent API calls.
@@ -165,6 +181,8 @@ Too frequent API calls.
 请控制接口调用频度。接口当前访问间隔时间默认为5s，后续IAP Kit可能会根据需要降低或提高速率限制。
 
 ## 1001860005 网络连接异常
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -184,6 +202,8 @@ Network connection error.
 
 ## 1001860007 商品所属的应用未在指定国家/地区上架
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The app to which the product belongs is not released in a specified location.
@@ -202,6 +222,8 @@ The app to which the product belongs is not released in a specified location.
 
 ## 1001860050 未登录华为账号
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The HUAWEI ID is not signed in.
@@ -219,6 +241,8 @@ The HUAWEI ID is not signed in.
 引导用户登录华为账号。
 
 ## 1001860051 由于已经拥有该商品，购买失败
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -242,6 +266,8 @@ Failed to purchase a product because the user already owns the product.
 
 ## 1001860052 由于未支付该商品，发货失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The purchase cannot be finished because the user has not paid for it.
@@ -264,6 +290,8 @@ The purchase cannot be finished because the user has not paid for it.
 
 ## 1001860053 此次购买已经完成发货，无需重复发货
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The purchase has been finished and cannot be finished again.
@@ -281,6 +309,8 @@ The purchase has been finished and cannot be finished again.
 可通过[queryPurchases](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-iap#iapquerypurchases)接口查询是否有该商品的确认发货记录。
 
 ## 1001860054 用户账号所在服务地不在IAP Kit支持结算的国家/地区中
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -300,6 +330,8 @@ The country or region of the signed-in HUAWEI ID does not support IAP.
 
 ## 1001860056 用户交易被拒绝
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The user is not allowed to make purchase.
@@ -317,6 +349,8 @@ The user is not allowed to make purchase.
 建议稍后重试或更换支付方式。
 
 ## 1001860057 当前应用不是debug签名的应用
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -340,6 +374,8 @@ The app provision type is not debug.
 
 ## 1001860058 登录的华为账号不是配置的测试账号
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The HUAWEI ID is not test account.
@@ -357,6 +393,8 @@ The HUAWEI ID is not test account.
 需要在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中的"用户与访问"中添加测试账号，具体请参见[沙盒测试中添加测试账号流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-sandbox#配置沙盒测试)。
 
 ## 1001860059 无效的优惠信息
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -376,6 +414,8 @@ Invalid promotional offer id.
 
 ## 1001860060 无效的签名信息
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Invalid purchase signature.
@@ -393,6 +433,8 @@ Invalid purchase signature.
 可参考[生成优惠签名购买参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-server-subscribe-offer-sign)进行签名过程处理。
 
 ## 1001860061 商品已退款或退款中
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -412,6 +454,8 @@ The purchase has been refunded or in refund.
 
 ## 1001860062 不允许退款
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Refund is not allowed.
@@ -430,6 +474,8 @@ Refund is not allowed.
 
 ## 1001860064 登录的华为账号上找不到该笔订单
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The purchase order is not found for the signed-in HUAWEI ID.
@@ -447,6 +493,8 @@ The purchase order is not found for the signed-in HUAWEI ID.
 建议检查手机登录的华为账号与订单所在的应用账号是否一致，或检查传入订单号是否有误。
 
 ## 1001860065 不支持该操作
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 

@@ -21,6 +21,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-api
 
 ## restoreDefault^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 restoreDefault(): void
 
 恢复默认的光标样式。
@@ -60,9 +62,11 @@ struct CursorControlExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/fzZEZk1XSFaL0zKvGsPliw/zh-cn_image_0000002778933391.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=1837BB61B642FE384099239C02588F1A9B25EC659DA1AD446191D3EDF92F0C96)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/t8v8tEQnS-OUh7vN9afw5A/zh-cn_image_0000002784584079.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092758Z&HW-CC-Expire=31536000000&HW-CC-Sign=83E3555E8185464D04A8C6E92DA9592F9B708E9B8E802C511F1E6E7B4D3765A6)
 
 ## setCursor^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setCursor(value: PointerStyle): void
 
@@ -112,9 +116,11 @@ struct CursorControlExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/DWq43eJkS6iUqtkCmYR-0g/zh-cn_image_0000002749334306.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=770A86D027FEA0F121A823C325FD9CBE123AFCD1734149736D4D913FE311CB39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/ag-pbTDCRgOx4Ya_YAqbbg/zh-cn_image_0000002784664261.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092758Z&HW-CC-Expire=31536000000&HW-CC-Sign=635763851BF49E3D900229F43F0996AD14A4AA4FA91FA37E4E60DFBB78E46E24)
 
 ## setCustomCursor
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 setCustomCursor(value: image.PixelMap, focusX?: number, focusY?: number): void
 
@@ -232,5 +238,5 @@ struct CustomCursorExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/i3TH6psoSfW0UyFvaWVcHQ/zh-cn_image_0000002749494192.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121737Z&HW-CC-Expire=31536000000&HW-CC-Sign=A389B0A528D827C21EB90AEFC5C54DCDA1D1299E5D27ED95E607EB0348C01668)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/qP1X6MPSQm2FWX1puK-aDg/zh-cn_image_0000002755025328.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092758Z&HW-CC-Expire=31536000000&HW-CC-Sign=97FC22EF1F2997C36603F1AA9DBBBEFFE10D40F4D3117FFED06DF532CBA6857B)
 

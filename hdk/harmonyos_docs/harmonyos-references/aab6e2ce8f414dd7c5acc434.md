@@ -19,15 +19,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arku
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { TipsDialog, SelectDialog, ConfirmDialog, AlertDialog, LoadingDialog, CustomContentDialog } from '@kit.ArkUI';
 ```
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable
+
 无
 
 ## TipsDialog
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 TipsDialog({controller: CustomDialogController, imageRes: ResourceStr | PixelMap, imageSize?: SizeOptions, title?: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, isChecked?: boolean, checkAction?: (isChecked: boolean) => void, onCheckedChange?: Callback<boolean>, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
@@ -55,6 +61,8 @@ TipsDialog({controller: CustomDialogController, imageRes: ResourceStr | PixelMap
 
 ## SelectDialog
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 SelectDialog({controller: CustomDialogController, title: ResourceStr, content?: ResourceStr, selectedIndex?: number, confirm?: ButtonOptions, radioContent: Array<SheetInfo>, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
 选择类弹出框，弹框中以列表或网格的形式提供可选的内容。
@@ -75,6 +83,8 @@ SelectDialog({controller: CustomDialogController, title: ResourceStr, content?: 
 |themeColorMode^12+^|[ThemeColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-foreground-blur-style#themecolormode枚举说明)|否|自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
 
 ## ConfirmDialog
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, isChecked?: boolean, onCheckedChange?: Callback<boolean>, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
@@ -99,6 +109,8 @@ ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?:
 
 ## AlertDialog
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 AlertDialog({controller: CustomDialogController, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, content: ResourceStr, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
 警告类弹出框，用于在触发一个将产生严重后果的不可逆操作（如删除、重置、取消编辑、停止等）时进行警告。
@@ -120,6 +132,8 @@ AlertDialog({controller: CustomDialogController, primaryTitle?: ResourceStr, sec
 
 ## LoadingDialog
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 LoadingDialog({Controller: CustomDialogController, content?: ResourceStr, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
 进度加载类弹出框，用于显示操作执行中的提示信息。
@@ -136,6 +150,8 @@ LoadingDialog({Controller: CustomDialogController, content?: ResourceStr, theme?
 |themeColorMode^12+^|[ThemeColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-foreground-blur-style#themecolormode枚举说明)|否|自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM **元服务API：** 从API version 12开始，该接口支持在元服务中使用。|
 
 ## CustomContentDialog^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 CustomContentDialog({controller: CustomDialogController, contentBuilder: () => void, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, localizedContentAreaPadding?: LocalizedPadding, contentAreaPadding?: Padding, buttons?: ButtonOptions[], theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
@@ -167,6 +183,8 @@ CustomContentDialog({controller: CustomDialogController, contentBuilder: () => v
 
 ## PopoverDialog^14+^
 
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
+
 PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callback<void>})
 
 跟手弹出框，基于目标组件位置弹出，上述的TipsDialog、SelectDialog、ConfirmDialog、AlertDialog、LoadingDialog、CustomContentDialog都可作为弹出框内容。
@@ -184,6 +202,8 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 |targetBuilder|[Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#callback12)<void>|是|@Require @BuilderParam|跟手弹出框基于的目标组件构建器函数，用于定义弹出框显示的参考位置组件。|
 
 ## ButtonOptions
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -206,6 +226,8 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 ## PopoverOptions^14+^
 
+> phone 14+ | 2in1 14+ | tablet 14+ | tv 19+ | wearable 18+
+
 跟手弹出框参数，用于设置弹出框内容、位置属性等。
 
 继承自[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)。
@@ -219,11 +241,17 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1（上图下文弹出框）
+
+> phone | 2in1 | tablet | tv | wearable
 
 上图下文弹出框，包含imageRes、content等内容。
 
@@ -276,9 +304,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/m7S1y4DpSPW9zPYgl81sDg/zh-cn_image_0000002749335164.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=9358DC191EEBEDAC8E193B6F62B0094B3766B901B964A8DE3CBC265305FFDAA3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/eDiXJDYQRZKweNYOzXrVtw/zh-cn_image_0000002784664981.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=E1E915D48B8350372351E197F07C85088A1304F517DE27067C0606AD9604950D)
 
 ### 示例2（纯列表弹出框）
+
+> phone | 2in1 | tablet | tv | wearable
 
 纯列表弹出框，包含selectedIndex、radioContent等内容。
 
@@ -343,9 +373,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/JMSxuJiwQhawuVy5JfmafA/zh-cn_image_0000002749495048.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=782B315C72D96DCFECCCC9C35113C2AE93D9B4B10A9E9C9337F758953D41D1DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/z4prkpdrQxGBV4kVdQMSiQ/zh-cn_image_0000002755026050.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=7B3C5A74E7B482FD8C5EA6FC5E510D6F68A1360007C8BF68513FA542D8391523)
 
 ### 示例3（文本与勾选弹出框）
+
+> phone | 2in1 | tablet | tv | wearable
 
 文本与勾选弹出框，包含content、checkTips等内容。
 
@@ -406,9 +438,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/t_jh9aRKStyAbexBFiOuOg/zh-cn_image_0000002779094105.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=EB748012AD1228DAD86A598F22C5A06909F29C9CD132C4778F1F6960A8AA04AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/lLPfbkz4QJq-VR8N5ue83Q/zh-cn_image_0000002755185934.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=1C68B9BFBDF3F767E05024B8521415424DF566537DE31DE5A87C27C09277185F)
 
 ### 示例4（纯文本弹出框）
+
+> phone | 2in1 | tablet | tv | wearable
 
 纯文本弹出框，包含primaryTitle、secondaryTitle、content等内容。
 
@@ -461,9 +495,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/o0tnQA1PQbas5wYDIz-zdQ/zh-cn_image_0000002778934249.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=625A383A734C5EF8522AFAF02FE17BF8A0AEAF655CCA1159B06C0B9D9AD5828F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/mNv8N-GNTNu4_TVIUUtgaQ/zh-cn_image_0000002784584801.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=E8AC524D19D68EECCB234BFD2A40254C81020EA4E549A4F9B79AAA9F5DD5FD6D)
 
 ### 示例5（进度加载类弹出框）
+
+> phone | 2in1 | tablet | tv | wearable
 
 进度加载类弹出框，包含content等内容。
 
@@ -502,9 +538,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/IMd66iwYS5q5vgKtwa1duA/zh-cn_image_0000002749335166.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=D385746BCDA88FC2C544327978E88637AF5FEFF74E53C742710FE33AF10886D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/hjfXoaHOSJ-9gmVY9-bXhQ/zh-cn_image_0000002784664983.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=C4DACD0EAC564D81EDE7FC81902097DC0E9A7C0F1E4F1D7F5EDE9D183D491B1D)
 
 ### 示例6（自定义主题风格弹出框）
+
+> phone | 2in1 | tablet | tv | wearable
 
 自定义主题风格弹出框，包含content、theme等内容。
 
@@ -559,9 +597,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/82dxpYu9TAS75KIj8ud9ng/zh-cn_image_0000002749495050.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=881601B0B92EC95823D04E377DA22057422B2EF2EF055B4995C1271C5B1585C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/va7Q7XU7RuiXckN8fMQvbQ/zh-cn_image_0000002755026052.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=A2DC15B48D7CC29B4425605FD37EDAD898FC065ED5CE1493290C5FD092569723)
 
 ### 示例7（自定义深浅色模式弹出框）
+
+> phone | 2in1 | tablet | tv | wearable
 
 自定义深浅色模式弹出框，包含content、themeColorMode等内容。
 
@@ -601,9 +641,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/fExRNJygT5aLSZe2dzwR-w/zh-cn_image_0000002779094107.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=98A67988FBBACF5EC25B57788CE17A86BF2B8364CC91AF8F36149C59137C201B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/cIhUBeukSUOL2uJSWYIS2A/zh-cn_image_0000002755185936.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=61DD8BB7F5CA2C9231E6C61B7216737F49360C7B0701596441407F9F60C75B7D)
 
 ### 示例8（自定义内容弹出框）
+
+> phone | 2in1 | tablet | tv | wearable
 
 支持自定义内容弹出框，包含contentBuilder、buttons等内容。
 
@@ -660,9 +702,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/wzJsBy_XSqK47jsAnvm6XA/zh-cn_image_0000002778934251.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=68D08D7D4BCEE0A25F18848BD8DFFFE24B1F8C13DB72B4A2F9E14023FE686810)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/eoJ1afiNQLGHIaScqUr9xA/zh-cn_image_0000002784584803.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=AF6EA2F90810271FFCAFA08B06FCCCD5F3F21D0DF330BE64CBCB961A3F8B8FC9)
 
 ### 示例9（跟手弹出框）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 14开始，该示例展示了设置跟手弹出框（警告弹出框为例），包含visible、popover、targetBuilder等内容。
 
@@ -721,9 +765,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/VTe9OOGnRGudC-WeKXgsEQ/zh-cn_image_0000002749335168.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=3534838CF9491E7FA6323141E725CEC3279BDF92E288279BFC9458D25284A796)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/jismQt8MSdOZVXyLxt5qZQ/zh-cn_image_0000002784664985.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=450DCA58571872C86F1069EB6A25D84A35D50EEF8BEAC562A649A037A7CD9E1C)
 
 ### 示例10（弹出框按钮设置默认获焦）
+
+> phone | 2in1 | tablet | tv | wearable
 
 从API version 18开始，该示例展示了设置默认获焦按钮弹出框（以AlertDialog为例），包含defaultFocus等内容。
 
@@ -773,5 +819,5 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/ONIoAlNOTUyKiAngxnnacA/zh-cn_image_0000002749495052.png?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=94C35E574B1765FC090F913934F897568E063DCAC35584758450B86E476F1131)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/DQ-xW72rSlCviEpbWHMmzg/zh-cn_image_0000002755026054.png?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=B1ECE94C35A42BB0A8A907A7F52061D8479D2329103227E1EC2FCB291450E45B)
 

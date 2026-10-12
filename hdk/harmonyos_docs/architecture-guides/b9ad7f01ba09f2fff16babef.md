@@ -14,7 +14,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/architecture-guides/red_envelo
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/j2K_XNSfQemNNDI47eY_GA/zh-cn_image_0000002631310546.gif?HW-CC-KV=V1&HW-CC-Date=20260924T065100Z&HW-CC-Expire=31536000000&HW-CC-Sign=6EDCBABCE7B37B0EA69E505F642D1CAC25AEAEEF778EF04E6B6ABA9558057D33 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/j2K_XNSfQemNNDI47eY_GA/zh-cn_image_0000002631310546.gif?HW-CC-KV=V1&HW-CC-Date=20261010T035230Z&HW-CC-Expire=31536000000&HW-CC-Sign=CBAE52DB00A240924632EF18C4BDF700672744CF4BD9B03CD25059E0DF3BF910 "点击放大")
 
 ## 实现思路
 

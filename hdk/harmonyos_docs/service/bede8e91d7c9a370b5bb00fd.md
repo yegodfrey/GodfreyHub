@@ -6,5 +6,5 @@ uri: https://developer.huawei.com/consumer/cn/doc/service/intents-kit313-0000002
 
 # 品牌专区
 
-* [功能简介](https://developer.huawei.com/consumer/cn/doc/service/intents-kit314-0000002537459053)  
-* [配置指南](https://developer.huawei.com/consumer/cn/doc/service/intents-kit315-0000002505659156)  
+* **[功能简介](https://developer.huawei.com/consumer/cn/doc/service/intents-kit314-0000002537459053)**   
+* **[配置指南](https://developer.huawei.com/consumer/cn/doc/service/intents-kit315-0000002505659156)**   

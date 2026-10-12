@@ -9,10 +9,12 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nati
 > phone 13+ | 2in1 13+ | tablet 13+ | tv 19+ | wearable 18+
 
 ```c
-typedef struct {...} OH_NativeBundle_ElementName
+typedef struct OH_NativeBundle_ElementName {...} OH_NativeBundle_ElementName
 ```
 
 ## 概述
+
+> phone | 2in1 | tablet | tv | wearable
 
 elementName信息。
 
@@ -24,7 +26,11 @@ elementName信息。
 
 ## 汇总
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 成员变量
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:----------------|:---------|

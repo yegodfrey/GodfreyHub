@@ -14,6 +14,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode
 
 ## 17100001 WebviewController没有和具体的Web组件关联
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Init error. The WebviewController must be associated with a Web component.
@@ -31,6 +33,8 @@ WebviewController还没有和具体的Web组件关联。
 请检查WebviewController对象是否已与Web组件关联，可以通过[onControllerAttached()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oncontrollerattached10)接口进行检查。详情可以参考[Web组件调用WebviewController相关接口报17100001错误](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-125)定位指南。
 
 ## 17100002 URL格式错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -58,6 +62,8 @@ URL错误，可能原因：
 
 ## 17100003 resource路径错误
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 1. Invalid resource path or file type.
@@ -80,6 +86,8 @@ URL错误，可能原因：
 
 ## 17100004 功能开关未打开
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Function not enabled.
@@ -97,6 +105,8 @@ Function not enabled.
 请检查相关功能开关是否已配置打开，如该功能对应的XXXAccess是否配置为true，或检测当前接口是否支持并发。
 
 ## 17100005 Cookie value格式错误
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -116,6 +126,8 @@ Cookie value格式错误。
 
 ## 17100006 无法注册message port回调
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to register a message event for the port.
@@ -134,6 +146,8 @@ port可能已经关闭。
 
 ## 17100008 删除不存在的JavaScriptProxy
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to delete JavaScriptProxy because it does not exist.
@@ -151,6 +165,8 @@ Failed to delete JavaScriptProxy because it does not exist.
 检查传入的JavaScriptProxy是否注册成功。
 
 ## 17100010 无法使用该端口发送消息
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -172,6 +188,8 @@ Failed to post messages through the port.
 
 ## 17100011 输入参数origin错误
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Invalid origin.The origin format must follow defined in RFC 6454.
@@ -191,6 +209,8 @@ Invalid origin.The origin format must follow defined in RFC 6454.
 检查输入的参数。
 
 ## 17100012 无可获取的webstorage源
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -212,6 +232,8 @@ Invalid web storage origin.
 
 ## 17100013 预连接时，输入socket数目无效
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The number of sockets to be preconnected is invalid.
@@ -229,6 +251,8 @@ The number of sockets to be preconnected is invalid.
 检查输入的socket的数目范围是否大于0且小于等于6。
 
 ## 17100014 类型和值不匹配
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -248,6 +272,8 @@ The type and value of the message do not match.
 
 ## 17100016 下载任务没有处于暂停状态
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The download task is not paused.
@@ -265,6 +291,8 @@ The download task is not paused.
 下载并没有被暂停，不需要恢复。
 
 ## 17100018 没有设置一个委托类来接收下载状态
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -284,6 +312,8 @@ No WebDownloadDelegate has been set yet.
 
 ## 17100019 下载还没开始
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 The download task is not started yet.
@@ -302,6 +332,8 @@ The download task is not started yet.
 
 ## 17100020 注册自定义协议失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to register custom schemes.
@@ -319,6 +351,8 @@ Failed to register custom schemes.
 注册自定义协议需要在ArkWeb引擎初始化之前设置。
 
 ## 17100021 WebResourceHandler已经失效
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -340,6 +374,8 @@ WebResourceHandler已经失效。
 
 ## 17100022 WebHttpBodyStream初始化失败
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Failed to initialize the HTTP body stream.
@@ -357,6 +393,8 @@ WebHttpBodyStream数据初始化失败。
 检查发起的POST等类型的请求中，携带的数据是否合法。
 
 ## 17100023 使用了不被允许的端口号
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 
@@ -376,6 +414,8 @@ The port number is not within the allowed range.
 
 ## 17100024 AIPageCommand格式错误
 
+> phone | 2in1 | tablet | tv | wearable
+
 **错误信息**
 
 Command format error. The command parameter does not conform to the JSON format requirements.
@@ -393,6 +433,8 @@ AIPageCommand参数格式错误。
 检查command参数是否为合法的JSON对象字符串，并确认JSON对象中包含字符串类型的method字段。
 
 ## 17100101 使用了错误的网络错误码
+
+> phone | 2in1 | tablet | tv | wearable
 
 **错误信息**
 

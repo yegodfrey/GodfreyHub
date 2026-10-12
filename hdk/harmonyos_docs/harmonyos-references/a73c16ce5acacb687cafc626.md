@@ -19,11 +19,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-e
 
 ## 导入模块
 
+> phone | 2in1 | tablet
+
 ```ts
 import { accountManager } from '@kit.MDMKit';
 ```
 
 ## accountManager.disallowOsAccountAddition
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 disallowOsAccountAddition(admin: Want, disallow: boolean, accountId?: number): void
 
@@ -79,6 +83,8 @@ try {
 ```
 
 ## accountManager.isOsAccountAdditionDisallowed
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 isOsAccountAdditionDisallowed(admin: Want, accountId?: number): boolean
 
@@ -139,6 +145,8 @@ try {
 
 ## accountManager.isOsAccountAdditionDisallowed
 
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+
+
 isOsAccountAdditionDisallowed(admin: Want | null, accountId?: number): boolean
 
 查询是否禁止用户添加账号。适用于企业审计和合规检查场景，帮助管理员确认账号策略执行情况。
@@ -190,6 +198,8 @@ try {
 ```
 
 ## accountManager.addOsAccountAsync
+
+> phone 12+ | 2in1 13+ | tablet 12+
 
 addOsAccountAsync(admin: Want, name: string, type: osAccount.OsAccountType): Promise<osAccount.OsAccountInfo>
 
@@ -254,6 +264,8 @@ accountManager.addOsAccountAsync(wantTemp, "TestAccountName", osAccount.OsAccoun
 ```
 
 ## accountManager.setDomainAccountPolicy^19+^
+
+> 2in1 19+
 
 setDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo, policy: DomainAccountPolicy): void
 
@@ -345,6 +357,8 @@ async function setDomainAccountPolicy() {
 
 ## accountManager.getDomainAccountPolicy^19+^
 
+> 2in1 19+
+
 getDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo): DomainAccountPolicy
 
 获取域账号策略。适用于企业管理场景，如查询当前域账号策略配置、策略合规性审计等。
@@ -434,6 +448,8 @@ async function getDomainAccountPolicy() {
 
 ## DomainAccountPolicy^19+^
 
+> phone 19+ | 2in1 19+ | tablet 19+
+
 域账号策略。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -447,6 +463,8 @@ async function getDomainAccountPolicy() {
 |passwordExpirationNotification|number|否|是|表示域账号密码过期前提示时间（单位：s），取值范围是[0, 2147483647]。 默认值为0，表示域账号密码过期不提示。 **说明：**passwordExpirationNotification需与passwordValidityPeriod配合使用，当系统时间大于或等于（设备侧最后一次修改域账号密码时间 + passwordValidityPeriod - passwordExpirationNotification）时，会发页面通知提示密码即将过期。|
 
 ## accountManager.createNormalOsAccount
+
+> phone 26.0.0+ | tablet 26.0.0+
 
 createNormalOsAccount(admin: Want, name: string): Promise<osAccount.OsAccountInfo>
 
@@ -516,6 +534,8 @@ accountManager.createNormalOsAccount(wantTemp, "TestAccountName").then((accountI
 
 ## accountManager.removeOsAccount
 
+> phone 26.0.0+ | tablet 26.0.0+
+
 removeOsAccount(admin: Want, accountId: number): Promise<void>
 
 移除系统账号。使用Promise异步回调。当前仅支持手机、平板设备使用，可以移除使用[createNormalOsAccount](#accountmanagercreatenormalosaccount)创建的普通系统账号（normal类型）和[addOsAccountAsync](#accountmanageraddosaccountasync)创建的系统账号（admin、normal、guest类型），不可移除默认系统账号（ID为100）。
@@ -583,6 +603,8 @@ accountManager.createNormalOsAccount(wantTemp, "TestAccountName").then((accountI
 ```
 
 ## accountManager.activateOsAccount
+
+> phone 26.0.0+ | tablet 26.0.0+
 
 activateOsAccount(admin: Want, accountId: number): Promise<void>
 

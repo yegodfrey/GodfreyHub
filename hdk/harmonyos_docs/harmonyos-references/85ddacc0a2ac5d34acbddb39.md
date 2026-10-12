@@ -14,6 +14,8 @@ typedef struct OH_Drawing_LineTypography OH_Drawing_LineTypography
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 用于从一段文字中提取单行数据进行排版。
 
 **起始版本：** 18

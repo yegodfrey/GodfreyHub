@@ -10,7 +10,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-vecto
 
 按元素取自然指数，计算公式如下，其中PAR表示矢量计算单元一个迭代能够处理的元素个数：
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/um5S8AKaSVuHt20Fc_M8KA/zh-cn_image_0000002779093049.png?HW-CC-KV=V1&HW-CC-Date=20260929T121645Z&HW-CC-Expire=31536000000&HW-CC-Sign=DFC89F0CF58B56A01518DE77B1A7B6599F199FBDCE82CFCD7109A785FBF3E137)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/W71C-JOZQduF97SLGpANEw/zh-cn_image_0000002755185014.png?HW-CC-KV=V1&HW-CC-Date=20261009T092703Z&HW-CC-Expire=31536000000&HW-CC-Sign=898304E7C09DF2596734B057ABD5675534F1A5808A1A89365D7AE7B81F9F1CBE)
 
 ## 函数原型
 

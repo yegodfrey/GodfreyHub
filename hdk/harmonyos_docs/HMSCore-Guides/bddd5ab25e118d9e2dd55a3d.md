@@ -21,7 +21,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/guide-webpage-0
 
 用户点击"添加到华为钱包"按钮后，会发送包含用户特有信息的JWE实例到华为服务器。华为服务器收到后，关联模板，生成实际的卡券并与华为帐号关联，用户可以在华为钱包中查看此卡券。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/5ZOtSZdpTOO3R4J3xpdNFw/zh-cn_image_0000001050755145.png?HW-CC-KV=V1&HW-CC-Date=20260909T182234Z&HW-CC-Expire=31536000000&HW-CC-Sign=92BE2E53798708D2194780E529ED8ECCF9FFE38C9B74A9827BD22B47D1329BE7 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/5ZOtSZdpTOO3R4J3xpdNFw/zh-cn_image_0000001050755145.png?HW-CC-KV=V1&HW-CC-Date=20261008T192416Z&HW-CC-Expire=31536000000&HW-CC-Sign=9ADCC8BB5E7271884B442C95463DC4224F168733EFE673F82175085EB12B03FC "点击放大")
 
 具体步骤如下：
 

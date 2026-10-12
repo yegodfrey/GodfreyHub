@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2
 
 ## 概述
 
+> phone | 2in1 | tablet
+
 创建新凭据时用户的属性。
 
 **起始版本：** 6.0.0(20)
@@ -20,7 +22,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2
 
 ## 汇总
 
+> phone | 2in1 | tablet
+
 ### 成员变量
+
+> phone | 2in1 | tablet
 
 |名称|描述|
 |:---------------------------------------------------------------------------------------------------|:------------------|
@@ -30,7 +36,11 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2
 
 ## 结构体成员变量说明
 
+> phone | 2in1 | tablet
+
 ### displayName
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 ```cpp
 char* FIDO2_PublicKeyCredentialUserEntity::displayName
@@ -42,6 +52,8 @@ char* FIDO2_PublicKeyCredentialUserEntity::displayName
 
 ### id
 
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
+
 ```cpp
 Uint8Buff FIDO2_PublicKeyCredentialUserEntity::id
 ```
@@ -51,6 +63,8 @@ Uint8Buff FIDO2_PublicKeyCredentialUserEntity::id
 凭据的标识符。
 
 ### name
+
+> phone 6.0.0(20)+ | 2in1 6.0.0(20)+ | tablet 6.0.0(20)+
 
 ```cpp
 char* FIDO2_PublicKeyCredentialUserEntity::name

@@ -14,6 +14,8 @@ typedef struct OH_CryptoSymKeyGenerator OH_CryptoSymKeyGenerator
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 对称密钥生成器结构体，表示对称密钥生成器。
 
 **起始版本：** 12

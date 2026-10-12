@@ -17,11 +17,15 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-a
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColors } from '@kit.ArkUI';
 ```
 
 ## Theme
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 当前生效的主题风格对象，可从[onWillApplyTheme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onwillapplytheme12)中获取。
 
@@ -34,6 +38,8 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 |colors|[Colors](#colors)|否|否|主题颜色资源。|
 
 ## Colors
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 主题颜色资源。
 
@@ -101,6 +107,8 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 
 ## CustomTheme
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 自定义主题风格对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -111,6 +119,8 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 |darkColors^20+^|[CustomDarkColors](#customdarkcolors20)|否|是|自定义深色主题颜色资源。 **说明**：如果未设置darkColors，颜色值将与浅色模式下的colors配置相同，并且不会随着颜色模式的变化而变化，除非该颜色是通过dark目录下的资源进行设置的。 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。|
 
 ## CustomColors
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type CustomColors = Partial<Colors>
 
@@ -126,6 +136,8 @@ type CustomColors = Partial<Colors>
 
 ## CustomDarkColors^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 type CustomDarkColors = Partial<Colors>
 
 自定义深色主题颜色资源类型。
@@ -140,6 +152,8 @@ type CustomDarkColors = Partial<Colors>
 
 ## ThemeControl
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 ThemeControl将自定义Theme应用于App组件内，实现App组件风格跟随Theme切换。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -147,6 +161,8 @@ ThemeControl将自定义Theme应用于App组件内，实现App组件风格跟随
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 ### setDefaultTheme
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 setDefaultTheme(theme: CustomTheme): void
 
@@ -164,7 +180,11 @@ setDefaultTheme(theme: CustomTheme): void
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1（使用setDefaultTheme）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例主要演示[ThemeControl](#themecontrol).[setDefaultTheme](#setdefaulttheme)的使用。
 
@@ -218,11 +238,13 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/XPjpMJl5QMOHSr5EqHbslQ/zh-cn_image_0000002779093245.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=E8A27FE97AC0DD32725D702D4F9D4582D0CD5E407D592126BD07681521B0FCAF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/3Ll84pllRTat5xLUD51beA/zh-cn_image_0000002755185210.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=EB78006286708CDCCAA53115C14423B2EE5FB970516B943877F3513DAF0D8E5F)
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/gXrYYh5XQD-xofzaCrkfVA/zh-cn_image_0000002778933389.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=9A435D525F2FF5E3AE8B81165292D218B1C4D61C926A7CF01AD5C5B3DBD05FAB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/Lig1uzzvSHmpve5T_epTnA/zh-cn_image_0000002784584077.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=5A5F99495CEE7747F246814B187B3E6A83DEDED5A5770AEE5C268F49872C7F7B)
 
 ### 示例2（设置组件主题色）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例主要演示使用[Colors](#colors)中的brand、primary、onPrimary和container设置组件主题色。
 
@@ -282,5 +304,5 @@ struct TextPage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/m2PJOovaQAKlEASJxU7p0g/zh-cn_image_0000002749334304.png?HW-CC-KV=V1&HW-CC-Date=20260929T121726Z&HW-CC-Expire=31536000000&HW-CC-Sign=9A171782F22A2FEDF0232B55F62CCB043177B841A640626A486B5C215D7C8C4F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/hmZJUoCZTI6-QUnSABVfRw/zh-cn_image_0000002784664259.png?HW-CC-KV=V1&HW-CC-Date=20261009T092750Z&HW-CC-Expire=31536000000&HW-CC-Sign=163EBA5C2AC265E5F6C814BDFA9811DC7EC80D5A767A0E7391E6A0C4D6E23563)
 

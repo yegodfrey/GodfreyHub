@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-817
 
 ## 效果预览
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/4QFCj_2vSPSoS0Cdw2YfFA/zh-cn_image_0000002658917119.png?HW-CC-KV=V1&HW-CC-Date=20260929T074340Z&HW-CC-Expire=31536000000&HW-CC-Sign=BC29A332CE88DA6A2B94F1E1D77D519F407F7A94714F52633320A68EAE896823 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/4QFCj_2vSPSoS0Cdw2YfFA/zh-cn_image_0000002658917119.png?HW-CC-KV=V1&HW-CC-Date=20261008T183406Z&HW-CC-Expire=31536000000&HW-CC-Sign=B5B41D52E3C05C158A496CD989E982D2ED6860BC0E28546E33D168B8F18503C6 "点击放大")
 
 ## 解决方案
 

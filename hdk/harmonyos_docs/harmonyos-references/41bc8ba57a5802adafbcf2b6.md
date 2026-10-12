@@ -19,6 +19,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-contai
 
 ## 子组件
 
+> phone | 2in1 | tablet | tv | wearable
+
 可以包含子组件。
 > 说明
 >
@@ -33,6 +35,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-contai
 > * 在包含大量子组件的场景中，建议采用懒加载、缓存数据、预加载数据和组件复用等方法，以优化Swiper的性能并减少内存占用。最佳实践请参考[优化Swiper组件加载慢丢帧问题](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-swiper_high_performance_development_guide)。
 
 ## 接口
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 Swiper(controller?: SwiperController)
 
@@ -52,12 +56,16 @@ Swiper(controller?: SwiperController)
 
 ## 属性
 
+> phone | 2in1 | tablet | tv | wearable
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 > 说明
 >
 > Swiper组件通用属性[clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clip12)的默认值为true。
 
 ### index
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 index(value: number)
 
@@ -79,6 +87,8 @@ index(value: number)
 
 ### autoPlay
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 autoPlay(value: boolean)
 
 设置子组件是否自动播放。轮播方向为索引从小到大。
@@ -98,6 +108,8 @@ autoPlay(value: boolean)
 |value|boolean|是|子组件是否自动播放。 true：自动播放；false：不自动播放。 传入非法值时，按false处理。|
 
 ### autoPlay^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 autoPlay(autoPlay: boolean, options: AutoPlayOptions)
 
@@ -122,6 +134,8 @@ autoPlay(autoPlay: boolean, options: AutoPlayOptions)
 
 ### indicator
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 indicator(value: DotIndicator | DigitIndicator | boolean)
 
 设置可选导航点指示器样式。
@@ -139,6 +153,8 @@ indicator(value: DotIndicator | DigitIndicator | boolean)
 |value|[DotIndicator](#dotindicator10)^10+^ | [DigitIndicator](#digitindicator10)^10+^ | boolean|是|可选导航点指示器样式。 - DotIndicator：圆点指示器样式。 - DigitIndicator：数字指示器样式。 - boolean：是否启用导航点指示器。设置为true启用，false不启用。 默认值：true 默认类型：DotIndicator|
 
 ### indicator^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean)
 
@@ -163,6 +179,8 @@ indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicato
 
 ### nestedScroll^11+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 nestedScroll(value: SwiperNestedScrollMode)
 
 设置Swiper组件和父组件的嵌套滚动模式。[loop](#loop)为true时Swiper组件没有边缘，不会触发父组件嵌套滚动。
@@ -183,6 +201,8 @@ nestedScroll(value: SwiperNestedScrollMode)
 |value|[SwiperNestedScrollMode](#swipernestedscrollmode11枚举说明)|是|Swiper组件和父组件的嵌套滚动模式。 传入非法值时，按SwiperNestedScrollMode.SELF_ONLY处理。|
 
 ### loop
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 loop(value: boolean)
 
@@ -205,6 +225,8 @@ loop(value: boolean)
 
 ### effectMode^8+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 effectMode(value: EdgeEffect)
 
 设置边缘滑动效果，[loop](#loop)为false或Swiper视窗内一屏显示所有子节点时生效。调用[SwiperController.changeIndex()](#changeindex12)、[SwiperController.showNext()](#shownext)和[SwiperController.showPrevious()](#showprevious)接口跳转至首尾页时不生效回弹。
@@ -223,6 +245,8 @@ effectMode(value: EdgeEffect)
 
 ### interval
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 interval(value: number)
 
 设置使用自动播放时播放的时间间隔。
@@ -240,6 +264,8 @@ interval(value: number)
 |value|number|是|自动播放时播放的时间间隔。当该值小于[duration](#duration)属性值时，翻页完成后会立即开始下一次轮播。 默认值：3000 单位：毫秒 取值范围：[0, +∞)，设置小于0的值时，按照默认值处理。|
 
 ### duration
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 duration(value: number)
 
@@ -261,6 +287,8 @@ curve默认曲线为[interpolatingSpring](https://developer.huawei.com/consumer/
 
 ### curve^8+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 curve(value: Curve | string | ICurve)
 
 设置Swiper的动画曲线，默认为弹簧插值曲线，常用曲线参考[Curve枚举说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#curve)，也可以通过[插值计算](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-curve)模块提供的接口创建自定义的插值曲线对象。
@@ -279,6 +307,8 @@ curve(value: Curve | string | ICurve)
 
 ### vertical
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 vertical(value: boolean)
 
 设置是否为纵向滑动。
@@ -296,6 +326,8 @@ vertical(value: boolean)
 |value|boolean|是|是否为纵向滑动。true为纵向滑动，false为横向滑动。 默认值：false|
 
 ### itemSpace
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 itemSpace(value: number | string)
 
@@ -316,6 +348,8 @@ itemSpace(value: number | string)
 |value|number | string|是|子组件与子组件之间间隙。 默认值：0 取值范围：[0, +∞)，当设置数值小于0或超出Swiper组件宽度范围时，按照默认值处理。|
 
 ### cachedCount^8+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 cachedCount(value: number)
 
@@ -340,6 +374,8 @@ cachedCount(value: number)
 
 ### cachedCount^15+^
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 cachedCount(count: number, isShown: boolean)
 
 设置预加载子组件个数。
@@ -363,6 +399,8 @@ cachedCount(count: number, isShown: boolean)
 |isShown|boolean|是|预加载范围内的节点是否进行绘制，不下渲染树。 true：预加载范围内的节点进行绘制；false：预加载范围内的节点不进行绘制。 传入非法值时，按false处理。|
 
 ### cachedCount^24+^
+
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
 
 cachedCount(count: number, options: CachedCountOptions)
 
@@ -390,6 +428,8 @@ cachedCount(count: number, options: CachedCountOptions)
 
 ### disableSwipe^8+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 disableSwipe(value: boolean)
 
 设置禁用组件滑动切换功能。
@@ -407,6 +447,8 @@ disableSwipe(value: boolean)
 |value|boolean|是|禁用组件滑动切换功能。设置为true禁用，false不禁用。 默认值：false|
 
 ### displayCount^8+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 displayCount(value: number | string | SwiperAutoFill, swipeByGroup?: boolean)
 
@@ -455,6 +497,8 @@ displayCount(value: number | string | SwiperAutoFill, swipeByGroup?: boolean)
 
 ### displayCount^22+^
 
+> phone 22+ | 2in1 22+ | tablet 22+ | tv 22+ | wearable 22+
+
 displayCount(value: number | string | SwiperAutoFill | ItemFillPolicy, swipeByGroup?: boolean)
 
 设置Swiper视窗内元素显示个数。
@@ -494,6 +538,8 @@ displayCount(value: number | string | SwiperAutoFill | ItemFillPolicy, swipeByGr
 
 ### displayArrow^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 displayArrow(value: ArrowStyle | boolean, isHoverShow?: boolean)
 
 设置导航点箭头样式。
@@ -516,6 +562,8 @@ displayArrow(value: ArrowStyle | boolean, isHoverShow?: boolean)
 
 ### displayMode
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 displayMode(value: SwiperDisplayMode)
 
 设置主轴方向上元素排列的模式，优先以[displayCount](#displaycount8)设置的个数显示，displayCount未设置时本属性生效。
@@ -533,6 +581,8 @@ displayMode(value: SwiperDisplayMode)
 |value|[SwiperDisplayMode](#swiperdisplaymode枚举说明)|是|主轴方向上元素排列的模式。 默认值：SwiperDisplayMode.STRETCH|
 
 ### nextMargin^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 nextMargin(value: Length, ignoreBlank?:boolean)
 
@@ -562,6 +612,8 @@ nextMargin(value: Length, ignoreBlank?:boolean)
 
 ### prevMargin^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 prevMargin(value: Length, ignoreBlank?:boolean)
 
 设置前边距，用于露出前一项的一小部分，使用效果可以参考[示例1](#示例1设置导航点交互及翻页动效)设置导航点交互及翻页动效。仅当Swiper子组件的布局方式为拉伸时生效，主要包括两种场景：1、displayMode属性设置为SwiperDisplayMode.STRETCH；2、displayCount属性设置为number类型。
@@ -590,6 +642,8 @@ prevMargin(value: Length, ignoreBlank?:boolean)
 
 ### indicatorInteractive^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 indicatorInteractive(value: boolean)
 
 设置组件导航点是否可交互。
@@ -607,6 +661,8 @@ indicatorInteractive(value: boolean)
 |value|boolean|是|导航点是否可交互。 true：导航点可交互；false：导航点不可交互。 传入参数非法时，按true处理。|
 
 ### pageFlipMode^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 pageFlipMode(mode: Optional<PageFlipMode>)
 
@@ -627,6 +683,8 @@ pageFlipMode(mode: Optional<PageFlipMode>)
 |mode|[Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[PageFlipMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#pageflipmode15)>|是|鼠标滚轮翻页模式。 取undefined时，按取值为PageFlipMode.CONTINUOUS处理。|
 
 ### maintainVisibleContentPosition^20+^
+
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
 
 maintainVisibleContentPosition(enabled: boolean)
 
@@ -650,6 +708,8 @@ maintainVisibleContentPosition(enabled: boolean)
 
 ### indicatorStyle^(deprecated)^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 indicatorStyle(value?: IndicatorStyle)
 
 设置导航点样式。
@@ -667,6 +727,8 @@ indicatorStyle(value?: IndicatorStyle)
 
 ## SwiperDisplayMode枚举说明
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 Swiper在主轴上的尺寸大小模式枚举。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -679,6 +741,8 @@ Swiper在主轴上的尺寸大小模式枚举。
 |AUTO_LINEAR^(deprecated)^|1|Swiper滑动一页的宽度为视窗内最左侧子组件的宽度。此枚举表现形式与[displayCount](#displaycount8)中使用string类型，将值设置为auto表现一致，具体可参考[displayCount](#displaycount8)说明。 **说明** ：从API version 10开始支持，从API version 12开始废弃，建议使用[Scroller.scrollTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollto)替代。 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。 **模型约束：** 此接口仅可在Stage模型下使用。|
 
 ## SwiperNestedScrollMode^11+^枚举说明
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 Swiper组件和父组件的嵌套滚动模式枚举。
 
@@ -695,6 +759,8 @@ Swiper组件和父组件的嵌套滚动模式枚举。
 
 ## SwiperController
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 Swiper容器组件的控制器，可以将此对象绑定至Swiper组件，实现控制Swiper翻页等功能。
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
@@ -704,6 +770,8 @@ Swiper容器组件的控制器，可以将此对象绑定至Swiper组件，实�
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 ### constructor
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 
@@ -717,6 +785,8 @@ SwiperController的构造函数。
 
 ### showNext
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 showNext()
 
 翻至下一页。翻页带动效切换过程，时长通过Swiper的[duration](#duration)属性设置。
@@ -729,6 +799,8 @@ showNext()
 
 ### showPrevious
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 showPrevious()
 
 翻至上一页。翻页带动效切换过程，时长通过Swiper的[duration](#duration)属性设置。
@@ -740,6 +812,8 @@ showPrevious()
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 ### changeIndex^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 changeIndex(index: number, useAnimation?: boolean)
 
@@ -761,6 +835,8 @@ changeIndex(index: number, useAnimation?: boolean)
 |useAnimation|boolean|否|设置翻至指定页面时是否有动效，true表示有动效，false表示没有动效。 默认值：false。|
 
 ### changeIndex^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 changeIndex(index: number, animationMode?: SwiperAnimationMode | boolean)
 
@@ -786,6 +862,8 @@ changeIndex(index: number, animationMode?: SwiperAnimationMode | boolean)
 
 ### finishAnimation
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 finishAnimation(callback?: VoidCallback)
 
 停止播放动画。
@@ -803,6 +881,8 @@ finishAnimation(callback?: VoidCallback)
 |callback|[VoidCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#voidcallback12)|否|动画结束的回调。|
 
 ### preloadItems^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 preloadItems(indices: Optional<Array<number>>): Promise<void>
 
@@ -846,6 +926,8 @@ preloadItems(indices: Optional<Array<number>>): Promise<void>
 
 ### startFakeDrag^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 startFakeDrag(): boolean
 
 开启模拟拖拽功能。
@@ -870,6 +952,8 @@ startFakeDrag(): boolean
 |boolean|是否开启模拟拖拽功能。 true表示开启模拟拖拽功能成功；false表示开启模拟拖拽功能失败。|
 
 ### fakeDragBy^23+^
+
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
 
 fakeDragBy(offset: number): boolean
 
@@ -904,6 +988,8 @@ fakeDragBy(offset: number): boolean
 
 ### stopFakeDrag^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 stopFakeDrag(): boolean
 
 关闭模拟拖拽功能。
@@ -927,6 +1013,8 @@ stopFakeDrag(): boolean
 
 ### isFakeDragging^23+^
 
+> phone 23+ | 2in1 23+ | tablet 23+ | tv 23+ | wearable 23+
+
 isFakeDragging(): boolean
 
 获取是否在模拟拖拽中的状态。
@@ -947,6 +1035,8 @@ isFakeDragging(): boolean
 
 ## SwiperAnimationMode^15+^枚举说明
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 Swiper组件翻页至指定页面的动效模式。
 
 **卡片能力：** 从API version 15开始，该接口支持在ArkTS卡片中使用。
@@ -965,6 +1055,8 @@ Swiper组件翻页至指定页面的动效模式。
 
 ## Indicator^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 设置导航点距离Swiper组件距离。由于导航点有默认交互区域，交互区域高度为32vp，所以无法让显示部分完全贴底。若想实现完全贴底，可以使用[IndicatorComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-swiper-components-indicator#indicatorcomponent)组件，更灵活地调整位置。
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
@@ -976,6 +1068,8 @@ Swiper组件翻页至指定页面的动效模式。
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 ### left
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 left(value: Length): T
 
@@ -1003,6 +1097,8 @@ left(value: Length): T
 
 ### top
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 top(value: Length): T
 
 导航点顶部相对于Swiper的位置。
@@ -1028,6 +1124,8 @@ top(value: Length): T
 |T|返回当前导航点指示器。|
 
 ### right
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 right(value: Length): T
 
@@ -1055,6 +1153,8 @@ right(value: Length): T
 
 ### bottom
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 bottom(value: Length): T
 
 导航点底部相对于Swiper的位置。
@@ -1080,6 +1180,8 @@ bottom(value: Length): T
 |T|返回当前导航点指示器。|
 
 ### bottom^19+^
+
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
 
 bottom(bottom: LengthMetrics | Length, ignoreSize: boolean): T
 
@@ -1108,6 +1210,8 @@ bottom(bottom: LengthMetrics | Length, ignoreSize: boolean): T
 
 ### start^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 start(value: LengthMetrics): T
 
 在[RTL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-environment-variables#layoutdirection)模式下为导航点距离Swiper组件右边的距离，在[LTR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-environment-variables#layoutdirection)模式下为导航点距离Swiper组件左边的距离。
@@ -1133,6 +1237,8 @@ start(value: LengthMetrics): T
 |T|返回当前导航点指示器。|
 
 ### end^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 end(value: LengthMetrics): T
 
@@ -1160,6 +1266,8 @@ end(value: LengthMetrics): T
 
 ### dot
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 static dot(): DotIndicator
 
 返回一个DotIndicator对象。
@@ -1179,6 +1287,8 @@ static dot(): DotIndicator
 |[DotIndicator](#dotindicator10)|圆点指示器。|
 
 ### digit
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 static digit(): DigitIndicator
 
@@ -1200,6 +1310,8 @@ static digit(): DigitIndicator
 
 ## DotIndicator^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 构造圆点指示器的样式，继承自[Indicator](#indicator10)。
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
@@ -1211,6 +1323,8 @@ static digit(): DigitIndicator
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 ### constructor
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 constructor()
 
@@ -1230,6 +1344,8 @@ DotIndicator的构造函数。
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 ### itemWidth
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 itemWidth(value: Length): DotIndicator
 
@@ -1257,6 +1373,8 @@ Swiper组件圆点导航指示器的宽。
 
 ### itemHeight
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 itemHeight(value: Length): DotIndicator
 
 Swiper组件圆点导航指示器的高。
@@ -1282,6 +1400,8 @@ Swiper组件圆点导航指示器的高。
 |[DotIndicator](#dotindicator10)|返回当前圆点指示器。|
 
 ### selectedItemWidth
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 selectedItemWidth(value: Length): DotIndicator
 
@@ -1309,6 +1429,8 @@ selectedItemWidth(value: Length): DotIndicator
 
 ### selectedItemHeight
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 selectedItemHeight(value: Length): DotIndicator
 
 选中Swiper组件圆点导航指示器的高。
@@ -1334,6 +1456,8 @@ selectedItemHeight(value: Length): DotIndicator
 |[DotIndicator](#dotindicator10)|返回当前圆点指示器。|
 
 ### mask
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 mask(value: boolean): DotIndicator
 
@@ -1361,6 +1485,8 @@ mask(value: boolean): DotIndicator
 
 ### color
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 color(value: ResourceColor): DotIndicator
 
 Swiper组件圆点导航指示器的颜色。
@@ -1386,6 +1512,8 @@ Swiper组件圆点导航指示器的颜色。
 |[DotIndicator](#dotindicator10)|返回当前圆点指示器。|
 
 ### selectedColor
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 selectedColor(value: ResourceColor): DotIndicator
 
@@ -1413,6 +1541,8 @@ selectedColor(value: ResourceColor): DotIndicator
 
 ### maxDisplayCount^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 maxDisplayCount(maxDisplayCount: number): DotIndicator
 
 圆点导航点指示器样式下，导航点显示个数最大值。
@@ -1436,6 +1566,8 @@ maxDisplayCount(maxDisplayCount: number): DotIndicator
 |[DotIndicator](#dotindicator10)|返回当前圆点指示器。|
 
 ### space^19+^
+
+> phone 19+ | 2in1 19+ | tablet 19+ | tv 19+ | wearable 19+
 
 space(space: LengthMetrics): DotIndicator
 
@@ -1462,6 +1594,8 @@ space(space: LengthMetrics): DotIndicator
 |[DotIndicator](#dotindicator10)|返回当前圆点指示器。|
 
 ### indicatorIcon
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 indicatorIcon(iconList: Array<IndicatorIconInfo>): DotIndicator
 
@@ -1491,6 +1625,8 @@ indicatorIcon(iconList: Array<IndicatorIconInfo>): DotIndicator
 
 ## DigitIndicator^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 构造数字指示器的样式，继承自[Indicator](#indicator10)。
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
@@ -1509,6 +1645,8 @@ indicatorIcon(iconList: Array<IndicatorIconInfo>): DotIndicator
 > 页码的镜像显示依据为系统的RTL状态。
 
 ### fontColor
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 fontColor(value: ResourceColor): DigitIndicator
 
@@ -1536,6 +1674,8 @@ Swiper组件数字导航点的字体颜色。
 
 ### selectedFontColor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 selectedFontColor(value: ResourceColor): DigitIndicator
 
 选中Swiper组件数字导航点的字体颜色。
@@ -1562,6 +1702,8 @@ selectedFontColor(value: ResourceColor): DigitIndicator
 
 ### digitFont
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 digitFont(value: Font): DigitIndicator
 
 Swiper组件数字导航点的字体样式。
@@ -1587,6 +1729,8 @@ Swiper组件数字导航点的字体样式。
 |[DigitIndicator](#digitindicator10)|返回当前数字指示器。|
 
 ### selectedDigitFont
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 selectedDigitFont(value: Font): DigitIndicator
 
@@ -1618,6 +1762,8 @@ selectedDigitFont(value: Font): DigitIndicator
 
 ### constructor
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 constructor()
 
 DigitIndicator的构造函数。
@@ -1631,6 +1777,8 @@ DigitIndicator的构造函数。
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 ## ArrowStyle^10+^对象说明
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 左右箭头属性。
 
@@ -1651,6 +1799,8 @@ DigitIndicator的构造函数。
 
 ## SwiperAutoFill^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 自适应属性。
 
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
@@ -1666,6 +1816,8 @@ DigitIndicator的构造函数。
 |minSize|[VP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#vp10)|否|否|设置元素显示最小宽度。 默认值：0|
 
 ## AutoPlayOptions^18+^对象说明
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 自动播放属性。
 
@@ -1683,6 +1835,8 @@ DigitIndicator的构造函数。
 
 ## CachedCountOptions^24+^对象说明
 
+> phone 24+ | 2in1 24+ | tablet 24+ | tv 24+ | wearable 24+
+
 预加载子组件的配置选项。
 
 **卡片能力：** 从API version 24开始，该接口支持在ArkTS卡片中使用。
@@ -1699,6 +1853,8 @@ DigitIndicator的构造函数。
 |independent|boolean|否|是|[cachedCount](#cachedcount24)是否按组计算。 设置为true时，cachedCount按实际子组件个数计算，不按组计算。 设置为false时，如果displayCount.swipeByGroup=true，则cachedCount按组计算，否则按实际子组件个数计算。 默认值：false|
 
 ## IndicatorIconInfo
+
+> phone 26.0.0+ | 2in1 26.0.0+ | tablet 26.0.0+ | tv 26.0.0+ | wearable 26.0.0+
 
 圆点导航点图标配置。
 > 说明
@@ -1722,9 +1878,13 @@ DigitIndicator的构造函数。
 
 ## 事件
 
+> phone | 2in1 | tablet | tv | wearable
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 ### onChange
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 onChange(event: Callback<number>)
 
@@ -1749,6 +1909,8 @@ Swiper组件结合LazyForEach使用时，不能在onChange事件里触发子页�
 
 ### onAnimationStart^9+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 onAnimationStart(event: OnSwiperAnimationStartCallback)
 
 切换动画开始时触发该回调。
@@ -1771,6 +1933,8 @@ onAnimationStart(event: OnSwiperAnimationStartCallback)
 |event|[OnSwiperAnimationStartCallback](#onswiperanimationstartcallback18)|是|切换动画开始时触发的回调。|
 
 ### onAnimationEnd^9+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 onAnimationEnd(event: OnSwiperAnimationEndCallback)
 
@@ -1796,6 +1960,8 @@ onAnimationEnd(event: OnSwiperAnimationEndCallback)
 
 ### onGestureSwipe^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 onGestureSwipe(event: OnSwiperGestureSwipeCallback)
 
 在页面跟手滑动过程中，逐帧触发该回调。
@@ -1813,6 +1979,8 @@ onGestureSwipe(event: OnSwiperGestureSwipeCallback)
 |event|[OnSwiperGestureSwipeCallback](#onswipergestureswipecallback18)|是|在页面跟手滑动过程中，逐帧触发的回调。onGestureSwipe回调触发时机在onTouch之后，如果需要在离手后执行操作建议使用[onAnimationStart](#onanimationstart9)。|
 
 ### customContentTransition^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 customContentTransition(transition: SwiperContentAnimatedTransition)
 
@@ -1844,6 +2012,8 @@ customContentTransition(transition: SwiperContentAnimatedTransition)
 
 ### onContentDidScroll^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 onContentDidScroll(handler: ContentDidScrollCallback)
 
 监听Swiper页面滑动事件。
@@ -1870,6 +2040,8 @@ onContentDidScroll(handler: ContentDidScrollCallback)
 
 ### onSelected^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 onSelected(event: Callback<number>)
 
 当选中元素改变时触发该回调，返回值为当前选中的元素的索引值。
@@ -1894,6 +2066,8 @@ onSelected(event: Callback<number>)
 
 ### onUnselected^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 onUnselected(event: Callback<number>)
 
 当选中元素改变时触发该回调，返回值为将要隐藏的元素的索引值。
@@ -1917,6 +2091,8 @@ onUnselected(event: Callback<number>)
 > onUnselected回调中不可修改swiper的index属性，不可调用SwiperController.changeIndex()、SwiperController.showNext()和SwiperController.showPrevious()方法。
 
 ### onContentWillScroll^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 onContentWillScroll(handler: ContentWillScrollCallback)
 
@@ -1944,6 +2120,8 @@ Swiper滑动行为拦截事件，在滑动前触发。Swiper会依据该事件�
 
 ### onScrollStateChanged^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 onScrollStateChanged(event: Callback<ScrollState>)
 
 Swiper滑动状态变化事件回调，在跟手滑动、离手动画、停止三种滑动状态变化时触发，返回值为当前滑动状态。
@@ -1963,6 +2141,8 @@ Swiper滑动状态变化事件回调，在跟手滑动、离手动画、停止�
 |event|[Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#callback12)<[ScrollState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#scrollstate枚举说明)>|是|滑动状态变化的回调。|
 
 ## OnSwiperAnimationStartCallback^18+^
+
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
 
 type OnSwiperAnimationStartCallback = (index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => void
 
@@ -1986,6 +2166,8 @@ type OnSwiperAnimationStartCallback = (index: number, targetIndex: number, extra
 
 ## OnSwiperAnimationEndCallback^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 type OnSwiperAnimationEndCallback = (index: number, extraInfo: SwiperAnimationEvent) => void
 
 切换动画结束时触发的回调。
@@ -2007,6 +2189,8 @@ type OnSwiperAnimationEndCallback = (index: number, extraInfo: SwiperAnimationEv
 
 ## OnSwiperGestureSwipeCallback^18+^
 
+> phone 18+ | 2in1 18+ | tablet 18+ | tv 19+ | wearable 18+
+
 type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAnimationEvent) => void
 
 在页面跟手滑动过程中，逐帧触发的回调。
@@ -2025,6 +2209,8 @@ type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAnimationEv
 |extraInfo|[SwiperAnimationEvent](#swiperanimationevent10对象说明)|是|动画相关信息，只返回主轴方向上当前显示元素相对于Swiper起始位置的位移。|
 
 ## ContentDidScrollCallback^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type ContentDidScrollCallback = (selectedIndex: number, index: number, position: number, mainAxisLength: number) => void
 
@@ -2046,6 +2232,8 @@ Swiper滑动时触发的回调，参数可参考[SwiperContentTransitionProxy](#
 |mainAxisLength|number|是|index对应页面在主轴方向上的长度，单位vp。|
 
 ## ContentWillScrollCallback^15+^
+
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
 
 type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) => boolean
 
@@ -2073,6 +2261,8 @@ Swiper即将滑动前触发的回调，返回值表示是否允许此次滑动�
 
 ## SwiperContentWillScrollResult^15+^对象说明
 
+> phone 15+ | 2in1 15+ | tablet 15+ | tv 19+ | wearable 18+
+
 滑动的相关信息，主要包括：当前页面对应的index、滑动方向上即将显示的页面index和此次滑动的位移。
 
 **卡片能力：** 从API version 15开始，该接口支持在ArkTS卡片中使用。
@@ -2091,6 +2281,8 @@ Swiper即将滑动前触发的回调，返回值表示是否允许此次滑动�
 
 ## SwiperAnimationEvent^10+^对象说明
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 Swiper组件动画相关信息集合。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -2106,6 +2298,8 @@ Swiper组件动画相关信息集合。
 |velocity|number|否|否|Swiper离手动画开始时的离手速度。单位VP/S，默认值为0。|
 
 ## SwiperContentAnimatedTransition^12+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 Swiper自定义切换动画相关信息。
 
@@ -2124,6 +2318,8 @@ Swiper自定义切换动画相关信息。
 
 ## SwiperContentTransitionProxy^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 Swiper自定义切换动画执行过程中，返回给开发者的proxy对象。开发者可通过该对象获取自定义动画视窗内的页面信息，同时，也可以通过调用该对象的finishTransition接口通知Swiper组件页面自定义动画已结束。
 
 **卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
@@ -2135,6 +2331,8 @@ Swiper自定义切换动画执行过程中，返回给开发者的proxy对象。
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 ### 属性
+
+> phone | 2in1 | tablet | tv | wearable
 
 **卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
 
@@ -2159,6 +2357,8 @@ Swiper自定义切换动画执行过程中，返回给开发者的proxy对象。
 
 ### finishTransition^12+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 finishTransition(): void
 
 通知Swiper组件，此页面的自定义动画已结束。
@@ -2172,6 +2372,8 @@ finishTransition(): void
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 ## IndicatorStyle^(deprecated)^对象说明
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 导航点样式。
 > 说明
@@ -2193,7 +2395,11 @@ finishTransition(): void
 
 ## 示例
 
+> phone | 2in1 | tablet | tv | wearable
+
 ### 示例1（设置导航点交互及翻页动效）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过[changeIndex](#changeindex15)接口设置[SwiperAnimationMode](#swiperanimationmode15枚举说明)动效以跳转指定页面，并使用[onScrollStateChanged](#onscrollstatechanged20)回调监听滑动状态的变化。
 
@@ -2331,9 +2537,11 @@ struct SwiperExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/oRSDa2oiQhyH4jrmNleIlg/zh-cn_image_0000002749334648.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=F380099AA2F9FB650C45BF1ED4C1143A72CC5AA4E3F6927119E321035816B383)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/cAPxKZwRT_KMYp0sXgU5aQ/zh-cn_image_0000002784664535.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=0F3EB3548BF9C58432E194C3D3555195DA2A93EC2BF992DDD1861263EF0CF2CE)
 
 ### 示例2（设置数字指示器）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过[DigitIndicator](#digitindicator10)接口，实现了数字指示器的效果和功能。
 
@@ -2418,9 +2626,11 @@ struct SwiperExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/UdqqNvbRTCWeEU43jZOFOw/zh-cn_image_0000002749494534.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=6438A3AA01636BA66EEBC2ECD2B22DACFE9F8B05D79D4E3799FC37164DC9707F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/CpEyEJJOTk-5vkmj9BUURg/zh-cn_image_0000002755025604.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=92DBD46E4EC4509E7FD68F8DD6D27D9AFCD766BB8F87D62BFCF6A821501A4C79)
 
 ### 示例3（设置按组翻页）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过[displayCount](#displaycount8)属性实现了按组翻页效果。
 
@@ -2508,9 +2718,11 @@ struct SwiperExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/WNo2apH4TlWTtHiVCbWZKg/zh-cn_image_0000002779093591.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=DEC4F69C33804C761247B5458358AE0BF571B890B79F03564DF2651C75AD6CE6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/GRqSJ371QkaZay6nql-KfQ/zh-cn_image_0000002755185488.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=6191636F0635C384DC083B43591EA866D21991178A69DBC68090C61AAF5F77E7)
 
 ### 示例4（设置自定义页面切换动画）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过[customContentTransition](#customcontenttransition12)接口，实现了自定义Swiper页面按组翻页动画效果。
 
@@ -2644,9 +2856,11 @@ struct SwiperCustomAnimationExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/1tDYgtIBS5CHlVmhp9oBAw/zh-cn_image_0000002778933737.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=42601C7D943C93B1049178F69B2D0993FBE98E09BE5AC354AA878188CDCAA663)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/b7DUXansQjG9I4F7a80bXg/zh-cn_image_0000002784584355.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=44875B4CAC8531560FB029A20E1664C76A0DBD9794F83F5F925090FBDD3AF904)
 
 ### 示例5（设置圆点导航点超长显示）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过DotIndicator接口的[maxDisplayCount](#maxdisplaycount12)属性，实现了圆点导航点超长显示动画效果。
 
@@ -2740,9 +2954,11 @@ struct Index {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/5rmuv6j6Sli0Bf0TZBqiDg/zh-cn_image_0000002749334652.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=662FD22157B7398B12878E03EE16132BE38078A26DD16319D805F6DB559FCDBD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/BWDD1ijAQF-sForGgJ3OAg/zh-cn_image_0000002784664537.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=9C7C8622EC157B3C8B0E41403CFC3847BC51D766CFECC12EE140A3A45FACBF11)
 
 ### 示例6（预加载子节点）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过[preloadItems](#preloaditems18)接口实现了预加载指定子节点。
 
@@ -2815,6 +3031,8 @@ struct MyComponent {
 ```
 
 ### 示例7（实现Tabs与Swiper联动）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过[onSelected](#onselected18)接口，实现了[Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)与Swiper联动切换。
 
@@ -2921,9 +3139,11 @@ struct TabsSwiperExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/resB35aURuS41fgBsQjF3Q/zh-cn_image_0000002749494538.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=6756542A711BEA0DEB050D1FBFCB0861D44F167C48DCA68700E5298D23891A2A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/lJw8kKL_Rl696_YyxwMRzw/zh-cn_image_0000002755025606.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=364A3752DEDD2CB95FB3429C80E9C7EA8BB5203539435DADC21F41AB41E37429)
 
 ### 示例8（滑动行为拦截事件）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过[onContentWillScroll](#oncontentwillscroll15)事件实现了单方向的滑动翻页，即只能滑动向前翻页，滑动向后翻页的行为会被拦截。
 
@@ -3010,9 +3230,11 @@ struct SwiperExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/Vfa1k_7_QeCwJH0_bAcNDg/zh-cn_image_0000002779093595.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=8827CB3CA950B97043E3A11FED93BD576CFB56E845F4EEE151A2D73B1581750E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/EQRfyfuPR1OKKT-gXC9-nQ/zh-cn_image_0000002755185490.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=58C5E2175F921AB0F6FFD75163FC500F28A3ABD5F7BDA5FFF3E099426963ED88)
 
 ### 示例9（演示导航点space与bottom）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过[bottom](#bottom19)和[space](#space19)接口，实现了圆点导航点与底部间距为0的间距控制以及导航点之间的间距控制。
 
@@ -3114,9 +3336,11 @@ struct SwiperExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/uZA1EVr0QuK9flBV2Dm-DA/zh-cn_image_0000002778933741.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=FB31F7CE0931A05C0C1C4D6227E5D01FC35321F8C363DEF3A3ECE1774EFD8160)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/ucLd6kFpSc-xGfqK5U-K9A/zh-cn_image_0000002784584357.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=89B34F1C796CBEFF5EA76B0BEA51406C18570AEE38DAC7BDEEB7D953311170AA)
 
 ### 示例10（Swiper组件基于断点配置显示个数）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例展示了Swiper组件基于断点配置显示个数的效果。
 
@@ -3178,13 +3402,15 @@ struct SwiperExample {
 
 Swiper宽度属于[sm](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)及更小的断点区间时显示1列。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/nAYINyraQvCaQnMXSj-ziA/zh-cn_image_0000002749334656.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=C96262E1D5321C0F21BAC7C5AE76789D94F78D45B14CFE65B54D1F270BFDC7C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/StY2mwKSR---ztJf_MtbdQ/zh-cn_image_0000002784664539.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=6930678EEA8F91E42186BA1F3FE8D747679996C581146ABE76645B7697BCF42B)
 
 Swiper宽度属于[md](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)断点区间时显示2列。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/U_TwluHeS4ye72UPMdkQ_Q/zh-cn_image_0000002749494542.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=B98025FB68D0AEA0CA7A23A9C7B879FF0758AF17953DA502D5CB639BB3A7D4D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/znwc2QeyTYCX6ystqKGh1Q/zh-cn_image_0000002755025608.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=901E0955E80724C01A6BE3FB59ADD89136CCCEEF5F6F971211FC58CDF5EE6BA6)
 
 ### 示例11（Swiper组件模拟拖拽）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例展示了Swiper组件如何实现模拟拖拽。在自身不响应拖拽事件的情况下，子组件Column通过触摸事件的信息调用Swiper接口，实现类似跟手拖拽的效果。
 
@@ -3246,9 +3472,11 @@ struct SwiperFakeDragExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/SWz7PbO9Sju9s6MhtCS1VQ/zh-cn_image_0000002779093599.gif?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=0EDC066AE598F48554C4DABC3D295666A9FA33057FE1DD6C61E2CCD9A8D6BB64)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/bjZKfguCTJu38YecRqDY5Q/zh-cn_image_0000002755185492.gif?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=D3021459B7B0B1FD752515EF0EF91CA1B66C70B9AB14D6F14943EA5D4AC41EAA)
 
 ### 示例12（配置Swiper组件导航点图标）
+
+> phone | 2in1 | tablet | tv | wearable
 
 该示例通过设置indicatorIcon接口，展示了Swiper组件如何配置导航点图标。
 
@@ -3293,5 +3521,5 @@ struct SwiperIndicatorIconExample {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/U0Mq0zLOQtaFF7gR-ooHgw/zh-cn_image_0000002778933745.jpg?HW-CC-KV=V1&HW-CC-Date=20260929T121725Z&HW-CC-Expire=31536000000&HW-CC-Sign=8384E95C705AC161579B1C2B6806389006D927B5F110499F711816726BEE9C97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/OeAtvhdFQGuNqelUlMlqug/zh-cn_image_0000002784584359.jpg?HW-CC-KV=V1&HW-CC-Date=20261009T092749Z&HW-CC-Expire=31536000000&HW-CC-Sign=2002A232C53839739A72E008A3B72935323F0632687AA8DD3428CC5B42913A69)
 

@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 > * 当前小游戏嵌入式运行仅支持在系统为HarmonyOS 5.0及以上的设备内运行。
 > * 小游戏嵌入式运行对小游戏有一定的要求，如果需要使用，您需要对您的游戏进行适配。
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/U1UESeLkRdu5EfY6_Yrgsw/zh-cn_image_0000002687906866.png?HW-CC-KV=V1&HW-CC-Date=20260909T155854Z&HW-CC-Expire=31536000000&HW-CC-Sign=6C9B6AB038ADEC7706A9AD59E5209FB80D5BF1CCB95B2A9F9EE7E6353A5E4B6A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/U1UESeLkRdu5EfY6_Yrgsw/zh-cn_image_0000002687906866.png?HW-CC-KV=V1&HW-CC-Date=20261008T165739Z&HW-CC-Expire=31536000000&HW-CC-Sign=BCCD2449459B6F11CB7EE92C8EF2D4981B9D0276924EE967A45AC5685DAFCBFB)
 
 ## 开发指导
 
@@ -20,10 +20,10 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 
 2. 上报小游戏加载完成事件。 嵌入式游戏开始时会在后台静默加载，不会露出画面，当您根据游戏内的事件判断出游戏画面已经准备好时，请调用[qg.notifyGameEvent](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-game-event-0000002639612036#section917310297396)接口上报小游戏加载完成gameLoaded事件。若未调用接口上报小游戏加载完成gameLoaded事件，游戏将一直不会露出画面，直到上报该事件。直玩大卡会在接收到gameLoaded事件或首帧渲染完成后露出游戏画面，具体露出时机由华为侧控制，此时露出的画面带有蒙层，效果如下图所示：
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/tvhXhC63TvmxzjB_zGfLXw/zh-cn_image_0000002717666473.png?HW-CC-KV=V1&HW-CC-Date=20260909T155854Z&HW-CC-Expire=31536000000&HW-CC-Sign=9E60EC504629C8537D7703DAE39C8DA14C7C337E91F695B0404A31C46BA692EB)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/tvhXhC63TvmxzjB_zGfLXw/zh-cn_image_0000002717666473.png?HW-CC-KV=V1&HW-CC-Date=20261008T165739Z&HW-CC-Expire=31536000000&HW-CC-Sign=06A318073088AE2A081D731858B6279EA6866744FF35C4EF85D84BC6FDE44412)
 3. 获取用户戳破蒙层进入游戏的事件通知。 调用[qg.onRuntimeEvent](https://developer.huawei.com/consumer/cn/doc/quickApp-References/quickgame-api-game-event-0000002639612036#section1942616611537)接口，监听用户戳破蒙层进入直玩游戏startDirectPlay事件通知，当用户点击蒙层时即可戳破蒙层，开始游玩小游戏。
 
-   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/IqZk2QVPSgiNI3I2zTnF7A/zh-cn_image_0000002688066732.png?HW-CC-KV=V1&HW-CC-Date=20260909T155854Z&HW-CC-Expire=31536000000&HW-CC-Sign=15C215D421A01C4C166F76C85EDC3AAD285BD6FC34BA17F0F214A8692AAFC395)
+   ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/IqZk2QVPSgiNI3I2zTnF7A/zh-cn_image_0000002688066732.png?HW-CC-KV=V1&HW-CC-Date=20261008T165739Z&HW-CC-Expire=31536000000&HW-CC-Sign=5C867EAC586EF8BA137ED983288F710F27AD603D1BC4A8822E942B949CD00D85)
 
 ## 游戏适配
 
@@ -47,7 +47,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-runt
 
 * 若只有直板手机，可以使用[分屏](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-window-intro#分屏)功能模拟小窗模式，调整分屏比例，检查游戏是否正常适配：
 
-  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/KwxalK1YRmy5jfOONOSXKg/zh-cn_image_0000002717826347.png?HW-CC-KV=V1&HW-CC-Date=20260909T155854Z&HW-CC-Expire=31536000000&HW-CC-Sign=3BA12CF8FBB26C53AB91643BC687AA98CAA9A8D0E5EEC4A5934D5F0734540E34)
+  ![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/KwxalK1YRmy5jfOONOSXKg/zh-cn_image_0000002717826347.png?HW-CC-KV=V1&HW-CC-Date=20261008T165739Z&HW-CC-Expire=31536000000&HW-CC-Sign=EDF8E8AF25E9ABD047100DFA27CE95B0F87F1197791E735D1A5BEBC1C5FC33D7)
 * 若有折叠屏设备，可以通过收起、展开折叠屏，检查游戏是否正常适配。
 
 ### 功能适配

@@ -44,15 +44,21 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-c
 
 ## 导入模块
 
+> phone | 2in1 | tablet | tv | wearable
+
 ```ts
 import { commonEventManager } from '@kit.BasicServicesKit';
 ```
 
 ## Support
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 [系统公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/common-event-glossary#system-common-event系统公共事件)是指由系统服务或系统应用发布的事件，订阅这些公共事件需要特定的权限，并使用相应的事件值，详见[系统定义的公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)。
 
 ## commonEventManager.publish
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 publish(event: string, callback: AsyncCallback<void>): void
 
@@ -65,8 +71,8 @@ publish(event: string, callback: AsyncCallback<void>): void
 **参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:------------------|:-|:--------------------------------------------------------------------------------------------------------------------------|
-|event|string|是|表示要发布的公共事件。详见[系统定义的公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)。|
+|:-------|:------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+|event|string|是|表示要发布的公共事件。详见[系统定义的公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)。字符串长度不超过254字节，超出部分会被截断。|
 |callback|AsyncCallback<void>|是|回调函数。当公共事件发布成功时，err为undefined；发布失败时，err为错误对象。|
 
 **错误码：**
@@ -102,6 +108,8 @@ try {
 
 ## commonEventManager.publish
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void
 
 发布公共事件。使用callback异步回调。
@@ -113,8 +121,8 @@ publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<
 **参数：**
 
 |参数名|类型|必填|说明|
-|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------|:-|:--------------------------------------------------------------------------------------------------------------------------|
-|event|string|是|表示要发布的公共事件。详见[系统定义的公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)。|
+|:-------|:-------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+|event|string|是|表示要发布的公共事件。详见[系统定义的公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)。字符串长度不超过254字节，超出部分会被截断。|
 |options|[CommonEventPublishData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventpublishdata)|是|表示发布公共事件的属性。|
 |callback|AsyncCallback<void>|是|回调函数。当公共事件发布成功时，err为undefined；发布失败时，err为错误对象。|
 
@@ -157,6 +165,8 @@ try {
 ```
 
 ## commonEventManager.createSubscriber
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallback<CommonEventSubscriber>): void
 
@@ -212,6 +222,8 @@ try {
 
 ## commonEventManager.createSubscriber
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>
 
 创建订阅者。使用Promise异步回调。
@@ -262,6 +274,8 @@ commonEventManager.createSubscriber(subscribeInfo).then((commonEventSubscriber: 
 
 ## commonEventManager.createSubscriberSync^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber
 
 同步创建订阅者的接口。
@@ -311,6 +325,8 @@ try {
 ```
 
 ## commonEventManager.subscribe
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void
 
@@ -381,6 +397,8 @@ try {
 ```
 
 ## commonEventManager.unsubscribe
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void
 
@@ -471,6 +489,8 @@ setTimeout(() => {
 
 ## commonEventManager.subscribeToEvent^20+^
 
+> phone 20+ | 2in1 20+ | tablet 20+ | tv 20+ | wearable 20+
+
 subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEventData>): Promise<void>
 
 订阅公共事件，并返回订阅成功或失败信息。使用Promise异步回调。
@@ -482,9 +502,9 @@ subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEve
 **参数：**
 
 |参数名|类型|必填|说明|
-|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:---------------|
+|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:-|:-------------|
 |subscriber|[CommonEventSubscriber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscriber#commoneventsubscriber-1)|是|表示订阅者对象。|
-|callback|Callback<[CommonEventData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventdata)>|是|表示接收公共事件数据的回调函数。|
+|callback|Callback<[CommonEventData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventdata)>|是|回调函数，返回公共事件数据。|
 
 **返回值：**
 
@@ -547,6 +567,8 @@ try {
 
 ## CommonEventData^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 type CommonEventData = _CommonEventData
 
 描述公共事件的数据。
@@ -560,6 +582,8 @@ type CommonEventData = _CommonEventData
 |[_CommonEventData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventdata)|表示公共事件的数据。|
 
 ## CommonEventSubscriber^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type CommonEventSubscriber = _CommonEventSubscriber
 
@@ -575,6 +599,8 @@ type CommonEventSubscriber = _CommonEventSubscriber
 
 ## CommonEventSubscribeInfo^10+^
 
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
+
 type CommonEventSubscribeInfo = _CommonEventSubscribeInfo
 
 描述公共事件订阅者的信息。
@@ -588,6 +614,8 @@ type CommonEventSubscribeInfo = _CommonEventSubscribeInfo
 |[_CommonEventSubscribeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscribeinfo)|用于表示订阅者的信息。|
 
 ## CommonEventPublishData^10+^
+
+> phone 12+ | 2in1 13+ | tablet 12+ | tv 19+ | wearable 18+
 
 type CommonEventPublishData = _CommonEventPublishData
 

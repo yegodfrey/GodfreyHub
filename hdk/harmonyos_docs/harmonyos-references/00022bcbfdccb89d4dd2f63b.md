@@ -10,6 +10,8 @@ uri: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vide
 
 ## 概述
 
+> phone | 2in1 | tablet | tv | wearable
+
 VideoDecoder模块提供用于视频解码的函数。
 
 本模块提供的主要能力包括：
@@ -32,6 +34,8 @@ VideoDecoder模块提供用于视频解码的函数。
 **起始版本：** 9
 
 ## 文件汇总
+
+> phone | 2in1 | tablet | tv | wearable
 
 |名称|描述|
 |:------------------------------------------------------------------------------------------------------------------------------------|:-------------------|

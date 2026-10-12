@@ -12,7 +12,7 @@ uri: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/isv-merc-manage
 
 ## 商户进件状态流转
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/a9EtBhOhSnGVftWr7txKyQ/zh-cn_image_0000002563729861.png?HW-CC-KV=V1&HW-CC-Date=20260910T132631Z&HW-CC-Expire=31536000000&HW-CC-Sign=12A600220DCC5CF3B058BE7D0EB197D5DFF6DFAE1B05BE4F89A117E587174723 "点击放大")
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/a9EtBhOhSnGVftWr7txKyQ/zh-cn_image_0000002563729861.png?HW-CC-KV=V1&HW-CC-Date=20261008T155941Z&HW-CC-Expire=31536000000&HW-CC-Sign=38D08DCEBF32DE9991FA57BCD301B139131A361C9887DBDB7C6350E1DC5B12C7 "点击放大")
 
 商户进件状态流程如上图所示，具体状态说明如下：
 
