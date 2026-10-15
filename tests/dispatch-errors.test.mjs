@@ -120,7 +120,7 @@ function makeConfigDir(disabledTools) {
 async function registryTools() {
   const domains = [
     "hub", "emulator", "dev", "device-ui", "docs", "linkage-tools", "ide-tools",
-    "hn-evidence", "hn-trace", "hn-ux", "hn-cdp", "codearts-ask",
+    "hn-evidence", "hn-trace", "hn-ux", "hn-cdp",
   ];
   const all = [];
   for (const domain of domains) {
